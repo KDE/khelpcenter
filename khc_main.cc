@@ -92,7 +92,7 @@ KHMainWindow::KHMainWindow(const KURL &url)
     setGeometry(366, 0, 800, 600);
 
     (*actionCollection()) += *doc->actionCollection();
-    (void)KStdAction::close(this, SLOT(close()), actionCollection());
+    (void)KStdAction::quit(this, SLOT(close()), actionCollection());
 
     back = new KToolBarPopupAction( i18n( "&Back" ), "back", ALT+Key_Left,
                                     this, SLOT( slotBack() ),
