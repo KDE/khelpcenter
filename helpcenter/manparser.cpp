@@ -123,7 +123,7 @@ ManSection::ManSection(const char *theName)
     {
 	  if ((envPath = getenv(MAN_ENV)))
         {
-		  QString paths = envPath;
+		  char *paths = qstrdup(envPath);
 		  QString p = strtok(paths, ":");
 
 		  while (p)
@@ -131,6 +131,7 @@ ManSection::ManSection(const char *theName)
 			  searchPath[numPaths++] = p;
 			  p = strtok(NULL, ":");
             }
+		delete [] paths;
         }
 	  else
         {
