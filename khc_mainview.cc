@@ -110,9 +110,9 @@ void khcMainView::init()
   if (!CORBA::is_nil(toolBarManager))
     toolBarManager->registerClient(id(), this);
   
-  OpenParts::StatusBarManager_var statusBarManager = m_vMainWindow->statusBarManager();
-  if (!CORBA::is_nil(statusBarManager))
-    m_vStatusBar = statusBarManager->registerClient(id());
+  //OpenParts::StatusBarManager_var statusBarManager = m_vMainWindow->statusBarManager();
+  //if (!CORBA::is_nil(statusBarManager))
+  //  m_vStatusBar = statusBarManager->registerClient(id());
   
   // this is causing a MICO exception when called by khcclient ?!?
   // add a statusbar field
