@@ -103,6 +103,8 @@ void kibView::resizeEvent( QResizeEvent* )
 
 void kibView::open( const QString& url, bool reload, int xoffset, int yoffset )
 {
+  kDebugInfo( 1400, "kibView::open" );
+  
   m_url = url;
 
   int pos1 = url.find( '(' );
@@ -122,6 +124,7 @@ void kibView::open( const QString& url, bool reload, int xoffset, int yoffset )
 
   kDebugInfo( 1400, "file: %s, node: %s", file.latin1(), node.latin1() );
 
+/*
   m_pProc->kill();
   m_pProc->clearArguments();
 
@@ -132,6 +135,7 @@ void kibView::open( const QString& url, bool reload, int xoffset, int yoffset )
   m_pView->begin( "file:/tmp", xoffset, yoffset );
   
   m_pProc->start( KProcess::NotifyOnExit, KProcess::Stdout );
+*/
 }
 
 bool kibView::mappingOpenURL( const QString& eventURL )
@@ -267,7 +271,7 @@ void kibView::openURL(const QString& url, bool reload, int xoffset, int yoffset,
 {
   kDebugInfo( 1400, "kibView::openURL" );
     
-  //open( url, reload, xoffset, yoffset );
+  open( url, reload, xoffset, yoffset );
 }
 
 QString kibView::url()

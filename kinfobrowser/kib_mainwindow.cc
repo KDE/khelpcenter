@@ -519,7 +519,12 @@ void kibMainWindow::slotForward()
   khcHistoryItem *hitem = m_history.next();
 
   if( hitem )
-    openURL( QString( hitem->url() ), false, hitem->xOffset(), hitem->yOffset() );
+  {
+    QString url = hitem->url();
+    
+    slotSetLocation( url );
+    openURL( url, false, hitem->xOffset(), hitem->yOffset() );
+  }
 }
 
 void kibMainWindow::slotBack()
@@ -527,7 +532,12 @@ void kibMainWindow::slotBack()
   khcHistoryItem *hitem = m_history.prev();
 
   if( hitem )
-    openURL( QString( hitem->url() ), false, hitem->xOffset(), hitem->yOffset() );
+  {
+    QString url = hitem->url();
+
+    slotSetLocation( url );
+    openURL( url, false, hitem->xOffset(), hitem->yOffset() );
+  }
 }
 
 void kibMainWindow::slotHistoryFillBack()
