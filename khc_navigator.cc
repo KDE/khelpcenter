@@ -358,16 +358,7 @@ bool lookupFile(QString fname)
 QString khcNavigatorWidget::documentationURL(KService *s)
 {
   // if entry contains a DocPath, process it
-
-  // TODO: Once DocPath is in ksycoca, use this instead of
-  // parsing the file
-  //  QString docPath = s->property("DocPath").toString();
-  
-  QString path = locate("apps", s->desktopEntryPath());
-  KSimpleConfig config(path, true);
-  config.setDesktopGroup();
-  QString docPath = config.readEntry("DocPath");
-
+  QString docPath = s->property("DocPath").toString();
   if (!docPath.isEmpty())
     {
       // see if it is part of our help system, or external
@@ -375,15 +366,12 @@ QString khcNavigatorWidget::documentationURL(KService *s)
       if (docPath.left(5) == "file:" || docPath.left(5) == "http:")
 	return docPath;
       
-      // strip index.html, as we will have to look
-      // for the anchor first
       if (docPath.right(11) == "/index.html")
 	docPath = docPath.left(docPath.length() - 11);      
     }
   else
     docPath = s->desktopEntryName();
 
-  // TODO: extract the name of the index file from the .anchors file
   if (lookupFile(docPath+"/index.html"))
     return QString("help:/%1/index.html").arg(docPath);    
 
