@@ -18,6 +18,7 @@
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+
 #include "khc_navigator.h"
 #include "khc_navigatoritem.h"
 #include "khc_navigatorappitem.h"
@@ -305,6 +306,7 @@ void khcNavigatorWidget::buildGlossary()
     QDomNodeList glossEntryNodes = glossDivNode.toElement().elementsByTagName(QString::fromLatin1("dt"));
     for (unsigned int j = 0; j < glossEntryNodes.count(); j++) {
       QDomNode glossEntryNode = glossEntryNodes.item(j);
+	  kdDebug(1400) << "Mooo - glossEntryNode = " << glossEntryNode.toElement().tagName() << endl;
       QString term = glossEntryNode.toElement().text().simplifyWhiteSpace();
 
       (void) new QListViewItem(topicSection, term);
@@ -322,17 +324,21 @@ void khcNavigatorWidget::buildGlossary()
       (void) new QListViewItem(alphabSection, term);
 
       glossEntryNode = glossEntryNode.nextSibling();
+	  kdDebug(1400) << "Mooo, second time - glossEntryNode = " << glossEntryNode.toElement().tagName() << endl;
 
       QString definition;
       QTextStream defStream(&definition, IO_WriteOnly);
       defStream << glossEntryNode.namedItem(QString::fromLatin1("p")).toElement();
 
       QStringList seeAlso;
-      QDomNodeList seeAlsoNodes = glossEntryNode.toElement().elementsByTagName(QString::fromLatin1("p"));
-      // Skip first <p> element as it contained the definition.
-      for (unsigned int k = 1; k < seeAlsoNodes.count(); k++)
-        seeAlso += seeAlsoNodes.item(k).namedItem(QString::fromLatin1("a")).toElement().text().simplifyWhiteSpace();
-
+      
+      QDomNodeList seeAlsoNodes = glossEntryNode.lastChild().toElement().elementsByTagName(QString::fromLatin1("a"));
+      kdDebug(1400) << "Moo, text, " << glossEntryNode.toElement().text().latin1()  << " count " << seeAlsoNodes.count() << endl;
+     
+      if (seeAlsoNodes.count() > 0)
+        for (unsigned int k = 0; k < seeAlsoNodes.count(); k++)
+          seeAlso += seeAlsoNodes.item(k).toElement().text().simplifyWhiteSpace();
+       
       glossEntries.insert(term, new GlossaryEntry(term, definition, seeAlso));
     }
   }
