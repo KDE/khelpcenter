@@ -216,7 +216,7 @@ QWidget *KCMHelpCenter::createScopeTab( QWidget *parent )
 
   QBoxLayout *urlLayout = new QHBoxLayout( topLayout );
 
-  QLabel *urlLabel = new QLabel( i18n("Index Directory:"), scopeTab );
+  QLabel *urlLabel = new QLabel( i18n("Index directory:"), scopeTab );
   urlLayout->addWidget( urlLabel );
 
   mIndexUrlRequester = new KURLRequester( scopeTab );
