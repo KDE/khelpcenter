@@ -84,8 +84,8 @@ void ManSearch::search(const char *search)
 
 const char * ManSearch::FindXRef(const char *theText)
 {
-  static char *sections[] = { "1", "2", "3", "4", "5", "6",
-							  "7", "8", "9", "n" };
+  static const char *sections[] = { "1", "2", "3", "4", "5", "6",
+			  "7", "8", "9", "n" };
   const char *ptr, *ptr1, *xrefPtr;
   int i;
   
