@@ -140,7 +140,7 @@ MainWindow::MainWindow(const KURL &url)
 
     History::self().installMenuBarHook( this );
 
-    slotOpenURL( url.url() );
+    if ( !url.isEmpty() ) slotOpenURL( url.url() );
 
     statusBarMessage(i18n("Ready"));
 
@@ -318,17 +318,8 @@ void MainWindow::showHome()
 
 void MainWindow::slotShowHome()
 {
-    openURL( homeURL() );
+    openURL( mNavigator->homeURL() );
     mNavigator->clearSelection();
-}
-
-KURL MainWindow::homeURL()
-{
-    KConfig *cfg = KGlobal::config();
-    cfg->setGroup( "General" );
-    KURL url = cfg->readPathEntry( "StartUrl",
-                               "help:/khelpcenter/index.html?anchor=welcome" );
-    return url;
 }
 
 void MainWindow::lastSearch()

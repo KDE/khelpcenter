@@ -21,17 +21,18 @@
 #ifndef __navigator_h__
 #define __navigator_h__
 
-#include <qptrlist.h>
-#include <qtabwidget.h>
-#include <qlistview.h>
-#include <qdict.h>
-#include <klistview.h>
-
 #include "glossary.h"
+
+#include <klistview.h>
+#include <kurl.h>
 
 #include <qfile.h>
 #include <qtextstream.h>
 #include <qtimer.h>
+#include <qptrlist.h>
+#include <qtabwidget.h>
+#include <qlistview.h>
+#include <qdict.h>
 
 class QPushButton;
 
@@ -39,7 +40,6 @@ class KListView;
 class KService;
 class KProcess;
 class KProcIO;
-class KURL;
 
 namespace KHC {
 
@@ -55,6 +55,8 @@ class Navigator : public QWidget
   public:
     Navigator(View *, QWidget *parent=0, const char *name=0);
     virtual ~Navigator();
+
+    KURL homeURL();
 
     SearchEngine *searchEngine();
 
@@ -119,6 +121,8 @@ class Navigator : public QWidget
     SearchEngine *mSearchEngine;
 
     View *mView;
+
+    KURL mHomeUrl;
 };
 
 }

@@ -284,7 +284,7 @@ void Navigator::selectItem( const KURL &url )
     return;
 
   // First, populate the NavigatorAppItems if we don't want the home page
-  if ( url != MainWindow::homeURL() ) {
+  if ( url != homeURL() ) {
     for ( QListViewItem *item = mContentsTree->firstChild(); item != 0; item = item->nextSibling() ) {
       NavigatorAppItem *appItem = dynamic_cast<NavigatorAppItem *>( item );
       if ( appItem != 0 )
@@ -471,5 +471,20 @@ void Navigator::slotSelectGlossEntry( const QString &id )
 {
   mGlossaryTree->slotSelectGlossEntry( id );
 }
+
+KURL Navigator::homeURL()
+{
+  if ( !mHomeUrl.isEmpty() ) return mHomeUrl;
+
+  KConfig *cfg = KGlobal::config();
+  // We have to reparse the configuration here in order to get a
+  // language-specific StartUrl, e.g. "StartUrl[de]".
+  cfg->reparseConfiguration();
+  cfg->setGroup( "General" );
+  mHomeUrl = cfg->readPathEntry( "StartUrl",
+                               "help:/khelpcenter/index.html?anchor=welcome" );
+  return mHomeUrl;
+}
+
 
 // vim:ts=2:sw=2:et
