@@ -3,9 +3,11 @@
 Name=Tutorials
 Name[de]=Lernhilfen
 Name[pt_BR]=Tutoriais
+Name[ja]=¥Á¥å¡¼¥È¥ê¥¢¥ë
 MiniIcon=
 Comment=Tutorial and introduction documents.
 Comment[de]=Einführende und zur Einarbeitung dienende Dokumente
 Comment[pt_BR]=Documentos introdutórios e de tutorial.
+Comment[ja]=¥Á¥å¡¼¥È¥ê¥¢¥ë¡¢Æ³Æþ¤ÎÊ¸½ñ
 Icon=
 DocPath=
