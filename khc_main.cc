@@ -105,8 +105,8 @@ static KCmdLineOptions options[] =
 int main(int argc, char *argv[])
 {
   KAboutData aboutData( "khelpcenter", I18N_NOOP("KDE HelpCenter"),
-			HELPCENTER_VERSION, I18N_NOOP("The KDE Help Center"), KAboutData::License_GPL,
-			"(c) 1999-2000, Matthias Elter");
+                        HELPCENTER_VERSION, I18N_NOOP("The KDE Help Center"), KAboutData::License_GPL,
+                        "(c) 1999-2000, Matthias Elter");
   aboutData.addAuthor("Matthias Elter",0, "me@kde.org");
 
   KCmdLineArgs::init( argc, argv, &aboutData );
@@ -129,17 +129,17 @@ int main(int argc, char *argv[])
   for (it = apps.begin(); it != apps.end(); ++it)
     if ((*it).left(9) == "konqueror")
       {
-	createHelpWindow(*it);
-	return 0;
+        createHelpWindow(*it);
+        return 0;
       }
 
   // run a new konqueror instance
   app.dcopClient()->setNotifications( true );
   QObject::connect( app.dcopClient(), SIGNAL( applicationRegistered( const QCString& ) ),
-		    &listener, SLOT( slotAppRegistered( const QCString & ) ) );
+                    &listener, SLOT( slotAppRegistered( const QCString & ) ) );
   if (app.startServiceByDesktopName("konqueror", QString::fromLatin1("--silent"), &error))
     {
-      warning("Could not launch browser:\n%s\n", error.local8Bit().data());
+      qWarning("Could not launch browser:\n%s\n", error.local8Bit().data());
       return 1;
     }
 
