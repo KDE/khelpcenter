@@ -35,6 +35,7 @@
 #include <kaboutdata.h>
 #include <kdebug.h>
 #include <khtmlview.h>
+#include <khtml_settings.h>
 #include <kaction.h>
 #include <kstatusbar.h>
 #include <kstdaccel.h>
@@ -119,6 +120,9 @@ MainWindow::MainWindow(const KURL &url)
     sizes << 220 << 580;
     splitter->setSizes(sizes);
     setGeometry(366, 0, 800, 600);
+
+    KConfig konqCfg( "konquerorrc" );
+    const_cast<KHTMLSettings *>( mDoc->settings() )->init( &konqCfg );
 
     setupActions();
 
