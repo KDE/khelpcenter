@@ -25,7 +25,7 @@ khelpcenter_METASOURCES = USE_AUTOMOC
 
 khelpcenter_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 
-khelpcenter_LDADD   = $(LIB_KFILE)
+khelpcenter_LDADD   = $(LIB_KFILE) $(LIB_KHTMLW)
 
 DISTCLEANFILES = $(khelpcenter_METASOURCES)
 
