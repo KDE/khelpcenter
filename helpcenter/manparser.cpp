@@ -134,12 +134,12 @@ ManSection::ManSection(const char *theName)
         }
 	  else
         {
-#ifndef __FreeBSD__
-		  searchPath[numPaths++] = "/usr/man";
-#else
+#ifdef _PATH_MAN
 		  searchPath[numPaths++] = _PATH_MAN;
-		  searchPath[numPaths++] = "/usr/X11R6/man";
+#else
+		  searchPath[numPaths++] = "/usr/man";
 #endif
+		  searchPath[numPaths++] = "/usr/X11R6/man";
 		  searchPath[numPaths++] = "/usr/local/man";
         }
     }
