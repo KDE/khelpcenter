@@ -101,7 +101,7 @@ document. Most importantly, it has a slot which passes it a KURL pointing to a
 document to show. KHC::View will invoke kio_help if necessary (if the URL's
 protocol == "help") by itself and otherwise use the plain URL.
 
-# TODO: Thinks I didn't really think about yet: the interface between the
+# TODO: Things I didn't really think about yet: the interface between the
 # navigator and the view. I think this has to be a bidirectional association
 # since the navigator can change the view (e.g. by clicking on a manual which
 # shows it in the view), but the view can also change the navigator (think of
@@ -109,3 +109,6 @@ protocol == "help") by itself and otherwise use the plain URL.
 # the corresponding entry in the navigator).
 # Also, the whole search engine needs more thought, that DataCollection idea
 # seems promising to me but I'm not yet decided on how to do it properly.
+
+# I just thought about this a bit, I think KHC::MainWindow should act as the
+# interface between KHC::Navigator and KHC::View.
