@@ -137,9 +137,9 @@ void View::showAboutPage()
           .arg( langLookup( "khelpcenter/lines.png" ) )
           .arg( i18n( "Welcome to the K Desktop Environment" ) )
           .arg( i18n( "The KDE team welcomes you to user-friendly UNIX computing" ) )
-          .arg( i18n( "KDE is a powerful graphical desktop environment for Unix workstations. A\n"
+          .arg( i18n( "KDE is a powerful graphical desktop environment for UNIX workstations. A\n"
                       "KDE desktop combines ease of use, contemporary functionality and outstanding\n"
-                      "graphical design with the technological superiority of the Unix operating\n"
+                      "graphical design with the technological superiority of the UNIX operating\n"
                       "system." ) )
           .arg( i18n( "What is the K Desktop Environment?" ) )
           .arg( i18n( "Contacting the KDE Project" ) )
