@@ -20,4 +20,4 @@ browser_IDLDIR = $(idldir)
 kmanbrowser.idl: $(idldir)/browser.idl
 
 messages:
-	$(XGETTEXT) -C -ktranslate -kaliasLocal -ki18n -x $(includedir)/kde.pot *.cc *.h && mv messages.po ../../po/kmanbrowser.pot 	
+	$(XGETTEXT) -C -ktranslate -kaliasLocal -ki18n -x $(includedir)/kde.pot *.cc *.h && mv messages.po $(podir)/kmanbrowser.pot 	

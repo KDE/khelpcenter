@@ -33,4 +33,4 @@ METASOURCES = khc_finddlg.moc
 browser_IDLDIR = $(idldir)
 
 messages:
-	$(XGETTEXT) -C -ki18n -x $(includedir)/kde.pot *.cc *.h && mv messages.po ../../po/libkhc.pot
+	$(XGETTEXT) -C -ki18n -x $(includedir)/kde.pot *.cc *.h && mv messages.po $(podir)/libkhc.pot

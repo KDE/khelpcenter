@@ -19,5 +19,5 @@ EXTRA_DIST                = kcmhelpcenter assistant.png mini-assistant.png
 KDE_ICON = assistant
 
 messages:
-	$(XGETTEXT) -C -ktranslate -ki18n -x $(includedir)/kde.pot *.cpp && mv messages.po ../../po/kcmhelpcenter.pot
+	$(XGETTEXT) -C -ktranslate -ki18n -x $(includedir)/kde.pot *.cpp && mv messages.po $(podir)/kcmhelpcenter.pot
 

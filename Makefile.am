@@ -50,7 +50,7 @@ kbrowser.moc.cc: $(kde_includes)/kbrowser.h
 ####### Build rules
 
 messages:
-	$(XGETTEXT) -C  -ktranslate -kaliasLocal -ki18n -x $(includedir)/kde.pot *.h *.cc && mv messages.po ../po/khelpcenter.pot
+	$(XGETTEXT) -C  -ktranslate -kaliasLocal -ki18n -x $(includedir)/kde.pot *.h *.cc && mv messages.po $(podir)/khelpcenter.pot
 
 check_PROGRAMS = linktest
 linktest_SOURCES = khc_main.cc
