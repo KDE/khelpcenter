@@ -25,7 +25,7 @@
 
 #include <kapp.h>
 #include <kurl.h>
-#include <kfm.h>
+#include <krun.h>
 #include <kfiledialog.h>
 #include <kmsgbox.h>
 #include <kcursor.h>
@@ -239,9 +239,7 @@ int KHelpView::openURL( const char *URL, bool withHistory )
     }
     else
     {
-	KFM *kfm = new KFM;
-	kfm->openURL(fullURL);
-	delete kfm;
+        (void) new KRun( fullURL ); // will autodelete itself
     }
   
     if (!rv)
