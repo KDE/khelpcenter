@@ -1,4 +1,5 @@
-INCLUDES= $(all_includes) $(MICO_INCLUDES) -I$(top_builddir)/khelpcenter/libkhc
+
+INCLUDES=  -Ilibkhc -I$(srcdir)/libkhc $(all_includes) $(MICO_INCLUDES)
 LDFLAGS = $(all_libraries) $(KDE_RPATH) $(MICO_LDFLAGS)
 IDL_FLAGS = --query-server-for-narrow --relative-paths --any -I$(idldir)
 
@@ -31,6 +32,7 @@ DISTCLEANFILES = $(khelpcenter_METASOURCES) khelpcenter.cc khelpcenter.h
 
 idl_DATA = khelpcenter.idl
 
+$(srcdir)/khelpcenter.idl: $(idldir)/browser.idl
 
 ####### Build rules
 
