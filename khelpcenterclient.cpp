@@ -19,94 +19,79 @@
  */
 
 #include <komApplication.h>
-#include <kprocess.h>
+#include <kded_utils.h>
+#include <kactivator.h>
+#include <ktrader.h>
+
+#include <iostream.h>
+#include <qstringlist.h>
 
 #include "khelpcenter.h"
 #include <kdebug.h>
 
-void usage()
-{
-    printf(""\
-	   "\nkhelpcenterclient is part of the KDE Help Center\n"\
-	   "(c) 1999, Matthias Elter\n\n"\
-	   "purpose: remote control khelpcenter\n\n"\
-	   "syntax:\n"\
-	   "   khelpcenterclient open url\n"\
-	   "                 # open a new browser window and load url 'url'\n"\
-	   "                 # load introduction url if no url parameter spezified\n"\
-	   "                 # example url: file:/home/dummy/index.html\n\n"\
-	   "   khelpcenterclient configure\n"\
-	   "                 # re-read khelpcenter's configuration\n"\
-	   "options:\n"\
-	   "   -enable_tree\n"\
-	   "                 # open a new browser window with enabled treeview\n");
-}
-
 int main(int argc, char *argv[])
 {
-    bool enableTree = false;
-    int command = 0;
-    QString url;
-  
-    // no parameters -> print usage
-    if(argc == 1) 
-    {
-	usage();
-	return 0;
-    }
+  KOMApplication app( argc, argv );
+  // create a KdedInstance object, which takes care about connecting to kded
+  // and providing a trader and an activator
+  KdedInstance kded(argc, argv, komapp_orb);
 
-    // parse command line parameters
-    for (int i = 1; i < argc; i++)
-    {
-	if (strcasecmp(argv[i], "configure") == 0)
-	{
-	    command = 1;
-	    break;
-	}
-	else if (strcasecmp(argv[i], "-enable_tree") == 0)
-	{
-	    enableTree = true;
-	}
-	else if (command == 2) // already found 'open'...this must be a url
-	{
-	    url = argv[i];
-	}
-	else if (strcasecmp( argv[i], "open" ) == 0)
-	{
-	    command = 2;
-	}
-    }
+  // get a pointer to the activator
+  KActivator *activator = kded.kactivator();
+  
+  // now we register our service
+  // usually we query the trader for a certain service and use the data
+  // of the kservice offer from the trader to register the service, but since 
+  // our service is not registered with the trader we do the registration at
+  // the activator "manually"
+  
+  QStringList repoIds;
+  repoIds.append( "IDL:KHelpCenter/HelpWindowFactory:1.0#KHelpCenter" );
 
-    if (command == 0)
-    {
-	usage();
-	return 0;
-    }
-  
-    KOMApplication app(argc, argv, "khelpcenterclient");
+  // now let's really register the service
+  // this will make the activator register the service at the IMR
+  // (note: if the service is already registered then this function will 
+  //        return "false" (and create some debug output ;) )
+  activator->registerService( "KHelpCenter", "shared", repoIds, "khelpcenterd" );
 
-    // init CORBA stuff
-    CORBA::Object_var obj = app.orb()->bind("IDL:KHelpCenter/HelpCenterCom:1.0", "inet:localhost:8887");
-    if(CORBA::is_nil(obj))
-    {
-	kdebug(KDEBUG_FATAL,1401,"It seems that the khelpcenter server isn't running!");
-	return 0;
-    }	
-    KHelpCenter::HelpCenterCom_var server = KHelpCenter::HelpCenterCom::_narrow(obj);
-    kdebug(KDEBUG_INFO,1401,"binding to KOM interface: IDL:KHelpCenter/HelpCenterCom:1.0");
+  // let's activate a service in the server
+  // this function returns a "virtual" object reference, which means that the
+  // server starts "lazy" upon demand. In fact we (client) don't have to care
+  // about this, but it's a good thing to have this in mind.
+  // this virtual reference turns into a "real" reference when we do an invokation.
+  // the activator in kded will then either connect to a running server or start a
+  // new one. But we don't really have to care about this :-) , we are just
+  // happy with our functional object reference
+  CORBA::Object_var obj = activator->activateService( "KHelpCenter", "IDL:KHelpCenter/HelpWindowFactory:1.0", "KHelpCenter" );
+  assert( !CORBA::is_nil( obj ) );
+
+  KHelpCenter::HelpWindowFactory_var factory = KHelpCenter::HelpWindowFactory::_narrow( obj );
+  assert( !CORBA::is_nil( factory ) );
   
-    if (command == 1)
+  KHelpCenter::HelpWindow_var view = factory->create(); 
+  assert(!CORBA::is_nil(view));
+  
+  if(argc == 2) 
     {
-	kdebug(KDEBUG_INFO,1401,"khelpcenterclient -configure");
-	server->configure();
-    }
-    else if (command == 2)
-    {
-	if (url.isEmpty())
-	    url = "file:" + kapp->kde_htmldir() + "/en/khelpcenter/main.html";
-	kdebug(KDEBUG_INFO,1401,"khelpcenterclient open %s", url.ascii());
-	server->openHelpView (url, enableTree);
+      QString url = argv[1];
+      view->open(url);
     }
   
-    return 0;
+  
+  // unregister our service
+  // this make the service unavailable for any other clients, since the server
+  // entry in the IMR gets removed
+  // if you want to play around a little bit you can do the following:
+  // * comment this line out, to keep the service registered upon exit
+  // * comment the next line out, too, to avoid our explicit server shutdown
+  // This will lead to the following situation:
+  // when you call this client example app the first time then myservice_impl
+  // gets started by kded. the next time you run ./client, the previous, still
+  // active, server will be used :-)
+  // activator->unregisterService( "MyService" );
+
+  // explicitly shut the server down (see myservice_impl.cc)
+  //comp->exit();
+  
+  return 0;
 }

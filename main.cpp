@@ -21,12 +21,15 @@
 
 #include "toplevel.h"
 #include "khelpcenter.h"
-#include "helpcentercom_impl.h"
+#include "khelpcenter_impl.h"
+
+#include <klocale.h>
+
 #include <komApplication.h>
+#include <komAutoLoader.h>
+
 #include <qdir.h>
 #include <qfileinfo.h>
-#include <qmessagebox.h>
-#include <klocale.h>
 
 int main(int argc, char *argv[])
 {
@@ -42,13 +45,10 @@ int main(int argc, char *argv[])
 	dir.mkdir(KApplication::localkdedir() + "/share/apps/khelpcenter");
 
     // init app
-    KOMApplication app(argc, argv, "khelpcenter.bin");
-  
-    HelpCenterCom *helpcentercom;
-    helpcentercom = new HelpCenterCom;
-    app.boa()->impl_is_ready(CORBA::ImplementationDef::_nil());
-    kdebug(KDEBUG_INFO,1401,"KOM interface ready: IDL:KHelpCenter/HelpCenterCom:1.0");
+    KOMApplication app( argc, argv, "khelpcenterd.bin");
 
+    KOMAutoLoader<HelpWindowFactory_Impl> HelpWindowFactoryLoader("IDL:KHelpCenter/HelpWindowFactory:1.0" , "KHelpCenter");
+ 
     app.exec();
     return 0;
 }

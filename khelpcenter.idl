@@ -25,11 +25,14 @@
 
 module KHelpCenter
 {
-	interface HelpCenterCom
+	interface HelpWindow
 	{
-		unsigned long openHelpView(in string url, in boolean enableTree);
-		void openURL(in string url, in unsigned long id);
-		void configure();
+		void open(in string url);
+	};
+
+	interface HelpWindowFactory
+	{
+		HelpWindow create();
 	};
 };
 

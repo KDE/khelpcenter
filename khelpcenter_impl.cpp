@@ -1,5 +1,5 @@
 /*
- *  helpcentercom_impl.cpp - part of the KDE Help Center
+ *  khelpcenter_impl.cpp - part of the KDE Help Center
  *
  *  Copyright (c) 1999 Matthias Elter (me@kde.org)
  *
@@ -19,30 +19,39 @@
  */
 
 #include "toplevel.h"
-#include "helpcentercom_impl.h"
+#include "khelpcenter_impl.h"
 
-HelpCenterCom::HelpCenterCom()
+#include <iostream.h>
+
+
+KHelpCenter::HelpWindow_ptr HelpWindowFactory_Impl::create()
 {
+  return KHelpCenter::HelpWindow::_duplicate(new HelpWindow_Impl);
 }
 
-CORBA::ULong HelpCenterCom::openHelpView (const char *url, CORBA::Boolean )
+
+HelpWindow_Impl::HelpWindow_Impl()
 {
-    HelpCenter *hc = new HelpCenter;
+  hc = new HelpCenter;
+
+  QString _url = "file:";
+  _url += kapp->kde_htmldir().copy();
+  _url += "/default/khelpcenter/main.html";
+
+  hc->openURL(_url, true);
+  hc->show();
+
+  cout << "+ HelpWindow_Impl" << endl;
+}
   
-    QString _url(url);
-
-    if (_url.isEmpty())
-    {
-	_url = "file:";
-	_url += kapp->kde_htmldir().copy();
-	_url += "/default/khelpcenter/main.html";
-    }
-    hc->openURL(_url, true);
-    hc->show();
-    return hc->getListIndex();
+HelpWindow_Impl::~HelpWindow_Impl()
+{
+  if (hc)
+    delete hc;
+  cout << "- HelpWindow_Impl" << endl;
 }
 
-void HelpCenterCom::openURL(const char *url, CORBA::ULong id)
+void HelpWindow_Impl::open(const char *url)
 {
     QString _url(url);
 
@@ -52,13 +61,7 @@ void HelpCenterCom::openURL(const char *url, CORBA::ULong id)
 	_url += kapp->kde_htmldir().copy();
 	_url += "/default/khelpcenter/main.html";
     }
-    HelpCenter *hc;
-    hc = HelpCenter::getHelpWindowAt(id);
+    
     if (hc)
 	hc->openURL(_url, true);
-}
-
-void HelpCenterCom::configure()
-{
-    // call slotConfigure for all HelpCenter Windows
 }

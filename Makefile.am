@@ -14,23 +14,23 @@ INCLUDES= $(all_includes) $(MICO_INCLUDES) -I$(idldir)
 LDFLAGS = $(all_libraries) $(MICO_LDFLAGS) $(KDE_RPATH)
 IDL_FLAGS = --query-server-for-narrow --relative-paths -I$(idldir)
 
-khelpcenter_bin_LDADD   = $(LIB_KFILE) -lkom $(LIB_KHTML)
-khelpcenterclient_LDADD   = $(LIB_KDEUI) -lkom 
+khelpcenterd_LDADD   = $(LIB_KDEUI) $(LIB_KFILE) -lkom $(LIB_KHTML)
+khelpcenter_LDADD   = -lkom -lkded
 
 SUBDIRS = . kwelcome konitemhelp kwid pics plugins \
 	info2html rman
 
-bin_PROGRAMS = 	khelpcenter.bin khelpcenterclient
+bin_PROGRAMS = 	khelpcenterd khelpcenter
 
-khelpcenter_bin_SOURCES = main.cpp toplevel.cpp khelpview.cpp \
+khelpcenterd_SOURCES = main.cpp toplevel.cpp khelpview.cpp \
 htreelistitem.cpp htabview.cpp man.cpp \
-finddlg.cpp khelpcenter.cc helpcentercom_impl.cpp \
+finddlg.cpp khelpcenter.cc khelpcenter_impl.cpp \
 indexwidget.cpp searchwidget.cpp htmlsearch.cpp mansearch.cpp \
 cgiserver.cpp
 
-khelpcenter_bin_METASOURCES = USE_AUTOMOC
+khelpcenterd_METASOURCES = USE_AUTOMOC
 
-khelpcenterclient_SOURCES  = khelpcenterclient.cpp khelpcenter.cc
+khelpcenter_SOURCES  = khelpcenterclient.cpp khelpcenter.cc
 
 
 DISTCLEANFILES = $(khelpcenter_METASOURCES) khelpcenter.cc khelpcenter.h
@@ -54,10 +54,3 @@ messages:
 	   echo "Making messages in $$subdir"; \
 	   (cd $$subdir && $(MAKE) -f Makefile.am messages) || exit 1; \
 	done
-
-install-exec-local:
-	$(INSTALL_SCRIPT) $(srcdir)/khelpcenter $(bindir)/khelpcenter
-
-uninstall-local:
-	-rm -f $(bindir)/khelpcenter
-

@@ -1,5 +1,5 @@
 /*
- *  helpcentercom_impl.h - part of the KDE Help Center
+ *  khelpcenter_impl.h - part of the KDE Help Center
  *
  *  Copyright (c) 1999 Matthias Elter (me@kde.org)
  *
@@ -20,13 +20,29 @@
 
 #include "khelpcenter.h"
 
-class HelpCenterCom : virtual public KHelpCenter::HelpCenterCom_skel
+class HelpWindow_Impl : virtual public KHelpCenter::HelpWindow_skel
 {
 
  public:
-    HelpCenterCom();
+    HelpWindow_Impl();
+    virtual ~HelpWindow_Impl();
 
-    CORBA::ULong openHelpView (const char *url, CORBA::Boolean enableTree);
-    void openURL(const char *url, CORBA::ULong id);
-    void configure();
+    void open(const char *url);
+
+ private:
+    HelpCenter *hc;
+};
+
+class HelpWindowFactory_Impl : virtual public KHelpCenter::HelpWindowFactory_skel
+{
+public:
+  HelpWindowFactory_Impl() {}
+
+  HelpWindowFactory_Impl(const CORBA::ORB::ObjectTag &tag)
+   : KHelpCenter::HelpWindowFactory_skel(tag) {}
+  
+  HelpWindowFactory_Impl(CORBA::Object_ptr obj)
+   : KHelpCenter::HelpWindowFactory_skel(obj) {}
+
+  virtual KHelpCenter::HelpWindow_ptr create();  
 };
