@@ -60,7 +60,7 @@
 
 namespace KHC {
 
-KHC::SearchWidget::SearchWidget( QWidget *parent )
+SearchWidget::SearchWidget( QWidget *parent )
   : QWidget( parent ),
     mScopeCount( 0 )
 {
