@@ -45,7 +45,7 @@ public:
   void save();
   void defaults();
 
-  QString quickHelp();
+  QString quickHelp() const;
   
   int buttons();
 
