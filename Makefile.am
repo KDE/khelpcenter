@@ -53,4 +53,4 @@ rc_DATA = khelpcenterui.rc intro.html.in glossary.html.in table-of-contents.xslt
 rcdir = $(kde_datadir)/khelpcenter
 
 messages: rc.cpp
-	$(XGETTEXT) *.cc *.cpp -o $(podir)/khelpcenter.pot
+	$(XGETTEXT) *.cpp -o $(podir)/khelpcenter.pot
