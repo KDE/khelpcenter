@@ -69,7 +69,7 @@ class EntryItem : public KListViewItem
 
 Glossary::Glossary( QWidget *parent ) : KListView( parent )
 {
-	connect( this, SIGNAL( executed( QListViewItem * ) ),
+	connect( this, SIGNAL( clicked( QListViewItem * ) ),
 	         this, SLOT( treeItemSelected( QListViewItem * ) ) );
 	connect( this, SIGNAL( returnPressed( QListViewItem * ) ),
 	         this, SLOT( treeItemSelected( QListViewItem * ) ) );
