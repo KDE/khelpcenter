@@ -481,12 +481,12 @@ class PluginTraverser : public DocEntryTraverser
 
     void process( DocEntry *entry )
     {
-      if ( mListView ) {
-        mCurrentItem = new khcNavigatorItem( mListView, entry->name(),
-                                             entry->icon() );
+      if ( mListView ) {        
+        mCurrentItem = new khcNavigatorItem( mListView, mCurrentItem,
+                                             entry->name(), entry->icon() );
       } else if ( mParentItem ) {
-        mCurrentItem = new khcNavigatorItem( mParentItem, entry->name(),
-                                             entry->icon() );
+        mCurrentItem = new khcNavigatorItem( mParentItem, mCurrentItem,
+                                             entry->name(), entry->icon() );
       } else {
         kdDebug() << "ERROR! Neither mListView nor mParentItem is set." << endl;
         return;

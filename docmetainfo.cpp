@@ -95,17 +95,11 @@ void DocMetaInfo::scanMetaInfo( const QStringList &languages )
     const QFileInfoList *entryList = pluginDir.entryInfoList();
     QFileInfoListIterator it( *entryList );
     QFileInfo *fi;
-    DocEntry *prevEntry = 0;
     for( ; ( fi = it.current() ); ++it ) {
       if ( fi->fileName().left( 1 ) != "." ) {
-        DocEntry *entry = scanMetaInfoDir( fi->absFilePath(), &mRootEntry );
-        if ( entry ) {
-          if ( prevEntry ) prevEntry->setNextSibling( entry );
-          prevEntry = entry;
-        }
+        scanMetaInfoDir( fi->absFilePath(), &mRootEntry );
       }
     }
-    if ( prevEntry ) prevEntry->setNextSibling( 0 );
   }
 }
 
@@ -126,7 +120,6 @@ DocEntry *DocMetaInfo::scanMetaInfoDir( const QString &dirName,
 
   if ( parent ) parent->addChild( dirEntry );
 
-  DocEntry *prevEntry = 0;
   const QFileInfoList *entryList = dir.entryInfoList();
   QFileInfoListIterator it( *entryList );
   QFileInfo *fi;
@@ -138,13 +131,6 @@ DocEntry *DocMetaInfo::scanMetaInfoDir( const QString &dirName,
       entry = addDocEntry( fi->absFilePath() );
       if ( parent && entry ) dirEntry->addChild( entry );
     }
-    if ( entry ) {
-      if ( prevEntry ) prevEntry->setNextSibling( entry );
-      prevEntry = entry;
-    }
-  }
-  if ( prevEntry ) {
-    prevEntry->setNextSibling( 0 );
   }
 
   return dirEntry;

@@ -7,7 +7,8 @@
 #include "docentry.h"
 
 DocEntry::DocEntry() :
-  mSearchEnabled( false ), mDirectory( false ), mParent( 0 ), mNextSibling( 0 )
+  mWeight( 0 ), mSearchEnabled( false ), mDirectory( false ), mParent( 0 ),
+  mNextSibling( 0 )
 {
 }
 
@@ -111,6 +112,16 @@ QString DocEntry::indexTestFile() const
   return mIndexTestFile;
 }
 
+void DocEntry::setWeight( int weight )
+{
+  mWeight = weight;
+}
+
+int DocEntry::weight() const
+{
+  return mWeight;
+}
+
 void DocEntry::enableSearch( bool enabled )
 {
   mSearchEnabled = enabled;
@@ -148,6 +159,7 @@ bool DocEntry::readFromFile( const QString &fileName )
   mIndexer.replace( QRegExp( "%f" ) , fileName );
   mIndexTestFile = file.readEntry( "X-DOC-IndexTestFile" );
   mSearchEnabled = file.readBoolEntry( "X-DOC-SearchEnabledDefault", false );
+  mWeight = file.readNumEntry( "X-DOC-Weight", 0 );
 
   return true;
 }
@@ -161,8 +173,40 @@ bool DocEntry::indexExists()
 
 void DocEntry::addChild( DocEntry *entry )
 {
-  mChildren.append( entry );
+  kdDebug() << "DocEntry::addChild(): " << entry->name() << endl;
+
   entry->setParent( this );
+
+  kdDebug() << "-- Child count: " << mChildren.count() << endl;
+
+  uint i;
+  for( i = 0; i < mChildren.count(); ++i ) {
+    if ( i == 0 ) {
+      if ( entry->weight() < mChildren.first()->weight() ) {
+        entry->setNextSibling( mChildren.first() );
+        mChildren.prepend( entry );        
+        kdDebug() << "-- prepended" << endl;
+        break;
+      }
+    }
+    if ( i + 1 < mChildren.count() ) {
+      if ( entry->weight() >= mChildren[ i ]->weight() &&
+           entry->weight() < mChildren[ i + 1 ]->weight() ) {
+        entry->setNextSibling( mChildren[ i + 1 ] );
+        mChildren[ i ]->setNextSibling( entry );
+        mChildren.insert( mChildren.at( i + 1 ), entry );
+        kdDebug() << "-- inserted at " << i << endl;
+        break;
+      }
+    }
+  }
+  if ( i == mChildren.count() ) {
+    if ( i > 0 ) {
+      mChildren.last()->setNextSibling( entry );
+    }
+    mChildren.append( entry );
+    kdDebug() << "-- appended" << endl;
+  }
 }
 
 bool DocEntry::hasChildren()

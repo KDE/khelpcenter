@@ -41,6 +41,9 @@ class DocEntry
     void setIndexTestFile( const QString & );
     QString indexTestFile() const;
 
+    void setWeight( int );
+    int weight() const;
+
     void enableSearch( bool enabled );
     bool searchEnabled() const;
 
@@ -75,6 +78,7 @@ class DocEntry
     QString mIdentifier;
     QString mIndexer;
     QString mIndexTestFile;
+    int mWeight;
     bool mSearchEnabled;
     bool mDirectory;
 
