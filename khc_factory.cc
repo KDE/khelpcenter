@@ -47,12 +47,10 @@ KHCFactory::~KHCFactory()
   s_instance = 0L;
 }
 
-QObject* KHCFactory::create( QObject* parent, const char* name, const char* /*classname*/, const QStringList & )
+QObject* KHCFactory::createObject( QObject* parent, const char* name, const char* /*classname*/, const QStringList & )
 {
     KGlobal::locale()->insertCatalogue(QString::fromLatin1("khelpcenter"));
     khcNavigator *nav = new khcNavigator( (QWidget *)parent, parent, name );
-
-    emit objectCreated( nav );
 
     return nav;
 }
