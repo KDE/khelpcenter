@@ -136,7 +136,7 @@ int main(int argc, char *argv[])
   if (app.startServiceByDesktopName("konqueror", "--silent", dcopService, error))
     {
       warning("Could not launch browser:\n%s\n", error.local8Bit().data());
-      return;
+      return 1;
     }
   
   app.exec();
