@@ -24,8 +24,6 @@ kwelcome_LDADD   = $(LIB_KFILE)
 
 noinst_HEADERS = kwelcome.h kwelcomewidget.h
 
-DISTCLEANFILES = $(kwelcome_METASOURCES)
-
 # make messages.po. Move this one to ../po/ and "make merge" in po
 # the -x is for skipping messages already translated in kdelibs
 messages:
@@ -36,8 +34,6 @@ install-data-local:
 	$(INSTALL_DATA) pics/kwelcome.xpm $(kde_icondir)
 	$(mkinstalldirs) $(kde_minidir)
 	$(INSTALL_DATA) pics/mini-kwelcome.xpm $(kde_minidir)/kwelcome.xpm
-	$(mkinstalldirs) $(kde_datadir)
-	$(mkinstalldirs) $(kde_datadir)/kwelcome
 	$(mkinstalldirs) $(kde_datadir)/kwelcome/pics
 	$(INSTALL_DATA) pics/kdelogo.gif $(kde_datadir)/kwelcome/pics/kdelogo.gif
 	$(INSTALL_DATA) pics/kdelogo_big.gif $(kde_datadir)/kwelcome/pics/kdelogo_big.gif
@@ -46,3 +42,4 @@ uninstall-local:
 	-rm -f $(kde_icondir)/kwelcome.xpm
 	-rm -f $(kde_minidir)/kwelcome.xpm
 	-rm -rf $(kde_datadir)/kwelcome
+
