@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
 	dir.mkdir(KApplication::localkdedir() + "/share/apps/khelpcenter");
 
     // init app
-    KOMApplication app( argc, argv, "khelpcenterd.bin");
+    KOMApplication app(argc, argv, "KDE HelpCenter");
 
     KOMAutoLoader<HelpWindowFactory_Impl> HelpWindowFactoryLoader("IDL:KHelpCenter/HelpWindowFactory:1.0" , "KHelpCenter");
  
