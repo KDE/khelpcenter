@@ -27,6 +27,8 @@
 
 #include <qcombobox.h>
 
+class QPopupMenu;
+
 /*
  * This class should be just like qcombobox, but it should be possible
  * to have have a QIconSet for each entry, and each entry should have a tag.

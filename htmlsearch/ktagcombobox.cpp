@@ -28,6 +28,8 @@
 #include <qiconset.h>
 #include <qpopupmenu.h>
 #include <qmenudata.h>
+#include <qstyle.h>
+
 #include <kdebug.h>
 
 #include "ktagcombobox.h"
@@ -193,8 +195,10 @@ void KTagComboBox::paintEvent( QPaintEvent * ev)
 
   // Text
   QRect clip(2, 2, width() - 4, height() - 4);
+#if 0
   if ( hasFocus() && style().guiStyle() != MotifStyle )
     p.setPen( colorGroup().highlightedText() );
+#endif
   p.drawText(clip, AlignCenter | SingleLine, popup->text( current ));
 
   // Icon
