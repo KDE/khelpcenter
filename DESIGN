@@ -231,6 +231,43 @@ regexp' or 'Search case sensitive'.
 # transform that filtered output into a nice, uniform HTML page. How about
 # that?
 
+I like this idea very much, I just thought it and noticed you wrote this
+down already. What I thought of was having a .desktop/.xslt file pair per
+search engine: each .desktop file holds at least the name of the engine (for
+the listview) and a search URI with a placeholder, just like in your scenario.
+In additionl there could be a X-KHelpCenter-XSLT key which defines which .xslt
+stylesheet to use for that particular search engine. We then query that search
+engine by replacing the placeholder in the URI with whatever the user entered
+and hand it to KIO. All the HTML returned by the various search engines gets
+then transformed into a custom, intermediate, XML dialect, using the XSLT
+stylesheets define in the .desktop files. Using that intermediate step we
+can nicely drop duplicate hits, for example, or create a list of hits in the
+sidebar (much like http://www.copernic.com does). After that, we can use
+another XSLT stylesheet to transform that cleaned XML tree into HTML which
+we then feed to our KHTMLView. Since we then have one unified output, we don't
+need to worry about having multiple KHTMLParts, and it's also nice because
+the user doesn't see which search engine returned which hit.
+
+A problem with this would be that we cannot tell how a particular search
+engine treats boolean expressions (e.g. some search engines use 'foo AND bar',
+others use '+foo +bar', a third variation is '"foo bar"'). We thus cannot
+replace the placeholder in the URI but first have to translate the syntax
+entered by the user into a syntax which is appropriate for each single news
+engine. Right now I don't know how we could do this with just a .desktop/.xslt
+pair. We could always use fullblown C++ plugins which hold code which is able
+to do that translation, but I would really prefer to stick with .desktop files
+now since they're much easier to create.
+
+Another thing which would speak in favor of C++ plugins: different search
+engines support different features (like, google can search more than just the
+web, and you can sometimes tell a search engine to list only results in a
+certain language, or with a certain encoding), so it would be nice if we could
+let the user access those features: through a dialog which has to be tailored
+to the possibilities of the respective search engine. I wonder whether we
+could have some sort of XML tree which defines how an UI should look like, and
+then let KHelpCenter create a dialog using that XML markup, but that idea is
+very vague right now.
+
 KHC::View
 ---------
 KHC::View inherits KHTMLPart and does the actual job of showing some sort of
