@@ -135,7 +135,8 @@ MainWindow::MainWindow(const KURL &url)
 
     setupActions();
 
-    insertChildClient( mDoc );
+    actionCollection()->addDocCollection( mDoc->actionCollection() );
+
     createGUI( "khelpcenterui.rc" );
 
     History::self().installMenuBarHook( this );

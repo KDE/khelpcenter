@@ -1,5 +1,5 @@
 <!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
-<kpartgui name="khelpcenter" version="8">
+<kpartgui name="khelpcenter" version="9">
 <MenuBar>
  <Menu name="file" noMerge="1">
     <text>&amp;File</text>
@@ -13,13 +13,11 @@
   <Separator />
   <Action name="find" />
  </Menu>
-<!--
  <Menu name="view" noMerge="1">
   <text>&amp;View</text>
   <Action name="viewDocumentSource" />
   <Action name="setEncoding" />
  </Menu>
--->
  <Menu name="go_web">
   <text>&amp;Go</text>
   <Action name="back" />
