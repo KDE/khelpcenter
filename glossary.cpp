@@ -174,7 +174,7 @@ void Glossary::meinprocExited( KProcess *meinproc )
 
 	KMainWindow *mainWindow = dynamic_cast<KMainWindow *>( kapp->mainWidget() );
 	Q_ASSERT( mainWindow );
-	mainWindow->statusBar()->message( i18n( "Rebuilding cache... done!" ), 2000 );
+	mainWindow->statusBar()->message( i18n( "Rebuilding cache... done." ), 2000 );
 
 	buildGlossaryTree();
 }

@@ -248,7 +248,7 @@ void KCMHelpCenter::save()
 
   if ( !QFile::exists( indexDir() ) ) {
     KMessageBox::sorry( this,
-      i18n("<qt>The folder <b>%1</b> doesn't exist. Unable to create index.</qt>")
+      i18n("<qt>The folder <b>%1</b> does not exist; unable to create index.</qt>")
       .arg( indexDir() ) );
   } else {
     buildIndex();
