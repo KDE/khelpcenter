@@ -100,22 +100,16 @@ void NavigatorAppItem::setOpen(bool open)
   NavigatorItem::setOpen(open); 
 }
 
-// derive a valid URL to the documentation
-QString NavigatorAppItem::documentationURL(KService *s)
+QString NavigatorAppItem::documentationURL( KService *s )
 {
-  // if entry contains a DocPath, process it
-  QString docPath = s->property("DocPath").toString();
-  if (!docPath.isEmpty())
-    {
-      // see if it is part of our help system, or external
-      // note that this test might be a bit too stupid
-      if (docPath.left(5) == "file:" || docPath.left(5) == "http:")
-          return docPath;
-
-      return QString( "help:/" ) + docPath;
-    }
-  else
+  QString docPath = s->property( "DocPath" ).toString();
+  if ( docPath.isEmpty() )
     return QString::null;
-
+  
+  if ( docPath.startsWith( "file: ") || docPath.startsWith( "http: " ) )
+    return docPath;
+  
+  return QString( "help:/" ) + docPath;
 }
+
 // vim:ts=2:sw=2:et
