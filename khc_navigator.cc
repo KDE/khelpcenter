@@ -159,16 +159,16 @@ void khcNavigatorWidget::setupGlossaryTab()
     glossaryTree->setRootIsDecorated(true);
     connect(glossaryTree, SIGNAL(executed(QListViewItem *)),
         SLOT(slotGlossaryItemSelected(QListViewItem *)));
-	
+
     byTopicItem = new QListViewItem(glossaryTree, i18n("By topic"));
     byTopicItem->setPixmap(0, KGlobal::iconLoader()->loadIcon(QString::fromLatin1("help"), KIcon::Small));
-	
+
     alphabItem = new QListViewItem(glossaryTree, i18n("Alphabetically"));
     alphabItem->setPixmap(0, KGlobal::iconLoader()->loadIcon(QString::fromLatin1("charset"), KIcon::Small));
 
     addTab(glossaryTree, i18n("Glossary"));
-	
-    meinproc = new KProcess();    
+
+    meinproc = new KProcess();
     connect(meinproc, SIGNAL(receivedStdout(KProcess *, char *, int)),
         SLOT(gotMeinprocOutput(KProcess *, char *, int)));
     connect(meinproc, SIGNAL(processExited(KProcess *)),
@@ -189,18 +189,18 @@ void khcNavigatorWidget::gotMeinprocOutput(KProcess *, char *data, int len)
 void khcNavigatorWidget::meinprocExited(KProcess *)
 {
   delete meinproc;
-	
+
   QDomDocument doc;
 
   if (!doc.setContent(htmlData))
     return;
-  
+
   QDomNodeList glossDivNodes = doc.documentElement().elementsByTagName(QString::fromLatin1("div"));
   for (unsigned int i = 0; i < glossDivNodes.count(); i++) {
     QDomNode glossDivNode = glossDivNodes.item(i);
     if (glossDivNode.toElement().attribute(QString::fromLatin1("class"), QString::null) != QString::fromLatin1("glossdiv"))
       continue;
-		
+
     QString glossDiv = glossDivNode.namedItem(QString::fromLatin1("h3")).toElement().text().simplifyWhiteSpace();
     SectionItem *topicSection = new SectionItem(byTopicItem, glossDiv);
 
@@ -208,7 +208,7 @@ void khcNavigatorWidget::meinprocExited(KProcess *)
     for (unsigned int j = 0; j < glossEntryNodes.count(); j++) {
       QDomNode glossEntryNode = glossEntryNodes.item(j);
       QString term = glossEntryNode.namedItem(QString::fromLatin1("a")).toElement().text().simplifyWhiteSpace();
-		
+
       (void) new QListViewItem(topicSection, term);
 
       SectionItem *alphabSection = 0L;
@@ -244,17 +244,17 @@ void khcNavigatorWidget::buildTree()
 {
   // supporting KDE
   khcNavigatorItem *ti_support = new khcNavigatorItem(contentsTree, i18n("Supporting KDE"),"document2");
-  ti_support->setURL(QString("help:/khelpcenter?anchor=SUPPORT"));
+  ti_support->setURL(QString("help:/khelpcenter/index.html?anchor=support"));
   staticItems.append(ti_support);
 
   // kde contacts
   khcNavigatorItem *ti_contact = new khcNavigatorItem(contentsTree, i18n("Contact Information"),"document2");
-  ti_contact->setURL(QString("help:/khelpcenter?anchor=CONTACT"));
+  ti_contact->setURL(QString("help:/khelpcenter/index.html?anchor=contact"));
   staticItems.append(ti_contact);
 
   // kde links
   khcNavigatorItem *ti_links = new khcNavigatorItem(contentsTree, i18n("KDE on the web"),"document2");
-  ti_links->setURL(QString("help:/khelpcenter?anchor=LINKS"));
+  ti_links->setURL(QString("help:/khelpcenter/index.html?anchor=links"));
   staticItems.append(ti_links);
 
   // KDE FAQ
@@ -300,7 +300,7 @@ void khcNavigatorWidget::buildTree()
 
   // introduction page
   khcNavigatorItem *ti_intro = new khcNavigatorItem(contentsTree, i18n("Introduction"),"document2");
-  ti_intro->setURL(QString("help:/khelpcenter?anchor=WELCOME"));
+  ti_intro->setURL(QString("help:/khelpcenter/index.html?anchor=welcome"));
   staticItems.append(ti_intro);
 
   contentsTree->setCurrentItem(ti_intro);
@@ -464,13 +464,13 @@ void khcNavigatorWidget::insertScrollKeeperItems()
       kdDebug(1400) << "Could not execute scrollkeeper-get-content-list" << endl;
       return;
     }
-    
+
     if (!QFile::exists(mScrollKeeperContentsList)) {
       kdDebug(1400) << "Scrollkeeper contents file '" << mScrollKeeperContentsList
                 << "' does not exist." << endl;
       return;
     }
-    
+
     QDomDocument doc("ScrollKeeperContentsList");
     QFile f(mScrollKeeperContentsList);
     if ( !f.open( IO_ReadOnly ) )
@@ -534,7 +534,7 @@ int khcNavigatorWidget::insertScrollKeeperSection(khcNavigatorItem *parentItem,Q
 
     // Remove empty sections
     if (!mScrollKeeperShowEmptyDirs && numDocs == 0) delete sectItem;
-    
+
     return numDocs;
 }
 
@@ -591,13 +591,13 @@ void khcNavigatorWidget::slotGlossaryItemSelected(QListViewItem *item)
 {
   if (!item)
     return;
-	
+
   if (dynamic_cast<SectionItem *>(item->parent())) {
     GlossaryEntry *entry = glossEntries[item->text(0)];
     kdDebug(1400) << "Emitting entry " << entry->term << endl;
     emit glossSelected(*entry);
   }
-  
+
   item->setOpen(!item->isOpen());
 }
 

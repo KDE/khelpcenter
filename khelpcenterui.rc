@@ -20,6 +20,8 @@
 </MenuBar>
 <ToolBar name="mainToolBar" noMerge="1">
  <text>Main Toolbar</text>
+ <!-- Action name="back"/ >
+ <Action name="forward"/ -->
  <Action name="printFrame" />
  <Action name="find" /> 
  <Action name="incFontSizes" />
