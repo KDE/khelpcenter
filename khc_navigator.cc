@@ -310,7 +310,7 @@ void khcNavigatorWidget::buildGlossary()
     QDomNodeList glossEntryNodes = glossDivNode.toElement().elementsByTagName(QString::fromLatin1("dt"));
     for (unsigned int j = 0; j < glossEntryNodes.count(); j++) {
       QDomNode glossEntryNode = glossEntryNodes.item(j);
-	  kdDebug(1400) << "Mooo - glossEntryNode = " << glossEntryNode.toElement().tagName() << endl;
+	  // kdDebug(1400) << "Mooo - glossEntryNode = " << glossEntryNode.toElement().tagName() << endl;
       QString term = glossEntryNode.toElement().text().simplifyWhiteSpace();
 
       (void) new QListViewItem(topicSection, term);
@@ -328,7 +328,7 @@ void khcNavigatorWidget::buildGlossary()
       (void) new QListViewItem(alphabSection, term);
 
       glossEntryNode = glossEntryNode.nextSibling();
-	  kdDebug(1400) << "Mooo, second time - glossEntryNode = " << glossEntryNode.toElement().tagName() << endl;
+	 // kdDebug(1400) << "Mooo, second time - glossEntryNode = " << glossEntryNode.toElement().tagName() << endl;
 
       QString definition;
       QTextStream defStream(&definition, IO_WriteOnly);
@@ -337,7 +337,7 @@ void khcNavigatorWidget::buildGlossary()
       QStringList seeAlso;
 
       QDomNodeList seeAlsoNodes = glossEntryNode.lastChild().toElement().elementsByTagName(QString::fromLatin1("a"));
-      kdDebug(1400) << "Moo, text, " << glossEntryNode.toElement().text().latin1()  << " count " << seeAlsoNodes.count() << endl;
+      //kdDebug(1400) << "Moo, text, " << glossEntryNode.toElement().text().latin1()  << " count " << seeAlsoNodes.count() << endl;
 
       if (seeAlsoNodes.count() > 0)
         for (unsigned int k = 0; k < seeAlsoNodes.count(); k++)
