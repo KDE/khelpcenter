@@ -198,17 +198,21 @@ void View::slotDecFontSizes()
 
 bool View::eventFilter( QObject *o, QEvent *e )
 {
-  if ( e->type() != QEvent::KeyPress )
+  if ( e->type() != QEvent::KeyPress ||
+       htmlDocument().links().length() == 0 )
     return KHTMLPart::eventFilter( o, e );
 
   QKeyEvent *ke = static_cast<QKeyEvent *>( e );
   if ( ke->state() & Qt::ShiftButton && ke->key() == Key_Space ) {
-    if ( baseURL().url().endsWith( "/index.html" ) )
+    // If we're on the first page, it does not make sense to go back.
+    if ( baseURL().path().endsWith( "/index.html" ) )
       return KHTMLPart::eventFilter( o, e );
 
     const QScrollBar * const scrollBar = view()->verticalScrollBar();
     if ( scrollBar->value() == scrollBar->minValue() ) {
       const DOM::HTMLCollection links = htmlDocument().links();
+
+      // The first link on a page (top-left corner) would be the Prev link.
       const DOM::Node prevLinkNode = links.item( 0 );
       openURL( urlFromLinkNode( prevLinkNode ) );
       return true;
@@ -219,13 +223,21 @@ bool View::eventFilter( QObject *o, QEvent *e )
       const DOM::HTMLCollection links = htmlDocument().links();
 
       KURL nextURL;
-      if ( baseURL().url().endsWith( "/index.html" ) )
+
+      // If we're on the first page, the "Next" link is the last link
+      if ( baseURL().path().endsWith( "/index.html" ) )
         nextURL = urlFromLinkNode( links.item( links.length() - 1 ) );
       else
         nextURL = urlFromLinkNode( links.item( links.length() - 2 ) );
 
-      if ( nextURL.url().endsWith( "/index.html" ) )
+      // If we get a mail link instead of a http URL, or the next link points
+      // to an index.html page (a index.html page is always the first page
+      // there can't be a Next link pointing to it!) there's probably nowhere
+      // to go. Next link at all.
+      if ( nextURL.protocol() == "mailto" ||
+           nextURL.path().endsWith( "/index.html" ) )
         return KHTMLPart::eventFilter( o, e );
+
       openURL( nextURL );
       return true;
     }
@@ -240,13 +252,18 @@ KURL View::urlFromLinkNode( const DOM::Node &n ) const
 
   DOM::Element elem = static_cast<DOM::Element>( n );
 
-  QString link = baseURL().path();
-  link.truncate( link.findRev( '/' ) + 1 );
-  link += elem.getAttribute( "href" ).string();
+  const KURL href = elem.getAttribute( "href" ).string();
+  if ( !href.protocol().isNull() )
+    return href;
+
+  QString path = baseURL().path();
+  path.truncate( path.findRev( '/' ) + 1 );
+  path += href.url();
 
   KURL url = baseURL();
   url.setRef( QString::null );
-  url.setEncodedPathAndQuery( link );
+  url.setEncodedPathAndQuery( path );
+
   return url;
 }
 
