@@ -76,8 +76,8 @@ Glossary::Glossary( QWidget *parent ) : KListView( parent )
 {
 	connect( this, SIGNAL( executed( QListViewItem * ) ),
 	         this, SLOT( treeItemSelected( QListViewItem * ) ) );
-	connect( this, SIGNAL( executed( QListViewItem * ) ),
-	        this, SLOT( treeItemSelected( QListViewItem * ) ) );
+	connect( this, SIGNAL( returnPressed( QListViewItem * ) ),
+	         this, SLOT( treeItemSelected( QListViewItem * ) ) );
 	
 	setFrameStyle( QFrame::Panel | QFrame::Sunken );
 	addColumn( QString::null );
@@ -191,7 +191,7 @@ void Glossary::buildGlossaryTree()
 			QDomElement termElement = childElement( entryElement, QString::fromLatin1( "term" ) );
 			QString term = termElement.text().simplifyWhiteSpace();
 
-			new KListViewItem(topicSection, term);
+			new EntryItem(topicSection, term, entryId );
 
 			SectionItem *alphabSection = 0L;
 			for ( QListViewItemIterator it( m_alphabItem ); it.current(); it++ )
