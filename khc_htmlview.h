@@ -23,7 +23,6 @@
 
 #include "khelpcenter.h"
 #include "khc_baseview.h"
-#include "kbrowser.h"
 
 #include <khtml.h>
 
