@@ -153,6 +153,8 @@ void KHMainWindow::createHistoryEntry()
         {
             if ( !m_lstHistory.removeLast() ) // and remove from the end (faster and easier)
                 assert(0);
+            else
+                m_lstHistory.at( m_lstHistory.count() - 1 );
         }
         // Now current is the current again.
     }
