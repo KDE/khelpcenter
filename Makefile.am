@@ -50,7 +50,7 @@ data_DATA = Help.desktop
 datadir = $(kde_appsdir)
 
 kcmhelpcenter_DATA = kcmhelpcenter.desktop
-kcmhelpcenterdir = $(kde_appsdir)/Settings/Help
+kcmhelpcenterdir = $(kde_appsdir)/Settings/System
 
 rc_DATA = khelpcenterui.rc intro.html.in glossary.html.in table-of-contents.xslt \
 	glossary.xslt
