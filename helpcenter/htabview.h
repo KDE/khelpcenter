@@ -24,19 +24,22 @@
 #include <qlist.h>
 
 #include <ktreelist.h>
-#include <ktabctl.h>
 
 class IndexWidget;
 class SearchWidget;
 class HTreeListItem;
+class QTabBar;
 
-class HTabView : public KTabCtl
+class HTabView : public QWidget
 {
     Q_OBJECT
   
  public:
     HTabView(QWidget *parent=0, const char *name=0);
     virtual ~HTabView();
+
+ protected:
+    void resizeEvent (QResizeEvent *);
 
  public slots:
     void slotURLSelected(QString url);
@@ -63,6 +66,7 @@ class HTabView : public KTabCtl
     bool processDir(const char *dirName, HTreeListItem *parent,  QList<HTreeListItem> *appendList);
     bool containsDocuments(QString dir);
 
+    QTabBar *tabBar;
     KTreeList *tree;
     SearchWidget *search;
     IndexWidget *index;

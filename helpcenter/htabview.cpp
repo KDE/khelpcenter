@@ -29,21 +29,23 @@
 #include <qstring.h>
 #include <qlabel.h>
 #include <qmessagebox.h>
+#include <qtabbar.h>
 
 #include <kapp.h>
 #include <ksimpleconfig.h>	
 
 HTabView::HTabView(QWidget *parent, const char *name)
-    : KTabCtl(parent,name)
+    : QWidget(parent,name)
 {
+    tabBar = new QTabBar(this);
+    
+    
     setupContentsTab();
     setupIndexTab();
     setupSearchTab();
 
-    connect(this, SIGNAL(tabSelected(int)),this,
+    connect(tabBar, SIGNAL(selected(int)),this,
 	    SLOT(slotTabSelected(int)));
-
-    setBorder(false);
 
     buildTree();
 }
@@ -52,6 +54,16 @@ HTabView::~HTabView()
 {
     delete tree;
     delete search;
+    delete index;
+    delete tabBar;
+}
+
+void HTabView::resizeEvent(QResizeEvent *)
+{
+    tabBar->setGeometry(0, 0, width(), 28);
+    tree->setGeometry(0, 28, width(), height()-28);
+    search->setGeometry(0, 28, width(), height()-28);
+    index->setGeometry(0, 28, width(), height()-28);
 }
 
 void HTabView::setupContentsTab()
@@ -67,25 +79,34 @@ void HTabView::setupContentsTab()
 	    SLOT(slotItemSelected(int)));
     connect(tree, SIGNAL(selected(int)),this,
 	    SLOT(slotItemSelected(int)));
-  
-    addTab(tree, "Contents");
+
+    QTab *newTab = new QTab;
+    newTab->label = "Contents";
+    tabBar->addTab(newTab);
+    tree->show();
 }
 
 void HTabView::setupIndexTab()
 {
     index = new IndexWidget(this);
-
-    addTab(index, "Man/Info");
+    index->hide();
+ 
+    QTab *newTab = new QTab;
+    newTab->label = "Man/Info";
+    tabBar->addTab(newTab);
 }
 
 void HTabView::setupSearchTab()
 {
     search = new SearchWidget(this);
+    search->hide();
   
     connect(search, SIGNAL(matchSelected(QString)),this,
 	    SLOT(slotURLSelected(QString)));
 
-    addTab(search, "Search");
+    QTab *newTab = new QTab;
+    newTab->label = "Search";
+    tabBar->addTab(newTab);
 }
 
 void HTabView::buildTree()
@@ -252,9 +273,25 @@ void HTabView::slotTabSelected(int id)
 {
     printf("khelpcenter: tab %d selected.\n", id); fflush(stdout);
     if (id == 1)
-	index->tabSelected();
+    {
+	tree->show();
+	index->hide();
+	search->hide();
+    }
     else if (id == 2)
+    {
+	tree->hide();
+	index->show();
+	search->hide();
+	index->tabSelected();
+    }
+    else if (id == 3)
+    {
+	tree->hide();
+	index->hide();
+	search->show();
 	search->tabSelected();
+    }
 }
 
 void HTabView::slotURLSelected(QString url)
