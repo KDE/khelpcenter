@@ -23,7 +23,8 @@ bin_PROGRAMS = 	khelpcenter.bin khelpcentercom
 
 khelpcenter_bin_SOURCES = main.cpp toplevel.cpp khelpview.cpp \
 htreelistitem.cpp htabview.cpp cgi.cpp man.cpp error.cpp \
-misc.cpp finddlg.cpp khelpcenter.cc helpcentercom_impl.cpp
+misc.cpp finddlg.cpp khelpcenter.cc helpcentercom_impl.cpp \
+indexwidget.cpp searchwidget.cpp htmlsearch.cpp
 
 khelpcenter_bin_METASOURCES = USE_AUTOMOC
 

@@ -19,13 +19,15 @@
  */
 
 #ifndef __htabview_h__
-#define _htabview_h__
+#define __htabview_h__
 
 #include <qlist.h>
 
 #include <ktreelist.h>
 #include <ktabctl.h>
 
+class IndexWidget;
+class SearchWidget;
 class HTreeListItem;
 
 class HTabView : public KTabCtl
@@ -37,14 +39,19 @@ public:
 	virtual ~HTabView();
 
 public slots:
+	void slotURLSelected(QString url);
 	void slotItemSelected(int index);
-    void slotReloadTree(); 
+    void slotReloadTree();
+	void slotTabSelected(int);
 
 signals:
 	void itemSelected(QString itemURL);
 	void setBussy(bool bussy);
 	
 private:
+	void setupContentsTab();
+	void setupIndexTab();
+	void setupSearchTab();
 	void buildTree();
 	void clearTree();
 
@@ -57,7 +64,8 @@ private:
 	bool containsDocuments(QString dir);
 
 	KTreeList *tree;
-	QWidget *search, *index;
+	SearchWidget *search;
+	IndexWidget *index;
 
 	QList<HTreeListItem> staticItems, manualItems, pluginItems;
 };

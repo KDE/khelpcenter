@@ -20,11 +20,14 @@
 
 #include "htabview.h"
 #include "htreelistitem.h"
+#include "indexwidget.h"
+#include "searchwidget.h"
 
 #include <qdir.h>
 #include <qfile.h>
 #include <qpixmap.h>
 #include <qstring.h>
+#include <qlabel.h>
 #include <qmessagebox.h>
 
 #include <kapp.h>
@@ -33,28 +36,15 @@
 HTabView::HTabView(QWidget *parent, const char *name)
   : KTabCtl(parent,name)
 {
-  tree = new KTreeList(this);
-  index = new QWidget(this);
-  search = new QWidget(this);
-  
-  tree->setSmoothScrolling(true);
-  tree->setTreeDrawing(false);
-  tree->setExpandButtonDrawing(false);
-  tree->setIndentSpacing(0);
+  setupContentsTab();
+  setupIndexTab();
+  setupSearchTab();
 
-  addTab(tree, "Contents");
-  addTab(index, "Index");
-  addTab(search, "Search");
+  connect(this, SIGNAL(tabSelected(int)),this,
+		  SLOT(slotTabSelected(int)));
 
   setBorder(false);
-  show();
 
-  connect(tree, SIGNAL(highlighted(int)),this,
-		  SLOT(slotItemSelected(int)));
-  connect(tree, SIGNAL(selected(int)),this,
-		  SLOT(slotItemSelected(int)));
-
-  // build tree
   buildTree();
 }
 
@@ -62,6 +52,40 @@ HTabView::~HTabView()
 {
   delete tree;
   delete search;
+}
+
+void HTabView::setupContentsTab()
+{
+  tree = new KTreeList(this);
+
+  tree->setSmoothScrolling(true);
+  tree->setTreeDrawing(false);
+  tree->setExpandButtonDrawing(false);
+  tree->setIndentSpacing(0);
+
+  connect(tree, SIGNAL(highlighted(int)),this,
+		  SLOT(slotItemSelected(int)));
+  connect(tree, SIGNAL(selected(int)),this,
+		  SLOT(slotItemSelected(int)));
+  
+  addTab(tree, "Contents");
+}
+
+void HTabView::setupIndexTab()
+{
+  index = new IndexWidget(this);
+
+  addTab(index, "Index");
+}
+
+void HTabView::setupSearchTab()
+{
+  search = new SearchWidget(this);
+  
+  connect(search, SIGNAL(matchSelected(QString)),this,
+		  SLOT(slotURLSelected(QString)));
+
+  addTab(search, "Search");
 }
 
 void HTabView::buildTree()
@@ -222,6 +246,20 @@ void HTabView::slotReloadTree()
   clearTree();
   buildTree();
   emit setBussy(false);
+}
+
+void HTabView::slotTabSelected(int id)
+{
+  printf("khelpcenter: tab %d selected.\n", id); fflush(stdout);
+  if (id == 1)
+	index->tabSelected();
+  else if (id == 2)
+	search->tabSelected();
+}
+
+void HTabView::slotURLSelected(QString url)
+{
+  emit itemSelected(url);
 }
 
 void HTabView::slotItemSelected(int index)
