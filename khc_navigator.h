@@ -33,6 +33,7 @@ class khcNavigatorItem;
 class khcNavigator;
 class KListView;
 class KService;
+class KProcIO;
 
 class SectionItem : public QListViewItem
 {
@@ -89,6 +90,9 @@ class khcNavigatorWidget : public QTabWidget
     void glossSelected(const QString& entry);
     void setBussy(bool bussy);
 
+ private slots:
+    void getScrollKeeperContentsList(KProcIO *proc);
+
  private:
     void setupContentsTab();
     void setupIndexTab();
@@ -103,6 +107,9 @@ class khcNavigatorWidget : public QTabWidget
     QString documentationURL(KService *s);
 
     void insertPlugins();
+    void insertScrollKeeperItems();
+    int insertScrollKeeperSection(khcNavigatorItem *parentItem,QDomNode sectNode);
+    void insertScrollKeeperDoc(khcNavigatorItem *parentItem,QDomNode docNode);
 
     bool appendEntries (const QString &dirName,  khcNavigatorItem *parent, QList<khcNavigatorItem> *appendList);
     bool processDir(const QString &dirName, khcNavigatorItem *parent,  QList<khcNavigatorItem> *appendList);
@@ -110,7 +117,10 @@ class khcNavigatorWidget : public QTabWidget
     KListView *contentsTree, *glossaryTree;
     SearchWidget *search;
 
-    QList<khcNavigatorItem> staticItems, manualItems, pluginItems;
+    QList<khcNavigatorItem> staticItems, manualItems, pluginItems, scrollKeeperItems;
+
+    bool mScrollKeeperShowEmptyDirs;
+    QString mScrollKeeperContentsList;
 };
 
 #endif

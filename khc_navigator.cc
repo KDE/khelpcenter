@@ -46,7 +46,7 @@
 #include <kservicegroup.h>
 #include <kmessagebox.h>
 #include <kiconloader.h>
-
+#include <kprocio.h>
 
 template class QList<khcNavigatorItem>;
 
@@ -109,6 +109,10 @@ void khcNavigatorExtension::slotItemSelected(const QString& url)
 khcNavigatorWidget::khcNavigatorWidget(QWidget *parent, const char *name)
    : QTabWidget(parent, name)
 {
+    KConfig *config = kapp->config();
+    config->setGroup("ScrollKeeper");
+    mScrollKeeperShowEmptyDirs = config->readBoolEntry("ShowEmptyDirs",false);
+
     setupContentsTab();
     setupSearchTab();
     setupGlossaryTab();
@@ -225,6 +229,8 @@ void khcNavigatorWidget::buildTree()
   // scan plugin dir for plugins
   insertPlugins();
 
+  insertScrollKeeperItems();
+
   // info browser
   khcNavigatorItem *ti_info = new khcNavigatorItem(contentsTree, i18n("Browse info pages"),"document2");
   ti_info->setURL(QString("info:/dir"));
@@ -276,6 +282,9 @@ void khcNavigatorWidget::clearTree()
 
     while(!pluginItems.isEmpty())
 	pluginItems.removeFirst();
+
+    while(!scrollKeeperItems.isEmpty())
+	scrollKeeperItems.removeFirst();
 }
 
 void khcNavigatorWidget::buildManSubTree(khcNavigatorItem *parent)
@@ -409,6 +418,126 @@ void khcNavigatorWidget::insertPlugins()
     }
 }
 
+void khcNavigatorWidget::insertScrollKeeperItems()
+{
+    KProcIO proc;
+    proc << "scrollkeeper-get-content-list";
+    proc << KGlobal::locale()->language();
+    connect(&proc,SIGNAL(readReady(KProcIO *)),SLOT(getScrollKeeperContentsList(KProcIO *)));
+    if (!proc.start(KProcess::Block)) {
+      kdDebug() << "Could not execute scrollkeeper-get-content-list" << endl;
+      return;
+    }
+    
+    if (!QFile::exists(mScrollKeeperContentsList)) {
+      kdDebug() << "Scrollkeeper contents file '" << mScrollKeeperContentsList
+                << "' does not exist." << endl;
+      return;
+    }
+    
+    QDomDocument doc("ScrollKeeperContentsList");
+    QFile f(mScrollKeeperContentsList);
+    if ( !f.open( IO_ReadOnly ) )
+        return;
+    if ( !doc.setContent( &f ) ) {
+        f.close();
+        return;
+    }
+    f.close();
+
+    // Create top-level item
+    khcNavigatorItem *topItem = new khcNavigatorItem(contentsTree, i18n("Scrollkeeper"),"contents2");
+    topItem->setURL("");
+    scrollKeeperItems.append(topItem);
+
+    QDomElement docElem = doc.documentElement();
+
+    QDomNode n = docElem.firstChild();
+    while( !n.isNull() ) {
+        QDomElement e = n.toElement();
+        if( !e.isNull() ) {
+            if (e.tagName() == "sect") {
+              insertScrollKeeperSection(topItem,e);
+            }
+        }
+        n = n.nextSibling();
+    }
+}
+
+void khcNavigatorWidget::getScrollKeeperContentsList(KProcIO *proc)
+{
+    QString filename;
+    proc->readln(filename,true);
+
+    mScrollKeeperContentsList = filename;
+}
+
+int khcNavigatorWidget::insertScrollKeeperSection(khcNavigatorItem *parentItem,QDomNode sectNode)
+{
+    khcNavigatorItem *sectItem = new khcNavigatorItem(parentItem,"","contents2");
+    sectItem->setURL("");
+    scrollKeeperItems.append(sectItem);
+
+    int numDocs = 0;  // Number of docs created in this section
+
+    QDomNode n = sectNode.firstChild();
+    while( !n.isNull() ) {
+        QDomElement e = n.toElement();
+        if( !e.isNull() ) {
+            if (e.tagName() == "title") {
+                sectItem->setText(0,e.text());
+            } else if (e.tagName() == "sect") {
+                numDocs += insertScrollKeeperSection(sectItem,e);
+            } else if (e.tagName() == "doc") {
+                insertScrollKeeperDoc(sectItem,e);
+                ++numDocs;
+            }
+        }
+        n = n.nextSibling();
+    }
+
+    // Remove empty sections
+    if (!mScrollKeeperShowEmptyDirs && numDocs == 0) delete sectItem;
+    
+    return numDocs;
+}
+
+void khcNavigatorWidget::insertScrollKeeperDoc(khcNavigatorItem *parentItem,QDomNode docNode)
+{
+    khcNavigatorItem *docItem = new khcNavigatorItem(parentItem,"","document2");
+    scrollKeeperItems.append(docItem);
+
+    QString url;
+
+    QDomNode n = docNode.firstChild();
+    while( !n.isNull() ) {
+        QDomElement e = n.toElement();
+        if( !e.isNull() ) {
+            if (e.tagName() == "doctitle") {
+                docItem->setText(0,e.text());
+            } else if (e.tagName() == "docsource") {
+                url.append(e.text());
+            } else if (e.tagName() == "docformat") {
+                QString mimeType = e.text();
+                if (mimeType == "text/html") {
+                    // Let the HTML part figure out how to get the doc
+                } else if (mimeType == "text/xml") {
+                    // Should probably check for the DTD here
+                    url.prepend("help:");
+                } else if (mimeType == "text/sgml") {
+                    // GNOME docs use this type. We don't have a real viewer for this.
+                    url.prepend("file:");
+                } else if (mimeType.left(5) == "text/") {
+                    url.prepend("file:");
+                }
+            }
+        }
+        n = n.nextSibling();
+    }
+
+    docItem->setURL(url);
+}
+
 void khcNavigatorWidget::slotReloadTree()
 {
     emit setBussy(true);
@@ -462,6 +591,15 @@ void khcNavigatorWidget::slotItemSelected(QListViewItem* currentItem)
 	}
     }
   for (item = pluginItems.first(); item != 0; item = pluginItems.next())
+    {
+      if (item == contentsTree->currentItem())
+	{
+	  if (!item->getURL().isEmpty())
+	    emit itemSelected(item->getURL());
+	  return;
+	}
+    }
+  for (item = scrollKeeperItems.first(); item != 0; item = scrollKeeperItems.next())
     {
       if (item == contentsTree->currentItem())
 	{
