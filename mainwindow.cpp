@@ -135,6 +135,9 @@ MainWindow::MainWindow(const KURL &url)
     }
 
     statusBarMessage(i18n("Ready"));
+
+    const QRect rect = kapp->desktop()->availableGeometry( this );
+    setMaximumSize( rect.width(), rect.height() );
 }
 
 MainWindow::~MainWindow()
