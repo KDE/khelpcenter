@@ -22,6 +22,7 @@
 
 #include "searchengine.h"
 #include "prefs.h"
+#include "docentry.h"
 
 #include <kdesktopfile.h>
 #include <kprocess.h>
@@ -35,7 +36,6 @@
 using namespace KHC;
 
 SearchHandler::SearchHandler()
-  : mSearchRunning( false )
 {
   mLang = KGlobal::locale()->language().left( 2 );
 }
@@ -90,24 +90,17 @@ bool SearchHandler::checkBinary( const QString &cmd ) const
   return !KStandardDirs::findExe( binary ).isEmpty();
 }
 
-void SearchHandler::search( const QString &identifier, const QStringList &words,
+void SearchHandler::search( DocEntry *entry, const QStringList &words,
   int maxResults,
   SearchEngine::Operation operation )
 {
-  if ( mSearchRunning ) {
-    kdError() << "SearchHandler::search(): Search still is running." << endl;
-    return;
-  }
-
-  mSearchResult = "";
+  kdDebug() << "SearchHandler::search(): " << entry->identifier() << endl;
 
   if ( !mSearchCommand.isEmpty() ) {
     QString cmdString = SearchEngine::substituteSearchQuery( mSearchCommand,
-      identifier, words, maxResults, operation, mLang );
+      entry->identifier(), words, maxResults, operation, mLang );
 
     kdDebug() << "SearchHandler::search() CMD: " << cmdString << endl;
-
-    searchError( "<em>" + cmdString + "</em>\n" );
 
     KProcess *proc = new KProcess();
 
@@ -128,15 +121,20 @@ void SearchHandler::search( const QString &identifier, const QStringList &words,
     connect( proc, SIGNAL( processExited( KProcess * ) ),
              SLOT( searchExited( KProcess * ) ) );
 
-    mStderr = "";
+    SearchJob *searchJob = new SearchJob;
+    searchJob->mEntry = entry;
+    searchJob->mProcess = proc;
+    searchJob->mCmd = cmdString;
+
+    mProcessJobs.insert( proc, searchJob );
 
     if ( !proc->start( KProcess::NotifyOnExit, KProcess::All ) ) {
       QString txt = i18n("Error executing search command '%1'.").arg( cmdString );
-      emit searchFinished( txt );
+      emit searchFinished( this, entry, txt );
     }
   } else if ( !mSearchUrl.isEmpty() ) {
     QString urlString = SearchEngine::substituteSearchQuery( mSearchUrl,
-      identifier, words, maxResults, operation, mLang );
+      entry->identifier(), words, maxResults, operation, mLang );
   
     kdDebug() << "SearchHandler::search() URL: " << urlString << endl;
   
@@ -145,16 +143,19 @@ void SearchHandler::search( const QString &identifier, const QStringList &words,
              SLOT( slotJobResult( KIO::Job * ) ) );
     connect( job, SIGNAL( data( KIO::Job *, const QByteArray & ) ),
              SLOT( slotJobData( KIO::Job *, const QByteArray & ) ) );
+
+    SearchJob *searchJob = new SearchJob;
+    searchJob->mEntry = entry;
+    searchJob->mKioJob = job;
+    mKioJobs.insert( job, searchJob );
   } else {
     QString txt = i18n("No search command or URL specified.");
-    emit searchFinished( txt );
+    emit searchFinished( this, entry, txt );
     return;
   }
-
-  mSearchRunning = true;
 }
 
-void SearchHandler::searchStdout( KProcess *, char *buffer, int len )
+void SearchHandler::searchStdout( KProcess *proc, char *buffer, int len )
 {
   if ( !buffer || len == 0 )
     return;
@@ -165,45 +166,84 @@ void SearchHandler::searchStdout( KProcess *, char *buffer, int len )
   p = strncpy( p, buffer, len );
   p[len] = '\0';
 
-  mSearchResult += bufferStr.fromUtf8( p );
+  QMap<KProcess *, SearchJob *>::ConstIterator it = mProcessJobs.find( proc );
+  if ( it != mProcessJobs.end() ) {
+    (*it)->mResult += bufferStr.fromUtf8( p );
+  }
 
   free( p );
 }
 
-void SearchHandler::searchStderr( KProcess *, char *buffer, int len )
+void SearchHandler::searchStderr( KProcess *proc, char *buffer, int len )
 {
   if ( !buffer || len == 0 )
     return;
 
-  mStderr.append( QString::fromUtf8( buffer, len ) );
+  QMap<KProcess *, SearchJob *>::ConstIterator it = mProcessJobs.find( proc );
+  if ( it != mProcessJobs.end() ) {
+    (*it)->mError += QString::fromUtf8( buffer, len );
+  }
 }
 
-void SearchHandler::searchExited( KProcess * )
+void SearchHandler::searchExited( KProcess *proc )
 {
-  kdDebug() << "SearchHandler::searchExited()" << endl;
+//  kdDebug() << "SearchHandler::searchExited()" << endl;
 
-  emit searchFinished( mSearchResult );
-  if ( !mStderr.isEmpty() ) emit searchError( mStderr );
+  QString result;
+  QString error;
+  DocEntry *entry = 0;
 
-  mSearchRunning = false;
+  QMap<KProcess *, SearchJob *>::ConstIterator it = mProcessJobs.find( proc );
+  if ( it != mProcessJobs.end() ) {
+    SearchJob *j = *it;
+    entry = j->mEntry;
+    result = j->mResult;
+    error = "<em>" + j->mCmd + "</em>\n" + j->mError;
+    
+    mProcessJobs.remove( proc );
+    delete j;
+  } else {
+    kdError() << "No search job for exited process found." << endl;
+  }
+
+  if ( proc->normalExit() && proc->exitStatus() == 0 ) {
+    emit searchFinished( this, entry, result );
+  } else {
+    emit searchError( this, entry, error );
+  }
 }
 
 void SearchHandler::slotJobResult( KIO::Job *job )
 {
-  if ( job->error() ) {
-    emit searchFinished( i18n("Error: %1").arg( job->errorString() ) );
-  } else {
-    emit searchFinished( mSearchResult );
+  QString result;
+  DocEntry *entry = 0;
+
+  QMap<KIO::Job *, SearchJob *>::ConstIterator it = mKioJobs.find( job );
+  if ( it != mKioJobs.end() ) {
+    SearchJob *j = *it;
+
+    entry = j->mEntry;
+    result = j->mResult;    
+    
+    mKioJobs.remove( job );
+    delete j;
   }
 
-  mSearchRunning = false;
+  if ( job->error() ) {
+    emit searchError( this, entry, i18n("Error: %1").arg( job->errorString() ) );
+  } else {
+    emit searchFinished( this, entry, result );
+  }
 }
  
-void SearchHandler::slotJobData( KIO::Job *, const QByteArray &data )
+void SearchHandler::slotJobData( KIO::Job *job, const QByteArray &data )
 {
 //  kdDebug() << "SearchHandler::slotJobData()" << endl;
- 
-  mSearchResult.append( data.data() );
+
+  QMap<KIO::Job *, SearchJob *>::ConstIterator it = mKioJobs.find( job );
+  if ( it != mKioJobs.end() ) {
+    (*it)->mResult += data.data();
+  }
 }
 
 #include "searchhandler.moc"

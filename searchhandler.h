@@ -31,13 +31,29 @@ class Job;
 
 namespace KHC {
 
+class SearchJob
+{
+  public:
+    SearchJob() : mProcess( 0 ), mKioJob( 0 ) {}
+
+    DocEntry *mEntry;
+  
+    KProcess *mProcess;
+    KIO::Job *mKioJob;
+    
+    QString mCmd;
+    
+    QString mResult;
+    QString mError;
+};
+
 class SearchHandler : public QObject
 {
     Q_OBJECT
   public:
     static SearchHandler *initFromFile( const QString &filename );
 
-    void search( const QString &identifier, const QStringList &words,
+    void search( DocEntry *, const QStringList &words,
       int maxResults = 10,
       SearchEngine::Operation operation = SearchEngine::And );
 
@@ -48,8 +64,8 @@ class SearchHandler : public QObject
     bool checkPaths() const;
 
   signals:
-    void searchFinished( const QString & );
-    void searchError( const QString & );
+    void searchFinished( SearchHandler *, DocEntry *, const QString & );
+    void searchError( SearchHandler *, DocEntry *, const QString & );
 
   protected:
     bool checkBinary( const QString &cmd ) const;
@@ -72,9 +88,8 @@ class SearchHandler : public QObject
     QString mIndexCommand;
     QStringList mDocumentTypes;
 
-    bool mSearchRunning;
-    QString mSearchResult;
-    QString mStderr;
+    QMap<KProcess *,SearchJob *> mProcessJobs;
+    QMap<KIO::Job *,SearchJob *> mKioJobs;
 };
 
 }

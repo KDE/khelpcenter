@@ -74,10 +74,10 @@ IndexDirDialog::IndexDirDialog( QWidget *parent )
 
   mIndexUrlRequester->setURL( Prefs::indexDirectory() );
   connect(mIndexUrlRequester->lineEdit(),SIGNAL(textChanged ( const QString & )), this, SLOT(slotUrlChanged( const QString &)));
-  slotUrlChanged( mIndexUrlRequester->lineEdit()->text());
+  slotUrlChanged( mIndexUrlRequester->lineEdit()->text() );
 }
 
-void IndexDirDialog::slotUrlChanged( const QString &_url)
+void IndexDirDialog::slotUrlChanged( const QString &_url )
 {
   enableButtonOK( !_url.isEmpty() );
 }

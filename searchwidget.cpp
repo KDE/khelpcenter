@@ -99,8 +99,11 @@ SearchWidget::SearchWidget( SearchEngine *engine, QWidget *parent )
   connect( indexButton, SIGNAL( clicked() ), SIGNAL( showIndexDialog() ) );
   topLayout->addWidget( indexButton );
 
+// FIXME: Use SearchHandler on double-clicked document
+#if 0
   connect( mScopeListView, SIGNAL( doubleClicked( QListViewItem * ) ),
            SLOT( scopeDoubleClicked( QListViewItem * ) ) );
+#endif
   connect( mScopeListView, SIGNAL( clicked( QListViewItem * ) ),
            SLOT( scopeClicked( QListViewItem * ) ) );
 }

@@ -223,7 +223,7 @@ void DocMetaInfo::startTraverseEntries( DocEntryTraverser *traverser )
 void DocMetaInfo::startTraverseEntry( DocEntry *entry,
                                       DocEntryTraverser *traverser )
 {
-//  kdDebug() << "DocMetaInfo::startTraverseEntry()" << endl;
+//  kdDebug() << "DocMetaInfo::startTraverseEntry() " << entry->name() << endl;
 
   if ( !traverser ) {
     kdDebug() << "DocMetaInfo::startTraverseEntry(): ERROR. No Traverser."
@@ -242,7 +242,7 @@ void DocMetaInfo::startTraverseEntry( DocEntry *entry,
 
 void DocMetaInfo::endProcess( DocEntry *entry, DocEntryTraverser *traverser )
 {
-//  kdDebug() << "DocMetaInfo::endProcess()" << endl;
+//  kdDebug() << "DocMetaInfo::endProcess() " << entry->name() << endl;
 
   if ( !entry ) {
     endTraverseEntries( traverser );

@@ -20,25 +20,19 @@ namespace KHC
 {
 
 SearchTraverser::SearchTraverser( SearchEngine *engine, int level ) :
-  mEngine( engine), mLevel( level ), mEntry( 0 )
+  mMaxLevel( 999 ), mEngine( engine), mLevel( level )
 {
 #if 0
-  kdDebug() << "SearchTraverser(): " << mLevel << endl;
-
-  kdDebug() << "  0x" << QString::number( int( this ), 16 ) << endl;
+  kdDebug() << "SearchTraverser(): " << mLevel
+    << "  0x" << QString::number( int( this ), 16 ) << endl;
 #endif
 }
 
 SearchTraverser::~SearchTraverser()
 {
 #if 0
-  if ( mEntry ) {
-    kdDebug() << "~SearchTraverser(): " << mLevel << " " << mEntry->name() << endl;
-  } else {
-    kdDebug() << "~SearchTraverser(): null entry" << endl;
-  }
-
-  kdDebug() << "  0x" << QString::number( int( this ), 16 ) << endl;
+    kdDebug() << "~SearchTraverser(): " << mLevel
+      << "  0x" << QString::number( int( this ), 16 ) << endl;
 #endif
 
   QString section;
@@ -65,15 +59,13 @@ void SearchTraverser::startProcess( DocEntry *entry )
 //  kdDebug() << "SearchTraverser::startProcess(): " << entry->name() << "  "
 //    << "SEARCH: '" << entry->search() << "'" << endl;
 
-  mEntry = entry;
-
   if ( !mEngine->canSearch( entry ) || !entry->searchEnabled() ) {
     mNotifyee->endProcess( entry, this );
     return;
   }
 
-  kdDebug() << "SearchTraverser::startProcess(): " << entry->identifier()
-    << endl;
+//  kdDebug() << "SearchTraverser::startProcess(): " << entry->identifier()
+//    << endl;
 
   SearchHandler *handler = mEngine->handler( entry->documentType() );
 
@@ -85,26 +77,58 @@ void SearchTraverser::startProcess( DocEntry *entry )
       txt = i18n("Error: No search handler for document type '%1'.")
         .arg( entry->documentType() );
     }
-    showSearchError( txt );
+    showSearchError( handler, entry, txt );
     return;
   }
+  
+  connectHandler( handler );
 
-  connect( handler, SIGNAL( searchFinished( const QString & ) ),
-    SLOT( showSearchResult( const QString & ) ) );
-  connect( handler, SIGNAL( searchError( const QString & ) ),
-    mEngine, SLOT( logError( const QString & ) ) );
-
-  handler->search( entry->identifier(), mEngine->words(), mEngine->maxResults(),
+  handler->search( entry, mEngine->words(), mEngine->maxResults(),
     mEngine->operation() );
 
-  kdDebug() << "SearchTraverser::startProcess() done: " << entry->name() << endl;
+//  kdDebug() << "SearchTraverser::startProcess() done: " << entry->name() << endl;
+}
+
+void SearchTraverser::connectHandler( SearchHandler *handler )
+{
+  QMap<SearchHandler *,int>::Iterator it;
+  it = mConnectCount.find( handler );
+  int count = 0;
+  if ( it != mConnectCount.end() ) count = *it;
+  if ( count == 0 ) {
+    connect( handler, SIGNAL( searchError( SearchHandler *, DocEntry *, const QString & ) ),
+      SLOT( showSearchError( SearchHandler *, DocEntry *, const QString & ) ) );
+    connect( handler, SIGNAL( searchFinished( SearchHandler *, DocEntry *, const QString & ) ),
+      SLOT( showSearchResult( SearchHandler *, DocEntry *, const QString & ) ) );
+  }
+  mConnectCount[ handler ] = ++count;
+}
+
+void SearchTraverser::disconnectHandler( SearchHandler *handler )
+{
+  QMap<SearchHandler *,int>::Iterator it;
+  it = mConnectCount.find( handler );
+  if ( it == mConnectCount.end() ) {
+    kdError() << "SearchTraverser::disconnectHandler() handler not connected."
+      << endl;
+  } else {
+    int count = *it;
+    --count;
+    if ( count == 0 ) {
+      disconnect( handler, SIGNAL( searchError( SearchHandler *, DocEntry *, const QString & ) ),
+        this, SLOT( showSearchError( SearchHandler *, DocEntry *, const QString & ) ) );
+      disconnect( handler, SIGNAL( searchFinished( SearchHandler *, DocEntry *, const QString & ) ),
+        this, SLOT( showSearchResult( SearchHandler *, DocEntry *, const QString & ) ) );
+    }
+    mConnectCount[ handler ] = count;
+  }
 }
 
 DocEntryTraverser *SearchTraverser::createChild( DocEntry *parentEntry )
 {
-  kdDebug() << "SearchTraverser::createChild() level " << mLevel << endl;
+//  kdDebug() << "SearchTraverser::createChild() level " << mLevel << endl;
 
-  if ( mLevel >= 3 ) {
+  if ( mLevel >= mMaxLevel ) {
     ++mLevel;
     return this;
   } else {
@@ -118,7 +142,7 @@ DocEntryTraverser *SearchTraverser::parentTraverser()
 {
 //  kdDebug() << "SearchTraverser::parentTraverser(): level: " << mLevel << endl;
 
-  if ( mLevel > 3 ) {
+  if ( mLevel > mMaxLevel ) {
     return this;
   } else {
     return mParent;
@@ -127,36 +151,47 @@ DocEntryTraverser *SearchTraverser::parentTraverser()
 
 void SearchTraverser::deleteTraverser()
 {
-  kdDebug() << "SearchTraverser::deleteTraverser()" << endl;
+//  kdDebug() << "SearchTraverser::deleteTraverser()" << endl;
 
-  if ( mLevel > 3 ) {
+  if ( mLevel > mMaxLevel ) {
     --mLevel;
   } else {
     delete this;
   }
 }
 
-void SearchTraverser::showSearchError( const QString &error )
+void SearchTraverser::showSearchError( SearchHandler *handler, DocEntry *entry, const QString &error )
 {
-  mResult += mEngine->formatter()->docTitle( mEntry->name() );
+//  kdDebug() << "SearchTraverser::showSearchError(): " << entry->name()
+//    << endl;
+
+  mResult += mEngine->formatter()->docTitle( entry->name() );
   mResult += mEngine->formatter()->paragraph( error );
 
-  mNotifyee->endProcess( mEntry, this );
+  mEngine->logError( entry, error );
+
+  disconnectHandler( handler );
+
+  mNotifyee->endProcess( entry, this );
 }
 
-void SearchTraverser::showSearchResult( const QString &result )
+void SearchTraverser::showSearchResult( SearchHandler *handler, DocEntry *entry, const QString &result )
 {
-  kdDebug() << "SearchTraverser::showSearchResult(): " << mEntry->name()
-    << endl;
+//  kdDebug() << "SearchTraverser::showSearchResult(): " << entry->name()
+//    << endl;
 
-  mResult += mEngine->formatter()->docTitle( mEntry->name() );
+  mResult += mEngine->formatter()->docTitle( entry->name() );
   mResult += mEngine->formatter()->processResult( result );
 
-  mNotifyee->endProcess( mEntry, this );
+  disconnectHandler( handler );
+
+  mNotifyee->endProcess( entry, this );
 }
 
 void SearchTraverser::finishTraversal()
 {
+//  kdDebug() << "SearchTraverser::finishTraversal()" << endl;
+
   mEngine->view()->writeSearchResult( mEngine->formatter()->footer() );
   mEngine->view()->endSearchResult();
 
@@ -409,9 +444,9 @@ QString SearchEngine::errorLog() const
   return mStderr;
 }
 
-void SearchEngine::logError( const QString &msg )
+void SearchEngine::logError( DocEntry *entry, const QString &msg )
 {
-  mStderr += msg;
+  mStderr += entry->identifier() + ": " + msg;
 }
 
 bool SearchEngine::isRunning() const

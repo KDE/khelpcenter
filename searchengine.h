@@ -41,11 +41,17 @@ class SearchTraverser : public QObject, public DocEntryTraverser
 
     void finishTraversal();
 
+  protected:
+    void connectHandler( SearchHandler *handler );
+    void disconnectHandler( SearchHandler *handler );
+
   protected slots:
-    void showSearchResult( const QString &result );
-    void showSearchError( const QString &error );
+    void showSearchResult( SearchHandler *, DocEntry *, const QString &result );
+    void showSearchError( SearchHandler *, DocEntry *, const QString &error );
 
   private:
+    const int mMaxLevel;
+  
     SearchEngine *mEngine;
     int mLevel;
 
@@ -53,6 +59,8 @@ class SearchTraverser : public QObject, public DocEntryTraverser
     QString mJobData;
     
     QString mResult;
+    
+    QMap<SearchHandler *, int> mConnectCount;
 };
 
 
@@ -81,6 +89,14 @@ class SearchEngine : public QObject
 
     void finishSearch();
 
+    /**
+      Append error message to error log.
+    */
+    void logError( DocEntry *entry, const QString &msg );
+
+    /**
+      Return error log.
+    */
     QString errorLog() const;
 
     bool isRunning() const;
@@ -101,8 +117,6 @@ class SearchEngine : public QObject
     void searchStdout(KProcess *proc, char *buffer, int buflen);
     void searchStderr(KProcess *proc, char *buffer, int buflen);
     void searchExited(KProcess *proc);
-
-    void logError( const QString & );
 
   protected:
     void processSearchQueue();
