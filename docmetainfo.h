@@ -27,7 +27,7 @@ class DocMetaInfo
 
     ~DocMetaInfo();
 
-    void scanMetaInfo( const QStringList &languages = QStringList() );
+    void scanMetaInfo( bool force = false );
 
     DocEntry *addDocEntry( const QString &fileName );
 
@@ -68,6 +68,8 @@ class DocMetaInfo
     QMap<QString,QString> mLanguageNames;
 
     HTMLSearch *mHtmlSearch;
+
+    static bool mLoaded;
 
     static DocMetaInfo *mSelf;
 };

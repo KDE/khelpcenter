@@ -87,15 +87,11 @@ Navigator::Navigator( View *view, QWidget *parent,
     config->setGroup("General");
     mShowMissingDocs = config->readBoolEntry("ShowMissingDocs",false);
 
-    QStringList languages = KGlobal::locale()->languagesTwoAlpha();
-
-    kdDebug( 1400 ) << "LANGS: " << languages.join( " " ) << endl;
-
-    DocMetaInfo::self()->scanMetaInfo( languages );
-
     mSearchEngine = new SearchEngine( view );
     connect( mSearchEngine, SIGNAL( searchFinished() ),
              SLOT( slotSearchFinished() ) );
+
+    DocMetaInfo::self()->scanMetaInfo();
 
     QBoxLayout *topLayout = new QVBoxLayout( this );
 

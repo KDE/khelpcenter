@@ -26,10 +26,10 @@ namespace KHC {
 
 class Application : public KUniqueApplication
 {
-	public:
-		Application();
+  public:
+    Application();
 
-		virtual int newInstance();
+    virtual int newInstance();
 };
 
 }

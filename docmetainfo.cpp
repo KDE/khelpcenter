@@ -9,6 +9,7 @@
 #include <kglobal.h>
 #include <klocale.h>
 #include <ksimpleconfig.h>
+#include <kdebugclasses.h>
 
 #include "htmlsearch.h"
 
@@ -17,6 +18,8 @@
 #include "docmetainfo.h"
 
 using namespace KHC;
+
+bool DocMetaInfo::mLoaded = false;
 
 DocMetaInfo *DocMetaInfo::mSelf = 0;
 
@@ -45,6 +48,8 @@ DocMetaInfo::~DocMetaInfo()
   }
 
   delete mHtmlSearch;
+
+  mLoaded = false;
 
   mSelf = 0;
 }
@@ -120,18 +125,25 @@ QString DocMetaInfo::languageName( const QString &langcode )
   return name;
 }
 
-void DocMetaInfo::scanMetaInfo( const QStringList &languages )
+void DocMetaInfo::scanMetaInfo( bool force )
 {
-  mLanguages = languages;
+  if ( mLoaded && !force ) return;
+
+  mLanguages = KGlobal::locale()->languagesTwoAlpha();
+
+  kdDebug( 1400 ) << "LANGS: " << mLanguages.join( " " ) << endl;
 
   QStringList::ConstIterator it;
   for( it = mLanguages.begin(); it != mLanguages.end(); ++it ) {
     mLanguageNames.insert( *it, languageName( *it ) );
   }
 
-  KConfig config( "khelpcenterrc" );
-  config.setGroup( "General" );
-  QStringList metaInfos = config.readListEntry( "MetaInfoDirs" );
+  KConfig *config = KGlobal::config();
+  config->setGroup( "General" );
+  QStringList metaInfos = config->readListEntry( "MetaInfoDirs" );
+
+  kdDebug() << "METADIRS: " << metaInfos << endl;
+
   if ( metaInfos.isEmpty() ) {
     KStandardDirs* kstd = KGlobal::dirs();
     kstd->addResourceType( "data", "share/apps/khelpcenter" );
@@ -141,6 +153,8 @@ void DocMetaInfo::scanMetaInfo( const QStringList &languages )
     kdDebug() << "DocMetaInfo::scanMetaInfo(): scanning " << *it << endl;
     scanMetaInfoDir( *it, &mRootEntry );
   }
+
+  mLoaded = true;
 }
 
 DocEntry *DocMetaInfo::scanMetaInfoDir( const QString &dirName,

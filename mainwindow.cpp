@@ -105,12 +105,12 @@ MainWindow::MainWindow(const KURL &url)
     (void)KStdAction::quit(this, SLOT(close()), actionCollection());
     (void)KStdAction::print(this, SLOT(print()), actionCollection(), "printFrame");
 
-	History::self().setupActions( actionCollection() );
+    History::self().setupActions( actionCollection() );
 
     insertChildClient( doc );
     createGUI( "khelpcenterui.rc" );
 
-	History::self().installMenuBarHook( this );
+    History::self().installMenuBarHook( this );
 
     KURL u;
     if ( url.isEmpty() ) {
@@ -137,9 +137,9 @@ void MainWindow::slotStarted(KIO::Job *job)
 {
     if (job)
        connect(job, SIGNAL(infoMessage( KIO::Job *, const QString &)),
-            this, SLOT(slotInfoMessage(KIO::Job *, const QString &)));
+               SLOT(slotInfoMessage(KIO::Job *, const QString &)));
 
-	History::self().updateActions();
+    History::self().updateActions();
 }
 
 void MainWindow::slotOpenURLRequest( const KURL &url,
@@ -180,8 +180,8 @@ void MainWindow::slotOpenURLRequest( const KURL &url,
 
 void MainWindow::documentCompleted()
 {
-	History::self().updateCurrentEntry( doc );
-	History::self().updateActions();
+    History::self().updateCurrentEntry( doc );
+    History::self().updateActions();
 }
 
 void MainWindow::slotInfoMessage(KIO::Job *, const QString &m)
@@ -209,14 +209,14 @@ void MainWindow::openURL(const KURL &url)
 void MainWindow::slotGlossSelected(const GlossaryEntry &entry)
 {
     stop();
-	History::self().createEntry();
+    History::self().createEntry();
     doc->showGlossaryEntry( entry );
 }
 
 void MainWindow::stop()
 {
     doc->closeURL();
-	History::self().updateCurrentEntry( doc );
+    History::self().updateCurrentEntry( doc );
 }
 
 MainWindow::~MainWindow()
