@@ -1,15 +1,15 @@
-#include <qfileinfo.h>
+#include "view.h"
 
-#include <kstandarddirs.h>
-#include <klocale.h>
-#include <kdebug.h>
-#include <khtmlview.h>
 #include <dom/html_document.h>
 #include <dom/html_misc.h>
+#include <kapplication.h>
+#include <kdebug.h>
+#include <khtml_settings.h>
+#include <khtmlview.h>
+#include <klocale.h>
+#include <kstandarddirs.h>
 
-
-#include "view.h"
-#include "view.moc"
+#include <qfileinfo.h>
 
 using namespace KHC;
 
@@ -267,4 +267,17 @@ KURL View::urlFromLinkNode( const DOM::Node &n ) const
   return url;
 }
 
+void View::slotReload( const KURL &url )
+{
+  const_cast<KHTMLSettings *>( settings() )->init( kapp->config() );
+  KParts::URLArgs args = browserExtension()->urlArgs();
+  args.reload = true;
+  browserExtension()->setURLArgs( args );
+  if ( url.isEmpty() )
+    openURL( baseURL() );
+  else
+    openURL( url );
+}
+
+#include "view.moc"
 // vim:ts=2:sw=2:et

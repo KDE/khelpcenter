@@ -164,11 +164,7 @@ void MainWindow::readProperties( KConfig *config )
 #if 0 // I don't understand it doesn't read in good group ...
     kdDebug()<<"void MainWindow::readProperties( KConfig *config )\n";
     config->setDesktopGroup();
-    const_cast<KHTMLSettings *>( mDoc->settings() )->init( kapp->config() );
-    KParts::URLArgs args = mDoc->browserExtension()->urlArgs();
-    args.reload = true;
-    mDoc->browserExtension()->setURLArgs( args );
-    mDoc->openURL( config->readEntry( "URL" , "") );
+    mDoc->slotReload( config->readEntry( "URL" ) );
 #endif
 }
 
@@ -391,13 +387,8 @@ void MainWindow::updateZoomActions()
 void MainWindow::slotConfigureFonts()
 {
   FontDialog dlg( this );
-  if ( dlg.exec() == QDialog::Accepted ) {
-    const_cast<KHTMLSettings *>( mDoc->settings() )->init( kapp->config() );
-    KParts::URLArgs args = mDoc->browserExtension()->urlArgs();
-    args.reload = true;
-    mDoc->browserExtension()->setURLArgs( args );
-    mDoc->openURL( mDoc->baseURL() );
-  }
+  if ( dlg.exec() == QDialog::Accepted )
+    mDoc->slotReload();
 }
 
 // vim:ts=2:sw=2:et

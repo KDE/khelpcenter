@@ -41,6 +41,7 @@ class View : public KHTMLPart
     void lastSearch();
     void slotIncFontSizes();
     void slotDecFontSizes();
+    void slotReload( const KURL &url = KURL() );
 
   signals:
     void searchResultCacheAvailable();
