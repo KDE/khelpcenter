@@ -20,8 +20,13 @@
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <stdio.h>
 #include <dirent.h>
+#include <unistd.h>
 
 #ifdef HAVE_PATHS_H
 #include <paths.h>
