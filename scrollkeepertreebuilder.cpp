@@ -179,7 +179,9 @@ void ScrollKeeperTreeBuilder::insertDoc( NavigatorItem *parent,
         } else if ( mimeType == "text/xml" ) {
           if ( url.left( 5 ) == "file:" ) url = url.mid( 5 );
           url.prepend( "ghelp:" );
+#if 0
           url.replace( QRegExp( ".xml$" ), ".html" );
+#endif
         } else if ( mimeType == "text/sgml" ) {
           // GNOME docs use this type. We don't have a real viewer for this.
           url.prepend( "file:" );
