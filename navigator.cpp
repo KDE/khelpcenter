@@ -468,7 +468,7 @@ void Navigator::selectItem( const KURL &url )
     while ( it.current() != 0 ) {
       NavigatorItem *item = static_cast<NavigatorItem *>( it.current() );
       if ( item->url() == url.url() ) {
-        item->setSelected( true );
+        mContentsTree->setCurrentItem( item );
         mContentsTree->ensureItemVisible( item );
         break;
       }

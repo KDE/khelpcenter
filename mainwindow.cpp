@@ -158,6 +158,8 @@ void MainWindow::slotOpenURLRequest( const KURL &url,
 {
     kdDebug( 1400 ) << "MainWindow::slotOpenURLRequest(): " << url.url() << endl;
 
+    mNavigator->selectItem( url );
+
     bool own = false;
     
     QString proto = url.protocol().lower();
