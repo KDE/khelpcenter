@@ -246,6 +246,10 @@ void KCMHelpCenter::processIndexQueue()
 
 void KCMHelpCenter::slotIndexFinished( KProcess *proc )
 {
+  if ( !proc->normalExit() || proc->exitStatus() != 0 ) {
+    kdDebug() << "KProcess reported an error." << endl;
+  }
+
   delete proc;
 
   updateStatus();
