@@ -65,6 +65,7 @@
 #include "glossary.h"
 #include "toc.h"
 #include "view.h"
+#include "infotree.h"
 
 using namespace KHC;
 
@@ -212,6 +213,8 @@ class PluginTraverser : public DocEntryTraverser
 
         if ( entry->khelpcenterSpecial() == "scrollkeeper" )
           mNavigator->insertScrollKeeperDocs( mCurrentItem );
+        if ( entry->khelpcenterSpecial() == "info" )
+          mNavigator->insertInfoDocs( mCurrentItem );
       }
 
       mCurrentItem->setName( entry->name() );
@@ -328,6 +331,14 @@ void Navigator::createItemFromDesktopFile( NavigatorItem *topItem, const QString
       QString icon = desktopFile.readIcon();
       item->setIcon( icon.isNull() ? "document2" : icon );
     }
+}
+
+void Navigator::insertInfoDocs( NavigatorItem *topItem )
+{
+  InfoTree *infoTree = new InfoTree( this );
+  connect( infoTree, SIGNAL( infoPageSelected( const KURL & ) ),
+           mView, SLOT( openURL( const KURL & ) ) );
+  infoTree->build( topItem );
 }
 
 void Navigator::insertScrollKeeperDocs( NavigatorItem *topItem )

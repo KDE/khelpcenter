@@ -62,6 +62,7 @@ class Navigator : public QWidget
     void insertParentAppDocs( const QString &name, NavigatorItem *parent );
     void insertAppletDocs( NavigatorItem *parent );
     void insertScrollKeeperDocs( NavigatorItem *parentItem );
+    void insertInfoDocs( NavigatorItem *parentItem );
     void createItemFromDesktopFile( NavigatorItem *item, const QString &name );
 
     bool showMissingDocs() const;
