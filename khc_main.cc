@@ -55,6 +55,7 @@ KHMainWindow::KHMainWindow(const KURL &url)
       m_goMenuHistoryCurrentPos( -1 )
 {
     splitter = new QSplitter(this);
+    m_goBuffer=0;
 
     doc = new KHCView( splitter, 0,
                        this, 0, KHTMLPart::BrowserViewGUI );
@@ -239,7 +240,6 @@ void KHMainWindow::slotGoHistoryDelayed()
 void KHMainWindow::goHistory( int steps )
 {
     stop();
-
     int newPos = m_lstHistory.at() + steps;
 
     HistoryEntry *current = m_lstHistory.at( newPos );
