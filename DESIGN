@@ -272,5 +272,11 @@ protocol == "help") by itself and otherwise use the plain URL.
 # QObject::children() and iterate over all children, use QToolTip::textFor() to
 # check whether the given qwidget has a tooltip and if so, use QToolTip::tip()
 # to show the tooltip.
+# One could probably add a standard dcop call to KMainWindow, like
+# "showAllToolTips". KSnapShot could get a QCheckBox "Show all tooltips", and
+# if that box is checked it tells the selected window to show all it's
+# tooltips via that DCOP call right before it does the snapshot. The thing is
+# - is it possible to map the WinID of the window the user clicked on to
+# the process name we should send your DCOP call to?
 
 // vim:tw=78
