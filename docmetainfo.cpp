@@ -208,6 +208,8 @@ void DocMetaInfo::traverseEntry( DocEntry *entry, DocEntryTraverser *traverser )
   DocEntry::List children = entry->children();
   DocEntry::List::ConstIterator it;
   for( it = children.begin(); it != children.end(); ++it ) {
+    if ( (*it)->isDirectory() && !(*it)->hasChildren() &&
+         (*it)->khelpcenterSpecial().isEmpty() ) continue;
     traverser->process( *it );
     if ( (*it)->hasChildren() ) {
       DocEntryTraverser *t = traverser->childTraverser( *it );
