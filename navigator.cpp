@@ -935,7 +935,11 @@ void Navigator::insertAppletDocs()
   for ( ; it != end; ++it ) {
     KDesktopFile desktopFile( appletDir.absPath() + "/" + *it );
     kdDebug( 1400 ) << "Processing applets" << desktopFile.readName() << endl;
+#if KDE_VERSION < 305
+    QString desktopPath = desktopFile.readEntry( "DocPath" );
+#else
     QString desktopPath = desktopFile.readDocPath();
+#endif
     if ( !desktopPath.isNull() ) {
       kdDebug( 1400 ) << "Found applet with docpath: " << desktopFile.readName() << endl;
       NavigatorItem *item = new NavigatorItem( appletDocItem, desktopFile.readName() );
