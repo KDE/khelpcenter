@@ -107,8 +107,8 @@ void khcNavigatorWidget::resizeEvent(QResizeEvent *)
 void khcNavigatorWidget::setupContentsTab()
 {
     tree = new KListView(this);
-    tree->setFrameStyle(QFrame::Panel | QFrame::Sunken);   
-    tree->addColumn("");   
+    tree->setFrameStyle(QFrame::Panel | QFrame::Sunken);
+    tree->addColumn("");
     tree->setAllColumnsShowFocus(true);
     tree->header()->hide();
     tree->setRootIsDecorated(false);
@@ -127,7 +127,7 @@ void khcNavigatorWidget::setupIndexTab()
 {
     index = new IndexWidget(this);
     index->hide();
- 
+
     QTab *newTab = new QTab;
     newTab->label = "Man/Info";
     tabBar->addTab(newTab);
@@ -137,7 +137,7 @@ void khcNavigatorWidget::setupSearchTab()
 {
     search = new SearchWidget(this);
     search->hide();
-  
+
     connect(search, SIGNAL(matchSelected(QString)),this,
 	    SLOT(slotURLSelected(QString)));
 
@@ -151,8 +151,8 @@ void khcNavigatorWidget::buildTree()
   // kde contacts
   khcNavigatorItem *ti_contact = new khcNavigatorItem(tree, i18n("Contact Information"), "helpdoc.png");
   ti_contact->setURL(QString("help:/khelpcenter/contact.html"));
-  staticItems.append(ti_contact);  
-  
+  staticItems.append(ti_contact);
+
   // kde links
   khcNavigatorItem *ti_links = new khcNavigatorItem(tree, i18n("KDE on the web"), "helpdoc.png");
   ti_links->setURL(QString("help:/khelpcenter/links.html"));
@@ -165,8 +165,8 @@ void khcNavigatorWidget::buildTree()
 
   // scan plugin dir for plugins
   insertPlugins();
-  
-  // info browser 
+
+  // info browser
   khcNavigatorItem *ti_info = new khcNavigatorItem(tree, i18n("Browse info pages"), "helpdoc.png");
   ti_info->setURL(QString("info:/dir"));
   staticItems.append(ti_info);
@@ -191,7 +191,7 @@ void khcNavigatorWidget::buildTree()
   khcNavigatorItem *ti_um = new khcNavigatorItem(tree, i18n("KDE user's manual"), "helpdoc.png");
   ti_um->setURL(QString("help:/khelpcenter/userguide/index.html"));
   staticItems.append(ti_um);
- 
+
   // KDE quickstart guide
   khcNavigatorItem *ti_qs = new khcNavigatorItem(tree, i18n("Introduction to KDE"), "helpdoc.png");
   ti_qs->setURL(QString("help:/khelpcenter/quickstart/index.html"));
@@ -201,7 +201,7 @@ void khcNavigatorWidget::buildTree()
   khcNavigatorItem *ti_intro = new khcNavigatorItem(tree, i18n("Introduction"), "helpdoc.png");
   ti_intro->setURL(QString("help:/khelpcenter/main.html"));
   staticItems.append(ti_intro);
-    
+
   tree->setCurrentItem(ti_intro);
 }
 
@@ -235,12 +235,12 @@ void khcNavigatorWidget::buildManSubTree(khcNavigatorItem *parent)
   khcNavigatorItem *ti_man_s8 = new khcNavigatorItem(parent, i18n("(8) Sys. Administration"), "helpdoc.png");
   ti_man_s8->setURL(QString("man:/(8)"));
   staticItems.append(ti_man_s8);
-  
+
   // man(7)
   khcNavigatorItem *ti_man_s7 = new khcNavigatorItem(parent, i18n("(7) Miscellaneous"), "helpdoc.png");
   ti_man_s7->setURL(QString("man:/(7)"));
   staticItems.append(ti_man_s7);
-  
+
   // man(6)
   khcNavigatorItem *ti_man_s6 = new khcNavigatorItem(parent, i18n("(6) Games"), "helpdoc.png");
   ti_man_s6->setURL(QString("man:/(6)"));
@@ -250,7 +250,7 @@ void khcNavigatorWidget::buildManSubTree(khcNavigatorItem *parent)
   khcNavigatorItem *ti_man_s5 = new khcNavigatorItem(parent, i18n("(5) File Formats"), "helpdoc.png");
   ti_man_s5->setURL(QString("man:/(5)"));
   staticItems.append(ti_man_s5);
-  
+
   // man(4)
   khcNavigatorItem *ti_man_s4 = new khcNavigatorItem(parent, i18n("(4) Devices"), "helpdoc.png");
   ti_man_s4->setURL(QString("man:/(4)"));
@@ -327,11 +327,12 @@ void khcNavigatorWidget::slotURLSelected(QString url)
   emit itemSelected(url);
 }
 
-void khcNavigatorWidget::slotItemSelected(QListViewItem* /*currentItem*/)
+void khcNavigatorWidget::slotItemSelected(QListViewItem* currentItem)
 {
-  khcNavigatorItem *item;
-  
-  
+  if (!currentItem)
+    return;
+  khcNavigatorItem *item = static_cast<khcNavigatorItem*>(currentItem);
+
   if (item->childCount() > 0)
     {
       if (item->isOpen())
@@ -339,7 +340,7 @@ void khcNavigatorWidget::slotItemSelected(QListViewItem* /*currentItem*/)
       else
         item->setOpen(true);
     }
-    
+
   // find the highlighted item in our lists
   for (item = staticItems.first(); item != 0; item = staticItems.next())
     {
@@ -393,7 +394,7 @@ bool khcNavigatorWidget::appendEntries(const char *dirName, khcNavigatorItem *pa
 	else
 	    delete entry;
     }
-  
+
     return true;
 }
 
@@ -405,10 +406,10 @@ bool khcNavigatorWidget::processDir( const char *dirName, khcNavigatorItem *pare
     QDir dirDir( dirName, "*", 0, QDir::Dirs );
 
     if (!dirDir.exists()) return false;
-  
+
     QStringList dirList = dirDir.entryList();
     QStringList::Iterator itDir;
-  
+
     for ( itDir = dirList.begin(); !(*itDir).isNull(); ++itDir )
     {
 	if ( (*itDir)[0] == '.' )
@@ -425,7 +426,7 @@ bool khcNavigatorWidget::processDir( const char *dirName, khcNavigatorItem *pare
 	QString dirFile = filename;
 	dirFile += "/.directory";
 	QString icon;
-	  
+	
 	if ( QFile::exists( dirFile ) )
 	{
 	    KSimpleConfig sc( dirFile, true );
@@ -441,11 +442,11 @@ bool khcNavigatorWidget::processDir( const char *dirName, khcNavigatorItem *pare
 	    folderName = *itDir;
 	    icon = "helpbook.png";
 	}
-	  
+	
 	khcNavigatorItem *dirItem = new khcNavigatorItem(parent, folderName, icon);
 	appendList->append(dirItem);
-	  
-	  
+	
+	
 	// read and append child items
 	appendEntries(filename, dirItem, appendList);	
 	processDir(filename, dirItem, appendList);
@@ -475,7 +476,7 @@ bool khcNavigatorWidget::containsDocuments(QString dir)
 	    KSimpleConfig sc( filename, true );
 	    sc.setDesktopGroup();
 	    QString docpath = sc.readEntry("DocPath");
-		  
+		
 	    if (!docpath.isEmpty())
 		return true;
 	}
@@ -489,7 +490,7 @@ bool khcNavigatorWidget::containsDocuments(QString dir)
     // go through subdirs and search for files
     QStringList dirList = dirDir.entryList();
     QStringList::Iterator itDir;
-  
+
     for (itDir = dirList.begin(); !(*itDir).isNull(); ++itDir)
     {
 	if ( (*itDir).at(0) == '.' )
