@@ -1,21 +1,25 @@
 # KDE Config File
 [KDE Desktop Entry]
 Name=Tutorials
+Name[ca]=Introduccions
 Name[de]=Lernhilfen
 Name[eo]=Lernolibroj
 Name[fi]=Harjotukset
 Name[hu]=Bevezetõk
 Name[ja]=¥Á¥å¡¼¥È¥ê¥¢¥ë
 Name[pt_BR]=Tutoriais
+Name[sr]=Tutorijali
 Name[sv]=Skolor
 MiniIcon=
 Comment=Tutorial and introduction documents.
+Comment[ca]=Documents i curs d'introducció.
 Comment[de]=Einführende und zur Einarbeitung dienende Dokumente
 Comment[eo]=Lernolibroj kaj enkondukaj dokumentoj
 Comment[fi]=Harjoitukset ja esittelevät asiakirjat
 Comment[hu]=Bevezetõk és oktató anyagok
 Comment[ja]=¥Á¥å¡¼¥È¥ê¥¢¥ë¡¢Æ³Æþ¤ÎÊ¸½ñ
 Comment[pt_BR]=Documentos introdutórios e de tutorial.
+Comment[sr]=Tutorijali i uvodni dokumenti
 Comment[sv]=Dokument som innehåller introduktioner och skolor.
 Icon=
 DocPath=
