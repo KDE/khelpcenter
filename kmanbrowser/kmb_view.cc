@@ -31,7 +31,7 @@ kmbView::kmbView()
 {
   ADD_INTERFACE("IDL:KManBrowser/View:1.0");
   ADD_INTERFACE("IDL:Browser/PrintingExtension:1.0");
-  ADD_INTERFACE("IDL:Browser/MagnifyingExtension:1.0");  
+  ADD_INTERFACE("IDL:Browser/MagnifyingExtension:1.0");
 
   setWidget(this);
 
@@ -47,19 +47,14 @@ kmbView::kmbView()
   view->setUpdatesEnabled(true);
   view->setDefaultBGColor(white);
   view->setDefaultTextColors(black, blue, blue);
-  view->setGranularity(600);
   //view->setStandardFont();
   //view->setFixedFont();
 
-  vert = new QScrollBar(0, 0, 12, view->height(), 0, QScrollBar::Vertical, this, "vert");
-  horz = new QScrollBar(0, 0, 24, view->width(), 0, QScrollBar::Horizontal, this, "horz");
-  
-  QObject::connect(view, SIGNAL(setTitle(QString)), this, SLOT(slotSetTitle(QString)));
+  QObject::connect(view, SIGNAL(setTitle(const QString &)), this, SLOT(slotSetTitle(const QString &)));
   QObject::connect(view, SIGNAL(documentDone()), this, SLOT(slotCompleted()));
-  QObject::connect(view, SIGNAL(scrollVert(int)), this, SLOT(slotScrollVert(int)));
-  QObject::connect(view, SIGNAL(scrollHorz(int)), this, SLOT(slotScrollHorz(int)));
-  QObject::connect(vert, SIGNAL(valueChanged(int)), view, SLOT(slotScrollVert(int)));
-  QObject::connect(horz, SIGNAL(valueChanged(int)), view, SLOT(slotScrollHorz(int)));
+  // ### fix cursor scrolling
+  //QObject::connect(view, SIGNAL(scrollVert(int)), this, SLOT(slotScrollVert(int)));
+  //QObject::connect(view, SIGNAL(scrollHorz(int)), this, SLOT(slotScrollHorz(int)));
   QObject::connect(view, SIGNAL(resized(const QSize &)), SLOT(slotViewResized(const QSize &)));
 }
 
@@ -69,63 +64,21 @@ kmbView::~kmbView()
 
 void kmbView::layout()
 {
-  int top = 0;
-  int bottom = height();
-  
-  bottom -= SCROLLBAR_WIDTH;
-
-  if (view->docWidth() > view->width())
-    horz->show();
-  else
-    horz->hide();
-  
-  if (view->docHeight() > view->height())
-    vert->show();
-  else
-    vert->hide();
-  
-  if(vert->isVisible() && horz->isVisible())
-    {
-      view->setGeometry(0, top, width() - SCROLLBAR_WIDTH, bottom-top);
-      vert->setGeometry(width()-SCROLLBAR_WIDTH, top, SCROLLBAR_WIDTH, bottom-top);
-      horz->setGeometry(0, bottom, width() - SCROLLBAR_WIDTH, SCROLLBAR_WIDTH);
-    }
-  else if (vert->isVisible())
-    {
-      view->setGeometry(0, top, width() - SCROLLBAR_WIDTH, height()-top);
-      vert->setGeometry(width()-SCROLLBAR_WIDTH, top, SCROLLBAR_WIDTH, height()-top);
-    }
-  else if (horz->isVisible())
-    {
-      view->setGeometry(0, top, width(), bottom-top);
-      horz->setGeometry(0, bottom, width(), SCROLLBAR_WIDTH);
-    }
-  else
-    view->setGeometry(0, top, width(), height()-top);
 }
 
 void kmbView::slotScrollVert(int _y)
 {
-    vert->setValue(_y);
+    view->scrollBy(0, _y);
 }
 
 void kmbView::slotScrollHorz(int _x)
 {
-    horz->setValue(_x);
+    view->scrollBy(_x, 0);
 }
 
 void kmbView::slotViewResized(const QSize &)
 {
   QApplication::setOverrideCursor(waitCursor);
-  
-  vert->setSteps(12, view->height() - 20); 
-  horz->setSteps(24, view->width());
-  
-  if (view->docHeight() > view->height())
-    vert->setRange(0, view->docHeight() - view->height());
-  else
-    vert->setRange(0, 0);
-  
   QApplication::restoreOverrideCursor();
 }
 
@@ -139,13 +92,12 @@ void kmbView::open(QString _url, bool /*_reload*/, int _xoffset, int _yoffset)
   m_strURL = _url;
 
   view->begin(_url);
-  view->parse();
   view->write("<html><head><title>Test!</title></head><body>");
   view->write("<H2>Test!</H2>");
   view->write("<br>Viewing: " + _url + " not implemented, yet.<br>");
   view->end();
 
-  view->gotoXY(_xoffset, _yoffset);
+  view->setContentsPos(_xoffset, _yoffset);
 }
 
 bool kmbView::mappingOpenURL( Browser::EventOpenURL eventURL )
@@ -161,7 +113,7 @@ void kmbView::slotURLClicked( QString url )
   SIGNAL_CALL2("started", id(), QCString(url.latin1()) );
 }
 
-void kmbView::slotSetTitle( QString /*title*/ )
+void kmbView::slotSetTitle( const QString &/*title*/ )
 {
   //CORBA::WString_var ctitle = Q2C( title );
 }
@@ -183,7 +135,8 @@ void kmbView::slotCanceled()
 
 void kmbView::stop()
 {
-  view->stopParser();
+    // ### FIXME
+    //view->stopParser();
 }
 
 void kmbView::setDefaultFontBase(int fSize)
@@ -192,7 +145,7 @@ void kmbView::setDefaultFontBase(int fSize)
     if (fSize != 3)
     {
         int fontSizes[7];
-        view->getFontSizes(fontSizes);
+        view->fontSizes(fontSizes);
 
         if (fSize > 3)
         {
@@ -201,7 +154,7 @@ void kmbView::setDefaultFontBase(int fSize)
                 int j = i + fSize - 3;
                 if ( j > 6)
                     j = 6;
-                fontSizes[i] = fontSizes[j]; 
+                fontSizes[i] = fontSizes[j];
             }
         }
         else
@@ -211,7 +164,7 @@ void kmbView::setDefaultFontBase(int fSize)
                 int j = i + fSize - 3;
                 if ( j < 0)
                     j = 0;
-                fontSizes[i] = fontSizes[j]; 
+                fontSizes[i] = fontSizes[j];
             }
         }
         view->setFontSizes(fontSizes);
@@ -252,12 +205,12 @@ bool kmbView::canZoomOut()
 
 long kmbView::xOffset()
 {
-  return (CORBA::Long) view->xOffset();
+  return view->contentsX();
 }
 
 long kmbView::yOffset()
 {
-  return (CORBA::Long) view->yOffset();
+  return view->contentsY();
 }
 
 void kmbView::openURL(QString _url, bool _reload, int _xoffset, int _yoffset, const char */*_post_data*/)
@@ -277,7 +230,8 @@ QCString kmbView::url()
 
 void kmbView::print()
 {
-  view->print();
+    // ### FIXME
+    //view->print();
 }
 
 #include "kmb_view.moc"

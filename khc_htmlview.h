@@ -26,13 +26,13 @@
 #include "khc_finddlg.h"
 
 #include <khtml.h>
-#include <kbrowser.h>
+#include <khtml.h>
 
 #define SCROLLBAR_WIDTH		16
 #define BOOKMARK_ID_BASE	200
 #define MAX_HISTORY_LENGHT  15
 
-class khcHTMLView : public KBrowser,
+class khcHTMLView : public KHTMLWidget,
 		    public khcBaseView,
 		    virtual public KHelpCenter::HTMLView_skel
 {
@@ -66,7 +66,7 @@ public slots:
   virtual void slotFindNext();
 
 protected slots:
-  void slotShowURL(KHTMLView *view, QString _url);
+  void slotShowURL(const QString &_url);
   void slotSetTitle(QString title);
   void slotStarted(const char *url);
   void slotCompleted();

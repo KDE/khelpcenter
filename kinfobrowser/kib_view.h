@@ -42,13 +42,13 @@ class kibView : public QWidget,
 				virtual public KInfoBrowser::View_skel
 {
   Q_OBJECT
-    
+
 public:
   kibView();
   virtual ~kibView();
-  
+
   virtual bool mappingOpenURL( Browser::EventOpenURL eventURL );
-  
+
   virtual void stop();
   virtual QCString url();
   virtual void print();
@@ -62,7 +62,7 @@ public:
 
   virtual void openURL( QString _url, bool _reload, int _xoffset = 0, int _yoffset = 0,
 			const char *_post_data = 0L);
-  
+
 public slots:
   virtual void slotCopy();
   virtual void slotFind();
@@ -72,7 +72,7 @@ public slots:
   void slotScrollHorz( int _y );
 
 protected slots:
-  void slotSetTitle(QString title);
+  void slotSetTitle(const QString &title);
   void slotStarted(const char *url);
   void slotCompleted();
   void slotCanceled();
@@ -92,8 +92,6 @@ protected:
   KHTMLWidget     *m_pView;
   KFindTextDialog *m_pFindDlg;
   KProcess        *m_pProc;
-  QScrollBar      *m_pVert;
-  QScrollBar      *m_pHorz;
 
   QString          m_Info2html;
   int              m_fontBase;

@@ -40,13 +40,13 @@ class kmbView : public QWidget,
 		virtual public KManBrowser::View_skel
 {
   Q_OBJECT
-    
+
  public:
   kmbView();
   virtual ~kmbView();
-  
+
   virtual bool mappingOpenURL( Browser::EventOpenURL eventURL );
-  
+
   virtual void stop();
   virtual QCString url();
   virtual long xOffset();
@@ -57,12 +57,12 @@ class kmbView : public QWidget,
   virtual bool canZoomIn();
   virtual bool canZoomOut();
   virtual void openURL( QString _url, bool _reload, int _xoffset = 0, int _yoffset = 0, const char *_post_data = 0L);
-  
+
  public slots:
   void slotURLClicked( QString url );
 
 protected slots:
-  void slotSetTitle(QString title);
+  void slotSetTitle(const QString &title);
   void slotStarted(const char *url);
   void slotCompleted();
   void slotCanceled();
@@ -78,8 +78,6 @@ protected:
 
   int fontBase;
   KHTMLWidget *view;
-  QScrollBar *vert;
-  QScrollBar *horz;
 };
 
 #endif

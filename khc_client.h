@@ -30,7 +30,7 @@ class khcClientApp : public KOMApplication
 public:
 
   khcClientApp(int &argc, char **argv, const QString& rAppName = QString::null)
-    : KOMApplication (argc, argv, rAppName)
+    : KOMApplication (argc, argv, rAppName.latin1())
     {
       kded = new KdedInstance(argc, argv, komapp_orb);
       trader = kded->ktrader();
@@ -38,11 +38,11 @@ public:
     };
 
   ~khcClientApp() { delete kded; } ;
-  
+
   bool openURL(const char* _url);
 
 protected:
-  
+
   KdedInstance *kded;
   KTrader *trader;
   KActivator *activator;

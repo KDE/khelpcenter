@@ -39,25 +39,23 @@ khcHTMLView::khcHTMLView()
   ADD_INTERFACE("IDL:Browser/MagnifyingExtension:1.0");
 
   setWidget(this);
-  
+
   fontBase = 3;
 
   m_pFindDlg = 0L;
-  
+
   QWidget::setFocusPolicy(StrongFocus);
 
   QObject::connect(this, SIGNAL(setTitle(QString)), this, SLOT(slotSetTitle(QString)));
   QObject::connect(this, SIGNAL(completed()), this, SLOT(slotCompleted()));
 
-  KHTMLWidget* htmlWidget = getKHTMLWidget();
+  setDefaultBGColor(white);
+  setDefaultTextColors(black, blue, blue);
+  //setStandardFont();
+  //setFixedFont();
 
-  htmlWidget->setDefaultBGColor(white);
-  htmlWidget->setDefaultTextColors(black, blue, blue);
-  //htmlWidget->setStandardFont();
-  //htmlWidget->setFixedFont();
-
-  htmlWidget->setUnderlineLinks(true);
-  htmlWidget->setURLCursor(KCursor().handCursor());
+  setUnderlineLinks(true);
+  setURLCursor(KCursor().handCursor());
   QWidget::show();
 }
 
@@ -69,12 +67,12 @@ khcHTMLView::~khcHTMLView()
 bool khcHTMLView::event(const QCString &event, const CORBA::Any &value)
 {
   EVENT_MAPPER(event, value);
-  
+
   MAPPING(Browser::View::eventFillMenuEdit, Browser::View::EventFillMenu_ptr, mappingFillMenuEdit);
   MAPPING(Browser::View::eventFillMenuView, Browser::View::EventFillMenu_ptr, mappingFillMenuView);
   MAPPING(Browser::View::eventFillToolBar, Browser::View::EventFillToolBar, mappingFillToolBar);
   MAPPING(Browser::eventOpenURL, Browser::EventOpenURL, mappingOpenURL);
-  
+
   END_EVENT_MAPPER;
   return false;
 }
@@ -82,7 +80,7 @@ bool khcHTMLView::event(const QCString &event, const CORBA::Any &value)
 bool khcHTMLView::mappingOpenURL(Browser::EventOpenURL eventURL)
 {
   khcBaseView::mappingOpenURL(eventURL);
-  KBrowser::openURL(QString(eventURL.url), eventURL.reload ); // implemented by kbrowser
+  KHTMLWidget::openURL(QString(eventURL.url), eventURL.reload ); // implemented by khtmlwidget
   SIGNAL_CALL2("started", id(), eventURL.url);
   return true;
 }
@@ -95,7 +93,7 @@ bool khcHTMLView::mappingFillMenuView(Browser::View::EventFillMenu_ptr viewMenu)
       viewMenu->insertItem4( i18n("&Find in page..."), this, "slotFind", 0, -1, -1);
       viewMenu->insertItem4( i18n("&Find next in page..."), this, "slotFindNext", 0, -1, -1);
     }
-  
+
   return true;
 }
 
@@ -104,7 +102,7 @@ bool khcHTMLView::mappingFillMenuEdit( Browser::View::EventFillMenu_ptr editMenu
   m_vEditMenu = OpenPartsUI::Menu::_duplicate(editMenu);
   if (!CORBA::is_nil(editMenu))
     editMenu->insertItem4( i18n("&Copy"), this, "slotCopy", 0, -1, -1);
-  
+
   return true;
 }
 
@@ -112,17 +110,17 @@ bool khcHTMLView::mappingFillToolBar(Browser::View::EventFillToolBar viewToolBar
 {
   if (CORBA::is_nil(viewToolBar.toolBar))
     return true;
-  
+
   if (viewToolBar.create)
     {
       QString toolTip = i18n("Find");
       OpenPartsUI::Pixmap_var pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("search.png"));
-      viewToolBar.toolBar->insertButton2(pix, TB_SEARCH,SIGNAL(clicked()), this, "slotFind", 
+      viewToolBar.toolBar->insertButton2(pix, TB_SEARCH,SIGNAL(clicked()), this, "slotFind",
 					 true, toolTip, viewToolBar.startIndex++);
     }
   else
     viewToolBar.toolBar->removeItem(TB_SEARCH);
-  
+
   return true;
 }
 
@@ -132,7 +130,7 @@ void khcHTMLView::slotURLClicked(QString url)
   SIGNAL_CALL2( "started", id(), QCString(url.latin1()) );
 }
 
-void khcHTMLView::slotShowURL(KHTMLView *, QString _url)
+void khcHTMLView::slotShowURL(const QString &_url)
 {
   SIGNAL_CALL1("setStatusBarText", _url);
 }
@@ -159,9 +157,7 @@ void khcHTMLView::slotCanceled()
 
 void khcHTMLView::slotCopy()
 {
-  QString text;
-  
-  getKHTMLWidget()->getSelectedText(text);
+  QString text = selectedText();
   QClipboard *cb = kapp->clipboard();
   cb->setText(text);
 }
@@ -173,9 +169,9 @@ void khcHTMLView::slotFind()
 	  m_pFindDlg = new KFindTextDialog();
 	  QObject::connect(m_pFindDlg, SIGNAL(find(const QRegExp &)), this, SLOT(slotFindNext(const QRegExp &)));
     }
-  
+
   // reset the find iterator
-  getKHTMLWidget()->findTextBegin();
+  findTextBegin();
   m_pFindDlg->show();
 }
 
@@ -194,16 +190,15 @@ void khcHTMLView::slotFindNext()
 
 void khcHTMLView::slotFindNext(const QRegExp &regExp)
 {
-  if (!getKHTMLWidget()->findTextNext(regExp))
+  if (!findTextNext(regExp))
     {
 	  if(!KMessageBox::questionYesNo(this, i18n("Continue search from the top of the page?")))
 		{
-		  getKHTMLWidget()->findTextBegin();
+		  findTextBegin();
 		  slotFindNext(regExp);
 		}
 	  else
 		{
-		  getKHTMLWidget()->findTextEnd();
 		  m_pFindDlg->hide();
 		}
 	}
@@ -211,16 +206,16 @@ void khcHTMLView::slotFindNext(const QRegExp &regExp)
 
 void khcHTMLView::stop()
 {
-  KBrowser::slotStop();
+  KHTMLWidget::slotStop();
 }
 
 void khcHTMLView::setDefaultFontBase(int fSize)
 {
-    getKHTMLWidget()->resetFontSizes();
+    resetFontSizes();
     if (fSize != 3)
     {
         int fontSizes[7];
-        getKHTMLWidget()->getFontSizes(fontSizes);
+        KHTMLWidget::fontSizes(fontSizes);
 
         if (fSize > 3)
         {
@@ -229,7 +224,7 @@ void khcHTMLView::setDefaultFontBase(int fSize)
                 int j = i + fSize - 3;
                 if ( j > 6)
                     j = 6;
-                fontSizes[i] = fontSizes[j]; 
+                fontSizes[i] = fontSizes[j];
             }
         }
         else
@@ -239,10 +234,10 @@ void khcHTMLView::setDefaultFontBase(int fSize)
                 int j = i + fSize - 3;
                 if ( j < 0)
                     j = 0;
-                fontSizes[i] = fontSizes[j]; 
+                fontSizes[i] = fontSizes[j];
             }
         }
-        getKHTMLWidget()->setFontSizes(fontSizes);
+        setFontSizes(fontSizes);
     }
 }
 
@@ -252,7 +247,7 @@ void khcHTMLView::zoomIn()
     {
       fontBase++;
       setDefaultFontBase(fontBase);
-      KBrowser::openURL(url(), true );
+      KHTMLWidget::openURL(url(), true );
       SIGNAL_CALL2("started", id(), url());
     }
 }
@@ -263,7 +258,7 @@ void khcHTMLView::zoomOut()
     {
       fontBase--;
       setDefaultFontBase(fontBase);
-      KBrowser::openURL(url(), true );
+      KHTMLWidget::openURL(url(), true );
       SIGNAL_CALL2("started", id(), url());
     }
 }
@@ -280,12 +275,12 @@ bool khcHTMLView::canZoomOut()
 
 long khcHTMLView::xOffset()
 {
-  return KBrowser::xOffset();
+  return contentsX();
 }
 
 long khcHTMLView::yOffset()
 {
-  return KBrowser::yOffset();
+  return contentsY();
 }
 
 void khcHTMLView::openURL(QString _url, bool _reload, int _xoffset, int _yoffset, const char */*_post_data*/)
@@ -300,12 +295,13 @@ void khcHTMLView::openURL(QString _url, bool _reload, int _xoffset, int _yoffset
 
 QCString khcHTMLView::url()
 {
-  return KBrowser::m_strURL.ascii();
+  return KHTMLWidget::m_strURL.ascii();
 }
 
 void khcHTMLView::print()
 {
-  KHTMLView::print();
+    // ### FIXME
+    //KHTMLWidget::print();
 }
 
 #include "khc_htmlview.moc"
