@@ -50,11 +50,8 @@
 #include <kcharsets.h>
 #include <kdialog.h>
 #include <kdesktopfile.h>
-#if KDE_VERSION < 305
-#  include <kservice.h>
-#else
-#  include <kservicegroup.h>
-#endif
+#include <kprotocolinfo.h>
+#include <kservicegroup.h>
 
 #include "navigatoritem.h"
 #include "navigatorappitem.h"
@@ -205,16 +202,21 @@ class PluginTraverser : public DocEntryTraverser
 
         if (entry->khelpcenterSpecial() == "applets" )
           mNavigator->insertAppletDocs( mCurrentItem );
+
         else if ( entry->khelpcenterSpecial() == "kinfocenter" ||
                   entry->khelpcenterSpecial() == "kcontrol" ||
-                  entry->khelpcenterSpecial() == "konqueror" ||
-                  entry->khelpcenterSpecial() == "kioslave" )
+                  entry->khelpcenterSpecial() == "konqueror" )
           mNavigator->insertParentAppDocs( entry->khelpcenterSpecial(),
                                            mCurrentItem );
 
-        if ( entry->khelpcenterSpecial() == "scrollkeeper" )
+        else if ( entry->khelpcenterSpecial() == "kioslave" )
+          mNavigator->insertIOSlaveDocs( entry->khelpcenterSpecial(),
+                                         mCurrentItem );
+
+        else if ( entry->khelpcenterSpecial() == "scrollkeeper" )
           mNavigator->insertScrollKeeperDocs( mCurrentItem );
-        if ( entry->khelpcenterSpecial() == "info" )
+
+        else if ( entry->khelpcenterSpecial() == "info" )
           mNavigator->insertInfoDocs( mCurrentItem );
       }
 
@@ -272,20 +274,6 @@ void Navigator::insertParentAppDocs( const QString &name, NavigatorItem *topItem
 {
   kdDebug(1400) << "Requested plugin documents for ID " << name << endl;
  
-#if KDE_VERSION < 305
-// Disabled because it does not work.
-#if 0
-  KService::List services = KService::allServices();
-  KService::List::ConstIterator it = services.begin();
-  KService::List::ConstIterator end = services.end();
-  for ( ; it != end; ++it ) {
-    KService::Ptr srv = *it;
-    if ( srv->property( QString::fromLatin1( "X-KDE-ParentApp" ) ) == name )
-      createItemFromDesktopFile( topItem,
-          locate( "apps", srv->name() ) );
-  }
-#endif
-#else
   KServiceGroup::Ptr grp = KServiceGroup::childGroup( name );
   if ( !grp )
     return;
@@ -299,7 +287,27 @@ void Navigator::insertParentAppDocs( const QString &name, NavigatorItem *topItem
         desktopFile = locate( "apps", desktopFile );
     createItemFromDesktopFile( topItem, desktopFile );
   }
-#endif
+}
+
+void Navigator::insertIOSlaveDocs( const QString &name, NavigatorItem *topItem )
+{
+  kdDebug(1400) << "Requested IOSlave documents for ID " << name << endl;
+ 
+  QStringList list = KProtocolInfo::protocols();
+
+  for ( QStringList::ConstIterator it = list.begin(); it != list.end(); ++it ) 
+  {
+    QString docPath = KProtocolInfo::docPath(*it);
+    if ( !docPath.isNull() ) 
+    {
+      NavigatorItem *item = new NavigatorItem( topItem, *it );
+      // First parameter is ignored if second is an absolute path
+      KURL url(KURL("help:/"), docPath);
+      item->setUrl( url.url() );
+      QString icon = KProtocolInfo::icon(*it);
+      item->setIcon( icon.isEmpty() ? "document2" : icon );
+    }
+  }
 }
 
 void Navigator::insertAppletDocs( NavigatorItem *topItem )
@@ -317,11 +325,7 @@ void Navigator::insertAppletDocs( NavigatorItem *topItem )
 void Navigator::createItemFromDesktopFile( NavigatorItem *topItem, const QString &file )
 {
     KDesktopFile desktopFile( file );
-#if KDE_VERSION < 305
-    QString docPath = desktopFile.readEntry( "DocPath" );
-#else
     QString docPath = desktopFile.readDocPath();
-#endif
     if ( !docPath.isNull() ) {
       NavigatorItem *item = new NavigatorItem( topItem, desktopFile.readName() );
       // First parameter is ignored if second is an absolute path
