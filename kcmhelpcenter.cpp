@@ -168,8 +168,8 @@ void IndexProgressDialog::toggleDetails()
 
 
 KCMHelpCenter::KCMHelpCenter(QWidget *parent, const char *name)
-  : KDialogBase( parent, name, false, i18n("Build Search Index") ),
-    DCOPObject( "kcmhelpcenter" ),
+  : DCOPObject( "kcmhelpcenter" ),
+    KDialogBase( parent, name, false, i18n("Build Search Index") ),
     mProgressDialog( 0 ), mCurrentEntry( 0 ), mCmdFile( 0 ),
     mProcess( 0 ), mIsClosing( false ), mRunAsRoot( false )
 {

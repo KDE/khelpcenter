@@ -61,7 +61,8 @@ class Navigator : public QWidget
 
     void insertParentAppDocs( const QString &name, NavigatorItem *parent );
     void insertAppletDocs( NavigatorItem *parent );
-    void insertScrollKeeperDocs( NavigatorItem *parentItem );
+    NavigatorItem *insertScrollKeeperDocs( NavigatorItem *parentItem,
+                                 NavigatorItem *after );
     void insertInfoDocs( NavigatorItem *parentItem );
     void insertIOSlaveDocs(const QString &, NavigatorItem*parent);
     
@@ -103,7 +104,9 @@ class Navigator : public QWidget
     void setupGlossaryTab();
 
     void insertPlugins();
-    int insertScrollKeeperSection(NavigatorItem *parentItem,QDomNode sectNode);
+    int insertScrollKeeperSection( NavigatorItem *parentItem,
+                                   NavigatorItem *after, QDomNode sectNode,
+                                   NavigatorItem * &created );
     void insertScrollKeeperDoc(NavigatorItem *parentItem,QDomNode docNode);
 
     void hideSearch();

@@ -189,13 +189,22 @@ class PluginTraverser : public DocEntryTraverser
 
       if ( !entry->docExists() & !mNavigator->showMissingDocs() ) return;
 
+#if 0
+      kdDebug() << "PluginTraverser::process(): " << entry->name()
+                << " (weight: " << entry->weight() << " parent: "
+                << ( mParentItem ? mParentItem->name() : "0" ) << ")" << endl;
+#endif
+
       if (entry->khelpcenterSpecial() == "apps") {
         if ( mListView )
           mCurrentItem = new NavigatorAppItem( mListView, mCurrentItem );
         else
           mCurrentItem = new NavigatorAppItem( mParentItem, mCurrentItem );
       } else if ( entry->khelpcenterSpecial() == "scrollkeeper" ) {
-        if ( mParentItem ) mNavigator->insertScrollKeeperDocs( mParentItem );
+        if ( mParentItem ) {
+          mCurrentItem = mNavigator->insertScrollKeeperDocs( mParentItem,
+                                                             mCurrentItem );
+        }
         return;
       } else {
         if ( mListView )
@@ -240,7 +249,10 @@ class PluginTraverser : public DocEntryTraverser
 
     DocEntryTraverser *createChild( DocEntry * )
     {
-      if ( mCurrentItem ) return new PluginTraverser( mNavigator, mCurrentItem );
+      if ( mCurrentItem ) {
+        kdDebug() << "PluginTraverser::createChild()" << endl;
+        return new PluginTraverser( mNavigator, mCurrentItem );
+      }
       kdDebug( 1400 ) << "ERROR! mCurrentItem is not set." << endl;
       return 0;
     }
@@ -346,8 +358,11 @@ void Navigator::insertInfoDocs( NavigatorItem *topItem )
   infoTree->build( topItem );
 }
 
-void Navigator::insertScrollKeeperDocs( NavigatorItem *topItem )
+NavigatorItem *Navigator::insertScrollKeeperDocs( NavigatorItem *topItem,
+                                                  NavigatorItem *after )
 {
+    if ( after ) kdDebug() << "AFTER: " << after->name() << endl;
+
     QString lang = KGlobal::locale()->language();
 
     kdDebug(1400) << "ScrollKeeper language: " << lang << endl;
@@ -358,22 +373,22 @@ void Navigator::insertScrollKeeperDocs( NavigatorItem *topItem )
     connect(&proc,SIGNAL(readReady(KProcIO *)),SLOT(getScrollKeeperContentsList(KProcIO *)));
     if (!proc.start(KProcess::Block)) {
       kdDebug(1400) << "Could not execute scrollkeeper-get-content-list" << endl;
-      return;
+      return 0;
     }
 
     if (!QFile::exists(mScrollKeeperContentsList)) {
       kdDebug(1400) << "Scrollkeeper contents file '" << mScrollKeeperContentsList
                     << "' does not exist." << endl;
-      return;
+      return 0;
     }
 
     QDomDocument doc("ScrollKeeperContentsList");
     QFile f(mScrollKeeperContentsList);
     if ( !f.open( IO_ReadOnly ) )
-        return;
+        return 0;
     if ( !doc.setContent( &f ) ) {
         f.close();
-        return;
+        return 0;
     }
     f.close();
 
@@ -382,16 +397,22 @@ void Navigator::insertScrollKeeperDocs( NavigatorItem *topItem )
 
     QDomElement docElem = doc.documentElement();
 
+    NavigatorItem *result = 0;
+
     QDomNode n = docElem.firstChild();
     while( !n.isNull() ) {
         QDomElement e = n.toElement();
         if( !e.isNull() ) {
             if (e.tagName() == "sect") {
-              insertScrollKeeperSection(topItem,e);
+              NavigatorItem *createdItem;
+              insertScrollKeeperSection( topItem, after, e, createdItem );
+              if ( createdItem ) result = createdItem;
             }
         }
         n = n.nextSibling();
     }
+
+    return result;
 }
 
 void Navigator::getScrollKeeperContentsList(KProcIO *proc)
@@ -402,9 +423,12 @@ void Navigator::getScrollKeeperContentsList(KProcIO *proc)
     mScrollKeeperContentsList = filename;
 }
 
-int Navigator::insertScrollKeeperSection(NavigatorItem *parentItem,QDomNode sectNode)
+int Navigator::insertScrollKeeperSection( NavigatorItem *parentItem,
+                                          NavigatorItem *after,
+                                          QDomNode sectNode,
+                                          NavigatorItem * &sectItem )
 {
-    NavigatorItem *sectItem = new NavigatorItem(parentItem,"","contents2");
+    sectItem = new NavigatorItem( parentItem, after, "", "contents2" );
     sectItem->setUrl("");
     scrollKeeperItems.append(sectItem);
 
@@ -417,7 +441,8 @@ int Navigator::insertScrollKeeperSection(NavigatorItem *parentItem,QDomNode sect
             if (e.tagName() == "title") {
                 sectItem->setText(0,e.text());
             } else if (e.tagName() == "sect") {
-                numDocs += insertScrollKeeperSection(sectItem,e);
+                NavigatorItem *created;
+                numDocs += insertScrollKeeperSection( sectItem, 0, e, created );
             } else if (e.tagName() == "doc") {
                 insertScrollKeeperDoc(sectItem,e);
                 ++numDocs;
@@ -427,7 +452,10 @@ int Navigator::insertScrollKeeperSection(NavigatorItem *parentItem,QDomNode sect
     }
 
     // Remove empty sections
-    if (!mScrollKeeperShowEmptyDirs && numDocs == 0) delete sectItem;
+    if (!mScrollKeeperShowEmptyDirs && numDocs == 0) {
+      delete sectItem;
+      sectItem = 0;
+    }
 
     return numDocs;
 }
