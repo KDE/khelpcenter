@@ -1,5 +1,5 @@
 INCLUDES = $(all_includes)
-LDFLAGS  = $(all_libraries)
+LDFLAGS  = $(all_libraries) $(KDE_RPATH)
 LDADD    = $(LIB_KDECORE) 
 
 ####### Files
