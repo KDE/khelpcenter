@@ -199,7 +199,7 @@ void View::slotDecFontSizes()
 bool View::eventFilter( QObject *o, QEvent *e )
 {
   if ( e->type() != QEvent::KeyPress )
-    return false;
+    return KHTMLPart::eventFilter( o, e );
 
   QKeyEvent *ke = static_cast<QKeyEvent *>( e );
   if ( ke->state() & Qt::ShiftButton && ke->key() == Key_Space ) {
@@ -219,7 +219,7 @@ bool View::eventFilter( QObject *o, QEvent *e )
       return true;
     }
   }
-  return false;
+  return KHTMLPart::eventFilter( o, e );
 }
 
 KURL View::urlFromLinkNode( const DOM::Node &n ) const
@@ -234,7 +234,8 @@ KURL View::urlFromLinkNode( const DOM::Node &n ) const
   link += "/" + elem.getAttribute( "href" ).string();
 
   KURL url = baseURL();
-  url.setPath( link );
+  url.setRef( QString::null );
+  url.setEncodedPathAndQuery( link );
   return url;
 }
 
