@@ -1,4 +1,0 @@
-- rewrite bookmark system
-- rewrite khc_navigator (+ add CORBA interface -> navigator plugins)
-- rewrite kcmhelpcenter
-- hack a Browser::View interface into kdvi and kghostview
