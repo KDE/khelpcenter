@@ -32,7 +32,7 @@
 
 uint khcInfoFile::init()
 {
-  //  qDebug("--- khcInfoFile::init ---");
+  //  kdDebug() << "--- khcInfoFile::init ---" << endl;
 
   Q_ASSERT(!m_sName.isEmpty());
   Q_ASSERT(!m_sTopic.isEmpty());
@@ -75,7 +75,7 @@ uint khcInfoFile::read()
       buffer[nBytesRead] = 0;
       m_sFileContents += buffer;
     }
-    // qDebug("read %d bytes", m_sFileContents.length());
+    // kdDebug() << "read " << m_sFileContents.length() << " bytes" << endl;
 
     fd->close();
     delete fd;
@@ -97,7 +97,7 @@ uint khcInfoFile::read()
 
 uint khcInfoFile::getIndirectTable(QStringList& lFileNames)
 {
-  // qDebug("--- khcInfoFile::getIndirectTable ---");
+  // kdDebug() << "--- khcInfoFile::getIndirectTable ---" << endl;
 
   uint nResult;
 
@@ -114,7 +114,7 @@ uint khcInfoFile::getIndirectTable(QStringList& lFileNames)
   nIndTableBegin += INDIRECT_HDR.length(); 
   int nIndTableEnd = m_sFileContents.find('\037', nIndTableBegin);
 
-  // qDebug("Ind table: from %d to %d", nIndTableBegin, nIndTableEnd);
+  // kdDebug() << "Ind table: from " << nIndTableBegin << " to " << nIndTableEnd << endl;
 
   // sIndTable: contains only the lines with file names
   QString sIndTable =
@@ -129,14 +129,14 @@ uint khcInfoFile::getIndirectTable(QStringList& lFileNames)
     if (!sFileName.isEmpty())
       lFileNames.append(sFileName);
     else
-      qWarning("Warning: empty filename in the indirect table.");
+      kdWarning() << "Warning: empty filename in the indirect table." << endl;
   }
   return ERR_NONE;
 }
 
 uint khcInfoFile::getNextNode(khcInfoNode* pNode, uint flags)
 {
-  // qDebug("--- khcInfoFile::getNextNode ---");
+  // kdDebug() << "--- khcInfoFile::getNextNode ---" << endl;
 
   uint nResult;
 

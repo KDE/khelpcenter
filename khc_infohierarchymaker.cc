@@ -101,7 +101,7 @@ void khcInfoHierarchyMaker::clearNodesList()
 
 void khcInfoHierarchyMaker::createHierarchy(uint key, QString topic, QString root)
 {
-  //  qDebug("--- createHierarchy ---");
+  //  kdDebug() << "--- createHierarchy ---" << endl;
 
   Q_ASSERT(!topic.isEmpty());
    
@@ -131,7 +131,7 @@ void khcInfoHierarchyMaker::getSomeNodes()
     switch (nResult)
     {
     case ERR_NONE:
-//        qDebug("getNextNode returned %d", nResult);
+//        kdDebug() << "getNextNode returned " << nResult << endl;
 //        kdDebug() <<
 //  	     "Name: " << pNode->m_sName <<
 //  	     " Up: " << pNode->m_sUp <<
@@ -142,14 +142,14 @@ void khcInfoHierarchyMaker::getSomeNodes()
       break;
     case ERR_NO_MORE_NODES:
       {
-	// qDebug("No more nodes");
+	// kdDebug() << "No more nodes" << endl;
 	m_timer.stop();
 	
 	// this was for testing:   m_lNodes.erase((++(++m_lNodes.begin())));
 
 	khcInfoNode* pTopNode;
 	bool bResult = makeHierarchy(&pTopNode, m_root);
-	// qDebug ("makeHierarchy returned %d", bResult);
+	// kdDebug() << "makeHierarchy returned " << bResult << endl;
 	if (bResult)
 	{
 	  // pTopNode->dumpChildren(0);
@@ -179,7 +179,7 @@ void khcInfoHierarchyMaker::getSomeNodes()
 bool khcInfoHierarchyMaker::makeHierarchy(khcInfoNode** ppTopNode,
 					  QString topNodeName)
 {
-  // qDebug("--- makeHierarchy ---");
+  // kdDebug() << "--- makeHierarchy ---" << endl;
 
   std::list<khcInfoNode*>::iterator topIt;
 
@@ -221,7 +221,7 @@ void khcInfoHierarchyMaker::restoreChildren(khcInfoNode* pParentNode)
     L.erase(copyIt);
   }
     
-  // qDebug("Actual restoring a node...");
+  // kdDebug() << "Actual restoring a node..." << endl;
   m_lNodes.push_back(pParentNode);
 }
 

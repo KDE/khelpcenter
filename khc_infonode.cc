@@ -73,7 +73,7 @@ void khcInfoNode::clear()
 
 void khcInfoNode::compileRegEx()
 {
-  // qDebug("--- khcInfoNode::compileRegEx ---");
+  // kdDebug() << "--- khcInfoNode::compileRegEx ---" << endl;
 
   int nResult= regcomp(&ms_compRegEx,
     "^\37\n([^\n]+)\n\n(([^\n]+)\n[-=\\*\\. ]+\n\n)?\n*(.*)", REG_EXTENDED);
@@ -84,7 +84,7 @@ void khcInfoNode::compileRegEx()
 
 bool khcInfoNode::fromString(QString topic, QString str, uint flags)
 {
-  // qDebug("--- khcInfoNode::fromString ---");
+  // kdDebug() << "--- khcInfoNode::fromString ---" << endl;
 
   Q_ASSERT(!topic.isEmpty() && !str.isEmpty());
   m_sTopic = topic;
@@ -124,7 +124,7 @@ bool khcInfoNode::fromString(QString topic, QString str, uint flags)
 
 bool khcInfoNode::fromHdrLine(QString sLine, uint flags)
 {
-  //  qDebug("--- khcInfoNode::fromHdrLine ---");
+  //  kdDebug() << "--- khcInfoNode::fromHdrLine ---" << endl;
 
   Q_ASSERT(!sLine.isEmpty());
 

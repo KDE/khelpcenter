@@ -41,7 +41,7 @@ void khcNavigatorAppItem::setOpen(bool open)
 {
   if ( open && (childCount() == 0) )
   {
-qWarning("khcNavigatorWidget::buildManualSubTree(%p, %s)", this, relpath.latin1());
+kdWarning() << "khcNavigatorWidget::buildManualSubTree(" << this << ", " << relpath << ")" << endl;
      KServiceGroup::Ptr root = KServiceGroup::group(relpath);
      if (!root) {
         kdWarning() << "No Service groups\n";

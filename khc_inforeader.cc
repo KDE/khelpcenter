@@ -29,14 +29,14 @@
 khcInfoReader::khcInfoReader(QString sTopic) :
   m_sTopic(sTopic), m_bInitialized(false)
 {
-  // qDebug("--- khcInfoReader::khcInfoReader ---");
+  // kdDebug() << "--- khcInfoReader::khcInfoReader ---" << endl;
 
   m_lFiles.setAutoDelete(true); 
 }
 
 uint khcInfoReader::getNextNode(khcInfoNode* pNode, uint flags)
 {
-  // qDebug("--- khcInfoReader::getNextNode ---");
+  // kdDebug() << "--- khcInfoReader::getNextNode ---" << endl;
 
   uint nResult;
 
@@ -69,7 +69,7 @@ uint khcInfoReader::getNextNode(khcInfoNode* pNode, uint flags)
 
 uint khcInfoReader::init()
 {
-  // qDebug("--- khcInfoReader::init ---");
+  // kdDebug() << "--- khcInfoReader::init ---" << endl;
 
   uint nResult; // it will store results from various function calls  
 
@@ -89,11 +89,11 @@ uint khcInfoReader::init()
 //        QFileInfo mainFileInfo(mainFileName);
 //        QString path = mainFileInfo.dirPath(true);
 
-      // qDebug("Indirect Table: appending to filelist:");
+      // kdDebug() << "Indirect Table: appending to filelist:" << endl;
       for (QStringList::Iterator it = lFileNames.begin();
 	   it != lFileNames.end(); ++it)
       {
-	// qDebug((const char*) (path + "/" + *it));
+	// kdDebug() << (const char*) (path + "/" + *it) << endl;
 	QString realName;
 	if (!getRealFileName(*it, realName))
 	{
