@@ -49,7 +49,7 @@ datadir = $(kde_appsdir)
 kcmhelpcenter_DATA = kcmhelpcenter.desktop
 kcmhelpcenterdir = $(kde_appsdir)/Settings/Help
 
-rc_DATA = khelpcenterui.rc intro.html.in glossary.html.in
+rc_DATA = khelpcenterui.rc intro.html.in glossary.html.in table-of-contents.xslt
 rcdir = $(kde_datadir)/khelpcenter
 
 messages: rc.cpp

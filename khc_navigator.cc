@@ -743,15 +743,8 @@ void khcNavigatorWidget::slotItemSelected(QListViewItem* currentItem)
       doc.replace( doc.find( ".html" ), 5, ".docbook" );
       kdDebug( 1400 ) << "slotURLSelected(): doc = " << doc << endl;
 
-      QFile f( doc );
-      if ( f.open( IO_ReadOnly ) ) {
-        QDomDocument domDoc;
-        if ( domDoc.setContent( &f ) ) {
-          tocTree->build( domDoc );
-          mTabWidget->setCurrentPage( mTabWidget->indexOf( tocTree ) );
-        }
-        f.close();
-      }
+      tocTree->build( doc );
+      mTabWidget->setCurrentPage( mTabWidget->indexOf( tocTree ) );
     }
     emit itemSelected(item->url());
   }

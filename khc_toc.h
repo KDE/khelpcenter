@@ -22,7 +22,10 @@
 
 #include <klistview.h>
 
+#include <qbuffer.h>
 #include <qdom.h>
+
+class KProcess;
 
 class khcTOC : public KListView
 {
@@ -35,16 +38,21 @@ class khcTOC : public KListView
 	
 	public slots:
 		void reset();
-		void build( const QDomDocument &doc );
+		void build( const QString &file );
 		
 	signals:
 		void itemSelected( const QString &url );
 
 	private slots:
 		void slotItemSelected( QListViewItem *item );
+		void gotMeinprocOutput( KProcess *meinproc, char *data, int len );
+		void meinprocExited( KProcess *meinproc );
 
 	private:
+		void fill( const QDomDocument &doc );
+
 		QString m_application;
+		QBuffer m_meinprocBuffer;
 };
 
 class khcTOCItem : public KListViewItem

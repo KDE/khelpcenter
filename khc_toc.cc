@@ -22,6 +22,8 @@
 #include <kiconloader.h>
 #include <klistview.h>
 #include <klocale.h>
+#include <kprocess.h>
+#include <kstandarddirs.h>
 
 #include <qdom.h>
 #include <qheader.h>
@@ -49,8 +51,52 @@ void khcTOC::reset()
 	insertItem( new KListViewItem( this, i18n( "No manual selected" ) ) );
 }
 
-void khcTOC::build( const QDomDocument &doc )
+void khcTOC::build( const QString &file )
 {
+	clear();
+
+	m_meinprocBuffer.open( IO_WriteOnly );
+
+	KProcess *meinproc = new KProcess;
+	connect( meinproc, SIGNAL( receivedStdout( KProcess *, char *, int ) ),
+	         this, SLOT( gotMeinprocOutput( KProcess *, char *, int ) ) );
+	connect( meinproc, SIGNAL( processExited( KProcess * ) ),
+	         this, SLOT( meinprocExited( KProcess * ) ) );
+
+	*meinproc << locate( "exe", "meinproc" );
+	*meinproc << "--stylesheet" << locate( "data", "khelpcenter/table-of-contents.xslt" );
+	*meinproc << "--stdout";
+	*meinproc << file;
+
+	meinproc->start( KProcess::NotifyOnExit, KProcess::Stdout );
+}
+
+void khcTOC::gotMeinprocOutput( KProcess * /*meinproc*/, char *data, int len )
+{
+	m_meinprocBuffer.writeBlock( data, len );
+}
+
+void khcTOC::meinprocExited( KProcess *meinproc )
+{
+	if ( !meinproc->normalExit() || meinproc->exitStatus() != 0 ) {
+		delete meinproc;
+		return;
+	}
+
+	delete meinproc;
+	
+	QDomDocument doc;
+	if ( !doc.setContent( m_meinprocBuffer.buffer() ) )
+		return;
+
+	m_meinprocBuffer.flush();
+	m_meinprocBuffer.close();
+
+	fill( doc );
+}
+
+void khcTOC::fill( const QDomDocument &doc )
+{	
 	clear();
 
 	QDomNodeList chapters = doc.documentElement().elementsByTagName( "chapter" );
@@ -58,7 +104,8 @@ void khcTOC::build( const QDomDocument &doc )
 		QDomElement chapElem = chapters.item( chapterCount ).toElement();
 		QDomElement chapTitleElem = chapElem.elementsByTagName( "title" ).item( 0 ).toElement();
 		QString chapTitle = chapTitleElem.text().simplifyWhiteSpace();
-		QString chapRef = chapElem.attribute( "id" );
+		QDomElement chapRefElem = chapElem.elementsByTagName( "anchor" ).item( 0 ).toElement();
+		QString chapRef = chapRefElem.text().stripWhiteSpace();
 
 		khcTOCChapterItem *chapItem;
 		if ( childCount() == 0 )
@@ -66,12 +113,13 @@ void khcTOC::build( const QDomDocument &doc )
 		else
 			chapItem = new khcTOCChapterItem( this, lastChild(), chapTitle, chapRef );
 
-		QDomNodeList sections = chapElem.elementsByTagName( "sect1" );
+		QDomNodeList sections = chapElem.elementsByTagName( "section" );
 		for ( unsigned int sectCount = 0; sectCount < sections.count(); sectCount++ ) {
 			QDomElement sectElem = sections.item( sectCount ).toElement();
 			QDomElement sectTitleElem = sectElem.elementsByTagName( "title" ).item( 0 ).toElement();
 			QString sectTitle = sectTitleElem.text().simplifyWhiteSpace();
-			QString sectRef = sectElem.attribute( "id" );
+			QDomElement sectRefElem = sectElem.elementsByTagName( "anchor" ).item( 0 ).toElement();
+			QString sectRef = sectRefElem.text().stripWhiteSpace();
 
 			if ( chapItem->childCount() == 0 )
 				new khcTOCSectionItem( chapItem, sectTitle, sectRef );
