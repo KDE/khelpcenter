@@ -41,7 +41,7 @@ Application::Application() : KUniqueApplication()
 int Application::newInstance()
 {
 	if ( isRestored() ) {
-		RESTORE( MainWindow )
+		RESTORE( MainWindow );
 		return 0;
 	}
 
