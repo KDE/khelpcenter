@@ -20,7 +20,7 @@
 	</TR>
 	<TR>
 		<TD WIDTH=176 COLSPAN=2 ROWSPAN=2> &nbsp;</TD>
-		<TD BGCOLOR=#DDDDDD><IMG WIDTH=282 HEIGHT=77 SRC="file:%1"></TD>
+		<TD CLASS="caption" ALIGN="center" WIDTH=282 HEIGHT=77 BACKGROUND="file:%1">%1</TD>
 		<TD BGCOLOR=#DDDDDD BACKGROUND="file:%1">&nbsp;</TD>
 	</TR>
 
