@@ -59,6 +59,7 @@
 #include <kmessagebox.h>
 #include <kiconloader.h>
 #include <kprocio.h>
+#include <kcharsets.h>
 
 template class QPtrList<khcNavigatorItem>;
 
@@ -294,8 +295,12 @@ void khcNavigatorWidget::buildGlossary()
   if (!htmlFile.open(IO_ReadOnly))
     return;
 
+  QByteArray bytes = htmlFile.readAll();
+
+  QString htmlData = QString::fromLatin1(bytes.data(), bytes.size());
+
   QDomDocument doc;
-  if (!doc.setContent(&htmlFile))
+  if (!doc.setContent(decodeEntities(htmlData)))
     return;
 
   QDomNodeList glossDivNodes = doc.documentElement().elementsByTagName(QString::fromLatin1("div"));
@@ -310,7 +315,6 @@ void khcNavigatorWidget::buildGlossary()
     QDomNodeList glossEntryNodes = glossDivNode.toElement().elementsByTagName(QString::fromLatin1("dt"));
     for (unsigned int j = 0; j < glossEntryNodes.count(); j++) {
       QDomNode glossEntryNode = glossEntryNodes.item(j);
-	  // kdDebug(1400) << "Mooo - glossEntryNode = " << glossEntryNode.toElement().tagName() << endl;
       QString term = glossEntryNode.toElement().text().simplifyWhiteSpace();
 
       (void) new QListViewItem(topicSection, term);
@@ -328,7 +332,6 @@ void khcNavigatorWidget::buildGlossary()
       (void) new QListViewItem(alphabSection, term);
 
       glossEntryNode = glossEntryNode.nextSibling();
-	 // kdDebug(1400) << "Mooo, second time - glossEntryNode = " << glossEntryNode.toElement().tagName() << endl;
 
       QString definition;
       QTextStream defStream(&definition, IO_WriteOnly);
@@ -346,6 +349,18 @@ void khcNavigatorWidget::buildGlossary()
       glossEntries.insert(term, new GlossaryEntry(term, definition, seeAlso));
     }
   }
+}
+
+QString khcNavigatorWidget::decodeEntities(const QString &s) const
+{
+    QString result = s;
+    result.replace(QRegExp(QString::fromLatin1("&amp;")), QString::fromLatin1("&"));
+    for (int p = result.find(QString::fromLatin1("&")); p >= 0; p = result.find(QString::fromLatin1("&"), p)) {
+        int q = result.find(QString::fromLatin1(";"), p++);
+        if (q != -1)
+            result.replace(p - 1, q - p + 2, KGlobal::charsets()->fromEntity(result.mid(p, q - p)));
+    }
+    return result;
 }
 
 void khcNavigatorWidget::buildTree()

@@ -148,6 +148,7 @@ class khcNavigatorWidget : public QTabWidget
     void buildTree();
     void clearTree();
     QString langLookup(const QString &);
+    QString decodeEntities(const QString &s) const;
 
     // ACHU
     void buildInfoSubTree(khcNavigatorItem *parent);
