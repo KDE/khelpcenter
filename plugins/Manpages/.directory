@@ -1,9 +1,5 @@
 [KDE Desktop Entry]
 Name=Unix manual pages
-Name[de]=Man-Pages
-Name[fr]=Pages de man
-Name[es]=ManPages
-Name[it]=ManPages
 
 DocPath=man:/
 
