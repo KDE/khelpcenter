@@ -65,72 +65,84 @@ using namespace KHC;
 MainWindow::MainWindow(const KURL &url)
     : KMainWindow(0, "MainWindow")
 {
-    splitter = new QSplitter(this);
+    QSplitter *splitter = new QSplitter(this);
 
-    doc = new View( splitter, 0, this, 0, KHTMLPart::DefaultGUI );
-    connect(doc, SIGNAL(setWindowCaption(const QString &)),
+    mDoc = new View( splitter, 0, this, 0, KHTMLPart::DefaultGUI );
+    connect(mDoc, SIGNAL(setWindowCaption(const QString &)),
             SLOT(setCaption(const QString &)));
-    connect(doc, SIGNAL(setStatusBarText(const QString &)),
+    connect(mDoc, SIGNAL(setStatusBarText(const QString &)),
             this, SLOT(statusBarMessage(const QString &)));
-    connect(doc, SIGNAL(onURL(const QString &)),
+    connect(mDoc, SIGNAL(onURL(const QString &)),
             this, SLOT(statusBarMessage(const QString &)));
-    connect(doc, SIGNAL(started(KIO::Job *)),
+    connect(mDoc, SIGNAL(started(KIO::Job *)),
             SLOT(slotStarted(KIO::Job *)));
-    connect(doc, SIGNAL(completed()),
+    connect(mDoc, SIGNAL(completed()),
             SLOT(documentCompleted()));
+    connect(mDoc, SIGNAL( searchResultCacheAvailable() ),
+            SLOT( enableLastSearchAction() ) );
 
     statusBar()->insertItem(i18n("Preparing Index"), 0, 1);
     statusBar()->setItemAlignment(0, AlignLeft | AlignVCenter);
 
-    connect(doc->browserExtension(),
+    connect(mDoc->browserExtension(),
             SIGNAL(openURLRequest( const KURL &,
                                    const KParts::URLArgs &)),
             SLOT(slotOpenURLRequest( const KURL &,
                                      const KParts::URLArgs &)));
 
-    nav = new Navigator( doc, splitter, "nav");
-    connect(nav, SIGNAL(itemSelected(const QString &)),
+    mNavigator = new Navigator( mDoc, splitter, "nav");
+    connect(mNavigator, SIGNAL(itemSelected(const QString &)),
             SLOT(openURL(const QString &)));
-    connect(nav, SIGNAL(glossSelected(const GlossaryEntry &)),
+    connect(mNavigator, SIGNAL(glossSelected(const GlossaryEntry &)),
             SLOT(slotGlossSelected(const GlossaryEntry &)));
 
-    splitter->moveToFirst(nav);
-    splitter->setResizeMode(nav, QSplitter::KeepSize);
+    splitter->moveToFirst(mNavigator);
+    splitter->setResizeMode(mNavigator, QSplitter::KeepSize);
     setCentralWidget( splitter );
     QValueList<int> sizes;
     sizes << 220 << 580;
     splitter->setSizes(sizes);
     setGeometry(366, 0, 800, 600);
 
-    (void)KStdAction::quit(this, SLOT(close()), actionCollection());
-    (void)KStdAction::print(this, SLOT(print()), actionCollection(), "printFrame");
+    setupActions();
 
-    History::self().setupActions( actionCollection() );
-
-    insertChildClient( doc );
+    insertChildClient( mDoc );
     createGUI( "khelpcenterui.rc" );
 
     History::self().installMenuBarHook( this );
 
-    KURL u;
     if ( url.isEmpty() ) {
-      KConfig *cfg = KGlobal::config();
-      cfg->setGroup( "General" );
-      u = cfg->readEntry( "StartUrl",
-                          "help:/khelpcenter/index.html?anchor=welcome" );
+      showHome();
     } else {
-      u = url;
+      openURL( url );
+      mNavigator->selectItem( url );
     }
-      
-    openURL( u );
-    nav->selectItem( u );
 
     statusBarMessage(i18n("Ready"));
 }
 
+MainWindow::~MainWindow()
+{
+}
+
+void MainWindow::setupActions()
+{
+    KStdAction::quit( this, SLOT( close() ), actionCollection() );
+    KStdAction::print( this, SLOT( print() ), actionCollection(),
+                       "printFrame" );
+
+    KStdAction::home( this, SLOT( showHome() ), actionCollection() );
+    mLastSearchAction = new KAction( i18n("&Last Search Result"), 0, this,
+                                     SLOT( lastSearch() ),
+                                     actionCollection(), "lastsearch" );
+    mLastSearchAction->setEnabled( false );
+ 
+    History::self().setupActions( actionCollection() );
+}
+
 void MainWindow::print()
 {
-    doc->view()->print();
+    mDoc->view()->print();
 }
 
 void MainWindow::slotStarted(KIO::Job *job)
@@ -168,19 +180,19 @@ void MainWindow::slotOpenURLRequest( const KURL &url,
     
     stop();
 
-    doc->browserExtension()->setURLArgs( args );
+    mDoc->browserExtension()->setURLArgs( args );
 
     if (proto == QString::fromLatin1("glossentry"))
-        slotGlossSelected(nav->glossEntry(KURL::decode_string(url.encodedPathAndQuery())));
+        slotGlossSelected(mNavigator->glossEntry(KURL::decode_string(url.encodedPathAndQuery())));
     else {
-		History::self().createEntry();
-	doc->openURL( url );
+        History::self().createEntry();
+        mDoc->openURL( url );
     }
 }
 
 void MainWindow::documentCompleted()
 {
-    History::self().updateCurrentEntry( doc );
+    History::self().updateCurrentEntry( mDoc );
     History::self().updateActions();
 }
 
@@ -210,17 +222,33 @@ void MainWindow::slotGlossSelected(const GlossaryEntry &entry)
 {
     stop();
     History::self().createEntry();
-    doc->showGlossaryEntry( entry );
+    mDoc->showGlossaryEntry( entry );
 }
 
 void MainWindow::stop()
 {
-    doc->closeURL();
-    History::self().updateCurrentEntry( doc );
+    mDoc->closeURL();
+    History::self().updateCurrentEntry( mDoc );
 }
 
-MainWindow::~MainWindow()
+void MainWindow::showHome()
 {
-    delete doc;
+    KConfig *cfg = KGlobal::config();
+    cfg->setGroup( "General" );
+    KURL url = cfg->readEntry( "StartUrl",
+                               "help:/khelpcenter/index.html?anchor=welcome" );
+    openURL( url );
+    mNavigator->clearSelection();
 }
+
+void MainWindow::lastSearch()
+{
+    mDoc->lastSearch();
+}
+
+void MainWindow::enableLastSearchAction()
+{
+    mLastSearchAction->setEnabled( true );
+}
+
 // vim:ts=2:sw=2:et

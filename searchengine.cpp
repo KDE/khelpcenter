@@ -21,6 +21,7 @@
 
 #include "docmetainfo.h"
 #include "searchformatter.h"
+#include "view.h"
 
 #include "searchengine.h"
 #include "searchengine.moc"
@@ -58,8 +59,8 @@ SearchTraverser::~SearchTraverser()
   }
 
   if ( !mResult.isEmpty() ) {
-    mEngine->view()->write( mEngine->formatter()->sectionHeader( section ) );
-    mEngine->view()->write( mResult );
+    mEngine->view()->writeSearchResult( mEngine->formatter()->sectionHeader( section ) );
+    mEngine->view()->writeSearchResult( mResult );
   }
 }
 
@@ -149,14 +150,14 @@ void SearchTraverser::slotJobData( KIO::Job *, const QByteArray &data )
 
 void SearchTraverser::finishTraversal()
 {
-  mEngine->view()->write( mEngine->formatter()->footer() );
-  mEngine->view()->end();
+  mEngine->view()->writeSearchResult( mEngine->formatter()->footer() );
+  mEngine->view()->endSearchResult();
 
   mEngine->finishSearch();
 }
 
 
-SearchEngine::SearchEngine( KHTMLPart *destination )
+SearchEngine::SearchEngine( View *destination )
   : QObject(),
     mProc( 0 ), mView( destination ), mRootTraverser( 0 )
 {
@@ -211,8 +212,8 @@ bool SearchEngine::search( QString words, QString method, int matches,
       return false;
     }
 
-    mView->begin();
-    mView->write( mFormatter->header() );
+    mView->beginSearchResult();
+    mView->writeSearchResult( mFormatter->header() );
 
     if ( mRootTraverser ) {
       kdDebug() << "SearchEngine::search(): mRootTraverser not null." << endl;
@@ -281,9 +282,9 @@ bool SearchEngine::search( QString words, QString method, int matches,
     mSearchResult = mSearchResult.replace(QRegExp("http://localhost/"), "file:/");
     mSearchResult = mSearchResult.mid( mSearchResult.find( '<' ) );
 
-    mView->begin();
-    mView->write( mSearchResult );
-    mView->end();
+    mView->beginSearchResult();
+    mView->writeSearchResult( mSearchResult );
+    mView->endSearchResult();
   }
 
   emit searchFinished();
@@ -307,7 +308,7 @@ SearchFormatter *SearchEngine::formatter()
   return mFormatter;
 }
 
-KHTMLPart *SearchEngine::view()
+View *SearchEngine::view()
 {
   return mView;
 }

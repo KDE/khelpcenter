@@ -69,6 +69,7 @@ class Navigator : public QWidget
     bool showMissingDocs() const;
 
     void selectItem( const KURL &url );
+    void clearSelection();
 
   public slots:
     void slotURLSelected(QString url);

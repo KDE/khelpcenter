@@ -35,14 +35,23 @@ class MainWindow : public KMainWindow
     void documentCompleted();
     void print();
     void statusBarMessage(const QString &m);
+    void showHome();
+    void lastSearch();
+
+  protected:
+    void setupActions();
+
+  protected slots:
+    void enableLastSearchAction();
 
   private:
     void openURL( const KURL &url );
     void stop();
 
-    View *doc;
-    QSplitter *splitter;
-    Navigator *nav;
+    View *mDoc;
+    Navigator *mNavigator;
+
+    KAction *mLastSearchAction;
 };
 
 }

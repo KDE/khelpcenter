@@ -23,8 +23,16 @@ class View : public KHTMLPart
     QString title() const { return m_title; }
     static QString langLookup( const QString &fname );
 
+    void beginSearchResult();
+    void writeSearchResult( const QString & );
+    void endSearchResult();
+
   public slots:
     void showGlossaryEntry( const GlossaryEntry &entry );
+    void lastSearch();
+
+  signals:
+    void searchResultCacheAvailable();
 
   private slots:
     void setTitle( const QString &title );
@@ -37,6 +45,8 @@ class View : public KHTMLPart
     GlossaryEntry m_glossEntry;
     int m_state;
     QString m_title;
+
+    QString mSearchResult;
 };
 
 }

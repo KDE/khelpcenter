@@ -19,6 +19,7 @@ namespace KHC {
 
 class SearchFormatter;
 class SearchEngine;
+class View;
 
 class SearchTraverser : public QObject, public DocEntryTraverser
 {
@@ -58,14 +59,14 @@ class SearchEngine : public QObject
 {
     Q_OBJECT
   public:
-    SearchEngine( KHTMLPart * );
+    SearchEngine( View * );
     ~SearchEngine();
     
     bool search( QString words, QString method = "and", int matches = 5,
                  QString scope = "" );
 
     SearchFormatter *formatter(); 
-    KHTMLPart *view();
+    View *view();
 
     QString substituteSearchQuery( const QString &query );
 
@@ -86,7 +87,7 @@ class SearchEngine : public QObject
     bool mSearchRunning;
     QString mSearchResult;
 
-    KHTMLPart *mView;
+    View *mView;
     SearchFormatter *mFormatter;
     
     QString mWords;

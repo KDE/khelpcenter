@@ -201,7 +201,31 @@ void View::setTitle( const QString &title )
     m_title = title;
 }
 
-/*
- * vim:et
- */
+void View::beginSearchResult()
+{
+  begin();
+  mSearchResult = "";
+}
+
+void View::writeSearchResult( const QString &str )
+{
+  write( str );
+  mSearchResult += str;
+}
+
+void View::endSearchResult()
+{
+  end();
+  if ( !mSearchResult.isEmpty() ) emit searchResultCacheAvailable();
+}
+
+void View::lastSearch()
+{
+  if ( mSearchResult.isEmpty() ) return;
+  
+  begin();
+  write( mSearchResult );
+  end();
+}
+
 // vim:ts=2:sw=2:et

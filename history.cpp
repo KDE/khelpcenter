@@ -78,7 +78,7 @@ void History::setupActions( KActionCollection *coll )
 void History::installMenuBarHook( KMainWindow *mainWindow )
 {
 	QPopupMenu *goMenu = dynamic_cast<QPopupMenu *>(
-			mainWindow->guiFactory()->container( "go", mainWindow ) );
+			mainWindow->guiFactory()->container( "go_web", mainWindow ) );
 	if ( goMenu ) {
 		connect( goMenu, SIGNAL( aboutToShow() ), this, SLOT( fillGoMenu() ) );
 		connect( goMenu, SIGNAL( activated( int ) ),

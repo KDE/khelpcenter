@@ -648,6 +648,11 @@ void Navigator::selectItem( const KURL &url )
   }
 }
 
+void Navigator::clearSelection()
+{
+  mContentsTree->clearSelection();
+}
+
 void Navigator::slotURLSelected(QString url)
 {
     emit itemSelected(url);
@@ -888,12 +893,17 @@ void Navigator::stopAnimation( NavigatorItem * item )
 
 void Navigator::slotSearch()
 {
+  kdDebug(1400) << "Navigator::slotSearch()" << endl;
+
   if ( !checkSearchIndex() ) return;
 
   QString words = mSearchEdit->text();
   QString method = mSearchWidget->method();
   int pages = mSearchWidget->pages();
   QString scope = mSearchWidget->scope();
+
+  kdDebug(1400) << "Navigator::slotSearch() words: " << words << endl;
+  kdDebug(1400) << "Navigator::slotSearch() scope: " << scope << endl;
 
   if ( words.isEmpty() || scope.isEmpty() ) return;
 
@@ -951,9 +961,10 @@ bool Navigator::checkSearchIndex()
                                            "indexcreation" );
   if ( result == KMessageBox::Yes ) {
     mSearchWidget->slotIndex();
+    return false;
   }
   
-  return false;
+  return true;
 }
 
 void Navigator::slotTabChanged( QWidget *wid )
