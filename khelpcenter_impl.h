@@ -18,6 +18,9 @@
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+#ifndef _HelpWindow_h_
+#define _HelpWindow_h_
+
 #include "khelpcenter.h"
 
 class HelpWindow_Impl : virtual public KHelpCenter::HelpWindow_skel
@@ -46,3 +49,6 @@ public:
 
   virtual KHelpCenter::HelpWindow_ptr create();  
 };
+
+#endif
+
