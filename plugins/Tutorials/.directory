@@ -2,11 +2,13 @@
 [KDE Desktop Entry]
 Name=Tutorials
 Name[de]=Lernhilfen
+Name[eo]=Lernolibroj
 Name[ja]=¥Á¥å¡¼¥È¥ê¥¢¥ë
 Name[pt_BR]=Tutoriais
 MiniIcon=
 Comment=Tutorial and introduction documents.
 Comment[de]=Einführende und zur Einarbeitung dienende Dokumente
+Comment[eo]=Lernolibroj kaj enkondukaj dokumentoj
 Comment[ja]=¥Á¥å¡¼¥È¥ê¥¢¥ë¡¢Æ³Æþ¤ÎÊ¸½ñ
 Comment[pt_BR]=Documentos introdutórios e de tutorial.
 Icon=
