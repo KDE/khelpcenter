@@ -31,6 +31,7 @@
 #include <qtabbar.h>
 #include <qheader.h>
 #include <qdom.h>
+#include <qtextstream.h>
 
 #include <kaction.h>
 #include <kapp.h>
@@ -53,24 +54,24 @@ template class QList<khcNavigatorItem>;
 SectionItem::SectionItem(QListViewItem *parent, const QString &text)
 	: QListViewItem(parent, text)
 {
-	setOpen(false);
+  setOpen(false);
 }
 
 void SectionItem::setOpen(bool open)
 {
-	if (open)
-		setPixmap(0, KGlobal::iconLoader()->loadIcon(QString::fromLatin1("contents"), KIcon::Small));
-	else
-		setPixmap(0, KGlobal::iconLoader()->loadIcon(QString::fromLatin1("contents2"), KIcon::Small));
+  if (open)
+    setPixmap(0, KGlobal::iconLoader()->loadIcon(QString::fromLatin1("contents"), KIcon::Small));
+  else
+    setPixmap(0, KGlobal::iconLoader()->loadIcon(QString::fromLatin1("contents2"), KIcon::Small));
 
-	QListViewItem::setOpen(open);
+  QListViewItem::setOpen(open);
 }
 
 khcNavigator::khcNavigator(QWidget *parentWidget, QObject *parent,
                            const char *name)
     : KParts::ReadOnlyPart(parent,name)
 {
-    kdDebug() << "khcNavigator::khcNavigator\n";
+    kdDebug(1400) << "khcNavigator::khcNavigator\n";
     setInstance( KHCFactory::instance() );
 
     setWidget( new khcNavigatorWidget( parentWidget ) );
@@ -101,7 +102,7 @@ void khcNavigatorExtension::slotItemSelected(const QString& url)
 {
     KParts::URLArgs urlArgs(true, 0, 0);
 
-    kdDebug() << "request URL " << url << endl;
+    kdDebug(1400) << "request URL " << url << endl;
 
     emit openURLRequest( url, urlArgs );
 }
@@ -150,57 +151,92 @@ void khcNavigatorWidget::setupSearchTab()
 
 void khcNavigatorWidget::setupGlossaryTab()
 {
-	glossaryTree = new KListView(this);
-	glossaryTree->setFrameStyle(QFrame::Panel | QFrame::Sunken);
-	glossaryTree->addColumn(QString::null);
-	glossaryTree->header()->hide();
-	glossaryTree->setAllColumnsShowFocus(true);
-	glossaryTree->setRootIsDecorated(true);
-	connect(glossaryTree, SIGNAL(executed(QListViewItem *)),
-			SLOT(slotGlossaryItemSelected(QListViewItem *)));
+    glossaryTree = new KListView(this);
+    glossaryTree->setFrameStyle(QFrame::Panel | QFrame::Sunken);
+    glossaryTree->addColumn(QString::null);
+    glossaryTree->header()->hide();
+    glossaryTree->setAllColumnsShowFocus(true);
+    glossaryTree->setRootIsDecorated(true);
+    connect(glossaryTree, SIGNAL(executed(QListViewItem *)),
+        SLOT(slotGlossaryItemSelected(QListViewItem *)));
 	
-	QListViewItem *byTopicItem = new QListViewItem(glossaryTree, i18n("By topic"));
-	byTopicItem->setPixmap(0, KGlobal::iconLoader()->loadIcon(QString::fromLatin1("help"), KIcon::Small));
+    byTopicItem = new QListViewItem(glossaryTree, i18n("By topic"));
+    byTopicItem->setPixmap(0, KGlobal::iconLoader()->loadIcon(QString::fromLatin1("help"), KIcon::Small));
 	
-	QListViewItem *alphabItem = new QListViewItem(glossaryTree, i18n("Alphabetically"));
-	alphabItem->setPixmap(0, KGlobal::iconLoader()->loadIcon(QString::fromLatin1("charset"), KIcon::Small));
+    alphabItem = new QListViewItem(glossaryTree, i18n("Alphabetically"));
+    alphabItem->setPixmap(0, KGlobal::iconLoader()->loadIcon(QString::fromLatin1("charset"), KIcon::Small));
 
-	addTab(glossaryTree, i18n("Glossary"));
+    addTab(glossaryTree, i18n("Glossary"));
 	
-  QFile glossFile(langLookup(QString::fromLatin1("khelpcenter/glossary/index.docbook")));
-	if (!glossFile.open(IO_ReadOnly))
-		return;
+    meinproc = new KProcess();    
+    connect(meinproc, SIGNAL(receivedStdout(KProcess *, char *, int)),
+        SLOT(gotMeinprocOutput(KProcess *, char *, int)));
+    connect(meinproc, SIGNAL(processExited(KProcess *)),
+        SLOT(meinprocExited(KProcess *)));
 
-	QDomDocument glossDom;
-	if (!glossDom.setContent(&glossFile))
-		return;
+    *meinproc << locate("exe", QString::fromLatin1("meinproc"));
+    *meinproc << QString::fromLatin1("--stdout");
+    *meinproc << langLookup(QString::fromLatin1("khelpcenter/glossary/index.docbook"));
 
-	QDomNodeList glossDivs = glossDom.documentElement().elementsByTagName(QString::fromLatin1("glossdiv"));
-	for (unsigned int i = 0; i < glossDivs.count(); i++) {
-		QString glossDiv = glossDivs.item(i).namedItem(QString::fromLatin1("title")).toElement().text().simplifyWhiteSpace();
-		SectionItem *topicSection = new SectionItem(byTopicItem, glossDiv);
+    meinproc->start(KProcess::NotifyOnExit, KProcess::Stdout);
+}
 
-		QDomNodeList glossEntries = glossDivs.item(i).toElement().elementsByTagName(QString::fromLatin1("glossentry"));
-		for (unsigned int j = 0; j < glossEntries.count(); j++) {
-			QString term = glossEntries.item(j).namedItem(QString::fromLatin1("glossterm")).toElement().text().simplifyWhiteSpace();
+void khcNavigatorWidget::gotMeinprocOutput(KProcess *, char *data, int len)
+{
+  htmlData += QString::fromLatin1(data, len);
+}
+
+void khcNavigatorWidget::meinprocExited(KProcess *)
+{
+  delete meinproc;
+	
+  QDomDocument doc;
+
+  if (!doc.setContent(htmlData))
+    return;
+  
+  QDomNodeList glossDivNodes = doc.documentElement().elementsByTagName(QString::fromLatin1("div"));
+  for (unsigned int i = 0; i < glossDivNodes.count(); i++) {
+    QDomNode glossDivNode = glossDivNodes.item(i);
+    if (glossDivNode.toElement().attribute(QString::fromLatin1("class"), QString::null) != QString::fromLatin1("glossdiv"))
+      continue;
 		
-			if (term.isEmpty())
-				continue;
+    QString glossDiv = glossDivNode.namedItem(QString::fromLatin1("h3")).toElement().text().simplifyWhiteSpace();
+    SectionItem *topicSection = new SectionItem(byTopicItem, glossDiv);
 
-			(void) new QListViewItem(topicSection, term);
+    QDomNodeList glossEntryNodes = glossDivNode.toElement().elementsByTagName(QString::fromLatin1("dt"));
+    for (unsigned int j = 0; j < glossEntryNodes.count(); j++) {
+      QDomNode glossEntryNode = glossEntryNodes.item(j);
+      QString term = glossEntryNode.namedItem(QString::fromLatin1("a")).toElement().text().simplifyWhiteSpace();
+		
+      (void) new QListViewItem(topicSection, term);
 
-			SectionItem *alphabSection = 0L;
-			for (QListViewItemIterator it(alphabItem); it.current(); it++)
-				if (it.current()->text(0) == term[0].upper()) {
-					alphabSection = static_cast<SectionItem *>(it.current());
-					break;
-				}
+      SectionItem *alphabSection = 0L;
+      for (QListViewItemIterator it(alphabItem); it.current(); it++)
+        if (it.current()->text(0) == term[0].upper()) {
+          alphabSection = static_cast<SectionItem *>(it.current());
+          break;
+        }
 
-			if (!alphabSection)
-				alphabSection = new SectionItem(alphabItem, term[0].upper());
+      if (!alphabSection)
+        alphabSection = new SectionItem(alphabItem, term[0].upper());
 
-			(void) new QListViewItem(alphabSection, term);
-		}
+      (void) new QListViewItem(alphabSection, term);
+
+      glossEntryNode = glossEntryNode.nextSibling();
+
+      QString definition;
+      QTextStream defStream(&definition, IO_WriteOnly);
+      defStream << glossEntryNode.namedItem(QString::fromLatin1("p")).toElement();
+
+      QStringList seeAlso;
+      QDomNodeList seeAlsoNodes = glossEntryNode.toElement().elementsByTagName(QString::fromLatin1("p"));
+      // Skip first <p> element as it contained the definition.
+      for (unsigned int k = 1; k < seeAlsoNodes.count(); k++)
+        seeAlso += seeAlsoNodes.item(k).namedItem(QString::fromLatin1("a")).toElement().text().simplifyWhiteSpace();
+
+      glossEntries.insert(term, new GlossaryEntry(term, definition, seeAlso));
+    }
   }
 }
 
@@ -425,12 +461,12 @@ void khcNavigatorWidget::insertScrollKeeperItems()
     proc << KGlobal::locale()->language();
     connect(&proc,SIGNAL(readReady(KProcIO *)),SLOT(getScrollKeeperContentsList(KProcIO *)));
     if (!proc.start(KProcess::Block)) {
-      kdDebug() << "Could not execute scrollkeeper-get-content-list" << endl;
+      kdDebug(1400) << "Could not execute scrollkeeper-get-content-list" << endl;
       return;
     }
     
     if (!QFile::exists(mScrollKeeperContentsList)) {
-      kdDebug() << "Scrollkeeper contents file '" << mScrollKeeperContentsList
+      kdDebug(1400) << "Scrollkeeper contents file '" << mScrollKeeperContentsList
                 << "' does not exist." << endl;
       return;
     }
@@ -553,13 +589,16 @@ void khcNavigatorWidget::slotURLSelected(QString url)
 
 void khcNavigatorWidget::slotGlossaryItemSelected(QListViewItem *item)
 {
-	if (!item)
-		return;
+  if (!item)
+    return;
 	
-	if (dynamic_cast<SectionItem *>(item->parent()))
-		emit glossSelected(item->text(0));
-
-	item->setOpen(!item->isOpen());
+  if (dynamic_cast<SectionItem *>(item->parent())) {
+    GlossaryEntry *entry = glossEntries[item->text(0)];
+    kdDebug(1400) << "Emitting entry " << entry->term << endl;
+    emit glossSelected(*entry);
+  }
+  
+  item->setOpen(!item->isOpen());
 }
 
 void khcNavigatorWidget::slotItemSelected(QListViewItem* currentItem)
@@ -725,14 +764,14 @@ QString khcNavigatorWidget::langLookup(const QString &fname)
     QStringList::Iterator it;
     for (it = search.begin(); it != search.end(); ++it)
     {
-        kdDebug() << "Looking for help in: " << *it << endl;
+        kdDebug(1400) << "Looking for help in: " << *it << endl;
 
         QFileInfo info(*it);
         if (info.exists() && info.isFile() && info.isReadable())
             return *it;
 
         QString file = (*it).left((*it).findRev('/')) + "/index.docbook";
-        kdDebug() << "Looking for help in: " << file << endl;
+        kdDebug(1400) << "Looking for help in: " << file << endl;
         info.setFile(file);
         if (info.exists() && info.isFile() && info.isReadable())
             return *it;

@@ -27,6 +27,7 @@
 #include <kparts/part.h>
 #include <qtabwidget.h>
 #include <qlistview.h>
+#include <kprocess.h>
 
 class SearchWidget;
 class khcNavigatorItem;
@@ -37,10 +38,10 @@ class KProcIO;
 
 class SectionItem : public QListViewItem
 {
-	public:
-		SectionItem(QListViewItem *, const QString &);
+  public:
+    SectionItem(QListViewItem *, const QString &);
 
-		virtual void setOpen(bool);
+    virtual void setOpen(bool);
 };
 
 class khcNavigatorExtension : public KParts::BrowserExtension
@@ -76,8 +77,23 @@ class khcNavigatorWidget : public QTabWidget
     Q_OBJECT
 
  public:
+    struct GlossaryEntry {
+      GlossaryEntry(const QString &t, const QString &d, const QStringList &sa)
+      {
+        term = t;
+        definition = d;
+        seeAlso = sa;
+      }
+			
+      QString term;
+      QString definition;
+      QStringList seeAlso;
+    };
+    
     khcNavigatorWidget(QWidget *parent=0, const char *name=0);
     virtual ~khcNavigatorWidget();
+
+		GlossaryEntry glossEntry(const QString &term) const { return *glossEntries[term]; }
 
  public slots:
     void slotURLSelected(QString url);
@@ -87,20 +103,23 @@ class khcNavigatorWidget : public QTabWidget
 
  signals:
     void itemSelected(const QString& itemURL);
-    void glossSelected(const QString& entry);
+    void glossSelected(const khcNavigatorWidget::GlossaryEntry& entry);
     void setBussy(bool bussy);
 
  private slots:
     void getScrollKeeperContentsList(KProcIO *proc);
+    void gotMeinprocOutput(KProcess *, char *data, int len);
+    void meinprocExited(KProcess *);
 
  private:
     void setupContentsTab();
     void setupIndexTab();
     void setupSearchTab();
     void setupGlossaryTab();
+    void buildGlossaryCache();
     void buildTree();
     void clearTree();
-		QString langLookup(const QString &);
+    QString langLookup(const QString &);
 
     void buildManSubTree(khcNavigatorItem *parent);
 
@@ -115,6 +134,7 @@ class khcNavigatorWidget : public QTabWidget
     bool appendEntries (const QString &dirName,  khcNavigatorItem *parent, QList<khcNavigatorItem> *appendList);
     bool processDir(const QString &dirName, khcNavigatorItem *parent,  QList<khcNavigatorItem> *appendList);
 
+    QListViewItem *byTopicItem, *alphabItem;
     KListView *contentsTree, *glossaryTree;
     SearchWidget *search;
 
@@ -122,6 +142,10 @@ class khcNavigatorWidget : public QTabWidget
 
     bool mScrollKeeperShowEmptyDirs;
     QString mScrollKeeperContentsList;
+    
+    QDict<GlossaryEntry> glossEntries;
+    KProcess *meinproc;
+    QString htmlData;
 };
 
 #endif

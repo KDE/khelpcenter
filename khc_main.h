@@ -5,10 +5,10 @@
 #include <kmainwindow.h>
 #include <kio/job.h>
 #include <kparts/browserextension.h>
+#include "khc_navigator.h"
 
 class KHTMLPart;
 class QSplitter;
-class khcNavigator;
 
 class KHMainWindow : public KMainWindow
 {
@@ -22,7 +22,7 @@ public slots:
     void slotStarted(KIO::Job *job);
     void slotInfoMessage(KIO::Job *, const QString &);
     void openURL(const QString &url);
-    void slotGlossSelected(const QString &entry);
+    void slotGlossSelected(const khcNavigatorWidget::GlossaryEntry &entry);
     void slotOpenURLRequest( const KURL &url,
                          const KParts::URLArgs &args);
 

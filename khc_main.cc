@@ -77,8 +77,8 @@ KHMainWindow::KHMainWindow(const KURL &url)
     nav = new khcNavigator(splitter, this, "nav");
     connect(nav->widget(), SIGNAL(itemSelected(const QString &)),
             SLOT(openURL(const QString &)));
-    connect(nav->widget(), SIGNAL(glossSelected(const QString &)),
-            SLOT(slotGlossSelected(const QString &)));
+    connect(nav->widget(), SIGNAL(glossSelected(const khcNavigatorWidget::GlossaryEntry &)),
+            SLOT(slotGlossSelected(const khcNavigatorWidget::GlossaryEntry &)));
 
     splitter->moveToFirst(nav->widget());
     splitter->setResizeMode(nav->widget(), QSplitter::KeepSize);
@@ -108,7 +108,7 @@ void KHMainWindow::slotOpenURLRequest( const KURL &url,
                                        const KParts::URLArgs &)
 {
     if (url.protocol() == QString::fromLatin1("glossentry"))
-        slotGlossSelected(KURL::decode_string(url.encodedPathAndQuery()));
+        slotGlossSelected(static_cast<khcNavigatorWidget *>(nav->widget())->glossEntry(KURL::decode_string(url.encodedPathAndQuery())));
     else
         doc->openURL(url);
 }
@@ -123,46 +123,29 @@ void KHMainWindow::openURL(const QString &url)
     doc->openURL(KURL(url));
 }
 
-void KHMainWindow::slotGlossSelected(const QString &term)
+void KHMainWindow::slotGlossSelected(const khcNavigatorWidget::GlossaryEntry &entry)
 {
-    QFile glossFile(langLookup(QString::fromLatin1("khelpcenter/glossary/index.docbook")));
-    if (!glossFile.open(IO_ReadOnly))
-        return;
-
-    QDomDocument glossDom;
-    if (!glossDom.setContent(&glossFile))
-        return;
-
-    QDomNodeList glossEntries = glossDom.documentElement().elementsByTagName(QString::fromLatin1("glossentry"));
-    QDomNode glossEntry;
-    
-    for (unsigned int i = 0; i < glossEntries.count(); i++) {
-        glossEntry = glossEntries.item(i); 
-        if (term == glossEntry.namedItem(QString::fromLatin1("glossterm")).toElement().text().simplifyWhiteSpace())
-            break;
-    }
-		
-    QString definition = glossEntry.namedItem(QString::fromLatin1("glossdef")).firstChild().toElement().text().simplifyWhiteSpace();
-
-    QString seeAlso, seeAlsos;
-    QDomNodeList seeAlsoNodes = glossEntry.toElement().elementsByTagName(QString::fromLatin1("glossseealso"));
-    for (unsigned int i = 0; i < seeAlsoNodes.count(); i++) {
-        seeAlso = seeAlsoNodes.item(i).toElement().text().simplifyWhiteSpace();
-        if (seeAlso.isEmpty())
-            continue;
-        if (seeAlsos.isEmpty())
-            seeAlsos = i18n("See also: ");
-        seeAlsos += QString::fromLatin1("<a href=\"glossentry:%1\">%2</a>, ").arg(seeAlso).arg(seeAlso);
-    }
-    if (!seeAlsos.isEmpty())
-        seeAlsos = seeAlsos.left(seeAlsos.length() - 2);
-    
     QFile htmlFile(langLookup(QString::fromLatin1("khelpcenter/glossary.html")));
     if (!htmlFile.open(IO_ReadOnly))
         return;
 
+    QString seeAlso;
+    if (!entry.seeAlso.isEmpty()) {
+        seeAlso = i18n("See also: ");
+        QStringList seeAlsos = entry.seeAlso;
+        QStringList::Iterator it = seeAlsos.begin();
+        QStringList::Iterator end = seeAlsos.end();
+        for (; it != end; ++it) {
+            seeAlso += QString::fromLatin1("<a href=\"glossentry:");
+            seeAlso += (*it).latin1();
+            seeAlso += QString::fromLatin1("\">") + (*it).latin1();
+            seeAlso += QString::fromLatin1("</a>, ");
+        }
+        seeAlso = seeAlso.left(seeAlso.length() - 2);
+    }
+
     QTextStream htmlStream(&htmlFile);
-    QString htmlSrc = htmlStream.read().arg(term).arg(definition).arg(seeAlsos);
+    QString htmlSrc = htmlStream.read().arg(entry.term).arg(entry.definition).arg(seeAlso);
 
     KURL dataDir = langLookup(QString::fromLatin1("khelpcenter/glossary.html"));
     
