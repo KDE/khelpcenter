@@ -110,15 +110,16 @@ void khcMainView::init()
   if (!CORBA::is_nil(toolBarManager))
     toolBarManager->registerClient(id(), this);
   
-  //OpenParts::StatusBarManager_var statusBarManager = m_vMainWindow->statusBarManager();
-  //if (!CORBA::is_nil(statusBarManager))
-  //  m_vStatusBar = statusBarManager->registerClient(id());
+  OpenParts::StatusBarManager_var statusBarManager = m_vMainWindow->statusBarManager();
+  if (!CORBA::is_nil(statusBarManager))
+    m_vStatusBar = statusBarManager->registerClient(id());
   
   // this is causing a MICO exception when called by khcclient ?!?
   // add a statusbar field
   //CORBA::WString_var item = Q2C(i18n("KDE Helpcenter"));
-  //if (!CORBA::is_nil(m_vStatusBar))
+  if (!CORBA::is_nil(m_vStatusBar))
   ///  m_vStatusBar->insertItem(item, 1);
+    m_vStatusBar->insertItem( i18n( "KDE Helpcenter" ), 1 );
   
   // the splitter managing the OPFrame and khcNavigator
   m_pSplitter = new QSplitter(QSplitter::Horizontal, this);
