@@ -1,8 +1,0 @@
-1999-03-08  Matthias Elter	<me@kde.org>
-	* QT2.0 fixes
-	
-1999-01-19  Christophe Prud'homme  <Christophe.Prudhomme@ann.jussieu.fr>
-
-	* Makefile.am: kwelcome.kdelnk --> KWelcome.kdelnk it was kdelink
- 	file present in this directory. Now install process goes smoothly
-
