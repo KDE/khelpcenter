@@ -49,6 +49,7 @@
 #include <kprocio.h>
 #include <kcharsets.h>
 #include <kdialog.h>
+#include <kdesktopfile.h>
 
 #include "navigatoritem.h"
 #include "navigatorappitem.h"
@@ -251,6 +252,8 @@ void Navigator::buildTree()
   // Welcome page
   NavigatorItem *ti_welcome = new NavigatorItem(contentsTree, i18n("Welcome to KDE"),"document2");
   ti_welcome->setUrl(QString("help:/khelpcenter/index.html?anchor=welcome"));
+
+  insertAppletDocs();
 
   contentsTree->setCurrentItem(ti_welcome);
 }
@@ -683,15 +686,18 @@ void Navigator::slotItemSelected(QListViewItem* currentItem)
   if (!item->url().isEmpty()) {
     KURL u = item->url();
     if ( u.protocol() == "help" ) {
+      kdDebug( 1400 ) << "slotURLSelected(): Got help URL " << item->url() << endl;
       tocTree->setApplication( u.directory() );
       QString doc = View::langLookup( u.path() );
       // Enforce the original .docbook version, in case langLookup returns a
       // cached version
-      doc.replace( doc.find( ".html" ), 5, ".docbook" );
-      kdDebug( 1400 ) << "slotURLSelected(): doc = " << doc << endl;
+      if ( !doc.isNull() ) {
+        doc.replace( doc.find( ".html" ), 5, ".docbook" );
+        kdDebug( 1400 ) << "slotURLSelected(): doc = " << doc << endl;
 
-      tocTree->build( doc );
-      mTabWidget->setCurrentPage( mTabWidget->indexOf( tocTree ) );
+        tocTree->build( doc );
+        mTabWidget->setCurrentPage( mTabWidget->indexOf( tocTree ) );
+      }
     }
     emit itemSelected(item->url());
   }
@@ -922,6 +928,31 @@ void Navigator::hideSearch()
 {
   mSearchFrame->hide();
   mTabWidget->removePage( mSearchWidget );
+}
+
+void Navigator::insertAppletDocs()
+{
+  QDir appletDir;
+  appletDir.setPath( locate( "data", "kicker/applets/" ) );
+  
+  QStringList desktopFiles = appletDir.entryList( "*.desktop", QDir::Files );
+
+  contentsTree->setRootIsDecorated( true );
+  NavigatorItem *appletDocItem = new NavigatorItem( contentsTree, i18n( "Applet manuals" ) );
+
+  QStringList::ConstIterator it = desktopFiles.begin();
+  QStringList::ConstIterator end = desktopFiles.end();
+  for ( ; it != end; ++it ) {
+    KDesktopFile desktopFile( appletDir.absPath() + "/" + *it );
+    kdDebug( 1400 ) << "Processing applets" << desktopFile.readName() << endl;
+    QString desktopPath = desktopFile.readDocPath();
+    if ( !desktopPath.isNull() ) {
+      kdDebug( 1400 ) << "Found applet with docpath: " << desktopFile.readName() << endl;
+      NavigatorItem *item = new NavigatorItem( appletDocItem, desktopFile.readName() );
+      kdDebug( 1400 ) << "Setting URL -> help:/" + desktopPath << endl;
+      item->setUrl( "help:/" + desktopPath );
+    }
+  }
 }
 
 // vim:et:ts=2:sw=2

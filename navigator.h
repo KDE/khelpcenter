@@ -114,6 +114,8 @@ class Navigator : public QWidget
     int insertScrollKeeperSection(NavigatorItem *parentItem,QDomNode sectNode);
     void insertScrollKeeperDoc(NavigatorItem *parentItem,QDomNode docNode);
 
+    void insertAppletDocs();
+
     void hideSearch();
 
     KListView *contentsTree;
