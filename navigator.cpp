@@ -375,8 +375,19 @@ void Navigator::slotItemSelected( QListViewItem* currentItem )
       while ( child ) {
         NavigatorItem *childItem = static_cast<NavigatorItem *>( child );
         
-        t += "<li><a href=\"" + childItem->entry()->url() + "\">";
-        t += childItem->entry()->name() + "</a></li>\n";
+        DocEntry *e = childItem->entry();
+        
+        t += "<li><a href=\"" + e->url() + "\">";
+        if ( e->isDirectory() ) t += "<b>";
+        t += e->name();
+        if ( e->isDirectory() ) t += "</b>";
+        t += "</a>";
+        
+        if ( !e->info().isEmpty() ) {
+          t += "<br>" + e->info();
+        }
+        
+        t += "</li>\n";
         
         child = child->nextSibling();
       }
