@@ -66,7 +66,7 @@ void Listener::slotAppRegistered( const QCString &appId )
     str << "View2_PassiveMode=false" << endl;
     str << "View2_ServiceName=KonqHTMLView" << endl;
     str << "View2_ServiceType=text/html" << endl;
-    str << "View2_URL=" << QString("file:" + locate("html", "default/khelpcenter/main.html")) << endl;
+    str << "View2_URL=" << QString("help:/khelpcenter/main.html") << endl;
 
     f.close();
 

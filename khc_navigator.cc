@@ -147,17 +147,17 @@ void khcNavigatorWidget::buildTree()
 {
   // kde contacts
   khcNavigatorItem *ti_contact = new khcNavigatorItem(tree, i18n("Contact Information"), "helpdoc.png");
-  ti_contact->setURL(QString("file:" + locate("html", "default/khelpcenter/contact.html")));
+  ti_contact->setURL(QString("help:/khelpcenter/contact.html"));
   staticItems.append(ti_contact);  
   
   // kde links
   khcNavigatorItem *ti_links = new khcNavigatorItem(tree, i18n("KDE on the web"), "helpdoc.png");
-  ti_links->setURL(QString("file:" + locate("html", "default/khelpcenter/links.html")));
+  ti_links->setURL(QString("help:/khelpcenter/links.html"));
   staticItems.append(ti_links);
 
   // KDE FAQ
   khcNavigatorItem *ti_faq = new khcNavigatorItem(tree, i18n("The KDE FAQ"), "helpdoc.png");
-  ti_faq->setURL(QString("file:" + locate("html", "default/khelpcenter/faq/index.html")));
+  ti_faq->setURL(QString("help:khelpcenter/faq/index.html"));
   staticItems.append(ti_faq);
 
   // scan plugin dir for plugins
@@ -185,17 +185,17 @@ void khcNavigatorWidget::buildTree()
 
   // KDE user's manual
   khcNavigatorItem *ti_um = new khcNavigatorItem(tree, i18n("KDE user's manual"), "helpdoc.png");
-  ti_um->setURL(QString("file:" + locate("html", "default/khelpcenter/userguide/index.html")));
+  ti_um->setURL(QString("help:/khelpcenter/userguide/index.html"));
   staticItems.append(ti_um);
  
   // KDE quickstart guide
   khcNavigatorItem *ti_qs = new khcNavigatorItem(tree, i18n("Introduction to KDE"), "helpdoc.png");
-  ti_qs->setURL(QString("file:" + locate("html", "default/khelpcenter/quickstart/index.html")));
+  ti_qs->setURL(QString("help:/khelpcenter/quickstart/index.html"));
   staticItems.append(ti_qs);
 
   // introduction page
   khcNavigatorItem *ti_intro = new khcNavigatorItem(tree, i18n("Introduction"), "helpdoc.png");
-  ti_intro->setURL(QString("file:" + locate("html", "default/khelpcenter/main.html")));
+  ti_intro->setURL(QString("help:/khelpcenter/main.html"));
   staticItems.append(ti_intro);
     
   tree->setCurrentItem(ti_intro);
