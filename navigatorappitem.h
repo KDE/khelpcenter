@@ -34,12 +34,14 @@ class NavigatorAppItem : public NavigatorItem
     NavigatorAppItem (QListView* parent, const QString& text, const QString& miniicon, const QString& relpath);
     NavigatorAppItem (QListViewItem* parent, const QString& text, const QString& miniicon, const QString& relpath);
 
+    void setRelpath( const QString & );
+
     virtual void setOpen(bool);
 
  protected:
     QString documentationURL(KService *s);
 
-    QString relpath;
+    QString mRelpath;
 };
 
 }

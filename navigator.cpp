@@ -196,10 +196,15 @@ class PluginTraverser : public DocEntryTraverser
 #endif
 
       if (entry->khelpcenterSpecial() == "apps") {
+        NavigatorAppItem *appItem;
         if ( mListView )
-          mCurrentItem = new NavigatorAppItem( mListView, mCurrentItem );
+          appItem = new NavigatorAppItem( mListView, mCurrentItem );
         else
-          mCurrentItem = new NavigatorAppItem( mParentItem, mCurrentItem );
+          appItem = new NavigatorAppItem( mParentItem, mCurrentItem );
+        KConfig *cfg = kapp->config();
+        cfg->setGroup( "General" );
+        appItem->setRelpath( cfg->readEntry( "AppsRoot" ) );
+        mCurrentItem = appItem;
       } else if ( entry->khelpcenterSpecial() == "scrollkeeper" ) {
         if ( mParentItem ) {
           mCurrentItem = mNavigator->insertScrollKeeperDocs( mParentItem,

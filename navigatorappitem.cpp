@@ -38,25 +38,30 @@ NavigatorAppItem::NavigatorAppItem(QListViewItem *parent, QListViewItem *after)
 
 NavigatorAppItem::NavigatorAppItem (QListView* parent, const QString& text, const QString& miniicon, const QString& _relpath)
  : NavigatorItem(parent, text, miniicon)
- , relpath(_relpath)
+ , mRelpath(_relpath)
 {
   setExpandable(true);
 }
  
 NavigatorAppItem::NavigatorAppItem (QListViewItem* parent, const QString& text, const QString& miniicon, const QString& _relpath)
  : NavigatorItem(parent, text, miniicon)
- , relpath(_relpath)
+ , mRelpath(_relpath)
 {
   setExpandable(true);
+}
+
+void NavigatorAppItem::setRelpath( const QString &relpath )
+{
+  mRelpath = relpath;
 }
 
 void NavigatorAppItem::setOpen(bool open)
 {
   if ( open && (childCount() == 0) )
   {
-     kdWarning() << "NavigatorAppItem::setOpen(" << this << ", "
-                 << relpath << ")" << endl;
-     KServiceGroup::Ptr root = KServiceGroup::group(relpath);
+     kdDebug() << "NavigatorAppItem::setOpen(" << this << ", "
+               << mRelpath << ")" << endl;
+     KServiceGroup::Ptr root = KServiceGroup::group(mRelpath);
      if (!root) {
         kdWarning() << "No Service groups\n";
         return;
