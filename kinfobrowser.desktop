@@ -1,0 +1,47 @@
+[Desktop Entry]
+Type=Application
+Terminal=0
+Icon=kinfobrowser
+DocPath=khelpcenter/kinfobrowser.html
+Exec=kinfobrowser %i %m -caption "%c"
+ServiceTypes=Infobrowser
+
+X-KDE-RepoIds=IDL:KInfoBrowser/Application:1.0#App
+X-KDE-ActivationMode=shared
+
+Name=Info Browser
+Name[ca]=Fullejador d'informació
+Name[cs]=Prohlížeč info souborů
+Name[de]=Info-Browser
+Name[eo]=Info-rigardilo
+Name[fi]=Infoselain
+Name[fr]=Navigateur Info
+Name[hu]=Infó Böngésző
+Name[it]=Browser info
+Name[ja]=Infoブラウザ
+Name[no]=Infolos
+Name[no_NY]=Info-lesar
+Name[pt]=Visualizador de Ficheiros Info
+Name[ro]=Navigator INFO
+Name[sl]=Pregledovalnik Info
+Name[sv]=Infobläddrare
+Name[ta]=¾¸Åø ¯Ä¡Å¢
+
+Comment=Browse GNU "info" formatted files
+Comment[ca]=Fulleja fitxers amb format "info" de GNU
+Comment[cs]=Prohlíží GNU "info" soubory
+Comment[de]=GNU Infodateien durchsehen
+Comment[eo]=Rigardas dosierojn de la tipo GNU-Info
+Comment[fi]=Selaa GNU "info"-tiedostoja
+Comment[fr]=Navigation dans les fichiers GNU "info"
+Comment[hu]=GNU infó fájl böngésző
+Comment[it]=Sfoglia i file in formato GNU "info"
+Comment[ja]=GNU "info" フォーマットファイルを見る
+Comment[no]=Bla gjennom GNU-"info"-formaterte filer
+Comment[no_NY]=Les GNU "info"-filer
+Comment[pt]=Visualizador de Ficheiros Info
+Comment[ro]=Navigator de fişiere GNU "info"
+Comment[sl]=Pregledujmo datoteke formata GNU "info"
+Comment[sv]=Bläddra i GNU "info"-formaterade filer
+Comment[ta]=GNU "info" ÅÊÅ §¸¡ôÒ¸¨Ç §Á§Ä¡Î
+
