@@ -540,11 +540,6 @@ void Navigator::clearSelection()
   mContentsTree->clearSelection();
 }
 
-void Navigator::slotURLSelected(QString url)
-{
-    emit itemSelected(url);
-}
-
 void Navigator::slotItemSelected(QListViewItem* currentItem)
 {
   if (!currentItem)
@@ -584,10 +579,10 @@ void Navigator::slotItemSelected(QListViewItem* currentItem)
   if (!item->url().isEmpty()) {
     KURL u = item->url();
     if ( u.protocol() == "help" ) {
-      kdDebug( 1400 ) << "slotURLSelected(): Got help URL " << item->url() << endl;
+      kdDebug( 1400 ) << "slotItemSelected(): Got help URL " << item->url() << endl;
       if ( !item->toc() ) {
         TOC *tocTree = item->createTOC();
-        kdDebug( 1400 ) << "slotURLSelected(): Trying to build TOC for " << item->name() << endl;
+        kdDebug( 1400 ) << "slotItemSelected(): Trying to build TOC for " << item->name() << endl;
         tocTree->setApplication( u.directory() );
         QString doc = View::langLookup( u.path() );
         // Enforce the original .docbook version, in case langLookup returns a
@@ -597,7 +592,7 @@ void Navigator::slotItemSelected(QListViewItem* currentItem)
           if ( pos >= 0 ) {
             doc.replace( pos, 5, ".docbook" );
           }
-          kdDebug( 1400 ) << "slotURLSelected(): doc = " << doc << endl;
+          kdDebug( 1400 ) << "slotItemSelected(): doc = " << doc << endl;
 
           tocTree->build( doc );
         }
@@ -640,7 +635,7 @@ void Navigator::slotShowSearchResult( const QString &url )
   QString u = url;
   u.replace( "%k", mSearchEdit->text() );
 
-  slotURLSelected( u );
+  emit itemSelected( u );
 }
 
 void Navigator::slotSearchFinished()

@@ -75,15 +75,10 @@ class Navigator : public QWidget
     void clearSelection();
 
   public slots:
-    void slotURLSelected(QString url);
     void slotItemSelected(QListViewItem* index);
-
     void slotSearch();
-
     void slotShowSearchResult( const QString & );
-
     void slotSelectGlossEntry( const QString &id );
-
     void showPreferencesDialog();
 
   signals:
