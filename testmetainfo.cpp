@@ -23,7 +23,7 @@ class MyTraverser : public DocEntryTraverser
 #endif
     }
   
-    DocEntryTraverser *createChild()
+    DocEntryTraverser *createChild( DocEntry * )
     {
       return new MyTraverser( mIndent + "  " );
     }
@@ -40,7 +40,12 @@ class LinearTraverser : public DocEntryTraverser
       kdDebug() << "PROCESS: " << entry->name() << endl;
     }
     
-    DocEntryTraverser *createChild()
+    DocEntryTraverser *createChild( DocEntry * )
+    {
+      return this;
+    }
+    
+    DocEntryTraverser *parentTraverser()
     {
       return this;
     }
@@ -66,7 +71,7 @@ class AsyncTraverser : public DocEntryTraverser
       kdDebug() << mIndent << entry->name() << endl;
     }
     
-    DocEntryTraverser *createChild()
+    DocEntryTraverser *createChild( DocEntry * )
     {
 //      kdDebug() << "AsyncTraverser::childTraverser()" << endl;
       return new AsyncTraverser( mIndent + "  " );

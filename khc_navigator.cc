@@ -823,7 +823,7 @@ class PluginTraverser : public DocEntryTraverser
       mListView( listView ), mParentItem( 0 ), mCurrentItem( 0 ) {}
     PluginTraverser( khcNavigatorItem *listViewItem  ) :
       mListView( 0 ), mParentItem( listViewItem ), mCurrentItem( 0 ) {}
-    
+
     void process( DocEntry *entry )
     {
       if ( mListView ) {
@@ -850,7 +850,7 @@ class PluginTraverser : public DocEntryTraverser
       }
     }
 
-    DocEntryTraverser *createChild()
+    DocEntryTraverser *createChild( DocEntry * )
     {
       if ( mCurrentItem ) return new PluginTraverser( mCurrentItem );
       kdDebug() << "ERROR! mCurrentItem is not set." << endl;

@@ -28,7 +28,11 @@
 SearchTraverser::SearchTraverser( SearchEngine *engine, int level ) :
   mEngine( engine), mLevel( level ), mEntry( 0 )
 {
-//  kdDebug() << "SearchTraverser(): " << mLevel << endl;
+#if 0
+  kdDebug() << "SearchTraverser(): " << mLevel << endl;
+
+  kdDebug() << "  0x" << QString::number( int( this ), 16 ) << endl;
+#endif
 }
 
 SearchTraverser::~SearchTraverser()
@@ -39,7 +43,21 @@ SearchTraverser::~SearchTraverser()
   } else {
     kdDebug() << "~SearchTraverser(): null entry" << endl;
   }
+
+  kdDebug() << "  0x" << QString::number( int( this ), 16 ) << endl;
 #endif
+
+  QString section;
+  if ( parentEntry() ) {
+    section = parentEntry()->name();
+  } else {
+    section = ("Unknown Section");
+  }
+
+  if ( !mResult.isEmpty() ) {
+    mEngine->view()->write( mEngine->formatter()->sectionHeader( section ) );
+    mEngine->view()->write( mResult );
+  }
 }
 
 void SearchTraverser::process( DocEntry * )
@@ -58,8 +76,6 @@ void SearchTraverser::startProcess( DocEntry *entry )
     return;
   }
 
-  mEngine->view()->write( mEngine->formatter()->docTitle( entry->name() ) );
-
   QString search = mEngine->substituteSearchQuery( entry->search() );
 
   kdDebug() << "SearchTraverser::startProcess(): search: " << search << endl;
@@ -75,9 +91,36 @@ void SearchTraverser::startProcess( DocEntry *entry )
 //  kdDebug() << "SearchTraverser::startProcess() done: " << entry->name() << endl;
 }
 
-DocEntryTraverser *SearchTraverser::createChild()
+DocEntryTraverser *SearchTraverser::createChild( DocEntry *parentEntry )
 {
-  return new SearchTraverser( mEngine, mLevel + 1 );
+  if ( mLevel >= 3 ) {
+    ++mLevel;
+    return this;
+  } else {
+    DocEntryTraverser *t = new SearchTraverser( mEngine, mLevel + 1 );
+    t->setParentEntry( parentEntry );
+    return t;
+  }
+}
+
+DocEntryTraverser *SearchTraverser::parentTraverser()
+{
+//  kdDebug() << "SearchTraverser::parentTraverser(): level: " << mLevel << endl;
+
+  if ( mLevel > 3 ) {
+    return this;
+  } else {
+    return mParent;
+  }
+}
+
+void SearchTraverser::deleteTraverser()
+{
+  if ( mLevel > 3 ) {
+    --mLevel;
+  } else {
+    delete this;
+  }
 }
 
 void SearchTraverser::slotJobResult( KIO::Job *job )
@@ -88,7 +131,8 @@ void SearchTraverser::slotJobResult( KIO::Job *job )
     job->showErrorDialog( mEngine->view()->widget() );
   }
 
-  mEngine->view()->write( mEngine->formatter()->processResult( mJobData ) );
+  mResult += mEngine->formatter()->docTitle( mEntry->name() );
+  mResult += mEngine->formatter()->processResult( mJobData );
 
   mNotifyee->endProcess( mEntry, this );
 }

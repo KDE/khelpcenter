@@ -22,11 +22,15 @@ DocMetaInfo *DocMetaInfo::self()
 
 DocMetaInfo::DocMetaInfo()
 {
+  kdDebug() << "DocMetaInfo()" << endl;
+
   mRootEntry.setName( "root entry" );
 }
 
 DocMetaInfo::~DocMetaInfo()
 {
+  kdDebug() << "~DocMetaInfo()" << endl;
+
   DocEntry::List::ConstIterator it;
   for( it = mDocEntries.begin(); it != mDocEntries.end(); ++it ) {
     delete *it;
@@ -145,7 +149,7 @@ void DocMetaInfo::traverseEntry( DocEntry *entry, DocEntryTraverser *traverser )
   for( it = children.begin(); it != children.end(); ++it ) {
     traverser->process( *it );
     if ( (*it)->hasChildren() ) {
-      DocEntryTraverser *t = traverser->childTraverser();
+      DocEntryTraverser *t = traverser->childTraverser( *it );
       traverseEntry( *it, t );
       t->deleteTraverser();
     }
@@ -189,13 +193,14 @@ void DocMetaInfo::endProcess( DocEntry *entry, DocEntryTraverser *traverser )
   }
   
   if ( entry->hasChildren() ) {
-    startTraverseEntry( entry->firstChild(), traverser->childTraverser() );
+    startTraverseEntry( entry->firstChild(), traverser->childTraverser( entry ) );
   } else if ( entry->nextSibling() ) {
     startTraverseEntry( entry->nextSibling(), traverser );
   } else {
     DocEntry *parent = entry->parent();
+    DocEntryTraverser *parentTraverser = 0;
     while ( parent ) {
-      DocEntryTraverser *parentTraverser = traverser->parentTraverser();
+      parentTraverser = traverser->parentTraverser();
       traverser->deleteTraverser();
       if ( parent->nextSibling() ) {
         startTraverseEntry( parent->nextSibling(), parentTraverser );
@@ -217,7 +222,8 @@ void DocMetaInfo::endTraverseEntries( DocEntryTraverser *traverser )
 
   if ( !traverser ) {
     kdDebug() << " no more traversers." << endl;
+    return;
   }
-  
+
   traverser->finishTraversal();
 }

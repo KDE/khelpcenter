@@ -30,6 +30,8 @@ class QListView;
 
 class KLanguageCombo;
 
+class ScopeItem;
+
 class SearchWidget : public QWidget
 {
     Q_OBJECT
@@ -42,6 +44,10 @@ class SearchWidget : public QWidget
     QString scope();
 
     void updateScopeList();
+
+    void registerScopeItem( ScopeItem * );
+
+    QListView *listView() { return mScopeListView; }
 
   signals:
     void searchResult( const QString &url );

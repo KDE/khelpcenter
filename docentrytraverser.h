@@ -7,7 +7,7 @@ class DocMetaInfo;
 class DocEntryTraverser
 {
   public:
-    DocEntryTraverser() : mNotifyee( 0 ), mParent( 0 ) {}
+    DocEntryTraverser() : mNotifyee( 0 ), mParent( 0 ), mParentEntry( 0 ) {}
     virtual ~DocEntryTraverser() {}
     
     void setNotifyee( DocMetaInfo * );
@@ -16,18 +16,24 @@ class DocEntryTraverser
 
     virtual void startProcess( DocEntry * );
 
-    virtual DocEntryTraverser *createChild() = 0;
+    virtual DocEntryTraverser *createChild( DocEntry *parentEntry ) = 0;
 
     virtual void deleteTraverser();
 
     virtual void finishTraversal() {}
 
-    DocEntryTraverser *childTraverser();
-    DocEntryTraverser *parentTraverser();
+    DocEntryTraverser *childTraverser( DocEntry *parentEntry );
+    virtual DocEntryTraverser *parentTraverser();
+
+    void setParentEntry( DocEntry * );
+    DocEntry *parentEntry();
 
   protected:
     DocMetaInfo *mNotifyee;
     DocEntryTraverser *mParent;
+
+  private:
+    DocEntry *mParentEntry;    
 };
 
 #endif

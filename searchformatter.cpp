@@ -33,6 +33,11 @@ QString SearchFormatter::docTitle( const QString &title )
   return "<h2><font color=\"red\">" + title + "</font></h2>";
 }
 
+QString SearchFormatter::sectionHeader( const QString &section )
+{
+  return "<h1><font color=\"blue\">" + section + "</font></h1>";
+}
+
 QString SearchFormatter::processResult( const QString &data )
 {
   QString result;

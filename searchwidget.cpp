@@ -52,6 +52,7 @@
 #include <kiconloader.h>
 
 #include "scopeitem.h"
+#include "docentrytraverser.h"
 
 #include "searchwidget.h"
 #include "searchwidget.moc"
@@ -112,6 +113,7 @@ SearchWidget::SearchWidget( QWidget *parent )
   hbox->addWidget( kcmButton );
 
   mScopeListView = new QListView( this );
+  mScopeListView->setRootIsDecorated( true );
   mScopeListView->addColumn( i18n("Scope") );
   vbox->addWidget( mScopeListView, 1 );
 
@@ -136,8 +138,10 @@ void SearchWidget::slotSwitchBoxes()
 {
   QListViewItemIterator it( mScopeListView );
   while( it.current() ) {
-    ScopeItem *item = static_cast<ScopeItem *>( it.current() );
-    item->setOn( !item->isOn() );
+    if ( it.current()->rtti() == ScopeItem::rttiId() ) {
+      ScopeItem *item = static_cast<ScopeItem *>( it.current() );
+      item->setOn( !item->isOn() );
+    }
     ++it;
   }
 }
@@ -164,10 +168,12 @@ QString SearchWidget::scope()
 
   QListViewItemIterator it( mScopeListView );
   while( it.current() ) {
-    ScopeItem *item = static_cast<ScopeItem *>( it.current() );
-    if ( item->isOn() ) {
-      if ( !scope.isEmpty() ) scope += "+";
-      scope += item->entry()->identifier() + "_" + item->entry()->lang();
+    if ( it.current()->rtti() == ScopeItem::rttiId() ) {
+      ScopeItem *item = static_cast<ScopeItem *>( it.current() );
+      if ( item->isOn() ) {
+        if ( !scope.isEmpty() ) scope += "+";
+        scope += item->entry()->identifier() + "_" + item->entry()->lang();
+      }
     }
     ++it;
   }
@@ -175,28 +181,91 @@ QString SearchWidget::scope()
   return scope;
 }
 
+class ScopeTraverser : public DocEntryTraverser
+{
+  public:
+    ScopeTraverser( SearchWidget *widget, int level ) :
+      mWidget( widget ), mLevel( level ), mParentItem( 0 ) {}
+
+    ~ScopeTraverser()
+    {
+      if( mParentItem && !mParentItem->childCount() ) delete mParentItem;
+    }
+
+    void process( DocEntry *entry )
+    {
+      if ( !entry->search().isEmpty() && entry->indexExists() ) {
+        ScopeItem *item = 0;
+        if ( mParentItem ) {
+          item = new ScopeItem( mParentItem, entry );
+        } else {
+          item = new ScopeItem( mWidget->listView(), entry );
+        }
+        mWidget->registerScopeItem( item );
+      }
+    }
+
+    DocEntryTraverser *createChild( DocEntry *entry )
+    {
+      if ( mLevel >= mNestingLevel ) {
+        ++mLevel;
+        return this;
+      } else {
+        ScopeTraverser *t = new ScopeTraverser( mWidget, mLevel + 1 );
+        QListViewItem *item = 0;
+        if ( mParentItem ) {
+          item = new QListViewItem( mParentItem, entry->name() );
+        } else {
+          item = new QListViewItem( mWidget->listView(), entry->name() );
+        }
+        t->mParentItem = item;
+        return t;
+      }
+    }
+
+    DocEntryTraverser *parentTraverser()
+    {
+      if ( mLevel > mNestingLevel ) return this;
+      else return mParent;
+    }
+
+    void deleteTraverser()
+    {
+      if ( mLevel > mNestingLevel ) --mLevel;
+      else delete this;
+    }    
+
+  private:
+    SearchWidget *mWidget;
+    int mLevel;
+    QListViewItem *mParentItem;
+
+    static int mNestingLevel;
+};
+
+int ScopeTraverser::mNestingLevel = 2;
+
+void SearchWidget::registerScopeItem( ScopeItem *item )
+{
+  item->setOn( item->entry()->searchEnabled() );
+  if ( item->entry()->searchEnabled() ) mScopeCount++;
+}
+
 void SearchWidget::updateScopeList()
 {
   mScopeListView->clear();
   mScopeCount = 0;
 
-  DocEntry::List entries = DocMetaInfo::self()->docEntries();
-  DocEntry::List::ConstIterator it;
-  for( it = entries.begin(); it != entries.end(); ++it ) {
-    if ( !(*it)->search().isEmpty() && (*it)->indexExists() ) {
-      ScopeItem *item = new ScopeItem( mScopeListView, *it );
-      item->setOn( (*it)->searchEnabled() );
-      if ( (*it)->searchEnabled() ) mScopeCount++; 
-    }
-  }
+  ScopeTraverser t( this, 0 );
+  DocMetaInfo::self()->traverseEntries( &t );
 
   emit enableSearch( mScopeCount > 0 );
 }
 
 void SearchWidget::scopeDoubleClicked( QListViewItem *item )
 {
+  if ( !item || item->rtti() != ScopeItem::rttiId() ) return;
   ScopeItem *scopeItem = static_cast<ScopeItem *>( item );
-  if ( !item ) return;
 
   QString searchUrl = scopeItem->entry()->search();
   
@@ -207,8 +276,8 @@ void SearchWidget::scopeDoubleClicked( QListViewItem *item )
 
 void SearchWidget::scopeClicked( QListViewItem *item )
 {
+  if ( !item || item->rtti() != ScopeItem::rttiId() ) return;
   ScopeItem *scopeItem = static_cast<ScopeItem *>( item );
-  if ( !scopeItem ) return;
 
   DocEntry *entry = scopeItem->entry();
 

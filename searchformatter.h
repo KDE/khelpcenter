@@ -13,6 +13,7 @@ class SearchFormatter
     virtual QString footer();  
     virtual QString separator();
     virtual QString docTitle( const QString & );
+    virtual QString sectionHeader( const QString & );
     
     virtual QString processResult( const QString & );
 };

@@ -12,8 +12,16 @@ class ScopeItem : public QCheckListItem
       : QCheckListItem( parent, entry->name(), QCheckListItem::CheckBox ),
         mEntry( entry ) {}
 
+    ScopeItem( QListViewItem *parent, DocEntry *entry )
+      : QCheckListItem( parent, entry->name(), QCheckListItem::CheckBox ),
+        mEntry( entry ) {}
+
     DocEntry *entry() { return mEntry; }
     
+    int rtti() const { return rttiId(); }
+
+    static int rttiId() { return 734678; }
+
   private:
     DocEntry *mEntry;
 };

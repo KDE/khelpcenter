@@ -28,7 +28,11 @@ class SearchTraverser : public QObject, public DocEntryTraverser
     
     void startProcess( DocEntry * );
 
-    DocEntryTraverser *createChild();
+    DocEntryTraverser *createChild( DocEntry * );
+
+    DocEntryTraverser *parentTraverser();
+
+    void deleteTraverser();
 
     void finishTraversal();
 
@@ -42,6 +46,8 @@ class SearchTraverser : public QObject, public DocEntryTraverser
 
     DocEntry *mEntry;
     QString mJobData;
+    
+    QString mResult;
 };
 
 

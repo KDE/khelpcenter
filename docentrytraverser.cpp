@@ -13,10 +13,13 @@ void DocEntryTraverser::startProcess( DocEntry *entry )
   mNotifyee->endProcess( entry, this );
 }
 
-DocEntryTraverser *DocEntryTraverser::childTraverser()
+DocEntryTraverser *DocEntryTraverser::childTraverser( DocEntry *parentEntry )
 {
-  DocEntryTraverser *child = createChild();
-  child->mParent = this;
+  DocEntryTraverser *child = createChild( parentEntry );
+  if ( child != this ) {
+    child->mParent = this;
+    child->mNotifyee = mNotifyee;
+  }
   return child;
 }
 
@@ -28,4 +31,14 @@ DocEntryTraverser *DocEntryTraverser::parentTraverser()
 void DocEntryTraverser::deleteTraverser()
 {
   delete this;
+}
+
+void DocEntryTraverser::setParentEntry( DocEntry *entry )
+{
+  mParentEntry = entry;
+}
+
+DocEntry *DocEntryTraverser::parentEntry()
+{
+  return mParentEntry;
 }
