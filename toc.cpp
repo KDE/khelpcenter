@@ -74,7 +74,7 @@ TOC::TOC( NavigatorItem *parentItem )
 void TOC::build( const QString &file )
 {
 	QFileInfo fileInfo( file );
-	QString cacheFile = QStringList::split( "/", fileInfo.dirPath() ).last() + ".toc.xml";
+	QString cacheFile = fileInfo.fileName() + ".toc.xml";
 	m_cacheFile = locateLocal( "cache", "help/" + cacheFile );
 	m_sourceFile = file;
 
@@ -152,7 +152,7 @@ void TOC::meinprocExited( KProcess *meinproc )
 
 	f.at( 0 );
 	QTextStream stream( &f );
-	stream.setEncoding(QTextStream::UnicodeUTF8);
+	stream.setEncoding( QTextStream::UnicodeUTF8 );
 	stream << doc.toString();
 
 	f.close();
