@@ -41,14 +41,13 @@ class KService;
 class KProcess;
 class KProcIO;
 
-class SearchWidget;
-class SearchEngine;
-
 namespace KHC {
 
 class NavigatorItem;
 class Navigator;
 class View;
+class SearchEngine;
+class SearchWidget;
 
 class Navigator : public QWidget
 {
@@ -56,6 +55,8 @@ class Navigator : public QWidget
   public:
     Navigator(View *, QWidget *parent=0, const char *name=0);
     virtual ~Navigator();
+
+    SearchEngine *searchEngine();
 
     const GlossaryEntry &glossEntry(const QString &term) const { return mGlossaryTree->entry( term ); }
 

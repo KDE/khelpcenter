@@ -16,28 +16,31 @@
 class KHTMLPart;
 class QSplitter;
 
+class LogDialog;
+
 namespace KHC {
 
 class View;
 
-    class MainWindow : public KMainWindow, public DCOPObject
+class MainWindow : public KMainWindow, public DCOPObject
 {
     Q_OBJECT
     K_DCOP
   public:
     MainWindow(const KURL &url = KURL() );
     ~MainWindow();
-k_dcop:
+  k_dcop:
     void openURL(const QString &url);
     void showHome();
     void lastSearch();
 
-public slots:
+  public slots:
     void slotOpenURL(const QString &url);
     void print();
     void statusBarMessage(const QString &m);
     void slotShowHome();
     void slotLastSearch();
+    void showSearchStderr();
 
   protected:
     void setupActions();
@@ -63,6 +66,8 @@ public slots:
     Navigator *mNavigator;
 
     KAction *mLastSearchAction;
+
+    LogDialog *mLogDialog;
 };
 
 }

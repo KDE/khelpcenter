@@ -177,6 +177,14 @@ void SearchEngine::searchStdout(KProcess *, char *buffer, int len)
   free(p);
 }
 
+void SearchEngine::searchStderr(KProcess *, char *buffer, int len)
+{
+  if ( !buffer || len == 0 )
+    return;
+
+  mStderr.append( QString::fromUtf8( buffer, len ) );
+}
+
 
 void SearchEngine::searchExited(KProcess *)
 {
@@ -248,11 +256,14 @@ bool SearchEngine::search( QString _words, QString method, int matches,
 
     connect( mProc, SIGNAL( receivedStdout( KProcess *, char *, int ) ),
              SLOT( searchStdout( KProcess *, char *, int ) ) );
+    connect( mProc, SIGNAL( receivedStderr( KProcess *, char *, int ) ),
+             SLOT( searchStderr( KProcess *, char *, int ) ) );
     connect( mProc, SIGNAL( processExited( KProcess * ) ),
              SLOT( searchExited( KProcess * ) ) );
 
     mSearchRunning = true;
     mSearchResult = "";
+    mStderr = "<b>" + commonSearchProgram + "</b>\n\n";
 
     mProc->start(KProcess::NotifyOnExit, KProcess::All);
 
@@ -310,6 +321,11 @@ void SearchEngine::finishSearch()
   mRootTraverser = 0;
 
   emit searchFinished();  
+}
+
+QString SearchEngine::errorLog()
+{
+  return mStderr;
 }
 
 }

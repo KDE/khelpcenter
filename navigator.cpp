@@ -129,6 +129,11 @@ Navigator::~Navigator()
   delete mSearchEngine;
 }
 
+SearchEngine *Navigator::searchEngine()
+{
+  return mSearchEngine;
+}
+
 bool Navigator::showMissingDocs() const
 {
   return mShowMissingDocs;

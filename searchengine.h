@@ -72,11 +72,14 @@ class SearchEngine : public QObject
 
     void finishSearch();
 
+    QString errorLog();
+
   signals:
     void searchFinished();
 
   protected slots:
     void searchStdout(KProcess *proc, char *buffer, int buflen);
+    void searchStderr(KProcess *proc, char *buffer, int buflen);
     void searchExited(KProcess *proc);
 
   protected:
@@ -86,6 +89,8 @@ class SearchEngine : public QObject
     KProcess *mProc;
     bool mSearchRunning;
     QString mSearchResult;
+
+    QString mStderr;
 
     View *mView;
     SearchFormatter *mFormatter;

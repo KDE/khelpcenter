@@ -23,6 +23,8 @@
 #include <assert.h>
 
 #include <qsplitter.h>
+#include <qtextedit.h>
+#include <qlayout.h>
 
 #include <kapplication.h>
 #include <kconfig.h>
@@ -36,18 +38,48 @@
 #include <kaction.h>
 #include <kstatusbar.h>
 #include <kstdaccel.h>
-
+#include <kdialogbase.h>
 
 #include "history.h"
 #include "view.h"
+#include "searchengine.h"
 
 using namespace KHC;
 
 #include "mainwindow.h"
 #include "mainwindow.moc"
 
+class LogDialog : public KDialogBase
+{
+  public:
+    LogDialog( QWidget *parent = 0 )
+      : KDialogBase( Plain, i18n("Search Error Log"), Ok, Ok, parent, 0,
+                     false )
+    {
+      QFrame *topFrame = plainPage();
+
+      QBoxLayout *topLayout = new QVBoxLayout( topFrame );
+
+      mTextView = new QTextEdit( topFrame );
+      mTextView->setTextFormat( LogText );
+      topLayout->addWidget( mTextView );
+
+      resize( 600, 400 );
+    }
+
+    void setLog( const QString &log )
+    {
+      mTextView->setText( log );
+    }
+  
+  private:
+    QTextEdit *mTextView;
+};
+
+
 MainWindow::MainWindow(const KURL &url)
-    : KMainWindow(0, "MainWindow"), DCOPObject( "KHelpCenterIface" )
+    : KMainWindow(0, "MainWindow"), DCOPObject( "KHelpCenterIface" ),
+      mLogDialog( 0 )
 {
     QSplitter *splitter = new QSplitter(this);
 
@@ -124,8 +156,16 @@ void MainWindow::setupActions()
     KStdAction::preferences( mNavigator, SLOT( showPreferencesDialog() ),
                              actionCollection() );
 
-   // Need to override the Manual link in the help menu to avoid spawning
-   // a second helpcenter.
+    KConfig *cfg = KGlobal::config();
+    cfg->setGroup( "Debug" );
+    if ( cfg->readBoolEntry( "SearchErrorLog", false ) ) {
+      new KAction( i18n("Show Search Error Log"), 0, this,
+                   SLOT( showSearchStderr() ), actionCollection(),
+                   "show_search_stderr" );
+    }
+
+    // Need to override the Manual link in the help menu to avoid spawning
+    // a second helpcenter.
     /*
     KAction *oldA = actionCollection()->action( "help_contents" );
     connect( oldA, SIGNAL( activated()), this, SLOT(openOwnManual()));
@@ -277,5 +317,19 @@ void MainWindow::openOwnManual()
 {
   openURL( KURL( "help:/khelpcenter" ) );
 }
+
+void MainWindow::showSearchStderr()
+{
+  QString log = mNavigator->searchEngine()->errorLog();
+
+  if ( !mLogDialog ) {
+    mLogDialog = new LogDialog( this );
+  }
+  
+  mLogDialog->setLog( log );
+  mLogDialog->show();
+  mLogDialog->raise();
+}
+
 
 // vim:ts=2:sw=2:et
