@@ -24,7 +24,7 @@
 #include "khelpcenter.h"
 #include "khc_baseview.h"
 
-#include <khtml.h>
+#include <kbrowser.h>
 
 #define SCROLLBAR_WIDTH		16
 #define BOOKMARK_ID_BASE	200
