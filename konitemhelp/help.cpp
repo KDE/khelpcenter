@@ -6,6 +6,7 @@
 
 
 #include <stdio.h>
+#include <kstddirs.h>
 #include "help.moc"
 
 onItemHelp::onItemHelp()
@@ -15,7 +16,6 @@ onItemHelp::onItemHelp()
 	proc << "identifyWidget";
 	QApplication::connect(&proc, SIGNAL(receivedStdout(KProcess *, char *, int)), this, SLOT(receivedStdout(KProcess *, char *, int)) );
 	proc.start( KProcess::Block, KProcess::Stdout );
-	QString path = KApplication::kde_htmldir();
 
 	if( proc.normalExit() == TRUE )
 	{
@@ -34,9 +34,8 @@ onItemHelp::onItemHelp()
 			result->insert( pos, "/widgets" );
 			// ---> should use klocale->language() here
 			// ---> or better a invokeOnItemHelp to KApplication
-			path += "/default/" + *result + ".html";
 			// run help
-			openHelp( path );
+			openHelp( locate("html", "default/" + *result + ".html" ));
 		}
 	}
 }
