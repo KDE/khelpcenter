@@ -49,7 +49,6 @@ void khcNavigatorItem::init(const QString& _text, const QString& _miniicon)
     miniicon = _miniicon;
     
     setText(0, name);
-    //    setPixmap(0, QPixmap(locate("mini", miniicon)));
     setPixmap( 0, SmallIcon(miniicon, 0, 0, KHCFactory::instance()));
 
     url = QString::null;
@@ -81,7 +80,7 @@ bool khcNavigatorItem::readKDElnk ( const QString &filename )
     // read icon and miniicon
     //icon = config.readEntry("Icon");
     miniicon = "helpdoc.png";//config.readEntry("MiniIcon");
-    setPixmap(0, QPixmap(locate("mini", miniicon)));
+    setPixmap(0, SmallIcon(miniicon, 0, 0, KHCFactory::instance()));
 
     // read name
     name = config.readEntry("Name");

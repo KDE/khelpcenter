@@ -380,11 +380,12 @@ QString khcNavigatorWidget::documentationURL(KService *s)
   return QString::null;
 }
 
-
 void khcNavigatorWidget::insertPlugins()
 {
     // Scan plugin dir
-    QStringList list = KGlobal::dirs()->findDirs("appdata", "plugins");
+    KStandardDirs* kstd = KGlobal::dirs();
+    kstd->addResourceType("data", "share/apps/khelpcenter");
+    QStringList list = kstd->findDirs("data", "plugins");
     for(QStringList::Iterator it=list.begin(); it!=list.end(); it++) {
       processDir(*it, 0, &pluginItems);
       appendEntries(*it, 0, &pluginItems);
@@ -478,7 +479,11 @@ bool khcNavigatorWidget::appendEntries(const QString &dirName, khcNavigatorItem 
 	filename += "/";
 	filename += *itFile;
 
-	khcNavigatorItem *entry = new khcNavigatorItem(parent);
+    khcNavigatorItem *entry;
+    if (parent)
+        entry = new khcNavigatorItem(parent);
+    else
+        entry = new khcNavigatorItem(tree);
 
 	if (entry->readKDElnk(filename))
 	    appendList->append(entry);
@@ -530,9 +535,13 @@ bool khcNavigatorWidget::processDir( const QString &dirName, khcNavigatorItem *p
 	    folderName = *itDir;
 	    icon = "helpbook.png";
 	}
-	
-	khcNavigatorItem *dirItem = new khcNavigatorItem(parent, folderName, icon);
-	appendList->append(dirItem);
+
+    khcNavigatorItem *dirItem;
+    if (parent)
+        dirItem = new khcNavigatorItem(parent, folderName, icon);
+    else
+        dirItem = new khcNavigatorItem(tree, folderName, icon);
+    appendList->append(dirItem);
 	
 	
 	// read and append child items
