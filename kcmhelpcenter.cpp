@@ -1,0 +1,259 @@
+/*
+  This file is part of KHelpcenter.
+
+  Copyright (C) 2002 Cornelius Schumacher <schumacher@kde.org>
+
+  This program is free software; you can redistribute it and/or
+  modify it under the terms of the GNU General Public
+  License version 2 as published by the Free Software Foundation.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program; see the file COPYING.  If not, write to
+  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+  Boston, MA 02111-1307, USA.
+*/
+
+#include <unistd.h>
+#include <sys/types.h>
+
+#include <qlayout.h>
+#include <qlistview.h>
+#include <qpushbutton.h>
+#include <qdir.h>
+#include <qprogressdialog.h>
+
+#include <kconfig.h>
+#include <klocale.h>
+#include <kglobal.h>
+#include <kaboutdata.h>
+#include <kdialog.h>
+#include <kdebug.h>
+#include <kstandarddirs.h>
+#include <kprocess.h>
+
+#include "docmetainfo.h"
+#include "scopeitem.h"
+
+#include "kcmhelpcenter.h"
+#include "kcmhelpcenter.moc"
+
+extern "C"
+{
+  KCModule *create_helpcenter( QWidget *parent, const char * )
+  {
+    KGlobal::locale()->insertCatalogue( "kcmhelpcenter" );
+    return new KCMHelpCenter( parent, "kcmhelpcenter" );
+  }
+}
+
+
+KCMHelpCenter::KCMHelpCenter(QWidget *parent, const char *name)
+  : KCModule(parent, name), mProgressDialog( 0 )
+{
+  setButtons(Help);
+
+  QVBoxLayout *topLayout = new QVBoxLayout(this);
+  topLayout->setMargin( KDialog::marginHint() );
+  topLayout->setSpacing( KDialog::spacingHint() );
+
+  mListView = new QListView( this );
+  mListView->addColumn( i18n("Search Scope") );
+  mListView->addColumn( i18n("Status") );
+  mListView->setColumnAlignment( 1, AlignCenter );
+  topLayout->addWidget( mListView );
+
+  QBoxLayout *buttonLayout = new QHBoxLayout( topLayout );
+
+  buttonLayout->addStretch( 1 );
+  
+  mBuildButton = new QPushButton( i18n("Build Index"), this );
+  buttonLayout->addWidget( mBuildButton );
+  connect( mBuildButton, SIGNAL( clicked() ), SLOT( buildIndex() ) );
+
+#if 0
+  if ( getuid() != 0 ) {
+    mBuildButton->setEnabled( false );    
+  }
+#endif
+
+  mConfig = new KConfig("kcmhelpcenterrc");
+
+  scanMetaInfo();
+
+  load();
+}
+
+KCMHelpCenter::~KCMHelpCenter()
+{
+  delete mConfig;
+}
+
+void KCMHelpCenter::defaults()
+{
+}
+
+void KCMHelpCenter::save()
+{
+  mConfig->sync();
+}
+
+void KCMHelpCenter::load()
+{
+  DocEntry::List entries = DocMetaInfo::self()->docEntries();
+  DocEntry::List::ConstIterator it;
+  for( it = entries.begin(); it != entries.end(); ++it ) {
+    if ( !(*it)->indexer().isEmpty() ) {
+      ScopeItem *item = new ScopeItem( mListView, *it );
+      item->setOn( (*it)->searchEnabled() );
+    }
+  }
+  
+  updateStatus();
+}
+
+void KCMHelpCenter::updateStatus()
+{
+  QListViewItemIterator it( mListView );
+  while ( it.current() != 0 ) {
+    ScopeItem *item = static_cast<ScopeItem *>( it.current() );
+    QString status;
+    if ( item->entry()->indexExists() ) {
+      status = i18n("Ok");
+    } else {
+      status = i18n("Missing");
+    }
+    item->setText( 1, status );
+    
+    ++it;
+  }
+}
+
+void KCMHelpCenter::scanMetaInfo()
+{
+  KStandardDirs* kstd = KGlobal::dirs();
+  kstd->addResourceType( "data", "share/apps/khelpcenter" );
+  QStringList list = kstd->findDirs( "data", "plugins" );
+  for( QStringList::Iterator it=list.begin(); it!=list.end(); it++) {
+    scanMetaInfoDir( *it );
+  }
+}
+
+void KCMHelpCenter::scanMetaInfoDir( const QString &dirName )
+{
+  QDir dir( dirName );
+
+  if ( QFile::exists( dirName + "/.directory" ) ) {
+    addDocEntry( dirName + "/.directory" );
+  }
+
+  const QFileInfoList *entryList = dir.entryInfoList();
+  QFileInfoListIterator it( *entryList );
+  QFileInfo *fi;
+  for( ; ( fi = it.current() ); ++it ) {
+    if ( fi->isDir() && fi->fileName() != "." && fi->fileName() != ".." ) {
+        scanMetaInfoDir( fi->absFilePath() );
+    } else if ( fi->extension( false ) == "desktop" ) {
+        addDocEntry( fi->absFilePath() );
+    }
+  }
+}
+
+void KCMHelpCenter::addDocEntry( const QString &fileName )
+{
+  DocMetaInfo::self()->addDocEntry( fileName );
+}
+
+void KCMHelpCenter::buildIndex()
+{
+  kdDebug() << "Build Index" << endl;
+
+  QListViewItemIterator it( mListView );
+  while ( it.current() != 0 ) {
+    ScopeItem *item = static_cast<ScopeItem *>( it.current() );
+    if ( item->isOn() ) {
+      mIndexQueue.append( item->entry()->indexer() );
+    }
+    ++it;
+  }
+
+  if ( mIndexQueue.isEmpty() ) return;
+
+  if ( !mProgressDialog ) {
+    mProgressDialog = new QProgressDialog( i18n("Build Search Indices"),
+                                           i18n("Cancel"), 1, this,
+                                           "mProgressDialog", true );
+    connect( mProgressDialog, SIGNAL( cancelled() ),
+             SLOT( cancelBuildIndex() ) );
+  }
+  mProgressDialog->setTotalSteps( mIndexQueue.count() );
+  mProgressDialog->setProgress( 0 );
+  mProgressDialog->show();
+  
+  processIndexQueue();
+}
+
+void KCMHelpCenter::cancelBuildIndex()
+{
+  mProgressDialog->hide();
+  mIndexQueue.clear();
+}
+
+void KCMHelpCenter::processIndexQueue()
+{
+  QStringList::Iterator it = mIndexQueue.begin();
+
+  if ( it == mIndexQueue.end() ) {
+    mProgressDialog->hide();
+    return;
+  }
+
+  KProcess *proc = new KProcess;
+  
+  QStringList args = QStringList::split( ' ', *it );
+  *proc << args;
+
+  kdDebug() << "KCMHelpCenter::processIndexQueue(): " << (*it) << endl;
+
+  connect( proc, SIGNAL( processExited( KProcess * ) ),
+           SLOT( slotIndexFinished( KProcess * ) ) ); 
+
+  proc->start();
+
+  mIndexQueue.remove( it );
+}
+
+void KCMHelpCenter::slotIndexFinished( KProcess *proc )
+{
+  delete proc;
+
+  mProgressDialog->setProgress( mProgressDialog->progress() + 1 );
+
+  updateStatus();
+
+  processIndexQueue();
+}
+
+QString KCMHelpCenter::quickHelp() const
+{
+  return i18n("<h1>Help Center</h1> With this control module you cofigure "
+              "and build the index files needed by the search function of "
+              "the help center.");
+}
+
+const KAboutData* KCMHelpCenter::aboutData() const
+{
+  KAboutData *about =
+    new KAboutData( I18N_NOOP("KCMHelpCenter"),
+                    I18N_NOOP("Help Center Control Module"),
+                    0, 0, KAboutData::License_GPL,
+                    I18N_NOOP("(c) 2002 Cornelius Schumacher") );
+
+  about->addAuthor( "Cornelius Schumacher", 0, "schumacher@kde.org" );
+
+  return about;
+}

@@ -37,10 +37,18 @@ class DocEntry
     void setIdentifier( const QString & );
     QString identifier() const;
 
+    void setIndexer( const QString & );
+    QString indexer() const;
+
+    void setIndexTestFile( const QString & );
+    QString indexTestFile() const;
+
     void enableSearch( bool enabled );
     bool searchEnabled() const;
 
     bool readFromFile( const QString &fileName );
+
+    bool indexExists();
   
     void dump() const;
       
@@ -53,6 +61,8 @@ class DocEntry
     QString mInfo;
     QString mLang;
     QString mIdentifier;
+    QString mIndexer;
+    QString mIndexTestFile;
     bool mSearchEnabled;
 };
 

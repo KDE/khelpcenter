@@ -89,6 +89,26 @@ QString DocEntry::identifier() const
   return mIdentifier;
 }
 
+void DocEntry::setIndexer( const QString &indexer )
+{
+  mIndexer = indexer;
+}
+
+QString DocEntry::indexer() const
+{
+  return mIndexer;
+}
+
+void DocEntry::setIndexTestFile( const QString &indexTestFile )
+{
+  mIndexTestFile = indexTestFile;
+}
+
+QString DocEntry::indexTestFile() const
+{
+  return mIndexTestFile;
+}
+
 void DocEntry::enableSearch( bool enabled )
 {
   mSearchEnabled = enabled;
@@ -112,9 +132,16 @@ bool DocEntry::readFromFile( const QString &fileName )
   if ( mInfo.isNull() ) mInfo = file.readEntry( "Comment" );
   mLang = file.readEntry( "Lang" );
   mIdentifier = file.readEntry( "X-DOC-Identifier" );
+  mIndexer = file.readEntry( "X-DOC-Indexer" );
+  mIndexTestFile = file.readEntry( "X-DOC-IndexTestFile" );
   mSearchEnabled = file.readBoolEntry( "X-DOC-SearchEnabledDefault", false );
 
   return true;
+}
+
+bool DocEntry::indexExists()
+{
+  return QFile::exists( mIndexTestFile );
 }
 
 void DocEntry::dump() const

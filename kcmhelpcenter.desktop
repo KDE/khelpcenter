@@ -1,0 +1,16 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Exec=kdesu kcmshell kcmhelpcenter
+Icon=
+DocPath=kcontrol/kcmhelpcenter.html
+
+X-KDE-ModuleType=Library
+X-KDE-Library=helpcenter
+X-KDE-RootOnly=true
+
+Name=KHelpCenter Control Module
+
+Comment=Help center search index configuration and generation.
+
+Keywords=khelpcenter,help,index,search

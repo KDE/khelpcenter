@@ -51,22 +51,10 @@
 #include <kmessagebox.h>
 #include <kiconloader.h>
 
+#include "scopeitem.h"
+
 #include "searchwidget.h"
 #include "searchwidget.moc"
-
-class ScopeItem : public QCheckListItem
-{
-  public:
-    ScopeItem( QListView *parent, DocEntry *entry )
-      : QCheckListItem( parent, entry->name(), QCheckListItem::CheckBox ),
-        mEntry( entry ) {}
-
-    DocEntry *entry() { return mEntry; }
-    
-  private:
-    DocEntry *mEntry;
-};
-
 
 SearchWidget::SearchWidget( QWidget *parent )
   : QWidget( parent ),
@@ -120,7 +108,7 @@ SearchWidget::SearchWidget( QWidget *parent )
   QPushButton *kcmButton = new QPushButton( "kcmshell", mAdvOptions );
   kcmButton->setPixmap(KGlobal::iconLoader()->loadIcon("package_settings", KIcon::Toolbar));
   kcmButton->setFixedSize(button->sizeHint());
-  connect(kcmButton, SIGNAL(clicked()), this, SLOT(slotKControl()));
+  connect( kcmButton, SIGNAL( clicked() ), this, SLOT( slotIndex() ) );
   hbox->addWidget( kcmButton );
 
   mScopeListView = new QListView( this );
@@ -141,8 +129,7 @@ SearchWidget::~SearchWidget()
 
 void SearchWidget::slotIndex()
 {
-  // TODO: fix this ugly system call
-  system("kcmshell Help/htmlsearch &");
+  kapp->startServiceByDesktopName( "kcmhelpcenter", QString::null );
 }
 
 void SearchWidget::slotSwitchBoxes()
