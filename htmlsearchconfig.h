@@ -34,18 +34,18 @@ class HtmlSearchConfig : public QWidget
   public:
     HtmlSearchConfig(QWidget *parent = 0L, const char *name = 0L);
     virtual ~HtmlSearchConfig();
-  
+
     void load( KConfig * );
     void save( KConfig * );
     void defaults();
-
+    void makeReadOnly();
   signals:
     void changed( bool );
-  
+
   protected slots:
     void configChanged();
     void urlClicked(const QString&);
-      
+
   private:
     KURLRequester *mHtsearchUrl;
     KURLRequester *mIndexerBin;

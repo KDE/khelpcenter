@@ -79,7 +79,7 @@ KCMHelpCenter::KCMHelpCenter(QWidget *parent, const char *name)
 
 #if 0
   if ( getuid() != 0 ) {
-    mBuildButton->setEnabled( false );    
+    mBuildButton->setEnabled( false );
   }
 #endif
 
@@ -89,6 +89,10 @@ KCMHelpCenter::KCMHelpCenter(QWidget *parent, const char *name)
   DocMetaInfo::self()->scanMetaInfo();
 
   load();
+  if (getuid() != 0) {
+      mHtmlSearchTab->makeReadOnly();
+  }
+
 }
 
 KCMHelpCenter::~KCMHelpCenter()
@@ -113,7 +117,7 @@ QWidget *KCMHelpCenter::createScopeTab( QWidget *parent )
   QBoxLayout *buttonLayout = new QHBoxLayout( topLayout );
 
   buttonLayout->addStretch( 1 );
-  
+
   mBuildButton = new QPushButton( i18n("Build Index"), scopeTab );
   buttonLayout->addWidget( mBuildButton );
   connect( mBuildButton, SIGNAL( clicked() ), SLOT( buildIndex() ) );
@@ -123,6 +127,7 @@ QWidget *KCMHelpCenter::createScopeTab( QWidget *parent )
 
 void KCMHelpCenter::defaults()
 {
+    mHtmlSearchTab->defaults();
 }
 
 void KCMHelpCenter::save()
@@ -132,7 +137,7 @@ void KCMHelpCenter::save()
   mHtmlSearchTab->save( mConfig );
 
   mConfig->sync();
-  
+
   QByteArray data;
   kapp->dcopClient()->send("khelpcenter", "SearchWidget", "searchIndexUpdated()", data);
 }
@@ -153,7 +158,7 @@ void KCMHelpCenter::load()
       item->setOn( (*it)->searchEnabled() );
     }
   }
-  
+
   updateStatus();
 }
 
@@ -169,7 +174,7 @@ void KCMHelpCenter::updateStatus()
       status = i18n("Missing");
     }
     item->setText( 1, status );
-    
+
     ++it;
   }
 }
@@ -209,7 +214,7 @@ void KCMHelpCenter::buildIndex()
   mProgressDialog->setMinimumWidth( maxWidth + 130 );
 
   mProgressDialog->show();
-  
+
   processIndexQueue();
 }
 
@@ -233,16 +238,16 @@ void KCMHelpCenter::processIndexQueue()
   mProgressDialog->setLabelText( i18n("Indexing '%1'.").arg( (*it)->name() ) );
 
   KProcess *proc = new KProcess;
-  
+
   QString indexer = (*it)->indexer();
-  
+
   QStringList args = QStringList::split( ' ', indexer );
   *proc << args;
 
   kdDebug(1401) << "KCMHelpCenter::processIndexQueue(): '" << indexer << "'" << endl;
 
   connect( proc, SIGNAL( processExited( KProcess * ) ),
-           SLOT( slotIndexFinished( KProcess * ) ) ); 
+           SLOT( slotIndexFinished( KProcess * ) ) );
 
   proc->start();
 

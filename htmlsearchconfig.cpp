@@ -119,6 +119,13 @@ HtmlSearchConfig::~HtmlSearchConfig()
   kdDebug() << "~HtmlSearchConfig()" << endl;
 }
 
+void HtmlSearchConfig::makeReadOnly()
+{
+    mHtsearchUrl->setEnabled( false );
+    mIndexerBin->setEnabled( false );
+    mDbDir->setEnabled( false );
+}
+
 void HtmlSearchConfig::configChanged()
 {
   emit changed(true);
@@ -148,6 +155,9 @@ void HtmlSearchConfig::save( KConfig *config )
 
 void HtmlSearchConfig::defaults()
 {
+    mHtsearchUrl->lineEdit()->setText(kapp->dirs()->findExe("htsearch"));
+    mIndexerBin->lineEdit()->setText("");
+    mDbDir->lineEdit()->setText("/opt/www/htdig/db/" );
 }
 
 void HtmlSearchConfig::urlClicked(const QString &url)
