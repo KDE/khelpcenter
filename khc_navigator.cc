@@ -391,7 +391,7 @@ void khcNavigatorWidget::buildInfoSubTree(khcNavigatorItem *parent)
       sLine = stream.readLine();
       while (!sLine.isNull())
       {
-	if (reSectionHdr.match(sLine, 0) == 0)
+	if (reSectionHdr.search(sLine, 0) == 0)
 	{
 	  // add the section header
 	  khcNavigatorItem* pSectionRoot = new khcNavigatorItem(parent, pLastSection, sLine, "contents2");
