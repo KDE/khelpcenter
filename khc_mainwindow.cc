@@ -950,7 +950,7 @@ void khcMainWindowIf::createNewWindow(const char *url)
   kdebug(0, 1400, "void khcMainWindowIf::createNewWindow(const char *url)");
 }
 
-void khcMainWindowIf::slotURLStarted(const char *url)
+void khcMainWindowIf::slotURLStarted(const char *)
 {
   m_pkhcMainWindow->slotSetBusy(true);
   kdebug(0, 1400, "void khcMainWindowIf::slotURLStarted(const char *url)");

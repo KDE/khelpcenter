@@ -18,6 +18,9 @@
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+#ifndef _khc_helpbrowser_impl_h_
+#define _khc_helpbrowser_impl_h_
+
 #include "khelpcenter.h"
 
 class khcMainWindow;
@@ -48,3 +51,5 @@ public:
 
   virtual KHelpCenter::HelpBrowser_ptr create();  
 };
+
+#endif

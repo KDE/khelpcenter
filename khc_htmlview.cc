@@ -74,7 +74,7 @@ void khcHTMLView::slotShowURL( KHTMLView *, QString _url )
   SIGNAL_CALL1("setStatusBarText", CORBA::Any::from_string((char *) _url.data(), 0));
 }
 
-void khcHTMLView::slotSetTitle( QString title )
+void khcHTMLView::slotSetTitle( QString /*title*/ )
 {
   //CORBA::WString_var ctitle = Q2C( title );
 }

@@ -36,13 +36,6 @@ idl_DATA = khelpcenter.idl
 
 ####### Build rules
 
-khc_baseview.h: khelpcenter.h
-khc_client.cc: khelpcenter.h
-khc_helpbrowser_impl.h: khelpcenter.h
-khc_htmlview.h: khelpcenter.h
-khc_mainwindow.h: khelpcenter.h
-khc_client.cc: khelpcenter.h
-
 messages:
 	$(XGETTEXT) -C  -ktranslate -kaliasLocal -ki18n -x $(includedir)/kde.pot *.h *.cc *.cpp && mv messages.po ../po/khelpcenter.pot
 	for subdir in $(SUBDIRS); do \
