@@ -145,7 +145,8 @@ MainWindow::MainWindow()
 
     actionCollection()->addDocCollection( mDoc->actionCollection() );
 
-    setupGUI();
+    setupGUI(ToolBar | Keys | StatusBar | Create);
+    setAutoSaveSettings();
 
     History::self().installMenuBarHook( this );
 
