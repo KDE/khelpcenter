@@ -23,6 +23,7 @@
 
 #include "khelpcenter.h"
 #include "khc_baseview.h"
+#include "khc_finddlg.h"
 
 #include <khtml.h>
 #include <kbrowser.h>
@@ -61,7 +62,8 @@ class khcHTMLView : public KBrowser,
 public slots:
   void slotURLClicked( QString url );
   virtual void slotCopy();
-  virtual void slotSearch();
+  virtual void slotFind();
+  virtual void slotFindNext();
 
 protected slots:
   void slotShowURL(KHTMLView *view, QString _url);
@@ -69,11 +71,13 @@ protected slots:
   void slotStarted(const char *url);
   void slotCompleted();
   void slotCanceled();
+  void slotFindNext(const QRegExp &regExp);
 
 protected:
   void setDefaultFontBase(int fSize);
 
   int fontBase;
+  KFindTextDialog *m_pFindDlg;
   OpenPartsUI::Menu_var m_vViewMenu, m_vEditMenu;
 };
 

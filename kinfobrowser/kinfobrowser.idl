@@ -30,7 +30,8 @@ module KInfoBrowser
 					,Browser::MagnifyingExtension
 	{
 		slot void slotCopy();
-		slot void slotSearch();
+		slot void slotFind();
+		slot void slotFindNext();
 	};
 
 	interface MainWindow : OpenParts::MainWindow

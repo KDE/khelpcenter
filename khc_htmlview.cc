@@ -24,6 +24,7 @@
 #include <kapp.h>
 #include <klocale.h>
 #include <kpixmapcache.h>
+#include <kmessagebox.h>
 
 #include <qclipboard.h>
 
@@ -40,6 +41,8 @@ khcHTMLView::khcHTMLView()
   setWidget(this);
   
   fontBase = 3;
+
+  m_pFindDlg = 0L;
   
   QWidget::setFocusPolicy(StrongFocus);
 
@@ -60,6 +63,7 @@ khcHTMLView::khcHTMLView()
 
 khcHTMLView::~khcHTMLView()
 {
+  delete m_pFindDlg;
 }
 
 bool khcHTMLView::event(const char *event, const CORBA::Any &value)
@@ -89,7 +93,8 @@ bool khcHTMLView::mappingFillMenuView(Browser::View::EventFillMenu_ptr viewMenu)
   if (!CORBA::is_nil(viewMenu))
     {
       CORBA::WString_var text;
-      viewMenu->insertItem4((text = Q2C(i18n("&Search..."))), this, "slotSearch", 0, -1, -1);
+	  viewMenu->insertItem4((text = Q2C(i18n("&Find in page..."))), this, "slotFind", 0, -1, -1);
+	  viewMenu->insertItem4((text = Q2C(i18n("&Find next in page..."))), this, "slotFindNext", 0, -1, -1);
     }
   
   return true;
@@ -102,6 +107,7 @@ bool khcHTMLView::mappingFillMenuEdit( Browser::View::EventFillMenu_ptr editMenu
     {
       CORBA::WString_var text;
       editMenu->insertItem4((text = Q2C(i18n("&Copy"))), this, "slotCopy", 0, -1, -1);
+	  
     }
   
   return true;
@@ -114,9 +120,9 @@ bool khcHTMLView::mappingFillToolBar(Browser::View::EventFillToolBar viewToolBar
   
   if (viewToolBar.create)
     {
-      CORBA::WString_var toolTip = Q2C(i18n("Search"));
+      CORBA::WString_var toolTip = Q2C(i18n("Find"));
       OpenPartsUI::Pixmap_var pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("search.xpm"));
-      viewToolBar.toolBar->insertButton2(pix, TB_SEARCH,SIGNAL(clicked()), this, "slotSearch", 
+      viewToolBar.toolBar->insertButton2(pix, TB_SEARCH,SIGNAL(clicked()), this, "slotFind", 
 					 true, toolTip, viewToolBar.startIndex++);
     }
   else
@@ -172,9 +178,47 @@ void khcHTMLView::slotCopy()
   cb->setText(text);
 }
 
-void khcHTMLView::slotSearch()
+void khcHTMLView::slotFind()
 {
-  // TODO
+  if (!m_pFindDlg)
+    {
+	  m_pFindDlg = new KFindTextDialog();
+	  QObject::connect(m_pFindDlg, SIGNAL(find(const QRegExp &)), this, SLOT(slotFindNext(const QRegExp &)));
+    }
+  
+  // reset the find iterator
+  getKHTMLWidget()->findTextBegin();
+  m_pFindDlg->show();
+}
+
+void khcHTMLView::slotFindNext()
+{
+  if (m_pFindDlg && !m_pFindDlg->regExp().isEmpty())
+    {
+	  slotFindNext(m_pFindDlg->regExp());
+    }
+  else
+    {
+	  // no find has been attempted yet - open the find dialog.
+	  slotFind();
+    }
+}
+
+void khcHTMLView::slotFindNext(const QRegExp &regExp)
+{
+  if (!getKHTMLWidget()->findTextNext(regExp))
+    {
+	  if(!KMessageBox::questionYesNo(this, i18n("Continue search from the top of the page?")))
+		{
+		  getKHTMLWidget()->findTextBegin();
+		  slotFindNext(regExp);
+		}
+	  else
+		{
+		  getKHTMLWidget()->findTextEnd();
+		  m_pFindDlg->hide();
+		}
+	}
 }
 
 void khcHTMLView::stop()

@@ -23,6 +23,7 @@
 
 #include "kinfobrowser.h"
 #include "khc_baseview.h"
+#include "khc_finddlg.h"
 
 #include <qstring.h>
 #include <qscrollbar.h>
@@ -64,7 +65,8 @@ public:
   
 public slots:
   virtual void slotCopy();
-  virtual void slotSearch();
+  virtual void slotFind();
+  virtual void slotFindNext();
 
   void slotScrollVert( int _y );
   void slotScrollHorz( int _y );
@@ -78,6 +80,7 @@ protected slots:
   void slotURLSelected(QString url, int button);
   void slotProcessExited(KProcess *proc);
   void slotReceivedStdout(KProcess *proc, char *buffer, int buflen);
+  void slotFindNext(const QRegExp &regExp);
 
 protected:
   virtual void resizeEvent(QResizeEvent *);
@@ -86,13 +89,14 @@ protected:
   void layout();
 
  protected:
-  KHTMLWidget  *m_pView;
-  KProcess     *m_pProc;
-  QScrollBar   *m_pVert;
-  QScrollBar   *m_pHorz;
+  KHTMLWidget     *m_pView;
+  KFindTextDialog *m_pFindDlg;
+  KProcess        *m_pProc;
+  QScrollBar      *m_pVert;
+  QScrollBar      *m_pHorz;
 
-  QString       m_Info2html;
-  int           m_fontBase;
+  QString          m_Info2html;
+  int              m_fontBase;
 };
 
 #endif

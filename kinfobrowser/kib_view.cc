@@ -49,6 +49,7 @@ kibView::kibView()
 				   this, SLOT(slotReceivedStdout(KProcess *, char *, int)));
   
   m_fontBase = 3;
+  m_pFindDlg = 0L;
   
   m_pView = new KHTMLWidget(this);
   CHECK_PTR(m_pView);
@@ -91,6 +92,7 @@ kibView::~kibView()
   delete m_pVert;
   delete m_pHorz;
   delete m_pView;
+  delete m_pFindDlg;
 }
 
 void kibView::layout()
@@ -364,8 +366,47 @@ void kibView::slotCopy()
   cb->setText(text);
 }
 
-void kibView::slotSearch()
+void kibView::slotFind()
 {
+  if (!m_pFindDlg)
+    {
+	  m_pFindDlg = new KFindTextDialog();
+	  QObject::connect(m_pFindDlg, SIGNAL(find(const QRegExp &)), this, SLOT(slotFindNext(const QRegExp &)));
+    }
+  
+  // reset the find iterator
+  m_pView->findTextBegin();
+  m_pFindDlg->show();
+}
+
+void kibView::slotFindNext()
+{
+  if (m_pFindDlg && !m_pFindDlg->regExp().isEmpty())
+    {
+	  slotFindNext(m_pFindDlg->regExp());
+    }
+  else
+    {
+	  // no find has been attempted yet - open the find dialog.
+	  slotFind();
+    }
+}
+
+void kibView::slotFindNext(const QRegExp &regExp)
+{
+  if (!m_pView->findTextNext(regExp))
+    {
+	  if(!KMessageBox::questionYesNo(this, i18n("Continue search from the top of the page?")))
+		{
+		  m_pView->findTextBegin();
+		  slotFindNext(regExp);
+		}
+	  else
+		{
+		  m_pView->findTextEnd();
+		  m_pFindDlg->hide();
+		}
+	}
 }
 
 #include "kib_view.moc"

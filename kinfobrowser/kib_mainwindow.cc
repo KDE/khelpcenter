@@ -646,13 +646,12 @@ void kibMainWindow::connectView()
 
 void kibMainWindow::slotFind()
 {
-  
+  m_vView->slotFind();
 }
 
 void kibMainWindow::slotFindNext()
 {
-
-
+  m_vView->slotFindNext();
 }
 
 void kibMainWindow::slotReload()

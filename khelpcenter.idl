@@ -31,7 +31,8 @@ module KHelpCenter
 			     ,Browser::MagnifyingExtension
 	{
 		slot void slotCopy();
-		slot void slotSearch();
+		slot void slotFind();
+		slot void slotFindNext();
 	};
 
 	interface MainView : OpenParts::Part
