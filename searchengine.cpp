@@ -185,7 +185,6 @@ void SearchEngine::searchStderr(KProcess *, char *buffer, int len)
   mStderr.append( QString::fromUtf8( buffer, len ) );
 }
 
-
 void SearchEngine::searchExited(KProcess *)
 {
   kdDebug() << "Search terminated" << endl;
@@ -195,6 +194,8 @@ void SearchEngine::searchExited(KProcess *)
 bool SearchEngine::search( QString _words, QString method, int matches,
                            QString scope )
 {
+  if ( mSearchRunning ) return false;
+
   mWords = _words;
   mMethod = method;
   mMatches = matches;
@@ -327,6 +328,12 @@ QString SearchEngine::errorLog()
 {
   return mStderr;
 }
+
+bool SearchEngine::isRunning()
+{
+  return mSearchRunning;
+}
+
 
 }
 // vim:ts=2:sw=2:et

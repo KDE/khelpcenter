@@ -74,6 +74,8 @@ class SearchEngine : public QObject
 
     QString errorLog();
 
+    bool isRunning();
+
   signals:
     void searchFinished();
 

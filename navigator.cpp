@@ -603,6 +603,8 @@ void Navigator::slotSearch()
 
   if ( !checkSearchIndex() ) return;
 
+  if ( mSearchEngine->isRunning() ) return;
+
   QString words = mSearchEdit->text();
   QString method = mSearchWidget->method();
   int pages = mSearchWidget->pages();
