@@ -31,7 +31,7 @@ bool KHCView::openURL( const KURL &url )
 
 void KHCView::saveState( QDataStream &stream )
 {
-    stream << m_state << m_glossEntry; 
+    stream << m_state << m_glossEntry;
     if ( m_state == Docu )
         KHTMLPart::saveState( stream );
 }
@@ -49,6 +49,9 @@ void KHCView::restoreState( QDataStream &stream )
 
 void KHCView::showGlossaryEntry( const khcNavigatorWidget::GlossaryEntry &entry )
 {
+    if(m_glossEntry.term==entry.term)
+        return;
+
     QFile htmlFile( locate("data", "khelpcenter/glossary.html.in" ) );
     if (!htmlFile.open(IO_ReadOnly))
         return;
@@ -57,7 +60,7 @@ void KHCView::showGlossaryEntry( const khcNavigatorWidget::GlossaryEntry &entry 
 
     m_state = GlossEntry;
     m_glossEntry = entry;
- 
+
     QString seeAlso;
     if (!entry.seeAlso.isEmpty()) {
         seeAlso = i18n("See also: ");
@@ -72,7 +75,7 @@ void KHCView::showGlossaryEntry( const khcNavigatorWidget::GlossaryEntry &entry 
         }
         seeAlso = seeAlso.left(seeAlso.length() - 2);
     }
- 
+
     QTextStream htmlStream(&htmlFile);
     QString htmlSrc = htmlStream.read()
                       .arg( i18n( "KDE Glossary" ) )
@@ -84,7 +87,7 @@ void KHCView::showGlossaryEntry( const khcNavigatorWidget::GlossaryEntry &entry 
                       .arg(entry.definition)
                       .arg(seeAlso)
                       .arg( langLookup( "khelpcenter/kdelogo2.png" ) );
- 
+
     begin("about:glossary" );
     write(htmlSrc);
     end();
@@ -96,20 +99,20 @@ void KHCView::showAboutPage()
     QString file = locate( "data", "khelpcenter/intro.html.in" );
     if ( file.isEmpty() )
         return;
- 
+
     QFile f( file );
- 
+
     if ( !f.open( IO_ReadOnly ) )
     return;
 
     m_state = About;
 
     emit started( 0 );
- 
+
     QTextStream t( &f );
- 
+
     QString res = t.read();
- 
+
     res = res.arg( i18n("Conquer your Desktop!") )
           .arg( langLookup( "khelpcenter/konq.css" ) )
           .arg( langLookup( "khelpcenter/pointers.png" ) )
@@ -145,10 +148,10 @@ void KHCView::showAboutPage()
 QString KHCView::langLookup( const QString &fname )
 {
     QStringList search;
- 
+
     // assemble the local search paths
     const QStringList localDoc = KGlobal::dirs()->resourceDirs("html");
- 
+
     // look up the different languages
     for (int id=localDoc.count()-1; id >= 0; --id)
     {
@@ -159,18 +162,18 @@ QString KHCView::langLookup( const QString &fname )
         for (lang = langs.begin(); lang != langs.end(); ++lang)
             search.append(QString("%1%2/%3").arg(localDoc[id]).arg(*lang).arg(fname));
     }
- 
+
     // try to locate the file
     QStringList::Iterator it;
     for (it = search.begin(); it != search.end(); ++it)
     {
         kdDebug() << "Looking for help in: " << *it << endl;
- 
+
         QFileInfo info(*it);
         if (info.exists() && info.isFile() && info.isReadable())
             return *it;
     }
- 
+
     return QString::null;
 }
 
