@@ -25,9 +25,7 @@ khelpcenter_METASOURCES = USE_AUTOMOC
 
 khelpcenter_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 
-khelpcenter_LDADD   = $(LIB_KFILE) -lkfm -lkdeui -lkdecore -lqt -lXext -lX11 \
-			$(LIBSOCKET) -lkhtml -lkfile -lkimgio -ljpeg -ltiff \
-			-lpng -lm -ljscript -lz
+khelpcenter_LDADD   = $(LIB_KFILE) $(LIB_KDEUI) $(LIB_KHTML)
 
 DISTCLEANFILES = $(khelpcenter_METASOURCES)
 
