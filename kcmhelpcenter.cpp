@@ -63,10 +63,10 @@ IndexDirDialog::IndexDirDialog( QWidget *parent )
   QFrame *topFrame = makeMainWidget();
 
   QBoxLayout *urlLayout = new QHBoxLayout( topFrame );
-  
-  QLabel *label = new QLabel( i18n("Index Folder:"), topFrame );
+
+  QLabel *label = new QLabel( i18n("Index folder:"), topFrame );
   urlLayout->addWidget( label );
-  
+
   mIndexUrlRequester = new KURLRequester( topFrame );
   mIndexUrlRequester->setMode( KFile::Directory | KFile::ExistingOnly |
                                KFile::LocalOnly );
@@ -150,7 +150,7 @@ void IndexProgressDialog::setMinimumLabelWidth( int width )
 void IndexProgressDialog::setFinished( bool finished )
 {
   if ( finished == mFinished ) return;
-  
+
   mFinished = finished;
 
   if ( mFinished ) {
@@ -239,7 +239,7 @@ void KCMHelpCenter::setupMainWidget( QWidget *parent )
   QString helpText =
     i18n("To be able to search a document there needs to exist a search\n"
          "index. This status column of the list below shows, if an index.\n"
-         "for a document exists.\n") + 
+         "for a document exists.\n") +
     i18n("To create an index check the box in the list and press the\n"
          "\"Build Index\" button.\n");
 
@@ -260,7 +260,7 @@ void KCMHelpCenter::setupMainWidget( QWidget *parent )
 
   mIndexDirLabel = new QLabel( parent );
   urlLayout->addWidget( mIndexDirLabel, 1 );
-  
+
   QPushButton *button = new QPushButton( i18n("Change..."), parent );
   connect( button, SIGNAL( clicked() ), SLOT( showIndexDirDialog() ) );
   urlLayout->addWidget( button );
@@ -286,7 +286,7 @@ bool KCMHelpCenter::save()
   } else {
     return buildIndex();
   }
-  
+
   return true;
 }
 
@@ -367,15 +367,15 @@ bool KCMHelpCenter::buildIndex()
         .arg( entry->identifier() )
         .arg( entry->name() );
       if ( entry->documentType().isEmpty() ) {
-        KMessageBox::sorry( this, docText + 
+        KMessageBox::sorry( this, docText +
           i18n("No document type.") );
         hasError = true;
       } else {
         SearchHandler *handler = mEngine->handler( entry->documentType() );
         if ( !handler ) {
-          KMessageBox::sorry( this, docText +  
+          KMessageBox::sorry( this, docText +
             i18n("No search handler available for document type '%1'.")
-            .arg( entry->documentType() ) ); 
+            .arg( entry->documentType() ) );
           hasError = true;
         } else {
           QString indexer = handler->indexCommand( entry->identifier() );
@@ -439,7 +439,7 @@ void KCMHelpCenter::startIndexProcess()
     *mProcess << "kdesu" << "--nonewdcop";
     kdDebug() << "Run as root" << endl;
   }
-  
+
   *mProcess << "khc_indexbuilder";
   *mProcess << mCmdFile->name();
   *mProcess << Prefs::indexDirectory();
