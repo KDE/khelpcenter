@@ -95,9 +95,11 @@ KHMainWindow::KHMainWindow(const KURL &url)
     splitter->setSizes(sizes);
     setGeometry(366, 0, 800, 600);
 
-    (*actionCollection()) += *doc->actionCollection();
+    // FIXME: remove these two lines post 3.0.  See insertChildClient() call below  --ellis
+    KStdAction::selectAll(doc, SLOT(slotSelectAll()), actionCollection());
+    KStdAction::find(doc, SLOT(slotFind()), actionCollection());
     (void)KStdAction::quit(this, SLOT(close()), actionCollection());
-	(void)KStdAction::print(this, SLOT(print()), actionCollection(), "printFrame");
+    (void)KStdAction::print(this, SLOT(print()), actionCollection(), "printFrame");
 
     back = new KToolBarPopupAction( i18n( "&Back" ), "back", ALT+Key_Left,
                                     this, SLOT( slotBack() ),
@@ -114,6 +116,8 @@ KHMainWindow::KHMainWindow(const KURL &url)
     connect( forward->popupMenu(), SIGNAL( aboutToShow() ), this, SLOT( fillForwardMenu() ) );
     forward->setEnabled( false );
 
+    // FIXME: add this post 3.0 --ellis
+    //insertChildClient( doc );
     createGUI( "khelpcenterui.rc" );
 
     QPopupMenu *goMenu = dynamic_cast<QPopupMenu *>( guiFactory()->container( "go", this ) );
