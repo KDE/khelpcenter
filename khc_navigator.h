@@ -28,7 +28,6 @@
 #include <qtabwidget.h>
 #include <qlistview.h>
 #include <qdict.h>
-#include <kprocess.h>
 
 // ACHU
 #include <regex.h>
@@ -45,6 +44,7 @@ class khcNavigatorItem;
 class khcNavigator;
 class KListView;
 class KService;
+class KProcess;
 class KProcIO;
 // ACHU
 class khcInfoNode;
@@ -110,7 +110,7 @@ class khcNavigatorWidget : public QTabWidget
     khcNavigatorWidget(QWidget *parent=0, const char *name=0);
     virtual ~khcNavigatorWidget();
 
-		GlossaryEntry glossEntry(const QString &term) const { return *glossEntries[term]; }
+    GlossaryEntry glossEntry(const QString &term) const { return *glossEntries[term]; }
 
  public slots:
     void slotURLSelected(QString url);
@@ -122,6 +122,7 @@ class khcNavigatorWidget : public QTabWidget
     // END ACHU
     void slotGlossaryItemSelected(QListViewItem* item);
     void slotReloadTree();
+    void slotShowPage(QWidget *);
 
  signals:
     void itemSelected(const QString& itemURL);
@@ -130,7 +131,6 @@ class khcNavigatorWidget : public QTabWidget
 
  private slots:
     void getScrollKeeperContentsList(KProcIO *proc);
-    void gotMeinprocOutput(KProcess *, char *data, int len);
     void meinprocExited(KProcess *);
     //ACHU
     /* Cog-wheel animation handling -- enable after creating the icons
@@ -138,12 +138,13 @@ class khcNavigatorWidget : public QTabWidget
     */
     // END ACHU
 
+
  private:
     void setupContentsTab();
     void setupIndexTab();
     void setupSearchTab();
     void setupGlossaryTab();
-    void buildGlossaryCache();
+    void buildGlossary();
     void buildTree();
     void clearTree();
     QString langLookup(const QString &);
@@ -204,8 +205,9 @@ class khcNavigatorWidget : public QTabWidget
     QString mScrollKeeperContentsList;
     
     QDict<GlossaryEntry> glossEntries;
-    KProcess *meinproc;
-    QString htmlData;
+    enum { NeedRebuild, CacheOk, ListViewOk} glossaryHtmlStatus;
+    QString glossaryHtmlFile;
+    QString glossarySource;
 };
 
 inline QDataStream &operator<<( QDataStream &stream, const khcNavigatorWidget::GlossaryEntry &e )

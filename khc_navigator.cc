@@ -29,6 +29,10 @@
 #include "khc_infonode.h"
 // END ACHU
 
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
+
 #include <qdir.h>
 #include <qfile.h>
 #include <qpixmap.h>
@@ -141,6 +145,8 @@ khcNavigatorWidget::khcNavigatorWidget(QWidget *parent, const char *name)
     // END ACHU
 
     buildTree();
+    
+    connect(this, SIGNAL(currentChanged(QWidget*)), this, SLOT(slotShowPage(QWidget*)));
 }
 
 khcNavigatorWidget::~khcNavigatorWidget()
@@ -189,6 +195,15 @@ void khcNavigatorWidget::setupSearchTab()
  */
 }
 
+void khcNavigatorWidget::slotShowPage(QWidget *w)
+{
+    if ((w == glossaryTree) && (glossaryHtmlStatus == CacheOk))
+    {
+       buildGlossary();
+    }
+    QTabWidget::showPage(w);
+}
+
 void khcNavigatorWidget::setupGlossaryTab()
 {
     glossaryTree = new KListView(this);
@@ -208,33 +223,76 @@ void khcNavigatorWidget::setupGlossaryTab()
 
     addTab(glossaryTree, i18n("Glossary"));
 
-    meinproc = new KProcess();
-    connect(meinproc, SIGNAL(receivedStdout(KProcess *, char *, int)),
-        SLOT(gotMeinprocOutput(KProcess *, char *, int)));
-    connect(meinproc, SIGNAL(processExited(KProcess *)),
-        SLOT(meinprocExited(KProcess *)));
+    glossaryHtmlFile = locateLocal("cache", "help/glossary.html");
+    glossarySource = langLookup(QString::fromLatin1("khelpcenter/glossary/index.docbook"));
 
-    *meinproc << locate("exe", QString::fromLatin1("meinproc"));
-    *meinproc << QString::fromLatin1("--stdout");
-    *meinproc << langLookup(QString::fromLatin1("khelpcenter/glossary/index.docbook"));
+    KConfigGroup config(kapp->config(), "Glossary");
 
-    meinproc->start(KProcess::NotifyOnExit, KProcess::Stdout);
+    glossaryHtmlStatus = CacheOk;
+    if (config.readEntry("CachedGlossary") != glossarySource)
+       glossaryHtmlStatus = NeedRebuild;
+    if ((glossaryHtmlStatus == CacheOk) && !QFile::exists(glossaryHtmlFile))
+       glossaryHtmlStatus = NeedRebuild;
+       
+    if (glossaryHtmlStatus == CacheOk)
+    {
+       struct stat stat_buf;
+       if (stat(QFile::encodeName(glossarySource).data(), &stat_buf) != 0)
+       {
+          // It makes no sense to continue.
+          return;
+       }
+       int ctime = stat_buf.st_ctime;
+       if (config.readNumEntry("CachedGlossaryTimestamp") != ctime)
+          glossaryHtmlStatus = NeedRebuild;
+    }
+    
+    if (glossaryHtmlStatus == NeedRebuild)
+    {
+       KProcess *meinproc = new KProcess();
+       connect(meinproc, SIGNAL(processExited(KProcess *)),
+               SLOT(meinprocExited(KProcess *)));
+
+       *meinproc << locate("exe", QString::fromLatin1("meinproc"));
+       *meinproc << QString::fromLatin1("--output") << glossaryHtmlFile;
+       *meinproc << glossarySource;
+
+       meinproc->start(KProcess::NotifyOnExit, KProcess::Stdout);
+    }
 }
 
-void khcNavigatorWidget::gotMeinprocOutput(KProcess *, char *data, int len)
-{
-  htmlData += QString::fromLatin1(data, len);
-}
-
-void khcNavigatorWidget::meinprocExited(KProcess *)
+void khcNavigatorWidget::meinprocExited(KProcess *meinproc)
 {
   delete meinproc;
 
-  QDomDocument doc;
+  if (!QFile::exists(glossaryHtmlFile))
+     return; // Error...
 
-  if (!doc.setContent(htmlData))
+  struct stat stat_buf;
+  if (stat(QFile::encodeName(glossarySource).data(), &stat_buf) != 0)
+     return; // Error
+
+  int ctime = stat_buf.st_ctime;
+
+  KConfigGroup config(kapp->config(), "Glossary");
+  config.writeEntry("CachedGlossary", glossarySource);
+  config.writeEntry("CachedGlossaryTimestamp", ctime);
+  kapp->config()->sync();
+  glossaryHtmlStatus = CacheOk; 
+  buildGlossary();
+}
+
+void khcNavigatorWidget::buildGlossary()
+{
+  glossaryHtmlStatus = ListViewOk;
+  QFile htmlFile(glossaryHtmlFile);
+  if (!htmlFile.open(IO_ReadOnly))
     return;
 
+  QDomDocument doc;
+  if (!doc.setContent(&htmlFile))
+    return;
+    
   QDomNodeList glossDivNodes = doc.documentElement().elementsByTagName(QString::fromLatin1("div"));
   for (unsigned int i = 0; i < glossDivNodes.count(); i++) {
     QDomNode glossDivNode = glossDivNodes.item(i);
@@ -247,7 +305,7 @@ void khcNavigatorWidget::meinprocExited(KProcess *)
     QDomNodeList glossEntryNodes = glossDivNode.toElement().elementsByTagName(QString::fromLatin1("dt"));
     for (unsigned int j = 0; j < glossEntryNodes.count(); j++) {
       QDomNode glossEntryNode = glossEntryNodes.item(j);
-      QString term = glossEntryNode.namedItem(QString::fromLatin1("a")).toElement().text().simplifyWhiteSpace();
+      QString term = glossEntryNode.toElement().text().simplifyWhiteSpace();
 
       (void) new QListViewItem(topicSection, term);
 
