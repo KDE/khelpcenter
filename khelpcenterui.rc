@@ -27,6 +27,9 @@
   <Separator />
   <Action name="lastsearch" />
  </Menu>
+ <Menu name="settings">
+  <Action name="configure_fonts" />
+ </Menu>
 </MenuBar>
 <ToolBar name="mainToolBar" noMerge="1">
  <text>Main Toolbar</text>

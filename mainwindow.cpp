@@ -44,6 +44,7 @@
 #include "history.h"
 #include "view.h"
 #include "searchengine.h"
+#include "fontdialog.h"
 
 using namespace KHC;
 
@@ -121,12 +122,13 @@ MainWindow::MainWindow(const KURL &url)
     splitter->setSizes(sizes);
     setGeometry(366, 0, 800, 600);
 
-    KConfig konqCfg( "konquerorrc" );
-    const_cast<KHTMLSettings *>( mDoc->settings() )->init( &konqCfg );
-
     KConfig *cfg = kapp->config();
     {
       KConfigGroupSaver groupSaver( cfg, "General" );
+      if ( cfg->readBoolEntry( "UseKonqSettings", true ) ) {
+        KConfig konqCfg( "konquerorrc" );
+        const_cast<KHTMLSettings *>( mDoc->settings() )->init( &konqCfg );
+      }
       const int zoomFactor = cfg->readNumEntry( "Font zoom factor", 100 );
       mDoc->setZoomFactor( zoomFactor );
     }
@@ -190,6 +192,7 @@ void MainWindow::setupActions()
     */
     History::self().setupActions( actionCollection() );
 
+    new KAction( i18n( "Configure Fonts..." ), KShortcut(), this, SLOT( slotConfigureFonts() ), actionCollection(), "configure_fonts" );
     new KAction( i18n( "Increase Font Sizes" ), "viewmag+", KShortcut(), this, SLOT( slotIncFontSizes() ), actionCollection(), "incFontSizes" );
     new KAction( i18n( "Decrease Font Sizes" ), "viewmag-", KShortcut(), this, SLOT( slotDecFontSizes() ), actionCollection(), "decFontSizes" );
 }
@@ -376,6 +379,18 @@ void MainWindow::updateZoomActions()
     KConfigGroupSaver groupSaver( cfg, "General" );
     cfg->writeEntry( "Font zoom factor", mDoc->zoomFactor() );
     cfg->sync();
+  }
+}
+
+void MainWindow::slotConfigureFonts()
+{
+  FontDialog dlg( this );
+  if ( dlg.exec() == QDialog::Accepted ) {
+    const_cast<KHTMLSettings *>( mDoc->settings() )->init( kapp->config(), true );
+    KParts::URLArgs args = mDoc->browserExtension()->urlArgs();
+    args.reload = true;
+    mDoc->browserExtension()->setURLArgs( args );
+    mDoc->openURL( mDoc->baseURL() );
   }
 }
 
