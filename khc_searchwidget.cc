@@ -40,7 +40,7 @@ ResultBox::ResultBox(QWidget *parent)
 
 void ResultBox::mouseMoveEvent(QMouseEvent *e)
 {
-    emit mouseOver(findItem(e->pos().y()));
+  emit mouseOver(index(itemAt(QPoint(0,e->pos().y()))));
 }
 
 void ResultBox::leaveEvent(QEvent *)
@@ -53,7 +53,7 @@ int ResultBox::getItemYPos(int index)
     // FIXME: please note that this assumes all items are the fixed height.
     // Adding up heights is required for variable-height listbox items.
     // -Taj.
- 
+
     return index ? (( index - 1 ) * itemHeight()) : 0;
 
 #if 0
@@ -71,7 +71,7 @@ SearchWidget::SearchWidget(QWidget *parent)
     keyWordLabel = new QLabel(i18n("Enter keyword:"), this);
     searchString = new QLineEdit(this);
     connect(searchString, SIGNAL(returnPressed()), this, SLOT(slotSearch()));
-   
+
     searchButton = new QPushButton(i18n("&Search"), this);
     searchButton->setFixedWidth(90);
     searchButton->setFixedHeight(24);
@@ -125,23 +125,21 @@ void SearchWidget::slotSearch()
 
     matchList.setAutoDelete(TRUE);
     matchList.clear();
-    
+
     if (docCheck->isChecked())
     {
 	HTMLSearch htmlSearch(&matchList);
 	htmlSearch.search(query);
     }
-  
+
     if (manCheck->isChecked())
     {
 	ManSearch manSearch(&matchList);
 	manSearch.search(query);
     }
-  
-    resultList->setAutoUpdate(false);
+
     for (Match *match = matchList.first(); match != 0; match = matchList.next())
 	resultList->insertItem(match->getTitle());
-    resultList->setAutoUpdate(true);
     resultList->repaint();
 }
 
@@ -181,7 +179,7 @@ void SearchWidget::slotMouseOver(int index)
     {
 	tipLabel->move(gPos.x(),gPos.y()+25);
 	tipLabel->show();
-    } 
+    }
     else
 	tipLabel->hide();
 
