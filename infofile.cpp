@@ -173,3 +173,4 @@ uint InfoFile::getNextNode(InfoNode* pNode, uint flags)
     }
   }
 }
+// vim:ts=2:sw=2:et

@@ -204,3 +204,4 @@ void View::setTitle( const QString &title )
 /*
  * vim:et
  */
+// vim:ts=2:sw=2:et

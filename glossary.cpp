@@ -247,4 +247,4 @@ QDomElement Glossary::childElement( const QDomElement &element, const QString &n
 	return e;
 }
 #include "glossary.moc"
-// vim:ts=4:sw=4:noet
+// vim:ts=2:sw=2:et

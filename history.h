@@ -96,4 +96,4 @@ class History : public QObject
 }
 
 #endif // HISTORY_H
-// vim:ts=4:sw=4:noet
+// vim:ts=2:sw=2:et

@@ -44,3 +44,4 @@ const QString INFODIR[] = {"", "/usr/info/", "/usr/share/info/",
 
 
 #endif // __KHC_INFOCONSTS__
+// vim:ts=2:sw=2:et

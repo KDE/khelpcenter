@@ -95,3 +95,4 @@ protected:
 }
 
 #endif // __KHC_INFOHIERARCHYMAKER__
+// vim:ts=2:sw=2:et

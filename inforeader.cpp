@@ -160,3 +160,4 @@ bool InfoReader::getRealFileName(QString baseName, QString& realName)
 
   return false;
 }
+// vim:ts=2:sw=2:et

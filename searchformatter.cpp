@@ -79,3 +79,4 @@ QString SearchFormatter::processResult( const QString &data )
 
   return result;
 }
+// vim:ts=2:sw=2:et

@@ -311,3 +311,4 @@ void SearchWidget::updateScopeItem( ScopeItem *item )
 }
 
 }
+// vim:ts=2:sw=2:et

@@ -263,4 +263,4 @@ QString TOCSectionItem::url()
 }
 
 #include "toc.moc"
-// vim:ts=4:sw=4:noet
+// vim:ts=2:sw=2:et

@@ -258,3 +258,4 @@ const KAboutData* KCMHelpCenter::aboutData() const
 
   return about;
 }
+// vim:ts=2:sw=2:et

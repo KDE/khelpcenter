@@ -116,3 +116,4 @@ int main(int argc,char **argv)
   DocMetaInfo::self()->startTraverseEntries( &a );
   kdDebug() << "Async TRAVERSE end" << endl;
 }
+// vim:ts=2:sw=2:et

@@ -49,4 +49,4 @@ int Application::newInstance()
 	return 0;
 }
 
-// vim:ts=4:sw=4:noet
+// vim:ts=2:sw=2:et

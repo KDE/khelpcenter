@@ -288,3 +288,4 @@ void DocMetaInfo::endTraverseEntries( DocEntryTraverser *traverser )
 
   traverser->finishTraversal();
 }
+// vim:ts=2:sw=2:et

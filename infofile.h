@@ -90,3 +90,4 @@ protected:
 }
 
 #endif // __KHC_INFO_FILE__
+// vim:ts=2:sw=2:et

@@ -119,3 +119,4 @@ QString NavigatorAppItem::documentationURL(KService *s)
     return QString::null;
 
 }
+// vim:ts=2:sw=2:et

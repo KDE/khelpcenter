@@ -57,3 +57,4 @@ QString HTMLSearch::defaultIndexTestFile( KHC::DocEntry *entry )
 
   return testFile;
 }
+// vim:ts=2:sw=2:et

@@ -275,3 +275,4 @@ void DocEntry::dump() const
   kdDebug() << "    <docpath>" << mDocPath << "</docpath>" << endl;
   kdDebug() << "  </docentry>" << endl;
 }
+// vim:ts=2:sw=2:et

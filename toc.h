@@ -69,4 +69,4 @@ class TOC : public QObject
 }
 
 #endif // KHC_TOC_H
-// vim:ts=4:sw=4:noet
+// vim:ts=2:sw=2:et

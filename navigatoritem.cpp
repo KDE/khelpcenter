@@ -123,3 +123,4 @@ TOC *NavigatorItem::createTOC()
     mToc = new TOC( this );
     return mToc;
 }
+// vim:ts=2:sw=2:et

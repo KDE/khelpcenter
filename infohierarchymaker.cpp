@@ -280,3 +280,4 @@ bool InfoHierarchyMaker::orderSiblings(std::list<InfoNode*>& siblingsList)
 
 
 #include "infohierarchymaker.moc"
+// vim:ts=2:sw=2:et
