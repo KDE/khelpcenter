@@ -1,10 +1,10 @@
 # KDE Config File
 [KDE Desktop Entry]
 Name=Tutorials
-Name[af]=Tutoriale
+Name[af]=TUTORIALE
 Name[az]=Leksikalar
 Name[bg]=Учебни ръководства
-Name[br]=Kelennantoù
+Name[br]=KelennantoÃ¹
 Name[bs]=Vodiči
 Name[ca]=Introduccions
 Name[cs]=Výukové dokumenty
@@ -48,10 +48,10 @@ Name[zh_CN.GB2312]=指南
 Name[zh_TW.Big5]=導覽
 MiniIcon=
 Comment=Tutorial and introduction documents.
-Comment[af]=Tutoriale en inleidende dokumente.
+Comment[af]=TUTORIAAL EN INLEIDING DOKUMENTE.
 Comment[az]=Leksika və giriş sənədləri
 Comment[bg]=Учебни ръководства и справочници
-Comment[br]=Kelennant ha teulioù deraouiñ
+Comment[br]=Kelennant ha teulioÃ¹ deraouiÃ±
 Comment[bs]=Vodič i uvodni dokumenti
 Comment[ca]=Documents i curs d'introducció.
 Comment[cs]=Výukové a seznamovací dokumenty.
