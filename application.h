@@ -24,12 +24,17 @@
 
 namespace KHC {
 
+class MainWindow;
+
 class Application : public KUniqueApplication
 {
   public:
     Application();
 
     virtual int newInstance();
+    
+  private:
+    MainWindow *mMainWindow;
 };
 
 }

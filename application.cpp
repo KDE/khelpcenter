@@ -17,14 +17,17 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
+
 #include "application.h"
 #include "mainwindow.h"
+#include "version.h"
 
 #include <kcmdlineargs.h>
+#include <kaboutdata.h>
 
 using namespace KHC;
 
-Application::Application() : KUniqueApplication()
+Application::Application() : KUniqueApplication(), mMainWindow( 0 )
 {
 }
 
@@ -41,49 +44,45 @@ int Application::newInstance()
     return 0;
   }
 
-  if( ! mainWidget() ) {
-    MainWindow *mainWindow = new MainWindow;
-    setMainWidget( mainWindow );
-    mainWindow->show();
+  if( !mMainWindow ) {
+    mMainWindow = new MainWindow;
+    setMainWidget( mMainWindow );
+    mMainWindow->show();
   }
 
-  static_cast<MainWindow *>( mainWidget() )->slotOpenURL( url.url() );
+  mMainWindow->slotOpenURL( url.url() );
 
   return KUniqueApplication::newInstance();
 }
 
-#include "version.h"
-
-#include <kaboutdata.h>
-
 static KCmdLineOptions options[] =
 {
-	{ "+[url]", I18N_NOOP("A URL to display"), "" },
-        KCmdLineLastOption
+  { "+[url]", I18N_NOOP("A URL to display"), "" },
+  KCmdLineLastOption
 };
 
 int kdemain( int argc, char **argv )
 {
-	KAboutData aboutData( "khelpcenter", I18N_NOOP("KDE Help Center"),
-	                      HELPCENTER_VERSION,
-	                      I18N_NOOP("The KDE Help Center"),
-	                      KAboutData::License_GPL,
-	                      I18N_NOOP("(c) 1999-2002, The KHelpCenter developers") );
+  KAboutData aboutData( "khelpcenter", I18N_NOOP("KDE Help Center"),
+                        HELPCENTER_VERSION,
+                        I18N_NOOP("The KDE Help Center"),
+                        KAboutData::License_GPL,
+                        I18N_NOOP("(c) 1999-2003, The KHelpCenter developers") );
 
-	aboutData.addAuthor( "Cornelius Schumacher", 0, "schumacher@kde.org" );
-	aboutData.addAuthor( "Frerich Raabe", 0, "raabe@kde.org" );
-	aboutData.addAuthor( "Matthias Elter", I18N_NOOP("Original Author"),
-	                     "me@kde.org" );
-	aboutData.addAuthor( "Wojciech Smigaj", I18N_NOOP("Info page support"),
-	                     "achu@klub.chip.pl" );
+  aboutData.addAuthor( "Cornelius Schumacher", 0, "schumacher@kde.org" );
+  aboutData.addAuthor( "Frerich Raabe", 0, "raabe@kde.org" );
+  aboutData.addAuthor( "Matthias Elter", I18N_NOOP("Original Author"),
+                       "me@kde.org" );
+  aboutData.addAuthor( "Wojciech Smigaj", I18N_NOOP("Info page support"),
+                       "achu@klub.chip.pl" );
 
-	KCmdLineArgs::init( argc, argv, &aboutData );
-	KCmdLineArgs::addCmdLineOptions( options );
-	KApplication::addCmdLineOptions();
+  KCmdLineArgs::init( argc, argv, &aboutData );
+  KCmdLineArgs::addCmdLineOptions( options );
+  KApplication::addCmdLineOptions();
 
-	KHC::Application app;
+  KHC::Application app;
 
-	return app.exec();
+  return app.exec();
 }
 
 // vim:ts=2:sw=2:et
