@@ -2,7 +2,8 @@
 #define __KHELPVIEW_H
 
 #include <kquickhelp.h>
-#include <html.h>
+#include <khtml.h>
+#include <khtmlview.h>
 #include "docserver.h"
 
 class KHelpView : public KHTMLView {

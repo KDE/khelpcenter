@@ -1,7 +1,8 @@
 #ifndef __DOCSERVER_H
 #define __DOCSERVER_H
 
-#include <html.h>
+#include <khtml.h>
+#include <khtmlview.h>
 #include "cgi.h"
 
 class KDocumentServer : public QObject {

@@ -238,7 +238,9 @@ void Browser::slotConfigure()
 	KHTMLWidget *htmlWidget = view->getKHTMLWidget();
 	htmlWidget->setDefaultBGColor( bgColor );
 	htmlWidget->setDefaultTextColors( textColor, linkColor, vLinkColor );
+#if 0	//not supported by libkhtml
 	htmlWidget->setForceDefault( forceDefaults );
+#endif
 	htmlWidget->setUnderlineLinks( underlineLinks );
 	htmlWidget->setGranularity(10000);
 

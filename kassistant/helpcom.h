@@ -14,10 +14,10 @@
 #endif
 
 #ifdef MICO_IN_GENERATED_CODE
-#include <kom.h>
+#include </usr/local/kde2/include/idl/kom.h>
 #else
 #define MICO_IN_GENERATED_CODE
-#include <kom.h>
+#include </usr/local/kde2/include/idl/kom.h>
 #undef MICO_IN_GENERATED_CODE
 #endif
 

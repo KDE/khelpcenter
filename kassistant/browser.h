@@ -18,7 +18,7 @@
 #include <kstatusbar.h>
 #include <ktoolbar.h>
 #include <kaccel.h>
-#include <html.h>
+#include <khtml.h>
 
 #include "noteditor.h"
 #include "docserver.h"

@@ -13,6 +13,8 @@
 #include <qmessagebox.h>
 #include "docserver.h"
 
+#include <unistd.h> // you need this for mktemp()
+
 #ifdef HAVE_PATHS_H
 #include <paths.h>
 #endif
@@ -72,7 +74,8 @@ void KDocumentServer::file( KHTMLView *_view, const char *_url )
 	}
 
 	char buffer[1024];	
-	_view->begin( url.directoryURL() );
+	_view->begin(url.directory()); // changed this from directoryURL() to
+	// directory(), seems like this has been changed in KURL2
 
 	// is there an attachement?
 	// my luck that KHWMLWidget does not care about <HTML></HTML> tags...

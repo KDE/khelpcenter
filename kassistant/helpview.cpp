@@ -20,7 +20,9 @@ KHelpView::KHelpView(  QWidget *_parent=0, const char *_name=0, int _flags = 0, 
 
 	connectSignals( this );
 	defaultFontBase = _defaultFontBase;
+#if 0	//not supported by libkhtml
 	getKHTMLWidget()->setDefaultFontBase( defaultFontBase );
+#endif
 
 #ifdef DEBUG
 	printf("KHelpView::KHelpView(%p, %s, %d)\n", _parent, _name, _defaultFontBase); fflush(stdout);
@@ -65,7 +67,9 @@ void KHelpView::begin( const char *_url, int _x_offset, int _y_offset )
 void KHelpView::setDefaultFontBase( int size )
 {	
 	defaultFontBase = size;	
+#if 0	//not supported by libkhtml
 	getKHTMLWidget()->setDefaultFontBase( defaultFontBase );
+#endif
 }
 
 void KHelpView::slotDocumentRequest( KHTMLView *_view, const char *_url )
