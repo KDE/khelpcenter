@@ -3,6 +3,8 @@
  *
  *  Copyright (c) 1999 Matthias Elter (me@kde.org)
  *
+ *  $Id$
+ *
  *  based on kdehelp code (c) Martin R. Jones
  *
  *  This program is free software; you can redistribute it and/or modify
@@ -19,6 +21,8 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
+
+#include <stdlib.h>
 
 #include <qmessagebox.h>
 #include <qclipboard.h>
