@@ -205,7 +205,6 @@ void MainWindow::setupActions()
 
 void MainWindow::slotConfigureKeys()
 {
-  readProperties( KGlobal::config() );
   KKeyDialog::configure( actionCollection(), this );
 }
 
