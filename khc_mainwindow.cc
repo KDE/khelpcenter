@@ -82,6 +82,7 @@ khcMainWindow::~khcMainWindow()
     {
       m_pInterface->cleanUp();
       delete m_pInterface;
+      m_pInterface = 0L;
     }
 }
 
