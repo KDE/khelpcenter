@@ -27,9 +27,6 @@
 #include <qlistbox.h>
 
 
-#include "khc_searchmatch.h"
-
-
 class QPushButton;
 class QLineEdit;
 class QCheckBox;

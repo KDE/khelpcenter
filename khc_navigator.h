@@ -28,7 +28,6 @@
 #include <qwidget.h>
 
 
-class IndexWidget;
 class SearchWidget;
 class khcNavigatorItem;
 class khcNavigator;
@@ -107,7 +106,6 @@ class khcNavigatorWidget : public QWidget
     QTabBar *tabBar;
     KListView *tree;
     SearchWidget *search;
-    IndexWidget *index;
 
     QList<khcNavigatorItem> staticItems, manualItems, pluginItems;
 };

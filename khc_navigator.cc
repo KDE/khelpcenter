@@ -20,7 +20,6 @@
 
 #include "khc_navigator.h"
 #include "khc_navigatoritem.h"
-#include "khc_indexwidget.h"
 #include "khc_searchwidget.h"
 #include "khc_factory.h"
 
@@ -93,7 +92,6 @@ khcNavigatorWidget::khcNavigatorWidget(QWidget *parent, const char *name)
     tabBar = new QTabBar(parent);
 
     setupContentsTab();
-    setupIndexTab();
     setupSearchTab();
 
     connect(tabBar, SIGNAL(selected(int)),this,
@@ -106,7 +104,6 @@ khcNavigatorWidget::~khcNavigatorWidget()
 {
     delete tree;
     delete search;
-    delete index;
     delete tabBar;
 }
 
@@ -115,7 +112,6 @@ void khcNavigatorWidget::resizeEvent(QResizeEvent *)
     tabBar->setGeometry(0, 0, width(), 28);
     tree->setGeometry(0, 28, width(), height()-28);
     search->setGeometry(0, 28, width(), height()-28);
-    index->setGeometry(0, 28, width(), height()-28);
 }
 
 void khcNavigatorWidget::setupContentsTab()
@@ -135,16 +131,6 @@ void khcNavigatorWidget::setupContentsTab()
     newTab->label = "Contents";
     tabBar->addTab(newTab);
     tree->show();
-}
-
-void khcNavigatorWidget::setupIndexTab()
-{
-    index = new IndexWidget(this);
-    index->hide();
-
-    QTab *newTab = new QTab;
-    newTab->label = "Man/Info";
-    tabBar->addTab(newTab);
 }
 
 void khcNavigatorWidget::setupSearchTab()
@@ -415,20 +401,11 @@ void khcNavigatorWidget::slotTabSelected(int id)
     if (id == 0)
     {
 	tree->show();
-	index->hide();
 	search->hide();
     }
     else if (id == 1)
     {
 	tree->hide();
-	index->show();
-	search->hide();
-	index->tabSelected();
-    }
-    else if (id == 2)
-    {
-	tree->hide();
-	index->hide();
 	search->show();
     }
 }
