@@ -2,6 +2,7 @@
  *  khc_main.cpp - part of the KDE Help Center
  *
  *  Copyright (C) 1999 Matthias Elter (me@kde.org)
+ *                2001 Stephan Kulow (coolo@kde.org)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -30,12 +31,14 @@
 #include <qdir.h>
 #include <qfile.h>
 #include <qtextstream.h>
+#include <assert.h>
 
 #include "khc_main.h"
 
 #include <kaboutdata.h>
 #include <kdebug.h>
 #include <kstdaction.h>
+#include <qtimer.h>
 
 #include "version.h"
 #include <khtml_part.h>
@@ -90,6 +93,17 @@ KHMainWindow::KHMainWindow(const KURL &url)
 
     (*actionCollection()) += *doc->actionCollection();
     (void)KStdAction::close(this, SLOT(close()), actionCollection());
+
+    backAction = new KToolBarPopupAction( i18n( "&Back" ), "back", ALT+Key_Left,
+                                          this, SLOT( slotBack() ),
+                                          actionCollection(), "back" );
+    connect( backAction->popupMenu(), SIGNAL( activated( int ) ), this, SLOT( slotBackActivated( int ) ) );
+
+    forwardAction = new KToolBarPopupAction( i18n( "&Forward" ), "forward",
+                                             ALT+Key_Right, this,
+                                             SLOT( slotForward() ),
+                                             actionCollection(), "forward" );
+    connect( forwardAction->popupMenu(), SIGNAL( activated( int ) ), this, SLOT( slotForwardActivated( int ) ) );
 
     createGUI( "khelpcenterui.rc" );
 
@@ -152,6 +166,28 @@ void KHMainWindow::slotStarted(KIO::Job *job)
             this, SLOT(slotInfoMessage(KIO::Job *, const QString &)));
 }
 
+void KHMainWindow::createHistoryEntry()
+{
+    // First, remove any forward history
+    HistoryEntry * current = m_lstHistory.current();
+    if (current)
+    {
+        //kdDebug(1202) << "Truncating history" << endl;
+        m_lstHistory.at( m_lstHistory.count() - 1 ); // go to last one
+        for ( ; m_lstHistory.current() != current ; )
+        {
+            if ( !m_lstHistory.removeLast() ) // and remove from the end (faster and easier)
+                assert(0);
+        }
+        // Now current is the current again.
+    }
+    // Append a new entry
+    //kdDebug(1202) << "Append a new entry" << endl;
+    m_lstHistory.append( new HistoryEntry ); // made current
+    //kdDebug(1202) << "at=" << m_lstHistory.at() << " count=" << m_lstHistory.count() << endl;
+    assert( m_lstHistory.at() == (int) m_lstHistory.count() - 1 );
+}
+
 void KHMainWindow::slotOpenURLRequest( const KURL &url,
                                        const KParts::URLArgs &)
 {
@@ -159,6 +195,44 @@ void KHMainWindow::slotOpenURLRequest( const KURL &url,
         slotGlossSelected(static_cast<khcNavigatorWidget *>(nav->widget())->glossEntry(KURL::decode_string(url.encodedPathAndQuery())));
     else
         doc->openURL(url);
+}
+
+void KHMainWindow::slotBack()
+{
+    slotGoHistoryActivated( -1 );
+}
+
+void KHMainWindow::slotBackActivated( int id )
+{
+    slotGoHistoryActivated( -(backAction->popupMenu()->indexOf( id ) + 1) );
+}
+
+void KHMainWindow::slotForward()
+{
+    slotGoHistoryActivated( 1 );
+}
+
+void KHMainWindow::slotForwardActivated( int id )
+{
+    slotGoHistoryActivated( forwardAction->popupMenu()->indexOf( id ) + 1 );
+}
+
+void KHMainWindow::slotGoHistoryActivated( int steps )
+{
+    if (!m_goBuffer)
+    {
+        // Only start 1 timer.
+        m_goBuffer = steps;
+        QTimer::singleShot( 0, this, SLOT(slotGoHistoryDelayed()));
+    }
+}
+
+void KHMainWindow::slotGoHistoryDelayed()
+{
+  if (!m_goBuffer) return;
+  int steps = m_goBuffer;
+  m_goBuffer = 0;
+  // m_currentView->go( steps );
 }
 
 void KHMainWindow::slotInfoMessage(KIO::Job *, const QString &m)
