@@ -939,7 +939,7 @@ bool Navigator::checkSearchIndex()
   cfg->setGroup( "Search" );
   if ( cfg->readBoolEntry( "IndexExists", false ) ) return true;
 
-  QString text = i18n( "There doesn't exist a search index yet. Do you want "
+  QString text = i18n( "A search index does not yet exist. Do you want "
                        "to create the index now?" );
 
   int result = KMessageBox::questionYesNo( this, text, QString::null, 
