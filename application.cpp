@@ -55,7 +55,7 @@ int Application::newInstance()
 static KCmdLineOptions options[] =
 {
 	{ "+[url]", I18N_NOOP("A URL to display"), "" },
-	{ 0,0,0 }
+        KCmdLineLastOption
 };
 
 int kdemain( int argc, char **argv )
