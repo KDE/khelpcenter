@@ -31,132 +31,132 @@
 
 QString HTMLSearch::readTitle(const char *filename)
 {
-  QString title;
-  QFile file(filename);
+    QString title;
+    QFile file(filename);
   
-  if (file.open(IO_ReadOnly))
+    if (file.open(IO_ReadOnly))
+    {
+	QTextStream stream(&file);
+	QString buffer;
+	int pos;
+	  
+	do
 	{
-	  QTextStream stream(&file);
-	  QString buffer;
-	  int pos;
-	  
-	  do
-		{
-		  buffer = stream.readLine();
-		  if (stream.eof())
-			return filename;
-		}
-	  while ((pos = buffer.find("<TITLE>", 0, FALSE)) < 0);
-	  
-	  title = buffer.right(buffer.length() - pos - 7);
-
-	  if ((pos = title.find("</TITLE>", 0, FALSE )) > 0)
-		title.truncate(pos);
-	  else
-		{
-		  do
-			{
-			  buffer = stream.readLine();
-			  title += buffer;
-			  if (stream.eof())
-				return title;
-			}
-		  while ((pos = buffer.find("</TITLE>", 0, FALSE)) < 0);
-		  
-		  if ((pos = title.find("</TITLE>", 0, FALSE)) > 0)
-			title.truncate(pos);
-		}
+	    buffer = stream.readLine();
+	    if (stream.eof())
+		return filename;
 	}
-  return title;
+	while ((pos = buffer.find("<TITLE>", 0, FALSE)) < 0);
+	  
+	title = buffer.right(buffer.length() - pos - 7);
+
+	if ((pos = title.find("</TITLE>", 0, FALSE )) > 0)
+	    title.truncate(pos);
+	else
+	{
+	    do
+	    {
+		buffer = stream.readLine();
+		title += buffer;
+		if (stream.eof())
+		    return title;
+	    }
+	    while ((pos = buffer.find("</TITLE>", 0, FALSE)) < 0);
+		  
+	    if ((pos = title.find("</TITLE>", 0, FALSE)) > 0)
+		title.truncate(pos);
+	}
+    }
+    return title;
 }
 
 int HTMLSearch::countOccurrences(const char *filename, const char *str)
 {
-  int count = 0;
+    int count = 0;
 
-  QString cmd = "grep -i -c ";	// -i ignore case, -c count occurrences
-  cmd += str;
-  cmd += ' ';
-  cmd += filename;
+    QString cmd = "grep -i -c ";	// -i ignore case, -c count occurrences
+    cmd += str;
+    cmd += ' ';
+    cmd += filename;
 
-  FILE *fp = popen(cmd, "r");
+    FILE *fp = popen(cmd, "r");
 
-  if (fp)
-	{
-	  char buffer[80];
+    if (fp)
+    {
+	char buffer[80];
 	  
-	  fgets(buffer, 80, fp);
-	  count = atoi(buffer);
+	fgets(buffer, 80, fp);
+	count = atoi(buffer);
 	  
-	  while (!feof(fp)) fgetc(fp);
+	while (!feof(fp)) fgetc(fp);
 	  
-	  pclose(fp);
-	}
-  return count;
+	pclose(fp);
+    }
+    return count;
 }
 
 int HTMLSearch::processFiles(const char *dirname, const char *query)
 {
-  QDir files(dirname, "*.html", 0, QDir::Files | QDir::Readable);
+    QDir files(dirname, "*.html", 0, QDir::Files | QDir::Readable);
 
-  if (!files.exists())
+    if (!files.exists())
 	return 0;
 	
-  QStringList fileList = files.entryList();
-  QStringList::Iterator itFile;
+    QStringList fileList = files.entryList();
+    QStringList::Iterator itFile;
 
-  for ( itFile = fileList.begin(); !itFile->isNull(); ++itFile)
-	{
-	  QString filename = dirname;
-	  filename += "/";
-	  filename += *itFile;
+    for ( itFile = fileList.begin(); !itFile->isNull(); ++itFile)
+    {
+	QString filename = dirname;
+	filename += "/";
+	filename += *itFile;
 	  
-	  int weight = countOccurrences(filename, query);
+	int weight = countOccurrences(filename, query);
  
-	  if (weight > 1)
-		{
-		  QString url = "file:";
-		  url += filename;
+	if (weight > 1)
+	{
+	    QString url = "file:";
+	    url += filename;
 
-		  QString title = readTitle(filename);
+	    QString title = readTitle(filename);
 
-		  Match *match = new Match(title, url);
-		  match->setWeight(weight);
-		  matchList->inSort(match);
-		}
+	    Match *match = new Match(title, url);
+	    match->setWeight(weight);
+	    matchList->inSort(match);
 	}
-	return 1;
+    }
+    return 1;
 }
 
 int HTMLSearch::processDir(const char *dirname, const char *query)
 {
-  QDir dir(dirname, "*", 0, QDir::Dirs);
+    QDir dir(dirname, "*", 0, QDir::Dirs);
 
-  if (!dir.exists())
+    if (!dir.exists())
 	return 0;
 	
-  QStringList dirList = dir.entryList();
-  QStringList::Iterator itDir;
+    QStringList dirList = dir.entryList();
+    QStringList::Iterator itDir;
 
-  for ( itDir = dirList.begin(); !itDir->isNull(); ++itDir)
-	{
-	  if (itDir->at(0) == '.')
-		continue;
+    for ( itDir = dirList.begin(); !itDir->isNull(); ++itDir)
+    {
+	if (itDir->at(0) == '.')
+	    continue;
 
-	  QString filename = dirname;
-	  filename += "/";
-	  filename += *itDir;
+	QString filename = dirname;
+	filename += "/";
+	filename += *itDir;
 
-	  processFiles(filename, query);
-	  processDir(filename, query);
-	}
-  return 1;
+	processFiles(filename, query);
+	processDir(filename, query);
+    }
+    return 1;
 }
 
 void HTMLSearch::search (const char *query)
 {
-  QString dir = KApplication::kde_htmldir();
-  dir += "/en/"; //change this for i18n!!!
-  processDir(dir, query);
+    QString dir = KApplication::kde_htmldir();
+    dir += "/en/"; //change this for i18n!!!
+    processDir(dir, query);
 }
 

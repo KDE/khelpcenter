@@ -27,102 +27,102 @@
 #include "htreelistitem.h"
 
 HTreeListItem::HTreeListItem(const QString& _text, const QString& _miniicon)
-  : KTreeListItem()
+    : KTreeListItem()
 {
-  name = _text;
-  miniicon = _miniicon;
-  setDrawTree(false);
-  setDrawExpandButton(false);
-  setIndent(0);
+    name = _text;
+    miniicon = _miniicon;
+    setDrawTree(false);
+    setDrawExpandButton(false);
+    setIndent(0);
 }
 
 bool HTreeListItem::readKDElnk ( const char *filename )
 {
-  QFile file(filename);
-  if (!file.open(IO_ReadOnly))
+    QFile file(filename);
+    if (!file.open(IO_ReadOnly))
 	return false;
 
-  file.close(); 
+    file.close(); 
 
-  KSimpleConfig config( filename, true );
-  config.setGroup("KDE Desktop Entry");
+    KSimpleConfig config( filename, true );
+    config.setGroup("KDE Desktop Entry");
 
-  // read document url
-  QString path = config.readEntry("DocPath");
-  if (path.isNull())
+    // read document url
+    QString path = config.readEntry("DocPath");
+    if (path.isNull())
 	return false;
 
-  url = kapp->kde_htmldir() + "/default/";
-  url += path;
+    url = kapp->kde_htmldir() + "/default/";
+    url += path;
 
-  // read comment text
-  info = config.readEntry("Info");
-  if (info.isNull())
+    // read comment text
+    info = config.readEntry("Info");
+    if (info.isNull())
 	info = config.readEntry("Comment");
 
-  // read icon and miniicon
-  //icon = config.readEntry("Icon");
-  miniicon = "helpdoc.xpm";//config.readEntry("MiniIcon");
+    // read icon and miniicon
+    //icon = config.readEntry("Icon");
+    miniicon = "helpdoc.xpm";//config.readEntry("MiniIcon");
 
-  // read name
-  name = config.readEntry("Name");
+    // read name
+    name = config.readEntry("Name");
   
-  if (name.isNull())
+    if (name.isNull())
+    {
+	const char *p = strrchr( filename, '/' );
+	if (p)
+	    name = p + 1;
+	else
+	    name = filename;
+	int pos;
+	if ( ( pos = name.findRev( ".kdelnk" ) ) > 0 )
 	{
-	  const char *p = strrchr( filename, '/' );
-	  if (p)
-			name = p + 1;
-	  else
-		name = filename;
-	  int pos;
-	  if ( ( pos = name.findRev( ".kdelnk" ) ) > 0 )
-		{
-		  name = name.left( pos );
-		}
+	    name = name.left( pos );
 	}
-  return true;
+    }
+    return true;
 }
 
 void HTreeListItem::insertInTree(KTreeList *tree, KTreeListItem *parent)
 {
-  QPixmap *item_pm = new QPixmap(kapp->kde_icondir() + "/mini/" + miniicon);
+    QPixmap *item_pm = new QPixmap(kapp->kde_icondir() + "/mini/" + miniicon);
 
-  setText(name);
-  setPixmap(item_pm);
+    setText(name);
+    setPixmap(item_pm);
   
-  if (parent == 0) // insert at toplevel
-	{
-	  setIndent(0);
-	  tree->insertItem(this, -1, true);
-	}
-  else             // insert as child of parent
-	{
-	  setIndent(14);
-	  parent->appendChild(this);
-	} 
+    if (parent == 0) // insert at toplevel
+    {
+	setIndent(0);
+	tree->insertItem(this, -1, true);
+    }
+    else             // insert as child of parent
+    {
+	setIndent(14);
+	parent->appendChild(this);
+    } 
 }
 
 void HTreeListItem::setName(QString _name)
 {
-  name = _name;
+    name = _name;
 }
 
 void HTreeListItem::setURL(QString _url)
 {
-  url = _url;
+    url = _url;
 }
 
 void HTreeListItem::setInfo(QString _info)
 {
-  info = _info;
+    info = _info;
 }
 
 void HTreeListItem::setIcon(QString _icon)
 {
-  icon = _icon;
+    icon = _icon;
 }
 
 void HTreeListItem::setMiniIcon(QString _miniicon)
 {
-  miniicon = _miniicon;
+    miniicon = _miniicon;
 }

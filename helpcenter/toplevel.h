@@ -41,107 +41,107 @@ class KFileBookmark;
 
 class HelpCenter : public KTMainWindow
 {
-	Q_OBJECT
-public:
-	HelpCenter();
-	virtual ~HelpCenter();
+    Q_OBJECT
+ public:
+    HelpCenter();
+    virtual ~HelpCenter();
 
-	int openURL(const char *URL, bool withHistory = true);
-	void openNewWindow(const char *url);
+    int openURL(const char *URL, bool withHistory = true);
+    void openNewWindow(const char *url);
 
     KHelpView *htmlView() { return htmlview; }
-	unsigned long getListIndex() { return listIndex; }
-	static HelpCenter *getHelpWindowAt(unsigned long id) 
-	  { return helpWindowList.at(id); }
+    unsigned long getListIndex() { return listIndex; }
+    static HelpCenter *getHelpWindowAt(unsigned long id) 
+	{ return helpWindowList.at(id); }
 
-public slots:
-	void slotBookmarkChanged(KFileBookmark *parent);
-	void slotToolbarClicked(int);
-	void slotURLSelected(const QString& _url, int _button);
+ public slots:
+    void slotBookmarkChanged(KFileBookmark *parent);
+    void slotToolbarClicked(int);
+    void slotURLSelected(const QString& _url, int _button);
 
-	void slotSetTitle(const QString& _title );
-	void slotSetLocation(const QString& _url);
-	void slotSetURL(QString url);
-	void slotSetStatusText(const QString& text);
+    void slotSetTitle(const QString& _title );
+    void slotSetLocation(const QString& _url);
+    void slotSetURL(QString url);
+    void slotSetStatusText(const QString& text);
 
-	void slotNewWindow(const QString& url);
+    void slotNewWindow(const QString& url);
     void slotCloneWindow();
 	
-	void slotMagMinus();
-	void slotMagPlus();
+    void slotMagMinus();
+    void slotMagPlus();
 
-	void slotQuit();
+    void slotQuit();
 
-	void slotEnableMenuItems();
+    void slotEnableMenuItems();
 
-	void slotOptionsTree();
-	void slotOptionsToolbar();
-	void slotOptionsLocationbar();
-	void slotOptionsStatusbar();
-	void slotOptionsGeneral();
-	void slotOptionsSave();
-	void slotReadConfig();
-	void slotSetBusy(bool bussy);
+    void slotOptionsTree();
+    void slotOptionsToolbar();
+    void slotOptionsLocationbar();
+    void slotOptionsStatusbar();
+    void slotOptionsGeneral();
+    void slotOptionsSave();
+    void slotReadConfig();
+    void slotSetBusy(bool bussy);
 
-signals:
-	void setBusy(bool bussy);
+ signals:
+    void setBusy(bool bussy);
 
-protected:
+ protected:
     virtual void resizeEvent(QResizeEvent *);
     virtual void saveProperties(KConfig *);
     virtual void readProperties(KConfig *);
 
-private slots:
+    private slots:
 	void slotLocationEntered();
     void slotHistoryFillBack();
     void slotHistoryFillForward();
     void slotHistoryBackActivated(int id);
     void slotHistoryForwardActivated(int id);
-	void slotAnimatedWheelTimeout();
+    void slotAnimatedWheelTimeout();
 
-private:
-	void enableMenuItems();
-	void enableTree(bool enable);
-	void fillBookmarkMenu(KFileBookmark *parent, QPopupMenu *menu, int &id);
-	void setupMenubar();
-	void setupToolbar();
-	void setupStatusbar();
-	void setupLocationbar();
-	void setupView();
+ private:
+    void enableMenuItems();
+    void enableTree(bool enable);
+    void fillBookmarkMenu(KFileBookmark *parent, QPopupMenu *menu, int &id);
+    void setupMenubar();
+    void setupToolbar();
+    void setupStatusbar();
+    void setupLocationbar();
+    void setupView();
 
-private:
-	QSplitter *splitter;
-	KHelpView *htmlview;
-	HTabView *tabview;
+ private:
+    QSplitter *splitter;
+    KHelpView *htmlview;
+    HTabView *tabview;
 
-	QPopupMenu *fileMenu, *editMenu, *viewMenu, *gotoMenu, *optionsMenu, *helpMenu,*bookmarkMenu;
-	QPopupMenu *historyBackMenu, *historyForwardMenu;
+    QPopupMenu *fileMenu, *editMenu, *viewMenu, *gotoMenu, *optionsMenu, *helpMenu,*bookmarkMenu;
+    QPopupMenu *historyBackMenu, *historyForwardMenu;
 
-	// toolbar id's:
-	enum {TB_TREE, TB_BACK, TB_FORWARD, TB_RELOAD, TB_STOP, TB_PRINT, TB_BOOKMARK, TB_ZOOMIN,
-		  TB_ZOOMOUT, TB_FIND, TB_WHEEL};
-	// menu id's:
-	int idCopy, idBack, idForward, idTop, idUp, idPrevious, idNext, idTree, idToolbar
-	  ,idLocationbar, idStatusbar, idMagPlus, idMagMinus;
+    // toolbar id's:
+    enum {TB_TREE, TB_BACK, TB_FORWARD, TB_RELOAD, TB_STOP, TB_PRINT, TB_BOOKMARK, TB_ZOOMIN,
+	  TB_ZOOMOUT, TB_FIND, TB_WHEEL};
+    // menu id's:
+    int idCopy, idBack, idForward, idTop, idUp, idPrevious, idNext, idTree, idToolbar
+	,idLocationbar, idStatusbar, idMagPlus, idMagMinus;
 
-	// GUI options:
-	bool showStatusbar, showToolbar, showLocationbar, showTree;
-	int fontBase;
+    // GUI options:
+    bool showStatusbar, showToolbar, showLocationbar, showTree;
+    int fontBase;
 
-	// static list of HelpCenter windows
-	static QList<HelpCenter> helpWindowList;
+    // static list of HelpCenter windows
+    static QList<HelpCenter> helpWindowList;
 
-	// static list of wheel frames
-	static QList<QPixmap> animatedWheel;
+    // static list of wheel frames
+    static QList<QPixmap> animatedWheel;
 
-	// index of HelpCenter instance in helpWindowList
-	unsigned long listIndex;
+    // index of HelpCenter instance in helpWindowList
+    unsigned long listIndex;
 
-	// The image from 0...animatedWheel.count()-1 we are currently displaying.
+    // The image from 0...animatedWheel.count()-1 we are currently displaying.
     uint animatedWheelCounter;
 	
-	// Timer used to display the animated logo.
-	QTimer *animatedWheelTimer;
+    // Timer used to display the animated logo.
+    QTimer *animatedWheelTimer;
 };
 
 #endif // TOPLEVEL_H

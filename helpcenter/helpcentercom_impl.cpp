@@ -27,38 +27,38 @@ HelpCenterCom::HelpCenterCom()
 
 CORBA::ULong HelpCenterCom::openHelpView (const char *url, CORBA::Boolean enableTree)
 {
-  HelpCenter *hc = new HelpCenter;
+    HelpCenter *hc = new HelpCenter;
   
-  QString _url(url);
+    QString _url(url);
 
-  if (_url.isEmpty())
-	{
-	  _url = "file:";
-	  _url += kapp->kde_htmldir().copy();
-	  _url += "/default/khelpcenter/main.html";
-	}
-  hc->openURL(_url, true);
-  hc->show();
-  return hc->getListIndex();
+    if (_url.isEmpty())
+    {
+	_url = "file:";
+	_url += kapp->kde_htmldir().copy();
+	_url += "/default/khelpcenter/main.html";
+    }
+    hc->openURL(_url, true);
+    hc->show();
+    return hc->getListIndex();
 }
 
 void HelpCenterCom::openURL(const char *url, CORBA::ULong id)
 {
-  QString _url(url);
+    QString _url(url);
 
-  if (_url.isEmpty())
-	{
-	  _url = "file:";
-	  _url += kapp->kde_htmldir().copy();
-	  _url += "/default/khelpcenter/main.html";
-	}
-  HelpCenter *hc;
-  hc = HelpCenter::getHelpWindowAt(id);
-  if (hc)
+    if (_url.isEmpty())
+    {
+	_url = "file:";
+	_url += kapp->kde_htmldir().copy();
+	_url += "/default/khelpcenter/main.html";
+    }
+    HelpCenter *hc;
+    hc = HelpCenter::getHelpWindowAt(id);
+    if (hc)
 	hc->openURL(_url, true);
 }
 
 void HelpCenterCom::configure()
 {
-  // call slotConfigure for all HelpCenter Windows
+    // call slotConfigure for all HelpCenter Windows
 }

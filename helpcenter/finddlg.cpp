@@ -45,7 +45,7 @@ KFindTextDialog::KFindTextDialog( QWidget *parent, const char *name )
     edit->setFixedHeight( edit->sizeHint().height() );
     edit->setFocus();
     connect( edit, SIGNAL( textChanged( const QString & ) ),
-		    SLOT( slotTextChanged( const QString & ) ) );
+	     SLOT( slotTextChanged( const QString & ) ) );
     hl->addWidget( edit );
 
     hl = new QHBoxLayout;

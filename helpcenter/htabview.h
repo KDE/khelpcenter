@@ -32,42 +32,42 @@ class HTreeListItem;
 
 class HTabView : public KTabCtl
 {
-  Q_OBJECT
+    Q_OBJECT
   
-public:
-  	HTabView(QWidget *parent=0, const char *name=0);
-	virtual ~HTabView();
+ public:
+    HTabView(QWidget *parent=0, const char *name=0);
+    virtual ~HTabView();
 
-public slots:
-	void slotURLSelected(QString url);
-	void slotItemSelected(int index);
+ public slots:
+    void slotURLSelected(QString url);
+    void slotItemSelected(int index);
     void slotReloadTree();
-	void slotTabSelected(int);
+    void slotTabSelected(int);
 
-signals:
-	void itemSelected(QString itemURL);
-	void setBussy(bool bussy);
+ signals:
+    void itemSelected(QString itemURL);
+    void setBussy(bool bussy);
 	
-private:
-	void setupContentsTab();
-	void setupIndexTab();
-	void setupSearchTab();
-	void buildTree();
-	void clearTree();
+ private:
+    void setupContentsTab();
+    void setupIndexTab();
+    void setupSearchTab();
+    void buildTree();
+    void clearTree();
 
-	void buildManSubTree(HTreeListItem *parent);
-	void buildManualSubTree(HTreeListItem *parent);
-	void insertPlugins();
+    void buildManSubTree(HTreeListItem *parent);
+    void buildManualSubTree(HTreeListItem *parent);
+    void insertPlugins();
 
-	bool appendEntries (const char *dirName,  HTreeListItem *parent, QList<HTreeListItem> *appendList);
-	bool processDir(const char *dirName, HTreeListItem *parent,  QList<HTreeListItem> *appendList);
-	bool containsDocuments(QString dir);
+    bool appendEntries (const char *dirName,  HTreeListItem *parent, QList<HTreeListItem> *appendList);
+    bool processDir(const char *dirName, HTreeListItem *parent,  QList<HTreeListItem> *appendList);
+    bool containsDocuments(QString dir);
 
-	KTreeList *tree;
-	SearchWidget *search;
-	IndexWidget *index;
+    KTreeList *tree;
+    SearchWidget *search;
+    IndexWidget *index;
 
-	QList<HTreeListItem> staticItems, manualItems, pluginItems;
+    QList<HTreeListItem> staticItems, manualItems, pluginItems;
 };
 
 #endif

@@ -14,33 +14,33 @@
 
 class KCGI : public QObject
 {
-	Q_OBJECT
-public:
-	KCGI();
-	~KCGI();
+    Q_OBJECT
+ public:
+    KCGI();
+    ~KCGI();
 
-	bool get( const char *_src, const char *dest, const char *_method );
+    bool get( const char *_src, const char *dest, const char *_method );
 
-protected:
-	bool runScript();
+ protected:
+    bool runScript();
 
-protected slots:
+    protected slots:
 	void checkScript();
 
-signals:
-	void finished();
+ signals:
+    void finished();
 
-protected:
-	QString query;
-	QString script;
-	QString pathInfo;
-	QString destFile;
+ protected:
+    QString query;
+    QString script;
+    QString pathInfo;
+    QString destFile;
 
-	QString method;
+    QString method;
 
-	int scriptPID;
+    int scriptPID;
 
-	QTimer timer;
+    QTimer timer;
 };
 
 #endif

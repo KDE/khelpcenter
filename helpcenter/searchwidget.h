@@ -33,70 +33,70 @@ class QCheckBox;
 
 class TipLabel : public QLabel
 {
-  Q_OBJECT
+    Q_OBJECT
 
-public:
-  TipLabel()
+ public:
+    TipLabel()
 	: QLabel(0, "TipLabel",
-			 WStyle_Customize | WStyle_NoBorder | WStyle_Tool)
+		 WStyle_Customize | WStyle_NoBorder | WStyle_Tool)
 	{
-	  setAlignment(AlignVCenter | AlignLeft);
-	  setAutoResize(true);
-	  setBackgroundColor(QColor(240,255,240));
-	  setFrameStyle(Box | Raised);
-	  setLineWidth(1);
-	  //setAutoMask(FALSE);
+	    setAlignment(AlignVCenter | AlignLeft);
+	    setAutoResize(true);
+	    setBackgroundColor(QColor(240,255,240));
+	    setFrameStyle(Box | Raised);
+	    setLineWidth(1);
+	    //setAutoMask(FALSE);
 	}
 };
 
 
 class ResultBox : public QListBox
 {
-  Q_OBJECT
+    Q_OBJECT
 
-public:
-  ResultBox(QWidget *parent = 0);
-  int getItemYPos(int index);
+	public:
+    ResultBox(QWidget *parent = 0);
+    int getItemYPos(int index);
 
-protected:
-  virtual void mouseMoveEvent(QMouseEvent *e);
-  virtual void leaveEvent(QEvent *e);
+ protected:
+    virtual void mouseMoveEvent(QMouseEvent *e);
+    virtual void leaveEvent(QEvent *e);
 
-signals:
-  void mouseOver(int index);
+ signals:
+    void mouseOver(int index);
 };  
 
 
 class SearchWidget : public QWidget
 {
-  Q_OBJECT
+    Q_OBJECT
 
-public:
-  SearchWidget (QWidget *parent = 0);
-  ~SearchWidget();
-  void tabSelected();
+	public:
+    SearchWidget (QWidget *parent = 0);
+    ~SearchWidget();
+    void tabSelected();
 
-signals:
- void matchSelected(QString match);
+ signals:
+    void matchSelected(QString match);
 
-protected:
-  void resizeEvent (QResizeEvent *);
+ protected:
+    void resizeEvent (QResizeEvent *);
 
-public slots:
-  void slotSearch();
+    public slots:
+	void slotSearch();
 
-private slots:
-  void slotMatchSelected(int index);
-  void slotMouseOver(int index); 
+    private slots:
+	void slotMatchSelected(int index);
+    void slotMouseOver(int index); 
 
-private:
-  QLabel *keyWordLabel, *resultLabel;
-  TipLabel *tipLabel;
-  QPushButton *searchButton;
-  ResultBox *resultList;
-  QLineEdit *searchString;
-  QCheckBox *docCheck, *manCheck, *infoCheck;
-  MatchList matchList;
+ private:
+    QLabel *keyWordLabel, *resultLabel;
+    TipLabel *tipLabel;
+    QPushButton *searchButton;
+    ResultBox *resultList;
+    QLineEdit *searchString;
+    QCheckBox *docCheck, *manCheck, *infoCheck;
+    MatchList matchList;
 };
 
 #endif

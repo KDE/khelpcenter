@@ -47,156 +47,156 @@ class KCGI;
 class KPageInfo
 {
  public:
-  KPageInfo(const char *u, int y) {url = u; yOffset = y;}
-  KPageInfo(const KPageInfo &i) {url = i.url.copy(); yOffset = i.yOffset;}
+    KPageInfo(const char *u, int y) {url = u; yOffset = y;}
+    KPageInfo(const KPageInfo &i) {url = i.url.copy(); yOffset = i.yOffset;}
   
-  const QString getUrl() const {return url;}
-  int getOffset() const {return yOffset;}
+    const QString getUrl() const {return url;}
+    int getOffset() const {return yOffset;}
   
-  void setOffset(int y) {yOffset = y;}
+    void setOffset(int y) {yOffset = y;}
   
  private:
-  QString url;
-  int yOffset;
+    QString url;
+    int yOffset;
 };
 
 class KHelpView : public QWidget
 {
-  Q_OBJECT
+    Q_OBJECT
  public:
-  enum AllowedActions { Copy, GoBack, GoForward, GoUp, Stop };
+    enum AllowedActions { Copy, GoBack, GoForward, GoUp, Stop };
   
-  KHelpView(QWidget *parent=NULL, const char *name=NULL);
-  virtual ~KHelpView();
+    KHelpView(QWidget *parent=NULL, const char *name=NULL);
+    virtual ~KHelpView();
   
-  int openURL( const char *URL, bool withHistory = true );
+    int openURL( const char *URL, bool withHistory = true );
   
-  bool canCurrentlyDo(AllowedActions action);
-  const char *getCurrentURL();
+    bool canCurrentlyDo(AllowedActions action);
+    const char *getCurrentURL();
   
-  void setHistCurrent(KPageInfo *current) { histCurrent = current; }
-  KPageInfo *getHistCurrent() { return histCurrent; }
-  const QList<KPageInfo> &getHistory() const { return history; }
-  void setHistory( const QList<KPageInfo> &hist ) {   history = hist; }
+    void setHistCurrent(KPageInfo *current) { histCurrent = current; }
+    KPageInfo *getHistCurrent() { return histCurrent; }
+    const QList<KPageInfo> &getHistory() const { return history; }
+    void setHistory( const QList<KPageInfo> &hist ) {   history = hist; }
   
  signals:
-  void enableMenuItems();
-  void openNewWindow(const QString& newURL);
+    void enableMenuItems();
+    void openNewWindow(const QString& newURL);
   
-  void setURL(const QString& url);  
-  void setLocation(const QString& url);
-  void bookmarkChanged(KFileBookmark *);
-  void setTitle(const QString& _title);
-  void setBusy(bool bussy);
+    void setURL(const QString& url);  
+    void setLocation(const QString& url);
+    void bookmarkChanged(KFileBookmark *);
+    void setTitle(const QString& _title);
+    void setBusy(bool bussy);
 
  public slots:
-  void slotOpenFile();
-  void slotReload();
-  void slotPrint();
+    void slotOpenFile();
+    void slotReload();
+    void slotPrint();
   
-  void slotCopy();
-  void slotFind();
-  void slotFindNext();
-  void slotFindNext( const QRegExp & );
-  void slotBack();
-  void slotForward();
-  void slotDir();
-  void slotUp();
-  void slotTextSelected( bool sel );
-  void slotAddBookmark();
-  void slotBookmarkSelected( int id );
-  void slotBookmarkHighlighted( int id );
-  void slotBookmarkChanged();
-  void slotStopProcessing();
-  void slotSetTitle( const char * );
-  void slotURLSelected( const char *, int );
-  void slotOnURL( const char * );
-  void slotFormSubmitted( const char *, const char *, const char *, const char * );
-  void slotPopupMenu( const char *, const QPoint & );
-  void slotCGIDone();
-  void slotScrollVert( int _y );
-  void slotScrollHorz( int _y );
-  void slotBackgroundColor( const QColor &col );
-  void setDefaultFontBase(int fSize);
-  void slotFontSize( int );
-  void slotStandardFont( const QString& );
-  void slotFixedFont( const QString& );
-  void slotColorsChanged( const QColor&, const QColor&, const QColor&,
-						  const QColor&, const bool, const bool );
-  void slotPopupOpenURL();
-  void slotPopupAddBookmark();
-  void slotPopupOpenNew();
-  void slotViewResized( const QSize & );
-  void slotDocumentChanged();
-  void slotDocumentDone();
-  void slotDocumentStarted();
+    void slotCopy();
+    void slotFind();
+    void slotFindNext();
+    void slotFindNext( const QRegExp & );
+    void slotBack();
+    void slotForward();
+    void slotDir();
+    void slotUp();
+    void slotTextSelected( bool sel );
+    void slotAddBookmark();
+    void slotBookmarkSelected( int id );
+    void slotBookmarkHighlighted( int id );
+    void slotBookmarkChanged();
+    void slotStopProcessing();
+    void slotSetTitle( const char * );
+    void slotURLSelected( const char *, int );
+    void slotOnURL( const char * );
+    void slotFormSubmitted( const char *, const char *, const char *, const char * );
+    void slotPopupMenu( const char *, const QPoint & );
+    void slotCGIDone();
+    void slotScrollVert( int _y );
+    void slotScrollHorz( int _y );
+    void slotBackgroundColor( const QColor &col );
+    void setDefaultFontBase(int fSize);
+    void slotFontSize( int );
+    void slotStandardFont( const QString& );
+    void slotFixedFont( const QString& );
+    void slotColorsChanged( const QColor&, const QColor&, const QColor&,
+			    const QColor&, const bool, const bool );
+    void slotPopupOpenURL();
+    void slotPopupAddBookmark();
+    void slotPopupOpenNew();
+    void slotViewResized( const QSize & );
+    void slotDocumentChanged();
+    void slotDocumentDone();
+    void slotDocumentStarted();
   
  protected:
-  virtual void resizeEvent( QResizeEvent * );
+    virtual void resizeEvent( QResizeEvent * );
   
-  virtual bool eventFilter( QObject *, QEvent * );
-  virtual bool x11Event( XEvent * );
+    virtual bool eventFilter( QObject *, QEvent * );
+    virtual bool x11Event( XEvent * );
   
  private:
-  bool safeCommand(const char *cmd);
+    bool safeCommand(const char *cmd);
 
-  enum FileType { UnknownFile, HTMLFile, InfoFile, ManFile, CannotOpenFile };
+    enum FileType { UnknownFile, HTMLFile, InfoFile, ManFile, CannotOpenFile };
   
-  int openFile(const QString &);
-  int formatMan(int bodyOnly = false);
-  int openHTML( const char *location );
-  int runCGI( const char *_url );
-  FileType detectFileType( const QString &filename );
-  void enableToolbarButton( int id, bool enable );
-  void createMenu();
-  void addBookmark( const char *_title, const char *url );
-  void layout();
+    int openFile(const QString &);
+    int formatMan(int bodyOnly = false);
+    int openHTML( const char *location );
+    int runCGI( const char *_url );
+    FileType detectFileType( const QString &filename );
+    void enableToolbarButton( int id, bool enable );
+    void createMenu();
+    void addBookmark( const char *_title, const char *url );
+    void layout();
  private:
-  QScrollBar *vert;
-  QScrollBar *horz;
-  QLabel *statusBar;
-  QPopupMenu *rmbPopup;
-  KHTMLWidget *view;
-  KFindTextDialog *findDialog;
+    QScrollBar *vert;
+    QScrollBar *horz;
+    QLabel *statusBar;
+    QPopupMenu *rmbPopup;
+    KHTMLWidget *view;
+    KFindTextDialog *findDialog;
   
-  QString localFile;
-  KCGI *CGIServer;
-  KFileBookmarkManager bookmarkManager;
+    QString localFile;
+    KCGI *CGIServer;
+    KFileBookmarkManager bookmarkManager;
   
-  // html view preferences
-  int  fontBase;
-  QString standardFont;
-  QString fixedFont;
+    // html view preferences
+    int  fontBase;
+    QString standardFont;
+    QString fixedFont;
   
-  QColor bgColor;
-  QColor textColor;
-  QColor linkColor;
-  QColor vLinkColor;
-  bool   underlineLinks;
-  bool   forceDefaults;
+    QColor bgColor;
+    QColor textColor;
+    QColor linkColor;
+    QColor vLinkColor;
+    bool   underlineLinks;
+    bool   forceDefaults;
   
-  QString fullURL;
-  QString currentURL;
-  QString currentInfo;
-  QString title;
-  QString ref;
+    QString fullURL;
+    QString currentURL;
+    QString currentInfo;
+    QString title;
+    QString ref;
   
-  // current width of the html view
-  int viewWidth;
+    // current width of the html view
+    int viewWidth;
   
-  // scroll to here when parsed
-  int scrollTo;
+    // scroll to here when parsed
+    int scrollTo;
   
-  // busy parsing
-  bool busy;
+    // busy parsing
+    bool busy;
   
-  QCursor oldCursor;
+    QCursor oldCursor;
   
-  QList<KPageInfo> history;
-  KPageInfo *histCurrent;
-  ManParser *man;
+    QList<KPageInfo> history;
+    KPageInfo *histCurrent;
+    ManParser *man;
  
-  QString newURL;
+    QString newURL;
 };
 
 #endif

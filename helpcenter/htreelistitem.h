@@ -25,26 +25,26 @@
 
 class HTreeListItem : public KTreeListItem
 {
-public:
-  HTreeListItem (const QString& text = "", const QString& miniicon = "");
-  bool readKDElnk (const char *filename);
-  void insertInTree(KTreeList *tree, KTreeListItem *parent);
-  void setName(QString _name);
-  void setURL(QString _url);
-  void setInfo(QString _info);
-  void setIcon(QString _icon);
-  void setMiniIcon(QString _miniicon);
-  QString getName() {return name;};
-  QString getURL() { return url; }
-  QString getInfo() {return info;};
-  QString getIcon() {return icon;};
-  QString getMiniIcon() {return miniicon;};
-protected:
-  QString name;
-  QString url;
-  QString info;
-  QString icon;
-  QString miniicon;
+ public:
+    HTreeListItem (const QString& text = "", const QString& miniicon = "");
+    bool readKDElnk (const char *filename);
+    void insertInTree(KTreeList *tree, KTreeListItem *parent);
+    void setName(QString _name);
+    void setURL(QString _url);
+    void setInfo(QString _info);
+    void setIcon(QString _icon);
+    void setMiniIcon(QString _miniicon);
+    QString getName() {return name;};
+    QString getURL() { return url; }
+    QString getInfo() {return info;};
+    QString getIcon() {return icon;};
+    QString getMiniIcon() {return miniicon;};
+ protected:
+    QString name;
+    QString url;
+    QString info;
+    QString icon;
+    QString miniicon;
 };
 
 #endif

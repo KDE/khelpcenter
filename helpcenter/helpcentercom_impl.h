@@ -23,10 +23,10 @@
 class HelpCenterCom : virtual public KHelpCenter::HelpCenterCom_skel
 {
 
-public:
-	HelpCenterCom();
+ public:
+    HelpCenterCom();
 
-	CORBA::ULong openHelpView (const char *url, CORBA::Boolean enableTree);
-	void openURL(const char *url, CORBA::ULong id);
-	void configure();
+    CORBA::ULong openHelpView (const char *url, CORBA::Boolean enableTree);
+    void openURL(const char *url, CORBA::ULong id);
+    void configure();
 };

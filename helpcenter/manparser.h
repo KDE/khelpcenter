@@ -43,70 +43,70 @@
 
 class ManPage
 {
-public:
-	ManPage(const char *theName) { name = theName; _next = NULL; }
-	ManPage() {name = ""; _next = NULL; }
+ public:
+    ManPage(const char *theName) { name = theName; _next = NULL; }
+    ManPage() {name = ""; _next = NULL; }
 
-	const char *getName() const { return name; }
+    const char *getName() const { return name; }
 
     ManPage *next() const { return _next; }
     void setNext(ManPage *n) { _next = n; }
 
-private:
-	QString name;
-	ManPage *_next;
+ private:
+    QString name;
+    ManPage *_next;
 };
 
 class ManSection
 {
-public:
-	ManSection(const char *theName);
-	~ManSection();
+ public:
+    ManSection(const char *theName);
+    ~ManSection();
 
-	int  getNumPages()	{ return numPages; }
-	const char *getName()	{ return name; }
-	const char *getDesc()	{ return desc; }
+    int  getNumPages()	{ return numPages; }
+    const char *getName()	{ return name; }
+    const char *getDesc()	{ return desc; }
 
-	ManPage *moveToHead() {	return curr = head; }
-	ManPage *getNext()	{ return curr = curr->next(); }
-	ManPage *getCurrent()	{ return curr; }
+    ManPage *moveToHead() {	return curr = head; }
+    ManPage *getNext()	{ return curr = curr->next(); }
+    ManPage *getCurrent()	{ return curr; }
 
-	void ReadSection();
-	void ReadDir(const char *dirName);
-	void AddPage(const char *pageName);
-	ManPage *FindPage(const char *pageName);
+    void ReadSection();
+    void ReadDir(const char *dirName);
+    void AddPage(const char *pageName);
+    ManPage *FindPage(const char *pageName);
 
-private:
-	ManPage *head, *tail, *curr;
-	QString name;
-	QString desc;
+ private:
+    ManPage *head, *tail, *curr;
+    QString name;
+    QString desc;
 
-	int		numPages;
-	char	isRead;
+    int		numPages;
+    char	isRead;
 
-	static QString searchPath[MAN_MAXPATHS];
-	static int	numPaths;
+    static QString searchPath[MAN_MAXPATHS];
+    static int	numPaths;
     static int  sectCount;
 };
 
 class ManParser
 {
-public:
-	ManParser();
-	~ManParser();
+ public:
+    ManParser();
+    ~ManParser();
 
-	int  readLocation(const char *name);
-	const char *getLocation() {	return posString; }
-	const char *getPage() { return HTMLPage; }
+    int  readLocation(const char *name);
+    const char *getLocation() {	return posString; }
+    const char *getPage() { return HTMLPage; }
 
-public:
-	QString HTMLPage;
-	QString posString;
-	char	staticBuffer[80];
-	int		pos;
+ public:
+    QString HTMLPage;
+    QString posString;
+    char	staticBuffer[80];
+    int		pos;
 
-private:
-	static int instance;
+ private:
+    static int instance;
 };
 
 #endif

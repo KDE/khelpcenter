@@ -17,17 +17,17 @@ void DefHandler(int type, const char *theMsg);
 // ============================================================================
 class cError
 {
-	int type;
-	const char *desc;
-	void (*handler)(int, const char *);
+    int type;
+    const char *desc;
+    void (*handler)(int, const char *);
 
-public:
-	cError();
+ public:
+    cError();
 
-	void Set(int theType, const char *theDesc);
+    void Set(int theType, const char *theDesc);
 
-	void SetHandler(void (*theHandler)(int, const char *))
-		{	handler = theHandler; }
+    void SetHandler(void (*theHandler)(int, const char *))
+	{	handler = theHandler; }
 };
 
 extern cError Error;

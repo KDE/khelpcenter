@@ -33,39 +33,39 @@ void errorHandler( int type, char *msg );
 
 int main(int argc, char *argv[])
 {
-  // error handler for man stuff
-  Error.SetHandler( (void (*)(int, const char *))errorHandler );
+    // error handler for man stuff
+    Error.SetHandler( (void (*)(int, const char *))errorHandler );
 
-  // create local data directory if necessary
-  QDir dir;
-  dir.setPath(KApplication::localkdedir() + "/share/apps");
+    // create local data directory if necessary
+    QDir dir;
+    dir.setPath(KApplication::localkdedir() + "/share/apps");
 
-  if (!dir.exists())
+    if (!dir.exists())
 	dir.mkdir(KApplication::localkdedir() + "/share/apps");
   
-   dir.setPath(KApplication::localkdedir() + "/share/apps/khelpcenter");
-  if (!dir.exists())
+    dir.setPath(KApplication::localkdedir() + "/share/apps/khelpcenter");
+    if (!dir.exists())
 	dir.mkdir(KApplication::localkdedir() + "/share/apps/khelpcenter");
 
-  // init app
-  KOMApplication app(argc, argv, "khelpcenter.bin");
+    // init app
+    KOMApplication app(argc, argv, "khelpcenter.bin");
   
-  HelpCenterCom *helpcentercom;
-  helpcentercom = new HelpCenterCom;
-  app.boa()->impl_is_ready(CORBA::ImplementationDef::_nil());
-  kdebug(KDEBUG_INFO,1401,"KOM interface ready: IDL:KHelpCenter/HelpCenterCom:1.0");
+    HelpCenterCom *helpcentercom;
+    helpcentercom = new HelpCenterCom;
+    app.boa()->impl_is_ready(CORBA::ImplementationDef::_nil());
+    kdebug(KDEBUG_INFO,1401,"KOM interface ready: IDL:KHelpCenter/HelpCenterCom:1.0");
 
-  app.exec();
-  return 0;
+    app.exec();
+    return 0;
 }
 
 void errorHandler( int type, char *msg )
 {
-  QApplication::setOverrideCursor(Qt::arrowCursor);
-  QMessageBox::message(i18n("Error"), msg, i18n("OK"));
+    QApplication::setOverrideCursor(Qt::arrowCursor);
+    QMessageBox::message(i18n("Error"), msg, i18n("OK"));
   
-  QApplication::restoreOverrideCursor();
+    QApplication::restoreOverrideCursor();
 
-  if (type == ERR_FATAL)
-	  exit(1);
+    if (type == ERR_FATAL)
+	exit(1);
 }

@@ -30,25 +30,25 @@ class QListBox;
 
 class IndexWidget : public QWidget
 {
-  Q_OBJECT
+    Q_OBJECT
 
-public:
-  IndexWidget (QWidget *parent = 0);
-  ~IndexWidget();
-  void tabSelected();
+ public:
+    IndexWidget (QWidget *parent = 0);
+    ~IndexWidget();
+    void tabSelected();
 
-protected:
-  void resizeEvent (QResizeEvent *);
+ protected:
+    void resizeEvent (QResizeEvent *);
 
-public slots:
-  void slotBuildIndex();
-  void slotFind(); 
+ public slots:
+    void slotBuildIndex();
+    void slotFind(); 
 
-private:
-  QLabel *keyWordLabel, *topicLabel;
-  QLineEdit *keyWordString;
-  QPushButton *rebuildButton;
-  QListBox *indexList;
+ private:
+    QLabel *keyWordLabel, *topicLabel;
+    QLineEdit *keyWordString;
+    QPushButton *rebuildButton;
+    QListBox *indexList;
 };
 
 #endif

@@ -27,24 +27,24 @@ class KFindTextDialog : public QDialog
 {
     Q_OBJECT
 
-public:
+ public:
     KFindTextDialog( QWidget *parent = 0, const char *name = 0 );
 
     const QRegExp &regExp() const { return rExp; }
 
-signals:
+ signals:
     /*
      * connect to me to find out when the user has pressed the find button.
      */
     void find( const QRegExp &re );
 
-public slots:
+ public slots:
     void slotTextChanged( const QString& t );
     void slotCase( bool c );
     void slotClose();
     void slotFind();
 
-protected:
+ protected:
     QRegExp rExp;
 };
 

@@ -18,32 +18,32 @@ cError Error;
 //
 void DefHandler(int type, const char *theMsg)
 {
-	if (type == ERR_FATAL)
-	{
-		cout << i18n("Fatal Error: ") << theMsg << endl;
-		exit(1);
-	}
-	else
-	{
-		cout << i18n("Warning: ") << theMsg << endl;
-	}
+    if (type == ERR_FATAL)
+    {
+	cout << i18n("Fatal Error: ") << theMsg << endl;
+	exit(1);
+    }
+    else
+    {
+	cout << i18n("Warning: ") << theMsg << endl;
+    }
 }
 
 // ============================================================================
 //
 cError::cError()
 {
-	SetHandler(DefHandler);
-	type = ERR_NONE;
+    SetHandler(DefHandler);
+    type = ERR_NONE;
 }
 
 void cError::Set(int theType, const char *theDesc)
 {
-	type = theType;
-	desc = theDesc;
+    type = theType;
+    desc = theDesc;
 
-	handler(type, desc);
+    handler(type, desc);
 
-	if (type == ERR_WARNING) type = ERR_NONE;
+    if (type == ERR_WARNING) type = ERR_NONE;
 }
 

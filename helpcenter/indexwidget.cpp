@@ -28,20 +28,20 @@
 #include "indexwidget.h"
 
 IndexWidget::IndexWidget(QWidget *parent)
-  : QWidget(parent)
+    : QWidget(parent)
 {
-  keyWordLabel = new QLabel(i18n("Enter keyword:"), this);
-  keyWordString = new QLineEdit(this);
-  connect(keyWordString, SIGNAL(returnPressed()), this, SLOT(slotFind()));
+    keyWordLabel = new QLabel(i18n("Enter keyword:"), this);
+    keyWordString = new QLineEdit(this);
+    connect(keyWordString, SIGNAL(returnPressed()), this, SLOT(slotFind()));
 
-  topicLabel = new QLabel(i18n("Topics (man/info pages):"), this);
+    topicLabel = new QLabel(i18n("Topics (man/info pages):"), this);
 
-  indexList = new QListBox(this);
+    indexList = new QListBox(this);
 
-  rebuildButton = new QPushButton(i18n("&Reload topics"), this);
-  rebuildButton->setFixedWidth(120);
-  rebuildButton->setFixedHeight(24);
-  connect(rebuildButton, SIGNAL(clicked()), this, SLOT(slotBuildIndex()));
+    rebuildButton = new QPushButton(i18n("&Reload topics"), this);
+    rebuildButton->setFixedWidth(120);
+    rebuildButton->setFixedHeight(24);
+    connect(rebuildButton, SIGNAL(clicked()), this, SLOT(slotBuildIndex()));
 }
 
 IndexWidget::~IndexWidget()
@@ -51,29 +51,29 @@ IndexWidget::~IndexWidget()
 
 void IndexWidget::resizeEvent(QResizeEvent *)
 {
-  keyWordLabel->setGeometry(2, 2, width(), 20);
-  keyWordString->setGeometry(2, 22, width() - 4, 24);
-  topicLabel->setGeometry(2, 52, width(), 20);
+    keyWordLabel->setGeometry(2, 2, width(), 20);
+    keyWordString->setGeometry(2, 22, width() - 4, 24);
+    topicLabel->setGeometry(2, 52, width(), 20);
 
-  indexList->setGeometry(2, 74, width()-4, height()-102);
-  rebuildButton->move(2, height() - 24);
+    indexList->setGeometry(2, 74, width()-4, height()-102);
+    rebuildButton->move(2, height() - 24);
 }
 
 void IndexWidget::tabSelected()
 {
-  keyWordString->setFocus();
-  slotBuildIndex();
+    keyWordString->setFocus();
+    slotBuildIndex();
 }
 
 void IndexWidget::slotBuildIndex()
 {
-  //indexList->clear();
+    //indexList->clear();
   
-  //indexList->setAutoUpdate(false);
-  //for (int i=0;i<5000;i++)
-	//	indexList->insertItem("Test item");
-  //indexList->setAutoUpdate(true);
-  //indexList->repaint();
+    //indexList->setAutoUpdate(false);
+    //for (int i=0;i<5000;i++)
+    //	indexList->insertItem("Test item");
+    //indexList->setAutoUpdate(true);
+    //indexList->repaint();
 }
 
 void IndexWidget::slotFind()

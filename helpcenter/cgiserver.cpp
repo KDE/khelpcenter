@@ -26,64 +26,64 @@
 
 KCGI::KCGI()
 {
-	query = "";
-	script = "";
-	pathInfo = "";
+    query = "";
+    script = "";
+    pathInfo = "";
 
-	scriptPID = 0;
+    scriptPID = 0;
 
-	connect( &timer, SIGNAL( timeout() ), SLOT( checkScript() ) );
+    connect( &timer, SIGNAL( timeout() ), SLOT( checkScript() ) );
 }
 
 bool KCGI::get( const char *_url, const char *_dest, const char *_method )
 {
-	method = _method;
-	method = method.upper();
+    method = _method;
+    method = method.upper();
 
-	QString u = _url;
+    QString u = _url;
 
-	// extract query
-	int qPos = u.find( '?' );
+    // extract query
+    int qPos = u.find( '?' );
 
-	if ( qPos > 0 )
-		query = u.right( u.length() - qPos - 1 );
+    if ( qPos > 0 )
+	query = u.right( u.length() - qPos - 1 );
 
-	// extract script
-	int scriptPos = u.find( "/cgi-bin" );
+    // extract script
+    int scriptPos = u.find( "/cgi-bin" );
 
-	if ( scriptPos < 0 )
-		return false;
+    if ( scriptPos < 0 )
+	return false;
 
-	if ( qPos > 0 )
-		script = u.mid( scriptPos, qPos - scriptPos );
-	else
-		script = u.right( u.length() - scriptPos );
+    if ( qPos > 0 )
+	script = u.mid( scriptPos, qPos - scriptPos );
+    else
+	script = u.right( u.length() - scriptPos );
 
-	// extract path info
-	int pathPos = script.find( '/', 9 );
+    // extract path info
+    int pathPos = script.find( '/', 9 );
 
-	if ( pathPos >= 0 )
-	{
-		pathInfo = script.right( script.length() - pathPos - 1 );
-		script.truncate( pathPos );
-	}
+    if ( pathPos >= 0 )
+    {
+	pathInfo = script.right( script.length() - pathPos - 1 );
+	script.truncate( pathPos );
+    }
 
-	/* printf( "Script: %s\n", script.data() );
-	printf( "Query: %s\n", query.data() );
-	printf( "Path Info: %s\n", pathInfo.data() ); */
+    /* printf( "Script: %s\n", script.data() );
+       printf( "Query: %s\n", query.data() );
+       printf( "Path Info: %s\n", pathInfo.data() ); */
 
-	KURL url( _dest );
+    KURL url( _dest );
 
-	if ( url.isMalformed() )
-	{
-	    printf( i18n("CGI: Destination URL malformed: %s\n"),
-		    _dest );
-	    return false;
-	}
+    if ( url.isMalformed() )
+    {
+	printf( i18n("CGI: Destination URL malformed: %s\n"),
+		_dest );
+	return false;
+    }
 
-	destFile = url.path();
+    destFile = url.path();
 
-	return runScript();
+    return runScript();
 }
 
 bool KCGI::runScript()
@@ -95,59 +95,59 @@ bool KCGI::runScript()
     else
 	command = KApplication::kde_cgidir() + script;
 
-	command += " > " + destFile;
+    command += " > " + destFile;
 
-	if ( ( scriptPID = fork() ) == 0 )
+    if ( ( scriptPID = fork() ) == 0 )
+    {
+	QString tmp;
+
+	if ( method == "GET" )
+	    setenv( "QUERY_STRING", query.data(), TRUE );
+	setenv( "PATH_INFO", pathInfo.data(), TRUE );
+
+	FILE *fp = popen( command, "w" );
+
+	if ( fp == NULL )
 	{
-		QString tmp;
-
-		if ( method == "GET" )
-			setenv( "QUERY_STRING", query.data(), TRUE );
-		setenv( "PATH_INFO", pathInfo.data(), TRUE );
-
-		FILE *fp = popen( command, "w" );
-
-		if ( fp == NULL )
-		{
-			fp = fopen( destFile, "w" );
-			if ( fp )
-			{
-				fprintf( fp, "<HTML><HEAD><TITLE>Error 404</TITLE></HEAD>" );
-				fprintf( fp, "<BODY><h2>Error 404</h2>" );
-				fprintf( fp, "URL not found</BODY></HTML>" );
-				fclose( fp );
-			}
-		}
-		else
-		{
-			if ( method == "POST" )
-				fputs( query, fp );
-			pclose( fp );
-		}
-
-		exit(0);
+	    fp = fopen( destFile, "w" );
+	    if ( fp )
+	    {
+		fprintf( fp, "<HTML><HEAD><TITLE>Error 404</TITLE></HEAD>" );
+		fprintf( fp, "<BODY><h2>Error 404</h2>" );
+		fprintf( fp, "URL not found</BODY></HTML>" );
+		fclose( fp );
+	    }
+	}
+	else
+	{
+	    if ( method == "POST" )
+		fputs( query, fp );
+	    pclose( fp );
 	}
 
-	timer.start( 250 );
+	exit(0);
+    }
 
-	return true;
+    timer.start( 250 );
+
+    return true;
 }
 
 void KCGI::checkScript()
 {
-	int status;
+    int status;
 
-	if ( waitpid( scriptPID, &status, WNOHANG ) != 0 )
-	{
-		timer.stop();
-		scriptPID = 0;
-		emit finished();
-	}
+    if ( waitpid( scriptPID, &status, WNOHANG ) != 0 )
+    {
+	timer.stop();
+	scriptPID = 0;
+	emit finished();
+    }
 }
 
 KCGI::~KCGI()
 {
-	if ( scriptPID > 0 )
-		kill( scriptPID, SIGKILL );
+    if ( scriptPID > 0 )
+	kill( scriptPID, SIGKILL );
 }
 

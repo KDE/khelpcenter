@@ -33,157 +33,157 @@
 #include "mansearch.h"
 
 ResultBox::ResultBox(QWidget *parent)
-  : QListBox(parent)
+    : QListBox(parent)
 {
-  setMouseTracking(true);
+    setMouseTracking(true);
 }
 
 void ResultBox::mouseMoveEvent(QMouseEvent *e)
 {
-  emit mouseOver(findItem(e->pos().y()));
+    emit mouseOver(findItem(e->pos().y()));
 }
 
 void ResultBox::leaveEvent(QEvent *e)
 {
-  emit mouseOver(-1);
+    emit mouseOver(-1);
 }
 
 int ResultBox::getItemYPos(int index)
 {
-  // FIXME: please note that this assumes all items are the fixed height.
-  // Adding up heights is required for variable-height listbox items.
-  // -Taj.
+    // FIXME: please note that this assumes all items are the fixed height.
+    // Adding up heights is required for variable-height listbox items.
+    // -Taj.
  
-  return index ? (( index - 1 ) * itemHeight()) : 0;
+    return index ? (( index - 1 ) * itemHeight()) : 0;
 
 #if 0
- if(itemYPos(index, &pos))
-   return pos;
- else
-   return -1;
+    if(itemYPos(index, &pos))
+	return pos;
+    else
+	return -1;
 #endif
 
 }
 
 SearchWidget::SearchWidget(QWidget *parent)
-  : QWidget(parent)
+    : QWidget(parent)
 {
-  keyWordLabel = new QLabel(i18n("Enter keyword:"), this);
-  searchString = new QLineEdit(this);
-  connect(searchString, SIGNAL(returnPressed()), this, SLOT(slotSearch()));
+    keyWordLabel = new QLabel(i18n("Enter keyword:"), this);
+    searchString = new QLineEdit(this);
+    connect(searchString, SIGNAL(returnPressed()), this, SLOT(slotSearch()));
    
-  searchButton = new QPushButton(i18n("&Search"), this);
-  searchButton->setFixedWidth(90);
-  searchButton->setFixedHeight(24);
-  connect(searchButton, SIGNAL(clicked()), this, SLOT(slotSearch()));
+    searchButton = new QPushButton(i18n("&Search"), this);
+    searchButton->setFixedWidth(90);
+    searchButton->setFixedHeight(24);
+    connect(searchButton, SIGNAL(clicked()), this, SLOT(slotSearch()));
 
-  docCheck = new QCheckBox (i18n("KDE &documentation"), this);
-  manCheck = new QCheckBox (i18n("Unix &man pages"), this);
-  infoCheck = new QCheckBox (i18n("GNU &info pages"), this);
-  infoCheck->setEnabled(false);
+    docCheck = new QCheckBox (i18n("KDE &documentation"), this);
+    manCheck = new QCheckBox (i18n("Unix &man pages"), this);
+    infoCheck = new QCheckBox (i18n("GNU &info pages"), this);
+    infoCheck->setEnabled(false);
 
-  docCheck->setChecked(true);
+    docCheck->setChecked(true);
 
-  resultLabel = new QLabel(i18n("Results:"), this);
-  resultList = new ResultBox(this);
+    resultLabel = new QLabel(i18n("Results:"), this);
+    resultList = new ResultBox(this);
 
-  connect(resultList, SIGNAL(mouseOver(int)), this, SLOT(slotMouseOver(int)));
-  connect(resultList, SIGNAL(highlighted(int)), this, SLOT(slotMatchSelected(int)));
-  connect(resultList, SIGNAL(selected(int)), this, SLOT(slotMatchSelected(int)));
+    connect(resultList, SIGNAL(mouseOver(int)), this, SLOT(slotMouseOver(int)));
+    connect(resultList, SIGNAL(highlighted(int)), this, SLOT(slotMatchSelected(int)));
+    connect(resultList, SIGNAL(selected(int)), this, SLOT(slotMatchSelected(int)));
 
-  tipLabel = new TipLabel;
-  tipLabel->hide();
+    tipLabel = new TipLabel;
+    tipLabel->hide();
 }
 
 SearchWidget::~SearchWidget()
 {
-  matchList.clear(); //auto delete matches
-  delete tipLabel;
+    matchList.clear(); //auto delete matches
+    delete tipLabel;
 }
 
 void SearchWidget::resizeEvent(QResizeEvent *)
 {
-  keyWordLabel->setGeometry(2, 2, width(), 20);
-  searchString->setGeometry(2, 22, width() - 4, 24);
-  searchButton->move(width()- 92, 50);
-  docCheck->setGeometry(2, 75, width() - 4, 20);
-  manCheck->setGeometry(2, 95, width() - 4, 20);
-  infoCheck->setGeometry(2, 115, width() - 4, 20);
-  resultLabel->setGeometry(2, 138, width()-4, 20);
-  resultList->setGeometry(2, 160, width()-4, height()-160);
+    keyWordLabel->setGeometry(2, 2, width(), 20);
+    searchString->setGeometry(2, 22, width() - 4, 24);
+    searchButton->move(width()- 92, 50);
+    docCheck->setGeometry(2, 75, width() - 4, 20);
+    manCheck->setGeometry(2, 95, width() - 4, 20);
+    infoCheck->setGeometry(2, 115, width() - 4, 20);
+    resultLabel->setGeometry(2, 138, width()-4, 20);
+    resultList->setGeometry(2, 160, width()-4, height()-160);
 }
 
 void SearchWidget::tabSelected()
 {
-  searchString->setFocus();
+    searchString->setFocus();
 }
 
 void SearchWidget::slotSearch()
 {
-  resultList->clear();
-  QString query = searchString->text();
+    resultList->clear();
+    QString query = searchString->text();
 
-  matchList.setAutoDelete(TRUE);
-  matchList.clear();
+    matchList.setAutoDelete(TRUE);
+    matchList.clear();
     
-  if (docCheck->isChecked())
-   {
-	 HTMLSearch htmlSearch(&matchList);
-	 htmlSearch.search(query);
-   }
+    if (docCheck->isChecked())
+    {
+	HTMLSearch htmlSearch(&matchList);
+	htmlSearch.search(query);
+    }
   
-  if (manCheck->isChecked())
-	{
-	  ManSearch manSearch(&matchList);
-	  manSearch.search(query);
-	}
+    if (manCheck->isChecked())
+    {
+	ManSearch manSearch(&matchList);
+	manSearch.search(query);
+    }
   
-  resultList->setAutoUpdate(false);
-  for (Match *match = matchList.first(); match != 0; match = matchList.next())
+    resultList->setAutoUpdate(false);
+    for (Match *match = matchList.first(); match != 0; match = matchList.next())
 	resultList->insertItem(match->getTitle());
-  resultList->setAutoUpdate(true);
-  resultList->repaint();
+    resultList->setAutoUpdate(true);
+    resultList->repaint();
 }
 
 void SearchWidget::slotMatchSelected(int index)
 {
-  int count = 0;
+    int count = 0;
 
-  for (Match *match = matchList.first(); match != 0; match = matchList.next())
-   {
-	 if (count == index)
-	   {
-		 QString url = match->getURL();
-		 emit matchSelected(url);
-		 break;
-	   }
-	 count++;
-   }
+    for (Match *match = matchList.first(); match != 0; match = matchList.next())
+    {
+	if (count == index)
+	{
+	    QString url = match->getURL();
+	    emit matchSelected(url);
+	    break;
+	}
+	count++;
+    }
 }
 
 void SearchWidget::slotMouseOver(int index)
 {
-  if (index < 0)
-	{
-	  tipLabel->hide();
-	  return;
-	}
+    if (index < 0)
+    {
+	tipLabel->hide();
+	return;
+    }
 
-  QString text = resultList->text(index);
-  if (text.isEmpty())
+    QString text = resultList->text(index);
+    if (text.isEmpty())
 	return;
 
-  int yPos = resultList->getItemYPos(index);
-  QPoint gPos = resultList->mapToGlobal(QPoint(4, yPos));
+    int yPos = resultList->getItemYPos(index);
+    QPoint gPos = resultList->mapToGlobal(QPoint(4, yPos));
 
-  tipLabel->setText(text);
-  if (tipLabel->width() > (resultList->width()-16))
-	{
-	  tipLabel->move(gPos.x(),gPos.y()+25);
-	  tipLabel->show();
-	} 
-  else
+    tipLabel->setText(text);
+    if (tipLabel->width() > (resultList->width()-16))
+    {
+	tipLabel->move(gPos.x(),gPos.y()+25);
+	tipLabel->show();
+    } 
+    else
 	tipLabel->hide();
 
-  //printf("mouseover: %d\n",yPos);fflush(stdout);
+    //printf("mouseover: %d\n",yPos);fflush(stdout);
 }

@@ -27,34 +27,34 @@
 class Match
 {
 
-public:
+ public:
 
-  Match(const char* _title, const char* _url, int weight = 0)
+    Match(const char* _title, const char* _url, int weight = 0)
 	{ title = _title; url = _url; }
 
-  void setWeight(int m) { weight = m; }
-  void addWeight(int m) { weight += m; }
-  void setTitle(const char * _title) { title = _title; }
-  void setURL(const char* _url) { url = _url; }
+    void setWeight(int m) { weight = m; }
+    void addWeight(int m) { weight += m; }
+    void setTitle(const char * _title) { title = _title; }
+    void setURL(const char* _url) { url = _url; }
 
-  const char* getURL() { return url; }
-  const char* getTitle() { return title; }
-  int getWeight() {	return weight; }
+    const char* getURL() { return url; }
+    const char* getTitle() { return title; }
+    int getWeight() {	return weight; }
   
  protected:
 
-  QString url, title;
-  int weight;
+    QString url, title;
+    int weight;
 };
 
 class MatchList : public QList<Match>
 {
-protected:
-  virtual int compareItems(Item m1, Item m2)
+ protected:
+    virtual int compareItems(Item m1, Item m2)
 	{
-	  if (((Match *)m1)->getWeight() > ((Match *)m2)->getWeight())
+	    if (((Match *)m1)->getWeight() > ((Match *)m2)->getWeight())
 		return -1;
-	  return 1;
+	    return 1;
 	}
 };
 #endif
