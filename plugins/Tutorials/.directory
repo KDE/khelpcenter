@@ -3,7 +3,7 @@
 Name=Tutorials
 Name[af]=Tutoriale
 Name[az]=Leksikalar
-Name[bg]=Описания
+Name[bg]=Учебни ръководства
 Name[br]=Kelennantoù
 Name[bs]=Vodiči
 Name[ca]=Introduccions
@@ -50,7 +50,7 @@ MiniIcon=
 Comment=Tutorial and introduction documents.
 Comment[af]=Tutoriale en inleidende dokumente.
 Comment[az]=Leksika və giriş sənədləri
-Comment[bg]=Описания и документи
+Comment[bg]=Учебни ръководства и справочници
 Comment[br]=Kelennant ha teulioù deraouiñ
 Comment[bs]=Vodič i uvodni dokumenti
 Comment[ca]=Documents i curs d'introducció.
