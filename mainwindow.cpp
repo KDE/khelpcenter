@@ -124,6 +124,13 @@ MainWindow::MainWindow(const KURL &url)
     KConfig konqCfg( "konquerorrc" );
     const_cast<KHTMLSettings *>( mDoc->settings() )->init( &konqCfg );
 
+    KConfig *cfg = kapp->config();
+    {
+      KConfigGroupSaver groupSaver( cfg, "General" );
+      const int zoomFactor = cfg->readNumEntry( "Font zoom factor", 100 );
+      mDoc->setZoomFactor( zoomFactor );
+    }
+
     setupActions();
 
     insertChildClient( mDoc );
@@ -363,6 +370,13 @@ void MainWindow::updateZoomActions()
 {
   actionCollection()->action( "incFontSizes" )->setEnabled( mDoc->zoomFactor() + mDoc->zoomStepping() <= 300 );
   actionCollection()->action( "decFontSizes" )->setEnabled( mDoc->zoomFactor() - mDoc->zoomStepping() >= 20 );
+
+  KConfig *cfg = kapp->config();
+  {
+    KConfigGroupSaver groupSaver( cfg, "General" );
+    cfg->writeEntry( "Font zoom factor", mDoc->zoomFactor() );
+    cfg->sync();
+  }
 }
 
 // vim:ts=2:sw=2:et
