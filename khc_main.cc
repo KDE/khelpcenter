@@ -247,7 +247,7 @@ void KHMainWindow::openURL(const QString &url)
 
 void KHMainWindow::slotGlossSelected(const khcNavigatorWidget::GlossaryEntry &entry)
 {
-    QFile htmlFile(langLookup(QString::fromLatin1("khelpcenter/glossary.html")));
+    QFile htmlFile( locate("data", "khelpcenter/glossary.html.in" ) );
     if (!htmlFile.open(IO_ReadOnly))
         return;
 
@@ -267,11 +267,12 @@ void KHMainWindow::slotGlossSelected(const khcNavigatorWidget::GlossaryEntry &en
     }
 
     QTextStream htmlStream(&htmlFile);
-    QString htmlSrc = htmlStream.read().arg(entry.term).arg(entry.definition).arg(seeAlso);
+    QString htmlSrc = htmlStream.read().
+                      arg( i18n( "KDE Glossary" ) ).
+                      arg(entry.term).
+                      arg(entry.definition).arg(seeAlso);
 
-    KURL dataDir = langLookup(QString::fromLatin1("khelpcenter/glossary.html"));
-
-    doc->begin(dataDir.path());
+    doc->begin("about:glossary" );
     doc->write(htmlSrc);
     doc->end();
 }
