@@ -1,10 +1,11 @@
 #ifndef __KHELPVIEW_H
 #define __KHELPVIEW_H
 
-#include <kquickhelp.h>
 #include <khtml.h>
 #include <khtmlview.h>
 #include "docserver.h"
+
+class QWhatsThis;
 
 class KHelpView : public KHTMLView {
 	Q_OBJECT
@@ -53,7 +54,7 @@ private:
 	/*
 	 *
 	 */
-	KQuickHelpWindow *quickHelp;
+	QWhatsThis *quickHelp;
 
 	QString baseDir;
 

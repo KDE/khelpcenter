@@ -9,6 +9,7 @@
 #include <kprocess.h>
 #include <qfile.h>
 #include <qmessagebox.h>
+#include <qwhatsthis.h>
 #include "helpview.h"
 
 #undef DEBUG
@@ -141,30 +142,32 @@ void KHelpView::slotURLSelected( KHTMLView *_view, const char *_url, int _button
 
 bool KHelpView::mousePressedHook(const char* _url, const char *_target, QMouseEvent *_ev, bool _isselected )
 {
-	KHTMLView::mousePressedHook( _url, _target, _ev, _isselected );
-	
-	if( (_target != 0L) && (strcasecmp( _target, "_popup" ) == 0) && (_url != 0L) )
+  KHTMLView::mousePressedHook( _url, _target, _ev, _isselected );
+  
+  if( (_target != 0L) && (strcasecmp( _target, "_popup" ) == 0) && (_url != 0L) )
+    {
+      KURL url( _url );
+      QFile file( baseDir + ("/terms") + url.path() + ".txt");
+      if( (file.exists() == TRUE) && (file.open( IO_ReadOnly ) == TRUE) )
 	{
-		quickHelp = new KQuickHelpWindow();
-		KURL url( _url );
-		QFile file( baseDir + ("/terms") + url.path() + ".txt");
-		if( (file.exists() == TRUE) && (file.open( IO_ReadOnly ) == TRUE) )
-		{
-                	char *buffer = new char [ file.size() + 1 ];
-			file.readBlock( buffer, file.size() );		
-			buffer[ file.size() ] = '\0';
-			quickHelp->popup( buffer, _ev->globalX(), _ev->globalY() );
-			file.close();
-			return TRUE;
-		} else 
-		{
-			char buffer[] = "<B>Sorry</B>\nCan't find the requested term";
-			quickHelp->popup( i18n(buffer), _ev->globalX(), _ev->globalY() );
-			return TRUE;
-		}
-	}
-
-	return FALSE;	// we didn't handle the event
+	  char *buffer = new char [ file.size() + 1 ];
+	  file.readBlock( buffer, file.size() );		
+	  buffer[ file.size() ] = '\0';
+	  QWhatsThis::enterWhatsThisMode();
+	  QWhatsThis::remove(this);
+	  file.close();
+	  return TRUE;
+	} else 
+	  {
+	    char buffer[] = "<B>Sorry</B>\nCan't find the requested term";
+	    QWhatsThis::add(this, buffer);
+	    QWhatsThis::enterWhatsThisMode();
+	    QWhatsThis::remove(this);
+	    return TRUE;
+	  }
+    }
+  
+  return FALSE;	// we didn't handle the event
 }
 
 bool KHelpView::dndHook( const char *_url, QPoint &_p )

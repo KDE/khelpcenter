@@ -20,7 +20,6 @@
 #include <kiconloader.h>
 #include <kwm.h>
 #include <kcursor.h>
-#include <kquickhelp.h>
 #include <kconfig.h>
 #include <kprocess.h>
 
