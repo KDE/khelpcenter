@@ -63,7 +63,9 @@ module KHelpCenter
 		slot void createNewWindow( in string url );
 	};
 	  	
-	interface HTMLView : Browser::View, Browser::PrintingExtension, Browser::MagnifyingExtension
+	interface HTMLView : Browser::View
+			     ,Browser::PrintingExtension
+			     ,Browser::MagnifyingExtension
 	{
 	};
 };
