@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
   KUniqueApplication app;
   
   // check for -kdestartup
-  KConfig *conf = kapp->config();
+  KConfig *conf = KGlobal::config();
   conf->setGroup("General Settings");
   bool autostart = conf->readBoolEntry( "AutostartOnKDEStartup", true);
   
