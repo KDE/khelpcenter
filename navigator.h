@@ -79,9 +79,8 @@ class Navigator : public QWidget
 
     void showOverview( NavigatorItem *item, const KURL &url );
 
-    void openInternalUrl( const KURL &url );
-
   public slots:
+    void openInternalUrl( const KURL &url );
     void slotItemSelected(QListViewItem* index);
     void slotSearch();
     void slotShowSearchResult( const QString & );

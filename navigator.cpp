@@ -292,12 +292,27 @@ void Navigator::selectItem( const KURL &url )
 {
   kdDebug() << "Navigator::selectItem(): " << url.url() << endl;
 
+  if ( url.url() == "khelpcenter:home" ) {
+    clearSelection();
+    return;
+  }
+
+  // help:/foo&anchor=bar gets redirected to help:/foo#bar
+  // Make sure that we match both the original URL as well as
+  // its counterpart.
+  KURL alternativeURL = url;
+  if (url.hasRef())
+  {
+     alternativeURL.setQuery("anchor="+url.ref());
+     alternativeURL.setRef(QString::null);
+  }
+
   // If the navigator already has the given URL selected, do nothing.
   NavigatorItem *item;
-  item = static_cast<NavigatorItem *>( mContentsTree->currentItem() );
+  item = static_cast<NavigatorItem *>( mContentsTree->selectedItem() );
   if ( item && mSelected ) {
     KURL currentURL ( item->entry()->url() );
-    if ( currentURL == url ) {
+    if ( (currentURL == url) || (currentURL == alternativeURL) ) {
       kdDebug() << "URL already shown." << endl;
       return;
     }
@@ -316,8 +331,11 @@ void Navigator::selectItem( const KURL &url )
   while ( it.current() ) {
     NavigatorItem *item = static_cast<NavigatorItem *>( it.current() );
     KURL itemUrl( item->entry()->url() );
-    if ( itemUrl == url ) {
+    if ( (itemUrl == url) || (itemUrl == alternativeURL) ) {
       mContentsTree->setCurrentItem( item );
+      // If the current item was not selected and remained unchanged it
+      // needs to be explicitly selected
+      mContentsTree->setSelected(item, true);
       item->setOpen( true );
       mContentsTree->ensureItemVisible( item );
       break;
@@ -353,9 +371,10 @@ void Navigator::slotItemSelected( QListViewItem *currentItem )
 
   KURL url ( item->entry()->url() );
 
-  if ( url != mLastUrl )  History::self().createEntry();
-
   if ( url.protocol() == "khelpcenter" ) {
+      mView->closeURL();
+      History::self().updateCurrentEntry( mView );
+      History::self().createEntry();
       showOverview( item, url );
   } else {
     if ( url.protocol() == "help" ) {
@@ -391,6 +410,7 @@ void Navigator::openInternalUrl( const KURL &url )
   if ( url.url() == "khelpcenter:home" ) {
     clearSelection();
     showOverview( 0, url );
+    return;
   }
 
   selectItem( url );
@@ -399,7 +419,7 @@ void Navigator::openInternalUrl( const KURL &url )
   NavigatorItem *item =
     static_cast<NavigatorItem *>( mContentsTree->currentItem() );
 
-  if ( item ) showOverview( item, url );  
+  if ( item ) showOverview( item, url );
 }
 
 void Navigator::showOverview( NavigatorItem *item, const KURL &url )

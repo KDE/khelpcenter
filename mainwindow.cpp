@@ -142,7 +142,7 @@ MainWindow::MainWindow()
     History::self().installMenuBarHook( this );
 
     connect( &History::self(), SIGNAL( goInternalUrl( const KURL & ) ),
-             SLOT( viewUrl( const KURL & ) ) );
+             mNavigator, SLOT( openInternalUrl( const KURL & ) ) );
     connect( &History::self(), SIGNAL( goUrl( const KURL & ) ),
              mNavigator, SLOT( selectItem( const KURL & ) ) );
 
@@ -226,8 +226,6 @@ void MainWindow::slotOpenURLRequest( const KURL &url,
 {
   kdDebug( 1400 ) << "MainWindow::slotOpenURLRequest(): " << url.url() << endl;
 
-  History::self().createEntry();
-
   mNavigator->selectItem( url );
   viewUrl( url, args );
 }
@@ -239,9 +237,12 @@ void MainWindow::viewUrl( const QString &url )
 
 void MainWindow::viewUrl( const KURL &url, const KParts::URLArgs &args )
 {
+    stop();
+
     QString proto = url.protocol().lower();
 
     if ( proto == "khelpcenter" ) {
+      History::self().createEntry();
       mNavigator->openInternalUrl( url );
       return;
     }
@@ -264,7 +265,7 @@ void MainWindow::viewUrl( const KURL &url, const KParts::URLArgs &args )
         return;
     }
 
-    stop();
+    History::self().createEntry();
 
     mDoc->browserExtension()->setURLArgs( args );
 
@@ -308,13 +309,10 @@ void MainWindow::openUrl( const QString &url, const QCString& startup_id )
 
 void MainWindow::openUrl( const KURL &url )
 {
-    stop();
-    
     if ( url.isEmpty() ) slotShowHome();
     else {
-      History::self().createEntry();
       mNavigator->selectItem( url );
-      viewUrl( url, KParts::URLArgs() );
+      viewUrl( url );
     }
 }
 
@@ -344,7 +342,6 @@ void MainWindow::showHome()
 
 void MainWindow::slotShowHome()
 {
-    History::self().createEntry();
     viewUrl( mNavigator->homeURL() );
     mNavigator->clearSelection();
 }
