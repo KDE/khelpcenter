@@ -31,6 +31,7 @@
 #include <qhbox.h>
 
 #include <kapplication.h>
+#include <kconfig.h>
 #include <dcopclient.h>
 #include <kglobal.h>
 #include <klocale.h>
@@ -112,8 +113,14 @@ MainWindow::MainWindow(const KURL &url)
 	History::self().installMenuBarHook( this );
 
     KURL u;
-    if ( url.isEmpty() ) u = "help:/khelpcenter/index.html?anchor=welcome";
-    else u = url;
+    if ( url.isEmpty() ) {
+      KConfig *cfg = KGlobal::config();
+      cfg->setGroup( "General" );
+      u = cfg->readEntry( "StartUrl",
+                          "help:/khelpcenter/index.html?anchor=welcome" );
+    } else {
+      u = url;
+    }
       
     openURL( u );
     nav->selectItem( u );
