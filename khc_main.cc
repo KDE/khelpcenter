@@ -72,8 +72,6 @@ void createHelpWindow(const QCString &appId)
     url = "help:/khelpcenter/main.html";
 
   KURL _url(url);
-  _url.setProtocol("help");
-
   str << "View2_URL=" << _url.url() << endl;
 
   f.close();
