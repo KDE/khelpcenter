@@ -156,6 +156,7 @@ void TOC::meinprocExited( KProcess *meinproc )
 
 	f.at( 0 );
 	QTextStream stream( &f );
+	stream.setEncoding(QTextStream::UnicodeUTF8);
 	stream << doc.toString();
 
 	f.close();

@@ -50,7 +50,7 @@ extern "C"
 {
   KCModule *create_helpcenter( QWidget *parent, const char * )
   {
-    KGlobal::locale()->insertCatalogue( "kcmhelpcenter" );
+    KGlobal::locale()->insertCatalogue( "khelpcenter" );
     return new KCMHelpCenter( parent, "kcmhelpcenter" );
   }
 }
