@@ -345,14 +345,14 @@ bool HTabView::appendEntries(const char *dirName, HTreeListItem *parent, QList<H
   if (!fileDir.exists())
 	return false;
 
-  const QStrList *fileList = fileDir.entryList();
-  QStrListIterator itFile( *fileList );
+  const QStringList *fileList = fileDir.entryList();
+  QStringList::ConstIterator itFile;
 
-  for ( ; itFile.current(); ++itFile )
+  for ( itFile = fileList->begin(); !itFile->isNull(); ++itFile )
 	{
 	  QString filename = dirName;
 	  filename += "/";
-	  filename += itFile.current();
+	  filename += *itFile;
 
 	  HTreeListItem *entry = new HTreeListItem;
 
@@ -377,18 +377,18 @@ bool HTabView::processDir( const char *dirName, HTreeListItem *parent,  QList<HT
 
   if (!dirDir.exists()) return false;
   
-  const QStrList *dirList = dirDir.entryList();
-  QStrListIterator itDir( *dirList );
+  const QStringList *dirList = dirDir.entryList();
+  QStringList::ConstIterator itDir;
   
-  for ( ; itDir.current(); ++itDir )
+  for ( itDir = dirList->begin(); !itDir->isNull(); ++itDir )
 	{
-	  if ( itDir.current()[0] == '.' )
+	  if ( itDir->at(0) == '.' )
 		continue;
 
 
 	  QString filename = dirDir.path();
 	  filename += "/";
-	  filename += itDir.current();
+	  filename += *itDir;
 
 	  if (!containsDocuments(filename))
 		continue;
@@ -409,7 +409,7 @@ bool HTabView::processDir( const char *dirName, HTreeListItem *parent,  QList<HT
 		}
 	  else
 		{
-		  folderName = itDir.current();
+		  folderName = *itDir;
 		  icon = "helpbook.xpm";
 		}
 	  
@@ -436,13 +436,13 @@ bool HTabView::containsDocuments(QString dir)
   if (fileDir.count() > 0)
 	{
 	  // does at least one kdelnk contain a docPath
-	  const QStrList *fileList = fileDir.entryList();
-	  QStrListIterator itFile( *fileList );
-	  for ( ; itFile.current(); ++itFile )
+	  const QStringList *fileList = fileDir.entryList();
+	  QStringList::ConstIterator itFile;
+	  for ( itFile = fileList->begin(); !itFile->isNull(); ++itFile )
 		{
 		  QString filename = dir;
 		  filename += "/";
-		  filename += itFile.current();
+		  filename += *itFile;
 
 		  KSimpleConfig sc( filename, true );
 		  sc.setGroup( "KDE Desktop Entry" );
@@ -459,15 +459,15 @@ bool HTabView::containsDocuments(QString dir)
 	return false;
 
   // go through subdirs and search for files
-  const QStrList *dirList = dirDir.entryList();
-  QStrListIterator itDir( *dirList );
+  const QStringList *dirList = dirDir.entryList();
+  QStringList::ConstIterator itDir;
   
-  for (; itDir.current(); ++itDir)
+  for (itDir = dirList->begin(); !itDir->isNull(); ++itDir)
 	{
-	  if ( itDir.current()[0] == '.' )
+	  if ( itDir->at(0) == '.' )
 		continue;
 
-	  if (containsDocuments(dir + "/" + itDir.current()))
+	  if (containsDocuments(dir + "/" + *itDir))
 		  return true;
 	}
   return false;
