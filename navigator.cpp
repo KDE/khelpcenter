@@ -420,31 +420,13 @@ void Navigator::showOverview( NavigatorItem *item, const KURL &url )
   }
 
   if ( childCount > 0 ) {
-    t += "<ul>\n";
-
     QListViewItem *child;
     if ( item ) child = item->firstChild();
     else child = mContentsTree->firstChild();
 
-    while ( child ) {
-      NavigatorItem *childItem = static_cast<NavigatorItem *>( child );
+    mDirLevel = 0;
 
-      DocEntry *e = childItem->entry();
-
-      t += "<li><a href=\"" + e->url() + "\">";
-      if ( e->isDirectory() ) t += "<b>";
-      t += e->name();
-      if ( e->isDirectory() ) t += "</b>";
-      t += "</a>";
-
-      if ( !e->info().isEmpty() ) {
-        t += "<br>" + e->info();
-      }
-
-      t += "</li>\n";
-
-      child = child->nextSibling();
-    }
+    t += createChildrenList( child );
   }
 
   t += formatter()->footer();
@@ -454,6 +436,45 @@ void Navigator::showOverview( NavigatorItem *item, const KURL &url )
   mView->write( t );
 
   mView->end();
+}
+
+QString Navigator::createChildrenList( QListViewItem *child )
+{
+  ++mDirLevel;
+
+  QString t;
+
+  t += "<ul>\n";
+
+  while ( child ) {
+    NavigatorItem *childItem = static_cast<NavigatorItem *>( child );
+
+    DocEntry *e = childItem->entry();
+
+    t += "<li><a href=\"" + e->url() + "\">";
+    if ( e->isDirectory() ) t += "<b>";
+    t += e->name();
+    if ( e->isDirectory() ) t += "</b>";
+    t += "</a>";
+
+    if ( !e->info().isEmpty() ) {
+      t += "<br>" + e->info();
+    }
+
+    t += "</li>\n";
+
+    if ( childItem->childCount() > 0 && mDirLevel < 2 ) {
+      t += createChildrenList( childItem->firstChild() );
+    }
+
+    child = child->nextSibling();
+  }
+
+  t += "</ul>\n";
+
+  --mDirLevel;
+
+  return t;
 }
 
 void Navigator::slotSearch()

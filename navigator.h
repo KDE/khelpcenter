@@ -100,6 +100,9 @@ class Navigator : public QWidget
 
     bool checkSearchIndex();
 
+  protected:
+    QString createChildrenList( QListViewItem *child );
+
   private:
     void setupContentsTab();
     void setupIndexTab();
@@ -133,6 +136,8 @@ class Navigator : public QWidget
     bool mSelected;
 
     KURL mLastUrl;
+
+    int mDirLevel;
 };
 
 }
