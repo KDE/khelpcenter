@@ -30,6 +30,8 @@
 #include <qfile.h>
 #include <qtextstream.h>
 
+#include <stdlib.h>  // for getenv()
+
 using namespace KHC;
 
 class InfoCategoryItem : public NavigatorItem
@@ -100,6 +102,10 @@ void InfoTree::build( NavigatorItem *parent )
     infoDirFiles << "/usr/X11R6/lib/info";
     infoDirFiles << "/usr/X11R6/lib/xemacs/info";
   }
+
+  QString infoPath = getenv( "INFOPATH" );
+  if ( !infoPath.isEmpty() )
+    infoDirFiles += QStringList::split( ':', infoPath );
 
   QStringList::ConstIterator it = infoDirFiles.begin();
   QStringList::ConstIterator end = infoDirFiles.end();
