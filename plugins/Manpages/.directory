@@ -70,3 +70,5 @@ DocPath=man:/
 Icon=document2
 
 X-DOC-Weight=500
+X-DOC-DocumentType=text/man
+X-DOC-Identifier=manpages

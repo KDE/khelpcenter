@@ -45,8 +45,14 @@ class SearchHandler : public QObject
 
     QStringList documentTypes() const;
 
+    bool checkPaths() const;
+
   signals:
     void searchFinished( const QString & );
+    void searchError( const QString & );
+
+  protected:
+    bool checkBinary( const QString &cmd ) const;
 
   protected slots:
     void searchStdout( KProcess *proc, char *buffer, int buflen );
@@ -58,6 +64,8 @@ class SearchHandler : public QObject
 
   private:
     SearchHandler();
+
+    QString mLang;
 
     QString mSearchCommand;
     QString mSearchUrl;

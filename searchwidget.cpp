@@ -38,13 +38,15 @@
 #include "docentrytraverser.h"
 #include "kcmhelpcenter.h"
 #include "prefs.h"
+#include "searchengine.h"
 
 #include "searchwidget.h"
 
 namespace KHC {
 
-SearchWidget::SearchWidget( QWidget *parent )
-  : QWidget( parent ), DCOPObject( "SearchWidget" ), mScopeCount( 0 )
+SearchWidget::SearchWidget( SearchEngine *engine, QWidget *parent )
+  : QWidget( parent ), DCOPObject( "SearchWidget" ), mEngine( engine ),
+  mScopeCount( 0 )
 {
   QBoxLayout *topLayout = new QVBoxLayout( this, 2, 2 );
 
@@ -250,7 +252,9 @@ class ScopeTraverser : public DocEntryTraverser
 
     void process( DocEntry *entry )
     {
-      if ( entry->isSearchable() ) {
+      if ( mWidget->engine()->canSearch( entry ) &&
+           ( !mWidget->engine()->needsIndex( entry ) || 
+           entry->indexExists( Prefs::indexDirectory() ) ) ) {
         ScopeItem *item = 0;
         if ( mParentItem ) {
           item = new ScopeItem( mParentItem, entry );

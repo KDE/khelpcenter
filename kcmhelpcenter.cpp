@@ -115,13 +115,22 @@ IndexProgressDialog::IndexProgressDialog( QWidget *parent )
   connect( mDetailsButton, SIGNAL( clicked() ), SLOT( toggleDetails() ) );
   buttonLayout->addWidget( mDetailsButton );
 
-  toggleDetails();
+  hideDetails();
 
   mEndButton = new QPushButton( this );
   connect( mEndButton, SIGNAL( clicked() ), SLOT( slotEnd() ) );
   buttonLayout->addWidget( mEndButton );
 
   setFinished( false );
+}
+
+IndexProgressDialog::~IndexProgressDialog()
+{
+  if ( !mLogView->isHidden() ) {
+    KConfig *cfg = KGlobal::config();
+    cfg->setGroup( "indexprogressdialog" );
+    cfg->writeEntry( "size", size() );
+  }
 }
 
 void IndexProgressDialog::setTotalSteps( int steps )
@@ -179,17 +188,27 @@ void IndexProgressDialog::slotEnd()
 
 void IndexProgressDialog::toggleDetails()
 {
+  KConfig *cfg = KGlobal::config();
+  cfg->setGroup( "indexprogressdialog" );
   if ( mLogView->isHidden() ) {
     mLogLabel->show();
     mLogView->show();
     mDetailsButton->setText( i18n("Details <<") );
+    QSize size = cfg->readSizeEntry( "size" );
+    if ( !size.isEmpty() ) resize( size );
   } else {
-    mLogLabel->hide();
-    mLogView->hide();
-    mDetailsButton->setText( i18n("Details >>") );
-    layout()->activate();
-    adjustSize();
+    cfg->writeEntry( "size", size() );
+    hideDetails();
   }
+}
+
+void IndexProgressDialog::hideDetails()
+{
+  mLogLabel->hide();
+  mLogView->hide();
+  mDetailsButton->setText( i18n("Details >>") );
+  layout()->activate();
+  adjustSize();
 }
 
 
@@ -252,6 +271,8 @@ void KCMHelpCenter::setupMainWidget( QWidget *parent )
   mListView->addColumn( i18n("Status") );
   mListView->setColumnAlignment( 1, AlignCenter );
   topLayout->addWidget( mListView );
+  connect( mListView, SIGNAL( clicked( QListViewItem * ) ),
+    SLOT( checkSelection() ) );
 
   QBoxLayout *urlLayout = new QHBoxLayout( topLayout );
 
@@ -301,7 +322,7 @@ void KCMHelpCenter::load()
   for( it = entries.begin(); it != entries.end(); ++it ) {
 //    kdDebug(1401) << "Entry: " << (*it)->name() << " Indexer: '"
 //              << (*it)->indexer() << "'" << endl;
-    if ( (*it)->docExists() && !(*it)->indexer().isEmpty() ) {
+    if ( mEngine->canSearch( *it ) && mEngine->needsIndex( *it ) ) {
       ScopeItem *item = new ScopeItem( mListView, *it );
       item->setOn( (*it)->searchEnabled() );
     }
@@ -326,6 +347,8 @@ void KCMHelpCenter::updateStatus()
 
     ++it;
   }
+
+  checkSelection();
 }
 
 bool KCMHelpCenter::buildIndex()
@@ -620,6 +643,22 @@ void KCMHelpCenter::showIndexDirDialog()
   if ( dlg.exec() == QDialog::Accepted ) {
     load();
   }
+}
+
+void KCMHelpCenter::checkSelection()
+{
+  int count = 0;
+
+  QListViewItemIterator it( mListView );
+  while ( it.current() != 0 ) {
+    ScopeItem *item = static_cast<ScopeItem *>( it.current() );
+    if ( item->isOn() ) {
+      ++count;
+    }
+    ++it;
+  }
+  
+  enableButtonOK( count != 0 );
 }
 
 #include "kcmhelpcenter.moc"

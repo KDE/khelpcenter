@@ -9,13 +9,15 @@ use open IO => ':utf8';
 use open ':std';
 
 my $htsearchpath="/srv/www/cgi-bin/htsearch";
-my $indexdir="/var/cache/susehelp";
 
 my $config;
 my $format;
 my $method;
 my $words;
 my $lang;
+my $docbook;
+my $indexdir;
+my $maxnum;
 
 GetOptions (
   'config=s' => \$config,
@@ -23,7 +25,17 @@ GetOptions (
   'method=s' => \$method,
   'words=s' => \$words,
   'lang=s' => \$lang,
+  'docbook' => \$docbook,
+  'indexdir=s' => \$indexdir,
+  'maxnum=s' => \$maxnum
 );
+
+if ( !$indexdir ) {
+  print STDERR "No index dir given.\n";
+  exit 1;
+}
+
+if ( !$lang ) { $lang = "en"; }
 
 my $charset = langCharset( $lang );
 
@@ -54,14 +66,20 @@ while( <HTSEARCH> ) {
   if ( /^<img src.*<a href="(.*)">(.*)<\/a>/ ) {
     $ref = $1;
     $link = $2;
+
+    print STDERR "REF: $ref  LINK: $link\n";
+
     $ref =~ s/file:\/\/localhost//;
     
-    #Special treatment for KDE docs
-    if ( $ref =~ /\/([^\/]*)\/index\.docbook$/ ) {
-      $ref = "help:$1";
-    }
-
     $ref =~ s/http:\/\/localhost\//file:\//;
+
+    if ( $docbook ) {
+      $ref =~ /help:\/\/(.*)\/index.docbook/;
+      my $app = $1;
+      $ref = "help:$app";
+
+      $link =~ s/apptitle/$app/;
+    }
     
     print "  <li><a href=\"$ref\">$link</a></li>\n";
   }

@@ -2,7 +2,7 @@
 #
 #  Wrapper script for creating search indices for htdig.
 #
-#  This file is part of the SuSE help system.
+#  This file is part of KHelpcenter.
 #
 #  Copyright (C) 2002  SuSE Linux AG, Nuernberg
 #
@@ -52,9 +52,14 @@ if ( !$indexdir || !$docpath || !$identifier ) {
   usage();
 }
 
+&dbg( "INDEXDIR: $indexdir" );
+
 if ( !$lang ) { $lang = "en"; }
 
-&dbg( "INDEXDIR: $indexdir" );
+my $tmpdir = "$indexdir/$identifier.tmp";
+if ( ! -e $tmpdir ) {
+  mkdir $tmpdir;
+}
 
 print "Creating index for <b>'$identifier'</b>\n";
 
@@ -62,11 +67,6 @@ my $htdigconf = $indexdir;
 my $htdigdb = $indexdir;
 
 my $conffile = "$htdigconf/$identifier.conf";
-
-if ( !open( CONF, ">$conffile" ) ) {
-  print STDERR "Unable to open '$conffile' for writing.\n";
-  exit 1;
-}
 
 my $commondir = "$htdigdata/$lang";
 if ( !$lang || !-e $commondir ) {
@@ -78,39 +78,111 @@ my $locale;
 if ( $lang eq "de" ) { $locale = "de_DE"; }
 else { $locale = $lang; }
 
+my $startfile = "$tmpdir/index.html";
+
+if ( !open( START, ">$startfile" ) ) {
+  print STDERR "Unable to open '$startfile' for writing.\n";
+  exit 1;
+}
+
+my $findcmd = "find $kdeprefix/share/doc/HTML/$lang/ -name index.docbook";
+
+print STDERR "FINDCMD: $findcmd\n";
+
+if ( !open FIND, "$findcmd|" ) {
+  print STDERR "Unable to find docs.\n";
+  exit 1;
+}
+while ( <FIND> ) {
+  chomp;
+  my $path = $_;
+  $path =~ /\/([^\/]*)\/index.docbook$/;
+  my $app = $1;
+  print START "<a href=\"help://$app/index.docbook\">$path</a>\n";
+}
+close START;
+
+my $mimetypefile = "$tmpdir/htdig_mime";
+if ( !open( MIME, ">$mimetypefile" ) ) {
+  print STDERR "Unable to open '$mimetypefile' for writing.\n";
+  exit 1;
+}
+print MIME << "EOT";
+text/html       html
+text/docbook    docbook
+EOT
+close MIME;
+
+my $parserfile = "$tmpdir/docbookparser";
+if ( !open( PARSER, ">$parserfile" ) ) {
+  print STDERR "Unable to open '$parserfile' for writing.\n";
+  exit 1;
+}
+print PARSER << "EOT";
+#! /bin/sh
+
+file=\$1
+shift
+mime=\$1
+shift
+
+if test "\$#" -gt 0; then
+  orig=\${1/file:\/\//}
+  shift
+fi
+
+case "\$orig" in
+  help:/*)
+	orig=\${orig/help:\//}
+	orig=\${orig/\/index.docbook//}
+	cd $kdeprefix/share/doc/HTML/en/\$orig
+	file=index.docbook
+	;;
+  *)	
+	file=\$orig
+	cd `dirname \$orig`
+	;;
+esac
+
+echo "t	apptitle"
+$kdeprefix/bin/meinproc --htdig "\$file"
+EOT
+close PARSER;
+chmod 0755, $parserfile;
+
+if ( !open( CONF, ">$conffile" ) ) {
+  print STDERR "Unable to open '$conffile' for writing.\n";
+  exit 1;
+}
 print CONF << "EOT";
 # htdig configuration for doc '$identifier'
 #
 # This file has been automatically created by KHelpcenter
-
 common_dir:		$commondir
 locale:                 $locale
 database_dir:           $htdigdb
-local_urls:		http://localhost=
-local_urls_only:	true
-limit_urls_to:          http://localhost
-ignore_noindex:		true
-max_hop_count:		4
+database_base:		\${database_dir}/$identifier
+local_urls:             help://=$kdeprefix/share/doc/HTML/en/ file://=/
+local_urls_only:        true
+limit_urls_to:          file:// help:/
+ignore_noindex:         true
+max_hop_count:          4
 robotstxt_name:         kdedig
-compression_level:	6
-template_map:           Long long $kdeprefix/share/apps/khelpcenter/searchhandlers/htdig/htdig_long.html \\
-                        Short short $htdigdata/short.html
+compression_level:      6
+template_map:           Long long $kdeprefix/share/apps/khelpcenter/searchhandlers/htdig/htdig_long.html
 search_algorithm:       exact:1 prefix:0.8
 maximum_pages:          1
 matches_per_page:       10
-database_base:		\${database_dir}/$identifier
-start_url:		http://localhost/$docpath
-# for pdf-files
-max_doc_size:           5000000
-external_parsers: application/pdf /usr/share/doc/packages/htdig/contrib/parse_doc.pl      application/postscript /usr/share/doc/packages/htdig/contrib/parse_doc.pl
-#external_parsers: text/docbook /build/htdig/parser
+start_url:              file://$tmpdir/index.html
+external_parsers:       text/docbook $parserfile
+valid_extensions:       .docbook .html
+mime_types:             $mimetypefile
 EOT
-
 close CONF;
 
 $ENV{ PATH } = '';
 
-my $ret = system( "$htdigbin/htdig -s -i -c $conffile" );
+my $ret = system( "$htdigbin/htdig -v -s -i -c $conffile" );
 if ( $ret != 0 ) {
   print STDERR "htdig failed\n";
 } else {
@@ -140,7 +212,7 @@ sub dbg($)
 
 sub usage()
 {
-  print "Usage: khc_htdig.pl --indexdir <indexdir> --docpath <path> ";
+  print "Usage: khc_docbookdig.pl --indexdir <indexdir> --docpath <path> ";
   print "--identifier <identifier>\n";
   exit 1;
 }

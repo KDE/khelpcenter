@@ -212,7 +212,7 @@ bool DocEntry::readFromFile( const QString &fileName )
   mUrl = file.readPathEntry( "DocPath" );
   mInfo = file.readEntry( "Info" );
   if ( mInfo.isNull() ) mInfo = file.readEntry( "Comment" );
-  mLang = file.readEntry( "Lang" );
+  mLang = file.readEntry( "Lang", "en" );
   mIdentifier = file.readEntry( "X-DOC-Identifier" );
   if ( mIdentifier.isEmpty() ) {
     QFileInfo fi( fileName );
@@ -235,12 +235,14 @@ bool DocEntry::readFromFile( const QString &fileName )
 
 bool DocEntry::indexExists( const QString &indexDir )
 {
-  if ( mIndexTestFile.isEmpty() ) return true;
-
   QString testFile;
+  if ( mIndexTestFile.isEmpty() ) {
+    testFile = identifier() + ".exists";
+  } else {
+    testFile = mIndexTestFile;
+  }
 
-  if ( mIndexTestFile.startsWith( "/" ) ) testFile = mIndexTestFile;
-  else testFile = indexDir + "/" + mIndexTestFile;
+  if ( !testFile.startsWith( "/" ) ) testFile = indexDir + "/" + testFile;
 
   return QFile::exists( testFile );
 }

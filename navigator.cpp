@@ -129,8 +129,7 @@ Navigator::Navigator( View *view, QWidget *parent, const char *name )
 
     insertPlugins();
 
-    if ( DocMetaInfo::self()->searchEntries().isEmpty() ||
-         !mSearchEngine->initSearchHandlers() ) {
+    if ( !mSearchEngine->initSearchHandlers() ) {
       hideSearch();
     } else {
       mSearchWidget->updateScopeList();      
@@ -177,7 +176,7 @@ void Navigator::setupContentsTab()
 
 void Navigator::setupSearchTab()
 {
-    mSearchWidget = new SearchWidget( mTabWidget );
+    mSearchWidget = new SearchWidget( mSearchEngine, mTabWidget );
     connect( mSearchWidget, SIGNAL( searchResult( const QString & ) ),
              SLOT( slotShowSearchResult( const QString & ) ) );
     connect( mSearchWidget, SIGNAL( scopeCountChanged( int ) ),

@@ -66,7 +66,12 @@ class LogDialog : public KDialogBase
       mTextView->setTextFormat( LogText );
       topLayout->addWidget( mTextView );
 
-      resize( 600, 400 );
+      resize( configDialogSize( "logdialog" ) );
+    }
+
+    ~LogDialog()
+    {
+      saveDialogSize( "logdialog" );
     }
 
     void setLog( const QString &log )

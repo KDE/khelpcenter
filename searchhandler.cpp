@@ -28,6 +28,7 @@
 #include <kdebug.h>
 #include <kmessagebox.h>
 #include <klocale.h>
+#include <kstandarddirs.h>
 
 #include <stdlib.h>
 
@@ -36,6 +37,7 @@ using namespace KHC;
 SearchHandler::SearchHandler()
   : mSearchRunning( false )
 {
+  mLang = KGlobal::locale()->language().left( 2 );
 }
 
 SearchHandler *SearchHandler::initFromFile( const QString &filename )
@@ -62,7 +64,30 @@ QString SearchHandler::indexCommand( const QString &identifier )
   QString cmd = mIndexCommand;
   cmd.replace( "%i", identifier );
   cmd.replace( "%d", Prefs::indexDirectory() );
+  cmd.replace( "%l", mLang );
   return cmd;
+}
+
+bool SearchHandler::checkPaths() const
+{
+  if ( !mSearchCommand.isEmpty() && !checkBinary( mSearchCommand ) )
+    return false;
+
+  if ( !mIndexCommand.isEmpty() && !checkBinary( mIndexCommand ) )
+    return false;
+
+  return true;
+}
+
+bool SearchHandler::checkBinary( const QString &cmd ) const
+{
+  QString binary;
+
+  int pos = cmd.find( ' ' );
+  if ( pos < 0 ) binary = cmd;
+  else binary = cmd.left( pos );
+
+  return !KStandardDirs::findExe( binary ).isEmpty();
 }
 
 void SearchHandler::search( const QString &identifier, const QStringList &words,
@@ -78,9 +103,11 @@ void SearchHandler::search( const QString &identifier, const QStringList &words,
 
   if ( !mSearchCommand.isEmpty() ) {
     QString cmdString = SearchEngine::substituteSearchQuery( mSearchCommand,
-      identifier, words, maxResults, operation );
+      identifier, words, maxResults, operation, mLang );
 
     kdDebug() << "SearchHandler::search() CMD: " << cmdString << endl;
+
+    searchError( "<em>" + cmdString + "</em>\n" );
 
     KProcess *proc = new KProcess();
 
@@ -109,7 +136,7 @@ void SearchHandler::search( const QString &identifier, const QStringList &words,
     }
   } else if ( !mSearchUrl.isEmpty() ) {
     QString urlString = SearchEngine::substituteSearchQuery( mSearchUrl,
-      identifier, words, maxResults, operation );
+      identifier, words, maxResults, operation, mLang );
   
     kdDebug() << "SearchHandler::search() URL: " << urlString << endl;
   
@@ -156,6 +183,7 @@ void SearchHandler::searchExited( KProcess * )
   kdDebug() << "SearchHandler::searchExited()" << endl;
 
   emit searchFinished( mSearchResult );
+  if ( !mStderr.isEmpty() ) emit searchError( mStderr );
 
   mSearchRunning = false;
 }

@@ -40,6 +40,7 @@ class KCMHelpCenter;
 namespace KHC {
 
 class ScopeItem;
+class SearchEngine;
 
 class SearchWidget : public QWidget, public DCOPObject
 {
@@ -50,7 +51,7 @@ class SearchWidget : public QWidget, public DCOPObject
     ASYNC searchIndexUpdated(); // called from kcmhelpcenter
 
   public:
-    SearchWidget ( QWidget *parent = 0 );
+    SearchWidget ( SearchEngine *, QWidget *parent = 0 );
     ~SearchWidget();
 
     QString method();
@@ -67,6 +68,8 @@ class SearchWidget : public QWidget, public DCOPObject
     void writeConfig( KConfig * );
 
     int scopeCount() const;
+
+    SearchEngine *engine() const { return mEngine; }
 
   signals:
     void searchResult( const QString &url );
@@ -87,6 +90,8 @@ class SearchWidget : public QWidget, public DCOPObject
 
   private:
     void loadLanguages();
+
+    SearchEngine *mEngine;
 
     QComboBox *mMethodCombo;
     QComboBox *mPagesCombo;

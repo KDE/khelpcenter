@@ -12,6 +12,7 @@
 #include "formatter.h"
 #include "view.h"
 #include "searchhandler.h"
+#include "prefs.h"
 
 #include "searchengine.h"
 
@@ -66,7 +67,7 @@ void SearchTraverser::startProcess( DocEntry *entry )
 
   mEntry = entry;
 
-  if ( !entry->isSearchable() || !entry->searchEnabled() ) {
+  if ( !mEngine->canSearch( entry ) || !entry->searchEnabled() ) {
     mNotifyee->endProcess( entry, this );
     return;
   }
@@ -90,6 +91,8 @@ void SearchTraverser::startProcess( DocEntry *entry )
 
   connect( handler, SIGNAL( searchFinished( const QString & ) ),
     SLOT( showSearchResult( const QString & ) ) );
+  connect( handler, SIGNAL( searchError( const QString & ) ),
+    mEngine, SLOT( logError( const QString & ) ) );
 
   handler->search( entry->identifier(), mEngine->words(), mEngine->maxResults(),
     mEngine->operation() );
@@ -183,10 +186,11 @@ bool SearchEngine::initSearchHandlers()
     QString filename = *it;
     kdDebug() << "SearchEngine::initSearchHandlers(): " << filename << endl;
     SearchHandler *handler = SearchHandler::initFromFile( filename );
-    if ( !handler ) {
-      KMessageBox::sorry( mView->widget(),
-        i18n("Unable to initialize SearchHandler from file '%1'.")
-        .arg( filename ) );
+    if ( !handler || !handler->checkPaths() ) {
+      QString txt = i18n("Unable to initialize SearchHandler from file '%1'.")
+        .arg( filename );
+      kdWarning() << txt << endl;
+//      KMessageBox::sorry( mView->widget(), txt );        
     } else {
       QStringList documentTypes = handler->documentTypes();
       QStringList::ConstIterator it;
@@ -197,8 +201,9 @@ bool SearchEngine::initSearchHandlers()
   }
   
   if ( mHandlers.isEmpty() ) {
-    KMessageBox::sorry( mView->widget(),
-      i18n("No valid search handler found.") );
+    QString txt = i18n("No valid search handler found.");
+    kdWarning() << txt << endl;
+//    KMessageBox::sorry( mView->widget(), txt );
     return false;
   }
 
@@ -262,10 +267,13 @@ bool SearchEngine::search( QString words, QString method, int matches,
       return false;
     }
 
+    QString txt = i18n("Search Results for '%1':").arg( words );
+
+    mStderr = "<b>" + txt + "</b>\n";
+
     mView->beginSearchResult();
     mView->writeSearchResult( formatter()->header( i18n("Search Results") ) );
-    mView->writeSearchResult( formatter()->title(
-      i18n("Search Results for '%1':").arg( words ) ) );
+    mView->writeSearchResult( formatter()->title( txt ) );
 
     if ( mRootTraverser ) {
       kdDebug() << "SearchEngine::search(): mRootTraverser not null." << endl;
@@ -362,7 +370,7 @@ QString SearchEngine::substituteSearchQuery( const QString &query )
 
 QString SearchEngine::substituteSearchQuery( const QString &query,
   const QString &identifier, const QStringList &words, int maxResults,
-  Operation operation )
+  Operation operation, const QString &lang )
 {
   QString result = query;
   result.replace( "%i", identifier );
@@ -372,8 +380,8 @@ QString SearchEngine::substituteSearchQuery( const QString &query,
   if ( operation == Or ) o = "or";
   else o = "and";
   result.replace( "%o", o );
-// FIXME: handle lang
-//  result.replace( "%l", mLang );
+  result.replace( "%d", Prefs::indexDirectory() );
+  result.replace( "%l", lang );
 
   return result;
 }
@@ -399,6 +407,11 @@ void SearchEngine::finishSearch()
 QString SearchEngine::errorLog() const
 {
   return mStderr;
+}
+
+void SearchEngine::logError( const QString &msg )
+{
+  mStderr += msg;
 }
 
 bool SearchEngine::isRunning() const
@@ -428,6 +441,22 @@ int SearchEngine::maxResults() const
 SearchEngine::Operation SearchEngine::operation() const
 {
   return mOperation;
+}
+
+bool SearchEngine::canSearch( DocEntry *entry )
+{
+  return entry->docExists() && !entry->documentType().isEmpty() &&
+    handler( entry->documentType() );
+}
+
+bool SearchEngine::needsIndex( DocEntry *entry )
+{
+  if ( !canSearch( entry ) ) return false;
+
+  SearchHandler *h = handler( entry->documentType() );
+  if ( h->indexCommand( entry->identifier() ).isEmpty() ) return false;
+  
+  return true;
 }
 
 }

@@ -77,7 +77,7 @@ class SearchEngine : public QObject
 
     static QString substituteSearchQuery( const QString &query,
       const QString &identifier, const QStringList &words, int maxResults,
-      Operation operation );
+      Operation operation, const QString &lang );
 
     void finishSearch();
 
@@ -91,6 +91,9 @@ class SearchEngine : public QObject
     int maxResults() const;
     Operation operation() const;
 
+    bool canSearch( DocEntry * );
+    bool needsIndex( DocEntry * );
+
   signals:
     void searchFinished();
 
@@ -98,6 +101,8 @@ class SearchEngine : public QObject
     void searchStdout(KProcess *proc, char *buffer, int buflen);
     void searchStderr(KProcess *proc, char *buffer, int buflen);
     void searchExited(KProcess *proc);
+
+    void logError( const QString & );
 
   protected:
     void processSearchQueue();

@@ -63,6 +63,7 @@ class IndexProgressDialog : public KDialog
     Q_OBJECT
   public:
     IndexProgressDialog( QWidget *parent );
+    ~IndexProgressDialog();
 
     void setTotalSteps( int );
     void advanceProgress();
@@ -75,6 +76,9 @@ class IndexProgressDialog : public KDialog
   signals:
     void closed();
     void cancelled();
+
+  protected:
+    void hideDetails();
 
   protected slots:
     void slotEnd();
@@ -129,6 +133,8 @@ class KCMHelpCenter : public KDialogBase, virtual public KCMHelpCenterIface
     void slotOk();
 
     void showIndexDirDialog();
+
+    void checkSelection();
 
   protected:
     void setupMainWidget( QWidget *parent );
