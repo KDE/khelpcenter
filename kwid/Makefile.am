@@ -1,6 +1,6 @@
 INCLUDES = $(all_includes)
 LDFLAGS  = $(all_libraries)
-LDADD    = $(LIB_KDECORE) -lX11 -lXt
+LDADD    = $(LIB_KDECORE) 
 
 ####### Files
 
