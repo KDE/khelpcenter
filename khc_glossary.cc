@@ -273,3 +273,4 @@ void khcGlossary::treeItemSelected( QListViewItem *item )
 }
 	
 #include "khc_glossary.moc"
+// vim:ts=4:sw=4:noet
