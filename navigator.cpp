@@ -578,7 +578,7 @@ void Navigator::slotSearch()
 void Navigator::slotShowSearchResult( const QString &url )
 {
   QString u = url;
-  u.replace( QRegExp( "%k" ), mSearchEdit->text() );
+  u.replace( "%k", mSearchEdit->text() );
 
   slotURLSelected( u );
 }

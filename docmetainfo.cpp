@@ -78,7 +78,7 @@ DocEntry *DocMetaInfo::addDocEntry( const QString &fileName )
       mHtmlSearch->setupDocEntry( entry );
     }
     QString indexer = entry->indexer();
-    indexer.replace( QRegExp( "%f" ), fileName );
+    indexer.replace( "%f", fileName );
     entry->setIndexer( indexer );
     addDocEntry( entry );
     return entry;

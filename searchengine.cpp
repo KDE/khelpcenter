@@ -221,7 +221,7 @@ bool SearchEngine::search( QString _words, QString method, int matches,
 
     // if the string contains '&' replace with a '+' and set search method to and
     if (mWords.find("&") != -1) {
-      mWords.replace(QRegExp("&"), " ");
+      mWords.replace("&", " ");
       method = "and";
     }
  
@@ -269,7 +269,7 @@ bool SearchEngine::search( QString _words, QString method, int matches,
     delete mProc;
 
     // modify the search result
-    mSearchResult = mSearchResult.replace(QRegExp("http://localhost/"), "file:/");
+    mSearchResult = mSearchResult.replace("http://localhost/", "file:/");
     mSearchResult = mSearchResult.mid( mSearchResult.find( '<' ) );
 
     mView->beginSearchResult();
@@ -284,11 +284,11 @@ bool SearchEngine::search( QString _words, QString method, int matches,
 QString SearchEngine::substituteSearchQuery( const QString &query )
 {
   QString result = query;
-  result.replace( QRegExp( "%k" ), mWords );
-  result.replace( QRegExp( "%n" ), QString::number( mMatches ) );
-  result.replace( QRegExp( "%m" ), mMethod );
-  result.replace( QRegExp( "%l" ), mLang );
-  result.replace( QRegExp( "%s" ), mScope );
+  result.replace( "%k", mWords );
+  result.replace( "%n", QString::number( mMatches ) );
+  result.replace( "%m", mMethod );
+  result.replace( "%l", mLang );
+  result.replace( "%s", mScope );
 
   return result;
 }

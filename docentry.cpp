@@ -189,7 +189,7 @@ bool DocEntry::readFromFile( const QString &fileName )
     mIdentifier = fi.baseName( true );
   }
   mIndexer = file.readEntry( "X-DOC-Indexer" );
-  mIndexer.replace( QRegExp( "%f" ) , fileName );
+  mIndexer.replace( "%f", fileName );
   mIndexTestFile = file.readEntry( "X-DOC-IndexTestFile" );
   mSearchEnabledDefault = file.readBoolEntry( "X-DOC-SearchEnabledDefault",
                                               false );

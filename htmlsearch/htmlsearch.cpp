@@ -454,8 +454,8 @@ QString HTMLSearch::search(QString _lang, QString words, QString method, int mat
   delete _proc;
 
   // modify the search result
-  _searchResult = _searchResult.replace(QRegExp("http://localhost/"), "file:/");
-  _searchResult = _searchResult.replace(QRegExp("Content-type: text/html"), "");
+  _searchResult = _searchResult.replace("http://localhost/", "file:/");
+  _searchResult = _searchResult.replace("Content-type: text/html", QString::null);
 
   // dump the search result
   QFile f(result);

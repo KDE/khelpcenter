@@ -282,7 +282,7 @@ void History::fillHistoryPopup( QPopupMenu *popup, bool onlyBack, bool onlyForwa
 	{
 		QString text = it.current()->title;
 		text = KStringHandler::csqueeze(text, 50); //CT: squeeze
-		text.replace( QRegExp( "&" ), "&&" );
+		text.replace( "&", "&&" );
 		if ( checkCurrentItem && it.current() == current )
 		{
 			int id = popup->insertItem( text ); // no pixmap if checked
