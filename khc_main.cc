@@ -51,8 +51,8 @@ KHMainWindow::KHMainWindow(const KURL &url)
 
     setCentralWidget( doc->widget() );
     setGeometry(366, 0, 640, 800);
-    actionCollection()->operator+=(doc->actionCollection());
-    createGUI( "khelpcenterui.rc", false );
+    (*actionCollection()) += *doc->actionCollection();
+    createGUI( "khelpcenterui.rc" );
 
     if (url.isEmpty())
         doc->openURL(KURL("help:/khelpcenter/index.html"));
