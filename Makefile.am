@@ -41,8 +41,7 @@ testmetainfo_SOURCES = testmetainfo.cpp
 service_DATA = khelpcenter.desktop
 servicedir = $(kde_servicesdir)
 
-khelpcenter_data_DATA = Help.desktop
-khelpcenter_datadir = $(kde_appsdir)
+xdg_apps_DATA = Help.desktop
 
 #xdg_apps_DATA = kcmhelpcenter.desktop
 
