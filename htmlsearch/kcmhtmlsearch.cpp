@@ -165,7 +165,7 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const char *name)
 
   vbox->addStretch(1);
 
-  runButton = new QPushButton(i18n("Generate index..."), this);
+  runButton = new QPushButton(i18n("Generate Index..."), this);
   QWhatsThis::add( runButton, i18n( "Click this button to generate the index for the fulltext search." ) );
   runButton->setFixedSize(runButton->sizeHint());
   vbox->addWidget(runButton, AlignRight);
