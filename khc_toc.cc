@@ -32,6 +32,45 @@
 
 #include <sys/stat.h>
 
+class TOCItem : public KListViewItem
+{
+	public:
+		TOCItem( TOCItem *parent, const QString &text );
+		TOCItem( TOCItem *parent, QListViewItem *after, const QString &text );
+		TOCItem( khcTOC *parent, const QString &text );
+		TOCItem( khcTOC *parent, QListViewItem *after, const QString &text );
+
+		virtual QString link() const = 0;
+
+		khcTOC *toc() const;
+};
+
+class TOCChapterItem : public TOCItem
+{
+	public:
+		TOCChapterItem( khcTOC *parent, const QString &title, const QString &name );
+		TOCChapterItem( khcTOC *parent, QListViewItem *after, const QString &title, const QString &name );
+
+		virtual QString link() const;
+		
+		virtual void setOpen( bool open );
+	
+	private:
+		QString m_name;
+};
+
+class TOCSectionItem : public TOCItem
+{
+	public:
+		TOCSectionItem( TOCChapterItem *parent, const QString &title, const QString &name );
+		TOCSectionItem( TOCChapterItem *parent, QListViewItem *after, const QString &title, const QString &name );
+
+		virtual QString link() const;
+	
+	private:
+		QString m_name;
+};
+
 khcTOC::khcTOC( QWidget *parent ) : KListView( parent, "khcTOC" )
 {
 	connect( this, SIGNAL( executed( QListViewItem * ) ),
@@ -163,11 +202,11 @@ void khcTOC::fillTree()
 		QDomElement chapRefElem = childElement( chapElem, QString::fromLatin1( "anchor" ) );
 		QString chapRef = chapRefElem.text().stripWhiteSpace();
 
-		khcTOCChapterItem *chapItem;
+		TOCChapterItem *chapItem;
 		if ( childCount() == 0 )
-			chapItem = new khcTOCChapterItem( this, chapTitle, chapRef );
+			chapItem = new TOCChapterItem( this, chapTitle, chapRef );
 		else
-			chapItem = new khcTOCChapterItem( this, lastChild(), chapTitle, chapRef );
+			chapItem = new TOCChapterItem( this, lastChild(), chapTitle, chapRef );
 
 		QDomNodeList sections = chapElem.elementsByTagName( "section" );
 		for ( unsigned int sectCount = 0; sectCount < sections.count(); sectCount++ ) {
@@ -178,12 +217,12 @@ void khcTOC::fillTree()
 			QString sectRef = sectRefElem.text().stripWhiteSpace();
 
 			if ( chapItem->childCount() == 0 )
-				new khcTOCSectionItem( chapItem, sectTitle, sectRef );
+				new TOCSectionItem( chapItem, sectTitle, sectRef );
 			else {
 				QListViewItem *lastChild = chapItem->firstChild();
 				while ( lastChild->nextSibling() )
 					lastChild = lastChild->nextSibling();
-				new khcTOCSectionItem( chapItem, lastChild, sectTitle, sectRef );
+				new TOCSectionItem( chapItem, lastChild, sectTitle, sectRef );
 			}
 		}
 	}
@@ -200,80 +239,82 @@ QDomElement khcTOC::childElement( const QDomElement &element, const QString &nam
 
 void khcTOC::slotItemSelected( QListViewItem *item )
 {
-	khcTOCItem *tocItem;
-	if ( ( tocItem = dynamic_cast<khcTOCItem *>( item ) ) )
+	TOCItem *tocItem;
+	if ( ( tocItem = dynamic_cast<TOCItem *>( item ) ) )
 		emit itemSelected( tocItem->link() );
+
+	item->setOpen( !item->isOpen() );
 }
 
-khcTOCItem::khcTOCItem( khcTOCItem *parent, const QString &text )
+TOCItem::TOCItem( TOCItem *parent, const QString &text )
 	: KListViewItem( parent, text )
 {
 }
 
-khcTOCItem::khcTOCItem( khcTOCItem *parent, QListViewItem *after, const QString &text )
+TOCItem::TOCItem( TOCItem *parent, QListViewItem *after, const QString &text )
 	: KListViewItem( parent, after, text )
 {
 }
 
-khcTOCItem::khcTOCItem( khcTOC *parent, const QString &text )
+TOCItem::TOCItem( khcTOC *parent, const QString &text )
 	: KListViewItem( parent, text )
 {
 }
 
-khcTOCItem::khcTOCItem( khcTOC *parent, QListViewItem *after, const QString &text )
+TOCItem::TOCItem( khcTOC *parent, QListViewItem *after, const QString &text )
 	: KListViewItem( parent, after, text )
 {
 }
 
-khcTOC *khcTOCItem::toc() const
+khcTOC *TOCItem::toc() const
 {
 	return static_cast<khcTOC *>( listView() );
 }
 
-khcTOCChapterItem::khcTOCChapterItem( khcTOC *parent, const QString &title, const QString &name )
-	: khcTOCItem( parent, title ),
+TOCChapterItem::TOCChapterItem( khcTOC *parent, const QString &title, const QString &name )
+	: TOCItem( parent, title ),
 	m_name( name )
 {
 	setOpen( false );
 }
 
-khcTOCChapterItem::khcTOCChapterItem( khcTOC *parent, QListViewItem *after, const QString &title, const QString &name )
-	: khcTOCItem( parent, after, title ),
+TOCChapterItem::TOCChapterItem( khcTOC *parent, QListViewItem *after, const QString &title, const QString &name )
+	: TOCItem( parent, after, title ),
 	m_name( name )
 {
 	setOpen( false );
 }
 
-void khcTOCChapterItem::setOpen( bool open )
+void TOCChapterItem::setOpen( bool open )
 {
-	khcTOCItem::setOpen( open );
+	TOCItem::setOpen( open );
 	
 	setPixmap( 0, SmallIcon( open ? "contents" : "contents2" ) );
 }
 
-QString khcTOCChapterItem::link() const
+QString TOCChapterItem::link() const
 {
 	return "help:" + toc()->application() + "/" + m_name + ".html";
 }
 
-khcTOCSectionItem::khcTOCSectionItem( khcTOCChapterItem *parent, const QString &title, const QString &name )
-	: khcTOCItem( parent, title ),
+TOCSectionItem::TOCSectionItem( TOCChapterItem *parent, const QString &title, const QString &name )
+	: TOCItem( parent, title ),
 	m_name( name )
 {
 	setPixmap( 0, SmallIcon( "document" ) );
 }
 
-khcTOCSectionItem::khcTOCSectionItem( khcTOCChapterItem *parent, QListViewItem *after, const QString &title, const QString &name )
-	: khcTOCItem( parent, after, title ),
+TOCSectionItem::TOCSectionItem( TOCChapterItem *parent, QListViewItem *after, const QString &title, const QString &name )
+	: TOCItem( parent, after, title ),
 	m_name( name )
 {
 	setPixmap( 0, SmallIcon( "document" ) );
 }
 
-QString khcTOCSectionItem::link() const
+QString TOCSectionItem::link() const
 {
-	if ( static_cast<khcTOCSectionItem *>( parent()->firstChild() ) == this )
-		return static_cast<khcTOCChapterItem *>( parent() )->link() + "#" + m_name;
+	if ( static_cast<TOCSectionItem *>( parent()->firstChild() ) == this )
+		return static_cast<TOCChapterItem *>( parent() )->link() + "#" + m_name;
 	
 	return "help:" + toc()->application() + "/" + m_name + ".html";
 }

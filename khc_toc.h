@@ -61,44 +61,5 @@ class khcTOC : public KListView
 		QString m_sourceFile;
 };
 
-class khcTOCItem : public KListViewItem
-{
-	public:
-		khcTOCItem( khcTOCItem *parent, const QString &text );
-		khcTOCItem( khcTOCItem *parent, QListViewItem *after, const QString &text );
-		khcTOCItem( khcTOC *parent, const QString &text );
-		khcTOCItem( khcTOC *parent, QListViewItem *after, const QString &text );
-
-		virtual QString link() const = 0;
-
-		khcTOC *toc() const;
-};
-
-class khcTOCChapterItem : public khcTOCItem
-{
-	public:
-		khcTOCChapterItem( khcTOC *parent, const QString &title, const QString &name );
-		khcTOCChapterItem( khcTOC *parent, QListViewItem *after, const QString &title, const QString &name );
-
-		virtual QString link() const;
-		
-		virtual void setOpen( bool open );
-	
-	private:
-		QString m_name;
-};
-
-class khcTOCSectionItem : public khcTOCItem
-{
-	public:
-		khcTOCSectionItem( khcTOCChapterItem *parent, const QString &title, const QString &name );
-		khcTOCSectionItem( khcTOCChapterItem *parent, QListViewItem *after, const QString &title, const QString &name );
-
-		virtual QString link() const;
-	
-	private:
-		QString m_name;
-};
-
 #endif // KHC_TOC_H
 // vim:ts=4:sw=4:noet
