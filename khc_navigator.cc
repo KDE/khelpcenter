@@ -20,7 +20,7 @@
 
 #include "khc_navigator.h"
 #include "khc_navigatoritem.h"
-#include "khc_searchwidget.h"
+// #include "khc_searchwidget.h"
 #include "khc_factory.h"
 
 #include <qdir.h>
@@ -115,7 +115,7 @@ khcNavigatorWidget::khcNavigatorWidget(QWidget *parent, const char *name)
     mScrollKeeperShowEmptyDirs = config->readBoolEntry("ShowEmptyDirs",false);
 
     setupContentsTab();
-    setupSearchTab();
+    // setupSearchTab();
     setupGlossaryTab();
 
     buildTree();
@@ -142,11 +142,12 @@ void khcNavigatorWidget::setupContentsTab()
 
 void khcNavigatorWidget::setupSearchTab()
 {
-    search = new SearchWidget(this);
+    /* search = new SearchWidget(this);
     connect(search, SIGNAL(searchResult(QString)),this,
 	    SLOT(slotURLSelected(QString)));
 
     addTab(search, i18n("Search"));
+ */
 }
 
 void khcNavigatorWidget::setupGlossaryTab()

@@ -137,7 +137,7 @@ class khcNavigatorWidget : public QTabWidget
 
     QListViewItem *byTopicItem, *alphabItem;
     KListView *contentsTree, *glossaryTree;
-    SearchWidget *search;
+    // SearchWidget *search;
 
     QList<khcNavigatorItem> staticItems, manualItems, pluginItems, scrollKeeperItems;
 
