@@ -1,4 +1,4 @@
-searchhandlers_DATA = htdig.desktop man.desktop
+searchhandlers_DATA = htdig.desktop
 
 searchhandlersdir = $(kde_datadir)/khelpcenter/searchhandlers
 
