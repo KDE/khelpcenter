@@ -23,6 +23,7 @@
 #include <config.h>
 
 #include <klocale.h>
+#include <kglobal.h>
 
 KCGI::KCGI()
 {
@@ -90,10 +91,10 @@ bool KCGI::runScript()
 {
     QString command;
 
-    if (!strncmp(script.data(), "/cgi-bin", 8))
-	command = KApplication::kde_cgidir() + script.right(script.length() - 8);
+    if (script.left(8).lower() == "/cgi-bin")
+	command = locate("cgi", script.mid(8, script.length()));
     else
-	command = KApplication::kde_cgidir() + script;
+	command = locate("cgi", script);
 
     command += " > " + destFile;
 

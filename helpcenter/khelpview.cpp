@@ -751,7 +751,7 @@ void KHelpView::slotOnURL(const char *URL)
 	emit setURL(currentURL);	
 }
 
-void KHelpView::slotFormSubmitted(const char *_method, const char *_url, const char* _data, const char * _target)
+void KHelpView::slotFormSubmitted(const char *_method, const char *_url, const char* _data, const char * )
 {
     if (strcasecmp(_method, "GET")==0)
     {
@@ -853,7 +853,7 @@ void KHelpView::slotFixedFont(const QString& n)
 }
 
 void KHelpView::slotColorsChanged(const QColor &bg, const QColor &text,
-				  const QColor &link, const QColor &vlink, const bool uline, const bool force)
+				  const QColor &link, const QColor &vlink, bool uline, bool)
 {
     view->setDefaultBGColor(bg);
     view->setDefaultTextColors(text, link, vlink);

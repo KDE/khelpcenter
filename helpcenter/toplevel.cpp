@@ -29,6 +29,7 @@
 #include <kstdaccel.h>
 #include <kcursor.h>
 #include <klocale.h>
+#include <kglobal.h>
 
 // static list of HelpCenter windows:
 QList<HelpCenter> HelpCenter::helpWindowList;
@@ -508,7 +509,7 @@ void HelpCenter::slotLocationEntered()
     htmlview->openURL(toolBar(1)->getLinedText(1), true );
 }
 
-void HelpCenter::slotURLSelected(const QString& _url, int _button)
+void HelpCenter::slotURLSelected(const QString& _url, int)
 {
     htmlview->openURL( _url, true );
 }

@@ -57,7 +57,7 @@ void onItemHelp::openHelp( QString path )
 	proc.start( KProcess::DontCare );
 }
 
-void onItemHelp::receivedStdout(KProcess *proc, char *buffer, int buflen)
+void onItemHelp::receivedStdout(KProcess *, char *buffer, int )
 {
 	result = new QString( (const char *)buffer );
 }

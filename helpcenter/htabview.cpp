@@ -299,7 +299,7 @@ void HTabView::slotURLSelected(QString url)
     emit itemSelected(url);
 }
 
-void HTabView::slotItemSelected(int index)
+void HTabView::slotItemSelected(int)
 {
     HTreeListItem *item;
     KTreeListItem *currentItem;

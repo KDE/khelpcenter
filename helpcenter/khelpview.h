@@ -122,7 +122,7 @@ class KHelpView : public QWidget
     void slotStandardFont( const QString& );
     void slotFixedFont( const QString& );
     void slotColorsChanged( const QColor&, const QColor&, const QColor&,
-			    const QColor&, const bool, const bool );
+			    const QColor&, bool, bool );
     void slotPopupOpenURL();
     void slotPopupAddBookmark();
     void slotPopupOpenNew();

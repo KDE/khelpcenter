@@ -14,7 +14,7 @@
 #include <klocale.h>
 
 
-KWidgetConfig::KWidgetConfig( QWidget* parent, const char* name, bool init ) : KConfigWidget( parent, name )
+KWidgetConfig::KWidgetConfig( QWidget* parent, const char* name, bool ) : KConfigWidget( parent, name )
 {
   // main groupboxes
   pHighGB    = newGroupBox( "Highlighting" );

@@ -16,7 +16,7 @@
 #include <klocale.h>  // include default values directly from kassistant
 
 
-KBrowserConfig::KBrowserConfig (QWidget * parent, const char *name, bool init)
+KBrowserConfig::KBrowserConfig (QWidget * parent, const char *name, bool )
     : KConfigWidget (parent, name)
 {
 	// set up GUI and connect signals to slots

@@ -29,7 +29,7 @@ class Match
 
  public:
 
-    Match(const char* _title, const char* _url, int weight = 0)
+    Match(const char* _title, const char* _url, int = 0)
 	{ title = _title; url = _url; }
 
     void setWeight(int m) { weight = m; }
