@@ -23,6 +23,7 @@
 
 #include <qlist.h>
 #include <kparts/browserextension.h>
+#include <kparts/part.h>
 
 class IndexWidget;
 class SearchWidget;
