@@ -88,8 +88,8 @@ KHMainWindow::KHMainWindow(const KURL &url)
     nav = new khcNavigator( doc, splitter, this, "nav");
     connect(nav->widget(), SIGNAL(itemSelected(const QString &)),
             SLOT(openURL(const QString &)));
-    connect(nav->widget(), SIGNAL(glossSelected(const khcNavigatorWidget::GlossaryEntry &)),
-            SLOT(slotGlossSelected(const khcNavigatorWidget::GlossaryEntry &)));
+    connect(nav->widget(), SIGNAL(glossSelected(const khcGlossaryEntry &)),
+            SLOT(slotGlossSelected(const khcGlossaryEntry &)));
 
     splitter->moveToFirst(nav->widget());
     splitter->setResizeMode(nav->widget(), QSplitter::KeepSize);
@@ -369,7 +369,7 @@ void KHMainWindow::openURL(const KURL &url)
     slotOpenURLRequest(url, args);
 }
 
-void KHMainWindow::slotGlossSelected(const khcNavigatorWidget::GlossaryEntry &entry)
+void KHMainWindow::slotGlossSelected(const khcGlossaryEntry &entry)
 {
     stop();
     createHistoryEntry();

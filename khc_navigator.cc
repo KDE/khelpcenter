@@ -61,6 +61,7 @@
 #include "khc_view.h"
 #include "docmetainfo.h"
 #include "docentrytraverser.h"
+#include "khc_glossary.h"
 
 #include "khc_navigator.h"
 #include "khc_navigator.moc"
@@ -105,22 +106,6 @@ QString langLookup(const QString &fname)
     return QString::null;
 }
 };
-
-SectionItem::SectionItem(QListViewItem *parent, const QString &text)
-        : QListViewItem(parent, text)
-{
-  setOpen(false);
-}
-
-void SectionItem::setOpen(bool open)
-{
-  if (open)
-    setPixmap(0, KGlobal::iconLoader()->loadIcon(QString::fromLatin1("contents"), KIcon::Small));
-  else
-    setPixmap(0, KGlobal::iconLoader()->loadIcon(QString::fromLatin1("contents2"), KIcon::Small));
-
-  QListViewItem::setOpen(open);
-}
 
 TOCListView::TOCListView( QWidget *parent )
   : KListView( parent )
@@ -298,9 +283,6 @@ khcNavigatorWidget::khcNavigatorWidget( KHCView *view, QWidget *parent,
 
     buildTree();
 
-    connect( mTabWidget, SIGNAL( currentChanged( QWidget * ) ),
-             SLOT( slotShowPage( QWidget * ) ) );
-
     if ( DocMetaInfo::self()->searchEntries().isEmpty() ) {
       hideSearch();
     } else {
@@ -321,8 +303,6 @@ khcNavigatorWidget::~khcNavigatorWidget()
   }
 
   regfree(&compInfoRegEx);
-  glossEntries.setAutoDelete( true );
-  glossEntries.clear();
 
   delete mSearchEngine;
 }
@@ -355,15 +335,6 @@ void khcNavigatorWidget::setupSearchTab()
              mSearchButton, SLOT( setEnabled( bool ) ) ); 
 
     mTabWidget->addTab( mSearchWidget, i18n("Search"));
-}
-
-void khcNavigatorWidget::slotShowPage(QWidget *w)
-{
-    if ((w == glossaryTree) && (glossaryHtmlStatus == CacheOk))
-    {
-       buildGlossary();
-    }
-    mTabWidget->showPage(w);
 }
 
 void khcNavigatorWidget::setupTOCTab()
@@ -434,157 +405,10 @@ void khcNavigatorWidget::slotTOCItemSelected( QListViewItem *item )
 
 void khcNavigatorWidget::setupGlossaryTab()
 {
-    glossaryTree = new KListView( mTabWidget );
-    glossaryTree->setFrameStyle(QFrame::Panel | QFrame::Sunken);
-    glossaryTree->addColumn(QString::null);
-    glossaryTree->header()->hide();
-    glossaryTree->setAllColumnsShowFocus(true);
-    glossaryTree->setRootIsDecorated(true);
-    connect(glossaryTree, SIGNAL(executed(QListViewItem *)),
-        SLOT(slotGlossaryItemSelected(QListViewItem *)));
-    connect(glossaryTree, SIGNAL(returnPressed(QListViewItem*)),
-	    SLOT(slotGlossaryItemSelected(QListViewItem*)));
-
-    byTopicItem = new QListViewItem(glossaryTree, i18n("By topic"));
-    byTopicItem->setPixmap(0, KGlobal::iconLoader()->loadIcon(QString::fromLatin1("help"), KIcon::Small));
-
-    alphabItem = new QListViewItem(glossaryTree, i18n("Alphabetically"));
-    alphabItem->setPixmap(0, KGlobal::iconLoader()->loadIcon(QString::fromLatin1("charset"), KIcon::Small));
-
-    mTabWidget->addTab(glossaryTree, i18n("G&lossary"));
-
-    glossaryHtmlFile = locateLocal("cache", "help/glossary.html");
-    glossarySource = langLookup(QString::fromLatin1("khelpcenter/glossary/index.docbook"));
-
-    KConfigGroup config(kapp->config(), "Glossary");
-
-    glossaryHtmlStatus = CacheOk;
-    if (config.readEntry("CachedGlossary") != glossarySource)
-       glossaryHtmlStatus = NeedRebuild;
-    if ((glossaryHtmlStatus == CacheOk) && !QFile::exists(glossaryHtmlFile))
-       glossaryHtmlStatus = NeedRebuild;
-
-    if (glossaryHtmlStatus == CacheOk)
-    {
-       struct stat stat_buf;
-       if (stat(QFile::encodeName(glossarySource).data(), &stat_buf) != 0)
-       {
-          // It makes no sense to continue.
-          return;
-       }
-       int ctime = stat_buf.st_ctime;
-       if (config.readNumEntry("CachedGlossaryTimestamp") != ctime)
-          glossaryHtmlStatus = NeedRebuild;
-    }
-
-    if (glossaryHtmlStatus == NeedRebuild)
-    {
-       KProcess *meinproc = new KProcess();
-       connect(meinproc, SIGNAL(processExited(KProcess *)),
-               SLOT(meinprocExited(KProcess *)));
-
-       *meinproc << locate("exe", QString::fromLatin1("meinproc"));
-       *meinproc << QString::fromLatin1("--output") << glossaryHtmlFile;
-       *meinproc << glossarySource;
-
-       meinproc->start(KProcess::NotifyOnExit, KProcess::Stdout);
-    }
-}
-
-void khcNavigatorWidget::meinprocExited(KProcess *meinproc)
-{
-  delete meinproc;
-
-  if (!QFile::exists(glossaryHtmlFile))
-     return; // Error...
-
-  struct stat stat_buf;
-  if (stat(QFile::encodeName(glossarySource).data(), &stat_buf) != 0)
-     return; // Error
-
-  int ctime = stat_buf.st_ctime;
-
-  KConfigGroup config(kapp->config(), "Glossary");
-  config.writeEntry("CachedGlossary", glossarySource);
-  config.writeEntry("CachedGlossaryTimestamp", ctime);
-  kapp->config()->sync();
-  glossaryHtmlStatus = CacheOk;
-  buildGlossary();
-}
-
-void khcNavigatorWidget::buildGlossary()
-{
-  glossaryHtmlStatus = ListViewOk;
-  QFile htmlFile(glossaryHtmlFile);
-  if (!htmlFile.open(IO_ReadOnly))
-    return;
-
-  QByteArray bytes = htmlFile.readAll();
-
-  QString htmlData = QString::fromLatin1(bytes.data(), bytes.size());
-
-  QDomDocument doc;
-  if (!doc.setContent(decodeEntities(htmlData)))
-    return;
-
-  QDomNodeList glossDivNodes = doc.documentElement().elementsByTagName(QString::fromLatin1("div"));
-  for (unsigned int i = 0; i < glossDivNodes.count(); i++) {
-    QDomNode glossDivNode = glossDivNodes.item(i);
-    if (glossDivNode.toElement().attribute(QString::fromLatin1("class"), QString::null) != QString::fromLatin1("glossdiv"))
-      continue;
-
-    QString glossDiv = glossDivNode.namedItem(QString::fromLatin1("h3")).toElement().text().simplifyWhiteSpace();
-    SectionItem *topicSection = new SectionItem(byTopicItem, glossDiv);
-
-    QDomNodeList glossEntryNodes = glossDivNode.toElement().elementsByTagName(QString::fromLatin1("dt"));
-    for (unsigned int j = 0; j < glossEntryNodes.count(); j++) {
-      QDomNode glossEntryNode = glossEntryNodes.item(j);
-      QString term = glossEntryNode.toElement().text().simplifyWhiteSpace();
-
-      (void) new QListViewItem(topicSection, term);
-
-      SectionItem *alphabSection = 0L;
-      for (QListViewItemIterator it(alphabItem); it.current(); it++)
-        if (it.current()->text(0) == term[0].upper()) {
-          alphabSection = static_cast<SectionItem *>(it.current());
-          break;
-        }
-
-      if (!alphabSection)
-        alphabSection = new SectionItem(alphabItem, term[0].upper());
-
-      (void) new QListViewItem(alphabSection, term);
-
-      glossEntryNode = glossEntryNode.nextSibling();
-
-      QString definition;
-      QTextStream defStream(&definition, IO_WriteOnly);
-      defStream << glossEntryNode.namedItem(QString::fromLatin1("p")).toElement();
-
-      QStringList seeAlso;
-
-      QDomNodeList seeAlsoNodes = glossEntryNode.lastChild().toElement().elementsByTagName(QString::fromLatin1("a"));
-      //kdDebug(1400) << "Moo, text, " << glossEntryNode.toElement().text().latin1()  << " count " << seeAlsoNodes.count() << endl;
-
-      if (seeAlsoNodes.count() > 0)
-        for (unsigned int k = 0; k < seeAlsoNodes.count(); k++)
-          seeAlso += seeAlsoNodes.item(k).toElement().text().simplifyWhiteSpace();
-
-      glossEntries.insert(term, new GlossaryEntry(term, definition, seeAlso));
-    }
-  }
-}
-
-QString khcNavigatorWidget::decodeEntities(const QString &s) const
-{
-    QString result = s;
-    result.replace(QRegExp(QString::fromLatin1("&amp;")), QString::fromLatin1("&"));
-    for (int p = result.find(QString::fromLatin1("&")); p >= 0; p = result.find(QString::fromLatin1("&"), p)) {
-        int q = result.find(QString::fromLatin1(";"), p++);
-        if (q != -1)
-            result.replace(p - 1, q - p + 2, KGlobal::charsets()->fromEntity(result.mid(p, q - p)));
-    }
-    return result;
+    glossaryTree = new khcGlossary( mTabWidget );
+    connect( glossaryTree, SIGNAL( entrySelected( const khcGlossaryEntry & ) ),
+             this, SIGNAL( glossSelected( const khcGlossaryEntry & ) ) );
+    mTabWidget->addTab( glossaryTree, i18n( "G&lossary" ) );
 }
 
 void khcNavigatorWidget::buildTree()
@@ -1001,20 +825,6 @@ void khcNavigatorWidget::insertScrollKeeperDoc(khcNavigatorItem *parentItem,QDom
 void khcNavigatorWidget::slotURLSelected(QString url)
 {
     emit itemSelected(url);
-}
-
-void khcNavigatorWidget::slotGlossaryItemSelected(QListViewItem *item)
-{
-  if (!item)
-    return;
-
-  if (dynamic_cast<SectionItem *>(item->parent())) {
-    GlossaryEntry *entry = glossEntries[item->text(0)];
-    kdDebug(1400) << "Emitting entry " << entry->term << endl;
-    emit glossSelected(*entry);
-  }
-
-  item->setOpen(!item->isOpen());
 }
 
 void khcNavigatorWidget::slotItemSelected(QListViewItem* currentItem)

@@ -59,9 +59,9 @@ void KHCView::restoreState( QDataStream &stream )
         showGlossaryEntry( m_glossEntry );
 }
 
-void KHCView::showGlossaryEntry( const khcNavigatorWidget::GlossaryEntry &entry )
+void KHCView::showGlossaryEntry( const khcGlossaryEntry &entry )
 {
-    if(m_glossEntry.term==entry.term)
+    if(m_glossEntry.term()==entry.term())
         return;
 
     QFile htmlFile( locate("data", "khelpcenter/glossary.html.in" ) );
@@ -74,9 +74,9 @@ void KHCView::showGlossaryEntry( const khcNavigatorWidget::GlossaryEntry &entry 
     m_glossEntry = entry;
 
     QString seeAlso;
-    if (!entry.seeAlso.isEmpty()) {
+    if (!entry.seeAlso().isEmpty()) {
         seeAlso = i18n("See also: ");
-        QStringList seeAlsos = entry.seeAlso;
+        QStringList seeAlsos = entry.seeAlso();
         QStringList::Iterator it = seeAlsos.begin();
         QStringList::Iterator end = seeAlsos.end();
         for (; it != end; ++it) {
@@ -95,8 +95,8 @@ void KHCView::showGlossaryEntry( const khcNavigatorWidget::GlossaryEntry &entry 
                       .arg( langLookup( "khelpcenter/pointers.png" ) )
                       .arg( langLookup( "khelpcenter/khelpcenter.png" ) )
                       .arg( langLookup( "khelpcenter/lines.png" ) )
-                      .arg(entry.term)
-                      .arg(entry.definition)
+                      .arg(entry.term())
+                      .arg(entry.definition())
                       .arg(seeAlso)
                       .arg( langLookup( "khelpcenter/kdelogo2.png" ) );
 

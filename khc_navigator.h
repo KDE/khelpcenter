@@ -30,6 +30,8 @@
 #include <qdict.h>
 #include <klistview.h>
 
+#include "khc_glossary.h"
+
 #include <regex.h>
 #include <qfile.h>
 #include <qtextstream.h>
@@ -50,14 +52,6 @@ class SearchEngine;
 class khcInfoNode;
 class khcInfoHierarchyMaker;
 class KHCView;
-
-class SectionItem : public QListViewItem
-{
-  public:
-    SectionItem(QListViewItem *, const QString &);
-
-    virtual void setOpen(bool);
-};
 
 class TOCListView: public KListView
 {
@@ -141,24 +135,10 @@ class khcNavigatorWidget : public QWidget
 {
     Q_OBJECT
   public:
-    struct GlossaryEntry {
-      GlossaryEntry() {}
-      GlossaryEntry(const QString &t, const QString &d, const QStringList &sa)
-      {
-        term = t;
-        definition = d;
-        seeAlso = sa;
-      }
-
-     QString term;
-      QString definition;
-      QStringList seeAlso;
-    };
-    
     khcNavigatorWidget(KHCView *, QWidget *parent=0, const char *name=0);
     virtual ~khcNavigatorWidget();
 
-    GlossaryEntry glossEntry(const QString &term) const { return *glossEntries[term]; }
+    khcGlossaryEntry glossEntry(const QString &term) const { return glossaryTree->entry( term ); }
 
   public slots:
     void slotURLSelected(QString url);
@@ -166,8 +146,6 @@ class khcNavigatorWidget : public QWidget
     void slotItemExpanded(QListViewItem* index);
     void slotInfoHierarchyCreated(uint key, uint nErrorCode, const khcInfoNode* pRootNode);
     void slotCleanHierarchyMakers();
-    void slotGlossaryItemSelected(QListViewItem* item);
-    void slotShowPage(QWidget *);
 
     void slotSearch();
 
@@ -175,7 +153,7 @@ class khcNavigatorWidget : public QWidget
 
   signals:
     void itemSelected(const QString& itemURL);
-    void glossSelected(const khcNavigatorWidget::GlossaryEntry& entry);
+    void glossSelected(const khcGlossaryEntry &entry);
 
   protected slots:
     void slotSearchFinished();
@@ -183,7 +161,6 @@ class khcNavigatorWidget : public QWidget
 
   private slots:
     void getScrollKeeperContentsList(KProcIO *proc);
-    void meinprocExited(KProcess *);
     void slotTOCItemSelected( QListViewItem *item );
     /* Cog-wheel animation handling -- enable after creating the icons
     void slotAnimation();
@@ -197,10 +174,8 @@ class khcNavigatorWidget : public QWidget
     void setupTOCTab();
     void resetTOCTree();
     void fillTOCTree( const QDomDocument &doc ); 
-    void buildGlossary();
     void buildTree();
     void clearTree();
-    QString decodeEntities(const QString &s) const;
 
     void buildInfoSubTree(khcNavigatorItem *parent);
     QString findInfoDirFile();
@@ -217,8 +192,8 @@ class khcNavigatorWidget : public QWidget
 
     void hideSearch();
 
-    QListViewItem *byTopicItem, *alphabItem;
-    KListView *contentsTree, *glossaryTree;
+    KListView *contentsTree;
+    khcGlossary *glossaryTree;
     TOCListView *tocTree;
 
     SearchWidget *mSearchWidget;
@@ -258,20 +233,9 @@ class khcNavigatorWidget : public QWidget
     bool mScrollKeeperShowEmptyDirs;
     QString mScrollKeeperContentsList;
     
-    QDict<GlossaryEntry> glossEntries;
-    enum { NeedRebuild, CacheOk, ListViewOk} glossaryHtmlStatus;
-    QString glossaryHtmlFile;
-    QString glossarySource;
-
     SearchEngine *mSearchEngine;
 
     KHCView *mView;
 };
 
-inline QDataStream &operator<<( QDataStream &stream, const khcNavigatorWidget::GlossaryEntry &e )
-{ return stream << e.term << e.definition << e.seeAlso; }
-
-inline QDataStream &operator>>( QDataStream &stream, khcNavigatorWidget::GlossaryEntry &e )
-{ return stream >> e.term >> e.definition >> e.seeAlso; }
- 
 #endif

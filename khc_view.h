@@ -3,6 +3,7 @@
 
 #include <khtml_part.h>
 
+#include "khc_glossary.h"
 #include "khc_navigator.h"
 
 class KHCView : public KHTMLPart
@@ -20,7 +21,7 @@ public:
     QString title() const { return m_title; }
 
 public slots:
-    void showGlossaryEntry( const khcNavigatorWidget::GlossaryEntry &entry );
+    void showGlossaryEntry( const khcGlossaryEntry &entry );
 
 private slots:
     void setTitle( const QString &title );
@@ -32,7 +33,7 @@ private:
 
     enum State { Docu, About, GlossEntry };
 
-    khcNavigatorWidget::GlossaryEntry m_glossEntry;
+    khcGlossaryEntry m_glossEntry;
     int m_state;
     QString m_title;
 };

@@ -22,8 +22,9 @@ libkhelpcenterpart_la_LIBADD = $(LIB_KHTML) $(LIB_KPARTS)
 libkhelpcenterpart_la_SOURCES = khc_factory.cc khc_navigator.cc \
 	khc_navigatoritem.cc khc_navigatorappitem.cc khc_view.cc \
 	khc_infohierarchymaker.cc khc_inforeader.cc khc_infofile.cc \
-        khc_infonode.cc searchwidget.cpp klanguagebutton.cpp searchengine.cpp \
-        docmetainfo.cpp docentry.cpp docentrytraverser.cpp searchformatter.cpp
+	khc_infonode.cc searchwidget.cpp klanguagebutton.cpp searchengine.cpp \
+	docmetainfo.cpp docentry.cpp docentrytraverser.cpp searchformatter.cpp \
+	khc_glossary.cc
 
 kcm_helpcenter_la_LDFLAGS = $(KDE_RPATH) -module -avoid-version \
                             $(all_libraries) -no-undefined

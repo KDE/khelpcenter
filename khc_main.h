@@ -7,6 +7,7 @@
 #include "khc_navigator.h"
 #include <kurl.h>
 #include <qptrlist.h>
+#include "khc_glossary.h"
 
 class KHTMLPart;
 class QSplitter;
@@ -32,7 +33,7 @@ public slots:
     void slotStarted(KIO::Job *job);
     void slotInfoMessage(KIO::Job *, const QString &);
     void openURL(const QString &url);
-    void slotGlossSelected(const khcNavigatorWidget::GlossaryEntry &entry);                              
+    void slotGlossSelected(const khcGlossaryEntry &entry);                              
     void slotOpenURLRequest( const KURL &url,
                              const KParts::URLArgs &args);
     void slotBack();
