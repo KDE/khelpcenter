@@ -23,7 +23,10 @@
 #include <qdir.h>
 #include <qfile.h>
 #include <qtextstream.h>
+#include <qstringlist.h>
 #include <kapp.h>
+#include <kglobal.h>
+#include <kstddirs.h>
 
 #include <stdlib.h>
 
@@ -155,8 +158,8 @@ int HTMLSearch::processDir(const char *dirname, const char *query)
 
 void HTMLSearch::search (const char *query)
 {
-    QString dir = KApplication::kde_htmldir();
-    dir += "/en/"; //change this for i18n!!!
-    processDir(dir, query);
+    QStringList list = KGlobal::dirs()->findDirs("html", "default");
+    for( QStringList::Iterator it=list.begin(); it!=list.end(); it++)
+      processDir(*it, query);
 }
 

@@ -66,8 +66,9 @@ bool khcNavigatorItem::readKDElnk ( const char *filename )
     if (path.isNull())
 	return false;
 
-    url = kapp->kde_htmldir() + "/default/";
-    url += path;
+    QStringList list = KGlobal::dirs()->findDirs("html", "default");
+    QStringList::Iterator it = list.begin();
+    url = *it + path;
 
     // read comment text
     info = config.readEntry("Info");

@@ -235,25 +235,21 @@ void khcNavigator::buildManSubTree(khcNavigatorItem *parent)
 
 void khcNavigator::buildManualSubTree(khcNavigatorItem *parent)
 {
-    // System applications
-    QString appPath = kapp->kde_appsdir();
-    processDir(appPath, parent, &manualItems);
-    appendEntries(appPath, parent, &manualItems);
-
-    /*
-      // User applications
-      appPath = KApplication::localkdedir() + "/share/applnk";
-      processDir(appPath, userManualTop);
-      appendEntries(appPath, userManualTop);
-    */
+    QStringList list = KGlobal::dirs()->getResourceDirs("apps");
+    for(QStringList::Iterator it=list.begin(); it!=list.end(); it++) {
+      processDir(*it, parent, &manualItems);
+      appendEntries(*it, parent, &manualItems);
+    }
 }
 
 void khcNavigator::insertPlugins()
 {
     // Scan plugin dir
-    QString path = kapp->kde_datadir() + "/khelpcenter/plugins";
-    processDir(path, 0, &pluginItems);
-    appendEntries(path, 0, &pluginItems);
+    QStringList list = KGlobal::dirs()->findDirs("appdata", "plugins");
+    for(QStringList::Iterator it=list.begin(); it!=list.end(); it++) {
+      processDir(*it, 0, &pluginItems);
+      appendEntries(*it, 0, &pluginItems);
+    }
 }
 
 void khcNavigator::slotReloadTree()
