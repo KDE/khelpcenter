@@ -217,7 +217,13 @@ bool View::eventFilter( QObject *o, QEvent *e )
     const QScrollBar * const scrollBar = view()->verticalScrollBar();
     if ( scrollBar->value() == scrollBar->maxValue() ) {
       const DOM::HTMLCollection links = htmlDocument().links();
-      const KURL nextURL = urlFromLinkNode( links.item( links.length() - 2 ) );
+
+      KURL nextURL;
+      if ( baseURL().url().endsWith( "/index.html" ) )
+        nextURL = urlFromLinkNode( links.item( links.length() - 1 ) );
+      else
+        nextURL = urlFromLinkNode( links.item( links.length() - 2 ) );
+
       if ( nextURL.url().endsWith( "/index.html" ) )
         return KHTMLPart::eventFilter( o, e );
       openURL( nextURL );
