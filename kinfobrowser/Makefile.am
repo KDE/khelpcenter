@@ -1,5 +1,3 @@
-SUBDIRS = pics
-
 INCLUDES= -I$(srcdir)/../libkhc $(all_includes)
 LDFLAGS = $(all_libraries) $(KDE_RPATH)
 
