@@ -102,9 +102,9 @@ void khcTOC::fill( const QDomDocument &doc )
 	QDomNodeList chapters = doc.documentElement().elementsByTagName( "chapter" );
 	for ( unsigned int chapterCount = 0; chapterCount < chapters.count(); chapterCount++ ) {
 		QDomElement chapElem = chapters.item( chapterCount ).toElement();
-		QDomElement chapTitleElem = chapElem.elementsByTagName( "title" ).item( 0 ).toElement();
+		QDomElement chapTitleElem = childElement( chapElem, QString::fromLatin1( "title" ) );
 		QString chapTitle = chapTitleElem.text().simplifyWhiteSpace();
-		QDomElement chapRefElem = chapElem.elementsByTagName( "anchor" ).item( 0 ).toElement();
+		QDomElement chapRefElem = childElement( chapElem, QString::fromLatin1( "anchor" ) );
 		QString chapRef = chapRefElem.text().stripWhiteSpace();
 
 		khcTOCChapterItem *chapItem;
@@ -116,9 +116,9 @@ void khcTOC::fill( const QDomDocument &doc )
 		QDomNodeList sections = chapElem.elementsByTagName( "section" );
 		for ( unsigned int sectCount = 0; sectCount < sections.count(); sectCount++ ) {
 			QDomElement sectElem = sections.item( sectCount ).toElement();
-			QDomElement sectTitleElem = sectElem.elementsByTagName( "title" ).item( 0 ).toElement();
+			QDomElement sectTitleElem = childElement( sectElem, QString::fromLatin1( "title" ) );
 			QString sectTitle = sectTitleElem.text().simplifyWhiteSpace();
-			QDomElement sectRefElem = sectElem.elementsByTagName( "anchor" ).item( 0 ).toElement();
+			QDomElement sectRefElem = childElement( sectElem, QString::fromLatin1( "anchor" ) );
 			QString sectRef = sectRefElem.text().stripWhiteSpace();
 
 			if ( chapItem->childCount() == 0 )
@@ -131,6 +131,15 @@ void khcTOC::fill( const QDomDocument &doc )
 			}
 		}
 	}
+}
+
+QDomElement khcTOC::childElement( const QDomElement &element, const QString &name )
+{
+	QDomElement e;
+	for ( e = element.firstChild().toElement(); !e.isNull(); e = e.nextSibling().toElement() )
+		if ( e.tagName() == name )
+			break;
+	return e;
 }
 
 void khcTOC::slotItemSelected( QListViewItem *item )

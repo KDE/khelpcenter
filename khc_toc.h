@@ -49,6 +49,7 @@ class khcTOC : public KListView
 		void meinprocExited( KProcess *meinproc );
 
 	private:
+		QDomElement childElement( const QDomElement &e, const QString &name );
 		void fill( const QDomDocument &doc );
 
 		QString m_application;

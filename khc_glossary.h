@@ -23,6 +23,7 @@
 #include <klistview.h>
 
 #include <qdict.h>
+#include <qdom.h>
 #include <qstringlist.h>
 
 class KConfig;
@@ -84,6 +85,7 @@ class khcGlossary : public KListView
 		int glossaryCTime() const;
 		void rebuildGlossaryCache();
 		void buildGlossaryTree();
+		QDomElement childElement( const QDomElement &e, const QString &name );
 
 		KConfig *m_config;
 		QListViewItem *m_byTopicItem;

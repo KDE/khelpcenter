@@ -209,7 +209,7 @@ void khcGlossary::buildGlossaryTree()
 		QDomNodeList entryNodes = sectionElement.elementsByTagName( QString::fromLatin1( "entry" ) );
 		for ( unsigned int j = 0; j < entryNodes.count(); j++ ) {
 			QDomElement entryElement = entryNodes.item( j ).toElement();
-			QDomElement termElement = entryElement.elementsByTagName( QString::fromLatin1( "term" ) ).item( 0 ).toElement();
+			QDomElement termElement = childElement( entryElement, QString::fromLatin1( "term" ) );
 			QString term = termElement.text().simplifyWhiteSpace();
 
 			new QListViewItem(topicSection, term);
@@ -226,12 +226,12 @@ void khcGlossary::buildGlossaryTree()
 
 			new QListViewItem( alphabSection, term );
 
-			QDomElement definitionElement = entryElement.elementsByTagName( QString::fromLatin1( "definition" ) ).item( 0 ).toElement();
+			QDomElement definitionElement = childElement( entryElement, QString::fromLatin1( "definition" ) );
 			QString definition = definitionElement.text().simplifyWhiteSpace();
 
 			QStringList seeAlso;
 
-			QDomElement referencesElement = entryElement.elementsByTagName( QString::fromLatin1( "references" ) ).item( 0 ).toElement();
+			QDomElement referencesElement = childElement( entryElement, QString::fromLatin1( "references" ) );
 			QDomNodeList referenceNodes = referencesElement.elementsByTagName( QString::fromLatin1( "reference" ) );
 			if ( referenceNodes.count() > 0 )
 				for ( unsigned int k = 0; k < referenceNodes.count(); k++ ) {
@@ -255,5 +255,13 @@ void khcGlossary::treeItemSelected( QListViewItem *item )
 	item->setOpen( !item->isOpen() );
 }
 	
+QDomElement khcGlossary::childElement( const QDomElement &element, const QString &name )
+{
+	QDomElement e;
+	for ( e = element.firstChild().toElement(); !e.isNull(); e = e.nextSibling().toElement() )
+		if ( e.tagName() == name )
+			break;
+	return e;
+}
 #include "khc_glossary.moc"
 // vim:ts=4:sw=4:noet
