@@ -34,13 +34,12 @@
 #include <kmessagebox.h>
 #include <kprocess.h>
 #include <kstddirs.h>
+#include <kglobal.h>
 
 #include <qcheckbox.h>
 #include <qlabel.h>
 #include <qlayout.h>
 #include <qpushbutton.h>
-
-#include <fstream.h>
 
 KWelcome::KWelcome(QWidget *parent, const char *name)
   : QWidget(parent, name, WStyle_Tool )
@@ -153,26 +152,20 @@ void KWelcome::slotHelpCenterStart()
 
 void KWelcome::saveSettings()
 {
-  KConfig *conf = kapp->config();
-  conf->setGroup("General Settings");
-  if (autostart_kwelcome->isChecked())
-	conf->writeEntry("AutostartOnKDEStartup", "true");
-  else
-	conf->writeEntry("AutostartOnKDEStartup", "false");
+  KConfig *conf = KGlobal::config();
+  KConfigGroupSaver saver(conf, "General Settings");
+  conf->writeEntry( "AutostartOnKDEStartup", autostart_kwelcome->isChecked() );
   conf->sync();
-  cout << "KWelcome: configuration written." << endl;
 }
 
 void KWelcome::readSettings()
 {
-  KConfig *conf = kapp->config();
-  conf->setGroup("General Settings");
+  KConfig *conf = KGlobal::config();
+  KConfigGroupSaver saver(conf, "General Settings");
   QString tmp = conf->readEntry("AutostartOnKDEStartup", "true");
   
-  if (tmp == "true")
-	autostart_kwelcome->setChecked(true);
-  else
-	autostart_kwelcome->setChecked(false);	
+  autostart_kwelcome->setChecked(conf->readBoolEntry("AutostartOnKDEStartup",
+                                                     true));
 }
 
 

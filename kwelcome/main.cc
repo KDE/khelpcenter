@@ -19,25 +19,44 @@
  */
 
 #include <kwelcome.h>
-#include <kapp.h>
+
+#include <kaboutdata.h>
+#include <kcmdlineargs.h>
 #include <kconfig.h>
+#include <klocale.h>
+#include <kuniqueapp.h>
+
+static const char *description = I18N_NOOP("KDE welcome dialog.");
+static const char *version     = "v1.0alpha";
+
+static KCmdLineOptions option[] =
+{
+   { "kdestartup", I18N_NOOP("Show this dialog on KDE startup."), 0 },
+   { 0, 0, 0 }
+};
 
 int main(int argc, char *argv[])
 {
-  KApplication app(argc, argv, "kwelcome");
+  KAboutData aboutData( "kwelcome", I18N_NOOP("KDE Welcome Dialog"),
+                        version, description, KAboutData::License_GPL,
+						"(c) 1999-2000, Matthias Elter" );
+  aboutData.addAuthor( "Matthias Elter", 0, "me@kde.org" );
+  KCmdLineArgs::init( argc, argv, &aboutData );
+  KCmdLineArgs::addCmdLineOptions(option);
+
+  if ( KUniqueApplication::start() == false )
+    return 0;
+
+  KUniqueApplication app;
   
   // check for -kdestartup
   KConfig *conf = kapp->config();
   conf->setGroup("General Settings");
-  QString tmp = conf->readEntry("AutostartOnKDEStartup", "true");
+  bool autostart = conf->readBoolEntry( "AutostartOnKDEStartup", true);
   
-  for (int i = 1; i < argc; i++)
-    {
-      QString arg = argv[i];
-      
-      if ((arg == "-kdestartup") && (tmp != "true"))
-	return 0;
-    }
+  KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
+  if ( args->isSet( "kdestartup" ) && !autostart )
+    return 0;
   
   KWelcome *toplevel = new KWelcome();
   app.setMainWidget(toplevel);
