@@ -12,7 +12,7 @@
 
 
 ProgressDialog::ProgressDialog(QWidget *parent, const char *name)
-  : KDialogBase(KDialogBase::Plain, i18n("Generating index"), Cancel, Cancel,
+  : KDialogBase(KDialogBase::Plain, i18n("Generating Index"), Cancel, Cancel,
 		parent, name, false)
 {
   QGridLayout *grid = new QGridLayout(plainPage(), 5,3, spacingHint());
