@@ -18,6 +18,7 @@
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+#include <qlistview.h>
 #include <qstring.h>
 #include <qfile.h>
 
@@ -28,14 +29,25 @@
 #include <kstddirs.h>
 #include <kglobal.h>
 
-khcNavigatorItem::khcNavigatorItem(const QString& _text, const QString& _miniicon)
-    : KTreeListItem()
+khcNavigatorItem::khcNavigatorItem(QListView* parent, const QString& _text, const QString& _miniicon)
+    : QListViewItem(parent)
+{
+    init(_text, _miniicon);
+}
+
+khcNavigatorItem::khcNavigatorItem(QListViewItem* parent, const QString& _text, const QString& _miniicon)
+    : QListViewItem(parent)
+{
+    init(_text, _miniicon);
+}
+
+void khcNavigatorItem::init(const QString& _text, const QString& _miniicon)
 {
     name = _text;
     miniicon = _miniicon;
-    setDrawTree(false);
-    setDrawExpandButton(false);
-    setIndent(0);
+    
+    setText(0, name);
+    setPixmap(0, QPixmap(locate("mini", miniicon)));
 }
 
 bool khcNavigatorItem::readKDElnk ( const char *filename )
@@ -65,6 +77,7 @@ bool khcNavigatorItem::readKDElnk ( const char *filename )
     // read icon and miniicon
     //icon = config.readEntry("Icon");
     miniicon = "helpdoc.xpm";//config.readEntry("MiniIcon");
+    setPixmap(0, QPixmap(locate("mini", miniicon)));
 
     // read name
     name = config.readEntry("Name");
@@ -82,26 +95,8 @@ bool khcNavigatorItem::readKDElnk ( const char *filename )
 	    name = name.left( pos );
 	}
     }
+    setText(0, name);
     return true;
-}
-
-void khcNavigatorItem::insertInTree(KTreeList *tree, KTreeListItem *parent)
-{
-    QPixmap *item_pm = new QPixmap(locate("icon", "mini/" + miniicon));
-
-    setText(name);
-    setPixmap(item_pm);
-  
-    if (parent == 0) // insert at toplevel
-    {
-	setIndent(0);
-	tree->insertItem(this, -1, true);
-    }
-    else             // insert as child of parent
-    {
-	setIndent(14);
-	parent->appendChild(this);
-    } 
 }
 
 void khcNavigatorItem::setName(QString _name)

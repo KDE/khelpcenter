@@ -21,14 +21,14 @@
 #ifndef __khc_navigatoritem_h___
 #define __khc_navigatoritem_h___
 
-#include <ktreelist.h>
+#include <qlistview.h>
 
-class khcNavigatorItem : public KTreeListItem
+class khcNavigatorItem : public QListViewItem
 {
  public:
-    khcNavigatorItem (const QString& text = "", const QString& miniicon = "");
+    khcNavigatorItem (QListView* parent, const QString& text = "", const QString& miniicon = "");
+    khcNavigatorItem (QListViewItem* parent, const QString& text = "", const QString& miniicon = "");
     bool readKDElnk (const char *filename);
-    void insertInTree(KTreeList *tree, KTreeListItem *parent);
     void setName(QString _name);
     void setURL(QString _url);
     void setInfo(QString _info);
@@ -39,6 +39,10 @@ class khcNavigatorItem : public KTreeListItem
     QString getInfo() {return info;};
     QString getIcon() {return icon;};
     QString getMiniIcon() {return miniicon;};
+    
+ private:
+    void init(const QString& text, const QString& miniicon);
+    
  protected:
     QString name;
     QString url;

@@ -22,12 +22,13 @@
 #define __khc_navigator_h__
 
 #include <qlist.h>
-
-#include <ktreelist.h>
+#include <qwidget.h>
 
 class IndexWidget;
 class SearchWidget;
 class khcNavigatorItem;
+class QListView;
+class QListViewItem;
 class QTabBar;
 
 class khcNavigator : public QWidget
@@ -43,7 +44,7 @@ class khcNavigator : public QWidget
 
  public slots:
     void slotURLSelected(QString url);
-    void slotItemSelected(int index);
+    void slotItemSelected(QListViewItem* index);
     void slotReloadTree();
     void slotTabSelected(int);
 
@@ -67,7 +68,7 @@ class khcNavigator : public QWidget
     bool containsDocuments(QString dir);
 
     QTabBar *tabBar;
-    KTreeList *tree;
+    QListView *tree;
     SearchWidget *search;
     IndexWidget *index;
 
