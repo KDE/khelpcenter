@@ -46,6 +46,7 @@
 #include <opToolBarManager.h>
 #include <opStatusBarManager.h>
 #include <opMenu.h>
+#include <kconfig.h>
 
 // static list of khcMainWindow windows:
 QList<khcMainWindow> khcMainWindow::helpWindowList;

@@ -33,11 +33,13 @@
 #include <klocale.h>
 #include <kglobal.h>
 #include <kstddirs.h>
+#include <kmenubar.h>
 #include <kdebug.h>
 #include <kfiledialog.h>
 
 #include <opFrame.h>
 #include <opUIUtils.h>
+#include <kconfig.h>
 
 kmbMainWindow::kmbMainWindow(const QString& url)
 {

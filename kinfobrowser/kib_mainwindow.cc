@@ -38,6 +38,8 @@
 
 #include <opFrame.h>
 #include <opUIUtils.h>
+#include <kconfig.h>
+#include <kmenubar.h>
 
 kibMainWindow::kibMainWindow(const QString& url)
 {
