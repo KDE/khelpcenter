@@ -35,7 +35,10 @@ libkhelpcenter_la_LDFLAGS = $(all_libraries) -version-info 1:0:0 -module -no-und
 service_DATA = khelpcenter.desktop
 servicedir = $(kde_servicesdir)
 
-EXTRA_DIST = $(service_DATA)
+data_DATA = Help.desktop
+datadir = $(kde_appsdir)
+
+EXTRA_DIST = $(service_DATA) $(data_DATA)
 
 KonquerorIface_DIR = $(top_srcdir)/konqueror
 

@@ -1,0 +1,41 @@
+[Desktop Entry]
+Exec=khelpcenter
+Icon=khelpcenter
+DocPath=khelpcenter/index.html
+Type=Application
+Terminal=0
+
+Name=Help Center
+Name[ca]=Centre d'ajuda
+Name[cs]=Nápověda
+Name[de]=Hilfezentrum
+Name[eo]=Helpcentro
+Name[fi]=Ohje
+Name[fr]=Centre d'aide
+Name[hu]=Setítség Központ
+Name[it]=Centro informazioni
+Name[ja]=ヘルプセンター
+Name[no]=Hjelpsenter
+Name[no_NY]=Hjelpesentral
+Name[pt]=Centro de Ajuda
+Name[ro]=Sistemul de ajutor
+Name[sl]=Center pomoči
+Name[sv]=Hjälpcenter
+Name[ta]=¯¾Å¢ ¨ÁÂõ
+
+Comment=Comprehensive on-line help
+Comment[ca]=Ajuda completa on-line
+Comment[cs]=Souhrnná nápověda
+Comment[de]=Online-Hilfe
+Comment[eo]=helpodokumentaro pri la KDE-programoj
+Comment[fi]=Laaja avustusjärjestelmä
+Comment[hu]=on-line segítség rendszer
+Comment[it]=Esauriente guida in linea
+Comment[ja]=総合オンラインヘルプ
+Comment[no]=Omfattende hjelpefunksjon
+Comment[no_NY]=omfattande hjelpefunksjon
+Comment[pt]=Ajuda on-line
+Comment[ro]=Sistemul de ajutor 'on-line' pentru KDE
+Comment[sl]=podrobna pomoč na zvezi
+Comment[sv]=Omfattande hjälpdokumentation
+Comment[ta]=Å¢Ã¢Å¡É ¯¼ÉÊ ¯¾Å¢
