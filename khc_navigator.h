@@ -131,6 +131,9 @@ class khcNavigatorWidget : public QWidget
     bool readInfoDirFile(QString& sFileContents);
     bool parseInfoSubjectLine(QString sLine, QString& sItemTitle, QString& sItemURL);
     void addChildren(const khcInfoNode* pParentNode, khcNavigatorItem* pParentTreeItem);
+    khcNavigatorItem *addInfoNode( khcNavigatorItem *parent,
+                                   khcNavigatorItem *next,
+                                   const QString &line );
 
     void buildManSubTree(khcNavigatorItem *parent);
 

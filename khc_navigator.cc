@@ -306,8 +306,7 @@ void khcNavigatorWidget::clearTree()
 void khcNavigatorWidget::buildInfoSubTree(khcNavigatorItem *parent)
 {
   QString dirContents;
-  if (!readInfoDirFile(dirContents))
-    return;
+  if (!readInfoDirFile(dirContents)) return;
 
   // actual processing...
   QRegExp reSectionHdr("^[A-Za-z0-9]");
@@ -315,18 +314,14 @@ void khcNavigatorWidget::buildInfoSubTree(khcNavigatorItem *parent)
   QString sLine;
 
   sLine = stream.readLine();
-  while (!sLine.isNull())
-  {
-    if (sLine == "* Menu: ")
-    {
+  while (!sLine.isNull()) {
+    if ( sLine.startsWith( "* Menu: " ) ) {
       // will point to the last added section item
       khcNavigatorItem* pLastSection = 0;
 
       sLine = stream.readLine();
-      while (!sLine.isNull())
-      {
-        if (reSectionHdr.search(sLine, 0) == 0)
-        {
+      while (!sLine.isNull()) {
+        if (reSectionHdr.search(sLine, 0) == 0) {
           // add the section header
           khcNavigatorItem* pSectionRoot = new khcNavigatorItem(parent, pLastSection, sLine, "contents2");
           pSectionRoot->setUrl("");
@@ -335,37 +330,43 @@ void khcNavigatorWidget::buildInfoSubTree(khcNavigatorItem *parent)
           khcNavigatorItem* pLastChild = 0;
 
           sLine = stream.readLine();
-          while (!sLine.isNull())
-          {
-            if (sLine.startsWith("* "))
-            {
-              QString sItemTitle, sItemURL;
-              if (parseInfoSubjectLine(sLine, sItemTitle, sItemURL))
-              {
-                // add subject's root node
-                khcNavigatorItem *pItem = new khcNavigatorItem(pSectionRoot, pLastChild, sItemTitle, "document2");
-                pItem->setUrl(sItemURL);
-                pItem->setExpandable(true);
-                pLastChild = pItem;
-              }
-            }
-            else if (sLine.isEmpty())
+          while (!sLine.isNull()) {
+            if (sLine.startsWith("* ")) {
+              khcNavigatorItem *item = addInfoNode( pSectionRoot, pLastChild, sLine );
+              if ( item ) pLastChild = item;
+            } else if (sLine.isEmpty())
               break; // go to the next section
             sLine = stream.readLine();
           }
 
-          if (pSectionRoot->childCount() > 0)
-          {
-            pLastSection = pSectionRoot;
-          }
-          else
-            delete pSectionRoot;
+          if (pSectionRoot->childCount() > 0) pLastSection = pSectionRoot;
+          else delete pSectionRoot;
+        } else if (sLine.startsWith("* ")) {
+          khcNavigatorItem *item = addInfoNode( parent, pLastSection, sLine );
+          if ( item ) pLastSection = item;
         }
         sLine = stream.readLine();
       }
     }
     sLine = stream.readLine();
   }
+}
+
+khcNavigatorItem *khcNavigatorWidget::addInfoNode( khcNavigatorItem *parent,
+                                                   khcNavigatorItem *last,
+                                                   const QString &line )
+{
+  QString sItemTitle, sItemURL;
+  if (parseInfoSubjectLine(line, sItemTitle, sItemURL))
+  {
+    // add subject's root node
+    khcNavigatorItem *pItem = new khcNavigatorItem(parent, last, sItemTitle, "document2");
+    pItem->setUrl(sItemURL);
+    pItem->setExpandable(true);
+    return pItem;
+  }
+  
+  return 0;
 }
 
 QString khcNavigatorWidget::findInfoDirFile()
@@ -543,6 +544,7 @@ void khcNavigatorWidget::insertPlugins()
   PluginTraverser t( this, contentsTree );
   DocMetaInfo::self()->traverseEntries( &t );
 
+#if 0
   kdDebug() << "<docmetainfo>" << endl;
   DocEntry::List entries = DocMetaInfo::self()->docEntries();
   DocEntry::List::ConstIterator it;
@@ -550,6 +552,7 @@ void khcNavigatorWidget::insertPlugins()
     (*it)->dump();
   }
   kdDebug() << "</docmetainfo>" << endl;
+#endif
 }
 
 void khcNavigatorWidget::insertScrollKeeperItems()

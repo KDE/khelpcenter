@@ -180,11 +180,7 @@ bool DocEntry::indexExists()
 
 void DocEntry::addChild( DocEntry *entry )
 {
-  kdDebug() << "DocEntry::addChild(): " << entry->name() << endl;
-
   entry->setParent( this );
-
-  kdDebug() << "-- Child count: " << mChildren.count() << endl;
 
   uint i;
   for( i = 0; i < mChildren.count(); ++i ) {
@@ -192,7 +188,6 @@ void DocEntry::addChild( DocEntry *entry )
       if ( entry->weight() < mChildren.first()->weight() ) {
         entry->setNextSibling( mChildren.first() );
         mChildren.prepend( entry );        
-        kdDebug() << "-- prepended" << endl;
         break;
       }
     }
@@ -202,7 +197,6 @@ void DocEntry::addChild( DocEntry *entry )
         entry->setNextSibling( mChildren[ i + 1 ] );
         mChildren[ i ]->setNextSibling( entry );
         mChildren.insert( mChildren.at( i + 1 ), entry );
-        kdDebug() << "-- inserted at " << i << endl;
         break;
       }
     }
@@ -212,7 +206,6 @@ void DocEntry::addChild( DocEntry *entry )
       mChildren.last()->setNextSibling( entry );
     }
     mChildren.append( entry );
-    kdDebug() << "-- appended" << endl;
   }
 }
 
