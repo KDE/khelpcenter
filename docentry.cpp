@@ -179,7 +179,7 @@ bool DocEntry::readFromFile( const QString &fileName )
   mSearch = file.readEntry( "X-DOC-Search" );
   mIcon = file.readIcon();
   mUrl = file.readURL();
-  mDocPath = file.readEntry( "DocPath" );
+  mDocPath = file.readPathEntry( "DocPath" );
   mInfo = file.readEntry( "Info" );
   if ( mInfo.isNull() ) mInfo = file.readEntry( "Comment" );
   mLang = file.readEntry( "Lang" );

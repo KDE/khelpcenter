@@ -358,7 +358,7 @@ QString SearchWidget::scopeSelectionLabel( int id ) const
 void SearchWidget::updateConfig()
 {
   KGlobal::config()->setGroup( "Search" );
-  mIndexDir = KGlobal::config()->readEntry( "IndexDirectory" );
+  mIndexDir = KGlobal::config()->readPathEntry( "IndexDirectory" );
 
   kdDebug() << "SearchWidget::updateConfig(): indexDir: " << mIndexDir << endl;
 }

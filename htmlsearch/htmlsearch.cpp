@@ -241,7 +241,7 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
     // run htdig ------------------------------------------------------
     KConfig *config = new KConfig("khelpcenterrc", true);
     KConfigGroupSaver saver(config, "htdig");
-    QString exe = config->readEntry("htdig", kapp->dirs()->findExe("htdig"));
+    QString exe = config->readPathEntry("htdig", kapp->dirs()->findExe("htdig"));
 
     if (exe.isEmpty())
         return false;
@@ -322,7 +322,7 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
     progress->setState(2);
 
     // run htmerge -----------------------------------------------------
-    exe = config->readEntry("htmerge", kapp->dirs()->findExe("htmerge"));
+    exe = config->readPathEntry("htmerge", kapp->dirs()->findExe("htmerge"));
     if (exe.isEmpty())
         return false;
 
@@ -422,7 +422,7 @@ QString HTMLSearch::search(QString _lang, QString words, QString method, int mat
   // run htsearch ----------------------------------------------------
   KConfig *config = new KConfig("khelpcenterrc", true);
   KConfigGroupSaver saver(config, "htdig");
-  QString exe = config->readEntry("htsearch", kapp->dirs()->findExe("htsearch"));
+  QString exe = config->readPathEntry("htsearch", kapp->dirs()->findExe("htsearch"));
   if (exe.isEmpty())
     return QString::null;
 

@@ -125,7 +125,7 @@ const GlossaryEntry &Glossary::entry( const QString &id ) const
 Glossary::CacheStatus Glossary::cacheStatus() const
 {
 	if ( !QFile::exists( m_cacheFile ) ||
-	     m_config->readEntry( "CachedGlossary" ) != m_sourceFile ||
+	     m_config->readPathEntry( "CachedGlossary" ) != m_sourceFile ||
 	     m_config->readNumEntry( "CachedGlossaryTimestamp" ) != glossaryCTime() )
 		return NeedRebuild;
 
@@ -166,7 +166,7 @@ void Glossary::meinprocExited( KProcess *meinproc )
 	if ( !QFile::exists( m_cacheFile ) )
 		return;
 
-	m_config->writeEntry( "CachedGlossary", m_sourceFile );
+	m_config->writePathEntry( "CachedGlossary", m_sourceFile );
 	m_config->writeEntry( "CachedGlossaryTimestamp", glossaryCTime() );
 	m_config->sync();
 	

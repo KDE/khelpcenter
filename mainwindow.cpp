@@ -156,7 +156,7 @@ void MainWindow::saveProperties( KConfig *config )
 {
     kdDebug()<<"void MainWindow::saveProperties( KConfig *config )\n";
     config->setDesktopGroup();
-    config->writeEntry( "URL" , mDoc->baseURL().url() );
+    config->writePathEntry( "URL" , mDoc->baseURL().url() );
 }
 
 void MainWindow::readProperties( KConfig *config )
@@ -164,7 +164,7 @@ void MainWindow::readProperties( KConfig *config )
 #if 0 // I don't understand it doesn't read in good group ...
     kdDebug()<<"void MainWindow::readProperties( KConfig *config )\n";
     config->setDesktopGroup();
-    mDoc->slotReload( config->readEntry( "URL" ) );
+    mDoc->slotReload( config->readPathEntry( "URL" ) );
 #endif
 }
 
@@ -326,7 +326,7 @@ KURL MainWindow::homeURL()
 {
     KConfig *cfg = KGlobal::config();
     cfg->setGroup( "General" );
-    KURL url = cfg->readEntry( "StartUrl",
+    KURL url = cfg->readPathEntry( "StartUrl",
                                "help:/khelpcenter/index.html?anchor=welcome" );
     return url;
 }

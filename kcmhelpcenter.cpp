@@ -241,7 +241,7 @@ void KCMHelpCenter::save()
   kdDebug(1401) << "KCMHelpCenter::save()" << endl;
 
   mConfig->setGroup( "Search" );
-  mConfig->writeEntry( "IndexDirectory", indexDir() );
+  mConfig->writePathEntry( "IndexDirectory", indexDir() );
 
   mHtmlSearchTab->save( mConfig );
 
@@ -259,7 +259,7 @@ void KCMHelpCenter::save()
 void KCMHelpCenter::load()
 {
   mConfig->setGroup( "Search" );
-  QString indexUrl = mConfig->readEntry( "IndexDirectory" );
+  QString indexUrl = mConfig->readPathEntry( "IndexDirectory" );
   mIndexUrlRequester->setURL( indexUrl );
 
   mHtmlSearchTab->load( mConfig );

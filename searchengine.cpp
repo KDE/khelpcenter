@@ -204,7 +204,7 @@ bool SearchEngine::search( QString _words, QString method, int matches,
 
   KConfig *cfg = KGlobal::config();
   cfg->setGroup( "Search" );
-  QString commonSearchProgram = cfg->readEntry( "CommonProgram" );
+  QString commonSearchProgram = cfg->readPathEntry( "CommonProgram" );
   bool useCommon = cfg->readBoolEntry( "UseCommonProgram", false );
   
   if ( commonSearchProgram.isEmpty() || !useCommon ) {

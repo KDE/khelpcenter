@@ -74,7 +74,7 @@ void PluginTraverser::process( DocEntry *entry )
       appItem = new NavigatorAppItem( mParentItem, mCurrentItem );
     KConfig *cfg = kapp->config();
     cfg->setGroup( "General" );
-    appItem->setRelpath( cfg->readEntry( "AppsRoot" ) );
+    appItem->setRelpath( cfg->readPathEntry( "AppsRoot" ) );
     appItem->setIcon( "kmenu" );
     mCurrentItem = appItem;
   } else if ( entry->khelpcenterSpecial() == "scrollkeeper" ) {

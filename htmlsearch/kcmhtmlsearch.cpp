@@ -256,16 +256,16 @@ void KHTMLSearchConfig::load()
   KConfig *config = new KConfig("khelpcenterrc", true);
 
   config->setGroup("htdig");
-  htdigBin->lineEdit()->setText(config->readEntry("htdig", kapp->dirs()->findExe("htdig")));
-  htsearchBin->lineEdit()->setText(config->readEntry("htsearch", kapp->dirs()->findExe("htsearch")));
-  htmergeBin->lineEdit()->setText(config->readEntry("htmerge", kapp->dirs()->findExe("htmerge")));
+  htdigBin->lineEdit()->setText(config->readPathEntry("htdig", kapp->dirs()->findExe("htdig")));
+  htsearchBin->lineEdit()->setText(config->readPathEntry("htsearch", kapp->dirs()->findExe("htsearch")));
+  htmergeBin->lineEdit()->setText(config->readPathEntry("htmerge", kapp->dirs()->findExe("htmerge")));
 
   config->setGroup("Scope");
   indexKDE->setChecked(config->readBoolEntry("KDE", true));
   indexMan->setChecked(config->readBoolEntry("Man", false));
   indexInfo->setChecked(config->readBoolEntry("Info", false));
 
-  QStringList l = config->readListEntry("Paths");
+  QStringList l = config->readPathListEntry("Paths");
   searchPaths->clear();
   QStringList::Iterator it;
   for (it=l.begin(); it != l.end(); ++it)
@@ -284,9 +284,9 @@ void KHTMLSearchConfig::save()
   KConfig *config= new KConfig("khelpcenterrc", false);
 
   config->setGroup("htdig");
-  config->writeEntry("htdig", htdigBin->lineEdit()->text());
-  config->writeEntry("htsearch", htsearchBin->lineEdit()->text());
-  config->writeEntry("htmerge", htmergeBin->lineEdit()->text());
+  config->writePathEntry("htdig", htdigBin->lineEdit()->text());
+  config->writePathEntry("htsearch", htsearchBin->lineEdit()->text());
+  config->writePathEntry("htmerge", htmergeBin->lineEdit()->text());
 
   config->setGroup("Scope");
   config->writeEntry("KDE", indexKDE->isChecked());
@@ -296,7 +296,7 @@ void KHTMLSearchConfig::save()
   QStringList l;
   for (uint i=0; i<searchPaths->count(); ++i)
     l.append(searchPaths->text(i));
-  config->writeEntry("Paths", l);
+  config->writePathEntry("Paths", l);
 
   config->setGroup("Locale");
   config->writeEntry("Search Language", language->currentTag());

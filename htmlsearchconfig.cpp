@@ -121,18 +121,18 @@ void HtmlSearchConfig::load( KConfig *config )
 {
   config->setGroup("htdig");
 
-  mHtsearchUrl->lineEdit()->setText(config->readEntry("htsearch", kapp->dirs()->findExe("htsearch")));
-  mIndexerBin->lineEdit()->setText(config->readEntry("indexer"));
-  mDbDir->lineEdit()->setText(config->readEntry("dbdir", "/opt/www/htdig/db/" ) );
+  mHtsearchUrl->lineEdit()->setText(config->readPathEntry("htsearch", kapp->dirs()->findExe("htsearch")));
+  mIndexerBin->lineEdit()->setText(config->readPathEntry("indexer"));
+  mDbDir->lineEdit()->setText(config->readPathEntry("dbdir", "/opt/www/htdig/db/" ) );
 }
 
 void HtmlSearchConfig::save( KConfig *config )
 {
   config->setGroup("htdig");
 
-  config->writeEntry("htsearch", mHtsearchUrl->lineEdit()->text());
-  config->writeEntry("indexer", mIndexerBin->lineEdit()->text());
-  config->writeEntry("dbdir", mDbDir->lineEdit()->text());
+  config->writePathEntry("htsearch", mHtsearchUrl->lineEdit()->text());
+  config->writePathEntry("indexer", mIndexerBin->lineEdit()->text());
+  config->writePathEntry("dbdir", mDbDir->lineEdit()->text());
 }
 
 void HtmlSearchConfig::defaults()
