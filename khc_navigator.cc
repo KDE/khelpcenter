@@ -218,51 +218,51 @@ void khcNavigatorWidget::clearTree()
 void khcNavigatorWidget::buildManSubTree(khcNavigatorItem *parent)
 {
   // man(n)
-  khcNavigatorItem *ti_man_sn = new khcNavigatorItem(parent, "(n) New", "helpdoc.png");
+  khcNavigatorItem *ti_man_sn = new khcNavigatorItem(parent, i18n("(n) New"), "helpdoc.png");
   ti_man_sn->setURL(QString("man:/(n)"));
   staticItems.append(ti_man_sn);
 
   // man(9)
-  khcNavigatorItem *ti_man_s9 = new khcNavigatorItem(parent, "(9) Kernel", "helpdoc.png");
+  khcNavigatorItem *ti_man_s9 = new khcNavigatorItem(parent, i18n("(9) Kernel"), "helpdoc.png");
   ti_man_s9->setURL(QString("man:/(9)"));
   staticItems.append(ti_man_s9);
 
   // man(8)
-  khcNavigatorItem *ti_man_s8 = new khcNavigatorItem(parent, "(8) Sys. Administration", "helpdoc.png");
+  khcNavigatorItem *ti_man_s8 = new khcNavigatorItem(parent, i18n("(8) Sys. Administration"), "helpdoc.png");
   ti_man_s8->setURL(QString("man:/(8)"));
   staticItems.append(ti_man_s8);
   
   // man(7)
-  khcNavigatorItem *ti_man_s7 = new khcNavigatorItem(parent, "(7) Miscellaneous", "helpdoc.png");
+  khcNavigatorItem *ti_man_s7 = new khcNavigatorItem(parent, i18n("(7) Miscellaneous"), "helpdoc.png");
   ti_man_s7->setURL(QString("man:/(7)"));
   staticItems.append(ti_man_s7);
   
   // man(6)
-  khcNavigatorItem *ti_man_s6 = new khcNavigatorItem(parent, "(6) Games", "helpdoc.png");
+  khcNavigatorItem *ti_man_s6 = new khcNavigatorItem(parent, i18n("(6) Games"), "helpdoc.png");
   ti_man_s6->setURL(QString("man:/(6)"));
   staticItems.append(ti_man_s6);
 
   // man(5)
-  khcNavigatorItem *ti_man_s5 = new khcNavigatorItem(parent, "(5) File Formats", "helpdoc.png");
+  khcNavigatorItem *ti_man_s5 = new khcNavigatorItem(parent, i18n("(5) File Formats"), "helpdoc.png");
   ti_man_s5->setURL(QString("man:/(5)"));
   staticItems.append(ti_man_s5);
   
   // man(4)
-  khcNavigatorItem *ti_man_s4 = new khcNavigatorItem(parent, "(4) Devices", "helpdoc.png");
+  khcNavigatorItem *ti_man_s4 = new khcNavigatorItem(parent, i18n("(4) Devices"), "helpdoc.png");
   ti_man_s4->setURL(QString("man:/(4)"));
   staticItems.append(ti_man_s4);
 
   // man(3)
-  khcNavigatorItem *ti_man_s3 = new khcNavigatorItem(parent, "(3) Subroutines", "helpdoc.png");
+  khcNavigatorItem *ti_man_s3 = new khcNavigatorItem(parent, i18n("(3) Subroutines"), "helpdoc.png");
   ti_man_s3->setURL(QString("man:/(3)"));
   staticItems.append(ti_man_s3);
 
   // man(2)
-  khcNavigatorItem *ti_man_s2 = new khcNavigatorItem(parent, "(2) System calls", "helpdoc.png");
+  khcNavigatorItem *ti_man_s2 = new khcNavigatorItem(parent, i18n("(2) System calls"), "helpdoc.png");
   ti_man_s2->setURL(QString("man:/(2)"));
   staticItems.append(ti_man_s2);
   // man (1)
-  khcNavigatorItem *ti_man_s1 = new khcNavigatorItem(parent, "(1) User commands", "helpdoc.png");
+  khcNavigatorItem *ti_man_s1 = new khcNavigatorItem(parent, i18n("(1) User commands"), "helpdoc.png");
   ti_man_s1->setURL(QString("man:/(1)"));
   staticItems.append(ti_man_s1);
 
