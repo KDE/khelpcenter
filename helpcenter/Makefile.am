@@ -14,7 +14,7 @@
 APPSDIR = $(kde_appsdir)
 INCLUDES= $(all_includes)
 
-SUBDIRS = html pics
+SUBDIRS = pics
 
 bin_PROGRAMS = 	khelpcenter
 
