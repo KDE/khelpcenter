@@ -175,21 +175,6 @@ void MainWindow::setupActions()
                    "show_search_stderr" );
     }
 
-    // Need to override the Manual link in the help menu to avoid spawning
-    // a second helpcenter.
-    /*
-    KAction *oldA = actionCollection()->action( "help_contents" );
-    connect( oldA, SIGNAL( activated()), this, SLOT(openOwnManual()));
-    if ( oldA )
-      kdDebug(1400) << "got old action" << endl;
-    const KAboutData *aboutData = KGlobal::instance()->aboutData();
-    QString appName = aboutData ? aboutData->programName() : kapp->name();
-    new KAction( i18n( "%1 &Handbook").arg( appName ),
-                 QIconSet( SmallIcon( "contents" ) ),
-                 KStdAccel::shortcut( KStdAccel::Help ),
-                 this, SLOT( openOwnManual() ),
-                 actionCollection(), "help_contents" );
-    */
     History::self().setupActions( actionCollection() );
 
     new KAction( i18n( "Configure Fonts..." ), KShortcut(), this, SLOT( slotConfigureFonts() ), actionCollection(), "configure_fonts" );
@@ -337,11 +322,6 @@ void MainWindow::slotLastSearch()
 void MainWindow::enableLastSearchAction()
 {
     mLastSearchAction->setEnabled( true );
-}
-
-void MainWindow::openOwnManual()
-{
-  openURL( KURL( "help:/khelpcenter" ) );
 }
 
 void MainWindow::showSearchStderr()

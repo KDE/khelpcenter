@@ -61,7 +61,6 @@ class MainWindow : public KMainWindow, public DCOPObject
     void slotOpenURLRequest( const KURL &url,
                              const KParts::URLArgs &args);
     void documentCompleted();
-    void openOwnManual();
     void slotIncFontSizes();
     void slotDecFontSizes();
     void slotConfigureFonts();
