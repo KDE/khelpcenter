@@ -3,24 +3,30 @@ SUBDIRS = htmlsearch plugins pics
 INCLUDES = $(all_includes)
 METASOURCES = AUTO
 
+# khelpcenter: binary for convenience
 bin_PROGRAMS = 	khelpcenter
 
 khelpcenter_LDFLAGS = $(all_libraries) $(KDE_RPATH)
-khelpcenter_LDADD   = $(LIB_KDECORE)
+khelpcenter_LDADD   = khelpcenter.la
 
-khelpcenter_SOURCES = khc_main.cc KonquerorIface.stub
+khelpcenter_SOURCES = dummy.cc
 
-khc_main.cc: KonquerorIface_stub.h
+# libkhelpcenterpart.la: The helpcenter KPart
+# khelpcenter.la: the helpcenter as kdeinit loadable module
+lib_LTLIBRARIES = libkhelpcenterpart.la khelpcenter.la
 
-lib_LTLIBRARIES = libkhelpcenter.la
+khelpcenter_la_LDFLAGS = $(all_libraries) -module -avoid-version
+khelpcenter_la_LIBADD   = $(LIB_KDECORE)
 
-libkhelpcenter_la_SOURCES = khc_factory.cc \
+khelpcenter_la_SOURCES = khc_main.cc KonquerorIface.stub
+
+libkhelpcenterpart_la_SOURCES = khc_factory.cc \
 	khc_navigator.cc khc_navigatoritem.cc khc_searchwidget.cc \
 	klangcombo.cpp ktagcombobox.cpp
 
-libkhelpcenter_la_LIBADD = htmlsearch/libhtmlsearch.la -lkparts $(LIB_KDEUI)
+libkhelpcenterpart_la_LIBADD = htmlsearch/libhtmlsearch.la -lkparts $(LIB_KDEUI)
 
-libkhelpcenter_la_LDFLAGS = $(all_libraries) -version-info 1:0:0 -module -no-undefined
+libkhelpcenterpart_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN)
 
 service_DATA = khelpcenter.desktop
 servicedir = $(kde_servicesdir)
@@ -33,4 +39,9 @@ EXTRA_DIST = $(service_DATA) $(data_DATA)
 KonquerorIface_DIR = $(top_srcdir)/konqueror
 
 messages:
-	$(XGETTEXT) -C $(libkhelpcenter_la_SOURCES) -o $(podir)/khelpcenter.pot
+	$(XGETTEXT) -C $(libkhelpcenterpart_la_SOURCES) -o $(podir)/khelpcenter.pot
+
+khc_main.cc: KonquerorIface_stub.h
+
+dummy.cc:
+	echo > dummy.cc

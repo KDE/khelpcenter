@@ -28,7 +28,7 @@ KInstance *KHCFactory::s_instance = 0L;
 
 extern "C"
 {
-  void *init_libkhelpcenter()
+  void *init_libkhelpcenterpart()
   {
     return new KHCFactory;
   }
