@@ -82,6 +82,8 @@ class Navigator : public QWidget
 
     void slotShowSearchResult( const QString & );
 
+    void slotSelectGlossEntry( const QString &id );
+
     void showPreferencesDialog();
 
   signals:

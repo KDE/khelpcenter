@@ -686,4 +686,9 @@ void Navigator::showPreferencesDialog()
   mSearchWidget->slotIndex();
 }
 
+void Navigator::slotSelectGlossEntry( const QString &id )
+{
+  mGlossaryTree->slotSelectGlossEntry( id );
+}
+
 // vim:ts=2:sw=2:et

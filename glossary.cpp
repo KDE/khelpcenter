@@ -186,7 +186,8 @@ void Glossary::buildGlossaryTree()
 			QDomElement termElement = childElement( entryElement, QString::fromLatin1( "term" ) );
 			QString term = termElement.text().simplifyWhiteSpace();
 
-			new EntryItem(topicSection, term, entryId );
+			EntryItem *entry = new EntryItem(topicSection, term, entryId );
+            m_idDict.insert( entryId, entry );
 
 			SectionItem *alphabSection = 0L;
 			for ( QListViewItemIterator it( m_alphabItem ); it.current(); it++ )
@@ -280,5 +281,22 @@ QString Glossary::entryToHtml( const GlossaryEntry &entry )
            .arg( View::langLookup( "khelpcenter/kdelogo2.png" ) );
 }
 
+void Glossary::slotSelectGlossEntry( const QString &id )
+{
+    EntryItem *newItem = m_idDict.find( id );
+    if ( newItem == 0 )
+        return;
+
+    EntryItem *curItem = dynamic_cast<EntryItem *>( currentItem() );
+    if ( curItem != 0 ) {
+        if ( curItem->id() == id )
+            return;
+        curItem->parent()->setOpen( false );
+    }
+
+    setCurrentItem( newItem );
+    ensureItemVisible( newItem );
+}
+
 #include "glossary.moc"
-// vim:ts=2:sw=2:et
+// vim:ts=4:sw=4:et

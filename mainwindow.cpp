@@ -229,6 +229,7 @@ void MainWindow::slotOpenURLRequest( const KURL &url,
     if (proto == QString::fromLatin1("glossentry")) {
         QString decodedEntryId = KURL::decode_string( url.encodedPathAndQuery() );
         slotGlossSelected( mNavigator->glossEntry( decodedEntryId ) );
+        mNavigator->slotSelectGlossEntry( decodedEntryId );
     } else {
         History::self().createEntry();
         mDoc->openURL( url );

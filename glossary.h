@@ -29,6 +29,8 @@
 class KConfig;
 class KProcess;
 
+class EntryItem;
+
 namespace KHC {
 
 class GlossaryEntryXRef
@@ -106,6 +108,9 @@ class Glossary : public KListView
  
     static QString entryToHtml( const GlossaryEntry &entry );
 
+	public slots:
+		void slotSelectGlossEntry( const QString &id );
+
 	signals:
 		void entrySelected( const GlossaryEntry &entry );
 		
@@ -129,6 +134,7 @@ class Glossary : public KListView
 		QString m_cacheFile;
 		CacheStatus m_status;
 		QDict<GlossaryEntry> m_glossEntries;
+    QDict<EntryItem> m_idDict;
 };
 
 }
