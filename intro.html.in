@@ -78,8 +78,8 @@ system.  -->
 <ul>
 <li><p><a href="help:/khelpcenter/index.html?anchor=whatiskde">%1</a></p></li> 
 <li><p><a href="help:/khelpcenter/index.html?anchor=contact">%1</a></p></li> <!-- Contacting the KDE Project -->
-<li><p><a href="help:/khelpcenter/index.html?anchor=SUPPORT">%1</a></p></li> <!-- Supporting the KDE Project -->
-<li><p><a href="help:/khelpcenter/index.html?anchor=LINKS">%1</a></p></li> <!-- Useful links -->
+<li><p><a href="help:/khelpcenter/index.html?anchor=support">%1</a></p></li> <!-- Supporting the KDE Project -->
+<li><p><a href="help:/khelpcenter/index.html?anchor=links">%1</a></p></li> <!-- Useful links -->
 </ul>
 
 <h2>%1</h2> <!-- Getting the most out of KDE -->
@@ -87,17 +87,17 @@ system.  -->
 <h3>%1</h3> <!-- General Documentation -->
 
 <ul>
-<li><p><a href="help:/khelpcenter/quickstart" target="_top">%1</a></p></li>
-<li><p><a href="help:/khelpcenter/userguide" target="_top">%1</a></p></li>
-<li><p><a href="help:/khelpcenter/faq" target="_top">%1</a></p></li>
+<li><p><a href="help:/khelpcenter/quickstart/index.html" target="_top">%1</a></p></li>
+<li><p><a href="help:/khelpcenter/userguide/index.html" target="_top">%1</a></p></li>
+<li><p><a href="help:/khelpcenter/faq/index.html" target="_top">%1</a></p></li>
 </ul>
 
 <h3>%1</h3>
 
 <ul>
-<li><p><a href="help:/kicker" target="_top">%1</a></p></li>
-<li><p><a href="help:/kcontrol" target="_top">%1</a></p></li>
-<li><p><a href="help:/konqueror" target="_top">%1</a></p></li>
+<li><p><a href="help:/kicker/index.html" target="_top">%1</a></p></li>
+<li><p><a href="help:/kcontrol/index.html" target="_top">%1</a></p></li>
+<li><p><a href="help:/konqueror/index.html" target="_top">%1</a></p></li>
 </ul>
 
 
