@@ -1053,7 +1053,7 @@ void khcMainView::slotHelpAbout()
 		     i18n("KDE Helpcenter v%1\n\n"
 			  "Copyright (c) 1998/99 Matthias Elter <me@kde.org>\n\n"
 			  "Additional credits:\n"
-			  "René Beutler <rbeutler@g26.ethz.ch>: kassistant, kcmhelpcenter, kwid,konitemhelp\n"
+			  "RenÃ© Beutler <rbeutler@g26.ethz.ch>: kassistant, kcmhelpcenter, kwid,konitemhelp\n"
 			  "Martin Jones <mjones@kde.org> Some code is based on kdehelp written 1997 by Martin.\n"
 			  "The Konqueror team. I have shamelessly :) ripped code and ideas from Konqy.\n").arg(HELPCENTER_VERSION));
 }
