@@ -143,7 +143,7 @@ int main(int argc, char *argv[])
       return 1;
     }
 
-  app.exec();
+  return app.exec();
 }
 
 #include "khc_main.moc"
