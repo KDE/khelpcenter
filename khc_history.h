@@ -50,9 +50,13 @@ public:
   void append(khcHistoryItem *item);
   void setCurrent(khcHistoryItem *item);
 
+  bool hasNext();
+  bool hasPrev();
   khcHistoryItem* current() { return m_current; }
   khcHistoryItem* next();
   khcHistoryItem* prev();
+  khcHistoryItem* back(int steps);
+  khcHistoryItem* forward(int steps);
 
   QList<khcHistoryItem> backList();
   QList<khcHistoryItem> forwardList();

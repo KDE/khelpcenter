@@ -72,6 +72,20 @@ void khcHistory::setCurrent(khcHistoryItem *item)
     }
 }
 
+bool khcHistory::hasNext()
+{
+  khcHistoryItem *next = m_list.next();
+  m_list.find(m_current);
+  return (next != 0);
+}
+
+bool khcHistory::hasPrev()
+{
+  khcHistoryItem *prev = m_list.prev();
+  m_list.find(m_current);
+  return (prev != 0);
+}
+
 khcHistoryItem* khcHistory::next()
 {
   khcHistoryItem *next = m_list.next();
@@ -90,6 +104,36 @@ khcHistoryItem* khcHistory::prev()
   else
     m_current = prev;
   return prev;
+}
+
+khcHistoryItem* khcHistory::back(int steps)
+{
+  khcHistoryItem *item = m_current;
+    
+  for (int i = 0; i < steps; i++)
+    item = m_list.prev();
+
+  if (item)
+    m_current = item;
+  else
+    m_list.find(m_current);
+
+  return item;
+}
+
+khcHistoryItem* khcHistory::forward(int steps)
+{
+  khcHistoryItem *item = m_current;
+    
+  for (int i = 0; i < steps; i++)
+    item = m_list.next();
+
+  if (item)
+    m_current = item;
+  else
+    m_list.find(m_current);
+
+  return item;
 }
 
 QList<khcHistoryItem> khcHistory::backList()

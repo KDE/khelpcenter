@@ -881,36 +881,20 @@ void khcMainWindow::slotHistoryFillForward()
 
 void khcMainWindow::slotHistoryBackActivated(int id)
 {
-  QList<khcHistoryItem> list = history.backList();
-  khcHistoryItem *item = list.first();
- 
-  int index = m_pHistoryBackMenu->indexOf(id);
-    
-  for (int i = 1; i <= index; i++)
-    item = list.prev();
-    
- if(item)
-   {
-      openURL(item->url(), false, item->xOffset(), item->yOffset());
-      history.setCurrent(item);
-   }
+  int steps = m_pHistoryBackMenu->indexOf(id) + 1;
+  khcHistoryItem *item = history.back(steps);
+        
+  if(item)
+    openURL(item->url(), false, item->xOffset(), item->yOffset());
 }
 
 void khcMainWindow::slotHistoryForwardActivated(int id)
 {
-  QList<khcHistoryItem> list = history.forwardList();
-  khcHistoryItem *item = list.first();
- 
-  int index = m_pHistoryForwardMenu->indexOf(id);
-    
-  for (int i = 1; i <= index; i++)
-    item = list.prev();
-    
- if(item)
-   {
-      openURL(item->url(), false, item->xOffset(), item->yOffset());
-      history.setCurrent(item);
-   }
+  int steps = m_pHistoryForwardMenu->indexOf(id) + 1;
+  khcHistoryItem *item = history.forward(steps);
+  
+  if(item)
+    openURL(item->url(), false, item->xOffset(), item->yOffset());
 }
 
 void khcMainWindow::slotSetBusy(bool busy)

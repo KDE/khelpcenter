@@ -60,12 +60,12 @@ int main(int argc, char *argv[])
     {
 	// standalone app
 	OPApplication app(argc, argv, "khelpcenter");
-	khcMainWindow *khb = new khcMainWindow;
-	khb->show();
+	khcMainWindow *win = new khcMainWindow;
+	win->show();
 	
 	app.exec();
-	if (khb)
-	    delete khb;
+	if (win)
+	    delete win;
 	return 0;
     }
 }
