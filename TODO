@@ -1,0 +1,9 @@
+- finish basic framework
+- finish HTMLView
+- rewrite khc_navigator (+ add CORBA interface -> navigator plugins)
+- rewrite history and bookmark system
+- write man-Browser View (seperate binary, khcView and konqyView interfaces)
+- write info-Browser View (seperate binary, khcView and konqyView interfaces)
+- rewrite kcmhelpcenter
+- hack khcView and konqyView interfaces into kdvi and kghostview
+- move kbrowser to kdeui or agree on a common view interface with konqy?!
