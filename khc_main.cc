@@ -81,6 +81,7 @@ void createHelpWindow(const QCString &appId)
   kDebugInfo( "Calling stub.createBrowserWindowFromProfile" );
   KonquerorIface_stub stub( appId, "KonquerorIface" );
   stub.createBrowserWindowFromProfile( tempProfile );
+  kDebugInfo( "Call done" );
 }
 
 
@@ -129,7 +130,7 @@ int main(int argc, char *argv[])
     if ((*it).left(9) == "konqueror")
       {
 	createHelpWindow(*it);
-	exit(0);
+	return 0;
       }
 
   // run a new konqueror instance
