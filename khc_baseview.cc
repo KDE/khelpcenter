@@ -24,7 +24,7 @@
 
 khcBaseView::khcBaseView()
 {
-    ADD_INTERFACE("IDL:KHelpCenter/View:1.0");
+    ADD_INTERFACE("IDL:Browser/View:1.0");
     
     SIGNAL_IMPL("openURL");
     SIGNAL_IMPL("started");
@@ -64,15 +64,15 @@ bool khcBaseView::event( const char *event, const CORBA::Any &value )
 {
     EVENT_MAPPER(event, value);
     
-    MAPPING(KHelpCenter::eventOpenURL, KHelpCenter::EventOpenURL, mappingOpenURL);
+    MAPPING(Browser::eventOpenURL, Browser::EventOpenURL, mappingOpenURL);
     
     END_EVENT_MAPPER;
     return false;
 }
 
-bool khcBaseView::mappingOpenURL( KHelpCenter::EventOpenURL eventURL )
+bool khcBaseView::mappingOpenURL( Browser::EventOpenURL eventURL )
 {
-    SIGNAL_CALL1( "setLocationBarURL", (char*)eventURL.url );
+    SIGNAL_CALL2( "setLocationBarURL", id(), (char*)eventURL.url );
     return false;
 }
 
@@ -85,7 +85,7 @@ void khcBaseView::openURLRequest( const char *_url )
 {
     // Ask the mainwindow to open this URL, since it might not be suitable
     // for the current type of view.
-    KHelpCenter::URLRequest urlRequest;
+    Browser::URLRequest urlRequest;
     urlRequest.url = CORBA::string_dup( _url );
     urlRequest.reload = (CORBA::Boolean)false;
     urlRequest.xOffset = 0;

@@ -11,7 +11,7 @@ SUBDIRS = . pics plugins info2html rman kwelcome
 
 ###### Files
 
-khelpcenter_SOURCES = khelpcenter.idl khc_main.cc \
+khelpcenter_SOURCES = browser.idl khelpcenter.idl khc_main.cc \
 	khc_mainwindow.cc khc_baseview.cc khc_helpbrowser_impl.cc \
 	khc_navigator.cc khc_indexwidget.cc khc_searchwidget.cc \
 	khc_navigatoritem.cc khc_htmlsearch.cc khc_mansearch.cc \
@@ -22,7 +22,7 @@ khelpcenter_METASOURCES = khc_mainwindow.moc \
 	khc_searchwidget.moc finddlg.moc khc_htmlview.moc \
 	khc_testpart.moc
 
-khelpcenterclient_SOURCES  = khelpcenter.cc khc_client.cc
+khelpcenterclient_SOURCES  = browser.cc khelpcenter.cc khc_client.cc
 
 noinst_HEADERS = khelpcenter.h finddlg.h khc_baseview.h \
 	khc_helpbrowser_impl.h khc_htmlsearch.h khc_htmlview.h khc_indexwidget.h \
@@ -33,6 +33,8 @@ noinst_HEADERS = khelpcenter.h finddlg.h khc_baseview.h \
 DISTCLEANFILES = $(khelpcenter_METASOURCES) khelpcenter.cc khelpcenter.h
 
 idl_DATA = khelpcenter.idl
+
+browser_IDLDIR = $(idldir)
 
 ####### Build rules
 

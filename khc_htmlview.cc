@@ -51,27 +51,28 @@ khcHTMLView::~khcHTMLView()
 {
 }
 
-bool khcHTMLView::mappingOpenURL( KHelpCenter::EventOpenURL eventURL )
+bool khcHTMLView::mappingOpenURL( Browser::EventOpenURL eventURL )
 {
   khcBaseView::mappingOpenURL(eventURL);
   KBrowser::openURL(QString(eventURL.url), (bool)eventURL.reload ); // implemented by kbrowser
-  SIGNAL_CALL1("started", CORBA::Any::from_string((char *)eventURL.url, 0));
+  SIGNAL_CALL2("started", id(), CORBA::Any::from_string((char *)eventURL.url, 0));
   return true;
 }
 
 void khcHTMLView::slotURLClicked( QString url )
 {
-  SIGNAL_CALL1("started", CORBA::Any::from_string((char *)url.latin1(), 0));
+  SIGNAL_CALL2("started", id(), CORBA::Any::from_string((char *)url.latin1(), 0));
 }
 
 void khcHTMLView::slotShowURL( KHTMLView *, QString _url )
 {
   if (_url.isEmpty())
     {
-      SIGNAL_CALL1("setStatusBarText", CORBA::Any::from_string(0L, 0));
+      SIGNAL_CALL1("setStatusBarText", CORBA::Any::from_wstring(0L, 0));
       return;
     }
-  SIGNAL_CALL1("setStatusBarText", CORBA::Any::from_string((char *) _url.data(), 0));
+  CORBA::WString_var wurl = Q2C(_url);
+  SIGNAL_CALL1("setStatusBarText", CORBA::Any::from_wstring( wurl.out(), 0));
 }
 
 void khcHTMLView::slotSetTitle( QString /*title*/ )
@@ -81,17 +82,17 @@ void khcHTMLView::slotSetTitle( QString /*title*/ )
 
 void khcHTMLView::slotStarted( const char *url )
 {
-  SIGNAL_CALL1("started", CORBA::Any::from_string( (char *)url, 0 ) );
+  SIGNAL_CALL2("started", id(), CORBA::Any::from_string( (char *)url, 0 ) );
 }
 
 void khcHTMLView::slotCompleted()
 {
-  SIGNAL_CALL0("completed");
+  SIGNAL_CALL1("completed", id());
 }
 
 void khcHTMLView::slotCanceled()
 {
-  SIGNAL_CALL0("canceled");
+  SIGNAL_CALL1("canceled", id());
 }
 
 void khcHTMLView::stop()
@@ -99,9 +100,19 @@ void khcHTMLView::stop()
   KBrowser::slotStop();
 }
 
+CORBA::Long khcHTMLView::xOffset()
+{
+  return (CORBA::Long)KBrowser::xOffset();
+}
+
+CORBA::Long khcHTMLView::yOffset()
+{
+  return (CORBA::Long)KBrowser::yOffset();
+}
+
 void khcHTMLView::openURL(QString _url, bool _reload, int _xoffset, int _yoffset, const char *_post_data)
 {
-  KHelpCenter::EventOpenURL eventURL;
+  Browser::EventOpenURL eventURL;
   eventURL.url = CORBA::string_dup(_url);
   eventURL.reload = _reload;
   eventURL.xOffset = _xoffset;

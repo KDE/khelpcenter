@@ -21,20 +21,10 @@
 #ifndef __khelpcenter_idl__
 #define __khelpcenter_idl__
 
-#include <kom.idl>
-#include <openparts.idl>
+#include <browser.idl>
 
 module KHelpCenter
 {
-
-	interface TestPart : OpenParts::Part
-	{
-		void begin( in string url );
-		void write( in string text );
-		void end();
-		void parse();
-	};
-
 	interface HelpBrowser
 	{
 		void open(in string url);
@@ -45,91 +35,37 @@ module KHelpCenter
 		HelpBrowser create();
 	};
 
-	
-
-	/*
-   	* This event is mapped by the HelpCenter's implementation of the BaseView
-   	* interface as well as by all the views.
-   	*/
-	struct URLRequest
-	{
-		string url;
-		boolean reload /* = false */ ;
-		long xOffset /* = 0 */ ;
-		long yOffset /* = 0 */ ;
-	};
-
-	typedef URLRequest EventOpenURL;
- 	const string eventOpenURL = "KHelpCenter/HelpBrowser/OpenURL";
-
 	interface MainWindow : OpenParts::MainWindow
 	{
-		slot void slotURLStarted(in string url);
-		slot void slotURLCompleted();
+		slot void slotURLStarted(in OpenParts::Id id, in string url);
+		slot void slotURLCompleted(in OpenParts::Id id);
 
-		slot void openURL( in URLRequest url );    
+		slot void openURL( in Browser::URLRequest url );    
     
-		slot void setStatusBarText( in string text );
-		slot void setLocationBarURL( in string url );
+		slot void setStatusBarText( in wstring text );
+		slot void setLocationBarURL(in OpenParts::Id id,in string url );
     
 		slot void createNewWindow( in string url );
 	};
 	  	
-	/*
-	* The View interface...very similar to Konqueror views.
-	*/
-	interface View : OpenParts::Part
-  	{
-        
-    		/*
-     		* A full featured HelpCenter View has to map the eventOpenURL event (which 
-     		* has a structure EventOpenURL as parameter)
-     		*
-     		* In addition it may implement/emit the following signals:
-     		*      - signal void openURL( in URLRequest url );
-     		*      - signal void started( in string url );
-     		*      - signal void completed();
-     		*      - signal void canceled();
-     		*      - signal void setStatusBarText( in string text );
-     		*      - signal void setLocationBarURL(  in string url );
-     		*      - signal void createNewWindow( in string url );
-	     	*/
-     
-		/*
-		* returns the current views url
-		*/
-    		string url();
-
-		/*
-		* stop processing (for example HTML parsing)
-		*/
-    		void stop();
-
-    		/*
-     		* returns a name for the view (for example "KHTMLView)"
-     		*/
-    		string viewName();
-  	};
-
-	/*
-	* a HTML viewer
-	*/
-	interface HTMLView : View
+	interface HTMLView : Browser::View
 	{
 	};
 
-	/*
-	* integrated Man viewer.?make this a standalone server part?
-	*/
-	interface ManView : View
+	interface ManView : Browser::View
 	{
 	};
 
-	/*
-	* integrated Info viewer.?make this a standalone server part?
-	*/
-	interface InfoView: View
+	interface InfoView: Browser::View
 	{
+	};
+
+	interface TestPart : OpenParts::Part
+	{
+		void begin( in string url );
+		void write( in string text );
+		void end();
+		void parse();
 	};
 };
 

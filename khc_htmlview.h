@@ -41,11 +41,13 @@ class khcHTMLView : public KBrowser,
     khcHTMLView();
     virtual ~khcHTMLView();
 
-    virtual bool mappingOpenURL( KHelpCenter::EventOpenURL eventURL );
+    virtual bool mappingOpenURL( Browser::EventOpenURL eventURL );
 
     virtual void stop();
     virtual char *viewName() { return CORBA::string_dup("khcHTMLView"); }
     virtual char *url();
+    virtual CORBA::Long xOffset();
+    virtual CORBA::Long yOffset();
     virtual void print();
     virtual void openURL( QString _url, bool _reload, int _xoffset = 0, int _yoffset = 0, const char *_post_data = 0L);
 

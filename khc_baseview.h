@@ -31,7 +31,7 @@
  * The base class for all views in khelpcenter
  */
 class khcBaseView : virtual public OPPartIf,
-		    virtual public KHelpCenter::View_skel
+		    virtual public Browser::View_skel
 {
 public:
     khcBaseView();
@@ -41,7 +41,7 @@ public:
     virtual void cleanUp();
   
     virtual bool event( const char *event, const CORBA::Any &value );
-    virtual bool mappingOpenURL( KHelpCenter::EventOpenURL eventURL );
+    virtual bool mappingOpenURL( Browser::EventOpenURL eventURL );
     
     /**
      * @return the URL shown by this view

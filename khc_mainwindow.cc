@@ -42,6 +42,7 @@
 #include <kfiledialog.h>
 
 #include <opFrame.h>
+#include <opUIUtils.h>
 
 // static list of khcMainWindow windows:
 QList<khcMainWindow> khcMainWindow::helpWindowList;
@@ -142,13 +143,13 @@ void khcMainWindow::setupView()
     m_pSplitter->show();
     setView(m_pSplitter, true);
     m_pView = new khcHTMLView;
-    m_vView = KHelpCenter::View::_duplicate(m_pView);
+    m_vView = Browser::View::_duplicate(m_pView);
     kdebug(KDEBUG_INFO,1400,"m_vView = KHelpCenter::View::_duplicate(new khcHTMLView);");
   
     m_vView->setMainWindow(khcInterface());
     kdebug(KDEBUG_INFO,1400,"m_vView->setMainWindow(khcInterface());");
     connectView();
-    m_pFrame->attach(m_vView);
+     m_pFrame->attach(m_vView);
    
     kdebug(KDEBUG_INFO,1400,"m_pFrame->attach(m_vView);");
 }
@@ -177,7 +178,7 @@ void khcMainWindow::setupMenuBar()
     idCopy = m_pEditMenu->insertItem(i18n("&Copy"), this, SLOT(slotCopy()), stdAccel.copy());
     m_pEditMenu->insertSeparator();
     m_pEditMenu->insertItem(i18n("&Find..."), this, SLOT(slotFind()), stdAccel.find());
-    m_pEditMenu->insertItem(i18n("Find &next"), this, SLOT(slotFindNext()), Key_F3);
+     m_pEditMenu->insertItem(i18n("Find &next"), this, SLOT(slotFindNext()), Key_F3);
   
     // goto menu
     m_pGotoMenu = new QPopupMenu;
@@ -572,7 +573,7 @@ void khcMainWindow::slotOpenNewBrowser(const QString& url)
 
 void khcMainWindow::slotSetStatusText(const QString& text)
 {
-    statusBar()->changeItem(text, 1);
+    statusBar()->changeItem(QString(text), 1);
 }
 
 void khcMainWindow::slotSetTitle( const QString& _title )
@@ -679,15 +680,15 @@ void khcMainWindow::slotQuit()
     close();
 }
 
-void khcMainWindow::openURL(KHelpCenter::URLRequest urlRequest)
+void khcMainWindow::openURL(Browser::URLRequest urlRequest)
 {
   slotStopProcessing();
   
   khcHistoryItem *hitem = new khcHistoryItem(urlRequest.url, urlRequest.xOffset, urlRequest.yOffset);
   history.append(hitem);
 
-  kdebug(KDEBUG_INFO,1400,"EMIT_EVENT(m_vView, KHelpCenter::eventOpenURL, eventURL)");
-  EMIT_EVENT(m_vView, KHelpCenter::eventOpenURL, urlRequest);
+  kdebug(KDEBUG_INFO,1400,"EMIT_EVENT(m_vView, Browser::eventOpenURL, eventURL)");
+  EMIT_EVENT(m_vView, Browser::eventOpenURL, urlRequest);
   slotCheckHistory();
 }
 
@@ -695,7 +696,8 @@ void khcMainWindow::openURL(const char *_url, bool withHistory, long xOffset, lo
 {
   slotStopProcessing();
     
-  KHelpCenter::EventOpenURL eventURL;
+  Browser::EventOpenURL eventURL;
+  kdebug(KDEBUG_INFO,1400,"openURL:" + QString(_url));
   eventURL.url = CORBA::string_dup(_url);
   eventURL.reload = (CORBA::Boolean)false;
   eventURL.xOffset = xOffset;
@@ -707,8 +709,8 @@ void khcMainWindow::openURL(const char *_url, bool withHistory, long xOffset, lo
       history.append(hitem);
     }
 
-  kdebug(KDEBUG_INFO,1400,"EMIT_EVENT(m_vView, KHelpCenter::eventOpenURL, eventURL)");
-  EMIT_EVENT(m_vView, KHelpCenter::eventOpenURL, eventURL);
+  kdebug(KDEBUG_INFO,1400,"EMIT_EVENT(m_vView, Browser::eventOpenURL, eventURL)");
+  EMIT_EVENT(m_vView, Browser::eventOpenURL, eventURL);
   slotCheckHistory();
 }
 
@@ -924,13 +926,13 @@ khcMainWindowIf::~khcMainWindowIf()
   cleanUp();
 }
 
-void khcMainWindowIf::setStatusBarText(const char *_text)
+void khcMainWindowIf::setStatusBarText(const CORBA::WChar *_text)
 {
-  m_pkhcMainWindow->slotSetStatusText(_text);
+  m_pkhcMainWindow->slotSetStatusText(C2Q(_text));
   kdebug(0, 1400, "void khcMainWindowIf::setStatusBarText(const char *_text)");
 }
 
-void khcMainWindowIf::setLocationBarURL(const char *_url)
+void khcMainWindowIf::setLocationBarURL(OpenParts::Id id, const char *_url)
 {
   m_pkhcMainWindow->slotSetLocation(_url);
   m_pkhcMainWindow->slotSetTitle(_url);
@@ -939,26 +941,26 @@ void khcMainWindowIf::setLocationBarURL(const char *_url)
 
 void khcMainWindowIf::createNewWindow(const char *url)
 {
-  m_pkhcMainWindow->slotOpenNewBrowser(QString(url));
+  m_pkhcMainWindow->slotOpenNewBrowser(url);
   kdebug(0, 1400, "void khcMainWindowIf::createNewWindow(const char *url)");
 }
 
-void khcMainWindowIf::slotURLStarted(const char *)
+void khcMainWindowIf::slotURLStarted(OpenParts::Id id, const char *)
 {
   m_pkhcMainWindow->slotSetBusy(true);
   kdebug(0, 1400, "void khcMainWindowIf::slotURLStarted(const char *url)");
 }
 
-void khcMainWindowIf::slotURLCompleted()
+void khcMainWindowIf::slotURLCompleted(OpenParts::Id id)
 {
   m_pkhcMainWindow->slotSetBusy(false);
   kdebug(0, 1400, "void khcMainWindowIf::slotURLCompleted()");
 }
 
-void khcMainWindowIf::openURL(const KHelpCenter::URLRequest &url)
+void khcMainWindowIf::openURL(const Browser::URLRequest &url)
 {
   m_pkhcMainWindow->openURL(url);
-  kdebug(0, 1400, "void khcMainWindowIf::openURL(const KHelpCenter::URLRequest &url)");
+  kdebug(0, 1400, "void khcMainWindowIf::openURL(const Browser::URLRequest &url)");
 }
 
 

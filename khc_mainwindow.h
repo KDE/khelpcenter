@@ -45,13 +45,14 @@ public:
   khcMainWindowIf(khcMainWindow* _main);
   ~khcMainWindowIf();
 
-  virtual void openURL( const KHelpCenter::URLRequest &url );
+  virtual void openURL( const Browser::URLRequest &url );
   
-  virtual void setStatusBarText( const char *_text );
-  virtual void setLocationBarURL( const char *_url );
+  virtual void setStatusBarText(const CORBA::WChar *_text);
+  virtual void setLocationBarURL(OpenParts::Id id, const char *_url);
+  
   virtual void createNewWindow( const char *url );
-  virtual void slotURLStarted( const char *url );
-  virtual void slotURLCompleted( );
+  virtual void slotURLStarted( OpenParts::Id id, const char *url );
+  virtual void slotURLCompleted( OpenParts::Id id );
   
  protected:
   khcMainWindow* m_pkhcMainWindow;
@@ -65,7 +66,7 @@ class khcMainWindow : public OPMainWindow
     khcMainWindow(const QString& url = 0);
     virtual ~khcMainWindow();
 
-    void openURL(KHelpCenter::URLRequest urlRequest);
+    void openURL(Browser::URLRequest urlRequest);
     void openURL(const char *url, bool withHistory = true, long xOffset = 0, long yOffset = 0);
 
     unsigned long getListIndex() { return listIndex; }
@@ -146,7 +147,7 @@ class khcMainWindow : public OPMainWindow
     khcHTMLView     *m_pView;
     khcMainWindowIf *m_pkhcInterface;
 
-    KHelpCenter::View_var m_vView;
+    Browser::View_var m_vView;
     khcHistory history;
 
     QPopupMenu *m_pFileMenu, *m_pEditMenu, *m_pViewMenu, *m_pGotoMenu, *m_pOptionsMenu, *m_pHelpMenu,*m_pBookmarkMenu;
