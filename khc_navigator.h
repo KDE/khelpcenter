@@ -91,6 +91,8 @@ class khcNavigatorWidget : public QWidget
 
     const khcGlossaryEntry &glossEntry(const QString &term) const { return glossaryTree->entry( term ); }
 
+    void buildInfoSubTree(khcNavigatorItem *parent);
+
   public slots:
     void slotURLSelected(QString url);
     void slotItemSelected(QListViewItem* index);
@@ -125,7 +127,6 @@ class khcNavigatorWidget : public QWidget
     void buildTree();
     void clearTree();
 
-    void buildInfoSubTree(khcNavigatorItem *parent);
     QString findInfoDirFile();
     bool readInfoDirFile(QString& sFileContents);
     bool parseInfoSubjectLine(QString sLine, QString& sItemTitle, QString& sItemURL);

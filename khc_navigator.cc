@@ -492,7 +492,7 @@ class PluginTraverser : public DocEntryTraverser
         } else {
           mCurrentItem = new khcNavigatorAppItem( mParentItem, mCurrentItem );
         }
-      else if ( entry->khelpcenterSpecial() == "info" ) {
+      } else if ( entry->khelpcenterSpecial() == "info" ) {
         if ( mListView ) {
           mCurrentItem = new khcNavigatorAppItem( mListView, mCurrentItem );
         } else {
@@ -532,6 +532,7 @@ class PluginTraverser : public DocEntryTraverser
     khcNavigatorItem *mParentItem;
     khcNavigatorItem *mCurrentItem;
     
+  public:
     static khcNavigatorWidget *mNavigator;
 };
 
