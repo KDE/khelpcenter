@@ -296,7 +296,7 @@ void Navigator::selectItem( const KURL &url )
   NavigatorItem *item;
   item = static_cast<NavigatorItem *>( mContentsTree->currentItem() );
   if ( item && mSelected ) {
-    KURL currentURL = item->entry()->url();
+    KURL currentURL ( item->entry()->url() );
     if ( currentURL == url ) {
       kdDebug() << "URL already shown." << endl;
       return;
@@ -351,7 +351,7 @@ void Navigator::slotItemSelected( QListViewItem *currentItem )
   if ( item->childCount() > 0 || item->isExpandable() )
     item->setOpen( !item->isOpen() );
 
-  KURL url = item->entry()->url();
+  KURL url ( item->entry()->url() );
 
   if ( url != mLastUrl )  History::self().createEntry();
 

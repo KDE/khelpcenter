@@ -162,7 +162,7 @@ void MainWindow::saveProperties( KConfig *config )
 void MainWindow::readProperties( KConfig *config )
 {
     kdDebug()<<"void MainWindow::readProperties( KConfig *config )" << endl;
-    mDoc->slotReload( config->readPathEntry( "URL" ) );
+    mDoc->slotReload( KURL( config->readPathEntry( "URL" ) ) );
 }
 
 void MainWindow::setupActions()
@@ -324,7 +324,7 @@ void MainWindow::slotGlossSelected(const GlossaryEntry &entry)
 
     stop();
     History::self().createEntry();
-    mDoc->begin( "help:/khelpcenter/glossary" );
+    mDoc->begin( KURL( "help:/khelpcenter/glossary" ) );
     mDoc->write( Glossary::entryToHtml( entry ) );
     mDoc->end();
 }

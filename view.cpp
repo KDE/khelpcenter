@@ -121,7 +121,7 @@ void View::showAboutPage()
           .arg( i18n( "The KDE Control Center" ) )
           .arg( i18n( "The Konqueror File manager and Web Browser" ) )
           .arg( langLookup( "khelpcenter/kdelogo2.png" ) );
-    begin( "about:khelpcenter" );
+    begin( KURL( "about:khelpcenter" ) );
     write( res );
     end();
     emit completed();
@@ -275,7 +275,7 @@ KURL View::urlFromLinkNode( const DOM::Node &n ) const
 
   DOM::Element elem = static_cast<DOM::Element>( n );
 
-  const KURL href = elem.getAttribute( "href" ).string();
+  KURL href ( elem.getAttribute( "href" ).string() );
   if ( !href.protocol().isNull() )
     return href;
 

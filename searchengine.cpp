@@ -75,7 +75,7 @@ void SearchTraverser::startProcess( DocEntry *entry )
 
   mJobData = QString::null;
 
-  KIO::TransferJob *job = KIO::get( search );
+  KIO::TransferJob *job = KIO::get( KURL( search ) );
   connect( job, SIGNAL( result( KIO::Job * ) ),
            SLOT( slotJobResult( KIO::Job * ) ) );
   connect( job, SIGNAL( data( KIO::Job *, const QByteArray & ) ),
