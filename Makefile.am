@@ -42,6 +42,10 @@ testmetainfo_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 testmetainfo_LDADD = $(LIB_KDECORE) docentry.lo docmetainfo.lo \
                      docentrytraverser.lo htmlsearch.lo
 testmetainfo_SOURCES = testmetainfo.cpp
+
+service_DATA = khelpcenter.desktop
+servicedir = $(kde_servicesdir)
+
 data_DATA = Help.desktop
 datadir = $(kde_appsdir)
 
