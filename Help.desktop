@@ -4,7 +4,7 @@ Exec=khelpcenter
 Icon=khelpcenter
 DocPath=khelpcenter/index.html
 Type=Application
-Terminal=0
+Terminal=false
 
 Name=Help
 Name[af]=Hulp
@@ -75,5 +75,4 @@ Name[xx]=xxHelpxx
 Name[zh_CN]=帮助
 Name[zh_TW]=求助
 Name[zu]=Usizo
-Categories=Qt;KDE;Core;
 OnlyShowIn=KDE;
