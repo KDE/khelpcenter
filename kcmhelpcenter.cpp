@@ -240,8 +240,8 @@ void KCMHelpCenter::slotIndexFinished( KProcess *proc )
 
 QString KCMHelpCenter::quickHelp() const
 {
-  return i18n("<h1>Help Center</h1> With this control module you cofigure "
-              "and build the index files needed by the search function of "
+  return i18n("<h1>Help Center</h1> With this control module you configure "
+              "and build the index files required by the search function of "
               "the help center.");
 }
 
