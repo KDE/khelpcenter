@@ -1,10 +1,18 @@
 [KDE Desktop Entry]
 
 Name=Applet Manuals
-Name[de]=Applet-Handbuecher
+Name[af]=miniprogram handleidings
+Name[bs]=Priručnici appleta
+Name[cs]=Příručky appletů
+Name[da]=Panelprogrammanualer
+Name[es]=Manuales de applet
+Name[fi]=Sovelmien ohjekirjat
+Name[he]=ספרי הדרכה של יישומונים
+Name[pt_BR]=Manuais de Aplicativos
+Name[sv]=Miniprogramhandböcker
 
 Icon=contents2
 
 X-DOC-Weight=-400
 
-X-KDE-KHelpcenter-Special=kickerapplets
+X-KDE-KHelpcenter-Special=kicker

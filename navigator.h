@@ -63,7 +63,7 @@ class Navigator : public QWidget
     const GlossaryEntry &glossEntry(const QString &term) const { return glossaryTree->entry( term ); }
 
     void buildInfoSubTree(NavigatorItem *parent);
-    void insertAppletDocs( NavigatorItem *parent );
+	void insertParentAppDocs( const QString &name, NavigatorItem *parent );
 
   public slots:
     void slotURLSelected(QString url);

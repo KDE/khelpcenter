@@ -50,6 +50,7 @@
 #include <kcharsets.h>
 #include <kdialog.h>
 #include <kdesktopfile.h>
+#include <kservicegroup.h>
 
 #include "navigatoritem.h"
 #include "navigatorappitem.h"
@@ -358,33 +359,27 @@ class PluginTraverser : public DocEntryTraverser
         kdDebug( 1400 ) << "ERROR! Neither mListView nor mParentItem is set." << endl;
         return;
       }
-    
-      if ( entry->khelpcenterSpecial() == "apps" ) {
-        if ( mListView ) {
+
+      if (entry->khelpcenterSpecial() == "apps") {
+        if ( mListView )
           mCurrentItem = new NavigatorAppItem( mListView, mCurrentItem );
-        } else {
+        else
           mCurrentItem = new NavigatorAppItem( mParentItem, mCurrentItem );
-        }
-      } else if ( entry->khelpcenterSpecial() == "info" ) {
-        if ( mListView ) {
-          mCurrentItem = new NavigatorItem( mListView, mCurrentItem );
-        } else {
-          mCurrentItem = new NavigatorItem( mParentItem, mCurrentItem );
-        }
-        mNavigator->buildInfoSubTree( mCurrentItem );
-      } else if ( entry->khelpcenterSpecial() == "kickerapplets" ) {
-        if ( mListView ) {
-          mCurrentItem = new NavigatorItem( mListView, mCurrentItem );
-        } else {
-          mCurrentItem = new NavigatorItem( mParentItem, mCurrentItem );
-        }
-        mNavigator->insertAppletDocs( mCurrentItem );
       } else {
-        if ( mListView ) {
+        if ( mListView )
           mCurrentItem = new NavigatorItem( mListView, mCurrentItem );
-        } else {
+        else
           mCurrentItem = new NavigatorItem( mParentItem, mCurrentItem );
-        }
+
+        if ( entry->khelpcenterSpecial() == "info" )
+          mNavigator->buildInfoSubTree( mCurrentItem );
+        else if ( entry->khelpcenterSpecial() == "kicker" ||
+                  entry->khelpcenterSpecial() == "kinfocenter" ||
+                  entry->khelpcenterSpecial() == "kcontrol" ||
+                  entry->khelpcenterSpecial() == "noatun" ||
+                  entry->khelpcenterSpecial() == "konqueror" )
+          mNavigator->insertParentAppDocs( entry->khelpcenterSpecial(),
+              mCurrentItem );
       }
 
       mCurrentItem->setName( entry->name() );
@@ -430,6 +425,35 @@ void Navigator::insertPlugins()
   }
   kdDebug( 1400 ) << "</docmetainfo>" << endl;
 #endif
+}
+
+void Navigator::insertParentAppDocs( const QString &name, NavigatorItem *topItem )
+{
+  qDebug("Requested plugin documents for ID '%s'", name.latin1());
+  KServiceGroup::Ptr grp = KServiceGroup::childGroup( name );
+  if ( !grp ) {
+    qDebug("Eeek, our group pointer is NULL!");
+    return;
+  }
+
+  KServiceGroup::List entries = grp->entries();
+  qDebug("Got %i entries", entries.count());
+  KServiceGroup::List::ConstIterator it = entries.begin();
+  KServiceGroup::List::ConstIterator end = entries.end();
+  for ( ; it != end; ++it ) {
+    KDesktopFile desktopFile( locate("apps", (*it)->entryPath()) );
+#if KDE_VERSION < 305
+    QString docPath = desktopFile.readEntry( "DocPath" );
+#else
+    QString docPath = desktopFile.readDocPath();
+#endif
+    if ( !docPath.isNull() ) {
+      NavigatorItem *item = new NavigatorItem( topItem, desktopFile.readName() );
+      item->setUrl( "help:/" + docPath );
+      QString icon = desktopFile.readIcon();
+      item->setIcon( icon.isNull() ? "document2" : icon );
+    }
+  }
 }
 
 void Navigator::insertScrollKeeperItems()
@@ -834,33 +858,6 @@ void Navigator::hideSearch()
 {
   mSearchFrame->hide();
   mTabWidget->removePage( mSearchWidget );
-}
-
-void Navigator::insertAppletDocs( NavigatorItem *appletDocItem )
-{
-  QDir appletDir;
-  appletDir.setPath( locate( "data", "kicker/applets/" ) );
-  
-  QStringList desktopFiles = appletDir.entryList( "*.desktop", QDir::Files );
-
-  QStringList::ConstIterator it = desktopFiles.begin();
-  QStringList::ConstIterator end = desktopFiles.end();
-  for ( ; it != end; ++it ) {
-    KDesktopFile desktopFile( appletDir.absPath() + "/" + *it );
-    kdDebug( 1400 ) << "Processing applets" << desktopFile.readName() << endl;
-#if KDE_VERSION < 305
-    QString desktopPath = desktopFile.readEntry( "DocPath" );
-#else
-    QString desktopPath = desktopFile.readDocPath();
-#endif
-    if ( !desktopPath.isNull() ) {
-      kdDebug( 1400 ) << "Found applet with docpath: " << desktopFile.readName() << endl;
-      NavigatorItem *item = new NavigatorItem( appletDocItem, desktopFile.readName() );
-      kdDebug( 1400 ) << "Setting URL -> help:/" + desktopPath << endl;
-      item->setUrl( "help:/" + desktopPath );
-      item->setIcon( "document2" );
-    }
-  }
 }
 
 // vim:et:ts=2:sw=2
