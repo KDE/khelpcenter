@@ -38,7 +38,7 @@ servicedir = $(kde_servicesdir)
 data_DATA = Help.desktop
 datadir = $(kde_appsdir)
 
-EXTRA_DIST = $(service_DATA) $(data_DATA) $(data2_DATA)
+EXTRA_DIST = $(service_DATA) $(data_DATA)
 
 KonquerorIface_DIR = $(top_srcdir)/konqueror
 
