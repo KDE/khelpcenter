@@ -49,7 +49,7 @@ class khcNavigator : public QWidget
     void slotTabSelected(int);
 
  signals:
-    void itemSelected(QString itemURL);
+    void itemSelected(const QString& itemURL);
     void setBussy(bool bussy);
 	
  private:

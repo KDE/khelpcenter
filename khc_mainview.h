@@ -58,6 +58,7 @@ class khcMainView : public QWidget,
     bool mappingCreateMenubar(OpenPartsUI::MenuBar_ptr menuBar);
     bool mappingCreateToolbar(OpenPartsUI::ToolBarFactory_ptr factory);
     bool mappingParentGotFocus(OpenParts::Part_ptr child);
+    bool mappingChildGotFocus(OpenParts::Part_ptr child);
     bool mappingOpenURL(Browser::EventOpenURL eventURL);
 
     void saveProperties(KConfig *config);
@@ -126,6 +127,7 @@ class khcMainView : public QWidget,
     virtual void slotURLEntered(const CORBA::WChar *_url);
 
     void slotSetBusy(bool busy);
+    void slotSetURL(const QString& _url);
     void slotCheckHistory();
     void slotSaveSettings();
     void slotReadSettings();

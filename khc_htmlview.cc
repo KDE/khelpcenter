@@ -35,6 +35,7 @@ khcHTMLView::khcHTMLView()
   fontBase = 3;
   
   QWidget::setFocusPolicy(StrongFocus);
+  //OPPartIf::setFocusPolicy(OpenParts::Part::NoFocus);
 
   QObject::connect(this, SIGNAL(setTitle(QString)), this, SLOT(slotSetTitle(QString)));
   QObject::connect(this, SIGNAL(completed()), this, SLOT(slotCompleted()));

@@ -131,7 +131,7 @@ void khcMainView::init()
   CHECK_PTR(m_pFrame);
   
   // connect navigator
-  QObject::connect(m_pNavigator , SIGNAL(itemSelected(QString)), this, SLOT(slotSetURL(QString)));
+  QObject::connect(m_pNavigator , SIGNAL(itemSelected(const QString&)), this, SLOT(slotSetURL(const QString&)));
   
   QValueList<int> sizes;
   sizes.append(200);
@@ -144,6 +144,7 @@ void khcMainView::init()
   m_pView = new khcHTMLView;
   m_vView = KHelpCenter::HTMLView::_duplicate(m_pView);
   m_vView->setMainWindow(m_vMainWindow);
+  m_vView->setParent(this);
 
   connectView();
   m_pFrame->attach(m_vView);
@@ -194,6 +195,7 @@ bool khcMainView::event(const char* event, const CORBA::Any& value)
   MAPPING(OpenPartsUI::eventCreateMenuBar, OpenPartsUI::typeCreateMenuBar_ptr, mappingCreateMenubar);
   MAPPING(OpenPartsUI::eventCreateToolBar, OpenPartsUI::typeCreateToolBar_ptr, mappingCreateToolbar);
   MAPPING(OpenParts::eventParentGotFocus, OpenParts::Part_ptr, mappingParentGotFocus);
+  MAPPING(OpenParts::eventChildGotFocus, OpenParts::Part_ptr, mappingParentGotFocus);
   MAPPING(Browser::eventOpenURL, Browser::EventOpenURL, mappingOpenURL);
 
   END_EVENT_MAPPER;
@@ -377,7 +379,8 @@ bool khcMainView::mappingCreateToolbar(OpenPartsUI::ToolBarFactory_ptr factory)
     }
   
   // setup toolbar
-  m_vToolBar = factory->create(OpenPartsUI::ToolBarFactory::Transient);
+  m_vToolBar = factory->create2( OpenPartsUI::ToolBarFactory::Transient, 40 );
+  m_vToolBar->setIconText( 3 );
   m_vToolBar->setFullWidth(true);
 				    
   CORBA::WString_var text;
@@ -490,6 +493,12 @@ bool khcMainView::mappingParentGotFocus(OpenParts::Part_ptr )
 
   m_vMenuGo->setItemEnabled(MGO_BACK, false );
   m_vMenuGo->setItemEnabled(MGO_FORWARD, false );
+  return true;
+}
+
+bool khcMainView::mappingChildGotFocus(OpenParts::Part_ptr child)
+{
+  kdebug(0, 1400, "bool khcMainView::mappingChildGotFocus(OpenParts::Part_ptr child)");
   return true;
 }
 
@@ -969,7 +978,7 @@ void khcMainView::slotShowStatusbar()
 {
   if (CORBA::is_nil(m_vStatusBar))
     return;
-
+  
   m_vStatusBar->enable(OpenPartsUI::Toggle);
   m_vMenuOptions->setItemChecked(MOPTIONS_SHOWSTATUSBAR, m_vStatusBar->isVisible());
 }
@@ -1038,7 +1047,7 @@ void khcMainView::slotHistoryBackActivated(CORBA::Long id)
   khcHistoryItem *item = history.back(steps);
   
   if(item)
-    open(item->url(), false, item->xOffset(), item->yOffset());
+    open(item->url(), true, item->xOffset(), item->yOffset());
 }
 
 void khcMainView::slotHistoryForwardActivated(CORBA::Long id)
@@ -1047,7 +1056,7 @@ void khcMainView::slotHistoryForwardActivated(CORBA::Long id)
   khcHistoryItem *item = history.forward(steps);
   
   if(item)
-    open(item->url(), false, item->xOffset(), item->yOffset());
+    open(item->url(), true, item->xOffset(), item->yOffset());
 }
 
 void khcMainView::slotMenuEditAboutToShow()
@@ -1122,6 +1131,11 @@ void khcMainView::slotURLCompleted(OpenParts::Id )
 void khcMainView::openURL(const Browser::URLRequest &urlRequest)
 {
   open(urlRequest.url, urlRequest.reload, urlRequest.xOffset, urlRequest.yOffset);
+}
+
+void khcMainView::slotSetURL(const QString& _url)
+{
+  open(_url, false, 0, 0);
 }
 
 void khcMainView::open(const char* url, CORBA::Boolean reload, CORBA::Long xoffset, CORBA::Long yoffset)

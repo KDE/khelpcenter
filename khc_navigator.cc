@@ -23,6 +23,8 @@
 #include "khc_indexwidget.h"
 #include "khc_searchwidget.h"
 
+#include "khelpcenter.h"
+
 #include <qdir.h>
 #include <qfile.h>
 #include <qpixmap.h>
