@@ -58,7 +58,7 @@ static KCmdLineOptions options[] =
   KCmdLineLastOption
 };
 
-extern "C" int kdemain( int argc, char **argv )
+extern "C" int KDE_EXPORT kdemain( int argc, char **argv )
 {
   KAboutData aboutData( "khelpcenter", I18N_NOOP("KDE Help Center"),
                         HELPCENTER_VERSION,
