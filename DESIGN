@@ -112,3 +112,23 @@ protocol == "help") by itself and otherwise use the plain URL.
 
 # I just thought about this a bit, I think KHC::MainWindow should act as the
 # interface between KHC::Navigator and KHC::View.
+#
+# Another thing: KHC::MainWindow really really shouldn't care about managing
+# the history - we'd introduce a dedicated KHC::History class for that, a
+# singleton which is responsible for managing the history entries (a
+# struct 'KHC::History::Entry' perhaps), plugging in the actions into the UI,
+# that stuff. To implement a history we have currently two approaches AFAICS:
+#
+# - either we use the current approach, which is that the state of the
+# application gets stored in a QByteArray member of the History::Entry - right
+# now this only caputres the state of the KHC::View, which means that we
+# probably have to implement an operator<<() for a bunch of classes, too -
+# namely the Navigator. I dislike this brute force approach since we cannot
+# control what gets saved but only when we do the snapshot of the state
+# - Or we use a KCommand which encapsulates functionality which should be
+# undoable. I think this is preferred because it not only caputres the time of
+# the snapshot but also the functionality, plus that it's probably far less
+# memory hungry.
+#
+# Either way, we should probably rip out all the history stuff from MainWindow
+# first (makes up ~75% of the code) and extract it into a separate class.
