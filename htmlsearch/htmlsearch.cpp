@@ -220,7 +220,7 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
 
       // execute htdig
       _proc->start(KProcess::NotifyOnExit, KProcess::Stdout);      
-      while (_htdigRunning)
+      while (_htdigRunning && _proc->isRunning())
 	kapp->processEvents();
       
       if (!_proc->normalExit() || _proc->exitStatus() != 0)
@@ -242,6 +242,7 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
   if (exe.isEmpty())
     return false;
 
+  delete _proc;
   _proc = new KProcess();
   *_proc << exe << "-c" << dataPath(_lang)+"/htdig.conf";
 
@@ -254,7 +255,7 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
 
   _proc->start(KProcess::NotifyOnExit, KProcess::Stdout);
 
-  while (_htmergeRunning)
+  while (_htmergeRunning && _proc->isRunning())
     kapp->processEvents();
   
   if (!_proc->normalExit() || _proc->exitStatus() != 0)
@@ -354,7 +355,7 @@ QString HTMLSearch::search(QString _lang, QString words, QString method, int mat
 
   _proc->start(KProcess::NotifyOnExit, KProcess::Stdout);
 
-  while (_htsearchRunning)
+  while (_htsearchRunning && _proc->isRunning())
     kapp->processEvents();
   
   if (!_proc->normalExit() || _proc->exitStatus() != 0)
