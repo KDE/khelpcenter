@@ -27,15 +27,6 @@ using namespace KHC;
 
 Application::Application() : KUniqueApplication()
 {
-}
-
-int Application::newInstance()
-{
-	if ( isRestored() ) {
-		RESTORE( MainWindow )
-		return 0;
-	}
-
 	KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
 
 	KURL url;
@@ -46,7 +37,16 @@ int Application::newInstance()
 	setMainWidget( mainWindow );
 	mainWindow->show();
 
-	return 0;
+}
+
+int Application::newInstance()
+{
+	if ( isRestored() ) {
+		RESTORE( MainWindow )
+		return 0;
+	}
+
+  return KUniqueApplication::newInstance();
 }
 
 #include "version.h"
