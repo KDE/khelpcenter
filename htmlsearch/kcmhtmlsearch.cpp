@@ -87,7 +87,7 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const char *name)
   grid->addWidget(l, 1,0);
   grid->addWidget(htdigBin, 1,1);
   connect(htdigBin, SIGNAL(textChanged(const QString&)), this, SLOT(configChanged()));
-  QString wtstr = i18n( "Enter the path to your htdig program here, e.g., /usr/local/bin/htdig" );
+  QString wtstr = i18n( "Enter the path to your htdig program here, e.g. /usr/local/bin/htdig" );
   QWhatsThis::add( htdigBin, wtstr );
   QWhatsThis::add( l, wtstr );
 
@@ -97,7 +97,7 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const char *name)
   grid->addWidget(l, 2,0);
   grid->addWidget(htsearchBin, 2,1);
   connect(htsearchBin, SIGNAL(textChanged(const QString&)), this, SLOT(configChanged()));
-  wtstr = i18n( "Enter the path to your htsearch program here, e.g., /usr/local/bin/htsearch" );
+  wtstr = i18n( "Enter the path to your htsearch program here, e.g. /usr/local/bin/htsearch" );
   QWhatsThis::add( htsearchBin, wtstr );
   QWhatsThis::add( l, wtstr );
 
@@ -107,7 +107,7 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const char *name)
   grid->addWidget(l, 3,0);
   grid->addWidget(htmergeBin, 3,1);
   connect(htmergeBin, SIGNAL(textChanged(const QString&)), this, SLOT(configChanged()));
-  wtstr = i18n( "Enter the path to your htmerge program here, e.g., /usr/local/bin/htmerge" );
+  wtstr = i18n( "Enter the path to your htmerge program here, e.g. /usr/local/bin/htmerge" );
   QWhatsThis::add( htmergeBin, wtstr );
   QWhatsThis::add( l, wtstr );
 
