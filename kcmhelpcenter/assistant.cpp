@@ -6,6 +6,7 @@
 */
 
 #include "assistant.h"
+#include <kconfig.h>
 
 static bool GUI;
 

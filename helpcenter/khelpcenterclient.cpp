@@ -22,6 +22,7 @@
 #include <kprocess.h>
 
 #include "khelpcenter.h"
+#include <kdebug.h>
 
 void usage()
 {
