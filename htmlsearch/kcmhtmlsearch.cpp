@@ -167,7 +167,7 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const char *name)
 
 QString KHTMLSearchConfig::quickHelp() const
 {
-    return i18n( "This configuration module lets you configure the ht://dig engine which can be used for fulltext search in the KDE documentation as well as other system documentation like man and info pages." );
+    return i18n( "<h1>Help Index</h1> This configuration module lets you configure the ht://dig engine which can be used for fulltext search in the KDE documentation as well as other system documentation like man and info pages." );
 }
 
 
