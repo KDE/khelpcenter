@@ -29,7 +29,7 @@ noinst_HEADERS = khelpcenter.h finddlg.h khc_baseview.h \
 	khc_mainwindow.h khc_mansearch.h khc_navigator.h khc_navigatoritem.h \
 	khc_searchmatch.h khc_searchwidget.h man.h version.h khc_history.h
 
-DISTCLEANFILES = $(khelpcenter_METASOURCES) khelpcenter.cc khelpcenter.h
+DISTCLEANFILES = $(khelpcenter_METASOURCES) khelpcenter.cc khelpcenter.h browser.cc browser.h
 
 idl_DATA = khelpcenter.idl
 
