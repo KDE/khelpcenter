@@ -66,6 +66,12 @@ bool HTMLSearch::createConfig(QString _lang)
     return false;
   wrapper = wrapper.left(wrapper.length() - 12);
 
+  // locate the image dir
+  QString images = locate("data", "khelpcenter/pics/star.png");
+  if (images.isEmpty())
+    return false;
+  images = images.left(images.length() - 8);
+
   QFile f(fname);
   if (f.open(IO_WriteOnly))
     {
@@ -79,6 +85,9 @@ bool HTMLSearch::createConfig(QString _lang)
       ts << "local_urls_only:\ttrue" << endl;
       ts << "local_default_doc:\t\tindex.html" << endl;
       ts << "maximum_pages:\t\t1" << endl;
+      ts << "image_url_prefix:\t\t" << images << endl;
+      ts << "star_image:\t\t" << images << "star.png" << endl;
+      ts << "star_blank:\t\t" << images << "star_blank.png" << endl;
 
       ts << "search_results_wrapper:\t" << wrapper << "wrapper.html" << endl;
       ts << "nothing_found_file:\t" << wrapper << "nomatch.html" << endl;
