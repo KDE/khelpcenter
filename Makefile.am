@@ -13,7 +13,9 @@ khelpcenter_SOURCES = dummy.cc
 
 # libkhelpcenterpart.la: The helpcenter KPart
 # khelpcenter.la: the helpcenter as kdeinit loadable module
-lib_LTLIBRARIES = libkhelpcenterpart.la khelpcenter.la
+lib_LTLIBRARIES = khelpcenter.la
+
+kde_module_LTLIBRARIES = libkhelpcenterpart.la
 
 khelpcenter_la_LDFLAGS = $(all_libraries) -module -avoid-version
 khelpcenter_la_LIBADD   = $(LIB_KDECORE)
