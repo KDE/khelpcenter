@@ -49,7 +49,7 @@ ProgressDialog::ProgressDialog(QWidget *parent, const char *name)
 
 void ProgressDialog::setFilesScanned(int n)
 {
-  filesScanned->setText(QString(i18n("Files processed: %1")).arg(n));
+  filesScanned->setText(i18n("Files processed: %1").arg(n));
 }
 
 
