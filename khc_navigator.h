@@ -78,14 +78,15 @@ class khcNavigatorWidget : public QTabWidget
 
  public:
     struct GlossaryEntry {
+      GlossaryEntry() {}
       GlossaryEntry(const QString &t, const QString &d, const QStringList &sa)
       {
         term = t;
         definition = d;
         seeAlso = sa;
       }
-			
-      QString term;
+
+     QString term;
       QString definition;
       QStringList seeAlso;
     };
@@ -148,4 +149,10 @@ class khcNavigatorWidget : public QTabWidget
     QString htmlData;
 };
 
+inline QDataStream &operator<<( QDataStream &stream, const khcNavigatorWidget::GlossaryEntry &e )
+{ return stream << e.term << e.definition << e.seeAlso; }
+
+inline QDataStream &operator>>( QDataStream &stream, khcNavigatorWidget::GlossaryEntry &e )
+{ return stream >> e.term >> e.definition >> e.seeAlso; }
+ 
 #endif

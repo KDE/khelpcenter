@@ -27,6 +27,7 @@
 #include <klocale.h>
 #include <kstddirs.h>
 #include <kcmdlineargs.h>
+#include <kstringhandler.h>
 
 #include <qdir.h>
 #include <qfile.h>
@@ -34,6 +35,7 @@
 #include <assert.h>
 
 #include "khc_main.h"
+#include "khc_view.h"
 
 #include <kaboutdata.h>
 #include <kdebug.h>
@@ -49,12 +51,13 @@
 #include <qhbox.h>
 
 KHMainWindow::KHMainWindow(const KURL &url)
-    : KMainWindow(0, "khmainwindow")
+    : KMainWindow(0, "khmainwindow"), m_goMenuIndex( -1 ), m_goMenuHistoryStartPos( -1 ),
+      m_goMenuHistoryCurrentPos( -1 )
 {
     splitter = new QSplitter(this);
 
-    doc = new KHTMLPart( splitter, 0,
-                         this, 0, KHTMLPart::BrowserViewGUI );
+    doc = new KHCView( splitter, 0,
+                       this, 0, KHTMLPart::BrowserViewGUI );
     connect(doc, SIGNAL(setWindowCaption(const QString &)),
             SLOT(setCaption(const QString &)));
     connect(doc, SIGNAL(setStatusBarText(const QString &)),
@@ -63,11 +66,8 @@ KHMainWindow::KHMainWindow(const KURL &url)
             statusBar(), SLOT(message(const QString &)));
     connect(doc, SIGNAL(started(KIO::Job *)),
             SLOT(slotStarted(KIO::Job *)));
-
-    if (url.isEmpty())
-        prepareAbout();
-    else
-        doc->openURL( url );
+    connect(doc, SIGNAL(completed()),
+            SLOT(documentCompleted()));
 
     statusBar()->message(i18n("Preparing Index"));
 
@@ -94,65 +94,40 @@ KHMainWindow::KHMainWindow(const KURL &url)
     (*actionCollection()) += *doc->actionCollection();
     (void)KStdAction::close(this, SLOT(close()), actionCollection());
 
-    backAction = new KToolBarPopupAction( i18n( "&Back" ), "back", ALT+Key_Left,
-                                          this, SLOT( slotBack() ),
-                                          actionCollection(), "back" );
-    connect( backAction->popupMenu(), SIGNAL( activated( int ) ), this, SLOT( slotBackActivated( int ) ) );
+    back = new KToolBarPopupAction( i18n( "&Back" ), "back", ALT+Key_Left,
+                                    this, SLOT( slotBack() ),
+                                    actionCollection(), "back" );
+    connect( back->popupMenu(), SIGNAL( activated( int ) ), this, SLOT( slotBackActivated( int ) ) );
+    connect( back->popupMenu(), SIGNAL( aboutToShow() ), this, SLOT( fillBackMenu() ) );
+    back->setEnabled( false );
 
-    forwardAction = new KToolBarPopupAction( i18n( "&Forward" ), "forward",
-                                             ALT+Key_Right, this,
-                                             SLOT( slotForward() ),
-                                             actionCollection(), "forward" );
-    connect( forwardAction->popupMenu(), SIGNAL( activated( int ) ), this, SLOT( slotForwardActivated( int ) ) );
+    forward = new KToolBarPopupAction( i18n( "&Forward" ), "forward",
+                                       ALT+Key_Right, this,
+                                       SLOT( slotForward() ),
+                                       actionCollection(), "forward" );
+    connect( forward->popupMenu(), SIGNAL( activated( int ) ), this, SLOT( slotForwardActivated( int ) ) );
+    connect( forward->popupMenu(), SIGNAL( aboutToShow() ), this, SLOT( fillForwardMenu() ) );
+    forward->setEnabled( false );
 
     createGUI( "khelpcenterui.rc" );
 
+    QPopupMenu *goMenu = dynamic_cast<QPopupMenu *>( guiFactory()->container( "go", this ) );
+    if ( goMenu )
+    {
+        connect( goMenu, SIGNAL( aboutToShow() ), this, SLOT( fillGoMenu() ) );
+        connect( goMenu, SIGNAL( activated( int ) ), this, SLOT( goMenuActivated( int ) ) );
+        m_goMenuIndex = goMenu->count();
+    }
+    
+
+    m_lstHistory.setAutoDelete( true );
+
+    if (url.isEmpty())
+        openURL( QString::fromLatin1( "about:khelpcenter" ) );
+    else
+        openURL( url );
+
     statusBar()->message(i18n("Ready"));
-}
-
-void KHMainWindow::prepareAbout()
-{
-    QString file = locate( "data", "khelpcenter/intro.html.in" );
-    if ( file.isEmpty() )
-        return;
-
-    QFile f( file );
-
-    if ( !f.open( IO_ReadOnly ) )
-	return;
-
-    QTextStream t( &f );
-
-    QString res = t.read();
-
-    res = res.arg( i18n("Conquer your Desktop!") )
-          .arg( langLookup( "khelpcenter/konq.css" ) )
-          .arg( langLookup( "khelpcenter/pointers.png" ) )
-          .arg( langLookup( "khelpcenter/khelpcenter.png" ) )
-          .arg( langLookup( "khelpcenter/lines.png" ) )
-          .arg( i18n( "Welcome to the K Desktop Environment" ) )
-          .arg( i18n( "The KDE team welcomes you to user-friendly UNIX computing" ) )
-          .arg( i18n( "KDE is a powerful graphical desktop environment for Unix workstations.  A\n"
-                      "KDE desktop combines ease of use, contemporary functionality and outstanding\n"
-                      "graphical design with the technological superiority of the Unix operating\n"
-                      "system." ) )
-          .arg( i18n( "What is the K Desktop Environment?" ) )
-          .arg( i18n( "Contacting the KDE Project" ) )
-          .arg( i18n( "Supporting the KDE Project" ) )
-          .arg( i18n( "Useful links" ) )
-          .arg( i18n( "Getting the most out of KDE" ) )
-          .arg( i18n( "General Documentation" ) )
-          .arg( i18n( "A Quick Start Guide to the Desktop" ) )
-          .arg( i18n( "KDE User's guide" ) )
-          .arg( i18n( "Frequently asked questions" ) )
-          .arg( i18n( "Basic Applications" ) )
-          .arg( i18n( "The Kicker Desktop Panel" ) )
-          .arg( i18n( "The KDE Control Center" ) )
-          .arg( i18n( "The Konqueror File manager and Web Browser" ) )
-          .arg( langLookup( "khelpcenter/kdelogo2.png" ) );
-    doc->begin( "about:khelpcenter" );
-    doc->write( res );
-    doc->end();
 }
 
 void KHMainWindow::slotStarted(KIO::Job *job)
@@ -161,6 +136,8 @@ void KHMainWindow::slotStarted(KIO::Job *job)
     if (job)
        connect(job, SIGNAL(infoMessage( KIO::Job *, const QString &)),
             this, SLOT(slotInfoMessage(KIO::Job *, const QString &)));
+
+    updateHistoryActions();
 }
 
 void KHMainWindow::createHistoryEntry()
@@ -185,13 +162,40 @@ void KHMainWindow::createHistoryEntry()
     assert( m_lstHistory.at() == (int) m_lstHistory.count() - 1 );
 }
 
-void KHMainWindow::slotOpenURLRequest( const KURL &url,
-                                       const KParts::URLArgs &)
+void KHMainWindow::updateHistoryEntry()
 {
-    if (url.protocol() == QString::fromLatin1("glossentry"))
+    HistoryEntry *current = m_lstHistory.current();
+
+    QDataStream stream( current->buffer, IO_WriteOnly );
+
+    doc->browserExtension()->saveState( stream );
+
+    current->url = doc->url();
+    current->title = doc->title();
+}
+
+void KHMainWindow::slotOpenURLRequest( const KURL &url,
+                                       const KParts::URLArgs &args)
+{
+    QString proto = url.protocol().lower();
+    if ( proto != "help" && proto != "glossentry" && proto != "about" &&
+         proto != "man" && proto != "info" )
+    {
+        kapp->invokeBrowser( url.url() );
+        return;
+    }
+
+    stop();
+
+    doc->browserExtension()->setURLArgs( args );
+
+    if (proto == QString::fromLatin1("glossentry"))
         slotGlossSelected(static_cast<khcNavigatorWidget *>(nav->widget())->glossEntry(KURL::decode_string(url.encodedPathAndQuery())));
     else
+    {
+        createHistoryEntry();
         doc->openURL(url);
+    }  
 }
 
 void KHMainWindow::slotBack()
@@ -201,7 +205,7 @@ void KHMainWindow::slotBack()
 
 void KHMainWindow::slotBackActivated( int id )
 {
-    slotGoHistoryActivated( -(backAction->popupMenu()->indexOf( id ) + 1) );
+    slotGoHistoryActivated( -(back->popupMenu()->indexOf( id ) + 1) );
 }
 
 void KHMainWindow::slotForward()
@@ -211,7 +215,7 @@ void KHMainWindow::slotForward()
 
 void KHMainWindow::slotForwardActivated( int id )
 {
-    slotGoHistoryActivated( forwardAction->popupMenu()->indexOf( id ) + 1 );
+    slotGoHistoryActivated( forward->popupMenu()->indexOf( id ) + 1 );
 }
 
 void KHMainWindow::slotGoHistoryActivated( int steps )
@@ -227,9 +231,100 @@ void KHMainWindow::slotGoHistoryActivated( int steps )
 void KHMainWindow::slotGoHistoryDelayed()
 {
   if (!m_goBuffer) return;
-  //int steps = m_goBuffer;
+  int steps = m_goBuffer;
   m_goBuffer = 0;
-  // m_currentView->go( steps );
+  goHistory( steps );
+}
+
+void KHMainWindow::goHistory( int steps )
+{
+    stop();
+
+    int newPos = m_lstHistory.at() + steps;
+ 
+    HistoryEntry *current = m_lstHistory.at( newPos );
+ 
+    assert( current );
+ 
+    HistoryEntry h( *current );
+    h.buffer.detach();
+ 
+    QDataStream stream( h.buffer, IO_ReadOnly );
+ 
+    doc->browserExtension()->restoreState( stream );
+ 
+    updateHistoryActions();
+}
+
+void KHMainWindow::documentCompleted()
+{
+    updateHistoryEntry();
+
+    updateHistoryActions();
+}
+
+void KHMainWindow::fillBackMenu()
+{
+    QPopupMenu *menu = back->popupMenu();
+    menu->clear();
+    fillHistoryPopup( menu, true, false, false );
+}
+
+void KHMainWindow::fillForwardMenu()
+{
+    QPopupMenu *menu = forward->popupMenu();
+    menu->clear();
+    fillHistoryPopup( menu, false, true, false );
+}
+
+void KHMainWindow::fillGoMenu()
+{
+    QPopupMenu *goMenu = dynamic_cast<QPopupMenu *>( guiFactory()->container( "go", this ) );
+    if ( !goMenu || m_goMenuIndex == -1 )
+        return;
+
+    for ( int i = goMenu->count() - 1 ; i >= m_goMenuIndex; i-- )
+        goMenu->removeItemAt( i );
+
+    // TODO perhaps smarter algorithm (rename existing items, create new ones only if not enough) ?
+ 
+    // Ok, we want to show 10 items in all, among which the current url...
+ 
+    if ( m_lstHistory.count() <= 9 )
+    {
+        // First case: limited history in both directions -> show it all
+        m_goMenuHistoryStartPos = m_lstHistory.count() - 1; // Start right from the end
+    } else
+    // Second case: big history, in one or both directions
+    {
+        // Assume both directions first (in this case we place the current URL in the middle)
+        m_goMenuHistoryStartPos = m_lstHistory.at() + 4;
+ 
+        // Forward not big enough ?
+        if ( m_lstHistory.at() > (int)m_lstHistory.count() - 4 )
+          m_goMenuHistoryStartPos = m_lstHistory.count() - 1;
+    }
+    assert( m_goMenuHistoryStartPos >= 0 && (uint)m_goMenuHistoryStartPos < m_lstHistory.count() );
+    m_goMenuHistoryCurrentPos = m_lstHistory.at(); // for slotActivated
+    fillHistoryPopup( goMenu, false, false, true, m_goMenuHistoryStartPos );
+}
+
+void KHMainWindow::goMenuActivated( int id )
+{
+  QPopupMenu *goMenu = dynamic_cast<QPopupMenu *>( guiFactory()->container( "go", this ) );
+  if ( !goMenu )
+    return;
+
+  // 1 for first item in the list, etc.
+  int index = goMenu->indexOf(id) - m_goMenuIndex + 1;
+  if ( index > 0 )
+  {
+      kdDebug(1202) << "Item clicked has index " << index << endl;
+      // -1 for one step back, 0 for don't move, +1 for one step forward, etc.
+      int steps = ( m_goMenuHistoryStartPos+1 ) - index - m_goMenuHistoryCurrentPos; // make a drawing to understand this :-)
+      kdDebug(1202) << "Emit activated with steps = " << steps << endl;
+      goHistory( steps );
+  }
 }
 
 void KHMainWindow::slotInfoMessage(KIO::Job *, const QString &m)
@@ -239,77 +334,69 @@ void KHMainWindow::slotInfoMessage(KIO::Job *, const QString &m)
 
 void KHMainWindow::openURL(const QString &url)
 {
-    doc->openURL(KURL(url));
+    openURL( KURL( url ) );
+}
+
+void KHMainWindow::openURL(const KURL &url)
+{
+    stop();
+    createHistoryEntry();
+    doc->openURL(url);
 }
 
 void KHMainWindow::slotGlossSelected(const khcNavigatorWidget::GlossaryEntry &entry)
 {
-    QFile htmlFile( locate("data", "khelpcenter/glossary.html.in" ) );
-    if (!htmlFile.open(IO_ReadOnly))
-        return;
-
-    QString seeAlso;
-    if (!entry.seeAlso.isEmpty()) {
-        seeAlso = i18n("See also: ");
-        QStringList seeAlsos = entry.seeAlso;
-        QStringList::Iterator it = seeAlsos.begin();
-        QStringList::Iterator end = seeAlsos.end();
-        for (; it != end; ++it) {
-            seeAlso += QString::fromLatin1("<a href=\"glossentry:");
-            seeAlso += (*it).latin1();
-            seeAlso += QString::fromLatin1("\">") + (*it).latin1();
-            seeAlso += QString::fromLatin1("</a>, ");
-        }
-        seeAlso = seeAlso.left(seeAlso.length() - 2);
-    }
-
-    QTextStream htmlStream(&htmlFile);
-    QString htmlSrc = htmlStream.read()
-                      .arg( i18n( "KDE Glossary" ) )
-                      .arg( langLookup( "khelpcenter/konq.css" ) )
-                      .arg( langLookup( "khelpcenter/pointers.png" ) )
-                      .arg( langLookup( "khelpcenter/khelpcenter.png" ) )
-                      .arg( langLookup( "khelpcenter/lines.png" ) )
-                      .arg(entry.term)
-                      .arg(entry.definition)
-                      .arg(seeAlso)
-                      .arg( langLookup( "khelpcenter/kdelogo2.png" ) );
-
-    doc->begin("about:glossary" );
-    doc->write(htmlSrc);
-    doc->end();
+    stop();
+    createHistoryEntry();
+    doc->showGlossaryEntry( entry );
 }
 
-QString KHMainWindow::langLookup(const QString &fname)
+void KHMainWindow::updateHistoryActions()
 {
-    QStringList search;
+    back->setEnabled( canGoBack() );
+    forward->setEnabled( canGoForward() );
+}
 
-    // assemble the local search paths
-    const QStringList localDoc = KGlobal::dirs()->resourceDirs("html");
+void KHMainWindow::stop()
+{
+    doc->closeURL();
+    if ( m_lstHistory.count() > 0 )
+        updateHistoryEntry();
+}
 
-    // look up the different languages
-    for (int id=localDoc.count()-1; id >= 0; --id)
-    {
-        QStringList langs = KGlobal::locale()->languageList();
-        langs.append( "en" );
-        langs.remove( "C" );
-        QStringList::ConstIterator lang;
-        for (lang = langs.begin(); lang != langs.end(); ++lang)
-            search.append(QString("%1%2/%3").arg(localDoc[id]).arg(*lang).arg(fname));
-    }
-
-    // try to locate the file
-    QStringList::Iterator it;
-    for (it = search.begin(); it != search.end(); ++it)
-    {
-        kdDebug() << "Looking for help in: " << *it << endl;
-
-        QFileInfo info(*it);
-        if (info.exists() && info.isFile() && info.isReadable())
-            return *it;
-    }
-
-    return QString::null;
+// ripped from konq_actions :) TODO after 2.2: centralize ;-)
+void KHMainWindow::fillHistoryPopup( QPopupMenu *popup, bool onlyBack, bool onlyForward,
+                                     bool checkCurrentItem, uint startPos )
+{
+  assert ( popup ); // kill me if this 0... :/
+ 
+  //kdDebug(1202) << "fillHistoryPopup position: " << history.at() << endl;
+  HistoryEntry * current = m_lstHistory.current();
+  QListIterator<HistoryEntry> it( m_lstHistory );
+  if (onlyBack || onlyForward)
+  {
+      it += m_lstHistory.at(); // Jump to current item
+      if ( !onlyForward ) --it; else ++it; // And move off it
+  } else if ( startPos )
+      it += startPos; // Jump to specified start pos
+ 
+  uint i = 0;
+  while ( it.current() )
+  {
+      QString text = it.current()->title;
+      text = KStringHandler::csqueeze(text, 50); //CT: squeeze
+      text.replace( QRegExp( "&" ), "&&" );
+      if ( checkCurrentItem && it.current() == current )
+      {
+          int id = popup->insertItem( text ); // no pixmap if checked
+          popup->setItemChecked( id, true );
+      } else
+          popup->insertItem( text );
+      if ( ++i > 10 )
+          break;
+      if ( !onlyForward ) --it; else ++it;
+  }
+  //kdDebug(1202) << "After fillHistoryPopup position: " << history.at() << endl;
 }
 
 KHMainWindow::~KHMainWindow()

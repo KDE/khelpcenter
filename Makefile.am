@@ -16,8 +16,9 @@ khelpcenter_la_SOURCES = khc_main.cc $(libkhelpcenterpart_la_SOURCES)
 
 kde_module_LTLIBRARIES = libkhelpcenterpart.la khelpcenter.la
 libkhelpcenterpart_la_SOURCES = khc_factory.cc khc_navigator.cc \
-	khc_navigatoritem.cc khc_searchwidget.cc klanguagebutton.cpp 
-libkhelpcenterpart_la_LIBADD = htmlsearch/libhtmlsearch.la $(LIB_KPARTS)
+	khc_navigatoritem.cc khc_searchwidget.cc klanguagebutton.cpp \
+    khc_view.cc
+libkhelpcenterpart_la_LIBADD = htmlsearch/libhtmlsearch.la $(LIB_KHTML) $(LIB_KPARTS)
 libkhelpcenterpart_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN)
 
 service_DATA = khelpcenter.desktop
