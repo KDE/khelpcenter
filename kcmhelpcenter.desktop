@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Type=Application
 Exec=kdesu kcmshell kcmhelpcenter
-Icon=
+Icon=help
 DocPath=kcontrol/kcmhelpcenter.html
 
 X-KDE-ModuleType=Library
@@ -10,7 +10,42 @@ X-KDE-Library=helpcenter
 X-KDE-RootOnly=true
 
 Name=KHelpCenter Control Module
+Name[af]=khulpsentrum kontrole module
+Name[be]=Модуль кіраваньня KHelpCenter
+Name[bs]=KHelpCenter kontrolni modul
+Name[da]=KHelpCenter-kontrolmodul
+Name[en_GB]=KHelpCentre Control Module
+Name[eo]=KHelpcentro Agordo
+Name[es]=Módulo de control de KHelpCenter
+Name[fi]=KHelpCenter asetusmoduli
+Name[he]=הגדרות KHelpCenter
+Name[hr]=Kontrolni modul za pomoć
+Name[hu]=KHelpCenter beállítómodul
+Name[pt_BR]=Módulo de Controle do Centro de Ajuda do KDE
+Name[sv]=Inställningsmodul för Hjälpcentralen
 
 Comment=Help center search index configuration and generation.
+Comment[af]=hulp sentrum soektog indeks opstelling en genereering.
+Comment[bs]=Podešavanje i pravljenje indeksa za pretragu Pomoći.
+Comment[da]=Hjælpecenterets indstilling og generering af søgeindeks.
+Comment[en_GB]=Help centre search index configuration and generation.
+Comment[eo]=Agordo de la KHelpo
+Comment[es]=Configuración y generación del índice de búsqueda.
+Comment[fi]=Ohjeen hakuindeksin asetukset ja luonti
+Comment[he]=שינוי הגדרות ויצירת אינדקס החיפוש של מרכז העזרה
+Comment[hr]=Podešavanje i stvaranje kazala za pretraživanje pomoći.
+Comment[hu]=keresési index
+Comment[pt_BR]=Configuração e geração do índice de busca do centro de Ajuda.
+Comment[sv]=Skapa och ställ in sökindex för Hjälpcentralen
 
 Keywords=khelpcenter,help,index,search
+Keywords[be]=Цэнтар дапамогі,дапамога,індэкс,пошук,khelpcenter,help,index,search
+Keywords[bs]=khelpcenter,help,index,search,pretraga,indeks
+Keywords[da]=khelpcenter,hjælp,indeks,søg
+Keywords[es]=khelpcenter,ayuda,índice,búsqueda
+Keywords[fi]=khelpcenter,ohje,indeksi,haku
+Keywords[he]=khelpcenter,עזרה,אינדקס,חיפוש
+Keywords[hr]=kcentarzapomoć,pomoć,indeks,traženje,khelpcenter,help,index,search
+Keywords[hu]=khelpcenter,segítség,index,keresés
+Keywords[pt_BR]=centro de ajuda,ajuda,índice,busca
+Keywords[sv]=khelpcenter,hjälp,index,sök
