@@ -172,6 +172,8 @@ void MainWindow::setupActions()
                        "printFrame" );
 
     KStdAction::home( this, SLOT( slotShowHome() ), actionCollection() );
+    KStdAction::copy( this, SLOT(slotCopySelectedText()), actionCollection(), "copy_text");
+
     mLastSearchAction = new KAction( i18n("&Last Search Result"), 0, this,
                                      SLOT( slotLastSearch() ),
                                      actionCollection(), "lastsearch" );
@@ -194,6 +196,11 @@ void MainWindow::setupActions()
     new KAction( i18n( "Configure Fonts..." ), KShortcut(), this, SLOT( slotConfigureFonts() ), actionCollection(), "configure_fonts" );
     new KAction( i18n( "Increase Font Sizes" ), "viewmag+", KShortcut(), this, SLOT( slotIncFontSizes() ), actionCollection(), "incFontSizes" );
     new KAction( i18n( "Decrease Font Sizes" ), "viewmag-", KShortcut(), this, SLOT( slotDecFontSizes() ), actionCollection(), "decFontSizes" );
+}
+
+void MainWindow::slotCopySelectedText()
+{
+  mDoc->copySelectedText();
 }
 
 void MainWindow::slotConfigureKeys()

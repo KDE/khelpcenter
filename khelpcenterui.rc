@@ -1,5 +1,5 @@
 <!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
-<kpartgui name="khelpcenter" version="9">
+<kpartgui name="khelpcenter" version="10">
 <MenuBar>
  <Menu name="file" noMerge="1">
     <text>&amp;File</text>
@@ -12,6 +12,8 @@
   <Action name="selectAll" />
   <Separator />
   <Action name="find" />
+  <Separator />
+  <Action name="copy_text" />
  </Menu>
  <Menu name="view" noMerge="1">
   <text>&amp;View</text>

@@ -12,6 +12,7 @@
 #include <kstandarddirs.h>
 
 #include <qfileinfo.h>
+#include <qclipboard.h>
 
 using namespace KHC;
 
@@ -47,6 +48,11 @@ View::View( QWidget *parentWidget, const char *widgetName,
 View::~View()
 {
   delete mFormatter;
+}
+
+void View::copySelectedText()
+{
+  kapp->clipboard()->setText( selectedText() );
 }
 
 bool View::openURL( const KURL &url )
