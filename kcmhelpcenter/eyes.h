@@ -43,11 +43,11 @@ private:
 	myPoint		pupil[2];	// pupil position
 
 	// defined constants
-	const static float eyePadding, eyeThickness,
+	static const float eyePadding, eyeThickness,
 	    eyeRadius, ballRadius, ballPad;
 
 	// calculated constants
-	const static float eyeX, eyeDiameter, irisRadius, irisDiameter,
+	static const float eyeX, eyeDiameter, irisRadius, irisDiameter,
 	    eyesWidth, eyesHeight, ballDiameter, ballAllowed;
 };
 
