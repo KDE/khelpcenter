@@ -190,7 +190,7 @@ void MainWindow::setupActions()
     KAction *home = KStdAction::home( this, SLOT( slotShowHome() ), actionCollection() );
     home->setText(i18n("Table of &Contents"));
     home->setToolTip(i18n("Table of Contents"));
-    home->setWhatsThis(i18n("Go back to the Table of Contents"));
+    home->setWhatsThis(i18n("Go back to the table of contents"));
 
     mCopyText = KStdAction::copy( this, SLOT(slotCopySelectedText()), actionCollection(), "copy_text");
 

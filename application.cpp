@@ -54,7 +54,7 @@ int Application::newInstance()
 
 static KCmdLineOptions options[] =
 {
-  { "+[url]", I18N_NOOP("A URL to display"), "" },
+  { "+[url]", I18N_NOOP("URL to display"), "" },
   KCmdLineLastOption
 };
 
