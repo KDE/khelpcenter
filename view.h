@@ -20,7 +20,11 @@ class View : public KHTMLPart
     virtual void saveState( QDataStream &stream );
     virtual void restoreState( QDataStream &stream );
 
-    QString title() const { return m_title; }
+    enum State { Docu, About, GlossEntry, Search };
+
+    int state() const { return mState; }
+    QString title() const { return mTitle; }
+
     static QString langLookup( const QString &fname );
 
     void beginSearchResult();
@@ -40,11 +44,9 @@ class View : public KHTMLPart
   private:
     void showAboutPage();
  
-    enum State { Docu, About, GlossEntry };
-
-    GlossaryEntry m_glossEntry;
-    int m_state;
-    QString m_title;
+    GlossaryEntry mGlossEntry;
+    int mState;
+    QString mTitle;
 
     QString mSearchResult;
 };

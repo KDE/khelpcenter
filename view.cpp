@@ -15,7 +15,7 @@ using namespace KHC;
 
 View::View( QWidget *parentWidget, const char *widgetName,
                   QObject *parent, const char *name, KHTMLPart::GUIProfile prof )
-    : KHTMLPart( parentWidget, widgetName, parent, name, prof ), m_state( Docu )
+    : KHTMLPart( parentWidget, widgetName, parent, name, prof ), mState( Docu )
 {
     connect( this, SIGNAL( setWindowCaption( const QString & ) ),
              this, SLOT( setTitle( const QString & ) ) );
@@ -40,31 +40,31 @@ bool View::openURL( const KURL &url )
         showAboutPage();
         return true;
     }
-    m_state = Docu;
+    mState = Docu;
     return KHTMLPart::openURL( url );
 }
 
 void View::saveState( QDataStream &stream )
 {
-    stream << m_state << m_glossEntry;
-    if ( m_state == Docu )
+    stream << mState << mGlossEntry;
+    if ( mState == Docu )
         KHTMLPart::saveState( stream );
 }
 
 void View::restoreState( QDataStream &stream )
 {
-    stream >> m_state >> m_glossEntry;
-    if ( m_state == Docu )
+    stream >> mState >> mGlossEntry;
+    if ( mState == Docu )
         KHTMLPart::restoreState( stream );
-    else if ( m_state == About )
+    else if ( mState == About )
         showAboutPage();
-    else if ( m_state == GlossEntry )
-        showGlossaryEntry( m_glossEntry );
+    else if ( mState == GlossEntry )
+        showGlossaryEntry( mGlossEntry );
 }
 
 void View::showGlossaryEntry( const GlossaryEntry &entry )
 {
-    if(m_glossEntry.term()==entry.term())
+    if(mGlossEntry.term()==entry.term())
         return;
 
     QFile htmlFile( locate("data", "khelpcenter/glossary.html.in" ) );
@@ -73,8 +73,8 @@ void View::showGlossaryEntry( const GlossaryEntry &entry )
 
     emit started( 0 );
 
-    m_state = GlossEntry;
-    m_glossEntry = entry;
+    mState = GlossEntry;
+    mGlossEntry = entry;
 
     QString seeAlso;
     if (!entry.seeAlso().isEmpty()) {
@@ -121,7 +121,7 @@ void View::showAboutPage()
     if ( !f.open( IO_ReadOnly ) )
     return;
 
-    m_state = About;
+    mState = About;
 
     emit started( 0 );
 
@@ -198,11 +198,13 @@ QString View::langLookup( const QString &fname )
 
 void View::setTitle( const QString &title )
 {
-    m_title = title;
+    mTitle = title;
 }
 
 void View::beginSearchResult()
 {
+  mState = Search;
+
   begin();
   mSearchResult = "";
 }
@@ -222,6 +224,8 @@ void View::endSearchResult()
 void View::lastSearch()
 {
   if ( mSearchResult.isEmpty() ) return;
+ 
+  mState = Search;
   
   begin();
   write( mSearchResult );

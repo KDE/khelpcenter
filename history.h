@@ -45,6 +45,7 @@ class History : public QObject
 			KURL url;
 			QString title;
 			QByteArray buffer;
+                        bool search;
 		};
 
 		static History &self();

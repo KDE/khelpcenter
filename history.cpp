@@ -123,6 +123,12 @@ void History::updateCurrentEntry( View *view )
 	current->view = view;
 	current->url = view->url();
 	current->title = view->title();
+
+	if ( view->state() == View::Search ) {
+		current->search = true;
+	} else {
+		current->search = false;
+	}
 }
 
 void History::updateActions()
@@ -180,6 +186,11 @@ void History::goHistory( int steps )
 
 	Entry *current = m_entries.at( newPos );
 	Q_ASSERT( current );
+
+	if ( current->search ) {
+		current->view->lastSearch();
+		return;
+	}
 
 	Entry h( *current );
 	h.buffer.detach();
