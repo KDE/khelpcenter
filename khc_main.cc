@@ -40,16 +40,28 @@
 #include <khtml_part.h>
 #include <qlayout.h>
 #include <kaction.h>
+#include <qsplitter.h>
+#include "khc_navigator.h"
+#include <qhbox.h>
 
 KHMainWindow::KHMainWindow(const KURL &url)
     : KMainWindow(0, "khmainwindow")
 {
-    doc = new KHTMLPart( this, 0,
+    splitter = new QSplitter(this);
+
+    nav = new khcNavigator(splitter, this, "nav");
+
+    doc = new KHTMLPart( splitter, 0,
                          this, 0, KHTMLPart::BrowserViewGUI );
     QWidget::connect(doc, SIGNAL(setWindowCaption(const QString &)),
                      doc->widget(), SLOT(setCaption(const QString &)));
 
-    setCentralWidget( doc->widget() );
+    splitter->setResizeMode(nav->widget(), QSplitter::KeepSize);
+    QValueList<int> sizes;
+    sizes << 20 << 80;
+    splitter->setSizes(sizes);
+
+    setCentralWidget( splitter );
     setGeometry(366, 0, 640, 800);
     (*actionCollection()) += *doc->actionCollection();
     createGUI( "khelpcenterui.rc" );

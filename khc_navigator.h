@@ -54,7 +54,7 @@ class khcNavigator : public KParts::ReadOnlyPart
     Q_OBJECT
 
  public:
-    khcNavigator(QWidget *widget, const char *name=0);
+    khcNavigator(QWidget *parentWidget, QObject *widget, const char *name=0);
     virtual ~khcNavigator();
 
     virtual bool openURL( const KURL &url );
@@ -85,7 +85,7 @@ class khcNavigatorWidget : public QWidget
  signals:
     void itemSelected(const QString& itemURL);
     void setBussy(bool bussy);
-	
+
  private:
     void setupContentsTab();
     void setupIndexTab();

@@ -5,6 +5,8 @@
 #include <kmainwindow.h>
 
 class KHTMLPart;
+class QSplitter;
+class khcNavigator;
 
 class KHMainWindow : public KMainWindow
 {
@@ -16,6 +18,8 @@ public:
 
 private:
     KHTMLPart *doc;
+    QSplitter *splitter;
+    khcNavigator *nav;
 };
 
 #endif

@@ -1,6 +1,6 @@
 /*  This file is part of the KDE project
     Copyright (C) 1999 Simon Hausmann <hausmann@kde.org>
- 
+
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation; either version 2 of the License, or
@@ -49,12 +49,12 @@ KHCFactory::~KHCFactory()
 
 QObject* KHCFactory::create( QObject* parent, const char* name, const char* /*classname*/, const QStringList & )
 {
-  KGlobal::locale()->insertCatalogue(QString::fromLatin1("khelpcenter"));
-  khcNavigator *nav = new khcNavigator( (QWidget *)parent, name );
+    KGlobal::locale()->insertCatalogue(QString::fromLatin1("khelpcenter"));
+    khcNavigator *nav = new khcNavigator( (QWidget *)parent, parent, name );
 
-  emit objectCreated( nav );
+    emit objectCreated( nav );
 
-  return nav;
+    return nav;
 }
 
 KInstance *KHCFactory::instance()

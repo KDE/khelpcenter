@@ -8,10 +8,10 @@ bin_PROGRAMS = 	khelpcenter
 
 khelpcenter_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 khelpcenter_LDADD   = $(LIB_KHTML)
-khelpcenter_SOURCES = main.cpp khc_main.cc 
+khelpcenter_SOURCES = main.cpp khc_main.cc $(libkhelpcenterpart_la_SOURCES)
 
 kde_module_LTLIBRARIES = libkhelpcenterpart.la
-libkhelpcenterpart_la_SOURCES = khc_factory.cc khc_navigator.cc 
+libkhelpcenterpart_la_SOURCES = khc_factory.cc khc_navigator.cc \
 	khc_navigatoritem.cc 
 libkhelpcenterpart_la_LIBADD = htmlsearch/libhtmlsearch.la $(LIB_KPARTS)
 libkhelpcenterpart_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN)

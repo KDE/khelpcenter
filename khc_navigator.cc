@@ -34,7 +34,7 @@
 #include <kaction.h>
 #include <kapp.h>
 #include <ksimpleconfig.h>
-#include <kstddirs.h>	
+#include <kstddirs.h>
 #include <kglobal.h>
 #include <klocale.h>
 #include <kdebug.h>
@@ -48,13 +48,14 @@
 
 template class QList<khcNavigatorItem>;
 
-khcNavigator::khcNavigator(QWidget *parent, const char *name)
+khcNavigator::khcNavigator(QWidget *parentWidget, QObject *parent,
+                           const char *name)
     : KParts::ReadOnlyPart(parent,name)
 {
     kdDebug() << "khcNavigator::khcNavigator\n";
     setInstance( KHCFactory::instance() );
 
-    setWidget( new khcNavigatorWidget( parent ) );
+    setWidget( new khcNavigatorWidget( parentWidget ) );
 
     m_extension = new khcNavigatorExtension( this, "khcNavigatorExtension" );
     connect( widget(), SIGNAL( itemSelected(const QString&) ),
@@ -80,17 +81,17 @@ khcNavigator::~khcNavigator()
 
 void khcNavigatorExtension::slotItemSelected(const QString& url)
 {
-  KParts::URLArgs urlArgs(true, 0, 0);
+    KParts::URLArgs urlArgs(true, 0, 0);
 
-  kdDebug() << "request URL " << url << endl;
+    kdDebug() << "request URL " << url << endl;
 
-  emit openURLRequest( url, urlArgs );
+    emit openURLRequest( url, urlArgs );
 }
 
 khcNavigatorWidget::khcNavigatorWidget(QWidget *parent, const char *name)
    : QWidget(parent, name)
 {
-    tabBar = new QTabBar(parent);
+    tabBar = new QTabBar(this);
 
     setupContentsTab();
     setupSearchTab();
@@ -98,7 +99,7 @@ khcNavigatorWidget::khcNavigatorWidget(QWidget *parent, const char *name)
     connect(tabBar, SIGNAL(selected(int)),this,
 	    SLOT(slotTabSelected(int)));
 
-    buildTree();
+//    buildTree();
 }
 
 khcNavigatorWidget::~khcNavigatorWidget()
@@ -294,7 +295,7 @@ void khcNavigatorWidget::buildManualSubTree(khcNavigatorItem *parent, QString re
       QString url;
 
       switch (e->sycocaType())
-	{	
+	{
 	case KST_KService:
 	  s = static_cast<KService*>(e);
 	  url = documentationURL(s);
@@ -305,7 +306,7 @@ void khcNavigatorWidget::buildManualSubTree(khcNavigatorItem *parent, QString re
 	      staticItems.append(item);
 	    }
 	  break;
-	
+
 	case KST_KServiceGroup:
 	  g = static_cast<KServiceGroup*>(e);
           if ( g->caption().contains( ".hidden" ) )
@@ -382,7 +383,7 @@ void khcNavigatorWidget::slotTabSelected(int id)
 
 void khcNavigatorWidget::slotURLSelected(QString url)
 {
-  emit itemSelected(url);
+    emit itemSelected(url);
 }
 
 void khcNavigatorWidget::slotItemSelected(QListViewItem* currentItem)
@@ -485,7 +486,7 @@ bool khcNavigatorWidget::processDir( const QString &dirName, khcNavigatorItem *p
 	QString dirFile = filename;
 	dirFile += "/.directory";
 	QString icon;
-	
+
 	if ( QFile::exists( dirFile ) )
 	{
 	    KSimpleConfig sc( dirFile, true );
@@ -508,10 +509,10 @@ bool khcNavigatorWidget::processDir( const QString &dirName, khcNavigatorItem *p
     else
         dirItem = new khcNavigatorItem(tree, folderName, icon);
     appendList->append(dirItem);
-	
-	
+
+
 	// read and append child items
-	appendEntries(filename, dirItem, appendList);	
+	appendEntries(filename, dirItem, appendList);
 	processDir(filename, dirItem, appendList);
     }
     return true;
