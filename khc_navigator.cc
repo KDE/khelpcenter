@@ -50,7 +50,6 @@
 #include <kservicegroup.h>
 #include <ksycocaentry.h>
 #include <kservice.h>
-#include <kservicegroup.h>
 #include <kmessagebox.h>
 #include <kiconloader.h>
 #include <kprocio.h>

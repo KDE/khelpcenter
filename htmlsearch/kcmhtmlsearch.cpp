@@ -38,9 +38,6 @@
 #include <kfiledialog.h>
 #include <kprocess.h>
 #include <klangcombo.h>
-#include <klocale.h>
-#include <kstddirs.h>
-#include <kglobal.h>
 #include <kurlrequester.h>
 #include <klineedit.h>
 
