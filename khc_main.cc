@@ -39,8 +39,10 @@
 
 #include "version.h"
 
+
 static const char *description = 
 	I18N_NOOP("KDE Help Center");
+
 
 void Listener::slotAppRegistered( const QCString &appId )
 {
@@ -66,7 +68,15 @@ void Listener::slotAppRegistered( const QCString &appId )
     str << "View2_PassiveMode=false" << endl;
     str << "View2_ServiceName=KonqHTMLView" << endl;
     str << "View2_ServiceType=text/html" << endl;
-    str << "View2_URL=" << QString("help:/khelpcenter/main.html") << endl;
+
+    KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
+    QString url;
+    if (args->count() >= 1)
+      url = args->arg(0);
+    else
+      url = "help:/khelpcenter/main.html";
+
+    str << "View2_URL=" << url << endl;
 
     f.close();
 
@@ -78,19 +88,29 @@ void Listener::slotAppRegistered( const QCString &appId )
   }
 }
 
+
+static KCmdLineOptions options[] =
+{
+   { "+[url]", I18N_NOOP("An URL to display"), "" },
+   { 0,0,0 }
+};
+
+
 int main(int argc, char *argv[])
 {
   KAboutData aboutData( "khelpcenter", I18N_NOOP("KDE HelpCenter"), 
-    HELPCENTER_VERSION, description, KAboutData::License_GPL, 
-    "(c) 1999-2000, Matthias Elter");
+			HELPCENTER_VERSION, description, KAboutData::License_GPL, 
+			"(c) 1999-2000, Matthias Elter");
   aboutData.addAuthor("Matthias Elter",0, "me@kde.org");
+
   KCmdLineArgs::init( argc, argv, &aboutData );
-//  KCmdLineArgs::addCmdLineOptions( options ); // Add our own options.
-  
+  KCmdLineArgs::addCmdLineOptions( options );
+  KApplication::addCmdLineOptions();
+
   KApplication app( false, false ); // no GUI in this process
 
+
   app.dcopClient()->attach();
-  // we want to get applicationRegistered
   app.dcopClient()->setNotifications( true );
 
   Listener listener;
