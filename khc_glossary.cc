@@ -203,8 +203,7 @@ void khcGlossary::buildGlossaryTree()
 	QDomNodeList sectionNodes = doc.documentElement().elementsByTagName( QString::fromLatin1( "section" ) );
 	for ( unsigned int i = 0; i < sectionNodes.count(); i++ ) {
 		QDomElement sectionElement = sectionNodes.item( i ).toElement();
-		QDomElement titleElement = sectionElement.elementsByTagName( QString::fromLatin1( "title" ) ).item( 0 ).toElement();
-		QString title = titleElement.attribute( QString::fromLatin1( "title" ) );
+		QString title = sectionElement.attribute( QString::fromLatin1( "title" ) );
 		SectionItem *topicSection = new SectionItem( m_byTopicItem, title );
 
 		QDomNodeList entryNodes = sectionElement.elementsByTagName( QString::fromLatin1( "entry" ) );
