@@ -24,6 +24,9 @@ confdir = $(kde_appsdir)/Settings/Help
 
 bin_PROGRAMS = khtmlindex
 
+wrapperdir = $(kde_datadir)/khelpcenter/
+wrapper_SCRIPTS = meinproc_wrapper
+
 khtmlindex_SOURCES = index.cpp
 khtmlindex_LDFLAGS = $(KDE_RPATH) $(all_libraries)
 khtmlindex_LDADD = libhtmlsearch.la $(LIB_KDEUI)

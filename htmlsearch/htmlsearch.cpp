@@ -127,18 +127,18 @@ bool HTMLSearch::createConfig(const QString& _lang)
     // distributed with ht://Dig. It was compiled by Marjolein Katsma
     // <HSH@taxon.demon.nl>.
     QString bad_words = i18n( "List of words to exclude from index",
-                              "a:above:about:according:across:actually:\n"
+                              "above:about:according:across:actually:\n"
                               "adj:after:afterwards:again:against:all:\n"
                               "almost:alone:along:already:also:although:\n"
-                              "always:among:amongst:an:and:another:any:\n"
+                              "always:among:amongst:and:another:any:\n"
                               "anyhow:anyone:anything:anywhere:are:aren:\n"
-                              "arent:around:as:at:be:became:because:become:\n"
+                              "arent:around:became:because:become:\n"
                               "becomes:becoming:been:before:beforehand:\n"
                               "begin:beginning:behind:being:below:beside:\n"
                               "besides:between:beyond:billion:both:but:by:\n"
-                              "can:cant:cannot:caption:co:could:couldnt:\n"
+                              "can:cant:cannot:caption:could:couldnt:\n"
                               "did:didnt:do:does:doesnt:dont:down:during:\n"
-                              "each:eg:eight:eighty:either:else:elsewhere:\n"
+                              "each:eight:eighty:either:else:elsewhere:\n"
                               "end:ending:enough:etc:even:ever:every:\n"
                               "everyone:everything:everywhere:except:few:\n"
                               "fifty:first:five:for:former:formerly:forty:\n"
@@ -146,7 +146,7 @@ bool HTMLSearch::createConfig(const QString& _lang)
                               "havent:he:hence:her:here:hereafter:hereby:\n"
                               "herein:heres:hereupon:hers:herself:hes:him:\n"
                               "himself:his:how:however:hundred:ie:if:in:\n"
-                              "inc:indeed:instead:into:is:isnt:it:its:\n"
+                              "inc:indeed:instead:into:isnt:its:\n"
                               "itself:last:later:latter:latterly:least:\n"
                               "less:let:like:likely:ltd:made:make:makes:\n"
                               "many:may:maybe:me:meantime:meanwhile:might:\n"
@@ -154,13 +154,13 @@ bool HTMLSearch::createConfig(const QString& _lang)
                               "mrs:much:must:my:myself:namely:neither:\n"
                               "never:nevertheless:next:nine:ninety:no:\n"
                               "nobody:none:nonetheless:noone:nor:not:\n"
-                              "nothing:now:nowhere:of:off:often:on:once:\n"
-                              "one:only:onto:or:others:otherwise:our:ours:\n"
+                              "nothing:now:nowhere:off:often:on:once:\n"
+                              "one:only:onto:others:otherwise:our:ours:\n"
                               "ourselves:out:over:overall:own:page:per:\n"
                               "perhaps:rather:re:recent:recently:same:\n"
                               "seem:seemed:seeming:seems:seven:seventy:\n"
                               "several:she:shes:should:shouldnt:since:six:\n"
-                              "sixty:so:some:somehow:someone:something:\n"
+                              "sixty:some:somehow:someone:something:\n"
                               "sometime:sometimes:somewhere:still:stop:\n"
                               "such:taking:ten:than:that:the:their:them:\n"
                               "themselves:then:thence:there:thereafter:\n"
@@ -169,8 +169,8 @@ bool HTMLSearch::createConfig(const QString& _lang)
                               "three:through:throughout:thru:thus:tips:\n"
                               "to:together:too:toward:towards:trillion:\n"
                               "twenty:two:under:unless:unlike:unlikely:\n"
-                              "until:up:update:updated:updates:upon:us:\n"
-                              "used:using:ve:very:via:want:wanted:wants:\n"
+                              "until:update:updated:updates:upon:us:\n"
+                              "used:using:very:via:want:wanted:wants:\n"
                               "was:wasnt:way:ways:we:wed:well:were:\n"
                               "werent:what:whats:whatever:when:whence:\n"
                               "whenever:where:whereafter:whereas:whereby:\n"
@@ -206,17 +206,17 @@ bool HTMLSearch::createConfig(const QString& _lang)
         ts << "local_urls:\t\thttp://localhost/=/" << endl;
         ts << "local_urls_only:\ttrue" << endl;
         ts << "maximum_pages:\t\t1" << endl;
-        ts << "image_url_prefix:\t\t" << images << endl;
+        ts << "image_url_prefix:\t" << images << endl;
         ts << "star_image:\t\t" << images << "star.png" << endl;
         ts << "star_blank:\t\t" << images << "star_blank.png" << endl;
-        ts << "compression_level:\t\t6" << endl;
+        ts << "compression_level:\t6" << endl;
         ts << "max_hop_count:\t\t0" << endl;
 
         ts << "search_results_wrapper:\t" << wrapper << "wrapper.html" << endl;
         ts << "nothing_found_file:\t" << wrapper << "nomatch.html" << endl;
         ts << "syntax_error_file:\t" << wrapper << "syntax.html" << endl;
         ts << "bad_word_list:\t\t" << wrapper << "bad_words" << endl;
-
+        ts << "external_parsers:\t" << "text/xml\t" << locate( "data", "khelpcenter/meinproc_wrapper" ) << endl;
         f.close();
         return true;
     }
