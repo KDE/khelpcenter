@@ -1,0 +1,23 @@
+/* XPM */
+static char*book[]={
+"16 14 6 1",
+"b c #808080",
+"d c #7f7f7f",
+"# c #000000",
+"a c #0000c0",
+". c None",
+"c c #ffffff",
+".......##.......",
+".....##aa#......",
+"...##aaaaa#.....",
+".##aaaaaaaa#....",
+"#bbaaaaaaaaa#...",
+"##bbaaaaaaaaa#..",
+"#a#bbaaaaaaaaa#.",
+"#aa#bbaaaaaa##..",
+".#aa#bbaaa##cd..",
+"..#aa#bb##ccdd#.",
+"...#aa##ccdd##..",
+"....#a#cdd##....",
+".....##d##......",
+"......##........"};

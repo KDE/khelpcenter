@@ -1,0 +1,16 @@
+/*
+    This file is part of the KDE Help Center
+
+    Copyright (C) 1998 René Beutler (rbeutler@g26.ethz.ch)
+*/
+
+#include <kom.idl>
+
+interface helpcom {
+	unsigned long registerApp( in string name );
+	void removeApp( in unsigned long id );
+	void showDocument( in unsigned long id, in string name );
+	void documentHint( in unsigned long id, in string name );
+	void activate( in unsigned long id );
+	void configure();
+};

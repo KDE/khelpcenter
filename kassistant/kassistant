@@ -1,0 +1,1 @@
+kassistant.bin -ORBIIOPAddr inet:localhost:8888 &

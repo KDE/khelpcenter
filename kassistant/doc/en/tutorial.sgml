@@ -1,0 +1,38 @@
+<!doctype linuxdoc system>
+<article>
+
+<titlepag>
+  <title>KAssistant Tutorial</title>
+  <author>
+     <name>René Beutler <htmlurl url="mailto:rbeutler@g26.ethz.ch" name="rbeutler@g26.ethz.ch">
+  </author>
+  <date> last updated: Jan 12, 1999
+  <abstract>
+     This is a quick introduction to KAssistant, the Help Assistant.
+  </abstract>
+</titlepag>
+
+<toc>
+
+<sect>Welcome to the Help Assistant!
+<p>
+This is a <bf>quick introduction</bf> to the basics.
+<p>
+If you are already familiar with hypertext documents and you know what a link is, <htmlurl url="bla" name="continue here">.
+<p>
+<htmlurl url="" name="Just try it.">
+
+<sect>gugus
+<p>
+There are 4 ways to lock the screen:
+<enum>
+  <item>Click on the <url url="widget:/kpanel/lockButton" name="lockButton"> in the panel.
+  <item>Click on a empty space on your <url url="term:/root_window" name = "root window"> and press the right mouse button.
+        A popup-menu will appear. Now click on 'Lock screen'.
+  <item>Just <url url="cmd:/klock" name="do it"> right now.
+  <item><em>Experts:</em> Enter the command <tt>klock</tt> in a shell.You can get a prompt
+        pressing <tt>Alt-F2</tt>
+</enum>
+
+
+</article>

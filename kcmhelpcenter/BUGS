@@ -1,0 +1,2 @@
+segfaults when using egcs-2.91.57 (egcs-1.1 release) and
+the -O2 compiler flag.
