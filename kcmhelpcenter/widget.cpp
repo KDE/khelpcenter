@@ -11,6 +11,7 @@
 
 #include "widget.h"
 #include "../kassistant/config-kassistant.h"  // include default values directly from kassistant
+#include <klocale.h>
 
 
 KWidgetConfig::KWidgetConfig( QWidget* parent, const char* name, bool init ) : KConfigWidget( parent, name )

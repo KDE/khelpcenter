@@ -12,6 +12,7 @@
 #include "assistant.h"
 #include "browser.h"
 #include "widget.h"
+#include <klocale.h>
 
 
 KConfig *pConfig = 0L;

@@ -27,6 +27,7 @@
 #include <qdir.h>
 #include <qfileinfo.h>
 #include <qmessagebox.h>
+#include <klocale.h>
 
 void errorHandler( int type, char *msg );
 

@@ -12,7 +12,8 @@
 #include <kseparator.h>
 
 #include "browser.h"
-#include "../kassistant/config-kassistant.h"  // include default values directly from kassistant
+#include "../kassistant/config-kassistant.h"
+#include <klocale.h>  // include default values directly from kassistant
 
 
 KBrowserConfig::KBrowserConfig (QWidget * parent, const char *name, bool init)

@@ -24,6 +24,7 @@
 #include <qlayout.h>
 #include <kapp.h>
 #include "finddlg.h"
+#include <klocale.h>
 
 KFindTextDialog::KFindTextDialog( QWidget *parent, const char *name )
     : QDialog( parent, name )

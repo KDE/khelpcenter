@@ -19,11 +19,11 @@
  */
 
 #include "kwelcomewidget.h"
-#include <klocale.h>
 #include <kprocess.h>
 #include <qlayout.h>
 #include <qcheckbox.h>
 #include <qmsgbox.h>
+#include <klocale.h>
 
 KWelcomeWidget::KWelcomeWidget(QWidget *parent, const char *name)
 	: QWidget(parent, name)

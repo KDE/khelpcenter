@@ -28,6 +28,7 @@
 #include <kiconloader.h>
 #include <kstdaccel.h>
 #include <kcursor.h>
+#include <klocale.h>
 
 // static list of HelpCenter windows:
 QList<HelpCenter> HelpCenter::helpWindowList;

@@ -48,6 +48,7 @@
 #include <X11/X.h>
 #include <X11/Xlib.h>
 #include <X11/Xatom.h>
+#include <klocale.h>
 
 KHelpView::KHelpView(QWidget *parent, const char *name)
   : QWidget(parent, name)
