@@ -1,8 +1,24 @@
 [Desktop Entry]
 Name=KHelpcenter
+Name[de]=Hilfezentrum
+Name[et]=KDE abikeskus
+Name[fi]=Ohje
+Name[hu]=SetítségKözpont
+Name[ja]=k¥Ø¥ë¥×¥»¥ó¥¿¡¼
 Comment=The KDE Help Center
-Icon=khelpcenter.xpm
-MiniIcon=khelpcenter.xpm
+Comment[ca]=El centre d'ajuda KDE
+Comment[de]=Das KDE Hilfezentrum
+Comment[eo]=La KDE-Helpcentro
+Comment[fi]=KDE Ohje
+Comment[hr]=KDE Pomoæ
+Comment[hu]=A KDE Segítségnyújtó
+Comment[ja]=KDE ¥Ø¥ë¥×¥»¥ó¥¿¡¼
+Comment[no]=KDEs Hjelpsenter
+Comment[pt_BR]=Centro de Ajuda do KDE
+Comment[sr]=KDE pomoæni centar
+Comment[sv]=KDE:s Hjälpcenter
+Icon=khelpcenter.png
+MiniIcon=khelpcenter.png
 DocPath=khelpcenter/index.html
 Type=Application
 Terminal=0

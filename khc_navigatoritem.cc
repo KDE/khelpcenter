@@ -77,7 +77,7 @@ bool khcNavigatorItem::readKDElnk ( const char *filename )
 
     // read icon and miniicon
     //icon = config.readEntry("Icon");
-    miniicon = "helpdoc.xpm";//config.readEntry("MiniIcon");
+    miniicon = "helpdoc.png";//config.readEntry("MiniIcon");
     setPixmap(0, QPixmap(locate("mini", miniicon)));
 
     // read name
