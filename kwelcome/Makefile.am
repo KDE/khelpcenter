@@ -13,7 +13,7 @@ pics_DATA = welcome.png
 picsdir = $(kde_datadir)/kwelcome/pics
 
 messages:
-	$(XGETTEXT) -C -ktranslate -kaliasLocal -ki18n -x $(includedir)/kde.pot *.h *.cc && mv messages.po $(podir)/kwelcome.pot
+	$(XGETTEXT) -kaliasLocal *.h *.cc -o $(podir)/kwelcome.pot
 
 
 
