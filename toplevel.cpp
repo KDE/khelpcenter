@@ -30,6 +30,7 @@
 #include <kcursor.h>
 #include <klocale.h>
 #include <kglobal.h>
+#include <kstddirs.h>
 #include <kdebug.h>
 
 // static list of HelpCenter windows:

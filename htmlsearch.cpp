@@ -24,6 +24,8 @@
 #include <qfile.h>
 #include <qtextstream.h>
 #include <kapp.h>
+#include <kglobal.h>
+#include <kstddirs.h>
 
 #include <stdlib.h>
 

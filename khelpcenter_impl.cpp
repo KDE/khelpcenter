@@ -21,6 +21,8 @@
 #include "toplevel.h"
 #include "khelpcenter_impl.h"
 
+#include <kstddirs.h>
+
 #include <iostream.h>
 
 
