@@ -39,17 +39,17 @@ khelpcentercom.cpp: khelpcenter.h
 helpcentercom_impl.cpp: khelpcenter.h
 main.cpp: khelpcenter.h
 
-khelpcenter.h: khelpcenter.idl
+khelpcenter.h: $(srcdir)/khelpcenter.idl
 	rm -rf khelpcenter.h
-	$(IDL) $(IDL_FLAGS) khelpcenter.idl
+	$(IDL) $(IDL_FLAGS) $(srcdir)/khelpcenter.idl
 
-khelpcenter.cc: khelpcenter.idl
+khelpcenter.cc: $(srcdir)/khelpcenter.idl
 	rm -rf khelpcenter.cc
-	$(IDL) $(IDL_FLAGS) khelpcenter.idl
+	$(IDL) $(IDL_FLAGS) $(srcdir)/khelpcenter.idl
 
 messages:
 	$(XGETTEXT) -C -ki18n -x $(includedir)/kde.pot $(khelpcenter_bin_SOURCES) && mv messages.po ../po/khelpcenter.pot
 
 install-exec-local:
-	$(INSTALL_SCRIPT) khelpcenter $(bindir)/khelpcenter
+	$(INSTALL_SCRIPT) $(srcdir)/khelpcenter $(bindir)/khelpcenter
 
