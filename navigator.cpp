@@ -50,7 +50,11 @@
 #include <kcharsets.h>
 #include <kdialog.h>
 #include <kdesktopfile.h>
-#include <kservicegroup.h>
+#if KDE_VERSION < 305
+#  include <kservice.h>
+#else
+#  include <kservicegroup.h>
+#endif
 
 #include "navigatoritem.h"
 #include "navigatorappitem.h"
@@ -431,6 +435,18 @@ void Navigator::insertPlugins()
 void Navigator::insertParentAppDocs( const QString &name, NavigatorItem *topItem )
 {
   kdDebug(1400) << "Requested plugin documents for ID " << name << endl;
+ 
+#if KDE_VERSION < 305
+  KService::List services = KService::allServices();
+  KService::List::ConstIterator it = services.begin();
+  KService::List::ConstIterator end = services.end();
+  for ( ; it != end; ++it ) {
+    KService::Ptr srv = *it;
+    if ( srv->property( QString::fromLatin1( "X-KDE-ParentApp" ) ) == name )
+      createItemFromDesktopFile( topItem,
+          locate( "apps", srv->name() ) );
+  }
+#else
   KServiceGroup::Ptr grp = KServiceGroup::childGroup( name );
   if ( !grp ) {
     kdDebug(1400) << "Eeek, our group pointer is NULL!" << endl;
@@ -443,6 +459,7 @@ void Navigator::insertParentAppDocs( const QString &name, NavigatorItem *topItem
   for ( ; it != end; ++it )
     createItemFromDesktopFile( topItem,
         locate( "apps", ( *it )->name().latin1() ) );
+#endif
 }
 
 void Navigator::insertAppletDocs( NavigatorItem *topItem )
