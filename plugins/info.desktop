@@ -1,10 +1,13 @@
 [KDE Desktop Entry]
 
 Name=Browse info pages
-Name[de]=Durchsuche Info-Seiten
+Name[da]=Netsøgningsinfosider
+Name[eo]=Rigardu info-paĝojn
+Name[pt_BR]=Navegar nas páginas Info
+Name[sv]=Bläddra i info-sidor
 
 X-KDE-KHelpcenter-Special=info
 
 DocPath=info:/dir
 
-X-DOC-Weight=7
+X-DOC-Weight=700

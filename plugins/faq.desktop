@@ -2,6 +2,9 @@
 DocPath=help:/khelpcenter/faq/index.html
 
 Name=The KDE FAQ
-Name[de]=Die KDE FAQ
+Name[da]=KDE OSS
+Name[eo]=La KDE-Oftaj Demandoj
+Name[pt_BR]=O FAQ do KDE
+Name[sv]=Vanliga frågor om KDE
 
-X-DOC-Weight=20
+X-DOC-Weight=2000

@@ -2,6 +2,9 @@
 DocPath=help:/khelpcenter/index.html?anchor=welcome
 
 Name=Welcome to KDE
-Name[de]=Willkommen zu KDE
+Name[da]=Velkommen til KDE
+Name[eo]=Bonvenon ĉe KDE
+Name[pt_BR]=Bem-vindo ao KDE
+Name[sv]=Välkommen till KDE
 
-X-DOC-Weight=-30
+X-DOC-Weight=-3000

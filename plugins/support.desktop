@@ -2,7 +2,9 @@
 DocPath=help:/khelpcenter/index.html?anchor=support
 
 Name=Supporting KDE
-Name[de]=KDE unterstuetzen
+Name[da]=Understøt KDE
+Name[eo]=Subteni KDEon
+Name[pt_BR]=Assitência ao KDE
+Name[sv]=Att stödja KDE
 
-X-DOC-Weight=50
-
+X-DOC-Weight=5000

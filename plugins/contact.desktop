@@ -2,7 +2,10 @@
 DocPath=help:/khelpcenter/index.html?anchor=contact
 
 Name=Contact Information
-Name[de]=Kontakt-Information
+Name[da]=Kontaktinformation
+Name[eo]=Kontaktinformoj
+Name[pt_BR]=Informação de Contato
+Name[sv]=Kontaktinformation
 
-X-DOC-Weight=30
+X-DOC-Weight=3000
 

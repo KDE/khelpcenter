@@ -18,7 +18,8 @@ class MyTraverser : public DocEntryTraverser
 
     void process( DocEntry *entry )
     {
-      kdDebug() << mIndent << entry->name() << endl;
+      kdDebug() << mIndent << entry->name() << " - WEIGHT: " << entry->weight()
+                << endl;
 #if 0
       if ( entry->parent() ) kdDebug() << mIndent << "  PARENT: "
                                        << entry->parent()->name() << endl;

@@ -2,7 +2,9 @@
 DocPath=help:/khelpcenter/index.html?anchor=links
 
 Name=KDE on the web
-Name[de]=KDE im Web
+Name[da]=KDE på nettet
+Name[eo]=KDE en TTT
+Name[pt_BR]=KDE na Web
+Name[sv]=KDE på Internet
 
-X-DOC-Weight=40
-
+X-DOC-Weight=4000

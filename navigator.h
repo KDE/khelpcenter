@@ -63,6 +63,7 @@ class Navigator : public QWidget
     const GlossaryEntry &glossEntry(const QString &term) const { return glossaryTree->entry( term ); }
 
     void buildInfoSubTree(NavigatorItem *parent);
+    void insertAppletDocs( NavigatorItem *parent );
 
   public slots:
     void slotURLSelected(QString url);
@@ -112,8 +113,6 @@ class Navigator : public QWidget
     void insertScrollKeeperItems();
     int insertScrollKeeperSection(NavigatorItem *parentItem,QDomNode sectNode);
     void insertScrollKeeperDoc(NavigatorItem *parentItem,QDomNode docNode);
-
-    void insertAppletDocs();
 
     void hideSearch();
 

@@ -206,8 +206,6 @@ void Navigator::buildTree()
   insertPlugins();
 
   insertScrollKeeperItems();
-
-  insertAppletDocs();
 }
 
 void Navigator::clearTree()
@@ -418,6 +416,13 @@ class PluginTraverser : public DocEntryTraverser
           mCurrentItem = new NavigatorItem( mParentItem, mCurrentItem );
         }
         mNavigator->buildInfoSubTree( mCurrentItem );
+      } else if ( entry->khelpcenterSpecial() == "kickerapplets" ) {
+        if ( mListView ) {
+          mCurrentItem = new NavigatorItem( mListView, mCurrentItem );
+        } else {
+          mCurrentItem = new NavigatorItem( mParentItem, mCurrentItem );
+        }
+        mNavigator->insertAppletDocs( mCurrentItem );
       } else {
         if ( mListView ) {
           mCurrentItem = new NavigatorItem( mListView, mCurrentItem );
@@ -425,7 +430,7 @@ class PluginTraverser : public DocEntryTraverser
           mCurrentItem = new NavigatorItem( mParentItem, mCurrentItem );
         }
       }
-        
+
       mCurrentItem->setName( entry->name() );
       mCurrentItem->setUrl( entry->docPath() );
       if ( entry->icon().isEmpty() ) {
@@ -875,15 +880,12 @@ void Navigator::hideSearch()
   mTabWidget->removePage( mSearchWidget );
 }
 
-void Navigator::insertAppletDocs()
+void Navigator::insertAppletDocs( NavigatorItem *appletDocItem )
 {
   QDir appletDir;
   appletDir.setPath( locate( "data", "kicker/applets/" ) );
   
   QStringList desktopFiles = appletDir.entryList( "*.desktop", QDir::Files );
-
-  contentsTree->setRootIsDecorated( true );
-  NavigatorItem *appletDocItem = new NavigatorItem( contentsTree, i18n( "Applet manuals" ) );
 
   QStringList::ConstIterator it = desktopFiles.begin();
   QStringList::ConstIterator end = desktopFiles.end();
@@ -900,6 +902,7 @@ void Navigator::insertAppletDocs()
       NavigatorItem *item = new NavigatorItem( appletDocItem, desktopFile.readName() );
       kdDebug( 1400 ) << "Setting URL -> help:/" + desktopPath << endl;
       item->setUrl( "help:/" + desktopPath );
+      item->setIcon( "document2" );
     }
   }
 }

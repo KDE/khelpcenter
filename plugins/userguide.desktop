@@ -2,7 +2,10 @@
 DocPath=help:/khelpcenter/userguide/index.html
 
 Name=KDE user's manual
-Name[de]=KDE Benutzerhandbuch
+Name[da]=KDE's brugermanual
+Name[eo]=KDE-uzanto-manlibro
+Name[pt_BR]=Manual do Usuário do KDE
+Name[sv]=KDE:s användarmanual
 
-X-DOC-Weight=-20
+X-DOC-Weight=-2000
 
