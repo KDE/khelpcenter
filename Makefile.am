@@ -42,7 +42,7 @@ $(srcdir)/khc_main.cc: khelpcenter.h
 ####### Build rules
 
 messages:
-	$(XGETTEXT) -C  -ktranslate -kaliasLocal -ki18n -x $(includedir)/kde.pot *.h *.cc *.cpp && mv messages.po ../po/khelpcenter.pot
+	$(XGETTEXT) -C  -ktranslate -kaliasLocal -ki18n -x $(includedir)/kde.pot *.h *.cc && mv messages.po ../po/khelpcenter.pot
 	for subdir in $(SUBDIRS); do \
 	   if test ! "x$$subdir" = "x."; then \
 	   echo "Making messages in $$subdir"; \

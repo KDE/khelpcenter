@@ -23,3 +23,5 @@ browser_IDLDIR = $(idldir)
 
 kinfobrowser.idl: $(idldir)/browser.idl
 
+messages:
+	$(XGETTEXT) -C -ktranslate -kaliasLocal -ki18n -x $(includedir)/kde.pot *.cc *.h && mv messages.po ../../po/kinfobrowser.pot 

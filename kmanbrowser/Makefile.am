@@ -18,3 +18,6 @@ noinst_HEADERS = kmanbrowser.h kmb_mainwindow.h kmb_view.h
 browser_IDLDIR = $(idldir)
 
 kmanbrowser.idl: $(idldir)/browser.idl
+
+messages:
+	$(XGETTEXT) -C -ktranslate -kaliasLocal -ki18n -x $(includedir)/kde.pot *.cc *.h && mv messages.po ../../po/kmanbrowser.pot 	
