@@ -133,8 +133,8 @@ void InfoTree::parseInfoDirFile( const QString &infoDirFileName )
       continue;
 
     InfoCategoryItem *catItem = new InfoCategoryItem( m_parentItem, s );
-    s = stream.readLine();
     while ( !stream.eof() && !s.stripWhiteSpace().isEmpty() ) {
+      s = stream.readLine();
       if ( s[ 0 ] == '*' ) {
         const int colon = s.find( ":" );
         const int openBrace = s.find( "(", colon );
@@ -151,7 +151,6 @@ void InfoTree::parseInfoDirFile( const QString &infoDirFileName )
         InfoNodeItem *item = new InfoNodeItem( catItem, appName );
         item->setUrl( url );
       }
-      s = stream.readLine();
     }
   }
   infoDirFile.close();
