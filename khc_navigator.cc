@@ -162,14 +162,19 @@ void khcNavigatorWidget::setupSearchTab()
 
 void khcNavigatorWidget::buildTree()
 {
+  // supporting KDE
+  khcNavigatorItem *ti_support = new khcNavigatorItem(tree, i18n("Supporting KDE"), "helpdoc.png");
+  ti_support->setURL(QString("help:/khelpcenter?anchor=SUPPORT"));
+  staticItems.append(ti_support);
+
   // kde contacts
   khcNavigatorItem *ti_contact = new khcNavigatorItem(tree, i18n("Contact Information"), "helpdoc.png");
-  ti_contact->setURL(QString("help:/khelpcenter/contact.html"));
+  ti_contact->setURL(QString("help:/khelpcenter?anchor=CONTACT"));
   staticItems.append(ti_contact);
 
   // kde links
   khcNavigatorItem *ti_links = new khcNavigatorItem(tree, i18n("KDE on the web"), "helpdoc.png");
-  ti_links->setURL(QString("help:/khelpcenter/links.html"));
+  ti_links->setURL(QString("help:/khelpcenter?anchor=LINKS"));
   staticItems.append(ti_links);
 
   // KDE FAQ
@@ -213,7 +218,7 @@ void khcNavigatorWidget::buildTree()
 
   // introduction page
   khcNavigatorItem *ti_intro = new khcNavigatorItem(tree, i18n("Introduction"), "helpdoc.png");
-  ti_intro->setURL(QString("help:/khelpcenter/main.html"));
+  ti_intro->setURL(QString("help:/khelpcenter?anchor=WELCOME"));
   staticItems.append(ti_intro);
 
   tree->setCurrentItem(ti_intro);
