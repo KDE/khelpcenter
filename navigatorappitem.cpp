@@ -111,7 +111,7 @@ QString NavigatorAppItem::documentationURL( KService *s )
   if ( docPath.isEmpty() )
     return QString::null;
   
-  if ( docPath.startsWith( "file: ") || docPath.startsWith( "http: " ) )
+  if ( docPath.startsWith( "file:") || docPath.startsWith( "http:" ) )
     return docPath;
   
   return QString( "help:/" ) + docPath;
