@@ -25,6 +25,8 @@
 #include <ksimpleconfig.h>
 
 #include "htreelistitem.h"
+#include <kstddirs.h>
+#include <kglobal.h>
 
 HTreeListItem::HTreeListItem(const QString& _text, const QString& _miniicon)
     : KTreeListItem()
@@ -85,7 +87,7 @@ bool HTreeListItem::readKDElnk ( const char *filename )
 
 void HTreeListItem::insertInTree(KTreeList *tree, KTreeListItem *parent)
 {
-    QPixmap *item_pm = new QPixmap(kapp->kde_icondir() + "/mini/" + miniicon);
+    QPixmap *item_pm = new QPixmap(locate("icon", "mini/" + miniicon));
 
     setText(name);
     setPixmap(item_pm);
