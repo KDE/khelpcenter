@@ -42,7 +42,6 @@ khcHTMLView::khcHTMLView()
   fontBase = 3;
   
   QWidget::setFocusPolicy(StrongFocus);
-  //OPPartIf::setFocusPolicy(OpenParts::Part::NoFocus);
 
   QObject::connect(this, SIGNAL(setTitle(QString)), this, SLOT(slotSetTitle(QString)));
   QObject::connect(this, SIGNAL(completed()), this, SLOT(slotCompleted()));
@@ -55,7 +54,6 @@ khcHTMLView::khcHTMLView()
   //htmlWidget->setFixedFont();
 
   htmlWidget->setUnderlineLinks(true);
-  
   htmlWidget->setURLCursor(KCursor().handCursor());
 }
 
@@ -65,18 +63,18 @@ khcHTMLView::~khcHTMLView()
 
 bool khcHTMLView::event(const char *event, const CORBA::Any &value)
 {
-  EVENT_MAPPER( event, value );
+  EVENT_MAPPER(event, value);
   
-  MAPPING( Browser::View::eventFillMenuEdit, Browser::View::EventFillMenu_ptr, mappingFillMenuEdit );
-  MAPPING( Browser::View::eventFillMenuView, Browser::View::EventFillMenu_ptr, mappingFillMenuView );
-  MAPPING( Browser::View::eventFillToolBar, Browser::View::EventFillToolBar, mappingFillToolBar );
-  MAPPING( Browser::eventOpenURL, Browser::EventOpenURL, mappingOpenURL );
+  MAPPING(Browser::View::eventFillMenuEdit, Browser::View::EventFillMenu_ptr, mappingFillMenuEdit);
+  MAPPING(Browser::View::eventFillMenuView, Browser::View::EventFillMenu_ptr, mappingFillMenuView);
+  MAPPING(Browser::View::eventFillToolBar, Browser::View::EventFillToolBar, mappingFillToolBar);
+  MAPPING(Browser::eventOpenURL, Browser::EventOpenURL, mappingOpenURL);
   
   END_EVENT_MAPPER;
   return false;
 }
 
-bool khcHTMLView::mappingOpenURL( Browser::EventOpenURL eventURL )
+bool khcHTMLView::mappingOpenURL(Browser::EventOpenURL eventURL)
 {
   khcBaseView::mappingOpenURL(eventURL);
   KBrowser::openURL(QString(eventURL.url), (bool)eventURL.reload ); // implemented by kbrowser
@@ -127,12 +125,12 @@ bool khcHTMLView::mappingFillToolBar(Browser::View::EventFillToolBar viewToolBar
 }
 
 
-void khcHTMLView::slotURLClicked( QString url )
+void khcHTMLView::slotURLClicked(QString url)
 {
   SIGNAL_CALL2("started", id(), CORBA::Any::from_string((char *)url.latin1(), 0));
 }
 
-void khcHTMLView::slotShowURL( KHTMLView *, QString _url )
+void khcHTMLView::slotShowURL(KHTMLView *, QString _url)
 {
   if (_url.isEmpty())
     {
@@ -140,12 +138,13 @@ void khcHTMLView::slotShowURL( KHTMLView *, QString _url )
       return;
     }
   CORBA::WString_var wurl = Q2C(_url);
-  SIGNAL_CALL1("setStatusBarText", CORBA::Any::from_wstring( wurl.out(), 0));
+  SIGNAL_CALL1("setStatusBarText", CORBA::Any::from_wstring(wurl.out(), 0));
 }
 
-void khcHTMLView::slotSetTitle( QString /*title*/ )
+void khcHTMLView::slotSetTitle(QString title)
 {
-  //CORBA::WString_var ctitle = Q2C( title );
+  CORBA::WString_var ctitle = Q2C(title);
+  SIGNAL_CALL1("setStatusBarText", CORBA::Any::from_wstring(ctitle.out(), 0));
 }
 
 void khcHTMLView::slotStarted( const char *url )

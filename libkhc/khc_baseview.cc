@@ -72,7 +72,7 @@ bool khcBaseView::event( const char *event, const CORBA::Any &value )
 
 bool khcBaseView::mappingOpenURL( Browser::EventOpenURL eventURL )
 {
-    SIGNAL_CALL2( "setLocationBarURL", id(), (char*)eventURL.url );
+    SIGNAL_CALL2("setLocationBarURL", id(), (char*)eventURL.url);
     return false;
 }
 

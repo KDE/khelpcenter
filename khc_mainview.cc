@@ -520,7 +520,7 @@ bool khcMainView::mappingParentGotFocus(OpenParts::Part_ptr )
 
 bool khcMainView::mappingChildGotFocus(OpenParts::Part_ptr child)
 {
-  kdebug(0, 1400, "bool khcMainView::mappingChildGotFocus(OpenParts::Part_ptr child)");
+  kdebug(KDEBUG_INFO, 1400, "bool khcMainView::mappingChildGotFocus(OpenParts::Part_ptr child)");
   return true;
 }
 
@@ -537,7 +537,7 @@ void khcMainView::createViewMenu()
       kdebug(KDEBUG_INFO,1400,"khcMainView::createViewMenu()");
       m_vMenuView->clear();
       m_vMenuView->setCheckable(true);
-
+      
       CORBA::WString_var text;
       OpenPartsUI::Pixmap_var pix;
       
@@ -545,12 +545,12 @@ void khcMainView::createViewMenu()
       pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("viewmag+.xpm"));
       text = Q2C(i18n("Zoom &in"));
       m_vMenuView->insertItem6(pix, text, this, "slotZoomIn", 0, MVIEW_ZOOMIN, -1);
-
+      
       // zoom out
       pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("viewmag+.xpm"));
       text = Q2C(i18n("Zoom &out"));
       m_vMenuView->insertItem6(pix, text, this, "slotZoomOut", 0, MVIEW_ZOOMOUT, -1);
-
+      
       // child view specific menu entries
       if (m_vView)
 	{ 
@@ -591,10 +591,11 @@ void khcMainView::createEditMenu()
 
 void khcMainView::createViewToolBar()
 {
-  kdebug(KDEBUG_INFO,1400,"khcMainView::createViewToolBar()");
   if (CORBA::is_nil(m_vToolBar))
     return;
 
+  kdebug(KDEBUG_INFO,1400,"khcMainView::createViewToolBar()");
+  
   Browser::View::EventFillToolBar ev;
   ev.create = (CORBA::Boolean)true;
   ev.startIndex = m_lToolBarViewStartIndex;
@@ -605,9 +606,13 @@ void khcMainView::createViewToolBar()
 
 void khcMainView::clearViewGUIElements()
 {
+  // clear child-view  edit menu entries
   EMIT_EVENT(m_vView, Browser::View::eventFillMenuEdit, 0L);
+
+  // clear child-view view menu entries
   EMIT_EVENT(m_vView, Browser::View::eventFillMenuView, 0L);
-    
+  
+  // clear child-view toolbar buttons
   Browser::View::EventFillToolBar ev;
   ev.create = (CORBA::Boolean)false;
   ev.toolBar = OpenPartsUI::ToolBar::_duplicate(m_vToolBar);
@@ -618,13 +623,17 @@ void khcMainView::checkExtensions()
 {
   if (!CORBA::is_nil(m_vView))
     {
+      // does the child-view support the printing extension interface ?
       bool print = m_vView->supportsInterface("IDL:Browser/PrintingExtension:1.0");
       bool canZoomIn, canZoomOut = false;
 
+      // does the child-view support the magnifying extension interface?
       if (m_vView->supportsInterface("IDL:Browser/MagnifyingExtension:1.0"))
 	{
 	  CORBA::Object_var obj = m_vView->getInterface("IDL:Browser/MagnifyingExtension:1.0");
 	  Browser::MagnifyingExtension_var magExt = Browser::MagnifyingExtension::_narrow(obj);
+	  
+	  // can we currently zoom in/out?
 	  canZoomIn =  magExt->canZoomIn();
 	  canZoomIn =  magExt->canZoomOut();
 	}
@@ -665,12 +674,14 @@ OpenParts::Id khcMainView::childViewId()
 
 void khcMainView::resizeEvent(QResizeEvent *)
 {
+  // adjust geometry of the splitter holding the navigator and the OPFrame
   if(m_pSplitter)
     m_pSplitter->setGeometry(0, 0, width(), height()); 
 }
 
 void khcMainView::enableNavigator(bool enable)
 {
+  // simply enable/disable navigator by setting splitter sizes
   if (enable)
     {
       QValueList<int> sizes;
@@ -876,6 +887,7 @@ void khcMainView::slotNewWindow()
 
 void khcMainView::slotOpenFile()
 {
+  // show KFileDialog
   QString fileName = KFileDialog::getOpenFileName();
   if (!fileName.isNull())
     {
@@ -887,6 +899,7 @@ void khcMainView::slotOpenFile()
 
 void khcMainView::slotStop()
 {
+  // stop processing the current url
   if (!CORBA::is_nil(m_vView))
     m_vView->stop();
 }
@@ -964,14 +977,14 @@ void khcMainView::slotPrint()
 
 void khcMainView::slotIntroduction()
 {
-  QString url = "file:";
-  url += locate("html", "default/khelpcenter/main.html");
-  
+  // show intro page
+  QString url = "file:" + locate("html", "default/khelpcenter/main.html");
   open(url, false); 
 }
 
 void khcMainView::slotForward()
 {
+  // history forward
   khcHistoryItem *hitem = history.next();
   if (hitem)
     open(hitem->url(), true, hitem->xOffset(), hitem->yOffset());
@@ -979,6 +992,7 @@ void khcMainView::slotForward()
 
 void khcMainView::slotBack()
 {
+  // history back
   khcHistoryItem *hitem = history.prev();
   if(hitem)
       open(hitem->url(), true, hitem->xOffset(), hitem->yOffset());
@@ -1062,7 +1076,7 @@ void khcMainView::slotShowStatusbar()
 
 void khcMainView::slotSettings()
 {
-  // TODO
+  // TODO: start kcmkhelpcenter
 }
 
 void khcMainView::slotHelpContents()
@@ -1074,7 +1088,7 @@ void khcMainView::slotHelpAbout()
 {
   QMessageBox::about(0L, i18n("About KDE Helpcenter"),
 		     i18n("KDE Helpcenter v" + QString(HELPCENTER_VERSION) + "\n\n"
-			  "Copyright (c) 1998, 99 Matthias Elter <me@kde.org>\n\n"
+			  "Copyright (c) 1998/99 Matthias Elter <me@kde.org>\n\n"
 			  "Additional credits:\n"
 			  "René Beutler <rbeutler@g26.ethz.ch>: kassistant, kcmhelpcenter, kwid,konitemhelp\n"
 			  "Martin Jones <mjones@kde.org> Some code is based on kdehelp written 1997 by Martin.\n"
@@ -1083,6 +1097,7 @@ void khcMainView::slotHelpAbout()
 
 void khcMainView::slotHistoryFillBack()
 {
+  // fill back-button popup menu
   if (CORBA::is_nil(m_vHistoryBackMenu))
     return;
 
@@ -1102,6 +1117,7 @@ void khcMainView::slotHistoryFillBack()
 
 void khcMainView::slotHistoryFillForward()
 {
+  // fill forward-button popup menu
   if (CORBA::is_nil(m_vHistoryForwardMenu))
     return;
 
@@ -1121,6 +1137,7 @@ void khcMainView::slotHistoryFillForward()
 
 void khcMainView::slotHistoryBackActivated(CORBA::Long id)
 {
+  // back-button popupmenu-entry selected
   int steps = m_vHistoryBackMenu->indexOf(id) + 1;
   khcHistoryItem *item = history.back(steps);
   
@@ -1130,6 +1147,7 @@ void khcMainView::slotHistoryBackActivated(CORBA::Long id)
 
 void khcMainView::slotHistoryForwardActivated(CORBA::Long id)
 {
+  // forward-button popupmenu-entry selected
   int steps = m_vHistoryForwardMenu->indexOf(id) + 1;
   khcHistoryItem *item = history.forward(steps);
   
@@ -1139,11 +1157,13 @@ void khcMainView::slotHistoryForwardActivated(CORBA::Long id)
 
 void khcMainView::slotMenuEditAboutToShow()
 {
+  // recreate the edit menu every time its about to show (the child view might have changed)
   createEditMenu();
 }
 
 void khcMainView::slotMenuViewAboutToShow()
 {
+  // recreate the view menu every time its about to show (the child view might have changed)
   createViewMenu();
 }
 
@@ -1159,21 +1179,26 @@ void khcMainView::slotURLEntered(const CORBA::WChar *_url)
 
 void khcMainView::slotCheckHistory()
 {
+  // can we go back/foreward?
+  bool canGoBack = history.hasPrev();
+  bool canGoForward = history.hasNext();
+  
   if (!CORBA::is_nil(m_vToolBar))
     {
-      m_vToolBar->setItemEnabled(TB_BACK, history.hasPrev());
-      m_vToolBar->setItemEnabled(TB_FORWARD, history.hasNext());
+      m_vToolBar->setItemEnabled(TB_BACK, canGoBack);
+      m_vToolBar->setItemEnabled(TB_FORWARD, canGoForward);
     }
 
  if (!CORBA::is_nil(m_vToolBar))
    {
-     m_vMenuGo->setItemEnabled(MGO_BACK, history.hasPrev());
-     m_vMenuGo->setItemEnabled(MGO_FORWARD, history.hasNext());
+     m_vMenuGo->setItemEnabled(MGO_BACK, canGoBack);
+     m_vMenuGo->setItemEnabled(MGO_FORWARD, canGoForward);
    }
 }
 
 void khcMainView::slotSetBusy(bool busy)
 {
+  // (de)activate stop button
   if (CORBA::is_nil(m_vToolBar))
     return;
   
@@ -1203,14 +1228,16 @@ void khcMainView::createNewWindow(const char *url)
 
 void khcMainView::slotURLStarted(OpenParts::Id , const char *)
 {
+  // child view started loading a url
   slotSetBusy(true);
 }
 
 void khcMainView::slotURLCompleted(OpenParts::Id )
 {
+  // child view completed loading a url
+  checkExtensions();
   slotSetBusy(false);
 }
-
 
 void khcMainView::openURL(const Browser::URLRequest &urlRequest)
 {
@@ -1219,6 +1246,7 @@ void khcMainView::openURL(const Browser::URLRequest &urlRequest)
 
 void khcMainView::slotSetURL(const QString& _url)
 {
+  // the navigator connects to this slot
   open(_url, false, 0, 0);
 }
 
@@ -1247,6 +1275,8 @@ void khcMainView::open(const char* url, CORBA::Boolean reload, CORBA::Long xoffs
 
 void khcMainView::connectView()
 {
+  // connect child-view signals
+
   if(CORBA::is_nil(m_vView))
     return;
 

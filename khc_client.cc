@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
   return app.openURL(_url);
 }
 
-khcClientApp::openURL(const char* _url)
+bool khcClientApp::openURL(const char* _url)
 {
   // Query the trader for khc's Helpbrowser service
   KTrader::OfferList offers = trader->query("Helpbrowser", "Name == 'KHelpcenter'");
@@ -75,5 +75,5 @@ khcClientApp::openURL(const char* _url)
   kdebug(KDEBUG_INFO,1401,"Incarnating khcMainWindow!\n");
   OpenParts::MainWindow_var m_vMainWindow = m_vkhc->createBrowserWindow(_url);
   
-  return 0; 
+  return true; 
 }

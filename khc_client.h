@@ -39,7 +39,7 @@ public:
 
   ~khcClientApp() { delete kded; } ;
   
-  openURL(const char* _url);
+  bool openURL(const char* _url);
 
 protected:
   
