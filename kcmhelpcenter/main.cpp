@@ -43,6 +43,10 @@ KHelpCenterApplication::KHelpCenterApplication(int &argc, char **argv, const cha
 	browser = 0L;
 	widget = 0L;
 
+debug( "milestone" );
+	pConfig = new KConfig( locate( "data", "khelpcenter/khelpcenterrc") );
+debug( "milestone" );
+
 	if (runGUI())
 	{
 		if (!pages || pages->contains("assistant"))
@@ -99,8 +103,6 @@ void KHelpCenterApplication::defaultValues()
 int main(int argc, char **argv)
 {
 	int ret = 0;
-
-	pConfig = new KConfig( locate( "data", "khelpcenter/khelpcenterrc") );
 
 	KHelpCenterApplication app(argc, argv, "kcmhelpcenter");
 	app.setTitle( i18n("HelpCenter Configuration") );
