@@ -254,7 +254,7 @@ void View::showMenu( const QString& url, const QPoint& pos)
   }
   else
   {
-    pop->insertItem(i18n("Copy Link Location"), this, SLOT(slotCopyLink()));
+    pop->insertItem(i18n("Copy Link Address"), this, SLOT(slotCopyLink()));
     mCopyURL = completeURL(url).url();
   }
 	
