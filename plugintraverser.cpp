@@ -97,9 +97,11 @@ void PluginTraverser::process( DocEntry *entry )
     } else if ( entry->khelpcenterSpecial() == "kioslave" ) {
       mNavigator->insertIOSlaveDocs( entry->khelpcenterSpecial(), mCurrentItem );
     } else if ( entry->khelpcenterSpecial() == "info" ) {
-      mCurrentItem->setPixmap( 0, SmallIcon( "contents2" ) );
       mNavigator->insertInfoDocs( mCurrentItem );
+    } else {
+      return;
     }
+    mCurrentItem->setPixmap( 0, SmallIcon( "contents2" ) );
   }
 }
 

@@ -67,13 +67,15 @@ void NavigatorAppItem::setRelpath( const QString &relpath )
 
 void NavigatorAppItem::setOpen(bool open)
 {
+  kdDebug() << "NavigatorAppItem::setOpen()" << endl;
+
   if ( open && (childCount() == 0) && !mPopulated )
   {
      kdDebug() << "NavigatorAppItem::setOpen(" << this << ", "
                << mRelpath << ")" << endl;
      populate();
   }
-  NavigatorItem::setOpen(open); 
+  QListViewItem::setOpen(open); 
 }
 
 void NavigatorAppItem::populate( bool recursive )

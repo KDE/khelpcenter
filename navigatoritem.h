@@ -49,6 +49,8 @@ class NavigatorItem : public QListViewItem
     TOC *toc() const { return mToc; }
 
     TOC *createTOC();
+  
+    void setOpen( bool open );
 
   private:
     void init( DocEntry * );

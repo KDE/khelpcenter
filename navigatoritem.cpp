@@ -92,4 +92,14 @@ TOC *NavigatorItem::createTOC()
     return mToc;
 }
 
+void NavigatorItem::setOpen( bool open )
+{
+  QListViewItem::setOpen( open );
+
+  if ( entry()->icon().isEmpty() || entry()->icon() == "contents2" ) {
+    if ( open && childCount() > 0 ) setPixmap( 0, SmallIcon( "contents" ) );
+    else setPixmap( 0, SmallIcon( "contents2" ) );
+  }
+}
+
 // vim:ts=2:sw=2:et

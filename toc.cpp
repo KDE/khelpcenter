@@ -25,6 +25,7 @@
 #include <kiconloader.h>
 #include <kprocess.h>
 #include <kstandarddirs.h>
+#include <kdebug.h>
 
 #include <qdir.h>
 #include <qfileinfo.h>
@@ -39,7 +40,7 @@ class TOCItem : public NavigatorItem
 		TOCItem( TOC *parent, QListViewItem *parentItem, QListViewItem *after, const QString &text );
 
 		const TOC *toc() const { return m_toc; }
-	
+
 	private:
 		TOC *m_toc;
 };
@@ -51,9 +52,7 @@ class TOCChapterItem : public TOCItem
 				const QString &name );
 
 		virtual QString url();
-		
-		virtual void setOpen( bool open );
-	
+			
 	private:
 		QString m_name;
 };
@@ -244,16 +243,6 @@ TOCChapterItem::TOCChapterItem( TOC *toc, NavigatorItem *parent, QListViewItem *
 {
 	setOpen( false );
 	entry()->setUrl(url());
-}
-
-void TOCChapterItem::setOpen( bool open )
-{
-	TOCItem::setOpen( open );
-
-	if ( open && childCount() > 0 )	
-		setPixmap( 0, SmallIcon( "contents" ) );
-	else
-		setPixmap( 0, SmallIcon( "contents2" ) );
 }
 
 QString TOCChapterItem::url()
