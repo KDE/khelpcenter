@@ -164,6 +164,9 @@ khcNavigatorWidget::~khcNavigatorWidget()
   }
 
   regfree(&compInfoRegEx);
+  glossEntries.setAutoDelete( true );
+  glossEntries.clear();
+
   // END ACHU
 }
 
