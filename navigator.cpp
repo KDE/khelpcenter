@@ -113,6 +113,8 @@ Navigator::Navigator( View *view, QWidget *parent,
 
     mTabWidget = new QTabWidget( this );
     topLayout->addWidget( mTabWidget );
+    connect( mTabWidget, SIGNAL( currentChanged( QWidget * ) ),
+             SLOT( slotTabChanged( QWidget * ) ) );
 
     setupContentsTab();
     setupSearchTab();
@@ -883,6 +885,8 @@ void Navigator::stopAnimation( NavigatorItem * item )
 
 void Navigator::slotSearch()
 {
+  if ( !checkSearchIndex() ) return;
+
   QString words = mSearchEdit->text();
   QString method = mSearchWidget->method();
   int pages = mSearchWidget->pages();
@@ -927,6 +931,31 @@ void Navigator::hideSearch()
 {
   mSearchFrame->hide();
   mTabWidget->removePage( mSearchWidget );
+}
+
+bool Navigator::checkSearchIndex()
+{
+  KConfig *cfg = KGlobal::config();
+  cfg->setGroup( "Search" );
+  if ( cfg->readBoolEntry( "IndexExists", false ) ) return true;
+
+  QString text = i18n( "There doesn't exist a search index yet. Do you want "
+                       "to create the index now?" );
+
+  int result = KMessageBox::questionYesNo( this, text, QString::null, 
+                                           KStdGuiItem::yes(),
+                                           KStdGuiItem::no(),
+                                           "indexcreation" );
+  if ( result == KMessageBox::Yes ) {
+    mSearchWidget->slotIndex();
+  }
+  
+  return false;
+}
+
+void Navigator::slotTabChanged( QWidget *wid )
+{
+  if ( wid == mSearchWidget ) checkSearchIndex();
 }
 
 // vim:ts=2:sw=2:et

@@ -88,6 +88,9 @@ class Navigator : public QWidget
   protected slots:
     void slotSearchFinished();
     void slotSearchTextChanged( const QString & );
+    void slotTabChanged( QWidget * );
+
+    bool checkSearchIndex();
 
   private slots:
     void getScrollKeeperContentsList(KProcIO *proc);

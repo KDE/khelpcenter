@@ -81,7 +81,7 @@ KCMHelpCenter::KCMHelpCenter(QWidget *parent, const char *name)
   }
 #endif
 
-  mConfig = new KConfig("khelpcenterrc");
+  mConfig = new KConfig( locate( "config", "khelpcenterrc" ) );
 
   delete DocMetaInfo::self();
   DocMetaInfo::self()->scanMetaInfo();
@@ -210,6 +210,8 @@ void KCMHelpCenter::processIndexQueue()
 
   if ( it == mIndexQueue.end() ) {
     mProgressDialog->hide();
+    mConfig->setGroup( "Search" );
+    mConfig->writeEntry( "IndexExists", true );
     return;
   }
 
