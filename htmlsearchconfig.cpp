@@ -83,7 +83,7 @@ HtmlSearchConfig::HtmlSearchConfig(QWidget *parent, const char *name)
   grid->addRowSpacing(0, gb->fontMetrics().lineSpacing());
 
   mHtsearchUrl = new KURLRequester(gb);
-  l = new QLabel(mHtsearchUrl, i18n("htsearch"), gb);
+  l = new QLabel(mHtsearchUrl, i18n("htsearch:"), gb);
   l->setBuddy( mHtsearchUrl );
   grid->addWidget(l, 1,0);
   grid->addWidget(mHtsearchUrl, 1,1);
@@ -93,7 +93,7 @@ HtmlSearchConfig::HtmlSearchConfig(QWidget *parent, const char *name)
   QWhatsThis::add( l, wtstr );
 
   mIndexerBin = new KURLRequester(gb);
-  l = new QLabel(mIndexerBin, i18n("Indexer"), gb);
+  l = new QLabel(mIndexerBin, i18n("Indexer:"), gb);
   l->setBuddy( mIndexerBin );
   grid->addWidget(l, 2,0);
   grid->addWidget(mIndexerBin, 2,1);
@@ -103,7 +103,7 @@ HtmlSearchConfig::HtmlSearchConfig(QWidget *parent, const char *name)
   QWhatsThis::add( l, wtstr );
 
   mDbDir = new KURLRequester(gb);
-  l = new QLabel(mDbDir, i18n("htdig data base"), gb);
+  l = new QLabel(mDbDir, i18n("htdig data base:"), gb);
   l->setBuddy( mDbDir );
   grid->addWidget(l, 3,0);
   grid->addWidget(mDbDir, 3,1);
