@@ -98,9 +98,8 @@ KHMainWindow::KHMainWindow(const KURL &url)
     splitter->setSizes(sizes);
     setGeometry(366, 0, 800, 600);
 
-    // FIXME: remove these two lines post 3.0.  See insertChildClient() call below  --ellis
-    KStdAction::selectAll(doc, SLOT(slotSelectAll()), actionCollection());
-    KStdAction::find(doc, SLOT(slotFind()), actionCollection());
+    // FIXME: remove this line post 3.0.  See insertChildClient() call below  --ellis
+    (*actionCollection()) += *doc->actionCollection();
     (void)KStdAction::quit(this, SLOT(close()), actionCollection());
     (void)KStdAction::print(this, SLOT(print()), actionCollection(), "printFrame");
 
