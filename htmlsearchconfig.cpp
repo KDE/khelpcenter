@@ -100,7 +100,7 @@ HtmlSearchConfig::HtmlSearchConfig(QWidget *parent, const char *name)
   grid->addWidget(mDbDir, 3,1);
   connect( mDbDir->lineEdit(), SIGNAL( textChanged( const QString & ) ),
            SIGNAL( changed() ) );
-  wtstr = i18n( "Enter the path to the htdig database directory." );
+  wtstr = i18n( "Enter the path to the htdig database folder." );
   QWhatsThis::add( mDbDir, wtstr );
   QWhatsThis::add( l, wtstr );
 }

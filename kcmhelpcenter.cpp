@@ -215,7 +215,7 @@ QWidget *KCMHelpCenter::createScopeTab( QWidget *parent )
 
   QBoxLayout *urlLayout = new QHBoxLayout( topLayout );
 
-  QLabel *urlLabel = new QLabel( i18n("Index directory:"), scopeTab );
+  QLabel *urlLabel = new QLabel( i18n("Index folder:"), scopeTab );
   urlLayout->addWidget( urlLabel );
 
   mIndexUrlRequester = new KURLRequester( scopeTab );
@@ -248,7 +248,7 @@ void KCMHelpCenter::save()
 
   if ( !QFile::exists( indexDir() ) ) {
     KMessageBox::sorry( this,
-      i18n("<qt>The directory <b>%1</b> doesn't exist. Unable to create index.</qt>")
+      i18n("<qt>The folder <b>%1</b> doesn't exist. Unable to create index.</qt>")
       .arg( indexDir() ) );
   } else {
     buildIndex();
