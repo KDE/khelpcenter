@@ -91,6 +91,7 @@ void KHCView::showGlossaryEntry( const khcGlossaryEntry &entry )
     QTextStream htmlStream(&htmlFile);
     QString htmlSrc = htmlStream.read()
                       .arg( i18n( "KDE Glossary" ) )
+                      .arg( entry.term() )
                       .arg( langLookup( "khelpcenter/konq.css" ) )
                       .arg( langLookup( "khelpcenter/pointers.png" ) )
                       .arg( langLookup( "khelpcenter/khelpcenter.png" ) )

@@ -1,7 +1,7 @@
 <HTML>
 
 <HEAD>
-	<title>%1</title> <!-- KDE Glossary -->
+	<title>%1: %1</title> <!-- KDE Glossary: <Term> -->
 	<link rel="stylesheet" href="file:%1" type="text/css" /> <!-- konq.css -->
 </HEAD>
 
