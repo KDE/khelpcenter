@@ -5,7 +5,7 @@ IDL_FLAGS = --relative-paths --any -I$(idldir)
 
 bin_PROGRAMS = 	khelpcenter khcclient
 
-khelpcenter_LDADD   = -lkparts $(LIB_KDEUI) $(LIB_KFILE) $(LIB_KHTML) -lkjava libkhc/libkhc.la -lcutesti
+khelpcenter_LDADD   = -lkparts $(LIB_KDEUI) $(LIB_KFILE) $(LIB_KHTML) libkhc/libkhc.la -lcutesti
 khcclient_LDADD   = -lkparts -lkded libkhc/libkhc.la
 
 service_DATA = khelpcenter.desktop

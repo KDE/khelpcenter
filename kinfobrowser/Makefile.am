@@ -9,7 +9,7 @@ datadir = $(kde_datadir)/kinfobrowser
 
 SUBDIRS = pics
 
-kinfobrowser_LDADD  = -lkparts $(LIB_KDEUI) $(LIB_KFILE) $(LIB_KHTML) -lkjava $(top_builddir)/khelpcenter/libkhc/libkhc.la
+kinfobrowser_LDADD  = -lkparts $(LIB_KDEUI) $(LIB_KFILE) $(LIB_KHTML) $(top_builddir)/khelpcenter/libkhc/libkhc.la
 
 
 kinfobrowser_SOURCES = kinfobrowser.idl kib_main.cc kib_application.cc \
