@@ -77,7 +77,7 @@ bool HTreeListItem::readKDElnk ( const char *filename )
 	else
 	    name = filename;
 	int pos;
-	if ( ( pos = name.findRev( ".kdelnk" ) ) > 0 )
+	if ( ( pos = name.findRev( ".desktop" ) ) > 0 )
 	{
 	    name = name.left( pos );
 	}

@@ -32,7 +32,10 @@
 #include <qtabbar.h>
 
 #include <kapp.h>
-#include <ksimpleconfig.h>	
+#include <ksimpleconfig.h>
+#include <kstddirs.h>	
+#include <kglobal.h>
+#include <klocale.h>
 
 HTabView::HTabView(QWidget *parent, const char *name)
     : QWidget(parent,name)
@@ -113,7 +116,7 @@ void HTabView::buildTree()
 {
     // introduction document
     HTreeListItem *ti_intro = new HTreeListItem("Introduction", "helpdoc.xpm");
-    ti_intro->setURL(QString("file:" + kapp->kde_htmldir() +"/default/khelpcenter/main.html"));
+    ti_intro->setURL(QString("file:" + locate("html", "default/khelpcenter/main.html")));
     ti_intro->insertInTree(tree, 0);
     staticItems.append(ti_intro);
   
@@ -148,15 +151,13 @@ void HTabView::buildTree()
 
     // kde links
     HTreeListItem *ti_links = new HTreeListItem("KDE related WWW links", "helpdoc.xpm");
-    ti_links->setURL(QString("file:" + kapp->kde_htmldir()
-			     +"/default/khelpcenter/links.html"));
+    ti_links->setURL(QString("file:" + locate("html", "default/khelpcenter/links.html")));
     ti_links->insertInTree(tree,0);
     staticItems.append(ti_links);
 
     // kde contacts
     HTreeListItem *ti_contact = new HTreeListItem("Contact Information", "helpdoc.xpm");
-    ti_contact->setURL(QString("file:" + kapp->kde_htmldir().copy()
-			       +"/default/khelpcenter/contact.html"));
+    ti_contact->setURL(QString("file:" + locate("html", "default/khelpcenter/contact.html")));
     ti_contact->insertInTree(tree,0);
     staticItems.append(ti_contact);  
 }
@@ -272,20 +273,20 @@ void HTabView::slotReloadTree()
 void HTabView::slotTabSelected(int id)
 {
     printf("khelpcenter: tab %d selected.\n", id); fflush(stdout);
-    if (id == 1)
+    if (id == 0)
     {
 	tree->show();
 	index->hide();
 	search->hide();
     }
-    else if (id == 2)
+    else if (id == 1)
     {
 	tree->hide();
 	index->show();
 	search->hide();
 	index->tabSelected();
     }
-    else if (id == 3)
+    else if (id == 2)
     {
 	tree->hide();
 	index->hide();
@@ -377,7 +378,7 @@ void HTabView::slotItemSelected(int)
 
 bool HTabView::appendEntries(const char *dirName, HTreeListItem *parent, QList<HTreeListItem> *appendList)
 {
-    QDir fileDir(dirName, "*.kdelnk", 0, QDir::Files | QDir::Hidden | QDir::Readable);
+    QDir fileDir(dirName, "*.desktop", 0, QDir::Files | QDir::Hidden | QDir::Readable);
 
     if (!fileDir.exists())
 	return false;
@@ -464,7 +465,7 @@ bool HTabView::processDir( const char *dirName, HTreeListItem *parent,  QList<HT
 
 bool HTabView::containsDocuments(QString dir)
 {
-    QDir fileDir(dir, "*.kdelnk", 0, QDir::Files | QDir::Hidden | QDir::Readable);
+    QDir fileDir(dir, "*.desktop", 0, QDir::Files | QDir::Hidden | QDir::Readable);
 
     if (!fileDir.exists())
 	return false;
