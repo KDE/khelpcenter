@@ -19,6 +19,7 @@
 
 #include "khc_factory.h"
 #include "khc_navigator.h"
+#include "khc_navigatoritem.h"
 
 KInstance *KHCFactory::s_instance = 0L;
 
