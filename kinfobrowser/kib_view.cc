@@ -1,5 +1,5 @@
 /*
- *  kib_view.cc - part of the KDE Help Center
+ *  kib_view.cc - part of KInfoBrowser
  *
  *  Copyright (c) 1999 Matthias Elter (me@kde.org)
  *
@@ -20,10 +20,17 @@
 
 #include "kib_view.h"
 
-#include <qapp.h>
+#include <qcstring.h>
+#include <qclipboard.h>
 
 #include <kcursor.h>
 #include <kdebug.h>
+#include <kglobal.h>
+#include <kstddirs.h>
+#include <klocale.h>
+#include <kprocess.h>
+#include <kmessagebox.h>
+#include <kapp.h>
 
 #include <opUIUtils.h>
 
@@ -35,101 +42,128 @@ kibView::kibView()
 
   setWidget(this);
 
-  fontBase = 3;
-
-  view = new KHTMLWidget( this );
-  CHECK_PTR( view );
-
-  view->setURLCursor(KCursor::handCursor());
-  view->setUnderlineLinks(true);
-  view->setFocusPolicy(QWidget::StrongFocus);
-  view->setFocus();
-  view->setUpdatesEnabled(true);
-  view->setDefaultBGColor(white);
-  view->setDefaultTextColors(black, blue, blue);
-  view->setGranularity(600);
-  //view->setStandardFont();
-  //view->setFixedFont();
-
-  vert = new QScrollBar(0, 0, 12, view->height(), 0, QScrollBar::Vertical, this, "vert");
-  horz = new QScrollBar(0, 0, 24, view->width(), 0, QScrollBar::Horizontal, this, "horz");
+  m_pProc = new KProcess();
+  QObject::connect(m_pProc, SIGNAL(processExited(KProcess *)),
+				   this ,SLOT(slotProcessExited(KProcess *)));
+  QObject::connect(m_pProc, SIGNAL(receivedStdout(KProcess *, char *, int)),
+				   this, SLOT(slotReceivedStdout(KProcess *, char *, int)));
   
-  QObject::connect(view, SIGNAL(setTitle(QString)), this, SLOT(slotSetTitle(QString)));
-  QObject::connect(view, SIGNAL(documentDone()), this, SLOT(slotCompleted()));
-  QObject::connect(view, SIGNAL(scrollVert(int)), this, SLOT(slotScrollVert(int)));
-  QObject::connect(view, SIGNAL(scrollHorz(int)), this, SLOT(slotScrollHorz(int)));
-  QObject::connect(vert, SIGNAL(valueChanged(int)), view, SLOT(slotScrollVert(int)));
-  QObject::connect(horz, SIGNAL(valueChanged(int)), view, SLOT(slotScrollHorz(int)));
-  QObject::connect(view, SIGNAL(resized(const QSize &)), SLOT(slotViewResized(const QSize &)));
+  m_fontBase = 3;
+  
+  m_pView = new KHTMLWidget(this);
+  CHECK_PTR(m_pView);
+  
+  m_pView->setURLCursor(KCursor::handCursor());
+  m_pView->setUnderlineLinks(true);
+  m_pView->setFocusPolicy(QWidget::StrongFocus);
+  m_pView->setFocus();
+  m_pView->setUpdatesEnabled(true);
+  m_pView->setDefaultBGColor(white);
+  m_pView->setDefaultTextColors(black, blue, blue);
+  m_pView->setGranularity(600);
+  //m_pView->setStandardFont();
+  //m_pView->setFixedFont();
+
+  m_pVert = new QScrollBar(0, 0, 12, m_pView->height(), 0, QScrollBar::Vertical, this, "vert");
+  m_pHorz = new QScrollBar(0, 0, 24, m_pView->width(), 0, QScrollBar::Horizontal, this, "horz");
+  
+  QObject::connect(m_pView, SIGNAL(setTitle(QString)), this, SLOT(slotSetTitle(QString)));
+  QObject::connect(m_pView, SIGNAL(documentDone()), this, SLOT(slotCompleted()));
+  QObject::connect(m_pView, SIGNAL(scrollVert(int)), this, SLOT(slotScrollVert(int)));
+  QObject::connect(m_pView, SIGNAL(scrollHorz(int)), this, SLOT(slotScrollHorz(int)));
+  QObject::connect(m_pVert, SIGNAL(valueChanged(int)), m_pView, SLOT(slotScrollVert(int)));
+  QObject::connect(m_pHorz, SIGNAL(valueChanged(int)), m_pView, SLOT(slotScrollHorz(int)));
+  QObject::connect(m_pView, SIGNAL(resized(const QSize &)), SLOT(slotM_PViewResized(const QSize &)));
+  QObject::connect(m_pView, SIGNAL(URLSelected(QString, int)), this, SLOT(slotURLSelected(QString, int)));
+
+  m_Info2html = locate("data", "kinfobrowser/kde-info2html");
+
+  if (m_Info2html.isEmpty())
+	{
+	  KMessageBox::error(this, i18n("Critical error: Info2html perl script not found.\n") + i18n("Quit!"));
+	  kapp->quit();
+	}
 }
 
 kibView::~kibView()
 {
+  delete m_pProc;
+  delete m_pVert;
+  delete m_pHorz;
+  delete m_pView;
 }
 
 void kibView::layout()
 {
-  int top = 0;
-  int bottom = height();
-  
-  bottom -= SCROLLBAR_WIDTH;
-
-  if (view->docWidth() > view->width())
-    horz->show();
+  // do we need scrollbars?
+  if (m_pView->docWidth() > width() - SCROLLBAR_WIDTH)
+    m_pHorz->show();
   else
-    horz->hide();
+    m_pHorz->hide();
   
-  if (view->docHeight() > view->height())
-    vert->show();
+  if (m_pView->docHeight() > height() - SCROLLBAR_WIDTH)
+    m_pVert->show();
   else
-    vert->hide();
+    m_pVert->hide();
   
-  if(vert->isVisible() && horz->isVisible())
+  // calc geometry
+  if(m_pVert->isVisible() && m_pHorz->isVisible())
     {
-      view->setGeometry(0, top, width() - SCROLLBAR_WIDTH, bottom-top);
-      vert->setGeometry(width()-SCROLLBAR_WIDTH, top, SCROLLBAR_WIDTH, bottom-top);
-      horz->setGeometry(0, bottom, width() - SCROLLBAR_WIDTH, SCROLLBAR_WIDTH);
+      m_pView->setGeometry(0, 0, width() - SCROLLBAR_WIDTH, height() -  SCROLLBAR_WIDTH);
+      m_pVert->setGeometry(width()-SCROLLBAR_WIDTH, 0, SCROLLBAR_WIDTH, height() -  SCROLLBAR_WIDTH);
+      m_pHorz->setGeometry(0, height() -  SCROLLBAR_WIDTH, width() - SCROLLBAR_WIDTH, SCROLLBAR_WIDTH);
     }
-  else if (vert->isVisible())
+  else if (m_pVert->isVisible())
     {
-      view->setGeometry(0, top, width() - SCROLLBAR_WIDTH, height()-top);
-      vert->setGeometry(width()-SCROLLBAR_WIDTH, top, SCROLLBAR_WIDTH, height()-top);
+      m_pView->setGeometry(0, 0, width() - SCROLLBAR_WIDTH, height());
+      m_pVert->setGeometry(width() - SCROLLBAR_WIDTH, 0, SCROLLBAR_WIDTH, height());
     }
-  else if (horz->isVisible())
+  else if (m_pHorz->isVisible())
     {
-      view->setGeometry(0, top, width(), bottom-top);
-      horz->setGeometry(0, bottom, width(), SCROLLBAR_WIDTH);
+      m_pView->setGeometry(0, 0, width(), height() -  SCROLLBAR_WIDTH);
+      m_pHorz->setGeometry(0, height() -  SCROLLBAR_WIDTH, width(), SCROLLBAR_WIDTH);
     }
   else
-    view->setGeometry(0, top, width(), height()-top);
+	m_pView->setGeometry(0, 0, width(), height());
+  
+  // calc ranges
+  if (m_pView->docHeight() > m_pView->height())
+    m_pVert->setRange(0, m_pView->docHeight() - m_pView->height());
+  else
+    m_pVert->setRange(0, 0);
+  
+  if (m_pView->docWidth() > m_pView->width())
+    m_pHorz->setRange(0, m_pView->docWidth() - m_pView->width());
+  else
+    m_pHorz->setRange(0, 0);
 }
 
 void kibView::slotScrollVert(int _y)
 {
-    vert->setValue(_y);
+  m_pVert->setValue(_y);
 }
 
 void kibView::slotScrollHorz(int _x)
 {
-    horz->setValue(_x);
+  m_pHorz->setValue(_x);
 }
 
 void kibView::slotViewResized(const QSize &)
 {
   QApplication::setOverrideCursor(waitCursor);
   
-  vert->setSteps(12, view->height() - 20); 
-  horz->setSteps(24, view->width());
+  m_pVert->setSteps(12, m_pView->height() - 20); 
+  m_pHorz->setSteps(24, m_pView->width());
   
-  if (view->docHeight() > view->height())
-    vert->setRange(0, view->docHeight() - view->height());
+  if (m_pView->docHeight() > m_pView->height())
+    m_pVert->setRange(0, m_pView->docHeight() - m_pView->height());
   else
-    vert->setRange(0, 0);
+    m_pVert->setRange(0, 0);
   
   QApplication::restoreOverrideCursor();
 }
 
-void kibView::resizeEvent(QResizeEvent *)
+void kibView::resizeEvent(QResizeEvent *e)
 {
   layout();
 }
@@ -137,28 +171,55 @@ void kibView::resizeEvent(QResizeEvent *)
 void kibView::open(QString _url, bool /*_reload*/, int _xoffset, int _yoffset)
 {
   m_strURL = _url;
-
-  view->begin(_url);
-  view->parse();
-  view->write("<html><head><title>Test!</title></head><body>");
-  view->write("<H2>Test!</H2>");
-  view->write("<br>Viewing: " + _url + " not implemented, yet.<br>");
-  view->end();
-
-  view->gotoXY(_xoffset, _yoffset);
+  
+  int pos1 = _url.find('(');
+  int pos2 = _url.find(')');
+  
+  if (pos2 == -1 || pos1 == -1 || pos2 < pos1)
+	{
+	  KMessageBox::error(this,"Invalid URL: \n\n" + _url +
+						 "\n\nKInfoBrowser can only handle URL's in the format: info:(<infofile>)<node>.\n"
+						 "For example: info:(bash)Top"
+						 , "KDE InfoBrowser");
+	  return;
+	}
+  
+  QString file = _url.mid(pos1+1, pos2 - pos1 - 1);
+  QString node = _url.right(_url.length() - pos2 - 1);
+  
+  kdebug(KDEBUG_INFO,1400,"file: %s, node: %s", file.latin1(), node.latin1());
+  
+  m_pProc->kill();
+  m_pProc->clearArguments();
+  
+  *m_pProc << "perl" << m_Info2html.latin1() << file.latin1() << node.latin1();
+  
+  m_pView->end();
+  m_pView->begin("file:/tmp", _xoffset, _yoffset);
+  m_pView->parse();
+  m_pProc->start(KProcess::NotifyOnExit, KProcess::Stdout);
 }
 
 bool kibView::mappingOpenURL( Browser::EventOpenURL eventURL )
 {
-  open(QString(eventURL.url), (bool)eventURL.reload );
   SIGNAL_CALL2("started", id(), CORBA::Any::from_string((char *)eventURL.url, 0));
   SIGNAL_CALL2( "setLocationBarURL", id(), (char*)eventURL.url );
+  open(QString(eventURL.url), (bool)eventURL.reload );
   return true;
 }
 
-void kibView::slotURLClicked( QString url )
+void kibView::slotURLSelected(QString url, int button)
 {
-  SIGNAL_CALL2("started", id(), CORBA::Any::from_string((char *)url.latin1(), 0));
+  // replace "%20" with " "
+  int pos = url.find("%20");
+  while(pos > -1)
+	{
+	  url.replace(pos, 3, " "); 
+	  pos = url.find("%20");
+	}
+  
+  // ask the mainview to open this url, as it might not be suited for this view.
+  openURL(url, false, 0, 0);
 }
 
 void kibView::slotSetTitle( QString /*title*/ )
@@ -173,91 +234,93 @@ void kibView::slotStarted( const char *url )
 
 void kibView::slotCompleted()
 {
+  layout();
   SIGNAL_CALL1("completed", id());
 }
 
 void kibView::slotCanceled()
 {
+  layout();
   SIGNAL_CALL1("canceled", id());
 }
 
 void kibView::stop()
 {
-  view->stopParser();
+  m_pView->stopParser();
 }
 
 void kibView::setDefaultFontBase(int fSize)
 {
-    view->resetFontSizes();
-    if (fSize != 3)
+  m_pView->resetFontSizes();
+  if (fSize != 3)
     {
-        int fontSizes[7];
-        view->getFontSizes(fontSizes);
-
-        if (fSize > 3)
+	  int fontSizes[7];
+	  m_pView->getFontSizes(fontSizes);
+	  
+	  if (fSize > 3)
         {
-            for(int i = 0; i < 7; i++)
+		  for(int i = 0; i < 7; i++)
             {
-                int j = i + fSize - 3;
-                if ( j > 6)
-                    j = 6;
-                fontSizes[i] = fontSizes[j]; 
+			  int j = i + fSize - 3;
+			  if ( j > 6)
+				j = 6;
+			  fontSizes[i] = fontSizes[j]; 
             }
         }
-        else
+	  else
         {
-            for(int i = 7; i--;)
+		  for(int i = 7; i--;)
             {
-                int j = i + fSize - 3;
-                if ( j < 0)
+			  int j = i + fSize - 3;
+			  if ( j < 0)
                     j = 0;
-                fontSizes[i] = fontSizes[j]; 
+			  fontSizes[i] = fontSizes[j]; 
             }
         }
-        view->setFontSizes(fontSizes);
+	  m_pView->setFontSizes(fontSizes);
     }
 }
 
 void kibView::zoomIn()
 {
-  if(fontBase < 5)
+  if(m_fontBase < 5)
     {
-      fontBase++;
-      setDefaultFontBase(fontBase);
+      m_fontBase++;
+      setDefaultFontBase(m_fontBase);
+	  SIGNAL_CALL2("started", id(), CORBA::Any::from_string((char *)url(), 0));
       open(url(), true);
-      SIGNAL_CALL2("started", id(), CORBA::Any::from_string((char *)url(), 0));
     }
 }
 
 void kibView::zoomOut()
 {
-  if(fontBase > 2)
+  if(m_fontBase > 2)
     {
-      fontBase--;
-      setDefaultFontBase(fontBase);
+      m_fontBase--;
+      setDefaultFontBase(m_fontBase);
+	  SIGNAL_CALL2("started", id(), CORBA::Any::from_string((char *)url(), 0));
       open(url(), true);
-      SIGNAL_CALL2("started", id(), CORBA::Any::from_string((char *)url(), 0));
     }
 }
 
 CORBA::Boolean kibView::canZoomIn()
 {
-  return (CORBA::Boolean)(fontBase < 5);
+  return (CORBA::Boolean)(m_fontBase < 5);
 }
 
 CORBA::Boolean kibView::canZoomOut()
 {
-  return (CORBA::Boolean)(fontBase > 2);
+  return (CORBA::Boolean)(m_fontBase > 2);
 }
 
 CORBA::Long kibView::xOffset()
 {
-  return (CORBA::Long) view->xOffset();
+  return (CORBA::Long) m_pView->xOffset();
 }
 
 CORBA::Long kibView::yOffset()
 {
-  return (CORBA::Long) view->yOffset();
+  return (CORBA::Long) m_pView->yOffset();
 }
 
 void kibView::openURL(QString _url, bool _reload, int _xoffset, int _yoffset, const char */*_post_data*/)
@@ -278,7 +341,31 @@ char *kibView::url()
 
 void kibView::print()
 {
-  view->print();
+  m_pView->print();
+}
+
+void kibView::slotProcessExited(KProcess *)
+{
+  m_pView->end();
+}
+
+void kibView::slotReceivedStdout(KProcess *, char *buffer, int buflen)
+{
+  QCString in(buffer, buflen);
+  m_pView->write(QCString(buffer, buflen));
+}
+
+void kibView::slotCopy()
+{
+  QString text;
+  
+  m_pView->getSelectedText(text);
+  QClipboard *cb = kapp->clipboard();
+  cb->setText(text);
+}
+
+void kibView::slotSearch()
+{
 }
 
 #include "kib_view.moc"

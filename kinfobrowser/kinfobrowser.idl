@@ -1,5 +1,5 @@
 /*
- *  kinfobrowser.idl - part of the KDE Help Center
+ *  kinfobrowser.idl - part of KInfoBrowser
  *
  *  Copyright (c) 1999 Matthias Elter (me@kde.org)
  *
@@ -25,6 +25,14 @@
 
 module KInfoBrowser
 {
+	interface View : Browser::View
+					,Browser::PrintingExtension
+					,Browser::MagnifyingExtension
+	{
+		slot void slotCopy();
+		slot void slotSearch();
+	};
+
 	interface MainWindow : OpenParts::MainWindow
 	{
 		void open( in string url, in boolean reload, in long xoffset, in long yoffset);
@@ -52,9 +60,13 @@ module KInfoBrowser
     
 		slot void createNewWindow( in string url );
 	};
-	  	
-	interface View : Browser::View, Browser::PrintingExtension, Browser::MagnifyingExtension
+
+	interface Application : OpenParts::Application
 	{
+		View createView();
+		// Implements:
+  		// OpenParts::MainWindow createWindow()
+		// ...defined in openparts.idl
 	};
 };
 

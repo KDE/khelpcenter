@@ -1,5 +1,5 @@
 /*
- *  kib_mainwindow.h - part of the KDE Help Center
+ *  kib_mainwindow.h - part of KInfoBrowser
  *
  *  Copyright (c) 199 Matthias Elter (me@kde.org)
  *
@@ -33,7 +33,7 @@ class QPopupMenu;
 class kibMainWindow;
 
 class kibMainWindowIf : virtual public OPMainWindowIf,
-			virtual public KInfoBrowser::MainWindow_skel
+						virtual public KInfoBrowser::MainWindow_skel
 {
  public:
   kibMainWindowIf(kibMainWindow* _main);

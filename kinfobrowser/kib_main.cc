@@ -1,5 +1,5 @@
 /*
- *  kib_main.cc - part of the KDE Help Center
+ *  kib_main.cc - part of KInfoBrowser
  *
  *  Copyright (C) 199 Matthias Elter (me@kde.org)
  *
@@ -17,41 +17,43 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
-
+#include "kib_application.h"
 #include "kib_mainwindow.h"
 
-#include <komAutoLoader.h>
 #include <opApplication.h>
+#include <komBase.h>
+
+#include <kglobal.h>
+#include <klocale.h>
 
 int main(int argc, char *argv[])
 {
-    bool server = false;
+  OPApplication app(argc, argv, "kinfobrowser");
 
-    for (int i=0; i< argc; i++)
+  bool server = false;
+  
+  for (int i=0; i< argc; i++)
     {
-	if (strcmp(argv[i], "--server") == 0 || strcmp(argv[i], "-s") == 0)
-	    server = true;
+      if (strcmp(argv[i], "--server") == 0 || strcmp(argv[i], "-s") == 0)
+		server = true;
     }
 
-    if (server)
-    {
-	// activate autoloader for interface "ViewFactory"
-	OPApplication app(argc, argv, "kinfobrowser");
-	//KOMAutoLoader<ViewFactory_Impl> HelpBrowserFactoryLoader("IDL:Browser/ViewFactory:1.0" , "ManBrowser");
-	
-	app.exec();
-	return 0;
+  KOMBoot<kibApplicationIf> appLoader("IDL:KInfoBrowser/Application:1.0", "App");
+  KGlobal::locale()->insertCatalogue("libkhc");
+
+  if (server)
+	{
+	  app.exec();
+	  return 0;
     }
-    else
+  else
     {
-	// standalone app
-	OPApplication app(argc, argv, "kinfobrowser");
-	kibMainWindow *win = new kibMainWindow;
-	win->show();
-	
-	app.exec();
-	if (win)
+	  kibMainWindow *win = new kibMainWindow;
+	  win->show();
+	  
+	  app.exec();
+	  if (win)
 	    delete win;
-	return 0;
+	  return 0;
     }
 }

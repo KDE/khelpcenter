@@ -1,5 +1,5 @@
 /*
- *  kib_mainwindow.cc - part of the KDE Help Center
+ *  kib_mainwindow.cc - part of KInfoBrowser
  *
  *  Copyright (c) 1999 Matthias Elter (me@kde.org)
  *
@@ -137,7 +137,6 @@ void kibMainWindow::setupMenuBar()
 
     m_pFileMenu->insertItem(i18n("Open &new window"), this, SLOT(slotNewBrowser()), stdAccel.openNew());
     m_pFileMenu->insertSeparator();
-    m_pFileMenu->insertItem(i18n("&Open File..."), this, SLOT(slotOpenFile()), stdAccel.open());
     m_pFileMenu->insertItem(i18n("&Reload"), this, SLOT(slotReload()), Key_F5);
     m_pFileMenu->insertItem(i18n("&Print"), this, SLOT(slotPrint()), stdAccel.print());
     m_pFileMenu->insertSeparator();
@@ -493,7 +492,7 @@ void kibMainWindow::slotSetBookmark()
 
 void kibMainWindow::slotIndex()
 {
-    QString url = "info:(index)";
+    QString url = "info:(dir)Top";
 
     openURL(url, true); 
 }

@@ -1,5 +1,5 @@
 /*
- *  kib_view.h - part of the KDE Help Center
+ *  kib_view.h - part of KInfoBrowser
  *
  *  Copyright (c) 1999 Matthias Elter (me@kde.org)
  *
@@ -33,15 +33,16 @@
 
 #define SCROLLBAR_WIDTH		16
 #define BOOKMARK_ID_BASE	200
-#define MAX_HISTORY_LENGHT      15
+
+class KProcess;
 
 class kibView : public QWidget,
-		public khcBaseView,
-		virtual public KInfoBrowser::View_skel
+				public khcBaseView,
+				virtual public KInfoBrowser::View_skel
 {
   Q_OBJECT
     
- public:
+public:
   kibView();
   virtual ~kibView();
   
@@ -49,37 +50,49 @@ class kibView : public QWidget,
   
   virtual void stop();
   virtual char *url();
-  virtual CORBA::Long xOffset();
-  virtual CORBA::Long yOffset();
   virtual void print();
   virtual void zoomIn();
   virtual void zoomOut();
+
+  virtual CORBA::Long xOffset();
+  virtual CORBA::Long yOffset();
   virtual CORBA::Boolean canZoomIn();
   virtual CORBA::Boolean canZoomOut();
-  virtual void openURL( QString _url, bool _reload, int _xoffset = 0, int _yoffset = 0, const char *_post_data = 0L);
+
+  virtual void openURL( QString _url, bool _reload, int _xoffset = 0, int _yoffset = 0,
+			const char *_post_data = 0L);
   
- public slots:
-  void slotURLClicked( QString url );
+public slots:
+  virtual void slotCopy();
+  virtual void slotSearch();
+
+  void slotScrollVert( int _y );
+  void slotScrollHorz( int _y );
 
 protected slots:
   void slotSetTitle(QString title);
   void slotStarted(const char *url);
   void slotCompleted();
   void slotCanceled();
-  void slotScrollVert( int _y );
-  void slotScrollHorz( int _y );
   void slotViewResized( const QSize & );
+  void slotURLSelected(QString url, int button);
+  void slotProcessExited(KProcess *proc);
+  void slotReceivedStdout(KProcess *proc, char *buffer, int buflen);
 
 protected:
-  virtual void resizeEvent( QResizeEvent * );
+  virtual void resizeEvent(QResizeEvent *);
   void setDefaultFontBase(int fSize);
   void open(QString _url, bool _reload, int _xoffset = 0, int _yoffset = 0);
   void layout();
 
-  int fontBase;
-  KHTMLWidget *view;
-  QScrollBar *vert;
-  QScrollBar *horz;
+ protected:
+  KHTMLWidget  *m_pView;
+  KProcess     *m_pProc;
+  QScrollBar   *m_pVert;
+  QScrollBar   *m_pHorz;
+
+  QString       m_Info2html;
+  int           m_fontBase;
 };
 
 #endif
