@@ -1,0 +1,10 @@
+[KDE Desktop Entry]
+
+Name=Applet Manuals
+Name[de]=Applet-Handbuecher
+
+Icon=contents2
+
+X-DOC-Weight=-400
+
+X-KDE-KHelpcenter-Special=kickerapplets
