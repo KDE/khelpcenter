@@ -384,7 +384,7 @@ class PluginTraverser : public DocEntryTraverser
                   entry->khelpcenterSpecial() == "noatun" ||
                   entry->khelpcenterSpecial() == "konqueror" )
           mNavigator->insertParentAppDocs( entry->khelpcenterSpecial(),
-              mCurrentItem );
+                                           mCurrentItem );
       }
 
       mCurrentItem->setName( entry->name() );
@@ -437,6 +437,8 @@ void Navigator::insertParentAppDocs( const QString &name, NavigatorItem *topItem
   kdDebug(1400) << "Requested plugin documents for ID " << name << endl;
  
 #if KDE_VERSION < 305
+// Disabled because it does not work.
+#if 0
   KService::List services = KService::allServices();
   KService::List::ConstIterator it = services.begin();
   KService::List::ConstIterator end = services.end();
@@ -446,6 +448,7 @@ void Navigator::insertParentAppDocs( const QString &name, NavigatorItem *topItem
       createItemFromDesktopFile( topItem,
           locate( "apps", srv->name() ) );
   }
+#endif
 #else
   KServiceGroup::Ptr grp = KServiceGroup::childGroup( name );
   if ( !grp ) {
