@@ -110,8 +110,58 @@ SearchWidget::SearchWidget( QWidget *parent )
 
 SearchWidget::~SearchWidget()
 {
+  writeConfig( KGlobal::config() );
 }
 
+
+void SearchWidget::readConfig( KConfig *cfg )
+{
+  cfg->setGroup( "Search" );
+
+  int scopeSelection = cfg->readNumEntry( "ScopeSelection", ScopeDefault );
+  mScopeCombo->setCurrentItem( scopeSelection );
+  if ( scopeSelection != ScopeDefault ) scopeSelectionChanged( scopeSelection );
+
+  int method = cfg->readNumEntry( "Method", 0 );
+  mMethodCombo->setCurrentItem( method );
+  
+  int pages = cfg->readNumEntry( "MaxCount", 0 );
+  mPagesCombo->setCurrentItem( pages );
+
+  if ( scopeSelection == ScopeCustom ) {
+    cfg->setGroup( "Custom Search Scope" );
+    QListViewItemIterator it( mScopeListView );
+    while( it.current() ) {
+      if ( it.current()->rtti() == ScopeItem::rttiId() ) {
+        ScopeItem *item = static_cast<ScopeItem *>( it.current() );
+        item->setOn( cfg->readBoolEntry( item->entry()->identifier(),
+                                         item->isOn() ) );
+      }
+      ++it;
+    }
+  }
+}
+
+void SearchWidget::writeConfig( KConfig *cfg )
+{
+  cfg->setGroup( "Search" );
+  
+  cfg->writeEntry( "ScopeSelection", mScopeCombo->currentItem() );
+  cfg->writeEntry( "Method", mMethodCombo->currentItem() );
+  cfg->writeEntry( "MaxCount", mPagesCombo->currentItem() );
+
+  if ( mScopeCombo->currentItem() == ScopeCustom ) {
+    cfg->setGroup( "Custom Search Scope" );
+    QListViewItemIterator it( mScopeListView );
+    while( it.current() ) {
+      if ( it.current()->rtti() == ScopeItem::rttiId() ) {
+        ScopeItem *item = static_cast<ScopeItem *>( it.current() );
+        cfg->writeEntry( item->entry()->identifier(), item->isOn() );
+      }
+      ++it;
+    }
+  }
+}
 
 void SearchWidget::slotIndex()
 {

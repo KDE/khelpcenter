@@ -122,6 +122,8 @@ Navigator::Navigator( View *view, QWidget *parent,
     } else {
       mSearchWidget->updateScopeList();
       slotSearchTextChanged( mSearchEdit->text() );
+      
+      mSearchWidget->readConfig( KGlobal::config() );
     }
 }
 
@@ -231,6 +233,8 @@ void Navigator::insertIOSlaveDocs( const QString &name, NavigatorItem *topItem )
       item->setIcon( icon.isEmpty() ? "document2" : icon );
     }
   }
+#else
+  Q_UNUSED( topItem );
 #endif
 }
 

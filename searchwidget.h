@@ -33,6 +33,7 @@ class QListViewItem;
 class QComboBox;
 
 class KLanguageCombo;
+class KConfig;
 
 class KCMHelpCenter;
 
@@ -67,6 +68,9 @@ class SearchWidget : public QWidget, public DCOPObject
     QString indexDir() const { return mIndexDir; }
 
     KCMHelpCenter *indexDialog() const { return mIndexDialog; }
+
+    void readConfig( KConfig * );
+    void writeConfig( KConfig * );
 
   signals:
     void searchResult( const QString &url );
