@@ -39,8 +39,6 @@ kibView::kibView( QWidget *parent, char *name )
 
   m_pProc = new KProcess();
 
-  setBackgroundColor( red );
-
   connect( m_pProc, SIGNAL( processExited( KProcess* ) ), this ,SLOT( slotProcessExited( KProcess* ) ) );
   connect( m_pProc, SIGNAL( receivedStdout( KProcess*, char*, int ) ), this, SLOT( slotReceivedStdout( KProcess*, char*, int ) ) );
 
@@ -63,10 +61,11 @@ kibView::kibView( QWidget *parent, char *name )
 
   connect( m_pView, SIGNAL( onURL( const QString& ) ), this, SLOT( slotOnURL( const QString& ) ) );
   connect( m_pView, SIGNAL( completed() ), this, SLOT( slotCompleted() ) );
-  connect( m_pView, SIGNAL( scrollVert( int ) ), this, SLOT( slotScrollVert( int ) ) );
-  connect( m_pView, SIGNAL( scrollHorz( int ) ), this, SLOT( slotScrollHorz( int ) ) );
-  connect( m_pView, SIGNAL( resized( const QSize& ) ), SLOT( slotM_PViewResized( const QSize& ) ) );
+  //connect( m_pView, SIGNAL( scrollVert( int ) ), this, SLOT( slotScrollVert( int ) ) );
+  //connect( m_pView, SIGNAL( scrollHorz( int ) ), this, SLOT( slotScrollHorz( int ) ) );
+  //connect( m_pView, SIGNAL( resized( const QSize& ) ), SLOT( slotM_PViewResized( const QSize& ) ) );
   connect( m_pView, SIGNAL( urlClicked( const QString&, const QString&, int ) ), this, SLOT( slotURLSelected( const QString&, const QString&, int ) ) );
+  connect( m_pView, SIGNAL( canceled() ), this, SLOT( slotStop() ) );
 
   m_Info2html = locate( "data", "kinfobrowser/kde-info2html" );
 
@@ -143,7 +142,7 @@ void kibView::slotURLSelected( const QString& url, const QString&, int )
 
 /*
   int pos = url.find( "%20" );
-  
+
   while( pos > -1 )
   {
     url.replace( pos, 3, " " );
@@ -161,9 +160,9 @@ void kibView::slotURLSelected( const QString& url, const QString&, int )
     pos = url.find( "%20" );
   }
 */
-  
+
   //url.replace( QRegExp( "%20" ), " " );
-    
+
   // ask the mainview to open this url, as it might not be suited for this view.
   openURL( url, true, 0, 0 );
 }
