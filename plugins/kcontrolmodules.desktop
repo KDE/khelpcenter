@@ -1,6 +1,47 @@
 [KDE Desktop Entry]
 
 Name=Control Center Modules
+Name[af]=Kontrole Sentrum Modules
+Name[be]=Модулі цэнтру кіраваньня
+Name[bg]=Модули на Контролен Център
+Name[bs]=Moduli kontrolnog centra
+Name[ca]=Mòduls del Centre de control
+Name[cs]=Moduly Ovládacího centra
+Name[da]=Kontrolcenter-moduler
+Name[de]=Kontrollzentrum-Module
+Name[el]=Αρθρώματα Κέντρου ελέγχου
+Name[en_GB]=Control Centre Modules
+Name[es]=Módulos del Centro de control
+Name[et]=Juhtimiskeskuse moodulid
+Name[eu]=Kontrol Gune Moduloak
+Name[fa]=بخش‌های مرکز کنترل
+Name[fi]=Ohjauskeskuksen modulit
+Name[fr]=Modules du centre de configuration
+Name[he]=מודולי מרכז הבקרה
+Name[hu]=A vezérlőközpont moduljai
+Name[it]=Moduli del centro di controllo
+Name[ja]=コントロールセンターモジュール
+Name[lt]=Valdymo Centro moduliai
+Name[mt]=Moduli taċ-Ċentru tal-Kontroll
+Name[nb]=Kontrollsentermoduler
+Name[nl]=Configuratiecentrummodules
+Name[nn]=Kontrollsentermodular
+Name[nso]=Diripa tsa Bogareng bja Taolo
+Name[pl]=Moduły centrum sterowania
+Name[pt]=Módulos do Centro de Controlo
+Name[pt_BR]=Módulos do Centro de Controle
+Name[ru]=Модули Центра управления
+Name[sk]=Moduly Ovládacieho centra
+Name[sl]=Moduli nadzornega središča
+Name[sv]=Moduler i inställningscentralen
+Name[ta]=¸ðÎôÀ¡Î ¨ÁÂì ÜÚ
+Name[tr]=Kontrol Merkezi Modülleri
+Name[uk]=Модулі центру керування
+Name[ven]=Modulu wa Senthara ya vhulanguli
+Name[xh]=Izicatshulwa Zolawulo Ezisembindini
+Name[zh_CN]=控制中心模块
+Name[zh_TW]=控制中心模組
+Name[zu]=Izingxenye ze-Control Center
 
 Icon=kcontrol
 

@@ -1,10 +1,46 @@
 [KDE Desktop Entry]
 
 Name=Browse info pages
-Name[da]=Netsøgningsinfosider
+Name[af]=Blaai inligting bladsye
+Name[bg]=Преглед на информационни страници
+Name[bs]=Pregled info stranica
+Name[ca]=Navegador de pàgines info
+Name[cs]=Prohlížeč info stránek
+Name[da]=Gennemse infosider
+Name[de]=Info-Seiten durchsehen
+Name[el]=Περιήγηση σε σελίδες info
 Name[eo]=Rigardu info-paĝojn
+Name[es]=Navegar por páginas info
+Name[et]=Info lehtede lehitsemine
+Name[eu]=Info orriak arakatu
+Name[fa]=مرور صفحات اطلاعات
+Name[fi]=Selaa info-sivuja
+Name[fr]=Naviguer dans les pages d'information
+Name[he]=עיון בדפי מידע
+Name[hu]=Info oldalak böngészése
+Name[it]=Sfoglia le pagine "info"
+Name[ja]=infoページの参照
+Name[lt]=Naršyti info puslapius
+Name[mt]=Dur il-paġni info
+Name[nb]=Les info-sider
+Name[nl]=Info-pagina's doorbladeren
+Name[nn]=Les info-sider
+Name[nso]=Matlakala a tshedimoso ya seinyakisi
+Name[pl]=Przeglądanie stron informacyjnych
+Name[pt]=Navegar pelas páginas do 'info'
 Name[pt_BR]=Navegar nas páginas Info
+Name[ru]=Страницы Info
+Name[sk]=Prehliadanie info stránok
+Name[sl]=Brskaj po straneh info
 Name[sv]=Bläddra i info-sidor
+Name[ta]=¾¸Åø Àì¸í¸¨Ç §Á§Ä¡¼×õ
+Name[tr]=Bilgi sayfarlarını tara
+Name[uk]=Навігація сторінок info
+Name[ven]=Masiatari a mafhungo a Burausa
+Name[xh]=Khangela ulwazi emaphepheni
+Name[zh_CN]=浏览信息页面
+Name[zh_TW]=瀏覽資訊頁
+Name[zu]=Cinga emakhasini olwazi
 
 X-KDE-KHelpcenter-Special=info
 

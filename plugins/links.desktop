@@ -2,9 +2,46 @@
 DocPath=help:/khelpcenter/index.html?anchor=links
 
 Name=KDE on the web
+Name[af]=Kde op die web
+Name[be]=KDE ў Інтэрнэце
+Name[bg]=KDE във web
+Name[bs]=KDE na webu
+Name[ca]=KDE a la web
+Name[cs]=KDE na webu
 Name[da]=KDE på nettet
+Name[de]=KDE im Web
+Name[el]=Το KDE στο δίκτυο
 Name[eo]=KDE en TTT
+Name[es]=KDE en la web
+Name[et]=KDE veebis
+Name[eu]=KDE Web-ean
+Name[fa]=KDE در وب
+Name[fi]=KDE webissä
+Name[fr]=KDE sur le web
+Name[he]=KDE באינטרנט
+Name[hu]=A KDE az interneten
+Name[it]=KDE su internet
+Name[ja]=Web上のKDE
+Name[lt]=KDE WWW
+Name[mt]=KDE fuq il-Web
+Name[nb]=KDE på nettet
+Name[nl]=KDE op het Internet
+Name[nn]=KDE på verdsveven
+Name[nso]=KDE go Web
+Name[pl]=KDE w sieci
+Name[pt]=O KDE na Web
 Name[pt_BR]=KDE na Web
+Name[ru]=KDE в Интернете
+Name[sk]=KDE na webe
+Name[sl]=KDE na spletu
 Name[sv]=KDE på Internet
+Name[ta]=Å¨ÄÂò¾¢ø Kº¡ÇÃ
+Name[tr]=İnternet'te KDE
+Name[uk]=KDE в Тенетах
+Name[ven]=KDE kha webu
+Name[xh]=KDE kwi Web
+Name[zh_CN]=网上 KDE
+Name[zh_TW]=KDE 網站
+Name[zu]=I-KDE kwi-web
 
 X-DOC-Weight=4000

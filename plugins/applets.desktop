@@ -1,15 +1,44 @@
 [KDE Desktop Entry]
 
 Name=Applet Manuals
-Name[af]=miniprogram handleidings
+Name[af]=Miniprogram Handleidings
+Name[bg]=Аплет Ръководства
 Name[bs]=Priručnici appleta
+Name[ca]=Manuals dels applet
 Name[cs]=Příručky appletů
 Name[da]=Panelprogrammanualer
+Name[de]=Handbücher zu Miniprogrammen (Applets)
+Name[el]=Εγχειρίδια εφαρμογιδίων
 Name[es]=Manuales de applet
+Name[et]=Aplettide käsiraamatud
+Name[eu]=Applet Eskuliburuak
+Name[fa]=دستنامه‌های برنامک‌ها
 Name[fi]=Sovelmien ohjekirjat
+Name[fr]=Manuels des applets
 Name[he]=ספרי הדרכה של יישומונים
+Name[hu]=A kisalkalmazások kézikönyvei
+Name[it]=Manuali applet
+Name[ja]=アプレットマニュアル
+Name[lt]=Įskiepių vadovai
+Name[mt]=Manwali tal-applets
+Name[nb]=Applet-manualer
+Name[nl]=Appletshandleidignen
+Name[nn]=Applet-manualar
+Name[nso]=Di-Manual tsa Applet
+Name[pl]=Podręczniki programików
+Name[pt]=Manuais das 'Applets'
 Name[pt_BR]=Manuais de Aplicativos
+Name[ru]=Руководства аплетов
+Name[sk]=Manuály pre applety
+Name[sl]=Priročniki za vstavke
 Name[sv]=Miniprogramhandböcker
+Name[ta]=ÌÚõÀÂý ¦ºÂ§ÄÎ¸û
+Name[tr]=Programcık Kılavuzları
+Name[uk]=Довідки по аплетам
+Name[xh]=Applet Zesandla
+Name[zh_CN]=小应用程序手册
+Name[zh_TW]=面板程式手冊
+Name[zu]=Izincwadi zesandla zama-Applet
 
 Icon=contents2
 

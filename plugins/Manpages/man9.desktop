@@ -1,5 +1,32 @@
 [KDE Desktop Entry]
 Name=(9) Kernel
-Name[de]=(9) Kernel
+Name[be]=(9) Ядро
+Name[bg]=(9) Ядро
+Name[ca]=(9) Nucli
+Name[cs]=(9) Jádro
+Name[da]=(9) Kerne
+Name[de]=(9) Kern des Betriebssytems
+Name[el]=(9) Πυρήνας
+Name[eo]=(9) Kerno
+Name[es]=(9) Núcleo
+Name[eu]=(9) Nukleoa
+Name[fa]=(۹) هسته
+Name[fi]=(9) Kerneli
+Name[fr]=(9) Kernel (Noyau)
+Name[he]=גרעין (9)
+Name[ja]=(9) カーネル
+Name[lt]=(9) Branduolys
+Name[nb]=(9) Kjerne
+Name[nn]=(9) Kjerne
+Name[pl]=(9) Jądro systemu
+Name[pt]=(9) 'Kernel'
+Name[ru]=(9) Ядро
+Name[sl]=(9) Jedro
+Name[sv]=(9) Kärna
+Name[ta]=(9)¸Õ
+Name[tr]=(9) Çekirdek
+Name[uk]=(9) Ядро
+Name[zh_CN]=(9) 内核
+Name[zh_TW]=(9) 核心
 
 DocPath=man:/(9)

@@ -2,10 +2,47 @@
 DocPath=help:/khelpcenter/index.html?anchor=contact
 
 Name=Contact Information
+Name[af]=Kontak Informasie
+Name[be]=Кантактная інфармацыя
+Name[bg]=Информация за Контакт
+Name[bs]=Kontakt informacije
+Name[ca]=Informació de contacte
+Name[cs]=Kontaktní informace
 Name[da]=Kontaktinformation
+Name[de]=Kontakt-Informationen
+Name[el]=Πληροφορίες επικοινωνίας
 Name[eo]=Kontaktinformoj
+Name[es]=Información de contacto
+Name[et]=Kontaktinfo
+Name[eu]=Kontaktu Informazioa
+Name[fa]=اطلاعات تماس
+Name[fi]=Yhteystiedot
+Name[fr]=Contacter l'équipe KDE
+Name[he]=מידע ליצירת קשר
+Name[hu]=Kapcsolatfelvétel
+Name[it]=Informazioni contatti
+Name[ja]=コンタクト情報
+Name[lt]=Kontaktai
+Name[mt]=Informazzjoni dwar kuntatti
+Name[nb]=Kontaktinformasjon
+Name[nl]=Contactinformatie
+Name[nn]=Kontaktinformasjon
+Name[nso]=Tshedimoso ya Kgokagano
+Name[pl]=Informacje kontaktowe
+Name[pt]=Informações de Contactos
 Name[pt_BR]=Informação de Contato
+Name[ru]=Контактная информация
+Name[sk]=Informácie o kontaktoch
+Name[sl]=Informacije za stik
 Name[sv]=Kontaktinformation
+Name[ta]=«Ï¸×õ
+Name[tr]=Bağlantı Bilgisi
+Name[uk]=Контактна інформація
+Name[ven]=Mafhungo nga vhudalo
+Name[xh]=Qhagamshelana Nolwazi
+Name[zh_CN]=联系信息
+Name[zh_TW]=聯絡資訊
+Name[zu]=Ulwazi lwabangathinteka
 
 X-DOC-Weight=3000
 

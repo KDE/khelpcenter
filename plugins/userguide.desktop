@@ -2,10 +2,46 @@
 DocPath=help:/khelpcenter/userguide/index.html
 
 Name=KDE user's manual
-Name[da]=KDE's brugermanual
+Name[af]=Kde gebruiker se hand
+Name[bg]=KDE ръководство на потребителя
+Name[bs]=KDE korisnički priručnik
+Name[ca]=Manual dels usuaris del KDE
+Name[cs]=Příručka uživatele KDE
+Name[da]=KDE-brugervejledning
+Name[de]=KDE-Benutzerhandbuch
+Name[el]=Εγχειρίδιο χρήστη του KDE
 Name[eo]=KDE-uzanto-manlibro
+Name[es]=Manual del usuario de KDE
+Name[et]=KDE kasutaja käsiraamat
+Name[eu]=KDE erabiltzailearen eskuliburuak
+Name[fa]=مرجع کاربران KDE
+Name[fi]=KDE käyttöohje
+Name[fr]=Manule de l'utilisateur de KDE
+Name[he]=המדריך למשתמש ב-KDE
+Name[hu]=KDE felhasználói kézikönyv
+Name[it]=Manuale utente di KDE
+Name[ja]=KDE ユーザマニュアル
+Name[lt]=KDE vartotojo vadovai
+Name[mt]=Manwal tal-user ta' KDE
+Name[nb]=KDE brukerhåndbok
+Name[nl]=KDE's handleiding
+Name[nn]=Brukarhandbok for KDE
+Name[nso]=Manual wa Modirisi wa KDE
+Name[pl]=Podręcznik użytkownika KDE
+Name[pt]=Manual do utilizador do KDE
 Name[pt_BR]=Manual do Usuário do KDE
+Name[ru]=Руководство пользователя KDE
+Name[sk]=Používateľský manuál KDE
+Name[sl]=Uporabniški priročnik KDE
 Name[sv]=KDE:s användarmanual
+Name[ta]=Kº¡ÇÃ ÀÂÉ÷ ¦ºÂ§ÄÎ
+Name[tr]=KDE kılavuz sayfası
+Name[uk]=Підручник користувача KDE
+Name[ven]=Manual a KDE ya mushumisi
+Name[xh]=Incwadi yesandla yomsebenzisi we KDE
+Name[zh_CN]=KDE 用户手册
+Name[zh_TW]=KDE 使用者手冊
+Name[zu]=Incwadi yesandla yomsebenzisi ye-KDE
 
 X-DOC-Weight=-2000
 
