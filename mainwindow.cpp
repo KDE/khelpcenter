@@ -156,17 +156,21 @@ MainWindow::~MainWindow()
 void MainWindow::saveProperties( KConfig *config )
 {
     kdDebug()<<"void MainWindow::saveProperties( KConfig *config )\n";
-    config->setDesktopGroup();
+    //config->setDesktopGroup();
     config->writePathEntry( "URL" , mDoc->baseURL().url() );
 }
 
 void MainWindow::readProperties( KConfig *config )
 {
-#if 0 // I don't understand it doesn't read in good group ...
+//#if 0 // I don't understand it doesn't read in good group ...
     kdDebug()<<"void MainWindow::readProperties( KConfig *config )\n";
-    config->setDesktopGroup();
+    kdDebug()<<" config->groupList() :"<<config->groupList().join( ";" )<<endl;
+    kdDebug()<<" KGlobal::config()->groupList() :"<<KGlobal::config()->groupList().join( ";" )<<endl;
+    //config->setDesktopGroup();
+    kdDebug()<<" config :"<< config <<" KGlobal::config() :"<<KGlobal::config()<<endl;
+    kdDebug()<<"config->readPathEntry( URL ) ***********************************:"<<config->readPathEntry( "URL" )<<endl;
     mDoc->slotReload( config->readPathEntry( "URL" ) );
-#endif
+//#endif
 }
 
 void MainWindow::setupActions()
@@ -313,7 +317,7 @@ void MainWindow::openUrl( const QString &url, const QCString& startup_id )
 void MainWindow::openUrl( const KURL &url )
 {
     stop();
-    
+
     if ( url.isEmpty() ) slotShowHome();
     else {
       History::self().createEntry();

@@ -16,7 +16,7 @@ khelpcenter_la_LDFLAGS = $(all_libraries) -module $(KDE_PLUGIN)
 khelpcenter_la_LIBADD = $(LIB_KHTML)
 khelpcenter_la_SOURCES = navigator.cpp \
 	navigatoritem.cpp navigatorappitem.cpp view.cpp \
-	searchwidget.cpp klanguagebutton.cpp searchengine.cpp \
+	searchwidget.cpp searchengine.cpp \
 	docmetainfo.cpp docentrytraverser.cpp formatter.cpp \
 	glossary.cpp toc.cpp mainwindow.cpp docentry.cpp htmlsearch.cpp \
 	history.cpp application.cpp searchwidget.skel treebuilder.cpp \
