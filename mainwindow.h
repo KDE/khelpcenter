@@ -64,6 +64,9 @@ class MainWindow : public KMainWindow, public DCOPObject
     virtual void saveProperties( KConfig *config );
     virtual void readProperties( KConfig *config );
 
+    void readConfig();
+    void writeConfig();
+
   protected slots:
     void enableLastSearchAction();
     void enableCopyTextAction();
@@ -90,6 +93,7 @@ class MainWindow : public KMainWindow, public DCOPObject
 private:
     void updateZoomActions();
 
+    QSplitter *mSplitter;
     View *mDoc;
     Navigator *mNavigator;
 

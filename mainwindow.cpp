@@ -82,9 +82,9 @@ MainWindow::MainWindow()
     : KMainWindow(0, "MainWindow"), DCOPObject( "KHelpCenterIface" ),
       mLogDialog( 0 )
 {
-    QSplitter *splitter = new QSplitter(this);
+    mSplitter = new QSplitter( this );
 
-    mDoc = new View( splitter, 0, this, 0, KHTMLPart::DefaultGUI, actionCollection() );
+    mDoc = new View( mSplitter, 0, this, 0, KHTMLPart::DefaultGUI, actionCollection() );
     connect( mDoc, SIGNAL( setWindowCaption( const QString & ) ),
              SLOT( setCaption( const QString & ) ) );
     connect( mDoc, SIGNAL( setStatusBarText( const QString & ) ),
@@ -110,18 +110,18 @@ MainWindow::MainWindow()
              SLOT( slotOpenURLRequest( const KURL &,
                                        const KParts::URLArgs & ) ) );
 
-    mNavigator = new Navigator( mDoc, splitter, "nav" );
+    mNavigator = new Navigator( mDoc, mSplitter, "nav" );
     connect( mNavigator, SIGNAL( itemSelected( const QString & ) ),
              SLOT( viewUrl( const QString & ) ) );
     connect( mNavigator, SIGNAL( glossSelected( const GlossaryEntry & ) ),
              SLOT( slotGlossSelected( const GlossaryEntry & ) ) );
 
-    splitter->moveToFirst(mNavigator);
-    splitter->setResizeMode(mNavigator, QSplitter::KeepSize);
-    setCentralWidget( splitter );
+    mSplitter->moveToFirst(mNavigator);
+    mSplitter->setResizeMode(mNavigator, QSplitter::KeepSize);
+    setCentralWidget( mSplitter );
     QValueList<int> sizes;
     sizes << 220 << 580;
-    splitter->setSizes(sizes);
+    mSplitter->setSizes(sizes);
     setGeometry(366, 0, 800, 600);
 
     KConfig *cfg = kapp->config();
@@ -150,10 +150,13 @@ MainWindow::MainWindow()
 
     statusBarMessage(i18n("Ready"));
     enableCopyTextAction();
+
+    readConfig();
 }
 
 MainWindow::~MainWindow()
 {
+    writeConfig();
 }
 
 void MainWindow::enableCopyTextAction()
@@ -171,6 +174,23 @@ void MainWindow::readProperties( KConfig *config )
 {
     kdDebug()<<"void MainWindow::readProperties( KConfig *config )" << endl;
     mDoc->slotReload( KURL( config->readPathEntry( "URL" ) ) );
+}
+
+void MainWindow::readConfig()
+{
+    KConfig *config = KGlobal::config();
+    config->setGroup( "MainWindowState" );
+    QValueList<int> sizes = config->readIntListEntry( "Splitter" );
+    if ( sizes.count() == 2 ) {
+        mSplitter->setSizes( sizes );
+    }
+}
+
+void MainWindow::writeConfig()
+{
+    KConfig *config = KGlobal::config();
+    config->setGroup( "MainWindowState" );
+    config->writeEntry( "Splitter", mSplitter->sizes() );
 }
 
 void MainWindow::setupActions()
