@@ -77,15 +77,17 @@ KHMainWindow::KHMainWindow(const KURL &url)
     nav = new khcNavigator(splitter, this, "nav");
     connect(nav->widget(), SIGNAL(itemSelected(const QString &)),
             SLOT(openURL(const QString &)));
+    connect(nav->widget(), SIGNAL(glossSelected(const QString &)),
+            SLOT(slotGlossSelected(const QString &)));
 
     splitter->moveToFirst(nav->widget());
     splitter->setResizeMode(nav->widget(), QSplitter::KeepSize);
-/*    QValueList<int> sizes;
-    sizes << 20 << 80;
-    splitter->setSizes(sizes); */
-
     setCentralWidget( splitter );
-    setGeometry(366, 0, 640, 800);
+    QValueList<int> sizes;
+    sizes << 220 << 580;
+    splitter->setSizes(sizes);
+    setGeometry(366, 0, 800, 600);
+
     (*actionCollection()) += *doc->actionCollection();
     (void)KStdAction::close(this, SLOT(close()), actionCollection());
 
@@ -105,7 +107,10 @@ void KHMainWindow::slotStarted(KIO::Job *job)
 void KHMainWindow::slotOpenURLRequest( const KURL &url,
                                        const KParts::URLArgs &)
 {
-    doc->openURL(url);
+    if (url.protocol() == QString::fromLatin1("glossentry"))
+        slotGlossSelected(KURL::decode_string(url.encodedPathAndQuery()));
+    else
+        doc->openURL(url);
 }
 
 void KHMainWindow::slotInfoMessage(KIO::Job *, const QString &m)
@@ -115,8 +120,54 @@ void KHMainWindow::slotInfoMessage(KIO::Job *, const QString &m)
 
 void KHMainWindow::openURL(const QString &url)
 {
-    kdDebug() << "openURL " << url << endl;
     doc->openURL(KURL(url));
+}
+
+void KHMainWindow::slotGlossSelected(const QString &term)
+{
+	kdDebug() << "slotGlossSelection: term = " << term << endl;
+
+    QFile glossFile("/home/frerich/tmp/glossary.docbook");
+    if (!glossFile.open(IO_ReadOnly))
+        return;
+
+    QDomDocument glossDom;
+    if (!glossDom.setContent(&glossFile))
+        return;
+
+    QDomNodeList glossEntries = glossDom.documentElement().elementsByTagName(QString::fromLatin1("glossentry"));
+		QDomNode glossEntry;
+    
+    for (unsigned int i = 0; i < glossEntries.count(); i++) {
+		    glossEntry = glossEntries.item(i); 
+        if (term == glossEntry.namedItem(QString::fromLatin1("glossterm")).toElement().text().simplifyWhiteSpace())
+          break;
+		}
+		
+    QString definition = glossEntry.namedItem(QString::fromLatin1("glossdef")).firstChild().toElement().text().simplifyWhiteSpace();
+
+    QString seeAlso, seeAlsos;
+		QDomNodeList seeAlsoNodes = glossEntry.toElement().elementsByTagName(QString::fromLatin1("glossseealso"));
+    for (unsigned int i = 0; i < seeAlsoNodes.count(); i++) {
+		    seeAlso = seeAlsoNodes.item(i).toElement().text().simplifyWhiteSpace();
+				if (seeAlso.isEmpty())
+				    continue;
+		    if (seeAlsos.isEmpty())
+		      seeAlsos = i18n("See also: ");
+		    seeAlsos += QString::fromLatin1("<a href=\"glossentry:%1\">%2</a>, ").arg(seeAlso).arg(seeAlso);
+    }
+    if (!seeAlsos.isEmpty())
+        seeAlsos = seeAlsos.left(seeAlsos.length() - 2);
+    
+    QFile htmlFile("/home/frerich/src/kde-cvs/kdebase/doc/khelpcenter/glossary.html");
+    if (!htmlFile.open(IO_ReadOnly))
+      return;
+    QTextStream htmlStream(&htmlFile);
+    QString htmlSrc = htmlStream.read().arg(term).arg(definition).arg(seeAlsos);
+    
+    doc->begin("/home/frerich/src/kde-cvs/kdebase/doc/khelpcenter/");
+    doc->write(htmlSrc);
+    doc->end(); 
 }
 
 KHMainWindow::~KHMainWindow()

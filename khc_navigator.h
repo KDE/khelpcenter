@@ -25,16 +25,22 @@
 #include <qlist.h>
 #include <kparts/browserextension.h>
 #include <kparts/part.h>
-#include <qwidget.h>
+#include <qtabwidget.h>
+#include <qlistview.h>
 
 class SearchWidget;
 class khcNavigatorItem;
 class khcNavigator;
 class KListView;
-class QListViewItem;
-class QTabBar;
 class KService;
 
+class SectionItem : public QListViewItem
+{
+	public:
+		SectionItem(QListViewItem *, const QString &);
+
+		virtual void setOpen(const bool);
+};
 
 class khcNavigatorExtension : public KParts::BrowserExtension
 {
@@ -64,7 +70,7 @@ class khcNavigator : public KParts::ReadOnlyPart
 
 };
 
-class khcNavigatorWidget : public QWidget
+class khcNavigatorWidget : public QTabWidget
 {
     Q_OBJECT
 
@@ -75,20 +81,19 @@ class khcNavigatorWidget : public QWidget
  public slots:
     void slotURLSelected(QString url);
     void slotItemSelected(QListViewItem* index);
+    void slotGlossaryItemSelected(QListViewItem* item);
     void slotReloadTree();
-    void slotTabSelected(int);
-
- protected:
-    virtual void resizeEvent(QResizeEvent *);
 
  signals:
     void itemSelected(const QString& itemURL);
+    void glossSelected(const QString& entry);
     void setBussy(bool bussy);
 
  private:
     void setupContentsTab();
     void setupIndexTab();
     void setupSearchTab();
+    void setupGlossaryTab();
     void buildTree();
     void clearTree();
 
@@ -102,8 +107,7 @@ class khcNavigatorWidget : public QWidget
     bool appendEntries (const QString &dirName,  khcNavigatorItem *parent, QList<khcNavigatorItem> *appendList);
     bool processDir(const QString &dirName, khcNavigatorItem *parent,  QList<khcNavigatorItem> *appendList);
 
-    QTabBar *tabBar;
-    KListView *tree;
+    KListView *contentsTree, *glossaryTree;
     SearchWidget *search;
 
     QList<khcNavigatorItem> staticItems, manualItems, pluginItems;

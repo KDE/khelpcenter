@@ -22,6 +22,7 @@ public slots:
     void slotStarted(KIO::Job *job);
     void slotInfoMessage(KIO::Job *, const QString &);
     void openURL(const QString &url);
+    void slotGlossSelected(const QString &entry);
     void slotOpenURLRequest( const KURL &url,
                          const KParts::URLArgs &args);
 

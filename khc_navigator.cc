@@ -30,6 +30,7 @@
 #include <qlabel.h>
 #include <qtabbar.h>
 #include <qheader.h>
+#include <qdom.h>
 
 #include <kaction.h>
 #include <kapp.h>
@@ -44,9 +45,26 @@
 #include <kservice.h>
 #include <kservicegroup.h>
 #include <kmessagebox.h>
+#include <kiconloader.h>
 
 
 template class QList<khcNavigatorItem>;
+
+SectionItem::SectionItem(QListViewItem *parent, const QString &text)
+	: QListViewItem(parent, text)
+{
+	setOpen(false);
+}
+
+void SectionItem::setOpen(const bool open)
+{
+	if (open)
+		setPixmap(0, KGlobal::iconLoader()->loadIcon(QString::fromLatin1("contents"), KIcon::Small));
+	else
+		setPixmap(0, KGlobal::iconLoader()->loadIcon(QString::fromLatin1("contents2"), KIcon::Small));
+
+	QListViewItem::setOpen(open);
+}
 
 khcNavigator::khcNavigator(QWidget *parentWidget, QObject *parent,
                            const char *name)
@@ -89,84 +107,118 @@ void khcNavigatorExtension::slotItemSelected(const QString& url)
 }
 
 khcNavigatorWidget::khcNavigatorWidget(QWidget *parent, const char *name)
-   : QWidget(parent, name)
+   : QTabWidget(parent, name)
 {
-    tabBar = new QTabBar(this);
-
     setupContentsTab();
     setupSearchTab();
-
-    connect(tabBar, SIGNAL(selected(int)),this,
-	    SLOT(slotTabSelected(int)));
+    setupGlossaryTab();
 
     buildTree();
 }
 
 khcNavigatorWidget::~khcNavigatorWidget()
 {
-    delete tree;
-    delete search;
-    delete tabBar;
-}
-
-void khcNavigatorWidget::resizeEvent(QResizeEvent *)
-{
-    tabBar->setGeometry(0, 0, width(), 28);
-    tree->setGeometry(0, 28, width(), height()-28);
-    search->setGeometry(0, 28, width(), height()-28);
 }
 
 void khcNavigatorWidget::setupContentsTab()
 {
-    tree = new KListView(this);
-    tree->setFrameStyle(QFrame::Panel | QFrame::Sunken);
-    tree->addColumn("");
-    tree->setAllColumnsShowFocus(true);
-    tree->header()->hide();
-    tree->setRootIsDecorated(false);
-    tree->setSorting(-1, false);
-
-    connect(tree, SIGNAL(clicked(QListViewItem*)),this,
+    contentsTree = new KListView(this);
+    contentsTree->setFrameStyle(QFrame::Panel | QFrame::Sunken);
+    contentsTree->addColumn(QString::null);
+    contentsTree->setAllColumnsShowFocus(true);
+    contentsTree->header()->hide();
+    contentsTree->setRootIsDecorated(false);
+    contentsTree->setSorting(-1, false);
+    connect(contentsTree, SIGNAL(clicked(QListViewItem*)), this,
 	    SLOT(slotItemSelected(QListViewItem*)));
 
-    QTab *newTab = new QTab;
-    newTab->label = i18n("Contents");
-    tabBar->addTab(newTab);
-    tree->show();
+    addTab(contentsTree, i18n("Contents"));
 }
 
 void khcNavigatorWidget::setupSearchTab()
 {
     search = new SearchWidget(this);
-    search->hide();
-
     connect(search, SIGNAL(searchResult(QString)),this,
 	    SLOT(slotURLSelected(QString)));
 
-    QTab *newTab = new QTab;
-    newTab->label = i18n("Search");
-    tabBar->addTab(newTab);
+    addTab(search, i18n("Search"));
+}
+
+void khcNavigatorWidget::setupGlossaryTab()
+{
+	glossaryTree = new KListView(this);
+	glossaryTree->setFrameStyle(QFrame::Panel | QFrame::Sunken);
+	glossaryTree->addColumn(QString::null);
+	glossaryTree->header()->hide();
+	glossaryTree->setAllColumnsShowFocus(true);
+	glossaryTree->setRootIsDecorated(true);
+	connect(glossaryTree, SIGNAL(clicked(QListViewItem *)),
+			SLOT(slotGlossaryItemSelected(QListViewItem *)));
+	
+	QListViewItem *byTopicItem = new QListViewItem(glossaryTree, i18n("By topic"));
+	byTopicItem->setPixmap(0, KGlobal::iconLoader()->loadIcon(QString::fromLatin1("help"), KIcon::Small));
+	
+	QListViewItem *alphabItem = new QListViewItem(glossaryTree, i18n("Alphabetically"));
+	alphabItem->setPixmap(0, KGlobal::iconLoader()->loadIcon(QString::fromLatin1("charset"), KIcon::Small));
+
+	addTab(glossaryTree, i18n("Glossary"));
+	
+	QFile glossFile("/home/frerich/tmp/glossary.docbook");
+	if (!glossFile.open(IO_ReadOnly))
+		return;
+
+	QDomDocument glossDom;
+	if (!glossDom.setContent(&glossFile))
+		return;
+
+	QDomNodeList glossDivs = glossDom.documentElement().elementsByTagName(QString::fromLatin1("glossdiv"));
+	for (unsigned int i = 0; i < glossDivs.count(); i++) {
+		QString glossDiv = glossDivs.item(i).namedItem(QString::fromLatin1("title")).toElement().text().simplifyWhiteSpace();
+		SectionItem *topicSection = new SectionItem(byTopicItem, glossDiv);
+
+		QDomNodeList glossEntries = glossDivs.item(i).toElement().elementsByTagName(QString::fromLatin1("glossentry"));
+		for (unsigned int j = 0; j < glossEntries.count(); j++) {
+			QString term = glossEntries.item(j).namedItem(QString::fromLatin1("glossterm")).toElement().text().simplifyWhiteSpace();
+		
+			if (term.isEmpty())
+				continue;
+
+			(void) new QListViewItem(topicSection, term);
+
+			SectionItem *alphabSection = 0L;
+			for (QListViewItemIterator it(alphabItem); it.current(); it++)
+				if (it.current()->text(0) == term[0].upper()) {
+					alphabSection = static_cast<SectionItem *>(it.current());
+					break;
+				}
+
+			if (!alphabSection)
+				alphabSection = new SectionItem(alphabItem, term[0].upper());
+
+			(void) new QListViewItem(alphabSection, term);
+		}
+  }
 }
 
 void khcNavigatorWidget::buildTree()
 {
   // supporting KDE
-  khcNavigatorItem *ti_support = new khcNavigatorItem(tree, i18n("Supporting KDE"),"document2");
+  khcNavigatorItem *ti_support = new khcNavigatorItem(contentsTree, i18n("Supporting KDE"),"document2");
   ti_support->setURL(QString("help:/khelpcenter?anchor=SUPPORT"));
   staticItems.append(ti_support);
 
   // kde contacts
-  khcNavigatorItem *ti_contact = new khcNavigatorItem(tree, i18n("Contact Information"),"document2");
+  khcNavigatorItem *ti_contact = new khcNavigatorItem(contentsTree, i18n("Contact Information"),"document2");
   ti_contact->setURL(QString("help:/khelpcenter?anchor=CONTACT"));
   staticItems.append(ti_contact);
 
   // kde links
-  khcNavigatorItem *ti_links = new khcNavigatorItem(tree, i18n("KDE on the web"),"document2");
+  khcNavigatorItem *ti_links = new khcNavigatorItem(contentsTree, i18n("KDE on the web"),"document2");
   ti_links->setURL(QString("help:/khelpcenter?anchor=LINKS"));
   staticItems.append(ti_links);
 
   // KDE FAQ
-  khcNavigatorItem *ti_faq = new khcNavigatorItem(tree, i18n("The KDE FAQ"),"document2");
+  khcNavigatorItem *ti_faq = new khcNavigatorItem(contentsTree, i18n("The KDE FAQ"),"document2");
   ti_faq->setURL(QString("help:/khelpcenter/faq/index.html"));
   staticItems.append(ti_faq);
 
@@ -174,20 +226,20 @@ void khcNavigatorWidget::buildTree()
   insertPlugins();
 
   // info browser
-  khcNavigatorItem *ti_info = new khcNavigatorItem(tree, i18n("Browse info pages"),"document2");
+  khcNavigatorItem *ti_info = new khcNavigatorItem(contentsTree, i18n("Browse info pages"),"document2");
   ti_info->setURL(QString("info:/dir"));
   staticItems.append(ti_info);
 
   // unix man pages
-  khcNavigatorItem *ti_man = new khcNavigatorItem(tree, i18n("Unix manual pages"),"document2");
+  khcNavigatorItem *ti_man = new khcNavigatorItem(contentsTree, i18n("Unix manual pages"),"document2");
   ti_man->setURL(QString("man:/(index)"));
   staticItems.append(ti_man);
 
-  // fill the man pages subtree
+  // fill the man pages subcontentsTree
   buildManSubTree(ti_man);
 
   // application manuals
-  khcNavigatorItem *ti_manual = new khcNavigatorItem(tree, i18n("Application manuals"),"contents2");
+  khcNavigatorItem *ti_manual = new khcNavigatorItem(contentsTree, i18n("Application manuals"),"contents2");
   ti_manual->setURL("");
   staticItems.append(ti_manual);
 
@@ -195,26 +247,26 @@ void khcNavigatorWidget::buildTree()
   buildManualSubTree(ti_manual, "");
 
   // KDE user's manual
-  khcNavigatorItem *ti_um = new khcNavigatorItem(tree, i18n("KDE user's manual"),"document2");
+  khcNavigatorItem *ti_um = new khcNavigatorItem(contentsTree, i18n("KDE user's manual"),"document2");
   ti_um->setURL(QString("help:/khelpcenter/userguide/index.html"));
   staticItems.append(ti_um);
 
   // KDE quickstart guide
-  khcNavigatorItem *ti_qs = new khcNavigatorItem(tree, i18n("Introduction to KDE"),"document2");
+  khcNavigatorItem *ti_qs = new khcNavigatorItem(contentsTree, i18n("Introduction to KDE"),"document2");
   ti_qs->setURL(QString("help:/khelpcenter/quickstart/index.html"));
   staticItems.append(ti_qs);
 
   // introduction page
-  khcNavigatorItem *ti_intro = new khcNavigatorItem(tree, i18n("Introduction"),"document2");
+  khcNavigatorItem *ti_intro = new khcNavigatorItem(contentsTree, i18n("Introduction"),"document2");
   ti_intro->setURL(QString("help:/khelpcenter?anchor=WELCOME"));
   staticItems.append(ti_intro);
 
-  tree->setCurrentItem(ti_intro);
+  contentsTree->setCurrentItem(ti_intro);
 }
 
 void khcNavigatorWidget::clearTree()
 {
-    tree->clear();
+    contentsTree->clear();
 
     while(!staticItems.isEmpty())
 	staticItems.removeFirst();
@@ -365,23 +417,15 @@ void khcNavigatorWidget::slotReloadTree()
     emit setBussy(false);
 }
 
-void khcNavigatorWidget::slotTabSelected(int id)
-{
-    if (id == 0)
-    {
-	tree->show();
-	search->hide();
-    }
-    else if (id == 1)
-    {
-	tree->hide();
-	search->show();
-    }
-}
-
 void khcNavigatorWidget::slotURLSelected(QString url)
 {
     emit itemSelected(url);
+}
+
+void khcNavigatorWidget::slotGlossaryItemSelected(QListViewItem *item)
+{
+	if (item && dynamic_cast<SectionItem *>(item->parent()))
+		emit glossSelected(item->text(0));
 }
 
 void khcNavigatorWidget::slotItemSelected(QListViewItem* currentItem)
@@ -401,7 +445,7 @@ void khcNavigatorWidget::slotItemSelected(QListViewItem* currentItem)
   // find the highlighted item in our lists
   for (item = staticItems.first(); item != 0; item = staticItems.next())
     {
-      if (item == tree->currentItem())
+      if (item == contentsTree->currentItem())
 	{
 	  if (!item->getURL().isEmpty())
 	    emit itemSelected(item->getURL());
@@ -410,7 +454,7 @@ void khcNavigatorWidget::slotItemSelected(QListViewItem* currentItem)
     }
   for (item = manualItems.first(); item != 0; item = manualItems.next())
     {
-      if (item == tree->currentItem())
+      if (item == contentsTree->currentItem())
 	{
 	  if (!item->getURL().isEmpty())
 	    emit itemSelected(item->getURL());
@@ -419,7 +463,7 @@ void khcNavigatorWidget::slotItemSelected(QListViewItem* currentItem)
     }
   for (item = pluginItems.first(); item != 0; item = pluginItems.next())
     {
-      if (item == tree->currentItem())
+      if (item == contentsTree->currentItem())
 	{
 	  if (!item->getURL().isEmpty())
 	    emit itemSelected(item->getURL());
@@ -448,7 +492,7 @@ bool khcNavigatorWidget::appendEntries(const QString &dirName, khcNavigatorItem 
     if (parent)
         entry = new khcNavigatorItem(parent);
     else
-        entry = new khcNavigatorItem(tree);
+        entry = new khcNavigatorItem(contentsTree);
 
 	if (entry->readKDElnk(filename))
 	    appendList->append(entry);
@@ -505,7 +549,7 @@ bool khcNavigatorWidget::processDir( const QString &dirName, khcNavigatorItem *p
     if (parent)
         dirItem = new khcNavigatorItem(parent, folderName, icon);
     else
-        dirItem = new khcNavigatorItem(tree, folderName, icon);
+        dirItem = new khcNavigatorItem(contentsTree, folderName, icon);
     appendList->append(dirItem);
 
 
@@ -515,6 +559,5 @@ bool khcNavigatorWidget::processDir( const QString &dirName, khcNavigatorItem *p
     }
     return true;
 }
-
 
 #include "khc_navigator.moc"
