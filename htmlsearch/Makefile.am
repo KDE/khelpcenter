@@ -31,9 +31,7 @@ khtmlindex_LDADD = libhtmlsearch.la $(LIB_KDEUI)
 xpm_DATA = unchecked.xpm checked.xpm
 xpmdir = $(kde_datadir)/khelpcenter/pics
 
-#KDE_ICON = sample
-
 messages:
-	$(XGETTEXT) $(libhtmlsearch_la_SOURCES) -o $(podir)/htmlsearch.pot
+	$(XGETTEXT) index.cpp $(libhtmlsearch_la_SOURCES) -o $(podir)/htmlsearch.pot
 	$(XGETTEXT) $(libkcm_htmlsearch_la_SOURCES) -o $(podir)/kcmhtmlsearch.pot
 

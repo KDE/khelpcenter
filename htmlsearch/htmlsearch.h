@@ -37,18 +37,18 @@ protected slots:
   void htmergeExited(KProcess *proc);
   void htsearchStdout(KProcess *proc, char *buffer, int buflen);
   void htsearchExited(KProcess *proc);
- 
- 
+
+
 protected:
 
-  QString dataPath(QString lang);
+  QString dataPath(const QString& lang);
 
-  bool saveFilesList(QString lang);
-  void scanDir(QString dir);
+  bool saveFilesList(const QString& lang);
+  void scanDir(const QString& dir);
 
-  bool createConfig(QString lang);
+  bool createConfig(const QString& lang);
 
-  
+
 private:
 
   QStringList   _files;
@@ -57,7 +57,7 @@ private:
   volatile bool _htdigRunning, _htmergeRunning, _htsearchRunning;
   QString       _searchResult;
   ProgressDialog *progress;
-  
+
 };
 
 
