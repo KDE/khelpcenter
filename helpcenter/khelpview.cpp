@@ -31,6 +31,8 @@
 #include <kcursor.h>
 
 #include "khelpview.h"
+#include "manparser.h"
+#include "cgiserver.h"
 
 #ifdef HAVE_PATHS_H
 #include <paths.h>
@@ -40,13 +42,15 @@
 #define _PATH_TMP "/tmp"
 #endif
 
+#include <unistd.h>
+
 // for selection
 #include <X11/X.h>
 #include <X11/Xlib.h>
 #include <X11/Xatom.h>
 
-KHelpView::KHelpView( QWidget *parent, const char *name )
-  : QWidget( parent, name ), format(&html)
+KHelpView::KHelpView(QWidget *parent, const char *name)
+  : QWidget(parent, name)
 {
   CGIServer = 0;
   busy = false;
@@ -59,7 +63,7 @@ KHelpView::KHelpView( QWidget *parent, const char *name )
   // points to the current item in history
   histCurrent = 0L;
   
-  man = new cMan;
+  man = new ManParser;
 
   view = new KHTMLWidget( this );
   CHECK_PTR( view );
@@ -72,6 +76,7 @@ KHelpView::KHelpView( QWidget *parent, const char *name )
   view->setUpdatesEnabled(true);
   view->setDefaultBGColor(white);
   view->setDefaultTextColors(black, blue, blue);
+  view->setGranularity(600);
 
   vert = new QScrollBar(0, 0, 12, view->height(), 0, QScrollBar::Vertical, this, "vert");
   horz = new QScrollBar(0, 0, 24, view->width(), 0, QScrollBar::Horizontal, this, "horz");
@@ -106,7 +111,6 @@ KHelpView::KHelpView( QWidget *parent, const char *name )
   // setup geometry
   layout();
 }
-
 
 KHelpView::~KHelpView()
 {
@@ -228,7 +232,7 @@ int KHelpView::openURL( const char *URL, bool withHistory )
   else if (fullURL.find("man:/") >= 0)
 	{
 	  strcpy(location, colon+2);
-	  if ((rv = man->ReadLocation(location)) == 0)
+	  if ((rv = man->readLocation(location)) == 0)
 		formatMan();
 	}
   else
@@ -298,12 +302,12 @@ int KHelpView::openFile(const QString &location)
 	  rv = openHTML(fileName);
 	  break;  
 	case ManFile:
-	  if ((rv = man->ReadLocation(fileName)) == 0)
+	  if ((rv = man->readLocation(fileName)) == 0)
 		formatMan();
 	  break;
 	case CannotOpenFile:
 	  {
-		view->setGranularity(600);
+		//view->setGranularity(600);
 		view->begin(fullURL);
 		
 		view->write("<html><head><title>Error: File not found!</title></head><body>");
@@ -312,14 +316,13 @@ int KHelpView::openFile(const QString &location)
 		view->write("</body></html>");
 
 		view->end();
-		format = &html;
 		rv = 0;
 	  }
 	  break;
 	  
 	default:
 	  {
-		view->setGranularity(600);
+		//view->setGranularity(600);
 		view->begin(fullURL);
 		
 		view->write("<html><head><title>Error: Unknown file format!</title></head><body>");
@@ -328,7 +331,6 @@ int KHelpView::openFile(const QString &location)
 		view->write("</body></html>");
 
 		view->end();
-		format = &html;
 		rv = 0;
 	  }
 	}
@@ -339,26 +341,28 @@ int KHelpView::formatMan(int bodyOnly)
 {
   if (!bodyOnly)
 	{
-	  view->setGranularity(600);
 	  view->begin(fullURL);
 	  view->write("<html><head><title>");
-	  view->write(man->GetTitle());
+	  view->write(man->getLocation());
 	  view->write("</title></head><body>");
 	}
-  view->write(man->page());
+  view->write("<big>");
+  view->write(man->getLocation());
+  view->write("</big><br><HR><p>");
+  view->write(man->getPage());
+  view->write("</p>");
   
   if (!bodyOnly)
 	{
 	  view->write("</body></html>");
 	  view->end();
 	}
-  format = man;
   return 0;
 }
 
 int KHelpView::openHTML(const char *location)
 {
-  if (html.ReadLocation(location))
+  if (access(location, R_OK) !=0)
 	return 1;
 
   char buffer[256];
@@ -368,7 +372,7 @@ int KHelpView::openHTML(const char *location)
   if (!file.open(IO_ReadOnly))
 	return 1;
   
-  view->setGranularity(600);
+  //view->setGranularity(600);
   view->begin(fullURL);
   
   do
@@ -381,7 +385,6 @@ int KHelpView::openHTML(const char *location)
   while (!file.atEnd());
   
   view->end();
-  format = &html;
   return 0;
 }
 
@@ -1008,6 +1011,16 @@ void KHelpView::slotDocumentDone()
   busy = false;
   emit enableMenuItems();
   emit setBusy(false);
+}
+
+// Is this a safe command to issue via system, i.e. has a naughty user inserted
+// special shell characters in a URL?
+bool KHelpView::safeCommand(const char *cmd)
+{
+  if (strpbrk(cmd, "&;`'\\\"|*?~<>^()[]{}$\n\r"))
+	return false;
+  
+  return true;
 }
 
 void KHelpView::setDefaultFontBase(int fSize)

@@ -75,7 +75,7 @@ void HTabView::setupIndexTab()
 {
   index = new IndexWidget(this);
 
-  addTab(index, "Index");
+  addTab(index, "Man/Info");
 }
 
 void HTabView::setupSearchTab()
@@ -109,7 +109,7 @@ void HTabView::buildTree()
 
   // unix man pages
   HTreeListItem *ti_man = new HTreeListItem("Unix manual pages", "helpbook.xpm");
-  ti_man->setURL(QString("man:/(index)"));
+  //ti_man->setURL(QString("man:/(index)"));
   ti_man->insertInTree(tree, 0);
   staticItems.append(ti_man);
 
@@ -301,6 +301,7 @@ void HTabView::slotItemSelected(int index)
 		}
 	  if (isParent)
 		continue;
+
 	  tree->collapseItem(i);
 	}
 

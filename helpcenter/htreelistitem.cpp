@@ -92,19 +92,12 @@ void HTreeListItem::insertInTree(KTreeList *tree, KTreeListItem *parent)
   
   if (parent == 0) // insert at toplevel
 	{
-	  setIndent(10);
+	  setIndent(0);
 	  tree->insertItem(this, -1, true);
 	}
-  // level one ... for some reason KTreeList indents level one more than the others?!?
-  // fix this by indenting by hand:
-  else if (parent->getParent() == 0)
-	{
-	  setIndent(8);
-	  parent->appendChild(this);
-	} 
   else             // insert as child of parent
 	{
-	  setIndent(16);
+	  setIndent(14);
 	  parent->appendChild(this);
 	} 
 }

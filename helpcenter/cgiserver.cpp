@@ -18,7 +18,7 @@
 #include <signal.h>
 #include <kurl.h>
 #include <kapp.h>
-#include "cgi.h"
+#include "cgiserver.h"
 
 #include <config.h>
 

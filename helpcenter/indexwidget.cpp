@@ -34,11 +34,11 @@ IndexWidget::IndexWidget(QWidget *parent)
   keyWordString = new QLineEdit(this);
   connect(keyWordString, SIGNAL(returnPressed()), this, SLOT(slotFind()));
 
-  topicLabel = new QLabel(i18n("Index topics:"), this);
+  topicLabel = new QLabel(i18n("Topics (man/info pages):"), this);
 
   indexList = new QListBox(this);
 
-  rebuildButton = new QPushButton(i18n("&Rebuild index"), this);
+  rebuildButton = new QPushButton(i18n("&Reload topics"), this);
   rebuildButton->setFixedWidth(120);
   rebuildButton->setFixedHeight(24);
   connect(rebuildButton, SIGNAL(clicked()), this, SLOT(slotBuildIndex()));

@@ -21,7 +21,7 @@
 #ifndef TOPLEVEL_H
 #define TOPLEVEL_H
 
-#define HELPCENTER_VERSION		"0.6"
+#define HELPCENTER_VERSION		"0.7"
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -46,8 +46,8 @@ public:
 	HelpCenter();
 	virtual ~HelpCenter();
 
-	int openURL( const char *URL, bool withHistory = true );
-	void openNewWindow( const char *url );
+	int openURL(const char *URL, bool withHistory = true);
+	void openNewWindow(const char *url);
 
     KHelpView *htmlView() { return htmlview; }
 	unsigned long getListIndex() { return listIndex; }
@@ -88,7 +88,6 @@ signals:
 
 protected:
     virtual void resizeEvent(QResizeEvent *);
-
     virtual void saveProperties(KConfig *);
     virtual void readProperties(KConfig *);
 

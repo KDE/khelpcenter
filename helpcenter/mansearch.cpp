@@ -1,5 +1,5 @@
 /*
- *  htmlsearch.cpp - part of the KDE Help Center
+ *  mansearch.cpp - part of the KDE Help Center
  *
  *  Copyright (c) 1999 Matthias Elter (me@kde.org)
  *

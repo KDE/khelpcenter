@@ -1,4 +1,4 @@
-## Makefile.am for kdebase/kdehelp/rman
+## Makefile.am for kdebase/khelpcenter/helpcenter/rman
 
 VOLLIST = "1:2:3:4:5:6:7:8:9:o:l:n:p"
 MANTITLEPRINTF = "%s(%s)"

@@ -34,15 +34,14 @@
 #include <khtml.h>
 #include <kfilebookmark.h>
 
-#include "cgi.h"
-#include "misc.h"
-#include "man.h"
 #include "finddlg.h"
-#include "fmthtml.h"
 
 #define SCROLLBAR_WIDTH		16
 #define BOOKMARK_ID_BASE	200
 #define MAX_HISTORY_LENGHT  15
+
+class ManParser;
+class KCGI;
 
 // KPageInfo: Class for history entries
 class KPageInfo
@@ -139,6 +138,8 @@ class KHelpView : public QWidget
   virtual bool x11Event( XEvent * );
   
  private:
+  bool safeCommand(const char *cmd);
+
   enum FileType { UnknownFile, HTMLFile, InfoFile, ManFile, CannotOpenFile };
   
   int openFile(const QString &);
@@ -193,10 +194,8 @@ class KHelpView : public QWidget
   
   QList<KPageInfo> history;
   KPageInfo *histCurrent;
-  cHTMLFormat html;
-  cMan *man;
-  cHelpFormatBase *format;
-  
+  ManParser *man;
+ 
   QString newURL;
 };
 

@@ -32,7 +32,7 @@ void errorHandler( int type, char *msg );
 
 int main(int argc, char *argv[])
 {
-  // error handler for info and man stuff
+  // error handler for man stuff
   Error.SetHandler( (void (*)(int, const char *))errorHandler );
 
   // create local data directory if necessary
@@ -49,9 +49,7 @@ int main(int argc, char *argv[])
   // init app
   KOMApplication app(argc, argv, "khelpcenter.bin");
   
-  //HelpCenter *toplevel;
-
-  HelpCenterCom *helpcentercom = new HelpCenterCom();
+  HelpCenterCom *helpcentercom = new HelpCenterCom;
   app.boa()->impl_is_ready( CORBA::ImplementationDef::_nil() );
 
   app.exec();
@@ -61,15 +59,10 @@ int main(int argc, char *argv[])
 void errorHandler( int type, char *msg )
 {
   QApplication::setOverrideCursor(Qt::arrowCursor);
-  
-  QMessageBox::message( i18n("Error"), 
-						msg, 
-						i18n("OK") );
+  QMessageBox::message(i18n("Error"), msg, i18n("OK"));
   
   QApplication::restoreOverrideCursor();
 
-  if ( type == ERR_FATAL )
-	{
+  if (type == ERR_FATAL)
 	  exit(1);
-	}
 }

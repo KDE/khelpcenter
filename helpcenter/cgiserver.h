@@ -6,8 +6,8 @@
 //
 // Copyright (c) Martin R. Jones 1997
 
-#ifndef __CGI_H__
-#define __CGI_H__
+#ifndef __cgiserver_h__
+#define __cgiserver_h__
 
 #include <qobject.h>
 #include <qtimer.h>
