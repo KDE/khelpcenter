@@ -55,14 +55,10 @@ uint khcInfoFile::read()
 
   if (m_sName.right(3) == ".gz" || m_sName.right(4) == ".bz2")
   {
-    QFile raw(m_sName);
-    KFilterBase *filter = KFilterBase::findFilterByFileName(m_sName);
-    
-    QIODevice *fd = KFilterDev::createFilterDevice(filter, &raw);
+    QIODevice *fd = KFilterDev::deviceForFile(m_sName);
     
     if (!fd->open(IO_ReadOnly))
     {
-      delete filter;
       delete fd;
       return ERR_FILE_UNAVAILABLE;
     }
@@ -79,7 +75,6 @@ uint khcInfoFile::read()
 
     fd->close();
     delete fd;
-    delete filter;
   }
   else
   {
