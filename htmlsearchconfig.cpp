@@ -45,7 +45,7 @@
 #include "htmlsearchconfig.h"
 #include "htmlsearchconfig.moc"
 
-using namespace KHC;
+namespace KHC {
 
 HtmlSearchConfig::HtmlSearchConfig(QWidget *parent, const char *name)
   : QWidget(parent, name)
@@ -153,3 +153,5 @@ void HtmlSearchConfig::urlClicked(const QString &url)
 {
   kapp->invokeBrowser(url);
 }
+
+} // End namespace KHC

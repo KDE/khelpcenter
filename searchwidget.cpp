@@ -57,9 +57,10 @@
 #include "searchwidget.h"
 #include "searchwidget.moc"
 
-using namespace KHC;
 
-SearchWidget::SearchWidget( QWidget *parent )
+namespace KHC {
+
+KHC::SearchWidget::SearchWidget( QWidget *parent )
   : QWidget( parent ),
     mScopeCount( 0 )
 {
@@ -307,4 +308,6 @@ void SearchWidget::updateScopeItem( ScopeItem *item )
       entry->enableSearch( false );
     }
   }
+}
+
 }
