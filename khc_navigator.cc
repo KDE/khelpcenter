@@ -550,6 +550,10 @@ void khcNavigatorWidget::buildManSubTree(khcNavigatorItem *parent)
 void khcNavigatorWidget::buildManualSubTree(khcNavigatorItem *parent, QString relPath)
 {
   KServiceGroup::Ptr root = KServiceGroup::group(relPath);
+  if (!root) {
+		  kdError() << "No Service groups\n";
+		  exit(1);
+  }
   KServiceGroup::List list = root->entries();
 
 
