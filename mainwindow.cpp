@@ -139,7 +139,7 @@ MainWindow::MainWindow()
 
     actionCollection()->addDocCollection( mDoc->actionCollection() );
 
-    createGUI( "khelpcenterui.rc" );
+    setupGUI();
 
     History::self().installMenuBarHook( this );
 
