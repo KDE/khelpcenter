@@ -93,6 +93,13 @@ KHC::ContentsTab object and a KHC::SearchTab object.
 # - Guides - slightly longer, Mini-HOWTO style guides (about three to four
 #            pages long, perhaps) which talk about tackling jobs which don't
 #			 occur very often, examples:
+### I don't know about limiting the length.  Some of these topics can stand
+### a much longer document, but one of the things that differentiates them 
+### from the references is that they are not specific to a single application, 
+### nor are they complete references in the manner of the "KDE User Guide"
+### Specificaly, the dcop tutorial we have is about 15 pages already, but if 
+### the user is interested in the topic, that isn't over much, and it's full of
+### examples
 #		How to debug KDE programs
 #		Sending useful KDE bug reports
 #		Extending KDE's service menus
