@@ -20,10 +20,11 @@
 
 #include "kwelcome.h"
 
-#include <kapp.h>
+#include <kstddirs.h>
 #include <kprocess.h>
 #include <klocale.h>
 #include <kconfig.h>
+#include <kapp.h>
 
 #include <qlayout.h>
 #include <qlabel.h>
@@ -80,13 +81,9 @@ KWelcome::KWelcome(QWidget *parent, const char *name)
   // welcome image
   QLabel *welcome = new QLabel(topView);
   welcome->setGeometry(2,2,557,386);
-	
-  QPixmap welcome_pm;
-  QString tmp = kapp->kde_datadir().copy() + "/kwelcome/pics/welcome.png"; // 557 x 386
-  if(!welcome_pm.load(tmp))
-    cout << "Image load failure, could not load %s\n" << tmp.data();
-  else
-	welcome->setPixmap(welcome_pm);
+
+  QPixmap welcome_pm(locate("data", "kwelcome/pics/welcome.png"));	
+  welcome->setPixmap(welcome_pm);
 
   // create help center button
   helpcenterButton = new QPushButton(i18n("Get &help"), topView);
