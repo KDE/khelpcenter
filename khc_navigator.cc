@@ -66,7 +66,9 @@ khcNavigator::~khcNavigator()
 
 void khcNavigatorExtension::slotItemSelected(const QString& url)
 {
-  emit openURLRequest( url, false, 0, 0 );
+  KParts::URLArgs urlArgs( false, 0, 0 );
+
+  emit openURLRequest( url, urlArgs );
 }
 
 khcNavigatorWidget::khcNavigatorWidget(QWidget *parent, const char *name)
