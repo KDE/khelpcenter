@@ -66,6 +66,8 @@ class SearchWidget : public QWidget, public DCOPObject
 
     QString indexDir() const { return mIndexDir; }
 
+    KCMHelpCenter *indexDialog() const { return mIndexDialog; }
+
   signals:
     void searchResult( const QString &url );
     void enableSearch( bool );

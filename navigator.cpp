@@ -66,6 +66,7 @@
 #include "mainwindow.h"
 #include "plugintraverser.h"
 #include "scrollkeepertreebuilder.h"
+#include "kcmhelpcenter.h"
 
 using namespace KHC;
 
@@ -434,10 +435,13 @@ bool Navigator::checkSearchIndex()
   cfg->setGroup( "Search" );
   if ( cfg->readBoolEntry( "IndexExists", false ) ) return true;
 
+  KCMHelpCenter *indexDialog = mSearchWidget->indexDialog();
+  if ( indexDialog && indexDialog->isShown() ) return true;
+
   QString text = i18n( "A search index does not yet exist. Do you want "
                        "to create the index now?" );
 
-  int result = KMessageBox::questionYesNo( this, text, QString::null, 
+  int result = KMessageBox::questionYesNo( this, text, QString::null,
                                            KStdGuiItem::yes(),
                                            KStdGuiItem::no(),
                                            "indexcreation" );
