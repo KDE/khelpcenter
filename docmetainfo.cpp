@@ -93,9 +93,9 @@ void DocMetaInfo::scanMetaInfo( const QStringList &languages )
   for( QStringList::Iterator it=list.begin(); it!=list.end(); it++) {
     QDir pluginDir( *it );
     const QFileInfoList *entryList = pluginDir.entryInfoList();
-    QFileInfoListIterator it( *entryList );
+    QFileInfoListIterator fiIt( *entryList );
     QFileInfo *fi;
-    for( ; ( fi = it.current() ); ++it ) {
+    for( ; ( fi = fiIt.current() ); ++fiIt ) {
       if ( fi->fileName().left( 1 ) != "." ) {
         scanMetaInfoDir( fi->absFilePath(), &mRootEntry );
       }
