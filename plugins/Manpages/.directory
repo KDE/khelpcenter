@@ -7,8 +7,10 @@ Name[da]=UNIX-manualsider
 Name[es]=Páginas de manual de Unix
 Name[fi]=UNIX manuaalisivut
 Name[he]=דפי הוראות של יוניקס
+Name[ja]=UNIX マニュアルページ
 Name[pt_BR]=Páginas de manual UNIX
 Name[sv]=Unix manualsidor
+Name[tr]=Unix kılavuz sayfaları
 
 DocPath=man:/
 
