@@ -26,7 +26,8 @@ libkhelpcenter_common_la_SOURCES = navigator.cpp \
 	infohierarchymaker.cpp inforeader.cpp infofile.cpp \
 	infonode.cpp searchwidget.cpp klanguagebutton.cpp searchengine.cpp \
 	docmetainfo.cpp docentrytraverser.cpp searchformatter.cpp \
-	glossary.cpp toc.cpp mainwindow.cpp docentry.cpp htmlsearch.cpp
+	glossary.cpp toc.cpp mainwindow.cpp docentry.cpp htmlsearch.cpp \
+	history.cpp
 
 kcm_helpcenter_la_LDFLAGS = $(KDE_RPATH) -module -avoid-version \
                             $(all_libraries) -no-undefined

@@ -52,6 +52,7 @@
 
 #include "version.h"
 
+#include "history.h"
 #include "view.h"
 #include "navigator.h"
 
@@ -61,11 +62,9 @@ using namespace KHC;
 #include "mainwindow.moc"
 
 MainWindow::MainWindow(const KURL &url)
-    : KMainWindow(0, "MainWindow"), m_goMenuIndex( -1 ), m_goMenuHistoryStartPos( -1 ),
-      m_goMenuHistoryCurrentPos( -1 )
+    : KMainWindow(0, "MainWindow")
 {
     splitter = new QSplitter(this);
-    m_goBuffer=0;
 
     doc = new View( splitter, 0, this, 0, KHTMLPart::DefaultGUI );
     connect(doc, SIGNAL(setWindowCaption(const QString &)),
@@ -105,29 +104,12 @@ MainWindow::MainWindow(const KURL &url)
     (void)KStdAction::quit(this, SLOT(close()), actionCollection());
     (void)KStdAction::print(this, SLOT(print()), actionCollection(), "printFrame");
 
-    QPair< KGuiItem, KGuiItem > backForward = KStdGuiItem::backAndForward();
-    back = new KToolBarPopupAction( backForward.first, ALT+Key_Left, this, SLOT( slotBack() ), actionCollection(), "back" );
-    connect( back->popupMenu(), SIGNAL( activated( int ) ), this, SLOT( slotBackActivated( int ) ) );
-    connect( back->popupMenu(), SIGNAL( aboutToShow() ), this, SLOT( fillBackMenu() ) );
-    back->setEnabled( false );
-
-    forward = new KToolBarPopupAction( backForward.second, ALT+Key_Right, this, SLOT( slotForward() ), actionCollection(), "forward" );
-    connect( forward->popupMenu(), SIGNAL( activated( int ) ), this, SLOT( slotForwardActivated( int ) ) );
-    connect( forward->popupMenu(), SIGNAL( aboutToShow() ), this, SLOT( fillForwardMenu() ) );
-    forward->setEnabled( false );
+	History::self().setupActions( actionCollection() );
 
     insertChildClient( doc );
     createGUI( "khelpcenterui.rc" );
 
-    QPopupMenu *goMenu = dynamic_cast<QPopupMenu *>( guiFactory()->container( "go", this ) );
-    if ( goMenu )
-    {
-        connect( goMenu, SIGNAL( aboutToShow() ), this, SLOT( fillGoMenu() ) );
-        connect( goMenu, SIGNAL( activated( int ) ), this, SLOT( goMenuActivated( int ) ) );
-        m_goMenuIndex = goMenu->count();
-    }
-
-    m_lstHistory.setAutoDelete( true );
+	History::self().installMenuBarHook( this );
 
     KURL u;
     if ( url.isEmpty() ) u = "help:/khelpcenter/index.html?anchor=welcome";
@@ -150,43 +132,7 @@ void MainWindow::slotStarted(KIO::Job *job)
        connect(job, SIGNAL(infoMessage( KIO::Job *, const QString &)),
             this, SLOT(slotInfoMessage(KIO::Job *, const QString &)));
 
-    updateHistoryActions();
-}
-
-void MainWindow::createHistoryEntry()
-{
-    // First, remove any forward history
-    HistoryEntry * current = m_lstHistory.current();
-    if (current)
-    {
-        //kdDebug(1202) << "Truncating history" << endl;
-        m_lstHistory.at( m_lstHistory.count() - 1 ); // go to last one
-        for ( ; m_lstHistory.current() != current ; )
-        {
-            if ( !m_lstHistory.removeLast() ) // and remove from the end (faster and easier)
-                assert(0);
-            else
-                m_lstHistory.at( m_lstHistory.count() - 1 );
-        }
-        // Now current is the current again.
-    }
-    // Append a new entry
-    //kdDebug(1202) << "Append a new entry" << endl;
-    m_lstHistory.append( new HistoryEntry ); // made current
-    //kdDebug(1202) << "at=" << m_lstHistory.at() << " count=" << m_lstHistory.count() << endl;
-    assert( m_lstHistory.at() == (int) m_lstHistory.count() - 1 );
-}
-
-void MainWindow::updateHistoryEntry()
-{
-    HistoryEntry *current = m_lstHistory.current();
-
-    QDataStream stream( current->buffer, IO_WriteOnly );
-
-    doc->browserExtension()->saveState( stream );
-
-    current->url = doc->url();
-    current->title = doc->title();
+	History::self().updateActions();
 }
 
 void MainWindow::slotOpenURLRequest( const KURL &url,
@@ -220,137 +166,15 @@ void MainWindow::slotOpenURLRequest( const KURL &url,
     if (proto == QString::fromLatin1("glossentry"))
         slotGlossSelected(nav->glossEntry(KURL::decode_string(url.encodedPathAndQuery())));
     else {
-	createHistoryEntry();
+		History::self().createEntry();
 	doc->openURL( url );
     }
 }
 
-void MainWindow::slotBack()
-{
-    slotGoHistoryActivated( -1 );
-}
-
-void MainWindow::slotBackActivated( int id )
-{
-    slotGoHistoryActivated( -(back->popupMenu()->indexOf( id ) + 1) );
-}
-
-void MainWindow::slotForward()
-{
-    slotGoHistoryActivated( 1 );
-}
-
-void MainWindow::slotForwardActivated( int id )
-{
-    slotGoHistoryActivated( forward->popupMenu()->indexOf( id ) + 1 );
-}
-
-void MainWindow::slotGoHistoryActivated( int steps )
-{
-    if (!m_goBuffer)
-    {
-        // Only start 1 timer.
-        m_goBuffer = steps;
-        QTimer::singleShot( 0, this, SLOT(slotGoHistoryDelayed()));
-    }
-}
-
-void MainWindow::slotGoHistoryDelayed()
-{
-    if (!m_goBuffer) return;
-    int steps = m_goBuffer;
-    m_goBuffer = 0;
-    goHistory( steps );
-}
-
-void MainWindow::goHistory( int steps )
-{
-    stop();
-    int newPos = m_lstHistory.at() + steps;
-
-    HistoryEntry *current = m_lstHistory.at( newPos );
-
-    assert( current );
-
-    HistoryEntry h( *current );
-    h.buffer.detach();
-
-    QDataStream stream( h.buffer, IO_ReadOnly );
-
-    doc->browserExtension()->restoreState( stream );
-
-    updateHistoryActions();
-}
-
 void MainWindow::documentCompleted()
 {
-    updateHistoryEntry();
-
-    updateHistoryActions();
-}
-
-void MainWindow::fillBackMenu()
-{
-    QPopupMenu *menu = back->popupMenu();
-    menu->clear();
-    fillHistoryPopup( menu, true, false, false );
-}
-
-void MainWindow::fillForwardMenu()
-{
-    QPopupMenu *menu = forward->popupMenu();
-    menu->clear();
-    fillHistoryPopup( menu, false, true, false );
-}
-
-void MainWindow::fillGoMenu()
-{
-    QPopupMenu *goMenu = dynamic_cast<QPopupMenu *>( guiFactory()->container( "go", this ) );
-    if ( !goMenu || m_goMenuIndex == -1 )
-        return;
-
-    for ( int i = goMenu->count() - 1 ; i >= m_goMenuIndex; i-- )
-        goMenu->removeItemAt( i );
-
-    // TODO perhaps smarter algorithm (rename existing items, create new ones only if not enough) ?
-
-    // Ok, we want to show 10 items in all, among which the current url...
-
-    if ( m_lstHistory.count() <= 9 )
-    {
-        // First case: limited history in both directions -> show it all
-        m_goMenuHistoryStartPos = m_lstHistory.count() - 1; // Start right from the end
-    } else
-    // Second case: big history, in one or both directions
-    {
-        // Assume both directions first (in this case we place the current URL in the middle)
-        m_goMenuHistoryStartPos = m_lstHistory.at() + 4;
-
-        // Forward not big enough ?
-        if ( m_lstHistory.at() > (int)m_lstHistory.count() - 4 )
-          m_goMenuHistoryStartPos = m_lstHistory.count() - 1;
-    }
-    assert( m_goMenuHistoryStartPos >= 0 && (uint)m_goMenuHistoryStartPos < m_lstHistory.count() );
-    m_goMenuHistoryCurrentPos = m_lstHistory.at(); // for slotActivated
-    fillHistoryPopup( goMenu, false, false, true, m_goMenuHistoryStartPos );
-}
-
-void MainWindow::goMenuActivated( int id )
-{
-  QPopupMenu *goMenu = dynamic_cast<QPopupMenu *>( guiFactory()->container( "go", this ) );
-  if ( !goMenu )
-    return;
-
-  // 1 for first item in the list, etc.
-  int index = goMenu->indexOf(id) - m_goMenuIndex + 1;
-  if ( index > 0 )
-  {
-      kdDebug(1202) << "Item clicked has index " << index << endl;
-      // -1 for one step back, 0 for don't move, +1 for one step forward, etc.
-      int steps = ( m_goMenuHistoryStartPos+1 ) - index - m_goMenuHistoryCurrentPos; // make a drawing to understand this :-)
-      kdDebug(1202) << "Emit activated with steps = " << steps << endl;
-      goHistory( steps );
-  }
+	History::self().updateCurrentEntry( doc );
+	History::self().updateActions();
 }
 
 void MainWindow::slotInfoMessage(KIO::Job *, const QString &m)
@@ -378,56 +202,14 @@ void MainWindow::openURL(const KURL &url)
 void MainWindow::slotGlossSelected(const GlossaryEntry &entry)
 {
     stop();
-    createHistoryEntry();
+	History::self().createEntry();
     doc->showGlossaryEntry( entry );
-}
-
-void MainWindow::updateHistoryActions()
-{
-    back->setEnabled( canGoBack() );
-    forward->setEnabled( canGoForward() );
 }
 
 void MainWindow::stop()
 {
     doc->closeURL();
-    if ( m_lstHistory.count() > 0 )
-        updateHistoryEntry();
-}
-
-// ripped from konq_actions :) TODO after 2.2: centralize ;-)
-void MainWindow::fillHistoryPopup( QPopupMenu *popup, bool onlyBack, bool onlyForward,
-                                     bool checkCurrentItem, uint startPos )
-{
-  assert ( popup ); // kill me if this 0... :/
-
-  //kdDebug(1202) << "fillHistoryPopup position: " << history.at() << endl;
-  HistoryEntry * current = m_lstHistory.current();
-  QPtrListIterator<HistoryEntry> it( m_lstHistory );
-  if (onlyBack || onlyForward)
-  {
-      it += m_lstHistory.at(); // Jump to current item
-      if ( !onlyForward ) --it; else ++it; // And move off it
-  } else if ( startPos )
-      it += startPos; // Jump to specified start pos
-
-  uint i = 0;
-  while ( it.current() )
-  {
-      QString text = it.current()->title;
-      text = KStringHandler::csqueeze(text, 50); //CT: squeeze
-      text.replace( QRegExp( "&" ), "&&" );
-      if ( checkCurrentItem && it.current() == current )
-      {
-          int id = popup->insertItem( text ); // no pixmap if checked
-          popup->setItemChecked( id, true );
-      } else
-          popup->insertItem( text );
-      if ( ++i > 10 )
-          break;
-      if ( !onlyForward ) --it; else ++it;
-  }
-  //kdDebug(1202) << "After fillHistoryPopup position: " << history.at() << endl;
+	History::self().updateCurrentEntry( doc );
 }
 
 MainWindow::~MainWindow()
