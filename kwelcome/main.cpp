@@ -1,7 +1,7 @@
 /*
  *  main.cpp - part of the KDE Help Center
  *
- *  Copyright (C) 1998,99 Matthias Elter (me@kde.org)
+ *  Copyright (C) 1999 Matthias Elter (me@kde.org)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -18,8 +18,9 @@
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#include "kwelcome.h"
+#include <kwelcome.h>
 #include <kapp.h>
+#include <kconfig.h>
 
 int main(int argc, char *argv[])
 {
@@ -38,14 +39,14 @@ int main(int argc, char *argv[])
 		return 0;
 	}
   
-  KWelcome *widget = new KWelcome();
-  app.setMainWidget(widget);
-  app.setTopWidget(widget);
-  widget->show();
+  KWelcome *toplevel = new KWelcome();
+  app.setMainWidget(toplevel);
+  app.setTopWidget(toplevel);
+  toplevel->show();
   
-  int rc = app.exec();
-  if (widget != 0)
-	delete widget;
-  
-  return rc;
+  int rv = app.exec();
+
+  if (toplevel)
+    delete toplevel;
+  return rv;
 }

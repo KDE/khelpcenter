@@ -1,7 +1,7 @@
 /*
  *  kwelcome.h - part of the KDE Help Center
  *
- *  Copyright (C) 1998,99 Matthias Elter (me@kde.org)
+ *  Copyright (C) 1999 Matthias Elter (me@kde.org)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -21,23 +21,36 @@
 #ifndef KWELCOME_H
 #define KWELCOME_H 
 
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif 
+#include <qwidget.h>
+#include <qpopupmenu.h>
+#include <qpushbutton.h>
+#include <qlabel.h>
+#include <qscrollview.h>
+#include <qcheckbox.h>
 
-#include <kapp.h>
-#include <ktmainwindow.h>
-#include "kwelcomewidget.h"
-
-class KWelcome : public KTMainWindow
+class KWelcome : public QWidget
 {
   Q_OBJECT
 
 public:
-  KWelcome();
-  
+  KWelcome(QWidget *parent = 0, const char *name = 0);
+  virtual ~KWelcome();
+
+public slots:
+  void slotAboutKDE();
+  void slotWizardStart();
+  void slotHelpCenterStart();
+
 private:
-  KWelcomeWidget *view;
+  QWidget *topView, *bottomView;
+  QCheckBox *autostart_kwelcome;
+  QPopupMenu *aboutMenu;
+  QPushButton *aboutButton, *quitButton, *wizardButton, *helpcenterButton;
+  QLabel *welcome;
+
+protected:
+  void saveSettings();
+  void readSettings();
 };
 
 #endif // KWELCOME_H 

@@ -19,15 +19,13 @@ picsdir = $(kde_datadir)/kwelcome/pics
 
 bin_PROGRAMS = 	kwelcome
 
-kwelcome_SOURCES = kwelcome.cpp kwelcomewidget.cpp main.cpp
+kwelcome_SOURCES = kwelcome.cpp main.cpp
 kwelcome_METASOURCES = USE_AUTOMOC
 
 kwelcome_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 kwelcome_LDADD   = $(LIB_KDEUI) 
 
-SUBDIRS = pics
-
-noinst_HEADERS = kwelcome.h kwelcomewidget.h
+noinst_HEADERS = kwelcome.h
 
 # make messages.po. Move this one to ../po/ and "make merge" in po
 # the -x is for skipping messages already translated in kdelibs
