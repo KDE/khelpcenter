@@ -14,4 +14,6 @@ kmanbrowser_METASOURCES = kmb_mainwindow.moc kmb_view.moc
 
 noinst_HEADERS = kmanbrowser.h kmb_mainwindow.h kmb_view.h khc_history.h
 
+DISTCLEANFILES = $(kmanbrowser_METASOURCES) kmanbrowser.cc kmanbrowser.h browser.cc browser.h
+
 browser_IDLDIR = $(idldir)

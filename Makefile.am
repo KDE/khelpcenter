@@ -19,8 +19,7 @@ khelpcenter_SOURCES = browser.idl khelpcenter.idl khc_main.cc \
 
 khelpcenter_METASOURCES = khc_mainwindow.moc \
 	khc_navigator.moc khc_indexwidget.moc \
-	khc_searchwidget.moc finddlg.moc khc_htmlview.moc \
-	khc_testpart.moc
+	khc_searchwidget.moc finddlg.moc khc_htmlview.moc
 
 khelpcenterclient_SOURCES  = browser.cc khelpcenter.cc khc_client.cc
 
