@@ -9,11 +9,11 @@
  </Menu>
  <Menu name="edit" noMerge="1">
   <text>&amp;Edit</text>
+  <Action name="copy_text" />
+  <Separator />
   <Action name="selectAll" />
   <Separator />
   <Action name="find" />
-  <Separator />
-  <Action name="copy_text" />
  </Menu>
  <Menu name="view" noMerge="1">
   <text>&amp;View</text>
