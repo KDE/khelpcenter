@@ -68,7 +68,7 @@ void InfoCategoryItem::setOpen( bool open )
 InfoNodeItem::InfoNodeItem( InfoCategoryItem *parent, const QString &text )
   : NavigatorItem( parent, text )
 {
-  kdDebug( 1440 ) << "Created info node item: " << text << endl;
+//  kdDebug( 1440 ) << "Created info node item: " << text << endl;
 }
 
 InfoTree::InfoTree( QObject *parent, const char *name )

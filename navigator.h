@@ -121,8 +121,8 @@ class Navigator : public QWidget
 
     QPtrList<NavigatorItem> manualItems, pluginItems, scrollKeeperItems;
 
-    bool mScrollKeeperEnabled;
     bool mScrollKeeperShowEmptyDirs;
+
     QString mScrollKeeperContentsList;
     
     bool mShowMissingDocs;

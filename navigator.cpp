@@ -77,7 +77,6 @@ Navigator::Navigator( View *view, QWidget *parent,
     KConfig *config = kapp->config();
     config->setGroup("ScrollKeeper");
     mScrollKeeperShowEmptyDirs = config->readBoolEntry("ShowEmptyDirs",false);
-    mScrollKeeperEnabled = config->readBoolEntry("Enabled",false);
     
     config->setGroup("General");
     mShowMissingDocs = config->readBoolEntry("ShowMissingDocs",false);
@@ -195,6 +194,9 @@ class PluginTraverser : public DocEntryTraverser
           mCurrentItem = new NavigatorAppItem( mListView, mCurrentItem );
         else
           mCurrentItem = new NavigatorAppItem( mParentItem, mCurrentItem );
+      } else if ( entry->khelpcenterSpecial() == "scrollkeeper" ) {
+        if ( mParentItem ) mNavigator->insertScrollKeeperDocs( mParentItem );
+        return;
       } else {
         if ( mListView )
           mCurrentItem = new NavigatorItem( mListView, mCurrentItem );
@@ -213,9 +215,6 @@ class PluginTraverser : public DocEntryTraverser
         else if ( entry->khelpcenterSpecial() == "kioslave" )
           mNavigator->insertIOSlaveDocs( entry->khelpcenterSpecial(),
                                          mCurrentItem );
-
-        else if ( entry->khelpcenterSpecial() == "scrollkeeper" )
-          mNavigator->insertScrollKeeperDocs( mCurrentItem );
 
         else if ( entry->khelpcenterSpecial() == "info" )
           mNavigator->insertInfoDocs( mCurrentItem );
@@ -293,7 +292,8 @@ void Navigator::insertParentAppDocs( const QString &name, NavigatorItem *topItem
 void Navigator::insertIOSlaveDocs( const QString &name, NavigatorItem *topItem )
 {
   kdDebug(1400) << "Requested IOSlave documents for ID " << name << endl;
- 
+
+#if KDE_IS_VERSION( 3, 1, 90 ) 
   QStringList list = KProtocolInfo::protocols();
 
   for ( QStringList::ConstIterator it = list.begin(); it != list.end(); ++it ) 
@@ -309,6 +309,7 @@ void Navigator::insertIOSlaveDocs( const QString &name, NavigatorItem *topItem )
       item->setIcon( icon.isEmpty() ? "document2" : icon );
     }
   }
+#endif
 }
 
 void Navigator::insertAppletDocs( NavigatorItem *topItem )
@@ -347,11 +348,13 @@ void Navigator::insertInfoDocs( NavigatorItem *topItem )
 
 void Navigator::insertScrollKeeperDocs( NavigatorItem *topItem )
 {
-    if ( !mScrollKeeperEnabled ) return;
+    QString lang = KGlobal::locale()->language();
+
+    kdDebug(1400) << "ScrollKeeper language: " << lang << endl;
 
     KProcIO proc;
     proc << "scrollkeeper-get-content-list";
-    proc << KGlobal::locale()->language();
+    proc << lang;
     connect(&proc,SIGNAL(readReady(KProcIO *)),SLOT(getScrollKeeperContentsList(KProcIO *)));
     if (!proc.start(KProcess::Block)) {
       kdDebug(1400) << "Could not execute scrollkeeper-get-content-list" << endl;
@@ -449,8 +452,9 @@ void Navigator::insertScrollKeeperDoc(NavigatorItem *parentItem,QDomNode docNode
                 if (mimeType == "text/html") {
                     // Let the HTML part figure out how to get the doc
                 } else if (mimeType == "text/xml") {
-                    // Should probably check for the DTD here
-                    url.prepend("help:");
+                    if ( url.left( 5 ) == "file:" ) url = url.mid( 5 );
+                    url.prepend( "ghelp:" );
+                    url.replace( QRegExp( ".xml$" ), ".html" );
                 } else if (mimeType == "text/sgml") {
                     // GNOME docs use this type. We don't have a real viewer for this.
                     url.prepend("file:");
