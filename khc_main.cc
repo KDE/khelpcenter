@@ -53,13 +53,13 @@ KHMainWindow::KHMainWindow(const KURL &url)
     doc = new KHTMLPart( splitter, 0,
                          this, 0, KHTMLPart::BrowserViewGUI );
     connect(doc, SIGNAL(setWindowCaption(const QString &)),
-            this, SLOT(setCaption(const QString &)));
+            SLOT(setCaption(const QString &)));
     connect(doc, SIGNAL(setStatusBarText(const QString &)),
             statusBar(), SLOT(message(const QString &)));
     connect(doc, SIGNAL(onURL(const QString &)),
             statusBar(), SLOT(message(const QString &)));
     connect(doc, SIGNAL(started(KIO::Job *)),
-            this, SLOT(slotStarted(KIO::Job *)));
+            SLOT(slotStarted(KIO::Job *)));
 
     if (url.isEmpty())
         doc->openURL(KURL("help:/khelpcenter/index.html"));
@@ -68,7 +68,15 @@ KHMainWindow::KHMainWindow(const KURL &url)
 
     statusBar()->message(i18n("Preparing Index"));
 
+    connect(doc->browserExtension(),
+            SIGNAL(openURLRequest( const KURL &,
+                                   const KParts::URLArgs &)),
+            SLOT(slotOpenURLRequest( const KURL &,
+                                     const KParts::URLArgs &)));
+
     nav = new khcNavigator(splitter, this, "nav");
+    connect(nav->widget(), SIGNAL(itemSelected(const QString &)),
+            SLOT(openURL(const QString &)));
 
     splitter->moveToFirst(nav->widget());
     splitter->setResizeMode(nav->widget(), QSplitter::KeepSize);
@@ -94,9 +102,21 @@ void KHMainWindow::slotStarted(KIO::Job *job)
             this, SLOT(slotInfoMessage(KIO::Job *, const QString &)));
 }
 
+void KHMainWindow::slotOpenURLRequest( const KURL &url,
+                                       const KParts::URLArgs &)
+{
+    doc->openURL(url);
+}
+
 void KHMainWindow::slotInfoMessage(KIO::Job *, const QString &m)
 {
     statusBar()->message(m);
+}
+
+void KHMainWindow::openURL(const QString &url)
+{
+    kdDebug() << "openURL " << url << endl;
+    doc->openURL(KURL(url));
 }
 
 KHMainWindow::~KHMainWindow()
