@@ -20,6 +20,8 @@
 
 #include "khc_history.h"
 
+template class QList<khcHistoryItem>;
+
 khcHistoryItem::khcHistoryItem()
 {
   m_url ="";

@@ -40,6 +40,8 @@
 #include <klocale.h>
 #include <kdebug.h>
 
+template class QList<khcNavigatorItem>;
+
 khcNavigator::khcNavigator(QWidget *parent, const char *name)
     : KParts::ReadOnlyPart(parent,name)
 {
