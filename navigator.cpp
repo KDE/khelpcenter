@@ -430,10 +430,10 @@ void Navigator::insertPlugins()
 
 void Navigator::insertParentAppDocs( const QString &name, NavigatorItem *topItem )
 {
-  qDebug("Requested plugin documents for ID '%s'", name.latin1());
+  kdDebug(1400) << "Requested plugin documents for ID " << name << endl;
   KServiceGroup::Ptr grp = KServiceGroup::childGroup( name );
   if ( !grp ) {
-    qDebug("Eeek, our group pointer is NULL!");
+    kdDebug(1400) << "Eeek, our group pointer is NULL!" << endl;
     return;
   }
 
