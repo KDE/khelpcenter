@@ -33,8 +33,6 @@ noinst_HEADERS = khelpcenter.h khc_application.h khc_mainwindow.h \
 	khc_mansearch.h khc_navigator.h khc_navigatoritem.h \
 	khc_searchmatch.h khc_searchwidget.h version.h khc_htmlsearch.h
 
-DISTCLEANFILES = $(khelpcenter_METASOURCES) khelpcenter.cc khelpcenter.h
-
 idl_DATA = khelpcenter.idl
 
 $(srcdir)/khelpcenter.idl: $(idldir)/browser.idl

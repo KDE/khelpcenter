@@ -20,6 +20,7 @@ kinfobrowser_METASOURCES = kib_mainwindow.moc kib_view.moc
 
 noinst_HEADERS = kinfobrowser.h kib_mainwindow.h kib_view.h
 
-DISTCLEANFILES = $(kinfobrowser_METASOURCES) kinfobrowser.cc kinfobrowser.h
-
 browser_IDLDIR = $(idldir)
+
+kinfobrowser.idl: $(idldir)/browser.idl
+
