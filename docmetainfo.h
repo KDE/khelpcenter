@@ -8,10 +8,9 @@
 
 #include "docentry.h"
 
-class HTMLSearch;
-
 namespace KHC {
 
+class HTMLSearch;
 class DocEntryTraverser;
 
 /*!
