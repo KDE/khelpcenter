@@ -50,12 +50,19 @@ void ResultBox::leaveEvent(QEvent *e)
 
 int ResultBox::getItemYPos(int index)
 {
-  int pos;
-  
+  // FIXME: please note that this assumes all items are the fixed height.
+  // Adding up heights is required for variable-height listbox items.
+  // -Taj.
+ 
+  return index ? (( index - 1 ) * itemHeight()) : 0;
+
+#if 0
  if(itemYPos(index, &pos))
    return pos;
  else
    return -1;
+#endif
+
 }
 
 SearchWidget::SearchWidget(QWidget *parent)
