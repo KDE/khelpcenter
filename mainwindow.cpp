@@ -71,15 +71,16 @@ MainWindow::MainWindow(const KURL &url)
     connect(doc, SIGNAL(setWindowCaption(const QString &)),
             SLOT(setCaption(const QString &)));
     connect(doc, SIGNAL(setStatusBarText(const QString &)),
-            statusBar(), SLOT(message(const QString &)));
+            this, SLOT(statusBarMessage(const QString &)));
     connect(doc, SIGNAL(onURL(const QString &)),
-            statusBar(), SLOT(message(const QString &)));
+            this, SLOT(statusBarMessage(const QString &)));
     connect(doc, SIGNAL(started(KIO::Job *)),
             SLOT(slotStarted(KIO::Job *)));
     connect(doc, SIGNAL(completed()),
             SLOT(documentCompleted()));
 
-    statusBar()->message(i18n("Preparing Index"));
+    statusBar()->insertItem(i18n("Preparing Index"), 0, 1);
+    statusBar()->setItemAlignment(0, AlignLeft | AlignVCenter);
 
     connect(doc->browserExtension(),
             SIGNAL(openURLRequest( const KURL &,
@@ -137,7 +138,7 @@ MainWindow::MainWindow(const KURL &url)
     else
         openURL( url );
 
-    statusBar()->message(i18n("Ready"));
+    statusBarMessage(i18n("Ready"));
 }
 
 void MainWindow::print()
@@ -356,7 +357,12 @@ void MainWindow::goMenuActivated( int id )
 
 void MainWindow::slotInfoMessage(KIO::Job *, const QString &m)
 {
-    statusBar()->message(m);
+    statusBarMessage(m);
+}
+
+void MainWindow::statusBarMessage(const QString &m)
+{
+    statusBar()->changeItem(m, 0);
 }
 
 void MainWindow::openURL(const QString &url)

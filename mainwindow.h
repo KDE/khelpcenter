@@ -52,6 +52,7 @@ class MainWindow : public KMainWindow
     void fillGoMenu();
     void goMenuActivated( int id );
     void print();
+    void statusBarMessage(const QString &m);
 
   private:
     void createHistoryEntry();
