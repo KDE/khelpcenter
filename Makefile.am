@@ -11,8 +11,8 @@ SUBDIRS = libkhc . kmanbrowser pics plugins info2html rman kwelcome
 
 ###### Files
 
-khelpcenter_SOURCES = khc_main.cc finddlg.cpp khc_htmlview.cc \
-	khc_mainwindow.cc khc_baseview.cc khc_helpbrowser_impl.cc \
+khelpcenter_SOURCES = khelpcenter.idl khc_main.cc finddlg.cpp khc_htmlview.cc \
+	khc_mainwindow.cc khc_helpbrowser_impl.cc \
 	khc_navigator.cc khc_indexwidget.cc khc_searchwidget.cc \
 	khc_navigatoritem.cc khc_htmlsearch.cc khc_mansearch.cc
 
@@ -20,14 +20,16 @@ khelpcenter_METASOURCES = khc_mainwindow.moc \
 	khc_navigator.moc khc_indexwidget.moc \
 	khc_searchwidget.moc finddlg.moc khc_htmlview.moc
 
-khelpcenterclient_SOURCES  = khc_client.cc
+khelpcenterclient_SOURCES  = khelpcenter.cc khc_client.cc
 
-noinst_HEADERS = finddlg.h khc_baseview.h \
+noinst_HEADERS = khelpcenter.h finddlg.h \
 	khc_helpbrowser_impl.h khc_htmlsearch.h khc_htmlview.h khc_indexwidget.h \
 	khc_mainwindow.h khc_mansearch.h khc_navigator.h khc_navigatoritem.h \
 	khc_searchmatch.h khc_searchwidget.h version.h
 
 DISTCLEANFILES = $(khelpcenter_METASOURCES)
+
+idl_DATA = khelpcenter.idl
 
 ####### Build rules
 

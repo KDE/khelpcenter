@@ -21,15 +21,13 @@ INCLUDES = $(all_includes) $(MICO_INCLUDES)
 IDL_FLAGS = --query-server-for-narrow --relative-paths --any -I$(idldir)
 lib_LTLIBRARIES = libkhc.la
 libkhc_la_LDFLAGS = $(all_libraries) -version-info 1:0
-libkhc_la_LIBADD = -lkpartsui -lkparts
+libkhc_la_LIBADD = -lkparts
 
-libkhc_la_SOURCES = browser.idl khelpcenter.idl khc_history.cc
+libkhc_la_SOURCES = browser.idl khc_baseview.cc khc_history.cc
 
-include_HEADERS = khelpcenter.h khc_history.h
+include_HEADERS =browser.h khc_history.h khc_baseview.h
 
-DISTCLEANFILES = khelpcenter.cc khelpcenter.h browser.cc browser.h
-
-idl_DATA = khelpcenter.idl
+DISTCLEANFILES = browser.cc browser.h
 
 browser_IDLDIR = $(idldir)
 
