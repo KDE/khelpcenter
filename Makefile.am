@@ -1,9 +1,9 @@
 
 INCLUDES= $(all_includes)
-LDFLAGS = $(all_libraries) $(KDE_RPATH)
 
 bin_PROGRAMS = 	khelpcenter
 
+khelpcenter_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 khelpcenter_LDADD   = $(LIB_KDECORE)
 
 #khcclient_LDADD   = -lkparts -lkded libkhc/libkhc.la
