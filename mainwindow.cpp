@@ -304,6 +304,12 @@ void MainWindow::openUrl( const QString &url )
     openUrl( KURL( url ) );
 }
 
+void MainWindow::openUrl( const QString &url, const QCString& startup_id )
+{
+    KStartupInfo::setNewStartupId( this, startup_id );
+    openUrl( KURL( url ) );
+}
+
 void MainWindow::openUrl( const KURL &url )
 {
     stop();

@@ -32,6 +32,7 @@ class MainWindow : public KMainWindow, public DCOPObject
 
   k_dcop:
     void openUrl( const QString &url );
+    void openUrl( const QString &url, const QCString& startup_id );
     void showHome();
     void lastSearch();
 
