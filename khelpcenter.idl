@@ -25,32 +25,55 @@
 
 module KHelpCenter
 {
-	interface HelpBrowser
+
+	interface HTMLView : Browser::View
+			     ,Browser::PrintingExtension
+			     ,Browser::MagnifyingExtension
 	{
-		void open(in string url);
 	};
 
-	interface HelpBrowserFactory
+	interface MainView : OpenParts::Part
 	{
-		HelpBrowser create();
-	};
+		Browser::View childView();
+		OpenParts::Id childViewId();
 
-	interface MainWindow : OpenParts::MainWindow
-	{
- 		void open( in string url, in boolean reload, in long xoffset, in long yoffset);
+		void open(in string url, in boolean reload, in long xoffset, in long yoffset);
 
-		void zoomIn();
-		void zoomOut();
+		slot void slotNewWindow();
+		slot void slotOpenFile();
 
-		void print();
-		void reload();
+		slot void slotStop();
+		slot void slotReload();
+		slot void slotReloadNavigator();
 
-		void openFile();
-		void introduction();
-		void forward();
-		void back();
-		void bookmark();
-		void options();
+		slot void slotZoomIn();
+		slot void slotZoomOut();
+
+		slot void slotPrint();
+    
+		slot void slotIntroduction();
+		slot void slotForward();
+		slot void slotBack();
+		slot void slotBookmark();
+
+		slot void slotShowNavigator();
+		slot void slotShowMenubar();
+		slot void slotShowToolbar();
+		slot void slotShowLocationbar();
+		slot void slotShowStatusbar();
+		slot void slotSettings();
+
+		slot void slotHelpContents();
+		slot void slotHelpAbout();
+
+		slot void slotHistoryFillBack();
+		slot void slotHistoryFillForward();
+		slot void slotHistoryBackActivated(in long id);
+		slot void slotHistoryForwardActivated(in long id);
+		slot void slotMenuEditAboutToShow();
+		slot void slotMenuViewAboutToShow();
+
+		slot void slotURLEntered(in wstring url);
 
 		slot void openURL( in Browser::URLRequest url ); 
 		
@@ -62,11 +85,20 @@ module KHelpCenter
     
 		slot void createNewWindow( in string url );
 	};
-	  	
-	interface HTMLView : Browser::View
-			     ,Browser::PrintingExtension
-			     ,Browser::MagnifyingExtension
+
+	interface MainWindow : OpenParts::MainWindow
 	{
+		MainView mainView();
+	};
+
+	interface HelpBrowser
+	{
+		void open(in string url);
+	};
+
+	interface HelpBrowserFactory
+	{
+		HelpBrowser create();
 	};
 };
 

@@ -57,6 +57,6 @@ void HelpBrowser_Impl::open(const char *url)
 	_url =(QString("file:" + locate("html", "default/khelpcenter/main.html")));
     }
     
-    if (khb)
-	khb->openURL(_url, true);
+    //if (khb)
+    //	khb->openURL(_url, true);
 }
