@@ -19,7 +19,6 @@
  */
 
 #include "khc_mainwindow.h"
-#include "khc_testpart.h"
 #include "khc_baseview.h"
 #include "khc_htmlview.h"
 #include "khc_navigator.h"
@@ -143,7 +142,7 @@ void khcMainWindow::setupView()
     m_pSplitter->show();
     setView(m_pSplitter, true);
     m_pView = new khcHTMLView;
-    m_vView = Browser::View::_duplicate(m_pView);
+    m_vView = KHelpCenter::HTMLView::_duplicate(m_pView);
     kdebug(KDEBUG_INFO,1400,"m_vView = KHelpCenter::View::_duplicate(new khcHTMLView);");
   
     m_vView->setMainWindow(khcInterface());
@@ -718,6 +717,32 @@ void khcMainWindow::connectView()
 {
   try
     {
+      khcInterface()->connect("reload", m_vView, "slotReload");
+    }
+  catch ( ... )
+    {
+      kdebug(KDEBUG_WARN,1400,"WARNING: view does not implement slot ""reload"" ");
+    }
+  try
+    {
+      khcInterface()->connect("zoomIn", m_vView, "slotZoomIn");
+    }
+  catch ( ... )
+    {
+      kdebug(KDEBUG_WARN,1400,"WARNING: view does not implement slot ""slotZoomIn"" ");
+    }
+  try
+    {
+      khcInterface()->connect("zoomOut", m_vView, "slotZoomOut");
+    }
+  catch ( ... )
+    {
+      kdebug(KDEBUG_WARN,1400,"WARNING: view does not implement slot ""slotZoomOut"" ");
+    }
+
+
+  try
+    {
       m_vView->connect("openURL", khcInterface(), "openURL");
     }
   catch ( ... )
@@ -780,8 +805,7 @@ void khcMainWindow::slotFindNext()
 
 void khcMainWindow::slotReload()
 {
-  if (m_pView)
-    m_pView->slotReload();
+  khcInterface()->reload();
 }
 
 void khcMainWindow::slotCopy()
@@ -791,53 +815,24 @@ void khcMainWindow::slotCopy()
 
 void khcMainWindow::slotPrint()
 {
-  
+  //if (m_vView)
+  //  m_vView->print();
 }
 
 void khcMainWindow::slotStopProcessing()
 {
-  if (m_pView)
-   m_pView->slotStop();
+  if (m_vView)
+   m_vView->stop();
 }
 
 void khcMainWindow::slotMagMinus()
 {
-    /*if(fontBase > 2)
-    {
-	if(fontBase == 5)
-	{
-	    m_pViewMenu->setItemEnabled(idMagPlus, true);
-	    toolBar(0)->setItemEnabled(TB_ZOOMIN, true);
-	}
-	fontBase--;
-	//htmlview->setDefaultFontBase( fontBase );
-	//htmlview->slotReload();
-	if(fontBase == 2)
-	{
-	    m_pViewMenu->setItemEnabled(idMagMinus, false);
-	    toolBar(0)->setItemEnabled(TB_ZOOMOUT, false);
-	}		
-	}*/
+  khcInterface()->zoomOut();
 }
 
 void khcMainWindow::slotMagPlus()
 {
-    /*if(fontBase < 5)
-    {
-	if (fontBase == 2)
-	{
-	    m_pViewMenu->setItemEnabled(idMagMinus, true);
-	    toolBar(0)->setItemEnabled(TB_ZOOMOUT, true);
-	}
-	fontBase++;
-	//htmlview->setDefaultFontBase(fontBase);
-	//htmlview->slotReload();
-	if (fontBase == 5)
-	{
-	    m_pViewMenu->setItemEnabled(idMagPlus, false);
-	    toolBar(0)->setItemEnabled(TB_ZOOMIN, false);
-	}
-	}*/	
+  khcInterface()->zoomIn();
 }
 
 void khcMainWindow::slotCheckHistory()
@@ -917,6 +912,10 @@ khcMainWindowIf::khcMainWindowIf(khcMainWindow* _main) :
   OPMainWindowIf( _main )
 {
   ADD_INTERFACE("IDL:KHelpCenter/MainWindow:1.0" );
+
+  SIGNAL_IMPL("reload");
+  SIGNAL_IMPL("zoomIn");
+  SIGNAL_IMPL("zoomOut");
   
   m_pkhcMainWindow = _main;
 }
@@ -924,6 +923,24 @@ khcMainWindowIf::khcMainWindowIf(khcMainWindow* _main) :
 khcMainWindowIf::~khcMainWindowIf()
 {
   cleanUp();
+}
+
+void khcMainWindowIf::reload()
+{
+  SIGNAL_CALL0("reload");
+  kdebug(0, 1400, "SIGNAL_CALL0(\"reload\");");
+}
+
+void khcMainWindowIf::zoomIn()
+{
+  SIGNAL_CALL0("zoomIn");
+  kdebug(0, 1400, "SIGNAL_CALL0(\"zoomIn\");");
+}
+
+void khcMainWindowIf::zoomOut()
+{
+  SIGNAL_CALL0("zoomOut");
+  kdebug(0, 1400, "SIGNAL_CALL0(\"zoomOut\");");
 }
 
 void khcMainWindowIf::setStatusBarText(const CORBA::WChar *_text)

@@ -37,19 +37,26 @@ module KHelpCenter
 
 	interface MainWindow : OpenParts::MainWindow
 	{
+		slot void openURL( in Browser::URLRequest url ); 
+		
 		slot void slotURLStarted(in OpenParts::Id id, in string url);
 		slot void slotURLCompleted(in OpenParts::Id id);
 
-		slot void openURL( in Browser::URLRequest url );    
-    
 		slot void setStatusBarText( in wstring text );
 		slot void setLocationBarURL(in OpenParts::Id id,in string url );
     
 		slot void createNewWindow( in string url );
+
+		void reload();
+		void zoomIn();
+		void zoomOut();
 	};
 	  	
-	interface HTMLView : Browser::View
+	interface HTMLView : Browser::View, Browser::PrintingExtension
 	{
+		slot void slotReload();
+		slot void slotZoomIn();
+		slot void slotZoomOut();
 	};
 
 	interface ManView : Browser::View
@@ -58,14 +65,6 @@ module KHelpCenter
 
 	interface InfoView: Browser::View
 	{
-	};
-
-	interface TestPart : OpenParts::Part
-	{
-		void begin( in string url );
-		void write( in string text );
-		void end();
-		void parse();
 	};
 };
 

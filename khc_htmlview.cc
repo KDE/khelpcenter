@@ -29,6 +29,8 @@ khcHTMLView::khcHTMLView()
   ADD_INTERFACE("IDL:KHelpCenter/HTMLView:1.0");
 
   setWidget(this);
+
+  fontBase = 3;
   
   QWidget::setFocusPolicy(StrongFocus);
 
@@ -98,6 +100,63 @@ void khcHTMLView::slotCanceled()
 void khcHTMLView::stop()
 {
   KBrowser::slotStop();
+}
+
+void khcHTMLView::slotReload()
+{
+  KBrowser::slotReload();
+}
+
+void khcHTMLView::setDefaultFontBase(int fSize)
+{
+    getKHTMLWidget()->resetFontSizes();
+    if (fSize != 3)
+    {
+        int fontSizes[7];
+        getKHTMLWidget()->getFontSizes(fontSizes);
+
+        if (fSize > 3)
+        {
+            for(int i = 0; i < 7; i++)
+            {
+                int j = i + fSize - 3;
+                if ( j > 6)
+                    j = 6;
+                fontSizes[i] = fontSizes[j]; 
+            }
+        }
+        else
+        {
+            for(int i = 7; i--;)
+            {
+                int j = i + fSize - 3;
+                if ( j < 0)
+                    j = 0;
+                fontSizes[i] = fontSizes[j]; 
+            }
+        }
+        getKHTMLWidget()->setFontSizes(fontSizes);
+    }
+}
+
+void khcHTMLView::slotZoomIn()
+{
+  if(fontBase < 5)
+    {
+      fontBase++;
+      setDefaultFontBase(fontBase);
+      KBrowser::slotReload();
+    }
+}
+
+void khcHTMLView::slotZoomOut()
+{
+  if(fontBase > 2)
+    {
+      fontBase--;
+      setDefaultFontBase(fontBase);
+      KBrowser::slotReload();
+    }
 }
 
 CORBA::Long khcHTMLView::xOffset()
