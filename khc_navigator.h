@@ -24,6 +24,7 @@
 #include <qlist.h>
 #include <kparts/browserextension.h>
 #include <kparts/part.h>
+#include <qwidget.h>
 
 class IndexWidget;
 class SearchWidget;
@@ -54,7 +55,7 @@ class khcNavigator : public KParts::ReadOnlyPart
     virtual ~khcNavigator();
 
  protected:
-    bool openFile(); 
+    bool openFile();
     khcNavigatorExtension * m_extension;
 
 };
@@ -62,7 +63,7 @@ class khcNavigator : public KParts::ReadOnlyPart
 class khcNavigatorWidget : public QWidget
 {
     Q_OBJECT
-  
+
  public:
     khcNavigatorWidget(QWidget *parent=0, const char *name=0);
     virtual ~khcNavigatorWidget();
