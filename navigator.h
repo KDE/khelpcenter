@@ -95,9 +95,6 @@ class Navigator : public QWidget
 
   private slots:
     void getScrollKeeperContentsList(KProcIO *proc);
-    /* Cog-wheel animation handling -- enable after creating the icons
-    void slotAnimation();
-    */
 
   private:
     void setupContentsTab();
@@ -139,26 +136,6 @@ class Navigator : public QWidget
 	typedef QMap<NavigatorItem *, InfoHierarchyMaker *> HierarchyMap;
 	HierarchyMap hierarchyMakers;
     QTimer cleaningTimer;
-
-    /* Cog-wheel animation handling -- enable after creating the icons
-    struct AnimationInfo
-    {
-        AnimationInfo( const char * _iconBaseName, uint _iconCount, const QPixmap & _originalPixmap )
-            : iconBaseName(_iconBaseName), iconCount(_iconCount), iconNumber(1), originalPixmap(_originalPixmap) {}
-        AnimationInfo() : iconCount(0) {}
-        QCString iconBaseName;
-        uint iconCount;
-        uint iconNumber;
-        QPixmap originalPixmap;
-    };
-    typedef QMap<NavigatorItem *, AnimationInfo> MapCurrentOpeningSubjects;
-    MapCurrentOpeningSubjects m_mapCurrentOpeningSubjects;
-
-    QTimer *m_animationTimer;
-
-    void startAnimation(NavigatorItem * item, const char * iconBaseName = "kde", uint iconCount = 6);
-    void stopAnimation(NavigatorItem * item);
-    */
 
     bool mScrollKeeperShowEmptyDirs;
     QString mScrollKeeperContentsList;

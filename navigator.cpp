@@ -128,11 +128,6 @@ Navigator::Navigator( View *view, QWidget *parent,
     connect(&cleaningTimer, SIGNAL(timeout()), SLOT(slotCleanHierarchyMakers()));
     cleaningTimer.start(30000);
 
-    /* Cog-wheel animation handling -- enable after creating the icons
-    m_animationTimer = new QTimer( this );
-    connect( m_animationTimer, SIGNAL( timeout() ), this, SLOT( slotAnimation() ) );
-    */
-
     buildTree();
 
     if ( DocMetaInfo::self()->searchEntries().isEmpty() ) {
@@ -791,16 +786,9 @@ void Navigator::slotInfoHierarchyCreated(uint key, uint nErrorCode, const InfoNo
     }
     else
       addChildren(pRootNode, pItem);
-    /* Cog-wheel animation handling -- enable after creating the icons
-    stopAnimation(pItem);
-    */
   }
   else
   {
-    /* Cog-wheel animation handling -- enable after creating the icons
-    stopAnimation(pItem);
-    */
-
     QString sErrMsg;
     switch (nErrorCode)
     {
@@ -844,44 +832,6 @@ void Navigator::slotCleanHierarchyMakers()
     if (!(*it)->isWorking())
       delete *it;
 }
-
-/* Cog-wheel animation handling -- enable after creating the icons
-void Navigator::slotAnimation()
-{
-    MapCurrentOpeningSubjects::Iterator it = m_mapCurrentOpeningSubjects.begin();
-    MapCurrentOpeningSubjects::Iterator end = m_mapCurrentOpeningSubjects.end();
-    for (; it != end; ++it )
-    {
-        uint & iconNumber = it.data().iconNumber;
-        QString icon = QString::fromLatin1( it.data().iconBaseName ).append( QString::number( iconNumber ) );
-        it.key()->setPixmap( 0, SmallIcon( icon, Factory::instance() ) );
-
-        iconNumber++;
-        if ( iconNumber > it.data().iconCount )
-            iconNumber = 1;
-    }
-}
-
-void Navigator::startAnimation( NavigatorItem * item, const char * iconBaseName, uint iconCount )
-{
-    m_mapCurrentOpeningSubjects.insert( item, AnimationInfo( iconBaseName, iconCount, *item->pixmap(0) ) );
-    if ( !m_animationTimer->isActive() )
-        m_animationTimer->start( 50 );
-}
-
-void Navigator::stopAnimation( NavigatorItem * item )
-{
-    MapCurrentOpeningSubjects::Iterator it = m_mapCurrentOpeningSubjects.find(item);
-    if ( it != m_mapCurrentOpeningSubjects.end() )
-    {
-        item->setPixmap( 0, it.data().originalPixmap );
-        m_mapCurrentOpeningSubjects.remove( item );
-    }
-    if (m_mapCurrentOpeningSubjects.isEmpty())
-        m_animationTimer->stop();
-}
-*/
-
 
 void Navigator::slotSearch()
 {
