@@ -30,7 +30,7 @@ class IndexWidget;
 class SearchWidget;
 class khcNavigatorItem;
 class khcNavigator;
-class QListView;
+class KListView;
 class QListViewItem;
 class QTabBar;
 
@@ -97,7 +97,7 @@ class khcNavigatorWidget : public QWidget
     bool containsDocuments(QString dir);
 
     QTabBar *tabBar;
-    QListView *tree;
+    KListView *tree;
     SearchWidget *search;
     IndexWidget *index;
 

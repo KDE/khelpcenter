@@ -29,8 +29,8 @@
 #include <qpixmap.h>
 #include <qstring.h>
 #include <qlabel.h>
-#include <qlistview.h>
 #include <qtabbar.h>
+#include <qheader.h>
 
 #include <kaction.h>
 #include <kapp.h>
@@ -39,6 +39,7 @@
 #include <kglobal.h>
 #include <klocale.h>
 #include <kdebug.h>
+#include <klistview.h>
 
 template class QList<khcNavigatorItem>;
 
@@ -53,7 +54,6 @@ khcNavigator::khcNavigator(QWidget *parent, const char *name)
     m_extension = new khcNavigatorExtension( this, "khcNavigatorExtension" );
     connect( widget(), SIGNAL( itemSelected(const QString&) ),
              m_extension, SLOT( slotItemSelected(const QString&) ) );
-    //setXMLFile( "khcnavigator_part.rc" );
 }
 
 bool khcNavigator::openFile()
@@ -106,12 +106,15 @@ void khcNavigatorWidget::resizeEvent(QResizeEvent *)
 
 void khcNavigatorWidget::setupContentsTab()
 {
-    tree = new QListView(this);
-    tree->addColumn("Contents");
+    tree = new KListView(this);
+    tree->setFrameStyle(QFrame::Panel | QFrame::Sunken);   
+    tree->addColumn("");   
+    tree->setAllColumnsShowFocus(true);
+    tree->header()->hide();
     tree->setRootIsDecorated(false);
     tree->setSorting(-1, false);
 
-    connect(tree, SIGNAL(selectionChanged(QListViewItem*)),this,
+    connect(tree, SIGNAL(clicked(QListViewItem*)),this,
 	    SLOT(slotItemSelected(QListViewItem*)));
 
     QTab *newTab = new QTab;
@@ -266,8 +269,6 @@ void khcNavigatorWidget::buildManSubTree(khcNavigatorItem *parent)
   khcNavigatorItem *ti_man_s1 = new khcNavigatorItem(parent, i18n("(1) User commands"), "helpdoc.png");
   ti_man_s1->setURL(QString("man:/(1)"));
   staticItems.append(ti_man_s1);
-
-  parent->setOpen(true);
 }
 
 void khcNavigatorWidget::buildManualSubTree(khcNavigatorItem *parent)
@@ -330,16 +331,15 @@ void khcNavigatorWidget::slotItemSelected(QListViewItem* /*currentItem*/)
 {
   khcNavigatorItem *item;
   
-  /*
-    if (item->childCount() > 0)
+  
+  if (item->childCount() > 0)
     {
       if (item->isOpen())
-	item->setOpen(false);
+        item->setOpen(false);
       else
-	item->setOpen(true);
+        item->setOpen(true);
     }
-  */
-  
+    
   // find the highlighted item in our lists
   for (item = staticItems.first(); item != 0; item = staticItems.next())
     {
