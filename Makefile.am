@@ -10,7 +10,7 @@ khc_indexbuilder_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 khc_indexbuilder_LDADD = $(LIB_KDECORE)
 khc_indexbuilder_SOURCES = khc_indexbuilder.cpp
 
-kdeinit_LTLIBRARIES = khelpcenter.la # kcm_helpcenter.la
+kdeinit_LTLIBRARIES = khelpcenter.la
 
 khelpcenter_la_LDFLAGS = $(all_libraries) -module $(KDE_PLUGIN)
 khelpcenter_la_LIBADD = $(LIB_KHTML)
