@@ -23,13 +23,13 @@
 
 #include <ktmainwindow.h>
 
-#include "kib_view.h"
 #include "khc_history.h"
 
 class KAction;
 class KHelpMenu;
 class KListAction;
 class KToggleAction;
+class kibView;
 
 class kibMainWindow : public KTMainWindow
 {
