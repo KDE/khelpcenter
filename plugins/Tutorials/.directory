@@ -2,7 +2,6 @@
 [KDE Desktop Entry]
 Name=Tutorials
 Name[af]=Tutoriale
-Name[ca]=Introduccions
 Name[cs]=Výukové dokumenty
 Name[da]=Undervisere
 Name[de]=Lernhilfen
@@ -24,7 +23,6 @@ Name[sv]=Skolor
 MiniIcon=
 Comment=Tutorial and introduction documents.
 Comment[af]=Tutoriale en inleidende dokumente.
-Comment[ca]=Documents i curs d'introducció.
 Comment[cs]=Výukové a seznamovací dokumenty.
 Comment[da]=Undervisnings og introduktions dokumenter
 Comment[de]=Einführende und zur Einarbeitung dienende Dokumente
