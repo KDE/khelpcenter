@@ -36,62 +36,62 @@ class View;
 
 class History : public QObject
 {
-	Q_OBJECT
-	public:
-		friend class foo; // to make gcc shut up
-		struct Entry
-		{
-			View *view;
-			KURL url;
-			QString title;
-			QByteArray buffer;
+  Q_OBJECT
+  public:
+    friend class foo; // to make gcc shut up
+    struct Entry
+    {
+      View *view;
+      KURL url;
+      QString title;
+      QByteArray buffer;
                         bool search;
-		};
+    };
 
-		static History &self();
+    static History &self();
 
-		void setupActions( KActionCollection *coll );
-		void updateActions();
+    void setupActions( KActionCollection *coll );
+    void updateActions();
 
-		void installMenuBarHook( KMainWindow *mainWindow );
+    void installMenuBarHook( KMainWindow *mainWindow );
 
-		void createEntry();
-		void updateCurrentEntry( KHC::View *view );
+    void createEntry();
+    void updateCurrentEntry( KHC::View *view );
 
-	private slots:
-		void backActivated( int id );
-		void fillBackMenu();
-		void forwardActivated( int id );
-		void fillForwardMenu();
-		void goMenuActivated( int id );
-		void fillGoMenu();
-		void back();
-		void forward();
-		void goHistoryActivated( int steps );
-		void goHistory( int steps );
-		void goHistoryDelayed();
+  private slots:
+    void backActivated( int id );
+    void fillBackMenu();
+    void forwardActivated( int id );
+    void fillForwardMenu();
+    void goMenuActivated( int id );
+    void fillGoMenu();
+    void back();
+    void forward();
+    void goHistoryActivated( int steps );
+    void goHistory( int steps );
+    void goHistoryDelayed();
 
-	private:
-		History();
-		History( const History &rhs );
-		History &operator=( const History &rhs );
-		~History();
+  private:
+    History();
+    History( const History &rhs );
+    History &operator=( const History &rhs );
+    ~History();
 
-		bool canGoBack() const;
-		bool canGoForward() const;
-		void fillHistoryPopup( QPopupMenu *, bool, bool, bool, uint = 0 );
+    bool canGoBack() const;
+    bool canGoForward() const;
+    void fillHistoryPopup( QPopupMenu *, bool, bool, bool, uint = 0 );
 
-		static History *m_instance;
+    static History *m_instance;
 
-		QPtrList<Entry> m_entries;
+    QPtrList<Entry> m_entries;
 
-		KToolBarPopupAction *m_backAction;
-		KToolBarPopupAction *m_forwardAction;
+    KToolBarPopupAction *m_backAction;
+    KToolBarPopupAction *m_forwardAction;
 
-		int m_goBuffer;
-		int m_goMenuIndex;
-		int m_goMenuHistoryStartPos;
-		int m_goMenuHistoryCurrentPos;
+    int m_goBuffer;
+    int m_goMenuIndex;
+    int m_goMenuHistoryStartPos;
+    int m_goMenuHistoryCurrentPos;
 };
 
 }
