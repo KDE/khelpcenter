@@ -164,16 +164,7 @@ KHelpWindow::KHelpWindow( QWidget *parent, const char *name )
 	readOptions();
 	man = new cMan;
 	info = new cInfo;
-/*
-	accel = new QAccel( this );
-	accel->insertItem( CTRL + Key_C,	COPY );
-	accel->insertItem( CTRL + Key_Insert,	COPY );
-	accel->insertItem( CTRL + Key_N,	NEW );
-	accel->insertItem( CTRL + Key_W,	CLOSE );
-	accel->insertItem( CTRL + Key_Q,	QUIT );
 
-	accel->connectItem( COPY, this, SLOT(slotCopy()) );
-*/
 	view = new KHelpView( this );
 	CHECK_PTR( view );
 	view->setDefaultFontBase( fontBase );
@@ -181,10 +172,6 @@ KHelpWindow::KHelpWindow( QWidget *parent, const char *name )
 	view->setFixedFont( fixedFont );
 	view->setURLCursor( KCursor::handCursor() );
 	view->setUnderlineLinks( underlineLinks );
-#if 0
-//WABA: Not supported by KHTML
-	view->setForceDefault( forceDefaults );
-#endif
 	view->setFocusPolicy( QWidget::StrongFocus );
 	view->setFocus();
 	view->installEventFilter( this );
@@ -211,8 +198,8 @@ KHelpWindow::KHelpWindow( QWidget *parent, const char *name )
 			SLOT( slotOnURL(const char * ) ) );
 	connect( view, SIGNAL( popupMenu( const char *, const QPoint & ) ),
 			SLOT( slotPopupMenu(const char *, const QPoint & ) ) );
-	connect( view, SIGNAL( formSubmitted( const char *, const char *, const char * ) ),
-			SLOT( slotFormSubmitted( const char *, const char *, const char * ) ) );
+	connect( view, SIGNAL( formSubmitted( const char *, const char *, const char *, const char * ) ),
+			SLOT( slotFormSubmitted(const char *, const char *, const char *, const char * ) ) );
 	connect( view, SIGNAL( resized( const QSize & ) ),
 			SLOT( slotViewResized( const QSize & ) ) );
 	connect( view, SIGNAL( textSelected( bool ) ), 
@@ -1355,7 +1342,7 @@ void KHelpWindow::slotOnURL( const char *url )
 }
 
 
-void KHelpWindow::slotFormSubmitted( const char *_method, const char *_url, const char* _data )
+void KHelpWindow::slotFormSubmitted( const char *_method, const char *_url, const char* _data, const char * _target )
 {
     if (strcasecmp(_method, "GET")==0)
     {

@@ -13,7 +13,7 @@
 APPSDIR = $(kde_appsdir)
 INCLUDES= $(all_includes)
 
-SUBDIRS = pics
+SUBDIRS = pics info2html rman
 
 bin_PROGRAMS = 	khelpcenter
 

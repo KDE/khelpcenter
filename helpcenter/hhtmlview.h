@@ -167,7 +167,7 @@ public slots:
 	void	slotSetTitle( const char * );
 	void	slotURLSelected( const char *, int );
 	void	slotOnURL( const char * );
-	void	slotFormSubmitted( const char *, const char *, const char * );
+	void	slotFormSubmitted( const char *, const char *, const char *, const char * );
 	void	slotPopupMenu( const char *, const QPoint & );
 	void	slotCGIDone();
 	void	slotScrollVert( int _y );
