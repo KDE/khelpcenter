@@ -6,7 +6,7 @@ DocPath=khelpcenter/index.html
 Type=Application
 Terminal=false
 
-Name=Help
+<<<<<<< Help.desktop
 Name[af]=Hulp
 Name[ar]=مساعدة
 Name[az]=Yardım
@@ -75,4 +75,5 @@ Name[xx]=xxHelpxx
 Name[zh_CN]=帮助
 Name[zh_TW]=求助
 Name[zu]=Usizo
+Categories=Qt;KDE;Core;
 OnlyShowIn=KDE;
