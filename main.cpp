@@ -19,6 +19,9 @@
  */
 #include "application.h"
 
-int main( int argc, char **argv ) { return kdemain(argc, argv); }
+int main( int argc, char **argv )
+{
+  return kdemain(argc, argv);
+}
 
 // vim:ts=2:sw=2:et
