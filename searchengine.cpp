@@ -148,7 +148,8 @@ void SearchTraverser::finishTraversal()
 
 SearchEngine::SearchEngine( View *destination )
   : QObject(),
-    mProc( 0 ), mView( destination ), mRootTraverser( 0 )
+    mProc( 0 ), mSearchRunning( false ), mView( destination ),
+    mRootTraverser( 0 )
 {
   mFormatter = new SearchFormatter;
 
