@@ -446,7 +446,7 @@ static KCmdLineOptions options[] =
 
 extern "C" int kdemain(int argc, char *argv[])
 {
-    KAboutData aboutData( "khelpcenter", I18N_NOOP("KDE HelpCenter"),
+    KAboutData aboutData( "khelpcenter", I18N_NOOP("KDE Help Center"),
                           HELPCENTER_VERSION,
                           I18N_NOOP("The KDE Help Center"),
                           KAboutData::License_GPL,
