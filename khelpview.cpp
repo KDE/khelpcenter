@@ -49,6 +49,7 @@
 #include <X11/Xatom.h>
 #include <klocale.h>
 #include <qfile.h>
+#include <kstddirs.h>
 
 KHelpView::KHelpView(QWidget *parent, const char *name)
     : QWidget(parent, name)
@@ -648,9 +649,7 @@ void KHelpView::slotForward()
 
 void KHelpView::slotDir()
 {
-    QString initDoc = "file:";
-    initDoc += kapp->findFile("/share/doc/HTML/default/khelpcenter/main.html");
-  
+    QString initDoc = "file:" + locate("html", "default/khelpcenter/main.html");
     openURL(initDoc);
 }
 
