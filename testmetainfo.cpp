@@ -1,3 +1,5 @@
+#include <qstringlist.h>
+
 #include <kaboutdata.h>
 #include <kapplication.h>
 #include <kdebug.h>
@@ -90,7 +92,11 @@ int main(int argc,char **argv)
 
   kdDebug() << "Scanning Meta Info" << endl;
 
-  DocMetaInfo::self()->scanMetaInfo();
+  QStringList langs;
+  langs << "en";
+//  langs << "de";
+
+  DocMetaInfo::self()->scanMetaInfo( langs );
 
   kdDebug() << "My TRAVERSE start" << endl;
   MyTraverser t;

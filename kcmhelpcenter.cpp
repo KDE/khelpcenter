@@ -83,7 +83,7 @@ KCMHelpCenter::KCMHelpCenter(QWidget *parent, const char *name)
 
   mConfig = new KConfig("kcmhelpcenterrc");
 
-  DocMetaInfo::self()->scanMetaInfo();
+  DocMetaInfo::self()->scanMetaInfo( KGlobal::locale()->languagesTwoAlpha() );
 
   load();
 }

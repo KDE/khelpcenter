@@ -2,6 +2,7 @@
 #define DOCMETAINFO_H
 
 #include <qstring.h>
+#include <qstringlist.h>
 #include <qvaluelist.h>
 
 #include "docentry.h"
@@ -21,7 +22,7 @@ class DocMetaInfo
 
     ~DocMetaInfo();
 
-    void scanMetaInfo();
+    void scanMetaInfo( const QStringList &languages = QStringList() );
 
     DocEntry *addDocEntry( const QString &fileName );
 
@@ -53,6 +54,8 @@ class DocMetaInfo
     DocEntry::List mSearchEntries;
 
     DocEntry mRootEntry;
+
+    QStringList mLanguages;
 
     static DocMetaInfo *mSelf;
 };

@@ -41,13 +41,24 @@ DocMetaInfo::~DocMetaInfo()
 
 DocEntry *DocMetaInfo::addDocEntry( const QString &fileName )
 {
-  if ( !QFile::exists( fileName ) ) {
+  QFileInfo fi( fileName );
+  if ( !fi.exists() ) return 0;
+  
+  DocEntry *entry = new DocEntry();
+
+  QString extension = fi.extension();
+  QStringList extensions = QStringList::split( '.', extension );
+  QString lang;
+  if ( extensions.count() >= 2 ) {
+    lang = extensions[ extensions.count() - 2 ];
+  }
+
+  if ( !lang.isEmpty() && mLanguages.find( lang ) == mLanguages.end() ) {
     return 0;
   }
 
-  DocEntry *entry = new DocEntry();
-
   if ( entry->readFromFile( fileName ) ) {
+    if ( !lang.isEmpty() ) entry->setLang( lang );
     addDocEntry( entry );
     return entry;
   } else {
@@ -72,8 +83,10 @@ DocEntry::List DocMetaInfo::searchEntries()
   return mSearchEntries;
 }
 
-void DocMetaInfo::scanMetaInfo()
+void DocMetaInfo::scanMetaInfo( const QStringList &languages )
 {
+  mLanguages = languages;
+
   KStandardDirs* kstd = KGlobal::dirs();
   kstd->addResourceType( "data", "share/apps/khelpcenter" );
   QStringList list = kstd->findDirs( "data", "plugins" );

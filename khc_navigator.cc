@@ -117,7 +117,11 @@ khcNavigatorWidget::khcNavigatorWidget( KHCView *view, QWidget *parent,
     config->setGroup("ScrollKeeper");
     mScrollKeeperShowEmptyDirs = config->readBoolEntry("ShowEmptyDirs",false);
 
-    DocMetaInfo::self()->scanMetaInfo();
+    QStringList languages = KGlobal::locale()->languagesTwoAlpha();
+
+    kdDebug() << "LANGS: " << languages.join( " " ) << endl;
+
+    DocMetaInfo::self()->scanMetaInfo( languages );
 
     mSearchEngine = new SearchEngine( view );
     connect( mSearchEngine, SIGNAL( searchFinished() ),
