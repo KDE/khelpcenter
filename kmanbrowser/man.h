@@ -86,6 +86,7 @@ class ManParser
     QString *page() { return &m_page; }
 
  private:
+
     QString m_page;
     QString m_location;
 
@@ -93,4 +94,3 @@ class ManParser
 };
 
 #endif
-

@@ -18,40 +18,19 @@
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+#include <kapp.h>
+
 #include "kmb_mainwindow.h"
 
-#include <komAutoLoader.h>
-#include <opApplication.h>
-
-int main(int argc, char *argv[])
+int main( int argc, char *argv[] )
 {
-    bool server = false;
-
-    for (int i=0; i< argc; i++)
-    {
-	if (strcmp(argv[i], "--server") == 0 || strcmp(argv[i], "-s") == 0)
-	    server = true;
-    }
-
-    if (server)
-    {
-	// activate autoloader for interface "ViewFactory"
-	OPApplication app(argc, argv, "kmanbrowser");
-	//KOMAutoLoader<ViewFactory_Impl> HelpBrowserFactoryLoader("IDL:Browser/ViewFactory:1.0" , "ManBrowser");
+  KApplication app( argc, argv, "kmanbrowser" );
+  
+  kmbMainWindow *win = new kmbMainWindow;
+  win->show();
 	
-	app.exec();
-	return 0;
-    }
-    else
-    {
-	// standalone app
-	OPApplication app(argc, argv, "kmanbrowser");
-	kmbMainWindow *win = new kmbMainWindow;
-	win->show();
-	
-	app.exec();
-	if (win)
-	    delete win;
-	return 0;
-    }
+  app.setMainWidget( win );
+  app.exec();
+  
+  return 0;
 }

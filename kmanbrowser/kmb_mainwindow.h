@@ -21,72 +21,32 @@
 #ifndef __kmb_mainwindow_h__
 #define __kmb_mainwindow_h__
 
-#include "kmanbrowser.h"
-#include "kmb_view.h"
+#include <ktmainwindow.h>
+
 #include "khc_history.h"
 
-#include <opMainWindow.h>
-#include <opMainWindowIf.h>
+class KAction;
+class KToggleAction;
+class kmbView;
 
-class OPFrame;
-class QPopupMenu;
-class kmbMainWindow;
-
-class kmbMainWindowIf : virtual public OPMainWindowIf,
-			virtual public KManBrowser::MainWindow_skel
-{
- public:
-  kmbMainWindowIf(kmbMainWindow* _main);
-  ~kmbMainWindowIf();
-  
-  virtual void openURL(const Browser::URLRequest &url );
-  virtual void open(const QCString &url, bool reload, long xoffset, long yoffset);
-  
-  virtual void setStatusBarText(const QString &_text);
-  virtual void setLocationBarURL(OpenParts::Id id, const QCString &_url);
-  
-  virtual void createNewWindow( const QCString &url );
-  virtual void slotURLStarted( OpenParts::Id id, const QCString &url );
-  virtual void slotURLCompleted( OpenParts::Id id );
-
-  virtual void zoomIn();
-  virtual void zoomOut();
-  virtual void print();
-  virtual void reload();
-
-  virtual void openFile();
-  virtual void index();
-  virtual void forward();
-  virtual void back();
-  virtual void bookmark();
-  virtual void options();
-
- protected:
-  kmbMainWindow* m_pkmbMainWindow;
-};
-
-class kmbMainWindow : public OPMainWindow
+class kmbMainWindow : public KTMainWindow
 {
     Q_OBJECT
 
  public:
-    kmbMainWindow(const QString& url = 0);
+
+    kmbMainWindow( const QString& url = 0 );
     virtual ~kmbMainWindow();
 
-    void openURL(Browser::URLRequest urlRequest);
-    void openURL(const QCString &url, bool withHistory = true, long xOffset = 0, long yOffset = 0);
-
-    virtual OPMainWindowIf* interface();
-    virtual kmbMainWindowIf* kmbInterface();
+    void openURL( const QString& url );
+    void openURL( const QString& url, bool withHistory = true, long xOffset = 0, long yOffset = 0 );
 
  protected:
-    void setupMenuBar();
-    void setupToolBar();
+
+    void setupActions();
     void setupStatusBar();
     void setupLocationBar();
     void setupView();
-    void connectView();
-    void cleanUp();
 
  public slots:
 
@@ -100,11 +60,10 @@ class kmbMainWindow : public OPMainWindow
 
     void slotSetBusy(bool busy);
 
-    void slotSetBookmark();
+    void slotAddBookmark();
 
-    void slotToolbarClicked(int);
     void slotCheckHistory();
-    
+
     void slotOptionsToolbar();
     void slotOptionsLocationbar();
     void slotOptionsStatusbar();
@@ -141,19 +100,13 @@ class kmbMainWindow : public OPMainWindow
     void slotHistoryForwardActivated(int id);
 
  protected:
-    OPFrame         *m_pFrame;
-    kmbMainWindowIf *m_pkmbInterface;
-    kmbView         *m_pView;
 
-    KManBrowser::View_var m_vView;
+    kmbView    *m_pView;
     khcHistory history;
 
-    QPopupMenu *m_pFileMenu, *m_pEditMenu, *m_pViewMenu, *m_pGotoMenu, *m_pOptionsMenu, *m_pHelpMenu,*m_pBookmarkMenu;
-    QPopupMenu *m_pHistoryBackMenu, *m_pHistoryForwardMenu;
-
-    // toolbar and menu id's
-    enum {TB_BACK, TB_FORWARD, TB_RELOAD, TB_STOP, TB_PRINT, TB_SETBOOKMARK, TB_ZOOMIN, TB_ZOOMOUT, TB_FIND};
-    int idCopy, idBack, idForward, idToolBar ,idLocationBar, idStatusBar, idMagPlus, idMagMinus;
+    // actions
+    KAction *m_zoomIn, *m_zoomOut, *m_stop, *m_back, *m_forward;
+    KToggleAction *m_toolBar, *m_statusBar, *m_locationBar;
 
     // UI options:
     bool m_showStatusBar, m_showToolBar, m_showLocationBar;

@@ -18,25 +18,17 @@
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#include "kmb_view.h"
-
 #include <qapp.h>
 
 #include <kcursor.h>
 #include <kdebug.h>
 
-#include <opUIUtils.h>
+#include "kmb_view.h"
 
-kmbView::kmbView()
+kmbView::kmbView( QWidget *parent, char *name )
+    : khcBaseView( parent, name )
+    , m_fontBase( 3 )
 {
-  ADD_INTERFACE("IDL:KManBrowser/View:1.0");
-  ADD_INTERFACE("IDL:Browser/PrintingExtension:1.0");
-  ADD_INTERFACE("IDL:Browser/MagnifyingExtension:1.0");
-
-  setWidget(this);
-
-  fontBase = 3;
-
   view = new KHTMLWidget( this );
   CHECK_PTR( view );
 
@@ -50,30 +42,26 @@ kmbView::kmbView()
   //view->setStandardFont();
   //view->setFixedFont();
 
-  QObject::connect(view, SIGNAL(setTitle(const QString &)), this, SLOT(slotSetTitle(const QString &)));
-  QObject::connect(view, SIGNAL(documentDone()), this, SLOT(slotCompleted()));
+  connect(view, SIGNAL(setTitle(const QString &)), this, SLOT(slotSetTitle(const QString &)));
+  connect(view, SIGNAL(documentDone()), this, SLOT(slotCompleted()));
   // ### fix cursor scrolling
-  //QObject::connect(view, SIGNAL(scrollVert(int)), this, SLOT(slotScrollVert(int)));
-  //QObject::connect(view, SIGNAL(scrollHorz(int)), this, SLOT(slotScrollHorz(int)));
-  QObject::connect(view, SIGNAL(resized(const QSize &)), SLOT(slotViewResized(const QSize &)));
+  //connect(view, SIGNAL(scrollVert(int)), this, SLOT(slotScrollVert(int)));
+  //connect(view, SIGNAL(scrollHorz(int)), this, SLOT(slotScrollHorz(int)));
+  connect(view, SIGNAL(resized(const QSize &)), SLOT(slotViewResized(const QSize &)));
 }
 
 kmbView::~kmbView()
 {
 }
 
-void kmbView::layout()
+void kmbView::slotScrollVert(int y)
 {
+    view->scrollBy(0, y);
 }
 
-void kmbView::slotScrollVert(int _y)
+void kmbView::slotScrollHorz(int x)
 {
-    view->scrollBy(0, _y);
-}
-
-void kmbView::slotScrollHorz(int _x)
-{
-    view->scrollBy(_x, 0);
+    view->scrollBy(x, 0);
 }
 
 void kmbView::slotViewResized(const QSize &)
@@ -84,33 +72,34 @@ void kmbView::slotViewResized(const QSize &)
 
 void kmbView::resizeEvent(QResizeEvent *)
 {
-  layout();
+    view->resize( size() );
 }
 
-void kmbView::open(QString _url, bool /*_reload*/, int _xoffset, int _yoffset)
+void kmbView::open(QString url, bool /*reload*/, int xoffset, int yoffset)
 {
-  m_strURL = _url;
+  m_url = url;
 
-  view->begin(_url);
+  view->begin( url );
   view->write("<html><head><title>Test!</title></head><body>");
   view->write("<H2>Test!</H2>");
-  view->write("<br>Viewing: " + _url + " not implemented, yet.<br>");
+  view->write("<br>Viewing: " + url + " not implemented, yet.<br>");
   view->end();
 
-  view->setContentsPos(_xoffset, _yoffset);
+  view->setContentsPos( xoffset, yoffset );
 }
 
-bool kmbView::mappingOpenURL( Browser::EventOpenURL eventURL )
+bool kmbView::mappingOpenURL( const QString& url )
 {
-  open(QString(eventURL.url), eventURL.reload );
-  SIGNAL_CALL2("started", id(), eventURL.url);
-  SIGNAL_CALL2( "setLocationBarURL", id(), eventURL.url );
+  //open( url/*, eventURL.reload*/ );
+  open( url, true );
+  //SIGNAL_CALL2("started", id(), eventURL.url);
+  //SIGNAL_CALL2( "setLocationBarURL", id(), eventURL.url );
   return true;
 }
 
-void kmbView::slotURLClicked( QString url )
+void kmbView::slotURLClicked( QString /*url*/ )
 {
-  SIGNAL_CALL2("started", id(), QCString(url.latin1()) );
+    //SIGNAL_CALL2("started", id(), QCString(url.latin1()) );
 }
 
 void kmbView::slotSetTitle( const QString &/*title*/ )
@@ -118,19 +107,19 @@ void kmbView::slotSetTitle( const QString &/*title*/ )
   //CORBA::WString_var ctitle = Q2C( title );
 }
 
-void kmbView::slotStarted( const char *url )
+void kmbView::slotStarted( const QString& /*url*/ )
 {
-  SIGNAL_CALL2("started", id(), QCString(url) );
+    //SIGNAL_CALL2("started", id(), QCString(url) );
 }
 
 void kmbView::slotCompleted()
 {
-  SIGNAL_CALL1("completed", id());
+    //SIGNAL_CALL1("completed", id());
 }
 
 void kmbView::slotCanceled()
 {
-  SIGNAL_CALL1("canceled", id());
+    //SIGNAL_CALL1("canceled", id());
 }
 
 void kmbView::stop()
@@ -173,34 +162,34 @@ void kmbView::setDefaultFontBase(int fSize)
 
 void kmbView::zoomIn()
 {
-  if(fontBase < 5)
+  if( canZoomIn() )
     {
-      fontBase++;
-      setDefaultFontBase(fontBase);
+      m_fontBase++;
+      setDefaultFontBase(m_fontBase);
       open(url(), true);
-      SIGNAL_CALL2("started", id(), url() );
+      //SIGNAL_CALL2("started", id(), url() );
     }
 }
 
 void kmbView::zoomOut()
 {
-  if(fontBase > 2)
+  if( canZoomOut() )
     {
-      fontBase--;
-      setDefaultFontBase(fontBase);
+      m_fontBase--;
+      setDefaultFontBase(m_fontBase);
       open(url(), true);
-      SIGNAL_CALL2("started", id(), url() );
+      //SIGNAL_CALL2("started", id(), url() );
     }
 }
 
 bool kmbView::canZoomIn()
 {
-  return (fontBase < 5);
+  return (m_fontBase < 5);
 }
 
 bool kmbView::canZoomOut()
 {
-  return (fontBase > 2);
+  return (m_fontBase > 2);
 }
 
 long kmbView::xOffset()
@@ -213,19 +202,21 @@ long kmbView::yOffset()
   return view->contentsY();
 }
 
-void kmbView::openURL(QString _url, bool _reload, int _xoffset, int _yoffset, const char */*_post_data*/)
+void kmbView::openURL(QString /*url*/, bool /*reload*/, int /*xoffset*/, int /*yoffset*/, const char */*post_data*/)
 {
+    /*
   Browser::EventOpenURL eventURL;
   eventURL.url = _url.ascii();
   eventURL.reload = _reload;
   eventURL.xOffset = _xoffset;
   eventURL.yOffset = _yoffset;
   SIGNAL_CALL1("openURL", eventURL);
+    */
 }
 
-QCString kmbView::url()
+QString kmbView::url()
 {
-  return m_strURL.ascii();
+  return m_url;
 }
 
 void kmbView::print()

@@ -21,34 +21,29 @@
 #ifndef __kmb_view_h__
 #define __kmb_view_h__
 
-#include "kmanbrowser.h"
-#include "khc_baseview.h"
-
 #include <qstring.h>
-#include <qscrollbar.h>
 
 #include <khtml.h>
 
-#include <opPart.h>
+#include "khc_baseview.h"
 
 #define SCROLLBAR_WIDTH		16
 #define BOOKMARK_ID_BASE	200
 #define MAX_HISTORY_LENGHT      15
 
-class kmbView : public QWidget,
-		public khcBaseView,
-		virtual public KManBrowser::View_skel
+class kmbView : public khcBaseView
 {
   Q_OBJECT
 
  public:
-  kmbView();
+
+  kmbView( QWidget *parent = 0, char *name = 0 );
   virtual ~kmbView();
 
-  virtual bool mappingOpenURL( Browser::EventOpenURL eventURL );
+  virtual bool mappingOpenURL( const QString& eventURL );
 
   virtual void stop();
-  virtual QCString url();
+  virtual QString url();
   virtual long xOffset();
   virtual long yOffset();
   virtual void print();
@@ -56,14 +51,16 @@ class kmbView : public QWidget,
   virtual void zoomOut();
   virtual bool canZoomIn();
   virtual bool canZoomOut();
-  virtual void openURL( QString _url, bool _reload, int _xoffset = 0, int _yoffset = 0, const char *_post_data = 0L);
+  virtual void openURL( const QString url, bool reload, int xoffset = 0, int yoffset = 0, const char* post_data = 0L);
 
  public slots:
+
   void slotURLClicked( QString url );
 
 protected slots:
+
   void slotSetTitle(const QString &title);
-  void slotStarted(const char *url);
+  void slotStarted(const QString& url);
   void slotCompleted();
   void slotCanceled();
   void slotScrollVert( int _y );
@@ -71,14 +68,13 @@ protected slots:
   void slotViewResized( const QSize & );
 
 protected:
+
   virtual void resizeEvent( QResizeEvent * );
   void setDefaultFontBase(int fSize);
-  void open(QString _url, bool _reload, int _xoffset = 0, int _yoffset = 0);
-  void layout();
+  void open( const QString url, bool reload, int xoffset = 0, int yoffset = 0);
 
-  int fontBase;
+  int m_fontBase;
   KHTMLWidget *view;
 };
 
 #endif
-
