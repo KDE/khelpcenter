@@ -17,6 +17,7 @@
 
 <xsl:template match="glossentry">
 <entry>
+	<xsl:attribute name="id"><xsl:value-of select="@id"/></xsl:attribute>
 	<term><xsl:value-of select="glossterm"/></term>
 	<definition><xsl:value-of select="glossdef/*[not(name()='glossseealso')]"/></definition>
 	<references><xsl:apply-templates select="glossdef/glossseealso"/></references>
@@ -26,6 +27,7 @@
 <xsl:template match="glossseealso">
 <reference>
 	<xsl:attribute name="term"><xsl:value-of select="."/></xsl:attribute>
+	<xsl:attribute name="id"><xsl:value-of select="@otherterm"/></xsl:attribute>
 </reference>
 </xsl:template>
 

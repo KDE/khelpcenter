@@ -55,6 +55,21 @@ class SectionItem : public QListViewItem
 		}
 };
 
+class EntryItem : public QListViewItem
+{
+	public:
+		EntryItem( SectionItem *parent, const QString &term, const QString &id )
+			: QListViewItem( parent, term ),
+			m_id( id )
+		{
+		}
+
+		QString id() const { return m_id; }
+	
+	private:
+		QString m_id;
+};
+
 khcGlossary::khcGlossary( QWidget *parent ) : KListView( parent )
 {
 	connect( this, SIGNAL( executed( QListViewItem * ) ),
@@ -75,17 +90,15 @@ khcGlossary::khcGlossary( QWidget *parent ) : KListView( parent )
 	m_alphabItem->setPixmap( 0, SmallIcon( "charset" ) );
 
 	m_cacheFile = locateLocal( "cache", "help/glossary.xml" );
-	kdDebug( 1400 ) << "*** GLOSSARY CACHE: " << m_cacheFile << endl;
 
 	m_sourceFile = KHCView::langLookup( QString::fromLatin1( "khelpcenter/glossary/index.docbook" ) );
 
 	m_config = kapp->config();
 	m_config->setGroup( "Glossary" );
 
-	if ( cacheStatus() == NeedRebuild ) {
-		kdDebug( 1400 ) << "Rebuilding glossary cache, cache file = " << m_cacheFile << endl;
+	if ( cacheStatus() == NeedRebuild )
 		rebuildGlossaryCache();
-	} else
+	else
 		buildGlossaryTree();
 }
 
@@ -95,9 +108,9 @@ khcGlossary::~khcGlossary()
 	m_glossEntries.clear();
 }
 
-const khcGlossaryEntry &khcGlossary::entry( const QString &term ) const
+const khcGlossaryEntry &khcGlossary::entry( const QString &id ) const
 {
-	return *m_glossEntries[ term ];
+	return *m_glossEntries[ id ];
 }
 
 khcGlossary::CacheStatus khcGlossary::cacheStatus() const
@@ -168,6 +181,11 @@ void khcGlossary::buildGlossaryTree()
 		QDomNodeList entryNodes = sectionElement.elementsByTagName( QString::fromLatin1( "entry" ) );
 		for ( unsigned int j = 0; j < entryNodes.count(); j++ ) {
 			QDomElement entryElement = entryNodes.item( j ).toElement();
+			
+			QString entryId = entryElement.attribute( QString::fromLatin1( "id" ) );
+			if ( entryId.isNull() )
+				continue;
+				
 			QDomElement termElement = childElement( entryElement, QString::fromLatin1( "term" ) );
 			QString term = termElement.text().simplifyWhiteSpace();
 
@@ -183,22 +201,26 @@ void khcGlossary::buildGlossaryTree()
 			if ( !alphabSection )
 				alphabSection = new SectionItem( m_alphabItem, term[ 0 ].upper() );
 
-			new QListViewItem( alphabSection, term );
+			new EntryItem( alphabSection, term, entryId );
 
 			QDomElement definitionElement = childElement( entryElement, QString::fromLatin1( "definition" ) );
 			QString definition = definitionElement.text().simplifyWhiteSpace();
 
-			QStringList seeAlso;
+			khcGlossaryEntryXRef::List seeAlso;
 
 			QDomElement referencesElement = childElement( entryElement, QString::fromLatin1( "references" ) );
 			QDomNodeList referenceNodes = referencesElement.elementsByTagName( QString::fromLatin1( "reference" ) );
 			if ( referenceNodes.count() > 0 )
 				for ( unsigned int k = 0; k < referenceNodes.count(); k++ ) {
 					QDomElement referenceElement = referenceNodes.item( k ).toElement();
-					seeAlso += referenceElement.attribute( QString::fromLatin1( "term" ) );
-				}
+
+					QString term = referenceElement.attribute( QString::fromLatin1( "term" ) );
+					QString id = referenceElement.attribute( QString::fromLatin1( "id" ) );
 					
-			m_glossEntries.insert( term, new khcGlossaryEntry( term, definition, seeAlso ) );
+					seeAlso += khcGlossaryEntryXRef( term, id );
+				}
+			
+			m_glossEntries.insert( entryId, new khcGlossaryEntry( term, definition, seeAlso ) );
 		}
 	}
 }
@@ -208,8 +230,8 @@ void khcGlossary::treeItemSelected( QListViewItem *item )
 	if ( !item )
 		return;
 
-	if ( dynamic_cast<SectionItem *>( item->parent() ) )
-		emit entrySelected( entry( item->text( 0 ) ) );
+	if ( EntryItem *i = dynamic_cast<EntryItem *>( item ) )
+		emit entrySelected( entry( i->id() ) );
 
 	item->setOpen( !item->isOpen() );
 }

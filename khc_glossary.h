@@ -29,13 +29,44 @@
 class KConfig;
 class KProcess;
 
+class khcGlossaryEntryXRef
+{
+	friend QDataStream &operator>>( QDataStream &, khcGlossaryEntryXRef & );
+	public:
+		typedef QValueList<khcGlossaryEntryXRef> List;
+
+		khcGlossaryEntryXRef() {}
+		khcGlossaryEntryXRef( const QString &term, const QString &id ) :
+			m_term( term ),
+			m_id( id )
+		{
+		}
+
+		QString term() const { return m_term; }
+		QString id() const { return m_id; }
+	
+	private:
+		QString m_term;
+		QString m_id;
+};
+
+inline QDataStream &operator<<( QDataStream &stream, const khcGlossaryEntryXRef &e )
+{
+	return stream << e.term() << e.id();
+}
+
+inline QDataStream &operator>>( QDataStream &stream, khcGlossaryEntryXRef &e )
+{
+	return stream >> e.m_term >> e.m_id;
+}
+
 class khcGlossaryEntry
 {
 	friend QDataStream &operator>>( QDataStream &, khcGlossaryEntry & );
 	public:
 		khcGlossaryEntry() {}
 		khcGlossaryEntry( const QString &term, const QString &definition,
-				const QStringList &seeAlso ) :
+				const khcGlossaryEntryXRef::List &seeAlso ) :
 			m_term( term ),
 			m_definition( definition ),
 			m_seeAlso( seeAlso )
@@ -44,12 +75,12 @@ class khcGlossaryEntry
 
 		QString term() const { return m_term; }
 		QString definition() const { return m_definition; }
-		QStringList seeAlso() const { return m_seeAlso; }
+		khcGlossaryEntryXRef::List seeAlso() const { return m_seeAlso; }
 	
 	private:
 		QString m_term;
 		QString m_definition;
-		QStringList m_seeAlso;
+		khcGlossaryEntryXRef::List m_seeAlso;
 };
 
 inline QDataStream &operator<<( QDataStream &stream, const khcGlossaryEntry &e )
@@ -69,7 +100,7 @@ class khcGlossary : public KListView
 		khcGlossary( QWidget *parent );
 		virtual ~khcGlossary();
 
-		const khcGlossaryEntry &entry( const QString &term ) const;
+		const khcGlossaryEntry &entry( const QString &id ) const;
 
 	signals:
 		void entrySelected( const khcGlossaryEntry &entry );

@@ -76,13 +76,13 @@ void KHCView::showGlossaryEntry( const khcGlossaryEntry &entry )
     QString seeAlso;
     if (!entry.seeAlso().isEmpty()) {
         seeAlso = i18n("See also: ");
-        QStringList seeAlsos = entry.seeAlso();
-        QStringList::Iterator it = seeAlsos.begin();
-        QStringList::Iterator end = seeAlsos.end();
+        khcGlossaryEntryXRef::List seeAlsos = entry.seeAlso();
+        khcGlossaryEntryXRef::List::ConstIterator it = seeAlsos.begin();
+        khcGlossaryEntryXRef::List::ConstIterator end = seeAlsos.end();
         for (; it != end; ++it) {
             seeAlso += QString::fromLatin1("<a href=\"glossentry:");
-            seeAlso += (*it).latin1();
-            seeAlso += QString::fromLatin1("\">") + (*it).latin1();
+            seeAlso += (*it).id();
+            seeAlso += QString::fromLatin1("\">") + (*it).term();
             seeAlso += QString::fromLatin1("</a>, ");
         }
         seeAlso = seeAlso.left(seeAlso.length() - 2);
