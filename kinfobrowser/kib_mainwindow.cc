@@ -61,7 +61,10 @@ kibMainWindow::kibMainWindow( const QString& url, char *name )
   if( url.isEmpty() )
     slotIndex();
   else
+  {
+    slotSetLocation( url );
     openURL( url, false );
+  }
 }
 
 kibMainWindow::~kibMainWindow()
@@ -311,7 +314,10 @@ void kibMainWindow::slotIndex()
 {
   kDebugInfo( 1400,"kibMainWindow::slotIndex" );
 
-  openURL( "info:(dir)Top", true );
+  QString url = "info:(dir)Top";
+
+  slotSetLocation( url );
+  openURL( url, true );
 }
 
 void kibMainWindow::slotOpenFile()
