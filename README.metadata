@@ -1,0 +1,127 @@
+KHelpCenter documentation meta data structure
+=============================================
+
+KHelpCenter uses meta data files which describe the documentation available in
+the system. Each document is represented by a meta data file and shown as an
+entry in the KHelpCenter navigation tree view. The meta data contains
+information about title and short description of the document, the location of
+the document and some more information like how to search the document and
+translations of title and description. Document hierarchy is represented as
+hierarchy of the meta data files. Directories are also described by a meta data
+file which contains the same information as a document meta data file.
+
+Format of the meta data files
+-----------------------------
+
+The meta files adhere to the Desktop Entry Standard
+(http://www.freedesktop.org/Standards/desktop-entry-spec). Documentation
+specific extensions are covered by an own namespace using the prefix "X-DOC-".
+The following table describes all keys which are currently used by
+KHelpCenter:
+
+Key                         Value     Description
+
+Name                        string    Title of document
+Name[xx]                    string    Translated title for language xx
+Comment                     string    Short description of document
+Comment[xx]                 string    Translated short description for
+                                      Language xx
+Icon                        string    Name of icon for document
+DocPath                     URI       Location of document. In addition to the
+                                      standard URI schemes like http: and file:
+                                      all schemes which are supported through
+                                      kioslaves can be used. In particular the
+                                      followind non-standard URI schemes are
+                                      supported:
+                                      help:  KDE manual identified by app name
+                                      ghelp: GNOME manual identified by app name
+                                      man:   man page
+                                      info:  info page
+                                      cgi:   output of CGI script
+DocPath[xx]                 URI       Language specific location for
+                                      language xx
+Lang                        langcode  Language of document
+X-DOC-Identifier            string    Unique identifier for document, if this
+                                      entry is not present the base name of the
+                                      file is used as identifier
+X-DOC-Indexer               command   Command used for creating a search index
+                                      for the document.
+                                      The following symbols are replaced by the
+                                      corresponding values:
+                                      %f - Filename
+X-DOC-IndexTestFile         filename  Name of file whose existence indicates
+                                      the existence of a usable search index
+X-DOC-Search                command   Command used for searching, the output
+                                      of the command should be HTML which is
+                                      shown in KHelpCenter.
+                                      The following symbols in the command are
+                                      replaced by the corresponding values:
+                                      %k - Words to be searched for
+                                      %n - Maximum number of results
+                                      %m - Method for combining search words,
+                                           can be 'and' or 'or'
+                                      %l - Language of documents to be searched
+                                      %s - Scope of search. This is a list of
+                                           identifiers as given by the
+                                           X-DOC-Identifier entry or the bas
+                                           name of the desktop file if not
+                                           present.
+X-DOC-SearchMethod          string    If this entry is 'htdig' htdig is used to
+                                      index and search the document. The
+                                      Indexer, IndexTestFile and Search entries
+                                      aren't required in this case.
+X-DOC-SearchEnabledDefault  bool      If set to 'true' the document is searched
+                                      by default, if set to 'false' it is not.
+                                      This setting is overrideen by user
+                                      selected search scopes.
+X-DOC-Weight                int       A number indicating the position of the
+                                      document within the list of siblings. A
+                                      greater weight indicates that the document
+                                      is 'heavier', thus shown below 'lighter'
+                                      documents. The default weigth is 0.
+X-KDE-KHelpcenter           string    If this entry is set to one of the
+                                      following values a set of documents
+                                      generated by other means than desktop file
+                                      meta info is inserted at the place
+                                      specified by the desktop file:
+                                      'apps'         manuals of applications
+                                                     from the start menu
+                                      'scrollkeeper' scrollkeeper docs
+                                      'applets'      panel applet docs
+                                      'kinfocenter'  kinfocenter docs
+                                      'kcontrol'     kcontrol module docs
+                                      'konqueror'    konqueror plugin docs
+                                      'kioslave'     kioslave docs
+                                      'info'         info pages
+
+Meta File Location
+------------------
+
+A list of directories given by the config entry "MetaInfoDirs" in the "Genral"
+group of the help center configuration file "khelpcenterrc" (at
+$KDEDIRS/share/config) is scanned for desktop files. They are merged to a common
+hierarchy. If the "MetaInfoDirs" entry is empty the directory at
+$KDEDIRS/share/apps/khelpcenter/plugins is used.
+
+Document Hierarchy
+------------------
+
+The hierarchy of the documents shown in the help center is reflected by the
+hierachy of the desktop files in the filesystem. Directories can have an
+associated desktop file with the name ".directory". It can contain all the
+keys described above.
+
+Language handling
+-----------------
+
+In addition to translation of meta information like title and short description
+of documents which is contained in the meta file, translations of whole
+documents are handled. Each translation of a document has an own desktop file.
+The language of the document is indicated by adding the language code as
+additional suffix to the the filename of the desktop file. The language suffix
+is added before the ".desktop" suffix (Example: 'apache.de.desktop' would be the
+file name for the german translation of the apache documentation).
+
+KHelpCenter shows only the documents whose language is contained in the list of
+used languages configured for the desktop in the control center. A document
+corresponding to a desktop file without language suffix is always shown.
