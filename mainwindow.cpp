@@ -386,7 +386,7 @@ void MainWindow::slotConfigureFonts()
 {
   FontDialog dlg( this );
   if ( dlg.exec() == QDialog::Accepted ) {
-    const_cast<KHTMLSettings *>( mDoc->settings() )->init( kapp->config(), true );
+    const_cast<KHTMLSettings *>( mDoc->settings() )->init( kapp->config() );
     KParts::URLArgs args = mDoc->browserExtension()->urlArgs();
     args.reload = true;
     mDoc->browserExtension()->setURLArgs( args );
