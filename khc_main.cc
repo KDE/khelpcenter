@@ -45,9 +45,9 @@ void createHelpWindow(const QCString &appId)
   QString tempProfile = locateLocal( "appdata", "konqprofile.tmp" );
   QFile f( tempProfile );
   f.open( IO_WriteOnly );
-  
+
   QTextStream str( &f );
-  
+
   str << "[Profile]" << endl;
   str << "Container0_Children=View1,View2" << endl;
   str << "Container0_Orientation=Horizontal" << endl;
@@ -57,24 +57,27 @@ void createHelpWindow(const QCString &appId)
   str << "View1_ServiceName=KHelpcenter" << endl;
   str << "View1_ServiceType=Browser/View" << endl;
   str << "View1_URL=file:/" << endl;
+  str << "View1_PassiveMode=true" << endl;
+  str << "View1_LinkedView=true" << endl;
   str << "View2_PassiveMode=false" << endl;
   str << "View2_ServiceName=KonqHTMLView" << endl;
   str << "View2_ServiceType=text/html" << endl;
-  
+  str << "View2_LinkedView=true" << endl;
+
   KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
   QString url;
   if (args->count() >= 1)
     url = args->url(0).url();
   else
     url = "help:/khelpcenter/main.html";
-  
+
   KURL _url(url);
   _url.setProtocol("help");
-  
+
   str << "View2_URL=" << _url.url() << endl;
-  
+
   f.close();
-  
+
   kDebugInfo( "Calling stub.createBrowserWindowFromProfile" );
   KonquerorIface_stub stub( appId, "KonquerorIface" );
   stub.createBrowserWindowFromProfile( tempProfile );
@@ -85,7 +88,7 @@ void Listener::slotAppRegistered( const QCString &appId )
 {
   if ( appId.left( 9 ) == "konqueror" )
     {
-      createHelpWindow(appId);      
+      createHelpWindow(appId);
       exit( 0 );
     }
 }
@@ -100,18 +103,18 @@ static KCmdLineOptions options[] =
 
 int main(int argc, char *argv[])
 {
-  KAboutData aboutData( "khelpcenter", I18N_NOOP("KDE HelpCenter"), 
-			HELPCENTER_VERSION, I18N_NOOP("The KDE Help Center"), KAboutData::License_GPL, 
+  KAboutData aboutData( "khelpcenter", I18N_NOOP("KDE HelpCenter"),
+			HELPCENTER_VERSION, I18N_NOOP("The KDE Help Center"), KAboutData::License_GPL,
 			"(c) 1999-2000, Matthias Elter");
   aboutData.addAuthor("Matthias Elter",0, "me@kde.org");
-  
+
   KCmdLineArgs::init( argc, argv, &aboutData );
   KCmdLineArgs::addCmdLineOptions( options );
   KApplication::addCmdLineOptions();
-  
+
   KApplication app( false, false ); // no GUI in this process
 
-  
+
   app.dcopClient()->attach();
 
   Listener listener;
@@ -128,9 +131,9 @@ int main(int argc, char *argv[])
 	createHelpWindow(*it);
 	exit(0);
       }
-  
+
   // run a new konqueror instance
-  app.dcopClient()->setNotifications( true );      
+  app.dcopClient()->setNotifications( true );
   QObject::connect( app.dcopClient(), SIGNAL( applicationRegistered( const QCString& ) ),
 		    &listener, SLOT( slotAppRegistered( const QCString & ) ) );
   if (app.startServiceByDesktopName("konqueror", "--silent", dcopService, error))
@@ -138,7 +141,7 @@ int main(int argc, char *argv[])
       warning("Could not launch browser:\n%s\n", error.local8Bit().data());
       return 1;
     }
-  
+
   app.exec();
 }
 
