@@ -16,6 +16,19 @@ KHCView::KHCView( QWidget *parentWidget, const char *widgetName,
 {
     connect( this, SIGNAL( setWindowCaption( const QString & ) ),
              this, SLOT( setTitle( const QString & ) ) );
+             
+    QString css = langLookup("common/kde-default.css");
+    if (!css.isEmpty())
+    {
+       QFile css_file(css);
+       if (css_file.open(IO_ReadOnly))
+       {
+          QTextStream s(&css_file);
+          QString stylesheet = s.read();
+          preloadStyleSheet("help:/common/kde-default.css", stylesheet);
+       }
+    }             
+             
 }
 
 bool KHCView::openURL( const KURL &url )
