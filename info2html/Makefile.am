@@ -7,3 +7,5 @@ datadir = $(kde_cgidir)
 
 SUBDIRS = gif
 
+messages:
+

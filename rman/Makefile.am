@@ -16,3 +16,5 @@ rman_SOURCES = rman.c getopt.c
 
 EXTRA_DIST = Copyright MANIFEST README-rman rman.1 rman.html
 
+messages:
+
