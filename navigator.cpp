@@ -315,7 +315,7 @@ void Navigator::selectItem( const KURL &url )
     KURL itemUrl( item->entry()->url() );
     if ( itemUrl == url ) {
       mContentsTree->setCurrentItem( item );
-      if ( item->childCount() > 0 ) item->setOpen( true );
+      item->setOpen( true );
       mContentsTree->ensureItemVisible( item );
       break;
     }
