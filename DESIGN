@@ -358,4 +358,26 @@ protocol == "help") by itself and otherwise use the plain URL.
 # "IDE"-like applications (perhaps a KOffice help system?) can have their
 # customized tree builders.
 
+Font Configuration
+------------------
+
+### Many bug reports on KHelpCenter not honouring KHTML font settings,
+### which is odd, because the stylesheet is intentionally loose,
+### specifying only "sans-serif" as the font face.
+
+### Ideas to fix: 
+
+### Help pages already make heavy use of the cascading feature of CSS, we
+### ought to be able to leverage that by writing to perhaps the
+### kde-localized.css file or a copy of it in $KDEHOME.  There is already
+### code in KControl to create a user CSS stylesheet, and we probably only
+### need to configure the size and the face for KHC.
+
+### Or, fix whatever is the reason KHC doesn't follow the rules.  It could
+### be encoding related, the help pages specify utf-8 as the encoding, and
+### previous incarnations of the KHTML settings allowed fonts set on a 
+### per-encoding basis (at which time, this was apparently working, the bug 
+### reports dropped off, and only returned post KDE 3.0
+
+
 // vim:tw=78
