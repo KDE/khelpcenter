@@ -301,7 +301,7 @@ void KWidgetIdentification::fetchName( Window window, char *name ) const
 
 
 bool KWidgetIdentification::getWidgetCoordinatesRecursively( Window window, char *caption,
-                                                            struct geometry *g, int level ) const
+                                                            geometry *g, int level ) const
 {
 	int i, rel_x, rel_y, abs_x, abs_y;
 	bool valid = FALSE;
@@ -366,7 +366,7 @@ bool KWidgetIdentification::getWidgetCoordinatesRecursively( Window window, char
 }
 
 
-bool KWidgetIdentification::getWidgetCoordinates( char *caption, struct geometry *g ) const
+bool KWidgetIdentification::getWidgetCoordinates( char *caption, geometry *g ) const
 {
 	Window root;
 

@@ -65,13 +65,13 @@ private:
 	 *
 	 */
 	bool getWidgetCoordinatesRecursively( Window window, char *caption,
-                                              struct geometry *g, int level ) const;
+                                              geometry *g, int level ) const;
 
 	/**
 	 * internal use only.
 	 *
 	 */
-	bool getWidgetCoordinates( char *caption, struct geometry *g ) const;
+	bool getWidgetCoordinates( char *caption, geometry *g ) const;
 
 	/**
 	 *   This routine searches all child windows of window, which include the point given by
