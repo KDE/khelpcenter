@@ -73,7 +73,7 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const char *name)
   connect(url, SIGNAL(leftClickedURL(const QString&)),
       this, SLOT(urlClicked(const QString&)));
 
-  gb = new QGroupBox(i18n("Program locations"), this);
+  gb = new QGroupBox(i18n("Program Locations"), this);
 
   vbox->addWidget(gb);
   grid = new QGridLayout(gb, 4,2, 6,6);
@@ -118,7 +118,7 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const char *name)
   QVBoxLayout *vvbox = new QVBoxLayout(gb, 6,2);
   vvbox->addSpacing(gb->fontMetrics().lineSpacing());
 
-  indexKDE = new QCheckBox(i18n("&KDE Help"), gb);
+  indexKDE = new QCheckBox(i18n("&KDE help"), gb);
   vvbox->addWidget(indexKDE);
   connect(indexKDE, SIGNAL(clicked()), this, SLOT(configChanged()));
 
@@ -132,7 +132,7 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const char *name)
   indexInfo->setEnabled(false);
   connect(indexInfo, SIGNAL(clicked()), this, SLOT(configChanged()));
 
-  gb = new QGroupBox(i18n("Additional search paths"), this);
+  gb = new QGroupBox(i18n("Additional Search Paths"), this);
   hbox->addWidget(gb);
   QWhatsThis::add( gb, i18n( "Here you can add additional paths to search for documentation. To add a path, click on the <em>Add...</em> button and select the directory from where additional documentation should be searched. You can remove directories by clicking on the <em>Delete</em> button." ) );
 
@@ -149,7 +149,7 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const char *name)
   grid->addMultiCellWidget(searchPaths, 1,3, 1,1);
   grid->setRowStretch(2,2);
 
-  gb = new QGroupBox(i18n("Language settings"), this);
+  gb = new QGroupBox(i18n("Language Settings"), this);
   vbox->addWidget(gb);
   QWhatsThis::add(gb, i18n("Here you can select the language you want to create the index for."));
   language = new KLanguageCombo(gb);
