@@ -96,7 +96,6 @@ class Navigator : public QWidget
     void setupIndexTab();
     void setupSearchTab();
     void setupGlossaryTab();
-    void clearTree();
 
     void insertPlugins();
     int insertScrollKeeperSection(NavigatorItem *parentItem,QDomNode sectNode);

@@ -172,15 +172,6 @@ void Navigator::setupGlossaryTab()
     mTabWidget->addTab( mGlossaryTree, i18n( "G&lossary" ) );
 }
 
-void Navigator::clearTree()
-{
-  // Remove all children.
-  for(QListViewItem *child = mContentsTree->firstChild(); child; child = mContentsTree->firstChild())
-  {
-     delete child;
-  }
-}
-
 class PluginTraverser : public DocEntryTraverser
 {
   public:
