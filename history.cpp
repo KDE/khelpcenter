@@ -87,6 +87,8 @@ void History::installMenuBarHook( KMainWindow *mainWindow )
 
 void History::createEntry()
 {
+  kdDebug() << "History::createEntry()" << endl;
+
   // First, remove any forward history
   Entry * current = m_entries.current();
   if (current)
@@ -113,13 +115,21 @@ void History::updateCurrentEntry( View *view )
   if ( m_entries.isEmpty() )
     return;
 
+  KURL url = view->url();
+  
+  kdDebug() << "History::updateCurrenEntry(): " << view->title()
+            << " (URL: " << url.url() << ")" << endl;
+
   Entry *current = m_entries.current();
 
   QDataStream stream( current->buffer, IO_WriteOnly );
   view->browserExtension()->saveState( stream );
 
   current->view = view;
-  current->url = view->url();
+
+  if ( url.isEmpty() ) url = view->internalUrl();
+
+  current->url = url;
   current->title = view->title();
 
   current->search = view->state() == View::Search;
@@ -179,10 +189,18 @@ void History::goHistory( int steps )
   int newPos = m_entries.at() + steps;
 
   Entry *current = m_entries.at( newPos );
-  Q_ASSERT( current );
+  if ( !current ) {
+    kdError() << "No History entry at position " << newPos << endl;
+    return;
+  }
 
   if ( current->search ) {
     current->view->lastSearch();
+    return;
+  }
+
+  if ( current->url.protocol() == "khelpcenter" ) {
+    emit goInternalUrl( current->url );
     return;
   }
 

@@ -187,6 +187,17 @@ void View::endSearchResult()
   if ( !mSearchResult.isEmpty() ) emit searchResultCacheAvailable();
 }
 
+void View::beginInternal( const KURL &url )
+{
+  mInternalUrl = url;
+  begin();
+}
+
+KURL View::internalUrl() const
+{
+  return mInternalUrl;
+}
+
 void View::lastSearch()
 {
   if ( mSearchResult.isEmpty() ) return;

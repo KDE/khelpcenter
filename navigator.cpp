@@ -289,8 +289,7 @@ void Navigator::selectItem( const KURL &url )
   NavigatorItem *item;
   item = static_cast<NavigatorItem *>( mContentsTree->currentItem() );
   KURL currentURL = item->entry()->url();
-  if ( currentURL.prettyURL() == url.prettyURL() )
-    return;
+  if ( currentURL == url ) return;
 
   // First, populate the NavigatorAppItems if we don't want the home page
   if ( url != homeURL() ) {
@@ -361,7 +360,7 @@ void Navigator::slotItemSelected( QListViewItem* currentItem )
   KURL url = item->entry()->url();
 
   if ( url.protocol() == "khelpcenter" ) {
-    mView->begin();
+    mView->beginInternal( url );
 
     QString t = formatter()->header( item->entry()->name() );
     

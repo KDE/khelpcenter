@@ -86,18 +86,18 @@ MainWindow::MainWindow(const KURL &url)
     QSplitter *splitter = new QSplitter(this);
 
     mDoc = new View( splitter, 0, this, 0, KHTMLPart::DefaultGUI );
-    connect(mDoc, SIGNAL(setWindowCaption(const QString &)),
-            SLOT(setCaption(const QString &)));
-    connect(mDoc, SIGNAL(setStatusBarText(const QString &)),
-            this, SLOT(statusBarMessage(const QString &)));
-    connect(mDoc, SIGNAL(onURL(const QString &)),
-            this, SLOT(statusBarMessage(const QString &)));
-    connect(mDoc, SIGNAL(started(KIO::Job *)),
-            SLOT(slotStarted(KIO::Job *)));
-    connect(mDoc, SIGNAL(completed()),
-            SLOT(documentCompleted()));
-    connect(mDoc, SIGNAL( searchResultCacheAvailable() ),
-            SLOT( enableLastSearchAction() ) );
+    connect( mDoc, SIGNAL( setWindowCaption( const QString & ) ),
+             SLOT( setCaption( const QString & ) ) );
+    connect( mDoc, SIGNAL( setStatusBarText( const QString & ) ),
+             SLOT( statusBarMessage( const QString & ) ) );
+    connect( mDoc, SIGNAL( onURL( const QString & ) ),
+             SLOT( statusBarMessage( const QString & ) ) );
+    connect( mDoc, SIGNAL( started( KIO::Job * ) ),
+             SLOT( slotStarted( KIO::Job * ) ) );
+    connect( mDoc, SIGNAL( completed() ),
+             SLOT( documentCompleted() ) );
+    connect( mDoc, SIGNAL( searchResultCacheAvailable() ),
+             SLOT( enableLastSearchAction() ) );
 
     statusBar()->insertItem(i18n("Preparing Index"), 0, 1);
     statusBar()->setItemAlignment(0, AlignLeft | AlignVCenter);
@@ -140,6 +140,9 @@ MainWindow::MainWindow(const KURL &url)
     createGUI( "khelpcenterui.rc" );
 
     History::self().installMenuBarHook( this );
+
+    connect( &History::self(), SIGNAL( goInternalUrl( const KURL & ) ),
+             SLOT( goInternalUrl( const KURL & ) ) );
 
     if ( !url.isEmpty() ) slotOpenURL( url.url() );
 
@@ -219,8 +222,13 @@ void MainWindow::slotStarted(KIO::Job *job)
     History::self().updateActions();
 }
 
+void MainWindow::goInternalUrl( const KURL &url )
+{
+  slotOpenURLRequest( url, KParts::URLArgs() );
+}
+
 void MainWindow::slotOpenURLRequest( const KURL &url,
-                                     const KParts::URLArgs &args)
+                                     const KParts::URLArgs &args )
 {
     kdDebug( 1400 ) << "MainWindow::slotOpenURLRequest(): " << url.url() << endl;
 
@@ -235,24 +243,24 @@ void MainWindow::slotOpenURLRequest( const KURL &url,
     if ( proto == "help" || proto == "glossentry" || proto == "about" ||
          proto == "man" || proto == "info" || proto == "cgi" ||
          proto == "ghelp" )
-	    own = true;
+        own = true;
     else if ( url.isLocalFile() ) {
-	    KMimeMagicResult *res = KMimeMagic::self()->findFileType( url.path() );
-	    if ( res->isValid() && res->accuracy() > 40
-           && res->mimeType() == "text/html" )
-	      own = true;
+        KMimeMagicResult *res = KMimeMagic::self()->findFileType( url.path() );
+        if ( res->isValid() && res->accuracy() > 40
+             && res->mimeType() == "text/html" )
+            own = true;
     }
 
     if ( !own ) {
-  	  new KRun( url );
-	    return;
+        new KRun( url );
+        return;
     }
 
     stop();
 
     mDoc->browserExtension()->setURLArgs( args );
 
-    if (proto == QString::fromLatin1("glossentry")) {
+    if ( proto == QString::fromLatin1("glossentry") ) {
         QString decodedEntryId = KURL::decode_string( url.encodedPathAndQuery() );
         slotGlossSelected( mNavigator->glossEntry( decodedEntryId ) );
         mNavigator->slotSelectGlossEntry( decodedEntryId );
@@ -264,6 +272,8 @@ void MainWindow::slotOpenURLRequest( const KURL &url,
 
 void MainWindow::documentCompleted()
 {
+    kdDebug() << "MainWindow::documentCompleted" << endl;
+
     History::self().updateCurrentEntry( mDoc );
     History::self().updateActions();
 }

@@ -36,7 +36,7 @@ class View;
 
 class History : public QObject
 {
-  Q_OBJECT
+    Q_OBJECT
   public:
     friend class foo; // to make gcc shut up
     struct Entry
@@ -45,7 +45,7 @@ class History : public QObject
       KURL url;
       QString title;
       QByteArray buffer;
-                        bool search;
+      bool search;
     };
 
     static History &self();
@@ -57,6 +57,9 @@ class History : public QObject
 
     void createEntry();
     void updateCurrentEntry( KHC::View *view );
+
+  signals:
+    void goInternalUrl( const KURL & );
 
   private slots:
     void backActivated( int id );

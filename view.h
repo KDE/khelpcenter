@@ -39,6 +39,9 @@ class View : public KHTMLPart
     void writeSearchResult( const QString & );
     void endSearchResult();
 
+    void beginInternal( const KURL & );
+    KURL internalUrl() const;
+
     int zoomStepping() const { return m_zoomStepping; }
 
     Formatter *formatter() const { return mFormatter; }
@@ -66,6 +69,8 @@ class View : public KHTMLPart
     QString mTitle;
 
     QString mSearchResult;
+    KURL mInternalUrl;
+
     int m_zoomStepping;
 
     Formatter *mFormatter;
