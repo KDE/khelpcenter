@@ -12,7 +12,7 @@ using namespace KHC;
 
 View::View( QWidget *parentWidget, const char *widgetName,
                   QObject *parent, const char *name, KHTMLPart::GUIProfile prof )
-    : KHTMLPart( parentWidget, widgetName, parent, name, prof )
+    : KHTMLPart( parentWidget, widgetName, parent, name, prof ), mState( Docu )
 {
     connect( this, SIGNAL( setWindowCaption( const QString & ) ),
              this, SLOT( setTitle( const QString & ) ) );
@@ -37,7 +37,24 @@ bool View::openURL( const KURL &url )
         showAboutPage();
         return true;
     }
+    mState = Docu;
     return KHTMLPart::openURL( url );
+}
+
+void View::saveState( QDataStream &stream )
+{
+    stream << mState;
+    if ( mState == Docu )
+        KHTMLPart::saveState( stream );
+}
+
+void View::restoreState( QDataStream &stream )
+{
+    stream >> mState;
+    if ( mState == Docu )
+        KHTMLPart::restoreState( stream );
+    else if ( mState == About )
+        showAboutPage();
 }
 
 void View::showAboutPage()
@@ -51,6 +68,7 @@ void View::showAboutPage()
     if ( !f.open( IO_ReadOnly ) )
     return;
 
+    mState = About;
 
     emit started( 0 );
 
@@ -132,6 +150,8 @@ void View::setTitle( const QString &title )
 
 void View::beginSearchResult()
 {
+  mState = Search;
+
   begin();
   mSearchResult = "";
 }
@@ -152,6 +172,8 @@ void View::lastSearch()
 {
   if ( mSearchResult.isEmpty() ) return;
  
+  mState = Search;
+  
   begin();
   write( mSearchResult );
   end();

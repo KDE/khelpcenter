@@ -122,7 +122,7 @@ void History::updateCurrentEntry( View *view )
   current->url = view->url();
   current->title = view->title();
 
-  current->search = false;
+  current->search = view->state() == View::Search;
 }
 
 void History::updateActions()
