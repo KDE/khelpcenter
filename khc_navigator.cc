@@ -474,10 +474,12 @@ void khcNavigatorWidget::buildManSubTree(khcNavigatorItem *parent)
 class PluginTraverser : public DocEntryTraverser
 {
   public:
-    PluginTraverser( QListView *listView  ) :
-      mListView( listView ), mParentItem( 0 ), mCurrentItem( 0 ) {}
-    PluginTraverser( khcNavigatorItem *listViewItem  ) :
-      mListView( 0 ), mParentItem( listViewItem ), mCurrentItem( 0 ) {}
+    PluginTraverser( khcNavigatorWidget *navigator, QListView *listView  ) :
+      mListView( listView ), mParentItem( 0 ), mCurrentItem( 0 ),
+      mNavigator( navigator ) {}
+    PluginTraverser( khcNavigatorWidget *navigator, khcNavigatorItem *listViewItem  ) :
+      mListView( 0 ), mParentItem( listViewItem ), mCurrentItem( 0 ),
+      mNavigator( navigator ) {}
 
     void process( DocEntry *entry )
     {
@@ -494,9 +496,9 @@ class PluginTraverser : public DocEntryTraverser
         }
       } else if ( entry->khelpcenterSpecial() == "info" ) {
         if ( mListView ) {
-          mCurrentItem = new khcNavigatorAppItem( mListView, mCurrentItem );
+          mCurrentItem = new khcNavigatorItem( mListView, mCurrentItem );
         } else {
-          mCurrentItem = new khcNavigatorAppItem( mParentItem, mCurrentItem );
+          mCurrentItem = new khcNavigatorItem( mParentItem, mCurrentItem );
         }
         mNavigator->buildInfoSubTree( mCurrentItem );
       } else {
@@ -522,7 +524,7 @@ class PluginTraverser : public DocEntryTraverser
 
     DocEntryTraverser *createChild( DocEntry * )
     {
-      if ( mCurrentItem ) return new PluginTraverser( mCurrentItem );
+      if ( mCurrentItem ) return new PluginTraverser( mNavigator, mCurrentItem );
       kdDebug() << "ERROR! mCurrentItem is not set." << endl;
       return 0;
     }
@@ -532,18 +534,13 @@ class PluginTraverser : public DocEntryTraverser
     khcNavigatorItem *mParentItem;
     khcNavigatorItem *mCurrentItem;
     
-  public:
-    static khcNavigatorWidget *mNavigator;
+    khcNavigatorWidget *mNavigator;
 };
-
-khcNavigatorWidget *PluginTraverser::mNavigator = 0;
 
 
 void khcNavigatorWidget::insertPlugins()
 {
-  PluginTraverser::mNavigator = this;
-
-  PluginTraverser t( contentsTree );
+  PluginTraverser t( this, contentsTree );
   DocMetaInfo::self()->traverseEntries( &t );
 
   kdDebug() << "<docmetainfo>" << endl;
