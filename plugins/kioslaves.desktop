@@ -1,6 +1,22 @@
 [KDE Desktop Entry]
 
 Name=Kioslaves
+Name[cs]=Pomocné protokoly KDE
+Name[da]=Kioslaver
+Name[de]=Ein/Ausgabe-Geräte
+Name[et]=KIO moodulid
+Name[fa]=برده‌های Kio
+Name[gl]=Escravos Kio
+Name[hi]=केआईओ-स्लेव्स
+Name[hu]=KDE protokollok
+Name[it]=Kioslave
+Name[nb]=Kioslaver
+Name[nn]=Kioslavar
+Name[pl]=Wtyczki wejścia/wyjścia
+Name[ro]=Dispozitive KIO
+Name[sv]=I/O-slavar
+Name[uk]=Підлеглі В/В
+Name[xx]=xxKioslavesxx
 Icon=contents2
 
 X-DOC-Weight=-400
