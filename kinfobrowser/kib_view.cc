@@ -47,9 +47,8 @@ kibView::kibView( QWidget *parent, char *name )
   m_pView = new KHTMLWidget( this );
   CHECK_PTR( m_pView );
 
-  // TODO: remove this
-  //m_pView->openURL( "file:/home/devel/public_html/index.html" );
-  
+  m_pView->setFollowsLinks( false );
+
   m_pView->setURLCursor( KCursor::handCursor() );
   m_pView->setUnderlineLinks( true );
   m_pView->setFocusPolicy( QWidget::StrongFocus );
@@ -62,12 +61,12 @@ kibView::kibView( QWidget *parent, char *name )
 
   m_pView->begin( "file:/tmp" );
 
-  connect( m_pView, SIGNAL( setTitle( const QString& ) ), this, SLOT( slotSetTitle( const QString& ) ) );
-  connect( m_pView, SIGNAL( documentDone() ), this, SLOT( slotCompleted() ) );
+  connect( m_pView, SIGNAL( onURL( const QString& ) ), this, SLOT( slotOnURL( const QString& ) ) );
+  connect( m_pView, SIGNAL( completed() ), this, SLOT( slotCompleted() ) );
   connect( m_pView, SIGNAL( scrollVert( int ) ), this, SLOT( slotScrollVert( int ) ) );
   connect( m_pView, SIGNAL( scrollHorz( int ) ), this, SLOT( slotScrollHorz( int ) ) );
   connect( m_pView, SIGNAL( resized( const QSize& ) ), SLOT( slotM_PViewResized( const QSize& ) ) );
-  connect( m_pView, SIGNAL( URLSelected( QString, int ) ), this, SLOT( slotURLSelected( QString, int ) ) );
+  connect( m_pView, SIGNAL( urlClicked( const QString&, const QString&, int ) ), this, SLOT( slotURLSelected( const QString&, const QString&, int ) ) );
 
   m_Info2html = locate( "data", "kinfobrowser/kde-info2html" );
 
@@ -103,10 +102,10 @@ void kibView::resizeEvent( QResizeEvent* )
   m_pView->resize( size() );
 }
 
-void kibView::open( const QString& url, bool reload, int xoffset, int yoffset )
+void kibView::open( const QString& url, bool /*reload*/, int xoffset, int yoffset )
 {
   kDebugInfo( 1400, "kibView::open" );
-  
+
   m_url = url;
 
   int pos1 = url.find( '(' );
@@ -130,48 +129,55 @@ void kibView::open( const QString& url, bool reload, int xoffset, int yoffset )
   m_pProc->clearArguments();
 
   *m_pProc << "perl" << m_Info2html.latin1() << file.latin1() << node.latin1();
-  
+
   m_pView->end();
-  // TODO : use standard temp dir not hardcoded path 
+  // TODO : use standard temp dir not hardcoded path
   m_pView->begin( "file:/tmp", xoffset, yoffset );
-  
+
   m_pProc->start( KProcess::NotifyOnExit, KProcess::Stdout );
 }
 
-bool kibView::mappingOpenURL( const QString& eventURL )
-{
-  //SIGNAL_CALL2( "started", id(), eventURL.url );
-  //SIGNAL_CALL2( "setLocationBarURL", id(), eventURL.url );
-  open( eventURL, true );
-  //open( eventURL, eventURL.reload );
-  return true;
-}
-
-void kibView::slotURLSelected( const QString& url, int /*button*/)
+void kibView::slotURLSelected( const QString& url, const QString&, int )
 {
   // replace "%20" with " "
 
 /*
-  TODO: reactivate this
-  
   int pos = url.find( "%20" );
   
   while( pos > -1 )
   {
-    url.replace( (unsigned int) pos, 3, " " );
+    url.replace( pos, 3, " " );
     pos = url.find( "%20" );
   }
-
-  // ask the mainview to open this url, as it might not be suited for this view.
-  openURL( url, false, 0, 0 );
 */
+
+/*
+  QChar ch = ' ';
+  int pos = url.find( "%20" );
+
+  while( pos > -1 )
+  {
+    url.replace( pos, 3, &ch, 1 );
+    pos = url.find( "%20" );
+  }
+*/
+  
+  //url.replace( QRegExp( "%20" ), " " );
+    
+  // ask the mainview to open this url, as it might not be suited for this view.
+  openURL( url, true, 0, 0 );
 }
 
-void kibView::slotSetTitle( const QString& title )
+void kibView::slotOnURL( const QString& title )
+{
+  emit statusMsg( title );
+}
+
+void kibView::slotSetTitle( const QString& /*title*/ )
 {
 }
 
-void kibView::slotStarted( const QString& url )
+void kibView::slotStarted( const QString& /*url*/ )
 {
   //SIGNAL_CALL2("started", id(), QCString(url) );
 }
@@ -267,10 +273,10 @@ long kibView::yOffset()
   return m_pView->contentsY();
 }
 
-void kibView::openURL(const QString& url, bool reload, int xoffset, int yoffset, const char* post_data )
+void kibView::openURL(const QString& url, bool reload, int xoffset, int yoffset, const char* /*post_data*/ )
 {
   kDebugInfo( 1400, "kibView::openURL" );
-    
+
   open( url, reload, xoffset, yoffset );
 }
 

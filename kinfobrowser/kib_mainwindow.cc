@@ -54,6 +54,8 @@ kibMainWindow::kibMainWindow( const QString& url, char *name )
   createGUI( "kinfobrowser.rc" );
   setupLocationBar();
 
+  connect( m_pView, SIGNAL( statusMsg( const QString& ) ), this, SLOT( slotStatusMsg( const QString& ) ) );
+
   // read settings
   slotReadSettings();
 
@@ -218,7 +220,7 @@ void kibMainWindow::slotSaveSettings()
     KConfig *config = KApplication::kApplication()->config();
 
     config->setGroup( "Appearance" );
-    
+
     config->writeEntry( "ShowToolBar", m_showToolBar );
     config->writeEntry( "ShowStatusBar", m_showStatusBar );
     config->writeEntry( "ShowLocationBar", m_showLocationBar );
@@ -278,9 +280,9 @@ void kibMainWindow::slotLocationEntered()
   openURL( toolBar( ID_TOOLBAR_LOCATION )->getLinedText( 1 ), true );
 }
 
-void kibMainWindow::slotURLSelected( const QString& url, int )
+void kibMainWindow::slotURLSelected( const QString& url, const QString& target, int withHistory )
 {
-  openURL( url, true );
+  openURL( url, target, withHistory );
 }
 
 void kibMainWindow::slotNewBrowser()
@@ -295,7 +297,7 @@ void kibMainWindow::slotOpenNewBrowser( const QString& url )
   win->show();
 }
 
-void kibMainWindow::slotSetStatusText( const QString& text )
+void kibMainWindow::slotStatusMsg( const QString& text )
 {
   statusBar()->changeItem( text, ID_STATUSBAR_INFO );
 }
@@ -527,7 +529,7 @@ void kibMainWindow::slotForward()
   if( hitem )
   {
     QString url = hitem->url();
-    
+
     slotSetLocation( url );
     openURL( url, false, hitem->xOffset(), hitem->yOffset() );
   }
@@ -578,7 +580,7 @@ void kibMainWindow::slotHistoryFillForward()
 */
 }
 
-void kibMainWindow::slotHistoryBackActivated(int id)
+void kibMainWindow::slotHistoryBackActivated( int )
 {
 /*
   int steps = m_pHistoryBackMenu->indexOf(id) + 1;
@@ -589,7 +591,7 @@ void kibMainWindow::slotHistoryBackActivated(int id)
 */
 }
 
-void kibMainWindow::slotHistoryForwardActivated(int id)
+void kibMainWindow::slotHistoryForwardActivated( int )
 {
 /*
   int steps = m_pHistoryForwardMenu->indexOf(id) + 1;
@@ -600,9 +602,9 @@ void kibMainWindow::slotHistoryForwardActivated(int id)
 */
 }
 
-void kibMainWindow::slotSetBusy(bool busy)
+void kibMainWindow::slotSetBusy( bool busy )
 {
-  m_stop->setEnabled( busy);
+  m_stop->setEnabled( busy );
 }
 
 #include "kib_mainwindow.moc"

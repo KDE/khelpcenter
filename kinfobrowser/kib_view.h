@@ -43,8 +43,6 @@ public:
   kibView( QWidget *parent = 0, char *name = 0 );
   virtual ~kibView();
 
-  virtual bool mappingOpenURL( const QString& eventURL );
-
   virtual void stop();
   virtual QString url();
   virtual void print();
@@ -56,8 +54,10 @@ public:
   virtual bool canZoomIn();
   virtual bool canZoomOut();
 
-  virtual void openURL( const QString& url, bool _reload, int _xoffset = 0, int _yoffset = 0,
-			const char *_post_data = 0L);
+  virtual void openURL( const QString& url, bool _reload, int _xoffset = 0, int _yoffset = 0, const char *_post_data = 0L );
+signals:
+
+  void statusMsg( const QString& text );
 
 public slots:
 
@@ -70,15 +70,16 @@ public slots:
 
 protected slots:
 
-  void slotSetTitle(const QString &title);
-  void slotStarted(const QString& url);
+  void slotOnURL( const QString& url );
+  void slotSetTitle( const QString& title );
+  void slotStarted( const QString& url);
   void slotCompleted();
   void slotCanceled();
   void slotViewResized( const QSize & );
-  void slotURLSelected(const QString& url, int button);
-  void slotProcessExited(KProcess *proc);
-  void slotReceivedStdout(KProcess *proc, char *buffer, int buflen);
-  void slotFindNext(const QRegExp &regExp);
+  void slotURLSelected( const QString& url, const QString& target, int button );
+  void slotProcessExited( KProcess *proc);
+  void slotReceivedStdout( KProcess *proc, char *buffer, int buflen );
+  void slotFindNext( const QRegExp &regExp );
 
 protected:
 

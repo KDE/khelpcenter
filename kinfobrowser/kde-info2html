@@ -233,6 +233,8 @@ sub ReadIndirectTable{
 
   if ( $FileName =~ /\.gz$/ ) {
     open(FH1," gunzip -q -d -c $FileName|") || &DieFileNotFound($FileName);
+  } elsif ( $FileName =~ /\.bz2$/ ) {
+    open(FH1, " bunzip2 -q -d -c $FileName|") || &DieFileNotFound($FileName);
   } else {
     open(FH1,$FileName) || &DieFileNotFound($FileName);
   }
@@ -276,6 +278,8 @@ sub ReadTagTable{
 
   if ( $FileName =~ /\.gz$/ ) {
     open(FH," gunzip -q -d -c $FileName|") || &DieFileNotFound($FileName);
+  } elsif ( $FileName =~ /\.gz$/ ) {
+    open(FH," bunzip2 -q -d -c $FileName|") || &DieFileNotFound($FileName);
   } else {
     open(FH,$FileName) || &DieFileNotFound($FileName);
   }
@@ -504,6 +508,9 @@ sub InfoNode2HTML{
 
   if ( $FileName =~ /\.gz$/ ) {
     open(FH2," gunzip -q -d -c $FileName|") || &DieFileNotFound($FileName);
+  } elsif ( $FileName =~ /\.bz2$/ ) {
+    print( "Michael (file) : $FileName\n" );
+    open(FH2, " bunzip2 -q -d -c $FileName|") || &DieFileNotFound($FileName);
   } else {
     open(FH2,$FileName) || &DieFileNotFound($FileName);
   }
@@ -620,9 +627,11 @@ sub FindFile {
 
     for $Name ($File, $Alt) {
 	$gzName = $Name . '.gz';
+	$bz2Name = $Name . '.bz2';
 	for (@INFODIR) {
 	    return "$_/$Name"   if (-e "$_/$Name");
 	    return "$_/$gzName" if (-e "$_/$gzName");
+	    return "$_/$bz2Name"   if (-e "$_/$bz2Name");
 	}
     }
     return "";

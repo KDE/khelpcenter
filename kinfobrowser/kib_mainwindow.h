@@ -79,11 +79,11 @@ public slots:
 
   // slots the views connect to
   void slotOpenNewBrowser(const QString& url = QString("") );
-  void slotURLSelected(const QString& _url, int _button);
+  void slotURLSelected(const QString& _url, const QString& target, int _button);
   void slotSetTitle(const QString& _title );
   void slotSetLocation(const QString& _url);
   void slotSetURL( const QString& url);
-  void slotSetStatusText(const QString& text);
+  void slotStatusMsg(const QString& text);
 
   // forward actions to the views
   void slotFind();
