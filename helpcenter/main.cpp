@@ -20,8 +20,10 @@
  */
 
 #include "toplevel.h"
+#include "khelpcenter.h"
+#include "helpcentercom_impl.h"
 #include "error.h"
-#include <kapp.h>
+#include <komApplication.h>
 #include <qdir.h>
 #include <qfileinfo.h>
 #include <qmessagebox.h>
@@ -30,47 +32,6 @@ void errorHandler( int type, char *msg );
 
 int main(int argc, char *argv[])
 {
-  int i;
-  QString url, initDoc;
-  
-  // pase command line parameters
-  for (i = 1; i < argc; i++)
-	{
-	  if ( argv[i][0] == '-' )
-		{
-		  // skip -caption, -icon, -miniicon
-		  if ( strcasecmp( argv[i], "-caption" ) == 0 )
-			i++;
-		  if ( strcasecmp( argv[i], "-icon" ) == 0 )
-			i++;
-		  if ( strcasecmp( argv[i], "-miniicon" ) == 0 )
-			i++;
-		  continue;
-		}
-	  initDoc = argv[i];
-	}
-  
-  if ( initDoc.isEmpty() ) // no url parameter...use main.html
-	{
-	  initDoc = "file:";
-	  initDoc += kapp->kde_htmldir().copy();
-	  initDoc += "/default/khelpcenter/main.html";
-	}
-	
-  url = initDoc;
-	
-  if ( !strchr( url, ':' ) )
-	{
-	  if ( initDoc[0] == '.' || initDoc[0] != '/' )
-		{
-		  QFileInfo fi( initDoc );
-		  initDoc = fi.absFilePath();
-		}
-
-	  url = "file:";
-	  url += initDoc;
-	}
-
   // error handler for info and man stuff
   Error.SetHandler( (void (*)(int, const char *))errorHandler );
 
@@ -86,33 +47,15 @@ int main(int argc, char *argv[])
 	dir.mkdir(KApplication::localkdedir() + "/share/apps/khelpcenter");
 
   // init app
-  KApplication app(argc, argv, "khelpcenter");
+  KOMApplication app(argc, argv, "khelpcenter.bin");
   
-  HelpCenter *toplevel;
+  //HelpCenter *toplevel;
 
-  if (app.isRestored())
-	{
-	  int n = 1;
-	  while ( KTMainWindow::canBeRestored( n ) )
-	    {
-		  toplevel = new HelpCenter;
-		  toplevel->restore( n );
-		  n++;
-	    }
-	  
-	  return app.exec();
-	}
-  else
-	{
-	  toplevel = new HelpCenter;
+  HelpCenterCom *helpcentercom = new HelpCenterCom();
+  app.boa()->impl_is_ready( CORBA::ImplementationDef::_nil() );
 
-	  app.setMainWidget(toplevel);
-	  app.setTopWidget(toplevel);
-
-	  toplevel->openURL(url);
-	  toplevel->show();  
-	  return app.exec();
-	}
+  app.exec();
+  return 0;
 }
 
 void errorHandler( int type, char *msg )

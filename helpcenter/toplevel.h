@@ -1,7 +1,7 @@
 /*
  *  toplevel.h - part of the KDE Help Center
  *
- *  Copyright (c) 199 Matthias Elter (me@main-echo.net)
+ *  Copyright (c) 199 Matthias Elter (me@kde.org)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -21,7 +21,7 @@
 #ifndef TOPLEVEL_H
 #define TOPLEVEL_H
 
-#define HELPCENTER_VERSION		"0.4"
+#define HELPCENTER_VERSION		"0.5"
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -33,6 +33,7 @@
 
 #include <qpopupmenu.h>
 #include <qsplitter.h>
+#include <qlist.h>
 
 class HTreeView;
 class KHelpView;
@@ -49,6 +50,9 @@ public:
 	void openNewWindow( const char *url );
 
     KHelpView *htmlView() { return htmlview; }
+	unsigned long getListIndex() { return listIndex; }
+	static HelpCenter *getHelpWindowAt(unsigned long id) 
+	  { return helpWindowList.at(id); }
 
 public slots:
 	void slotBookmarkChanged(KFileBookmark *parent);
@@ -62,6 +66,9 @@ public slots:
 
 	void slotNewWindow(const QString& url);
     void slotCloneWindow();
+	
+	void slotMagMinus();
+	void slotMagPlus();
 
 	void slotQuit();
 
@@ -73,6 +80,7 @@ public slots:
 	void slotOptionsStatusbar();
 	void slotOptionsGeneral();
 	void slotOptionsSave();
+	void slotReadConfig();
 
 protected:
     virtual void resizeEvent(QResizeEvent *);
@@ -87,7 +95,6 @@ private:
 	void enableMenuItems();
 	void enableTree(bool enable);
 	void fillBookmarkMenu(KFileBookmark *parent, QPopupMenu *menu, int &id);
-	void readConfig();
 	void setupMenubar();
 	void setupToolbar();
 	void setupStatusbar();
@@ -106,10 +113,17 @@ private:
 		  TB_ZOOMOUT, TB_FIND};
 	// menu id's:
 	int idCopy, idBack, idForward, idTop, idUp, idPrevious, idNext, idTree, idToolbar
-	  ,idLocationbar, idStatusbar;
+	  ,idLocationbar, idStatusbar, idMagPlus, idMagMinus;
 
 	// GUI options:
 	bool showStatusbar, showToolbar, showLocationbar, showTree;
+	int fontBase;
+
+	// static list of HelpCenter windows
+	static QList<HelpCenter> helpWindowList;
+
+	// index of HelpCenter instance in helpWindowList
+	unsigned long listIndex;
 };
 
 #endif // TOPLEVEL_H

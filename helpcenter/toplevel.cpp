@@ -28,6 +28,9 @@
 #include <kstdaccel.h>
 #include <kcursor.h>
 
+// static list of HelpCenter windows:
+QList<HelpCenter> HelpCenter::helpWindowList;
+
 HelpCenter::HelpCenter()
 {
   setCaption(i18n("KDE Help Center"));
@@ -43,7 +46,10 @@ HelpCenter::HelpCenter()
   setupStatusbar();
   
   // read configuration
-  readConfig();
+  slotReadConfig();
+
+  fontBase = 3;
+  htmlview->setDefaultFontBase(fontBase);
 
   // toggle menu items
   optionsMenu->setItemChecked(idTree, showTree);
@@ -83,10 +89,16 @@ HelpCenter::HelpCenter()
   
   // put bookmarks into boormark menu
   htmlview->slotBookmarkChanged();
+
+  // append current window to helpWindoList
+  helpWindowList.setAutoDelete(false);
+  helpWindowList.append(this);
+  listIndex = helpWindowList.at();
 }
 
 HelpCenter::~HelpCenter()
 {
+  helpWindowList.removeRef(this);
   delete htmlview;
   delete treeview;
   if (splitter)
@@ -142,14 +154,15 @@ void HelpCenter::setupMenubar()
   
   gotoMenu = new QPopupMenu;
   CHECK_PTR(gotoMenu);
-  idUp = gotoMenu->insertItem(i18n("&Up"), htmlview, SLOT(slotUp()));
   idBack = gotoMenu->insertItem(i18n("&Back"), htmlview, SLOT(slotBack()));
   idForward = gotoMenu->insertItem(i18n("&Forward"), htmlview, SLOT(slotForward()));
   gotoMenu->insertSeparator();
-  gotoMenu->insertItem(i18n("&Contents"), htmlview, SLOT(slotDir()));
+  gotoMenu->insertItem(i18n("&Introduction"), htmlview, SLOT(slotDir()));
   
   viewMenu = new QPopupMenu;
   CHECK_PTR(viewMenu);
+  idMagPlus = viewMenu->insertItem(i18n("Zoom &in"), this, SLOT(slotMagPlus()));
+  idMagMinus = viewMenu->insertItem(i18n("Zoom &out"), this, SLOT(slotMagMinus()));
   viewMenu->insertItem(i18n("&Reload Tree"), treeview, SLOT(slotReloadTree()));
   viewMenu->insertItem(i18n("Reload &Document"), htmlview, SLOT(slotReload()), Key_F5);
   
@@ -224,8 +237,7 @@ void HelpCenter::setupToolbar()
 
 void HelpCenter::setupLocationbar()
 {
-  QString intropage = "file:" + kapp->kde_datadir() + "/khelpcenter/html/intro.html";
-  toolBar(1)->insertLined(intropage.data(), 1, SIGNAL(returnPressed()),
+  toolBar(1)->insertLined(" ", 1, SIGNAL(returnPressed()),
 						  this, SLOT( slotLocationEntered()));
   toolBar(1)->setFullWidth(TRUE);
   toolBar(1)->setItemAutoSized(1, TRUE);
@@ -234,7 +246,7 @@ void HelpCenter::setupLocationbar()
 
 void HelpCenter::setupStatusbar()
 {
-  statusBar()->insertItem("Test", 1);
+  statusBar()->insertItem(" ", 1);
   enableStatusBar(KStatusBar::Show);
 }
 
@@ -262,7 +274,7 @@ void HelpCenter::readProperties( KConfig *config )
 	openURL(url, true);
 }
 
-void HelpCenter::readConfig()
+void HelpCenter::slotReadConfig()
 {
   KConfig *config = KApplication::getKApplication()->getConfig();
   config->setGroup( "Appearance" );
@@ -373,7 +385,7 @@ int HelpCenter::openURL( const char *URL, bool withHistory)
 
 void HelpCenter::fillBookmarkMenu(KFileBookmark *parent, QPopupMenu *menu, int &id)
 {
-KFileBookmark *bm;
+  KFileBookmark *bm;
   for ( bm = parent->getChildren().first(); bm != NULL;
 		bm = parent->getChildren().next() )
 	{
@@ -444,11 +456,13 @@ void HelpCenter::slotToolbarClicked(int item)
 	  htmlview->slotPrint();
 	  break;
 	case TB_ZOOMIN:
+	  slotMagPlus();
 	  break;
 	case TB_FIND:
 	  htmlview->slotFind();
 	  break;
 	case TB_ZOOMOUT:
+	  slotMagMinus();
 	  break;
 	case TB_BACK:
 	  htmlview->slotBack();
@@ -657,4 +671,45 @@ void HelpCenter::slotOptionsSave()
 	  warning("HelpCenter::slotOptionsSave: illegal default in case reached\n");
 	  break;
 	}
+}
+
+void HelpCenter::slotMagMinus()
+{
+  if(fontBase > 2)
+	{
+	  if(fontBase == 5)
+		{
+		  viewMenu->setItemEnabled(idMagPlus, true);
+		  toolBar(0)->setItemEnabled(TB_ZOOMIN, true);
+		}
+	  fontBase--;
+	  htmlview->setDefaultFontBase( fontBase );
+	  htmlview->slotReload();
+	  if(fontBase == 2)
+		{
+		  viewMenu->setItemEnabled(idMagMinus, false);
+		  toolBar(0)->setItemEnabled(TB_ZOOMOUT, false);
+		}		
+	}
+}
+
+void HelpCenter::slotMagPlus()
+{
+  if(fontBase < 5)
+	{
+	  if (fontBase == 2)
+		{
+		  viewMenu->setItemEnabled(idMagMinus, true);
+		  toolBar(0)->setItemEnabled(TB_ZOOMOUT, true);
+		}
+	  fontBase++;
+	  htmlview->setDefaultFontBase(fontBase);
+	  htmlview->slotReload();
+	  if (fontBase == 5)
+		{
+		  viewMenu->setItemEnabled(idMagPlus, false);
+		  toolBar(0)->setItemEnabled(TB_ZOOMIN, false);
+		}
+	}
+	
 }

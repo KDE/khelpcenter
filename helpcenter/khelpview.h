@@ -114,6 +114,7 @@ class KHelpView : public QWidget
   void slotScrollVert( int _y );
   void slotScrollHorz( int _y );
   void slotBackgroundColor( const QColor &col );
+  void setDefaultFontBase(int fSize);
   void slotFontSize( int );
   void slotStandardFont( const QString& );
   void slotFixedFont( const QString& );

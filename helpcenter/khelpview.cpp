@@ -988,3 +988,35 @@ void KHelpView::slotDocumentDone()
   busy = false;
   emit enableMenuItems();
 }
+
+void KHelpView::setDefaultFontBase(int fSize)
+{
+  view->resetFontSizes();
+  if (fSize != 3)
+	{
+	  int fontSizes[7];
+	  view->getFontSizes(fontSizes);
+
+	  if (fSize > 3)
+		{
+		  for(int i = 0; i < 7; i++)
+			{
+			  int j = i + fSize - 3;
+			  if ( j > 6)
+				j = 6;
+			  fontSizes[i] = fontSizes[j]; 
+			}
+		}
+	  else
+		{
+		  for(int i = 7; i--;)
+			{
+			  int j = i + fSize - 3;
+			  if ( j < 0)
+				j = 0;
+			  fontSizes[i] = fontSizes[j]; 
+			}
+		}
+	  view->setFontSizes(fontSizes);
+	}
+}
