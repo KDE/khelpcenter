@@ -64,8 +64,9 @@ class MainWindow : public KMainWindow, public DCOPObject
     void slotIncFontSizes();
     void slotDecFontSizes();
     void slotConfigureFonts();
+    void slotConfigureKeys();
 
-  private:
+private:
     void updateZoomActions();
 
     View *mDoc;

@@ -45,7 +45,7 @@
 #include "view.h"
 #include "searchengine.h"
 #include "fontdialog.h"
-
+#include <kkeydialog.h>
 using namespace KHC;
 
 #include "mainwindow.h"
@@ -73,7 +73,7 @@ class LogDialog : public KDialogBase
     {
       mTextView->setText( log );
     }
-  
+
   private:
     QTextEdit *mTextView;
 };
@@ -166,6 +166,7 @@ void MainWindow::setupActions()
 
     KStdAction::preferences( mNavigator, SLOT( showPreferencesDialog() ),
                              actionCollection() );
+    KStdAction::keyBindings( this, SLOT( slotConfigureKeys() ), actionCollection() );
 
     KConfig *cfg = KGlobal::config();
     cfg->setGroup( "Debug" );
@@ -180,6 +181,14 @@ void MainWindow::setupActions()
     new KAction( i18n( "Configure Fonts..." ), KShortcut(), this, SLOT( slotConfigureFonts() ), actionCollection(), "configure_fonts" );
     new KAction( i18n( "Increase Font Sizes" ), "viewmag+", KShortcut(), this, SLOT( slotIncFontSizes() ), actionCollection(), "incFontSizes" );
     new KAction( i18n( "Decrease Font Sizes" ), "viewmag-", KShortcut(), this, SLOT( slotDecFontSizes() ), actionCollection(), "decFontSizes" );
+}
+
+void MainWindow::slotConfigureKeys()
+{
+  KKeyDialog dlg( true, this );
+
+  dlg.insert( actionCollection() );
+  dlg.configure();
 }
 
 void MainWindow::print()
@@ -331,7 +340,7 @@ void MainWindow::showSearchStderr()
   if ( !mLogDialog ) {
     mLogDialog = new LogDialog( this );
   }
-  
+
   mLogDialog->setLog( log );
   mLogDialog->show();
   mLogDialog->raise();
