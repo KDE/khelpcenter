@@ -152,7 +152,7 @@ static KCmdLineOptions options[] =
 int main( int argc, char **argv )
 {
   KAboutData aboutData( "khc_indexbuilder",
-                        I18N_NOOP("KHelpcCenter Index Builder"),
+                        I18N_NOOP("KHelpCenter Index Builder"),
                         HELPCENTER_VERSION,
                         I18N_NOOP("The KDE Help Center"),
                         KAboutData::License_GPL,

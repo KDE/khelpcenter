@@ -139,7 +139,7 @@ void FontDialog::setupFontEncodingBox()
 	m_defaultEncoding->insertStringList( encodings );
 	lDefaultEncoding->setBuddy( m_defaultEncoding );
 
-	QLabel *lFontSizeAdjustement = new QLabel( i18n( "&Font size adjustement:" ), gb );
+	QLabel *lFontSizeAdjustement = new QLabel( i18n( "&Font size adjustment:" ), gb );
 	layout->addWidget( lFontSizeAdjustement, 1, 0 );
 	m_fontSizeAdjustement = new QSpinBox( -5, 5, 1, gb );
 	layout->addWidget( m_fontSizeAdjustement, 1, 1 );
