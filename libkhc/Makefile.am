@@ -16,7 +16,7 @@
 #    the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 #    Boston, MA 02111-1307, USA.
 
-INCLUDES = $(all_includes) $(MICO_INCLUDES)
+INCLUDES = -I.. $(all_includes) $(MICO_INCLUDES)
 
 IDL_FLAGS = --query-server-for-narrow --relative-paths --any -I$(idldir)
 lib_LTLIBRARIES = libkhc.la
@@ -25,7 +25,7 @@ libkhc_la_LIBADD = -lkparts
 
 libkhc_la_SOURCES = browser.idl khc_baseview.cc khc_history.cc
 
-include_HEADERS = browser.h khc_history.h khc_baseview.h
+include_HEADERS = khc_history.h khc_baseview.h
 
 DISTCLEANFILES = browser.cc browser.h
 
