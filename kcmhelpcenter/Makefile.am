@@ -10,22 +10,13 @@ bin_PROGRAMS              = kcmhelpcenter
 kcmhelpcenter_SOURCES     = main.cpp assistant.cpp widget.cpp browser.cpp \
                             eyes.cpp
 
-kcmhelpcenter_METASOURCES = USE_AUTOMOC
+kcmhelpcenter_METASOURCES = AUTO
 
 noinst_HEADERS            = assistant.h widget.h browser.h eyes.h
 
 EXTRA_DIST                = kcmhelpcenter assistant.xpm mini-assistant.xpm
 
-
-install-data-local: 
-#	$(mkinstalldirs) $(kde_icondir)
-#	$(INSTALL_DATA) assistant.xpm $(kde_icondir)
-#	$(mkinstalldirs) $(kde_minidir)
-#	$(INSTALL_DATA) mini-assistant.xpm $(kde_minidir)/assistant.xpm
-
-uninstall-local:
-#	rm -f $(kde_icondir)/assistant.xpm
-#	rm -f $(kde_minidir)/assistant.xpm
+KDE_ICON = assistant
 
 messages:
 	$(XGETTEXT) -C -ktranslate -ki18n -x $(includedir)/kde.pot *.cpp && mv messages.po ../../po/kcmhelpcenter.pot
