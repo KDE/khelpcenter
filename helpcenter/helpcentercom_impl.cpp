@@ -25,7 +25,7 @@ HelpCenterCom::HelpCenterCom()
 {
 }
 
-CORBA::ULong HelpCenterCom::openHelpView (const char *url, CORBA::Boolean enableTree)
+CORBA::ULong HelpCenterCom::openHelpView (const char *url, CORBA::Boolean )
 {
     HelpCenter *hc = new HelpCenter;
   
