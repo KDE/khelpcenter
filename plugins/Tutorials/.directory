@@ -1,7 +1,7 @@
 # KDE Config File
 [KDE Desktop Entry]
 Name=Tutorials
-Name[af]=tutoriale
+Name[af]=Tutoriale
 Name[ar]=دروس تعليمية
 Name[az]=Leksikalar
 Name[bg]=Учебни ръководства
@@ -58,7 +58,7 @@ Name[zh_TW]=指南
 Name[zu]=Ithuba labafundi lokubuyekisa okufundiwe
 MiniIcon=
 Comment=Tutorial and introduction documents.
-Comment[af]=tutoriaal en inleiding dokumente.
+Comment[af]=Tutoriaal en inleiding dokumente.
 Comment[ar]=وثائق و مستندات تعليمية
 Comment[az]=Leksika və giriş sənədləri
 Comment[bg]=Учебни ръководства и справочници.
