@@ -38,14 +38,9 @@ DISTCLEANFILES = $(khelpcenter_METASOURCES) khelpcenter.cc khelpcenter.h
 idl_DATA    =  khelpcenter.idl
 idl_HEADERS =  khelpcenter.h
 
-BUILT_SOURCES = khelpcenter.h
-
-khelpcenter.h: $(srcdir)/khelpcenter.idl
+khelpcenter.cc: khelpcenter.h
+khelpcenter.h: $(srcdir)/khelpcenter.idl $(micodir)/include/CORBA.h
 	rm -rf khelpcenter.h
-	$(IDL) $(IDL_FLAGS) $(srcdir)/khelpcenter.idl
-
-khelpcenter.cc: $(srcdir)/khelpcenter.idl
-	rm -rf khelpcenter.cc
 	$(IDL) $(IDL_FLAGS) $(srcdir)/khelpcenter.idl
 
 messages:
