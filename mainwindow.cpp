@@ -167,9 +167,9 @@ void MainWindow::slotOpenURLRequest( const KURL &url,
          proto == "http" )
 	    own = true;
     else if ( url.isLocalFile() ) {
-	    static const QString &html = KGlobal::staticQString("text/html");
 	    KMimeMagicResult *res = KMimeMagic::self()->findFileType( url.path() );
-	    if ( res->isValid() && res->accuracy() > 40 && res->mimeType() == html )
+	    if ( res->isValid() && res->accuracy() > 40
+           && res->mimeType() == "text/html" )
 	      own = true;
     }
     
