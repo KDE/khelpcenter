@@ -33,7 +33,7 @@ libkhelpcenter_common_la_SOURCES = navigator.cpp \
 	history.cpp application.cpp searchwidget.skel treebuilder.cpp \
 	infotree.cpp  mainwindow.skel \
         kcmhelpcenter.cpp htmlsearchconfig.cpp kcmhelpcenter.skel \
-		fontdialog.cpp
+		fontdialog.cpp plugintraverser.cpp
 
 #kcm_helpcenter_la_LDFLAGS = $(KDE_RPATH) -module -avoid-version \
 #                            $(all_libraries) -no-undefined

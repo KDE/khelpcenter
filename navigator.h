@@ -29,7 +29,6 @@
 
 #include "glossary.h"
 
-#include <regex.h>
 #include <qfile.h>
 #include <qtextstream.h>
 #include <qtimer.h>
@@ -40,6 +39,7 @@ class KListView;
 class KService;
 class KProcess;
 class KProcIO;
+class KURL;
 
 namespace KHC {
 
