@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
   KApplication app(argc, argv, "kwelcome");
   
   // check for -kdestartup
-  KConfig *conf = kapp->getConfig();
+  KConfig *conf = kapp->config();
   conf->setGroup("General Settings");
   QString tmp = conf->readEntry("AutostartOnKDEStartup", "true");
   

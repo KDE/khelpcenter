@@ -237,7 +237,7 @@ void khcNavigator::buildManSubTree(khcNavigatorItem *parent)
 
 void khcNavigator::buildManualSubTree(khcNavigatorItem *parent)
 {
-    QStringList list = KGlobal::dirs()->getResourceDirs("apps");
+    QStringList list = KGlobal::dirs()->resourceDirs("apps");
     for(QStringList::Iterator it=list.begin(); it!=list.end(); it++) {
       processDir(*it, parent, &manualItems);
       appendEntries(*it, parent, &manualItems);

@@ -191,8 +191,8 @@ void kibMainWindow::setupMenuBar()
    
   
     // help menu
-    m_pHelpMenu = kapp->getHelpMenu(true,i18n("KDE InfoBrowser v" + QString(KINFOBROWSER_VERSION) + "\n\n"
-			     "(c) 1999 Matthias Elter <me@kde.org>"));
+    m_pHelpMenu = kapp->helpMenu(true,i18n("KDE InfoBrowser v" + QString(KINFOBROWSER_VERSION) + "\n\n"
+                                           "(c) 1999 Matthias Elter <me@kde.org>"));
     
     // insert menu's into menubar
     menuBar()->insertItem(i18n("&File"), m_pFileMenu);
@@ -271,7 +271,7 @@ void kibMainWindow::setupStatusBar()
 
 void kibMainWindow::slotReadSettings()
 {
-    KConfig *config = KApplication::getKApplication()->getConfig();
+    KConfig *config = KApplication::kApplication()->config();
     config->setGroup("Appearance");
 
     // show tool-, location-, statusbar and navigator?
@@ -354,7 +354,7 @@ void kibMainWindow::slotReadSettings()
 
 void kibMainWindow::slotSaveSettings()
 {
-    KConfig *config = KApplication::getKApplication()->getConfig();
+    KConfig *config = KApplication::kApplication()->config();
 
     config->setGroup( "Appearance" );
     config->writeEntry( "ShowToolBar", m_showToolBar ? "Yes" : "No" );

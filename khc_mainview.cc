@@ -665,7 +665,7 @@ void khcMainView::enableNavigator(bool enable)
 
 void khcMainView::slotReadSettings()
 {
-  KConfig *config = KApplication::getKApplication()->getConfig();
+  KConfig *config = KApplication::kApplication()->config();
   config->setGroup("Appearance");
   
   // show tool-, location-, statusbar and navigator?
@@ -781,7 +781,7 @@ void khcMainView::slotReadSettings()
 
 void khcMainView::slotSaveSettings()
 {
-  KConfig *config = KApplication::getKApplication()->getConfig();
+  KConfig *config = KApplication::kApplication()->config();
   
   config->setGroup( "Appearance" );
   config->writeEntry( "ShowMenuBar", m_showMenuBar ? "Yes" : "No" ); 

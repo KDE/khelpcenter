@@ -134,7 +134,7 @@ void KWelcome::slotHelpCenterStart()
 
 void KWelcome::saveSettings()
 {
-  KConfig *conf = kapp->getConfig();
+  KConfig *conf = kapp->config();
   conf->setGroup("General Settings");
   if (autostart_kwelcome->isChecked())
 	conf->writeEntry("AutostartOnKDEStartup", "true");
@@ -146,7 +146,7 @@ void KWelcome::saveSettings()
 
 void KWelcome::readSettings()
 {
-  KConfig *conf = kapp->getConfig();
+  KConfig *conf = kapp->config();
   conf->setGroup("General Settings");
   QString tmp = conf->readEntry("AutostartOnKDEStartup", "true");
   

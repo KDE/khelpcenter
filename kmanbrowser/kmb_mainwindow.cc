@@ -192,8 +192,8 @@ void kmbMainWindow::setupMenuBar()
    
   
     // help menu
-    m_pHelpMenu = kapp->getHelpMenu(true,i18n("KDE ManBrowser v" + QString(KMANBROWSER_VERSION) + "\n\n"
-			     "(c) 1999 Matthias Elter <me@kde.org>"));
+    m_pHelpMenu = kapp->helpMenu(true,i18n("KDE ManBrowser v" + QString(KMANBROWSER_VERSION) + "\n\n"
+                                           "(c) 1999 Matthias Elter <me@kde.org>"));
     
     // insert menu's into menubar
     menuBar()->insertItem(i18n("&File"), m_pFileMenu);
@@ -272,7 +272,7 @@ void kmbMainWindow::setupStatusBar()
 
 void kmbMainWindow::slotReadSettings()
 {
-    KConfig *config = KApplication::getKApplication()->getConfig();
+    KConfig *config = KApplication::kApplication()->config();
     config->setGroup("Appearance");
 
     // show tool-, location-, statusbar and navigator?
@@ -355,7 +355,7 @@ void kmbMainWindow::slotReadSettings()
 
 void kmbMainWindow::slotSaveSettings()
 {
-    KConfig *config = KApplication::getKApplication()->getConfig();
+    KConfig *config = KApplication::kApplication()->config();
 
     config->setGroup( "Appearance" );
     config->writeEntry( "ShowToolBar", m_showToolBar ? "Yes" : "No" );
