@@ -227,27 +227,27 @@ void kmbMainWindow::setupToolBar()
     toolBar(0)->setIconText(3);
 
     // insert toolbar buttons    
-    toolBar(0)->insertButton(Icon("back.xpm"), TB_BACK, true, i18n("Back"));
+    toolBar(0)->insertButton(BarIcon("back"), TB_BACK, true, i18n("Back"));
     toolBar(0)->setDelayedPopup(TB_BACK, m_pHistoryBackMenu);
     toolBar(0)->setItemEnabled(TB_BACK, false);
   
-    toolBar(0)->insertButton(Icon("forward.xpm"), TB_FORWARD, true, i18n("Forward"));
+    toolBar(0)->insertButton(BarIcon("forward"), TB_FORWARD, true, i18n("Forward"));
     toolBar(0)->setDelayedPopup(TB_FORWARD, m_pHistoryForwardMenu);
     toolBar(0)->setItemEnabled(TB_FORWARD, false);
   
-    toolBar(0)->insertButton(Icon("reload.xpm"), TB_RELOAD, true, i18n("Reload"));
-    toolBar(0)->insertButton(Icon("stop.xpm"), TB_STOP, true, i18n("Stop"));
+    toolBar(0)->insertButton(BarIcon("reload"), TB_RELOAD, true, i18n("Reload"));
+    toolBar(0)->insertButton(BarIcon("stop"), TB_STOP, true, i18n("Stop"));
 
     toolBar(0)->insertSeparator();
   
-    toolBar(0)->insertButton(Icon("viewmag+.xpm"), TB_ZOOMIN, true, i18n("Zoom in"));
-    toolBar(0)->insertButton(Icon("viewmag-.xpm"), TB_ZOOMOUT, true, i18n("Zoom out"));
+    toolBar(0)->insertButton(BarIcon("viewmag+"), TB_ZOOMIN, true, i18n("Zoom in"));
+    toolBar(0)->insertButton(BarIcon("viewmag-"), TB_ZOOMOUT, true, i18n("Zoom out"));
 
     toolBar(0)->insertSeparator();
 
-    toolBar(0)->insertButton(Icon("flag.xpm"), TB_SETBOOKMARK, true, i18n("Bookmark"));
-    toolBar(0)->insertButton(Icon("search.xpm"), TB_FIND, true, i18n("Find"));
-    toolBar(0)->insertButton(Icon("fileprint.xpm"), TB_PRINT, true, i18n("Print"));
+    toolBar(0)->insertButton(BarIcon("flag"), TB_SETBOOKMARK, true, i18n("Bookmark"));
+    toolBar(0)->insertButton(BarIcon("search"), TB_FIND, true, i18n("Find"));
+    toolBar(0)->insertButton(BarIcon("fileprint"), TB_PRINT, true, i18n("Print"));
 
     // connect toolbar
     connect(toolBar(0), SIGNAL(clicked(int)), SLOT(slotToolbarClicked(int)));
