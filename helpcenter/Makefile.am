@@ -32,13 +32,3 @@ DISTCLEANFILES = $(khelpcenter_METASOURCES)
 messages:
 	$(XGETTEXT) -C -ki18n -x $(includedir)/kde.pot $(khelpcenter_SOURCES) && mv messages.po ../po/khelpcenter.pot
 
-install-data-local: 
-	$(mkinstalldirs) $(kde_icondir)
-	$(INSTALL_DATA) pics/khelpcenter.xpm $(kde_icondir)
-	$(mkinstalldirs) $(kde_minidir)
-	$(INSTALL_DATA) pics/mini-khelpcenter.xpm $(kde_minidir)/khelpcenter.xpm
-
-# remove ALL you have installed in install-data-local or install-exec-local
-uninstall-local:
-	-rm -f $(kde_icondir)/khelpcenter.xpm
-	-rm -f $(kde_minidir)/khelpcenter.xpm
