@@ -165,7 +165,7 @@ void khcNavigatorWidget::buildTree()
   
   // info browser 
   khcNavigatorItem *ti_info = new khcNavigatorItem(tree, i18n("Browse info pages"), "helpdoc.png");
-  ti_info->setURL(QString("info:/"));
+  ti_info->setURL(QString("info:/dir"));
   staticItems.append(ti_info);
 
   // unix man pages
