@@ -231,7 +231,7 @@ KURL View::urlFromLinkNode( const DOM::Node &n ) const
 
   QString link = baseURL().path();
   link.truncate( link.findRev( '/' ) + 1 );
-  link += "/" + elem.getAttribute( "href" ).string();
+  link += elem.getAttribute( "href" ).string();
 
   KURL url = baseURL();
   url.setRef( QString::null );
