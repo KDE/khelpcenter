@@ -20,6 +20,7 @@ Name[he]=עיון בדפי מידע
 Name[hu]=Info oldalak böngészése
 Name[it]=Sfoglia le pagine "info"
 Name[ja]=infoページの参照
+Name[lo]=ຮງກຄົ້ນລະບົບແລນ
 Name[lt]=Naršyti info puslapius
 Name[mt]=Dur il-paġni info
 Name[nb]=Les info-sider
@@ -34,6 +35,7 @@ Name[sk]=Prehliadanie info stránok
 Name[sl]=Brskaj po straneh info
 Name[sv]=Bläddra i info-sidor
 Name[ta]=¾¸Åø Àì¸í¸¨Ç §Á§Ä¡¼×õ
+Name[th]=เรียกดูหน้าข้อมูล (info)
 Name[tr]=Bilgi sayfarlarını tara
 Name[uk]=Навігація сторінок info
 Name[ven]=Masiatari a mafhungo a Burausa
@@ -41,6 +43,7 @@ Name[xh]=Khangela ulwazi emaphepheni
 Name[zh_CN]=浏览信息页面
 Name[zh_TW]=瀏覽資訊頁
 Name[zu]=Cinga emakhasini olwazi
+Icon=contents2
 
 X-KDE-KHelpcenter-Special=info
 
