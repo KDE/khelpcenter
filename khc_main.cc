@@ -179,7 +179,7 @@ void KHMainWindow::slotOpenURLRequest( const KURL &url,
 {
     QString proto = url.protocol().lower();
     if ( proto != "help" && proto != "glossentry" && proto != "about" &&
-         proto != "man" && proto != "info" )
+         proto != "man" && proto != "info" && proto != "file")
     {
         kapp->invokeBrowser( url.url() );
         return;
