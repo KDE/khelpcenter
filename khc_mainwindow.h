@@ -105,6 +105,7 @@ class khcMainWindow : public OPMainWindow
     void slotSetBookmark();
 
     void slotToolbarClicked(int);
+    void slotCheckHistory();
     
     void slotOptionsNavigator();
     void slotOptionsToolbar();

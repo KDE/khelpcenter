@@ -266,9 +266,11 @@ void khcMainWindow::setupToolBar()
 
     toolBar(0)->insertButton(Icon("back.xpm"), TB_BACK, true, i18n("Back"));
     toolBar(0)->setDelayedPopup(TB_BACK, m_pHistoryBackMenu);
-
+    toolBar(0)->setItemEnabled(TB_BACK, false);
+  
     toolBar(0)->insertButton(Icon("forward.xpm"), TB_FORWARD, true, i18n("Forward"));
     toolBar(0)->setDelayedPopup(TB_FORWARD, m_pHistoryForwardMenu);
+    toolBar(0)->setItemEnabled(TB_FORWARD, false);
   
     toolBar(0)->insertButton(Icon("reload.xpm"), TB_RELOAD, true, i18n("Reload"));
     toolBar(0)->insertButton(Icon("stop.xpm"), TB_STOP, true, i18n("Stop"));
@@ -687,6 +689,7 @@ void khcMainWindow::openURL(KHelpCenter::URLRequest urlRequest)
 
   kdebug(KDEBUG_INFO,1400,"EMIT_EVENT(m_vView, KHelpCenter::eventOpenURL, eventURL)");
   EMIT_EVENT(m_vView, KHelpCenter::eventOpenURL, urlRequest);
+  slotCheckHistory();
 }
 
 void khcMainWindow::openURL(const char *_url, bool withHistory, long xOffset, long yOffset)
@@ -707,6 +710,7 @@ void khcMainWindow::openURL(const char *_url, bool withHistory, long xOffset, lo
 
   kdebug(KDEBUG_INFO,1400,"EMIT_EVENT(m_vView, KHelpCenter::eventOpenURL, eventURL)");
   EMIT_EVENT(m_vView, KHelpCenter::eventOpenURL, eventURL);
+  slotCheckHistory();
 }
 
 void khcMainWindow::connectView()
@@ -833,6 +837,12 @@ void khcMainWindow::slotMagPlus()
 	    toolBar(0)->setItemEnabled(TB_ZOOMIN, false);
 	}
 	}*/	
+}
+
+void khcMainWindow::slotCheckHistory()
+{
+  toolBar(0)->setItemEnabled(TB_BACK, history.hasPrev());
+  toolBar(0)->setItemEnabled(TB_FORWARD, history.hasNext());
 }
 
 void khcMainWindow::slotForward()
