@@ -920,26 +920,12 @@ khcMainWindowIf::khcMainWindowIf(khcMainWindow* _main) :
 {
   ADD_INTERFACE("IDL:KHelpCenter/MainWindow:1.0" );
 
-  SIGNAL_IMPL("reload");
-  SIGNAL_IMPL("zoomIn");
-  SIGNAL_IMPL("zoomOut");
-  
   m_pkhcMainWindow = _main;
 }
 
 khcMainWindowIf::~khcMainWindowIf()
 {
   cleanUp();
-}
-
-void khcMainWindowIf::zoomIn()
-{
-  m_pkhcMainWindow->slotMagPlus();
-}
-
-void khcMainWindowIf::zoomOut()
-{
-  m_pkhcMainWindow->slotMagMinus();
 }
 
 void khcMainWindowIf::setStatusBarText(const CORBA::WChar *_text)
@@ -979,5 +965,64 @@ void khcMainWindowIf::openURL(const Browser::URLRequest &url)
   kdebug(0, 1400, "void khcMainWindowIf::openURL(const Browser::URLRequest &url)");
 }
 
+void khcMainWindowIf::open(const char* url, CORBA::Boolean reload, CORBA::Long xoffset, CORBA::Long yoffset)
+{
+  Browser::EventOpenURL eventURL;
+  eventURL.url = CORBA::string_dup(url);
+  eventURL.reload = reload;
+  eventURL.xOffset = xoffset;
+  eventURL.yOffset = yoffset;
+  openURL(eventURL);
+}
+
+void khcMainWindowIf::print()
+{
+  m_pkhcMainWindow->slotPrint();
+}
+
+void khcMainWindowIf::zoomIn()
+{
+  m_pkhcMainWindow->slotMagPlus();
+}
+
+void khcMainWindowIf::zoomOut()
+{
+  m_pkhcMainWindow->slotMagMinus();
+}
+
+void khcMainWindowIf::reload()
+{
+  m_pkhcMainWindow->slotReload();
+}
+
+void khcMainWindowIf::openFile()
+{
+  m_pkhcMainWindow->slotOpenFile();
+}
+
+void khcMainWindowIf::introduction()
+{
+  m_pkhcMainWindow->slotIntroduction();
+}
+
+void khcMainWindowIf::back()
+{
+  m_pkhcMainWindow->slotBack();
+}
+
+void khcMainWindowIf::forward()
+{
+  m_pkhcMainWindow->slotForward();
+}
+
+void khcMainWindowIf::bookmark()
+{
+  m_pkhcMainWindow->slotSetBookmark();
+}
+
+void khcMainWindowIf::options()
+{
+  m_pkhcMainWindow->slotOptionsGeneral();
+} 
 
 #include "khc_mainwindow.moc"

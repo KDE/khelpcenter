@@ -45,7 +45,8 @@ public:
   khcMainWindowIf(khcMainWindow* _main);
   ~khcMainWindowIf();
 
-  virtual void openURL( const Browser::URLRequest &url );
+  virtual void openURL(const Browser::URLRequest &url );
+  virtual void open(const char* url, CORBA::Boolean reload, CORBA::Long xoffset, CORBA::Long yoffset);
   
   virtual void setStatusBarText(const CORBA::WChar *_text);
   virtual void setLocationBarURL(OpenParts::Id id, const char *_url);
@@ -56,6 +57,15 @@ public:
 
   virtual void zoomIn();
   virtual void zoomOut();
+  virtual void print();
+  virtual void reload();
+
+  virtual void openFile();
+  virtual void introduction();
+  virtual void forward();
+  virtual void back();
+  virtual void bookmark();
+  virtual void options();
 
  protected:
   khcMainWindow* m_pkhcMainWindow;

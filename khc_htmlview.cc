@@ -142,7 +142,8 @@ void khcHTMLView::zoomIn()
     {
       fontBase++;
       setDefaultFontBase(fontBase);
-      KBrowser::slotReload();
+      KBrowser::openURL(url(), true );
+      SIGNAL_CALL2("started", id(), CORBA::Any::from_string((char *)url(), 0));
     }
 }
 
@@ -152,7 +153,8 @@ void khcHTMLView::zoomOut()
     {
       fontBase--;
       setDefaultFontBase(fontBase);
-      KBrowser::slotReload();
+      KBrowser::openURL(url(), true );
+      SIGNAL_CALL2("started", id(), CORBA::Any::from_string((char *)url(), 0));
     }
 }
 
