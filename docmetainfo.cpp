@@ -205,8 +205,10 @@ void DocMetaInfo::traverseEntry( DocEntry *entry, DocEntryTraverser *traverser )
     traverser->process( *it );
     if ( (*it)->hasChildren() ) {
       DocEntryTraverser *t = traverser->childTraverser( *it );
-      traverseEntry( *it, t );
-      t->deleteTraverser();
+      if (t) {
+        traverseEntry( *it, t );
+        t->deleteTraverser();
+      }
     }
   }
 }
