@@ -174,12 +174,12 @@ void khcMainWindow::slotActivePartChanged(unsigned long new_id, unsigned long /*
   statusBarManager()->create(new_id);
 }
 
-void khcMainWindow::readProperties(KConfig * config)
+void khcMainWindow::readProperties(KConfig * /*config*/)
 {
   //m_pMainView->readProperties(config);
 }
 
-void khcMainWindow::saveProperties(KConfig * config)
+void khcMainWindow::saveProperties(KConfig * /*config*/)
 {
   //m_pMainView->saveProperties(config);
 }

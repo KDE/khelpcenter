@@ -165,7 +165,7 @@ void kibView::slotViewResized(const QSize &)
   QApplication::restoreOverrideCursor();
 }
 
-void kibView::resizeEvent(QResizeEvent *e)
+void kibView::resizeEvent(QResizeEvent *)
 {
   layout();
 }
@@ -210,7 +210,7 @@ bool kibView::mappingOpenURL( Browser::EventOpenURL eventURL )
   return true;
 }
 
-void kibView::slotURLSelected(QString url, int button)
+void kibView::slotURLSelected(QString url, int /*button*/)
 {
   // replace "%20" with " "
   int pos = url.find("%20");
