@@ -13,6 +13,9 @@ class DocEntry
 
     DocEntry();
     
+    DocEntry( const QString &name, const QString &url = QString::null,
+              const QString &icon = QString::null );
+    
     void setName( const QString & );
     QString name() const;
     
@@ -24,9 +27,6 @@ class DocEntry
     
     void setUrl( const QString & );
     QString url() const;
-
-    void setDocPath( const QString & );
-    QString docPath() const;
 
     void setInfo( const QString & );
     QString info() const;
@@ -62,7 +62,7 @@ class DocEntry
 
     bool indexExists( const QString &indexDir );
 
-    bool docExists();
+    bool docExists() const;
 
     void addChild( DocEntry * );
     bool hasChildren();
@@ -79,15 +79,17 @@ class DocEntry
     
     void dump() const;
 
+  protected:
+    void init();
+
   private:
     QString mName;
     QString mSearch;
     QString mIcon;
     QString mUrl;
-    QString mDocPath;
     QString mInfo;
     QString mLang;
-    QString mIdentifier;
+    mutable QString mIdentifier;
     QString mIndexer;
     QString mIndexTestFile;
     int mWeight;

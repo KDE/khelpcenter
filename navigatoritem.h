@@ -17,59 +17,50 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-
-#ifndef __navigatoritem_h___
-#define __navigatoritem_h___
+#ifndef KHC_NAVIGATORITEM_H
+#define KHC_NAVIGATORITEM_H
 
 #include <qlistview.h>
 
 namespace KHC {
 
 class TOC;
+class DocEntry;
 
 class NavigatorItem : public QListViewItem
 {
   public:
-    NavigatorItem (QListView *parent, QListViewItem *after);
-    NavigatorItem (QListViewItem *parent, QListViewItem *after);
-    NavigatorItem (QListView* parent, const QString& text,
-                   const QString& icon = QString::null);
-    NavigatorItem (QListViewItem* parent, const QString& text,
-                   const QString& icon = QString::null);
-    NavigatorItem (QListView* parent, QListViewItem* after,
-                   const QString& text, const QString& icon = QString::null);
-    NavigatorItem (QListViewItem* parent, QListViewItem* after,
-                   const QString& text, const QString& icon = QString::null);
+    NavigatorItem( DocEntry *entry, QListView *parent );
+    NavigatorItem( DocEntry *entry, QListViewItem *parent );
+
+    NavigatorItem( DocEntry *entry, QListView *parent,
+                   QListViewItem *after );
+    NavigatorItem( DocEntry *entry, QListViewItem *parent,
+                   QListViewItem *after );
 
     ~NavigatorItem();
 
-    void setName( const QString & );
-    void setUrl( const QString & );
-    void setInfo( const QString & );
-    void setIcon( const QString & );
+    DocEntry *entry() const;
 
-    QString name() { return mName; }
-    virtual QString url() { return mUrl; }
-    QString info() { return mInfo; }
-    QString icon() { return mIcon; }
+    void setAutoDeleteDocEntry( bool );
 
-    TOC *toc() { return mToc; }
+    void updateItem();
+
+    TOC *toc() const { return mToc; }
 
     TOC *createTOC();
 
- private:
-    void init();
-    void init(const QString &text, const QString &icon);
-    
-    QString mName;
-    QString mUrl;
-    QString mInfo;
-    QString mIcon;
+  private:
+    void init( DocEntry * );
     
     TOC *mToc;
+
+    DocEntry *mEntry;
+    bool mAutoDeleteDocEntry;
 };
 
 }
 
 #endif
+
 // vim:ts=2:sw=2:et

@@ -18,96 +18,72 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+#include "navigatoritem.h"
+
+#include "toc.h"
+#include "docentry.h"
 
 #include <kdebug.h>
 #include <kiconloader.h>
 
-#include "toc.h"
-
-#include "navigatoritem.h"
-
 using namespace KHC;
 
-NavigatorItem::NavigatorItem(QListView *parent, QListViewItem *after)
+NavigatorItem::NavigatorItem( DocEntry *entry, QListView *parent,
+                              QListViewItem *after )
   : QListViewItem( parent, after )
 {
-    init();
+  init( entry );
 }
 
-NavigatorItem::NavigatorItem(QListViewItem *parent, QListViewItem *after)
+NavigatorItem::NavigatorItem( DocEntry *entry, QListViewItem *parent,
+                              QListViewItem *after )
   : QListViewItem( parent, after )
 {
-    init();
+  init( entry );
 }
 
-NavigatorItem::NavigatorItem(QListView* parent, const QString& _text,
-                                   const QString& _miniicon)
-    : QListViewItem(parent)
+NavigatorItem::NavigatorItem( DocEntry *entry, QListView *parent )
+  : QListViewItem( parent )
 {
-    init(_text, _miniicon);
+    init( entry );
 }
 
-NavigatorItem::NavigatorItem(QListViewItem* parent, const QString& _text,
-                                   const QString& _miniicon)
-    : QListViewItem(parent)
+NavigatorItem::NavigatorItem( DocEntry *entry, QListViewItem *parent )
+  : QListViewItem( parent )
 {
-    init(_text, _miniicon);
-}
-
-NavigatorItem::NavigatorItem(QListView* parent, QListViewItem* after,
-                                   const QString& _text,
-                                   const QString& _miniicon)
-    : QListViewItem(parent, after)
-{
-    init(_text, _miniicon);
-}
-
-NavigatorItem::NavigatorItem(QListViewItem* parent, QListViewItem* after,
-                                   const QString& _text,
-                                   const QString& _miniicon)
-    : QListViewItem(parent, after)
-{
-    init(_text, _miniicon);
-}
-
-void NavigatorItem::init()
-{
-    mToc = 0;
-}
-
-void NavigatorItem::init(const QString& text, const QString& icon)
-{
-    init();
-
-    setName( text );
-    setIcon( icon );
+  init( entry );
 }
 
 NavigatorItem::~NavigatorItem()
 {
-    delete mToc;
+  delete mToc;
+
+  if ( mAutoDeleteDocEntry ) delete mEntry;
 }
 
-void NavigatorItem::setName( const QString &_name )
+void NavigatorItem::init( DocEntry *entry )
 {
-    mName = _name;
-    setText( 0, mName );
+  mEntry = entry;
+  mAutoDeleteDocEntry = false;
+  mToc = 0;
+
+  updateItem();
 }
 
-void NavigatorItem::setUrl( const QString &_url )
+DocEntry *NavigatorItem::entry() const
 {
-    mUrl = _url;
+  return mEntry;
 }
 
-void NavigatorItem::setInfo( const QString &_info )
+void NavigatorItem::setAutoDeleteDocEntry( bool enabled )
 {
-    mInfo = _info;
+  mAutoDeleteDocEntry = enabled;
 }
 
-void NavigatorItem::setIcon( const QString &_icon )
+void NavigatorItem::updateItem()
 {
-    mIcon = _icon;
-    setPixmap( 0, SmallIcon( mIcon ) );
+  setText( 0, entry()->name() );
+  setPixmap( 0, SmallIcon( entry()->icon() ) );
 }
 
 TOC *NavigatorItem::createTOC()
@@ -115,4 +91,5 @@ TOC *NavigatorItem::createTOC()
     mToc = new TOC( this );
     return mToc;
 }
+
 // vim:ts=2:sw=2:et

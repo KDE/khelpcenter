@@ -17,8 +17,11 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
+
 #include "scrollkeepertreebuilder.h"
+
 #include "navigatoritem.h"
+#include "docentry.h"
 
 #include <kapplication.h>
 #include <kconfig.h>
@@ -116,9 +119,10 @@ int ScrollKeeperTreeBuilder::insertSection( NavigatorItem *parent,
                                             const QDomNode &sectNode,
                                             NavigatorItem *&sectItem )
 {
-  sectItem = new NavigatorItem( parent, after, "", "contents2" );
-  sectItem->setUrl("");
-  mItems.append(sectItem);
+  DocEntry *entry = new DocEntry( "", "", "contents2" );
+  sectItem = new NavigatorItem( entry, parent, after );
+  sectItem->setAutoDeleteDocEntry( true );
+  mItems.append( sectItem );
 
   int numDocs = 0;  // Number of docs created in this section
 
@@ -126,8 +130,9 @@ int ScrollKeeperTreeBuilder::insertSection( NavigatorItem *parent,
   while( !n.isNull() ) {
     QDomElement e = n.toElement();
     if( !e.isNull() ) {
-      if (e.tagName() == "title") {
-        sectItem->setText(0,e.text());
+      if ( e.tagName() == "title" ) {
+        entry->setName( e.text() );
+        sectItem->updateItem();
       } else if (e.tagName() == "sect") {
         NavigatorItem *created;
         numDocs += insertSection( sectItem, 0, e, created );
@@ -151,8 +156,10 @@ int ScrollKeeperTreeBuilder::insertSection( NavigatorItem *parent,
 void ScrollKeeperTreeBuilder::insertDoc( NavigatorItem *parent,
                                          const QDomNode &docNode )
 {
-  NavigatorItem *docItem = new NavigatorItem(parent,"","document2");
-  mItems.append(docItem);
+  DocEntry *entry = new DocEntry( "", "", "document2" );
+  NavigatorItem *docItem = new NavigatorItem( entry, parent );
+  docItem->setAutoDeleteDocEntry( true );
+  mItems.append( docItem );
 
   QString url;
 
@@ -160,30 +167,31 @@ void ScrollKeeperTreeBuilder::insertDoc( NavigatorItem *parent,
   while( !n.isNull() ) {
     QDomElement e = n.toElement();
     if( !e.isNull() ) {
-      if (e.tagName() == "doctitle") {
-        docItem->setText(0,e.text());
-      } else if (e.tagName() == "docsource") {
-        url.append(e.text());
-      } else if (e.tagName() == "docformat") {
+      if ( e.tagName() == "doctitle" ) {
+        entry->setName( e.text() );
+        docItem->updateItem();
+      } else if ( e.tagName() == "docsource" ) {
+        url.append( e.text() );
+      } else if ( e.tagName() == "docformat" ) {
         QString mimeType = e.text();
-        if (mimeType == "text/html") {
+        if ( mimeType == "text/html") {
           // Let the HTML part figure out how to get the doc
-        } else if (mimeType == "text/xml") {
+        } else if ( mimeType == "text/xml" ) {
           if ( url.left( 5 ) == "file:" ) url = url.mid( 5 );
           url.prepend( "ghelp:" );
           url.replace( QRegExp( ".xml$" ), ".html" );
-        } else if (mimeType == "text/sgml") {
+        } else if ( mimeType == "text/sgml" ) {
           // GNOME docs use this type. We don't have a real viewer for this.
-          url.prepend("file:");
-        } else if (mimeType.left(5) == "text/") {
-          url.prepend("file:");
+          url.prepend( "file:" );
+        } else if ( mimeType.left(5) == "text/" ) {
+          url.prepend( "file:" );
         }
       }
     }
     n = n.nextSibling();
   }
 
-  docItem->setUrl(url);
+  entry->setUrl( url );
 }
 
 #include "scrollkeepertreebuilder.moc"

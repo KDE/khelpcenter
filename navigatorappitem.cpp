@@ -17,41 +17,47 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
+#include "navigatorappitem.h"
+
+#include "docentry.h"
+
 #include <kdebug.h>
 #include <kservicegroup.h>
 
-#include "navigatorappitem.h"
-
 using namespace KHC;
 
-NavigatorAppItem::NavigatorAppItem(QListView *parent, QListViewItem *after)
- : NavigatorItem(parent, after),
- mPopulated( false )
+NavigatorAppItem::NavigatorAppItem( DocEntry *entry, QListView *parent,
+                  const QString &relPath )
+  : NavigatorItem( entry, parent ),
+    mRelpath( relPath ),
+    mPopulated( false )
 {
-  setExpandable(true);
+  setExpandable( true );
 }
 
-NavigatorAppItem::NavigatorAppItem(QListViewItem *parent, QListViewItem *after)
- : NavigatorItem(parent, after),
- mPopulated( false )
+NavigatorAppItem::NavigatorAppItem( DocEntry *entry, QListViewItem *parent,
+                  const QString &relPath )
+  : NavigatorItem( entry, parent ),
+    mRelpath( relPath ),
+    mPopulated( false )
 {
-  setExpandable(true);
+  setExpandable( true );
 }
 
-NavigatorAppItem::NavigatorAppItem (QListView* parent, const QString& text, const QString& miniicon, const QString& _relpath)
- : NavigatorItem(parent, text, miniicon)
- , mRelpath(_relpath),
- mPopulated( false )
+NavigatorAppItem::NavigatorAppItem( DocEntry *entry, QListView *parent,
+                  QListViewItem *after )
+  : NavigatorItem( entry, parent, after ),
+    mPopulated( false )
 {
-  setExpandable(true);
+  setExpandable( true );
 }
- 
-NavigatorAppItem::NavigatorAppItem (QListViewItem* parent, const QString& text, const QString& miniicon, const QString& _relpath)
- : NavigatorItem(parent, text, miniicon)
- , mRelpath(_relpath),
- mPopulated( false )
+
+NavigatorAppItem::NavigatorAppItem( DocEntry *entry, QListViewItem *parent,
+                  QListViewItem *after )
+  : NavigatorItem( entry, parent, after ),
+    mPopulated( false )
 {
-  setExpandable(true);
+  setExpandable( true );
 }
 
 void NavigatorAppItem::setRelpath( const QString &relpath )
@@ -72,54 +78,56 @@ void NavigatorAppItem::setOpen(bool open)
 
 void NavigatorAppItem::populate( bool recursive )
 {
-     if ( mPopulated )
-         return;
+  if ( mPopulated ) return;
 
-     KServiceGroup::Ptr root = KServiceGroup::group(mRelpath);
-     if (!root) {
-        kdWarning() << "No Service groups\n";
-        return;
-     }
-     KServiceGroup::List list = root->entries();
+  KServiceGroup::Ptr root = KServiceGroup::group(mRelpath);
+  if ( !root ) {
+    kdWarning() << "No Service groups\n";
+    return;
+  }
+  KServiceGroup::List list = root->entries();
 
 
-     for (KServiceGroup::List::ConstIterator it = list.begin(); it != list.end(); ++it)
-     {
-        KSycocaEntry * e = *it;
-        KService::Ptr s;
-        NavigatorItem *item;
-        KServiceGroup::Ptr g;
-        QString url;
+  for ( KServiceGroup::List::ConstIterator it = list.begin();
+        it != list.end(); ++it )
+  {
+    KSycocaEntry * e = *it;
+    KService::Ptr s;
+    NavigatorItem *item;
+    KServiceGroup::Ptr g;
+    QString url;
 
-        switch (e->sycocaType())
-	{
-	case KST_KService:
-              s = static_cast<KService*>(e);
-              url = documentationURL(s);
-              if (!url.isEmpty())
-              {
-                 item = new NavigatorItem(this, s->name(), s->icon());
-                 item->setUrl(url);
-                 item->setExpandable( true );
-              }
-              break;
-
-        case KST_KServiceGroup:
-              g = static_cast<KServiceGroup*>(e);
-              if ( (g->childCount() == 0 ) || g->name().startsWith("."))
-                 continue;
-              item = new NavigatorAppItem(this, g->caption(), g->icon(), g->relPath());
-              item->setUrl("");
-              if ( recursive )
-                static_cast<NavigatorAppItem *>( item )->populate( recursive );
-              break;
-
-        default:
-              break;
+    switch ( e->sycocaType() ) {
+      case KST_KService:
+      {
+        s = static_cast<KService*>(e);
+        url = documentationURL( s );
+        if ( !url.isEmpty() ) {
+          DocEntry *entry = new DocEntry( s->name(), url, s->icon() );
+          item = new NavigatorItem( entry, this );
+          item->setAutoDeleteDocEntry( true );
+          item->setExpandable( true );
         }
-     }
-     sortChildItems( 0, true /* ascending */ );
-     mPopulated = true;
+        break;
+      }
+      case KST_KServiceGroup:
+      {
+        g = static_cast<KServiceGroup*>(e);
+        if ( ( g->childCount() == 0 ) || g->name().startsWith( "." ) )
+          continue;
+        DocEntry *entry = new DocEntry( g->caption(), "", g->icon() );              
+        NavigatorAppItem *appItem;
+        appItem = new NavigatorAppItem( entry, this, g->relPath() );
+        appItem->setAutoDeleteDocEntry( true );
+        if ( recursive ) appItem->populate( recursive );
+        break;
+      }
+      default:
+        break;
+    }
+  }
+  sortChildItems( 0, true /* ascending */ );
+  mPopulated = true;
 }
 
 QString NavigatorAppItem::documentationURL( KService *s )

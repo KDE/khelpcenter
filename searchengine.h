@@ -17,7 +17,7 @@ class KHTMLPart;
 
 namespace KHC {
 
-class SearchFormatter;
+class Formatter;
 class SearchEngine;
 class View;
 
@@ -65,8 +65,8 @@ class SearchEngine : public QObject
     bool search( QString words, QString method = "and", int matches = 5,
                  QString scope = "" );
 
-    SearchFormatter *formatter(); 
-    View *view();
+    Formatter *formatter() const; 
+    View *view() const;
 
     QString substituteSearchQuery( const QString &query );
 
@@ -95,7 +95,6 @@ class SearchEngine : public QObject
     QString mStderr;
 
     View *mView;
-    SearchFormatter *mFormatter;
     
     QString mWords;
     int mMatches;

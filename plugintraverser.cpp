@@ -66,16 +66,16 @@ void PluginTraverser::process( DocEntry *entry )
     << ( mParentItem ? mParentItem->name() : "0" ) << ")" << endl;
 #endif
 
-  if (entry->khelpcenterSpecial() == "apps") {
+  if ( entry->khelpcenterSpecial() == "apps" ) {
     NavigatorAppItem *appItem;
+    entry->setIcon( "kmenu" );
     if ( mListView )
-      appItem = new NavigatorAppItem( mListView, mCurrentItem );
+      appItem = new NavigatorAppItem( entry, mListView, mCurrentItem );
     else
-      appItem = new NavigatorAppItem( mParentItem, mCurrentItem );
+      appItem = new NavigatorAppItem( entry, mParentItem, mCurrentItem );
     KConfig *cfg = kapp->config();
     cfg->setGroup( "General" );
     appItem->setRelpath( cfg->readPathEntry( "AppsRoot" ) );
-    appItem->setIcon( "kmenu" );
     mCurrentItem = appItem;
   } else if ( entry->khelpcenterSpecial() == "scrollkeeper" ) {
     if ( mParentItem ) {
@@ -84,9 +84,9 @@ void PluginTraverser::process( DocEntry *entry )
     return;
   } else {
     if ( mListView )
-      mCurrentItem = new NavigatorItem( mListView, mCurrentItem );
+      mCurrentItem = new NavigatorItem( entry, mListView, mCurrentItem );
     else
-      mCurrentItem = new NavigatorItem( mParentItem, mCurrentItem );
+      mCurrentItem = new NavigatorItem( entry, mParentItem, mCurrentItem );
 
     if (entry->khelpcenterSpecial() == "applets" ) {
       mNavigator->insertAppletDocs( mCurrentItem );
@@ -99,25 +99,6 @@ void PluginTraverser::process( DocEntry *entry )
     } else if ( entry->khelpcenterSpecial() == "info" ) {
       mCurrentItem->setPixmap( 0, SmallIcon( "contents2" ) );
       mNavigator->insertInfoDocs( mCurrentItem );
-    }
-  }
-
-  mCurrentItem->setName( entry->name() );
-  mCurrentItem->setUrl( entry->docPath() );
-
-  if ( mCurrentItem->icon().isNull() ) {
-    if ( !entry->docExists() ) {
-      mCurrentItem->setIcon( "unknown" );
-    } else {
-      if ( entry->icon().isEmpty() ) {
-        if ( entry->isDirectory() ) {
-          mCurrentItem->setIcon( "contents2" );
-        } else {
-          mCurrentItem->setIcon( "document2" );
-        }
-      } else {
-        mCurrentItem->setIcon( entry->icon() );
-      }
     }
   }
 }

@@ -1,5 +1,7 @@
 #include "view.h"
 
+#include "formatter.h"
+
 #include <dom/html_document.h>
 #include <dom/html_misc.h>
 #include <kapplication.h>
@@ -17,6 +19,11 @@ View::View( QWidget *parentWidget, const char *widgetName,
                   QObject *parent, const char *name, KHTMLPart::GUIProfile prof )
     : KHTMLPart( parentWidget, widgetName, parent, name, prof ), mState( Docu )
 {
+    mFormatter = new Formatter;
+    if ( !mFormatter->readTemplates() ) {
+      kdDebug() << "Unable to read Formatter templates." << endl;
+    }
+
     m_zoomStepping = 10;
 
     connect( this, SIGNAL( setWindowCaption( const QString & ) ),
@@ -35,6 +42,11 @@ View::View( QWidget *parentWidget, const char *widgetName,
     }
 
     view()->installEventFilter( this );
+}
+
+View::~View()
+{
+  delete mFormatter;
 }
 
 bool View::openURL( const KURL &url )

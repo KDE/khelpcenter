@@ -28,12 +28,12 @@ libkhelpcenter_common_la_LIBADD = $(LIB_KHTML)
 libkhelpcenter_common_la_SOURCES = navigator.cpp \
 	navigatoritem.cpp navigatorappitem.cpp view.cpp \
 	searchwidget.cpp klanguagebutton.cpp searchengine.cpp \
-	docmetainfo.cpp docentrytraverser.cpp searchformatter.cpp \
+	docmetainfo.cpp docentrytraverser.cpp formatter.cpp \
 	glossary.cpp toc.cpp mainwindow.cpp docentry.cpp htmlsearch.cpp \
 	history.cpp application.cpp searchwidget.skel treebuilder.cpp \
 	infotree.cpp  mainwindow.skel \
         kcmhelpcenter.cpp htmlsearchconfig.cpp kcmhelpcenter.skel \
-		fontdialog.cpp plugintraverser.cpp scrollkeepertreebuilder.cpp
+        fontdialog.cpp plugintraverser.cpp scrollkeepertreebuilder.cpp
 
 #kcm_helpcenter_la_LDFLAGS = $(KDE_RPATH) -module -avoid-version \
 #                            $(all_libraries) -no-undefined

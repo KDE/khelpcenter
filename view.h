@@ -12,12 +12,16 @@ namespace DOM {
 
 namespace KHC {
 
+class Formatter;
+
 class View : public KHTMLPart
 {
     Q_OBJECT
   public:
     View( QWidget *parentWidget, const char *widgetName,
-             QObject *parent, const char *name, KHTMLPart::GUIProfile prof );
+          QObject *parent, const char *name, KHTMLPart::GUIProfile prof );
+
+    ~View();
 
     virtual bool openURL( const KURL &url );
 
@@ -36,6 +40,8 @@ class View : public KHTMLPart
     void endSearchResult();
 
     int zoomStepping() const { return m_zoomStepping; }
+
+    Formatter *formatter() const { return mFormatter; }
 
   public slots:
     void lastSearch();
@@ -61,12 +67,12 @@ class View : public KHTMLPart
 
     QString mSearchResult;
     int m_zoomStepping;
+
+    Formatter *mFormatter;
 };
 
 }
 
 #endif
-/**
- * vim:et
- */
+
 // vim:ts=2:sw=2:et

@@ -17,8 +17,11 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
+
 #include "infotree.h"
+
 #include "navigatoritem.h"
+#include "docentry.h"
 
 #include <kapplication.h>
 #include <kconfig.h>
@@ -51,10 +54,11 @@ class InfoNodeItem : public NavigatorItem
 };
 
 InfoCategoryItem::InfoCategoryItem( NavigatorItem *parent, const QString &text )
-  : NavigatorItem( parent, text )
+  : NavigatorItem( new DocEntry( text ), parent )
 {
-//  kdDebug(1400) << "Got category: " << text << endl;
+  setAutoDeleteDocEntry( true );
   setOpen( false );
+//  kdDebug(1400) << "Got category: " << text << endl;
 }
 
 void InfoCategoryItem::setOpen( bool open )
@@ -66,14 +70,15 @@ void InfoCategoryItem::setOpen( bool open )
 }
 
 InfoNodeItem::InfoNodeItem( InfoCategoryItem *parent, const QString &text )
-  : NavigatorItem( parent, text )
+  : NavigatorItem( new DocEntry( text ), parent )
 {
+  setAutoDeleteDocEntry( true );
 //  kdDebug( 1400 ) << "Created info node item: " << text << endl;
 }
 
 InfoTree::InfoTree( QObject *parent, const char *name )
   : TreeBuilder( parent, name ),
-  m_parentItem( 0 )
+    m_parentItem( 0 )
 {
 }
 
@@ -83,8 +88,12 @@ void InfoTree::build( NavigatorItem *parent )
 
   m_parentItem = parent;
 
-  m_alphabItem = new NavigatorItem( parent, i18n( "Alphabetically" ) );
-  m_categoryItem = new NavigatorItem( parent, i18n( "By Category" ) );
+  DocEntry *entry = new DocEntry( i18n( "Alphabetically" ) );
+  m_alphabItem = new NavigatorItem( entry, parent );
+  m_alphabItem->setAutoDeleteDocEntry( true );
+  entry = new DocEntry( i18n( "By Category" ) );
+  m_categoryItem = new NavigatorItem( entry, parent );
+  m_categoryItem->setAutoDeleteDocEntry( true );
 
   KConfig *cfg = kapp->config();
   cfg->setGroup( "Info pages" );
@@ -150,7 +159,7 @@ void InfoTree::parseInfoDirFile( const QString &infoDirFileName )
           url += "/Top";
 
         InfoNodeItem *item = new InfoNodeItem( catItem, appName );
-        item->setUrl( url );
+        item->entry()->setUrl( url );
 
         InfoCategoryItem *alphabSection = 0;
         for ( QListViewItemIterator it( m_alphabItem ); it.current(); it++ ) {
@@ -164,7 +173,7 @@ void InfoTree::parseInfoDirFile( const QString &infoDirFileName )
           alphabSection = new InfoCategoryItem( m_alphabItem, appName[ 0 ].upper() );
 
         item = new InfoNodeItem( alphabSection, appName );
-        item->setUrl( url );
+        item->entry()->setUrl( url );
       }
     }
   }

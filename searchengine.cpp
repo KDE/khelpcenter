@@ -9,7 +9,7 @@
 #include <klocale.h>
 
 #include "docmetainfo.h"
-#include "searchformatter.h"
+#include "formatter.h"
 #include "view.h"
 
 #include "searchengine.h"
@@ -151,15 +151,12 @@ SearchEngine::SearchEngine( View *destination )
     mProc( 0 ), mSearchRunning( false ), mView( destination ),
     mRootTraverser( 0 )
 {
-  mFormatter = new SearchFormatter;
-
   mLang = KGlobal::locale()->language().left( 2 );
 }
 
 SearchEngine::~SearchEngine()
 {
   delete mRootTraverser;
-  delete mFormatter;
 }
 
 void SearchEngine::searchStdout(KProcess *, char *buffer, int len)
@@ -213,7 +210,7 @@ bool SearchEngine::search( QString _words, QString method, int matches,
     }
 
     mView->beginSearchResult();
-    mView->writeSearchResult( mFormatter->header() );
+    mView->writeSearchResult( formatter()->header( i18n("Search Results") ) );
 
     if ( mRootTraverser ) {
       kdDebug() << "SearchEngine::search(): mRootTraverser not null." << endl;
@@ -307,12 +304,12 @@ QString SearchEngine::substituteSearchQuery( const QString &query )
   return result;
 }
 
-SearchFormatter *SearchEngine::formatter()
+Formatter *SearchEngine::formatter() const
 {
-  return mFormatter;
+  return mView->formatter();
 }
 
-View *SearchEngine::view()
+View *SearchEngine::view() const
 {
   return mView;
 }

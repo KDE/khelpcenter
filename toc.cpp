@@ -17,7 +17,10 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
+
 #include "toc.h"
+
+#include "docentry.h"
 
 #include <kiconloader.h>
 #include <kprocess.h>
@@ -222,14 +225,15 @@ void TOC::slotItemSelected( QListViewItem *item )
 {
 	TOCItem *tocItem;
 	if ( ( tocItem = dynamic_cast<TOCItem *>( item ) ) )
-		emit itemSelected( tocItem->url() );
+		emit itemSelected( tocItem->entry()->url() );
 
 	item->setOpen( !item->isOpen() );
 }
 
 TOCItem::TOCItem( TOC *toc, QListViewItem *parentItem, QListViewItem *after, const QString &text )
-	: NavigatorItem( parentItem, after, text )
+	: NavigatorItem( new DocEntry( text ), parentItem, after )
 {
+        setAutoDeleteDocEntry( true );
 	m_toc = toc;
 }
 

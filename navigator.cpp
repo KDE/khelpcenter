@@ -67,14 +67,13 @@
 #include "plugintraverser.h"
 #include "scrollkeepertreebuilder.h"
 #include "kcmhelpcenter.h"
+#include "formatter.h"
+
+#include "navigator.h"
 
 using namespace KHC;
 
-#include "navigator.h"
-#include "navigator.moc"
-
-Navigator::Navigator( View *view, QWidget *parent,
-                                        const char *name )
+Navigator::Navigator( View *view, QWidget *parent, const char *name )
    : QWidget( parent, name ),
      mView( view )
 {
@@ -132,9 +131,14 @@ Navigator::~Navigator()
   delete mSearchEngine;
 }
 
-SearchEngine *Navigator::searchEngine()
+SearchEngine *Navigator::searchEngine() const
 {
   return mSearchEngine;
+}
+
+Formatter *Navigator::formatter() const
+{
+  return mView->formatter();
 }
 
 bool Navigator::showMissingDocs() const
@@ -225,12 +229,13 @@ void Navigator::insertIOSlaveDocs( const QString &name, NavigatorItem *topItem )
     QString docPath = KProtocolInfo::docPath(*it);
     if ( !docPath.isNull() ) 
     {
-      NavigatorItem *item = new NavigatorItem( topItem, *it );
       // First parameter is ignored if second is an absolute path
       KURL url(KURL("help:/"), docPath);
-      item->setUrl( url.url() );
       QString icon = KProtocolInfo::icon(*it);
-      item->setIcon( icon.isEmpty() ? "document2" : icon );
+      if ( icon.isEmpty() ) icon = "document2";
+      DocEntry *entry = new DocEntry( *it, url.url(), icon );
+      NavigatorItem *item = new NavigatorItem( entry, topItem );
+      item->setAutoDeleteDocEntry( true );
     }
   }
 #else
@@ -250,17 +255,19 @@ void Navigator::insertAppletDocs( NavigatorItem *topItem )
     createItemFromDesktopFile( topItem, appletDir.absPath() + "/" + *it );
 }
 
-void Navigator::createItemFromDesktopFile( NavigatorItem *topItem, const QString &file )
+void Navigator::createItemFromDesktopFile( NavigatorItem *topItem,
+                                           const QString &file )
 {
     KDesktopFile desktopFile( file );
     QString docPath = desktopFile.readDocPath();
     if ( !docPath.isNull() ) {
-      NavigatorItem *item = new NavigatorItem( topItem, desktopFile.readName() );
       // First parameter is ignored if second is an absolute path
       KURL url(KURL("help:/"), docPath);
-      item->setUrl( url.url() );
       QString icon = desktopFile.readIcon();
-      item->setIcon( icon.isNull() ? "document2" : icon );
+      if ( icon.isEmpty() ) icon = "document2";
+      DocEntry *entry = new DocEntry( desktopFile.readName(), url.url(), icon );
+      NavigatorItem *item = new NavigatorItem( entry, topItem );
+      item->setAutoDeleteDocEntry( true );
     }
 }
 
@@ -279,7 +286,9 @@ NavigatorItem *Navigator::insertScrollKeeperDocs( NavigatorItem *topItem,
 
 void Navigator::selectItem( const KURL &url )
 {
-  const KURL currentURL = static_cast<NavigatorItem *>( mContentsTree->currentItem() )->url();
+  NavigatorItem *item;
+  item = static_cast<NavigatorItem *>( mContentsTree->currentItem() );
+  KURL currentURL = item->entry()->url();
   if ( currentURL.prettyURL() == url.prettyURL() )
     return;
 
@@ -294,18 +303,18 @@ void Navigator::selectItem( const KURL &url )
 
   kdDebug() << "Navigator::selectItem(): " << url.url() << endl;
 
-    QListViewItemIterator it( mContentsTree );
-    while ( it.current() != 0 ) {
-      NavigatorItem *item = static_cast<NavigatorItem *>( it.current() );
-      KURL itemUrl( item->url() );
-      if ( itemUrl == url ) {
-        mContentsTree->setCurrentItem( item );
-        mContentsTree->ensureItemVisible( item );
-        slotItemSelected( item );
-        break;
-      }
-      ++it;
+  QListViewItemIterator it( mContentsTree );
+  while ( it.current() != 0 ) {
+    NavigatorItem *item = static_cast<NavigatorItem *>( it.current() );
+    KURL itemUrl( item->entry()->url() );
+    if ( itemUrl == url ) {
+      mContentsTree->setCurrentItem( item );
+      mContentsTree->ensureItemVisible( item );
+      slotItemSelected( item );
+      break;
     }
+    ++it;
+  }
 }
 
 void Navigator::clearSelection()
@@ -313,15 +322,15 @@ void Navigator::clearSelection()
   mContentsTree->clearSelection();
 }
 
-void Navigator::slotItemSelected(QListViewItem* currentItem)
+void Navigator::slotItemSelected( QListViewItem* currentItem )
 {
-  if (!currentItem)
-    return;
-  NavigatorItem *item = static_cast<NavigatorItem*>(currentItem);
+  if ( !currentItem ) return;
+  NavigatorItem *item = static_cast<NavigatorItem*>( currentItem );
 
-  kdDebug(1400) << "Navigator::slotItemSelected(): " << item->name() << endl;  
+  kdDebug(1400) << "Navigator::slotItemSelected(): " << item->entry()->name()
+                << endl;
 
-  if (item->childCount() > 0 || item->isExpandable())
+  if ( item->childCount() > 0 || item->isExpandable() )
     item->setOpen( !item->isOpen() );
 
 #if 0
@@ -349,15 +358,48 @@ void Navigator::slotItemSelected(QListViewItem* currentItem)
   }
 #endif
 
-  if (!item->url().isEmpty()) {
-    KURL u = item->url();
-    if ( u.protocol() == "help" ) {
-      kdDebug( 1400 ) << "slotItemSelected(): Got help URL " << item->url() << endl;
+  KURL url = item->entry()->url();
+
+  if ( url.protocol() == "khelpcenter" ) {
+    mView->begin();
+
+    QString t = formatter()->header( item->entry()->name() );
+    
+    t += "<h1>" + item->entry()->name() + "</h1>\n";
+    
+    QString info = item->entry()->info();
+    if ( !info.isEmpty() ) t += "<p>" + info + "</p>\n";
+    
+    if ( item->childCount() > 0 ) {
+      t += "<ul>\n";
+      QListViewItem *child = item->firstChild();
+      while ( child ) {
+        NavigatorItem *childItem = static_cast<NavigatorItem *>( child );
+        
+        t += "<li><a href=\"" + childItem->entry()->url() + "\">";
+        t += childItem->entry()->name() + "</a></li>\n";
+        
+        child = child->nextSibling();
+      }
+    }
+    
+    t += formatter()->footer();
+    
+//    kdDebug() << "HTML--" << endl << t << "--HTML" << endl;
+    
+    mView->write( t );
+    
+    mView->end();
+  } else {
+    if ( url.protocol() == "help" ) {
+      kdDebug( 1400 ) << "slotItemSelected(): Got help URL " << url.url()
+                      << endl;
       if ( !item->toc() ) {
         TOC *tocTree = item->createTOC();
-        kdDebug( 1400 ) << "slotItemSelected(): Trying to build TOC for " << item->name() << endl;
-        tocTree->setApplication( u.directory() );
-        QString doc = View::langLookup( u.path() );
+        kdDebug( 1400 ) << "slotItemSelected(): Trying to build TOC for "
+                        << item->entry()->name() << endl;
+        tocTree->setApplication( url.directory() );
+        QString doc = View::langLookup( url.path() );
         // Enforce the original .docbook version, in case langLookup returns a
         // cached version
         if ( !doc.isNull() ) {
@@ -371,7 +413,7 @@ void Navigator::slotItemSelected(QListViewItem* currentItem)
         }
       }
     }
-    emit itemSelected(item->url());
+    emit itemSelected( url.url() );
   }
 }
 
@@ -486,5 +528,6 @@ KURL Navigator::homeURL()
   return mHomeUrl;
 }
 
+#include "navigator.moc"
 
 // vim:ts=2:sw=2:et

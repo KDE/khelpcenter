@@ -226,9 +226,12 @@ void MainWindow::slotOpenURLRequest( const KURL &url,
 
     mNavigator->selectItem( url );
 
+    QString proto = url.protocol().lower();
+
+    if ( proto == "khelpcenter" ) return;
+
     bool own = false;
 
-    QString proto = url.protocol().lower();
     if ( proto == "help" || proto == "glossentry" || proto == "about" ||
          proto == "man" || proto == "info" || proto == "cgi" ||
          proto == "ghelp" )

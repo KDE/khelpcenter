@@ -5,15 +5,34 @@
 #include <kdesktopfile.h>
 #include <kurl.h>
 #include <kstandarddirs.h>
+#include <kapplication.h>
 
 #include "docentry.h"
 
 using namespace KHC;
 
-DocEntry::DocEntry() :
-  mWeight( 0 ), mSearchEnabled( false ), mDirectory( false ), mParent( 0 ),
-  mNextSibling( 0 )
+DocEntry::DocEntry()
 {
+  init();
+}
+
+DocEntry::DocEntry( const QString &name, const QString &url,
+                    const QString &icon )
+{
+  init();
+
+  mName = name;
+  mUrl = url;
+  mIcon = icon;
+}
+
+void DocEntry::init()
+{
+  mWeight = 0;
+  mSearchEnabled = false;
+  mDirectory = false;
+  mParent = 0;
+  mNextSibling = 0;
 }
 
 void DocEntry::setName( const QString &name )
@@ -43,7 +62,12 @@ void DocEntry::setIcon( const QString &icon )
 
 QString DocEntry::icon() const
 {
-  return mIcon;
+  if ( !mIcon.isEmpty() ) return mIcon;
+
+  if ( !docExists() ) return "unknown";
+
+  if ( isDirectory() ) return "contents2";
+  else return "document2";
 }
 
 void DocEntry::setUrl( const QString &url )
@@ -53,17 +77,11 @@ void DocEntry::setUrl( const QString &url )
 
 QString DocEntry::url() const
 {
-  return mUrl;
-}
+  if ( !mUrl.isEmpty() ) return mUrl;
 
-void DocEntry::setDocPath( const QString &docPath )
-{
-  mDocPath = docPath;
-}
+  if ( identifier().isEmpty() ) return QString::null;
 
-QString DocEntry::docPath() const
-{
-  return mDocPath;
+  return "khelpcenter:" + identifier();
 }
 
 void DocEntry::setInfo( const QString &info )
@@ -93,6 +111,7 @@ void DocEntry::setIdentifier( const QString &identifier )
 
 QString DocEntry::identifier() const
 {
+  if ( mIdentifier.isEmpty() ) mIdentifier = KApplication::randomString( 15 );
   return mIdentifier;
 }
 
@@ -178,8 +197,7 @@ bool DocEntry::readFromFile( const QString &fileName )
   mName = file.readName();
   mSearch = file.readEntry( "X-DOC-Search" );
   mIcon = file.readIcon();
-  mUrl = file.readURL();
-  mDocPath = file.readPathEntry( "DocPath" );
+  mUrl = file.readPathEntry( "DocPath" );
   mInfo = file.readEntry( "Info" );
   if ( mInfo.isNull() ) mInfo = file.readEntry( "Comment" );
   mLang = file.readEntry( "Lang" );
@@ -214,10 +232,10 @@ bool DocEntry::indexExists( const QString &indexDir )
   return QFile::exists( testFile );
 }
 
-bool DocEntry::docExists()
+bool DocEntry::docExists() const
 {
-  if ( !docPath().isEmpty() ) {
-    KURL docUrl( docPath() );
+  if ( !mUrl.isEmpty() ) {
+    KURL docUrl( mUrl );
     if ( docUrl.isLocalFile() && !KStandardDirs::exists( docUrl.path() ) ) {
 //      kdDebug(1400) << "URL not found: " << docUrl.url() << endl;
       return false;
@@ -303,7 +321,6 @@ void DocEntry::dump() const
   kdDebug() << "    <indextestfile>" << mIndexTestFile << "</indextestfile>" << endl;
   kdDebug() << "    <icon>" << mIcon << "</icon>" << endl;
   kdDebug() << "    <url>" << mUrl << "</url>" << endl;
-  kdDebug() << "    <docpath>" << mDocPath << "</docpath>" << endl;
   kdDebug() << "  </docentry>" << endl;
 }
 // vim:ts=2:sw=2:et
