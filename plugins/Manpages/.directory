@@ -1,5 +1,6 @@
 [KDE Desktop Entry]
 Name=Unix manual pages
+Name[sv]=Unix manualsidor
 
 DocPath=man:/
 
