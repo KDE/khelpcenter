@@ -3,6 +3,9 @@
 #include <kstandarddirs.h>
 #include <klocale.h>
 #include <kdebug.h>
+#include <khtmlview.h>
+#include <dom/html_document.h>
+#include <dom/html_misc.h>
 
 
 #include "view.h"
@@ -30,6 +33,8 @@ View::View( QWidget *parentWidget, const char *widgetName,
           preloadStyleSheet("help:/common/kde-default.css", stylesheet);
        }
     }
+
+    view()->installEventFilter( this );
 }
 
 bool View::openURL( const KURL &url )
@@ -189,6 +194,48 @@ void View::slotIncFontSizes()
 void View::slotDecFontSizes()
 {
   setZoomFactor( zoomFactor() - m_zoomStepping );
+}
+
+bool View::eventFilter( QObject *o, QEvent *e )
+{
+  if ( e->type() != QEvent::KeyPress )
+    return false;
+
+  QKeyEvent *ke = static_cast<QKeyEvent *>( e );
+  if ( ke->state() & Qt::ShiftButton && ke->key() == Key_Space ) {
+    const QScrollBar * const scrollBar = view()->verticalScrollBar();
+    if ( scrollBar->value() == scrollBar->minValue() ) {
+      const DOM::HTMLCollection links = htmlDocument().links();
+      const DOM::Node prevLinkNode = links.item( 0 );
+      openURL( urlFromLinkNode( prevLinkNode ) );
+      return true;
+    }
+  } else if ( ke->key() == Key_Space ) {
+    const QScrollBar * const scrollBar = view()->verticalScrollBar();
+    if ( scrollBar->value() == scrollBar->maxValue() ) {
+      const DOM::HTMLCollection links = htmlDocument().links();
+      const DOM::Node nextLinkNode = links.item( links.length() - 2 );
+      openURL( urlFromLinkNode( nextLinkNode ) );
+      return true;
+    }
+  }
+  return false;
+}
+
+KURL View::urlFromLinkNode( const DOM::Node &n ) const
+{
+  if ( n.nodeType() != DOM::Node::ELEMENT_NODE )
+    return KURL();
+
+  DOM::Element elem = static_cast<DOM::Element>( n );
+
+  QString link = baseURL().path();
+  link.truncate( link.findRev( '/' ) + 1 );
+  link += "/" + elem.getAttribute( "href" ).string();
+
+  KURL url = baseURL();
+  url.setPath( link );
+  return url;
 }
 
 // vim:ts=2:sw=2:et

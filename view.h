@@ -6,6 +6,10 @@
 #include "glossary.h"
 #include "navigator.h"
 
+namespace DOM {
+  class Node;
+}
+
 namespace KHC {
 
 class View : public KHTMLPart
@@ -41,11 +45,15 @@ class View : public KHTMLPart
   signals:
     void searchResultCacheAvailable();
 
+  protected:
+    bool eventFilter( QObject *o, QEvent *e );
+
   private slots:
     void setTitle( const QString &title );
 
   private:
     void showAboutPage();
+    KURL urlFromLinkNode( const DOM::Node &n ) const;
  
     int mState;
     QString mTitle;
