@@ -63,7 +63,6 @@
 #include "infohierarchymaker.h"
 #include "infonode.h"
 #include "searchengine.h"
-#include "view.h"
 #include "docmetainfo.h"
 #include "docentrytraverser.h"
 #include "glossary.h"

@@ -23,12 +23,7 @@
 
 #define INCLUDE_MENUITEM_DEF 1
 #include <qpainter.h>
-#include <qdrawutil.h>
-#include <qpixmap.h>
-#include <qiconset.h>
 #include <qpopupmenu.h>
-#include <qmenudata.h>
-#include <qstyle.h>
 
 #include <kdebug.h>
 

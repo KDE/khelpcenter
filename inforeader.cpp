@@ -23,7 +23,6 @@
 
 #include <kdebug.h>
 
-#include "infoconsts.h"
 
 #include "inforeader.h"
 

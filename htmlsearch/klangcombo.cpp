@@ -23,7 +23,6 @@
 
 #include <qiconset.h>
 
-#include <ksimpleconfig.h>
 #include <kstandarddirs.h>
 
 #include "klangcombo.h"

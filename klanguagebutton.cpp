@@ -23,8 +23,6 @@
 
 #define INCLUDE_MENUITEM_DEF
 #include <qpopupmenu.h>
-#include <qiconset.h>
-#include <ksimpleconfig.h>
 #include <kstandarddirs.h>
 
 #include "klanguagebutton.h"

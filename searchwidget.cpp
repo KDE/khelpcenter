@@ -24,31 +24,14 @@
 #include <errno.h>
 
 #include <qlabel.h>
-#include <qvbox.h>
 #include <qpushbutton.h>
 #include <qcombobox.h>
-#include <qgroupbox.h>
-#include <qlineedit.h>
-#include <qcheckbox.h>
 #include <qlayout.h>
-#include <qframe.h>
-#include <qimage.h>
-#include <qiconset.h>
-#include <qapplication.h>
-#include <qregexp.h>
-#include <qscrollview.h>
-#include <qwhatsthis.h>
-#include <qlistview.h>
 
-#include <kglobal.h>
-#include <kstandarddirs.h>
 #include <ksimpleconfig.h>
 #include <kapplication.h>
-#include <kprocess.h>
 #include <klocale.h>
-#include <kpixmap.h>
 #include <kdebug.h>
-#include <kmessagebox.h>
 #include <kiconloader.h>
 
 #include "scopeitem.h"

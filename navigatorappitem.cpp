@@ -18,7 +18,6 @@
  */
 
 #include <kdebug.h>
-#include <kservice.h>
 #include <kservicegroup.h>
 
 #include "navigatorappitem.h"

@@ -1,6 +1,4 @@
 #include <kdebug.h>
-#include <kstandarddirs.h>
-#include <klocale.h>
 #include <kconfig.h>
 
 #include "docentry.h"

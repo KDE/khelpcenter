@@ -21,7 +21,6 @@
 #include "mainwindow.h"
 
 #include <kcmdlineargs.h>
-#include <kuniqueapplication.h>
 
 using namespace KHC;
 
@@ -52,7 +51,6 @@ int Application::newInstance()
 #include "version.h"
 
 #include <kaboutdata.h>
-#include <klocale.h>
 
 static KCmdLineOptions options[] =
 {

@@ -1,4 +1,3 @@
-#include <qfile.h>
 #include <qregexp.h>
 #include <qfileinfo.h>
 

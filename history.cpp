@@ -28,8 +28,6 @@
 #include <kstdguiitem.h>
 #include <kstringhandler.h>
 
-#include <qdatastream.h>
-#include <qpopupmenu.h>
 
 
 using namespace KHC;

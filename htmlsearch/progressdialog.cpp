@@ -1,6 +1,5 @@
 #include <qlayout.h>
 #include <qlabel.h>
-#include <qpixmap.h>
 
 
 #include <klocale.h>

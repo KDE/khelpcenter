@@ -1,12 +1,9 @@
-#include <qtextstream.h>
-#include <qfile.h>
 #include <qfileinfo.h>
 
 #include <kstandarddirs.h>
 #include <klocale.h>
 #include <kdebug.h>
 
-#include "mainwindow.h"
 
 #include "view.h"
 #include "view.moc"

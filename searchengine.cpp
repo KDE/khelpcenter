@@ -1,14 +1,5 @@
 #include "stdlib.h"
-#include "glob.h"
 
-#include <qstring.h>
-#include <qstringlist.h>
-#include <qfile.h>
-#include <qwidget.h>
-#include <qregexp.h>
-#include <qdir.h>
-#include <qpixmapcache.h>
-#include <qtextstream.h>
 
 #include <kapplication.h>
 #include <kconfig.h>
@@ -16,8 +7,6 @@
 #include <kstandarddirs.h>
 #include <kprocess.h>
 #include <klocale.h>
-#include <khtml_part.h>
-#include <kio/job.h>
 
 #include "docmetainfo.h"
 #include "searchformatter.h"

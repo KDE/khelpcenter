@@ -34,7 +34,6 @@
 #include <kglobal.h>
 #include <kaboutdata.h>
 #include <kdialog.h>
-#include <kdebug.h>
 #include <kstandarddirs.h>
 #include <kprocess.h>
 #include <kapplication.h>

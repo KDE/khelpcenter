@@ -1,10 +1,4 @@
-#include <qstring.h>
-#include <qstringlist.h>
-#include <qfile.h>
-#include <qtextstream.h>
-#include <qwidget.h>
 #include <qregexp.h>
-#include <qprogressdialog.h>
 #include <qdir.h>
 #include <assert.h>
 

@@ -20,11 +20,9 @@
 
 #include "infofile.h"
 
-#include <kfilterbase.h>
 #include <kfilterdev.h>
 #include <kdebug.h>
 #include <qfile.h>
-#include <qtextstream.h>
 
 using namespace KHC;
 

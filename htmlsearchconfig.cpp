@@ -19,26 +19,14 @@
  */
 
 #include <qlayout.h>
-#include <qvbox.h>
-#include <qbuttongroup.h>
-#include <qgroupbox.h>
-#include <qfontmetrics.h>
-#include <qlineedit.h>
-#include <qcheckbox.h>
-#include <qframe.h>
-#include <qpushbutton.h>
 #include <qwhatsthis.h>
 
-#include <kconfig.h>
 #include <kdebug.h>
-#include <kglobal.h>
 #include <kstandarddirs.h>
 #include <klocale.h>
 #include <kurllabel.h>
 #include <kapplication.h>
-#include <klistbox.h>
 #include <kfiledialog.h>
-#include <kprocess.h>
 #include <kurlrequester.h>
 #include <klineedit.h>
 

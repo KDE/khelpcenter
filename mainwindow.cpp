@@ -22,40 +22,21 @@
 #include <stdlib.h>
 #include <assert.h>
 
-#include <qdir.h>
-#include <qfile.h>
-#include <qtextstream.h>
-#include <qtimer.h>
-#include <qlayout.h>
 #include <qsplitter.h>
-#include <qhbox.h>
 
-#include <kapplication.h>
 #include <kconfig.h>
 #include <dcopclient.h>
-#include <kglobal.h>
-#include <klocale.h>
-#include <kstandarddirs.h>
-#include <kcmdlineargs.h>
-#include <kpopupmenu.h>
-#include <kstringhandler.h>
 #include <kmimemagic.h>
 #include <krun.h>
 #include <kaboutdata.h>
 #include <kdebug.h>
-#include <kstdaction.h>
-#include <kstdguiitem.h>
 #include <khtmlview.h>
-#include <khtml_part.h>
 #include <kaction.h>
 #include <kstatusbar.h>
-#include <kdebugclasses.h>
 
-#include "version.h"
 
 #include "history.h"
 #include "view.h"
-#include "navigator.h"
 
 using namespace KHC;
 

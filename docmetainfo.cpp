@@ -1,12 +1,7 @@
-#include <qfile.h>
 #include <qregexp.h>
-#include <qfileinfo.h>
 
-#include <kconfig.h>
 #include <kdebug.h>
-#include <kdesktopfile.h>
 #include <kstandarddirs.h>
-#include <kglobal.h>
 #include <klocale.h>
 #include <ksimpleconfig.h>
 #include <kdebugclasses.h>

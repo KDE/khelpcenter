@@ -18,18 +18,10 @@
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#include <qlistview.h>
-#include <qstring.h>
-#include <qfile.h>
 
-#include <kapplication.h>
-#include <ksimpleconfig.h>
 #include <kdebug.h>
-#include <kstandarddirs.h>
-#include <kglobal.h>
 #include <kiconloader.h>
 
-#include "docmetainfo.h"
 #include "toc.h"
 
 #include "navigatoritem.h"

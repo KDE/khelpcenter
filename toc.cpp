@@ -20,14 +20,10 @@
 #include "toc.h"
 
 #include <kiconloader.h>
-#include <klistview.h>
-#include <klocale.h>
 #include <kprocess.h>
 #include <kstandarddirs.h>
 
-#include <qdom.h>
 #include <qfileinfo.h>
-#include <qheader.h>
 
 #include <sys/stat.h>
 

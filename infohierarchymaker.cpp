@@ -24,7 +24,6 @@
 
 #include <kdebug.h>
 
-#include "infoconsts.h"
 
 #include "infohierarchymaker.h"
 
