@@ -28,7 +28,7 @@ HTMLSearch::HTMLSearch()
 
 QString HTMLSearch::dataPath(QString _lang)
 {
-  return kapp->dirs()->saveLocation("data", QString("khelpcenter/%1").arg(_lang));
+    return kapp->dirs()->saveLocation("data", QString("khelpcenter/%1").arg(_lang));
 }
 
 
@@ -89,7 +89,7 @@ bool HTMLSearch::saveFilesList(QString _lang)
 bool HTMLSearch::createConfig(QString _lang)
 {
   QString fname = dataPath(_lang) + "/htdig.conf";
-  
+
   // locate the common dir
   QString wrapper = locate("data", QString("khelpcenter/%1/wrapper.html").arg(_lang));
   if (wrapper.isEmpty())
@@ -104,11 +104,41 @@ bool HTMLSearch::createConfig(QString _lang)
     return false;
   images = images.left(images.length() - 8);
 
-  QFile f(fname);
+  QString bad_words = i18n( "the\n"
+                            "and\n"
+                            "for\n"
+                            "with\n"
+                            "that\n"
+                            "this\n"
+                            "you\n"
+                            "are\n"
+                            "from\n"
+                            "will\n"
+                            "not\n"
+                            "was\n"
+                            "have\n"
+                            "your\n"
+                            "can\n"
+                            "all\n"
+                            "may\n"
+                            "it\n"
+                            "an\n"
+                            "of\n" );
+
+  QFile f;
+  f.setName( dataPath(_lang) + "/bad_words" );
   if (f.open(IO_WriteOnly))
-    {
+  {
+      QTextStream ts( &f );
+      ts << bad_words;
+      f.close();
+  }
+
+  f.setName(fname);
+  if (f.open(IO_WriteOnly))
+  {
       kdDebug() << "Writing config for " << _lang << " to " << fname << endl;
-      
+
       QTextStream ts(&f);
 
       ts << "database_dir:\t\t" << dataPath(_lang) << endl;
@@ -125,7 +155,7 @@ bool HTMLSearch::createConfig(QString _lang)
       ts << "search_results_wrapper:\t" << wrapper << "wrapper.html" << endl;
       ts << "nothing_found_file:\t" << wrapper << "nomatch.html" << endl;
       ts << "syntax_error_file:\t" << wrapper << "syntax.html" << endl;
-      ts << "bad_word_list:\t\t" << wrapper << "bad_words" << endl;
+      ts << "bad_word_list:\t\t" << wrapper << dataPath( _lang ) << "/bad_words" << endl;
 
       f.close();
       return true;
@@ -196,7 +226,7 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
 	      this, SLOT(htdigExited(KProcess *)));
 
       _htdigRunning = true;
-      
+
       // write out file
       QFile f(dataPath(_lang)+"/files");
       if (f.open(IO_WriteOnly))
@@ -219,10 +249,10 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
 	}
 
       // execute htdig
-      _proc->start(KProcess::NotifyOnExit, KProcess::Stdout);      
+      _proc->start(KProcess::NotifyOnExit, KProcess::Stdout);
       while (_htdigRunning && _proc->isRunning())
 	kapp->processEvents();
-      
+
       if (!_proc->normalExit() || _proc->exitStatus() != 0)
 	{
 	  delete _proc;
@@ -257,7 +287,7 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
 
   while (_htmergeRunning && _proc->isRunning())
     kapp->processEvents();
-  
+
   if (!_proc->normalExit() || _proc->exitStatus() != 0)
     {
       delete _proc;
@@ -280,7 +310,7 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
 void HTMLSearch::htdigStdout(KProcess *, char *buffer, int len)
 {
   QString line = QString(buffer).left(len);
-  
+
   int cnt=0, index=-1;
   while ( (index = line.find("http://", index+1)) > 0)
     cnt++;
@@ -357,9 +387,9 @@ QString HTMLSearch::search(QString _lang, QString words, QString method, int mat
 
   while (_htsearchRunning && _proc->isRunning())
     kapp->processEvents();
-  
+
   if (!_proc->normalExit() || _proc->exitStatus() != 0)
-    { 
+    {
       kdDebug() << "Error running htsearch... returning now" << endl;
       delete _proc;
       return QString::null;
