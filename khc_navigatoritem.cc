@@ -43,6 +43,20 @@ khcNavigatorItem::khcNavigatorItem(QListViewItem* parent, const QString& _text, 
     init(_text, _miniicon);
 }
 
+// ACHU
+khcNavigatorItem::khcNavigatorItem(QListView* parent, QListViewItem* after, const QString& _text, const QString& _miniicon)
+    : QListViewItem(parent, after)
+{
+    init(_text, _miniicon);
+}
+
+khcNavigatorItem::khcNavigatorItem(QListViewItem* parent, QListViewItem* after, const QString& _text, const QString& _miniicon)
+    : QListViewItem(parent, after)
+{
+    init(_text, _miniicon);
+}
+// END ACHU
+
 void khcNavigatorItem::init(const QString& _text, const QString& _miniicon)
 {
     name = _text;

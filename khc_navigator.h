@@ -29,12 +29,26 @@
 #include <qlistview.h>
 #include <kprocess.h>
 
+// ACHU
+#include <regex.h>
+#include <qfile.h>
+#include <qtextstream.h>
+#include <qtimer.h>
+#include <map>
+//#include "khc_infohierarchymaker.h"
+//#include "khc_infonode.h"
+// END ACHU
+
 class SearchWidget;
 class khcNavigatorItem;
 class khcNavigator;
 class KListView;
 class KService;
 class KProcIO;
+// ACHU
+class khcInfoNode;
+class khcInfoHierarchyMaker;
+//END ACHU
 
 class SectionItem : public QListViewItem
 {
@@ -99,6 +113,11 @@ class khcNavigatorWidget : public QTabWidget
  public slots:
     void slotURLSelected(QString url);
     void slotItemSelected(QListViewItem* index);
+    // ACHU
+    void slotItemExpanded(QListViewItem* index);
+    void slotInfoHierarchyCreated(uint key, uint nErrorCode, const khcInfoNode* pRootNode);
+    void slotCleanHierarchyMakers();
+    // END ACHU
     void slotGlossaryItemSelected(QListViewItem* item);
     void slotReloadTree();
 
@@ -111,6 +130,11 @@ class khcNavigatorWidget : public QTabWidget
     void getScrollKeeperContentsList(KProcIO *proc);
     void gotMeinprocOutput(KProcess *, char *data, int len);
     void meinprocExited(KProcess *);
+    //ACHU
+    /* Cog-wheel animation handling -- enable after creating the icons
+    void slotAnimation();
+    */
+    // END ACHU
 
  private:
     void setupContentsTab();
@@ -121,6 +145,14 @@ class khcNavigatorWidget : public QTabWidget
     void buildTree();
     void clearTree();
     QString langLookup(const QString &);
+
+    // ACHU
+    void buildInfoSubTree(khcNavigatorItem *parent);
+    QString findInfoDirFile();
+    bool readInfoDirFile(QString& sFileContents);
+    bool parseInfoSubjectLine(QString sLine, QString& sItemTitle, QString& sItemURL);
+    void addChildren(const khcInfoNode* pParentNode, khcNavigatorItem* pParentTreeItem);
+    // END ACHU
 
     void buildManSubTree(khcNavigatorItem *parent);
 
@@ -140,6 +172,34 @@ class khcNavigatorWidget : public QTabWidget
     // SearchWidget *search;
 
     QList<khcNavigatorItem> staticItems, manualItems, pluginItems, scrollKeeperItems;
+
+    // ACHU
+    regex_t compInfoRegEx;
+    map<khcNavigatorItem*, khcInfoHierarchyMaker*> hierarchyMakers;
+    QTimer cleaningTimer;
+    // END ACHU
+
+    // ACHU
+    /* Cog-wheel animation handling -- enable after creating the icons
+    struct AnimationInfo
+    {
+        AnimationInfo( const char * _iconBaseName, uint _iconCount, const QPixmap & _originalPixmap )
+            : iconBaseName(_iconBaseName), iconCount(_iconCount), iconNumber(1), originalPixmap(_originalPixmap) {}
+        AnimationInfo() : iconCount(0) {}
+        QCString iconBaseName;
+        uint iconCount;
+        uint iconNumber;
+        QPixmap originalPixmap;
+    };
+    typedef QMap<khcNavigatorItem *, AnimationInfo> MapCurrentOpeningSubjects;
+    MapCurrentOpeningSubjects m_mapCurrentOpeningSubjects;
+
+    QTimer *m_animationTimer;
+
+    void startAnimation(khcNavigatorItem * item, const char * iconBaseName = "kde", uint iconCount = 6);
+    void stopAnimation(khcNavigatorItem * item);
+    */
+    // END ACHU
 
     bool mScrollKeeperShowEmptyDirs;
     QString mScrollKeeperContentsList;

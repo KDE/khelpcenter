@@ -22,6 +22,11 @@
 #include "khc_navigatoritem.h"
 // #include "khc_searchwidget.h"
 #include "khc_factory.h"
+// ACHU
+#include "khc_infoconsts.h"
+#include "khc_infohierarchymaker.h"
+#include "khc_infonode.h"
+// END ACHU
 
 #include <qdir.h>
 #include <qfile.h>
@@ -118,11 +123,39 @@ khcNavigatorWidget::khcNavigatorWidget(QWidget *parent, const char *name)
     // setupSearchTab();
     setupGlossaryTab();
 
+    // ACHU
+    // compiling the regex used while parsing the info directory (dir) file
+    int nResult = regcomp(&compInfoRegEx, "^\\* ([^:]+)\\: \\(([^)]+)\\)([[:space:]]|(([^.]*)\\.)).*$", REG_EXTENDED);
+    ASSERT(!nResult);
+
+    // set up the timer which produces signals every 30 sec. The cleanHierarchyMakers function
+    // checks entries in the hierarchyMakers map and deletes these which have already finished work.
+    connect(&cleaningTimer, SIGNAL(timeout()), this, SLOT(slotCleanHierarchyMakers()));
+    cleaningTimer.start(30000);
+
+    /* Cog-wheel animation handling -- enable after creating the icons
+    m_animationTimer = new QTimer( this );
+    connect( m_animationTimer, SIGNAL( timeout() ), this, SLOT( slotAnimation() ) );
+    */
+    // END ACHU
+
     buildTree();
 }
 
 khcNavigatorWidget::~khcNavigatorWidget()
 {
+  // ACHU
+  for (map<khcNavigatorItem*, khcInfoHierarchyMaker*>::iterator it = hierarchyMakers.begin();
+       it != hierarchyMakers.end(); )
+  {
+    map<khcNavigatorItem*, khcInfoHierarchyMaker*>::iterator copyIt(it);
+    it++;
+    delete copyIt->second;
+    hierarchyMakers.erase(copyIt);
+  }
+  
+  regfree(&compInfoRegEx);
+  // END ACHU
 }
 
 void khcNavigatorWidget::setupContentsTab()
@@ -136,6 +169,11 @@ void khcNavigatorWidget::setupContentsTab()
     contentsTree->setSorting(-1, false);
     connect(contentsTree, SIGNAL(executed(QListViewItem*)), this,
 	    SLOT(slotItemSelected(QListViewItem*)));
+    // ACHU
+    connect(contentsTree, SIGNAL(expanded(QListViewItem*)),this,
+	    SLOT(slotItemExpanded(QListViewItem*)));
+    // END ACHU
+
 
     addTab(contentsTree, i18n("Contents"));
 }
@@ -273,6 +311,11 @@ void khcNavigatorWidget::buildTree()
   ti_info->setURL(QString("info:/dir"));
   staticItems.append(ti_info);
 
+  // ACHU
+  // fill the info pages subtree
+  buildInfoSubTree(ti_info);
+  // END ACHU
+
   // unix man pages
   khcNavigatorItem *ti_man = new khcNavigatorItem(contentsTree, i18n("Unix manual pages"),"document2");
   ti_man->setURL(QString("man:/(index)"));
@@ -323,6 +366,134 @@ void khcNavigatorWidget::clearTree()
     while(!scrollKeeperItems.isEmpty())
 	scrollKeeperItems.removeFirst();
 }
+
+// ACHU
+void khcNavigatorWidget::buildInfoSubTree(khcNavigatorItem *parent)
+{
+  QString dirContents;
+  if (!readInfoDirFile(dirContents))
+    return;
+
+  // actual processing...
+  QRegExp reSectionHdr("^[A-Za-z0-9]");
+  QTextStream stream(&dirContents, IO_ReadOnly);
+  QString sLine;
+
+  sLine = stream.readLine();
+  while (!sLine.isNull())
+  {
+    if (sLine == "* Menu: ")
+    {
+      // will point to the last added section item
+      khcNavigatorItem* pLastSection = 0;
+
+      sLine = stream.readLine();
+      while (!sLine.isNull())
+      {
+	if (reSectionHdr.find(sLine, 0) == 0)
+	{
+	  // add the section header
+	  khcNavigatorItem* pSectionRoot = new khcNavigatorItem(parent, pLastSection, sLine, "contents2");
+	  pSectionRoot->setURL("");
+
+	  // will point to the last added subitem
+	  khcNavigatorItem* pLastChild = 0;
+
+	  sLine = stream.readLine();
+	  while (!sLine.isNull())
+	  {
+	    if (sLine.startsWith("* "))
+	    {
+	      QString sItemTitle, sItemURL;
+	      if (parseInfoSubjectLine(sLine, sItemTitle, sItemURL))
+	      {
+		// add subject's root node
+		khcNavigatorItem *pItem = new khcNavigatorItem(pSectionRoot, pLastChild, sItemTitle, "document2");
+		pItem->setURL(sItemURL);
+		pItem->setExpandable(true);
+		staticItems.append(pItem);
+		pLastChild = pItem;
+	      }
+	    }
+	    else if (sLine.isEmpty())
+	      break; // go to the next section
+	    sLine = stream.readLine();
+	  }
+
+	  if (pSectionRoot->childCount() > 0)
+	  {
+	    staticItems.append(pSectionRoot);
+	    pLastSection = pSectionRoot;
+	  }
+	  else
+	    delete pSectionRoot;
+	}
+	sLine = stream.readLine();
+      }
+    }
+    sLine = stream.readLine();
+  }
+}
+
+QString khcNavigatorWidget::findInfoDirFile()
+{
+  for (uint i = 0; i < INFODIRS; i++)
+    if (QFile::exists(INFODIR[i] + "dir"))
+      return INFODIR[i] + "dir";
+  return QString();
+}
+
+bool khcNavigatorWidget::readInfoDirFile(QString& sFileContents)
+{
+  const QString dirPath = findInfoDirFile();
+  if (dirPath.isEmpty())
+  {
+    kdWarning() << "Info directory (dir) file not found." << endl;
+    return false;
+  }
+
+  QFile file(dirPath);
+  if (!file.open(IO_ReadOnly))
+  {
+    kdWarning() << "Cannot open info directory (dir) file." << endl;
+    return false;
+  }
+
+  QTextStream stream(&file);
+  sFileContents = stream.read();
+
+  file.close();
+  return true;
+}
+
+bool khcNavigatorWidget::parseInfoSubjectLine(QString sLine, QString& sItemTitle, QString& sItemURL)
+{
+  regmatch_t* pRegMatch = new regmatch_t[compInfoRegEx.re_nsub + 1];
+  CHECK_PTR(pRegMatch);
+
+  int nResult = regexec(&compInfoRegEx, sLine.latin1(),
+			compInfoRegEx.re_nsub + 1, pRegMatch, 0);
+  if (nResult)
+  {
+    kdWarning() << "Could not parse line \'" << sLine << "\' from the info directory (dir) file; regexec() returned " <<
+      nResult << "." << endl;
+    delete[] pRegMatch;
+    return false;
+  }
+
+  ASSERT(pRegMatch[0].rm_so == 0 && pRegMatch[0].rm_eo == sLine.length());
+
+  sItemTitle = sLine.mid(pRegMatch[1].rm_so, pRegMatch[1].rm_eo - pRegMatch[1].rm_so);
+  sItemURL = "info:/" + sLine.mid(pRegMatch[2].rm_so, pRegMatch[2].rm_eo - pRegMatch[2].rm_so);
+  if (pRegMatch[5].rm_eo - pRegMatch[5].rm_so > 0) // it isn't the main node
+    sItemURL += "/" + sLine.mid(pRegMatch[5].rm_so, pRegMatch[5].rm_eo - pRegMatch[5].rm_so);
+
+  //   kdDebug() << "title: " << sItemTitle << "; url: " << sItemURL << endl;
+
+  delete[] pRegMatch;
+  return true;
+}
+// END ACHU
 
 void khcNavigatorWidget::buildManSubTree(khcNavigatorItem *parent)
 {
@@ -606,7 +777,9 @@ void khcNavigatorWidget::slotItemSelected(QListViewItem* currentItem)
     return;
   khcNavigatorItem *item = static_cast<khcNavigatorItem*>(currentItem);
 
-  if (item->childCount() > 0)
+  // ACHU - change!
+  if (item->childCount() > 0 || item->isExpandable())
+    // END ACHU
     {
       if (item->isOpen())
         item->setOpen(false);
@@ -659,6 +832,190 @@ void khcNavigatorWidget::slotItemSelected(QListViewItem* currentItem)
 	}
     }
 }
+
+// ACHU
+void khcNavigatorWidget::slotItemExpanded(QListViewItem* index)
+{
+  if (!index)
+    return;
+
+  QListViewItem* parent;
+  if (parent = index->parent()) // it _is_ an assignment, not a comparison !
+    if (parent = parent->parent()) // it _is_ an assignment, not a comparison !
+      // item is at least on the third level of the tree
+      if (parent->text(0) == i18n("Browse info pages") && index->childCount() == 0)
+	// it is an unexpanded info subject's root node. Let's check if we are have already started to create the hierarchy.
+      {
+	khcNavigatorItem* item = static_cast<khcNavigatorItem*>(index);
+  	// const QString itemName(item->getName());
+	if (hierarchyMakers.find(item) == hierarchyMakers.end())
+	  // no. We must create one.
+	{
+	  khcInfoHierarchyMaker* pMaker = new khcInfoHierarchyMaker;
+	  CHECK_PTR(pMaker);
+	  hierarchyMakers[item] = pMaker;
+
+	  QString sURL = item->getURL();
+	  ASSERT(!sURL.isEmpty());
+
+	  regex_t reInfoURL;
+	  int nResult = regcomp(&reInfoURL, "^info:/([^/]*)(/(.*))?$", REG_EXTENDED);
+	  ASSERT(!nResult);
+	  ASSERT(reInfoURL.re_nsub == 3);
+
+	  regmatch_t regMatch[4];
+
+	  nResult = regexec(&reInfoURL, sURL.latin1(), reInfoURL.re_nsub + 1, regMatch, 0);
+	  if (nResult)
+	  {
+	    kdWarning() << "Could not parse URL \'" << sURL << "\'; regexec() returned " << nResult << "." << endl;
+	    hierarchyMakers.erase(item);
+	    item->setExpandable(false);
+	    return;
+	  }
+	  
+	  ASSERT(regMatch[0].rm_so == 0 && regMatch[0].rm_eo == sURL.length());
+
+	  QString sTopic = sURL.mid(regMatch[1].rm_so, regMatch[1].rm_eo - regMatch[1].rm_so);
+	  QString sNode = sURL.mid(regMatch[3].rm_so, regMatch[3].rm_eo - regMatch[3].rm_so);
+
+	  kdDebug() << "sTopic: \'" << sTopic << "\'; sNode: \'" << sNode << "\'" << endl; 
+
+	  // begin creating hierarchy!
+
+	  /* Cog-wheel animation handling -- enable after creating the icons
+	     startAnimation(item);
+	  */
+	  connect(pMaker, SIGNAL(hierarchyCreated(uint, uint, const khcInfoNode*)),
+		  SLOT(slotInfoHierarchyCreated(uint, uint, const khcInfoNode*)));
+	  pMaker->createHierarchy((uint) item, sTopic, sNode);
+
+	  regfree(&reInfoURL);
+	}
+	else
+	  kdDebug() << "Hierarchy creation already in progress..." << endl;
+      }
+}
+
+void khcNavigatorWidget::slotInfoHierarchyCreated(uint key, uint nErrorCode, const khcInfoNode* pRootNode)
+{
+  ASSERT(key);
+  khcNavigatorItem* pItem = (khcNavigatorItem*) key;
+
+  kdDebug() << "Info hierarchy for subject \'" << pItem->getName() << "\'created! Result: " << nErrorCode << endl;
+  
+  if (!nErrorCode)
+  {
+    if (pRootNode->m_lChildren.empty())
+      // "Hierarchy" consists of only one element (pRootNode has no children)
+    {
+      pItem->setExpandable(false);
+      pItem->repaint();
+    }
+    else
+      addChildren(pRootNode, pItem);
+    /* Cog-wheel animation handling -- enable after creating the icons
+    stopAnimation(pItem);
+    */
+  }
+  else
+  {
+    /* Cog-wheel animation handling -- enable after creating the icons
+    stopAnimation(pItem);
+    */
+
+    QString sErrMsg;
+    switch (nErrorCode)
+    {
+    case ERR_FILE_UNAVAILABLE:
+      sErrMsg = i18n("One or more files containing info nodes belonging to the subject\'") +
+	pItem->getName() + i18n("\' do(es) not exist.");
+      break;
+    case ERR_NO_HIERARCHY:
+      sErrMsg = i18n("Info nodes belonging to the subject \'") + pItem->getName() +
+	i18n("\' seem to be not ordered in a hierarchy.");
+      break;
+    default:
+      sErrMsg = i18n("An unknown error occured while creating the hierarchy of info nodes belonging to the subject\'") +
+	pItem->getName() + "\'.";
+    }
+    KMessageBox::sorry(0, sErrMsg, i18n("Cannot create hierarchy of info nodes"));
+    pItem->setExpandable(false);
+    pItem->repaint();
+  }
+}
+
+void khcNavigatorWidget::addChildren(const khcInfoNode* pParentNode, khcNavigatorItem* pParentTreeItem)
+{
+  khcNavigatorItem* pLastChild = 0;
+  for (list<khcInfoNode*>::const_iterator it = pParentNode->m_lChildren.begin();
+       it != pParentNode->m_lChildren.end(); ++it)
+  {
+    //    khcNavigatorItem *pItem = new khcNavigatorItem(pParentTreeItem, pLastChild, (*it)->m_sTitle, "document2");
+    khcNavigatorItem *pItem = new khcNavigatorItem(pParentTreeItem, pLastChild,
+						   (*it)->m_sTitle.isEmpty() ? (*it)->m_sName : (*it)->m_sTitle, "document2");
+    pItem->setURL("info:/" + (*it)->m_sTopic + "/" + (*it)->m_sName);
+    staticItems.append(pItem);
+    pLastChild = pItem;
+
+    addChildren(*it, pItem);
+  }
+}
+
+void khcNavigatorWidget::slotCleanHierarchyMakers()
+{
+  kdDebug() << "--- slotCleanHierarchyMakers ---" << endl;
+  for (map<khcNavigatorItem*, khcInfoHierarchyMaker*>::iterator it = hierarchyMakers.begin();
+       it != hierarchyMakers.end(); )
+  {
+    map<khcNavigatorItem*, khcInfoHierarchyMaker*>::iterator copyIt(it);
+    it++;
+    if (!copyIt->second->isWorking())
+    {
+      kdDebug() << "Deleting a not-working hierarchy maker..." << endl;
+      delete copyIt->second;
+    }
+    hierarchyMakers.erase(copyIt);
+  }
+}
+
+/* Cog-wheel animation handling -- enable after creating the icons
+void khcNavigatorWidget::slotAnimation()
+{
+    MapCurrentOpeningSubjects::Iterator it = m_mapCurrentOpeningSubjects.begin();
+    MapCurrentOpeningSubjects::Iterator end = m_mapCurrentOpeningSubjects.end();
+    for (; it != end; ++it )
+    {
+        uint & iconNumber = it.data().iconNumber;
+        QString icon = QString::fromLatin1( it.data().iconBaseName ).append( QString::number( iconNumber ) );
+        it.key()->setPixmap( 0, SmallIcon( icon, KHCFactory::instance() ) );
+
+        iconNumber++;
+        if ( iconNumber > it.data().iconCount )
+            iconNumber = 1;
+    }
+}
+
+void khcNavigatorWidget::startAnimation( khcNavigatorItem * item, const char * iconBaseName, uint iconCount )
+{
+    m_mapCurrentOpeningSubjects.insert( item, AnimationInfo( iconBaseName, iconCount, *item->pixmap(0) ) );
+    if ( !m_animationTimer->isActive() )
+        m_animationTimer->start( 50 );
+}
+
+void khcNavigatorWidget::stopAnimation( khcNavigatorItem * item )
+{
+    MapCurrentOpeningSubjects::Iterator it = m_mapCurrentOpeningSubjects.find(item);
+    if ( it != m_mapCurrentOpeningSubjects.end() )
+    {
+        item->setPixmap( 0, it.data().originalPixmap );
+        m_mapCurrentOpeningSubjects.remove( item );
+    }
+    if (m_mapCurrentOpeningSubjects.isEmpty())
+        m_animationTimer->stop();
+}
+*/
+// END ACHU
 
 bool khcNavigatorWidget::appendEntries(const QString &dirName, khcNavigatorItem *parent, QList<khcNavigatorItem> *appendList)
 {

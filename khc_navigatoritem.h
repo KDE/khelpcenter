@@ -28,6 +28,12 @@ class khcNavigatorItem : public QListViewItem
  public:
     khcNavigatorItem (QListView* parent, const QString& text = QString::null, const QString& miniicon = QString::null);
     khcNavigatorItem (QListViewItem* parent, const QString& text = QString::null, const QString& miniicon = QString::null);
+    // ACHU
+    khcNavigatorItem (QListView* parent, QListViewItem* after,
+		      const QString& text = QString::null, const QString& miniicon = QString::null);
+    khcNavigatorItem (QListViewItem* parent, QListViewItem* after,
+		      const QString& text = QString::null, const QString& miniicon = QString::null);
+    // END ACHU
     bool readKDElnk (const QString &filename);
     void setName(QString _name);
     void setURL(QString _url);
