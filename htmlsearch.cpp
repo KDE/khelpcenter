@@ -29,7 +29,7 @@ void HTMLSearch::setupDocEntry( KHC::DocEntry *entry )
   if ( entry->indexTestFile().isEmpty() )
     entry->setIndexTestFile( defaultIndexTestFile( entry ) );
 
-  entry->dump();
+//  entry->dump();
 }
 
 QString HTMLSearch::defaultSearch( KHC::DocEntry *entry )

@@ -67,6 +67,8 @@ class Navigator : public QWidget
     void insertAppletDocs( NavigatorItem *parent );
     void createItemFromDesktopFile( NavigatorItem *item, const QString &name );
 
+    bool showMissingDocs() const;
+
   public slots:
     void slotURLSelected(QString url);
     void slotItemSelected(QListViewItem* index);
@@ -157,6 +159,8 @@ class Navigator : public QWidget
 
     bool mScrollKeeperShowEmptyDirs;
     QString mScrollKeeperContentsList;
+    
+    bool mShowMissingDocs;
     
     SearchEngine *mSearchEngine;
 

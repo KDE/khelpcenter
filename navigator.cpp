@@ -83,6 +83,9 @@ Navigator::Navigator( View *view, QWidget *parent,
     KConfig *config = kapp->config();
     config->setGroup("ScrollKeeper");
     mScrollKeeperShowEmptyDirs = config->readBoolEntry("ShowEmptyDirs",false);
+    
+    config->setGroup("General");
+    mShowMissingDocs = config->readBoolEntry("ShowMissingDocs",false);
 
     QStringList languages = KGlobal::locale()->languagesTwoAlpha();
 
@@ -154,6 +157,11 @@ Navigator::~Navigator()
   regfree(&compInfoRegEx);
 
   delete mSearchEngine;
+}
+
+bool Navigator::showMissingDocs() const
+{
+  return mShowMissingDocs;
 }
 
 void Navigator::setupContentsTab()
@@ -364,6 +372,17 @@ class PluginTraverser : public DocEntryTraverser
         return;
       }
 
+      bool missing = false;
+      QString docPath = entry->docPath();
+      if ( !docPath.isEmpty() ) {
+        KURL docUrl( docPath );
+        if ( docUrl.isLocalFile() && !KStandardDirs::exists( docUrl.path() ) ) {
+          missing = true;
+        }
+      }
+
+      if ( missing & !mNavigator->showMissingDocs() ) return;
+
       if (entry->khelpcenterSpecial() == "apps") {
         if ( mListView )
           mCurrentItem = new NavigatorAppItem( mListView, mCurrentItem );
@@ -389,14 +408,19 @@ class PluginTraverser : public DocEntryTraverser
 
       mCurrentItem->setName( entry->name() );
       mCurrentItem->setUrl( entry->docPath() );
-      if ( entry->icon().isEmpty() ) {
-        if ( entry->isDirectory() ) {
-          mCurrentItem->setIcon( "contents2" );
-        } else {
-          mCurrentItem->setIcon( "document2" );
-        }
+      
+      if ( missing ) {
+        mCurrentItem->setIcon( "unknown" );
       } else {
-        mCurrentItem->setIcon( entry->icon() );
+        if ( entry->icon().isEmpty() ) {
+          if ( entry->isDirectory() ) {
+            mCurrentItem->setIcon( "contents2" );
+          } else {
+            mCurrentItem->setIcon( "document2" );
+          }
+        } else {
+          mCurrentItem->setIcon( entry->icon() );
+        }
       }
     }
 
