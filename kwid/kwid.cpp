@@ -80,7 +80,7 @@ void KWidgetIdentification::getIdentifierByUser( char *caption )
 		if( searchWindow( window, x, y, caption ) == 1 )
 		{
 		} else {
-			caption = "";
+			caption[0] = 0;
 		}
 	}
 }
