@@ -416,6 +416,8 @@ void Navigator::showOverview( NavigatorItem *item, const KURL &url )
   
     childCount = item->childCount();
   } else {
+    t += formatter()->header( i18n("Start Page") );
+  
     childCount = mContentsTree->childCount();
   }
 
