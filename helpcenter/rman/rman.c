@@ -390,7 +390,7 @@ void casify(char *p) {
 			/* check for exceptions */
 			for (q=p; *q && !isspace(*q); q++) /*nada*/;
 			tmpch = *q; *q='\0';
-			exp = (char **)bsearch(&p, lcexceptions, lcexceptionslen, sizeof(char *), lcexceptionscmp);
+			exp = (char **)bsearch(&p, lcexceptions, lcexceptionslen, sizeof(char *), (int (*)(const void *, const void *))(lcexceptionscmp));
 			*q = tmpch;
 			if (exp!=NULL) {
 				for (q=*exp; *q; q++) *p++=*q;
@@ -4636,7 +4636,8 @@ source_command(char *p) {
   } else if (fTclTk && checkcmd("OP")) {
     source_struct(BEGINBODY);
     for (i=0; i<3; i++) {
-	 if (fcharout) { source_out(tcltkOP[i]); source_out(": "); }
+	 char *tmp = ": ";
+	 if (fcharout) { source_out((char*)tcltkOP[i]); source_out(tmp); }
 	 stagadd(BEGINBOLD); p=source_out_word(p); stagadd(ENDBOLD); 
 	 source_struct(SHORTLINE);
     }
@@ -4882,7 +4883,7 @@ source_filter(void) {
 			  p = oldv = fgets(diffline, MAXBUF, difffd);
 			  p[strlen(p)-1]='\0';	/* fgets's \n ending => \0 */
 			  deletecnt--;
-		  } while (deletecnt && p=='.');	/* throw out commands in old version */
+		  } while (deletecnt && *p=='.');	/* throw out commands in old version */
 
 		  q = newv = source_gets();
 		  insertcnt--;
@@ -5136,7 +5137,7 @@ main(int argc, char *argv[]) {
 
 	/* count, sort exception strings */
 	for (lcexceptionslen=0; (p=lcexceptions[lcexceptionslen])!=NULL; lcexceptionslen++) /*empty*/;
-	qsort(lcexceptions, lcexceptionslen, sizeof(char*), lcexceptionscmp);
+	qsort(lcexceptions, lcexceptionslen, sizeof(char*), (int (*)(const void *, const void *))lcexceptionscmp);
 
 	/* map long option names to single letters for switching */
 	/* (GNU probably has a reusable function to do this...) */
@@ -5306,7 +5307,7 @@ main(int argc, char *argv[]) {
 	}
 
 	if (fSource) source_filter(); else preformatted_filter();
-	if (fDiff) close(difffd);
+	if (fDiff) fclose(difffd);
 	/*free(File);	-- let system clean up, perhaps more efficiently */
 
 	return 0;
