@@ -1,7 +1,7 @@
 /*
  *  khc_main.cpp - part of the KDE Help Center
  *
- *  Copyright (C) 199 Matthias Elter (me@kde.org)
+ *  Copyright (C) 1999 Matthias Elter (me@kde.org)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -34,6 +34,8 @@
 
 #include "khc_main.h"
 #include "KonquerorIface_stub.h"
+
+#include <kaboutdata.h>
 
 #include "version.h"
 
@@ -79,9 +81,13 @@ void Listener::slotAppRegistered( const QCString &appId )
 
 int main(int argc, char *argv[])
 {
-  KCmdLineArgs::init(argc, argv, "khelpcenter", description, 
-		 HELPCENTER_VERSION );
-
+  KAboutData aboutData( "khelpcenter", I18N_NOOP("KDE HelpCenter"), 
+    HELPCENTER_VERSION, description, KAboutData::GPL, 
+    "(c) 1999-2000, Matthias Elter");
+  aboutData.addAuthor("Matthias Elter",0, "me@kde.org");
+  KCmdLineArgs::init( argc, argv, &aboutData );
+//  KCmdLineArgs::addCmdLineOptions( options ); // Add our own options.
+  
   KApplication app;
 
   app.dcopClient()->attach();
