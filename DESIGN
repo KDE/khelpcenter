@@ -35,6 +35,11 @@ KHC::ContentsTab object and a KHC::SearchTab object.
 ## KHC::Navigator shouldn't inherit from QTabWidget. This limits flexibility.
 ## It can create a QTabWidget instance as aggregate just as well.
 
+# I fear premature generalization ("We could need that bit of flexibility one
+# day), aggregation adds a level of indirection through a pointer variable as
+# well. I would prefer not making the system more complex as long as we cannot
+# predict changes which justify doing so.
+
 1.) KHC::ContentsTab provides the following entires:
 	- Welcome to KDE
 	- KDE user's manual
@@ -82,12 +87,19 @@ class KHC::TreeBuilder
 
 ## What about the trees generated as children of the contents list view?
 
+# Oops, that's a typo, what you mean is what I originally intented: a
+# TreeBuilder should take a 'KListView' as it's parent, subclasses can then
+# overload that method (such as the KHC::TOCBuilder which will want to provide
+# a build( KListViewItem *parent ) method).
+
 # This concept of using a TreeBuilder baseclass might make it possible to turn
 # all the classes which use that interface into plugins. That way we could
 # e.g. have a ScrollKeeper plugin. - Frerich
 
 ## What exactly do you mean by plugin? A shared library loaded at run time or
 ## the desktop file based insertion of documents into the help center?
+
+# The former.
 
 The classes which inherit this interface are:
 	- KHC::ManualTreeBuilder: responsible for generating the tree below the
@@ -169,6 +181,14 @@ protocol == "help") by itself and otherwise use the plain URL.
 ## created yet, because they are only created on demand (like the application
 ## manuals).
 
+# Very good idea. Perhaps I think iterating over a list of TreeBuilder
+# instances and doing something like 'if ((*it)->canHandle(url))
+# (*it)->selectItem(url)' which checks whether a TreeBuilder provides an item
+# which corresponds to an URL (hmm, this makes me think, TreeBuilder is a bad
+# name. Perhaps just 'Tree'?) and selects it (using
+# QListView::ensureItemVisible() or so) if requested. This probably implies.
+# that a TreeBuilder needs an internal QMap<KURL, QListViewItem *>.
+
 # Also, the whole search engine needs more thought, that DataCollection idea
 # seems promising to me but I'm not yet decided on how to do it properly.
 
@@ -181,12 +201,23 @@ protocol == "help") by itself and otherwise use the plain URL.
 ## URL requests around, does the needed processing and stores data, if needed
 ## (e.g. caching search results).
 
+# Agreed.
+
 ## One very important aspect of the help center is that it has to be fast. It's
 ## not acceptable to wait several seconds after clicking on the Help menu of an
 ## application. We should think about that. Perhaps we can do some tricks like
 ## showing the main window before creating the other widgets and processing data
 ## or something similar. We could also think about creating more stuff only on
 ## demand.
+
+# My perception is that filling the Navigator's listview takes a significant
+# amount of time, just like setting up the KHTML view (loading the stylesheet,
+# showing the welcome page). We could easily do taht in the background - show
+# the mainwindow, then tell the TreeBuilders to start populating (using a
+# QTimer with a timeout of 0, for a snappy GUI). Since they're collapsed at
+# the start, the users won't even notice (and we can "fake" that they're
+# already populated by calling setExpandable(true) for all of them (or letting
+# them do that themselves) at the start.
 
 ## Finally a crazy idea: Wouldn't it be cool, if we would make the manuals more
 ## interactive. So when you read about a certain menu or a certain dialog of an
@@ -201,6 +232,30 @@ protocol == "help") by itself and otherwise use the plain URL.
 ## in the libs, so that application authors don't have to think about that
 ## feature.
 
+# Hmm, that's an interesting idea. That takes KHelpCenter way beyond what it's
+# currently doing. I can imagine this: we introduce a virtual "dcop" protocol,
+# so that e.g. <ulink url="dcop:/kfortune/KFortuneIface/nextFortune"/>
+# represents the DCOP call 'dcop kfortune KFortuneIface nextfortune'.
+# KHelpCenter catches that protocol (oh dear, a lot of special cases with
+# gloss, info etc. already - guess another one won't hurt). That looks like a
+# good way for encapsulating DCOP calls.
+# Now, the problem is - the application has to provide a dedicated
+# "documentation" DCOP interface for this, with lots of calls for highlighting
+# the various widgets (hm, this probably means taht we can skip the first two
+# parts in our 'dcop' URL syntax, the application is known anyway, and the
+# interface is hardcoded in KHelpCenter).
+# So, what could happen is this: We have a piece of HTML in the documentation
+# for our SuperApp application which goes like 'The
+# <a href="dcop:highlightConnectButton">button labelled Connect</a> makes
+# SuperApp establish a connection.' - the user clicks on that link,
+# KHelpCenter catches a dcop: URL, checks whether SuperApp has already been
+# started. If not, it starts a SuperApp process and does the dcop call 'dcop
+# SuperApp DocIface highlightConnectButton' and SuperApp starts highlighting
+# that connect button. The thing is that this requires a lot of work on the
+# application side. The idea is very cool, but we'd have to think about
+# outsourceing parts of that functionality, either to KHelpCenter, or to
+# kdelibs.
+
 ## And another idea: The WhatsThis help texts describe all widgets of an
 ## application (provided that the texts are set by the developers). Currently
 ## they aren't accessible very easily. You have to go to a special mode and
@@ -212,3 +267,10 @@ protocol == "help") by itself and otherwise use the plain URL.
 ## graphic into the docs. Maybe it's even possible to do this at run-time and
 ## decorate dialogs with all WhatsThis helps at once, if the user triggers this
 ## mode.
+
+# Hmm yes, that should be possible. Take the toplevel widget, use
+# QObject::children() and iterate over all children, use QToolTip::textFor() to
+# check whether the given qwidget has a tooltip and if so, use QToolTip::tip()
+# to show the tooltip.
+
+// vim:tw=78
