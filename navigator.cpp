@@ -373,8 +373,9 @@ class PluginTraverser : public DocEntryTraverser
 
         if ( entry->khelpcenterSpecial() == "info" )
           mNavigator->buildInfoSubTree( mCurrentItem );
-        else if ( entry->khelpcenterSpecial() == "kicker" ||
-                  entry->khelpcenterSpecial() == "kinfocenter" ||
+        else if (entry->khelpcenterSpecial() == "applets" )
+          mNavigator->insertAppletDocs( mCurrentItem );
+        else if ( entry->khelpcenterSpecial() == "kinfocenter" ||
                   entry->khelpcenterSpecial() == "kcontrol" ||
                   entry->khelpcenterSpecial() == "noatun" ||
                   entry->khelpcenterSpecial() == "konqueror" )
@@ -437,11 +438,28 @@ void Navigator::insertParentAppDocs( const QString &name, NavigatorItem *topItem
   }
 
   KServiceGroup::List entries = grp->entries();
-  qDebug("Got %i entries", entries.count());
   KServiceGroup::List::ConstIterator it = entries.begin();
   KServiceGroup::List::ConstIterator end = entries.end();
-  for ( ; it != end; ++it ) {
-    KDesktopFile desktopFile( locate("apps", (*it)->entryPath()) );
+  for ( ; it != end; ++it )
+    createItemFromDesktopFile( topItem,
+        locate( "apps", ( *it )->name().latin1() ) );
+}
+
+void Navigator::insertAppletDocs( NavigatorItem *topItem )
+{
+  QDir appletDir( locate( "data", QString::fromLatin1( "kicker/applets/" ) ) );
+  appletDir.setNameFilter( QString::fromLatin1( "*.desktop" ) );
+
+  QStringList files = appletDir.entryList( QDir::Files | QDir::Readable );
+  QStringList::ConstIterator it = files.begin();
+  QStringList::ConstIterator end = files.end();
+  for ( ; it != end; ++it )
+    createItemFromDesktopFile( topItem, appletDir.absPath() + "/" + *it );
+}
+
+void Navigator::createItemFromDesktopFile( NavigatorItem *topItem, const QString &file )
+{
+    KDesktopFile desktopFile( file );
 #if KDE_VERSION < 305
     QString docPath = desktopFile.readEntry( "DocPath" );
 #else
@@ -453,7 +471,6 @@ void Navigator::insertParentAppDocs( const QString &name, NavigatorItem *topItem
       QString icon = desktopFile.readIcon();
       item->setIcon( icon.isNull() ? "document2" : icon );
     }
-  }
 }
 
 void Navigator::insertScrollKeeperItems()
