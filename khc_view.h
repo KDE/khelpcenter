@@ -19,6 +19,7 @@ public:
     virtual void restoreState( QDataStream &stream );
 
     QString title() const { return m_title; }
+    static QString langLookup( const QString &fname );
 
 public slots:
     void showGlossaryEntry( const khcGlossaryEntry &entry );
@@ -29,8 +30,6 @@ private slots:
 private:
     void showAboutPage();
  
-    QString langLookup( const QString &fname );
-
     enum State { Docu, About, GlossEntry };
 
     khcGlossaryEntry m_glossEntry;

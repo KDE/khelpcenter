@@ -63,50 +63,10 @@
 #include "docentrytraverser.h"
 #include "khc_glossary.h"
 #include "khc_toc.h"
+#include "khc_view.h"
 
 #include "khc_navigator.h"
 #include "khc_navigator.moc"
-
-namespace {
-
-QString langLookup(const QString &fname)
-{
-    QStringList search;
-
-    // assemble the local search paths
-    const QStringList localDoc = KGlobal::dirs()->resourceDirs("html");
-
-    // look up the different languages
-    for (int id=localDoc.count()-1; id >= 0; --id)
-    {
-        QStringList langs = KGlobal::locale()->languageList();
-        langs.append("default");
-        langs.append("en");
-        QStringList::ConstIterator lang;
-        for (lang = langs.begin(); lang != langs.end(); ++lang)
-            search.append(QString("%1%2/%3").arg(localDoc[id]).arg(*lang).arg(fname));
-    }
-
-    // try to locate the file
-    QStringList::Iterator it;
-    for (it = search.begin(); it != search.end(); ++it)
-    {
-        kdDebug(1400) << "Looking for help in: " << *it << endl;
-
-        QFileInfo info(*it);
-        if (info.exists() && info.isFile() && info.isReadable())
-            return *it;
-
-        QString file = (*it).left((*it).findRev('/')) + "/index.docbook";
-        kdDebug(1400) << "Looking for help in: " << file << endl;
-        info.setFile(file);
-        if (info.exists() && info.isFile() && info.isReadable())
-            return *it;
-    }
-
-    return QString::null;
-}
-};
 
 khcNavigator::khcNavigator( KHCView *view, QWidget *parentWidget,
                             QObject *parent, const char *name )
@@ -721,7 +681,7 @@ void khcNavigatorWidget::slotItemSelected(QListViewItem* currentItem)
         int colonPos = url.find(':');
         int slashPos = url.find('/');
         if ( colonPos < 0 || ( colonPos > url.find('/') && slashPos > 0 ) ) {
-          url = "file:" + langLookup(url);
+          url = "file:" + KHCView::langLookup(url);
         }
       }
       
@@ -737,7 +697,7 @@ void khcNavigatorWidget::slotItemSelected(QListViewItem* currentItem)
     KURL u = item->url();
     if ( u.protocol() == "help" ) {
       tocTree->setApplication( u.directory() );
-      QString doc = langLookup( u.path() );
+      QString doc = KHCView::langLookup( u.path() );
       // Enforce the original .docbook version, in case langLookup returns a
       // cached version
       doc.replace( doc.find( ".html" ), 5, ".docbook" );

@@ -18,6 +18,7 @@
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 #include "khc_glossary.h"
+#include "khc_view.h"
 
 #include <kapplication.h>
 #include <kcharsets.h>
@@ -35,48 +36,6 @@
 #include <qregexp.h>
 
 #include <sys/stat.h>
-
-namespace {
-
-QString langLookup(const QString &fname)
-{
-	QStringList search;
-
-	// assemble the local search paths
-	const QStringList localDoc = KGlobal::dirs()->resourceDirs("html");
-
-	// look up the different languages
-	for (int id=localDoc.count()-1; id >= 0; --id)
-	{
-		QStringList langs = KGlobal::locale()->languageList();
-		langs.append("default");
-		langs.append("en");
-		QStringList::ConstIterator lang;
-		for (lang = langs.begin(); lang != langs.end(); ++lang)
-			search.append(QString("%1%2/%3").arg(localDoc[id]).arg(*lang).arg(fname));
-	}
-
-	// try to locate the file
-	QStringList::Iterator it;
-	for (it = search.begin(); it != search.end(); ++it)
-	{
-		kdDebug(1400) << "Looking for help in: " << *it << endl;
-
-		QFileInfo info(*it);
-		if (info.exists() && info.isFile() && info.isReadable())
-			return *it;
-
-		QString file = (*it).left((*it).findRev('/')) + "/index.docbook";
-		kdDebug(1400) << "Looking for help in: " << file << endl;
-		info.setFile(file);
-		if (info.exists() && info.isFile() && info.isReadable())
-			return *it;
-	}
-
-	return QString::null;
-}
-
-}; // anonymous namespace
 
 class SectionItem : public QListViewItem
 {
@@ -118,7 +77,7 @@ khcGlossary::khcGlossary( QWidget *parent ) : KListView( parent )
 	m_cacheFile = locateLocal( "cache", "help/glossary.xml" );
 	kdDebug( 1400 ) << "*** GLOSSARY CACHE: " << m_cacheFile << endl;
 
-	m_sourceFile = langLookup( QString::fromLatin1( "khelpcenter/glossary/index.docbook" ) );
+	m_sourceFile = KHCView::langLookup( QString::fromLatin1( "khelpcenter/glossary/index.docbook" ) );
 
 	m_config = kapp->config();
 	m_config->setGroup( "Glossary" );
