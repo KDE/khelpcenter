@@ -11,8 +11,22 @@
 
 #include "eyes.h"
 
+const float KEyesWidget::eyePadding   = 0.2;
+const float KEyesWidget::eyeThickness = 0.4;
+const float KEyesWidget::eyeRadius    = 2.0;
+const float KEyesWidget::ballRadius   = 0.32;
+const float KEyesWidget::ballPad      = 0.4;
 
-KEyesWidget::KEyesWidget( QWidget *parent, const char * name, WFlags f) :
+const float KEyesWidget::eyeX         = eyePadding + eyeRadius;
+const float KEyesWidget::eyeDiameter  = 2.0 * eyeRadius;
+const float KEyesWidget::irisRadius   = eyeRadius - eyeThickness;
+const float KEyesWidget::irisDiameter = 2.0 * irisRadius;
+const float KEyesWidget::eyesWidth    = 2.0 * (eyePadding + eyeDiameter);
+const float KEyesWidget::eyesHeight   = eyeDiameter;
+const float KEyesWidget::ballDiameter = 2.0 * ballRadius;
+const float KEyesWidget::ballAllowed  = eyeRadius - eyeThickness - ballPad - ballRadius;
+
+KEyesWidget::KEyesWidget( QWidget *parent, const char * name, WFlags f ) :
              QFrame( parent, name/*, WType_TopLevel | WStyle_Customize | WStyle_Tool*/ )
 {
 	setBackgroundMode( NoBackground );	

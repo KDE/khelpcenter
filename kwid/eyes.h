@@ -43,21 +43,12 @@ private:
 	myPoint		pupil[2];	// pupil position
 
 	// defined constants
-	const static float eyePadding   = 0.2,
-	                   eyeThickness = 0.4,
-	                   eyeRadius    = 2.0,
-	                   ballRadius   = 0.32,
-	                   ballPad      = 0.4;
+	const static float eyePadding, eyeThickness,
+	    eyeRadius, ballRadius, ballPad;
 
 	// calculated constants
-	const static float eyeX         = eyePadding + eyeRadius,
-	                   eyeDiameter  = 2.0 * eyeRadius,
-	                   irisRadius   = eyeRadius - eyeThickness,
-                           irisDiameter = 2.0 * irisRadius,
-	                   eyesWidth    = 2.0 * (eyePadding + eyeDiameter),
-	                   eyesHeight   = eyeDiameter,
-	                   ballDiameter = 2.0 * ballRadius,
-	                   ballAllowed  = eyeRadius - eyeThickness - ballPad - ballRadius;
+	const static float eyeX, eyeDiameter, irisRadius, irisDiameter,
+	    eyesWidth, eyesHeight, ballDiameter, ballAllowed;
 };
 
 #endif

@@ -26,7 +26,7 @@
 
 #include "htreelistitem.h"
 
-HTreeListItem::HTreeListItem(const QString& _text = "", const QString& _miniicon = "")
+HTreeListItem::HTreeListItem(const QString& _text, const QString& _miniicon)
   : KTreeListItem()
 {
   name = _text;
