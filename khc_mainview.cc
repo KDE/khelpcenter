@@ -138,7 +138,6 @@ void khcMainView::init()
   m_pSplitter->setSizes(sizes);
   m_pSplitter->setGeometry(0, 0, width(), height()); 
   
-  m_pSplitter->show();
 
   // embed a HTMLView since automatic view embeding based on protocol/mimetype is not implemented yet
   m_pView = new khcHTMLView;
@@ -148,6 +147,8 @@ void khcMainView::init()
   
   m_pFrame->attach(m_vView);
   connectView();
+  
+  m_pSplitter->show();
 
   // open the initial url or show the intro page
   if (m_initURL.isEmpty()) slotIntroduction();

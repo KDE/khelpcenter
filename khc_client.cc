@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
 
 khcClientApp::openURL(const char* _url)
 {
-  // Query the trader for the KHelpcenter service
+  // Query the trader for khc's Helpbrowser service
   KTrader::OfferList offers = trader->query("Helpbrowser", "Name == 'KHelpcenter'");
 
   if (offers.count() != 1)
@@ -53,7 +53,8 @@ khcClientApp::openURL(const char* _url)
       return false;
     }
   
-  // Activate the BrowserFactory.
+  // Activate khc's BrowserFactory.
+  kdebug(KDEBUG_INFO,1401,"Activate IDL:Browser/BrowserFactory1:0.\n");
   CORBA::Object_var obj = activator->activateService("KHelpcenter", "IDL:Browser/BrowserFactory:1.0", "KHelpcenter");
 
   if (CORBA::is_nil(obj))
@@ -61,7 +62,7 @@ khcClientApp::openURL(const char* _url)
       kdebug(KDEBUG_INFO,1401,"Error: Can't connect to KHelpcenter.\n");
       return false;
     }
-  
+
   m_vkhc = Browser::BrowserFactory::_narrow(obj);
   
   if (CORBA::is_nil(m_vkhc))

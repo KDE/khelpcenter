@@ -96,7 +96,7 @@ module KHelpCenter
 	interface Application : OpenParts::Application
 	{
 		HTMLView createHTMLView();
-		// Implements...
+		// Implements:
 		// OpenParts::Part createPart();
   		// OpenParts::MainWindow createWindow()
 		// ...defined in openparts.idl

@@ -37,7 +37,7 @@ public:
       activator = kded->kactivator();
     };
 
-  ~khcClientApp() { /* delete kded */ } ;
+  ~khcClientApp() { delete kded; } ;
   
   openURL(const char* _url);
 
