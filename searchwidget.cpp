@@ -183,7 +183,7 @@ void SearchWidget::updateScopeList()
   DocEntry::List entries = DocMetaInfo::self()->docEntries();
   DocEntry::List::ConstIterator it;
   for( it = entries.begin(); it != entries.end(); ++it ) {
-    if ( !(*it)->search().isEmpty() ) {
+    if ( !(*it)->search().isEmpty() && (*it)->indexExists() ) {
       ScopeItem *item = new ScopeItem( mScopeListView, *it );
       item->setOn( (*it)->searchEnabled() );
       if ( (*it)->searchEnabled() ) mScopeCount++; 
@@ -224,7 +224,7 @@ void SearchWidget::scopeClicked( QListViewItem *item )
     }
   }
 
-  kdDebug() << "SearchWidget::scopeClicked(): count: " << mScopeCount << endl;
+//  kdDebug() << "SearchWidget::scopeClicked(): count: " << mScopeCount << endl;
 
   emit enableSearch( mScopeCount > 0 );
 }

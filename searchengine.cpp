@@ -20,14 +20,106 @@
 #include <kio/job.h>
 
 #include "docmetainfo.h"
+#include "searchformatter.h"
 
 #include "searchengine.h"
 #include "searchengine.moc"
 
+SearchTraverser::SearchTraverser( SearchEngine *engine, int level ) :
+  mEngine( engine), mLevel( level ), mEntry( 0 )
+{
+//  kdDebug() << "SearchTraverser(): " << mLevel << endl;
+}
+
+SearchTraverser::~SearchTraverser()
+{
+#if 0
+  if ( mEntry ) {
+    kdDebug() << "~SearchTraverser(): " << mLevel << " " << mEntry->name() << endl;
+  } else {
+    kdDebug() << "~SearchTraverser(): null entry" << endl;
+  }
+#endif
+}
+
+void SearchTraverser::process( DocEntry * )
+{
+  kdDebug() << "SearchTraverser::process()" << endl;
+}
+
+void SearchTraverser::startProcess( DocEntry *entry )
+{
+//  kdDebug() << "SearchTraverser::startProcess(): " << entry->name() << endl;
+
+  mEntry = entry;
+
+  if ( entry->search().isEmpty() || !entry->searchEnabled() ) {
+    mNotifyee->endProcess( entry, this );
+    return;
+  }
+
+  mEngine->view()->write( mEngine->formatter()->docTitle( entry->name() ) );
+
+  QString search = mEngine->substituteSearchQuery( entry->search() );
+
+  kdDebug() << "SearchTraverser::startProcess(): search: " << search << endl;
+
+  mJobData = QString::null;
+
+  KIO::TransferJob *job = KIO::get( search );
+  connect( job, SIGNAL( result( KIO::Job * ) ),
+           SLOT( slotJobResult( KIO::Job * ) ) );
+  connect( job, SIGNAL( data( KIO::Job *, const QByteArray & ) ),
+           SLOT( slotJobData( KIO::Job *, const QByteArray & ) ) );
+
+//  kdDebug() << "SearchTraverser::startProcess() done: " << entry->name() << endl;
+}
+
+DocEntryTraverser *SearchTraverser::createChild()
+{
+  return new SearchTraverser( mEngine, mLevel + 1 );
+}
+
+void SearchTraverser::slotJobResult( KIO::Job *job )
+{
+  kdDebug() << "SearchTraverser::slotJobResult(): " << mEntry->name() << endl;
+
+  if ( job->error() ) {
+    job->showErrorDialog( mEngine->view()->widget() );
+  }
+
+  mEngine->view()->write( mEngine->formatter()->processResult( mJobData ) );
+
+  mNotifyee->endProcess( mEntry, this );
+}
+
+void SearchTraverser::slotJobData( KIO::Job *, const QByteArray &data )
+{
+//  kdDebug() << "SearchTraverser::slotJobData()" << endl;
+
+  mJobData.append( data.data() );
+}
+
+void SearchTraverser::finishTraversal()
+{
+  mEngine->view()->write( mEngine->formatter()->footer() );
+  mEngine->view()->end();
+
+  mEngine->finishSearch();
+}
+
+
 SearchEngine::SearchEngine( KHTMLPart *destination )
   : QObject(),
-    mProc( 0 ), mView( destination )
+    mProc( 0 ), mView( destination ), mRootTraverser( 0 )
 {
+  mFormatter = new SearchFormatter;
+}
+
+SearchEngine::~SearchEngine()
+{
+  delete mRootTraverser;
+  delete mFormatter;
 }
 
 void SearchEngine::searchStdout(KProcess *, char *buffer, int len)
@@ -53,8 +145,15 @@ void SearchEngine::searchExited(KProcess *)
   mSearchRunning = false;
 }
 
-bool SearchEngine::search(QString words, QString method, int matches, QString scope)
+bool SearchEngine::search( QString words, QString method, int matches,
+                           QString scope )
 {
+  mWords = words;
+  mMethod = method;
+  mMatches = matches;
+  mScope = scope;
+  mLang = "en";
+
   KConfig *cfg = KGlobal::config();
   cfg->setGroup( "Search" );
   QString commonSearchProgram = cfg->readEntry( "CommonProgram" );
@@ -64,41 +163,18 @@ bool SearchEngine::search(QString words, QString method, int matches, QString sc
     if ( !mView ) {
       return false;
     }
-    
-    mSearchQueue.clear();
-    
-    DocEntry::List entries = DocMetaInfo::self()->searchEntries();
-    DocEntry::List::ConstIterator it;
-    for( it = entries.begin(); it != entries.end(); ++it ) {
-      if ( (*it)->searchEnabled() ) {
-        QString search = substituteSearchQuery( (*it)->search(), words,
-                                                matches );
-      
-        kdDebug() << "SEARCH: " << search << endl;
-
-        mSearchQueue.append( search );
-      }
-
-    }
-
-    if ( mSearchQueue.count() ) {
-      mView->begin();
-      mView->write( "<html><head><title>" + i18n("Search Results") +
-                    "</title></head><body>" );
-      processSearchQueue();
-    }
-
-    return true;
-
-#if 0  
-    QString text = "<html><head><title>Titel</title></head><body>";
-    text += "Hallihallo";
-    text += "</body></html>";
 
     mView->begin();
-    mView->write( text );
-    mView->end();
-#endif
+    mView->write( mFormatter->header() );
+
+    if ( mRootTraverser ) {
+      kdDebug() << "SearchEngine::search(): mRootTraverser not null." << endl;
+      return false;
+    }
+    mRootTraverser = new SearchTraverser( this, 0 );
+    DocMetaInfo::self()->startTraverseEntries( mRootTraverser );
+
+    return true;
   } else {
     QString lang = KGlobal::locale()->language().left(2);
 
@@ -116,8 +192,7 @@ bool SearchEngine::search(QString words, QString method, int matches, QString sc
     words = words.simplifyWhiteSpace();
     words.replace(QRegExp("\\s"), "+");
 
-    commonSearchProgram = substituteSearchQuery( commonSearchProgram, words,
-                                                 matches, method, lang, scope );
+    commonSearchProgram = substituteSearchQuery( commonSearchProgram );
 
     mProc = new KProcess();
 
@@ -162,106 +237,32 @@ bool SearchEngine::search(QString words, QString method, int matches, QString sc
   return true;
 }
 
-void SearchEngine::processSearchQueue()
-{
-  QStringList::Iterator it = mSearchQueue.begin();
-
-  if ( it == mSearchQueue.end() ) {
-    mView->write("</body></html>");
-    mView->end();
-    emit searchFinished();
-    return;
-  }
-
-  kdDebug() << "SearchEngine::processSearchQueue(): " << (*it) << endl;
-
-  mJobData = QString::null;
-
-  KIO::TransferJob *job = KIO::get( *it );
-  connect( job, SIGNAL( result( KIO::Job * ) ),
-           SLOT( slotJobResult( KIO::Job * ) ) );
-  connect( job, SIGNAL( data( KIO::Job *, const QByteArray & ) ),
-           SLOT( slotJobData( KIO::Job *, const QByteArray & ) ) );
-
-  mSearchQueue.remove( it );
-}
-
-void SearchEngine::slotJobResult( KIO::Job *job )
-{
-  if ( job->error() ) {
-    job->showErrorDialog( mView->widget() );
-  }
-
-  mView->write( processResult( mJobData ) );
-
-  if ( mSearchQueue.count() ) {
-    mView->write("<table width=100%><tr><td bgcolor=\"#7B8962\">&nbsp;"
-                 "</td></tr></table>");
-  }
-  
-  processSearchQueue();
-}
-
-void SearchEngine::slotJobData( KIO::Job *, const QByteArray &data )
-{
-  kdDebug() << "SearchEngine::slotJobData()" << endl;
-
-  mJobData.append( data.data() );
-}
-
-QString SearchEngine::processResult( const QString &data )
-{
-  QString result;
-
-  enum { Header, BodyTag, Body, Footer };
-
-  int state = Header;
-
-  for( uint i = 0; i < data.length(); ++i ) {
-    QChar c = data[i];
-    switch ( state ) {
-      case Header:
-        if ( c == '<' && data.mid( i, 5 ).lower() == "<body" ) {
-          state = BodyTag;
-          i += 4;
-        }
-        break;
-      case BodyTag:
-        if ( c == '>' ) state = Body;
-        break;
-      case Body:
-        if ( c == '<' && data.mid( i, 7 ).lower() == "</body>" ) {
-          state = Footer;
-        } else {
-          result.append( c );
-        }
-        break;
-      case Footer:
-        break;
-      default:
-        result.append( c );
-        break;
-    }
-  }
-
-  kdDebug() << "Result:" << endl << result << endl;
-
-  return result;
-}
-
-QString SearchEngine::substituteSearchQuery( const QString &query,
-                                             const QString &words,
-                                             int matches,
-                                             const QString &method,
-                                             const QString &lang,
-                                             const QString &scope )
+QString SearchEngine::substituteSearchQuery( const QString &query )
 {
   QString result = query;
-  result.replace( QRegExp( "%k" ), words );
-  result.replace( QRegExp( "%n" ), QString::number( matches ) );
-  result.replace( QRegExp( "%m" ), method );
-  result.replace( QRegExp( "%l" ), lang );
-  result.replace( QRegExp( "%s" ), scope );
+  result.replace( QRegExp( "%k" ), mWords );
+  result.replace( QRegExp( "%n" ), QString::number( mMatches ) );
+  result.replace( QRegExp( "%m" ), mMethod );
+  result.replace( QRegExp( "%l" ), mLang );
+  result.replace( QRegExp( "%s" ), mScope );
 
   return result;
+}
+
+SearchFormatter *SearchEngine::formatter()
+{
+  return mFormatter;
+}
+
+KHTMLPart *SearchEngine::view()
+{
+  return mView;
+}
+
+void SearchEngine::finishSearch()
+{
+  delete mRootTraverser;
+  mRootTraverser = 0;
+
+  emit searchFinished();  
 }

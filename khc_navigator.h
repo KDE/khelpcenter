@@ -215,9 +215,6 @@ class khcNavigatorWidget : public QWidget
     int insertScrollKeeperSection(khcNavigatorItem *parentItem,QDomNode sectNode);
     void insertScrollKeeperDoc(khcNavigatorItem *parentItem,QDomNode docNode);
 
-    bool appendEntries (const QString &dirName,  khcNavigatorItem *parent, QPtrList<khcNavigatorItem> *appendList);
-    bool processDir(const QString &dirName, khcNavigatorItem *parent,  QPtrList<khcNavigatorItem> *appendList);
-
     void hideSearch();
 
     QListViewItem *byTopicItem, *alphabItem;

@@ -1,159 +1,16 @@
 #include <qfile.h>
+#include <qregexp.h>
+#include <qfileinfo.h>
+#include <qdir.h>
 
 #include <kdebug.h>
 #include <kdesktopfile.h>
+#include <kstandarddirs.h>
+#include <kglobal.h>
+
+#include "docentrytraverser.h"
 
 #include "docmetainfo.h"
-
-DocEntry::DocEntry()
-{
-}
-
-void DocEntry::setName( const QString &name )
-{
-  mName = name;
-}
-
-QString DocEntry::name() const
-{
-  return mName;
-}
-
-void DocEntry::setSearch( const QString &search )
-{
-  mSearch = search;
-}
-
-QString DocEntry::search() const
-{
-  return mSearch;
-}
-
-void DocEntry::setIcon( const QString &icon )
-{
-  mIcon = icon;
-}
-
-QString DocEntry::icon() const
-{
-  return mIcon;
-}
-
-void DocEntry::setUrl( const QString &url )
-{
-  mUrl = url;
-}
-
-QString DocEntry::url() const
-{
-  return mUrl;
-}
-
-void DocEntry::setDocPath( const QString &docPath )
-{
-  mDocPath = docPath;
-}
-
-QString DocEntry::docPath() const
-{
-  return mDocPath;
-}
-
-void DocEntry::setInfo( const QString &info )
-{
-  mInfo = info;
-}
-
-QString DocEntry::info() const
-{
-  return mInfo;
-}
-
-void DocEntry::setLang( const QString &lang )
-{
-  mLang = lang;
-}
-
-QString DocEntry::lang() const
-{
-  return mLang;
-}
-
-void DocEntry::setIdentifier( const QString &identifier )
-{
-  mIdentifier = identifier;
-}
-
-QString DocEntry::identifier() const
-{
-  return mIdentifier;
-}
-
-void DocEntry::setIndexer( const QString &indexer )
-{
-  mIndexer = indexer;
-}
-
-QString DocEntry::indexer() const
-{
-  return mIndexer;
-}
-
-void DocEntry::setIndexTestFile( const QString &indexTestFile )
-{
-  mIndexTestFile = indexTestFile;
-}
-
-QString DocEntry::indexTestFile() const
-{
-  return mIndexTestFile;
-}
-
-void DocEntry::enableSearch( bool enabled )
-{
-  mSearchEnabled = enabled;
-}
-
-bool DocEntry::searchEnabled() const
-{
-  return mSearchEnabled;
-}
-
-bool DocEntry::readFromFile( const QString &fileName )
-{
-  KDesktopFile file( fileName );
-
-  mName = file.readName();
-  mSearch = file.readEntry( "X-DOC-Search" );
-  mIcon = file.readIcon();
-  mUrl = file.readURL();
-  mDocPath = file.readEntry( "DocPath" );
-  mInfo = file.readEntry( "Info" );
-  if ( mInfo.isNull() ) mInfo = file.readEntry( "Comment" );
-  mLang = file.readEntry( "Lang" );
-  mIdentifier = file.readEntry( "X-DOC-Identifier" );
-  mIndexer = file.readEntry( "X-DOC-Indexer" );
-  mIndexTestFile = file.readEntry( "X-DOC-IndexTestFile" );
-  mSearchEnabled = file.readBoolEntry( "X-DOC-SearchEnabledDefault", false );
-
-  return true;
-}
-
-bool DocEntry::indexExists()
-{
-  return QFile::exists( mIndexTestFile );
-}
-
-void DocEntry::dump() const
-{
-  kdDebug() << "  <docentry>" << endl;
-  kdDebug() << "    <name>" << mName << "</name>" << endl;
-  kdDebug() << "    <search>" << mSearch << "</search>" << endl;
-  kdDebug() << "    <icon>" << mIcon << "</icon>" << endl;
-  kdDebug() << "    <url>" << mUrl << "</url>" << endl;
-  kdDebug() << "  </docentry>" << endl;
-}
-
 
 DocMetaInfo *DocMetaInfo::mSelf = 0;
 
@@ -165,6 +22,7 @@ DocMetaInfo *DocMetaInfo::self()
 
 DocMetaInfo::DocMetaInfo()
 {
+  mRootEntry.setName( "root entry" );
 }
 
 DocMetaInfo::~DocMetaInfo()
@@ -186,13 +44,18 @@ DocEntry *DocMetaInfo::addDocEntry( const QString &fileName )
   DocEntry *entry = new DocEntry();
 
   if ( entry->readFromFile( fileName ) ) {
-    mDocEntries.append( entry );
-    if ( !entry->search().isEmpty() ) mSearchEntries.append( entry );
+    addDocEntry( entry );
     return entry;
   } else {
     delete entry;
     return 0;
   }
+}
+
+void DocMetaInfo::addDocEntry( DocEntry *entry )
+{
+  mDocEntries.append( entry );
+  if ( !entry->search().isEmpty() ) mSearchEntries.append( entry );
 }
 
 DocEntry::List DocMetaInfo::docEntries()
@@ -203,4 +66,158 @@ DocEntry::List DocMetaInfo::docEntries()
 DocEntry::List DocMetaInfo::searchEntries()
 {
   return mSearchEntries;
+}
+
+void DocMetaInfo::scanMetaInfo()
+{
+  KStandardDirs* kstd = KGlobal::dirs();
+  kstd->addResourceType( "data", "share/apps/khelpcenter" );
+  QStringList list = kstd->findDirs( "data", "plugins" );
+  for( QStringList::Iterator it=list.begin(); it!=list.end(); it++) {
+    QDir pluginDir( *it );
+    const QFileInfoList *entryList = pluginDir.entryInfoList();
+    QFileInfoListIterator it( *entryList );
+    QFileInfo *fi;
+    DocEntry *prevEntry = 0;
+    for( ; ( fi = it.current() ); ++it ) {
+      if ( fi->fileName().left( 1 ) != "." ) {
+        DocEntry *entry = scanMetaInfoDir( fi->absFilePath(), &mRootEntry );
+        if ( entry ) {
+          if ( prevEntry ) prevEntry->setNextSibling( entry );
+          prevEntry = entry;
+        }
+      }
+    }
+    if ( prevEntry ) prevEntry->setNextSibling( 0 );
+  }
+}
+
+DocEntry *DocMetaInfo::scanMetaInfoDir( const QString &dirName,
+                                        DocEntry *parent )
+{
+  QDir dir( dirName );
+
+  DocEntry *dirEntry = addDocEntry( dirName + "/.directory" );
+
+  if ( !dirEntry ) {
+    dirEntry = new DocEntry;
+    dirEntry->setName( dir.dirName() );
+    addDocEntry( dirEntry );
+  }
+
+  dirEntry->setDirectory( true );
+
+  if ( parent ) parent->addChild( dirEntry );
+
+  DocEntry *prevEntry = 0;
+  const QFileInfoList *entryList = dir.entryInfoList();
+  QFileInfoListIterator it( *entryList );
+  QFileInfo *fi;
+  for( ; ( fi = it.current() ); ++it ) {
+    DocEntry *entry = 0;
+    if ( fi->isDir() && fi->fileName() != "." && fi->fileName() != ".." ) {
+      entry = scanMetaInfoDir( fi->absFilePath(), dirEntry );
+    } else if ( fi->extension( false ) == "desktop" ) {
+      entry = addDocEntry( fi->absFilePath() );
+      if ( parent && entry ) dirEntry->addChild( entry );
+    }
+    if ( entry ) {
+      if ( prevEntry ) prevEntry->setNextSibling( entry );
+      prevEntry = entry;
+    }
+  }
+  if ( prevEntry ) {
+    prevEntry->setNextSibling( 0 );
+  }
+
+  return dirEntry;
+}
+
+void DocMetaInfo::traverseEntries( DocEntryTraverser *traverser )
+{
+  traverseEntry( &mRootEntry, traverser );
+}
+
+void DocMetaInfo::traverseEntry( DocEntry *entry, DocEntryTraverser *traverser )
+{
+  DocEntry::List children = entry->children();
+  DocEntry::List::ConstIterator it;
+  for( it = children.begin(); it != children.end(); ++it ) {
+    traverser->process( *it );
+    if ( (*it)->hasChildren() ) {
+      DocEntryTraverser *t = traverser->childTraverser();
+      traverseEntry( *it, t );
+      t->deleteTraverser();
+    }
+  }
+}
+
+void DocMetaInfo::startTraverseEntries( DocEntryTraverser *traverser )
+{
+  kdDebug() << "DocMetaInfo::startTraverseEntries()" << endl;
+  traverser->setNotifyee( this );
+  startTraverseEntry( &mRootEntry, traverser );
+}
+
+void DocMetaInfo::startTraverseEntry( DocEntry *entry,
+                                      DocEntryTraverser *traverser )
+{
+//  kdDebug() << "DocMetaInfo::startTraverseEntry()" << endl;
+
+  if ( !traverser ) {
+    kdDebug() << "DocMetaInfo::startTraverseEntry(): ERROR. No Traverser."
+              << endl;
+    return;
+  }
+
+  if ( !entry ) {
+    kdDebug() << "DocMetaInfo::startTraverseEntry(): no entry." << endl;
+    endTraverseEntries( traverser );
+    return;
+  }
+
+  traverser->startProcess( entry );
+}
+
+void DocMetaInfo::endProcess( DocEntry *entry, DocEntryTraverser *traverser )
+{
+//  kdDebug() << "DocMetaInfo::endProcess()" << endl;
+
+  if ( !entry ) {
+    endTraverseEntries( traverser );
+    return;
+  }
+  
+  if ( entry->hasChildren() ) {
+    startTraverseEntry( entry->firstChild(), traverser->childTraverser() );
+  } else if ( entry->nextSibling() ) {
+    startTraverseEntry( entry->nextSibling(), traverser );
+  } else {
+    DocEntry *parent = entry->parent();
+    while ( parent ) {
+      DocEntryTraverser *parentTraverser = traverser->parentTraverser();
+      traverser->deleteTraverser();
+      if ( parent->nextSibling() ) {
+        startTraverseEntry( parent->nextSibling(), parentTraverser );
+        break;
+      } else {
+        parent = parent->parent();
+        traverser = parentTraverser;
+      }
+    }
+    if ( !parent ) {
+      endTraverseEntries( traverser );
+    }
+  }
+}
+
+void DocMetaInfo::endTraverseEntries( DocEntryTraverser *traverser )
+{
+  kdDebug() << "DocMetaInfo::endTraverseEntries()" << endl;
+
+  if ( !traverser ) {
+    kdDebug() << " no more traversers." << endl;
+  }
+  
+  traverser->finishTraversal();
 }

@@ -27,39 +27,34 @@ class khcNavigatorItem : public QListViewItem
 {
   public:
     khcNavigatorItem (QListView* parent, const QString& text = QString::null,
-                      const QString& miniicon = QString::null);
+                      const QString& icon = QString::null);
     khcNavigatorItem (QListViewItem* parent,
                       const QString& text = QString::null,
-                      const QString& miniicon = QString::null);
+                      const QString& icon = QString::null);
     khcNavigatorItem (QListView* parent, QListViewItem* after,
 		      const QString& text = QString::null,
-                      const QString& miniicon = QString::null);
+                      const QString& icon = QString::null);
     khcNavigatorItem (QListViewItem* parent, QListViewItem* after,
 		      const QString& text = QString::null,
-                      const QString& miniicon = QString::null);
-
-    bool readKDElnk (const QString &filename);
+                      const QString& icon = QString::null);
 
     void setName( const QString & );
     void setUrl( const QString & );
     void setInfo( const QString & );
     void setIcon( const QString & );
-    void setMiniIcon( const QString & );
 
     QString name() { return mName; }
     QString url() { return mUrl; }
     QString info() { return mInfo; }
     QString icon() { return mIcon; }
-    QString miniIcon() { return mMiniIcon; }
-    
+
  private:
-    void init(const QString& text, const QString& miniicon);
+    void init(const QString &text, const QString &icon);
     
     QString mName;
     QString mUrl;
     QString mInfo;
     QString mIcon;
-    QString mMiniIcon;
 };
 
 #endif

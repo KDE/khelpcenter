@@ -41,8 +41,6 @@ class KCMHelpCenter : public KCModule
     void defaults();
     QString quickHelp() const;
 
-    void scanMetaInfo();
-
   public slots:
 
   protected slots:
@@ -51,9 +49,6 @@ class KCMHelpCenter : public KCModule
     void slotIndexFinished( KProcess * );
 
   protected:
-    void scanMetaInfoDir( const QString & );
-    void addDocEntry( const QString & );
-
     void processIndexQueue();
     void updateStatus();
 

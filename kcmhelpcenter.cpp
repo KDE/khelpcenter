@@ -83,7 +83,7 @@ KCMHelpCenter::KCMHelpCenter(QWidget *parent, const char *name)
 
   mConfig = new KConfig("kcmhelpcenterrc");
 
-  scanMetaInfo();
+  DocMetaInfo::self()->scanMetaInfo();
 
   load();
 }
@@ -131,41 +131,6 @@ void KCMHelpCenter::updateStatus()
     
     ++it;
   }
-}
-
-void KCMHelpCenter::scanMetaInfo()
-{
-  KStandardDirs* kstd = KGlobal::dirs();
-  kstd->addResourceType( "data", "share/apps/khelpcenter" );
-  QStringList list = kstd->findDirs( "data", "plugins" );
-  for( QStringList::Iterator it=list.begin(); it!=list.end(); it++) {
-    scanMetaInfoDir( *it );
-  }
-}
-
-void KCMHelpCenter::scanMetaInfoDir( const QString &dirName )
-{
-  QDir dir( dirName );
-
-  if ( QFile::exists( dirName + "/.directory" ) ) {
-    addDocEntry( dirName + "/.directory" );
-  }
-
-  const QFileInfoList *entryList = dir.entryInfoList();
-  QFileInfoListIterator it( *entryList );
-  QFileInfo *fi;
-  for( ; ( fi = it.current() ); ++it ) {
-    if ( fi->isDir() && fi->fileName() != "." && fi->fileName() != ".." ) {
-        scanMetaInfoDir( fi->absFilePath() );
-    } else if ( fi->extension( false ) == "desktop" ) {
-        addDocEntry( fi->absFilePath() );
-    }
-  }
-}
-
-void KCMHelpCenter::addDocEntry( const QString &fileName )
-{
-  DocMetaInfo::self()->addDocEntry( fileName );
 }
 
 void KCMHelpCenter::buildIndex()

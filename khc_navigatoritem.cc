@@ -34,71 +34,46 @@
 
 #include "khc_navigatoritem.h"
 
-khcNavigatorItem::khcNavigatorItem(QListView* parent, const QString& _text, const QString& _miniicon)
+khcNavigatorItem::khcNavigatorItem(QListView* parent, const QString& _text,
+                                   const QString& _miniicon)
     : QListViewItem(parent)
 {
     init(_text, _miniicon);
 }
 
-khcNavigatorItem::khcNavigatorItem(QListViewItem* parent, const QString& _text, const QString& _miniicon)
+khcNavigatorItem::khcNavigatorItem(QListViewItem* parent, const QString& _text,
+                                   const QString& _miniicon)
     : QListViewItem(parent)
 {
     init(_text, _miniicon);
 }
 
-khcNavigatorItem::khcNavigatorItem(QListView* parent, QListViewItem* after, const QString& _text, const QString& _miniicon)
+khcNavigatorItem::khcNavigatorItem(QListView* parent, QListViewItem* after,
+                                   const QString& _text,
+                                   const QString& _miniicon)
     : QListViewItem(parent, after)
 {
     init(_text, _miniicon);
 }
 
-khcNavigatorItem::khcNavigatorItem(QListViewItem* parent, QListViewItem* after, const QString& _text, const QString& _miniicon)
+khcNavigatorItem::khcNavigatorItem(QListViewItem* parent, QListViewItem* after,
+                                   const QString& _text,
+                                   const QString& _miniicon)
     : QListViewItem(parent, after)
 {
     init(_text, _miniicon);
 }
 
-void khcNavigatorItem::init(const QString& _text, const QString& _miniicon)
+void khcNavigatorItem::init(const QString& text, const QString& icon)
 {
-    mName = _text;
-    mMiniIcon = _miniicon;
-    
-    setText( 0, mName );
-    setPixmap( 0, SmallIcon( mMiniIcon, 0, 0, KHCFactory::instance() ) );
-}
-
-bool khcNavigatorItem::readKDElnk ( const QString &filename )
-{
-    kdDebug() << "khcNavigatorItem::readKDElnk(): " << filename << endl;
-
-    DocEntry *entry = DocMetaInfo::self()->addDocEntry( filename );
-    if ( !entry ) return false;
-
-    mUrl = entry->docPath();
-    if ( mUrl.isNull() ) return false;
-
-    mInfo = entry->info();
-    mIcon = entry->icon();
-    
-    mMiniIcon = "document2";
-    setPixmap( 0, SmallIcon( mMiniIcon, 0, 0, KHCFactory::instance() ) );
-
-    mName = entry->name();
-  
-    if ( mName.isNull() ) {
-        mName = filename.mid( filename.find('/') );
-        int pos;
-        if ( ( pos = mName.findRev( ".desktop" ) ) > 0 ) {
-            mName = mName.left( pos );
-        }
-    }
-    setText( 0, mName );
-    return true;
+    setName( text );
+    setIcon( icon );
 }
 
 void khcNavigatorItem::setName( const QString &_name )
 {
     mName = _name;
+    setText( 0, mName );
 }
 
 void khcNavigatorItem::setUrl( const QString &_url )
@@ -114,9 +89,5 @@ void khcNavigatorItem::setInfo( const QString &_info )
 void khcNavigatorItem::setIcon( const QString &_icon )
 {
     mIcon = _icon;
-}
-
-void khcNavigatorItem::setMiniIcon( const QString &_miniicon )
-{
-    mMiniIcon = _miniicon;
+    setPixmap( 0, SmallIcon( mIcon, 0, 0, KHCFactory::instance() ) );
 }

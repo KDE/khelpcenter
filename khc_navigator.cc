@@ -59,6 +59,9 @@
 #include "khc_infonode.h"
 #include "searchengine.h"
 #include "khc_view.h"
+#include "docmetainfo.h"
+#include "docentrytraverser.h"
+
 #include "khc_navigator.h"
 #include "khc_navigator.moc"
 
@@ -246,6 +249,8 @@ khcNavigatorWidget::khcNavigatorWidget( KHCView *view, QWidget *parent,
     KConfig *config = kapp->config();
     config->setGroup("ScrollKeeper");
     mScrollKeeperShowEmptyDirs = config->readBoolEntry("ShowEmptyDirs",false);
+
+    DocMetaInfo::self()->scanMetaInfo();
 
     mSearchEngine = new SearchEngine( view );
     connect( mSearchEngine, SIGNAL( searchFinished() ),
@@ -810,24 +815,67 @@ void khcNavigatorWidget::buildManSubTree(khcNavigatorItem *parent)
   ti_man_s1->setUrl(QString("man:/(1)"));
 }
 
-void khcNavigatorWidget::insertPlugins()
+
+class PluginTraverser : public DocEntryTraverser
 {
-    // Scan plugin dir
-    KStandardDirs* kstd = KGlobal::dirs();
-    kstd->addResourceType("data", "share/apps/khelpcenter");
-    QStringList list = kstd->findDirs("data", "plugins");
-    for(QStringList::Iterator it=list.begin(); it!=list.end(); it++) {
-      processDir(*it, 0, &pluginItems);
-      appendEntries(*it, 0, &pluginItems);
+  public:
+    PluginTraverser( QListView *listView  ) :
+      mListView( listView ), mParentItem( 0 ), mCurrentItem( 0 ) {}
+    PluginTraverser( khcNavigatorItem *listViewItem  ) :
+      mListView( 0 ), mParentItem( listViewItem ), mCurrentItem( 0 ) {}
+    
+    void process( DocEntry *entry )
+    {
+      if ( mListView ) {
+        mCurrentItem = new khcNavigatorItem( mListView, entry->name(),
+                                             entry->icon() );
+      } else if ( mParentItem ) {
+        mCurrentItem = new khcNavigatorItem( mParentItem, entry->name(),
+                                             entry->icon() );
+      } else {
+        kdDebug() << "ERROR! Neither mListView nor mParentItem is set." << endl;
+        return;
+      }
+        
+      mCurrentItem->setName( entry->name() );
+      mCurrentItem->setUrl( entry->docPath() );
+      if ( entry->icon().isEmpty() ) {
+        if ( entry->isDirectory() ) {
+          mCurrentItem->setIcon( "contents2" );
+        } else {
+          mCurrentItem->setIcon( "document2" );
+        }
+      } else {
+        mCurrentItem->setIcon( entry->icon() );
+      }
     }
 
-    kdDebug() << "<docmetainfo>" << endl;
-    DocEntry::List entries = DocMetaInfo::self()->docEntries();
-    DocEntry::List::ConstIterator it;
-    for( it = entries.begin(); it != entries.end(); ++it ) {
-      (*it)->dump();
+    DocEntryTraverser *createChild()
+    {
+      if ( mCurrentItem ) return new PluginTraverser( mCurrentItem );
+      kdDebug() << "ERROR! mCurrentItem is not set." << endl;
+      return 0;
     }
-    kdDebug() << "</docmetainfo>" << endl;
+
+  private:
+    QListView *mListView;
+    khcNavigatorItem *mParentItem;
+    khcNavigatorItem *mCurrentItem;
+};
+
+
+void khcNavigatorWidget::insertPlugins()
+{
+  PluginTraverser t( contentsTree );
+  DocMetaInfo::self()->traverseEntries( &t );
+
+  kdDebug() << "<docmetainfo>" << endl;
+  DocEntry::List entries = DocMetaInfo::self()->docEntries();
+  DocEntry::List::ConstIterator it;
+  for( it = entries.begin(); it != entries.end(); ++it ) {
+    (*it)->dump();
+  }
+  kdDebug() << "</docmetainfo>" << endl;
 }
 
 void khcNavigatorWidget::insertScrollKeeperItems()
@@ -843,7 +891,7 @@ void khcNavigatorWidget::insertScrollKeeperItems()
 
     if (!QFile::exists(mScrollKeeperContentsList)) {
       kdDebug(1400) << "Scrollkeeper contents file '" << mScrollKeeperContentsList
-                << "' does not exist." << endl;
+                    << "' does not exist." << endl;
       return;
     }
 
@@ -983,6 +1031,7 @@ void khcNavigatorWidget::slotItemSelected(QListViewItem* currentItem)
         item->setOpen(true);
   }
 
+#if 0
   if (pluginItems.find(item) > -1)
   {
     QString url = item->url();
@@ -1005,26 +1054,28 @@ void khcNavigatorWidget::slotItemSelected(QListViewItem* currentItem)
     }
     return;
   }
+#endif
 
   if (!item->url().isEmpty()) {
-  	KURL u = item->url();
-  	if ( u.protocol() == "help" ) {
+    KURL u = item->url();
+    if ( u.protocol() == "help" ) {
       tocTree->setApplication( u.directory() );
-  		QString doc = langLookup( u.path() );
-  		// Enforce the original .docbook version, in case langLookup returns a cached version
-  		doc.replace( doc.find( ".html" ), 5, ".docbook" );
-  		kdDebug( 1400 ) << "slotURLSelected(): doc = " << doc << endl;
-		
-  		QFile f( doc );
-  		if ( f.open( IO_ReadOnly ) ) {
-  			QDomDocument domDoc;
-  			if ( domDoc.setContent( &f ) ) {
-	  			fillTOCTree( domDoc );
+      QString doc = langLookup( u.path() );
+      // Enforce the original .docbook version, in case langLookup returns a
+      // cached version
+      doc.replace( doc.find( ".html" ), 5, ".docbook" );
+      kdDebug( 1400 ) << "slotURLSelected(): doc = " << doc << endl;
+
+      QFile f( doc );
+      if ( f.open( IO_ReadOnly ) ) {
+        QDomDocument domDoc;
+        if ( domDoc.setContent( &f ) ) {
+          fillTOCTree( domDoc );
           mTabWidget->setCurrentPage( mTabWidget->indexOf( tocTree ) );
         }
-  			f.close();
-  		}
-  	}
+        f.close();
+      }
+    }
     emit itemSelected(item->url());
   }
 }
@@ -1155,7 +1206,7 @@ void khcNavigatorWidget::addChildren(const khcInfoNode* pParentNode, khcNavigato
 
 void khcNavigatorWidget::slotCleanHierarchyMakers()
 {
-  kdDebug() << "--- slotCleanHierarchyMakers ---" << endl;
+//  kdDebug() << "--- slotCleanHierarchyMakers ---" << endl;
   for (std::map<khcNavigatorItem*, khcInfoHierarchyMaker*>::iterator it = hierarchyMakers.begin();
        it != hierarchyMakers.end(); )
   {
@@ -1207,85 +1258,6 @@ void khcNavigatorWidget::stopAnimation( khcNavigatorItem * item )
 }
 */
 
-bool khcNavigatorWidget::appendEntries(const QString &dirName, khcNavigatorItem *parent, QPtrList<khcNavigatorItem> *appendList)
-{
-    QDir fileDir(dirName, "*.desktop", 0, QDir::Files | QDir::Hidden | QDir::Readable);
-
-    if (!fileDir.exists())
-        return false;
-
-    QStringList fileList = fileDir.entryList();
-    QStringList::Iterator itFile;
-
-    for ( itFile = fileList.begin(); !(*itFile).isNull(); ++itFile )
-    {
-        QString filename = dirName;
-        filename += "/";
-        filename += *itFile;
-
-        khcNavigatorItem *entry;
-        if (parent)
-            entry = new khcNavigatorItem(parent);
-        else
-            entry = new khcNavigatorItem(contentsTree);
-
-        if (entry->readKDElnk(filename))
-            appendList->append(entry);
-        else
-            delete entry;
-    }
-
-    return true;
-}
-
-bool khcNavigatorWidget::processDir( const QString &dirName, khcNavigatorItem *parent,  QPtrList<khcNavigatorItem> *appendList)
-{
-    QString folderName;
-
-    QDir dirDir( dirName, "*", 0, QDir::Dirs );
-
-    if (!dirDir.exists()) return false;
-
-    QStringList dirList = dirDir.entryList();
-    QStringList::Iterator itDir;
-
-    for ( itDir = dirList.begin(); !(*itDir).isNull(); ++itDir )
-    {
-        if ( (*itDir)[0] == '.' ) continue;
-
-        QString filename = dirDir.path() + "/" + *itDir;
-
-        QString dirFile = filename + "/.directory";
-
-        QString icon;
-        QString docPath;
-
-        DocEntry *entry = DocMetaInfo::self()->addDocEntry( dirFile );
-        if ( entry ) {
-            folderName = entry->name();
-            docPath = entry->docPath();
-            icon = entry->icon();
-        } else {
-            folderName = *itDir;
-        }
-        if ( icon.isEmpty() ) icon = "contents2";
-
-        khcNavigatorItem *dirItem;
-        if (parent)
-            dirItem = new khcNavigatorItem(parent, folderName, icon);
-        else
-            dirItem = new khcNavigatorItem(contentsTree, folderName, icon);
-
-        dirItem->setUrl( docPath );
-
-        appendList->append(dirItem);
-
-        // read and append child items
-        appendEntries(filename, dirItem, appendList);
-        processDir(filename, dirItem, appendList);
-    }
-    return true;
-}
 
 void khcNavigatorWidget::slotSearch()
 {
@@ -1323,8 +1295,8 @@ void khcNavigatorWidget::slotSearchFinished()
 
 void khcNavigatorWidget::slotSearchTextChanged( const QString &text )
 {
-  kdDebug() << "khcNavigatorWidget::slotSearchTextCanged() '" << text << "'"
-            << endl;
+//  kdDebug() << "khcNavigatorWidget::slotSearchTextCanged() '" << text << "'"
+//            << endl;
 
   mSearchButton->setEnabled( !text.isEmpty() );
 }

@@ -4,15 +4,101 @@
 #include <klocale.h>
 #include <kcmdlineargs.h>
 
-#include "kcmhelpcenter.h"
+#include "docmetainfo.h"
+#include "docentrytraverser.h"
+
+class MyTraverser : public DocEntryTraverser
+{
+  public:
+    MyTraverser( const QString &indent = "" ) : mIndent( indent ) {}
+
+    void process( DocEntry *entry )
+    {
+      kdDebug() << mIndent << entry->name() << endl;
+#if 0
+      if ( entry->parent() ) kdDebug() << mIndent << "  PARENT: "
+                                       << entry->parent()->name() << endl;
+      if ( entry->nextSibling() ) kdDebug() << mIndent << "  NEXT: "
+                                       << entry->nextSibling()->name() << endl;
+#endif
+    }
+  
+    DocEntryTraverser *createChild()
+    {
+      return new MyTraverser( mIndent + "  " );
+    }
+
+  private:
+    QString mIndent;
+};
+
+class LinearTraverser : public DocEntryTraverser
+{
+  public:
+    void process( DocEntry *entry )
+    {
+      kdDebug() << "PROCESS: " << entry->name() << endl;
+    }
+    
+    DocEntryTraverser *createChild()
+    {
+      return this;
+    }
+    
+    void deleteTraverser() {}
+};
+
+class AsyncTraverser : public DocEntryTraverser
+{
+  public:
+    AsyncTraverser( const QString &indent = "" ) : mIndent( indent )
+    {
+//      kdDebug() << "AsyncTraverser()" << endl;
+    }
+    
+    ~AsyncTraverser()
+    {
+//      kdDebug() << "~AsyncTraverser()" << endl;
+    }
+    
+    void process( DocEntry *entry )
+    {
+      kdDebug() << mIndent << entry->name() << endl;
+    }
+    
+    DocEntryTraverser *createChild()
+    {
+//      kdDebug() << "AsyncTraverser::childTraverser()" << endl;
+      return new AsyncTraverser( mIndent + "  " );
+    }
+
+  private:
+    QString mIndent;
+};
 
 int main(int argc,char **argv)
 {
   KAboutData aboutData("testmetainfo","TestDocMetaInfo","0.1");
   KCmdLineArgs::init(argc,argv,&aboutData);
 
-//  KApplication app( false, false );
   KApplication app;
 
-  KCMHelpCenter m;
+  kdDebug() << "Scanning Meta Info" << endl;
+
+  DocMetaInfo::self()->scanMetaInfo();
+
+  kdDebug() << "My TRAVERSE start" << endl;
+  MyTraverser t;
+  DocMetaInfo::self()->startTraverseEntries( &t );
+  kdDebug() << "My TRAVERSE end" << endl;
+
+  kdDebug() << "Linear TRAVERSE start" << endl;
+  LinearTraverser l;
+  DocMetaInfo::self()->startTraverseEntries( &l );
+  kdDebug() << "Linear TRAVERSE end" << endl;
+
+  kdDebug() << "Async TRAVERSE start" << endl;
+  AsyncTraverser a;
+  DocMetaInfo::self()->startTraverseEntries( &a );
+  kdDebug() << "Async TRAVERSE end" << endl;
 }
