@@ -27,21 +27,35 @@ class MainWindow : public KMainWindow, public DCOPObject
     Q_OBJECT
     K_DCOP
   public:
-    MainWindow( const KURL &url = KURL() );
+    MainWindow();
     ~MainWindow();
 
   k_dcop:
-    void openURL(const QString &url);
+    void openUrl( const QString &url );
     void showHome();
     void lastSearch();
 
   public slots:
-    void slotOpenURL(const QString &url);
     void print();
     void statusBarMessage(const QString &m);
     void slotShowHome();
     void slotLastSearch();
     void showSearchStderr();
+    /**
+      Show document corresponding to given URL in viewer part.
+    */
+    void viewUrl( const KURL &url,
+                  const KParts::URLArgs &args = KParts::URLArgs() );
+    /**
+      Show document corresponding to given URL in viewer part.
+    */
+    void viewUrl( const QString & );    
+    
+    /**
+      Open document corresponding to given URL, i.e. show it in the viewer part
+      and select the corresponding entry in the navigator widget.
+    */
+    void openUrl( const KURL &url );
 
   protected:
     void setupActions();
@@ -53,7 +67,6 @@ class MainWindow : public KMainWindow, public DCOPObject
     void enableLastSearchAction();
 
   private:
-    void openURL( const KURL &url );
     void stop();
 
   private slots:
@@ -61,6 +74,9 @@ class MainWindow : public KMainWindow, public DCOPObject
     void slotStarted(KIO::Job *job);
     void slotInfoMessage(KIO::Job *, const QString &);
     void goInternalUrl( const KURL & );
+    /**
+      This function is called when the user clicks on a link in the viewer part.
+    */
     void slotOpenURLRequest( const KURL &url,
                              const KParts::URLArgs &args);
     void documentCompleted();

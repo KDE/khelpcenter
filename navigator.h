@@ -75,8 +75,11 @@ class Navigator : public QWidget
 
     bool showMissingDocs() const;
 
-    void selectItem( const KURL &url );
     void clearSelection();
+
+    void showOverview( NavigatorItem *item, const KURL &url );
+
+    void openInternalUrl( const KURL &url );
 
   public slots:
     void slotItemSelected(QListViewItem* index);
@@ -84,6 +87,7 @@ class Navigator : public QWidget
     void slotShowSearchResult( const QString & );
     void slotSelectGlossEntry( const QString &id );
     void showPreferencesDialog();
+    void selectItem( const KURL &url );
 
   signals:
     void itemSelected(const QString& itemURL);
@@ -125,6 +129,10 @@ class Navigator : public QWidget
     View *mView;
 
     KURL mHomeUrl;
+    
+    bool mSelected;
+
+    KURL mLastUrl;
 };
 
 }

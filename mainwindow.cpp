@@ -79,7 +79,7 @@ class LogDialog : public KDialogBase
 };
 
 
-MainWindow::MainWindow(const KURL &url)
+MainWindow::MainWindow()
     : KMainWindow(0, "MainWindow"), DCOPObject( "KHelpCenterIface" ),
       mLogDialog( 0 )
 {
@@ -102,17 +102,17 @@ MainWindow::MainWindow(const KURL &url)
     statusBar()->insertItem(i18n("Preparing Index"), 0, 1);
     statusBar()->setItemAlignment(0, AlignLeft | AlignVCenter);
 
-    connect(mDoc->browserExtension(),
-            SIGNAL(openURLRequest( const KURL &,
-                                   const KParts::URLArgs &)),
-            SLOT(slotOpenURLRequest( const KURL &,
-                                     const KParts::URLArgs &)));
+    connect( mDoc->browserExtension(),
+             SIGNAL( openURLRequest( const KURL &,
+                                     const KParts::URLArgs & ) ),
+             SLOT( slotOpenURLRequest( const KURL &,
+                                       const KParts::URLArgs & ) ) );
 
-    mNavigator = new Navigator( mDoc, splitter, "nav");
-    connect(mNavigator, SIGNAL(itemSelected(const QString &)),
-            SLOT(slotOpenURL(const QString &)));
-    connect(mNavigator, SIGNAL(glossSelected(const GlossaryEntry &)),
-            SLOT(slotGlossSelected(const GlossaryEntry &)));
+    mNavigator = new Navigator( mDoc, splitter, "nav" );
+    connect( mNavigator, SIGNAL( itemSelected( const QString & ) ),
+             SLOT( viewUrl( const QString & ) ) );
+    connect( mNavigator, SIGNAL( glossSelected( const GlossaryEntry & ) ),
+             SLOT( slotGlossSelected( const GlossaryEntry & ) ) );
 
     splitter->moveToFirst(mNavigator);
     splitter->setResizeMode(mNavigator, QSplitter::KeepSize);
@@ -142,9 +142,9 @@ MainWindow::MainWindow(const KURL &url)
     History::self().installMenuBarHook( this );
 
     connect( &History::self(), SIGNAL( goInternalUrl( const KURL & ) ),
-             SLOT( goInternalUrl( const KURL & ) ) );
-
-    if ( !url.isEmpty() ) slotOpenURL( url.url() );
+             SLOT( viewUrl( const KURL & ) ) );
+    connect( &History::self(), SIGNAL( goUrl( const KURL & ) ),
+             mNavigator, SLOT( selectItem( const KURL & ) ) );
 
     statusBarMessage(i18n("Ready"));
 
@@ -224,19 +224,34 @@ void MainWindow::slotStarted(KIO::Job *job)
 
 void MainWindow::goInternalUrl( const KURL &url )
 {
+  mDoc->closeURL();
   slotOpenURLRequest( url, KParts::URLArgs() );
 }
 
 void MainWindow::slotOpenURLRequest( const KURL &url,
                                      const KParts::URLArgs &args )
 {
-    kdDebug( 1400 ) << "MainWindow::slotOpenURLRequest(): " << url.url() << endl;
+  kdDebug( 1400 ) << "MainWindow::slotOpenURLRequest(): " << url.url() << endl;
 
-    mNavigator->selectItem( url );
+  History::self().createEntry();
 
+  mNavigator->selectItem( url );
+  viewUrl( url, args );
+}
+
+void MainWindow::viewUrl( const QString &url )
+{
+  viewUrl( KURL( url ) );
+}
+
+void MainWindow::viewUrl( const KURL &url, const KParts::URLArgs &args )
+{
     QString proto = url.protocol().lower();
 
-    if ( proto == "khelpcenter" ) return;
+    if ( proto == "khelpcenter" ) {
+      mNavigator->openInternalUrl( url );
+      return;
+    }
 
     bool own = false;
 
@@ -265,7 +280,6 @@ void MainWindow::slotOpenURLRequest( const KURL &url,
         slotGlossSelected( mNavigator->glossEntry( decodedEntryId ) );
         mNavigator->slotSelectGlossEntry( decodedEntryId );
     } else {
-        History::self().createEntry();
         mDoc->openURL( url );
     }
 }
@@ -288,30 +302,27 @@ void MainWindow::statusBarMessage(const QString &m)
     statusBar()->changeItem(m, 0);
 }
 
-void MainWindow::slotOpenURL(const QString &url)
+void MainWindow::openUrl( const QString &url )
 {
-    if ( url.isEmpty() ) {
-      slotShowHome();
-    } else {
-      openURL( KURL( url ) );
-      mNavigator->selectItem( url );
-    }
+    openUrl( KURL( url ) );
 }
 
-void MainWindow::openURL(const QString &url)
-{
-    slotOpenURL( url );
-}
-
-void MainWindow::openURL(const KURL &url)
+void MainWindow::openUrl( const KURL &url )
 {
     stop();
-    KParts::URLArgs args;
-    slotOpenURLRequest(url, args);
+    
+    if ( url.isEmpty() ) slotShowHome();
+    else {
+      History::self().createEntry();
+      mNavigator->selectItem( url );
+      viewUrl( url, KParts::URLArgs() );
+    }
 }
 
 void MainWindow::slotGlossSelected(const GlossaryEntry &entry)
 {
+    kdDebug() << "MainWindow::slotGlossSelected()" << endl;
+
     stop();
     History::self().createEntry();
     mDoc->begin( "help:/khelpcenter/glossary" );
@@ -321,6 +332,8 @@ void MainWindow::slotGlossSelected(const GlossaryEntry &entry)
 
 void MainWindow::stop()
 {
+    kdDebug() << "MainWindow::stop()" << endl;
+
     mDoc->closeURL();
     History::self().updateCurrentEntry( mDoc );
 }
@@ -332,7 +345,8 @@ void MainWindow::showHome()
 
 void MainWindow::slotShowHome()
 {
-    openURL( mNavigator->homeURL() );
+    History::self().createEntry();
+    viewUrl( mNavigator->homeURL() );
     mNavigator->clearSelection();
 }
 

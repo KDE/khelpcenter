@@ -117,9 +117,6 @@ void History::updateCurrentEntry( View *view )
 
   KURL url = view->url();
   
-  kdDebug() << "History::updateCurrenEntry(): " << view->title()
-            << " (URL: " << url.url() << ")" << endl;
-
   Entry *current = m_entries.current();
 
   QDataStream stream( current->buffer, IO_WriteOnly );
@@ -127,7 +124,13 @@ void History::updateCurrentEntry( View *view )
 
   current->view = view;
 
-  if ( url.isEmpty() ) url = view->internalUrl();
+  if ( url.isEmpty() ) {
+    kdDebug() << "History::updateCurrentEntry(): internal url" << endl;
+    url = view->internalUrl();
+  }
+
+  kdDebug() << "History::updateCurrentEntry(): " << view->title()
+            << " (URL: " << url.url() << ")" << endl;
 
   current->url = url;
   current->title = view->title();
@@ -186,6 +189,8 @@ void History::goHistoryDelayed()
 
 void History::goHistory( int steps )
 {
+  kdDebug() << "History::goHistory(): " << steps << endl;
+
   int newPos = m_entries.at() + steps;
 
   Entry *current = m_entries.at( newPos );
@@ -195,14 +200,20 @@ void History::goHistory( int steps )
   }
 
   if ( current->search ) {
+    kdDebug() << "History::goHistory(): search" << endl;
     current->view->lastSearch();
     return;
   }
 
   if ( current->url.protocol() == "khelpcenter" ) {
+    kdDebug() << "History::goHistory(): internal" << endl;
     emit goInternalUrl( current->url );
     return;
   }
+
+  kdDebug() << "History::goHistory(): restore state" << endl;
+
+  emit goUrl( current->url );
 
   Entry h( *current );
   h.buffer.detach();

@@ -68,6 +68,7 @@
 #include "scrollkeepertreebuilder.h"
 #include "kcmhelpcenter.h"
 #include "formatter.h"
+#include "history.h"
 
 #include "navigator.h"
 
@@ -75,7 +76,7 @@ using namespace KHC;
 
 Navigator::Navigator( View *view, QWidget *parent, const char *name )
    : QWidget( parent, name ),
-     mView( view )
+     mView( view ), mSelected( false )
 {
     KConfig *config = kapp->config();
     config->setGroup("General");
@@ -286,45 +287,60 @@ NavigatorItem *Navigator::insertScrollKeeperDocs( NavigatorItem *topItem,
 
 void Navigator::selectItem( const KURL &url )
 {
+  kdDebug() << "Navigator::selectItem(): " << url.url() << endl;
+
+  // If the navigator already has the given URL selected, do nothing.
   NavigatorItem *item;
   item = static_cast<NavigatorItem *>( mContentsTree->currentItem() );
-  KURL currentURL = item->entry()->url();
-  if ( currentURL == url ) return;
-
-  // First, populate the NavigatorAppItems if we don't want the home page
-  if ( url != homeURL() ) {
-    for ( QListViewItem *item = mContentsTree->firstChild(); item != 0; item = item->nextSibling() ) {
-      NavigatorAppItem *appItem = dynamic_cast<NavigatorAppItem *>( item );
-      if ( appItem != 0 )
-        appItem->populate( true /* recursive */ );
+  if ( item && mSelected ) {
+    KURL currentURL = item->entry()->url();
+    if ( currentURL == url ) {
+      kdDebug() << "URL already shown." << endl;
+      return;
     }
   }
 
-  kdDebug() << "Navigator::selectItem(): " << url.url() << endl;
+  // First, populate the NavigatorAppItems if we don't want the home page
+  if ( url != homeURL() ) {
+    for ( QListViewItem *item = mContentsTree->firstChild(); item;
+          item = item->nextSibling() ) {
+      NavigatorAppItem *appItem = dynamic_cast<NavigatorAppItem *>( item );
+      if ( appItem ) appItem->populate( true /* recursive */ );
+    }
+  }
 
   QListViewItemIterator it( mContentsTree );
-  while ( it.current() != 0 ) {
+  while ( it.current() ) {
     NavigatorItem *item = static_cast<NavigatorItem *>( it.current() );
     KURL itemUrl( item->entry()->url() );
     if ( itemUrl == url ) {
       mContentsTree->setCurrentItem( item );
+      if ( item->childCount() > 0 ) item->setOpen( true );
       mContentsTree->ensureItemVisible( item );
-      slotItemSelected( item );
       break;
     }
     ++it;
+  }
+  if ( !it.current() ) {
+    clearSelection();
+  } else {
+    mSelected = true;
   }
 }
 
 void Navigator::clearSelection()
 {
   mContentsTree->clearSelection();
+  mSelected = false;
 }
 
-void Navigator::slotItemSelected( QListViewItem* currentItem )
+void Navigator::slotItemSelected( QListViewItem *currentItem )
 {
   if ( !currentItem ) return;
-  NavigatorItem *item = static_cast<NavigatorItem*>( currentItem );
+  
+  mSelected = true;
+  
+  NavigatorItem *item = static_cast<NavigatorItem *>( currentItem );
 
   kdDebug(1400) << "Navigator::slotItemSelected(): " << item->entry()->name()
                 << endl;
@@ -332,74 +348,12 @@ void Navigator::slotItemSelected( QListViewItem* currentItem )
   if ( item->childCount() > 0 || item->isExpandable() )
     item->setOpen( !item->isOpen() );
 
-#if 0
-  if (pluginItems.find(item) > -1)
-  {
-    QString url = item->url();
-    kdDebug( 1400 ) << "--ITEM: " << url << endl;
-  
-    if (!url.isEmpty()) {
-      if ( url.left(1) == "/" ) {
-        url = "file:" + url;
-      } else {
-        int colonPos = url.find(':');
-        int slashPos = url.find('/');
-        if ( colonPos < 0 || ( colonPos > url.find('/') && slashPos > 0 ) ) {
-          url = "file:" + View::langLookup(url);
-        }
-      }
-      
-      kdDebug( 1400 ) << "--URL: " << url << endl;
-      
-      emit itemSelected(url);
-    }
-    return;
-  }
-#endif
-
   KURL url = item->entry()->url();
 
-  if ( url.protocol() == "khelpcenter" ) {
-    mView->beginInternal( url );
+  if ( url != mLastUrl )  History::self().createEntry();
 
-    QString t = formatter()->header( item->entry()->name() );
-    
-    t += "<h1>" + item->entry()->name() + "</h1>\n";
-    
-    QString info = item->entry()->info();
-    if ( !info.isEmpty() ) t += "<p>" + info + "</p>\n";
-    
-    if ( item->childCount() > 0 ) {
-      t += "<ul>\n";
-      QListViewItem *child = item->firstChild();
-      while ( child ) {
-        NavigatorItem *childItem = static_cast<NavigatorItem *>( child );
-        
-        DocEntry *e = childItem->entry();
-        
-        t += "<li><a href=\"" + e->url() + "\">";
-        if ( e->isDirectory() ) t += "<b>";
-        t += e->name();
-        if ( e->isDirectory() ) t += "</b>";
-        t += "</a>";
-        
-        if ( !e->info().isEmpty() ) {
-          t += "<br>" + e->info();
-        }
-        
-        t += "</li>\n";
-        
-        child = child->nextSibling();
-      }
-    }
-    
-    t += formatter()->footer();
-    
-//    kdDebug() << "HTML--" << endl << t << "--HTML" << endl;
-    
-    mView->write( t );
-    
-    mView->end();
+  if ( url.protocol() == "khelpcenter" ) {
+      showOverview( item, url );
   } else {
     if ( url.protocol() == "help" ) {
       kdDebug( 1400 ) << "slotItemSelected(): Got help URL " << url.url()
@@ -425,6 +379,81 @@ void Navigator::slotItemSelected( QListViewItem* currentItem )
     }
     emit itemSelected( url.url() );
   }
+
+  mLastUrl = url;
+}
+
+void Navigator::openInternalUrl( const KURL &url )
+{
+  if ( url.url() == "khelpcenter:home" ) {
+    clearSelection();
+    showOverview( 0, url );
+  }
+
+  selectItem( url );
+  if ( !mSelected ) return;
+  
+  NavigatorItem *item =
+    static_cast<NavigatorItem *>( mContentsTree->currentItem() );
+
+  if ( item ) showOverview( item, url );  
+}
+
+void Navigator::showOverview( NavigatorItem *item, const KURL &url )
+{
+  mView->beginInternal( url );
+
+  QString t;
+  uint childCount;
+
+  if ( item ) {
+    t += formatter()->header( item->entry()->name() );
+
+    t += "<h1>" + item->entry()->name() + "</h1>\n";
+
+    QString info = item->entry()->info();
+    if ( !info.isEmpty() ) t += "<p>" + info + "</p>\n";
+  
+    childCount = item->childCount();
+  } else {
+    childCount = mContentsTree->childCount();
+  }
+
+  if ( childCount > 0 ) {
+    t += "<ul>\n";
+
+    QListViewItem *child;
+    if ( item ) child = item->firstChild();
+    else child = mContentsTree->firstChild();
+
+    while ( child ) {
+      NavigatorItem *childItem = static_cast<NavigatorItem *>( child );
+
+      DocEntry *e = childItem->entry();
+
+      t += "<li><a href=\"" + e->url() + "\">";
+      if ( e->isDirectory() ) t += "<b>";
+      t += e->name();
+      if ( e->isDirectory() ) t += "</b>";
+      t += "</a>";
+
+      if ( !e->info().isEmpty() ) {
+        t += "<br>" + e->info();
+      }
+
+      t += "</li>\n";
+
+      child = child->nextSibling();
+    }
+  }
+
+  t += formatter()->footer();
+
+//    kdDebug() << "HTML--" << endl << t << "--HTML" << endl;
+
+  mView->write( t );
+
+  mView->end();
 }
 
 void Navigator::slotSearch()
@@ -533,8 +562,7 @@ KURL Navigator::homeURL()
   // language-specific StartUrl, e.g. "StartUrl[de]".
   cfg->reparseConfiguration();
   cfg->setGroup( "General" );
-  mHomeUrl = cfg->readPathEntry( "StartUrl",
-                               "help:/khelpcenter/index.html?anchor=welcome" );
+  mHomeUrl = cfg->readPathEntry( "StartUrl", "khelpcenter:home" );
   return mHomeUrl;
 }
 

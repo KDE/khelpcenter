@@ -60,6 +60,7 @@ class History : public QObject
 
   signals:
     void goInternalUrl( const KURL & );
+    void goUrl( const KURL & );
 
   private slots:
     void backActivated( int id );

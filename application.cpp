@@ -50,7 +50,7 @@ int Application::newInstance()
     mMainWindow->show();
   }
 
-  mMainWindow->slotOpenURL( url.url() );
+  mMainWindow->openUrl( url );
 
   return KUniqueApplication::newInstance();
 }
