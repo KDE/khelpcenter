@@ -4,11 +4,13 @@
       xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
       http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
   <kcfgfile name="khelpcenterrc"/>
+  <include>kstandarddirs.h</include>
 
   <group name="Search">
     <entry type="Path" key="IndexDirectory">
       <label>Path to index directory.</label>
       <whatsthis>Path to directory containing search indices.</whatsthis>
+      <default code="true">KGlobal::dirs()->saveLocation("data", "khelpcenter/index/")</default>
     </entry>
 
     <entry type="Int" key="Method">
