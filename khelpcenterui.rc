@@ -1,0 +1,27 @@
+<!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
+<kpartgui name="khelpcenter" version="3">
+<MenuBar noMerge="1">
+ <Menu name="file" noMerge="1">
+    <text>&amp;File</text>
+    <Action name="printFrame" group="print" />
+ </Menu>
+ <Menu name="edit" noMerge="1">
+  <text>&amp;Edit</text>
+  <Action name="selectAll" />
+  <Separator />
+  <Action name="find" />
+ </Menu>
+ <Menu name="view" noMerge="1">
+  <text>&amp;View</text>
+  <Action name="viewDocumentSource" />
+  <Action name="setEncoding" />
+ </Menu>
+</MenuBar>
+<ToolBar name="mainToolBar" noMerge="1">
+ <text>Main Toolbar</text>
+ <Action name="printFrame" />
+ <Action name="find" /> 
+ <Action name="incFontSizes" />
+ <Action name="decFontSizes" />
+</ToolBar>
+</kpartgui>

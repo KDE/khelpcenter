@@ -104,7 +104,7 @@ khcNavigatorWidget::khcNavigatorWidget(QWidget *parent, const char *name)
 khcNavigatorWidget::~khcNavigatorWidget()
 {
     delete tree;
-    delete search;
+    //delete search;
     delete tabBar;
 }
 
@@ -112,7 +112,7 @@ void khcNavigatorWidget::resizeEvent(QResizeEvent *)
 {
     tabBar->setGeometry(0, 0, width(), 28);
     tree->setGeometry(0, 28, width(), height()-28);
-    search->setGeometry(0, 28, width(), height()-28);
+    // search->setGeometry(0, 28, width(), height()-28);
 }
 
 void khcNavigatorWidget::setupContentsTab()
@@ -136,6 +136,7 @@ void khcNavigatorWidget::setupContentsTab()
 
 void khcNavigatorWidget::setupSearchTab()
 {
+    /*
     search = new SearchWidget(this);
     search->hide();
 
@@ -145,6 +146,7 @@ void khcNavigatorWidget::setupSearchTab()
     QTab *newTab = new QTab;
     newTab->label = i18n("Search");
     tabBar->addTab(newTab);
+    */
 }
 
 void khcNavigatorWidget::buildTree()
@@ -323,39 +325,6 @@ void khcNavigatorWidget::buildManualSubTree(khcNavigatorItem *parent, QString re
     }
 }
 
-
-
-bool lookupFile(QString fname)
-{
-  QStringList search;
-
-  // assemble the local search paths
-  QStringList const &localDoc = KGlobal::dirs()->findDirs("html", "");
-
-  // look up the different languages
-  for (int id=localDoc.count()-1; id >= 0; --id)
-    {
-      QStringList langs = KGlobal::locale()->languageList();
-      langs.append("default");
-      langs.append("en");
-      QStringList::ConstIterator lang;
-      for (lang = langs.begin(); lang != langs.end(); ++lang)
-        search.append(QString("%1/%2/%3").arg(localDoc[id]).arg(*lang).arg(fname));
-    }
-
-  // try to locate the urls
-  QStringList::Iterator it;
-  for (it = search.begin(); it != search.end(); ++it)
-    {
-      QFileInfo info(*it);
-      if (info.exists() && info.isFile() && info.isReadable())
-	return true;
-    }
-
-  return false;
-}
-
-
 // derive a valid URL to the documentation
 QString khcNavigatorWidget::documentationURL(KService *s)
 {
@@ -374,10 +343,7 @@ QString khcNavigatorWidget::documentationURL(KService *s)
   else
     docPath = s->desktopEntryName();
 
-  if (lookupFile(docPath+"/index.html"))
-    return QString("help:/%1/index.html").arg(docPath);
-
-  return QString::null;
+  return QString("help:/%1/index.html").arg(docPath);
 }
 
 void khcNavigatorWidget::insertPlugins()
@@ -405,12 +371,12 @@ void khcNavigatorWidget::slotTabSelected(int id)
     if (id == 0)
     {
 	tree->show();
-	search->hide();
+	// search->hide();
     }
     else if (id == 1)
     {
 	tree->hide();
-	search->show();
+	// search->show();
     }
 }
 

@@ -105,7 +105,7 @@ class khcNavigatorWidget : public QWidget
 
     QTabBar *tabBar;
     KListView *tree;
-    SearchWidget *search;
+    // SearchWidget *search;
 
     QList<khcNavigatorItem> staticItems, manualItems, pluginItems;
 };

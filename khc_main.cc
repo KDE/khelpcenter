@@ -1,4 +1,4 @@
-/*
+ /*
  *  khc_main.cpp - part of the KDE Help Center
  *
  *  Copyright (C) 1999 Matthias Elter (me@kde.org)
@@ -32,66 +32,39 @@
 #include <qtextstream.h>
 
 #include "khc_main.h"
-#include "KonquerorIface_stub.h"
 
 #include <kaboutdata.h>
 #include <kdebug.h>
 
 #include "version.h"
+#include <khtml_part.h>
+#include <qlayout.h>
+#include <kaction.h>
 
-
-void createHelpWindow(const QCString &appId)
+KHMainWindow::KHMainWindow(const KURL &url)
+    : KMainWindow(0, "khmainwindow")
 {
-  QString tempProfile = locateLocal( "appdata", "konqprofile.tmp" );
-  QFile f( tempProfile );
-  f.open( IO_WriteOnly );
+    doc = new KHTMLPart( this, 0,
+                         this, 0, KHTMLPart::BrowserViewGUI );
+    QWidget::connect(doc, SIGNAL(setWindowCaption(const QString &)),
+                     doc->widget(), SLOT(setCaption(const QString &)));
 
-  QTextStream str( &f );
+    setCentralWidget( doc->widget() );
+    setGeometry(366, 0, 640, 800);
+    actionCollection()->operator+=(doc->actionCollection());
+    createGUI( "khelpcenterui.rc", false );
 
-  str << "[Profile]" << endl;
-  str << "Container0_Children=View1,View2" << endl;
-  str << "Container0_Orientation=Horizontal" << endl;
-  str << "Container0_SplitterSizes=30,70" << endl;
-  str << "RootItem=Container0" << endl;
-  str << "View1_PassiveMode=true" << endl;
-  str << "View1_ServiceName=khelpcenter" << endl;
-  str << "View1_ServiceType=Browser/View" << endl;
-  str << "View1_URL=file:/" << endl;
-  str << "View1_PassiveMode=true" << endl;
-  str << "View1_LinkedView=true" << endl;
-  str << "View2_PassiveMode=false" << endl;
-  str << "View2_ServiceName=khtml" << endl;
-  str << "View2_ServiceType=text/html" << endl;
-  str << "View2_LinkedView=true" << endl;
+    if (url.isEmpty())
+        doc->openURL(KURL("help:/khelpcenter/index.html"));
+    else
+        doc->openURL( url );
 
-  KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
-  QString url;
-  if (args->count() >= 1)
-    url = args->url(0).url();
-  else
-    url = "help:/khelpcenter/main.html";
-
-  KURL _url(url);
-  str << "View2_URL=" << _url.url() << endl;
-
-  f.close();
-
-  kdDebug() << "Calling stub.createBrowserWindowFromProfile\n";
-  KonquerorIface_stub stub( appId, "KonquerorIface" );
-  stub.createBrowserWindowFromProfile( tempProfile );
-  kdDebug() << "Call done\n";
 }
 
-
-void Listener::slotAppRegistered( const QCString &appId )
+KHMainWindow::~KHMainWindow()
 {
-  if ( appId.left( 9 ) == "konqueror" )
-    {
-      createHelpWindow(appId);
-      exit( 0 );
-    }
+    delete doc;
 }
-
 
 static KCmdLineOptions options[] =
 {
@@ -100,48 +73,29 @@ static KCmdLineOptions options[] =
 };
 
 
-int main(int argc, char *argv[])
+extern "C" int kdemain(int argc, char *argv[])
 {
-  KAboutData aboutData( "khelpcenter", I18N_NOOP("KDE HelpCenter"),
-                        HELPCENTER_VERSION, I18N_NOOP("The KDE Help Center"), KAboutData::License_GPL,
-                        "(c) 1999-2000, Matthias Elter");
-  aboutData.addAuthor("Matthias Elter",0, "me@kde.org");
+    KAboutData aboutData( "khelpcenter", I18N_NOOP("KDE HelpCenter"),
+                          HELPCENTER_VERSION,
+                          I18N_NOOP("The KDE Help Center"),
+                          KAboutData::License_GPL,
+                          "(c) 1999-2000, Matthias Elter");
+    aboutData.addAuthor("Matthias Elter",0, "me@kde.org");
 
-  KCmdLineArgs::init( argc, argv, &aboutData );
-  KCmdLineArgs::addCmdLineOptions( options );
-  KApplication::addCmdLineOptions();
+    KCmdLineArgs::init( argc, argv, &aboutData );
+    KCmdLineArgs::addCmdLineOptions( options );
+    KApplication::addCmdLineOptions();
 
-  KApplication app( false, false ); // no GUI in this process
+    KApplication app;
+    KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
+    KURL url;
 
+    if (args->count())
+        url = args->url(0);
+    KHMainWindow *mw = new KHMainWindow(url);
+    mw->show();
 
-  app.dcopClient()->attach();
-
-  Listener listener;
-
-  QCString dcopService;
-  QString error;
-
-  // try to connect to an already running konqueror, if one exists
-  QCStringList apps = app.dcopClient()->registeredApplications();
-  QCStringList::ConstIterator it;
-  for (it = apps.begin(); it != apps.end(); ++it)
-    if ((*it).left(9) == "konqueror")
-      {
-        createHelpWindow(*it);
-        return 0;
-      }
-
-  // run a new konqueror instance
-  app.dcopClient()->setNotifications( true );
-  QObject::connect( app.dcopClient(), SIGNAL( applicationRegistered( const QCString& ) ),
-                    &listener, SLOT( slotAppRegistered( const QCString & ) ) );
-  if (app.startServiceByDesktopName("konqueror", QString::fromLatin1("--silent"), &error))
-    {
-      qWarning("Could not launch browser:\n%s\n", error.local8Bit().data());
-      return 1;
-    }
-
-  return app.exec();
+    return app.exec();
 }
 
 #include "khc_main.moc"

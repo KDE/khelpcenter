@@ -2,17 +2,20 @@
 #ifndef __khc_main_h__
 #define __khc_main_h__
 
-#include <qobject.h>
+#include <kmainwindow.h>
 
-class Listener : public QObject
+class KHTMLPart;
+
+class KHMainWindow : public KMainWindow
 {
-  Q_OBJECT
+    Q_OBJECT
+
 public:
-  Listener() {}
+    KHMainWindow(const KURL &url);
+    ~KHMainWindow();
 
- private slots:
-  void slotAppRegistered( const QCString &appId );
-
+private:
+    KHTMLPart *doc;
 };
 
 #endif
