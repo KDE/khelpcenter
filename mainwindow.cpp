@@ -127,12 +127,7 @@ MainWindow::MainWindow(const KURL &url)
 
     History::self().installMenuBarHook( this );
 
-    if ( url.isEmpty() ) {
-      slotShowHome();
-    } else {
-      openURL( url );
-      mNavigator->selectItem( url );
-    }
+    slotOpenURL( url.url() );
 
     statusBarMessage(i18n("Ready"));
 
@@ -260,7 +255,12 @@ void MainWindow::statusBarMessage(const QString &m)
 
 void MainWindow::slotOpenURL(const QString &url)
 {
-    openURL( KURL( url ) );
+    if ( url.isEmpty() ) {
+      slotShowHome();
+    } else {
+      openURL( KURL( url ) );
+      mNavigator->selectItem( url );
+    }
 }
 
 void MainWindow::openURL(const QString &url)

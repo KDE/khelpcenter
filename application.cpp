@@ -26,20 +26,20 @@ using namespace KHC;
 
 Application::Application() : KUniqueApplication()
 {
+	MainWindow *mainWindow = new MainWindow;
+	setMainWidget( mainWindow );
+	mainWindow->show();
+}
+
+int Application::newInstance()
+{
 	KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
 
 	KURL url;
 	if ( args->count() )
 		url = args->url( 0 );
+	static_cast<MainWindow *>( mainWidget() )->slotOpenURL( url.url() );
 
-	MainWindow *mainWindow = new MainWindow( url );
-	setMainWidget( mainWindow );
-	mainWindow->show();
-
-}
-
-int Application::newInstance()
-{
 	if ( isRestored() ) {
 		RESTORE( MainWindow );
 		return 0;

@@ -72,6 +72,9 @@ void NavigatorAppItem::setOpen(bool open)
 
 void NavigatorAppItem::populate( bool recursive )
 {
+     if ( mPopulated )
+         return;
+
      KServiceGroup::Ptr root = KServiceGroup::group(mRelpath);
      if (!root) {
         kdWarning() << "No Service groups\n";
