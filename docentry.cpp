@@ -1,10 +1,13 @@
 #include <qfile.h>
 #include <qregexp.h>
+#include <qfileinfo.h>
 
 #include <kdebug.h>
 #include <kdesktopfile.h>
 
 #include "docentry.h"
+
+using namespace KHC;
 
 DocEntry::DocEntry() :
   mWeight( 0 ), mSearchEnabled( false ), mDirectory( false ), mParent( 0 ),
@@ -122,6 +125,16 @@ int DocEntry::weight() const
   return mWeight;
 }
 
+void DocEntry::setSearchMethod( const QString &method )
+{
+  mSearchMethod = method;
+}
+
+QString DocEntry::searchMethod() const
+{
+  return mSearchMethod;
+}
+
 QString DocEntry::khelpcenterSpecial() const
 {
   return mKhelpcenterSpecial;
@@ -160,11 +173,16 @@ bool DocEntry::readFromFile( const QString &fileName )
   if ( mInfo.isNull() ) mInfo = file.readEntry( "Comment" );
   mLang = file.readEntry( "Lang" );
   mIdentifier = file.readEntry( "X-DOC-Identifier" );
+  if ( mIdentifier.isEmpty() ) {
+    QFileInfo fi( fileName );
+    mIdentifier = fi.baseName();
+  }
   mIndexer = file.readEntry( "X-DOC-Indexer" );
   mIndexer.replace( QRegExp( "%f" ) , fileName );
   mIndexTestFile = file.readEntry( "X-DOC-IndexTestFile" );
   mSearchEnabled = file.readBoolEntry( "X-DOC-SearchEnabledDefault", false );
   mWeight = file.readNumEntry( "X-DOC-Weight", 0 );
+  mSearchMethod = file.readEntry( "X-DOC-SearchMethod" );
 
   mKhelpcenterSpecial = file.readEntry("X-KDE-KHelpcenter-Special");
 
@@ -248,7 +266,10 @@ void DocEntry::dump() const
 {
   kdDebug() << "  <docentry>" << endl;
   kdDebug() << "    <name>" << mName << "</name>" << endl;
+  kdDebug() << "    <searchmethod>" << mSearchMethod << "</searchmethod>" << endl;
   kdDebug() << "    <search>" << mSearch << "</search>" << endl;
+  kdDebug() << "    <indexer>" << mIndexer << "</indexer>" << endl;
+  kdDebug() << "    <indextestfile>" << mIndexTestFile << "</indextestfile>" << endl;
   kdDebug() << "    <icon>" << mIcon << "</icon>" << endl;
   kdDebug() << "    <url>" << mUrl << "</url>" << endl;
   kdDebug() << "    <docpath>" << mDocPath << "</docpath>" << endl;

@@ -5,6 +5,8 @@
 
 #include <docmetainfo.h>
 
+namespace KHC {
+
 class ScopeItem : public QCheckListItem
 {
   public:
@@ -25,5 +27,7 @@ class ScopeItem : public QCheckListItem
   private:
     DocEntry *mEntry;
 };
+
+}
 
 #endif

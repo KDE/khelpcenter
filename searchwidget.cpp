@@ -57,6 +57,8 @@
 #include "searchwidget.h"
 #include "searchwidget.moc"
 
+using namespace KHC;
+
 SearchWidget::SearchWidget( QWidget *parent )
   : QWidget( parent ),
     mScopeCount( 0 )

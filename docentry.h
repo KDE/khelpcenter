@@ -4,6 +4,8 @@
 #include <qstring.h>
 #include <qvaluelist.h>
 
+namespace KHC {
+
 class DocEntry
 {
   public:
@@ -44,6 +46,9 @@ class DocEntry
     void setWeight( int );
     int weight() const;
 
+    void setSearchMethod( const QString & );
+    QString searchMethod() const;
+
     void enableSearch( bool enabled );
     bool searchEnabled() const;
 
@@ -81,6 +86,7 @@ class DocEntry
     QString mIndexer;
     QString mIndexTestFile;
     int mWeight;
+    QString mSearchMethod;
     bool mSearchEnabled;
     bool mDirectory;
 
@@ -90,5 +96,7 @@ class DocEntry
     DocEntry *mParent;
     DocEntry *mNextSibling;
 };
+
+}
 
 #endif

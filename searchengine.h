@@ -14,6 +14,9 @@ class QWidget;
 class KProcess;
 class KConfig;
 class KHTMLPart;
+
+namespace KHC {
+
 class SearchFormatter;
 class SearchEngine;
 
@@ -94,5 +97,7 @@ class SearchEngine : public QObject
     
     DocEntryTraverser *mRootTraverser;
 };
+
+}
 
 #endif

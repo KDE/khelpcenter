@@ -25,6 +25,8 @@
 #include "searchengine.h"
 #include "searchengine.moc"
 
+using namespace KHC;
+
 SearchTraverser::SearchTraverser( SearchEngine *engine, int level ) :
   mEngine( engine), mLevel( level ), mEntry( 0 )
 {

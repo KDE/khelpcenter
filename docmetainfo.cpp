@@ -8,9 +8,13 @@
 #include <kstandarddirs.h>
 #include <kglobal.h>
 
+#include "htmlsearch.h"
+
 #include "docentrytraverser.h"
 
 #include "docmetainfo.h"
+
+using namespace KHC;
 
 DocMetaInfo *DocMetaInfo::mSelf = 0;
 
@@ -24,6 +28,8 @@ DocMetaInfo::DocMetaInfo()
 {
   kdDebug() << "DocMetaInfo()" << endl;
 
+  mHtmlSearch = new HTMLSearch;
+
   mRootEntry.setName( "root entry" );
 }
 
@@ -35,6 +41,8 @@ DocMetaInfo::~DocMetaInfo()
   for( it = mDocEntries.begin(); it != mDocEntries.end(); ++it ) {
     delete *it;
   }
+
+  delete mHtmlSearch;
 
   mSelf = 0;
 }
@@ -59,6 +67,9 @@ DocEntry *DocMetaInfo::addDocEntry( const QString &fileName )
 
   if ( entry->readFromFile( fileName ) ) {
     if ( !lang.isEmpty() ) entry->setLang( lang );
+    if ( entry->searchMethod().lower() == "htdig" ) {
+      mHtmlSearch->setupDocEntry( entry );
+    }
     addDocEntry( entry );
     return entry;
   } else {

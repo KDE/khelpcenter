@@ -2,6 +2,8 @@
 
 #include "searchformatter.h"
 
+using namespace KHC;
+
 SearchFormatter::SearchFormatter()
 {
 }

@@ -26,19 +26,21 @@ libkhelpcenter_common_la_SOURCES = navigator.cpp \
 	navigatoritem.cpp navigatorappitem.cpp view.cpp \
 	infohierarchymaker.cpp inforeader.cpp infofile.cpp \
 	infonode.cpp searchwidget.cpp klanguagebutton.cpp searchengine.cpp \
-	docmetainfo.cpp docentry.cpp docentrytraverser.cpp searchformatter.cpp \
-	glossary.cpp toc.cpp mainwindow.cpp
+	docmetainfo.cpp docentrytraverser.cpp searchformatter.cpp \
+	glossary.cpp toc.cpp mainwindow.cpp docentry.cpp htmlsearch.cpp
 
 kcm_helpcenter_la_LDFLAGS = $(KDE_RPATH) -module -avoid-version \
                             $(all_libraries) -no-undefined
 kcm_helpcenter_la_LIBADD  = $(LIB_KDEUI)
-kcm_helpcenter_la_SOURCES = kcmhelpcenter.cpp docmetainfo.cpp docentry.cpp \
-                            docentrytraverser.cpp
+kcm_helpcenter_la_SOURCES = kcmhelpcenter.cpp docmetainfo.cpp \
+                            docentrytraverser.cpp docentry.cpp htmlsearch.cpp \
+                            htmlsearchconfig.cpp
 
 check_PROGRAMS = testmetainfo
 
 testmetainfo_LDFLAGS = $(all_libraries) $(KDE_RPATH)
-testmetainfo_LDADD = $(LIB_KDECORE) docentry.lo docmetainfo.lo docentrytraverser.lo
+testmetainfo_LDADD = $(LIB_KDECORE) docentry.lo docmetainfo.lo \
+                     docentrytraverser.lo
 testmetainfo_SOURCES = testmetainfo.cpp
 data_DATA = Help.desktop
 datadir = $(kde_appsdir)

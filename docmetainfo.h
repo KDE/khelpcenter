@@ -7,6 +7,10 @@
 
 #include "docentry.h"
 
+class HTMLSearch;
+
+namespace KHC {
+
 class DocEntryTraverser;
 
 /*!
@@ -57,7 +61,11 @@ class DocMetaInfo
 
     QStringList mLanguages;
 
+    HTMLSearch *mHtmlSearch;
+
     static DocMetaInfo *mSelf;
 };
+
+}
 
 #endif

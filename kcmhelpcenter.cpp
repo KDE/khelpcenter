@@ -26,8 +26,10 @@
 #include <qpushbutton.h>
 #include <qdir.h>
 #include <qprogressdialog.h>
+#include <qtabwidget.h>
 
 #include <kconfig.h>
+#include <kdebug.h>
 #include <klocale.h>
 #include <kglobal.h>
 #include <kaboutdata.h>
@@ -35,6 +37,8 @@
 #include <kdebug.h>
 #include <kstandarddirs.h>
 #include <kprocess.h>
+
+#include "htmlsearchconfig.h"
 
 #include "docmetainfo.h"
 #include "scopeitem.h"
@@ -51,29 +55,25 @@ extern "C"
   }
 }
 
+using namespace KHC;
 
 KCMHelpCenter::KCMHelpCenter(QWidget *parent, const char *name)
   : KCModule(parent, name), mProgressDialog( 0 )
 {
-  setButtons(Help);
+//  setButtons(Help);
 
-  QVBoxLayout *topLayout = new QVBoxLayout(this);
-  topLayout->setMargin( KDialog::marginHint() );
-  topLayout->setSpacing( KDialog::spacingHint() );
+  QVBoxLayout *tabLayout = new QVBoxLayout( this );
 
-  mListView = new QListView( this );
-  mListView->addColumn( i18n("Search Scope") );
-  mListView->addColumn( i18n("Status") );
-  mListView->setColumnAlignment( 1, AlignCenter );
-  topLayout->addWidget( mListView );
+  QTabWidget *tabWidget = new QTabWidget( this );
+  tabLayout->addWidget( tabWidget );
 
-  QBoxLayout *buttonLayout = new QHBoxLayout( topLayout );
+  QWidget *scopeTab = createScopeTab( tabWidget );
+  tabWidget->addTab( scopeTab, i18n( "Index" ) );
 
-  buttonLayout->addStretch( 1 );
-  
-  mBuildButton = new QPushButton( i18n("Build Index"), this );
-  buttonLayout->addWidget( mBuildButton );
-  connect( mBuildButton, SIGNAL( clicked() ), SLOT( buildIndex() ) );
+  mHtmlSearchTab = new KHC::HtmlSearchConfig( tabWidget );
+  connect( mHtmlSearchTab, SIGNAL( changed( bool ) ),
+           SIGNAL( changed( bool ) ) );
+  tabWidget->addTab( mHtmlSearchTab, i18n("HTML Search") );
 
 #if 0
   if ( getuid() != 0 ) {
@@ -81,7 +81,7 @@ KCMHelpCenter::KCMHelpCenter(QWidget *parent, const char *name)
   }
 #endif
 
-  mConfig = new KConfig("kcmhelpcenterrc");
+  mConfig = new KConfig("khelpcenterrc");
 
   delete DocMetaInfo::self();
   DocMetaInfo::self()->scanMetaInfo( KGlobal::locale()->languagesTwoAlpha() );
@@ -94,17 +94,48 @@ KCMHelpCenter::~KCMHelpCenter()
   delete mConfig;
 }
 
+QWidget *KCMHelpCenter::createScopeTab( QWidget *parent )
+{
+  QWidget *scopeTab = new QWidget( parent );
+
+  QVBoxLayout *topLayout = new QVBoxLayout( scopeTab );
+  topLayout->setMargin( KDialog::marginHint() );
+  topLayout->setSpacing( KDialog::spacingHint() );
+
+  mListView = new QListView( scopeTab );
+  mListView->addColumn( i18n("Search Scope") );
+  mListView->addColumn( i18n("Status") );
+  mListView->setColumnAlignment( 1, AlignCenter );
+  topLayout->addWidget( mListView );
+
+  QBoxLayout *buttonLayout = new QHBoxLayout( topLayout );
+
+  buttonLayout->addStretch( 1 );
+  
+  mBuildButton = new QPushButton( i18n("Build Index"), scopeTab );
+  buttonLayout->addWidget( mBuildButton );
+  connect( mBuildButton, SIGNAL( clicked() ), SLOT( buildIndex() ) );
+
+  return scopeTab;
+}
+
 void KCMHelpCenter::defaults()
 {
 }
 
 void KCMHelpCenter::save()
 {
+  kdDebug() << "KCMHelpCenter::save()" << endl;
+
+  mHtmlSearchTab->save( mConfig );
+
   mConfig->sync();
 }
 
 void KCMHelpCenter::load()
 {
+  mHtmlSearchTab->load( mConfig );
+
   mListView->clear();
 
   DocEntry::List entries = DocMetaInfo::self()->docEntries();

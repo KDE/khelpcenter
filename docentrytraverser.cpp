@@ -2,6 +2,8 @@
 
 #include "docentrytraverser.h"
 
+using namespace KHC;
+
 void DocEntryTraverser::setNotifyee( DocMetaInfo *n )
 {
   mNotifyee = n;

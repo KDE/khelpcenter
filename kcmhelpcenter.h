@@ -27,6 +27,8 @@ class QPushButton;
 class QProgressDialog;
 class KProcess;
 
+class HtmlSearchConfig;
+
 class KCMHelpCenter : public KCModule
 {
     Q_OBJECT
@@ -34,7 +36,7 @@ class KCMHelpCenter : public KCModule
     KCMHelpCenter( QWidget* parent = 0, const char* name = 0 );
     ~KCMHelpCenter();
     
-    virtual const KAboutData * aboutData () const;
+    virtual const KAboutData *aboutData() const;
 
     void load();
     void save();
@@ -49,6 +51,7 @@ class KCMHelpCenter : public KCModule
     void slotIndexFinished( KProcess * );
 
   protected:
+    QWidget *createScopeTab( QWidget *parent );
     void processIndexQueue();
     void updateStatus();
 
@@ -62,6 +65,8 @@ class KCMHelpCenter : public KCModule
     KConfig *mConfig;
     
     KAboutData *mAboutData;
+
+    KHC::HtmlSearchConfig *mHtmlSearchTab;
 };
 
 #endif

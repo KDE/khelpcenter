@@ -3,6 +3,8 @@
 
 #include <qstring.h>
 
+namespace KHC {
+
 class SearchFormatter
 {
   public:
@@ -17,5 +19,7 @@ class SearchFormatter
     
     virtual QString processResult( const QString & );
 };
+
+}
 
 #endif

@@ -30,6 +30,8 @@ class QListView;
 
 class KLanguageCombo;
 
+namespace KHC {
+
 class ScopeItem;
 
 class SearchWidget : public QWidget
@@ -75,5 +77,7 @@ class SearchWidget : public QWidget
 
     int mScopeCount;
 };
+
+}
 
 #endif

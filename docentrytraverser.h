@@ -1,6 +1,8 @@
 #ifndef DOCENTRYTRAVERSER_H
 #define DOCENTRYTRAVERSER_H
 
+namespace KHC {
+
 class DocEntry;
 class DocMetaInfo;
 
@@ -35,5 +37,7 @@ class DocEntryTraverser
   private:
     DocEntry *mParentEntry;    
 };
+
+}
 
 #endif
