@@ -45,7 +45,6 @@
 #include "view.h"
 #include "searchengine.h"
 #include "fontdialog.h"
-#include <kkeydialog.h>
 using namespace KHC;
 
 #include "mainwindow.h"
@@ -202,7 +201,8 @@ void MainWindow::setupActions()
 
     KStdAction::preferences( mNavigator, SLOT( showPreferencesDialog() ),
                              actionCollection() );
-    KStdAction::keyBindings( this, SLOT( slotConfigureKeys() ), actionCollection() );
+    KStdAction::keyBindings(guiFactory(), SLOT(configureShortcuts()), 
+actionCollection());
 
     KConfig *cfg = KGlobal::config();
     cfg->setGroup( "Debug" );
@@ -222,11 +222,6 @@ void MainWindow::setupActions()
 void MainWindow::slotCopySelectedText()
 {
   mDoc->copySelectedText();
-}
-
-void MainWindow::slotConfigureKeys()
-{
-  KKeyDialog::configure( actionCollection(), this );
 }
 
 void MainWindow::print()

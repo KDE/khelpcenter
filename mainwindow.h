@@ -85,7 +85,6 @@ class MainWindow : public KMainWindow, public DCOPObject
     void slotIncFontSizes();
     void slotDecFontSizes();
     void slotConfigureFonts();
-    void slotConfigureKeys();
     void slotCopySelectedText();
 
 private:
