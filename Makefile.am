@@ -17,7 +17,8 @@ IDL_FLAGS = --query-server-for-narrow --relative-paths -I$(idldir)
 khelpcenter_bin_LDADD   = $(LIB_KFILE) -lkom $(LIB_KHTML)
 khelpcenterclient_LDADD   = $(LIB_KDEUI) -lkom 
 
-SUBDIRS = pics plugins info2html rman
+SUBDIRS = kwelcome kcmhelpcenter konitemhelp kwid pics plugins \
+	info2html rman
 
 bin_PROGRAMS = 	khelpcenter.bin khelpcenterclient
 
@@ -49,6 +50,10 @@ khelpcenter.cc: $(srcdir)/khelpcenter.idl
 
 messages:
 	$(XGETTEXT) -C -ki18n -x $(includedir)/kde.pot *.h *.cpp && mv messages.po ../../po/khelpcenter.pot
+	for subdir in $(SUBDIRS); do \
+	   echo "Making messages in $$subdir"; \
+	   (cd $$subdir && $(MAKE) -f Makefile.am messages) || exit 1; \
+	done
 
 install-exec-local:
 	$(INSTALL_SCRIPT) $(srcdir)/khelpcenter $(bindir)/khelpcenter
