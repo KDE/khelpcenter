@@ -45,6 +45,8 @@ module KHelpCenter
 		HelpBrowser create();
 	};
 
+	
+
 	/*
    	* This event is mapped by the HelpCenter's implementation of the BaseView
    	* interface as well as by all the views.
@@ -59,6 +61,19 @@ module KHelpCenter
 
 	typedef URLRequest EventOpenURL;
  	const string eventOpenURL = "KHelpCenter/HelpBrowser/OpenURL";
+
+	interface MainWindow : OpenParts::MainWindow
+	{
+		slot void slotURLStarted(in string url);
+		slot void slotURLCompleted();
+
+		slot void openURL( in URLRequest url );    
+    
+		slot void setStatusBarText( in string text );
+		slot void setLocationBarURL( in string url );
+    
+		slot void createNewWindow( in string url );
+	};
 	  	
 	/*
 	* The View interface...very similar to Konqueror views.
@@ -72,11 +87,11 @@ module KHelpCenter
      		*
      		* In addition it may implement/emit the following signals:
      		*      - signal void openURL( in URLRequest url );
-     		*      - signal void started( in OpenParts::Id id, in string url );
-     		*      - signal void completed( in OpenParts::Id id );
-     		*      - signal void canceled( in OpenParts::Id id );
-     		*      - signal void setStatusBarText( in wstring text );
-     		*      - signal void setLocationBarURL( in OpenParts::Id id, in string url );
+     		*      - signal void started( in string url );
+     		*      - signal void completed();
+     		*      - signal void canceled();
+     		*      - signal void setStatusBarText( in string text );
+     		*      - signal void setLocationBarURL(  in string url );
      		*      - signal void createNewWindow( in string url );
 	     	*/
      

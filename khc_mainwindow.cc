@@ -47,7 +47,6 @@
 QList<KHelpBrowser> KHelpBrowser::helpWindowList;
 
 KHelpBrowser::KHelpBrowser(const QString& url)
-//   :OPMainWindow()
 {
     kdebug(KDEBUG_INFO,1400,"KHelpBrowser::KHelpBrowser()");
     setCaption(i18n("KDE HelpCenter"));
@@ -74,10 +73,10 @@ KHelpBrowser::KHelpBrowser(const QString& url)
     listIndex = helpWindowList.at();
 
     //open url
-     if (!url || url.isEmpty())
-    	slotIntroduction();
-     else
-    	openURL(url, true);
+    if (!url || url.isEmpty())
+      slotIntroduction();
+    else
+      openURL(url, true);
 }
 
 KHelpBrowser::~KHelpBrowser()
@@ -93,14 +92,33 @@ KHelpBrowser::~KHelpBrowser()
     delete m_pSplitter;
 }
 
+OPMainWindowIf* KHelpBrowser::interface()
+{
+  if ( m_pInterface == 0L )
+    {    
+      m_pkhcInterface = new khcMainWindowIf( this );
+      m_pInterface = m_pkhcInterface;
+    }
+  return m_pInterface;
+}
+
+khcMainWindowIf* KHelpBrowser::khcInterface()
+{
+  if ( m_pInterface == 0L )
+    {
+      m_pkhcInterface = new khcMainWindowIf( this );
+      m_pInterface = m_pkhcInterface;
+    }
+  return m_pkhcInterface;
+}
+
 void KHelpBrowser::cleanUp()
 {
   kdebug(KDEBUG_INFO,1400,"void KHelpBrowser::cleanUp()");
  
   m_vView = 0L;
 
-  // Release the view component. This will delete
-  // the component.
+  // Release the view component. This will delete the component.
   if (m_pFrame)
     m_pFrame->detach();
 }
@@ -123,14 +141,15 @@ void KHelpBrowser::setupView()
     m_pSplitter->setSizes(sizes);
     m_pSplitter->show();
     setView(m_pSplitter, true);
-
-    m_vView = KHelpCenter::View::_duplicate(new khcHTMLView);
+    m_pView = new khcHTMLView;
+    m_vView = KHelpCenter::View::_duplicate(m_pView);
     kdebug(KDEBUG_INFO,1400,"m_vView = KHelpCenter::View::_duplicate(new khcHTMLView);");
   
-    m_vView->setMainWindow(interface());
-    kdebug(KDEBUG_INFO,1400,"m_vView->setMainWindow(interface());");
-  
+    m_vView->setMainWindow(khcInterface());
+    kdebug(KDEBUG_INFO,1400,"m_vView->setMainWindow(khcInterface());");
+    connectView();
     m_pFrame->attach(m_vView);
+   
     kdebug(KDEBUG_INFO,1400,"m_pFrame->attach(m_vView);");
 }
 
@@ -287,7 +306,26 @@ void KHelpBrowser::setupStatusBar()
 
 void KHelpBrowser::enableNavigator(bool enable)
 {
-    if (enable)
+  if (enable)
+    {
+      QValueList<int> sizes;
+      sizes.append(200);
+      sizes.append(600);
+
+      m_pSplitter->setSizes(sizes);
+    }
+  else
+    {
+      QValueList<int> sizes;
+      sizes.append(0);
+      sizes.append(800);
+
+      m_pSplitter->setSizes(sizes);
+    }
+  updateRects();
+
+  /*
+  if (enable)
     {
 	m_pSplitter = new QSplitter(QSplitter::Horizontal, this);
 	CHECK_PTR(m_pSplitter);
@@ -315,6 +353,7 @@ void KHelpBrowser::enableNavigator(bool enable)
 	m_pNavigator->hide();
     }
     updateRects();
+  */
 }
 
 void KHelpBrowser::slotReadSettings()
@@ -664,58 +703,59 @@ int KHelpBrowser::openURL(const char *_url, bool withHistory)
   */
 }
 
-/*void KHelpBrowser::connectView()
+void KHelpBrowser::connectView()
 {
   try
-  {
-    m_vView->connect("openURL", this, "openURL");
-  }
+    {
+      m_vView->connect("openURL", khcInterface(), "openURL");
+    }
   catch ( ... )
-  {
-    kdebug(KDEBUG_WARN,1400,"WARNING: view does not know signal ""openURL"" ");
-  }
+    {
+      kdebug(KDEBUG_WARN,1400,"WARNING: view does not know signal ""openURL"" ");
+    }
   try
-  {
-    m_vView->connect("started", this, "slotURLStarted");
-  }
+    {
+      m_vView->connect("started", khcInterface(), "slotURLStarted");
+    }
   catch ( ... )
-  {
-    kdebug(KDEBUG_WARN,1400,"WARNING: view does not know signal ""started"" ");
-  }
+    {
+      kdebug(KDEBUG_WARN,1400,"WARNING: view does not know signal ""started"" ");
+    }
   try
-  {
-    m_vView->connect("completed", this, "slotURLCompleted");
-  }
+    {
+      m_vView->connect("completed", khcInterface(), "slotURLCompleted");
+    }
   catch ( ... )
-  {
-    kdebug(KDEBUG_WARN,1400,"WARNING: view does not know signal ""completed"" ");
-  }
+    {
+      kdebug(KDEBUG_WARN,1400,"WARNING: view does not know signal ""completed"" ");
+    }
   try
-  {
-    m_vView->connect("setStatusBarText", this, "setStatusBarText");
-  }
+    {
+      m_vView->connect("setStatusBarText", khcInterface(), "setStatusBarText");
+    }
   catch ( ... )
-  {
-    kdebug(KDEBUG_WARN,1400,"WARNING: view does not know signal ""setStatusBarText"" ");
-  }
+    {
+      kdebug(KDEBUG_WARN,1400,"WARNING: view does not know signal ""setStatusBarText"" ");
+    }
+    try
+    {
+      m_vView->connect("setLocationBarURL", khcInterface(), "setLocationBarURL");
+    }
+  catch ( ... )
+    {
+      kdebug(KDEBUG_WARN,1400,"WARNING: view does not know signal ""setLocationBarURL"" ");
+    }
+  
   try
-  {
-    m_vView->connect("setLocationBarURL", this, "setLocationBarURL");
-  }
+    {
+      m_vView->connect("createNewWindow", khcInterface(), "createNewWindow");
+    }
   catch ( ... )
-  {
-    kdebug(KDEBUG_WARN,1400,"WARNING: view does not know signal ""setLocationBarURL"" ");
-  }
-  try
-  {
-    m_vView->connect("createNewWindow", this, "createNewWindow");
-  }
-  catch ( ... )
-  {
-    kdebug(KDEBUG_WARN,1400,"WARNING: view does not know signal ""createNewWindow"" ");
-  }
-
-  }*/
+    {
+      kdebug(KDEBUG_WARN,1400,"WARNING: view does not know signal ""createNewWindow"" ");
+    }
+  
+}
 
 void KHelpBrowser::slotFind()
 {
@@ -729,7 +769,8 @@ void KHelpBrowser::slotFindNext()
 
 void KHelpBrowser::slotReload()
 {
-  
+  if (m_pView)
+    m_pView->slotReload();
 }
 
 void KHelpBrowser::slotCopy()
@@ -744,7 +785,8 @@ void KHelpBrowser::slotPrint()
 
 void KHelpBrowser::slotStopProcessing()
 {
-  
+  if (m_pView)
+   m_pView->slotStop();
 }
 
 void KHelpBrowser::slotMagMinus()
@@ -933,5 +975,52 @@ void KHelpBrowser::slotBookmarkChanged(KFileBookmark *parent)
     fillBookmarkMenu( parent, bookmarkMenu, idStart );
 }
 */
+
+khcMainWindowIf::khcMainWindowIf(KHelpBrowser* _main) :
+  OPMainWindowIf( _main )
+{
+  ADD_INTERFACE("IDL:KHelpCenter/MainWindow:1.0" );
+  
+  m_pkhcMainWindow = _main;
+}
+
+khcMainWindowIf::~khcMainWindowIf()
+{
+  cleanUp();
+}
+
+void khcMainWindowIf::setStatusBarText(const char *_text)
+{
+  m_pkhcMainWindow->slotSetStatusText(_text);
+  kdebug(0, 1400, "void khcMainWindowIf::setStatusBarText(const char *_text)");
+}
+
+void khcMainWindowIf::setLocationBarURL(const char *_url)
+{
+  m_pkhcMainWindow->slotSetLocation(_url);
+  m_pkhcMainWindow->slotSetTitle(QString("KDE HelpCenter ") + _url);
+  kdebug(0, 1400, "void khcMainWindowIf::setLocationBarURL(const char *_url)");
+}
+
+void khcMainWindowIf::createNewWindow(const char *url)
+{
+  kdebug(0, 1400, "void khcMainWindowIf::createNewWindow(const char *url)");
+}
+
+void khcMainWindowIf::slotURLStarted(const char *url)
+{
+  kdebug(0, 1400, "void khcMainWindowIf::slotURLStarted(const char *url)");
+}
+
+void khcMainWindowIf::slotURLCompleted( )
+{
+  kdebug(0, 1400, "void khcMainWindowIf::slotURLCompleted()");
+}
+
+void khcMainWindowIf::openURL(const KHelpCenter::URLRequest &url)
+{
+  kdebug(0, 1400, "void khcMainWindowIf::openURL(const KHelpCenter::URLRequest &url)");
+}
+
 
 #include "khc_mainwindow.moc"

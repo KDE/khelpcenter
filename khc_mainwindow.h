@@ -34,6 +34,29 @@ class QPopupMenu;
 class KHelpNavigator;
 class KHCBaseView;
 class KFileBookmark;
+class KHelpBrowser;
+class khcHTMLView;
+
+class khcMainWindowIf : virtual public OPMainWindowIf,
+			virtual public KHelpCenter::MainWindow_skel
+{
+public:
+  khcMainWindowIf(KHelpBrowser* _main);
+  ~khcMainWindowIf();
+
+  virtual void openURL( const KHelpCenter::URLRequest &url );
+  
+  virtual void setStatusBarText( const char *_text );
+  virtual void setLocationBarURL( const char *_url );
+  
+  virtual void createNewWindow( const char *url );
+  
+  virtual void slotURLStarted( const char *url );
+  virtual void slotURLCompleted( );
+  
+ protected:
+  KHelpBrowser* m_pkhcMainWindow;
+};
 
 class KHelpBrowser : public OPMainWindow
 {
@@ -49,15 +72,17 @@ class KHelpBrowser : public OPMainWindow
     static KHelpBrowser *getHelpWindowAt(unsigned long id) 
 	{ return helpWindowList.at(id); }
 
+    virtual OPMainWindowIf* interface();
+    virtual khcMainWindowIf* khcInterface();
+
  protected:
     void cleanUp();
-  
- private:
     void setupMenuBar();
     void setupToolBar();
     void setupStatusBar();
     void setupLocationBar();
     void setupView();
+    void connectView();
 
     void enableMenuItems();
     void enableNavigator(bool enable);
@@ -115,11 +140,13 @@ class KHelpBrowser : public OPMainWindow
     void slotHistoryBackActivated(int id);
     void slotHistoryForwardActivated(int id);
 
- private:
+ protected:
     QSplitter       *m_pSplitter;
     KHelpNavigator  *m_pNavigator;
     OPFrame         *m_pFrame;
     KHelpCenter::View_var m_vView;
+    khcHTMLView     *m_pView;
+    khcMainWindowIf *m_pkhcInterface;
 
     QPopupMenu *m_pFileMenu, *m_pEditMenu, *m_pViewMenu, *m_pGotoMenu, *m_pOptionsMenu, *m_pHelpMenu,*m_pBookmarkMenu;
     QPopupMenu *m_pHistoryBackMenu, *m_pHistoryForwardMenu;
