@@ -21,8 +21,11 @@
 #include "khc_htmlview.h"
 
 #include <kcursor.h>
+#include <kapp.h>
 
 #include <opUIUtils.h>
+
+#define TB_SEARCH Browser::View::TOOLBAR_ITEM_ID_BEGIN
 
 khcHTMLView::khcHTMLView()
 {
@@ -56,6 +59,19 @@ khcHTMLView::~khcHTMLView()
 {
 }
 
+bool khcHTMLView::event(const char *event, const CORBA::Any &value)
+{
+  EVENT_MAPPER( event, value );
+  
+  MAPPING( Browser::View::eventFillMenuEdit, Browser::View::EventFillMenu_ptr, mappingFillMenuEdit );
+  MAPPING( Browser::View::eventFillMenuView, Browser::View::EventFillMenu_ptr, mappingFillMenuView );
+  MAPPING( Browser::View::eventFillToolBar, Browser::View::EventFillToolBar, mappingFillToolBar );
+  MAPPING( Browser::eventOpenURL, Browser::EventOpenURL, mappingOpenURL );
+  
+  END_EVENT_MAPPER;
+  return false;
+}
+
 bool khcHTMLView::mappingOpenURL( Browser::EventOpenURL eventURL )
 {
   khcBaseView::mappingOpenURL(eventURL);
@@ -63,6 +79,49 @@ bool khcHTMLView::mappingOpenURL( Browser::EventOpenURL eventURL )
   SIGNAL_CALL2("started", id(), CORBA::Any::from_string((char *)eventURL.url, 0));
   return true;
 }
+
+bool khcHTMLView::mappingFillMenuView(Browser::View::EventFillMenu_ptr viewMenu)
+{
+  m_vViewMenu = OpenPartsUI::Menu::_duplicate(viewMenu);
+  if (!CORBA::is_nil(viewMenu))
+  {
+    CORBA::WString_var text;
+    viewMenu->insertItem4((text = Q2C(i18n("&Search..."))), this, "slotSearch", 0, -1, -1);
+  }
+  
+  return true;
+}
+
+bool KonqHTMLView::mappingFillMenuEdit( Browser::View::EventFillMenu_ptr editMenu)
+{
+  m_vEditMenu = OpenPartsUI::Menu::_duplicate(editMenu);
+  if (!CORBA::is_nil(editMenu))
+  {
+    CORBA::WString_var text;
+    editMenu->insertItem4((text = Q2C(i18n("&Copy"))), this, "slotCopy", 0, -1, -1);
+  }
+  
+  return true;
+}
+
+bool KonqHTMLView::mappingFillToolBar(Browser::View::EventFillToolBar viewToolBar)
+{
+  if (CORBA::is_nil(viewToolBar.toolBar))
+    return true;
+  
+  if (viewToolBar.create)
+    {
+      CORBA::WString_var toolTip = Q2C(i18n("Search"));
+      OpenPartsUI::Pixmap_var pix = OPUIUtils::convertPixmap( *KPixmapCache::toolbarPixmap("search.xpm"));
+      viewToolBar.toolBar->insertButton2(pix, TB_SEARCH,SIGNAL(clicked()), this, "slotSearch", 
+					 true, toolTip, viewToolBar.startIndex++);
+    }
+  else
+    viewToolBar.toolBar->removeItem(TB_SEARCH);
+  
+  return true;
+}
+
 
 void khcHTMLView::slotURLClicked( QString url )
 {
@@ -98,6 +157,20 @@ void khcHTMLView::slotCompleted()
 void khcHTMLView::slotCanceled()
 {
   SIGNAL_CALL1("canceled", id());
+}
+
+void khcHTMLView::slotCopy()
+{
+  QString text;
+  
+  getKHTMLWidget()->getSelectedText(text);
+  QClipboard *cb = kapp->clipboard();
+  cb->setText(text);
+}
+
+void khcHTMLView::slotSearch()
+{
+  // TODO
 }
 
 void khcHTMLView::stop()

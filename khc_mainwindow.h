@@ -47,7 +47,7 @@ class khcMainWindow : public OPMainWindow
 {
   Q_OBJECT
 public:
-  khcMainWindow( const char *url = 0L );
+  khcMainWindow(const char *url = 0L);
   ~khcMainWindow();
 
   virtual OPMainWindowIf* interface();

@@ -1,0 +1,16 @@
+[Desktop Entry]
+Name=KHelpcenter
+Comment=The KDE Help Center
+Icon=khelpcenter.xpm
+MiniIcon=khelpcenter.xpm
+DocPath=khelpcenter/index.html
+Type=Application
+Terminal=0
+Exec=khelpcenter
+CORBAExec=khelpcenter --server
+X-KDE-RepoIds=IDL:KHelpcenter/Application:1.0#App,IDL:Browser/BrowserFactory:1.0#KHelpcenter
+X-KDE-ActivationMode=shared
+ServiceTypes=Helpbrowser
+SwallowExec=
+SwallowTitle=
+BinaryPattern=

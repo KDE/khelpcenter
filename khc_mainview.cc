@@ -113,7 +113,7 @@ void khcMainView::init()
   OpenParts::ToolBarManager_var toolBarManager = m_vMainWindow->toolBarManager();
   if (!CORBA::is_nil(toolBarManager))
     toolBarManager->registerClient(id(), this);
-
+  
   OpenParts::StatusBarManager_var statusBarManager = m_vMainWindow->statusBarManager();
   if (!CORBA::is_nil(statusBarManager))
     m_vStatusBar = statusBarManager->registerClient(id());
@@ -121,7 +121,7 @@ void khcMainView::init()
   CORBA::WString_var item = Q2C( i18n(":-)") );
   if (!CORBA::is_nil(m_vStatusBar))
     m_vStatusBar->insertItem(item, 1);
-  
+
   m_pSplitter = new QSplitter(QSplitter::Horizontal, this);
   CHECK_PTR(m_pSplitter);
 
@@ -138,14 +138,15 @@ void khcMainView::init()
   sizes.append(600);
 
   m_pSplitter->setSizes(sizes);
-  m_pSplitter->show();
   m_pSplitter->setGeometry(0, 0, width(), height()); 
+  m_pSplitter->show();
 
+  // embed a HTMLView since automatic view embeding based on url/mimetype is not implemented yet
   m_pView = new khcHTMLView;
   m_vView = KHelpCenter::HTMLView::_duplicate(m_pView);
   m_vView->setMainWindow(m_vMainWindow);
   m_vView->setParent(this);
-
+  
   connectView();
   m_pFrame->attach(m_vView);
   
@@ -1194,6 +1195,7 @@ void khcMainView::slotSetURL(const QString& _url)
 void khcMainView::open(const char* url, CORBA::Boolean reload, CORBA::Long xoffset, CORBA::Long yoffset)
 {
   kdebug(KDEBUG_INFO,1400,"khcMainView::open()");
+
   slotStop();
   
   if (! reload)

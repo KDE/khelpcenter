@@ -1,5 +1,5 @@
 /*
- *  khc_helpbrowser_impl.h - part of the KDE Help Center
+ *  khc_client.h - part of the KDE Help Center
  *
  *  Copyright (c) 1999 Matthias Elter (me@kde.org)
  *
@@ -18,38 +18,36 @@
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#ifndef _khc_helpbrowser_impl_h_
-#define _khc_helpbrowser_impl_h_
+#ifndef __khc_client_h__
+#define __khc_client_h__
 
+#include <komApplication.h>
+#include <kded_instance.h>
 #include "khelpcenter.h"
 
-class khcMainWindow;
-
-class HelpBrowser_Impl : virtual public KHelpCenter::HelpBrowser_skel
-{
-
- public:
-    HelpBrowser_Impl();
-    virtual ~HelpBrowser_Impl();
-
-    void open(const char *url);
-
- private:
-    khcMainWindow *khb;
-};
-
-class HelpBrowserFactory_Impl : virtual public KHelpCenter::HelpBrowserFactory_skel
+class khcClientApp : public KOMApplication
 {
 public:
-  HelpBrowserFactory_Impl() {}
 
-  HelpBrowserFactory_Impl(const CORBA::ORB::ObjectTag &tag)
-   : KHelpCenter::HelpBrowserFactory_skel(tag) {}
+  khcClientApp(int &argc, char **argv, const QString& rAppName = QString::null)
+    : KOMApplication (argc, argv, rAppName)
+    {
+      kded = new KdedInstance(argc, argv, komapp_orb);
+      trader = kded->ktrader();
+      activator = kded->kactivator();
+    };
+
+  ~khcClientApp() { /* delete kded */ } ;
   
-  HelpBrowserFactory_Impl(CORBA::Object_ptr obj)
-   : KHelpCenter::HelpBrowserFactory_skel(obj) {}
+  openURL(const char* _url);
 
-  virtual KHelpCenter::HelpBrowser_ptr create();  
+protected:
+  
+  KdedInstance *kded;
+  KTrader *trader;
+  KActivator *activator;
+
+  Browser::BrowserFactory_var m_vkhc;
 };
 
 #endif

@@ -18,43 +18,61 @@
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#include "khelpcenter.h"
+#include "khc_client.h"
 
-#include <qstringlist.h>
-
-#include <komApplication.h>
-#include <kded_utils.h>
-#include <kded_instance.h> 
 #include <kactivator.h>
 #include <ktrader.h>
 #include <kdebug.h>
 
+#include <qstring.h>
+
 int main(int argc, char *argv[])
 {
-    KOMApplication app(argc, argv);
-    KdedInstance kded(argc, argv, komapp_orb);
+  khcClientApp app(argc, argv);
 
-    // get a pointer to the activator
-    KActivator *activator = kded.kactivator();
+  // Do we have a url argument?
+  QString _url(QString::null);
 
-    QStringList repoIds;
-    repoIds.append("IDL:KHelpCenter/HelpBrowserFactory:1.0#HelpBrowser");
-    activator->registerService("KHelpCenter", "shared", repoIds, "khelpcenter --server");
-  
-    // let's activate a service in the server
-    CORBA::Object_var obj = activator->activateService("KHelpCenter", "IDL:KHelpCenter/HelpBrowserFactory:1.0", "HelpBrowser");
-    assert( !CORBA::is_nil( obj ) );
-    
-    KHelpCenter::HelpBrowserFactory_var factory = KHelpCenter::HelpBrowserFactory::_narrow( obj );
-    assert( !CORBA::is_nil( factory ) );
-    
-    KHelpCenter::HelpBrowser_var view = factory->create(); 
-    assert(!CORBA::is_nil(view));
-    
-    if(argc == 2) 
+  if(argc == 2) 
     {
-	QString url = argv[1];
-	view->open(url);
+      _url = argv[1];
     }
-    return 0; 
+
+  return app.openURL(_url);
+}
+
+khcClientApp::openURL(const char* _url)
+{
+  // Query the trader for the KHelpcenter service
+  KTrader::OfferList offers = trader->query("Helpbrowser", "Name == 'KHelpcenter'");
+
+  if (offers.count() != 1)
+    {
+      kdebug(KDEBUG_INFO,1401,"Found %i offers for Helpbrowser service called KHelpcenter.\n", offers.count());
+      kdebug(KDEBUG_INFO,1401,"Error: Can't find KHelpcenter service.\n");
+      return false;
+    }
+  
+  // Activate the BrowserFactory.
+  CORBA::Object_var obj = activator->activateService("KHelpcenter", "IDL:Browser/BrowserFactory:1.0", "KHelpcenter");
+
+  if (CORBA::is_nil(obj))
+    {
+      kdebug(KDEBUG_INFO,1401,"Error: Can't connect to KHelpcenter.\n");
+      return false;
+    }
+  
+  m_vkhc = Browser::BrowserFactory::_narrow(obj);
+  
+  if (CORBA::is_nil(m_vkhc))
+    {
+      kdebug(KDEBUG_INFO,1401,"Error: Can't connect to KHelpcenter.\n");
+      return false;
+    }
+   
+  // Create a khcMainWindow.
+  kdebug(KDEBUG_INFO,1401,"Incarnating khcMainWindow!\n");
+  OpenParts::MainWindow_var m_vMainWindow = m_vkhc->createBrowserWindow(_url);
+  
+  return 0; 
 }

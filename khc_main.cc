@@ -18,43 +18,47 @@
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+#include "khc_application.h"
 #include "khc_mainwindow.h"
-#include "khc_helpbrowser_impl.h"
+
+#include <opApplication.h>
+#include <komBase.h>
+
+#include <kglobal.h>
+#include <klocale.h>
 
 #include <qdir.h>
 
-#include <komAutoLoader.h>
-#include <opApplication.h>
 
 int main(int argc, char *argv[])
 {
-    bool server = false;
-
-    for (int i=0; i< argc; i++)
+  OPApplication app(argc, argv, "khelpcenter");
+  bool server = false;
+  
+  for (int i=0; i< argc; i++)
     {
-	if (strcmp(argv[i], "--server") == 0 || strcmp(argv[i], "-s") == 0)
-	    server = true;
+      if (strcmp(argv[i], "--server") == 0 || strcmp(argv[i], "-s") == 0)
+	server = true;
     }
 
-    if (server)
-    {
-	// activate autoloader for interface "HelpBrowserFactory"
-	OPApplication app(argc, argv, "khelpcenter");
-	KOMAutoLoader<HelpBrowserFactory_Impl> HelpBrowserFactoryLoader("IDL:KHelpCenter/HelpBrowserFactory:1.0" , "HelpBrowser");
-	
-	app.exec();
-	return 0;
+  KOMBoot<khcApplicationIf> appLoader("IDL:KHelpcenter/Application:1.0", "App");
+  KOMBoot<khcBrowserFactory> browserFactoryLoader("IDL:Browser/BrowserFactory:1.0", "KHelpcenter");
+  
+  KGlobal::locale()->insertCatalogue("libkhc");
+
+  if (server)
+   {
+     app.exec();
+     return 0;
     }
-    else
+  else
     {
-	// standalone app
-	OPApplication app(argc, argv, "khelpcenter");
-	khcMainWindow *win = new khcMainWindow;
-	win->show();
-	
-	app.exec();
-	if (win)
-	    delete win;
-	return 0;
+      khcMainWindow *win = new khcMainWindow;
+      win->show();
+      
+      app.exec();
+      if (win)
+	delete win;
+      return 0;
     }
 }

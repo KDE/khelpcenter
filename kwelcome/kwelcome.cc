@@ -130,7 +130,7 @@ void KWelcome::slotWizardStart()
 void KWelcome::slotHelpCenterStart()
 {
   KProcess proc;	
-  proc << "khelpcenterclient";
+  proc << "khcclient";
   proc.start(KProcess::DontCare);
 }
 

@@ -27,10 +27,7 @@
 #include <kdebug.h>
 
 #include <qkeycode.h>
-#include <qdir.h>
-#include <qprinter.h>
 
-#include <komBase.h>
 #include <komShutdownManager.h>
 
 #include <opApplication.h>
@@ -38,8 +35,6 @@
 #include <opToolBarManager.h>
 #include <opStatusBarManager.h>
 #include <opMenu.h>
-
-#include <kded_instance.h>
 
 khcMainWindow::khcMainWindow( const char *url )
 {

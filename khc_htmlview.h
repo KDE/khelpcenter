@@ -41,7 +41,11 @@ class khcHTMLView : public KBrowser,
     khcHTMLView();
     virtual ~khcHTMLView();
 
-    virtual bool mappingOpenURL( Browser::EventOpenURL eventURL );
+    virtual bool event(const char *event, const CORBA::Any &value);
+    virtual bool mappingOpenURL(Browser::EventOpenURL eventURL);
+    virtual bool mappingFillMenuView( Browser::View::EventFillMenu_ptr viewMenu );
+    virtual bool mappingFillMenuEdit( Browser::View::EventFillMenu_ptr editMenu );
+    virtual bool mappingFillToolBar( Browser::View::EventFillToolBar viewToolBar );
 
     virtual void stop();
     virtual char *viewName() { return CORBA::string_dup("khcHTMLView"); }
@@ -57,6 +61,8 @@ class khcHTMLView : public KBrowser,
 
 public slots:
   void slotURLClicked( QString url );
+  virtual void slotCopy();
+  virtual void slotSearch();
 
 protected slots:
   void slotShowURL(KHTMLView *view, QString _url);
@@ -68,8 +74,8 @@ protected slots:
 protected:
   void setDefaultFontBase(int fSize);
 
- private:
   int fontBase;
+  OpenPartsUI::Menu_var m_vViewMenu, m_vEditMenu;
 };
 
 #endif

@@ -30,6 +30,8 @@ module KHelpCenter
 			     ,Browser::PrintingExtension
 			     ,Browser::MagnifyingExtension
 	{
+		slot void slotCopy();
+		slot void slotSearch();
 	};
 
 	interface MainView : OpenParts::Part
@@ -91,14 +93,13 @@ module KHelpCenter
 		MainView mainView();
 	};
 
-	interface HelpBrowser
+	interface Application : OpenParts::Application
 	{
-		void open(in string url);
-	};
-
-	interface HelpBrowserFactory
-	{
-		HelpBrowser create();
+		HTMLView createHTMLView();
+		// Implements...
+		// OpenParts::Part createPart();
+  		// OpenParts::MainWindow createWindow()
+		// ...defined in openparts.idl
 	};
 };
 
