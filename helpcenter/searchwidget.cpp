@@ -26,8 +26,37 @@
 #include <qlineedit.h>
 #include <qcheckbox.h>
 
+#include <stdio.h>
+
 #include "searchwidget.h"
 #include "htmlsearch.h"
+#include "mansearch.h"
+
+ResultBox::ResultBox(QWidget *parent)
+  : QListBox(parent)
+{
+  setMouseTracking(true);
+}
+
+void ResultBox::mouseMoveEvent(QMouseEvent *e)
+{
+  emit mouseOver(findItem(e->pos().y()));
+}
+
+void ResultBox::leaveEvent(QEvent *e)
+{
+  emit mouseOver(-1);
+}
+
+int ResultBox::getItemYPos(int index)
+{
+  int pos;
+  
+ if(itemYPos(index, &pos))
+   return pos;
+ else
+   return -1;
+}
 
 SearchWidget::SearchWidget(QWidget *parent)
   : QWidget(parent)
@@ -41,22 +70,28 @@ SearchWidget::SearchWidget(QWidget *parent)
   searchButton->setFixedHeight(24);
   connect(searchButton, SIGNAL(clicked()), this, SLOT(slotSearch()));
 
-  docCheck = new QCheckBox (i18n("KDE &Documentation"), this);
+  docCheck = new QCheckBox (i18n("KDE &documentation"), this);
   manCheck = new QCheckBox (i18n("Unix &man pages"), this);
   infoCheck = new QCheckBox (i18n("GNU &info pages"), this);
+  infoCheck->setEnabled(false);
 
   docCheck->setChecked(true);
 
   resultLabel = new QLabel(i18n("Results:"), this);
-  resultList = new QListBox(this);
+  resultList = new ResultBox(this);
 
+  connect(resultList, SIGNAL(mouseOver(int)), this, SLOT(slotMouseOver(int)));
   connect(resultList, SIGNAL(highlighted(int)), this, SLOT(slotMatchSelected(int)));
   connect(resultList, SIGNAL(selected(int)), this, SLOT(slotMatchSelected(int)));
+
+  tipLabel = new TipLabel;
+  tipLabel->hide();
 }
 
 SearchWidget::~SearchWidget()
 {
   matchList.clear(); //auto delete matches
+  delete tipLabel;
 }
 
 void SearchWidget::resizeEvent(QResizeEvent *)
@@ -78,16 +113,29 @@ void SearchWidget::tabSelected()
 
 void SearchWidget::slotSearch()
 {
+  resultList->clear();
   QString query = searchString->text();
-  matchList.clear();
-  HTMLSearch htmlSearch(&matchList);
-  htmlSearch.search(query);
 
-  resultList->clear(); // auto delete old matches
+  matchList.setAutoDelete(TRUE);
+  matchList.clear();
+    
+  if (docCheck->isChecked())
+   {
+	 HTMLSearch htmlSearch(&matchList);
+	 htmlSearch.search(query);
+   }
+  
+  if (manCheck->isChecked())
+	{
+	  ManSearch manSearch(&matchList);
+	  manSearch.search(query);
+	}
+  
+  resultList->setAutoUpdate(false);
   for (Match *match = matchList.first(); match != 0; match = matchList.next())
-  {
 	resultList->insertItem(match->getTitle());
-  }
+  resultList->setAutoUpdate(true);
+  resultList->repaint();
 }
 
 void SearchWidget::slotMatchSelected(int index)
@@ -100,7 +148,35 @@ void SearchWidget::slotMatchSelected(int index)
 	   {
 		 QString url = match->getURL();
 		 emit matchSelected(url);
+		 break;
 	   }
 	 count++;
    }
+}
+
+void SearchWidget::slotMouseOver(int index)
+{
+  if (index < 0)
+	{
+	  tipLabel->hide();
+	  return;
+	}
+
+  QString text = resultList->text(index);
+  if (text.isEmpty())
+	return;
+
+  int yPos = resultList->getItemYPos(index);
+  QPoint gPos = resultList->mapToGlobal(QPoint(4, yPos));
+
+  tipLabel->setText(text);
+  if (tipLabel->width() > (resultList->width()-16))
+	{
+	  tipLabel->move(gPos.x(),gPos.y()+25);
+	  tipLabel->show();
+	} 
+  else
+	tipLabel->hide();
+
+  //printf("mouseover: %d\n",yPos);fflush(stdout);
 }

@@ -22,13 +22,50 @@
 #define __searchwidget_h__
 
 #include <qwidget.h>
+#include <qlabel.h>
+#include <qlistbox.h>
+
 #include "searchmatch.h"
 
-class QLabel;
 class QPushButton;
-class QListBox;
 class QLineEdit;
 class QCheckBox;
+
+class TipLabel : public QLabel
+{
+  Q_OBJECT
+
+public:
+  TipLabel()
+	: QLabel(0, "TipLabel",
+			 WStyle_Customize | WStyle_NoBorder | WStyle_Tool)
+	{
+	  setAlignment(AlignVCenter | AlignLeft);
+	  setAutoResize(true);
+	  setBackgroundColor(QColor(240,255,240));
+	  setFrameStyle(Box | Raised);
+	  setLineWidth(1);
+	  //setAutoMask(FALSE);
+	}
+};
+
+
+class ResultBox : public QListBox
+{
+  Q_OBJECT
+
+public:
+  ResultBox(QWidget *parent = 0);
+  int getItemYPos(int index);
+
+protected:
+  virtual void mouseMoveEvent(QMouseEvent *e);
+  virtual void leaveEvent(QEvent *e);
+
+signals:
+  void mouseOver(int index);
+};  
+
 
 class SearchWidget : public QWidget
 {
@@ -50,11 +87,13 @@ public slots:
 
 private slots:
   void slotMatchSelected(int index);
+  void slotMouseOver(int index); 
 
 private:
   QLabel *keyWordLabel, *resultLabel;
+  TipLabel *tipLabel;
   QPushButton *searchButton;
-  QListBox *resultList;
+  ResultBox *resultList;
   QLineEdit *searchString;
   QCheckBox *docCheck, *manCheck, *infoCheck;
   MatchList matchList;

@@ -115,7 +115,7 @@ int HTMLSearch::processFiles(const char *dirname, const char *query)
  
 	  if (weight > 1)
 		{
-		  QString url = "file:/";
+		  QString url = "file:";
 		  url += filename;
 
 		  QString title = readTitle(filename);
@@ -155,8 +155,6 @@ int HTMLSearch::processDir(const char *dirname, const char *query)
 
 void HTMLSearch::search (const char *query)
 {
-  matchList->setAutoDelete(TRUE);
-
   QString dir = KApplication::kde_htmldir();
   dir += "/en/"; //change this for i18n!!!
   processDir(dir, query);

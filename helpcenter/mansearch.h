@@ -1,5 +1,5 @@
 /*
- *  htmlsearch.h - part of the KDE Help Center
+ *  mansearch.h - part of the KDE Help Center
  *
  *  Copyright (c) 1999 Matthias Elter (me@kde.org)
  *
@@ -24,24 +24,21 @@
 
 #include "searchmatch.h"
 
-#ifndef __htmlsearch_h__
-#define __htmlsearch_h__
+#ifndef __mansearch_h__
+#define __mansearch_h__
 
-class HTMLSearch
+class ManSearch
 {
-
  public:
-  HTMLSearch(MatchList *list) { matchList = list;}
+  ManSearch(MatchList *list) { matchList = list;}
   void search(const char *query);
    
  private:
-  int processDir(const char *dirname, const char *query);
-  int processFiles(const char *dirname, const char *query);
-  int countOccurrences(const char *filename, const char *query);
-  QString readTitle(const char *filename);
+  const char *FindXRef( const char *theText );
 
  private:
-  QString searchPath;
   MatchList *matchList;
 };
 #endif
+
+
