@@ -37,8 +37,6 @@ servicedir = $(kde_servicesdir)
 
 data_DATA = Help.desktop
 datadir = $(kde_appsdir)
-data2_DATA = kinfobrowser.desktop
-data2dir = $(kde_appsdir)/Utilities
 
 EXTRA_DIST = $(service_DATA) $(data_DATA) $(data2_DATA)
 
