@@ -3,6 +3,7 @@
  *
  *  Copyright (c) 1999 Matthias Elter (me@kde.org)
  *
+
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
  *  the Free Software Foundation; either version 2 of the License, or
@@ -677,15 +678,33 @@ void khcMainWindow::slotQuit()
     close();
 }
 
-int khcMainWindow::openURL(const char *_url, bool withHistory)
+void khcMainWindow::openURL(KHelpCenter::URLRequest urlRequest)
+{
+  slotStopProcessing();
+  
+  khcHistoryItem *hitem = new khcHistoryItem(urlRequest.url, urlRequest.xOffset, urlRequest.yOffset);
+  history.append(hitem);
+
+  kdebug(KDEBUG_INFO,1400,"EMIT_EVENT(m_vView, KHelpCenter::eventOpenURL, eventURL)");
+  EMIT_EVENT(m_vView, KHelpCenter::eventOpenURL, urlRequest);
+}
+
+void khcMainWindow::openURL(const char *_url, bool withHistory, long xOffset, long yOffset)
 {
   slotStopProcessing();
     
   KHelpCenter::EventOpenURL eventURL;
   eventURL.url = CORBA::string_dup(_url);
   eventURL.reload = (CORBA::Boolean)false;
-  eventURL.xOffset = 0;
-  eventURL.yOffset = 0;
+  eventURL.xOffset = xOffset;
+  eventURL.yOffset = yOffset;
+
+  if (withHistory)
+    {
+      khcHistoryItem *hitem = new khcHistoryItem(_url, xOffset, yOffset);
+      history.append(hitem);
+    }
+
   kdebug(KDEBUG_INFO,1400,"EMIT_EVENT(m_vView, KHelpCenter::eventOpenURL, eventURL)");
   EMIT_EVENT(m_vView, KHelpCenter::eventOpenURL, eventURL);
 }
@@ -818,94 +837,80 @@ void khcMainWindow::slotMagPlus()
 
 void khcMainWindow::slotForward()
 {
-  
+  khcHistoryItem *hitem = history.next();
+  if (hitem)
+    openURL(hitem->url(), false, hitem->xOffset(), hitem->yOffset());
 }
 
 void khcMainWindow::slotBack()
 {
-  
+  khcHistoryItem *hitem = history.prev();
+  if(hitem)
+      openURL(hitem->url(), false, hitem->xOffset(), hitem->yOffset());
 }
 
 void khcMainWindow::slotHistoryFillBack()
 {
-    /*
-    m_pHistoryBackMenu->clear();
-    QList<KPageInfo> history = htmlview->getHistory();
-    KPageInfo *current = htmlview->getHistCurrent();
-    history.find(current);
+  m_pHistoryBackMenu->clear();
   
-    KPageInfo *p = history.prev();
+  QList<khcHistoryItem> list = history.backList();
+  khcHistoryItem *item = list.first();
   
-    while (p != 0)
+  while (item)
     {
-	QString url = p->getUrl();
-	historyBackMenu->insertItem(url, this, 0);
-	p = history.prev();
+      QString url = item->url();
+      m_pHistoryBackMenu->insertItem(url, this, 0);
+      item = list.next();
     }
-    */
 }
 
 void khcMainWindow::slotHistoryFillForward()
 {
-    /*
-    historyForwardMenu->clear();
-    QList<KPageInfo> history = htmlview->getHistory();
-    KPageInfo *current = htmlview->getHistCurrent();
-    history.find(current);
+  m_pHistoryForwardMenu->clear();
   
-    KPageInfo *p = history.next();
+  QList<khcHistoryItem> list = history.forwardList();
+  khcHistoryItem *item = list.first();
   
-    while (p != 0)
+  while (item)
     {
-	QString url = p->getUrl();
-	historyForwardMenu->insertItem(url, this,0);
-	p = history.next();
+      QString url = item->url();
+      m_pHistoryForwardMenu->insertItem(url, this, 0);
+      item = list.next();
     }
-    */
 }
 
 void khcMainWindow::slotHistoryBackActivated(int id)
 {
-    /*
-    QList<KPageInfo> history = htmlview->getHistory();
-    KPageInfo *current = htmlview->getHistCurrent();
-    history.find(current);
-
-    int index = historyBackMenu->indexOf(id);
-
-    KPageInfo *p = 0; 
-  
-    for (int i = 0; i <= index; i++)
-	p = history.prev();
-
-    if (p)
-	htmlview->setHistCurrent(p);
-
-    QString url = historyBackMenu->text(id);
-    openURL(url, false);
-    */
+  QList<khcHistoryItem> list = history.backList();
+  khcHistoryItem *item = list.first();
+ 
+  int index = m_pHistoryBackMenu->indexOf(id);
+    
+  for (int i = 1; i <= index; i++)
+    item = list.prev();
+    
+ if(item)
+   {
+      openURL(item->url(), false, item->xOffset(), item->yOffset());
+      history.setCurrent(item);
+   }
 }
 
 void khcMainWindow::slotHistoryForwardActivated(int id)
 {
-    /*
-    QList<KPageInfo> history = htmlview->getHistory();
-    KPageInfo *current = htmlview->getHistCurrent();
-    history.find(current);
-
-    int index = historyForwardMenu->indexOf(id);
-
-    KPageInfo *p = 0; 
-  
-    for (int i = 0; i <= index; i++)
-	p = history.next();
-
-    if (p)
-	htmlview->setHistCurrent(p);
-
-    QString url = historyForwardMenu->text(id);
-    openURL(url, false);
-    */
+  QList<khcHistoryItem> list = history.forwardList();
+  khcHistoryItem *item = list.first();
+ 
+  int index = m_pHistoryForwardMenu->indexOf(id);
+    
+  for (int i = 1; i <= index; i++)
+    item = list.prev();
+    
+ if(item)
+   {
+      openURL(item->url(), false, item->xOffset(), item->yOffset());
+      history.setCurrent(item);
+   }
 }
 
 void khcMainWindow::slotSetBusy(bool busy)
@@ -959,7 +964,7 @@ void khcMainWindowIf::slotURLCompleted()
 
 void khcMainWindowIf::openURL(const KHelpCenter::URLRequest &url)
 {
-  //m_pkhcMainWindow->openURL(url);
+  m_pkhcMainWindow->openURL(url);
   kdebug(0, 1400, "void khcMainWindowIf::openURL(const KHelpCenter::URLRequest &url)");
 }
 

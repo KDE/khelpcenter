@@ -22,6 +22,7 @@
 #define __khc_mainwindow_h__
 
 #include "khelpcenter.h"
+#include "khc_history.h"
 
 #include <opMainWindow.h>
 #include <opMainWindowIf.h>
@@ -66,7 +67,8 @@ class khcMainWindow : public OPMainWindow
     khcMainWindow(const QString& url = 0);
     virtual ~khcMainWindow();
 
-    int openURL(const char *URL, bool withHistory = true);
+    void openURL(KHelpCenter::URLRequest urlRequest);
+    void openURL(const char *url, bool withHistory = true, long xOffset = 0, long yOffset = 0);
 
     unsigned long getListIndex() { return listIndex; }
     static khcMainWindow *getHelpWindowAt(unsigned long id) 
@@ -147,6 +149,8 @@ class khcMainWindow : public OPMainWindow
     KHelpCenter::View_var m_vView;
     khcHTMLView     *m_pView;
     khcMainWindowIf *m_pkhcInterface;
+
+    khcHistory history;
 
     QPopupMenu *m_pFileMenu, *m_pEditMenu, *m_pViewMenu, *m_pGotoMenu, *m_pOptionsMenu, *m_pHelpMenu,*m_pBookmarkMenu;
     QPopupMenu *m_pHistoryBackMenu, *m_pHistoryForwardMenu;

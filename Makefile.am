@@ -15,7 +15,7 @@ khelpcenter_SOURCES = khelpcenter.idl kbrowser.cc khc_main.cc \
 	khc_mainwindow.cc khc_baseview.cc khc_helpbrowser_impl.cc \
 	khc_navigator.cc khc_indexwidget.cc khc_searchwidget.cc \
 	khc_navigatoritem.cc khc_htmlsearch.cc khc_mansearch.cc \
-	finddlg.cpp khc_htmlview.cc khc_testpart.cc
+	finddlg.cpp khc_htmlview.cc khc_testpart.cc khc_history.cc
 
 khelpcenter_METASOURCES = kbrowser.moc khc_mainwindow.moc \
 	khc_navigator.moc khc_indexwidget.moc \
@@ -27,7 +27,8 @@ khelpcenterclient_SOURCES  = khelpcenter.cc khc_client.cc
 noinst_HEADERS = khelpcenter.h kbrowser.h finddlg.h khc_baseview.h \
 	khc_helpbrowser_impl.h khc_htmlsearch.h khc_htmlview.h khc_indexwidget.h \
 	khc_mainwindow.h khc_mansearch.h khc_navigator.h khc_navigatoritem.h \
-	khc_searchmatch.h khc_searchwidget.h man.h version.h khc_testpart.h
+	khc_searchmatch.h khc_searchwidget.h man.h version.h khc_testpart.h \
+	khc_history.h
 
 DISTCLEANFILES = $(khelpcenter_METASOURCES) khelpcenter.cc khelpcenter.h
 
