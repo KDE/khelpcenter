@@ -36,6 +36,8 @@ idl_DATA    =  khelpcenter.idl
 idl_HEADERS =  khelpcenter.h
 
 khelpcentercom.cpp: khelpcenter.h
+helpcentercom_impl.cpp: khelpcenter.h
+main.cpp: khelpcenter.h
 
 khelpcenter.h: khelpcenter.idl
 	rm -rf khelpcenter.h
