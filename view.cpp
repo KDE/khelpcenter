@@ -203,6 +203,9 @@ bool View::eventFilter( QObject *o, QEvent *e )
 
   QKeyEvent *ke = static_cast<QKeyEvent *>( e );
   if ( ke->state() & Qt::ShiftButton && ke->key() == Key_Space ) {
+    if ( baseURL().url().endsWith( "/index.html" ) )
+      return KHTMLPart::eventFilter( o, e );
+
     const QScrollBar * const scrollBar = view()->verticalScrollBar();
     if ( scrollBar->value() == scrollBar->minValue() ) {
       const DOM::HTMLCollection links = htmlDocument().links();
@@ -214,8 +217,10 @@ bool View::eventFilter( QObject *o, QEvent *e )
     const QScrollBar * const scrollBar = view()->verticalScrollBar();
     if ( scrollBar->value() == scrollBar->maxValue() ) {
       const DOM::HTMLCollection links = htmlDocument().links();
-      const DOM::Node nextLinkNode = links.item( links.length() - 2 );
-      openURL( urlFromLinkNode( nextLinkNode ) );
+      const KURL nextURL = urlFromLinkNode( links.item( links.length() - 2 ) );
+      if ( nextURL.url().endsWith( "/index.html" ) )
+        return KHTMLPart::eventFilter( o, e );
+      openURL( nextURL );
       return true;
     }
   }
