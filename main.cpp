@@ -46,7 +46,6 @@ int main(int argc, char *argv[])
 
     // init app
     KOMApplication app(argc, argv, "KDE HelpCenter");
-
     KOMAutoLoader<HelpWindowFactory_Impl> HelpWindowFactoryLoader("IDL:KHelpCenter/HelpWindowFactory:1.0" , "KHelpCenter");
  
     app.exec();

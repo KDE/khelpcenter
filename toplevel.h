@@ -81,7 +81,6 @@ class HelpCenter : public KTMainWindow
     void slotOptionsGeneral();
     void slotOptionsSave();
     void slotReadConfig();
-    void slotSetBusy(bool bussy);
 
  signals:
     void setBusy(bool bussy);
@@ -91,13 +90,12 @@ class HelpCenter : public KTMainWindow
     virtual void saveProperties(KConfig *);
     virtual void readProperties(KConfig *);
 
-    private slots:
-	void slotLocationEntered();
+ private slots:
+    void slotLocationEntered();
     void slotHistoryFillBack();
     void slotHistoryFillForward();
     void slotHistoryBackActivated(int id);
     void slotHistoryForwardActivated(int id);
-    void slotAnimatedWheelTimeout();
 
  private:
     void enableMenuItems();
@@ -119,7 +117,7 @@ class HelpCenter : public KTMainWindow
 
     // toolbar id's:
     enum {TB_TREE, TB_BACK, TB_FORWARD, TB_RELOAD, TB_STOP, TB_PRINT, TB_BOOKMARK, TB_ZOOMIN,
-	  TB_ZOOMOUT, TB_FIND, TB_WHEEL};
+	  TB_ZOOMOUT, TB_FIND};
     // menu id's:
     int idCopy, idBack, idForward, idTop, idUp, idPrevious, idNext, idTree, idToolbar
 	,idLocationbar, idStatusbar, idMagPlus, idMagMinus;
@@ -131,17 +129,8 @@ class HelpCenter : public KTMainWindow
     // static list of HelpCenter windows
     static QList<HelpCenter> helpWindowList;
 
-    // static list of wheel frames
-    static QList<QPixmap> animatedWheel;
-
     // index of HelpCenter instance in helpWindowList
     unsigned long listIndex;
-
-    // The image from 0...animatedWheel.count()-1 we are currently displaying.
-    uint animatedWheelCounter;
-	
-    // Timer used to display the animated logo.
-    QTimer *animatedWheelTimer;
 };
 
 #endif // TOPLEVEL_H

@@ -34,28 +34,22 @@
 
 // static list of HelpCenter windows:
 QList<HelpCenter> HelpCenter::helpWindowList;
-QList<QPixmap> HelpCenter::animatedWheel;
 
 HelpCenter::HelpCenter()
+    :KTMainWindow()
 {
     kdebug(KDEBUG_INFO,1400,"+HelpCenter");
-    setCaption(i18n("KDE Help Center"));
-
+    setCaption(i18n("KDE HelpCenter"));
+    
     resize(800, 580);
-    setMinimumSize( 200, 100 );
-
+    setMinimumSize(200, 100);
+    
     // setup GUI
     setupView();
     setupMenubar();
     setupToolbar();
     setupLocationbar();
     setupStatusbar();
-
-    // setup animated wheel
-    animatedWheelTimer = new QTimer(this);
-    animatedWheelCounter = 0;
-    connect(animatedWheelTimer, SIGNAL(timeout()),
-	    this, SLOT(slotAnimatedWheelTimeout()));
 
     // read configuration
     slotReadConfig();
@@ -196,7 +190,7 @@ void HelpCenter::setupMenubar()
     CHECK_PTR(optionsMenu);
     optionsMenu->setCheckable( true );
 
-    optionsMenu->insertItem(i18n("&General Preferences..."),
+    optionsMenu->insertItem(i18n("&Settings..."),
 			    this, SLOT(slotOptionsGeneral()));
     optionsMenu->insertSeparator();
     idTree = optionsMenu->insertItem(i18n("Show T&ree"),
@@ -275,30 +269,6 @@ void HelpCenter::setupToolbar()
 			     true, i18n("Find"));
     toolBar(0)->insertButton(Icon("fileprint.xpm"), TB_PRINT,
 			     true, i18n("Print"));
-
-    // animated wheel
-    toolBar(0)->insertButton(Icon("kde1.xpm"), TB_WHEEL, true);
-    toolBar(0)->alignItemRight(TB_WHEEL, true);
-
-    if (animatedWheel.count() == 0)
-    {
-	animatedWheel.setAutoDelete(true);
-	  
-	for ( int i = 1; i <= 9; i++ )
-	{
-	    QString n;
-	    n.sprintf("/kde%i.xpm", i);
-	    QPixmap *p = new QPixmap();
-	    p->load(kapp->kde_toolbardir() + n);
-	    if (p->isNull())
-	    {
-		QString e;
-		e.sprintf (i18n( "Could not load icon\n%s" ), n.data());
-		QMessageBox::warning( this, i18n("Error"), e.data());
-	    }
-	    animatedWheel.append(p);
-	}
-    }
 
     connect(toolBar(0), SIGNAL(clicked(int)), SLOT(slotToolbarClicked(int)));
 }
@@ -522,9 +492,6 @@ void HelpCenter::slotToolbarClicked(int item)
     case TB_TREE:
 	slotOptionsTree();
 	break;
-    case TB_WHEEL:
-	slotCloneWindow();
-	break;
     case TB_BOOKMARK:
 	htmlview->slotAddBookmark();
 	break;
@@ -620,7 +587,7 @@ void HelpCenter::slotBookmarkChanged(KFileBookmark *parent)
 
 void HelpCenter::slotSetTitle( const QString& _title )
 {
-    QString appCaption = "KDE Help Center - ";
+    QString appCaption = "KDE HelpCenter - ";
     appCaption += _title;
   
     setCaption( appCaption );
@@ -749,32 +716,6 @@ void HelpCenter::slotOptionsSave()
     default:
 	warning("HelpCenter::slotOptionsSave: illegal default in case reached\n");
 	break;
-    }
-}
-
-void HelpCenter::slotAnimatedWheelTimeout()
-{
-    animatedWheelCounter++;
-    if (animatedWheelCounter == animatedWheel.count())
-	animatedWheelCounter = 0;
-
-    toolBar(0)->setButtonPixmap(TB_WHEEL, *(animatedWheel.at(animatedWheelCounter)));
-}
-
-void HelpCenter::slotSetBusy(bool busy)
-{
-    if (busy) 
-    {
-	if(!animatedWheelTimer->isActive())
-	{
-	    animatedWheelTimer->start(0);
-	    printf("--- animatedWheelTimer start ---\n");fflush(stdout);
-	}
-    }
-    else
-    {
-	animatedWheelTimer->stop();
-	printf("--- animatedWheelTimer stop ---\n");fflush(stdout);
     }
 }
 

@@ -17,7 +17,7 @@ IDL_FLAGS = --query-server-for-narrow --relative-paths -I$(idldir)
 khelpcenterd_LDADD   = $(LIB_KDEUI) $(LIB_KFILE) -lkom $(LIB_KHTML)
 khelpcenter_LDADD   = -lkom -lkded
 
-SUBDIRS = . kwelcome konitemhelp kwid pics plugins \
+SUBDIRS = . kwelcome kwid pics plugins \
 	info2html rman
 
 bin_PROGRAMS = 	khelpcenterd khelpcenter
