@@ -248,8 +248,8 @@ QString Glossary::entryToHtml( const GlossaryEntry &entry )
     if (!htmlFile.open(IO_ReadOnly))
       return QString( "<html><head></head><body><h3>%1</h3>%2</body></html>" )
              .arg( i18n( "Error" ) )
-             .arg( i18n( "Cannot show selected glossary entry; couldn't open "
-                          " file 'glossary.html.in'!" ) );
+             .arg( i18n( "Unable to show selected glossary entry: unable to open "
+                          "file 'glossary.html.in'!" ) );
 
     QString seeAlso;
     if (!entry.seeAlso().isEmpty()) {
