@@ -20,7 +20,7 @@
 
 //
 // Espen: 2000-04-20
-// Coverted to QLayouts and got rid of (almost) all manual geometry calls. 
+// Coverted to QLayouts and got rid of (almost) all manual geometry calls.
 // Removed the old "About KDE" dialog box (using KAboutKDE instead).
 // Added keyboard accels for Escape and F1 as well.
 //
@@ -51,10 +51,10 @@ KWelcome::KWelcome(QWidget *parent, const char *name)
   // setup topView
   topView = new QWidget(this);
   topView->setBackgroundColor( white );
-  
+
   // setup bottomView
   bottomView = new QWidget(this);
-  
+
   // setup the top level layout manager
   QVBoxLayout *topLayout = new QVBoxLayout(this);
   topLayout->addWidget(topView,1);
@@ -69,7 +69,7 @@ KWelcome::KWelcome(QWidget *parent, const char *name)
   welcome->setPixmap(welcome_pm);
 
   //
-  // Overlay buttons on welcome pixmap label. We need to do one manual 
+  // Overlay buttons on welcome pixmap label. We need to do one manual
   // geometry setting with real pixel coordinates here.
   //
   helpcenterButton = new QPushButton(i18n("Get &help"), topView);
@@ -81,12 +81,12 @@ KWelcome::KWelcome(QWidget *parent, const char *name)
   wizardButton->adjustSize(); // Since there is no layout manager
 
   helpcenterButton->move( 15, 330 );
-  wizardButton->move( helpcenterButton->x() + 
-		      helpcenterButton->sizeHint().width() + 4, 
+  wizardButton->move( helpcenterButton->x() +
+		      helpcenterButton->sizeHint().width() + 4,
 		      helpcenterButton->y() );
 
   // create 'start on every KDE startup' checkbox
-  autostart_kwelcome = 
+  autostart_kwelcome =
     new QCheckBox( i18n("Show this dialog on KDE startup."), bottomView );
   autostart_kwelcome->setChecked(TRUE);
 
@@ -105,7 +105,7 @@ KWelcome::KWelcome(QWidget *parent, const char *name)
   hlay->addWidget(quitButton);
 
   //
-  // Espen: Does this look better? I think so. Give action buttons 
+  // Espen: Does this look better? I think so. Give action buttons
   // the same width.
   //
   int w1 = aboutButton->sizeHint().width();
@@ -188,6 +188,12 @@ void KWelcome::keyPressEvent( QKeyEvent *e )
   {
     QWidget::keyPressEvent(e);
   }
+}
+
+void KWelcome::applicationRegistered( const QCString& appId )
+{
+    if ( appId == "kwin" )
+	show();
 }
 
 #include "kwelcome.moc"

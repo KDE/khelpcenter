@@ -26,6 +26,7 @@
 #include <kconfig.h>
 #include <klocale.h>
 #include <kuniqueapp.h>
+#include <dcopclient.h>
 
 static const char *description = I18N_NOOP("KDE welcome dialog.");
 static const char *version     = "v1.0alpha";
@@ -49,12 +50,12 @@ int main(int argc, char *argv[])
     return 0;
 
   KUniqueApplication app;
-  
+
   // check for -kdestartup
   KConfig *conf = KGlobal::config();
   conf->setGroup("General Settings");
   bool autostart = conf->readBoolEntry( "AutostartOnKDEStartup", true);
-  
+
   KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
   if ( args->isSet( "kdestartup" ) && !autostart )
     return 0;
@@ -62,11 +63,17 @@ int main(int argc, char *argv[])
   KWelcome *toplevel = new KWelcome();
   app.setMainWidget(toplevel);
   app.setTopWidget(toplevel);
-  toplevel->show();
-  
+
+  if ( app.dcopClient()->isApplicationRegistered( "kwin" ) ) {
+      toplevel->show();
+  } else {
+      app.dcopClient()->setNotifications( true );
+      QObject::connect( app.dcopClient(), SIGNAL( applicationRegistered(const QCString&) ), 
+			toplevel, SLOT( applicationRegistered(const QCString&) ) );
+  }
+
+
   int rv = app.exec();
-  
-  if (toplevel)
-    delete toplevel;
+
   return rv;
 }

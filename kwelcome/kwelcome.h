@@ -39,6 +39,8 @@ public slots:
   void slotAboutKDE();
   void slotWizardStart();
   void slotHelpCenterStart();
+    
+  void applicationRegistered( const QCString& appId );
 
 protected:
   void saveSettings();
