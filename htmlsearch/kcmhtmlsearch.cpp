@@ -33,6 +33,7 @@
 #include <qcheckbox.h>
 #include <qframe.h>
 #include <qpushbutton.h>
+#include <qwhatsthis.h>
 #include <klistbox.h>
 #include <kfiledialog.h>
 #include <kprocess.h>
@@ -55,10 +56,11 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const char *name)
   grid->addRowSpacing(0, gb->fontMetrics().lineSpacing());
 
   QLabel *l = new QLabel(i18n("The fulltext search feature makes use of the "
-			      "ht://dig HTML search engine. "
-			      "You can get ht://dig at the"), gb);
+                  "ht://dig HTML search engine. "
+                  "You can get ht://dig at the"), gb);
   l->setAlignment(QLabel::WordBreak);
   grid->addMultiCellWidget(l, 1, 1, 0, 1);
+  QWhatsThis::add( gb, i18n( "Information about where to get the ht://dig package." ) );
 
   KURLLabel *url = new KURLLabel(gb);
   url->setURL("http://www.htdig.org");
@@ -66,35 +68,44 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const char *name)
   url->setAlignment(QLabel::AlignHCenter);
   grid->addMultiCellWidget(url, 2,2, 0, 1);
   connect(url, SIGNAL(leftClickedURL(const QString&)),
-	  this, SLOT(urlClicked(const QString&)));
+      this, SLOT(urlClicked(const QString&)));
 
   gb = new QGroupBox(i18n("Program locations"), this);
 
   vbox->addWidget(gb);
   grid = new QGridLayout(gb, 4,2, 6,6);
   grid->addRowSpacing(0, gb->fontMetrics().lineSpacing());
-  
+
   htdigBin = new QLineEdit(gb);
   l = new QLabel(htdigBin, i18n("ht&dig"), gb);
+  l->setBuddy( htdigBin );
   grid->addWidget(l, 1,0);
   grid->addWidget(htdigBin, 1,1);
   connect(htdigBin, SIGNAL(textChanged(const QString&)), this, SLOT(configChanged()));
+  QString wtstr = i18n( "Enter the path to your htdig program here, e.g., /usr/local/bin/htdig" );
+  QWhatsThis::add( htdigBin, wtstr );
+  QWhatsThis::add( l, wtstr );
 
   htsearchBin = new QLineEdit(gb);
   l = new QLabel(htdigBin, i18n("ht&search"), gb);
+  l->setBuddy( htsearchBin );
   grid->addWidget(l, 2,0);
   grid->addWidget(htsearchBin, 2,1);
   connect(htsearchBin, SIGNAL(textChanged(const QString&)), this, SLOT(configChanged()));
+  wtstr = i18n( "Enter the path to your htsearch program here, e.g., /usr/local/bin/htsearch" );
+  QWhatsThis::add( htsearchBin, wtstr );
+  QWhatsThis::add( l, wtstr );
 
 
   QHBoxLayout *hbox = new QHBoxLayout(vbox);
 
   gb = new QGroupBox(i18n("Scope"), this);
   hbox->addWidget(gb);
+  QWhatsThis::add( gb, i18n( "Here you can select which parts of the documentation should be included in the fulltext search index. Available options are the KDE Help pages, the installed man pages, and the installed info pages. You can select any number of these." ) );
 
   QVBoxLayout *vvbox = new QVBoxLayout(gb, 6,2);
   vvbox->addSpacing(gb->fontMetrics().lineSpacing());
-  
+
   indexKDE = new QCheckBox(i18n("&KDE Help"), gb);
   vvbox->addWidget(indexKDE);
   connect(indexKDE, SIGNAL(clicked()), this, SLOT(configChanged()));
@@ -111,13 +122,14 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const char *name)
 
   gb = new QGroupBox(i18n("Additional search paths"), this);
   hbox->addWidget(gb);
-  
+  QWhatsThis::add( gb, i18n( "Here you can add additional paths to search for documentation. To add a path, click on the <em>Add...</em> button and select the directory from where additional documentation should be searched. You can remove directories by clicking on the <em>Delete</em> button." ) );
+
   grid = new QGridLayout(gb, 4,3, 6,2);
   grid->addRowSpacing(0, gb->fontMetrics().lineSpacing());
-  
+
   addButton = new QPushButton(i18n("Add..."), gb);
   grid->addWidget(addButton, 1,0);
-  
+
   delButton = new QPushButton(i18n("Delete"), gb);
   grid->addWidget(delButton, 2,0);
 
@@ -128,18 +140,25 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const char *name)
   vbox->addStretch(1);
 
   runButton = new QPushButton(i18n("Generate index..."), this);
+  QWhatsThis::add( runButton, i18n( "Click this button to generate the index for the fulltext search." ) );
   runButton->setFixedSize(runButton->sizeHint());
   vbox->addWidget(runButton, AlignRight);
   connect(runButton, SIGNAL(clicked()), this, SLOT(generateIndex()));
 
   connect(addButton, SIGNAL(clicked()), this, SLOT(addClicked()));
   connect(delButton, SIGNAL(clicked()), this, SLOT(delClicked()));
-  connect(searchPaths, SIGNAL(highlighted(const QString &)), 
-	  this, SLOT(pathSelected(const QString &)));
+  connect(searchPaths, SIGNAL(highlighted(const QString &)),
+      this, SLOT(pathSelected(const QString &)));
 
   checkButtons();
 
   load();
+}
+
+
+QString KHTMLSearchConfig::quickHelp()
+{
+return i18n( "This configuration module lets you configure the ht://dig engine which can be used for fulltext search in the KDE documentation as well as other system documentation like man and info pages." );
 }
 
 
@@ -163,8 +182,8 @@ void KHTMLSearchConfig::addClicked()
   if (!dir.isEmpty())
     {
       for (uint i=0; i<searchPaths->count(); ++i)
-	if (searchPaths->text(i) == dir)
-	  return;
+    if (searchPaths->text(i) == dir)
+      return;
       searchPaths->insertItem(dir);
       configChanged();
     }
@@ -179,7 +198,7 @@ void KHTMLSearchConfig::delClicked()
 }
 
 
-KHTMLSearchConfig::~KHTMLSearchConfig() 
+KHTMLSearchConfig::~KHTMLSearchConfig()
 {
 }
 
@@ -193,16 +212,16 @@ void KHTMLSearchConfig::configChanged()
 void KHTMLSearchConfig::load()
 {
   KConfig *config = new KConfig("khelpcenterrc", true);
-  
+
   config->setGroup("htdig");
   htdigBin->setText(config->readEntry("htdig", kapp->dirs()->findExe("htdig")));
   htsearchBin->setText(config->readEntry("htdig", kapp->dirs()->findExe("htsearch")));
-  
+
   config->setGroup("Scope");
   indexKDE->setChecked(config->readBoolEntry("KDE", true));
   indexMan->setChecked(config->readBoolEntry("Man", false));
   indexInfo->setChecked(config->readBoolEntry("Info", false));
-  
+
   QStringList l = config->readListEntry("Paths");
   searchPaths->clear();
   QStringList::Iterator it;
@@ -220,7 +239,7 @@ void KHTMLSearchConfig::save()
   config->setGroup("htdig");
   config->writeEntry("htdig", htdigBin->text());
   config->writeEntry("htsearch", htsearchBin->text());
-  
+
   config->setGroup("Scope");
   config->writeEntry("KDE", indexKDE->isChecked());
   config->writeEntry("Man", indexMan->isChecked());
@@ -242,7 +261,7 @@ void KHTMLSearchConfig::defaults()
 {
   htdigBin->setText(kapp->dirs()->findExe("htdig"));
   htsearchBin->setText(kapp->dirs()->findExe("htsearch"));
-  
+
   indexKDE->setChecked(true);
   indexMan->setChecked(false);
   indexInfo->setChecked(false);
@@ -262,7 +281,7 @@ void KHTMLSearchConfig::urlClicked(const QString &url)
 void KHTMLSearchConfig::generateIndex()
 {
   save();
-  
+
   QString exe = kapp->dirs()->findExe("khtmlindex");
   if (exe.isEmpty())
     return;
@@ -272,9 +291,9 @@ void KHTMLSearchConfig::generateIndex()
   indexProc = new KProcess;
   *indexProc << exe;
 
-  connect(indexProc, SIGNAL(processExited(KProcess *)), 
-	  this, SLOT(indexTerminated(KProcess *)));
-  
+  connect(indexProc, SIGNAL(processExited(KProcess *)),
+      this, SLOT(indexTerminated(KProcess *)));
+
   runButton->setEnabled(false);
 
   indexProc->start();

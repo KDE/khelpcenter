@@ -44,6 +44,8 @@ public:
   void load();
   void save();
   void defaults();
+
+  QString quickHelp();
   
   int buttons();
 
