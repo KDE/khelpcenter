@@ -31,6 +31,7 @@
 #include <klistview.h>
 
 #include "khc_glossary.h"
+#include "khc_toc.h"
 
 #include <regex.h>
 #include <qfile.h>
@@ -52,56 +53,6 @@ class SearchEngine;
 class khcInfoNode;
 class khcInfoHierarchyMaker;
 class KHCView;
-
-class TOCListView: public KListView
-{
-	public:
-    TOCListView( QWidget *parent );
-
-    QString application() const { return m_application; }
-	void setApplication( const QString &application ) { m_application = application; }
-
-  private:
-    QString m_application;
-};
-
-class TOCListViewItem : public QListViewItem
-{
-  public:
-    TOCListViewItem( TOCListViewItem *parent, const QString &text );
-    TOCListViewItem( TOCListViewItem *parent, QListViewItem *after, const QString &text );
-    TOCListViewItem( TOCListView *parent, const QString &text );
-    TOCListViewItem( TOCListView *parent, QListViewItem *after, const QString &text );
-
-	virtual QString link() const = 0;
-
-    TOCListView *toc() const;
-};
-
-class TOCChapterItem : public TOCListViewItem
-{
-  public:
-    TOCChapterItem( TOCListView *parent, const QString &title, const QString &name );
-    TOCChapterItem( TOCListView *parent, QListViewItem *after, const QString &title, const QString &name );
-
-	virtual void setOpen( bool open );
-	QString link() const;
-
-  private:
-    QString m_name;
-};
-
-class TOCSectionItem : public TOCListViewItem
-{
-  public:
-    TOCSectionItem( TOCChapterItem *parent, const QString &title, const QString &name );
-	TOCSectionItem( TOCChapterItem *parent, QListViewItem *after, const QString &title, const QString &name );
- 
-    QString link() const;
-
-  private:
-    QString m_name;
-};
 
 class khcNavigatorExtension : public KParts::BrowserExtension
 {
@@ -161,7 +112,6 @@ class khcNavigatorWidget : public QWidget
 
   private slots:
     void getScrollKeeperContentsList(KProcIO *proc);
-    void slotTOCItemSelected( QListViewItem *item );
     /* Cog-wheel animation handling -- enable after creating the icons
     void slotAnimation();
     */
@@ -172,8 +122,6 @@ class khcNavigatorWidget : public QWidget
     void setupSearchTab();
     void setupGlossaryTab();
     void setupTOCTab();
-    void resetTOCTree();
-    void fillTOCTree( const QDomDocument &doc ); 
     void buildTree();
     void clearTree();
 
@@ -194,7 +142,7 @@ class khcNavigatorWidget : public QWidget
 
     KListView *contentsTree;
     khcGlossary *glossaryTree;
-    TOCListView *tocTree;
+    khcTOC *tocTree;
 
     SearchWidget *mSearchWidget;
 

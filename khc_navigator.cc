@@ -62,6 +62,7 @@
 #include "docmetainfo.h"
 #include "docentrytraverser.h"
 #include "khc_glossary.h"
+#include "khc_toc.h"
 
 #include "khc_navigator.h"
 #include "khc_navigator.moc"
@@ -106,85 +107,6 @@ QString langLookup(const QString &fname)
     return QString::null;
 }
 };
-
-TOCListView::TOCListView( QWidget *parent )
-  : KListView( parent )
-{
-  setFrameStyle( QFrame::Panel | QFrame::Sunken );
-  addColumn( QString::null );
-	header()->hide();
-  setSorting( -1, true );
-	setRootIsDecorated( true );
-}
-
-TOCListViewItem::TOCListViewItem( TOCListViewItem *parent, const QString &text )
-  : QListViewItem( parent, text )
-{
-}
-
-TOCListViewItem::TOCListViewItem( TOCListViewItem *parent, QListViewItem *after, const QString &text )
-  : QListViewItem( parent, after, text )
-{
-}
-
-TOCListViewItem::TOCListViewItem( TOCListView *parent, const QString &text )
-  : QListViewItem( parent, text )
-{
-}
-
-TOCListViewItem::TOCListViewItem( TOCListView *parent, QListViewItem *after, const QString &text  )
-  : QListViewItem( parent, after, text )
-{
-}
-
-TOCListView *TOCListViewItem::toc() const
-{
-  return static_cast<TOCListView *>( listView() );
-}
-
-TOCChapterItem::TOCChapterItem( TOCListView *parent, const QString &title, const QString &name )
-  : TOCListViewItem( parent, title ), m_name( name )
-{
-  setOpen( false );
-}
-
-TOCChapterItem::TOCChapterItem( TOCListView *parent, QListViewItem *after, const QString &title, const QString &name )
-  : TOCListViewItem( parent, after, title ), m_name( name )
-{
-  setOpen( false );
-}
-
-void TOCChapterItem::setOpen( bool open )
-{
-  setPixmap( 0, SmallIcon( open ? "contents" : "contents2" ) );
-
-  QListViewItem::setOpen(open);
-}
-
-QString TOCChapterItem::link() const
-{
-  return "help:" + toc()->application() + "/" + m_name + ".html";
-}
-
-TOCSectionItem::TOCSectionItem( TOCChapterItem *parent, const QString &title, const QString &name )
-  : TOCListViewItem( parent, title ), m_name( name )
-{
-  setPixmap( 0, SmallIcon( "document" ) );
-}
-
-TOCSectionItem::TOCSectionItem( TOCChapterItem *parent, QListViewItem *after, const QString &title, const QString &name )
-  : TOCListViewItem( parent, after, title ), m_name( name )
-{
-  setPixmap( 0, SmallIcon( "document" ) );
-}
-
-QString TOCSectionItem::link() const
-{
-  if ( static_cast<TOCSectionItem *>( parent()->firstChild() ) == this )
-    return static_cast<TOCChapterItem *>( parent() )->link() + "#" + m_name;
-  else
-    return "help:" + toc()->application() + "/" + m_name + ".html";
-}
 
 khcNavigator::khcNavigator( KHCView *view, QWidget *parentWidget,
                             QObject *parent, const char *name )
@@ -339,68 +261,13 @@ void khcNavigatorWidget::setupSearchTab()
 
 void khcNavigatorWidget::setupTOCTab()
 {
-  tocTree = new TOCListView( this );
-	connect( tocTree, SIGNAL( executed( QListViewItem * ) ),
-	         this, SLOT( slotTOCItemSelected( QListViewItem * ) ) );
-	connect( tocTree, SIGNAL( returnPressed( QListViewItem * ) ),
-	         this, SLOT( slotTOCItemSelected( QListViewItem * ) ) );
+  tocTree = new khcTOC( this );
+  connect( tocTree, SIGNAL( itemSelected( const QString & ) ),
+           this, SIGNAL( itemSelected( const QString & ) ) );
 
-	resetTOCTree();
+  tocTree->reset();
 
 	mTabWidget->addTab( tocTree, "&Table of contents" );
-}
-
-void khcNavigatorWidget::resetTOCTree()
-{
-	while ( tocTree->firstChild() )
-		delete tocTree->firstChild();
-
-	tocTree->insertItem( new QListViewItem( tocTree, i18n( "No manual selected" ) ) );
-}
-
-void khcNavigatorWidget::fillTOCTree( const QDomDocument &doc )
-{
-	while ( tocTree->firstChild() )
-		delete tocTree->firstChild();
-    
-	QDomNodeList chapters = doc.documentElement().elementsByTagName( "chapter" );
-	for ( unsigned int chapterCount = 0; chapterCount < chapters.count(); chapterCount++ ) {
-		QDomElement chapElem = chapters.item( chapterCount ).toElement();
-		QDomElement chapTitleElem = chapElem.elementsByTagName( "title" ).item( 0 ).toElement();
-		QString chapTitle = chapTitleElem.text().simplifyWhiteSpace();
-		QString chapRef = chapElem.attribute( "id" );
-
-    TOCChapterItem *chapItem;
-    if ( tocTree->childCount() == 0 )
-      chapItem = new TOCChapterItem( tocTree, chapTitle, chapRef );
-    else
-      chapItem = new TOCChapterItem( tocTree, tocTree->lastChild(), chapTitle, chapRef );
-
-    QDomNodeList sections = chapElem.elementsByTagName( "sect1" );
-    for ( unsigned int sectCount = 0; sectCount < sections.count(); sectCount++ ) {
-      QDomElement sectElem = sections.item( sectCount ).toElement();
-      QDomElement sectTitleElem = sectElem.elementsByTagName( "title" ).item( 0 ).toElement();
-      QString sectTitle = sectTitleElem.text().simplifyWhiteSpace();
-			QString sectRef = sectElem.attribute( "id" );
-
-      if ( chapItem->childCount() == 0 )
-        new TOCSectionItem( chapItem, sectTitle, sectRef );
-      else {
-        QListViewItem *lastChild = chapItem->firstChild();
-        while ( lastChild->nextSibling() )
-          lastChild = lastChild->nextSibling();
-        new TOCSectionItem( chapItem, lastChild, sectTitle, sectRef );
-      }
-    }
-	}
-}
-
-void khcNavigatorWidget::slotTOCItemSelected( QListViewItem *item )
-{
-  TOCListViewItem *tocItem;
-  if ( ( tocItem = dynamic_cast<TOCSectionItem *>( item ) ) ||
-       ( tocItem = dynamic_cast<TOCChapterItem *>( item ) ) )
-    emit itemSelected( tocItem->link() );
 }
 
 void khcNavigatorWidget::setupGlossaryTab()
@@ -880,7 +747,7 @@ void khcNavigatorWidget::slotItemSelected(QListViewItem* currentItem)
       if ( f.open( IO_ReadOnly ) ) {
         QDomDocument domDoc;
         if ( domDoc.setContent( &f ) ) {
-          fillTOCTree( domDoc );
+          tocTree->build( domDoc );
           mTabWidget->setCurrentPage( mTabWidget->indexOf( tocTree ) );
         }
         f.close();
