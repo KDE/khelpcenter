@@ -22,20 +22,14 @@
 #include "toplevel.h"
 #include "khelpcenter.h"
 #include "helpcentercom_impl.h"
-#include "error.h"
 #include <komApplication.h>
 #include <qdir.h>
 #include <qfileinfo.h>
 #include <qmessagebox.h>
 #include <klocale.h>
 
-void errorHandler( int type, char *msg );
-
 int main(int argc, char *argv[])
 {
-    // error handler for man stuff
-    Error.SetHandler( (void (*)(int, const char *))errorHandler );
-
     // create local data directory if necessary
     QDir dir;
     dir.setPath(KApplication::localkdedir() + "/share/apps");
@@ -57,15 +51,4 @@ int main(int argc, char *argv[])
 
     app.exec();
     return 0;
-}
-
-void errorHandler( int type, char *msg )
-{
-    QApplication::setOverrideCursor(Qt::arrowCursor);
-    QMessageBox::message(i18n("Error"), msg, i18n("OK"));
-  
-    QApplication::restoreOverrideCursor();
-
-    if (type == ERR_FATAL)
-	exit(1);
 }

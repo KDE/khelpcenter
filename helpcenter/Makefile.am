@@ -22,7 +22,7 @@ SUBDIRS = pics plugins info2html rman
 bin_PROGRAMS = 	khelpcenter.bin khelpcenterclient
 
 khelpcenter_bin_SOURCES = main.cpp toplevel.cpp khelpview.cpp \
-htreelistitem.cpp htabview.cpp manparser.cpp error.cpp \
+htreelistitem.cpp htabview.cpp man.cpp \
 finddlg.cpp khelpcenter.cc helpcentercom_impl.cpp \
 indexwidget.cpp searchwidget.cpp htmlsearch.cpp mansearch.cpp \
 cgiserver.cpp

@@ -31,7 +31,7 @@
 #include <kcursor.h>
 
 #include "khelpview.h"
-#include "manparser.h"
+#include "man.h"
 #include "cgiserver.h"
 
 #ifdef HAVE_PATHS_H
@@ -345,13 +345,13 @@ int KHelpView::formatMan(int bodyOnly)
     {
 	view->begin(fullURL);
 	view->write("<html><head><title>");
-	view->write(man->getLocation());
+	view->write(man->location());
 	view->write("</title></head><body>");
     }
     view->write("<big>");
-    view->write(man->getLocation());
+    view->write(man->location());
     view->write("</big><br><HR><p>");
-    view->write(man->getPage());
+    view->write(*man->page());
     view->write("</p>");
   
     if (!bodyOnly)
