@@ -204,7 +204,7 @@ void khcGlossary::buildGlossaryTree()
 	for ( unsigned int i = 0; i < sectionNodes.count(); i++ ) {
 		QDomElement sectionElement = sectionNodes.item( i ).toElement();
 		QDomElement titleElement = sectionElement.elementsByTagName( QString::fromLatin1( "title" ) ).item( 0 ).toElement();
-		QString title = titleElement.text().simplifyWhiteSpace();
+		QString title = titleElement.attribute( QString::fromLatin1( "title" ) );
 		SectionItem *topicSection = new SectionItem( m_byTopicItem, title );
 
 		QDomNodeList entryNodes = sectionElement.elementsByTagName( QString::fromLatin1( "entry" ) );
@@ -237,7 +237,7 @@ void khcGlossary::buildGlossaryTree()
 			if ( referenceNodes.count() > 0 )
 				for ( unsigned int k = 0; k < referenceNodes.count(); k++ ) {
 					QDomElement referenceElement = referenceNodes.item( k ).toElement();
-					seeAlso += referenceElement.text().simplifyWhiteSpace();
+					seeAlso += referenceElement.attribute( QString::fromLatin1( "term" ) );
 				}
 					
 			m_glossEntries.insert( term, new khcGlossaryEntry( term, definition, seeAlso ) );

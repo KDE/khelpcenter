@@ -10,7 +10,7 @@
 
 <xsl:template match="glossdiv">
 <section>
-	<title><xsl:value-of select="title"/></title>
+	<xsl:attribute name="title"><xsl:value-of select="title"/></xsl:attribute>
 	<xsl:apply-templates select="glossentry"/>
 </section>
 </xsl:template>
@@ -25,7 +25,7 @@
 
 <xsl:template match="glossseealso">
 <reference>
-	<term><xsl:value-of select="."/></term>
+	<xsl:attribute name="term"><xsl:value-of select="."/></xsl:attribute>
 </reference>
 </xsl:template>
 
