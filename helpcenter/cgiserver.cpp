@@ -24,6 +24,7 @@
 
 #include <klocale.h>
 #include <kglobal.h>
+#include <kstddirs.h>
 
 KCGI::KCGI()
 {

@@ -26,7 +26,7 @@ const float KEyesWidget::eyesHeight   = eyeDiameter;
 const float KEyesWidget::ballDiameter = 2.0 * ballRadius;
 const float KEyesWidget::ballAllowed  = eyeRadius - eyeThickness - ballPad - ballRadius;
 
-KEyesWidget::KEyesWidget( QWidget *parent, const char * name, WFlags f ) :
+KEyesWidget::KEyesWidget( QWidget *parent, const char * name, WFlags ) :
              QFrame( parent, name/*, WType_TopLevel | WStyle_Customize | WStyle_Tool*/ )
 {
 	setBackgroundMode( NoBackground );	

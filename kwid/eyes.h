@@ -43,7 +43,7 @@ private:
 	myPoint		pupil[2];	// pupil position
 
 	// defined constants
-	static static float eyePadding, eyeThickness,
+	static const float eyePadding, eyeThickness,
 	    eyeRadius, ballRadius, ballPad;
 
 	// calculated constants
