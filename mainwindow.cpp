@@ -47,7 +47,7 @@ using namespace KHC;
 #include "mainwindow.moc"
 
 MainWindow::MainWindow(const KURL &url)
-    : KMainWindow(0, "MainWindow")
+    : KMainWindow(0, "MainWindow"), DCOPObject( "KHelpCenterIface" )
 {
     QSplitter *splitter = new QSplitter(this);
 
@@ -76,7 +76,7 @@ MainWindow::MainWindow(const KURL &url)
 
     mNavigator = new Navigator( mDoc, splitter, "nav");
     connect(mNavigator, SIGNAL(itemSelected(const QString &)),
-            SLOT(openURL(const QString &)));
+            SLOT(slotOpenURL(const QString &)));
     connect(mNavigator, SIGNAL(glossSelected(const GlossaryEntry &)),
             SLOT(slotGlossSelected(const GlossaryEntry &)));
 
@@ -161,7 +161,7 @@ void MainWindow::slotOpenURLRequest( const KURL &url,
     mNavigator->selectItem( url );
 
     bool own = false;
-    
+
     QString proto = url.protocol().lower();
     if ( proto == "help" || proto == "glossentry" || proto == "about" ||
 	       proto == "man" || proto == "info" || proto == "cgi" ||
@@ -173,12 +173,12 @@ void MainWindow::slotOpenURLRequest( const KURL &url,
            && res->mimeType() == "text/html" )
 	      own = true;
     }
-    
+
     if ( !own ) {
   	  new KRun( url );
 	    return;
     }
-    
+
     stop();
 
     mDoc->browserExtension()->setURLArgs( args );
@@ -208,9 +208,14 @@ void MainWindow::statusBarMessage(const QString &m)
     statusBar()->changeItem(m, 0);
 }
 
-void MainWindow::openURL(const QString &url)
+void MainWindow::slotOpenURL(const QString &url)
 {
     openURL( KURL( url ) );
+}
+
+void MainWindow::openURL(const QString &url)
+{
+    slotOpenURL( url );
 }
 
 void MainWindow::openURL(const KURL &url)
