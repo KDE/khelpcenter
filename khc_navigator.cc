@@ -43,8 +43,8 @@
 #include <kservicegroup.h>
 #include <ksycocaentry.h>
 #include <kservice.h>
-#include <kservicegroup.h>      
-#include <kmessagebox.h>                                                             
+#include <kservicegroup.h>
+#include <kmessagebox.h>
 
 
 template class QList<khcNavigatorItem>;
@@ -64,15 +64,8 @@ khcNavigator::khcNavigator(QWidget *parent, const char *name)
 
 bool khcNavigator::openURL( const KURL & )
 {
-  emit started( 0 ); 
-  // emit a delayed completed signal, in order to avoid KParts destroying our URLArgs
-  // XXX remove this next wednesday, when the urlargs stuff is in KParts::OpenURLEvent (Simon)
-  QTimer::singleShot( 0, this, SLOT( slotDone() ) ); 
-}
-
-void khcNavigator::slotDone()
-{
-  emit completed(); 
+  emit started( 0 );
+  emit completed();
 }
 
 bool khcNavigator::openFile()
@@ -295,9 +288,9 @@ void khcNavigatorWidget::buildManSubTree(khcNavigatorItem *parent)
 void khcNavigatorWidget::buildManualSubTree(khcNavigatorItem *parent, QString relPath)
 {
   KServiceGroup::Ptr root = KServiceGroup::group(relPath);
-  KServiceGroup::List list = root->entries();                                                
+  KServiceGroup::List list = root->entries();
 
-   
+
   for (KServiceGroup::List::ConstIterator it = list.begin(); it != list.end(); ++it)
     {
       KSycocaEntry * e = *it;
@@ -306,7 +299,7 @@ void khcNavigatorWidget::buildManualSubTree(khcNavigatorItem *parent, QString re
       KServiceGroup::Ptr g;
       QString url;
 
-      switch (e->sycocaType()) 
+      switch (e->sycocaType())
 	{	
 	case KST_KService:
 	  s = static_cast<KService*>(e);
@@ -318,7 +311,7 @@ void khcNavigatorWidget::buildManualSubTree(khcNavigatorItem *parent, QString re
 	      staticItems.append(item);
 	    }
 	  break;
-	  
+	
 	case KST_KServiceGroup:
 	  g = static_cast<KServiceGroup*>(e);
 	  item = new khcNavigatorItem(parent, g->caption(), g->icon());
@@ -341,10 +334,10 @@ void khcNavigatorWidget::buildManualSubTree(khcNavigatorItem *parent, QString re
 bool lookupFile(QString fname)
 {
   QStringList search;
- 
+
   // assemble the local search paths
   QStringList const &localDoc = KGlobal::dirs()->findDirs("html", "");
- 
+
   // look up the different languages
   for (int id=localDoc.count()-1; id >= 0; --id)
     {
@@ -355,7 +348,7 @@ bool lookupFile(QString fname)
       for (lang = langs.begin(); lang != langs.end(); ++lang)
         search.append(QString("%1/%2/%3").arg(localDoc[id]).arg(*lang).arg(fname));
     }
- 
+
   // try to locate the urls
   QStringList::Iterator it;
   for (it = search.begin(); it != search.end(); ++it)
@@ -364,9 +357,9 @@ bool lookupFile(QString fname)
       if (info.exists() && info.isFile() && info.isReadable())
 	return true;
     }
- 
+
   return false;
-} 
+}
 
 
 // derive a valid URL to the documentation
@@ -380,15 +373,15 @@ QString khcNavigatorWidget::documentationURL(KService *s)
       // note that this test might be a bit too stupid
       if (docPath.left(5) == "file:" || docPath.left(5) == "http:")
 	return docPath;
-      
+
       if (docPath.right(11) == "/index.html")
-	docPath = docPath.left(docPath.length() - 11);      
+	docPath = docPath.left(docPath.length() - 11);
     }
   else
     docPath = s->desktopEntryName();
 
   if (lookupFile(docPath+"/index.html"))
-    return QString("help:/%1/index.html").arg(docPath);    
+    return QString("help:/%1/index.html").arg(docPath);
 
   return QString::null;
 }

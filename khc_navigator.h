@@ -60,8 +60,6 @@ class khcNavigator : public KParts::ReadOnlyPart
 
     virtual bool openURL( const KURL &url );
 
- protected slots:
-    void slotDone();
  protected:
     bool openFile();
     khcNavigatorExtension * m_extension;
