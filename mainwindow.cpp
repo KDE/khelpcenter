@@ -83,7 +83,7 @@ MainWindow::MainWindow(const KURL &url)
     : KMainWindow(0, "MainWindow"), DCOPObject( "KHelpCenterIface" ),
       mLogDialog( 0 )
 {
-   QSplitter *splitter = new QSplitter(this);
+    QSplitter *splitter = new QSplitter(this);
 
     mDoc = new View( splitter, 0, this, 0, KHTMLPart::DefaultGUI );
     connect(mDoc, SIGNAL(setWindowCaption(const QString &)),
@@ -156,7 +156,7 @@ void MainWindow::saveProperties( KConfig *config )
 {
     kdDebug()<<"void MainWindow::saveProperties( KConfig *config )\n";
     config->setDesktopGroup();
-    config->writeEntry( "URL" , mDoc->baseURL().url());
+    config->writeEntry( "URL" , mDoc->baseURL().url() );
 }
 
 void MainWindow::readProperties( KConfig *config )
@@ -171,7 +171,6 @@ void MainWindow::readProperties( KConfig *config )
     mDoc->openURL( config->readEntry( "URL" , "") );
 #endif
 }
-
 
 void MainWindow::setupActions()
 {
@@ -206,11 +205,8 @@ void MainWindow::setupActions()
 
 void MainWindow::slotConfigureKeys()
 {
-    readProperties( KGlobal::config());
-  KKeyDialog dlg( true, this );
-
-  dlg.insert( actionCollection() );
-  dlg.configure();
+  readProperties( KGlobal::config() );
+  KKeyDialog::configure( actionCollection(), this );
 }
 
 void MainWindow::print()
