@@ -62,6 +62,19 @@ khcNavigator::khcNavigator(QWidget *parent, const char *name)
              m_extension, SLOT( slotItemSelected(const QString&) ) );
 }
 
+bool khcNavigator::openURL( const KURL & )
+{
+  emit started( 0 ); 
+  // emit a delayed completed signal, in order to avoid KParts destroying our URLArgs
+  // XXX remove this next wednesday, when the urlargs stuff is in KParts::OpenURLEvent (Simon)
+  QTimer::singleShot( 0, this, SLOT( slotDone() ) ); 
+}
+
+void khcNavigator::slotDone()
+{
+  emit completed(); 
+}
+
 bool khcNavigator::openFile()
 {
   return true; // easy one...

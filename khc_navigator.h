@@ -58,6 +58,10 @@ class khcNavigator : public KParts::ReadOnlyPart
     khcNavigator(QWidget *widget, const char *name=0);
     virtual ~khcNavigator();
 
+    virtual bool openURL( const KURL &url );
+
+ protected slots:
+    void slotDone();
  protected:
     bool openFile();
     khcNavigatorExtension * m_extension;
