@@ -38,7 +38,7 @@ khcHTMLView::khcHTMLView()
   ADD_INTERFACE("IDL:Browser/MagnifyingExtension:1.0");
 
   setWidget(this);
-
+  
   fontBase = 3;
   
   QWidget::setFocusPolicy(StrongFocus);
@@ -88,10 +88,10 @@ bool khcHTMLView::mappingFillMenuView(Browser::View::EventFillMenu_ptr viewMenu)
 {
   m_vViewMenu = OpenPartsUI::Menu::_duplicate(viewMenu);
   if (!CORBA::is_nil(viewMenu))
-  {
-    CORBA::WString_var text;
-    viewMenu->insertItem4((text = Q2C(i18n("&Search..."))), this, "slotSearch", 0, -1, -1);
-  }
+    {
+      CORBA::WString_var text;
+      viewMenu->insertItem4((text = Q2C(i18n("&Search..."))), this, "slotSearch", 0, -1, -1);
+    }
   
   return true;
 }
@@ -100,10 +100,10 @@ bool khcHTMLView::mappingFillMenuEdit( Browser::View::EventFillMenu_ptr editMenu
 {
   m_vEditMenu = OpenPartsUI::Menu::_duplicate(editMenu);
   if (!CORBA::is_nil(editMenu))
-  {
-    CORBA::WString_var text;
-    editMenu->insertItem4((text = Q2C(i18n("&Copy"))), this, "slotCopy", 0, -1, -1);
-  }
+    {
+      CORBA::WString_var text;
+      editMenu->insertItem4((text = Q2C(i18n("&Copy"))), this, "slotCopy", 0, -1, -1);
+    }
   
   return true;
 }
@@ -116,7 +116,7 @@ bool khcHTMLView::mappingFillToolBar(Browser::View::EventFillToolBar viewToolBar
   if (viewToolBar.create)
     {
       CORBA::WString_var toolTip = Q2C(i18n("Search"));
-      OpenPartsUI::Pixmap_var pix = OPUIUtils::convertPixmap( *KPixmapCache::toolbarPixmap("search.xpm"));
+      OpenPartsUI::Pixmap_var pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("search.xpm"));
       viewToolBar.toolBar->insertButton2(pix, TB_SEARCH,SIGNAL(clicked()), this, "slotSearch", 
 					 true, toolTip, viewToolBar.startIndex++);
     }

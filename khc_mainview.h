@@ -24,7 +24,6 @@
 #include "khelpcenter.h"
 #include "khc_history.h"
 
-
 #include <opPart.h>
 #include <openparts_ui.h>
 
@@ -174,7 +173,7 @@ class khcMainView : public QWidget,
 	   MVIEW_RELOAD, MVIEW_RELOADNAVIGATOR };
     
     // UI options:
-    bool m_showStatusBar, m_showToolBar, m_showLocationBar, m_showNavigator;
+    bool m_showStatusBar, m_showToolBar, m_showLocationBar, m_showNavigator, m_showMenuBar;
 };
 
-#endif // #ifndef __khc_mainview_h__
+#endif

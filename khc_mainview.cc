@@ -20,7 +20,6 @@
 
 #include "khc_mainwindow.h"
 #include "khc_mainview.h"
-#include "khc_baseview.h"
 #include "khc_htmlview.h"
 #include "khc_navigator.h"
 #include "version.h"
@@ -28,14 +27,12 @@
 #include <qkeycode.h>
 #include <qmessagebox.h>
 #include <qvaluelist.h>
-#include <qpopupmenu.h>
 #include <qsplitter.h>
 
 #include <kapp.h>
 #include <kaccel.h>
 #include <kiconloader.h>
 #include <kstdaccel.h>
-#include <kcursor.h>
 #include <klocale.h>
 #include <kglobal.h>
 #include <kstddirs.h>
@@ -45,8 +42,6 @@
 #include <kpixmapcache.h>
 
 #include <opUIUtils.h>
-#include <opMenu.h>
-#include <opMenuIf.h>
 #include <opToolBar.h>
 #include <opStatusBar.h>
 #include <opFrame.h>
@@ -54,7 +49,7 @@
 khcMainView::khcMainView(const char *url, QWidget *parent )
   : QWidget(parent)
 {
-  kdebug(KDEBUG_INFO,1400,"khcMainView::khcMainView()");
+  kdebug(KDEBUG_INFO,1400,"+khcMainView");
   ADD_INTERFACE("IDL:KHelpCenter/MainView:1.0");
 
   setWidget(this);
@@ -66,12 +61,10 @@ khcMainView::khcMainView(const char *url, QWidget *parent )
   m_vMenuGo = 0L;
   m_vMenuBookmarks = 0L;
   m_vMenuOptions = 0L;
-
   m_vToolBar = 0L;
   m_vLocationBar = 0L;
   m_vMenuBar = 0L;
   m_vStatusBar = 0L;
-  
   m_vView = 0L;
 
   m_initURL = url;
@@ -83,29 +76,32 @@ khcMainView::khcMainView(const char *url, QWidget *parent )
   m_pAccel->connectItem("Forward", this, SLOT(slotForward()));
   m_pAccel->readSettings();
 
-  kdebug(KDEBUG_INFO,1400,"khcMainView::khcMainView( done");
+  kdebug(KDEBUG_INFO,1400,"+khcMainView : done");
 }
 
 khcMainView::~khcMainView()
 {
-  kdebug(KDEBUG_INFO,1400,"khcMainView::~khcMainView()");
-
-  cleanUp();
+  kdebug(KDEBUG_INFO,1400,"-khcMainView");
+  
   slotSaveSettings();
- 
-  if (m_pFrame)
-    delete m_pFrame;
-  if (m_pNavigator)
-    delete m_pNavigator;
-  if (m_pSplitter)
-    delete m_pSplitter;
+  
+  cleanUp();
+  
+  delete m_pFrame;
+  m_pFrame = 0L;
+  delete m_pNavigator;
+  m_pNavigator = 0L;
+  delete m_pSplitter;
+  m_pSplitter = 0L;
 
-  kdebug(KDEBUG_INFO,1400,"khcMainView::~khcMainView() done");
+  kdebug(KDEBUG_INFO,1400,"-khcMainView : done");
 }
 
 void khcMainView::init()
 {
   kdebug(KDEBUG_INFO,1400,"khcMainView::init()");
+
+  // register myself at the mainwindows GUI-managers
   OpenParts::MenuBarManager_var menuBarManager = m_vMainWindow->menuBarManager();
   if (!CORBA::is_nil(menuBarManager))
     menuBarManager->registerClient(id(), this);
@@ -117,55 +113,59 @@ void khcMainView::init()
   OpenParts::StatusBarManager_var statusBarManager = m_vMainWindow->statusBarManager();
   if (!CORBA::is_nil(statusBarManager))
     m_vStatusBar = statusBarManager->registerClient(id());
-
-  CORBA::WString_var item = Q2C( i18n(":-)") );
+  
+  // add a statusbar field
+  CORBA::WString_var item = Q2C(i18n("KDE Helpcenter"));
   if (!CORBA::is_nil(m_vStatusBar))
     m_vStatusBar->insertItem(item, 1);
-
+  
+  // the splitter managing the OPFrame and khcNavigator
   m_pSplitter = new QSplitter(QSplitter::Horizontal, this);
   CHECK_PTR(m_pSplitter);
 
+  // the navigator
   m_pNavigator = new khcNavigator(m_pSplitter);
-  m_pFrame = new OPFrame(m_pSplitter);
   CHECK_PTR(m_pNavigator);
+  QObject::connect(m_pNavigator , SIGNAL(itemSelected(const QString&)), this, SLOT(slotSetURL(const QString&)));
+
+  // the OPFrame used to attach child views
+  m_pFrame = new OPFrame(m_pSplitter);
   CHECK_PTR(m_pFrame);
   
-  // connect navigator
-  QObject::connect(m_pNavigator , SIGNAL(itemSelected(const QString&)), this, SLOT(slotSetURL(const QString&)));
-  
+  // set splitter sizes and geometry
   QValueList<int> sizes;
-  sizes.append(200);
-  sizes.append(600);
-
+  sizes << 200 << 600;
   m_pSplitter->setSizes(sizes);
   m_pSplitter->setGeometry(0, 0, width(), height()); 
+  
   m_pSplitter->show();
 
-  // embed a HTMLView since automatic view embeding based on url/mimetype is not implemented yet
+  // embed a HTMLView since automatic view embeding based on protocol/mimetype is not implemented yet
   m_pView = new khcHTMLView;
   m_vView = KHelpCenter::HTMLView::_duplicate(m_pView);
   m_vView->setMainWindow(m_vMainWindow);
   m_vView->setParent(this);
   
-  connectView();
   m_pFrame->attach(m_vView);
-  
-  if (m_initURL.isEmpty())
-    slotIntroduction();
-  else
-    open(m_initURL, false);
+  connectView();
 
-  kdebug(KDEBUG_INFO,1400,"khcMainView::init() done");
+  // open the initial url or show the intro page
+  if (m_initURL.isEmpty()) slotIntroduction();
+  else open(m_initURL, false);
+
+  kdebug(KDEBUG_INFO,1400,"khcMainView::init() : done");
 }
 
 void khcMainView::cleanUp()
 {
   if (m_bIsClean)
     return;
+  
   kdebug(KDEBUG_INFO,1400,"khcMainView::cleanUp()");
  
   m_vStatusBar = 0L;
   
+  // unregister from GUI managers
   OpenParts::MenuBarManager_var menuBarManager = m_vMainWindow->menuBarManager();
   if (!CORBA::is_nil(menuBarManager))
     menuBarManager->unregisterClient(id());
@@ -179,16 +179,17 @@ void khcMainView::cleanUp()
     statusBarManager->unregisterClient(id());
 
   delete m_pAccel;
-
-  m_vView = 0L;
-
+  
   // Release the view component. This will delete the component.
   if (m_pFrame)
     m_pFrame->detach();
 
+  m_vView = 0L;
+
   OPPartIf::cleanUp();
-  kdebug(KDEBUG_INFO,1400,"khcMainView::cleanUp() cone");
+  kdebug(KDEBUG_INFO,1400,"khcMainView::cleanUp() : done");
 }
+
 bool khcMainView::event(const char* event, const CORBA::Any& value)
 {
   EVENT_MAPPER(event, value);
@@ -254,6 +255,7 @@ bool khcMainView::mappingCreateMenubar(OpenPartsUI::MenuBar_ptr menuBar)
   text = Q2C(i18n("&Print"));
   m_vMenuFile->insertItem6(pix, text, this, "slotPrint", stdAccel.print(), MFILE_PRINT, -1);
   
+  // let the mainwindow know about the file menu so it cna replace its default file menu
   menuBar->setFileMenu(m_idMenuFile);
   
   // edit menu
@@ -334,6 +336,8 @@ bool khcMainView::mappingCreateMenubar(OpenPartsUI::MenuBar_ptr menuBar)
   // help menu
   text = Q2C(i18n("&Help"));
   CORBA::Long helpId = m_vMenuBar->insertMenu(text, m_vMenuHelp, -1, -1);
+
+  // similar to the file menu the help menu is handled specially by the mainwindow
   m_vMenuBar->setHelpMenu(helpId);
   
   // contents
@@ -355,21 +359,21 @@ bool khcMainView::mappingCreateMenubar(OpenPartsUI::MenuBar_ptr menuBar)
   
   checkExtensions();
   
-  kdebug(KDEBUG_INFO,1400,"khcMainView::mappingCreateMenubar() done");
+  kdebug(KDEBUG_INFO,1400,"khcMainView::mappingCreateMenubar() : done");
   return true;
 }
 
 bool khcMainView::mappingCreateToolbar(OpenPartsUI::ToolBarFactory_ptr factory)
 {
   kdebug(KDEBUG_INFO,1400,"khcMainView::mappingCreateToolbar()");
-
+  
   if (CORBA::is_nil(factory))
     {
       m_vHistoryBackMenu->disconnect("aboutToShow", this, "slotHistoryFillBack");
       m_vHistoryBackMenu->disconnect("activated", this, "slotHistoryBackActivated");
       m_vHistoryForwardMenu->disconnect("aboutToShow", this, "slotHistoryFillForward");
       m_vHistoryForwardMenu->disconnect("activated", this, "slotHistoryForwardActivated");
-       
+      
       m_vHistoryBackMenu = 0L;
       m_vHistoryForwardMenu = 0L;
       
@@ -380,21 +384,21 @@ bool khcMainView::mappingCreateToolbar(OpenPartsUI::ToolBarFactory_ptr factory)
     }
   
   // setup toolbar
-  m_vToolBar = factory->create2( OpenPartsUI::ToolBarFactory::Transient, 40 );
-  m_vToolBar->setIconText( 3 );
+  m_vToolBar = factory->create2(OpenPartsUI::ToolBarFactory::Transient, 40);
+  m_vToolBar->setIconText(3);
   m_vToolBar->setFullWidth(true);
 				    
   CORBA::WString_var text;
   OpenPartsUI::Pixmap_var pix;
-
+  
   // show/hide navigator
   text = Q2C(i18n("Navigator"));
   pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("hidenavigator.xpm"));
-  m_vToolBar->insertButton2(pix, TB_NAVIGATOR, SIGNAL(clicked()), this, "slotShowNavigator", false, text, -1);
+  m_vToolBar->insertButton2(pix, TB_NAVIGATOR, SIGNAL(clicked()), this, "slotShowNavigator", true, text, -1);
 
   // seperator
   m_vToolBar->insertSeparator(-1);
-
+  
   // back
   text = Q2C(i18n("Back"));
   pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("back.xpm"));
@@ -424,7 +428,7 @@ bool khcMainView::mappingCreateToolbar(OpenPartsUI::ToolBarFactory_ptr factory)
   // stop
   text = Q2C(i18n("Stop"));
   pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("stop.xpm"));
-  m_vToolBar->insertButton2(pix, TB_STOP, SIGNAL(clicked()), this, "slotStop", true, text, -1);
+  m_vToolBar->insertButton2(pix, TB_STOP, SIGNAL(clicked()), this, "slotStop", false, text, -1);
 
   // bookmark
   text = Q2C(i18n("Bookmark"));
@@ -460,7 +464,7 @@ bool khcMainView::mappingCreateToolbar(OpenPartsUI::ToolBarFactory_ptr factory)
   pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("help.xpm"));
   m_vToolBar->insertButton2(pix, TB_HELP, SIGNAL(clicked()), this, "slotHelpContents", true, text, -1);
   m_vToolBar->alignItemRight(TB_HELP, true);				
-
+  
   // view specific buttons
   m_lToolBarViewStartIndex = childButtonIndex;
   if (m_vView)
@@ -469,7 +473,7 @@ bool khcMainView::mappingCreateToolbar(OpenPartsUI::ToolBarFactory_ptr factory)
   // setup location bar
   m_vLocationBar = factory->create(OpenPartsUI::ToolBarFactory::Transient);
   m_vLocationBar->setFullWidth(true);
-
+  
   text = Q2C(i18n("Location: "));
   m_vLocationBar->insertTextLabel(text, -1, -1);
   CORBA::WString_var toolTip = Q2C(i18n("Current location"));
@@ -479,20 +483,23 @@ bool khcMainView::mappingCreateToolbar(OpenPartsUI::ToolBarFactory_ptr factory)
   items.length(0);
 
   if (m_vView)
-  {
-    items.length(1);
-    items[0] = Q2C(m_vView->url());
-  }
+    {
+      items.length(1);
+      items[0] = Q2C(m_vView->url());
+    }
   
   m_vLocationBar->insertCombo3(items, TB_URL, true, SIGNAL(activated(const QString &)),
 			       this, "slotURLEntered", true, toolTip, 70, -1,
 			       OpenPartsUI::AfterCurrent);
-
+  
   m_vLocationBar->setComboAutoCompletion(TB_URL, true);
   m_vLocationBar->setItemAutoSized(TB_URL, true);
   checkExtensions();
-
-  kdebug(KDEBUG_INFO,1400,"khcMainView::mappingCreateToolbar() done");
+  
+  // read and apply settings
+  slotReadSettings();
+  
+  kdebug(KDEBUG_INFO,1400,"khcMainView::mappingCreateToolbar() : done");
   return true;
 }
 
@@ -560,7 +567,6 @@ void khcMainView::createViewMenu()
       // reload navigator
       text = Q2C(i18n("Reload &navigator"));
       m_vMenuView->insertItem4(text, this, "slotReloadNavigator", 0, MVIEW_RELOADNAVIGATOR, -1);
-
       m_bViewMenuDirty = false;
   }
 }
@@ -578,7 +584,6 @@ void khcMainView::createEditMenu()
 	{ 
 	  EMIT_EVENT(m_vView, Browser::View::eventFillMenuEdit, m_vMenuEdit);
 	}
-      
       m_bEditMenuDirty = false;
   }
 }
@@ -610,7 +615,7 @@ void khcMainView::clearViewGUIElements()
 
 void khcMainView::checkExtensions()
 {
-  if (m_vView)
+  if (!CORBA::is_nil(m_vView))
     {
       bool print = m_vView->supportsInterface("IDL:Browser/PrintingExtension:1.0");
       bool canZoomIn, canZoomOut = false;
@@ -623,16 +628,16 @@ void khcMainView::checkExtensions()
 	  canZoomIn =  magExt->canZoomOut();
 	}
 
-      if (m_vMenuView)
+      if (!CORBA::is_nil(m_vMenuView))
 	{
 	  m_vMenuView->setItemEnabled(MVIEW_ZOOMIN, canZoomIn);
 	  m_vMenuView->setItemEnabled(MVIEW_ZOOMOUT, canZoomOut);
 	}
 
-      if(m_vMenuFile)
+      if(!CORBA::is_nil(m_vMenuFile))
 	m_vMenuFile->setItemEnabled(MFILE_PRINT, print);
 
-      if (m_vToolBar)
+      if (!CORBA::is_nil(m_vToolBar))
 	{
 	  m_vToolBar->setItemEnabled(TB_PRINT, print);
 	  m_vToolBar->setItemEnabled(TB_ZOOMIN, canZoomIn);
@@ -643,7 +648,7 @@ void khcMainView::checkExtensions()
 
 Browser::View_ptr khcMainView::childView()
 {
-  if ( m_vView )
+  if (!CORBA::is_nil(m_vView))
     return Browser::View::_duplicate(m_vView);
   else
     return Browser::View::_nil();
@@ -651,7 +656,7 @@ Browser::View_ptr khcMainView::childView()
 
 OpenParts::Id khcMainView::childViewId()
 {
-  if (m_vView)
+  if (!CORBA::is_nil(m_vView))
     return m_vView->id();
   else
     return 0;
@@ -694,6 +699,12 @@ void khcMainView::slotReadSettings()
     m_showNavigator = false;
   else
     m_showNavigator = true;
+
+  o = config->readEntry("ShowMenuBar");
+  if (!o.isEmpty() && o.find("No", 0, false ) == 0)
+    m_showMenuBar = false;
+  else
+    m_showMenuBar = true;
   
   o = config->readEntry("ShowToolBar");
   if (!o.isEmpty() && o.find( "No", 0, false) == 0 )
@@ -714,7 +725,7 @@ void khcMainView::slotReadSettings()
     m_showLocationBar = true;
   
   // toolbar location
-  if (m_vToolBar)
+  if (!CORBA::is_nil(m_vToolBar))
     {
       o = config->readEntry("ToolBarPos");
       if (o.isEmpty())
@@ -734,7 +745,7 @@ void khcMainView::slotReadSettings()
     }
 
   // locationbar location
-  if (m_vLocationBar)
+  if (!CORBA::is_nil(m_vLocationBar))
     {
       o = config->readEntry("LocationBarPos");
       if ( o.isEmpty() )
@@ -754,26 +765,37 @@ void khcMainView::slotReadSettings()
     }
   
   // set configuration
-  if (!m_showNavigator)
+  if (m_showNavigator)
+    enableNavigator(true);
+  else
     enableNavigator(false);
   
-  if (m_showStatusBar)
-    m_vStatusBar->enable(OpenPartsUI::Show);
-  else
-    m_vStatusBar->enable(OpenPartsUI::Hide);
+  if(!CORBA::is_nil(m_vStatusBar))
+    {
+      if (m_showStatusBar)
+	m_vStatusBar->enable(OpenPartsUI::Show);
+      else
+	m_vStatusBar->enable(OpenPartsUI::Hide);
+    }
   
-  if (m_showToolBar) 
-    m_vToolBar->enable(OpenPartsUI::Show);
-  else
-   m_vToolBar->enable(OpenPartsUI::Hide);
-    
-  if (m_showLocationBar)
-    m_vLocationBar->enable(OpenPartsUI::Show);
-  else
-    m_vLocationBar->enable(OpenPartsUI::Hide);
+  if(!CORBA::is_nil(m_vToolBar))
+    {
+      if (m_showToolBar) 
+	m_vToolBar->enable(OpenPartsUI::Show);
+      else
+	m_vToolBar->enable(OpenPartsUI::Hide);
+    }
+
+  if(!CORBA::is_nil(m_vLocationBar))
+    {
+      if (m_showLocationBar)
+	m_vLocationBar->enable(OpenPartsUI::Show);
+      else
+	m_vLocationBar->enable(OpenPartsUI::Hide);
+    }
   
   // toggle menu items
-  if (m_vMenuOptions)
+  if (!CORBA::is_nil(m_vMenuOptions))
     {
       m_vMenuOptions->setItemChecked(MOPTIONS_SHOWNAVIGATOR, m_showNavigator);
       m_vMenuOptions->setItemChecked(MOPTIONS_SHOWTOOLBAR, m_showToolBar);
@@ -787,12 +809,13 @@ void khcMainView::slotSaveSettings()
   KConfig *config = KApplication::getKApplication()->getConfig();
   
   config->setGroup( "Appearance" );
+  config->writeEntry( "ShowMenuBar", m_showMenuBar ? "Yes" : "No" ); 
   config->writeEntry( "ShowNavigator", m_showNavigator ? "Yes" : "No" ); 
   config->writeEntry( "ShowToolBar", m_showToolBar ? "Yes" : "No" );
   config->writeEntry( "ShowStatusBar", m_showStatusBar ? "Yes" : "No" );  
   config->writeEntry( "ShowLocationBar", m_showLocationBar ? "Yes" : "No" );
   
-  if (m_vToolBar)
+  if (!CORBA::is_nil(m_vToolBar))
     {
       switch (m_vToolBar->barPos())
 	{
@@ -817,7 +840,7 @@ void khcMainView::slotSaveSettings()
 	}
     }
   
-  if (m_vLocationBar)
+  if (!CORBA::is_nil(m_vLocationBar))
     {
       switch (m_vLocationBar->barPos())
 	{
@@ -863,7 +886,7 @@ void khcMainView::slotOpenFile()
 
 void khcMainView::slotStop()
 {
-  if (m_vView)
+  if (!CORBA::is_nil(m_vView))
     m_vView->stop();
 }
 
@@ -967,12 +990,12 @@ void khcMainView::slotBookmark()
 
 void khcMainView::slotShowNavigator()
 {
-  if (m_showNavigator)
+  if (!m_showNavigator)
     {
-      enableNavigator(false);
-      m_showNavigator = false;
-
-      if (m_vToolBar)
+      enableNavigator(true);
+      m_showNavigator = true;
+      
+      if (!CORBA::is_nil(m_vToolBar))
 	{
 	  OpenPartsUI::Pixmap_var pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("shownavigator.xpm"));
 	  CORBA::WString_var text = Q2C(i18n("Navigator"));
@@ -981,27 +1004,29 @@ void khcMainView::slotShowNavigator()
     }
   else
     {
-      enableNavigator(true);
-      m_showNavigator = true;
-
-      if (m_vToolBar)
+      enableNavigator(false);
+      m_showNavigator = false;
+      
+      if (!CORBA::is_nil(m_vToolBar))
 	{
 	  OpenPartsUI::Pixmap_var pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("hidenavigator.xpm"));
 	  CORBA::WString_var text = Q2C(i18n("Navigator"));
 	  m_vToolBar->setButtonPixmap(TB_NAVIGATOR, pix); 
 	}
     }
-  if (m_vMenuOptions)
-    m_vMenuOptions->setItemChecked(TB_NAVIGATOR, m_showNavigator);
+
+  if (!CORBA::is_nil(m_vMenuOptions))
+    m_vMenuOptions->setItemChecked(MOPTIONS_SHOWNAVIGATOR, m_showNavigator);
 }
 
 void khcMainView::slotShowMenubar()
 {
   if (CORBA::is_nil(m_vMenuBar))
-   return;
-
+    return;
+  
   m_vMenuBar->enable(OpenPartsUI::Toggle);
-  m_vMenuOptions->setItemChecked(MOPTIONS_SHOWMENUBAR, m_vMenuBar->isVisible());
+  m_showMenuBar = m_vMenuBar->isVisible();
+  m_vMenuOptions->setItemChecked(MOPTIONS_SHOWMENUBAR, m_showMenuBar);
 }
 
 void khcMainView::slotShowToolbar()
@@ -1010,7 +1035,8 @@ void khcMainView::slotShowToolbar()
     return;
 
   m_vToolBar->enable(OpenPartsUI::Toggle);
-  m_vMenuOptions->setItemChecked(MOPTIONS_SHOWTOOLBAR, m_vToolBar->isVisible());
+  m_showToolBar = m_vToolBar->isVisible();
+  m_vMenuOptions->setItemChecked(MOPTIONS_SHOWTOOLBAR, m_showToolBar);
 }
 
 void khcMainView::slotShowLocationbar()
@@ -1019,7 +1045,8 @@ void khcMainView::slotShowLocationbar()
     return;
 
   m_vLocationBar->enable(OpenPartsUI::Toggle);
-  m_vMenuOptions->setItemChecked(MOPTIONS_SHOWLOCATIONBAR, m_vLocationBar->isVisible());
+  m_showLocationBar = m_vLocationBar->isVisible();
+  m_vMenuOptions->setItemChecked(MOPTIONS_SHOWLOCATIONBAR, m_showLocationBar);
 }
 
 void khcMainView::slotShowStatusbar()
@@ -1028,7 +1055,8 @@ void khcMainView::slotShowStatusbar()
     return;
   
   m_vStatusBar->enable(OpenPartsUI::Toggle);
-  m_vMenuOptions->setItemChecked(MOPTIONS_SHOWSTATUSBAR, m_vStatusBar->isVisible());
+  m_showStatusBar = m_vStatusBar->isVisible();
+  m_vMenuOptions->setItemChecked(MOPTIONS_SHOWSTATUSBAR, m_showStatusBar);
 }
 
 void khcMainView::slotSettings()
@@ -1045,10 +1073,11 @@ void khcMainView::slotHelpAbout()
 {
   QMessageBox::about(0L, i18n("About KDE Helpcenter"),
 		     i18n("KDE Helpcenter v" + QString(HELPCENTER_VERSION) + "\n\n"
+			  "Copyright (c) 1998, 99 Matthias Elter <me@kde.org>\n\n"
 			  "Additional credits:\n"
 			  "René Beutler <rbeutler@g26.ethz.ch>: kassistant, kcmhelpcenter, kwid,konitemhelp\n"
 			  "Martin Jones <mjones@kde.org> Some code is based on kdehelp written 1997 by Martin.\n"
-			  "The Konqueror team. I have shamelessly :) ripped some code and ideas from Konqueror.\n" ));
+			  "The Konqueror team. I have shamelessly :) ripped code and ideas from Konqy.\n"));
 }
 
 void khcMainView::slotHistoryFillBack()
@@ -1217,6 +1246,9 @@ void khcMainView::open(const char* url, CORBA::Boolean reload, CORBA::Long xoffs
 
 void khcMainView::connectView()
 {
+  if(CORBA::is_nil(m_vView))
+    return;
+
   try
     {
       m_vView->connect("openURL", this, "openURL");
