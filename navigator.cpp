@@ -141,14 +141,10 @@ Navigator::Navigator( View *view, QWidget *parent,
 
 Navigator::~Navigator()
 {
-  for (std::map<NavigatorItem*, InfoHierarchyMaker*>::iterator it = hierarchyMakers.begin();
-       it != hierarchyMakers.end(); )
-  {
-    std::map<NavigatorItem*, InfoHierarchyMaker*>::iterator copyIt(it);
-    it++;
-    delete copyIt->second;
-    hierarchyMakers.erase(copyIt);
-  }
+  HierarchyMap::Iterator it = hierarchyMakers.begin();
+  HierarchyMap::Iterator end = hierarchyMakers.end();
+  for (; it != end; ++it)
+    delete *it;
 
   regfree(&compInfoRegEx);
 
@@ -831,18 +827,11 @@ void Navigator::addChildren(const InfoNode* pParentNode, NavigatorItem* pParentT
 void Navigator::slotCleanHierarchyMakers()
 {
 //  kdDebug() << "--- slotCleanHierarchyMakers ---" << endl;
-  for (std::map<NavigatorItem*, InfoHierarchyMaker*>::iterator it = hierarchyMakers.begin();
-       it != hierarchyMakers.end(); )
-  {
-    std::map<NavigatorItem*, InfoHierarchyMaker*>::iterator copyIt(it);
-    it++;
-    if (!copyIt->second->isWorking())
-    {
-      kdDebug() << "Deleting a not-working hierarchy maker..." << endl;
-      delete copyIt->second;
-    }
-    hierarchyMakers.erase(copyIt);
-  }
+  HierarchyMap::Iterator it = hierarchyMakers.begin();
+  HierarchyMap::Iterator end = hierarchyMakers.end();
+  for (; it != end; ++it)
+    if (!(*it)->isWorking())
+      delete *it;
 }
 
 /* Cog-wheel animation handling -- enable after creating the icons

@@ -34,7 +34,6 @@
 #include <qfile.h>
 #include <qtextstream.h>
 #include <qtimer.h>
-#include <map>
 
 class QPushButton;
 
@@ -133,7 +132,8 @@ class Navigator : public QWidget
     QPtrList<NavigatorItem> manualItems, pluginItems, scrollKeeperItems;
 
     regex_t compInfoRegEx;
-    std::map<NavigatorItem*, InfoHierarchyMaker*> hierarchyMakers;
+	typedef QMap<NavigatorItem *, InfoHierarchyMaker *> HierarchyMap;
+	HierarchyMap hierarchyMakers;
     QTimer cleaningTimer;
 
     /* Cog-wheel animation handling -- enable after creating the icons
