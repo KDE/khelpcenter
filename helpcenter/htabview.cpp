@@ -1,5 +1,5 @@
 /*
- *  htreeview.cpp - part of the KDE Help Center
+ *  htabview.cpp - part of the KDE Help Center
  *
  *  Copyright (C) 1999 Matthias Elter (me@kde.org)
  *
@@ -18,7 +18,7 @@
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#include "htreeview.h"
+#include "htabview.h"
 #include "htreelistitem.h"
 
 #include <qdir.h>
@@ -30,15 +30,20 @@
 #include <kapp.h>
 #include <ksimpleconfig.h>	
 
-HTreeView::HTreeView(QWidget *parent, const char *name)
+HTabView::HTabView(QWidget *parent, const char *name)
   : KTabCtl(parent,name)
 {
   tree = new KTreeList(this);
+  index = new QWidget(this);
   search = new QWidget(this);
   
   tree->setSmoothScrolling(true);
+  tree->setTreeDrawing(false);
+  tree->setExpandButtonDrawing(false);
+  tree->setIndentSpacing(0);
 
   addTab(tree, "Contents");
+  addTab(index, "Index");
   addTab(search, "Search");
 
   setBorder(false);
@@ -51,16 +56,16 @@ HTreeView::HTreeView(QWidget *parent, const char *name)
   buildTree();
 }
 
-HTreeView::~HTreeView()
+HTabView::~HTabView()
 {
   delete tree;
   delete search;
 }
 
-void HTreeView::buildTree()
+void HTabView::buildTree()
 {
   // introduction document
-  HTreeListItem *ti_intro = new HTreeListItem("Introduction", "document.xpm");
+  HTreeListItem *ti_intro = new HTreeListItem("Introduction", "helpdoc.xpm");
   ti_intro->setURL(QString("file:" + kapp->kde_htmldir() +"/default/khelpcenter/main.html"));
   ti_intro->insertInTree(tree, 0);
   staticItems.append(ti_intro);
@@ -69,7 +74,7 @@ void HTreeView::buildTree()
   tree->setCurrentItem(tree->itemIndex(ti_intro));
 
   // application manuals
-  HTreeListItem *ti_manual = new HTreeListItem("Application manuals", "folder.xpm");
+  HTreeListItem *ti_manual = new HTreeListItem("Application manuals", "helpbook.xpm");
   ti_manual->insertInTree(tree, 0);
   staticItems.append(ti_manual);
 
@@ -77,7 +82,7 @@ void HTreeView::buildTree()
   buildManualSubTree(ti_manual);
 
   // unix man pages
-  HTreeListItem *ti_man = new HTreeListItem("Unix manual pages", "folder.xpm");
+  HTreeListItem *ti_man = new HTreeListItem("Unix manual pages", "helpbook.xpm");
   ti_man->setURL(QString("man:/(index)"));
   ti_man->insertInTree(tree, 0);
   staticItems.append(ti_man);
@@ -86,7 +91,7 @@ void HTreeView::buildTree()
   buildManSubTree(ti_man);
 
   // info browser 
-  HTreeListItem *ti_info = new HTreeListItem("Browse info pages", "document.xpm");
+  HTreeListItem *ti_info = new HTreeListItem("Browse info pages", "helpdoc.xpm");
   ti_info->setURL(QString("file:/cgi-bin/info2html"));
   ti_info->insertInTree(tree,0);
   staticItems.append(ti_info);
@@ -95,21 +100,21 @@ void HTreeView::buildTree()
   insertPlugins();
 
   // kde links
-  HTreeListItem *ti_links = new HTreeListItem("KDE related WWW links", "document.xpm");
+  HTreeListItem *ti_links = new HTreeListItem("KDE related WWW links", "helpdoc.xpm");
   ti_links->setURL(QString("file:" + kapp->kde_htmldir()
 						   +"/default/khelpcenter/links.html"));
   ti_links->insertInTree(tree,0);
   staticItems.append(ti_links);
 
   // kde contacts
-  HTreeListItem *ti_contact = new HTreeListItem("Contact Information", "document.xpm");
+  HTreeListItem *ti_contact = new HTreeListItem("Contact Information", "helpdoc.xpm");
   ti_contact->setURL(QString("file:" + kapp->kde_htmldir().copy()
 						   +"/default/khelpcenter/contact.html"));
   ti_contact->insertInTree(tree,0);
   staticItems.append(ti_contact);  
 }
 
-void HTreeView::clearTree()
+void HTabView::clearTree()
 {
   tree->clear();
 
@@ -123,70 +128,70 @@ void HTreeView::clearTree()
 	  pluginItems.removeFirst();
 }
 
-void HTreeView::buildManSubTree(HTreeListItem *parent)
+void HTabView::buildManSubTree(HTreeListItem *parent)
 {
   // man (1)
-  HTreeListItem *ti_man_s1 = new HTreeListItem("(1) User commands", "document.xpm");
+  HTreeListItem *ti_man_s1 = new HTreeListItem("(1) User commands", "helpdoc.xpm");
   ti_man_s1->setURL(QString("man:/(1)"));
   ti_man_s1->insertInTree(tree, parent);
   staticItems.append(ti_man_s1);
   
   // man(2)
-  HTreeListItem *ti_man_s2 = new HTreeListItem("(2) System calls", "document.xpm");
+  HTreeListItem *ti_man_s2 = new HTreeListItem("(2) System calls", "helpdoc.xpm");
   ti_man_s2->setURL(QString("man:/(2)"));
   ti_man_s2->insertInTree(tree, parent);
   staticItems.append(ti_man_s2);
 
   // man(3)
-  HTreeListItem *ti_man_s3 = new HTreeListItem("(3) Subroutines", "document.xpm");
+  HTreeListItem *ti_man_s3 = new HTreeListItem("(3) Subroutines", "helpdoc.xpm");
   ti_man_s3->setURL(QString("man:/(3)"));
   ti_man_s3->insertInTree(tree, parent);
   staticItems.append(ti_man_s3);
 
   // man(4)
-  HTreeListItem *ti_man_s4 = new HTreeListItem("(4) Devices", "document.xpm");
+  HTreeListItem *ti_man_s4 = new HTreeListItem("(4) Devices", "helpdoc.xpm");
   ti_man_s4->setURL(QString("man:/(4)"));
   ti_man_s4->insertInTree(tree, parent);
   staticItems.append(ti_man_s4);
 
   // man(5)
-  HTreeListItem *ti_man_s5 = new HTreeListItem("(5) File Formats", "document.xpm");
+  HTreeListItem *ti_man_s5 = new HTreeListItem("(5) File Formats", "helpdoc.xpm");
   ti_man_s5->setURL(QString("man:/(5)"));
   ti_man_s5->insertInTree(tree, parent);
   staticItems.append(ti_man_s5);
 
   // man(6)
-  HTreeListItem *ti_man_s6 = new HTreeListItem("(6) Games", "document.xpm");
+  HTreeListItem *ti_man_s6 = new HTreeListItem("(6) Games", "helpdoc.xpm");
   ti_man_s6->setURL(QString("man:/(6)"));
   ti_man_s6->insertInTree(tree, parent);
   staticItems.append(ti_man_s6);
 
   // man(7)
-  HTreeListItem *ti_man_s7 = new HTreeListItem("(7) Miscellaneous", "document.xpm");
+  HTreeListItem *ti_man_s7 = new HTreeListItem("(7) Miscellaneous", "helpdoc.xpm");
   ti_man_s7->setURL(QString("man:/(7)"));
   ti_man_s7->insertInTree(tree, parent);
   staticItems.append(ti_man_s7);
 
   // man(8)
-  HTreeListItem *ti_man_s8 = new HTreeListItem("(8) Sys. Administration", "document.xpm");
+  HTreeListItem *ti_man_s8 = new HTreeListItem("(8) Sys. Administration", "helpdoc.xpm");
   ti_man_s8->setURL(QString("man:/(8)"));
   ti_man_s8->insertInTree(tree, parent);
   staticItems.append(ti_man_s8);
 
   // man(9)
-  HTreeListItem *ti_man_s9 = new HTreeListItem("(9) Kernel", "document.xpm");
+  HTreeListItem *ti_man_s9 = new HTreeListItem("(9) Kernel", "helpdoc.xpm");
   ti_man_s9->setURL(QString("man:/(9)"));
   ti_man_s9->insertInTree(tree, parent);
   staticItems.append(ti_man_s9);
 
   // man(n)
-  HTreeListItem *ti_man_sn = new HTreeListItem("(n) New", "document.xpm");
+  HTreeListItem *ti_man_sn = new HTreeListItem("(n) New", "helpdoc.xpm");
   ti_man_sn->setURL(QString("man:/(n)"));
   ti_man_sn->insertInTree(tree, parent);
   staticItems.append(ti_man_sn);
 }
 
-void HTreeView::buildManualSubTree(HTreeListItem *parent)
+void HTabView::buildManualSubTree(HTreeListItem *parent)
 {
   // System applications
   QString appPath = kapp->kde_appsdir();
@@ -201,7 +206,7 @@ void HTreeView::buildManualSubTree(HTreeListItem *parent)
   */
 }
 
-void HTreeView::insertPlugins()
+void HTabView::insertPlugins()
 {
   // Scan plugin dir
   QString path = kapp->kde_datadir() + "/khelpcenter/plugins";
@@ -209,13 +214,13 @@ void HTreeView::insertPlugins()
   appendEntries(path, 0, &pluginItems);
 }
 
-void HTreeView::slotReloadTree()
+void HTabView::slotReloadTree()
 {
   clearTree();
   buildTree();
 }
 
-void HTreeView::slotItemSelected(int index)
+void HTabView::slotItemSelected(int index)
 {
   HTreeListItem *item;
   KTreeListItem *currentItem;
@@ -290,7 +295,7 @@ void HTreeView::slotItemSelected(int index)
 	}
 }
 
-bool HTreeView::appendEntries(const char *dirName, HTreeListItem *parent, QList<HTreeListItem> *appendList)
+bool HTabView::appendEntries(const char *dirName, HTreeListItem *parent, QList<HTreeListItem> *appendList)
 {
   QDir fileDir(dirName, "*.kdelnk", 0, QDir::Files | QDir::Hidden | QDir::Readable);
 
@@ -321,7 +326,7 @@ bool HTreeView::appendEntries(const char *dirName, HTreeListItem *parent, QList<
 }
 
 
-bool HTreeView::processDir( const char *dirName, HTreeListItem *parent,  QList<HTreeListItem> *appendList)
+bool HTabView::processDir( const char *dirName, HTreeListItem *parent,  QList<HTreeListItem> *appendList)
 {
   QString folderName;
 
@@ -364,12 +369,12 @@ bool HTreeView::processDir( const char *dirName, HTreeListItem *parent,  QList<H
 
 		  icon = sc.readEntry("MiniIcon");
 		  if (icon.isEmpty())
-			icon = "folder.xpm";
+			icon = "helpbook.xpm";
 		}
 	  else
 		{
 		  folderName = itDir.current();
-		  icon = "folder.xpm";
+		  icon = "helpbook.xpm";
 		}
 	  
 	  HTreeListItem *dirItem = new HTreeListItem(folderName, icon);
@@ -384,7 +389,7 @@ bool HTreeView::processDir( const char *dirName, HTreeListItem *parent,  QList<H
   return true;
 }
 
-bool HTreeView::containsDocuments(QString dir)
+bool HTabView::containsDocuments(QString dir)
 {
   QDir fileDir(dir, "*.kdelnk", 0, QDir::Files | QDir::Hidden | QDir::Readable);
 

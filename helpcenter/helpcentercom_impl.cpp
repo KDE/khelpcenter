@@ -46,7 +46,7 @@ void HelpCenterCom::openURL(const char *url, CORBA::ULong id)
 {
   QString _url(url);
 
-  if (_url.isEmpty() || _url == "")
+  if (_url.isEmpty())
 	{
 	  _url = "file:";
 	  _url += kapp->kde_htmldir().copy();

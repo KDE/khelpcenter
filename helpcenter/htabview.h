@@ -1,5 +1,5 @@
 /*
- *  htreeview.h - part of the KDE Help Center
+ *  htabview.h - part of the KDE Help Center
  *
  *  Copyright (C) 1999 Matthias Elter (me@kde.org)
  *
@@ -18,8 +18,8 @@
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#ifndef HTREEVIEW_H_
-#define HTREEVIEW_H_
+#ifndef __htabview_h__
+#define _htabview_h__
 
 #include <qlist.h>
 
@@ -28,13 +28,13 @@
 
 class HTreeListItem;
 
-class HTreeView : public KTabCtl
+class HTabView : public KTabCtl
 {
   Q_OBJECT
   
 public:
-  	HTreeView(QWidget *parent=0, const char *name=0);
-	virtual ~HTreeView();
+  	HTabView(QWidget *parent=0, const char *name=0);
+	virtual ~HTabView();
 
 public slots:
 	void slotItemSelected(int index); 
@@ -56,7 +56,7 @@ private:
 	bool containsDocuments(QString dir);
 
 	KTreeList *tree;
-	QWidget *search;
+	QWidget *search, *index;
 
 	QList<HTreeListItem> staticItems, manualItems, pluginItems;
 };

@@ -2,6 +2,6 @@
 [KDE Desktop Entry]
 Name=Quickstart Guide
 Comment=KDE quickstart guid.
-Icon=document.xpm
-MiniIcon=document.xpm
+Icon=
+MiniIcon=helpdoc.xpm
 DocPath=khelpcenter/tutorials/quickstart/index.html

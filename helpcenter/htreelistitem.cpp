@@ -31,6 +31,9 @@ HTreeListItem::HTreeListItem(const QString& _text = "", const QString& _miniicon
 {
   name = _text;
   miniicon = _miniicon;
+  setDrawTree(false);
+  setDrawExpandButton(false);
+  setIndent(0);
 }
 
 bool HTreeListItem::readKDElnk ( const char *filename )
@@ -88,9 +91,15 @@ void HTreeListItem::insertInTree(KTreeList *tree, KTreeListItem *parent)
   setPixmap(item_pm);
 
   if (parent == 0) // insert at toplevel
-	tree->insertItem(this, -1, true);
+	{
+	  setIndent(0);
+	  tree->insertItem(this, -1, true);
+	}
   else             // insert as child of parent
-	parent->appendChild(this); 
+	{
+	  setIndent(8);
+	  parent->appendChild(this);
+	} 
 }
 
 void HTreeListItem::setName(QString _name)

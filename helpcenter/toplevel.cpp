@@ -19,7 +19,7 @@
  */
 
 #include "toplevel.h"
-#include "htreeview.h"
+#include "htabview.h"
 #include "khelpview.h"
 
 #include <qkeycode.h>
@@ -72,8 +72,8 @@ HelpCenter::HelpCenter()
   connect(htmlview , SIGNAL( setTitle(const QString& ) ),
 		   this, SLOT( slotSetTitle(const QString& ) ) );
 
-  // connect treeview
-  connect(treeview , SIGNAL(itemSelected(QString) ),
+  // connect tabview
+  connect(tabview , SIGNAL(itemSelected(QString) ),
 		this, SLOT( slotSetURL(QString) ) );
  
   // restore geometry settings
@@ -100,7 +100,7 @@ HelpCenter::~HelpCenter()
 {
   helpWindowList.removeRef(this);
   delete htmlview;
-  delete treeview;
+  delete tabview;
   if (splitter)
 	delete splitter;
 }
@@ -110,17 +110,17 @@ void HelpCenter::setupView()
   splitter = new QSplitter(QSplitter::Horizontal, this);
   CHECK_PTR(splitter);
 
-  treeview = new HTreeView(this);
+  tabview = new HTabView(this);
   htmlview = new KHelpView(this);
   
   // I have to use resize and recreate here because QSplitter is messing
   // up the initial sizes otherwise.
-  treeview->resize(200, 550);
+  tabview->resize(200, 550);
   htmlview->resize(600, 550);
-  treeview->recreate(splitter, 0, QPoint(0,0),true);
+  tabview->recreate(splitter, 0, QPoint(0,0),true);
   htmlview->recreate(splitter, 0, QPoint(0,0),true);
 
-  CHECK_PTR(treeview);
+  CHECK_PTR(tabview);
   CHECK_PTR(htmlview);
   splitter->show();
     
@@ -139,7 +139,8 @@ void HelpCenter::setupMenubar()
   fileMenu->insertSeparator();
   fileMenu->insertItem(i18n("&Open File..."), htmlview,
 						SLOT(slotOpenFile()), stdAccel.open() );
-  fileMenu->insertSeparator();
+  fileMenu->insertItem(i18n("&Reload"), htmlview,
+					   SLOT(slotReload()), Key_F5);
   fileMenu->insertItem( i18n("&Print..."),
 						htmlview, SLOT(slotPrint()), stdAccel.print() );
   fileMenu->insertSeparator();
@@ -149,6 +150,7 @@ void HelpCenter::setupMenubar()
   editMenu = new QPopupMenu;
   CHECK_PTR( editMenu );
   idCopy = editMenu->insertItem(i18n("&Copy"), htmlview, SLOT(slotCopy()), stdAccel.copy());
+  editMenu->insertSeparator();
   editMenu->insertItem(i18n("&Find..."), htmlview, SLOT(slotFind()), stdAccel.find());
   editMenu->insertItem(i18n("Find &next"), htmlview, SLOT(slotFindNext()), Key_F3);
   
@@ -163,7 +165,9 @@ void HelpCenter::setupMenubar()
   CHECK_PTR(viewMenu);
   idMagPlus = viewMenu->insertItem(i18n("Zoom &in"), this, SLOT(slotMagPlus()));
   idMagMinus = viewMenu->insertItem(i18n("Zoom &out"), this, SLOT(slotMagMinus()));
-  viewMenu->insertItem(i18n("&Reload Tree"), treeview, SLOT(slotReloadTree()));
+  viewMenu->insertSeparator();
+  viewMenu->insertItem(i18n("&Reload Tree"), tabview, SLOT(slotReloadTree()));
+  viewMenu->insertSeparator();
   viewMenu->insertItem(i18n("Reload &Document"), htmlview, SLOT(slotReload()), Key_F5);
   
   bookmarkMenu = new QPopupMenu;
@@ -208,12 +212,16 @@ void HelpCenter::setupMenubar()
 
 void HelpCenter::setupToolbar()
 {
+  toolBar(0)->insertButton(Icon("hidetabview.xpm"), TB_TREE,
+						   true, i18n("Toogle register cards"));
+
+  toolBar(0)->insertSeparator();
+  
   toolBar(0)->insertButton(Icon("back.xpm"), TB_BACK,
 						   true, i18n("Previous document in history"));
   toolBar(0)->insertButton(Icon("forward.xpm"), TB_FORWARD,
 						   true, i18n("Next document in history"));
-  toolBar(0)->insertButton(Icon("flag.xpm"), TB_BOOKMARK,
-						   true, i18n("Add bookmark"));
+  
   toolBar(0)->insertButton(Icon("reload.xpm"), TB_RELOAD,
 						   true, i18n("Reload"));
   toolBar(0)->insertButton(Icon("stop.xpm"), TB_STOP,
@@ -227,7 +235,9 @@ void HelpCenter::setupToolbar()
 						   true, i18n("Zoom out"));
 
   toolBar(0)->insertSeparator();
-  
+
+  toolBar(0)->insertButton(Icon("flag.xpm"), TB_BOOKMARK,
+						   true, i18n("Add bookmark"));
   toolBar(0)->insertButton(Icon("search.xpm"), TB_FIND,
 						   true, i18n("Find in page"));
   toolBar(0)->insertButton(Icon("fileprint.xpm"), TB_PRINT,
@@ -280,7 +290,7 @@ void HelpCenter::slotReadConfig()
   config->setGroup( "Appearance" );
 
   // show tool-, location-, statusbar and tree?
-  QString o = config->readEntry("ShowTreeView");
+  QString o = config->readEntry("ShowTabView");
   if (!o.isEmpty() && o.find("No", 0, false ) == 0)
 	showTree = false;
   else
@@ -409,22 +419,22 @@ void HelpCenter::enableTree(bool enable)
   	{
 	  splitter = new QSplitter(QSplitter::Horizontal, this);
 	  setView(splitter, true); 
-	  treeview->resize(200, 550);
+	  tabview->resize(200, 550);
 	  htmlview->resize(600, 550);
-	  treeview->recreate(splitter, 0, QPoint(0,0),true);
+	  tabview->recreate(splitter, 0, QPoint(0,0),true);
 	  htmlview->recreate(splitter, 0, QPoint(0,0),true);
-	  treeview->show();
+	  tabview->show();
 	  splitter->show();
 	  resize(width()+ 205, height());
 	}
   else
 	{ 
-	  treeview->recreate(this, 0, QPoint(0,0),false);
+	  tabview->recreate(this, 0, QPoint(0,0),false);
 	  htmlview->recreate(this, 0, QPoint(0,0),true);
 	  setView(htmlview, true);
 	  delete splitter;
 	  splitter = 0L;
-	  treeview->hide();
+	  tabview->hide();
 	  resize(width() - 205, height());
 	}
 	updateRects();
@@ -449,6 +459,9 @@ void HelpCenter::slotToolbarClicked(int item)
 {
   switch (item)
 	{
+	case TB_TREE:
+	  slotOptionsTree();
+	  break;
 	case TB_BOOKMARK:
 	  htmlview->slotAddBookmark();
 	  break;
@@ -565,13 +578,13 @@ void HelpCenter::slotOptionsTree()
   	{
 	  enableTree(false);
 	  showTree = false;
-	  // toolBar(0)->setButtonPixmap(TB_TREE, Icon("showtree.xpm"));
+	  toolBar(0)->setButtonPixmap(TB_TREE, Icon("showtabview.xpm"));
 	}
   else
 	{
 	  enableTree(true);
 	  showTree = true;
-	  //toolBar(0)->setButtonPixmap(TB_TREE, Icon("hidetree.xpm"));
+	  toolBar(0)->setButtonPixmap(TB_TREE, Icon("hidetabview.xpm"));
 	}
   optionsMenu->setItemChecked(idTree, showTree);
   updateRects();
@@ -623,7 +636,7 @@ void HelpCenter::slotOptionsSave()
   KConfig *config = KApplication::getKApplication()->getConfig();
 
   config->setGroup( "Appearance" );
-  config->writeEntry( "ShowTreeView", showTree ? "Yes" : "No" ); 
+  config->writeEntry( "ShowTabView", showTree ? "Yes" : "No" ); 
   config->writeEntry( "ShowToolBar", showToolbar ? "Yes" : "No" );
   config->writeEntry( "ShowStatusBar", showStatusbar ? "Yes" : "No" );  
   config->writeEntry( "ShowLocationBar", showLocationbar ? "Yes" : "No" );

@@ -35,7 +35,7 @@
 #include <qsplitter.h>
 #include <qlist.h>
 
-class HTreeView;
+class HTabView;
 class KHelpView;
 class KFileBookmark;
 
@@ -104,12 +104,12 @@ private:
 private:
 	QSplitter *splitter;
 	KHelpView *htmlview;
-	HTreeView *treeview;
+	HTabView *tabview;
 
 	QPopupMenu *fileMenu, *editMenu, *viewMenu, *gotoMenu, *optionsMenu, *helpMenu,*bookmarkMenu;
 
 	// toolbar id's:
-	enum {TB_BACK, TB_FORWARD, TB_RELOAD, TB_STOP, TB_PRINT, TB_BOOKMARK, TB_ZOOMIN,
+	enum {TB_TREE, TB_BACK, TB_FORWARD, TB_RELOAD, TB_STOP, TB_PRINT, TB_BOOKMARK, TB_ZOOMIN,
 		  TB_ZOOMOUT, TB_FIND};
 	// menu id's:
 	int idCopy, idBack, idForward, idTop, idUp, idPrevious, idNext, idTree, idToolbar
