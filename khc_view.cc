@@ -27,8 +27,7 @@ KHCView::KHCView( QWidget *parentWidget, const char *widgetName,
           QString stylesheet = s.read();
           preloadStyleSheet("help:/common/kde-default.css", stylesheet);
        }
-    }             
-             
+    }
 }
 
 bool KHCView::openURL( const KURL &url )

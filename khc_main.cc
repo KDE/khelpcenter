@@ -85,7 +85,7 @@ KHMainWindow::KHMainWindow(const KURL &url)
             SLOT(slotOpenURLRequest( const KURL &,
                                      const KParts::URLArgs &)));
 
-    nav = new khcNavigator(splitter, this, "nav");
+    nav = new khcNavigator( doc, splitter, this, "nav");
     connect(nav->widget(), SIGNAL(itemSelected(const QString &)),
             SLOT(openURL(const QString &)));
     connect(nav->widget(), SIGNAL(glossSelected(const khcNavigatorWidget::GlossaryEntry &)),
@@ -191,11 +191,14 @@ void KHMainWindow::updateHistoryEntry()
 void KHMainWindow::slotOpenURLRequest( const KURL &url,
                                        const KParts::URLArgs &args)
 {
+    kdDebug() << "KHMainWindow::slotOpenURLRequest(): " << url.url() << endl;
+
     bool own = false;
     
     QString proto = url.protocol().lower();
     if ( proto == "help" || proto == "glossentry" || proto == "about" ||
-	 proto == "man" || proto == "info")
+	 proto == "man" || proto == "info" || proto == "cgi" ||
+         proto == "http" )
 	own = true;
     else if (url.isLocalFile()) {
 	static const QString &html = KGlobal::staticQString("text/html");

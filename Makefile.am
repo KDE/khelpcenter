@@ -11,18 +11,21 @@ SUFFIXES = .lo .o
 .lo.o:
 	
 khelpcenter_LDFLAGS = $(all_libraries) $(KDE_RPATH)
-khelpcenter_LDADD   = $(LIB_KHTML) # htmlsearch/libhtmlsearch.la
+khelpcenter_LDADD   = $(LIB_KHTML)
 khelpcenter_SOURCES = main.cpp khc_main.cc $(libkhelpcenterpart_la_SOURCES)
 
 khelpcenter_la_LDFLAGS = $(all_libraries) $(KDE_RPATH) -module $(KDE_PLUGIN) -no-undefined
-khelpcenter_la_LIBADD   = $(LIB_KHTML) # htmlsearch/libhtmlsearch.la
+khelpcenter_la_LIBADD   = $(LIB_KHTML)
 khelpcenter_la_SOURCES = khc_main.cc $(libkhelpcenterpart_la_SOURCES)
 
 kde_module_LTLIBRARIES = libkhelpcenterpart.la khelpcenter.la
 libkhelpcenterpart_la_SOURCES = khc_factory.cc khc_navigator.cc \
 	khc_navigatoritem.cc khc_navigatorappitem.cc khc_view.cc \
-	khc_infohierarchymaker.cc khc_inforeader.cc khc_infofile.cc khc_infonode.cc
-libkhelpcenterpart_la_LIBADD = $(LIB_KHTML) $(LIB_KPARTS)
+	khc_infohierarchymaker.cc khc_inforeader.cc khc_infofile.cc \
+        khc_infonode.cc searchwidget.cpp klanguagebutton.cpp searchengine.cpp \
+        docmetainfo.cpp
+libkhelpcenterpart_la_LIBADD = $(LIB_KHTML) \
+                               $(LIB_KPARTS)
 libkhelpcenterpart_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN)
 
 service_DATA = khelpcenter.desktop

@@ -66,7 +66,7 @@ kdWarning() << "khcNavigatorWidget::buildManualSubTree(" << this << ", " << relp
               if (!url.isEmpty())
               {
                  item = new khcNavigatorItem(this, s->name(), s->icon());
-                 item->setURL(url);
+                 item->setUrl(url);
               }
               break;
 
@@ -75,7 +75,7 @@ kdWarning() << "khcNavigatorWidget::buildManualSubTree(" << this << ", " << relp
               if ( (g->childCount() == 0 ) || g->name().startsWith("."))
                  continue;
               item = new khcNavigatorAppItem(this, g->caption(), g->icon(), g->relPath());
-              item->setURL("");
+              item->setUrl("");
               break;
 
         default:

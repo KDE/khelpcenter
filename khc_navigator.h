@@ -29,27 +29,26 @@
 #include <qlistview.h>
 #include <qdict.h>
 
-// ACHU
 #include <regex.h>
 #include <qfile.h>
 #include <qtextstream.h>
 #include <qtimer.h>
 #include <map>
-//#include "khc_infohierarchymaker.h"
-//#include "khc_infonode.h"
-// END ACHU
 
-class SearchWidget;
-class khcNavigatorItem;
-class khcNavigator;
+class QPushButton;
+
 class KListView;
 class KService;
 class KProcess;
 class KProcIO;
-// ACHU
+
+class SearchWidget;
+class khcNavigatorItem;
+class khcNavigator;
+class SearchEngine;
 class khcInfoNode;
 class khcInfoHierarchyMaker;
-//END ACHU
+class KHCView;
 
 class SectionItem : public QListViewItem
 {
@@ -62,12 +61,12 @@ class SectionItem : public QListViewItem
 class khcNavigatorExtension : public KParts::BrowserExtension
 {
     Q_OBJECT
- public:
+  public:
     khcNavigatorExtension(KParts::ReadOnlyPart *part, const char *name=0) :
       KParts::BrowserExtension( part, name ) {}
     virtual ~khcNavigatorExtension() {}
 
- public slots:
+  public slots:
     void slotItemSelected(const QString&);
     void print() {}
 };
@@ -75,24 +74,22 @@ class khcNavigatorExtension : public KParts::BrowserExtension
 class khcNavigator : public KParts::ReadOnlyPart
 {
     Q_OBJECT
-
- public:
-    khcNavigator(QWidget *parentWidget, QObject *widget, const char *name=0);
+  public:
+    khcNavigator( KHCView *, QWidget *parentWidget, QObject *widget,
+                  const char *name=0);
     virtual ~khcNavigator();
 
     virtual bool openURL( const KURL &url );
 
- protected:
+  protected:
     bool openFile();
     khcNavigatorExtension * m_extension;
-
 };
 
-class khcNavigatorWidget : public QTabWidget
+class khcNavigatorWidget : public QWidget
 {
     Q_OBJECT
-
- public:
+  public:
     struct GlossaryEntry {
       GlossaryEntry() {}
       GlossaryEntry(const QString &t, const QString &d, const QStringList &sa)
@@ -107,37 +104,40 @@ class khcNavigatorWidget : public QTabWidget
       QStringList seeAlso;
     };
     
-    khcNavigatorWidget(QWidget *parent=0, const char *name=0);
+    khcNavigatorWidget(KHCView *, QWidget *parent=0, const char *name=0);
     virtual ~khcNavigatorWidget();
 
     GlossaryEntry glossEntry(const QString &term) const { return *glossEntries[term]; }
 
- public slots:
+  public slots:
     void slotURLSelected(QString url);
     void slotItemSelected(QListViewItem* index);
-    // ACHU
     void slotItemExpanded(QListViewItem* index);
     void slotInfoHierarchyCreated(uint key, uint nErrorCode, const khcInfoNode* pRootNode);
     void slotCleanHierarchyMakers();
-    // END ACHU
     void slotGlossaryItemSelected(QListViewItem* item);
     void slotShowPage(QWidget *);
 
- signals:
+    void slotSearch();
+
+    void slotShowSearchResult( const QString & );
+
+  signals:
     void itemSelected(const QString& itemURL);
     void glossSelected(const khcNavigatorWidget::GlossaryEntry& entry);
 
- private slots:
+  protected slots:
+    void slotSearchFinished();
+    void slotSearchTextChanged( const QString & );
+
+  private slots:
     void getScrollKeeperContentsList(KProcIO *proc);
     void meinprocExited(KProcess *);
-    //ACHU
     /* Cog-wheel animation handling -- enable after creating the icons
     void slotAnimation();
     */
-    // END ACHU
 
-
- private:
+  private:
     void setupContentsTab();
     void setupIndexTab();
     void setupSearchTab();
@@ -148,13 +148,11 @@ class khcNavigatorWidget : public QTabWidget
     QString langLookup(const QString &);
     QString decodeEntities(const QString &s) const;
 
-    // ACHU
     void buildInfoSubTree(khcNavigatorItem *parent);
     QString findInfoDirFile();
     bool readInfoDirFile(QString& sFileContents);
     bool parseInfoSubjectLine(QString sLine, QString& sItemTitle, QString& sItemURL);
     void addChildren(const khcInfoNode* pParentNode, khcNavigatorItem* pParentTreeItem);
-    // END ACHU
 
     void buildManSubTree(khcNavigatorItem *parent);
 
@@ -166,19 +164,24 @@ class khcNavigatorWidget : public QTabWidget
     bool appendEntries (const QString &dirName,  khcNavigatorItem *parent, QPtrList<khcNavigatorItem> *appendList);
     bool processDir(const QString &dirName, khcNavigatorItem *parent,  QPtrList<khcNavigatorItem> *appendList);
 
+    void hideSearch();
+
     QListViewItem *byTopicItem, *alphabItem;
     KListView *contentsTree, *glossaryTree;
-    // SearchWidget *search;
+    SearchWidget *mSearchWidget;
+
+    QTabWidget *mTabWidget;
+
+    QFrame *mSearchFrame;
+    QLineEdit *mSearchEdit;
+    QPushButton *mSearchButton;
 
     QPtrList<khcNavigatorItem> manualItems, pluginItems, scrollKeeperItems;
 
-    // ACHU
     regex_t compInfoRegEx;
     std::map<khcNavigatorItem*, khcInfoHierarchyMaker*> hierarchyMakers;
     QTimer cleaningTimer;
-    // END ACHU
 
-    // ACHU
     /* Cog-wheel animation handling -- enable after creating the icons
     struct AnimationInfo
     {
@@ -198,7 +201,6 @@ class khcNavigatorWidget : public QTabWidget
     void startAnimation(khcNavigatorItem * item, const char * iconBaseName = "kde", uint iconCount = 6);
     void stopAnimation(khcNavigatorItem * item);
     */
-    // END ACHU
 
     bool mScrollKeeperShowEmptyDirs;
     QString mScrollKeeperContentsList;
@@ -207,6 +209,10 @@ class khcNavigatorWidget : public QTabWidget
     enum { NeedRebuild, CacheOk, ListViewOk} glossaryHtmlStatus;
     QString glossaryHtmlFile;
     QString glossarySource;
+
+    SearchEngine *mSearchEngine;
+
+    KHCView *mView;
 };
 
 inline QDataStream &operator<<( QDataStream &stream, const khcNavigatorWidget::GlossaryEntry &e )

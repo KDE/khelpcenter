@@ -25,36 +25,41 @@
 
 class khcNavigatorItem : public QListViewItem
 {
- public:
-    khcNavigatorItem (QListView* parent, const QString& text = QString::null, const QString& miniicon = QString::null);
-    khcNavigatorItem (QListViewItem* parent, const QString& text = QString::null, const QString& miniicon = QString::null);
-    // ACHU
+  public:
+    khcNavigatorItem (QListView* parent, const QString& text = QString::null,
+                      const QString& miniicon = QString::null);
+    khcNavigatorItem (QListViewItem* parent,
+                      const QString& text = QString::null,
+                      const QString& miniicon = QString::null);
     khcNavigatorItem (QListView* parent, QListViewItem* after,
-		      const QString& text = QString::null, const QString& miniicon = QString::null);
+		      const QString& text = QString::null,
+                      const QString& miniicon = QString::null);
     khcNavigatorItem (QListViewItem* parent, QListViewItem* after,
-		      const QString& text = QString::null, const QString& miniicon = QString::null);
-    // END ACHU
+		      const QString& text = QString::null,
+                      const QString& miniicon = QString::null);
+
     bool readKDElnk (const QString &filename);
-    void setName(QString _name);
-    void setURL(QString _url);
-    void setInfo(QString _info);
-    void setIcon(QString _icon);
-    void setMiniIcon(QString _miniicon);
-    QString getName() {return name;};
-    QString getURL() { return url; }
-    QString getInfo() {return info;};
-    QString getIcon() {return icon;};
-    QString getMiniIcon() {return miniicon;};
+
+    void setName( const QString & );
+    void setUrl( const QString & );
+    void setInfo( const QString & );
+    void setIcon( const QString & );
+    void setMiniIcon( const QString & );
+
+    QString name() { return mName; }
+    QString url() { return mUrl; }
+    QString info() { return mInfo; }
+    QString icon() { return mIcon; }
+    QString miniIcon() { return mMiniIcon; }
     
  private:
     void init(const QString& text, const QString& miniicon);
     
- protected:
-    QString name;
-    QString url;
-    QString info;
-    QString icon;
-    QString miniicon;
+    QString mName;
+    QString mUrl;
+    QString mInfo;
+    QString mIcon;
+    QString mMiniIcon;
 };
 
 #endif
