@@ -32,7 +32,7 @@
 #include <qframe.h>
 #include <klanguagebutton.h>
 #include <kglobal.h>
-#include <kstddirs.h>
+#include <kstandarddirs.h>
 #include <ksimpleconfig.h>
 #include <qwhatsthis.h>
 

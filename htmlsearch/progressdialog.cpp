@@ -5,7 +5,7 @@
 
 #include <klocale.h>
 #include <kprogress.h>
-#include <kstddirs.h>
+#include <kstandarddirs.h>
 
 
 #include "progressdialog.moc"

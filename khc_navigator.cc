@@ -45,9 +45,9 @@
 #include <qregexp.h>
 
 #include <kaction.h>
-#include <kapp.h>
+#include <kapplication.h>
 #include <ksimpleconfig.h>
-#include <kstddirs.h>
+#include <kstandarddirs.h>
 #include <kglobal.h>
 #include <klocale.h>
 #include <kdebug.h>

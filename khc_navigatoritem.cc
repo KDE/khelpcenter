@@ -22,12 +22,12 @@
 #include <qstring.h>
 #include <qfile.h>
 
-#include <kapp.h>
+#include <kapplication.h>
 #include <ksimpleconfig.h>
 
 #include "khc_navigatoritem.h"
 #include "khc_factory.h"
-#include <kstddirs.h>
+#include <kstandarddirs.h>
 #include <kglobal.h>
 #include <kiconloader.h>
 

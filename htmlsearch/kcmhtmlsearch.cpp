@@ -23,13 +23,13 @@
 #include <qbuttongroup.h>
 #include <kconfig.h>
 #include <kglobal.h>
-#include <kstddirs.h>
+#include <kstandarddirs.h>
 #include <klocale.h>
 #include <qgroupbox.h>
 #include <kurllabel.h>
 #include <qfontmetrics.h>
 #include <qlineedit.h>
-#include <kapp.h>
+#include <kapplication.h>
 #include <qcheckbox.h>
 #include <qframe.h>
 #include <qpushbutton.h>

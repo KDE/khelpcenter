@@ -25,7 +25,7 @@
 #include <qpopupmenu.h>
 #include <qiconset.h>
 #include <ksimpleconfig.h>
-#include <kstddirs.h>
+#include <kstandarddirs.h>
 
 #include "klanguagebutton.h"
 #include "klanguagebutton.moc"

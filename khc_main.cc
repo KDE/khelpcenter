@@ -21,11 +21,11 @@
 
 #include <stdlib.h>
 
-#include <kapp.h>
+#include <kapplication.h>
 #include <dcopclient.h>
 #include <kglobal.h>
 #include <klocale.h>
-#include <kstddirs.h>
+#include <kstandarddirs.h>
 #include <kcmdlineargs.h>
 #include <kpopupmenu.h>
 #include <kstringhandler.h>

@@ -4,7 +4,7 @@
 #include <kcmdlineargs.h>
 #include <kaboutdata.h>
 #include <kglobal.h>
-#include <kapp.h>
+#include <kapplication.h>
 
 #include "htmlsearch.h"
 
