@@ -40,15 +40,16 @@ public slots:
   void slotWizardStart();
   void slotHelpCenterStart();
 
+protected:
+  void saveSettings();
+  void readSettings();
+  virtual void keyPressEvent( QKeyEvent *e );
+
 private:
   QWidget *topView, *bottomView;
   QCheckBox *autostart_kwelcome;
   QPushButton *aboutButton, *quitButton, *wizardButton, *helpcenterButton;
   QLabel *welcome;
-
-protected:
-  void saveSettings();
-  void readSettings();
 };
 
 #endif

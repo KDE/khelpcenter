@@ -18,87 +18,109 @@
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+//
+// Espen: 2000-04-20
+// Coverted to QLayouts and got rid of (almost) all manual geometry calls. 
+// Removed the old "About KDE" dialog box (using KAboutKDE instead).
+// Added keyboard accels for Escape and F1 as well.
+//
+
 #include "kwelcome.h"
 
-#include <kstddirs.h>
-#include <kprocess.h>
-#include <klocale.h>
-#include <kconfig.h>
+#include <kaboutkde.h>
 #include <kapp.h>
+#include <kconfig.h>
+#include <klocale.h>
 #include <kmessagebox.h>
+#include <kprocess.h>
+#include <kstddirs.h>
 
-#include <qlayout.h>
-#include <qlabel.h>
-#include <qpushbutton.h>
 #include <qcheckbox.h>
+#include <qlabel.h>
+#include <qlayout.h>
+#include <qpushbutton.h>
 
 #include <fstream.h>
 
 KWelcome::KWelcome(QWidget *parent, const char *name)
-	: QWidget(parent, name, WStyle_Tool)
+  : QWidget(parent, name, WStyle_Tool )
 {
-  setCaption(i18n("Welcome to the K Desktop Environment!"));
-  setFixedSize(559, 416);
-  setGeometry(QApplication::desktop()->width()/2 - width()/2,
-			  QApplication::desktop()->height()/2 - height()/2,
-			  590, 416);
+  setCaption(i18n("Welcome to the K Desktop Environment"));
 
   // setup topView
   topView = new QWidget(this);
-  topView->setBackgroundColor(QColor(255,255,255));
+  topView->setBackgroundColor( white );
   
   // setup bottomView
   bottomView = new QWidget(this);
-  bottomView->setMaximumHeight(30);
-  bottomView->setMinimumHeight(30);
   
   // setup the top level layout manager
-  QVBoxLayout *toplevel_l = new QVBoxLayout(this);
-  toplevel_l->addWidget(topView);
-  toplevel_l->addWidget(bottomView);
-  toplevel_l->activate();
-  
-  // create quitButton
-  quitButton = new QPushButton(i18n("&Quit"), bottomView);
-  connect(quitButton, SIGNAL(clicked()), kapp, SLOT(quit()));
-  quitButton->setFixedWidth(85);
-  quitButton->setFixedHeight(26);
-  quitButton->move(bottomView->width() - 85, 4);
- 
-  // create abouButton
-  aboutButton = new QPushButton(i18n("&About KDE"), bottomView);
-  connect(aboutButton, SIGNAL(clicked()), this, SLOT(slotAboutKDE()));
-  aboutButton->setFixedWidth(95);
-  aboutButton->setFixedHeight(26);
-  aboutButton->move(bottomView->width() - 182, 4);
-  
-  // create 'start on every KDE startup' checkbox
-  autostart_kwelcome = new QCheckBox(i18n("Show this dialog on KDE startup."), bottomView);
-  autostart_kwelcome->setGeometry(2,7,200,28);
-  autostart_kwelcome->setChecked(TRUE);
-  autostart_kwelcome->setAutoResize(TRUE);
-  
+  QVBoxLayout *topLayout = new QVBoxLayout(this);
+  topLayout->addWidget(topView,1);
+  topLayout->addWidget(bottomView);
+
   // welcome image
   QLabel *welcome = new QLabel(topView);
-  welcome->setGeometry(2,2,557,386);
+  QVBoxLayout *vlay = new QVBoxLayout( topView );
+  vlay->addWidget( welcome, 0, AlignTop|AlignLeft );
 
   QPixmap welcome_pm(locate("data", "kwelcome/pics/welcome.png"));	
   welcome->setPixmap(welcome_pm);
 
-  // create help center button
+  //
+  // Overlay buttons on welcome pixmap label. We need to do one manual 
+  // geometry setting with real pixel coordinates here.
+  //
   helpcenterButton = new QPushButton(i18n("Get &help"), topView);
-  connect(helpcenterButton, SIGNAL(clicked()), this, SLOT(slotHelpCenterStart()));
-  helpcenterButton->setFixedWidth(133);
-  helpcenterButton->setFixedHeight(26);
-  helpcenterButton->move(15 ,330);
-  
-  // create configuration wizard button
+  connect(helpcenterButton,SIGNAL(clicked()),this,SLOT(slotHelpCenterStart()));
+  helpcenterButton->adjustSize(); // Since there is no layout manager
+
   wizardButton = new QPushButton(i18n("Configuration &wizard"), topView);
   connect(wizardButton, SIGNAL(clicked()), this, SLOT(slotWizardStart()));
-  wizardButton->setFixedWidth(173);
-  wizardButton->setFixedHeight(26);
-  wizardButton->move(17 + helpcenterButton->width(), 330);
-	
+  wizardButton->adjustSize(); // Since there is no layout manager
+
+  helpcenterButton->move( 15, 330 );
+  wizardButton->move( helpcenterButton->x() + 
+		      helpcenterButton->sizeHint().width() + 4, 
+		      helpcenterButton->y() );
+
+  // create 'start on every KDE startup' checkbox
+  autostart_kwelcome = 
+    new QCheckBox( i18n("Show this dialog on KDE startup."), bottomView );
+  autostart_kwelcome->setChecked(TRUE);
+
+  // create aboutButton
+  aboutButton = new QPushButton(i18n("&About KDE"), bottomView);
+  connect(aboutButton, SIGNAL(clicked()), this, SLOT(slotAboutKDE()));
+
+  // create quitButton
+  quitButton = new QPushButton(i18n("&Close"), bottomView);
+  connect(quitButton, SIGNAL(clicked()), kapp, SLOT(quit()));
+
+  // Action bar layout manager
+  QHBoxLayout *hlay = new QHBoxLayout(bottomView, 4, 4 );
+  hlay->addWidget(autostart_kwelcome, 1, AlignLeft );
+  hlay->addWidget(aboutButton);
+  hlay->addWidget(quitButton);
+
+  //
+  // Espen: Does this look better? I think so. Give action buttons 
+  // the same width.
+  //
+  int w1 = aboutButton->sizeHint().width();
+  int w2 = quitButton->sizeHint().width();
+  int w3 = QMAX( w1, w2 );
+  aboutButton->setFixedWidth( w3 );
+  quitButton->setFixedWidth( w3 );
+
+
+  //
+  // Placement on screen
+  //
+  move( QApplication::desktop()->width()/2 - width()/2,
+        QApplication::desktop()->height()/2 - height()/2 );
+  setFixedSize( sizeHint() );
+
   // read settings
   readSettings();
 }
@@ -110,12 +132,9 @@ KWelcome::~KWelcome()
 
 void KWelcome::slotAboutKDE()
 {
-  KMessageBox::about(0L,i18n("\nThe KDE Desktop Environment was written by the KDE Team,\n"
-			  "a world-wide network of software engineers committed to\n"
-			  "free software development.\n\n"
-			  "Visit http://www.kde.org for more information on the KDE\n"
-			  "Project. Please consider joining and supporting KDE.\n\n"
-              "Please report bugs at http://bugs.kde.org.\n"),  i18n("About KDE"));
+  KAboutKDE *dialog = new KAboutKDE( topLevelWidget(), "aboutkde", true );
+  dialog->exec();
+  delete dialog;
 }
 
 void KWelcome::slotWizardStart()
@@ -155,5 +174,25 @@ void KWelcome::readSettings()
   else
 	autostart_kwelcome->setChecked(false);	
 }
+
+
+void KWelcome::keyPressEvent( QKeyEvent *e )
+{
+  if( e->key() == Key_Escape )
+  {
+    quitButton->animateClick();
+  }
+  else if( e->key() == Key_F1 )
+  {
+    helpcenterButton->animateClick();
+  }
+  else
+  {
+    QWidget::keyPressEvent(e);
+  }
+}
+
+
+
 
 #include "kwelcome.moc"
