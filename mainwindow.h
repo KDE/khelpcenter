@@ -26,13 +26,7 @@ class MainWindow : public KMainWindow
     ~MainWindow();
 
   public slots:
-    void slotStarted(KIO::Job *job);
-    void slotInfoMessage(KIO::Job *, const QString &);
     void openURL(const QString &url);
-    void slotGlossSelected(const GlossaryEntry &entry);                           
-    void slotOpenURLRequest( const KURL &url,
-                             const KParts::URLArgs &args);
-    void documentCompleted();
     void print();
     void statusBarMessage(const QString &m);
     void showHome();
@@ -48,6 +42,15 @@ class MainWindow : public KMainWindow
     void openURL( const KURL &url );
     void stop();
 
+  private slots:
+    void slotGlossSelected(const GlossaryEntry &entry);                           
+    void slotStarted(KIO::Job *job);
+    void slotInfoMessage(KIO::Job *, const QString &);
+    void slotOpenURLRequest( const KURL &url,
+                             const KParts::URLArgs &args);
+    void documentCompleted();
+
+  private:
     View *mDoc;
     Navigator *mNavigator;
 
