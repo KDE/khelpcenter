@@ -5,8 +5,8 @@ IDL_FLAGS = --query-server-for-narrow --relative-paths --any -I$(idldir)
 
 bin_PROGRAMS = 	khelpcenter khelpcenterclient
 
-khelpcenter_LDADD   = -lkparts $(LIB_KDEUI) $(LIB_KFILE) $(LIB_KHTML) $(top_builddir)/khelpcenter/libkhc/libkhc.la
-khelpcenterclient_LDADD   = -lkparts -lkded $(top_builddir)/khelpcenter/libkhc/libkhc.la
+khelpcenter_LDADD   = -lkparts $(LIB_KDEUI) $(LIB_KFILE) $(LIB_KHTML) libkhc/libkhc.la
+khelpcenterclient_LDADD   = -lkparts -lkded libkhc/libkhc.la
 
 SUBDIRS = libkhc . kmanbrowser kinfobrowser kwelcome pics plugins
 

@@ -936,7 +936,7 @@ void khcMainWindowIf::setStatusBarText(const CORBA::WChar *_text)
   kdebug(0, 1400, "void khcMainWindowIf::setStatusBarText(const char *_text)");
 }
 
-void khcMainWindowIf::setLocationBarURL(OpenParts::Id id, const char *_url)
+void khcMainWindowIf::setLocationBarURL(OpenParts::Id , const char *_url)
 {
   m_pkhcMainWindow->slotSetLocation(_url);
   m_pkhcMainWindow->slotSetTitle(_url);
@@ -949,13 +949,13 @@ void khcMainWindowIf::createNewWindow(const char *url)
   kdebug(0, 1400, "void khcMainWindowIf::createNewWindow(const char *url)");
 }
 
-void khcMainWindowIf::slotURLStarted(OpenParts::Id id, const char *)
+void khcMainWindowIf::slotURLStarted(OpenParts::Id , const char *)
 {
   m_pkhcMainWindow->slotSetBusy(true);
   kdebug(0, 1400, "void khcMainWindowIf::slotURLStarted(const char *url)");
 }
 
-void khcMainWindowIf::slotURLCompleted(OpenParts::Id id)
+void khcMainWindowIf::slotURLCompleted(OpenParts::Id )
 {
   m_pkhcMainWindow->slotSetBusy(false);
   kdebug(0, 1400, "void khcMainWindowIf::slotURLCompleted()");

@@ -290,7 +290,7 @@ void khcNavigator::slotURLSelected(QString url)
     emit itemSelected(url);
 }
 
-void khcNavigator::slotItemSelected(QListViewItem* currentItem)
+void khcNavigator::slotItemSelected(QListViewItem* /*currentItem*/)
 {
   khcNavigatorItem *item;
   

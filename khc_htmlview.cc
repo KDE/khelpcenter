@@ -178,7 +178,7 @@ CORBA::Long khcHTMLView::yOffset()
   return (CORBA::Long)KBrowser::yOffset();
 }
 
-void khcHTMLView::openURL(QString _url, bool _reload, int _xoffset, int _yoffset, const char *_post_data)
+void khcHTMLView::openURL(QString _url, bool _reload, int _xoffset, int _yoffset, const char */*_post_data*/)
 {
   Browser::EventOpenURL eventURL;
   eventURL.url = CORBA::string_dup(_url);
