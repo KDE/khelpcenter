@@ -202,57 +202,12 @@ void Navigator::setupGlossaryTab()
 
 void Navigator::buildTree()
 {
-  // supporting KDE
-  NavigatorItem *ti_support = new NavigatorItem(contentsTree, i18n("Supporting KDE"),"document2");
-  ti_support->setUrl(QString("help:/khelpcenter/index.html?anchor=support"));
-
-  // kde contacts
-  NavigatorItem *ti_contact = new NavigatorItem(contentsTree, i18n("Contact Information"),"document2");
-  ti_contact->setUrl(QString("help:/khelpcenter/index.html?anchor=contact"));
-
-  // kde links
-  NavigatorItem *ti_links = new NavigatorItem(contentsTree, i18n("KDE on the web"),"document2");
-  ti_links->setUrl(QString("help:/khelpcenter/index.html?anchor=links"));
-
-  // KDE FAQ
-  NavigatorItem *ti_faq = new NavigatorItem(contentsTree, i18n("The KDE FAQ"),"document2");
-  ti_faq->setUrl(QString("help:/khelpcenter/faq/index.html"));
-
   // scan plugin dir for plugins
   insertPlugins();
 
   insertScrollKeeperItems();
 
-  // info browser
-  NavigatorItem *ti_info = new NavigatorItem(contentsTree, i18n("Browse info pages"),"document2");
-  ti_info->setUrl(QString("info:/dir"));
-
-  // fill the info pages subtree
-  buildInfoSubTree(ti_info);
-
-  // unix man pages
-  NavigatorItem *ti_man = new NavigatorItem(contentsTree, i18n("Unix manual pages"),"document2");
-  ti_man->setUrl(QString("man:/(index)"));
-
-  // fill the man pages subcontentsTree
-  buildManSubTree(ti_man);
-
-  // application manuals
-  NavigatorItem *ti_manual = new NavigatorAppItem(contentsTree, i18n("Application manuals"),"contents2", QString::null);
-  ti_manual->setUrl("");
-
-  // KDE user's manual
-  NavigatorItem *ti_um = new NavigatorItem(contentsTree, i18n("KDE user's manual"),"document2");
-  ti_um->setUrl(QString("help:/khelpcenter/userguide/index.html"));
-
-  // Welcome page
-  NavigatorItem *ti_welcome = new NavigatorItem(contentsTree, i18n("Welcome to KDE"),"document2");
-  ti_welcome->setUrl(QString("help:/khelpcenter/index.html?anchor=welcome"));
-
   insertAppletDocs();
-
-  contentsTree->setCurrentItem(ti_welcome);
-  slotItemSelected(ti_welcome);
 }
 
 void Navigator::clearTree()

@@ -1,0 +1,10 @@
+[KDE Desktop Entry]
+
+Name=Browse info pages
+Name[de]=Durchsuche Info-Seiten
+
+X-KDE-KHelpcenter-Special=info
+
+DocPath=info:/dir
+
+X-DOC-Weight=7

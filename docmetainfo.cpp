@@ -1,7 +1,6 @@
 #include <qfile.h>
 #include <qregexp.h>
 #include <qfileinfo.h>
-#include <qdir.h>
 
 #include <kdebug.h>
 #include <kdesktopfile.h>
@@ -102,15 +101,7 @@ void DocMetaInfo::scanMetaInfo( const QStringList &languages )
   kstd->addResourceType( "data", "share/apps/khelpcenter" );
   QStringList list = kstd->findDirs( "data", "plugins" );
   for( QStringList::Iterator it=list.begin(); it!=list.end(); it++) {
-    QDir pluginDir( *it );
-    const QFileInfoList *entryList = pluginDir.entryInfoList();
-    QFileInfoListIterator fiIt( *entryList );
-    QFileInfo *fi;
-    for( ; ( fi = fiIt.current() ); ++fiIt ) {
-      if ( fi->fileName().left( 1 ) != "." ) {
-        scanMetaInfoDir( fi->absFilePath(), &mRootEntry );
-      }
-    }
+    scanMetaInfoDir( *it, &mRootEntry );
   }
 }
 
@@ -118,8 +109,28 @@ DocEntry *DocMetaInfo::scanMetaInfoDir( const QString &dirName,
                                         DocEntry *parent )
 {
   QDir dir( dirName );
+  if ( !dir.exists() ) return 0;
 
-  DocEntry *dirEntry = addDocEntry( dirName + "/.directory" );
+  const QFileInfoList *entryList = dir.entryInfoList();
+  QFileInfoListIterator it( *entryList );
+  QFileInfo *fi;
+  for( ; ( fi = it.current() ); ++it ) {
+    DocEntry *entry = 0;
+    if ( fi->isDir() && fi->fileName() != "." && fi->fileName() != ".." ) {
+      DocEntry *dirEntry = addDirEntry( QDir( fi->absFilePath() ), parent );
+      entry = scanMetaInfoDir( fi->absFilePath(), dirEntry );
+    } else if ( fi->extension( false ) == "desktop" ) {
+      entry = addDocEntry( fi->absFilePath() );
+      if ( parent && entry ) parent->addChild( entry );
+    }
+  }
+
+  return 0;
+}
+
+DocEntry *DocMetaInfo::addDirEntry( const QDir &dir, DocEntry *parent )
+{
+  DocEntry *dirEntry = addDocEntry( dir.absPath() + "/.directory" );
 
   if ( !dirEntry ) {
     dirEntry = new DocEntry;
@@ -131,21 +142,9 @@ DocEntry *DocMetaInfo::scanMetaInfoDir( const QString &dirName,
 
   if ( parent ) parent->addChild( dirEntry );
 
-  const QFileInfoList *entryList = dir.entryInfoList();
-  QFileInfoListIterator it( *entryList );
-  QFileInfo *fi;
-  for( ; ( fi = it.current() ); ++it ) {
-    DocEntry *entry = 0;
-    if ( fi->isDir() && fi->fileName() != "." && fi->fileName() != ".." ) {
-      entry = scanMetaInfoDir( fi->absFilePath(), dirEntry );
-    } else if ( fi->extension( false ) == "desktop" ) {
-      entry = addDocEntry( fi->absFilePath() );
-      if ( parent && entry ) dirEntry->addChild( entry );
-    }
-  }
-
   return dirEntry;
 }
+
 
 void DocMetaInfo::traverseEntries( DocEntryTraverser *traverser )
 {

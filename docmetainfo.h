@@ -4,6 +4,7 @@
 #include <qstring.h>
 #include <qstringlist.h>
 #include <qvaluelist.h>
+#include <qdir.h>
 
 #include "docentry.h"
 
@@ -45,6 +46,7 @@ class DocMetaInfo
 
   protected:
     DocEntry *scanMetaInfoDir( const QString &filename, DocEntry *parent );
+    DocEntry *addDirEntry( const QDir &dir, DocEntry *parent );
     void traverseEntry( DocEntry *, DocEntryTraverser * );
 
   private:
