@@ -370,7 +370,7 @@ void khcNavigatorWidget::buildManSubTree(khcNavigatorItem *parent)
   ti_man_s2->setURL(QString("man:/(2)"));
   staticItems.append(ti_man_s2);
   // man (1)
-  khcNavigatorItem *ti_man_s1 = new khcNavigatorItem(parent, i18n("(1) Usr commands"),"document2");
+  khcNavigatorItem *ti_man_s1 = new khcNavigatorItem(parent, i18n("(1) User commands"),"document2");
   ti_man_s1->setURL(QString("man:/(1)"));
   staticItems.append(ti_man_s1);
 }

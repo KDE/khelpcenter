@@ -321,7 +321,7 @@ KHMainWindow::~KHMainWindow()
 
 static KCmdLineOptions options[] =
 {
-   { "+[url]", I18N_NOOP("An URL to display"), "" },
+   { "+[url]", I18N_NOOP("A URL to display"), "" },
    { 0,0,0 }
 };
 
