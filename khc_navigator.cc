@@ -38,14 +38,17 @@
 #include <kstddirs.h>	
 #include <kglobal.h>
 #include <klocale.h>
+#include <kdebug.h>
 
 khcNavigator::khcNavigator(QWidget *parent, const char *name)
     : KParts::ReadOnlyPart(parent,name)
 {
+    kDebugInfo("khcNavigator::khcNavigator");
     setInstance( KHCFactory::instance() );
 
     setWidget( new khcNavigatorWidget( parent ) );
 
+    m_extension = new khcNavigatorExtension( this, "khcNavigatorExtension" );
     connect( widget(), SIGNAL( itemSelected(const QString&) ),
              m_extension, SLOT( slotItemSelected(const QString&) ) );
     //setXMLFile( "khcnavigator_part.rc" );

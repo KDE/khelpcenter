@@ -49,6 +49,6 @@ messages:
 	$(XGETTEXT)  -kaliasLocal *.h *.cc -o $(podir)/khelpcenter.pot
 
 check_PROGRAMS = linktest
-linktest_SOURCES = khc_main.cc
+linktest_SOURCES = khc_main.cc KonquerorIface.stub
 linktest_LDADD = $(lib_LTLIBRARIES)
 

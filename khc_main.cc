@@ -35,6 +35,7 @@
 #include "KonquerorIface_stub.h"
 
 #include <kaboutdata.h>
+#include <kdebug.h>
 
 #include "version.h"
 
@@ -61,7 +62,7 @@ void Listener::slotAppRegistered( const QCString &appId )
     str << "View1_PassiveMode=true" << endl;
     str << "View1_ServiceName=KHelpcenter" << endl;
     str << "View1_ServiceType=Browser/View" << endl;
-    str << "View1_URL=file:/home/shaus" << endl;
+    str << "View1_URL=file:/" << endl;
     str << "View2_PassiveMode=false" << endl;
     str << "View2_ServiceName=KonqHTMLView" << endl;
     str << "View2_ServiceType=text/html" << endl;
@@ -69,6 +70,7 @@ void Listener::slotAppRegistered( const QCString &appId )
 
     f.close();
 
+    kDebugInfo( "Calling stub.createBrowserWindowFromProfile" );
     KonquerorIface_stub stub( appId, "KonquerorIface" );
     stub.createBrowserWindowFromProfile( tempProfile );
 
@@ -97,6 +99,8 @@ int main(int argc, char *argv[])
 	   &listener, SLOT( slotAppRegistered( const QCString & ) ) );
 
 
+  // Start a background konqueror and when it's registered, talk to it
+  // Another solution would be to try to talk to a running one first...
   system( "konqueror --silent &" );
 
   app.exec();

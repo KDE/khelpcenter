@@ -38,7 +38,7 @@ class khcNavigatorExtension : public KParts::BrowserExtension
  public:
     khcNavigatorExtension(KParts::ReadOnlyPart *part, const char *name=0) :
       KParts::BrowserExtension( part, name ) {}
-    virtual ~khcNavigatorExtension();
+    virtual ~khcNavigatorExtension() {}
 
  public slots:
     void slotItemSelected(const QString&);
