@@ -29,6 +29,8 @@
 #include <kcmdlineargs.h>
 #include <kpopupmenu.h>
 #include <kstringhandler.h>
+#include <kmimemagic.h>
+#include <krun.h>
 
 #include <qdir.h>
 #include <qfile.h>
@@ -52,6 +54,7 @@
 #include "khc_navigator.h"
 #include <qhbox.h>
 #include <kstatusbar.h>
+#include <kdebugclasses.h>
 
 KHMainWindow::KHMainWindow(const KURL &url)
     : KMainWindow(0, "khmainwindow"), m_goMenuIndex( -1 ), m_goMenuHistoryStartPos( -1 ),
@@ -141,12 +144,11 @@ KHMainWindow::KHMainWindow(const KURL &url)
 
 void KHMainWindow::print()
 {
-		doc->view()->print();
+    doc->view()->print();
 }
 
 void KHMainWindow::slotStarted(KIO::Job *job)
 {
-    kdDebug() << "slotStarted\n";
     if (job)
        connect(job, SIGNAL(infoMessage( KIO::Job *, const QString &)),
             this, SLOT(slotInfoMessage(KIO::Job *, const QString &)));
@@ -193,24 +195,33 @@ void KHMainWindow::updateHistoryEntry()
 void KHMainWindow::slotOpenURLRequest( const KURL &url,
                                        const KParts::URLArgs &args)
 {
+    bool own = false;
+    
     QString proto = url.protocol().lower();
-    if ( proto != "help" && proto != "glossentry" && proto != "about" &&
-         proto != "man" && proto != "info" && proto != "file")
-    {
-        kapp->invokeBrowser( url.url() );
-        return;
+    if ( proto == "help" || proto == "glossentry" || proto == "about" ||
+	 proto == "man" || proto == "info")
+	own = true;
+    else if (url.isLocalFile()) {
+	static const QString &html = KGlobal::staticQString("text/html");
+	KMimeMagicResult *res = KMimeMagic::self()->findFileType(url.path());
+	if (res->isValid() && res->accuracy() > 70 && res->mimeType() == html)
+	    own = true;
     }
-
+    
+    if (!own) {
+	new KRun( url );
+	return;
+    }
+    
     stop();
 
     doc->browserExtension()->setURLArgs( args );
 
     if (proto == QString::fromLatin1("glossentry"))
         slotGlossSelected(static_cast<khcNavigatorWidget *>(nav->widget())->glossEntry(KURL::decode_string(url.encodedPathAndQuery())));
-    else
-    {
-        createHistoryEntry();
-        doc->openURL(url);
+    else {
+	createHistoryEntry();
+	doc->openURL(url);
     }
 }
 
@@ -246,10 +257,10 @@ void KHMainWindow::slotGoHistoryActivated( int steps )
 
 void KHMainWindow::slotGoHistoryDelayed()
 {
-  if (!m_goBuffer) return;
-  int steps = m_goBuffer;
-  m_goBuffer = 0;
-  goHistory( steps );
+    if (!m_goBuffer) return;
+    int steps = m_goBuffer;
+    m_goBuffer = 0;
+    goHistory( steps );
 }
 
 void KHMainWindow::goHistory( int steps )
@@ -355,8 +366,8 @@ void KHMainWindow::openURL(const QString &url)
 void KHMainWindow::openURL(const KURL &url)
 {
     stop();
-    createHistoryEntry();
-    doc->openURL(url);
+    KParts::URLArgs args;
+    slotOpenURLRequest(url, args);
 }
 
 void KHMainWindow::slotGlossSelected(const khcNavigatorWidget::GlossaryEntry &entry)

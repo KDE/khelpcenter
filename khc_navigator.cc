@@ -94,9 +94,9 @@ khcNavigator::khcNavigator(QWidget *parentWidget, QObject *parent,
 
 bool khcNavigator::openURL( const KURL & )
 {
-  emit started( 0 );
-  emit completed();
-  return true;
+    emit started( 0 );
+    emit completed();
+    return true;
 }
 
 bool khcNavigator::openFile()
@@ -523,7 +523,7 @@ bool khcNavigatorWidget::parseInfoSubjectLine(QString sLine, QString& sItemTitle
     return false;
   }
 
-  Q_ASSERT(pRegMatch[0].rm_so == 0 && pRegMatch[0].rm_eo == sLine.length());
+  Q_ASSERT(pRegMatch[0].rm_so == 0 && pRegMatch[0].rm_eo == int(sLine.length()));
 
   sItemTitle = sLine.mid(pRegMatch[1].rm_so, pRegMatch[1].rm_eo - pRegMatch[1].rm_so);
   sItemURL = "info:/" + sLine.mid(pRegMatch[2].rm_so, pRegMatch[2].rm_eo - pRegMatch[2].rm_so);
@@ -814,7 +814,7 @@ void khcNavigatorWidget::slotItemExpanded(QListViewItem* index)
             return;
           }
 
-          Q_ASSERT(regMatch[0].rm_so == 0 && regMatch[0].rm_eo == sURL.length());
+          Q_ASSERT(regMatch[0].rm_so == 0 && regMatch[0].rm_eo == int(sURL.length()));
 
           QString sTopic = sURL.mid(regMatch[1].rm_so, regMatch[1].rm_eo - regMatch[1].rm_so);
           QString sNode = sURL.mid(regMatch[3].rm_so, regMatch[3].rm_eo - regMatch[3].rm_so);
