@@ -89,7 +89,7 @@ void kibMainWindow::setupActions()
 
     m_forward = KStdAction::forward( this, SLOT( slotForward() ), actionCollection(), "forward" );
 
-    new KAction( i18n( "&Stop" ), BarIcon( "stop" ), 0, this, SLOT( slotStop() ), actionCollection(), "stop" );
+    m_stop = new KAction( i18n( "&Stop" ), BarIcon( "stop" ), 0, this, SLOT( slotStop() ), actionCollection(), "stop" );
 
     new KAction( i18n( "&Index" ), 0, this, SLOT( slotIndex() ), actionCollection(), "index" );
 
@@ -586,7 +586,7 @@ void kibMainWindow::slotHistoryForwardActivated(int id)
 
 void kibMainWindow::slotSetBusy(bool busy)
 {
-  toolBar(0)->setItemEnabled(TB_STOP, busy);
+  m_stop->setEnabled( busy);
 }
 
 #include "kib_mainwindow.moc"

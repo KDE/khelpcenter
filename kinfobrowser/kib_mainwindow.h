@@ -107,7 +107,7 @@ protected:
 
   kibView       *m_pView;
   khcHistory     m_history;
-  KAction       *m_zoomIn, *m_zoomOut, *m_back, *m_forward;
+  KAction       *m_stop, *m_zoomIn, *m_zoomOut, *m_back, *m_forward;
   KListAction   *m_bookmarks;
   KToggleAction *m_statusbar, *m_toolbar, *m_location;
   KHelpMenu     *m_pHelpMenu;
