@@ -19,7 +19,6 @@
  */
 #include "toc.h"
 
-#include <kdebug.h>
 #include <kiconloader.h>
 #include <klistview.h>
 #include <klocale.h>
