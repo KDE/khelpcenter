@@ -24,7 +24,6 @@
 #include <dcopclient.h>
 #include <kglobal.h>
 #include <klocale.h>
-#include <ktempfile.h>
 #include <kstddirs.h>
 #include <kcmdlineargs.h>
 
@@ -48,10 +47,8 @@ void Listener::slotAppRegistered( const QCString &appId )
   {
     qDebug( "found it!!!! %s", appId.data() );
 
-    KTempFile tempProfile;
-    tempProfile.setAutoDelete( true );
-
-    QFile f( tempProfile.name() );
+    QString tempProfile = locateLocal( "appdata", "konqprofile.tmp" );
+    QFile f( tempProfile );
     f.open( IO_WriteOnly );
 
     QTextStream str( &f );
@@ -73,7 +70,7 @@ void Listener::slotAppRegistered( const QCString &appId )
     f.close();
 
     KonquerorIface_stub stub( appId, "KonquerorIface" );
-    stub.createBrowserWindowFromProfile( tempProfile.name() );
+    stub.createBrowserWindowFromProfile( tempProfile );
 
     exit( 0 );
   }
@@ -88,7 +85,7 @@ int main(int argc, char *argv[])
   KCmdLineArgs::init( argc, argv, &aboutData );
 //  KCmdLineArgs::addCmdLineOptions( options ); // Add our own options.
   
-  KApplication app;
+  KApplication app( false, false ); // no GUI in this process
 
   app.dcopClient()->attach();
   // we want to get applicationRegistered
