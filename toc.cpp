@@ -23,6 +23,7 @@
 #include <kprocess.h>
 #include <kstandarddirs.h>
 
+#include <qdir.h>
 #include <qfileinfo.h>
 
 #include <sys/stat.h>
@@ -74,7 +75,18 @@ TOC::TOC( NavigatorItem *parentItem )
 void TOC::build( const QString &file )
 {
 	QFileInfo fileInfo( file );
-	QString cacheFile = fileInfo.fileName() + ".toc.xml";
+	QString fileName = fileInfo.absFilePath();
+	const QStringList resourceDirs = KGlobal::dirs()->resourceDirs( "html" );
+	QStringList::ConstIterator it = resourceDirs.begin();
+	QStringList::ConstIterator end = resourceDirs.end();
+	for ( ; it != end; ++it ) {
+		if ( fileName.startsWith( *it ) ) {
+			fileName.remove( 0, ( *it ).length() );
+			break;
+		}
+	}
+
+	QString cacheFile = fileName.replace( QDir::separator(), "__" );
 	m_cacheFile = locateLocal( "cache", "help/" + cacheFile );
 	m_sourceFile = file;
 
