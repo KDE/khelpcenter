@@ -5,6 +5,8 @@
  *
  */
 
+#include <stdio.h>
+
 #include <kcontrol.h>
 #include <kconfig.h>
 #include <kprocess.h>
