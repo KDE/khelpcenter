@@ -54,13 +54,13 @@ void createHelpWindow(const QCString &appId)
   str << "Container0_SplitterSizes=30,70" << endl;
   str << "RootItem=Container0" << endl;
   str << "View1_PassiveMode=true" << endl;
-  str << "View1_ServiceName=KHelpcenter" << endl;
+  str << "View1_ServiceName=khelpcenter" << endl;
   str << "View1_ServiceType=Browser/View" << endl;
   str << "View1_URL=file:/" << endl;
   str << "View1_PassiveMode=true" << endl;
   str << "View1_LinkedView=true" << endl;
   str << "View2_PassiveMode=false" << endl;
-  str << "View2_ServiceName=KonqHTMLView" << endl;
+  str << "View2_ServiceName=khtml" << endl;
   str << "View2_ServiceType=text/html" << endl;
   str << "View2_LinkedView=true" << endl;
 

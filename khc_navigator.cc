@@ -306,6 +306,8 @@ void khcNavigatorWidget::buildManualSubTree(khcNavigatorItem *parent, QString re
 	
 	case KST_KServiceGroup:
 	  g = static_cast<KServiceGroup*>(e);
+          if ( g->caption().contains( ".hidden" ) )
+              continue;
 	  item = new khcNavigatorItem(parent, g->caption(), g->icon());
 	  item->setURL("");
 	  buildManualSubTree(item, g->relPath());
