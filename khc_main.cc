@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
     bool server = false;
 
     // create local data directory if necessary
-    QDir dir;
+/*    QDir dir;
     dir.setPath(KApplication::localkdedir() + "/share/apps");
 
     if (!dir.exists())
@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
     dir.setPath(KApplication::localkdedir() + "/share/apps/khelpcenter");
     if (!dir.exists())
 	dir.mkdir(KApplication::localkdedir() + "/share/apps/khelpcenter");
-
+*/
     for (int i=0; i< argc; i++)
     {
 	if (strcmp(argv[i], "--server") == 0 || strcmp(argv[i], "-s") == 0)

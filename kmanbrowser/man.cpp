@@ -41,6 +41,7 @@
 
 #include <kapp.h>
 #include <klocale.h>
+#include <kstddirs.h>
 
 #include <qdir.h>
 #include <qfile.h>
@@ -321,8 +322,8 @@ int ManParser::readLocation(const QString& name)
 	sprintf(errFile, "%s/khelpcenterXXXXXX", _PATH_TMP);	// temp file
 	mktemp(errFile);
 	  
-	sprintf(rmanCmd, "%s/rman -f HTML",
-		(const char *)KApplication::kde_bindir());
+	sprintf(rmanCmd, "%s/rman -f HTML", locate("exe", "rman"));
+debug("==> rmanCmd = %s", rmanCmd);
 	  
 	// create the system cmd to read the man page
 	if ( (ptr = strchr(tmpName, '(')) )
