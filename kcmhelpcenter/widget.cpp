@@ -200,7 +200,7 @@ void KWidgetConfig::slotTest()
       // placement of eyes: horizontal: align centered with widget
       //                    vertical:   choose side with more space
       QRect geom;
-      QRect region = KWM::getWindowRegion( KWM::currentDesktop() );
+      QRect region = KWM::windowRegion( KWM::currentDesktop() );
       
       if( center.y() - region.top() > region.bottom() - center.y() )
 	{
