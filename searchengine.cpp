@@ -252,7 +252,7 @@ bool SearchEngine::search( QString _words, QString method, int matches,
       if ( arg.left( 1 ) == "\"" && arg.right( 1 ) =="\"" ) {
         arg = arg.mid( 1, arg.length() - 2 );
       }
-      *mProc << arg;
+      *mProc << arg.utf8();
     }
 
     connect( mProc, SIGNAL( receivedStdout( KProcess *, char *, int ) ),
