@@ -18,7 +18,7 @@
 
 INCLUDES = -I.. $(all_includes) $(MICO_INCLUDES)
 
-IDL_FLAGS = --query-server-for-narrow --relative-paths --any -I$(idldir)
+IDL_FLAGS = --relative-paths --any -I$(idldir)
 lib_LTLIBRARIES = libkhc.la
 libkhc_la_LDFLAGS = $(all_libraries) -version-info 1:0
 libkhc_la_LIBADD = -lkparts

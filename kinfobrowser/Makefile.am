@@ -1,7 +1,7 @@
 
 INCLUDES= -I../libkhc -I$(srcdir)/../libkhc  $(all_includes) $(MICO_INCLUDES)
 LDFLAGS = $(all_libraries) $(KDE_RPATH) $(MICO_LDFLAGS)
-IDL_FLAGS = --query-server-for-narrow --relative-paths --any -I$(idldir)
+IDL_FLAGS = --relative-paths --any -I$(idldir)
 
 bin_PROGRAMS = kinfobrowser
 data_DATA = kde-info2html kde-info2html.conf

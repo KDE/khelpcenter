@@ -28,7 +28,7 @@ SUBDIRS     =  answer pics anim
 
 ####### Build rules
 
-IDL_FLAGS = --query-server-for-narrow --relative-paths -I$(idldir)
+IDL_FLAGS = --relative-paths -I$(idldir)
 
 helpcom.h: helpcom.idl
 	rm -rf helpcom.h
