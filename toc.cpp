@@ -243,6 +243,7 @@ TOCChapterItem::TOCChapterItem( TOC *toc, NavigatorItem *parent, QListViewItem *
 	m_name( name )
 {
 	setOpen( false );
+	entry()->setUrl(url());
 }
 
 void TOCChapterItem::setOpen( bool open )
@@ -266,6 +267,7 @@ TOCSectionItem::TOCSectionItem( TOC *toc, TOCChapterItem *parent, QListViewItem 
 	m_name( name )
 {
 	setPixmap( 0, SmallIcon( "document" ) );
+	entry()->setUrl(url());
 }
 
 QString TOCSectionItem::url()
