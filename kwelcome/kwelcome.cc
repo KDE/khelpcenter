@@ -192,7 +192,4 @@ void KWelcome::keyPressEvent( QKeyEvent *e )
   }
 }
 
-
-
-
 #include "kwelcome.moc"
