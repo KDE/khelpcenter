@@ -52,6 +52,7 @@ class InfoNodeItem : public NavigatorItem
 InfoCategoryItem::InfoCategoryItem( NavigatorItem *parent, const QString &text )
   : NavigatorItem( parent, text )
 {
+  kdDebug(1440) << "Got category: " << text << endl;
   setOpen( false );
 }
 
@@ -68,7 +69,7 @@ void InfoCategoryItem::setOpen( bool open )
 InfoNodeItem::InfoNodeItem( InfoCategoryItem *parent, const QString &text )
   : NavigatorItem( parent, text )
 {
-//  kdDebug( 1440 ) << "Created info node item: " << text << endl;
+  kdDebug( 1440 ) << "Created info node item: " << text << endl;
 }
 
 InfoTree::InfoTree( QObject *parent, const char *name )
@@ -133,22 +134,23 @@ void InfoTree::parseInfoDirFile( const QString &infoDirFileName )
 
     InfoCategoryItem *catItem = new InfoCategoryItem( m_parentItem, s );
     s = stream.readLine();
-    while ( !stream.eof() && s.startsWith( "*" ) ) {
-      const int colon = s.find( ":" );
-      const int openBrace = s.find( "(", colon );
-      const int closeBrace = s.find( ")", openBrace );
-      const int dot = s.find( ".", closeBrace );
+    while ( !stream.eof() && !s.stripWhiteSpace().isEmpty() ) {
+      if ( s[ 0 ] == '*' ) {
+        const int colon = s.find( ":" );
+        const int openBrace = s.find( "(", colon );
+        const int closeBrace = s.find( ")", openBrace );
+        const int dot = s.find( ".", closeBrace );
 
-      QString appName = s.mid( 2, colon - 2 );
-      QString url = "info:/" + s.mid( openBrace + 1, closeBrace - openBrace - 1 );
-      if ( dot - closeBrace > 1 )
-        url += "/" + s.mid( closeBrace + 1, dot - closeBrace - 1 );
-      else
-        url += "/Top";
+        QString appName = s.mid( 2, colon - 2 );
+        QString url = "info:/" + s.mid( openBrace + 1, closeBrace - openBrace - 1 );
+        if ( dot - closeBrace > 1 )
+          url += "/" + s.mid( closeBrace + 1, dot - closeBrace - 1 );
+        else
+          url += "/Top";
 
-      InfoNodeItem *item = new InfoNodeItem( catItem, appName );
-      item->setUrl( url );
-
+        InfoNodeItem *item = new InfoNodeItem( catItem, appName );
+        item->setUrl( url );
+      }
       s = stream.readLine();
     }
   }
@@ -158,8 +160,10 @@ void InfoTree::parseInfoDirFile( const QString &infoDirFileName )
 void InfoTree::slotItemSelected( QListViewItem *item )
 {
   InfoNodeItem *nodeItem;
-  if ( ( nodeItem = dynamic_cast<InfoNodeItem *>( item ) ) )
+  if ( ( nodeItem = dynamic_cast<InfoNodeItem *>( item ) ) ) {
+    kdDebug() << "Selected info node item with URL " << nodeItem->url() << endl;
     emit urlSelected( KURL( nodeItem->url() ) );
+  }
 }
 
 #include "infotree.moc"
