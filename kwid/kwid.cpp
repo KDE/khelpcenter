@@ -94,8 +94,7 @@ void KWidgetIdentification::showWidget( char *caption, bool exitApplication )
 		cleanUp();
 	}
 
-	KConfig *pConfig = new KConfig( KApplication::kde_configdir()  + "/khelpcenterrc",
-                               KApplication::localconfigdir() + "/khelpcenterrc" );
+	KConfig *pConfig = new KConfig( "khelpcenterrc");
 	CHECK_PTR( pConfig );
         pConfig->setGroup( "Widget" );
 
