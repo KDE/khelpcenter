@@ -78,10 +78,10 @@ void createHelpWindow(const QCString &appId)
 
   f.close();
 
-  kDebugInfo( "Calling stub.createBrowserWindowFromProfile" );
+  kdDebug() << "Calling stub.createBrowserWindowFromProfile\n";
   KonquerorIface_stub stub( appId, "KonquerorIface" );
   stub.createBrowserWindowFromProfile( tempProfile );
-  kDebugInfo( "Call done" );
+  kdDebug() << "Call done\n";
 }
 
 
