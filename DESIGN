@@ -284,4 +284,11 @@ protocol == "help") by itself and otherwise use the plain URL.
 ## thing. It would be much nicer, if it could reuse the KHelpcenter code. This
 ## would probbaly also mean to at a DoxygenTreeBuilder or something similar.
 
+# That probably implies that instead of a QSplitter which holds the Navigator
+# and the View, we'd have a KHC::MainWidget KPart which in turn aggregates the
+# splitter. The DoxygenTreeBuilder sounds like a reason to make TreeBuilders
+# real plugins, with dynamically loaded libraries, so that KDevelop or other
+# "IDE"-like applications (perhaps a KOffice help system?) can have their
+# customized tree builders.
+
 // vim:tw=78
