@@ -146,7 +146,7 @@ khcNavigatorWidget::khcNavigatorWidget(QWidget *parent, const char *name)
     // END ACHU
 
     buildTree();
-    
+
     connect(this, SIGNAL(currentChanged(QWidget*)), this, SLOT(slotShowPage(QWidget*)));
 }
 
@@ -177,6 +177,8 @@ void khcNavigatorWidget::setupContentsTab()
     contentsTree->setSorting(-1, false);
     connect(contentsTree, SIGNAL(executed(QListViewItem*)), this,
             SLOT(slotItemSelected(QListViewItem*)));
+    connect(contentsTree, SIGNAL(returnPressed(QListViewItem*)), this,
+           SLOT(slotItemSelected(QListViewItem*)));
     // ACHU
     connect(contentsTree, SIGNAL(expanded(QListViewItem*)),this,
             SLOT(slotItemExpanded(QListViewItem*)));
@@ -234,7 +236,7 @@ void khcNavigatorWidget::setupGlossaryTab()
        glossaryHtmlStatus = NeedRebuild;
     if ((glossaryHtmlStatus == CacheOk) && !QFile::exists(glossaryHtmlFile))
        glossaryHtmlStatus = NeedRebuild;
-       
+
     if (glossaryHtmlStatus == CacheOk)
     {
        struct stat stat_buf;
@@ -247,7 +249,7 @@ void khcNavigatorWidget::setupGlossaryTab()
        if (config.readNumEntry("CachedGlossaryTimestamp") != ctime)
           glossaryHtmlStatus = NeedRebuild;
     }
-    
+
     if (glossaryHtmlStatus == NeedRebuild)
     {
        KProcess *meinproc = new KProcess();
@@ -279,7 +281,7 @@ void khcNavigatorWidget::meinprocExited(KProcess *meinproc)
   config.writeEntry("CachedGlossary", glossarySource);
   config.writeEntry("CachedGlossaryTimestamp", ctime);
   kapp->config()->sync();
-  glossaryHtmlStatus = CacheOk; 
+  glossaryHtmlStatus = CacheOk;
   buildGlossary();
 }
 
@@ -293,7 +295,7 @@ void khcNavigatorWidget::buildGlossary()
   QDomDocument doc;
   if (!doc.setContent(&htmlFile))
     return;
-    
+
   QDomNodeList glossDivNodes = doc.documentElement().elementsByTagName(QString::fromLatin1("div"));
   for (unsigned int i = 0; i < glossDivNodes.count(); i++) {
     QDomNode glossDivNode = glossDivNodes.item(i);
@@ -331,14 +333,14 @@ void khcNavigatorWidget::buildGlossary()
       defStream << glossEntryNode.namedItem(QString::fromLatin1("p")).toElement();
 
       QStringList seeAlso;
-      
+
       QDomNodeList seeAlsoNodes = glossEntryNode.lastChild().toElement().elementsByTagName(QString::fromLatin1("a"));
       kdDebug(1400) << "Moo, text, " << glossEntryNode.toElement().text().latin1()  << " count " << seeAlsoNodes.count() << endl;
-     
+
       if (seeAlsoNodes.count() > 0)
         for (unsigned int k = 0; k < seeAlsoNodes.count(); k++)
           seeAlso += seeAlsoNodes.item(k).toElement().text().simplifyWhiteSpace();
-       
+
       glossEntries.insert(term, new GlossaryEntry(term, definition, seeAlso));
     }
   }
