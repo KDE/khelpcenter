@@ -161,5 +161,5 @@ void SearchWidget::slotSearch()
 void SearchWidget::slotIndex()
 {
   // TODO: fix this ugly system call
-  system("kcmshell Browsing/Help/htmlsearch &");
+  system("kcmshell Help/htmlsearch &");
 }
