@@ -65,6 +65,7 @@ bool khcNavigator::openURL( const KURL & )
 {
   emit started( 0 );
   emit completed();
+  return true;
 }
 
 bool khcNavigator::openFile()
