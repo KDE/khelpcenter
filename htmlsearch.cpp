@@ -110,7 +110,7 @@ int HTMLSearch::processFiles(const char *dirname, const char *query)
     for ( itFile = fileList.begin(); !(*itFile).isNull(); ++itFile)
     {
 	QString filename = dirname;
-	filename += "/";
+	filename += '/';
 	filename += *itFile;
 	  
 	int weight = countOccurrences(filename, query);
@@ -146,7 +146,7 @@ int HTMLSearch::processDir(const char *dirname, const char *query)
 	    continue;
 
 	QString filename = dirname;
-	filename += "/";
+	filename += '/';
 	filename += *itDir;
 
 	processFiles(filename, query);

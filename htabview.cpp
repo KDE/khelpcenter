@@ -402,7 +402,7 @@ bool HTabView::appendEntries(const char *dirName, HTreeListItem *parent, QList<H
     for ( itFile = fileList.begin(); !(*itFile).isNull(); ++itFile )
     {
 	QString filename = dirName;
-	filename += "/";
+	filename += '/';
 	filename += *itFile;
 
 	HTreeListItem *entry = new HTreeListItem;
@@ -438,7 +438,7 @@ bool HTabView::processDir( const char *dirName, HTreeListItem *parent,  QList<HT
 
 
 	QString filename = dirDir.path();
-	filename += "/";
+	filename += '/';
 	filename += *itDir;
 
 	if (!containsDocuments(filename))
@@ -492,7 +492,7 @@ bool HTabView::containsDocuments(QString dir)
 	for ( itFile = fileList.begin(); !(*itFile).isNull(); ++itFile )
 	{
 	    QString filename = dir;
-	    filename += "/";
+	    filename += '/';
 	    filename += *itFile;
 
 	    KSimpleConfig sc( filename, true );
@@ -518,7 +518,7 @@ bool HTabView::containsDocuments(QString dir)
 	if ( (*itDir).at(0) == '.' )
 	    continue;
 
-	if (containsDocuments(dir + "/" + *itDir))
+	if (containsDocuments(dir + '/' + *itDir))
 	    return true;
     }
     return false;

@@ -153,7 +153,7 @@ void ManSection::readSection()
 		if (folderName.find(m_name) > 2)
 		{
 		    QString buffer = searchPath[i];
-		    buffer += "/";
+		    buffer += '/';
 		    buffer += folderName;
 		    readDir(buffer);
 		}
@@ -163,7 +163,7 @@ void ManSection::readSection()
 		if (folderName.find(m_name) > 2)
 		{
 		    QString buffer = searchPath[i];
-		    buffer += "/";
+		    buffer += '/';
 		    buffer += folderName;
 		    readDir(buffer);
 		}
@@ -188,7 +188,7 @@ void ManSection::readDir(const QString& dirName )
 	{
 	    QString fileName = *itFile;
 	    QString file = dirName;
-	    file += "/";
+	    file += '/';
 	    file += *itFile;
 	    
 	    // skip compress extension
@@ -264,7 +264,7 @@ int ManParser::readLocation(const QString& name)
 {
    QString tmpName = name;
   
-   if (tmpName.left(1) == "(")				// read a list of pages in this section
+   if (tmpName.at(0) == '(')				// read a list of pages in this section
    {
 	QString sec = tmpName.mid(1, tmpName.findRev(")") -1);
 	for (int i = 0; i < numSections; i++)
@@ -393,10 +393,10 @@ int ManParser::readLocation(const QString& name)
 	{
 	    stream.getline( buffer, 256 );
 	    HTMLPage += buffer;
-	    if ( HTMLPage.right(1) == "-" )
+	    if ( HTMLPage.at(HTMLPage.length() - 1) == '-' )
 		HTMLPage.truncate( HTMLPage.length() - 1 );
 	    else
-		HTMLPage.append(" ");
+		HTMLPage.append(' ');
 	}
 	  
 	stream.close();
