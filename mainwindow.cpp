@@ -130,13 +130,14 @@ MainWindow::MainWindow(const KURL &url)
         m_goMenuIndex = goMenu->count();
     }
 
-
     m_lstHistory.setAutoDelete( true );
 
-    if (url.isEmpty())
-        openURL( QString::fromLatin1( "help:/khelpcenter/index.html?anchor=welcome" ) );
-    else
-        openURL( url );
+    KURL u;
+    if ( url.isEmpty() ) u = "help:/khelpcenter/index.html?anchor=welcome";
+    else u = url;
+      
+    openURL( url );
+    nav->selectItem( url );
 
     statusBarMessage(i18n("Ready"));
 }
@@ -192,7 +193,7 @@ void MainWindow::updateHistoryEntry()
 }
 
 void MainWindow::slotOpenURLRequest( const KURL &url,
-                                       const KParts::URLArgs &args)
+                                     const KParts::URLArgs &args)
 {
     kdDebug() << "MainWindow::slotOpenURLRequest(): " << url.url() << endl;
 
@@ -223,7 +224,7 @@ void MainWindow::slotOpenURLRequest( const KURL &url,
         slotGlossSelected(nav->glossEntry(KURL::decode_string(url.encodedPathAndQuery())));
     else {
 	createHistoryEntry();
-	doc->openURL(url);
+	doc->openURL( url );
     }
 }
 
@@ -450,8 +451,14 @@ extern "C" int kdemain(int argc, char *argv[])
                           HELPCENTER_VERSION,
                           I18N_NOOP("The KDE Help Center"),
                           KAboutData::License_GPL,
-                          "(c) 1999-2000, Matthias Elter");
-    aboutData.addAuthor("Matthias Elter",0, "me@kde.org");
+                          "(c) 1999-2000, Matthias Elter" );
+
+    aboutData.addAuthor( "Cornelius Schumacher", 0, "schumacher@kde.org" );
+    aboutData.addAuthor( "Frerich Raabe", 0, "raabe@kde.org" );
+    aboutData.addAuthor( "Matthias Elter", I18N_NOOP("Original Author"),
+                         "me@kde.org" );
+    aboutData.addAuthor( "Wojciech Smigaj", I18N_NOOP("Info page support"),
+                         "achu@klub.chip.pl" );
 
     KCmdLineArgs::init( argc, argv, &aboutData );
     KCmdLineArgs::addCmdLineOptions( options );

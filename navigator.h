@@ -59,7 +59,7 @@ class Navigator : public QWidget
     Navigator(View *, QWidget *parent=0, const char *name=0);
     virtual ~Navigator();
 
-    const GlossaryEntry &glossEntry(const QString &term) const { return glossaryTree->entry( term ); }
+    const GlossaryEntry &glossEntry(const QString &term) const { return mGlossaryTree->entry( term ); }
 
     void buildInfoSubTree(NavigatorItem *parent);
     void insertParentAppDocs( const QString &name, NavigatorItem *parent );
@@ -67,6 +67,8 @@ class Navigator : public QWidget
     void createItemFromDesktopFile( NavigatorItem *item, const QString &name );
 
     bool showMissingDocs() const;
+
+    void selectItem( const KURL &url );
 
   public slots:
     void slotURLSelected(QString url);
@@ -116,8 +118,8 @@ class Navigator : public QWidget
 
     void hideSearch();
 
-    KListView *contentsTree;
-    Glossary *glossaryTree;
+    KListView *mContentsTree;
+    Glossary *mGlossaryTree;
 
     SearchWidget *mSearchWidget;
 

@@ -165,21 +165,21 @@ bool Navigator::showMissingDocs() const
 
 void Navigator::setupContentsTab()
 {
-    contentsTree = new KListView( mTabWidget );
-    contentsTree->setFrameStyle(QFrame::Panel | QFrame::Sunken);
-    contentsTree->addColumn(QString::null);
-    contentsTree->setAllColumnsShowFocus(true);
-    contentsTree->header()->hide();
-    contentsTree->setRootIsDecorated(false);
-    contentsTree->setSorting(-1, false);
+    mContentsTree = new KListView( mTabWidget );
+    mContentsTree->setFrameStyle(QFrame::Panel | QFrame::Sunken);
+    mContentsTree->addColumn(QString::null);
+    mContentsTree->setAllColumnsShowFocus(true);
+    mContentsTree->header()->hide();
+    mContentsTree->setRootIsDecorated(false);
+    mContentsTree->setSorting(-1, false);
 
-    connect(contentsTree, SIGNAL(executed(QListViewItem*)),
+    connect(mContentsTree, SIGNAL(executed(QListViewItem*)),
             SLOT(slotItemSelected(QListViewItem*)));
-    connect(contentsTree, SIGNAL(returnPressed(QListViewItem*)),
+    connect(mContentsTree, SIGNAL(returnPressed(QListViewItem*)),
            SLOT(slotItemSelected(QListViewItem*)));
-    connect(contentsTree, SIGNAL(expanded(QListViewItem*)),
+    connect(mContentsTree, SIGNAL(expanded(QListViewItem*)),
             SLOT(slotItemExpanded(QListViewItem*)));
-    mTabWidget->addTab(contentsTree, i18n("&Contents"));
+    mTabWidget->addTab(mContentsTree, i18n("&Contents"));
 }
 
 void Navigator::setupSearchTab()
@@ -195,10 +195,10 @@ void Navigator::setupSearchTab()
 
 void Navigator::setupGlossaryTab()
 {
-    glossaryTree = new Glossary( mTabWidget );
-    connect( glossaryTree, SIGNAL( entrySelected( const GlossaryEntry & ) ),
+    mGlossaryTree = new Glossary( mTabWidget );
+    connect( mGlossaryTree, SIGNAL( entrySelected( const GlossaryEntry & ) ),
              this, SIGNAL( glossSelected( const GlossaryEntry & ) ) );
-    mTabWidget->addTab( glossaryTree, i18n( "G&lossary" ) );
+    mTabWidget->addTab( mGlossaryTree, i18n( "G&lossary" ) );
 }
 
 void Navigator::buildTree()
@@ -212,7 +212,7 @@ void Navigator::buildTree()
 void Navigator::clearTree()
 {
   // Remove all children.
-  for(QListViewItem *child = contentsTree->firstChild(); child; child = contentsTree->firstChild())
+  for(QListViewItem *child = mContentsTree->firstChild(); child; child = mContentsTree->firstChild())
   {
      delete child;
   }
@@ -429,7 +429,7 @@ class PluginTraverser : public DocEntryTraverser
 
 void Navigator::insertPlugins()
 {
-  PluginTraverser t( this, contentsTree );
+  PluginTraverser t( this, mContentsTree );
   DocMetaInfo::self()->traverseEntries( &t );
 
 #if 0
@@ -532,7 +532,7 @@ void Navigator::insertScrollKeeperItems()
     f.close();
 
     // Create top-level item
-    NavigatorItem *topItem = new NavigatorItem(contentsTree, i18n("Scrollkeeper"),"contents2");
+    NavigatorItem *topItem = new NavigatorItem(mContentsTree, i18n("Scrollkeeper"),"contents2");
     topItem->setUrl("");
     scrollKeeperItems.append(topItem);
 
@@ -622,6 +622,26 @@ void Navigator::insertScrollKeeperDoc(NavigatorItem *parentItem,QDomNode docNode
     }
 
     docItem->setUrl(url);
+}
+
+void Navigator::selectItem( const KURL &url )
+{
+  kdDebug() << "Navigator::selectItem(): " << url.url() << endl;
+
+  if ( url.protocol() == "help" ) {
+    kdDebug() << "TODO: Look up help item." << endl;
+  } else {
+    QListViewItemIterator it( mContentsTree );
+    while ( it.current() != 0 ) {
+      NavigatorItem *item = static_cast<NavigatorItem *>( it.current() );
+      if ( item->url() == url.url() ) {
+        item->setSelected( true );
+        mContentsTree->ensureItemVisible( item );
+        break;
+      }
+      ++it;
+    }
+  }
 }
 
 void Navigator::slotURLSelected(QString url)
