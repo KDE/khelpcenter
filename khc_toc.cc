@@ -288,8 +288,11 @@ TOCChapterItem::TOCChapterItem( khcTOC *parent, QListViewItem *after, const QStr
 void TOCChapterItem::setOpen( bool open )
 {
 	TOCItem::setOpen( open );
-	
-	setPixmap( 0, SmallIcon( open ? "contents" : "contents2" ) );
+
+	if ( open && childCount() > 0 )	
+		setPixmap( 0, SmallIcon( "contents" ) );
+	else
+		setPixmap( 0, SmallIcon( "contents2" ) );
 }
 
 QString TOCChapterItem::link() const
