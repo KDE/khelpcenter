@@ -40,7 +40,7 @@ class SectionItem : public QListViewItem
 	public:
 		SectionItem(QListViewItem *, const QString &);
 
-		virtual void setOpen(const bool);
+		virtual void setOpen(bool);
 };
 
 class khcNavigatorExtension : public KParts::BrowserExtension

@@ -56,7 +56,7 @@ SectionItem::SectionItem(QListViewItem *parent, const QString &text)
 	setOpen(false);
 }
 
-void SectionItem::setOpen(const bool open)
+void SectionItem::setOpen(bool open)
 {
 	if (open)
 		setPixmap(0, KGlobal::iconLoader()->loadIcon(QString::fromLatin1("contents"), KIcon::Small));
