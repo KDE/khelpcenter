@@ -1,46 +1,58 @@
 
-INCLUDES=  -Ilibkhc -I$(srcdir)/libkhc $(all_includes) $(MICO_INCLUDES)
-LDFLAGS = $(all_libraries) $(KDE_RPATH) $(MICO_LDFLAGS)
-IDL_FLAGS = --relative-paths --any -I$(idldir)
+INCLUDES= $(all_includes)
+LDFLAGS = $(all_libraries) $(KDE_RPATH)
 
-bin_PROGRAMS = 	khelpcenter khcclient
+bin_PROGRAMS = 	khelpcenter
 
-khelpcenter_LDADD   = -lkparts $(LIB_KDEUI) $(LIB_KFILE) $(LIB_KHTML) libkhc/libkhc.la -lcutesti
-khcclient_LDADD   = -lkparts -lkded libkhc/libkhc.la
+khelpcenter_LDADD   = $(LIB_KDECORE)
+
+#khcclient_LDADD   = -lkparts -lkded libkhc/libkhc.la
 
 service_DATA = khelpcenter.desktop
 servicedir = $(kde_servicesdir)
 
 EXTRA_DIST = $(service_DATA)
 
-SUBDIRS = libkhc . kmanbrowser kinfobrowser kwelcome pics plugins
+#SUBDIRS = libkhc . kmanbrowser kinfobrowser kwelcome pics plugins
+SUBDIRS = pics plugins
+
+lib_LTLIBRARIES = libkhelpcenter.la
 
 ###### Files
 
-khelpcenter_SOURCES = khelpcenter.idl khc_main.cc khc_application.cc \
-	khc_mainwindow.cc khc_mainview.cc khc_htmlview.cc \
+khelpcenter_SOURCES = khc_main.cc KonquerorIface.stub
+
+KonquerorIface_DIR =  $(top_srcdir)/konqueror
+
+khc_main.cc: KonquerorIface_stub.h
+
+libkhelpcenter_la_SOURCES = khc_factory.cc \
 	khc_navigator.cc khc_navigatoritem.cc khc_searchwidget.cc \
-	khc_indexwidget.cc khc_htmlsearch.cc khc_mansearch.cc
+	khc_indexwidget.cc khc_htmlsearch.cc khc_mansearch.cc kbrowser.moc.cc
 
-khelpcenter_METASOURCES = khc_mainwindow.moc khc_mainview.moc \
-	khc_htmlview.moc khc_navigator.moc khc_indexwidget.moc \
-	khc_searchwidget.moc
+METASOURCES = AUTO
 
-khcclient_SOURCES  = khelpcenter.cc khc_client.cc
+libkhelpcenter_la_LIBADD = -lkparts $(LIB_KDEUI)
 
-noinst_HEADERS = khelpcenter.h khc_application.h khc_mainwindow.h \
-	khc_mainview.h khc_htmlview.h khc_indexwidget.h \
-	khc_mansearch.h khc_navigator.h khc_navigatoritem.h \
-	khc_searchmatch.h khc_searchwidget.h version.h khc_htmlsearch.h
+libkhelpcenter_la_LDFLAGS = $(all_libraries) -version-info 1:0:0 -module
 
-idl_DATA = khelpcenter.idl
+#khcclient_SOURCES  = khelpcenter.cc khc_client.cc
 
-$(srcdir)/khelpcenter.idl: $(idldir)/browser.idl
+#noinst_HEADERS = khelpcenter.h khc_application.h khc_mainwindow.h \
+#	khc_mainview.h khc_htmlview.h khc_indexwidget.h \
+#	khc_mansearch.h khc_navigator.h khc_navigatoritem.h \
+#	khc_searchmatch.h khc_searchwidget.h version.h khc_htmlsearch.h
 
-$(srcdir)/khc_main.cc: khelpcenter.h
+kbrowser.moc.cc: $(kde_includes)/kbrowser.h
+	$(MOC) $(kde_includes)/kbrowser.h -o $(top_builddir)/khelpcenter/kbrowser.moc.cc
+
 
 ####### Build rules
 
 messages:
 	$(XGETTEXT) -C  -ktranslate -kaliasLocal -ki18n -x $(includedir)/kde.pot *.h *.cc && mv messages.po ../po/khelpcenter.pot
+
+check_PROGRAMS = linktest
+linktest_SOURCES = khc_main.cc
+linktest_LDADD = $(lib_LTLIBRARIES)
 

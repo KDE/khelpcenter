@@ -23,8 +23,6 @@
 #include "khc_indexwidget.h"
 #include "khc_searchwidget.h"
 
-#include "khelpcenter.h"
-
 #include <qdir.h>
 #include <qfile.h>
 #include <qpixmap.h>
@@ -40,7 +38,7 @@
 #include <klocale.h>
 
 khcNavigator::khcNavigator(QWidget *parent, const char *name)
-    : QWidget(parent,name)
+    : BrowserView(parent,name)
 {
     tabBar = new QTabBar(this);
         
@@ -60,6 +58,29 @@ khcNavigator::~khcNavigator()
     delete search;
     delete index;
     delete tabBar;
+}
+
+void khcNavigator::openURL( const QString &, bool, int, int )
+{
+}
+
+QString khcNavigator::url()
+{
+  return QString::null;
+}
+
+int khcNavigator::xOffset()
+{
+  return 0;
+}
+
+int khcNavigator::yOffset()
+{
+  return 0;
+}
+
+void khcNavigator::stop()
+{
 }
 
 void khcNavigator::resizeEvent(QResizeEvent *)
@@ -288,7 +309,8 @@ void khcNavigator::slotTabSelected(int id)
 
 void khcNavigator::slotURLSelected(QString url)
 {
-    emit itemSelected(url);
+  //    emit itemSelected(url);
+  emit openURLRequest( url, false, 0, 0 );
 }
 
 void khcNavigator::slotItemSelected(QListViewItem* /*currentItem*/)
@@ -311,7 +333,8 @@ void khcNavigator::slotItemSelected(QListViewItem* /*currentItem*/)
       if (item == tree->currentItem())
 	{
 	  if (item->getURL() != "")
-	    emit itemSelected(item->getURL());
+	    //	    emit itemSelected(item->getURL());
+	    emit openURLRequest( item->getURL(), false, 0, 0 );
 	  return;
 	}
     }
@@ -320,7 +343,8 @@ void khcNavigator::slotItemSelected(QListViewItem* /*currentItem*/)
       if (item == tree->currentItem())
 	{
 	  if (item->getURL() != "")
-	    emit itemSelected(item->getURL());
+	    //	    emit itemSelected(item->getURL());
+	    emit openURLRequest( item->getURL(), false, 0, 0 );
 	  return;
 	}
     }
@@ -329,7 +353,8 @@ void khcNavigator::slotItemSelected(QListViewItem* /*currentItem*/)
       if (item == tree->currentItem())
 	{
 	  if (item->getURL() != "")
-	    emit itemSelected(item->getURL());
+	    //	    emit itemSelected(item->getURL());
+	    emit openURLRequest( item->getURL(), false, 0, 0 );
 	  return;
 	}
     }

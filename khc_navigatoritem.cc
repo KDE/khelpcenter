@@ -26,8 +26,10 @@
 #include <ksimpleconfig.h>
 
 #include "khc_navigatoritem.h"
+#include "khc_factory.h"
 #include <kstddirs.h>
 #include <kglobal.h>
+#include <kiconloader.h>
 
 khcNavigatorItem::khcNavigatorItem(QListView* parent, const QString& _text, const QString& _miniicon)
     : QListViewItem(parent)
@@ -47,7 +49,8 @@ void khcNavigatorItem::init(const QString& _text, const QString& _miniicon)
     miniicon = _miniicon;
     
     setText(0, name);
-    setPixmap(0, QPixmap(locate("mini", miniicon)));
+    //    setPixmap(0, QPixmap(locate("mini", miniicon)));
+    setPixmap( 0, KHCFactory::instance()->iconLoader()->loadApplicationIcon( miniicon ) );
 }
 
 bool khcNavigatorItem::readKDElnk ( const char *filename )

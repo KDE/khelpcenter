@@ -22,7 +22,7 @@
 #define __khc_navigator_h__
 
 #include <qlist.h>
-#include <qwidget.h>
+#include <kbrowser.h>
 
 class IndexWidget;
 class SearchWidget;
@@ -31,13 +31,21 @@ class QListView;
 class QListViewItem;
 class QTabBar;
 
-class khcNavigator : public QWidget
+class khcNavigator : public BrowserView
 {
     Q_OBJECT
   
  public:
     khcNavigator(QWidget *parent=0, const char *name=0);
     virtual ~khcNavigator();
+
+  virtual void openURL( const QString &url, bool reload = false,
+                        int xOffset = 0, int yOffset = 0 );
+
+  virtual QString url();
+  virtual int xOffset();
+  virtual int yOffset();
+  virtual void stop();
 
  protected:
     void resizeEvent (QResizeEvent *);

@@ -18,47 +18,74 @@
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#include "khc_application.h"
-#include "khc_mainwindow.h"
+#include <stdlib.h>
 
-#include <opApplication.h>
-#include <komBase.h>
-
+#include <kapp.h>
+#include <dcopclient.h>
 #include <kglobal.h>
 #include <klocale.h>
+#include <ktempfile.h>
+#include <kstddirs.h>
 
 #include <qdir.h>
+#include <qfile.h>
+#include <qtextstream.h>
 
+#include "khc_main.h"
+#include "KonquerorIface_stub.h"
+
+void Listener::slotAppRegistered( const QCString &appId )
+{
+  if ( appId.left( 9 ) == "konqueror" )
+  {
+    qDebug( "found it!!!! %s", appId.data() );
+
+    KTempFile tempProfile;
+    tempProfile.setAutoDelete( true );
+
+    QFile f( tempProfile.name() );
+    f.open( IO_WriteOnly );
+
+    QTextStream str( &f );
+
+    str << "[Profile]" << endl;
+    str << "Container0_Children=View1,View2" << endl;
+    str << "Container0_Orientation=Horizontal" << endl;
+    str << "Container0_SplitterSizes=30,70" << endl;
+    str << "RootItem=Container0" << endl;
+    str << "View1_PassiveMode=true" << endl;
+    str << "View1_ServiceName=KHelpcenter" << endl;
+    str << "View1_ServiceType=Browser/View" << endl;
+    str << "View1_URL=file:/home/shaus" << endl;
+    str << "View2_PassiveMode=false" << endl;
+    str << "View2_ServiceName=KonqHTMLView" << endl;
+    str << "View2_ServiceType=text/html" << endl;
+    str << "View2_URL=" << QString("file:" + locate("html", "default/khelpcenter/main.html")) << endl;
+
+    f.close();
+
+    KonquerorIface_stub stub( appId, "KonquerorIface" );
+    stub.createBrowserWindowFromProfile( tempProfile.name() );
+
+    exit( 0 );
+  }
+}
 
 int main(int argc, char *argv[])
 {
-  OPApplication app(argc, argv, "khelpcenter");
-  bool server = false;
-  
-  for (int i=0; i< argc; i++)
-    {
-      if (strcmp(argv[i], "--server") == 0 || strcmp(argv[i], "-s") == 0)
-	server = true;
-    }
+  KApplication app( argc, argv, "khelpcenter" );
 
-  KOMBoot<khcApplicationIf> appLoader("IDL:KHelpcenter/Application:1.0", "App");
-  KOMBoot<khcBrowserFactory> browserFactoryLoader("IDL:Browser/BrowserFactory:1.0", "KHelpcenter");
-  
-  KGlobal::locale()->insertCatalogue("libkhc");
+  app.dcopClient()->attach();
 
-  if (server)
-   {
-     app.exec();
-     return 0;
-    }
-  else
-    {
-      khcMainWindow *win = new khcMainWindow;
-      win->show();
-      
-      app.exec();
-      if (win)
-	delete win;
-      return 0;
-    }
+  Listener listener;
+
+  QObject::connect( app.dcopClient(), SIGNAL( applicationRegistered( const QCString& ) ),
+	   &listener, SLOT( slotAppRegistered( const QCString & ) ) );
+
+
+  system( "konqueror --silent &" );
+
+  app.exec();
 }
+
+#include "khc_main.moc"
