@@ -145,7 +145,7 @@ void IndexBuilder::quit()
 
 static KCmdLineOptions options[] =
 {
-  { "+cmdfile", I18N_NOOP("Document to be indexed."), 0 },
+  { "+cmdfile", I18N_NOOP("Document to be indexed"), 0 },
   { "+indexdir", I18N_NOOP("Index directory"), 0 },
   KCmdLineLastOption
 };

@@ -8,7 +8,7 @@
 
 static KCmdLineOptions options[] =
 {
-  { "lang <lang>", I18N_NOOP("The language to index.."), "en" },
+  { "lang <lang>", I18N_NOOP("The language to index"), "en" },
    KCmdLineLastOption // End of options.
 };
 
