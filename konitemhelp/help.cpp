@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 #include <kstddirs.h>
+#include <kglobal.h>
 #include "help.moc"
 
 onItemHelp::onItemHelp()
