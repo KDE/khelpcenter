@@ -21,7 +21,7 @@
 #ifndef TOPLEVEL_H
 #define TOPLEVEL_H
 
-#define HELPCENTER_VERSION		"0.5"
+#define HELPCENTER_VERSION		"0.6"
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -81,6 +81,10 @@ public slots:
 	void slotOptionsGeneral();
 	void slotOptionsSave();
 	void slotReadConfig();
+	void slotSetBusy(bool bussy);
+
+signals:
+	void setBusy(bool bussy);
 
 protected:
     virtual void resizeEvent(QResizeEvent *);
@@ -89,7 +93,12 @@ protected:
     virtual void readProperties(KConfig *);
 
 private slots:
-	  void slotLocationEntered();
+	void slotLocationEntered();
+    void slotHistoryFillBack();
+    void slotHistoryFillForward();
+    void slotHistoryBackActivated(int id);
+    void slotHistoryForwardActivated(int id);
+	void slotAnimatedWheelTimeout();
 
 private:
 	void enableMenuItems();
@@ -107,10 +116,11 @@ private:
 	HTabView *tabview;
 
 	QPopupMenu *fileMenu, *editMenu, *viewMenu, *gotoMenu, *optionsMenu, *helpMenu,*bookmarkMenu;
+	QPopupMenu *historyBackMenu, *historyForwardMenu;
 
 	// toolbar id's:
 	enum {TB_TREE, TB_BACK, TB_FORWARD, TB_RELOAD, TB_STOP, TB_PRINT, TB_BOOKMARK, TB_ZOOMIN,
-		  TB_ZOOMOUT, TB_FIND};
+		  TB_ZOOMOUT, TB_FIND, TB_WHEEL};
 	// menu id's:
 	int idCopy, idBack, idForward, idTop, idUp, idPrevious, idNext, idTree, idToolbar
 	  ,idLocationbar, idStatusbar, idMagPlus, idMagMinus;
@@ -122,8 +132,17 @@ private:
 	// static list of HelpCenter windows
 	static QList<HelpCenter> helpWindowList;
 
+	// static list of wheel frames
+	static QList<QPixmap> animatedWheel;
+
 	// index of HelpCenter instance in helpWindowList
 	unsigned long listIndex;
+
+	// The image from 0...animatedWheel.count()-1 we are currently displaying.
+    uint animatedWheelCounter;
+	
+	// Timer used to display the animated logo.
+	QTimer *animatedWheelTimer;
 };
 
 #endif // TOPLEVEL_H

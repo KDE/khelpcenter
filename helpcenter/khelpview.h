@@ -42,6 +42,7 @@
 
 #define SCROLLBAR_WIDTH		16
 #define BOOKMARK_ID_BASE	200
+#define MAX_HISTORY_LENGHT  15
 
 // KPageInfo: Class for history entries
 class KPageInfo
@@ -74,6 +75,8 @@ class KHelpView : public QWidget
   bool canCurrentlyDo(AllowedActions action);
   const char *getCurrentURL();
   
+  void setHistCurrent(KPageInfo *current) { histCurrent = current; }
+  KPageInfo *getHistCurrent() { return histCurrent; }
   const QList<KPageInfo> &getHistory() const { return history; }
   void setHistory( const QList<KPageInfo> &hist ) {   history = hist; }
   
@@ -85,7 +88,8 @@ class KHelpView : public QWidget
   void setLocation(const QString& url);
   void bookmarkChanged(KFileBookmark *);
   void setTitle(const QString& _title);
-  
+  void setBusy(bool bussy);
+
  public slots:
   void slotOpenFile();
   void slotReload();
@@ -126,6 +130,7 @@ class KHelpView : public QWidget
   void slotViewResized( const QSize & );
   void slotDocumentChanged();
   void slotDocumentDone();
+  void slotDocumentStarted();
   
  protected:
   virtual void resizeEvent( QResizeEvent * );

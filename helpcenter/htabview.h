@@ -37,12 +37,13 @@ public:
 	virtual ~HTabView();
 
 public slots:
-	void slotItemSelected(int index); 
+	void slotItemSelected(int index);
     void slotReloadTree(); 
 
 signals:
 	void itemSelected(QString itemURL);
-
+	void setBussy(bool bussy);
+	
 private:
 	void buildTree();
 	void clearTree();

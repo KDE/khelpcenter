@@ -51,6 +51,8 @@ HTabView::HTabView(QWidget *parent, const char *name)
 
   connect(tree, SIGNAL(highlighted(int)),this,
 		  SLOT(slotItemSelected(int)));
+  connect(tree, SIGNAL(selected(int)),this,
+		  SLOT(slotItemSelected(int)));
 
   // build tree
   buildTree();
@@ -216,8 +218,10 @@ void HTabView::insertPlugins()
 
 void HTabView::slotReloadTree()
 {
+  emit setBussy(true);
   clearTree();
   buildTree();
+  emit setBussy(false);
 }
 
 void HTabView::slotItemSelected(int index)
@@ -332,13 +336,6 @@ bool HTabView::processDir( const char *dirName, HTreeListItem *parent,  QList<HT
 
   QDir dirDir( dirName, "*", 0, QDir::Dirs );
 
-  /*
-	QMessageBox mb;
-	mb.setText( dirName );
-	mb.setButtonText( QMessageBox::Ok, "Oops!");
-	mb.show();
-  */
- 
   if (!dirDir.exists()) return false;
   
   const QStrList *dirList = dirDir.entryList();
@@ -360,15 +357,15 @@ bool HTabView::processDir( const char *dirName, HTreeListItem *parent,  QList<HT
 	  QString dirFile = filename;
 	  dirFile += "/.directory";
 	  QString icon;
-
+	  
 	  if ( QFile::exists( dirFile ) )
 		{
 		  KSimpleConfig sc( dirFile, true );
 		  sc.setGroup( "KDE Desktop Entry" );
 		  folderName = sc.readEntry("Name");
 
-		  icon = sc.readEntry("MiniIcon");
-		  if (icon.isEmpty())
+		  icon = //sc.readEntry("MiniIcon");
+			//if (icon.isEmpty())
 			icon = "helpbook.xpm";
 		}
 	  else
@@ -385,7 +382,7 @@ bool HTabView::processDir( const char *dirName, HTreeListItem *parent,  QList<HT
 	  // read and append child items
 	  appendEntries(filename, dirItem, appendList);	
 	  processDir(filename, dirItem, appendList);
-	  }
+	}
   return true;
 }
 

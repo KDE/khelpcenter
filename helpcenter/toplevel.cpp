@@ -23,6 +23,7 @@
 #include "khelpview.h"
 
 #include <qkeycode.h>
+#include <qmsgbox.h>
 
 #include <kiconloader.h>
 #include <kstdaccel.h>
@@ -30,6 +31,7 @@
 
 // static list of HelpCenter windows:
 QList<HelpCenter> HelpCenter::helpWindowList;
+QList<QPixmap> HelpCenter::animatedWheel;
 
 HelpCenter::HelpCenter()
 {
@@ -44,7 +46,13 @@ HelpCenter::HelpCenter()
   setupToolbar();
   setupLocationbar();
   setupStatusbar();
-  
+
+  // setup animated wheel
+  animatedWheelTimer = new QTimer(this);
+  animatedWheelCounter = 0;
+  connect(animatedWheelTimer, SIGNAL(timeout()),
+		  this, SLOT(slotAnimatedWheelTimeout()));
+
   // read configuration
   slotReadConfig();
 
@@ -58,6 +66,8 @@ HelpCenter::HelpCenter()
   optionsMenu->setItemChecked(idStatusbar, showStatusbar);
 
   // connect misc. signals
+  connect (htmlview, SIGNAL (setBusy(bool)), 
+  		   this, SLOT (slotSetBusy(bool)));
   connect (htmlview, SIGNAL ( enableMenuItems() ), 
 		   this, SLOT ( slotEnableMenuItems() ) );
   connect (htmlview, SIGNAL ( openNewWindow(const QString&) ),
@@ -212,15 +222,33 @@ void HelpCenter::setupMenubar()
 
 void HelpCenter::setupToolbar()
 {
+  historyBackMenu = new QPopupMenu(0L);
+  CHECK_PTR(historyBackMenu);
+  connect(historyBackMenu, SIGNAL(aboutToShow()), this, SLOT(slotHistoryFillBack()));
+
+  historyForwardMenu = new QPopupMenu(0L);
+  CHECK_PTR(historyForwardMenu);
+  connect(historyForwardMenu, SIGNAL(aboutToShow()), this, SLOT(slotHistoryFillForward()));
+
+  connect(historyForwardMenu, SIGNAL(activated(int)), this, SLOT(slotHistoryForwardActivated(int)));
+  connect(historyBackMenu, SIGNAL(activated(int)), this, SLOT(slotHistoryBackActivated(int)));
+
+  KToolBar *bar = new KToolBar(this, 0, 40);
+  addToolBar(bar, 0);
+
+  toolBar(0)->setIconText(3);
   toolBar(0)->insertButton(Icon("hidetabview.xpm"), TB_TREE,
-						   true, i18n("Toogle register cards"));
+						   true, i18n("Tree off"));
 
   toolBar(0)->insertSeparator();
   
   toolBar(0)->insertButton(Icon("back.xpm"), TB_BACK,
-						   true, i18n("Previous document in history"));
+						   true, i18n("Back"));
+  toolBar(0)->setDelayedPopup(TB_BACK, historyBackMenu);
+
   toolBar(0)->insertButton(Icon("forward.xpm"), TB_FORWARD,
-						   true, i18n("Next document in history"));
+						   true, i18n("Forward"));
+  toolBar(0)->setDelayedPopup(TB_FORWARD, historyForwardMenu);
   
   toolBar(0)->insertButton(Icon("reload.xpm"), TB_RELOAD,
 						   true, i18n("Reload"));
@@ -237,11 +265,36 @@ void HelpCenter::setupToolbar()
   toolBar(0)->insertSeparator();
 
   toolBar(0)->insertButton(Icon("flag.xpm"), TB_BOOKMARK,
-						   true, i18n("Add bookmark"));
+						   true, i18n("Bookmark"));
   toolBar(0)->insertButton(Icon("search.xpm"), TB_FIND,
-						   true, i18n("Find in page"));
+						   true, i18n("Find"));
   toolBar(0)->insertButton(Icon("fileprint.xpm"), TB_PRINT,
-						   true, i18n("Print document"));
+						   true, i18n("Print"));
+
+  // animated wheel
+  toolBar(0)->insertButton(Icon("kde1.xpm"), TB_WHEEL, true);
+  toolBar(0)->alignItemRight(TB_WHEEL, true);
+
+  if (animatedWheel.count() == 0)
+    {
+	  animatedWheel.setAutoDelete(true);
+	  
+	  for ( int i = 1; i <= 9; i++ )
+		{
+		  QString n;
+		  n.sprintf("/kde%i.xpm", i);
+		  QPixmap *p = new QPixmap();
+		  p->load(kapp->kde_toolbardir() + n);
+		  if (p->isNull())
+			{
+			  QString e;
+			  e.sprintf (i18n( "Could not load icon\n%s" ), n.data());
+			  QMessageBox::warning( this, i18n("Error"), e.data());
+			}
+		  animatedWheel.append(p);
+		}
+    }
+
   connect(toolBar(0), SIGNAL(clicked(int)), SLOT(slotToolbarClicked(int)));
 }
 
@@ -385,11 +438,13 @@ void HelpCenter::enableMenuItems()
   
  	
   val = htmlview->canCurrentlyDo(KHelpView::Stop); // busy
-  toolBar(0)->setItemEnabled( TB_STOP, val );
+  toolBar(0)->setItemEnabled( TB_STOP, val);
+  emit setBusy(val);
 }
 
 int HelpCenter::openURL( const char *URL, bool withHistory)
 {
+  htmlview->slotStopProcessing();
   return htmlview->openURL(URL, withHistory);
 }
 
@@ -462,6 +517,9 @@ void HelpCenter::slotToolbarClicked(int item)
 	case TB_TREE:
 	  slotOptionsTree();
 	  break;
+	case TB_WHEEL:
+	  slotCloneWindow();
+	  break;
 	case TB_BOOKMARK:
 	  htmlview->slotAddBookmark();
 	  break;
@@ -532,6 +590,7 @@ void HelpCenter::slotCloneWindow()
 	if (!htmlview->canCurrentlyDo(KHelpView::Stop) )
     {
         win->htmlView()->setHistory(htmlview->getHistory() );
+		win->htmlView()->setHistCurrent(htmlview->getHistCurrent());
         win->enableMenuItems();
     }
 
@@ -579,12 +638,14 @@ void HelpCenter::slotOptionsTree()
 	  enableTree(false);
 	  showTree = false;
 	  toolBar(0)->setButtonPixmap(TB_TREE, Icon("showtabview.xpm"));
+	  toolBar(0)->getButton(TB_TREE)->setText("Tree on");
 	}
   else
 	{
 	  enableTree(true);
 	  showTree = true;
 	  toolBar(0)->setButtonPixmap(TB_TREE, Icon("hidetabview.xpm"));
+	  toolBar(0)->getButton(TB_TREE)->setText("Tree off");
 	}
   optionsMenu->setItemChecked(idTree, showTree);
   updateRects();
@@ -686,6 +747,32 @@ void HelpCenter::slotOptionsSave()
 	}
 }
 
+void HelpCenter::slotAnimatedWheelTimeout()
+{
+  animatedWheelCounter++;
+  if (animatedWheelCounter == animatedWheel.count())
+	animatedWheelCounter = 0;
+
+  toolBar(0)->setButtonPixmap(TB_WHEEL, *(animatedWheel.at(animatedWheelCounter)));
+}
+
+void HelpCenter::slotSetBusy(bool busy)
+{
+  if (busy) 
+    {
+	  if(!animatedWheelTimer->isActive())
+		{
+		  animatedWheelTimer->start(0);
+		  printf("--- animatedWheelTimer start ---\n");fflush(stdout);
+		}
+    }
+  else
+	{
+	  animatedWheelTimer->stop();
+	  printf("--- animatedWheelTimer stop ---\n");fflush(stdout);
+	}
+}
+
 void HelpCenter::slotMagMinus()
 {
   if(fontBase > 2)
@@ -725,4 +812,78 @@ void HelpCenter::slotMagPlus()
 		}
 	}
 	
+}
+
+void HelpCenter::slotHistoryFillBack()
+{
+  historyBackMenu->clear();
+  QList<KPageInfo> history = htmlview->getHistory();
+  KPageInfo *current = htmlview->getHistCurrent();
+  history.find(current);
+  
+  KPageInfo *p = history.prev();
+  
+  while (p != 0)
+  	{
+	  QString url = p->getUrl();
+	  historyBackMenu->insertItem(url, this, 0);
+	  p = history.prev();
+	}
+}
+
+void HelpCenter::slotHistoryFillForward()
+{
+  historyForwardMenu->clear();
+  QList<KPageInfo> history = htmlview->getHistory();
+  KPageInfo *current = htmlview->getHistCurrent();
+  history.find(current);
+  
+  KPageInfo *p = history.next();
+  
+  while (p != 0)
+  	{
+	  QString url = p->getUrl();
+	  historyForwardMenu->insertItem(url, this,0);
+	  p = history.next();
+	}
+}
+
+void HelpCenter::slotHistoryBackActivated(int id)
+{
+  QList<KPageInfo> history = htmlview->getHistory();
+  KPageInfo *current = htmlview->getHistCurrent();
+  history.find(current);
+
+  int index = historyBackMenu->indexOf(id);
+
+  KPageInfo *p = 0; 
+  
+  for (int i = 0; i <= index; i++)
+	p = history.prev();
+
+  if (p)
+	htmlview->setHistCurrent(p);
+
+  QString url = historyBackMenu->text(id);
+  openURL(url, false);
+}
+
+void HelpCenter::slotHistoryForwardActivated(int id)
+{
+  QList<KPageInfo> history = htmlview->getHistory();
+  KPageInfo *current = htmlview->getHistCurrent();
+  history.find(current);
+
+  int index = historyForwardMenu->indexOf(id);
+
+  KPageInfo *p = 0; 
+  
+  for (int i = 0; i <= index; i++)
+	p = history.next();
+
+  if (p)
+	htmlview->setHistCurrent(p);
+
+  QString url = historyForwardMenu->text(id);
+  openURL(url, false);
 }

@@ -96,6 +96,7 @@ KHelpView::KHelpView( QWidget *parent, const char *name )
   
   connect(view, SIGNAL(documentChanged()), SLOT(slotDocumentChanged()));
   connect(view, SIGNAL(documentDone()), SLOT(slotDocumentDone()));
+  connect(view, SIGNAL(documentStarted()), SLOT(slotDocumentStarted()));
   
   // load bookmarks
   QString p = KApplication::localkdedir();
@@ -185,6 +186,8 @@ int KHelpView::openURL( const char *URL, bool withHistory )
 		  entry->setOffset(0);
 		  history.append(entry);
 		  histCurrent = entry;
+		  if (history.count() > MAX_HISTORY_LENGHT)
+			history.removeFirst();
 		}
 	  emit enableMenuItems();
 	  emit setURL(currentURL);
@@ -252,6 +255,8 @@ int KHelpView::openURL( const char *URL, bool withHistory )
 		  KPageInfo *entry = new KPageInfo(currentURL, 0);
 		  entry->setOffset(0);
 		  history.append(entry);
+		  if (history.count() > MAX_HISTORY_LENGHT)
+			history.removeFirst();
 		  histCurrent = entry;
 		}
 	  emit enableMenuItems();
@@ -298,19 +303,33 @@ int KHelpView::openFile(const QString &location)
 	  break;
 	case CannotOpenFile:
 	  {
-		QMessageBox mb;
-		mb.setText(i18n("Cannot open: ") + fileName);
-		mb.setButtonText(QMessageBox::Ok, i18n("Oops!"));
-		mb.show();
+		view->setGranularity(600);
+		view->begin(fullURL);
+		
+		view->write("<html><head><title>Error: File not found!</title></head><body>");
+		view->write("<H2>Error: File not found</H2>");
+		view->write("<br>Could not find or open file:<br>" + fileName);
+		view->write("</body></html>");
+
+		view->end();
+		format = &html;
+		rv = 0;
 	  }
 	  break;
 	  
 	default:
 	  {
-		QMessageBox mb;
-		mb.setText(i18n("Unknown format: ") + fileName);
-		mb.setButtonText(QMessageBox::Ok, i18n("Error"));
-		mb.show();
+		view->setGranularity(600);
+		view->begin(fullURL);
+		
+		view->write("<html><head><title>Error: Unknown file format!</title></head><body>");
+		view->write("<H2>Error: Unknown file format</H2>");
+		view->write("<br>Could not open unknown file:<br>" + fileName);
+		view->write("</body></html>");
+
+		view->end();
+		format = &html;
+		rv = 0;
 	  }
 	}
   return rv;
@@ -680,9 +699,6 @@ void KHelpView::slotBookmarkChanged()
 
 void KHelpView::slotStopProcessing()
 {
-  if (!busy)
-	return;
-  
   if (CGIServer)
 	{
 	  delete CGIServer;
@@ -968,6 +984,10 @@ void KHelpView::slotDocumentChanged()
 	horz->setRange(0, 0);
 }
 
+void KHelpView::slotDocumentStarted()
+{
+  emit setBusy(true);
+}
 // called when all html has been parsed
 void KHelpView::slotDocumentDone()
 {
@@ -987,6 +1007,7 @@ void KHelpView::slotDocumentDone()
   layout();
   busy = false;
   emit enableMenuItems();
+  emit setBusy(false);
 }
 
 void KHelpView::setDefaultFontBase(int fSize)

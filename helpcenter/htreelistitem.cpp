@@ -61,8 +61,8 @@ bool HTreeListItem::readKDElnk ( const char *filename )
 	info = config.readEntry("Comment");
 
   // read icon and miniicon
-  icon = config.readEntry("Icon");
-  miniicon = config.readEntry("MiniIcon");
+  //icon = config.readEntry("Icon");
+  miniicon = "helpdoc.xpm";//config.readEntry("MiniIcon");
 
   // read name
   name = config.readEntry("Name");
@@ -89,15 +89,22 @@ void HTreeListItem::insertInTree(KTreeList *tree, KTreeListItem *parent)
 
   setText(name);
   setPixmap(item_pm);
-
+  
   if (parent == 0) // insert at toplevel
 	{
-	  setIndent(0);
+	  setIndent(10);
 	  tree->insertItem(this, -1, true);
 	}
-  else             // insert as child of parent
+  // level one ... for some reason KTreeList indents level one more than the others?!?
+  // fix this by indenting by hand:
+  else if (parent->getParent() == 0)
 	{
 	  setIndent(8);
+	  parent->appendChild(this);
+	} 
+  else             // insert as child of parent
+	{
+	  setIndent(16);
 	  parent->appendChild(this);
 	} 
 }
