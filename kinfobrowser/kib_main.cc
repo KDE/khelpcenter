@@ -17,43 +17,24 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
-#include "kib_application.h"
-#include "kib_mainwindow.h"
 
-#include <opApplication.h>
-#include <komBase.h>
-
+#include <kapp.h>
 #include <kglobal.h>
 #include <klocale.h>
 
+#include "kib_mainwindow.h"
+
 int main(int argc, char *argv[])
 {
-  OPApplication app(argc, argv, "kinfobrowser");
+  KApplication app(argc, argv, "kinfobrowser");
 
-  bool server = false;
-  
-  for (int i=0; i< argc; i++)
-    {
-      if (strcmp(argv[i], "--server") == 0 || strcmp(argv[i], "-s") == 0)
-		server = true;
-    }
-
-  KOMBoot<kibApplicationIf> appLoader("IDL:KInfoBrowser/Application:1.0", "App");
   KGlobal::locale()->insertCatalogue("libkhc");
 
-  if (server)
-	{
-	  app.exec();
-	  return 0;
-    }
-  else
-    {
-	  kibMainWindow *win = new kibMainWindow;
-	  win->show();
-	  
-	  app.exec();
-	  if (win)
-	    delete win;
-	  return 0;
-    }
+  kibMainWindow *win = new kibMainWindow;
+  win->show();
+
+  app.setMainWidget( win );
+  app.exec();
+  
+  return 0;
 }

@@ -19,11 +19,15 @@
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#include "khc_baseview.h"
 #include <kdebug.h>
 
-khcBaseView::khcBaseView()
+#include "khc_baseview.h"
+
+khcBaseView::khcBaseView( QWidget *parent, char *name )
+  : QWidget( parent, name )
+  , m_url()
 {
+/*
     ADD_INTERFACE("IDL:Browser/View:1.0");
     
     SIGNAL_IMPL("openURL");
@@ -33,62 +37,35 @@ khcBaseView::khcBaseView()
     SIGNAL_IMPL("setStatusBarText");
     SIGNAL_IMPL("setLocationBarURL");
     SIGNAL_IMPL("createNewWindow");
+*/    
     
-    OPPartIf::setFocusPolicy(OpenParts::Part::ClickFocus);
-    
-    m_strURL = "";
+    setFocusPolicy( ClickFocus );
 }
 
 khcBaseView::~khcBaseView()
 {
-    kdebug(0,1400,"khcBaseView::~KHCBaseView()");
-    cleanUp();
 }
 
-void khcBaseView::init()
+QString khcBaseView::url()
 {
+    return m_url;
 }
 
-void khcBaseView::cleanUp()
-{
-    if (m_bIsClean)
-	return;
-    
-    kdebug(0,1400,"void khcBaseView::cleanUp()");
-    
-    OPPartIf::cleanUp();
-}
-
-bool khcBaseView::event( const QCString &event, const CORBA::Any &value )
-{
-    EVENT_MAPPER(event, value);
-    
-    MAPPING(Browser::eventOpenURL, Browser::EventOpenURL, mappingOpenURL);
-    
-    END_EVENT_MAPPER;
-    return false;
-}
-
-bool khcBaseView::mappingOpenURL( Browser::EventOpenURL eventURL )
-{
-    SIGNAL_CALL2("setLocationBarURL", id(), eventURL.url);
-    return false;
-}
-
-QCString khcBaseView::url()
-{
-    return m_strURL.latin1();
-}
-
-void khcBaseView::openURLRequest( const QCString &_url )
+void khcBaseView::openURLRequest( const QString& url )
 {
     // Ask the mainwindow to open this URL, since it might not be suitable
     // for the current type of view.
+/*    
     Browser::URLRequest urlRequest;
-    urlRequest.url = _url;
+    urlRequest.url = url;
     urlRequest.reload = false;
     urlRequest.xOffset = 0;
     urlRequest.yOffset = 0;
-    SIGNAL_CALL1( "openURL", urlRequest );
+*/    
+    //SIGNAL_CALL1( "openURL", urlRequest );
 }
 
+bool khcBaseView::mappingOpenURL(QString const &)
+{
+  return true;
+}

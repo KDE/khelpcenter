@@ -22,21 +22,24 @@
 #define __khc_history_h__
 
 #include <qlist.h>
-#include <qstring.h>
+
+#include <kurl.h>
 
 class khcHistoryItem
 {
- public:
+public:
+  
   khcHistoryItem();
-  khcHistoryItem(const char* url);
-  khcHistoryItem(const char* url, long xOffset, long yOffset);
+  khcHistoryItem(const QString& url);
+  khcHistoryItem(const QString& url, long xOffset, long yOffset);
   ~khcHistoryItem();
 
   QString url() { return m_url; }
   long xOffset() { return m_xOffset; }
   long yOffset() { return m_yOffset; }
     
- protected:
+protected:
+  
   QString m_url;
   long m_xOffset, m_yOffset;
 };
@@ -44,6 +47,7 @@ class khcHistoryItem
 class khcHistory
 {
 public:
+
   khcHistory();
   ~khcHistory();
 
@@ -62,6 +66,7 @@ public:
   QList<khcHistoryItem> forwardList();
       
 protected:
+  
   QList<khcHistoryItem> m_list;
   khcHistoryItem *m_current;
 };

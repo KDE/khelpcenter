@@ -22,40 +22,39 @@
 #ifndef __khc_baseview_h__
 #define __khc_baseview_h__
 
-#include "browser.h"
-
-#include <opPart.h>
 #include <qstring.h>
+#include <qwidget.h>
+
+#include <kurl.h>
 
 /**
  * The base class for all views in khelpcenter
  */
-class khcBaseView : virtual public OPPartIf,
-		    virtual public Browser::View_skel
+class khcBaseView : public QWidget
 {
+    Q_OBJECT
+    
 public:
-    khcBaseView();
+
+    khcBaseView( QWidget *parent = 0, char *name = 0 );
     ~khcBaseView();
   
-    virtual void init();
-    virtual void cleanUp();
-  
-    virtual bool event( const QCString &event, const CORBA::Any &value );
-    virtual bool mappingOpenURL( Browser::EventOpenURL eventURL );
+    virtual bool mappingOpenURL( const QString& eventURL );
     
     /**
      * @return the URL shown by this view
      */
-    virtual QCString url();
+    virtual QString url();
     
     /**
      * Ask the mainwindow to open this URL, since it might not be suitable
      * for the current type of view.
      */
-    virtual void openURLRequest(const QCString &_url);
+    virtual void openURLRequest( const QString& url );
     
 protected:
-    QString m_strURL;
+
+    QString m_url;
 };
 
 #endif

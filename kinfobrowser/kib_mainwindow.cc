@@ -18,347 +18,196 @@
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#include "kib_mainwindow.h"
-#include "kib_view.h"
-#include "version.h"
-
-#include <qkeycode.h>
-#include <qmsgbox.h>
-#include <qpopupmenu.h>
-
 #include <kapp.h>
-#include <kiconloader.h>
-#include <kstdaccel.h>
-#include <kcursor.h>
-#include <klocale.h>
-#include <kglobal.h>
-#include <kstddirs.h>
 #include <kdebug.h>
+#include <klocale.h>
+#include <kstddirs.h>
+#include <kconfig.h>
+#include <kaction.h>
+#include <kstdaction.h>
+//#include <khelpmenu.h>
 #include <kfiledialog.h>
 
-#include <opFrame.h>
-#include <opUIUtils.h>
-#include <kconfig.h>
-#include <kmenubar.h>
+#include "version.h"
+#include "kib_view.h"
+#include "kib_mainwindow.h"
 
-kibMainWindow::kibMainWindow(const QString& url)
+#define ID_TOOLBAR_NORMAL   0
+#define ID_TOOLBAR_LOCATION 1
+#define ID_STATUSBAR_INFO   1
+
+kibMainWindow::kibMainWindow( const QString& url, char *name )
+  : KTMainWindow( name )
 {
-    kdebug(KDEBUG_INFO,1400,"kibMainWindow::kibMainWindow()");
-    setCaption(i18n("KDE InfoBrowser"));
-    resize(800, 580);
-    setMinimumSize(200, 100);
-    
-    // setup UI
-    setupView();
-    setupMenuBar();
-    setupToolBar();
-    setupLocationBar();
-    setupStatusBar();
+  kDebugInfo( 1400, "kibMainWindow::kibMainWindow" );
 
-    // read settings
-    slotReadSettings();
+  setCaption( i18n( "KDE InfoBrowser" ) );
+  resize( 800, 580 );
+  setMinimumSize( 200, 100 );
 
-    //open url
-    if (!url || url.isEmpty())
-      slotIndex();
-    else
-      openURL(url.ascii(), true);
+  // setup UI
+  m_pView = new kibView( this );
+  setView( m_pView );
+
+  setupActions();
+  setupStatusBar();
+  createGUI( "kinfobrowser.rc" );
+  setupLocationBar();
+
+  // read settings
+  slotReadSettings();
+
+  //open url
+  if( url.isEmpty() )
+    slotIndex();
+  else
+    openURL( url, false );
 }
 
 kibMainWindow::~kibMainWindow()
 {
-  kdebug(KDEBUG_INFO,1400,"kibMainWindow::~kibMainWindow()");
-
-  cleanUp();
   slotSaveSettings();
-  delete m_pFrame;
 }
 
-OPMainWindowIf* kibMainWindow::interface()
+void kibMainWindow::setupActions()
 {
-  if ( m_pInterface == 0L )
-    {    
-      m_pkibInterface = new kibMainWindowIf( this );
-      m_pInterface = m_pkibInterface;
-    }
-  return m_pInterface;
-}
+    new KAction( i18n( "Open &new window" ), 0, this, SLOT( slotNewBrowser() ), actionCollection(), "new_window" );
 
-kibMainWindowIf* kibMainWindow::kibInterface()
-{
-  if ( m_pInterface == 0L )
-    {
-      m_pkibInterface = new kibMainWindowIf( this );
-      m_pInterface = m_pkibInterface;
-    }
-  return m_pkibInterface;
-}
+    new KAction( i18n( "&Reload" ), BarIcon( "reload" ), Key_F5, this, SLOT( slotReload() ), actionCollection(), "reload" );
 
-void kibMainWindow::cleanUp()
-{
-  kdebug(KDEBUG_INFO,1400,"void kibMainWindow::cleanUp()");
- 
-  m_vView = 0L;
+    KStdAction::print( this, SLOT( slotPrint() ), actionCollection(), "print" );
 
-  // Release the view component. This will delete the component.
-  if (m_pFrame)
-    m_pFrame->detach();
-}
+    KStdAction::quit( this, SLOT( slotQuit() ), actionCollection(), "quit" );
 
-void kibMainWindow::setupView()
-{
-    kdebug(KDEBUG_INFO,1400,"kibMainWindow::setupView()");
-   
-    m_pFrame = new OPFrame(this);
-    CHECK_PTR(m_pFrame);
-  
-    setView(m_pFrame, true);
-    m_pView = new kibView;
-    m_vView = KInfoBrowser::View::_duplicate(m_pView);
-  
-    m_vView->setMainWindow(kibInterface());
-    connectView();
-    m_pFrame->attach(m_vView);
-   
-    kdebug(KDEBUG_INFO,1400,"m_pFrame->attach(m_vView);");
+    KStdAction::copy( this, SLOT( slotCopy() ), actionCollection(), "copy" );
 
-    toolBar(0)->setItemEnabled(TB_ZOOMIN, m_vView->canZoomIn());
-    toolBar(0)->setItemEnabled(TB_ZOOMOUT, m_vView->canZoomOut());
-}
+    KStdAction::find( this, SLOT( slotFind() ), actionCollection(), "find" );
 
-void kibMainWindow::setupMenuBar()
-{
-    kdebug(KDEBUG_INFO,1400,"kibMainWindow::setupMenuBar()");
-  
-    // file menu
-    m_pFileMenu = new QPopupMenu;
-    CHECK_PTR(m_pFileMenu);
+    KStdAction::findNext( this, SLOT( slotFind() ), actionCollection(), "find:next" );
 
-    m_pFileMenu->insertItem(i18n("Open &new window"), this, SLOT(slotNewBrowser()),
-							KStdAccel::key(KStdAccel::New));
-    m_pFileMenu->insertSeparator();
-    m_pFileMenu->insertItem(i18n("&Reload"), this, SLOT(slotReload()),
-							KStdAccel::key(KStdAccel::Reload));
-    m_pFileMenu->insertItem(i18n("&Print"), this, SLOT(slotPrint()),
-							KStdAccel::key(KStdAccel::Print));
-    m_pFileMenu->insertSeparator();
-    m_pFileMenu->insertItem(i18n("&Quit"), this, SLOT(slotQuit()),
-							KStdAccel::key(KStdAccel::Quit));
-  
-    // edit menu
-    m_pEditMenu = new QPopupMenu;
-    CHECK_PTR(m_pEditMenu);
+    m_back = KStdAction::back( this, SLOT( slotBack() ), actionCollection(), "back" );
 
-    idCopy = m_pEditMenu->insertItem(i18n("&Copy"), this, SLOT(slotCopy()),
-									 KStdAccel::key(KStdAccel::Copy));
-    m_pEditMenu->insertSeparator();
-    m_pEditMenu->insertItem(i18n("&Find..."), this, SLOT(slotFind()),
-							KStdAccel::key(KStdAccel::Find));
-     m_pEditMenu->insertItem(i18n("Find &next"), this, SLOT(slotFindNext()),
-							 KStdAccel::key(KStdAccel::FindNext));
-  
-    // goto menu
-    m_pGotoMenu = new QPopupMenu;
-    CHECK_PTR(m_pGotoMenu);
+    m_forward = KStdAction::forward( this, SLOT( slotForward() ), actionCollection(), "forward" );
 
-    idBack = m_pGotoMenu->insertItem(i18n("&Back"), this, SLOT(slotBack()));
-    idForward = m_pGotoMenu->insertItem(i18n("&Forward"), this, SLOT(slotForward()));
-    m_pGotoMenu->insertSeparator();
-    m_pGotoMenu->insertItem(i18n("&Index"), this, SLOT(slotIndex()));
-  
-    // view menu
-    m_pViewMenu = new QPopupMenu;
-    CHECK_PTR(m_pViewMenu);
+    new KAction( i18n( "&Stop" ), BarIcon( "stop" ), 0, this, SLOT( slotStop() ), actionCollection(), "stop" );
 
-    idMagPlus = m_pViewMenu->insertItem(i18n("Zoom &in"), this, SLOT(slotMagPlus()),
-										KStdAccel::key(KStdAccel::ZoomIn));
-    idMagMinus = m_pViewMenu->insertItem(i18n("Zoom &out"), this, SLOT(slotMagMinus()),
-										 KStdAccel::key(KStdAccel::ZoomOut));
-    m_pViewMenu->insertSeparator();
-    m_pViewMenu->insertItem(i18n("&Reload"), this, SLOT(slotReload()),
-							KStdAccel::key(KStdAccel::Reload));
-  
-    // bookmark menu
-    m_pBookmarkMenu = new QPopupMenu;
-    CHECK_PTR(m_pBookmarkMenu);
+    new KAction( i18n( "&Index" ), 0, this, SLOT( slotIndex() ), actionCollection(), "index" );
 
-    /*
-    connect(m_pBookmarkMenu, SIGNAL(activated(int)), this, SLOT(slotBookmarkSelected(int)));
-    connect(m_pBookmarkMenu, SIGNAL(highlighted(int)), this, SLOT(slotBookmarkHighlighted(int)));
-    */
+    m_zoomIn = KStdAction::zoomIn( this, SLOT( slotMagPlus() ), actionCollection(), "zoom_in" );
 
-    // options menu
-    m_pOptionsMenu = new QPopupMenu;
-    CHECK_PTR(m_pOptionsMenu);
-    m_pOptionsMenu->setCheckable(true);
+    m_zoomOut = KStdAction::zoomOut( this, SLOT( slotMagMinus() ), actionCollection(), "zoom_out" );
 
-    idToolBar = m_pOptionsMenu->insertItem(i18n("Show &Toolbar"), this, SLOT(slotOptionsToolbar()));
-    idLocationBar = m_pOptionsMenu->insertItem(i18n("Show &Location"), this, SLOT(slotOptionsLocationbar()));
-    idStatusBar = m_pOptionsMenu->insertItem(i18n("Show Status&bar"), this, SLOT(slotOptionsStatusbar()));
-    m_pOptionsMenu->insertSeparator();
-    m_pOptionsMenu->insertItem(i18n("&Settings..."), this, SLOT(slotOptionsGeneral()));
-   
-  
-    // help menu
-    m_pHelpMenu = kapp->helpMenu(true,i18n("KDE InfoBrowser v" + QString(KINFOBROWSER_VERSION) + "\n\n"
-                                           "(c) 1999 Matthias Elter <me@kde.org>"));
-    
-    // insert menu's into menubar
-    menuBar()->insertItem(i18n("&File"), m_pFileMenu);
-    menuBar()->insertItem(i18n("&Edit"), m_pEditMenu);
-    menuBar()->insertItem(i18n("&View"), m_pViewMenu);
-    menuBar()->insertItem(i18n("&Go"), m_pGotoMenu);
-    menuBar()->insertItem(i18n("&Options"), m_pOptionsMenu);
-    menuBar()->insertItem(i18n("&Bookmarks"), m_pBookmarkMenu);
-    menuBar()->insertSeparator();
-    menuBar()->insertItem(i18n("&Help"), m_pHelpMenu);
-}
+    new KAction( i18n( "&Add bookmark" ), BarIcon( "find"), 0, this, SLOT( slotAddBookmark() ), actionCollection(), "add_bookmark" );
 
-void kibMainWindow::setupToolBar()
-{
-    kdebug(KDEBUG_INFO,1400,"kibMainWindow::setupToolBar()");
-    
-    // history popup menus
-    m_pHistoryBackMenu = new QPopupMenu;
-    CHECK_PTR(m_pHistoryBackMenu);
-    connect(m_pHistoryBackMenu, SIGNAL(aboutToShow()), this, SLOT(slotHistoryFillBack()));
-    connect(m_pHistoryBackMenu, SIGNAL(activated(int)), this, SLOT(slotHistoryBackActivated(int)));
+    new KAction( i18n( "&Clear Bookmarks" ), 0, this, SLOT( slotClearBookmarks() ), actionCollection(), "clear_bookmarks" );
 
-    m_pHistoryForwardMenu = new QPopupMenu;
-    CHECK_PTR(m_pHistoryForwardMenu);
-    connect(m_pHistoryForwardMenu, SIGNAL(aboutToShow()), this, SLOT(slotHistoryFillForward()));
-    connect(m_pHistoryForwardMenu, SIGNAL(activated(int)), this, SLOT(slotHistoryForwardActivated(int)));
-    
-    // explicitely instanciate a toolbar, to make sure it gets the height (40) we want
-    KToolBar *bar = new KToolBar(this, 0, false, 40);
-    addToolBar(bar, 0);
-    toolBar(0)->setIconText(3);
+    m_bookmarks = new KListAction( actionCollection(), "bookmark_list" );
 
-    // insert toolbar buttons    
-    toolBar(0)->insertButton(BarIcon("back"), TB_BACK, true, i18n("Back"));
-    toolBar(0)->setDelayedPopup(TB_BACK, m_pHistoryBackMenu);
-    toolBar(0)->setItemEnabled(TB_BACK, false);
-  
-    toolBar(0)->insertButton(BarIcon("forward"), TB_FORWARD, true, i18n("Forward"));
-    toolBar(0)->setDelayedPopup(TB_FORWARD, m_pHistoryForwardMenu);
-    toolBar(0)->setItemEnabled(TB_FORWARD, false);
-  
-    toolBar(0)->insertButton(BarIcon("reload"), TB_RELOAD, true, i18n("Reload"));
-    toolBar(0)->insertButton(BarIcon("stop"), TB_STOP, true, i18n("Stop"));
+    //connect(m_pBookmarkMenu, SIGNAL(activated(int)), this, SLOT(slotBookmarkSelected(int)));
+    //connect(m_pBookmarkMenu, SIGNAL(highlighted(int)), this, SLOT(slotBookmarkHighlighted(int)));
 
-    toolBar(0)->insertSeparator();
-  
-    toolBar(0)->insertButton(BarIcon("viewmag+"), TB_ZOOMIN, true, i18n("Zoom in"));
-    toolBar(0)->insertButton(BarIcon("viewmag-"), TB_ZOOMOUT, true, i18n("Zoom out"));
+    m_toolbar = KStdAction::showToolbar( this, SLOT( slotOptionsToolbar() ), actionCollection(), "show_toolbar" );
 
-    toolBar(0)->insertSeparator();
+    m_statusbar = KStdAction::showStatusbar( this, SLOT( slotOptionsStatusbar() ), actionCollection(), "show_statusbar" );
 
-    toolBar(0)->insertButton(BarIcon("flag"), TB_SETBOOKMARK, true, i18n("Bookmark"));
-    toolBar(0)->insertButton(BarIcon("search"), TB_FIND, true, i18n("Find"));
-    toolBar(0)->insertButton(BarIcon("fileprint"), TB_PRINT, true, i18n("Print"));
+    m_location = new KToggleAction( i18n( "Show &Location" ), 0, this, SLOT( slotOptionsLocationbar() ), actionCollection(), "show_location" );
 
-    // connect toolbar
-    connect(toolBar(0), SIGNAL(clicked(int)), SLOT(slotToolbarClicked(int)));
+    KStdAction::saveOptions( this, SLOT( slotOptionsGeneral() ), actionCollection(), "save_options" );
+
+    KStdAction::whatsThis( this, SLOT( slotWhatThis() ), actionCollection(), "help_whats_this" );
+
+    KStdAction::reportBug( this, SLOT( slotReportBug() ), actionCollection(), "help_report_bug" );
+
+/*
+    m_pHelpMenu = new KHelpMenu(this,i18n("KDE InfoBrowser v" + QString(KINFOBROWSER_VERSION) + "\n\n"
+                                           "(c) 1999 Matthias Elter <me@kde.org>"),true);
+*/
 }
 
 void kibMainWindow::setupLocationBar()
 {
-    kdebug(KDEBUG_INFO,1400,"kibMainWindow::setupLocationbar()");
-
-    toolBar(1)->insertLined("", 1, SIGNAL(returnPressed()), this, SLOT(slotLocationEntered()));
-    toolBar(1)->setFullWidth(TRUE);
-    toolBar(1)->setItemAutoSized(1, TRUE);
-    toolBar(1)->enable(KToolBar::Show);
+  toolBar( ID_TOOLBAR_LOCATION )->insertLined( "", 1, SIGNAL( returnPressed() ), this, SLOT( slotLocationEntered() ) );
+  toolBar( ID_TOOLBAR_LOCATION )->setFullWidth( true );
+  toolBar( ID_TOOLBAR_LOCATION )->setItemAutoSized( 1, true );
+  toolBar( ID_TOOLBAR_LOCATION )->enable( KToolBar::Show );
+  toolBar( ID_TOOLBAR_NORMAL )->setFullWidth( true );
 }
 
 void kibMainWindow::setupStatusBar()
 {
-    kdebug(KDEBUG_INFO,1400,"kibMainWindow::setupStatusbar()");
-    statusBar()->insertItem("", 1);
-    enableStatusBar(KStatusBar::Show);
+  statusBar()->insertItem("", ID_STATUSBAR_INFO );
+  enableStatusBar( KStatusBar::Show );
 }
 
 void kibMainWindow::slotReadSettings()
 {
     KConfig *config = KApplication::kApplication()->config();
-    config->setGroup("Appearance");
 
-    // show tool-, location-, statusbar and navigator?
-    QString o = config->readEntry("ShowToolBar");
-    if (!o.isEmpty() && o.find( "No", 0, false) == 0 )
-	m_showToolBar = false;
-    else
-	m_showToolBar = true;
+    config->setGroup( "Appearance" );
 
-    o = config->readEntry("ShowStatusBar");
-    if ( !o.isEmpty() && o.find("No", 0, false ) == 0)
-	m_showStatusBar = false;
-    else
-	m_showStatusBar = true;
-
-    o = config->readEntry("ShowLocationBar");
-    if (!o.isEmpty() && o.find("No", 0, false ) == 0)
-	m_showLocationBar = false;
-    else
-	m_showLocationBar = true;
+    // show tool-, location-, statusbar
+    m_showToolBar = config->readBoolEntry( "ShowToolBar", true );
+    m_showStatusBar = config->readBoolEntry( "ShowStatusBar", true );
+    m_showLocationBar = config->readBoolEntry( "ShowLocationBar", true );
 
     // toolbar location
-    o = config->readEntry("ToolBarPos");
-    if (o.isEmpty())
-	toolBar(0)->setBarPos(KToolBar::Top);
-    else if ("Top" == o) 
-	toolBar(0)->setBarPos(KToolBar::Top);
-    else if ("Bottom" == o)
-	toolBar(0)->setBarPos(KToolBar::Bottom);
-    else if ("Left" == o)
-	toolBar(0)->setBarPos(KToolBar::Left);
-    else if ("Right" == o)
-	toolBar(0)->setBarPos(KToolBar::Right);
-    else if ("Floating" == o)
-	toolBar(0)->setBarPos(KToolBar::Floating);
+    QString o = config->readEntry( "ToolBarPos", "Top" );
+
+    if( o.isEmpty() )
+	toolBar( 0 )->setBarPos( KToolBar::Top );
+    if( "Top" == o )
+	toolBar( 0 )->setBarPos( KToolBar::Top );
+    else if( "Bottom" == o )
+	toolBar( 0 )->setBarPos( KToolBar::Bottom );
+    else if( "Left" == o )
+	toolBar( 0 )->setBarPos( KToolBar::Left );
+    else if( "Right" == o )
+	toolBar( 0 )->setBarPos( KToolBar::Right );
+    else if( "Floating" == o )
+	toolBar( 0 )->setBarPos( KToolBar::Floating );
     else
-	toolBar(0)->setBarPos(KToolBar::Top);
-  
+	toolBar( 0 )->setBarPos( KToolBar::Top );
+	
     // locationbar location
-    o = config->readEntry("LocationBarPos");
+    o = config->readEntry("LocationBarPos", "Top" );
+
     if ( o.isEmpty() )
-   	toolBar(1)->setBarPos(KToolBar::Top);
-    else if ("Top" == o) 
-	toolBar(1)->setBarPos(KToolBar::Top);
-    else if ("Bottom" == o)
-	toolBar(1)->setBarPos(KToolBar::Bottom);
-    else if ("Left" == o)
-	toolBar(1)->setBarPos(KToolBar::Left);
-    else if ("Right" == o)
-	toolBar(1)->setBarPos(KToolBar::Right);
-    else if ("Floating" == o)
-	toolBar(1)->setBarPos(KToolBar::Floating);
+   	toolBar( 1 )->setBarPos( KToolBar::Top );
+    else if ( "Top" == o )
+	toolBar( 1 )->setBarPos( KToolBar::Top );
+    else if ( "Bottom" == o)
+	toolBar( 1 )->setBarPos( KToolBar::Bottom );
+    else if ( "Left" == o)
+	toolBar( 1 )->setBarPos( KToolBar::Left );
+    else if ( "Right" == o)
+	toolBar( 1 )->setBarPos( KToolBar::Right );
+    else if ( "Floating" == o)
+	toolBar( 1 )->setBarPos( KToolBar::Floating );
     else
-	toolBar(1)->setBarPos(KToolBar::Top);
+	toolBar( 1 )->setBarPos( KToolBar::Top );
 
+/*
     // set configuration
-    if (m_showStatusBar)
-	enableStatusBar(KStatusBar::Show);
+    if( m_showStatusBar )
+	enableStatusBar( KStatusBar::Show );
     else
-	enableStatusBar(KStatusBar::Hide);
-  
-    if (m_showToolBar) 
-	enableToolBar(KToolBar::Show, 0);
-    else
-	enableToolBar(KToolBar::Hide, 0);
+	enableStatusBar( KStatusBar::Hide );
 
-    if (m_showLocationBar)
-	enableToolBar(KToolBar::Show, 1);
+    if( m_showToolBar )
+	enableToolBar( KToolBar::Show, 0 );
     else
-	enableToolBar(KToolBar::Hide, 1);
+	enableToolBar(KToolBar::Hide, 0 );
+
+    if( m_showLocationBar )
+	enableToolBar( KToolBar::Show, 1 );
+    else
+	enableToolBar( KToolBar::Hide, 1 );
 
     // toggle menu items
-    if (m_pOptionsMenu)
-    {
-      m_pOptionsMenu->setItemChecked(idToolBar, m_showToolBar);
-      m_pOptionsMenu->setItemChecked(idLocationBar, m_showLocationBar);
-      m_pOptionsMenu->setItemChecked(idStatusBar, m_showStatusBar);
-    }
+    m_toolbar->setChecked( m_showToolBar );
+    m_location->setChecked( m_showLocationBar );
+    m_statusbar->setChecked( m_showStatusBar );
+*/
 }
 
 void kibMainWindow::slotSaveSettings()
@@ -366,48 +215,49 @@ void kibMainWindow::slotSaveSettings()
     KConfig *config = KApplication::kApplication()->config();
 
     config->setGroup( "Appearance" );
-    config->writeEntry( "ShowToolBar", m_showToolBar ? "Yes" : "No" );
-    config->writeEntry( "ShowStatusBar", m_showStatusBar ? "Yes" : "No" );  
-    config->writeEntry( "ShowLocationBar", m_showLocationBar ? "Yes" : "No" );
+    
+    config->writeEntry( "ShowToolBar", m_showToolBar );
+    config->writeEntry( "ShowStatusBar", m_showStatusBar );
+    config->writeEntry( "ShowLocationBar", m_showLocationBar );
 
-    switch (toolBar(0)->barPos())
+    switch( toolBar( 0 )->barPos() )
     {
     case KToolBar::Top:
-	config->writeEntry( "ToolBarPos", "Top");
+	config->writeEntry( "ToolBarPos", "Top" );
 	break;
     case KToolBar::Bottom:
-	config->writeEntry( "ToolBarPos", "Bottom");
+	config->writeEntry( "ToolBarPos", "Bottom" );
 	break;
     case KToolBar::Left:
-	config->writeEntry( "ToolBarPos", "Left");
+	config->writeEntry( "ToolBarPos", "Left" );
 	break;
     case KToolBar::Right:
-	config->writeEntry( "ToolBarPos", "Right");
+	config->writeEntry( "ToolBarPos", "Right" );
 	break;
     case KToolBar::Floating:
-	config->writeEntry( "ToolBarPos", "Floating");
+	config->writeEntry( "ToolBarPos", "Floating" );
 	break;
     default:
-	warning("helpCenter::slotOptionsSave: illegal default in case reached\n");
+	warning( "helpCenter::slotOptionsSave: illegal default in case reached\n");
 	break;
     }
 
-    switch (toolBar(1)->barPos())
+    switch( toolBar( 1 )->barPos() )
     {
     case KToolBar::Top:
-	config->writeEntry( "LocationBarPos", "Top");
+	config->writeEntry( "LocationBarPos", "Top" );
 	break;
     case KToolBar::Bottom:
-	config->writeEntry( "LocationBarPos", "Bottom");
+	config->writeEntry( "LocationBarPos", "Bottom" );
 	break;
     case KToolBar::Left:
-	config->writeEntry( "LocationBarPos", "Left");
+	config->writeEntry( "LocationBarPos", "Left" );
 	break;
     case KToolBar::Right:
-	config->writeEntry( "LocationBarPos", "Right");
+	config->writeEntry( "LocationBarPos", "Right" );
 	break;
     case KToolBar::Floating:
-	config->writeEntry( "LocationBarPos", "Floating");
+	config->writeEntry( "LocationBarPos", "Floating" );
 	break;
     default:
 	warning("kibMainWindow::slotOptionsSave: illegal default in case reached\n");
@@ -415,475 +265,328 @@ void kibMainWindow::slotSaveSettings()
     }
 }
 
-void kibMainWindow::slotSetLocation(const QString& _url)
+void kibMainWindow::slotSetLocation( const QString& url )
 {
-    toolBar(1)->setLinedText(1, _url);
+  toolBar( ID_TOOLBAR_LOCATION )->setLinedText( 1, url );
 }
 
 void kibMainWindow::slotLocationEntered()
 {
-    openURL(toolBar(1)->getLinedText(1).ascii(), true );
+  openURL( toolBar( ID_TOOLBAR_LOCATION )->getLinedText( 1 ), true );
 }
 
-void kibMainWindow::slotURLSelected(const QString& _url, int)
+void kibMainWindow::slotURLSelected( const QString& url, int )
 {
-    openURL( _url.ascii(), true );
-}
-
-void kibMainWindow::slotToolbarClicked(int item)
-{
-    switch (item)
-    {
-    case TB_SETBOOKMARK:
-	slotSetBookmark();
-	break;
-    case TB_PRINT:
-	slotPrint();
-	break;
-    case TB_ZOOMIN:
-	slotMagPlus();
-	break;
-    case TB_FIND:
-	slotFind();
-	break;
-    case TB_ZOOMOUT:
-	slotMagMinus();
-	break;
-    case TB_BACK:
-	slotBack();
-	break;
-    case TB_FORWARD:
-	slotForward();
-	break;
-    case TB_RELOAD:
-	slotReload();
-	break;
-    case TB_STOP:
-	slotStopProcessing();
-	break;
-    }
+  openURL( url, true );
 }
 
 void kibMainWindow::slotNewBrowser()
 {
-    slotOpenNewBrowser(QString(""));
+  slotOpenNewBrowser();
 }
 
-void kibMainWindow::slotOpenNewBrowser(const QString& url)
+void kibMainWindow::slotOpenNewBrowser( const QString& url )
 {
-    kibMainWindow *win = new kibMainWindow(url);
-    win->resize(size());
-    win->show();
+  kibMainWindow *win = new kibMainWindow( url );
+  win->resize( size() );
+  win->show();
 }
 
-void kibMainWindow::slotSetStatusText(const QString& text)
+void kibMainWindow::slotSetStatusText( const QString& text )
 {
-    statusBar()->changeItem(text, 1);
+  statusBar()->changeItem( text, ID_STATUSBAR_INFO );
 }
 
-void kibMainWindow::slotSetTitle( const QString& _title )
+void kibMainWindow::slotSetTitle( const QString& title )
 {
-    QString appCaption = "KDE InfoBrowser - ";
-    appCaption += _title;
-  
-    setCaption( appCaption );
+  setCaption( "KDE InfoBrowser - " + title );
 }
 
-void kibMainWindow::slotSetURL(QString url)
+void kibMainWindow::slotSetURL( const QString& url )
 {
-    openURL(url.ascii(), true);
-}
-
-void kibMainWindow::slotSetBookmark()
-{
-  
+  openURL( url, true );
 }
 
 void kibMainWindow::slotIndex()
 {
-    QCString url = "info:(dir)Top";
+  kDebugInfo( 1400,"kibMainWindow::slotIndex" );
 
-    openURL(url, true); 
+  openURL( "info:(dir)Top", true );
 }
 
 void kibMainWindow::slotOpenFile()
 {
-    QString fileName = KFileDialog::getOpenFileName();
-    if (!fileName.isNull())
-    {
-	QString url = "file:";
-	url += fileName;
-	openURL(url.ascii(), true);
-    }
+  KURL url = KFileDialog::getOpenURL();
+
+  if( url.isEmpty() )
+      return;
+
+  openURL( url.url(), true );
 }
 
 void kibMainWindow::slotOptionsToolbar()
 {
-    if (m_showToolBar)
-    {
-	enableToolBar(KToolBar::Hide, 0);
-	m_showToolBar = false;
-    }
-    else
-    {
-	enableToolBar(KToolBar::Show, 0);
-	m_showToolBar = true;
-    }
-  
-    m_pOptionsMenu->setItemChecked(idToolBar, m_showToolBar);
+  if( m_showToolBar )
+  {
+    enableToolBar( KToolBar::Hide, 0 );
+    m_showToolBar = false;
+  }
+  else
+  {
+    enableToolBar( KToolBar::Show, 0 );
+    m_showToolBar = true;
+  }
+
+  m_toolbar->setChecked( m_showToolBar );
 }
 
 void kibMainWindow::slotOptionsLocationbar()
-{ 
-    if (m_showLocationBar)
-    {
-	enableToolBar(KToolBar::Hide, 1);
-	m_showLocationBar = false;
-    }
-    else
-    {
-	enableToolBar(KToolBar::Show, 1);
-	m_showLocationBar = true;
-    }
-    m_pOptionsMenu->setItemChecked(idLocationBar, m_showLocationBar); 
+{
+  if( m_showLocationBar )
+  {
+    enableToolBar( KToolBar::Hide, 1 );
+    m_showLocationBar = false;
+  }
+  else
+  {
+    enableToolBar( KToolBar::Show, 1 );
+    m_showLocationBar = true;
+  }
+
+  m_location->setChecked( m_showLocationBar );
 }
 
 void kibMainWindow::slotOptionsStatusbar()
 {
-    m_showStatusBar = !m_showStatusBar;
-    m_pOptionsMenu->setItemChecked(idStatusBar, m_showStatusBar); 
-    enableStatusBar(KStatusBar::Toggle);
+  m_showStatusBar = !m_showStatusBar;
+  m_statusbar->setChecked( m_showStatusBar );
+  enableStatusBar( KStatusBar::Toggle );
 }
 
 void kibMainWindow::slotOptionsGeneral()
 {
-  
 }
 
 void kibMainWindow::slotQuit()
 {
-    close();
+  close();
 }
 
-void kibMainWindow::openURL(Browser::URLRequest urlRequest)
+void kibMainWindow::openURL( const QString& urlRequest )
 {
-  slotStopProcessing();
-  
-  khcHistoryItem *hitem = new khcHistoryItem(urlRequest.url, urlRequest.xOffset, urlRequest.yOffset);
-  history.append(hitem);
+  kDebugInfo( 1400, "kibMainWindow::openURL 1" );
 
-  kdebug(KDEBUG_INFO,1400,"EMIT_EVENT(m_vView, Browser::eventOpenURL, eventURL)");
-  EMIT_EVENT(m_vView, Browser::eventOpenURL, urlRequest);
+  slotStopProcessing();
+
+  //khcHistoryItem *hitem = new khcHistoryItem( urlRequest.url, urlRequest.xOffset, urlRequest.yOffset );
+  khcHistoryItem *hitem = new khcHistoryItem( urlRequest );
+  m_history.append( hitem );
+
+  kDebugInfo( 1400, "EMIT_EVENT(m_pView, Browser::eventOpenURL, eventURL)" );
+  //EMIT_EVENT( m_pView, Browser::eventOpenURL, urlRequest );
   slotCheckHistory();
 }
 
-void kibMainWindow::openURL(const QCString &_url, bool withHistory, long xOffset, long yOffset)
+void kibMainWindow::openURL( const QString& url, bool withHistory, long xOffset, long yOffset )
 {
+  kDebugInfo( 1400, "kibMainWindow::openURL 2" );
+
   slotStopProcessing();
-    
-  Browser::EventOpenURL eventURL;
-  kdebug(KDEBUG_INFO,1400,"openURL:" + QString(_url));
-  eventURL.url = _url;
-  eventURL.reload = false;
-  eventURL.xOffset = xOffset;
-  eventURL.yOffset = yOffset;
 
-  if (withHistory)
-    {
-      khcHistoryItem *hitem = new khcHistoryItem(_url, xOffset, yOffset);
-      history.append(hitem);
-    }
+  if( withHistory )
+  {
+    khcHistoryItem *hitem = new khcHistoryItem( url, xOffset, yOffset );
+    m_history.append( hitem );
+  }
 
-  kdebug(KDEBUG_INFO,1400,"EMIT_EVENT(m_vView, Browser::eventOpenURL, eventURL)");
-  EMIT_EVENT(m_vView, Browser::eventOpenURL, eventURL);
+  m_pView->openURL( url, withHistory, xOffset, yOffset );
   slotCheckHistory();
 }
 
+/*
 void kibMainWindow::connectView()
 {
   try
     {
-      m_vView->connect("openURL", kibInterface(), "openURL");
+      m_pView->connect("openURL", kibInterface(), "openURL");
     }
   catch ( ... )
     {
-      kdebug(KDEBUG_WARN,1400,"WARNING: view does not know signal ""openURL"" ");
+      kDebugWarn(1400,"WARNING: view does not know signal ""openURL"" ");
     }
   try
     {
-      m_vView->connect("started", kibInterface(), "slotURLStarted");
+      m_pView->connect("started", kibInterface(), "slotURLStarted");
     }
   catch ( ... )
     {
-      kdebug(KDEBUG_WARN,1400,"WARNING: view does not know signal ""started"" ");
+      kDebugWarn(1400,"WARNING: view does not know signal ""started"" ");
     }
   try
     {
-      m_vView->connect("completed", kibInterface(), "slotURLCompleted");
+      m_pView->connect("completed", kibInterface(), "slotURLCompleted");
     }
   catch ( ... )
     {
-      kdebug(KDEBUG_WARN,1400,"WARNING: view does not know signal ""completed"" ");
+      kDebugWarn(1400,"WARNING: view does not know signal ""completed"" ");
     }
   try
     {
-      m_vView->connect("setStatusBarText", kibInterface(), "setStatusBarText");
+      m_pView->connect("setStatusBarText", kibInterface(), "setStatusBarText");
     }
   catch ( ... )
     {
-      kdebug(KDEBUG_WARN,1400,"WARNING: view does not know signal ""setStatusBarText"" ");
+      kDebugWarn(1400,"WARNING: view does not know signal ""setStatusBarText"" ");
     }
     try
     {
-      m_vView->connect("setLocationBarURL", kibInterface(), "setLocationBarURL");
+      m_pView->connect("setLocationBarURL", kibInterface(), "setLocationBarURL");
     }
   catch ( ... )
     {
-      kdebug(KDEBUG_WARN,1400,"WARNING: view does not know signal ""setLocationBarURL"" ");
+      kDebugWarn(1400,"WARNING: view does not know signal ""setLocationBarURL"" ");
     }
-  
+
   try
     {
-      m_vView->connect("createNewWindow", kibInterface(), "createNewWindow");
+      m_pView->connect("createNewWindow", kibInterface(), "createNewWindow");
     }
   catch ( ... )
     {
-      kdebug(KDEBUG_WARN,1400,"WARNING: view does not know signal ""createNewWindow"" ");
+      kDebugWarn(1400,"WARNING: view does not know signal ""createNewWindow"" ");
     }
-  
 }
+*/
 
 void kibMainWindow::slotFind()
 {
-  m_vView->slotFind();
+  m_pView->slotFind();
 }
 
 void kibMainWindow::slotFindNext()
 {
-  m_vView->slotFindNext();
+  m_pView->slotFindNext();
 }
 
 void kibMainWindow::slotReload()
 {
-  Browser::EventOpenURL eventURL;
-  eventURL.url = m_vView->url();
-  eventURL.reload = true;
-  eventURL.xOffset = m_vView->xOffset();
-  eventURL.yOffset = m_vView->yOffset();
-  EMIT_EVENT( m_vView, Browser::eventOpenURL, eventURL );
-  kdebug(0, 1400, "EMIT_EVENT( m_vView, Browser::eventOpenURL, eventURL );");
 }
 
 void kibMainWindow::slotCopy()
 {
-  
 }
 
 void kibMainWindow::slotPrint()
 {
-  m_vView->print();
+  m_pView->print();
 }
 
 void kibMainWindow::slotStopProcessing()
 {
-  m_vView->stop();
+  m_pView->stop();
+}
+
+void kibMainWindow::slotAddBookmark()
+{
+}
+
+void kibMainWindow::slotClearBookmarks()
+{
 }
 
 void kibMainWindow::slotMagMinus()
 {
-  m_vView->zoomOut();
-  toolBar(0)->setItemEnabled(TB_ZOOMIN,  m_vView->canZoomIn());
-  toolBar(0)->setItemEnabled(TB_ZOOMOUT,  m_vView->canZoomOut());
+  m_pView->zoomOut();
+  m_zoomIn->setEnabled( m_pView->canZoomIn() );
+  m_zoomOut->setEnabled( m_pView->canZoomOut() );
 }
 
 void kibMainWindow::slotMagPlus()
 {
-  m_vView->zoomIn();
-  toolBar(0)->setItemEnabled(TB_ZOOMIN, m_vView->canZoomIn());
-  toolBar(0)->setItemEnabled(TB_ZOOMOUT, m_vView->canZoomOut());
+  m_pView->zoomIn();
+  m_zoomIn->setEnabled( m_pView->canZoomIn() );
+  m_zoomOut->setEnabled( m_pView->canZoomOut() );
 }
 
 void kibMainWindow::slotCheckHistory()
 {
-  toolBar(0)->setItemEnabled(TB_BACK, history.hasPrev());
-  toolBar(0)->setItemEnabled(TB_FORWARD, history.hasNext());
+  m_back->setEnabled( m_history.hasPrev() );
+  m_forward->setEnabled( m_history.hasNext() );
 }
 
 void kibMainWindow::slotForward()
 {
-  khcHistoryItem *hitem = history.next();
-  if (hitem)
-    openURL(hitem->url().ascii(), false, hitem->xOffset(), hitem->yOffset());
+  khcHistoryItem *hitem = m_history.next();
+
+  if( hitem )
+    openURL( QString( hitem->url() ), false, hitem->xOffset(), hitem->yOffset() );
 }
 
 void kibMainWindow::slotBack()
 {
-  khcHistoryItem *hitem = history.prev();
-  if(hitem)
-      openURL(hitem->url().ascii(), false, hitem->xOffset(), hitem->yOffset());
+  khcHistoryItem *hitem = m_history.prev();
+
+  if( hitem )
+    openURL( QString( hitem->url() ), false, hitem->xOffset(), hitem->yOffset() );
 }
 
 void kibMainWindow::slotHistoryFillBack()
 {
+/*
   m_pHistoryBackMenu->clear();
-  
-  QList<khcHistoryItem> list = history.backList();
+
+  QList<khcHistoryItem> list = m_history.backList();
   khcHistoryItem *item = list.first();
-  
+
   while (item)
     {
-      QString url = item->url();
-      m_pHistoryBackMenu->insertItem(url, this, 0);
+      m_pHistoryBackMenu->insertItem(item->url().url(), this, 0);
       item = list.next();
     }
+*/
 }
 
 void kibMainWindow::slotHistoryFillForward()
 {
+/*
   m_pHistoryForwardMenu->clear();
-  
-  QList<khcHistoryItem> list = history.forwardList();
+
+  QList<khcHistoryItem> list = m_history.forwardList();
   khcHistoryItem *item = list.first();
-  
+
   while (item)
     {
-      QString url = item->url();
-      m_pHistoryForwardMenu->insertItem(url, this, 0);
+      m_pHistoryForwardMenu->insertItem(item->url().url(), this, 0);
       item = list.next();
     }
+*/
 }
 
 void kibMainWindow::slotHistoryBackActivated(int id)
 {
+/*
   int steps = m_pHistoryBackMenu->indexOf(id) + 1;
-  khcHistoryItem *item = history.back(steps);
-        
+  khcHistoryItem *item = m_history.back(steps);
+
   if(item)
-    openURL(item->url().ascii(), false, item->xOffset(), item->yOffset());
+    openURL(QString(item->url()), false, item->xOffset(), item->yOffset());
+*/
 }
 
 void kibMainWindow::slotHistoryForwardActivated(int id)
 {
+/*
   int steps = m_pHistoryForwardMenu->indexOf(id) + 1;
-  khcHistoryItem *item = history.forward(steps);
-  
+  khcHistoryItem *item = m_history.forward(steps);
+
   if(item)
-    openURL(item->url().ascii(), false, item->xOffset(), item->yOffset());
+    openURL(QString(item->url()), false, item->xOffset(), item->yOffset());
+*/
 }
 
 void kibMainWindow::slotSetBusy(bool busy)
 {
   toolBar(0)->setItemEnabled(TB_STOP, busy);
 }
-
-kibMainWindowIf::kibMainWindowIf(kibMainWindow* _main) :
-  OPMainWindowIf( _main )
-{
-  ADD_INTERFACE("IDL:KInfoBrowser/MainWindow:1.0" );
-
-  m_pkibMainWindow = _main;
-}
-
-kibMainWindowIf::~kibMainWindowIf()
-{
-  cleanUp();
-}
-
-void kibMainWindowIf::setStatusBarText(const QString &_text)
-{
-  m_pkibMainWindow->slotSetStatusText(_text);
-  kdebug(0, 1400, "void kibMainWindowIf::setStatusBarText(const char *_text)");
-}
-
-void kibMainWindowIf::setLocationBarURL(OpenParts::Id , const QCString &_url)
-{
-  m_pkibMainWindow->slotSetLocation(_url);
-  m_pkibMainWindow->slotSetTitle(_url);
-  kdebug(0, 1400, "void kibMainWindowIf::setLocationBarURL(const char *_url)");
-}
-
-void kibMainWindowIf::createNewWindow(const QCString &url)
-{
-  m_pkibMainWindow->slotOpenNewBrowser(url);
-  kdebug(0, 1400, "void kibMainWindowIf::createNewWindow(const char *url)");
-}
-
-void kibMainWindowIf::slotURLStarted(OpenParts::Id , const QCString &)
-{
-  m_pkibMainWindow->slotSetBusy(true);
-  kdebug(0, 1400, "void kibMainWindowIf::slotURLStarted(const char *url)");
-}
-
-void kibMainWindowIf::slotURLCompleted(OpenParts::Id )
-{
-  m_pkibMainWindow->slotSetBusy(false);
-  kdebug(0, 1400, "void kibMainWindowIf::slotURLCompleted()");
-}
-
-void kibMainWindowIf::openURL(const Browser::URLRequest &url)
-{
-  m_pkibMainWindow->openURL(url);
-  kdebug(0, 1400, "void kibMainWindowIf::openURL(const Browser::URLRequest &url)");
-}
-
-void kibMainWindowIf::open(const QCString &url, bool reload, long xoffset, long yoffset)
-{
-  Browser::EventOpenURL eventURL;
-  eventURL.url = url;
-  eventURL.reload = reload;
-  eventURL.xOffset = xoffset;
-  eventURL.yOffset = yoffset;
-  openURL(eventURL);
-}
-
-void kibMainWindowIf::print()
-{
-  m_pkibMainWindow->slotPrint();
-}
-
-void kibMainWindowIf::zoomIn()
-{
-  m_pkibMainWindow->slotMagPlus();
-}
-
-void kibMainWindowIf::zoomOut()
-{
-  m_pkibMainWindow->slotMagMinus();
-}
-
-void kibMainWindowIf::reload()
-{
-  m_pkibMainWindow->slotReload();
-}
-
-void kibMainWindowIf::openFile()
-{
-  m_pkibMainWindow->slotOpenFile();
-}
-
-void kibMainWindowIf::index()
-{
-  m_pkibMainWindow->slotIndex();
-}
-
-void kibMainWindowIf::back()
-{
-  m_pkibMainWindow->slotBack();
-}
-
-void kibMainWindowIf::forward()
-{
-  m_pkibMainWindow->slotForward();
-}
-
-void kibMainWindowIf::bookmark()
-{
-  m_pkibMainWindow->slotSetBookmark();
-}
-
-void kibMainWindowIf::options()
-{
-  m_pkibMainWindow->slotOptionsGeneral();
-} 
 
 #include "kib_mainwindow.moc"

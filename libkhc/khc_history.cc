@@ -26,13 +26,13 @@ khcHistoryItem::khcHistoryItem()
   m_xOffset = m_yOffset = 0;
 }
 
-khcHistoryItem::khcHistoryItem(const char* url)
+khcHistoryItem::khcHistoryItem(const QString& url)
 {
   m_url = url;
   m_xOffset = m_yOffset = 0;
 }
 
-khcHistoryItem::khcHistoryItem(const char* url, long xOffset, long yOffset)
+khcHistoryItem::khcHistoryItem(const QString& url, long xOffset, long yOffset)
 {
   m_url = url;
   m_xOffset = xOffset;

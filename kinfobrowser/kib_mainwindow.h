@@ -21,142 +21,99 @@
 #ifndef __kib_mainwindow_h__
 #define __kib_mainwindow_h__
 
-#include "kinfobrowser.h"
+#include <ktmainwindow.h>
+
 #include "kib_view.h"
 #include "khc_history.h"
 
-#include <opMainWindow.h>
-#include <opMainWindowIf.h>
+class KAction;
+class KHelpMenu;
+class KListAction;
+class KToggleAction;
 
-class OPFrame;
-class QPopupMenu;
-class kibMainWindow;
-
-class kibMainWindowIf : virtual public OPMainWindowIf,
-						virtual public KInfoBrowser::MainWindow_skel
+class kibMainWindow : public KTMainWindow
 {
- public:
-  kibMainWindowIf(kibMainWindow* _main);
-  ~kibMainWindowIf();
-  
-  virtual void openURL(const Browser::URLRequest &url );
-  virtual void open(const QCString &url, bool reload, long xoffset, long yoffset);
-  
-  virtual void setStatusBarText(const QString &_text);
-  virtual void setLocationBarURL(OpenParts::Id id, const QCString &_url);
-  
-  virtual void createNewWindow( const QCString &url );
-  virtual void slotURLStarted( OpenParts::Id id, const QCString &url );
-  virtual void slotURLCompleted( OpenParts::Id id );
+  Q_OBJECT
 
-  virtual void zoomIn();
-  virtual void zoomOut();
-  virtual void print();
-  virtual void reload();
+public:
 
-  virtual void openFile();
-  virtual void index();
-  virtual void forward();
-  virtual void back();
-  virtual void bookmark();
-  virtual void options();
+  kibMainWindow( const QString& url = QString(""), char *name = 0 );
+  virtual ~kibMainWindow();
 
- protected:
-  kibMainWindow* m_pkibMainWindow;
-};
+  void openURL( const QString& urlRequest);
+  void openURL( const QString& url, bool withHistory = true, long xOffset = 0, long yOffset = 0);
 
-class kibMainWindow : public OPMainWindow
-{
-    Q_OBJECT
+protected:
 
- public:
-    kibMainWindow(const QString& url = 0);
-    virtual ~kibMainWindow();
+  void setupActions();
+  void setupStatusBar();
+  void setupLocationBar();
+  void setupView();
 
-    void openURL(Browser::URLRequest urlRequest);
-    void openURL(const QCString &url, bool withHistory = true, long xOffset = 0, long yOffset = 0);
+public slots:
 
-    virtual OPMainWindowIf* interface();
-    virtual kibMainWindowIf* kibInterface();
+  // mainwindow related slots
+  void slotNewBrowser();
+  void slotOpenFile();
 
- protected:
-    void setupMenuBar();
-    void setupToolBar();
-    void setupStatusBar();
-    void setupLocationBar();
-    void setupView();
-    void connectView();
-    void cleanUp();
+  void slotIndex();
+  void slotForward();
+  void slotBack();
 
- public slots:
+  void slotSetBusy(bool busy);
 
-    // mainwindow related slots
-    void slotNewBrowser();
-    void slotOpenFile();
+  void slotCheckHistory();
 
-    void slotIndex();
-    void slotForward();
-    void slotBack();
+  void slotOptionsToolbar();
+  void slotOptionsLocationbar();
+  void slotOptionsStatusbar();
+  void slotOptionsGeneral();
 
-    void slotSetBusy(bool busy);
+  void slotSaveSettings();
+  void slotReadSettings();
 
-    void slotSetBookmark();
+  void slotAddBookmark();
+  void slotClearBookmarks();
 
-    void slotToolbarClicked(int);
-    void slotCheckHistory();
-    
-    void slotOptionsToolbar();
-    void slotOptionsLocationbar();
-    void slotOptionsStatusbar();
-    void slotOptionsGeneral();
+  void slotQuit();
 
-    void slotSaveSettings();
-    void slotReadSettings();
+  // slots the views connect to
+  void slotOpenNewBrowser(const QString& url = QString("") );
+  void slotURLSelected(const QString& _url, int _button);
+  void slotSetTitle(const QString& _title );
+  void slotSetLocation(const QString& _url);
+  void slotSetURL( const QString& url);
+  void slotSetStatusText(const QString& text);
 
-    void slotQuit();
+  // forward actions to the views
+  void slotFind();
+  void slotFindNext();
+  void slotReload();
+  void slotCopy();
+  void slotPrint();
+  void slotMagMinus();
+  void slotMagPlus();
+  void slotStopProcessing();
 
-    // slots the views connect to
-    void slotOpenNewBrowser(const QString& url);
-    void slotURLSelected(const QString& _url, int _button);
-    void slotSetTitle(const QString& _title );
-    void slotSetLocation(const QString& _url);
-    void slotSetURL(QString url);
-    void slotSetStatusText(const QString& text);
+private slots:
 
-    // forward actions to the views
-    void slotFind();
-    void slotFindNext();
-    void slotReload();
-    void slotCopy();
-    void slotPrint();
-    void slotMagMinus();
-    void slotMagPlus();
-    void slotStopProcessing();
+  void slotLocationEntered();
+  void slotHistoryFillBack();
+  void slotHistoryFillForward();
+  void slotHistoryBackActivated(int id);
+  void slotHistoryForwardActivated(int id);
 
- private slots:
-    void slotLocationEntered();
-    void slotHistoryFillBack();
-    void slotHistoryFillForward();
-    void slotHistoryBackActivated(int id);
-    void slotHistoryForwardActivated(int id);
+protected:
 
- protected:
-    OPFrame         *m_pFrame;
-    kibMainWindowIf *m_pkibInterface;
-    kibView         *m_pView;
+  kibView       *m_pView;
+  khcHistory     m_history;
+  KAction       *m_zoomIn, *m_zoomOut, *m_back, *m_forward;
+  KListAction   *m_bookmarks;
+  KToggleAction *m_statusbar, *m_toolbar, *m_location;
+  KHelpMenu     *m_pHelpMenu;
 
-    KInfoBrowser::View_var m_vView;
-    khcHistory history;
-
-    QPopupMenu *m_pFileMenu, *m_pEditMenu, *m_pViewMenu, *m_pGotoMenu, *m_pOptionsMenu, *m_pHelpMenu,*m_pBookmarkMenu;
-    QPopupMenu *m_pHistoryBackMenu, *m_pHistoryForwardMenu;
-
-    // toolbar and menu id's
-    enum {TB_BACK, TB_FORWARD, TB_RELOAD, TB_STOP, TB_PRINT, TB_SETBOOKMARK, TB_ZOOMIN, TB_ZOOMOUT, TB_FIND};
-    int idCopy, idBack, idForward, idToolBar ,idLocationBar, idStatusBar, idMagPlus, idMagMinus;
-
-    // UI options:
-    bool m_showStatusBar, m_showToolBar, m_showLocationBar;
+  // UI options:
+  bool m_showStatusBar, m_showToolBar, m_showLocationBar;
 };
 
 #endif
