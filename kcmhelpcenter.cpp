@@ -37,6 +37,8 @@
 #include <kdebug.h>
 #include <kstandarddirs.h>
 #include <kprocess.h>
+#include <kapplication.h>
+#include <dcopclient.h>
 
 #include "htmlsearchconfig.h"
 
@@ -130,6 +132,9 @@ void KCMHelpCenter::save()
   mHtmlSearchTab->save( mConfig );
 
   mConfig->sync();
+  
+  QByteArray data;
+  kapp->dcopClient()->send("khelpcenter", "SearchWidget", "searchIndexUpdated()", data);
 }
 
 void KCMHelpCenter::load()

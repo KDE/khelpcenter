@@ -23,10 +23,14 @@
 
 #include <qwidget.h>
 
+#include <dcopobject.h>
+
 #include "docmetainfo.h"
 
 class QCheckBox;
 class QListView;
+class QListViewItem;
+class QComboBox;
 
 class KLanguageCombo;
 
@@ -34,9 +38,14 @@ namespace KHC {
 
 class ScopeItem;
 
-class SearchWidget : public QWidget
+class SearchWidget : public QWidget, public DCOPObject
 {
     Q_OBJECT
+    K_DCOP
+
+  k_dcop:
+    ASYNC searchIndexUpdated(); // called from kcmhelpcenter
+
   public:
     SearchWidget ( QWidget *parent = 0 );
     ~SearchWidget();

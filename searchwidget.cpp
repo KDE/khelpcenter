@@ -61,7 +61,7 @@
 namespace KHC {
 
 SearchWidget::SearchWidget( QWidget *parent )
-  : QWidget( parent ),
+  : QWidget( parent ), DCOPObject( "SearchWidget" ),
     mScopeCount( 0 )
 {
   QBoxLayout *topLayout = new QVBoxLayout( this, 2, 2 );
@@ -283,6 +283,13 @@ void SearchWidget::registerScopeItem( ScopeItem *item )
 {
   item->setOn( item->entry()->searchEnabled() );
   if ( item->entry()->searchEnabled() ) mScopeCount++;
+}
+
+void SearchWidget::searchIndexUpdated()
+{
+  KGlobal::config()->reparseConfiguration();
+  updateScopeList();
+  update();
 }
 
 void SearchWidget::updateScopeList()
