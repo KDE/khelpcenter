@@ -51,7 +51,7 @@ class khcTOC : public KListView
 
 		CacheStatus cacheStatus() const;
 		int sourceFileCTime() const;
-		int cacheCTime() const;
+		int cachedCTime() const;
 		QDomElement childElement( const QDomElement &e, const QString &name );
 		void buildCache();
 		void fillTree();

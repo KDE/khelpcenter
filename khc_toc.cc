@@ -110,7 +110,7 @@ void khcTOC::build( const QString &file )
 khcTOC::CacheStatus khcTOC::cacheStatus() const
 {
 	if ( !QFile::exists( m_cacheFile ) ||
-	     sourceFileCTime() != cacheCTime() )
+	     sourceFileCTime() != cachedCTime() )
 		return NeedRebuild;
 
 	return CacheOk;
@@ -124,7 +124,7 @@ int khcTOC::sourceFileCTime() const
 	return stat_buf.st_ctime;
 }
 
-int khcTOC::cacheCTime() const
+int khcTOC::cachedCTime() const
 {
 	QFile f( m_cacheFile );
 	if ( !f.open( IO_ReadOnly ) )
