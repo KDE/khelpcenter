@@ -428,5 +428,7 @@ Font Configuration
 ### per-encoding basis (at which time, this was apparently working, the bug 
 ### reports dropped off, and only returned post KDE 3.0
 
+# FWIW I added a simple font configuration facility a while back, which should
+# IMHO be sufficient for the vast majority of users.
 
 // vim:tw=78
