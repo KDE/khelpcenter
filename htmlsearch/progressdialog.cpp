@@ -56,13 +56,13 @@ void ProgressDialog::setFilesScanned(int n)
 
 void ProgressDialog::setFilesToDig(int n)
 {
-  bar->setRange(0, n);
+  bar->setTotalSteps(n);
 }
 
 
 void ProgressDialog::setFilesDigged(int n)
 {
-  bar->setValue(n);
+  bar->setProgress(n);
 }
 
 
