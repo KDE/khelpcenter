@@ -73,7 +73,7 @@ void Listener::slotAppRegistered( const QCString &appId )
 
 int main(int argc, char *argv[])
 {
-  KApplication app( argc, argv, "khelpcenter" );
+  KApplication app( argc, argv, "khelpcenter", false );
 
   app.dcopClient()->attach();
 
