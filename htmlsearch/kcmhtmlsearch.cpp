@@ -41,7 +41,8 @@
 #include <klocale.h>
 #include <kstddirs.h>
 #include <kglobal.h>
-
+#include <kurlrequester.h>
+#include <klineedit.h>
 
 #include "kcmhtmlsearch.moc"
 
@@ -81,32 +82,32 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const char *name)
   grid = new QGridLayout(gb, 4,2, 6,6);
   grid->addRowSpacing(0, gb->fontMetrics().lineSpacing());
 
-  htdigBin = new QLineEdit(gb);
+  htdigBin = new KURLRequester(gb);
   l = new QLabel(htdigBin, i18n("ht&dig"), gb);
   l->setBuddy( htdigBin );
   grid->addWidget(l, 1,0);
   grid->addWidget(htdigBin, 1,1);
-  connect(htdigBin, SIGNAL(textChanged(const QString&)), this, SLOT(configChanged()));
+  connect(htdigBin->lineEdit(), SIGNAL(textChanged(const QString&)), this, SLOT(configChanged()));
   QString wtstr = i18n( "Enter the path to your htdig program here, e.g. /usr/local/bin/htdig" );
   QWhatsThis::add( htdigBin, wtstr );
   QWhatsThis::add( l, wtstr );
 
-  htsearchBin = new QLineEdit(gb);
+  htsearchBin = new KURLRequester(gb);
   l = new QLabel(htsearchBin, i18n("ht&search"), gb);
   l->setBuddy( htsearchBin );
   grid->addWidget(l, 2,0);
   grid->addWidget(htsearchBin, 2,1);
-  connect(htsearchBin, SIGNAL(textChanged(const QString&)), this, SLOT(configChanged()));
+  connect(htsearchBin->lineEdit(), SIGNAL(textChanged(const QString&)), this, SLOT(configChanged()));
   wtstr = i18n( "Enter the path to your htsearch program here, e.g. /usr/local/bin/htsearch" );
   QWhatsThis::add( htsearchBin, wtstr );
   QWhatsThis::add( l, wtstr );
 
-  htmergeBin = new QLineEdit(gb);
+  htmergeBin = new KURLRequester(gb);
   l = new QLabel(htmergeBin, i18n("ht&merge"), gb);
   l->setBuddy( htmergeBin );
   grid->addWidget(l, 3,0);
   grid->addWidget(htmergeBin, 3,1);
-  connect(htmergeBin, SIGNAL(textChanged(const QString&)), this, SLOT(configChanged()));
+  connect(htmergeBin->lineEdit(), SIGNAL(textChanged(const QString&)), this, SLOT(configChanged()));
   wtstr = i18n( "Enter the path to your htmerge program here, e.g. /usr/local/bin/htmerge" );
   QWhatsThis::add( htmergeBin, wtstr );
   QWhatsThis::add( l, wtstr );
@@ -188,7 +189,7 @@ void KHTMLSearchConfig::loadLanguages()
 {
   // clear the list
   language->clear();
- 
+
   // add all languages to the list
   QStringList langs = KGlobal::dirs()->findAllResources("locale",
 							QString::fromLatin1("*/entry.desktop"));
@@ -199,13 +200,13 @@ void KHTMLSearchConfig::loadLanguages()
       KSimpleConfig entry(*it);
       entry.setGroup(QString::fromLatin1("KCM Locale"));
       QString name = entry.readEntry(QString::fromLatin1("Name"), KGlobal::locale()->translate("without name"));
-      
+
       QString path = *it;
       int index = path.findRev('/');
       path = path.left(index);
       index = path.findRev('/');
       path = path.mid(index+1);
-      language->insertLanguage(path, name);      
+      language->insertLanguage(path, name);
     }
 }
 
@@ -268,9 +269,9 @@ void KHTMLSearchConfig::load()
   KConfig *config = new KConfig("khelpcenterrc", true);
 
   config->setGroup("htdig");
-  htdigBin->setText(config->readEntry("htdig", kapp->dirs()->findExe("htdig")));
-  htsearchBin->setText(config->readEntry("htsearch", kapp->dirs()->findExe("htsearch")));
-  htmergeBin->setText(config->readEntry("htmerge", kapp->dirs()->findExe("htmerge")));
+  htdigBin->lineEdit()->setText(config->readEntry("htdig", kapp->dirs()->findExe("htdig")));
+  htsearchBin->lineEdit()->setText(config->readEntry("htsearch", kapp->dirs()->findExe("htsearch")));
+  htmergeBin->lineEdit()->setText(config->readEntry("htmerge", kapp->dirs()->findExe("htmerge")));
 
   config->setGroup("Scope");
   indexKDE->setChecked(config->readBoolEntry("KDE", true));
@@ -296,9 +297,9 @@ void KHTMLSearchConfig::save()
   KConfig *config= new KConfig("khelpcenterrc", false);
 
   config->setGroup("htdig");
-  config->writeEntry("htdig", htdigBin->text());
-  config->writeEntry("htsearch", htsearchBin->text());
-  config->writeEntry("htmerge", htmergeBin->text());
+  config->writeEntry("htdig", htdigBin->lineEdit()->text());
+  config->writeEntry("htsearch", htsearchBin->lineEdit()->text());
+  config->writeEntry("htmerge", htmergeBin->lineEdit()->text());
 
   config->setGroup("Scope");
   config->writeEntry("KDE", indexKDE->isChecked());
@@ -322,9 +323,9 @@ void KHTMLSearchConfig::save()
 
 void KHTMLSearchConfig::defaults()
 {
-  htdigBin->setText(kapp->dirs()->findExe("htdig"));
-  htsearchBin->setText(kapp->dirs()->findExe("htsearch"));
-  htmergeBin->setText(kapp->dirs()->findExe("htmerge"));
+  htdigBin->lineEdit()->setText(kapp->dirs()->findExe("htdig"));
+  htsearchBin->lineEdit()->setText(kapp->dirs()->findExe("htsearch"));
+  htmergeBin->lineEdit()->setText(kapp->dirs()->findExe("htmerge"));
 
   indexKDE->setChecked(true);
   indexMan->setChecked(false);

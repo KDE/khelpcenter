@@ -31,7 +31,7 @@ class QPushButton;
 class KListBox;
 class KProcess;
 class KLanguageCombo;
-
+class KURLRequester;
 
 class KHTMLSearchConfig : public KCModule
 {
@@ -68,7 +68,7 @@ private:
   void checkButtons();
   void loadLanguages();
 
-  QLineEdit *htdigBin, *htsearchBin, *htmergeBin;
+  KURLRequester *htdigBin, *htsearchBin, *htmergeBin;
   QCheckBox *indexKDE, *indexMan, *indexInfo;
   QPushButton *addButton, *delButton, *runButton;
   KListBox *searchPaths;
