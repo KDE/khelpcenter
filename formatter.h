@@ -38,6 +38,8 @@ class Formatter
     virtual QString separator();
     virtual QString docTitle( const QString & );
     virtual QString sectionHeader( const QString & );
+    virtual QString paragraph( const QString & );
+    virtual QString title( const QString & );
     
     virtual QString processResult( const QString & );
 

@@ -29,7 +29,7 @@ DocMetaInfo::DocMetaInfo()
 
   mHtmlSearch = new HTMLSearch;
 
-  mRootEntry.setName( "root entry" );
+  mRootEntry.setName( i18n("Top-Level Documentation") );
 }
 
 DocMetaInfo::~DocMetaInfo()

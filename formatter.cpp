@@ -162,12 +162,12 @@ QString Formatter::separator()
 
 QString Formatter::docTitle( const QString &title )
 {
-  return "<h2><font color=\"red\">" + title + "</font></h2>";
+  return "<h3><font color=\"red\">" + title + "</font></h3>";
 }
 
 QString Formatter::sectionHeader( const QString &section )
 {
-  return "<h1><font color=\"blue\">" + section + "</font></h1>";
+  return "<h2><font color=\"blue\">" + section + "</font></h2>";
 }
 
 QString Formatter::processResult( const QString &data )
@@ -209,4 +209,15 @@ QString Formatter::processResult( const QString &data )
 
   return result;
 }
+
+QString Formatter::paragraph( const QString &str )
+{
+  return "<p>" + str + "</p>";
+}
+
+QString Formatter::title( const QString &title )
+{
+  return "<h2>" + title + "</h2>";
+}
+
 // vim:ts=2:sw=2:et

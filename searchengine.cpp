@@ -48,7 +48,8 @@ SearchTraverser::~SearchTraverser()
   }
 
   if ( !mResult.isEmpty() ) {
-    mEngine->view()->writeSearchResult( mEngine->formatter()->sectionHeader( section ) );
+    mEngine->view()->writeSearchResult(
+      mEngine->formatter()->sectionHeader( section ) );
     mEngine->view()->writeSearchResult( mResult );
   }
 }
@@ -212,6 +213,8 @@ bool SearchEngine::search( QString words, QString method, int matches,
 
     mView->beginSearchResult();
     mView->writeSearchResult( formatter()->header( i18n("Search Results") ) );
+    mView->writeSearchResult( formatter()->title(
+      i18n("Search Results for '%1':").arg( words ) ) );
 
     if ( mRootTraverser ) {
       kdDebug() << "SearchEngine::search(): mRootTraverser not null." << endl;
