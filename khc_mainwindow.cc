@@ -129,7 +129,7 @@ void khcMainWindow::setupView()
     m_pSplitter = new QSplitter(QSplitter::Horizontal, this);
     CHECK_PTR(m_pSplitter);
 
-    m_pNavigator = new KHelpNavigator(m_pSplitter);
+    m_pNavigator = new khcNavigator(m_pSplitter);
     m_pFrame = new OPFrame(m_pSplitter);
     CHECK_PTR(m_pNavigator);
     CHECK_PTR(m_pFrame);

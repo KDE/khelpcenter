@@ -28,7 +28,7 @@
 #include <kstddirs.h>
 #include <kglobal.h>
 
-HTreeListItem::HTreeListItem(const QString& _text, const QString& _miniicon)
+khcNavigatorItem::khcNavigatorItem(const QString& _text, const QString& _miniicon)
     : KTreeListItem()
 {
     name = _text;
@@ -38,7 +38,7 @@ HTreeListItem::HTreeListItem(const QString& _text, const QString& _miniicon)
     setIndent(0);
 }
 
-bool HTreeListItem::readKDElnk ( const char *filename )
+bool khcNavigatorItem::readKDElnk ( const char *filename )
 {
     QFile file(filename);
     if (!file.open(IO_ReadOnly))
@@ -85,7 +85,7 @@ bool HTreeListItem::readKDElnk ( const char *filename )
     return true;
 }
 
-void HTreeListItem::insertInTree(KTreeList *tree, KTreeListItem *parent)
+void khcNavigatorItem::insertInTree(KTreeList *tree, KTreeListItem *parent)
 {
     QPixmap *item_pm = new QPixmap(locate("icon", "mini/" + miniicon));
 
@@ -104,27 +104,27 @@ void HTreeListItem::insertInTree(KTreeList *tree, KTreeListItem *parent)
     } 
 }
 
-void HTreeListItem::setName(QString _name)
+void khcNavigatorItem::setName(QString _name)
 {
     name = _name;
 }
 
-void HTreeListItem::setURL(QString _url)
+void khcNavigatorItem::setURL(QString _url)
 {
     url = _url;
 }
 
-void HTreeListItem::setInfo(QString _info)
+void khcNavigatorItem::setInfo(QString _info)
 {
     info = _info;
 }
 
-void HTreeListItem::setIcon(QString _icon)
+void khcNavigatorItem::setIcon(QString _icon)
 {
     icon = _icon;
 }
 
-void HTreeListItem::setMiniIcon(QString _miniicon)
+void khcNavigatorItem::setMiniIcon(QString _miniicon)
 {
     miniicon = _miniicon;
 }

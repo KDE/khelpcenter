@@ -32,8 +32,8 @@
 class QSplitter;
 class OPFrame;
 class QPopupMenu;
-class KHelpNavigator;
-class KHCBaseView;
+class khcNavigator;
+class khcBaseView;
 class KFileBookmark;
 class khcMainWindow;
 class khcHTMLView;
@@ -141,7 +141,7 @@ class khcMainWindow : public OPMainWindow
 
  protected:
     QSplitter       *m_pSplitter;
-    KHelpNavigator  *m_pNavigator;
+    khcNavigator    *m_pNavigator;
     OPFrame         *m_pFrame;
     khcHTMLView     *m_pView;
     khcMainWindowIf *m_pkhcInterface;

@@ -23,10 +23,10 @@
 
 #include <ktreelist.h>
 
-class HTreeListItem : public KTreeListItem
+class khcNavigatorItem : public KTreeListItem
 {
  public:
-    HTreeListItem (const QString& text = "", const QString& miniicon = "");
+    khcNavigatorItem (const QString& text = "", const QString& miniicon = "");
     bool readKDElnk (const char *filename);
     void insertInTree(KTreeList *tree, KTreeListItem *parent);
     void setName(QString _name);

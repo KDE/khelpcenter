@@ -27,16 +27,16 @@
 
 class IndexWidget;
 class SearchWidget;
-class HTreeListItem;
+class khcNavigatorItem;
 class QTabBar;
 
-class KHelpNavigator : public QWidget
+class khcNavigator : public QWidget
 {
     Q_OBJECT
   
  public:
-    KHelpNavigator(QWidget *parent=0, const char *name=0);
-    virtual ~KHelpNavigator();
+    khcNavigator(QWidget *parent=0, const char *name=0);
+    virtual ~khcNavigator();
 
  protected:
     void resizeEvent (QResizeEvent *);
@@ -58,12 +58,12 @@ class KHelpNavigator : public QWidget
     void buildTree();
     void clearTree();
 
-    void buildManSubTree(HTreeListItem *parent);
-    void buildManualSubTree(HTreeListItem *parent);
+    void buildManSubTree(khcNavigatorItem *parent);
+    void buildManualSubTree(khcNavigatorItem *parent);
     void insertPlugins();
 
-    bool appendEntries (const char *dirName,  HTreeListItem *parent, QList<HTreeListItem> *appendList);
-    bool processDir(const char *dirName, HTreeListItem *parent,  QList<HTreeListItem> *appendList);
+    bool appendEntries (const char *dirName,  khcNavigatorItem *parent, QList<khcNavigatorItem> *appendList);
+    bool processDir(const char *dirName, khcNavigatorItem *parent,  QList<khcNavigatorItem> *appendList);
     bool containsDocuments(QString dir);
 
     QTabBar *tabBar;
@@ -71,7 +71,7 @@ class KHelpNavigator : public QWidget
     SearchWidget *search;
     IndexWidget *index;
 
-    QList<HTreeListItem> staticItems, manualItems, pluginItems;
+    QList<khcNavigatorItem> staticItems, manualItems, pluginItems;
 };
 
 #endif
