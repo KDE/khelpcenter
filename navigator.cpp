@@ -210,6 +210,7 @@ class PluginTraverser : public DocEntryTraverser
         KConfig *cfg = kapp->config();
         cfg->setGroup( "General" );
         appItem->setRelpath( cfg->readEntry( "AppsRoot" ) );
+        appItem->setIcon( "kmenu" );
         mCurrentItem = appItem;
       } else if ( entry->khelpcenterSpecial() == "scrollkeeper" ) {
         if ( mParentItem ) {
@@ -236,24 +237,28 @@ class PluginTraverser : public DocEntryTraverser
           mNavigator->insertIOSlaveDocs( entry->khelpcenterSpecial(),
                                          mCurrentItem );
 
-        else if ( entry->khelpcenterSpecial() == "info" )
+        else if ( entry->khelpcenterSpecial() == "info" ) {
+          mCurrentItem->setPixmap( 0, SmallIcon( "contents2" ) );
           mNavigator->insertInfoDocs( mCurrentItem );
+        }
       }
 
       mCurrentItem->setName( entry->name() );
       mCurrentItem->setUrl( entry->docPath() );
 
-      if ( !entry->docExists() ) {
-        mCurrentItem->setIcon( "unknown" );
-      } else {
-        if ( entry->icon().isEmpty() ) {
-          if ( entry->isDirectory() ) {
-            mCurrentItem->setIcon( "contents2" );
-          } else {
-            mCurrentItem->setIcon( "document2" );
-          }
+      if ( mCurrentItem->icon().isNull() ) {
+        if ( !entry->docExists() ) {
+          mCurrentItem->setIcon( "unknown" );
         } else {
-          mCurrentItem->setIcon( entry->icon() );
+          if ( entry->icon().isEmpty() ) {
+            if ( entry->isDirectory() ) {
+              mCurrentItem->setIcon( "contents2" );
+            } else {
+              mCurrentItem->setIcon( "document2" );
+            }
+          } else {
+            mCurrentItem->setIcon( entry->icon() );
+          }
         }
       }
     }
