@@ -15,6 +15,7 @@ class HTMLSearch : public QObject
     Q_OBJECT
   public:
     HTMLSearch();
+    ~HTMLSearch();
 
     void setupDocEntry( KHC::DocEntry * );
 

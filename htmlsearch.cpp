@@ -16,6 +16,11 @@ HTMLSearch::HTMLSearch()
   mConfig->setGroup( "htdig" );
 }
 
+HTMLSearch::~HTMLSearch()
+{
+    delete mConfig;
+}
+
 void HTMLSearch::setupDocEntry( KHC::DocEntry *entry )
 {
 //  kdDebug() << "HTMLSearch::setupDocEntry(): " << entry->name() << endl;
