@@ -1,10 +1,7 @@
 
-data_DATA = hidenavigator.xpm shownavigator.xpm
-datadir = $(kde_toolbardir)
+kde_toolbar_DATA = hidenavigator.png shownavigator.png
 
-KDE_ICON = khelpcenter 
-
-kde_mini_DATA = helpbook.xpm helpbook_open.xpm helpdoc.xpm helpdoc.xpm
+KDE_ICON = khelpcenter helpbook helpbook_open helpdoc
 
 messages:
 
