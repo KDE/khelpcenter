@@ -118,6 +118,7 @@ void NavigatorAppItem::populate( bool recursive )
               break;
         }
      }
+     sortChildItems( 0, true /* ascending */ );
      mPopulated = true;
 }
 
