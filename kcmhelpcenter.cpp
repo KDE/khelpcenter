@@ -143,7 +143,7 @@ void KCMHelpCenter::load()
   for( it = entries.begin(); it != entries.end(); ++it ) {
 //    kdDebug() << "Entry: " << (*it)->name() << " Indexer: '"
 //              << (*it)->indexer() << "'" << endl;
-    if ( !(*it)->indexer().isEmpty() ) {
+    if ( (*it)->docExists() && !(*it)->indexer().isEmpty() ) {
       ScopeItem *item = new ScopeItem( mListView, *it );
       item->setOn( (*it)->searchEnabled() );
     }

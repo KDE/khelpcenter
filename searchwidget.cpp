@@ -226,7 +226,8 @@ class ScopeTraverser : public DocEntryTraverser
 
     void process( DocEntry *entry )
     {
-      if ( !entry->search().isEmpty() && entry->indexExists() ) {
+      if ( !entry->search().isEmpty() && entry->docExists() &&
+           entry->indexExists() ) {
         ScopeItem *item = 0;
         if ( mParentItem ) {
           item = new ScopeItem( mParentItem, entry );

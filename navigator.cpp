@@ -358,17 +358,7 @@ class PluginTraverser : public DocEntryTraverser
         return;
       }
 
-      bool missing = false;
-      QString docPath = entry->docPath();
-      if ( !docPath.isEmpty() ) {
-        KURL docUrl( docPath );
-        if ( docUrl.isLocalFile() && !KStandardDirs::exists( docUrl.path() ) ) {
-          kdDebug(1400) << "URL not found: " << docUrl.url() << endl;
-          missing = true;
-        }
-      }
-
-      if ( missing & !mNavigator->showMissingDocs() ) return;
+      if ( !entry->docExists() & !mNavigator->showMissingDocs() ) return;
 
       if (entry->khelpcenterSpecial() == "apps") {
         if ( mListView )
@@ -395,7 +385,7 @@ class PluginTraverser : public DocEntryTraverser
       mCurrentItem->setName( entry->name() );
       mCurrentItem->setUrl( entry->docPath() );
       
-      if ( missing ) {
+      if ( !entry->docExists() ) {
         mCurrentItem->setIcon( "unknown" );
       } else {
         if ( entry->icon().isEmpty() ) {

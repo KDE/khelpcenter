@@ -162,6 +162,8 @@ SearchEngine::SearchEngine( View *destination )
     mProc( 0 ), mView( destination ), mRootTraverser( 0 )
 {
   mFormatter = new SearchFormatter;
+
+  mLang = KGlobal::locale()->language().left( 2 );
 }
 
 SearchEngine::~SearchEngine()
@@ -200,7 +202,6 @@ bool SearchEngine::search( QString words, QString method, int matches,
   mMethod = method;
   mMatches = matches;
   mScope = scope;
-  mLang = "en";
 
   KConfig *cfg = KGlobal::config();
   cfg->setGroup( "Search" );

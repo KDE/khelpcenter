@@ -62,6 +62,8 @@ class DocEntry
 
     bool indexExists();
 
+    bool docExists();
+
     void addChild( DocEntry * );
     bool hasChildren();
     DocEntry *firstChild();
