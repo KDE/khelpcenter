@@ -1,4 +1,4 @@
-[KDE Desktop Entry]
+[Desktop Entry]
 
 Name=Browse Info Pages
 Name[bg]=Преглед на страниците Info
@@ -11,11 +11,15 @@ Name[de]=Infoseiten durchsehen
 Name[eo]=Rigardu info-paĝojn
 Name[es]=Navegar por páginas info
 Name[et]=Infolehekülgede lehitsemine
+Name[eu]=Arakatu info orriak 
 Name[fi]=Selaa info-sivuja
 Name[fr]=Naviguer dans les pages d'information
 Name[hu]=Info oldalak
 Name[it]=Sfoglia le pagine "info"
+Name[mk]=Прелистај ги info страниците
+Name[mt]=Dur il-paġni Info
 Name[nb]=Les info-sider
+Name[nds]=Info-Sieden dörkieken
 Name[nl]=Info-pagina's doorbladeren
 Name[nn]=Les info-sider
 Name[pa]=ਜਾਣਕਾਰੀ ਸਫੇ ਝਲਕ

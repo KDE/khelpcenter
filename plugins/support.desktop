@@ -1,4 +1,4 @@
-[KDE Desktop Entry]
+[Desktop Entry]
 DocPath=help:/khelpcenter/index.html?anchor=support
 
 Name=Supporting KDE
@@ -17,10 +17,11 @@ Name[el]=Υποστήριξη στο KDE
 Name[eo]=Subteni KDEon
 Name[es]=Colaborando con KDE
 Name[et]=KDE toetamine
-Name[eu]=KDE Laguntzen
+Name[eu]=KDEri lagunduz
 Name[fa]=پشتیبانی KDE
 Name[fi]=KDE:n tukeminen
 Name[fr]=Aider KDE
+Name[ga]=Ag Tacú le KDE
 Name[gl]=Dar Apoio a KDE
 Name[he]=תמיכה ב-KDE
 Name[hi]=केडीई को आधार दें
@@ -31,6 +32,7 @@ Name[it]=Aiutare KDE
 Name[ja]=KDE 支援
 Name[lo]=ເກມກີລາ
 Name[lt]=KDE palaikymas
+Name[mk]=Поддршка за KDE
 Name[mn]=КДЭ дэмжилэг
 Name[mt]=Appoġġja lill-KDE
 Name[nb]=Støtt KDE

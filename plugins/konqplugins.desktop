@@ -1,4 +1,4 @@
-[KDE Desktop Entry]
+[Desktop Entry]
 
 Name=Konqueror Plugins
 Name[af]=Konqueror Inprop modules
@@ -17,13 +17,14 @@ Name[el]=Πρόσθετα Konqueror
 Name[eo]=Konkeranta kromaĵo
 Name[es]=Plugins de Konqueror
 Name[et]=Konquerori pluginad
-Name[eu]=Konqueror Pluginak
+Name[eu]=Konquerorren pluginak
 Name[fa]=متصل‌کننده‌های کانکرر
 Name[fi]=Konqueror-liitännäiset
 Name[fr]=Modules externes de Konqueror
+Name[ga]=Breiseáin Konqueror
 Name[gl]=Plugins de Konqueror
 Name[he]=תוספים של Konqueror
-Name[hi]=कॉन्क्वेरर प्लगइन्स
+Name[hi]=कॉन्करर प्लगइन्स
 Name[hr]=Konqueror umetci
 Name[hu]=Konqueror-bővítőmodulok
 Name[is]=Konqueror íforrit
@@ -31,6 +32,7 @@ Name[it]=Plugin di konqueror
 Name[ja]=Konqueror プラグイン
 Name[lo]=ບາວເຊີ Konqueror
 Name[lt]=Konqueror priedai
+Name[mk]=Приклучоци за Konqueror
 Name[mn]=Конкюрор-плугинс
 Name[mt]=Plagins ta' Konqueror
 Name[nb]=Konqueror-programtillegg

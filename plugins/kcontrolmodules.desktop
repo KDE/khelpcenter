@@ -1,4 +1,4 @@
-[KDE Desktop Entry]
+[Desktop Entry]
 
 Name=Control Center Modules
 Name[af]=Kontrole Sentrum Modules
@@ -6,6 +6,7 @@ Name[ar]=وحدات مركز التحكم
 Name[be]=Модулі цэнтру кіраваньня
 Name[bg]=Контролен център
 Name[bn]=নিয়ন্ত্রণ কেন্দ্র মডিউল
+Name[br]=Molladoù ar c'hreizenn ren
 Name[bs]=Moduli kontrolnog centra
 Name[ca]=Mòduls del Centre de control
 Name[cs]=Moduly Ovládacího centra
@@ -17,10 +18,11 @@ Name[en_GB]=Control Centre Modules
 Name[eo]=Stircentraj Moduloj
 Name[es]=Módulos del Centro de control
 Name[et]=Juhtimiskeskuse moodulid
-Name[eu]=Kontrol Gune Moduluak
+Name[eu]=Kontrol Gunearen moduluak
 Name[fa]=بخش‌های مرکز کنترل
 Name[fi]=Ohjauskeskuksen moduulit
 Name[fr]=Modules du centre de configuration
+Name[ga]=Modúil an Lárionad Rialaithe
 Name[gl]=Módulos do Centro de Control
 Name[he]=מודולי מרכז הבקרה
 Name[hi]=नियंत्रण केंद्र मॉड्यूल्स
@@ -31,9 +33,11 @@ Name[it]=Moduli del centro di controllo
 Name[ja]=コントロールセンターモジュール
 Name[lo]=ສູນຄວບຄຸມ
 Name[lt]=Valdymo Centro moduliai
+Name[mk]=Модули од Контролниот Центар
 Name[mn]=Удирдах төв-модул
 Name[mt]=Moduli taċ-Ċentru tal-Kontroll
 Name[nb]=Kontrollsentermoduler
+Name[nds]=Kuntrullzentrum-Modulen
 Name[nl]=Configuratiecentrummodules
 Name[nn]=Kontrollsentermodular
 Name[nso]=Diripa tsa Bogareng bja Taolo

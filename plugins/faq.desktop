@@ -1,4 +1,4 @@
-[KDE Desktop Entry]
+[Desktop Entry]
 DocPath=help:/khelpcenter/faq/index.html
 
 Name=The KDE FAQ
@@ -20,6 +20,7 @@ Name[eu]=KDE FAQa (maiz egiten diren galderak)
 Name[fa]=سوالات متداول KDE
 Name[fi]=KDE FAQ
 Name[fr]=La FAQ (questions fréquentes) de KDE
+Name[ga]=Ceisteanna Coitianta KDE
 Name[gl]=A FAQ de KDE
 Name[he]=שאלות נפוצות על KDE
 Name[hi]=केडीई एफ़एक्यू
@@ -28,6 +29,7 @@ Name[is]=KDE Spurt og Svarað (SoS)
 Name[it]=Domande su KDE (FAQ)
 Name[ja]=KDE FAQ
 Name[lt]=KDE D.U.K.(FAQ)
+Name[mk]=KDE ЧПП
 Name[mn]=КДЭ-с ихэвчилэн асуугддаг асуултууд (FAQ)
 Name[mt]=Mistoqsijiet komuni tal-KDE
 Name[nb]=KDE Ofte stilte spørsmål

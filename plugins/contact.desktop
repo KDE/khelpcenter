@@ -1,4 +1,4 @@
-[KDE Desktop Entry]
+[Desktop Entry]
 DocPath=help:/khelpcenter/index.html?anchor=contact
 
 Name=Contact Information
@@ -17,10 +17,11 @@ Name[el]=Πληροφορίες επικοινωνίας
 Name[eo]=Kontaktinformoj
 Name[es]=Información de contacto
 Name[et]=Kontaktinfo
-Name[eu]=Kontaktu Informazioa
+Name[eu]=Harremanetarako informazioa
 Name[fa]=اطلاعات تماس
 Name[fi]=Yhteystiedot
 Name[fr]=Contacter l'équipe KDE
+Name[ga]=Eolas Teagmhála
 Name[gl]=Información de Contacto
 Name[he]=מידע ליצירת קשר
 Name[hi]=सम्पर्क जानकारी
@@ -31,6 +32,7 @@ Name[it]=Informazioni contatti
 Name[ja]=コンタクト情報
 Name[lo]=ຂໍ້ມູນຕ່າງຯ
 Name[lt]=Kontaktai
+Name[mk]=Контакт информации
 Name[mn]=Холбогдох мэдээлэл
 Name[mt]=Informazzjoni dwar kuntatti
 Name[nb]=Kontaktinformasjon

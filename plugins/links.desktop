@@ -1,4 +1,4 @@
-[KDE Desktop Entry]
+[Desktop Entry]
 DocPath=help:/khelpcenter/index.html?anchor=links
 
 Name=KDE on the Web
@@ -14,11 +14,14 @@ Name[de]=KDE im Web
 Name[eo]=KDE en TTT
 Name[es]=KDE en la web
 Name[et]=KDE veebis
+Name[eu]=KDE Web-ean
 Name[fi]=KDE webissä
 Name[fr]=KDE sur le web
 Name[hu]=A KDE az interneten
 Name[it]=KDE su internet
+Name[mt]=KDE fuq il-Web
 Name[nb]=KDE på nettet
+Name[nds]=KDE in't Nett
 Name[nl]=KDE op het internet
 Name[nn]=KDE på verdsveven
 Name[pa]=ਵੈੱਬ ਤੇ KDE

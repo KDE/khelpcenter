@@ -1,10 +1,11 @@
-[KDE Desktop Entry]
+[Desktop Entry]
 
 Name=KInfoCenter Modules
 Name[ar]=وحدات مركز المعلومات
 Name[be]=Модулі інфармацыйнага цэнтру
 Name[bg]=Информационен център
 Name[bn]=KInfoCenter মডিউল
+Name[br]=Molladoù KInfoCenter
 Name[bs]=Moduli za KInfoCenter
 Name[ca]=Mòduls del KInfoCenter
 Name[cs]=Moduly Informačního centra
@@ -16,13 +17,14 @@ Name[en_GB]=KInfoCentre Modules
 Name[eo]=Infocentraj moduloj
 Name[es]=Módulos del KInfoCenter
 Name[et]=Infokeskuse moodulid
-Name[eu]=KInfoCenter Moduluak
+Name[eu]=KInfoCenter moduluak
 Name[fa]=بخش‌های ‌مرکز اطلاعات K
 Name[fi]=KInfoCenter-moduulit
 Name[fr]=Modules de centre d'informations
+Name[ga]=Modúil KInfoCenter
 Name[gl]=Módulos do Centro de Información de KDE
 Name[he]=מודולי מרכז המידע
-Name[hi]=के-इन्फो-सेंटर मॉड्यूल्स
+Name[hi]=के-जानकारी-सेंटर मॉड्यूल्स
 Name[hr]=KInfoCenter moduli
 Name[hu]=KInfoCenter-modulok
 Name[is]=Upplýsingaborðseiningar
@@ -30,10 +32,11 @@ Name[it]=Moduli del centro informazioni
 Name[ja]=KInfoCenterモジュール
 Name[lo]=ສູນຄວບຄຸມ
 Name[lt]=KInfoCenter moduliai
+Name[mk]=KInfoCenter модули
 Name[mn]=Мэд төв-модул
 Name[mt]=Moduli taċ-Ċentru tal-Informazzjoni
 Name[nb]=KInfoCenter-moduler
-Name[nds]=KInfoCenter-Module
+Name[nds]=KInfoCenter-Modulen
 Name[nl]=Informatiecentrummodules
 Name[nn]=Infosentermodular
 Name[nso]=Diripa tsa Bogareng bja Tshedimoso ya K

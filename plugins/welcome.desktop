@@ -1,4 +1,4 @@
-[KDE Desktop Entry]
+[Desktop Entry]
 DocPath=help:/khelpcenter/index.html?anchor=welcome
 
 Name=Welcome to KDE
@@ -18,10 +18,11 @@ Name[el]=Καλωσορίσατε στο KDE
 Name[eo]=Bonvenon ĉe KDE
 Name[es]=Bienvenido a KDE
 Name[et]=Tere tulemast KDEsse
-Name[eu]=Ongi etorria KDE-ra
+Name[eu]=Ongi etorria KDEra
 Name[fa]=به KDE خوش آمدید
 Name[fi]=Tervetuloa KDE:hen
 Name[fr]=Bienvenue sur KDE
+Name[ga]=Fáilte go KDE
 Name[gl]=Benvido/a a KDE
 Name[he]=ברוכים הבאים ל-KDE
 Name[hi]=केडीई में आपका स्वागत है
@@ -32,10 +33,11 @@ Name[it]=Benvenuto in KDE
 Name[ja]=KDEへようこそ
 Name[lo]=ພັດທະນາໂປຣແກຣມ
 Name[lt]=Jus sveikina KDE
+Name[mk]=Добредојдовте во KDE
 Name[mn]=КДЭ-д тавтай морил
 Name[mt]=Merħba għal KDE
 Name[nb]=Velkommen til KDE
-Name[nds]=Willkommen bi KDE
+Name[nds]=Willkamen bi KDE
 Name[nl]=Welkom bij KDE
 Name[nn]=Velkomen til KDE
 Name[nso]=O Amogetswe go KDE
