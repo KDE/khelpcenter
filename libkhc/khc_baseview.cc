@@ -41,13 +41,12 @@ khcBaseView::khcBaseView()
 
 khcBaseView::~khcBaseView()
 {
-    kdebug(0,1400,"khcBaseView::~KHCBaseView() -> %s", debug_ViewName.in());
+    kdebug(0,1400,"khcBaseView::~KHCBaseView()");
     cleanUp();
 }
 
 void khcBaseView::init()
 {
-    debug_ViewName = viewName();
 }
 
 void khcBaseView::cleanUp()
@@ -55,7 +54,7 @@ void khcBaseView::cleanUp()
     if (m_bIsClean)
 	return;
     
-    kdebug(0,1400,"void khcBaseView::cleanUp() -> %s", debug_ViewName.in());
+    kdebug(0,1400,"void khcBaseView::cleanUp()");
     
     OPPartIf::cleanUp();
 }

@@ -48,7 +48,6 @@ class khcHTMLView : public KBrowser,
     virtual bool mappingFillToolBar( Browser::View::EventFillToolBar viewToolBar );
 
     virtual void stop();
-    virtual char *viewName() { return CORBA::string_dup("khcHTMLView"); }
     virtual char *url();
     virtual CORBA::Long xOffset();
     virtual CORBA::Long yOffset();

@@ -48,7 +48,6 @@ class kmbView : public QWidget,
   virtual bool mappingOpenURL( Browser::EventOpenURL eventURL );
   
   virtual void stop();
-  virtual char *viewName() { return CORBA::string_dup("kmbView"); }
   virtual char *url();
   virtual CORBA::Long xOffset();
   virtual CORBA::Long yOffset();

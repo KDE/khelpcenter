@@ -48,7 +48,6 @@ class kibView : public QWidget,
   virtual bool mappingOpenURL( Browser::EventOpenURL eventURL );
   
   virtual void stop();
-  virtual char *viewName() { return CORBA::string_dup("kibView"); }
   virtual char *url();
   virtual CORBA::Long xOffset();
   virtual CORBA::Long yOffset();
