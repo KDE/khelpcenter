@@ -162,9 +162,9 @@ void InfoTree::parseInfoDirFile( const QString &infoDirFileName )
         item->entry()->setUrl( url );
 
         InfoCategoryItem *alphabSection = 0;
-        for ( QListViewItemIterator it( m_alphabItem ); it.current(); it++ ) {
-          if ( it.current()->text( 0 ) == appName[ 0 ].upper() ) {
-            alphabSection = static_cast<InfoCategoryItem *>( it.current() );
+        for ( QListViewItem* it=m_alphabItem->firstChild(); it; it=it->nextSibling() ) {
+          if ( it->text( 0 ) == appName[ 0 ].upper() ) {
+            alphabSection = static_cast<InfoCategoryItem *>( it );
             break;
           }
         }
