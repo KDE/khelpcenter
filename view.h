@@ -17,12 +17,6 @@ class View : public KHTMLPart
 
     virtual bool openURL( const KURL &url );
 
-    virtual void saveState( QDataStream &stream );
-    virtual void restoreState( QDataStream &stream );
-
-    enum State { Docu, About, Search };
-
-    int state() const { return mState; }
     QString title() const { return mTitle; }
 
     static QString langLookup( const QString &fname );
@@ -43,7 +37,6 @@ class View : public KHTMLPart
   private:
     void showAboutPage();
  
-    int mState;
     QString mTitle;
 
     QString mSearchResult;
