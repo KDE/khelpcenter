@@ -262,10 +262,10 @@ void History::goMenuActivated( int id )
 	int index = goMenu->indexOf(id) - m_goMenuIndex + 1;
 	if ( index > 0 )
 	{
-		kdDebug(1202) << "Item clicked has index " << index << endl;
+		kdDebug(1400) << "Item clicked has index " << index << endl;
 		// -1 for one step back, 0 for don't move, +1 for one step forward, etc.
 		int steps = ( m_goMenuHistoryStartPos+1 ) - index - m_goMenuHistoryCurrentPos; // make a drawing to understand this :-)
-		kdDebug(1202) << "Emit activated with steps = " << steps << endl;
+		kdDebug(1400) << "Emit activated with steps = " << steps << endl;
 		goHistory( steps );
 	}
 }

@@ -29,6 +29,8 @@ class KProcess;
 
 class HtmlSearchConfig;
 
+namespace KHC { class DocEntry; }
+
 class KCMHelpCenter : public KCModule
 {
     Q_OBJECT
@@ -60,7 +62,7 @@ class KCMHelpCenter : public KCModule
     QPushButton *mBuildButton;
     QProgressDialog *mProgressDialog;
     
-    QStringList mIndexQueue;
+    QValueList<KHC::DocEntry *> mIndexQueue;
     
     KConfig *mConfig;
     

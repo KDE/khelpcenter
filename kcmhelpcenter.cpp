@@ -25,8 +25,8 @@
 #include <qlistview.h>
 #include <qpushbutton.h>
 #include <qdir.h>
-#include <qprogressdialog.h>
 #include <qtabwidget.h>
+#include <qprogressdialog.h>
 
 #include <kconfig.h>
 #include <kdebug.h>
@@ -125,7 +125,7 @@ void KCMHelpCenter::defaults()
 
 void KCMHelpCenter::save()
 {
-  kdDebug() << "KCMHelpCenter::save()" << endl;
+  kdDebug(1401) << "KCMHelpCenter::save()" << endl;
 
   mHtmlSearchTab->save( mConfig );
 
@@ -141,7 +141,7 @@ void KCMHelpCenter::load()
   DocEntry::List entries = DocMetaInfo::self()->docEntries();
   DocEntry::List::ConstIterator it;
   for( it = entries.begin(); it != entries.end(); ++it ) {
-//    kdDebug() << "Entry: " << (*it)->name() << " Indexer: '"
+//    kdDebug(1401) << "Entry: " << (*it)->name() << " Indexer: '"
 //              << (*it)->indexer() << "'" << endl;
     if ( (*it)->docExists() && !(*it)->indexer().isEmpty() ) {
       ScopeItem *item = new ScopeItem( mListView, *it );
@@ -171,13 +171,19 @@ void KCMHelpCenter::updateStatus()
 
 void KCMHelpCenter::buildIndex()
 {
-  kdDebug() << "Build Index" << endl;
+  kdDebug(1401) << "Build Index" << endl;
+
+  QFontMetrics fm( font() );
+  int maxWidth = 0;
 
   QListViewItemIterator it( mListView );
   while ( it.current() != 0 ) {
     ScopeItem *item = static_cast<ScopeItem *>( it.current() );
     if ( item->isOn() ) {
-      mIndexQueue.append( item->entry()->indexer() );
+      DocEntry *entry = item->entry();
+      mIndexQueue.append( entry );
+      int width = fm.width( entry->name() );
+      if ( width > maxWidth ) maxWidth = width;
     }
     ++it;
   }
@@ -185,14 +191,17 @@ void KCMHelpCenter::buildIndex()
   if ( mIndexQueue.isEmpty() ) return;
 
   if ( !mProgressDialog ) {
-    mProgressDialog = new QProgressDialog( i18n("Build Search Indices"),
-                                           i18n("Cancel"), 1, this,
+    mProgressDialog = new QProgressDialog( "", i18n("Cancel"), 1, this,
                                            "mProgressDialog", true );
+    mProgressDialog->setCaption( i18n("Build Search Indices") );
     connect( mProgressDialog, SIGNAL( cancelled() ),
              SLOT( cancelBuildIndex() ) );
   }
   mProgressDialog->setTotalSteps( mIndexQueue.count() );
   mProgressDialog->setProgress( 0 );
+
+  mProgressDialog->setMinimumWidth( maxWidth + 130 );
+
   mProgressDialog->show();
   
   processIndexQueue();
@@ -206,7 +215,7 @@ void KCMHelpCenter::cancelBuildIndex()
 
 void KCMHelpCenter::processIndexQueue()
 {
-  QStringList::Iterator it = mIndexQueue.begin();
+  QValueList<KHC::DocEntry *>::Iterator it = mIndexQueue.begin();
 
   if ( it == mIndexQueue.end() ) {
     mProgressDialog->hide();
@@ -215,12 +224,16 @@ void KCMHelpCenter::processIndexQueue()
     return;
   }
 
+  mProgressDialog->setLabelText( i18n("Indexing '%1'.").arg( (*it)->name() ) );
+
   KProcess *proc = new KProcess;
   
-  QStringList args = QStringList::split( ' ', *it );
+  QString indexer = (*it)->indexer();
+  
+  QStringList args = QStringList::split( ' ', indexer );
   *proc << args;
 
-  kdDebug() << "KCMHelpCenter::processIndexQueue(): '" << (*it) << "'" << endl;
+  kdDebug(1401) << "KCMHelpCenter::processIndexQueue(): '" << indexer << "'" << endl;
 
   connect( proc, SIGNAL( processExited( KProcess * ) ),
            SLOT( slotIndexFinished( KProcess * ) ) ); 
@@ -234,9 +247,11 @@ void KCMHelpCenter::slotIndexFinished( KProcess *proc )
 {
   delete proc;
 
-  mProgressDialog->setProgress( mProgressDialog->progress() + 1 );
-
   updateStatus();
+
+  if ( mProgressDialog->isVisible() ) {
+    mProgressDialog->setProgress( mProgressDialog->progress() + 1 );
+  }
 
   processIndexQueue();
 }
