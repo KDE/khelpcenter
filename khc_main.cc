@@ -128,7 +128,7 @@ KHMainWindow::KHMainWindow(const KURL &url)
     m_lstHistory.setAutoDelete( true );
 
     if (url.isEmpty())
-        openURL( QString::fromLatin1( "about:khelpcenter" ) );
+        openURL( QString::fromLatin1( "help:/khelpcenter/index.html?anchor=welcome" ) );
     else
         openURL( url );
 
