@@ -35,6 +35,7 @@ QList<QPixmap> HelpCenter::animatedWheel;
 
 HelpCenter::HelpCenter()
 {
+  kdebug(KDEBUG_INFO,1400,"+HelpCenter");
   setCaption(i18n("KDE Help Center"));
 
   resize(800, 580);
@@ -108,6 +109,7 @@ HelpCenter::HelpCenter()
 
 HelpCenter::~HelpCenter()
 {
+  kdebug(KDEBUG_INFO,1400,"-HelpCenter");
   helpWindowList.removeRef(this);
   delete htmlview;
   delete tabview;

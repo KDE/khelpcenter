@@ -1,5 +1,5 @@
 /*
- *  khelpcentercom.cpp - part of the KDE Help Center
+ *  khelpcenterclient.cpp - part of the KDE Help Center
  *
  *  Copyright (c) 1999 Matthias Elter (me@kde.org)
  *
@@ -26,15 +26,15 @@
 void usage()
 {
   printf(""\
-		 "\nkhelpcentercom is part of the KDE Help Center\n"\
+		 "\nkhelpcenterclient is part of the KDE Help Center\n"\
 		 "(c) 1999, Matthias Elter\n\n"\
 		 "purpose: remote control khelpcenter\n\n"\
 		 "syntax:\n"\
-		 "   khelpcentercom open url\n"\
+		 "   khelpcenterclient open url\n"\
 		 "                 # open a new browser window and load url 'url'\n"\
 		 "                 # load introduction url if no url parameter spezified\n"\
 		 "                 # example url: file:/home/dummy/index.html\n\n"\
-		 "   khelpcentercom configure\n"\
+		 "   khelpcenterclient configure\n"\
 		 "                 # re-read khelpcenter's configuration\n"\
 		 "options:\n"\
 		 "   -enable_tree\n"\
@@ -82,23 +82,28 @@ int main(int argc, char *argv[])
 	  return 0;
 	}
   
-  KOMApplication app(argc, argv, "khelpcentercom");
+  KOMApplication app(argc, argv, "khelpcenterclient");
 
   // init CORBA stuff
   CORBA::Object_var obj = app.orb()->bind("IDL:KHelpCenter/HelpCenterCom:1.0", "inet:localhost:8887");
   if(CORBA::is_nil(obj))
 	{
-	  printf("It seems that khelpcenter isn't running!\n");
+	  kdebug(KDEBUG_FATAL,1401,"It seems that the khelpcenter server isn't running!");
 	  return 0;
 	}	
   KHelpCenter::HelpCenterCom_var server = KHelpCenter::HelpCenterCom::_narrow(obj);
+  kdebug(KDEBUG_INFO,1401,"binding to KOM interface: IDL:KHelpCenter/HelpCenterCom:1.0");
   
   if (command == 1)
-	server->configure();
+	{
+	  kdebug(KDEBUG_INFO,1401,"khelpcenterclient -configure");
+	  server->configure();
+	}
   else if (command == 2)
 	{
 	  if (url.isEmpty())
 		url = "file:" + kapp->kde_htmldir() + "/en/khelpcenter/main.html";
+	  kdebug(KDEBUG_INFO,1401,"khelpcenterclient open %s", url);
 	  server->openHelpView (url, enableTree);
 	}
   

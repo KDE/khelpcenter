@@ -15,11 +15,11 @@ LDFLAGS = $(all_libraries) $(MICO_LDFLAGS) $(KDE_RPATH)
 IDL_FLAGS = --query-server-for-narrow --relative-paths -I$(idldir)
 
 khelpcenter_bin_LDADD   = $(LIB_KFILE) $(LIB_KFM) $(LIB_KIO) -lkom $(LIB_KHTML) $(LIB_KDEUI) $(LIBMICO) $(LIBDL)
-khelpcentercom_LDADD   = $(LIB_KDEUI) -lkom $(LIBMICO) $(LIBDL)
+khelpcenterclient_LDADD   = $(LIB_KDEUI) -lkom $(LIBMICO) $(LIBDL)
 
 SUBDIRS = pics plugins info2html rman
 
-bin_PROGRAMS = 	khelpcenter.bin khelpcentercom
+bin_PROGRAMS = 	khelpcenter.bin khelpcenterclient
 
 khelpcenter_bin_SOURCES = main.cpp toplevel.cpp khelpview.cpp \
 htreelistitem.cpp htabview.cpp manparser.cpp error.cpp \
@@ -29,7 +29,7 @@ cgiserver.cpp
 
 khelpcenter_bin_METASOURCES = USE_AUTOMOC
 
-khelpcentercom_SOURCES  = khelpcentercom.cpp khelpcenter.cc
+khelpcenterclient_SOURCES  = khelpcenterclient.cpp khelpcenter.cc
 
 
 DISTCLEANFILES = $(khelpcenter_METASOURCES) khelpcenter.cc khelpcenter.h
@@ -37,7 +37,7 @@ DISTCLEANFILES = $(khelpcenter_METASOURCES) khelpcenter.cc khelpcenter.h
 idl_DATA    =  khelpcenter.idl
 idl_HEADERS =  khelpcenter.h
 
-khelpcentercom.cpp: khelpcenter.h
+khelpcenterclient.cpp: khelpcenter.h
 helpcentercom_impl.cpp: khelpcenter.h
 main.cpp: khelpcenter.h
 

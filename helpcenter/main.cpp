@@ -50,7 +50,8 @@ int main(int argc, char *argv[])
   KOMApplication app(argc, argv, "khelpcenter.bin");
   
   HelpCenterCom *helpcentercom = new HelpCenterCom;
-  app.boa()->impl_is_ready( CORBA::ImplementationDef::_nil() );
+  app.boa()->impl_is_ready(CORBA::ImplementationDef::_nil());
+  kdebug(KDEBUG_INFO,1401,"KOM interface ready: IDL:KHelpCenter/HelpCenterCom:1.0");
 
   app.exec();
   return 0;
