@@ -14,7 +14,7 @@
 #include <kwm.h>
 
 #include <qtooltip.h>
-#include <qmessagebox.h>
+#include <kmessagebox.h>
 
 #include "assistant.h"
 #include "version.h"
@@ -155,7 +155,7 @@ void Assistant::slotAbout() const
 
 void Assistant::about()
 {
-	QMessageBox mb;
+	KMessageBox mb;
 	QString at = i18n( "KDE Help Assistant" );
 	at += "\n";
 	at += i18n( "Version" );

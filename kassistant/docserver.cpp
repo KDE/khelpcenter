@@ -10,7 +10,7 @@
 #include <kprocess.h>
 #include <kurl.h>
 #include <qfile.h>
-#include <qmessagebox.h>
+#include <kmessagebox.h>
 #include "docserver.h"
 
 #include <unistd.h> // you need this for mktemp()
@@ -67,9 +67,7 @@ void KDocumentServer::file( KHTMLView *_view, const char *_url )
 
 	if ( !file.open(IO_ReadOnly) )
 	{
-		QMessageBox::information( _view, "Help Assistant",
-		                          QString("unable to find URL\n'") + _url + "'",
-		                          QMessageBox::Ignore | QMessageBox::Default |QMessageBox::Escape);
+		KMessageBox::sorry( _view, i18n("unable to find URL\n") + _url);
 		return;
 	}
 

@@ -8,7 +8,7 @@
 #include <kapp.h>
 #include <kprocess.h>
 #include <qfile.h>
-#include <qmessagebox.h>
+#include <kmessagebox.h>
 #include <qwhatsthis.h>
 #include "helpview.h"
 
@@ -131,9 +131,7 @@ void KHelpView::slotURLSelected( KHTMLView *_view, const char *_url, int _button
 			if( view != 0L )
 				view->openURL( _url );
 			else {
-				QMessageBox::information( this, "Help Assistant",
-		                		        QString("tried to display '") + _url + "'\nin nonexistent frame called '" + _target + "'",
-		                          		QMessageBox::Ignore | QMessageBox::Default |QMessageBox::Escape);
+				KMessageBox::sorry( this, i18n("tried to display '") + _url + "'\nin nonexistent frame called '" + _target + "'");
 				return;
 			}
 		}

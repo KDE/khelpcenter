@@ -25,12 +25,12 @@
 #include <klocale.h>
 #include <kconfig.h>
 #include <kapp.h>
+#include <kmessagebox.h>
 
 #include <qlayout.h>
 #include <qlabel.h>
 #include <qpushbutton.h>
 #include <qcheckbox.h>
-#include <qmsgbox.h>
 
 #include <fstream.h>
 
@@ -110,14 +110,12 @@ KWelcome::~KWelcome()
 
 void KWelcome::slotAboutKDE()
 {
-  QMessageBox::about(0L, i18n("About KDE"),
-		     i18n("\nThe KDE Desktop Environment was written by the KDE Team,\n"
+  KMessageBox::about(0L,i18n("\nThe KDE Desktop Environment was written by the KDE Team,\n"
 			  "a world-wide network of software engineers committed to\n"
 			  "free software development.\n\n"
 			  "Visit http://www.kde.org for more information on the KDE\n"
 			  "Project. Please consider joining and supporting KDE.\n\n"
-			  "Please report bugs at http://bugs.kde.org.\n"
-			  ));
+              "Please report bugs at http://bugs.kde.org.\n"),  i18n("About KDE"));
 }
 
 void KWelcome::slotWizardStart()

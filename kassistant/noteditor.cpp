@@ -7,9 +7,9 @@
 #include <qfile.h>
 #include <qlabel.h>
 #include <qpushbt.h>
-#include <qmessagebox.h>
 #include <qlayout.h>
 
+#include <kmessagebox.h>
 #include <kseparator.h>
 
 #include "noteditor.h"
@@ -87,9 +87,8 @@ void KNoteEditor::setFile( const char *appName, const char *fileName )
 		if( f.isReadable() == FALSE ) {	
 		  return;
 		}
-		else if ( f.isWritable() == FALSE ) {
-		  if (QMessageBox::warning( this, "Warning - Annotation Editor",
-					    i18n("You have no write permissions\nfor this annotation.\nIt will be opened read only."),
+		else if (!f.isWritable()) {
+            if (KMessageBox::information( this, i18n("You have no write permissions\nfor this annotation.\nIt will be opened read only."),
 					    i18n("&Open"), i18n("&Cancel")))
 		    return;
 		}
@@ -115,9 +114,9 @@ void KNoteEditor::slotOK()
 void KNoteEditor::slotDelete()
 {
 	printf("KNoteEditor: deleting %s\n", (const char *) edit->getName() );
-	if (!QMessageBox::warning( this, i18n("Confirm Delete - Annotation Editor"),
-				   i18n("Do you really want to\ndelete your annotation?"),
-				   i18n("&Yes"), i18n("&No"), 0, 1))
+	if (KMessageBox::questionYesNo( this, 
+                                    i18n("Do you really want to\ndelete your annotation?"))
+        == KMessageBox::Yes)
 	  {
 	    QFile::remove( edit->getName() );
 	    accept();
