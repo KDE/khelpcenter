@@ -1,4 +1,4 @@
-SUBDIRS = kwelcome plugins pics
+SUBDIRS = htmlsearch kwelcome plugins pics 
 
 INCLUDES = $(all_includes)
 METASOURCES = AUTO
@@ -16,7 +16,8 @@ lib_LTLIBRARIES = libkhelpcenter.la
 
 libkhelpcenter_la_SOURCES = khc_factory.cc \
 	khc_navigator.cc khc_navigatoritem.cc khc_searchwidget.cc \
-	khc_indexwidget.cc khc_htmlsearch.cc khc_mansearch.cc
+	khc_indexwidget.cc khc_htmlsearch.cc khc_mansearch.cc \
+	htmlsearch.cpp
 
 libkhelpcenter_la_LIBADD = -lkparts $(LIB_KDEUI)
 

@@ -74,7 +74,9 @@ khcNavigator::~khcNavigator()
 
 void khcNavigatorExtension::slotItemSelected(const QString& url)
 {
-  KParts::URLArgs urlArgs( false, 0, 0 );
+  KParts::URLArgs urlArgs(true, 0, 0);
+
+  kdDebug() << "request URL " << url << endl;
 
   emit openURLRequest( url, urlArgs );
 }
@@ -144,7 +146,7 @@ void khcNavigatorWidget::setupSearchTab()
     search = new SearchWidget(this);
     search->hide();
 
-    connect(search, SIGNAL(matchSelected(QString)),this,
+    connect(search, SIGNAL(searchResult(QString)),this,
 	    SLOT(slotURLSelected(QString)));
 
     QTab *newTab = new QTab;
@@ -417,7 +419,6 @@ void khcNavigatorWidget::slotTabSelected(int id)
 	tree->hide();
 	index->hide();
 	search->show();
-	search->tabSelected();
     }
 }
 

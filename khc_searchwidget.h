@@ -21,82 +21,54 @@
 #ifndef __khc_searchwidget_h__
 #define __khc_searchwidget_h__
 
+
 #include <qwidget.h>
 #include <qlabel.h>
 #include <qlistbox.h>
 
+
 #include "khc_searchmatch.h"
+
 
 class QPushButton;
 class QLineEdit;
 class QCheckBox;
+class QListBox;
 
-class TipLabel : public QLabel
-{
-    Q_OBJECT
-
- public:
-    TipLabel()
-	: QLabel(0, "TipLabel",
-		 WStyle_Customize | WStyle_NoBorder | WStyle_Tool)
-	{
-	    setAlignment(AlignVCenter | AlignLeft);
-	    setAutoResize(true);
-	    setBackgroundColor(QColor(240,255,240));
-	    setFrameStyle(Box | Raised);
-	    setLineWidth(1);
-	    //setAutoMask(FALSE);
-	}
-};
-
-
-class ResultBox : public QListBox
-{
-    Q_OBJECT
-
-	public:
-    ResultBox(QWidget *parent = 0);
-    int getItemYPos(int index);
-
- protected:
-    virtual void mouseMoveEvent(QMouseEvent *e);
-    virtual void leaveEvent(QEvent *e);
-
- signals:
-    void mouseOver(int index);
-};  
+class HTMLSearch;
 
 
 class SearchWidget : public QWidget
 {
     Q_OBJECT
 
-	public:
+public:
+
     SearchWidget (QWidget *parent = 0);
     ~SearchWidget();
-    void tabSelected();
 
- signals:
-    void matchSelected(QString match);
 
- protected:
-    void resizeEvent (QResizeEvent *);
+signals:
+    
+    void searchResult(QString url);
 
-    public slots:
-	void slotSearch();
 
-    private slots:
-	void slotMatchSelected(int index);
-    void slotMouseOver(int index); 
+public slots:
 
- private:
-    QLabel *keyWordLabel, *resultLabel;
-    TipLabel *tipLabel;
-    QPushButton *searchButton;
-    ResultBox *resultList;
+    void slotSearch();
+    void slotIndex();
+ 
+
+private:
+
+    QLabel *keyWordLabel;
+    QPushButton *searchButton, *indexButton;
     QLineEdit *searchString;
-    QCheckBox *docCheck, *manCheck, *infoCheck;
-    MatchList matchList;
+    QComboBox *method, *pages, *format, *sort;
+    QCheckBox *revSort;
+
+    HTMLSearch *search;
+
 };
 
 #endif
