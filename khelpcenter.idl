@@ -66,14 +66,6 @@ module KHelpCenter
 	interface HTMLView : Browser::View, Browser::PrintingExtension, Browser::MagnifyingExtension
 	{
 	};
-
-	interface ManView : Browser::View, Browser::PrintingExtension
-	{
-	};
-
-	interface InfoView: Browser::View, Browser::PrintingExtension
-	{
-	};
 };
 
 #endif
