@@ -20,7 +20,7 @@ class View : public KHTMLPart
     virtual void saveState( QDataStream &stream );
     virtual void restoreState( QDataStream &stream );
 
-    enum State { Docu, About, GlossEntry, Search };
+    enum State { Docu, About, Search };
 
     int state() const { return mState; }
     QString title() const { return mTitle; }
@@ -32,7 +32,6 @@ class View : public KHTMLPart
     void endSearchResult();
 
   public slots:
-    void showGlossaryEntry( const GlossaryEntry &entry );
     void lastSearch();
 
   signals:
@@ -44,7 +43,6 @@ class View : public KHTMLPart
   private:
     void showAboutPage();
  
-    GlossaryEntry mGlossEntry;
     int mState;
     QString mTitle;
 

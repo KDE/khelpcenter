@@ -103,6 +103,8 @@ class Glossary : public KListView
 		virtual ~Glossary();
 
 		const GlossaryEntry &entry( const QString &id ) const;
+ 
+    static QString entryToHtml( const GlossaryEntry &entry );
 
 	signals:
 		void entrySelected( const GlossaryEntry &entry );

@@ -204,7 +204,9 @@ void MainWindow::slotGlossSelected(const GlossaryEntry &entry)
 {
     stop();
     History::self().createEntry();
-    mDoc->showGlossaryEntry( entry );
+    mDoc->begin( "help:/khelpcenter/glossary" );
+    mDoc->write( Glossary::entryToHtml( entry ) );
+    mDoc->end();
 }
 
 void MainWindow::stop()

@@ -88,7 +88,7 @@ Glossary::Glossary( QWidget *parent ) : KListView( parent )
 
 	m_cacheFile = locateLocal( "cache", "help/glossary.xml" );
 
-	m_sourceFile = View::langLookup( QString::fromLatin1( "khelpcenter/glossary/index.docbook" ) );
+	m_sourceFile = View::View::langLookup( QString::fromLatin1( "khelpcenter/glossary/index.docbook" ) );
 
 	m_config = kapp->config();
 	m_config->setGroup( "Glossary" );
@@ -241,5 +241,44 @@ QDomElement Glossary::childElement( const QDomElement &element, const QString &n
 			break;
 	return e;
 }
+
+QString Glossary::entryToHtml( const GlossaryEntry &entry )
+{
+    QFile htmlFile( locate("data", "khelpcenter/glossary.html.in" ) );
+    if (!htmlFile.open(IO_ReadOnly))
+      return QString( "<html><head></head><body><h3>%1</h3>%2</body></html>" )
+             .arg( i18n( "Error" ) )
+             .arg( i18n( "Cannot show selected glossary entry; couldn't open "
+                          " file 'glossary.html.in'!" ) );
+
+    QString seeAlso;
+    if (!entry.seeAlso().isEmpty()) {
+        seeAlso = i18n("See also: ");
+        GlossaryEntryXRef::List seeAlsos = entry.seeAlso();
+        GlossaryEntryXRef::List::ConstIterator it = seeAlsos.begin();
+        GlossaryEntryXRef::List::ConstIterator end = seeAlsos.end();
+        for (; it != end; ++it) {
+            seeAlso += QString::fromLatin1("<a href=\"glossentry:");
+            seeAlso += (*it).id();
+            seeAlso += QString::fromLatin1("\">") + (*it).term();
+            seeAlso += QString::fromLatin1("</a>, ");
+        }
+        seeAlso = seeAlso.left(seeAlso.length() - 2);
+    }
+
+    QTextStream htmlStream(&htmlFile);
+    return htmlStream.read()
+           .arg( i18n( "KDE Glossary" ) )
+           .arg( entry.term() )
+           .arg( View::langLookup( "khelpcenter/konq.css" ) )
+           .arg( View::langLookup( "khelpcenter/pointers.png" ) )
+           .arg( View::langLookup( "khelpcenter/khelpcenter.png" ) )
+           .arg( View::langLookup( "khelpcenter/lines.png" ) )
+           .arg( entry.term() )
+           .arg( entry.definition() )
+           .arg( seeAlso)
+           .arg( View::langLookup( "khelpcenter/kdelogo2.png" ) );
+}
+
 #include "glossary.moc"
 // vim:ts=2:sw=2:et

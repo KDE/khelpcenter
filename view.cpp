@@ -43,68 +43,18 @@ bool View::openURL( const KURL &url )
 
 void View::saveState( QDataStream &stream )
 {
-    stream << mState << mGlossEntry;
+    stream << mState;
     if ( mState == Docu )
         KHTMLPart::saveState( stream );
 }
 
 void View::restoreState( QDataStream &stream )
 {
-    stream >> mState >> mGlossEntry;
+    stream >> mState;
     if ( mState == Docu )
         KHTMLPart::restoreState( stream );
     else if ( mState == About )
         showAboutPage();
-    else if ( mState == GlossEntry )
-        showGlossaryEntry( mGlossEntry );
-}
-
-void View::showGlossaryEntry( const GlossaryEntry &entry )
-{
-    if(mGlossEntry.term()==entry.term())
-        return;
-
-    QFile htmlFile( locate("data", "khelpcenter/glossary.html.in" ) );
-    if (!htmlFile.open(IO_ReadOnly))
-        return;
-
-    emit started( 0 );
-
-    mState = GlossEntry;
-    mGlossEntry = entry;
-
-    QString seeAlso;
-    if (!entry.seeAlso().isEmpty()) {
-        seeAlso = i18n("See also: ");
-        GlossaryEntryXRef::List seeAlsos = entry.seeAlso();
-        GlossaryEntryXRef::List::ConstIterator it = seeAlsos.begin();
-        GlossaryEntryXRef::List::ConstIterator end = seeAlsos.end();
-        for (; it != end; ++it) {
-            seeAlso += QString::fromLatin1("<a href=\"glossentry:");
-            seeAlso += (*it).id();
-            seeAlso += QString::fromLatin1("\">") + (*it).term();
-            seeAlso += QString::fromLatin1("</a>, ");
-        }
-        seeAlso = seeAlso.left(seeAlso.length() - 2);
-    }
-
-    QTextStream htmlStream(&htmlFile);
-    QString htmlSrc = htmlStream.read()
-                      .arg( i18n( "KDE Glossary" ) )
-                      .arg( entry.term() )
-                      .arg( langLookup( "khelpcenter/konq.css" ) )
-                      .arg( langLookup( "khelpcenter/pointers.png" ) )
-                      .arg( langLookup( "khelpcenter/khelpcenter.png" ) )
-                      .arg( langLookup( "khelpcenter/lines.png" ) )
-                      .arg(entry.term())
-                      .arg(entry.definition())
-                      .arg(seeAlso)
-                      .arg( langLookup( "khelpcenter/kdelogo2.png" ) );
-
-    begin("help:/khelpcenter/glossary" );
-    write(htmlSrc);
-    end();
-    emit completed();
 }
 
 void View::showAboutPage()
