@@ -727,14 +727,6 @@ void khcNavigatorWidget::insertScrollKeeperDoc(khcNavigatorItem *parentItem,QDom
     docItem->setURL(url);
 }
 
-void khcNavigatorWidget::slotReloadTree()
-{
-    emit setBussy(true);
-    clearTree();
-    buildTree();
-    emit setBussy(false);
-}
-
 void khcNavigatorWidget::slotURLSelected(QString url)
 {
     emit itemSelected(url);
@@ -762,22 +754,25 @@ void khcNavigatorWidget::slotItemSelected(QListViewItem* currentItem)
 
   // ACHU - change!
   if (item->childCount() > 0 || item->isExpandable())
-    // END ACHU
-    {
+  // END ACHU
+  {
       if (item->isOpen())
         item->setOpen(false);
       else
         item->setOpen(true);
-    }
+  }
 
   if (pluginItems.find(item) > -1)
   {
      if (!item->getURL().isEmpty()) {
         QString url = item->getURL();
-        kdDebug(1400) << "plugin url: " << url << endl;
-        int colonPos = url.find(':');
-        if (colonPos < 0 || colonPos > url.find('/')) {
-           url = "file:" + langLookup(url);
+        if ( url.left(1) == "/" ) {
+          url = "file:" + url;
+        } else {
+          int colonPos = url.find(':');
+          if (colonPos < 0 || colonPos > url.find('/')) {
+             url = "file:" + langLookup(url);
+          }
         }
         emit itemSelected(url);
      }
@@ -1025,15 +1020,16 @@ bool khcNavigatorWidget::processDir( const QString &dirName, khcNavigatorItem *p
         dirFile += "/.directory";
         QString icon;
 
+        QString docPath;
+
         if ( QFile::exists( dirFile ) )
         {
             KSimpleConfig sc( dirFile, true );
             sc.setDesktopGroup();
             folderName = sc.readEntry("Name");
-
-            //icon = sc.readEntry("MiniIcon");
-            //if (icon.isEmpty())
-            icon = "contents2";
+            docPath = sc.readEntry("DocPath");
+            icon = sc.readEntry("Icon","contents2");
+            kdDebug() << "-- Icon: " << icon << endl;
         }
         else
         {
@@ -1046,6 +1042,9 @@ bool khcNavigatorWidget::processDir( const QString &dirName, khcNavigatorItem *p
             dirItem = new khcNavigatorItem(parent, folderName, icon);
         else
             dirItem = new khcNavigatorItem(contentsTree, folderName, icon);
+
+        dirItem->setURL( docPath );
+
         appendList->append(dirItem);
 
         // read and append child items

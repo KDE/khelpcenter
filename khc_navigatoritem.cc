@@ -24,12 +24,13 @@
 
 #include <kapplication.h>
 #include <ksimpleconfig.h>
-
-#include "khc_navigatoritem.h"
-#include "khc_factory.h"
+#include <kdebug.h>
 #include <kstandarddirs.h>
 #include <kglobal.h>
 #include <kiconloader.h>
+
+#include "khc_navigatoritem.h"
+#include "khc_factory.h"
 
 khcNavigatorItem::khcNavigatorItem(QListView* parent, const QString& _text, const QString& _miniicon)
     : QListViewItem(parent)
@@ -59,8 +60,13 @@ khcNavigatorItem::khcNavigatorItem(QListViewItem* parent, QListViewItem* after, 
 
 void khcNavigatorItem::init(const QString& _text, const QString& _miniicon)
 {
+    kdDebug() << "khcNavigatorItem::init()" << endl;
+
     name = _text;
     miniicon = _miniicon;
+    
+    kdDebug() << "  name: " << name << endl;
+    kdDebug() << "  icon: " << miniicon << endl;
     
     setText(0, name);
     setPixmap( 0, SmallIcon(miniicon, 0, 0, KHCFactory::instance()));

@@ -121,13 +121,11 @@ class khcNavigatorWidget : public QTabWidget
     void slotCleanHierarchyMakers();
     // END ACHU
     void slotGlossaryItemSelected(QListViewItem* item);
-    void slotReloadTree();
     void slotShowPage(QWidget *);
 
  signals:
     void itemSelected(const QString& itemURL);
     void glossSelected(const khcNavigatorWidget::GlossaryEntry& entry);
-    void setBussy(bool bussy);
 
  private slots:
     void getScrollKeeperContentsList(KProcIO *proc);
