@@ -20,6 +20,8 @@
 
 #include "kmb_view.h"
 
+#include <qapp.h>
+
 #include <kcursor.h>
 #include <kdebug.h>
 
@@ -34,27 +36,121 @@ kmbView::kmbView()
   setWidget(this);
 
   fontBase = 3;
+
+  view = new KHTMLWidget( this );
+  CHECK_PTR( view );
+
+  view->setURLCursor(KCursor::handCursor());
+  view->setUnderlineLinks(true);
+  view->setFocusPolicy(QWidget::StrongFocus);
+  view->setFocus();
+  view->setUpdatesEnabled(true);
+  view->setDefaultBGColor(white);
+  view->setDefaultTextColors(black, blue, blue);
+  view->setGranularity(600);
+  //view->setStandardFont();
+  //view->setFixedFont();
+
+  vert = new QScrollBar(0, 0, 12, view->height(), 0, QScrollBar::Vertical, this, "vert");
+  horz = new QScrollBar(0, 0, 24, view->width(), 0, QScrollBar::Horizontal, this, "horz");
   
-  QWidget::setFocusPolicy(StrongFocus);
-
-  QObject::connect(this, SIGNAL(setTitle(QString)), this, SLOT(slotSetTitle(QString)));
-  QObject::connect(this, SIGNAL(completed()), this, SLOT(slotCompleted()));
-
-  setDefaultBGColor(white);
-  setDefaultTextColors(black, blue, blue);
-  setUnderlineLinks(true);
-  setURLCursor(KCursor().handCursor());
-  //setStandardFont();
-  //setFixedFont();
+  QObject::connect(view, SIGNAL(setTitle(QString)), this, SLOT(slotSetTitle(QString)));
+  QObject::connect(view, SIGNAL(documentDone()), this, SLOT(slotCompleted()));
+  QObject::connect(view, SIGNAL(scrollVert(int)), this, SLOT(slotScrollVert(int)));
+  QObject::connect(view, SIGNAL(scrollHorz(int)), this, SLOT(slotScrollHorz(int)));
+  QObject::connect(vert, SIGNAL(valueChanged(int)), view, SLOT(slotScrollVert(int)));
+  QObject::connect(horz, SIGNAL(valueChanged(int)), view, SLOT(slotScrollHorz(int)));
+  QObject::connect(view, SIGNAL(resized(const QSize &)), SLOT(slotViewResized(const QSize &)));
 }
 
 kmbView::~kmbView()
 {
 }
 
+void kmbView::layout()
+{
+  int top = 0;
+  int bottom = height();
+  
+  bottom -= SCROLLBAR_WIDTH;
+
+  if (view->docWidth() > view->width())
+    horz->show();
+  else
+    horz->hide();
+  
+  if (view->docHeight() > view->height())
+    vert->show();
+  else
+    vert->hide();
+  
+  if(vert->isVisible() && horz->isVisible())
+    {
+      view->setGeometry(0, top, width() - SCROLLBAR_WIDTH, bottom-top);
+      vert->setGeometry(width()-SCROLLBAR_WIDTH, top, SCROLLBAR_WIDTH, bottom-top);
+      horz->setGeometry(0, bottom, width() - SCROLLBAR_WIDTH, SCROLLBAR_WIDTH);
+    }
+  else if (vert->isVisible())
+    {
+      view->setGeometry(0, top, width() - SCROLLBAR_WIDTH, height()-top);
+      vert->setGeometry(width()-SCROLLBAR_WIDTH, top, SCROLLBAR_WIDTH, height()-top);
+    }
+  else if (horz->isVisible())
+    {
+      view->setGeometry(0, top, width(), bottom-top);
+      horz->setGeometry(0, bottom, width(), SCROLLBAR_WIDTH);
+    }
+  else
+    view->setGeometry(0, top, width(), height()-top);
+}
+
+void kmbView::slotScrollVert(int _y)
+{
+    vert->setValue(_y);
+}
+
+void kmbView::slotScrollHorz(int _x)
+{
+    horz->setValue(_x);
+}
+
+void kmbView::slotViewResized(const QSize &)
+{
+  QApplication::setOverrideCursor(waitCursor);
+  
+  vert->setSteps(12, view->height() - 20); 
+  horz->setSteps(24, view->width());
+  
+  if (view->docHeight() > view->height())
+    vert->setRange(0, view->docHeight() - view->height());
+  else
+    vert->setRange(0, 0);
+  
+  QApplication::restoreOverrideCursor();
+}
+
+void kmbView::resizeEvent(QResizeEvent *)
+{
+  layout();
+}
+
+void kmbView::open(QString _url, bool _reload, int _xoffset, int _yoffset)
+{
+  m_strURL = _url;
+
+  view->begin(_url);
+  view->parse();
+  view->write("<html><head><title>Test!</title></head><body>");
+  view->write("<H2>Test!</H2>");
+  view->write("<br>Viewing: " + _url + " not implemented, yet.<br>");
+  view->end();
+
+  view->gotoXY(_xoffset, _yoffset);
+}
+
 bool kmbView::mappingOpenURL( Browser::EventOpenURL eventURL )
 {
-  //KBrowser::openURL(QString(eventURL.url), (bool)eventURL.reload ); // implemented by kbrowser
+  open(QString(eventURL.url), (bool)eventURL.reload );
   SIGNAL_CALL2("started", id(), CORBA::Any::from_string((char *)eventURL.url, 0));
   SIGNAL_CALL2( "setLocationBarURL", id(), (char*)eventURL.url );
   return true;
@@ -87,16 +183,16 @@ void kmbView::slotCanceled()
 
 void kmbView::stop()
 {
-  //KBrowser::slotStop();
+  view->stopParser();
 }
 
 void kmbView::setDefaultFontBase(int fSize)
 {
-    resetFontSizes();
+    view->resetFontSizes();
     if (fSize != 3)
     {
         int fontSizes[7];
-        getFontSizes(fontSizes);
+        view->getFontSizes(fontSizes);
 
         if (fSize > 3)
         {
@@ -118,7 +214,7 @@ void kmbView::setDefaultFontBase(int fSize)
                 fontSizes[i] = fontSizes[j]; 
             }
         }
-        setFontSizes(fontSizes);
+        view->setFontSizes(fontSizes);
     }
 }
 
@@ -128,7 +224,7 @@ void kmbView::zoomIn()
     {
       fontBase++;
       setDefaultFontBase(fontBase);
-      //KBrowser::openURL(url(), true );
+      open(url(), true);
       SIGNAL_CALL2("started", id(), CORBA::Any::from_string((char *)url(), 0));
     }
 }
@@ -139,7 +235,7 @@ void kmbView::zoomOut()
     {
       fontBase--;
       setDefaultFontBase(fontBase);
-      //KBrowser::openURL(url(), true );
+      open(url(), true);
       SIGNAL_CALL2("started", id(), CORBA::Any::from_string((char *)url(), 0));
     }
 }
@@ -156,12 +252,12 @@ CORBA::Boolean kmbView::canZoomOut()
 
 CORBA::Long kmbView::xOffset()
 {
-  return (CORBA::Long) 0;//KBrowser::xOffset();
+  return (CORBA::Long) view->xOffset();
 }
 
 CORBA::Long kmbView::yOffset()
 {
-  return (CORBA::Long) 0;//KBrowser::yOffset();
+  return (CORBA::Long) view->yOffset();
 }
 
 void kmbView::openURL(QString _url, bool _reload, int _xoffset, int _yoffset, const char *_post_data)
@@ -176,13 +272,13 @@ void kmbView::openURL(QString _url, bool _reload, int _xoffset, int _yoffset, co
 
 char *kmbView::url()
 {
-  QString u = "man://(index)";//KBrowser::m_strURL;
+  QString u = m_strURL;
   return CORBA::string_dup(u.ascii());
 }
 
 void kmbView::print()
 {
-  KHTMLWidget::print();
+  view->print();
 }
 
 #include "kmb_view.moc"

@@ -24,40 +24,42 @@
 #include "kmanbrowser.h"
 #include "khc_baseview.h"
 
+#include <qstring.h>
+#include <qscrollbar.h>
+
 #include <khtml.h>
 
 #include <opPart.h>
-#include <qstring.h>
 
 #define SCROLLBAR_WIDTH		16
 #define BOOKMARK_ID_BASE	200
-#define MAX_HISTORY_LENGHT  15
+#define MAX_HISTORY_LENGHT      15
 
-class kmbView : public KHTMLWidget,
+class kmbView : public QWidget,
 		public khcBaseView,
 		virtual public KManBrowser::View_skel
 {
-    Q_OBJECT
-
+  Q_OBJECT
+    
  public:
-    kmbView();
-    virtual ~kmbView();
-
-    virtual bool mappingOpenURL( Browser::EventOpenURL eventURL );
-
-    virtual void stop();
-    virtual char *viewName() { return CORBA::string_dup("kmbView"); }
-    virtual char *url();
-    virtual CORBA::Long xOffset();
-    virtual CORBA::Long yOffset();
-    virtual void print();
-    virtual void zoomIn();
-    virtual void zoomOut();
-    virtual CORBA::Boolean canZoomIn();
-    virtual CORBA::Boolean canZoomOut();
-    virtual void openURL( QString _url, bool _reload, int _xoffset = 0, int _yoffset = 0, const char *_post_data = 0L);
-
-public slots:
+  kmbView();
+  virtual ~kmbView();
+  
+  virtual bool mappingOpenURL( Browser::EventOpenURL eventURL );
+  
+  virtual void stop();
+  virtual char *viewName() { return CORBA::string_dup("kmbView"); }
+  virtual char *url();
+  virtual CORBA::Long xOffset();
+  virtual CORBA::Long yOffset();
+  virtual void print();
+  virtual void zoomIn();
+  virtual void zoomOut();
+  virtual CORBA::Boolean canZoomIn();
+  virtual CORBA::Boolean canZoomOut();
+  virtual void openURL( QString _url, bool _reload, int _xoffset = 0, int _yoffset = 0, const char *_post_data = 0L);
+  
+ public slots:
   void slotURLClicked( QString url );
 
 protected slots:
@@ -65,10 +67,20 @@ protected slots:
   void slotStarted(const char *url);
   void slotCompleted();
   void slotCanceled();
+  void slotScrollVert( int _y );
+  void slotScrollHorz( int _y );
+  void slotViewResized( const QSize & );
 
 protected:
+  virtual void resizeEvent( QResizeEvent * );
   void setDefaultFontBase(int fSize);
+  void open(QString _url, bool _reload, int _xoffset = 0, int _yoffset = 0);
+  void layout();
+
   int fontBase;
+  KHTMLWidget *view;
+  QScrollBar *vert;
+  QScrollBar *horz;
 };
 
 #endif

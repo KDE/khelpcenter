@@ -767,8 +767,6 @@ void kmbMainWindow::slotSetBusy(bool busy)
   toolBar(0)->setItemEnabled(TB_STOP, busy);
 }
 
-
-
 kmbMainWindowIf::kmbMainWindowIf(kmbMainWindow* _main) :
   OPMainWindowIf( _main )
 {
