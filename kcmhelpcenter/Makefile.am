@@ -14,7 +14,7 @@ kcmhelpcenter_METASOURCES = AUTO
 
 noinst_HEADERS            = assistant.h widget.h browser.h eyes.h
 
-EXTRA_DIST                = kcmhelpcenter assistant.xpm mini-assistant.xpm
+EXTRA_DIST                = kcmhelpcenter assistant.png mini-assistant.png
 
 KDE_ICON = assistant
 
