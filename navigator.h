@@ -28,7 +28,6 @@
 #include <klistview.h>
 
 #include "glossary.h"
-#include "toc.h"
 
 #include <regex.h>
 #include <qfile.h>
@@ -99,7 +98,6 @@ class Navigator : public QWidget
     void setupIndexTab();
     void setupSearchTab();
     void setupGlossaryTab();
-    void setupTOCTab();
     void buildTree();
     void clearTree();
 
@@ -120,7 +118,6 @@ class Navigator : public QWidget
 
     KListView *contentsTree;
     Glossary *glossaryTree;
-    TOC *tocTree;
 
     SearchWidget *mSearchWidget;
 

@@ -121,7 +121,6 @@ Navigator::Navigator( View *view, QWidget *parent,
     setupContentsTab();
     setupSearchTab();
     setupGlossaryTab();
-    setupTOCTab();
 
     // compiling the regex used while parsing the info directory (dir) file
     int nResult = regcomp(&compInfoRegEx, "^\\* ([^:]+)\\: \\(([^)]+)\\)([[:space:]]|(([^.]*)\\.)).*$", REG_EXTENDED);
@@ -192,17 +191,6 @@ void Navigator::setupSearchTab()
              mSearchButton, SLOT( setEnabled( bool ) ) ); 
 
     mTabWidget->addTab( mSearchWidget, i18n("Search"));
-}
-
-void Navigator::setupTOCTab()
-{
-  tocTree = new TOC( this );
-  connect( tocTree, SIGNAL( itemSelected( const QString & ) ),
-           this, SIGNAL( itemSelected( const QString & ) ) );
-
-  tocTree->reset();
-
-	mTabWidget->addTab( tocTree, i18n("&Table of contents") );
 }
 
 void Navigator::setupGlossaryTab()
@@ -647,6 +635,8 @@ void Navigator::slotItemSelected(QListViewItem* currentItem)
     return;
   NavigatorItem *item = static_cast<NavigatorItem*>(currentItem);
 
+  kdDebug() << "Navigator::slotItemSelected(): " << item->name() << endl;  
+
   if (item->childCount() > 0 || item->isExpandable())
     item->setOpen( !item->isOpen() );
 
@@ -679,16 +669,19 @@ void Navigator::slotItemSelected(QListViewItem* currentItem)
     KURL u = item->url();
     if ( u.protocol() == "help" ) {
       kdDebug( 1400 ) << "slotURLSelected(): Got help URL " << item->url() << endl;
-      tocTree->setApplication( u.directory() );
-      QString doc = View::langLookup( u.path() );
-      // Enforce the original .docbook version, in case langLookup returns a
-      // cached version
-      if ( !doc.isNull() ) {
-        doc.replace( doc.find( ".html" ), 5, ".docbook" );
-        kdDebug( 1400 ) << "slotURLSelected(): doc = " << doc << endl;
+      if ( !item->toc() ) {
+        TOC *tocTree = item->createTOC();
+        kdDebug( 1400 ) << "slotURLSelected(): Trying to build TOC for " << item->name() << endl;
+        tocTree->setApplication( u.directory() );
+        QString doc = View::langLookup( u.path() );
+        // Enforce the original .docbook version, in case langLookup returns a
+        // cached version
+        if ( !doc.isNull() ) {
+          doc.replace( doc.find( ".html" ), 5, ".docbook" );
+          kdDebug( 1400 ) << "slotURLSelected(): doc = " << doc << endl;
 
-        tocTree->build( doc );
-        mTabWidget->setCurrentPage( mTabWidget->indexOf( tocTree ) );
+          tocTree->build( doc );
+        }
       }
     }
     emit itemSelected(item->url());
@@ -699,6 +692,8 @@ void Navigator::slotItemExpanded(QListViewItem* index)
 {
   if (!index)
     return;
+
+  kdDebug() << "Navigator::slotItemExpanded()" << endl;  
 
   QListViewItem* parent;
   if ((parent = index->parent())) // it _is_ an assignment, not a comparison !

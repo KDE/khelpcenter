@@ -25,6 +25,8 @@
 
 namespace KHC {
 
+class TOC;
+
 class NavigatorItem : public QListViewItem
 {
   public:
@@ -37,7 +39,9 @@ class NavigatorItem : public QListViewItem
     NavigatorItem (QListView* parent, QListViewItem* after,
                    const QString& text, const QString& icon = QString::null);
     NavigatorItem (QListViewItem* parent, QListViewItem* after,
-		      const QString& text, const QString& icon = QString::null);
+                   const QString& text, const QString& icon = QString::null);
+
+    ~NavigatorItem();
 
     void setName( const QString & );
     void setUrl( const QString & );
@@ -45,17 +49,24 @@ class NavigatorItem : public QListViewItem
     void setIcon( const QString & );
 
     QString name() { return mName; }
-    QString url() { return mUrl; }
+    virtual QString url() { return mUrl; }
     QString info() { return mInfo; }
     QString icon() { return mIcon; }
 
+    TOC *toc() { return mToc; }
+
+    TOC *createTOC();
+
  private:
+    void init();
     void init(const QString &text, const QString &icon);
     
     QString mName;
     QString mUrl;
     QString mInfo;
     QString mIcon;
+    
+    TOC *mToc;
 };
 
 }

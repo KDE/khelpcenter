@@ -30,6 +30,7 @@
 #include <kiconloader.h>
 
 #include "docmetainfo.h"
+#include "toc.h"
 
 #include "navigatoritem.h"
 
@@ -38,11 +39,13 @@ using namespace KHC;
 NavigatorItem::NavigatorItem(QListView *parent, QListViewItem *after)
   : QListViewItem( parent, after )
 {
+    init();
 }
 
 NavigatorItem::NavigatorItem(QListViewItem *parent, QListViewItem *after)
   : QListViewItem( parent, after )
 {
+    init();
 }
 
 NavigatorItem::NavigatorItem(QListView* parent, const QString& _text,
@@ -75,10 +78,22 @@ NavigatorItem::NavigatorItem(QListViewItem* parent, QListViewItem* after,
     init(_text, _miniicon);
 }
 
+void NavigatorItem::init()
+{
+    mToc = 0;
+}
+
 void NavigatorItem::init(const QString& text, const QString& icon)
 {
+    init();
+
     setName( text );
     setIcon( icon );
+}
+
+NavigatorItem::~NavigatorItem()
+{
+    delete mToc;
 }
 
 void NavigatorItem::setName( const QString &_name )
@@ -101,4 +116,10 @@ void NavigatorItem::setIcon( const QString &_icon )
 {
     mIcon = _icon;
     setPixmap( 0, SmallIcon( mIcon ) );
+}
+
+TOC *NavigatorItem::createTOC()
+{
+    mToc = new TOC( this );
+    return mToc;
 }

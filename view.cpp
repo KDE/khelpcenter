@@ -183,14 +183,11 @@ QString View::langLookup( const QString &fname )
     QStringList::Iterator it;
     for (it = search.begin(); it != search.end(); ++it)
     {
-        kdDebug() << "Looking for help in: " << *it << endl;
-
         QFileInfo info(*it);
         if (info.exists() && info.isFile() && info.isReadable())
             return *it;
         
 		QString file = (*it).left((*it).findRev('/')) + "/index.docbook";
-		kdDebug(1400) << "Looking for help in: " << file << endl;
 		info.setFile(file);
 		if (info.exists() && info.isFile() && info.isReadable())
 			return *it;

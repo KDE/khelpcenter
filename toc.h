@@ -20,25 +20,26 @@
 #ifndef KHC_TOC_H
 #define KHC_TOC_H
 
-#include <klistview.h>
+#include "navigatoritem.h"
 
 #include <qdom.h>
+#include <qlistview.h>
+#include <qobject.h>
 
 class KProcess;
 
 namespace KHC {
 
-class TOC : public KListView
+class TOC : public QObject
 {
 	Q_OBJECT
 	public:
-		TOC( QWidget *parent );
+		TOC( NavigatorItem *parentItem );
 
 		QString application() const { return m_application; }
 		void setApplication( const QString &application ) { m_application = application; }
 	
 	public slots:
-		void reset();
 		void build( const QString &file );
 		
 	signals:
@@ -61,6 +62,8 @@ class TOC : public KListView
 		QString m_application;
 		QString m_cacheFile;
 		QString m_sourceFile;
+
+		NavigatorItem *m_parentItem;
 };
 
 }
