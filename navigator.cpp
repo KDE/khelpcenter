@@ -400,7 +400,6 @@ class PluginTraverser : public DocEntryTraverser
           mNavigator->insertAppletDocs( mCurrentItem );
         else if ( entry->khelpcenterSpecial() == "kinfocenter" ||
                   entry->khelpcenterSpecial() == "kcontrol" ||
-                  entry->khelpcenterSpecial() == "noatun" ||
                   entry->khelpcenterSpecial() == "konqueror" )
           mNavigator->insertParentAppDocs( entry->khelpcenterSpecial(),
                                            mCurrentItem );
