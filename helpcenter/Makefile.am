@@ -17,9 +17,9 @@ SUBDIRS = pics plugins info2html rman
 
 bin_PROGRAMS = 	khelpcenter
 
-khelpcenter_SOURCES = main.cpp toplevel.cpp hhtmlview.cpp \
+khelpcenter_SOURCES = main.cpp toplevel.cpp khelpview.cpp \
 htreelistitem.cpp htreeview.cpp cgi.cpp man.cpp error.cpp \
-misc.cpp history.cpp finddlg.cpp options.cpp
+misc.cpp finddlg.cpp
 
 khelpcenter_METASOURCES = USE_AUTOMOC
 

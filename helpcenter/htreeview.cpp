@@ -19,6 +19,7 @@
  */
 
 #include "htreeview.h"
+#include "htreelistitem.h"
 
 #include <qdir.h>
 #include <qfile.h>
@@ -77,7 +78,7 @@ void HTreeView::buildTree()
 
   // unix man pages
   HTreeListItem *ti_man = new HTreeListItem("Unix manual pages", "folder.xpm");
-  ti_man->setURL(QString("man:(index)"));
+  ti_man->setURL(QString("man:/(index)"));
   ti_man->insertInTree(tree, 0);
   staticItems.append(ti_man);
 
@@ -126,61 +127,61 @@ void HTreeView::buildManSubTree(HTreeListItem *parent)
 {
   // man (1)
   HTreeListItem *ti_man_s1 = new HTreeListItem("(1) User commands", "document.xpm");
-  ti_man_s1->setURL(QString("man:(1)"));
+  ti_man_s1->setURL(QString("man:/(1)"));
   ti_man_s1->insertInTree(tree, parent);
   staticItems.append(ti_man_s1);
   
   // man(2)
   HTreeListItem *ti_man_s2 = new HTreeListItem("(2) System calls", "document.xpm");
-  ti_man_s2->setURL(QString("man:(2)"));
+  ti_man_s2->setURL(QString("man:/(2)"));
   ti_man_s2->insertInTree(tree, parent);
   staticItems.append(ti_man_s2);
 
   // man(3)
   HTreeListItem *ti_man_s3 = new HTreeListItem("(3) Subroutines", "document.xpm");
-  ti_man_s3->setURL(QString("man:(3)"));
+  ti_man_s3->setURL(QString("man:/(3)"));
   ti_man_s3->insertInTree(tree, parent);
   staticItems.append(ti_man_s3);
 
   // man(4)
   HTreeListItem *ti_man_s4 = new HTreeListItem("(4) Devices", "document.xpm");
-  ti_man_s4->setURL(QString("man:(4)"));
+  ti_man_s4->setURL(QString("man:/(4)"));
   ti_man_s4->insertInTree(tree, parent);
   staticItems.append(ti_man_s4);
 
   // man(5)
   HTreeListItem *ti_man_s5 = new HTreeListItem("(5) File Formats", "document.xpm");
-  ti_man_s5->setURL(QString("man:(5)"));
+  ti_man_s5->setURL(QString("man:/(5)"));
   ti_man_s5->insertInTree(tree, parent);
   staticItems.append(ti_man_s5);
 
   // man(6)
   HTreeListItem *ti_man_s6 = new HTreeListItem("(6) Games", "document.xpm");
-  ti_man_s6->setURL(QString("man:(6)"));
+  ti_man_s6->setURL(QString("man:/(6)"));
   ti_man_s6->insertInTree(tree, parent);
   staticItems.append(ti_man_s6);
 
   // man(7)
   HTreeListItem *ti_man_s7 = new HTreeListItem("(7) Miscellaneous", "document.xpm");
-  ti_man_s7->setURL(QString("man:(7)"));
+  ti_man_s7->setURL(QString("man:/(7)"));
   ti_man_s7->insertInTree(tree, parent);
   staticItems.append(ti_man_s7);
 
   // man(8)
   HTreeListItem *ti_man_s8 = new HTreeListItem("(8) Sys. Administration", "document.xpm");
-  ti_man_s8->setURL(QString("man:(8)"));
+  ti_man_s8->setURL(QString("man:/(8)"));
   ti_man_s8->insertInTree(tree, parent);
   staticItems.append(ti_man_s8);
 
   // man(9)
   HTreeListItem *ti_man_s9 = new HTreeListItem("(9) Kernel", "document.xpm");
-  ti_man_s9->setURL(QString("man:(9)"));
+  ti_man_s9->setURL(QString("man:/(9)"));
   ti_man_s9->insertInTree(tree, parent);
   staticItems.append(ti_man_s9);
 
   // man(n)
   HTreeListItem *ti_man_sn = new HTreeListItem("(n) New", "document.xpm");
-  ti_man_sn->setURL(QString("man:(n)"));
+  ti_man_sn->setURL(QString("man:/(n)"));
   ti_man_sn->insertInTree(tree, parent);
   staticItems.append(ti_man_sn);
 }

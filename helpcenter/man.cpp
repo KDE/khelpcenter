@@ -59,7 +59,7 @@ int MakeDirectory( QString &HTMLPage )
 	{
 		sprintf(text, i18n("Section %s"), sections[i]->GetName());
 		sprintf(page, "(%s)", sections[i]->GetName());
-		HTMLPage += "<dt><A HREF=man:";
+		HTMLPage += "<dt><A HREF=man:/";
 		HTMLPage += page;
 		HTMLPage += ">";
 		HTMLPage += QString( text );
@@ -87,7 +87,7 @@ int Read(cManSection &sect, QString &page )
 	{
 		sprintf(buffer, "%s(%s)", sect.Get()->name(), sect.GetName());
         page += "<cell width=200>&nbsp;";
-		page += "<A HREF=man:" + QString( buffer ) + ">";
+		page += "<A HREF=man:/" + QString( buffer ) + ">";
 		page += sect.Get()->name();
 		page += "</A>";
 		page += "</cell>";
@@ -470,7 +470,7 @@ int cMan::ReadLocation(const char *name)
 		// create the system cmd to read the man page
 		if ( (ptr = strchr(tmpName, '(')) )
 		{
-			if (!strchr(tmpName, ')')) return 1;	// check for closing )
+		  if (!strchr(tmpName, ')')) return 1;	// check for closing )
 			*ptr = '\0';
 			ptr++;
 			for (i = 0; i < numSections; i++)	// read which section?

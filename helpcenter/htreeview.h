@@ -26,7 +26,7 @@
 #include <ktreelist.h>
 #include <ktabctl.h>
 
-#include "htreelistitem.h"
+class HTreeListItem;
 
 class HTreeView : public KTabCtl
 {

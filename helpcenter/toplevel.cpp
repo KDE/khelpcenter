@@ -1,7 +1,7 @@
 /*
  *  toplevel.cpp - part of the KDE Help Center
  *
- *  Copyright (C) 1999 Matthias Elter (me@kde.org)
+ *  Copyright (c) 1999 Matthias Elter (me@kde.org)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -19,14 +19,14 @@
  */
 
 #include "toplevel.h"
+#include "htreeview.h"
+#include "khelpview.h"
 
 #include <qkeycode.h>
 
 #include <kiconloader.h>
 #include <kstdaccel.h>
 #include <kcursor.h>
-
-KHelpOptionsDialog *HelpCenter::optionsDialog = NULL;
 
 HelpCenter::HelpCenter()
 {
@@ -51,26 +51,6 @@ HelpCenter::HelpCenter()
   optionsMenu->setItemChecked(idLocationbar, showLocationbar);
   optionsMenu->setItemChecked(idStatusbar, showStatusbar);
 
-  // connect options dialog
-  if ( optionsDialog )
-	{
-	  connect( optionsDialog->fontOptions, SIGNAL(fontSize( int )),
-			   htmlview, SLOT(slotFontSize( int )) );
-	  connect( optionsDialog->fontOptions,
-			   SIGNAL(standardFont( const QString& )),
-			   htmlview, SLOT(slotStandardFont( const QString& )) );
-	  connect( optionsDialog->fontOptions,
-			   SIGNAL(fixedFont( const QString& )),
-			   htmlview, SLOT(slotFixedFont( const QString& )) );
-	  connect( optionsDialog->colorOptions,
-			   SIGNAL(colorsChanged(const QColor&, const QColor&,
-									const QColor&, const QColor&,
-									const bool, const bool )),
-			   htmlview, SLOT(slotColorsChanged(const QColor&, const QColor&,
-											   const QColor&, const QColor&,
-											   const bool, const bool)) );
-	}
-  
   // connect misc. signals
   connect (htmlview, SIGNAL ( enableMenuItems() ), 
 		   this, SLOT ( slotEnableMenuItems() ) );
@@ -119,7 +99,7 @@ void HelpCenter::setupView()
   CHECK_PTR(splitter);
 
   treeview = new HTreeView(this);
-  htmlview = new KHelpWindow(this);
+  htmlview = new KHelpView(this);
   
   // I have to use resize and recreate here because QSplitter is messing
   // up the initial sizes otherwise.
@@ -131,7 +111,7 @@ void HelpCenter::setupView()
   CHECK_PTR(treeview);
   CHECK_PTR(htmlview);
   splitter->show();
-  
+    
   setView(splitter, TRUE);	
   updateRects();
 }
@@ -215,22 +195,30 @@ void HelpCenter::setupMenubar()
 
 void HelpCenter::setupToolbar()
 {
-  toolBar(0)->insertButton(Icon("hidetree.xpm"), TB_TREE,
-						   true, i18n("Toogle Treeview"));
-  toolBar(0)->insertButton(Icon("up.xpm"), TB_UP,
-						   true, i18n("Up"));
   toolBar(0)->insertButton(Icon("back.xpm"), TB_BACK,
 						   true, i18n("Previous document in history"));
   toolBar(0)->insertButton(Icon("forward.xpm"), TB_FORWARD,
 						   true, i18n("Next document in history"));
-  toolBar(0)->insertSeparator();
-  toolBar(0)->insertButton(Icon("contents.xpm"), TB_INTRO,
-						   true, i18n("Introduction"));
+  toolBar(0)->insertButton(Icon("flag.xpm"), TB_BOOKMARK,
+						   true, i18n("Add bookmark"));
   toolBar(0)->insertButton(Icon("reload.xpm"), TB_RELOAD,
 						   true, i18n("Reload"));
   toolBar(0)->insertButton(Icon("stop.xpm"), TB_STOP,
 						   true, i18n("Stop"));
+  
+  toolBar(0)->insertSeparator();
+  
+  toolBar(0)->insertButton(Icon("viewmag+.xpm"), TB_ZOOMIN,
+						   true, i18n("Zoom in"));
+  toolBar(0)->insertButton(Icon("viewmag-.xpm"), TB_ZOOMOUT,
+						   true, i18n("Zoom out"));
 
+  toolBar(0)->insertSeparator();
+  
+  toolBar(0)->insertButton(Icon("search.xpm"), TB_FIND,
+						   true, i18n("Find in page"));
+  toolBar(0)->insertButton(Icon("fileprint.xpm"), TB_PRINT,
+						   true, i18n("Print document"));
   connect(toolBar(0), SIGNAL(clicked(int)), SLOT(slotToolbarClicked(int)));
 }
 
@@ -362,23 +350,19 @@ void HelpCenter::enableMenuItems()
 {
   bool val;
   
-  val = htmlview->canCurrentlyDo(KHelpWindow::Copy);
+  val = htmlview->canCurrentlyDo(KHelpView::Copy);
   editMenu->setItemEnabled( idCopy, val );
   
-  val = htmlview->canCurrentlyDo(KHelpWindow::GoBack); // history.isback
+  val = htmlview->canCurrentlyDo(KHelpView::GoBack); // history.isback
   gotoMenu->setItemEnabled( idBack, val );
   toolBar(0)->setItemEnabled( TB_BACK, val );
   
-  val = htmlview->canCurrentlyDo(KHelpWindow::GoForward); // history.IsForward
+  val = htmlview->canCurrentlyDo(KHelpView::GoForward); // history.IsForward
   gotoMenu->setItemEnabled( idForward, val );
   toolBar(0)->setItemEnabled( TB_FORWARD, val );
   
  	
-  val = htmlview->canCurrentlyDo(KHelpWindow::GoUp); 
-  gotoMenu->setItemEnabled( idUp, val );
-  toolBar(0)->setItemEnabled( TB_UP, val );
-  
-  val = htmlview->canCurrentlyDo(KHelpWindow::Stop); // busy
+  val = htmlview->canCurrentlyDo(KHelpView::Stop); // busy
   toolBar(0)->setItemEnabled( TB_STOP, val );
 }
 
@@ -453,20 +437,24 @@ void HelpCenter::slotToolbarClicked(int item)
 {
   switch (item)
 	{
-	case TB_TREE:
-	  slotOptionsTree();
+	case TB_BOOKMARK:
+	  htmlview->slotAddBookmark();
+	  break;
+	case TB_PRINT:
+	  htmlview->slotPrint();
+	  break;
+	case TB_ZOOMIN:
+	  break;
+	case TB_FIND:
+	  htmlview->slotFind();
+	  break;
+	case TB_ZOOMOUT:
 	  break;
 	case TB_BACK:
 	  htmlview->slotBack();
 	  break;
 	case TB_FORWARD:
 	  htmlview->slotForward();
-	  break;
-	case TB_UP:
-	  htmlview->slotUp();
-	  break;
-	case TB_INTRO:
-	  htmlview->slotDir();
 	  break;
 	case TB_RELOAD:
 	  htmlview->slotReload();
@@ -505,7 +493,7 @@ void HelpCenter::slotCloneWindow()
 
 	win->resize( size() );
 
-	if (htmlview->canCurrentlyDo(KHelpWindow::Stop) )
+	if (htmlview->canCurrentlyDo(KHelpView::Stop) )
 	{
 		// in that case, select the title page...
 		url = "file:";
@@ -514,7 +502,7 @@ void HelpCenter::slotCloneWindow()
 	}
 	win->openURL( url );
 
-	if (!htmlview->canCurrentlyDo(KHelpWindow::Stop) )
+	if (!htmlview->canCurrentlyDo(KHelpView::Stop) )
     {
         win->htmlView()->setHistory(htmlview->getHistory() );
         win->enableMenuItems();
@@ -554,26 +542,7 @@ void HelpCenter::slotSetURL(QString url)
 
 void HelpCenter::slotOptionsGeneral()
 {
-  if ( !optionsDialog )
-	{
-	  optionsDialog = new KHelpOptionsDialog();
-	  connect( optionsDialog->fontOptions, SIGNAL(fontSize(int)),
-			   htmlview, SLOT(slotFontSize( int )) );
-	  connect( optionsDialog->fontOptions,
-			   SIGNAL(standardFont( const QString& )),
-			   htmlview, SLOT(slotStandardFont( const QString& )) );
-	  connect( optionsDialog->fontOptions,
-			   SIGNAL(fixedFont( const QString& )),
-			   htmlview, SLOT(slotFixedFont( const QString&)) );
-	  connect( optionsDialog->colorOptions,
-			   SIGNAL(colorsChanged(const QColor&, const QColor&,
-									const QColor&, const QColor&,
-									const bool, const bool)),
-			   htmlview, SLOT(slotColorsChanged(const QColor&, const QColor&,
-												const QColor&, const QColor&,
-												const bool, const bool)) );
-	}
-  optionsDialog->show();
+  
 }
 
 void HelpCenter::slotOptionsTree()
@@ -582,13 +551,13 @@ void HelpCenter::slotOptionsTree()
   	{
 	  enableTree(false);
 	  showTree = false;
-	  toolBar(0)->setButtonPixmap(TB_TREE, Icon("showtree.xpm"));
+	  // toolBar(0)->setButtonPixmap(TB_TREE, Icon("showtree.xpm"));
 	}
   else
 	{
 	  enableTree(true);
 	  showTree = true;
-	  toolBar(0)->setButtonPixmap(TB_TREE, Icon("hidetree.xpm"));
+	  //toolBar(0)->setButtonPixmap(TB_TREE, Icon("hidetree.xpm"));
 	}
   optionsMenu->setItemChecked(idTree, showTree);
   updateRects();

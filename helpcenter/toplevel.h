@@ -1,7 +1,7 @@
 /*
  *  toplevel.h - part of the KDE Help Center
  *
- *  Copyright (C) 199 Matthias Elter (me@main-echo.net)
+ *  Copyright (c) 199 Matthias Elter (me@main-echo.net)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -21,7 +21,7 @@
 #ifndef TOPLEVEL_H
 #define TOPLEVEL_H
 
-#define HELPCENTER_VERSION		"0.2"
+#define HELPCENTER_VERSION		"0.4"
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -34,8 +34,9 @@
 #include <qpopupmenu.h>
 #include <qsplitter.h>
 
-#include "hhtmlview.h"
-#include "htreeview.h"
+class HTreeView;
+class KHelpView;
+class KFileBookmark;
 
 class HelpCenter : public KTMainWindow
 {
@@ -47,7 +48,7 @@ public:
 	int openURL( const char *URL, bool withHistory = true );
 	void openNewWindow( const char *url );
 
-    KHelpWindow *htmlView() { return htmlview; }
+    KHelpView *htmlView() { return htmlview; }
 
 public slots:
 	void slotBookmarkChanged(KFileBookmark *parent);
@@ -95,21 +96,20 @@ private:
 
 private:
 	QSplitter *splitter;
-	KHelpWindow *htmlview;
+	KHelpView *htmlview;
 	HTreeView *treeview;
 
 	QPopupMenu *fileMenu, *editMenu, *viewMenu, *gotoMenu, *optionsMenu, *helpMenu,*bookmarkMenu;
 
 	// toolbar id's:
-	enum {TB_BACK, TB_FORWARD, TB_UP, TB_INTRO, TB_RELOAD, TB_STOP, TB_TREE};
+	enum {TB_BACK, TB_FORWARD, TB_RELOAD, TB_STOP, TB_PRINT, TB_BOOKMARK, TB_ZOOMIN,
+		  TB_ZOOMOUT, TB_FIND};
 	// menu id's:
 	int idCopy, idBack, idForward, idTop, idUp, idPrevious, idNext, idTree, idToolbar
 	  ,idLocationbar, idStatusbar;
 
 	// GUI options:
 	bool showStatusbar, showToolbar, showLocationbar, showTree;
-
-    static KHelpOptionsDialog *optionsDialog;
 };
 
 #endif // TOPLEVEL_H
