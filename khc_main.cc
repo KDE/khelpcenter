@@ -43,6 +43,7 @@
 #include <kaboutdata.h>
 #include <kdebug.h>
 #include <kstdaction.h>
+#include <kstdguiitem.h>
 #include <qtimer.h>
 
 #include <khtmlview.h>
@@ -103,17 +104,13 @@ KHMainWindow::KHMainWindow(const KURL &url)
     (void)KStdAction::quit(this, SLOT(close()), actionCollection());
     (void)KStdAction::print(this, SLOT(print()), actionCollection(), "printFrame");
 
-    back = new KToolBarPopupAction( i18n( "&Back" ), "back", ALT+Key_Left,
-                                    this, SLOT( slotBack() ),
-                                    actionCollection(), "back" );
+    QPair< KGuiItem, KGuiItem > backForward = KStdGuiItem::backAndForward();
+    back = new KToolBarPopupAction( backForward.first, ALT+Key_Left, this, SLOT( slotBack() ), actionCollection(), "back" );
     connect( back->popupMenu(), SIGNAL( activated( int ) ), this, SLOT( slotBackActivated( int ) ) );
     connect( back->popupMenu(), SIGNAL( aboutToShow() ), this, SLOT( fillBackMenu() ) );
     back->setEnabled( false );
 
-    forward = new KToolBarPopupAction( i18n( "&Forward" ), "forward",
-                                       ALT+Key_Right, this,
-                                       SLOT( slotForward() ),
-                                       actionCollection(), "forward" );
+    forward = new KToolBarPopupAction( backForward.second, ALT+Key_Right, this, SLOT( slotForward() ), actionCollection(), "forward" );
     connect( forward->popupMenu(), SIGNAL( activated( int ) ), this, SLOT( slotForwardActivated( int ) ) );
     connect( forward->popupMenu(), SIGNAL( aboutToShow() ), this, SLOT( fillForwardMenu() ) );
     forward->setEnabled( false );
