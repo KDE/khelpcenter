@@ -124,7 +124,7 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const char *name)
 
   gb = new QGroupBox(i18n("Additional Search Paths"), this);
   hbox->addWidget(gb);
-  QWhatsThis::add( gb, i18n( "Here you can add additional paths to search for documentation. To add a path, click on the <em>Add...</em> button and select the directory from where additional documentation should be searched. You can remove directories by clicking on the <em>Delete</em> button." ) );
+  QWhatsThis::add( gb, i18n( "Here you can add additional paths to search for documentation. To add a path, click on the <em>Add...</em> button and select the folder from where additional documentation should be searched. You can remove folders by clicking on the <em>Delete</em> button." ) );
 
   grid = new QGridLayout(gb, 4,3, 6,2);
   grid->addRowSpacing(0, gb->fontMetrics().lineSpacing());
