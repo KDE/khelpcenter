@@ -87,7 +87,7 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const char *name)
   QWhatsThis::add( l, wtstr );
 
   htsearchBin = new QLineEdit(gb);
-  l = new QLabel(htdigBin, i18n("ht&search"), gb);
+  l = new QLabel(htsearchBin, i18n("ht&search"), gb);
   l->setBuddy( htsearchBin );
   grid->addWidget(l, 2,0);
   grid->addWidget(htsearchBin, 2,1);
@@ -96,6 +96,15 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const char *name)
   QWhatsThis::add( htsearchBin, wtstr );
   QWhatsThis::add( l, wtstr );
 
+  htmergeBin = new QLineEdit(gb);
+  l = new QLabel(htmergeBin, i18n("ht&merge"), gb);
+  l->setBuddy( htmergeBin );
+  grid->addWidget(l, 3,0);
+  grid->addWidget(htmergeBin, 3,1);
+  connect(htmergeBin, SIGNAL(textChanged(const QString&)), this, SLOT(configChanged()));
+  wtstr = i18n( "Enter the path to your htmerge program here, e.g., /usr/local/bin/htmerge" );
+  QWhatsThis::add( htmergeBin, wtstr );
+  QWhatsThis::add( l, wtstr );
 
   QHBoxLayout *hbox = new QHBoxLayout(vbox);
 
@@ -215,7 +224,8 @@ void KHTMLSearchConfig::load()
 
   config->setGroup("htdig");
   htdigBin->setText(config->readEntry("htdig", kapp->dirs()->findExe("htdig")));
-  htsearchBin->setText(config->readEntry("htdig", kapp->dirs()->findExe("htsearch")));
+  htsearchBin->setText(config->readEntry("htsearch", kapp->dirs()->findExe("htsearch")));
+  htmergeBin->setText(config->readEntry("htmerge", kapp->dirs()->findExe("htmerge")));
 
   config->setGroup("Scope");
   indexKDE->setChecked(config->readBoolEntry("KDE", true));
@@ -239,6 +249,7 @@ void KHTMLSearchConfig::save()
   config->setGroup("htdig");
   config->writeEntry("htdig", htdigBin->text());
   config->writeEntry("htsearch", htsearchBin->text());
+  config->writeEntry("htmerge", htmergeBin->text());
 
   config->setGroup("Scope");
   config->writeEntry("KDE", indexKDE->isChecked());
@@ -261,6 +272,7 @@ void KHTMLSearchConfig::defaults()
 {
   htdigBin->setText(kapp->dirs()->findExe("htdig"));
   htsearchBin->setText(kapp->dirs()->findExe("htsearch"));
+  htmergeBin->setText(kapp->dirs()->findExe("htmerge"));
 
   indexKDE->setChecked(true);
   indexMan->setChecked(false);

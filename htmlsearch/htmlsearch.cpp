@@ -157,8 +157,9 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
   progress->setState(1);
 
   // run htdig ------------------------------------------------------
-
-  QString exe = kapp->dirs()->findExe("htdig");
+  KConfig *config = new KConfig("khelpcenterrc", true);
+  KConfigGroupSaver saver(config, "htdig");
+  QString exe = config->readEntry("htdig", kapp->dirs()->findExe("htdig"));
   if (exe.isEmpty())
     return false;
 
@@ -231,8 +232,7 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
   progress->setState(2);
 
   // run htmerge -----------------------------------------------------
-
-  exe = kapp->dirs()->findExe("htmerge");
+  exe = config->readEntry("htmerge", kapp->dirs()->findExe("htmerge"));
   if (exe.isEmpty())
     return false;
 
@@ -259,10 +259,11 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
     }
 
   delete _proc;
-  delete progress;
 
   progress->setState(3);
   kapp->processEvents();
+
+  delete progress;
 
   return true;
 }
@@ -322,8 +323,9 @@ QString HTMLSearch::search(QString _lang, QString words, QString method, int mat
   QString result = dataPath(_lang)+"/result.html";
 
   // run htsearch ----------------------------------------------------
-
-  QString exe = kapp->dirs()->findExe("htsearch");
+  KConfig *config = new KConfig("khelpcenterrc", true);
+  KConfigGroupSaver saver(config, "htdig");
+  QString exe = config->readEntry("htsearch", kapp->dirs()->findExe("htsearch"));
   if (exe.isEmpty())
     return QString::null;
 
@@ -348,6 +350,7 @@ QString HTMLSearch::search(QString _lang, QString words, QString method, int mat
   
   if (!_proc->normalExit() || _proc->exitStatus() != 0)
     { 
+      kdDebug() << "Error running htsearch... returning now" << endl;
       delete _proc;
       return QString::null;
     }
@@ -355,7 +358,7 @@ QString HTMLSearch::search(QString _lang, QString words, QString method, int mat
   delete _proc;
 
   // modify the search result
-  _searchResult = _searchResult.replace(QRegExp("http://localhost/"), "file://");
+  _searchResult = _searchResult.replace(QRegExp("http://localhost/"), "file:/");
   _searchResult = _searchResult.replace(QRegExp("Content-type: text/html"), "");
 
   // dump the search result

@@ -66,7 +66,7 @@ private:
 
   void checkButtons();
  
-  QLineEdit *htdigBin, *htsearchBin; 
+  QLineEdit *htdigBin, *htsearchBin, *htmergeBin;
   QCheckBox *indexKDE, *indexMan, *indexInfo;
   QPushButton *addButton, *delButton, *runButton;
   KListBox *searchPaths;
