@@ -60,6 +60,8 @@ kibView::kibView( QWidget *parent, char *name )
   //m_pView->setStandardFont();
   //m_pView->setFixedFont();
 
+  m_pView->begin( "file:/tmp" );
+
   connect( m_pView, SIGNAL( setTitle( const QString& ) ), this, SLOT( slotSetTitle( const QString& ) ) );
   connect( m_pView, SIGNAL( documentDone() ), this, SLOT( slotCompleted() ) );
   connect( m_pView, SIGNAL( scrollVert( int ) ), this, SLOT( slotScrollVert( int ) ) );
@@ -124,7 +126,6 @@ void kibView::open( const QString& url, bool reload, int xoffset, int yoffset )
 
   kDebugInfo( 1400, "file: %s, node: %s", file.latin1(), node.latin1() );
 
-/*
   m_pProc->kill();
   m_pProc->clearArguments();
 
@@ -135,7 +136,6 @@ void kibView::open( const QString& url, bool reload, int xoffset, int yoffset )
   m_pView->begin( "file:/tmp", xoffset, yoffset );
   
   m_pProc->start( KProcess::NotifyOnExit, KProcess::Stdout );
-*/
 }
 
 bool kibView::mappingOpenURL( const QString& eventURL )
