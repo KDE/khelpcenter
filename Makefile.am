@@ -37,6 +37,8 @@ idl_DATA = khelpcenter.idl
 
 $(srcdir)/khelpcenter.idl: $(idldir)/browser.idl
 
+$(srcdir)/khc_main.cc: khelpcenter.h
+
 ####### Build rules
 
 messages:
