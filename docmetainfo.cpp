@@ -53,8 +53,6 @@ DocEntry *DocMetaInfo::addDocEntry( const QString &fileName )
   QFileInfo fi( fileName );
   if ( !fi.exists() ) return 0;
   
-  DocEntry *entry = new DocEntry();
-
   QString extension = fi.extension();
   QStringList extensions = QStringList::split( '.', extension );
   QString lang;
@@ -65,6 +63,8 @@ DocEntry *DocMetaInfo::addDocEntry( const QString &fileName )
   if ( !lang.isEmpty() && mLanguages.find( lang ) == mLanguages.end() ) {
     return 0;
   }
+
+  DocEntry *entry = new DocEntry();
 
   if ( entry->readFromFile( fileName ) ) {
     if ( !lang.isEmpty() && lang != mLanguages.first() ) {
