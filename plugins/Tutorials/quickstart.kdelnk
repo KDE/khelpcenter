@@ -24,6 +24,5 @@ Comment[no_NY]=KDE snøggstart-guide
 Comment[pt_BR]=Guia rápido do KDE.
 Comment[sr]=KDE-ov poèetni vodiè
 Comment[sv]=KDE snabbstartsguide
-Icon=
-MiniIcon=helpdoc
+Icon=helpdoc
 DocPath=khelpcenter/tutorials/quickstart/index.html

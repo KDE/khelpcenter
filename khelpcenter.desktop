@@ -22,7 +22,6 @@ Comment[pt_BR]=Centro de Ajuda do KDE
 Comment[sr]=KDE pomoæni centar
 Comment[sv]=KDE:s Hjälpcenter
 Icon=khelpcenter
-MiniIcon=khelpcenter
 DocPath=khelpcenter/index.html
 Type=Application
 Terminal=0
