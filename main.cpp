@@ -18,41 +18,7 @@
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 #include "application.h"
-#include "version.h"
 
-#include <kaboutdata.h>
-#include <kapplication.h>
-#include <kcmdlineargs.h>
-#include <klocale.h>
-
-static KCmdLineOptions options[] =
-{
-	{ "+[url]", I18N_NOOP("A URL to display"), "" },
-	{ 0,0,0 }
-};
-
-int main( int argc, char **argv )
-{
-	KAboutData aboutData( "khelpcenter", I18N_NOOP("KDE Help Center"),
-	                      HELPCENTER_VERSION,
-	                      I18N_NOOP("The KDE Help Center"),
-	                      KAboutData::License_GPL,
-	                      "(c) 1999-2002, The KHelpcenter developers" );
-
-	aboutData.addAuthor( "Cornelius Schumacher", 0, "schumacher@kde.org" );
-	aboutData.addAuthor( "Frerich Raabe", 0, "raabe@kde.org" );
-	aboutData.addAuthor( "Matthias Elter", I18N_NOOP("Original Author"),
-	                     "me@kde.org" );
-	aboutData.addAuthor( "Wojciech Smigaj", I18N_NOOP("Info page support"),
-	                     "achu@klub.chip.pl" );
-
-	KCmdLineArgs::init( argc, argv, &aboutData );
-	KCmdLineArgs::addCmdLineOptions( options );
-	KApplication::addCmdLineOptions();
-
-	KHC::Application app;
-
-	return app.exec();
-}
+int main( int argc, char **argv ) { return kdemain(argc, argv); }
 
 // vim:ts=2:sw=2:et

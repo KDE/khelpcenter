@@ -34,5 +34,7 @@ class Application : public KUniqueApplication
 
 }
 
+extern "C" { int kdemain(int argc, char **argv); }
+
 #endif // APPLICATION_H
 // vim:ts=2:sw=2:et

@@ -7,12 +7,12 @@ bin_PROGRAMS = khelpcenter
 
 khelpcenter_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 khelpcenter_LDADD   = libkhelpcenter_common.la
-khelpcenter_SOURCES = main.cpp application.cpp
+khelpcenter_SOURCES = main.cpp
 
 noinst_LTLIBRARIES = libkhelpcenter_common.la
 kde_module_LTLIBRARIES = khelpcenter.la kcm_helpcenter.la
 
-khelpcenter_la_LDFLAGS = $(all_libraries) $(KDE_RPATH) -module $(KDE_PLUGIN) -no-undefined
+khelpcenter_la_LDFLAGS = $(all_libraries) $(KDE_RPATH) -module $(KDE_PLUGIN)
 khelpcenter_la_LIBADD  = libkhelpcenter_common.la
 khelpcenter_la_SOURCES = dummy.cpp
 
@@ -27,7 +27,7 @@ libkhelpcenter_common_la_SOURCES = navigator.cpp \
 	infonode.cpp searchwidget.cpp klanguagebutton.cpp searchengine.cpp \
 	docmetainfo.cpp docentrytraverser.cpp searchformatter.cpp \
 	glossary.cpp toc.cpp mainwindow.cpp docentry.cpp htmlsearch.cpp \
-	history.cpp
+	history.cpp application.cpp
 
 kcm_helpcenter_la_LDFLAGS = $(KDE_RPATH) -module -avoid-version \
                             $(all_libraries) -no-undefined
