@@ -1,7 +1,9 @@
 # KDE Config File
 [KDE Desktop Entry]
 Name=Tutorials
+Name[pt_BR]=Tutoriais
 MiniIcon=
 Comment=Tutorial and introduction documents.
+Comment[pt_BR]=Documentos introdutórios e de tutorial.
 Icon=
 DocPath=
