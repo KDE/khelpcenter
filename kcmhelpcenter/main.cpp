@@ -7,18 +7,17 @@
 
 #include <stdio.h>
 
-#include <kcontrol.h>
 #include <kconfig.h>
+#include <klocale.h>
+#include <kcontrol.h>
 #include <kprocess.h>
+#include <kstddirs.h>
 
 #include "assistant.h"
 #include "browser.h"
 #include "widget.h"
-#include <klocale.h>
-
 
 KConfig *pConfig = 0L;
-
 
 class KHelpCenterApplication : public KControlApplication
 {
@@ -101,8 +100,7 @@ int main(int argc, char **argv)
 {
 	int ret = 0;
 
-	pConfig = new KConfig( KApplication::kde_configdir()  + "/khelpcenterrc",
-	                       KApplication::localconfigdir() + "/khelpcenterrc" );
+	pConfig = new KConfig( locate( "data", "khelpcenter/khelpcenterrc") );
 
 	KHelpCenterApplication app(argc, argv, "kcmhelpcenter");
 	app.setTitle( i18n("HelpCenter Configuration") );

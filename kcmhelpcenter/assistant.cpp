@@ -5,8 +5,10 @@
  *
 */
 
-#include "assistant.h"
 #include <kconfig.h>
+#include <kglobal.h>
+
+#include "assistant.h"
 
 static bool GUI;
 
@@ -30,7 +32,7 @@ KAssistantConfig::KAssistantConfig (QWidget * parent, const char *name, bool ini
 		// set up GUI and connect signals to slots
 	}
 
-	config = kapp->getConfig();
+	config = KGlobal::config();
 
 	GetSettings();
 

@@ -1,4 +1,4 @@
-/* 
+/*
  * This file is part of the KDE Help Center
  *
  * Copyright (c) 1999, René Beutler (rbeutler@g26.ethz.ch)
@@ -6,15 +6,15 @@
  */
 
 #include <qlabel.h>
-#include <qgroupbox.h>
 #include <qlayout.h>
+#include <qgroupbox.h>
 
+#include <klocale.h>
 #include <kseparator.h>
 
 #include "browser.h"
-#include "../kassistant/config-kassistant.h"
-#include <klocale.h>  // include default values directly from kassistant
-
+#include "kcm_config.h"
+//#include "../kassistant/config-kassistant.h" // include default values directly from kassistant
 
 KBrowserConfig::KBrowserConfig (QWidget * parent, const char *name, bool )
     : KConfigWidget (parent, name)

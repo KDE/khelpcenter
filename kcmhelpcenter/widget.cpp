@@ -6,22 +6,24 @@
  */
 
 #include <qdir.h>
-#include <kprocess.h>
 #include <qlayout.h>
 
-#include "widget.h"
-#include "../kassistant/config-kassistant.h"  // include default values directly from kassistant
+#include <kprocess.h>
 #include <klocale.h>
 
+#include "widget.h"
+#include "kcm_config.h"
+//#include "../kassistant/config-kassistant.h"  // include default values directly from kassistant
 
-KWidgetConfig::KWidgetConfig( QWidget* parent, const char* name, bool ) : KConfigWidget( parent, name )
+KWidgetConfig::KWidgetConfig( QWidget* parent, const char* name, bool )
+  : KConfigWidget( parent, name )
 {
   // main groupboxes
   pHighGB    = newGroupBox( "Highlighting" );
   pEyesGB    = newGroupBox( "Eyes"         );
-  pPointerGB = newGroupBox( "Pointer"      ); 
+  pPointerGB = newGroupBox( "Pointer"      );
   pTestGB    = newGroupBox( "Test"         );
-  
+
   // all widgets
   pNumberLabel  = newLabel( "Number:", pHighGB );
   pTimesLabel   = newLabel( "times",   pHighGB );
@@ -40,13 +42,13 @@ KWidgetConfig::KWidgetConfig( QWidget* parent, const char* name, bool ) : KConfi
   pHighlightCheckbox = newCheckbox( "Enable Highlighting", pHighGB );
   pEyesCheckbox      = newCheckbox( "Enable Eyes",         pEyesGB );
   pWarpCheckbox      = newCheckbox( "Warp pointer to center of widget", pPointerGB );
-  
+
   pTestButton   = new QPushButton( i18n("Test"), pTestGB );
   pTestButton->setFixedSize( pTestButton->sizeHint() );
- 
+
   // layout management
   QVBoxLayout *pTop = new QVBoxLayout( this, 10, 5  );
- 
+
   pTop->addWidget( pHighGB,    3 );
   QHBoxLayout *hbox = new QHBoxLayout();
   pTop->addLayout( hbox );
@@ -60,7 +62,7 @@ KWidgetConfig::KWidgetConfig( QWidget* parent, const char* name, bool ) : KConfi
   vbox->addSpacing( pHighGB->fontMetrics().height() );
   vbox->addWidget( pHighlightCheckbox );
   vbox->addStretch();
- 
+
   QGridLayout *grid = new QGridLayout( 6, 3 );
   vbox->addLayout( grid );
 
@@ -87,7 +89,7 @@ KWidgetConfig::KWidgetConfig( QWidget* parent, const char* name, bool ) : KConfi
   vbox = new QVBoxLayout( pPointerGB, 10 );
   vbox->addSpacing( pPointerGB->fontMetrics().height() );
   vbox->addWidget( pWarpCheckbox );
- 
+
   // Create a layout for the test group box
   hbox = new QHBoxLayout( pTestGB, 10 );
   hbox->addSpacing( pTestGB->fontMetrics().height() );
@@ -95,7 +97,7 @@ KWidgetConfig::KWidgetConfig( QWidget* parent, const char* name, bool ) : KConfi
   hbox->addStretch();
   hbox->addWidget( pFindMeLabel );
   hbox->addStretch();
-  
+
   // signal/slot
   connect( pNumberSlider,      SIGNAL(valueChanged(int)), SLOT(slotNumberChanged(int)) );
   connect( pDelaySlider,       SIGNAL(valueChanged(int)), SLOT(slotDelayChanged(int)) );
@@ -169,7 +171,7 @@ void KWidgetConfig::slotEyesCheckbox( bool enable )
 void KWidgetConfig::slotHighlightCheckbox( bool enable )
 {
   bHighlightEnabled = enable;
-  
+
   setHighlightEnabled( enable );
 }
 
@@ -186,9 +188,9 @@ void KWidgetConfig::slotTest()
 
   // center of found widget
   QPoint pos = pTestGB->mapToGlobal( pFindMeLabel->pos() );
-  QPoint center = QPoint( pos.x() + pFindMeLabel->width()/2, 
+  QPoint center = QPoint( pos.x() + pFindMeLabel->width()/2,
 			  pos.y() + pFindMeLabel->height()/2 );
-  
+
   if( bEyesEnabled )
     {
       if( eyes )
@@ -196,12 +198,12 @@ void KWidgetConfig::slotTest()
 
       eyes = new KEyesWidget();
       CHECK_PTR( eyes );
-                  
+
       // placement of eyes: horizontal: align centered with widget
       //                    vertical:   choose side with more space
       QRect geom;
       QRect region = KWM::windowRegion( KWM::currentDesktop() );
-      
+
       if( center.y() - region.top() > region.bottom() - center.y() )
 	{
 	  // place above
@@ -246,7 +248,7 @@ void KWidgetConfig::slotTest()
     connect( timer, SIGNAL(timeout()), this, SLOT(slotAddHighlight()) );
     timer->start( 0, TRUE );
   }
-  
+
   if( bWarpPointer ) {
     XWarpPointer( qt_xdisplay(), qt_xrootwin(), qt_xrootwin(), 0, 0, 0, 0, center.x(), center.y() );
   }
@@ -311,7 +313,7 @@ void KWidgetConfig::updateGUI()
   pDelayLCD->display( delay );
   pDelaySlider->setValue( delay );
   setHighlightEnabled( bHighlightEnabled );
-  
+
   // eyes
   pEyesCheckbox->setChecked( bEyesEnabled );
 
@@ -325,7 +327,7 @@ void KWidgetConfig::setHighlightEnabled( bool e )
   pNumberSlider->setEnabled( e );
   pDelayLCD->setEnabled( e );
   pDelaySlider->setEnabled( e );
-  
+
   pNumberLabel->setEnabled( e );
   pDelayLabel->setEnabled( e );
   pTimesLabel->setEnabled( e );
@@ -357,13 +359,13 @@ void KWidgetConfig::saveSettings()
   pConfig->writeEntry( "HighlightEnabled", bHighlightEnabled );
   pConfig->writeEntry( "HighlightNumber", number      );
   pConfig->writeEntry( "HighlightDelay",  delay       );
-  
+
   // eyes
   pConfig->writeEntry( "EyesEnabled",     bEyesEnabled );
 
   // pointer
   pConfig->writeEntry( "WarpPointer",     bWarpPointer );
-  
+
   pConfig->sync();
 }
 
@@ -379,6 +381,6 @@ void KWidgetConfig::defaultSettings()
   delay        = WIS_DEFAULT_HIGHLIGHT_DELAY;
   bEyesEnabled = WIS_DEFAULT_EYES_ENABLED;
   bWarpPointer = WIS_DEFAULT_WARP_POINTER;
-  
+
   updateGUI();
 }
