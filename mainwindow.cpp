@@ -183,6 +183,9 @@ void MainWindow::setupActions()
                  actionCollection(), "help_contents" );
     */
     History::self().setupActions( actionCollection() );
+
+    new KAction( i18n( "Increase Font Sizes" ), "viewmag+", KShortcut(), this, SLOT( slotIncFontSizes() ), actionCollection(), "incFontSizes" );
+    new KAction( i18n( "Decrease Font Sizes" ), "viewmag-", KShortcut(), this, SLOT( slotDecFontSizes() ), actionCollection(), "decFontSizes" );
 }
 
 void MainWindow::print()
@@ -335,5 +338,22 @@ void MainWindow::showSearchStderr()
   mLogDialog->raise();
 }
 
+void MainWindow::slotIncFontSizes()
+{
+  mDoc->slotIncFontSizes();
+  updateZoomActions();
+}
+
+void MainWindow::slotDecFontSizes()
+{
+  mDoc->slotDecFontSizes();
+  updateZoomActions();
+}
+
+void MainWindow::updateZoomActions()
+{
+  actionCollection()->action( "incFontSizes" )->setEnabled( mDoc->zoomFactor() + mDoc->zoomStepping() <= 300 );
+  actionCollection()->action( "decFontSizes" )->setEnabled( mDoc->zoomFactor() - mDoc->zoomStepping() >= 20 );
+}
 
 // vim:ts=2:sw=2:et

@@ -60,8 +60,12 @@ class MainWindow : public KMainWindow, public DCOPObject
                              const KParts::URLArgs &args);
     void documentCompleted();
     void openOwnManual();
+    void slotIncFontSizes();
+    void slotDecFontSizes();
 
   private:
+    void updateZoomActions();
+
     View *mDoc;
     Navigator *mNavigator;
 

@@ -14,6 +14,8 @@ View::View( QWidget *parentWidget, const char *widgetName,
                   QObject *parent, const char *name, KHTMLPart::GUIProfile prof )
     : KHTMLPart( parentWidget, widgetName, parent, name, prof ), mState( Docu )
 {
+    m_zoomStepping = 10;
+
     connect( this, SIGNAL( setWindowCaption( const QString & ) ),
              this, SLOT( setTitle( const QString & ) ) );
              
@@ -177,6 +179,16 @@ void View::lastSearch()
   begin();
   write( mSearchResult );
   end();
+}
+
+void View::slotIncFontSizes()
+{
+  setZoomFactor( zoomFactor() + m_zoomStepping );
+}
+
+void View::slotDecFontSizes()
+{
+  setZoomFactor( zoomFactor() - m_zoomStepping );
 }
 
 // vim:ts=2:sw=2:et

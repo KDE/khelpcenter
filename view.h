@@ -31,8 +31,12 @@ class View : public KHTMLPart
     void writeSearchResult( const QString & );
     void endSearchResult();
 
+    int zoomStepping() const { return m_zoomStepping; }
+
   public slots:
     void lastSearch();
+    void slotIncFontSizes();
+    void slotDecFontSizes();
 
   signals:
     void searchResultCacheAvailable();
@@ -47,6 +51,7 @@ class View : public KHTMLPart
     QString mTitle;
 
     QString mSearchResult;
+    int m_zoomStepping;
 };
 
 }
