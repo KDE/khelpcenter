@@ -36,7 +36,7 @@ kcm_helpcenter_la_SOURCES = kcmhelpcenter.cpp docmetainfo.cpp \
                             docentrytraverser.cpp docentry.cpp htmlsearch.cpp \
                             htmlsearchconfig.cpp
 
-check_PROGRAMS = testmetainfo
+EXTRA_PROGRAMS = testmetainfo
 
 testmetainfo_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 testmetainfo_LDADD = $(LIB_KDECORE) docentry.lo docmetainfo.lo \
