@@ -30,22 +30,15 @@
 
 #include <qdir.h>
 #include <qfileinfo.h>
+#include <kglobal.h>
+#include <kstddirs.h>
 
 int main(int argc, char *argv[])
 {
     bool standalone = false;
     HelpCenter *hc;
 
-    // create local data directory if necessary
-    QDir dir;
-    dir.setPath(KApplication::localkdedir() + "/share/apps");
-
-    if (!dir.exists())
-	dir.mkdir(KApplication::localkdedir() + "/share/apps");
-  
-    dir.setPath(KApplication::localkdedir() + "/share/apps/khelpcenter");
-    if (!dir.exists())
-	dir.mkdir(KApplication::localkdedir() + "/share/apps/khelpcenter");
+    KGlobal::dirs()->addResourceType("plugins", KStandardDirs::kde_default("data") + "khelpcenter/plugins");
 
     for (int i=0; i< argc; i++)
     {
@@ -58,9 +51,7 @@ int main(int argc, char *argv[])
 	KApplication app(argc, argv, "KDE HelpCenter");
 	hc = new HelpCenter;
 
-	QString _url = "file:";
-	_url += kapp->kde_htmldir().copy();
-	_url += "/default/khelpcenter/main.html";
+	QString _url = "file:" + locate("html", "default/khelpcenter/main.html");
 
 	hc->show();
 	hc->openURL(_url, true);

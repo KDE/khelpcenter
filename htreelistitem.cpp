@@ -54,8 +54,7 @@ bool HTreeListItem::readKDElnk ( const char *filename )
     if (path.isNull())
 	return false;
 
-    url = kapp->kde_htmldir() + "/default/";
-    url += path;
+    url = locate("html", "default/" + path);
 
     // read comment text
     info = config.readEntry("Info");

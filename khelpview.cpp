@@ -110,9 +110,7 @@ KHelpView::KHelpView(QWidget *parent, const char *name)
     connect(view, SIGNAL(documentStarted()), SLOT(slotDocumentStarted()));
   
     // load bookmarks
-    QString p = KApplication::localkdedir();
-    QString bmFile = p + "/share/apps/khelpcenter/bookmarks.html";
-    bookmarkManager.read( bmFile );
+    bookmarkManager.read( locate("data", "khelpcenter/bookmarks.html") );
   
     // setup geometry
     layout();
@@ -491,9 +489,8 @@ const char *KHelpView::getCurrentURL()
 
 void KHelpView::addBookmark(const char *_title, const char *url)
 {
-    QString bmFile = KApplication::localkdedir() + "/share/apps/khelpcenter/bookmarks.html";
     bookmarkManager.add(_title, url);
-    bookmarkManager.write(bmFile);
+    bookmarkManager.write(locateLocal("data", "khelpcenter/bookmarks.html"));
 }
 
 void KHelpView::layout()

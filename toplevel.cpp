@@ -554,9 +554,7 @@ void HelpCenter::slotCloneWindow()
     if (htmlview->canCurrentlyDo(KHelpView::Stop) )
     {
 	// in that case, select the title page...
-	url = "file:";
-	url += kapp->kde_htmldir();
-	url += "/default/khelpcenter/main.html";
+        url = "file:" + locate("html", "default/khelpcenter/main.html");
     }
     win->openURL( url );
 

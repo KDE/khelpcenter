@@ -32,6 +32,7 @@
 #include <qmsgbox.h>
 
 #include <fstream.h>
+#include <kstddirs.h>
 
 KWelcome::KWelcome(QWidget *parent, const char *name)
 	: QWidget(parent, name, WStyle_Tool)
@@ -82,7 +83,7 @@ KWelcome::KWelcome(QWidget *parent, const char *name)
   welcome->setGeometry(2,2,557,386);
 	
   QPixmap welcome_pm;
-  QString tmp = kapp->kde_datadir().copy() + "/kwelcome/pics/welcome.png"; // 557 x 386
+  QString tmp = locate("data", "kwelcome/pics/welcome.png"); // 557 x 386
   if(!welcome_pm.load(tmp))
     cout << "Image load failure, could not load %s\n" << tmp.data();
   else

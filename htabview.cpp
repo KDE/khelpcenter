@@ -258,25 +258,22 @@ void HTabView::buildManSubTree(HTreeListItem *parent)
 
 void HTabView::buildManualSubTree(HTreeListItem *parent)
 {
-    // System applications
-    QString appPath = kapp->kde_appsdir();
-    processDir(appPath, parent, &manualItems);
-    appendEntries(appPath, parent, &manualItems);
+    QStringList list = KGlobal::dirs()->getResourceDirs("apps");
+    for (QStringList::ConstIterator it = list.begin(); it != list.end(); it++) {
+      processDir(*it, parent, &manualItems);
+      appendEntries(*it, parent, &manualItems);
 
-    /*
-      // User applications
-      appPath = KApplication::localkdedir() + "/share/applnk";
-      processDir(appPath, userManualTop);
-      appendEntries(appPath, userManualTop);
-    */
+    }
 }
 
 void HTabView::insertPlugins()
 {
-    // Scan plugin dir
-    QString path = kapp->kde_datadir() + "/khelpcenter/plugins";
-    processDir(path, 0, &pluginItems);
-    appendEntries(path, 0, &pluginItems);
+    QStringList list = KGlobal::dirs()->getResourceDirs("plugins");
+    for (QStringList::ConstIterator it = list.begin(); it != list.end(); it++) {
+      processDir(*it, 0, &manualItems);
+      appendEntries(*it, 0, &manualItems);
+
+    }
 }
 
 void HTabView::slotReloadTree()

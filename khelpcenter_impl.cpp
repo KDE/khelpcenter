@@ -34,9 +34,7 @@ HelpWindow_Impl::HelpWindow_Impl()
 {
   hc = new HelpCenter;
 
-  QString _url = "file:";
-  _url += kapp->kde_htmldir().copy();
-  _url += "/default/khelpcenter/main.html";
+  QString _url = "file:" + locate("html", "default/khelpcenter/main.html");
 
   hc->openURL(_url, true);
   hc->show();
@@ -56,11 +54,7 @@ void HelpWindow_Impl::open(const char *url)
     QString _url(url);
 
     if (_url.isEmpty())
-    {
-	_url = "file:";
-	_url += kapp->kde_htmldir().copy();
-	_url += "/default/khelpcenter/main.html";
-    }
+      _url = "file:" + locate("html", "default/khelpcenter/main.html");
     
     if (hc)
 	hc->openURL(_url, true);

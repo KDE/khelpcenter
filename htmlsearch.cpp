@@ -155,8 +155,9 @@ int HTMLSearch::processDir(const char *dirname, const char *query)
 
 void HTMLSearch::search (const char *query)
 {
-    QString dir = KApplication::kde_htmldir();
-    dir += "/en/"; //change this for i18n!!!
-    processDir(dir, query);
+    QStringList list = KGlobal::dirs()->getResourceDirs("html");
+    for (QStringList::ConstIterator it = list.begin(); it != list.end(); it++) {
+      processDir(*it + "/en/", query);  //change this for i18n!!!
+    }
 }
 
