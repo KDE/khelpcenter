@@ -76,7 +76,7 @@ bool KCGI::get( const char *_url, const char *_dest, const char *_method )
 
 	if ( url.isMalformed() )
 	{
-	    printf( klocale->translate("CGI: Destination URL malformed: %s\n"),
+	    printf( i18n("CGI: Destination URL malformed: %s\n"),
 		    _dest );
 	    return false;
 	}
