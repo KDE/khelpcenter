@@ -33,4 +33,4 @@ EXTRA_DIST = $(service_DATA) $(data_DATA)
 KonquerorIface_DIR = $(top_srcdir)/konqueror
 
 messages:
-	$(XGETTEXT) -kaliasLocal *.h *.cc -o $(podir)/khelpcenter.pot
+	$(XGETTEXT) -C $(libkhelpcenter_la_SOURCES) -o $(podir)/khelpcenter.pot
