@@ -62,7 +62,7 @@ KHMainWindow::KHMainWindow(const KURL &url)
             SLOT(slotStarted(KIO::Job *)));
 
     if (url.isEmpty())
-        doc->openURL(KURL("help:/khelpcenter/index.html"));
+        prepareAbout();
     else
         doc->openURL( url );
 
@@ -94,6 +94,54 @@ KHMainWindow::KHMainWindow(const KURL &url)
     createGUI( "khelpcenterui.rc" );
 
     statusBar()->message(i18n("Ready"));
+}
+
+void KHMainWindow::prepareAbout()
+{
+    QString file = locate( "data", "khelpcenter/intro.html.in" );
+    if ( file.isEmpty() )
+        return;
+
+    QFile f( file );
+
+    if ( !f.open( IO_ReadOnly ) )
+	return;
+
+    QTextStream t( &f );
+
+    QString res = t.read();
+
+    file = langLookup( "khelpcenter/index.docbook" );
+
+    // otherwise all embedded objects are referenced as about:/...
+    QString basehref = QString::fromLatin1("<BASE HREF=\"file:") +
+                       file.left( file.findRev( '/' ) )
+		       + QString::fromLatin1("/\">\n");
+    res.prepend( basehref );
+    res = res.arg( i18n("Conquer your Desktop!") )
+          .arg( i18n( "Welcome to the K Desktop Environment" ) )
+          .arg( i18n( "The KDE team welcomes you to user-friendly UNIX computing" ) )
+          .arg( i18n( "KDE is a powerful graphical desktop environment for Unix workstations.  A\n"
+                      "KDE desktop combines ease of use, contemporary functionality and outstanding\n"
+                      "graphical design with the technological superiority of the Unix operating\n"
+                      "system." ) )
+          .arg( i18n( "What is the K Desktop Environment?" ) )
+          .arg( i18n( "Contacting the KDE Project" ) )
+          .arg( i18n( "Supporting the KDE Project" ) )
+          .arg( i18n( "Useful links" ) )
+          .arg( i18n( "Getting the most out of KDE" ) )
+          .arg( i18n( "General Documentation" ) )
+          .arg( i18n( "A Quick Start Guide to the Desktop" ) )
+          .arg( i18n( "KDE User's guide" ) )
+          .arg( i18n( "Frequently asked questions" ) )
+          .arg( i18n( "Basic Applications" ) )
+          .arg( i18n( "The Kicker Desktop Panel" ) )
+          .arg( i18n( "The KDE Control Center" ) )
+          .arg( i18n( "The Konqueror File manager and Web Browser" ) );
+
+    doc->begin( "about:khelpcenter" );
+    doc->write( res );
+    doc->end();
 }
 
 void KHMainWindow::slotStarted(KIO::Job *job)
@@ -148,10 +196,10 @@ void KHMainWindow::slotGlossSelected(const khcNavigatorWidget::GlossaryEntry &en
     QString htmlSrc = htmlStream.read().arg(entry.term).arg(entry.definition).arg(seeAlso);
 
     KURL dataDir = langLookup(QString::fromLatin1("khelpcenter/glossary.html"));
-    
+
     doc->begin(dataDir.path());
     doc->write(htmlSrc);
-    doc->end(); 
+    doc->end();
 }
 
 QString KHMainWindow::langLookup(const QString &fname)
@@ -165,7 +213,6 @@ QString KHMainWindow::langLookup(const QString &fname)
     for (int id=localDoc.count()-1; id >= 0; --id)
     {
         QStringList langs = KGlobal::locale()->languageList();
-        langs.append("default");
         langs.append("en");
         QStringList::ConstIterator lang;
         for (lang = langs.begin(); lang != langs.end(); ++lang)
