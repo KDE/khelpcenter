@@ -27,7 +27,7 @@
 #include <qwhatsthis.h>
 #include <kfiledialog.h>
 #include <kprocess.h>
-#include <klangcombo.h>
+#include "klangcombo.h"
 #include <kurlrequester.h>
 #include <klineedit.h>
 
