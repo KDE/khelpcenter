@@ -24,7 +24,7 @@ noinst_HEADERS         = browser.h docserver.h cgi.h noteditor.h assistant.h \
 idl_DATA    =  helpcom.idl
 idl_HEADERS =  helpcom.h
 
-SUBDIRS     =  answer doc pics anim
+SUBDIRS     =  answer pics anim
 
 ####### Build rules
 
