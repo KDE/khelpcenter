@@ -34,4 +34,3 @@ SwallowExec=
 SwallowTitle=
 BinaryPattern=
 X-KDE-Library=libkhelpcenter
-Exec=khelpcenter
