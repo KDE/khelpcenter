@@ -27,6 +27,7 @@
 #include <klocale.h>
 #include <kstddirs.h>
 #include <kcmdlineargs.h>
+#include <kpopupmenu.h>
 #include <kstringhandler.h>
 
 #include <qdir.h>
@@ -49,6 +50,7 @@
 #include <qsplitter.h>
 #include "khc_navigator.h"
 #include <qhbox.h>
+#include <kstatusbar.h>
 
 KHMainWindow::KHMainWindow(const KURL &url)
     : KMainWindow(0, "khmainwindow"), m_goMenuIndex( -1 ), m_goMenuHistoryStartPos( -1 ),
