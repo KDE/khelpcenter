@@ -286,10 +286,8 @@ void Navigator::insertParentAppDocs( const QString &name, NavigatorItem *topItem
 #endif
 #else
   KServiceGroup::Ptr grp = KServiceGroup::childGroup( name );
-  if ( !grp ) {
-    kdDebug(1400) << "Eeek, our group pointer is NULL!" << endl;
+  if ( !grp )
     return;
-  }
 
   KServiceGroup::List entries = grp->entries();
   KServiceGroup::List::ConstIterator it = entries.begin();
