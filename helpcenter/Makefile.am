@@ -53,3 +53,6 @@ messages:
 install-exec-local:
 	$(INSTALL_SCRIPT) $(srcdir)/khelpcenter $(bindir)/khelpcenter
 
+uninstall-local:
+	-rm -f $(bindir)/khelpcenter
+
