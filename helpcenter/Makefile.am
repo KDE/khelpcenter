@@ -14,8 +14,8 @@ INCLUDES= $(all_includes) $(MICO_INCLUDES) -I$(idldir)
 LDFLAGS = $(all_libraries) $(MICO_LDFLAGS) $(KDE_RPATH)
 IDL_FLAGS = --query-server-for-narrow --relative-paths -I$(idldir)
 
-khelpcenter_bin_LDADD   = $(LIB_KFILE) -lkom $(LIB_KHTML) $(LIB_KDEUI) $(LIBMICO) -ldl 
-khelpcentercom_LDADD   = $(LIB_KDEUI) -lkom $(LIBMICO) -ldl
+khelpcenter_bin_LDADD   = $(LIB_KFILE) $(LIB_KFM) -lkom $(LIB_KHTML) $(LIB_KDEUI) $(LIBMICO) $(LIBDL)
+khelpcentercom_LDADD   = $(LIB_KDEUI) -lkom $(LIBMICO) $(LIBDL)
 
 SUBDIRS = pics plugins info2html rman
 
