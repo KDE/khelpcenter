@@ -161,8 +161,8 @@ void KHMainWindow::prepareAbout()
 void KHMainWindow::slotStarted(KIO::Job *job)
 {
     kdDebug() << "slotStarted\n";
-
-    connect(job, SIGNAL(infoMessage( KIO::Job *, const QString &)),
+    if (job)
+       connect(job, SIGNAL(infoMessage( KIO::Job *, const QString &)),
             this, SLOT(slotInfoMessage(KIO::Job *, const QString &)));
 }
 

@@ -431,15 +431,13 @@ QString khcNavigatorWidget::documentationURL(KService *s)
       // see if it is part of our help system, or external
       // note that this test might be a bit too stupid
       if (docPath.left(5) == "file:" || docPath.left(5) == "http:")
-	return docPath;
+          return docPath;
 
-      if (docPath.right(11) == "/index.html")
-	docPath = docPath.left(docPath.length() - 11);
+      return QString( "help:/" ) + docPath;
     }
   else
-    docPath = s->desktopEntryName();
+    return QString::null;
 
-  return QString("help:/%1/index.html").arg(docPath);
 }
 
 void khcNavigatorWidget::insertPlugins()
