@@ -195,10 +195,10 @@ void SearchEngine::searchExited(KProcess *)
   mSearchRunning = false;
 }
 
-bool SearchEngine::search( QString words, QString method, int matches,
+bool SearchEngine::search( QString _words, QString method, int matches,
                            QString scope )
 {
-  mWords = words;
+  mWords = _words;
   mMethod = method;
   mMatches = matches;
   mScope = scope;
@@ -231,16 +231,16 @@ bool SearchEngine::search( QString words, QString method, int matches,
 	  lang = "en";
 
     // if the string contains '&' replace with a '+' and set search method to and
-    if (words.find("&") != -1) {
-      words.replace(QRegExp("&"), " ");
+    if (mWords.find("&") != -1) {
+      mWords.replace(QRegExp("&"), " ");
       method = "and";
     }
  
     // replace whitespace with a '+'
-    words = words.stripWhiteSpace();
-    words = words.simplifyWhiteSpace();
-    words.replace(QRegExp("\\s"), "+");
-
+    mWords = mWords.stripWhiteSpace();
+    mWords = mWords.simplifyWhiteSpace();
+    mWords.replace(QRegExp("\\s"), "+");
+    
     commonSearchProgram = substituteSearchQuery( commonSearchProgram );
 
     kdDebug() << "Common Search: " << commonSearchProgram << endl;
