@@ -177,8 +177,8 @@ QString SearchWidget::scope()
     if ( it.current()->rtti() == ScopeItem::rttiId() ) {
       ScopeItem *item = static_cast<ScopeItem *>( it.current() );
       if ( item->isOn() ) {
-        if ( !scope.isEmpty() ) scope += "+";
-        scope += item->entry()->identifier() + "_" + item->entry()->lang();
+        if ( !scope.isEmpty() ) scope += "&";
+        scope += "scope=" + item->entry()->identifier();
       }
     }
     ++it;

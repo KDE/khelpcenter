@@ -241,12 +241,18 @@ bool SearchEngine::search( QString words, QString method, int matches,
 
     commonSearchProgram = substituteSearchQuery( commonSearchProgram );
 
+    kdDebug() << "Common Search: " << commonSearchProgram << endl;
+
     mProc = new KProcess();
 
     QStringList cmd = QStringList::split( " ", commonSearchProgram );
     QStringList::ConstIterator it;
     for( it = cmd.begin(); it != cmd.end(); ++it ) {
-      *mProc << (*it);
+      QString arg = *it;
+      if ( arg.left( 1 ) == "\"" && arg.right( 1 ) =="\"" ) {
+        arg = arg.mid( 1, arg.length() - 2 );
+      }
+      *mProc << arg;
     }
 
     connect( mProc, SIGNAL( receivedStdout( KProcess *, char *, int ) ),
