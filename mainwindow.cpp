@@ -451,7 +451,7 @@ extern "C" int kdemain(int argc, char *argv[])
                           HELPCENTER_VERSION,
                           I18N_NOOP("The KDE Help Center"),
                           KAboutData::License_GPL,
-                          "(c) 1999-2000, Matthias Elter" );
+                          "(c) 1999-2002, The KHelpcenter developers" );
 
     aboutData.addAuthor( "Cornelius Schumacher", 0, "schumacher@kde.org" );
     aboutData.addAuthor( "Frerich Raabe", 0, "raabe@kde.org" );
