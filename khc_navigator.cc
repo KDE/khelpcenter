@@ -53,7 +53,6 @@
 #include "khc_navigatoritem.h"
 #include "khc_navigatorappitem.h"
 #include "searchwidget.h"
-#include "khc_factory.h"
 #include "khc_infoconsts.h"
 #include "khc_infohierarchymaker.h"
 #include "khc_infonode.h"
@@ -67,46 +66,6 @@
 
 #include "khc_navigator.h"
 #include "khc_navigator.moc"
-
-khcNavigator::khcNavigator( KHCView *view, QWidget *parentWidget,
-                            QObject *parent, const char *name )
-    : KParts::ReadOnlyPart(parent,name)
-{
-    kdDebug(1400) << "khcNavigator::khcNavigator\n";
-    setInstance( KHCFactory::instance() );
-
-    setWidget( new khcNavigatorWidget( view, parentWidget ) );
-
-    m_extension = new khcNavigatorExtension( this, "khcNavigatorExtension" );
-    connect( widget(), SIGNAL( itemSelected(const QString&) ),
-             m_extension, SLOT( slotItemSelected(const QString&) ) );
-}
-
-khcNavigator::~khcNavigator()
-{
-  // KParts deletes the widget. Cool.
-}
-
-bool khcNavigator::openURL( const KURL & )
-{
-    emit started( 0 );
-    emit completed();
-    return true;
-}
-
-bool khcNavigator::openFile()
-{
-  return true; // easy one...
-}
-
-void khcNavigatorExtension::slotItemSelected(const QString& url)
-{
-    KParts::URLArgs urlArgs(true, 0, 0);
-
-    kdDebug(1400) << "request URL " << url << endl;
-
-    emit openURLRequest( url, urlArgs );
-}
 
 khcNavigatorWidget::khcNavigatorWidget( KHCView *view, QWidget *parent,
                                         const char *name )

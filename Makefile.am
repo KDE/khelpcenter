@@ -22,7 +22,7 @@ dummy.cpp:
 
 libkhelpcenter_common_la_LDFLAGS = $(all_libraries) -no-undefined
 libkhelpcenter_common_la_LIBADD = $(LIB_KHTML)
-libkhelpcenter_common_la_SOURCES = khc_factory.cc khc_navigator.cc \
+libkhelpcenter_common_la_SOURCES = khc_navigator.cc \
 	khc_navigatoritem.cc khc_navigatorappitem.cc khc_view.cc \
 	khc_infohierarchymaker.cc khc_inforeader.cc khc_infofile.cc \
 	khc_infonode.cc searchwidget.cpp klanguagebutton.cpp searchengine.cpp \

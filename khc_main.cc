@@ -85,14 +85,14 @@ KHMainWindow::KHMainWindow(const KURL &url)
             SLOT(slotOpenURLRequest( const KURL &,
                                      const KParts::URLArgs &)));
 
-    nav = new khcNavigator( doc, splitter, this, "nav");
-    connect(nav->widget(), SIGNAL(itemSelected(const QString &)),
+    nav = new khcNavigatorWidget( doc, splitter, "nav");
+    connect(nav, SIGNAL(itemSelected(const QString &)),
             SLOT(openURL(const QString &)));
-    connect(nav->widget(), SIGNAL(glossSelected(const khcGlossaryEntry &)),
+    connect(nav, SIGNAL(glossSelected(const khcGlossaryEntry &)),
             SLOT(slotGlossSelected(const khcGlossaryEntry &)));
 
-    splitter->moveToFirst(nav->widget());
-    splitter->setResizeMode(nav->widget(), QSplitter::KeepSize);
+    splitter->moveToFirst(nav);
+    splitter->setResizeMode(nav, QSplitter::KeepSize);
     setCentralWidget( splitter );
     QValueList<int> sizes;
     sizes << 220 << 580;
@@ -217,7 +217,7 @@ void KHMainWindow::slotOpenURLRequest( const KURL &url,
     doc->browserExtension()->setURLArgs( args );
 
     if (proto == QString::fromLatin1("glossentry"))
-        slotGlossSelected(static_cast<khcNavigatorWidget *>(nav->widget())->glossEntry(KURL::decode_string(url.encodedPathAndQuery())));
+        slotGlossSelected(nav->glossEntry(KURL::decode_string(url.encodedPathAndQuery())));
     else {
 	createHistoryEntry();
 	doc->openURL(url);

@@ -23,8 +23,6 @@
 
 
 #include <qptrlist.h>
-#include <kparts/browserextension.h>
-#include <kparts/part.h>
 #include <qtabwidget.h>
 #include <qlistview.h>
 #include <qdict.h>
@@ -53,34 +51,6 @@ class SearchEngine;
 class khcInfoNode;
 class khcInfoHierarchyMaker;
 class KHCView;
-
-class khcNavigatorExtension : public KParts::BrowserExtension
-{
-    Q_OBJECT
-  public:
-    khcNavigatorExtension(KParts::ReadOnlyPart *part, const char *name=0) :
-      KParts::BrowserExtension( part, name ) {}
-    virtual ~khcNavigatorExtension() {}
-
-  public slots:
-    void slotItemSelected(const QString&);
-    void print() {}
-};
-
-class khcNavigator : public KParts::ReadOnlyPart
-{
-    Q_OBJECT
-  public:
-    khcNavigator( KHCView *, QWidget *parentWidget, QObject *widget,
-                  const char *name=0);
-    virtual ~khcNavigator();
-
-    virtual bool openURL( const KURL &url );
-
-  protected:
-    bool openFile();
-    khcNavigatorExtension * m_extension;
-};
 
 class khcNavigatorWidget : public QWidget
 {

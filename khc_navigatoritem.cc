@@ -29,7 +29,6 @@
 #include <kglobal.h>
 #include <kiconloader.h>
 
-#include "khc_factory.h"
 #include "docmetainfo.h"
 
 #include "khc_navigatoritem.h"
@@ -99,5 +98,5 @@ void khcNavigatorItem::setInfo( const QString &_info )
 void khcNavigatorItem::setIcon( const QString &_icon )
 {
     mIcon = _icon;
-    setPixmap( 0, SmallIcon( mIcon, 0, 0, KHCFactory::instance() ) );
+    setPixmap( 0, SmallIcon( mIcon ) );
 }

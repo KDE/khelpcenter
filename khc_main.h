@@ -64,7 +64,7 @@ private:
 
     KHCView *doc;
     QSplitter *splitter;
-    khcNavigator *nav;
+    khcNavigatorWidget *nav;
     KToolBarPopupAction *back, *forward;
     int m_goBuffer;
     QPtrList<HistoryEntry> m_lstHistory;
