@@ -6,6 +6,8 @@
 #include "glossary.h"
 #include "navigator.h"
 
+class KActionCollection;
+
 namespace DOM {
   class Node;
 }
@@ -19,7 +21,8 @@ class View : public KHTMLPart
     Q_OBJECT
   public:
     View( QWidget *parentWidget, const char *widgetName,
-          QObject *parent, const char *name, KHTMLPart::GUIProfile prof );
+          QObject *parent, const char *name, KHTMLPart::GUIProfile prof,
+          KActionCollection *col );
 
     ~View();
 
@@ -51,6 +54,9 @@ class View : public KHTMLPart
     void slotIncFontSizes();
     void slotDecFontSizes();
     void slotReload( const KURL &url = KURL() );
+    void slotCopyLink();
+    bool nextPage(bool checkOnly = false);
+    bool prevPage(bool checkOnly = false);
 
   signals:
     void searchResultCacheAvailable();
@@ -60,6 +66,7 @@ class View : public KHTMLPart
 
   private slots:
     void setTitle( const QString &title );
+    void showMenu( const QString& url, const QPoint& pos);
 
   private:
     void showAboutPage();
@@ -74,6 +81,8 @@ class View : public KHTMLPart
     int m_zoomStepping;
 
     Formatter *mFormatter;
+    KActionCollection *mActionCollection;
+    QString mCopyURL;
 };
 
 }

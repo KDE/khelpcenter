@@ -1,14 +1,18 @@
 #include "view.h"
 
 #include "formatter.h"
+#include "history.h"
 
 #include <dom/html_document.h>
 #include <dom/html_misc.h>
+#include <kaction.h>
+#include <kactioncollection.h>
 #include <kapplication.h>
 #include <kdebug.h>
 #include <khtml_settings.h>
 #include <khtmlview.h>
 #include <klocale.h>
+#include <kpopupmenu.h>
 #include <kstandarddirs.h>
 
 #include <qfileinfo.h>
@@ -17,8 +21,8 @@
 using namespace KHC;
 
 View::View( QWidget *parentWidget, const char *widgetName,
-                  QObject *parent, const char *name, KHTMLPart::GUIProfile prof )
-    : KHTMLPart( parentWidget, widgetName, parent, name, prof ), mState( Docu )
+                  QObject *parent, const char *name, KHTMLPart::GUIProfile prof, KActionCollection *col )
+    : KHTMLPart( parentWidget, widgetName, parent, name, prof ), mState( Docu ), mActionCollection(col)
 {
     mFormatter = new Formatter;
     if ( !mFormatter->readTemplates() ) {
@@ -29,6 +33,8 @@ View::View( QWidget *parentWidget, const char *widgetName,
 
     connect( this, SIGNAL( setWindowCaption( const QString & ) ),
              this, SLOT( setTitle( const QString & ) ) );
+    connect( this, SIGNAL( popupMenu( const QString &, const QPoint& ) ),
+             this, SLOT( showMenu( const QString &, const QPoint& ) ) );
              
     QString css = langLookup("common/kde-default.css");
     if (!css.isEmpty())
@@ -225,6 +231,85 @@ void View::slotDecFontSizes()
   setZoomFactor( zoomFactor() - m_zoomStepping );
 }
 
+void View::showMenu( const QString& url, const QPoint& pos)
+{
+  KPopupMenu* pop = new KPopupMenu(view());
+  if (url.isEmpty())
+  {
+    KAction *action;
+    action = mActionCollection->action("go_home");
+    if (action) action->plug(pop);
+
+    pop->insertSeparator();
+
+    action = mActionCollection->action("prevPage");
+    if (action) action->plug(pop);
+    action = mActionCollection->action("nextPage");
+    if (action) action->plug(pop);
+
+    pop->insertSeparator();
+
+    History::self().m_backAction->plug(pop);
+    History::self().m_forwardAction->plug(pop);
+  }
+  else
+  {
+    pop->insertItem(i18n("Copy Link Location"), this, SLOT(slotCopyLink()));
+    mCopyURL = completeURL(url).url();
+  }
+	
+  pop->exec(pos);
+  delete pop;
+}
+
+void View::slotCopyLink()
+{
+  QApplication::clipboard()->setText(mCopyURL);
+}
+
+bool View::prevPage(bool checkOnly)
+{
+  const DOM::HTMLCollection links = htmlDocument().links();
+
+  // The first link on a page (top-left corner) would be the Prev link.
+  const DOM::Node prevLinkNode = links.item( 0 );
+  KURL prevURL = urlFromLinkNode( prevLinkNode );
+  if (!prevURL.isValid())
+    return false;
+
+  if (!checkOnly)
+    openURL( prevURL );
+  return true;
+}
+
+bool View::nextPage(bool checkOnly)
+{
+  const DOM::HTMLCollection links = htmlDocument().links();
+
+  KURL nextURL;
+
+  // If we're on the first page, the "Next" link is the last link
+  if ( baseURL().path().endsWith( "/index.html" ) )
+    nextURL = urlFromLinkNode( links.item( links.length() - 1 ) );
+  else
+    nextURL = urlFromLinkNode( links.item( links.length() - 2 ) );
+
+  if (!nextURL.isValid())
+    return false;
+
+  // If we get a mail link instead of a http URL, or the next link points
+  // to an index.html page (a index.html page is always the first page
+  // there can't be a Next link pointing to it!) there's probably nowhere
+  // to go. Next link at all.
+  if ( nextURL.protocol() == "mailto" ||
+       nextURL.path().endsWith( "/index.html" ) )
+    return false;
+
+  if (!checkOnly)
+    openURL( nextURL );
+  return true;
+}
+
 bool View::eventFilter( QObject *o, QEvent *e )
 {
   if ( e->type() != QEvent::KeyPress ||
@@ -239,36 +324,14 @@ bool View::eventFilter( QObject *o, QEvent *e )
 
     const QScrollBar * const scrollBar = view()->verticalScrollBar();
     if ( scrollBar->value() == scrollBar->minValue() ) {
-      const DOM::HTMLCollection links = htmlDocument().links();
-
-      // The first link on a page (top-left corner) would be the Prev link.
-      const DOM::Node prevLinkNode = links.item( 0 );
-      openURL( urlFromLinkNode( prevLinkNode ) );
-      return true;
+      if (prevPage())
+         return true;
     }
   } else if ( ke->key() == Key_Space ) {
     const QScrollBar * const scrollBar = view()->verticalScrollBar();
     if ( scrollBar->value() == scrollBar->maxValue() ) {
-      const DOM::HTMLCollection links = htmlDocument().links();
-
-      KURL nextURL;
-
-      // If we're on the first page, the "Next" link is the last link
-      if ( baseURL().path().endsWith( "/index.html" ) )
-        nextURL = urlFromLinkNode( links.item( links.length() - 1 ) );
-      else
-        nextURL = urlFromLinkNode( links.item( links.length() - 2 ) );
-
-      // If we get a mail link instead of a http URL, or the next link points
-      // to an index.html page (a index.html page is always the first page
-      // there can't be a Next link pointing to it!) there's probably nowhere
-      // to go. Next link at all.
-      if ( nextURL.protocol() == "mailto" ||
-           nextURL.path().endsWith( "/index.html" ) )
-        return KHTMLPart::eventFilter( o, e );
-
-      openURL( nextURL );
-      return true;
+      if (nextPage())
+        return true;
     }
   }
   return KHTMLPart::eventFilter( o, e );
@@ -276,7 +339,7 @@ bool View::eventFilter( QObject *o, QEvent *e )
 
 KURL View::urlFromLinkNode( const DOM::Node &n ) const
 {
-  if ( n.nodeType() != DOM::Node::ELEMENT_NODE )
+  if ( n.isNull() || n.nodeType() != DOM::Node::ELEMENT_NODE )
     return KURL();
 
   DOM::Element elem = static_cast<DOM::Element>( n );

@@ -91,13 +91,14 @@ class History : public QObject
 
     QPtrList<Entry> m_entries;
 
-    KToolBarPopupAction *m_backAction;
-    KToolBarPopupAction *m_forwardAction;
 
     int m_goBuffer;
     int m_goMenuIndex;
     int m_goMenuHistoryStartPos;
     int m_goMenuHistoryCurrentPos;
+  public:
+    KToolBarPopupAction *m_backAction;
+    KToolBarPopupAction *m_forwardAction;
 };
 
 }

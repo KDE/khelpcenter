@@ -85,7 +85,7 @@ MainWindow::MainWindow()
 {
     QSplitter *splitter = new QSplitter(this);
 
-    mDoc = new View( splitter, 0, this, 0, KHTMLPart::DefaultGUI );
+    mDoc = new View( splitter, 0, this, 0, KHTMLPart::DefaultGUI, actionCollection() );
     connect( mDoc, SIGNAL( setWindowCaption( const QString & ) ),
              SLOT( setCaption( const QString & ) ) );
     connect( mDoc, SIGNAL( setStatusBarText( const QString & ) ),
@@ -180,7 +180,19 @@ void MainWindow::setupActions()
     KStdAction::print( this, SLOT( print() ), actionCollection(),
                        "printFrame" );
 
-    KStdAction::home( this, SLOT( slotShowHome() ), actionCollection() );
+    KAction *prevPage  = new KAction( i18n( "Previous Page" ), CTRL+Key_PageUp, mDoc, SLOT( prevPage() ),
+                         actionCollection(), "prevPage" );
+    prevPage->setWhatsThis( i18n( "Moves to the previous page of the document" ) );
+
+    KAction *nextPage  = new KAction( i18n( "Next Page" ), CTRL + Key_PageDown, mDoc, SLOT( nextPage() ),
+                         actionCollection(), "nextPage" );
+    nextPage->setWhatsThis( i18n( "Moves to the next page of the document" ) );
+
+    KAction *home = KStdAction::home( this, SLOT( slotShowHome() ), actionCollection() );
+    home->setText(i18n("Table of &Contents"));
+    home->setToolTip(i18n("Table of Contents"));
+    home->setWhatsThis(i18n("Go back to the Table of Contents"));
+
     mCopyText = KStdAction::copy( this, SLOT(slotCopySelectedText()), actionCollection(), "copy_text");
 
     mLastSearchAction = new KAction( i18n("&Last Search Result"), 0, this,
