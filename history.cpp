@@ -58,18 +58,18 @@ void History::setupActions( KActionCollection *coll )
   m_backAction = new KToolBarPopupAction( backForward.first, ALT+Key_Left,
       this, SLOT( back() ), coll, "back" );
   connect( m_backAction->popupMenu(), SIGNAL( activated( int ) ),
-      this, SLOT( backActivated( int ) ) );
+           SLOT( backActivated( int ) ) );
   connect( m_backAction->popupMenu(), SIGNAL( aboutToShow() ),
-      this, SLOT( fillBackMenu() ) );
+           SLOT( fillBackMenu() ) );
   m_backAction->setEnabled( false );
 
   m_forwardAction = new KToolBarPopupAction( backForward.second, ALT+Key_Right,
       this, SLOT( forward() ), coll,
       "forward" );
   connect( m_forwardAction->popupMenu(), SIGNAL( activated( int ) ),
-      this, SLOT( forwardActivated( int ) ) );
+           SLOT( forwardActivated( int ) ) );
   connect( m_forwardAction->popupMenu(), SIGNAL( aboutToShow() ),
-      this, SLOT( fillForwardMenu() ) );
+           SLOT( fillForwardMenu() ) );
   m_backAction->setEnabled( false );
 }
 
@@ -78,9 +78,9 @@ void History::installMenuBarHook( KMainWindow *mainWindow )
   QPopupMenu *goMenu = dynamic_cast<QPopupMenu *>(
       mainWindow->guiFactory()->container( "go_web", mainWindow ) );
   if ( goMenu ) {
-    connect( goMenu, SIGNAL( aboutToShow() ), this, SLOT( fillGoMenu() ) );
+    connect( goMenu, SIGNAL( aboutToShow() ), SLOT( fillGoMenu() ) );
     connect( goMenu, SIGNAL( activated( int ) ),
-        this, SLOT( goMenuActivated( int ) ) );
+             SLOT( goMenuActivated( int ) ) );
     m_goMenuIndex = goMenu->count();
   }
 }
