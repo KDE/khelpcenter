@@ -3,6 +3,7 @@
 #define __khc_main_h__
 
 #include <kmainwindow.h>
+#include <kio/job.h>
 
 class KHTMLPart;
 class QSplitter;
@@ -15,6 +16,10 @@ class KHMainWindow : public KMainWindow
 public:
     KHMainWindow(const KURL &url);
     ~KHMainWindow();
+
+public slots:
+    void slotStarted(KIO::Job *job);
+    void slotInfoMessage(KIO::Job *, const QString &);
 
 private:
     KHTMLPart *doc;

@@ -35,6 +35,7 @@
 
 #include <kaboutdata.h>
 #include <kdebug.h>
+#include <kstdaction.h>
 
 #include "version.h"
 #include <khtml_part.h>
@@ -49,28 +50,53 @@ KHMainWindow::KHMainWindow(const KURL &url)
 {
     splitter = new QSplitter(this);
 
-    nav = new khcNavigator(splitter, this, "nav");
-
     doc = new KHTMLPart( splitter, 0,
                          this, 0, KHTMLPart::BrowserViewGUI );
-    QWidget::connect(doc, SIGNAL(setWindowCaption(const QString &)),
-                     doc->widget(), SLOT(setCaption(const QString &)));
-
-    splitter->setResizeMode(nav->widget(), QSplitter::KeepSize);
-    QValueList<int> sizes;
-    sizes << 20 << 80;
-    splitter->setSizes(sizes);
-
-    setCentralWidget( splitter );
-    setGeometry(366, 0, 640, 800);
-    (*actionCollection()) += *doc->actionCollection();
-    createGUI( "khelpcenterui.rc" );
+    connect(doc, SIGNAL(setWindowCaption(const QString &)),
+            this, SLOT(setCaption(const QString &)));
+    connect(doc, SIGNAL(setStatusBarText(const QString &)),
+            statusBar(), SLOT(message(const QString &)));
+    connect(doc, SIGNAL(onURL(const QString &)),
+            statusBar(), SLOT(message(const QString &)));
+    connect(doc, SIGNAL(started(KIO::Job *)),
+            this, SLOT(slotStarted(KIO::Job *)));
 
     if (url.isEmpty())
         doc->openURL(KURL("help:/khelpcenter/index.html"));
     else
         doc->openURL( url );
 
+    statusBar()->message(i18n("Preparing Index"));
+
+    nav = new khcNavigator(splitter, this, "nav");
+
+    splitter->moveToFirst(nav->widget());
+    splitter->setResizeMode(nav->widget(), QSplitter::KeepSize);
+/*    QValueList<int> sizes;
+    sizes << 20 << 80;
+    splitter->setSizes(sizes); */
+
+    setCentralWidget( splitter );
+    setGeometry(366, 0, 640, 800);
+    (*actionCollection()) += *doc->actionCollection();
+    (void)KStdAction::close(this, SLOT(close()), actionCollection());
+
+    createGUI( "khelpcenterui.rc" );
+
+    statusBar()->message(i18n("Ready"));
+}
+
+void KHMainWindow::slotStarted(KIO::Job *job)
+{
+    kdDebug() << "slotStarted\n";
+
+    connect(job, SIGNAL(infoMessage( KIO::Job *, const QString &)),
+            this, SLOT(slotInfoMessage(KIO::Job *, const QString &)));
+}
+
+void KHMainWindow::slotInfoMessage(KIO::Job *, const QString &m)
+{
+    statusBar()->message(m);
 }
 
 KHMainWindow::~KHMainWindow()

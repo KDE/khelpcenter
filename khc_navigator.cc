@@ -99,7 +99,7 @@ khcNavigatorWidget::khcNavigatorWidget(QWidget *parent, const char *name)
     connect(tabBar, SIGNAL(selected(int)),this,
 	    SLOT(slotTabSelected(int)));
 
-//    buildTree();
+    buildTree();
 }
 
 khcNavigatorWidget::~khcNavigatorWidget()

@@ -1,10 +1,10 @@
 <!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
-<kpartgui name="khelpcenter" version="4">
+<kpartgui name="khelpcenter" version="5">
 <MenuBar noMerge="1">
  <Menu name="file" noMerge="1">
     <text>&amp;File</text>
     <Action name="printFrame" group="print" />
-    <Action name="file_quit"/> 
+    <Action name="file_close"/> 
  </Menu>
  <Menu name="edit" noMerge="1">
   <text>&amp;Edit</text>
