@@ -83,7 +83,7 @@ MainWindow::MainWindow(const KURL &url)
     : KMainWindow(0, "MainWindow"), DCOPObject( "KHelpCenterIface" ),
       mLogDialog( 0 )
 {
-    QSplitter *splitter = new QSplitter(this);
+   QSplitter *splitter = new QSplitter(this);
 
     mDoc = new View( splitter, 0, this, 0, KHTMLPart::DefaultGUI );
     connect(mDoc, SIGNAL(setWindowCaption(const QString &)),
@@ -152,6 +152,27 @@ MainWindow::~MainWindow()
 {
 }
 
+void MainWindow::saveProperties( KConfig *config )
+{
+    kdDebug()<<"void MainWindow::saveProperties( KConfig *config )\n";
+    config->setDesktopGroup();
+    config->writeEntry( "URL" , mDoc->baseURL().url());
+}
+
+void MainWindow::readProperties( KConfig *config )
+{
+#if 0 // I don't understand it doesn't read in good group ...
+    kdDebug()<<"void MainWindow::readProperties( KConfig *config )\n";
+    config->setDesktopGroup();
+    const_cast<KHTMLSettings *>( mDoc->settings() )->init( kapp->config() );
+    KParts::URLArgs args = mDoc->browserExtension()->urlArgs();
+    args.reload = true;
+    mDoc->browserExtension()->setURLArgs( args );
+    mDoc->openURL( config->readEntry( "URL" , "") );
+#endif
+}
+
+
 void MainWindow::setupActions()
 {
     KStdAction::quit( this, SLOT( close() ), actionCollection() );
@@ -185,6 +206,7 @@ void MainWindow::setupActions()
 
 void MainWindow::slotConfigureKeys()
 {
+    readProperties( KGlobal::config());
   KKeyDialog dlg( true, this );
 
   dlg.insert( actionCollection() );

@@ -26,9 +26,6 @@ using namespace KHC;
 
 Application::Application() : KUniqueApplication()
 {
-	MainWindow *mainWindow = new MainWindow;
-	setMainWidget( mainWindow );
-	mainWindow->show();
 }
 
 int Application::newInstance()
@@ -38,12 +35,21 @@ int Application::newInstance()
 	KURL url;
 	if ( args->count() )
 		url = args->url( 0 );
-	static_cast<MainWindow *>( mainWidget() )->slotOpenURL( url.url() );
 
 	if ( isRestored() ) {
 		RESTORE( MainWindow );
 		return 0;
 	}
+        else
+        {
+            if( ! mainWidget() )
+            {
+                MainWindow *mainWindow = new MainWindow;
+                setMainWidget( mainWindow );
+                mainWindow->show();
+            }
+            static_cast<MainWindow *>( mainWidget() )->slotOpenURL( url.url() );
+        }
 
   return KUniqueApplication::newInstance();
 }

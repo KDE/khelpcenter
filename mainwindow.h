@@ -47,6 +47,9 @@ class MainWindow : public KMainWindow, public DCOPObject
   protected:
     void setupActions();
 
+    virtual void saveProperties( KConfig *config );
+    virtual void readProperties( KConfig *config );
+
   protected slots:
     void enableLastSearchAction();
 
