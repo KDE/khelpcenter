@@ -6,9 +6,10 @@ METASOURCES = AUTO
 # khelpcenter: binary for convenience
 bin_PROGRAMS = 	khelpcenter
 
-# Don't build the lib and the binary at the same time, they both use khc_main.*
-khc_main.lo: khc_main.o
+SUFFIXES = .lo .o
 
+.lo.o:
+	
 khelpcenter_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 khelpcenter_LDADD   = $(LIB_KHTML) # htmlsearch/libhtmlsearch.la
 khelpcenter_SOURCES = main.cpp khc_main.cc $(libkhelpcenterpart_la_SOURCES)
