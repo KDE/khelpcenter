@@ -28,6 +28,7 @@ khcHTMLView::khcHTMLView()
 {
   ADD_INTERFACE("IDL:KHelpCenter/HTMLView:1.0");
   ADD_INTERFACE("IDL:Browser/PrintingExtension:1.0");
+  ADD_INTERFACE("IDL:KHelpCenter/MagnifyingExtension:1.0");
 
   setWidget(this);
 
@@ -135,7 +136,7 @@ void khcHTMLView::setDefaultFontBase(int fSize)
     }
 }
 
-void khcHTMLView::slotZoomIn()
+void khcHTMLView::zoomIn()
 {
   if(fontBase < 5)
     {
@@ -145,7 +146,7 @@ void khcHTMLView::slotZoomIn()
     }
 }
 
-void khcHTMLView::slotZoomOut()
+void khcHTMLView::zoomOut()
 {
   if(fontBase > 2)
     {
@@ -153,6 +154,16 @@ void khcHTMLView::slotZoomOut()
       setDefaultFontBase(fontBase);
       KBrowser::slotReload();
     }
+}
+
+CORBA::Boolean khcHTMLView::canZoomIn()
+{
+  return (CORBA::Boolean)(fontBase < 5);
+}
+
+CORBA::Boolean khcHTMLView::canZoomOut()
+{
+  return (CORBA::Boolean)(fontBase > 2);
 }
 
 CORBA::Long khcHTMLView::xOffset()

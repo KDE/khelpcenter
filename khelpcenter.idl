@@ -35,6 +35,14 @@ module KHelpCenter
 		HelpBrowser create();
 	};
 
+	interface MagnifyingExtension
+	{
+		void zoomIn();
+		void zoomOut();
+		boolean canZoomIn();
+		boolean canZoomOut();
+	};
+
 	interface MainWindow : OpenParts::MainWindow
 	{
 		slot void openURL( in Browser::URLRequest url ); 
@@ -51,10 +59,8 @@ module KHelpCenter
 		void zoomOut();
 	};
 	  	
-	interface HTMLView : Browser::View, Browser::PrintingExtension
+	interface HTMLView : Browser::View, Browser::PrintingExtension, MagnifyingExtension
 	{
-		slot void slotZoomIn();
-		slot void slotZoomOut();
 	};
 
 	interface ManView : Browser::View, Browser::PrintingExtension

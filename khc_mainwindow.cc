@@ -151,6 +151,14 @@ void khcMainWindow::setupView()
     m_pFrame->attach(m_vView);
    
     kdebug(KDEBUG_INFO,1400,"m_pFrame->attach(m_vView);");
+
+    if (m_vView->supportsInterface("IDL:KHelpCenter/MagnifyingExtension:1.0"))
+      {
+	CORBA::Object_var obj = m_vView->getInterface("IDL:KHelpCenter/MagnifyingExtension:1.0");
+	KHelpCenter::MagnifyingExtension_var magExt = KHelpCenter::MagnifyingExtension::_narrow(obj);
+	toolBar(0)->setItemEnabled(TB_ZOOMIN, magExt->canZoomIn());
+	toolBar(0)->setItemEnabled(TB_ZOOMOUT, magExt->canZoomOut());
+      }
 }
 
 void khcMainWindow::setupMenuBar()
@@ -717,32 +725,6 @@ void khcMainWindow::connectView()
 {
   try
     {
-      khcInterface()->connect("reload", m_vView, "slotReload");
-    }
-  catch ( ... )
-    {
-      kdebug(KDEBUG_WARN,1400,"WARNING: view does not implement slot ""reload"" ");
-    }
-  try
-    {
-      khcInterface()->connect("zoomIn", m_vView, "slotZoomIn");
-    }
-  catch ( ... )
-    {
-      kdebug(KDEBUG_WARN,1400,"WARNING: view does not implement slot ""slotZoomIn"" ");
-    }
-  try
-    {
-      khcInterface()->connect("zoomOut", m_vView, "slotZoomOut");
-    }
-  catch ( ... )
-    {
-      kdebug(KDEBUG_WARN,1400,"WARNING: view does not implement slot ""slotZoomOut"" ");
-    }
-
-
-  try
-    {
       m_vView->connect("openURL", khcInterface(), "openURL");
     }
   catch ( ... )
@@ -800,7 +782,8 @@ void khcMainWindow::slotFind()
 
 void khcMainWindow::slotFindNext()
 {
-  
+
+
 }
 
 void khcMainWindow::slotReload()
@@ -812,7 +795,6 @@ void khcMainWindow::slotReload()
   eventURL.yOffset = m_vView->yOffset();
   EMIT_EVENT( m_vView, Browser::eventOpenURL, eventURL );
   kdebug(0, 1400, "EMIT_EVENT( m_vView, Browser::eventOpenURL, eventURL );");
-  //khcInterface()->reload();
 }
 
 void khcMainWindow::slotCopy()
@@ -833,17 +815,31 @@ void khcMainWindow::slotPrint()
 void khcMainWindow::slotStopProcessing()
 {
   if (m_vView)
-   m_vView->stop();
+    m_vView->stop();
 }
 
 void khcMainWindow::slotMagMinus()
 {
-  khcInterface()->zoomOut();
+  if (m_vView->supportsInterface("IDL:KHelpCenter/MagnifyingExtension:1.0"))
+  {
+    CORBA::Object_var obj = m_vView->getInterface("IDL:KHelpCenter/MagnifyingExtension:1.0");
+    KHelpCenter::MagnifyingExtension_var magExt = KHelpCenter::MagnifyingExtension::_narrow(obj);
+    magExt->zoomOut();
+    toolBar(0)->setItemEnabled(TB_ZOOMIN, magExt->canZoomIn());
+    toolBar(0)->setItemEnabled(TB_ZOOMOUT, magExt->canZoomOut());
+  }
 }
 
 void khcMainWindow::slotMagPlus()
 {
-  khcInterface()->zoomIn();
+  if (m_vView->supportsInterface("IDL:KHelpCenter/MagnifyingExtension:1.0"))
+  {
+    CORBA::Object_var obj = m_vView->getInterface("IDL:KHelpCenter/MagnifyingExtension:1.0");
+    KHelpCenter::MagnifyingExtension_var magExt = KHelpCenter::MagnifyingExtension::_narrow(obj);
+    magExt->zoomIn();
+    toolBar(0)->setItemEnabled(TB_ZOOMIN, magExt->canZoomIn());
+    toolBar(0)->setItemEnabled(TB_ZOOMOUT, magExt->canZoomOut());
+  }
 }
 
 void khcMainWindow::slotCheckHistory()
@@ -938,14 +934,12 @@ khcMainWindowIf::~khcMainWindowIf()
 
 void khcMainWindowIf::zoomIn()
 {
-  SIGNAL_CALL0("zoomIn");
-  kdebug(0, 1400, "SIGNAL_CALL0(\"zoomIn\");");
+  m_pkhcMainWindow->slotMagPlus();
 }
 
 void khcMainWindowIf::zoomOut()
 {
-  SIGNAL_CALL0("zoomOut");
-  kdebug(0, 1400, "SIGNAL_CALL0(\"zoomOut\");");
+  m_pkhcMainWindow->slotMagMinus();
 }
 
 void khcMainWindowIf::setStatusBarText(const CORBA::WChar *_text)

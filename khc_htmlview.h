@@ -49,8 +49,10 @@ class khcHTMLView : public KBrowser,
     virtual CORBA::Long xOffset();
     virtual CORBA::Long yOffset();
     virtual void print();
-    virtual void slotZoomIn();
-    virtual void slotZoomOut();
+    virtual void zoomIn();
+    virtual void zoomOut();
+    virtual CORBA::Boolean canZoomIn();
+    virtual CORBA::Boolean canZoomOut();
     virtual void openURL( QString _url, bool _reload, int _xoffset = 0, int _yoffset = 0, const char *_post_data = 0L);
 
 public slots:
