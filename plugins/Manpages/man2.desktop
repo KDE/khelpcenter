@@ -1,6 +1,7 @@
 [KDE Desktop Entry]
 Name=(2) System Calls
 Name[bg]=(2) Системни сигнали
+Name[bn]=(2) সিস্টেম কল
 Name[bs]=(2) Sistemski pozivi
 Name[ca]=(2) Crides al sistema
 Name[cs]=(2) Systémová volání
@@ -10,11 +11,18 @@ Name[de]=(2) Systemaufrufe
 Name[eo]=(2) Sistemvokoj
 Name[es]=(2) Llamadas de sistema
 Name[et]=(2) Süsteemsed väljakutsed
+Name[eu]=(2) Sistemaren deiak
 Name[fi]=(2) Järjestelmäkutsut
 Name[fr]=(2) Appels système
+Name[ga]=(2) Glaonna ar an chóras
+Name[gl]=(2) Chamadas do Sistema
 Name[hu]=(2) Rendszerhívások
 Name[it]=(2) Chiamate di sistema
+Name[ja]=(2) システムコール
+Name[mk]=(2) Системски повици
+Name[mt]=(2) Sejħiet tas-sistema
 Name[nb]=(2) Systemkall
+Name[nds]=(2) Systeemoprööp
 Name[nl]=(2) Systeemaanroepen
 Name[nn]=(2) Systemkall
 Name[pa]=(੨) ਸਿਸਟਮ ਕਾਲਾਂ

@@ -2,6 +2,7 @@
 
 Name=Browse Info Pages
 Name[bg]=Преглед на страниците Info
+Name[bn]=ইনফো পেজ ব্রাউজ করুন
 Name[bs]=Pregled info stranica
 Name[ca]=Fulleja les pàgines Info
 Name[cs]=Prohlížeč info stránek
@@ -14,8 +15,10 @@ Name[et]=Infolehekülgede lehitsemine
 Name[eu]=Arakatu info orriak 
 Name[fi]=Selaa info-sivuja
 Name[fr]=Naviguer dans les pages d'information
+Name[gl]=Navegar polas páxinas info
 Name[hu]=Info oldalak
 Name[it]=Sfoglia le pagine "info"
+Name[ja]=Infoページの参照
 Name[mk]=Прелистај ги info страниците
 Name[mt]=Dur il-paġni Info
 Name[nb]=Les info-sider
