@@ -18,7 +18,7 @@ SUBDIRS = pics info2html rman
 bin_PROGRAMS = 	khelpcenter
 
 khelpcenter_SOURCES = main.cpp toplevel.cpp hhtmlview.cpp \
-htreelistitem.cpp htreeview.cpp cgi.cpp info.cpp man.cpp error.cpp dbnew.cpp \
+htreelistitem.cpp htreeview.cpp cgi.cpp man.cpp error.cpp \
 misc.cpp history.cpp finddlg.cpp options.cpp
 
 khelpcenter_METASOURCES = USE_AUTOMOC
@@ -40,7 +40,7 @@ install-data-local:
 	$(mkinstalldirs) $(kde_datadir)
 	$(mkinstalldirs) $(kde_datadir)/khelpcenter
 	$(mkinstalldirs) $(kde_datadir)/khelpcenter/pics
-	
+
 # remove ALL you have installed in install-data-local or install-exec-local
 uninstall-local:
 	-rm -f $(kde_icondir)/khelpcenter.xpm

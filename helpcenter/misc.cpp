@@ -8,7 +8,7 @@
 #include <ctype.h>
 #include "misc.h"
 
-#include "dbnew.h"
+//#include "dbnew.h"
 
 // duplicate a string - mem allocated with 'new'
 char *StrDup(const char *src)

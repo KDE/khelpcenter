@@ -1,49 +1,47 @@
-//-----------------------------------------------------------------------------
-//
-// KDE Help Viewer
-//
-// (C) Martin R. Jones 1996
-// modifications for khelpcenter (C) 1999 Matthias Elter
+/*
+ *  hhtmlview.cpp - part of the KDE Help Center
+ *
+ *  Copyright (C) 1999 Matthias Elter (me@kde.org)
+ *
+ *  based on code from Martin R. Jones's kdehelp
+ *
+ *  This program is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 2 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program; if not, write to the Free Software
+ *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ */
 
-#ifndef __HELPWIN_H__
-#define __HELPWIN_H__
-
-#include <unistd.h>
+#ifndef HHTMLView_H
+#define HHTMLView_H
 
 #include <qwidget.h>
 #include <qdialog.h>
-#include <qmenubar.h>
-#include <qbuttongroup.h>
-#include <qstrlist.h>
-#include <qlineedit.h>
+#include <qpopupmenu.h>
 #include <qscrollbar.h>
 #include <qlabel.h>
 #include <qcursor.h>
 
-#include <kfm.h>
 #include <khtml.h>
 #include <kfilebookmark.h>
 
 #include "cgi.h"
 #include "misc.h"
-#include "fmthtml.h"
-#include "info.h"
 #include "man.h"
 #include "options.h"
 #include "history.h"
 #include "finddlg.h"
+#include "fmthtml.h"
 
-// accelerator IDs
-#define NEW			100
-#define CLOSE			101
-#define QUIT			102
-#define COPY			200
-
-#define STATUSBAR_HEIGHT	20
 #define SCROLLBAR_WIDTH		16
-#define BUTTON_HEIGHT		26
-#define BUTTON_WIDTH		26
-#define BUTTON_SEPARATION	6
 #define BOOKMARK_ID_BASE	200
 
 //-----------------------------------------------------------------------------
@@ -195,11 +193,10 @@ private:
 	enum FileType { UnknownFile, HTMLFile, InfoFile, ManFile, CannotOpenFile };
 
 	void	readOptions();
-	int	openFile( const QString & );
-	int 	formatInfo( int bodyOnly = FALSE );
-	int	formatMan( int bodyOnly = FALSE );
+	int	    openFile( const QString & );
+	int	    formatMan( int bodyOnly = FALSE );
 	int 	openHTML( const char *location );
-	int	runCGI( const char *_url );
+	int	    runCGI( const char *_url );
 	FileType detectFileType( const QString &filename );
 	void	convertSpecial( const char *buffer, QString &converted );
 	void	enableToolbarButton( int id, bool enable );
@@ -214,7 +211,6 @@ private:
 	QScrollBar *horz;
 	QLabel *statusBar;
 	QPopupMenu *rmbPopup;
-//	QAccel *accel;
 	KHelpView *view;
 	KOpenURLDialog *openURLDialog;
 	KFindTextDialog *findDialog;
@@ -257,12 +253,11 @@ private:
 
 	cHistory<KPageInfo> history;
 	cHTMLFormat html;
-	cInfo *info;
 	cMan *man;
 	cHelpFormatBase *format;
 
 	static QString newURL;
 };
 
-#endif	// __HELP_H__
+#endif
 

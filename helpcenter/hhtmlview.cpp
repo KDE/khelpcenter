@@ -1,36 +1,36 @@
-//-----------------------------------------------------------------------------
-//
-// KDE help System
-//
-// (C) Martin R. Jones 1996
-//
-// modifications for khelpcenter (C) 1999 Matthias Elter
+/*
+ *  hhtmlview.cpp - part of the KDE Help Center
+ *
+ *  Copyright (C) 1999 Matthias Elter (me@kde.org)
+ *
+ *  based on code from Martin R. Jones's kdehelp
+ *
+ *  This program is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 2 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program; if not, write to the Free Software
+ *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ */
 
-#include <iostream.h>
-#include <qapplication.h>
-#include <qaccel.h>
-#include <qlabel.h>
-#include <qpushbutton.h>
-#include <qfiledialog.h>
 #include <qmessagebox.h>
-#include <qtooltip.h>
-#include <qlayout.h>
 #include <qclipboard.h>
-#include <qbitmap.h>
-#include <qregexp.h>
+
 #include <kapp.h>
-#include <kconfig.h>
 #include <kurl.h>
 #include <kfm.h>
-#include <klocale.h>
 #include <kfiledialog.h>
 #include <kmsgbox.h>
-#include "cgi.h"
-#include "kbutton.h"
-#include "hhtmlview.h"
 #include <kcursor.h>
 
-#include "dbnew.h"
+#include "hhtmlview.h"
 
 #ifdef HAVE_PATHS_H
 #include <paths.h>
@@ -45,8 +45,6 @@
 #include <X11/Xlib.h>
 #include <X11/Xatom.h>
 
-static QString QUOTE( "\"" );
-static QString DOCS_PATH;
 
 //-----------------------------------------------------------------------------
 
@@ -159,11 +157,8 @@ KHelpWindow::KHelpWindow( QWidget *parent, const char *name )
 	rmbPopup = 0;
 	findDialog = 0;
 
-	DOCS_PATH = kapp->kde_htmldir() + "/default/khelpcenter/";
-
 	readOptions();
 	man = new cMan;
-	info = new cInfo;
 
 	view = new KHelpView( this );
 	CHECK_PTR( view );
@@ -234,7 +229,6 @@ KHelpWindow::~KHelpWindow()
         delete findDialog;
 
 	delete man;
-	delete info;
 }
 
 
@@ -366,20 +360,6 @@ int KHelpWindow::openURL( const char *URL, bool withHistory )
 		else
 			rv = openFile( location );
 	}
-	else if ( fullURL.find( "info:" ) >= 0 )
-	{
-		if ( location[0] != '(' )
-			fullURL = "info:(" + currentInfo + ')' + location;
-		else
-		{
-			currentInfo = location+1;
-			int i = currentInfo.find( ')' );
-			if (i > 0)
-				currentInfo.truncate(i);
-		}
-		if ( ( rv = info->ReadLocation( location ) ) == 0 )
-			formatInfo();
-	}
 	else if ( fullURL.find( "man:" ) >= 0 )
 	{
 		if ( ( rv = man->ReadLocation( location ) ) == 0 )
@@ -459,12 +439,6 @@ int KHelpWindow::openFile( const QString &location )
 		case HTMLFile:
 			rv = openHTML( fileName );
 			break;
-
-		case InfoFile:
-			currentInfo = fileName.copy();
-			if ( ( rv = info->ReadLocation( "(" + fileName + ")" ) ) == 0 )
-				formatInfo();
-			break;
 			
 		case ManFile:
 			if ( ( rv = man->ReadLocation( fileName ) ) == 0 )
@@ -492,142 +466,6 @@ int KHelpWindow::openFile( const QString &location )
 	return rv;
 }
 
-
-// convert from general info description to HTML
-int KHelpWindow::formatInfo( int bodyOnly )
-{
-	QString converted;
-	bool inMenu = FALSE;
-	int rowCount = 100;
-	cNodeLine *curr = info->node.nodeLines.GotoHead();
-
-	if ( !bodyOnly )
-	{
-		view->setGranularity( 400 );
-		view->begin();
-		view->write( "<html><head><title>" );
-		view->write( info->GetTitle() );
-		view->write( "</title></head><body>" );
-	}
-
-	view->write( "<pre>\n" );
-
-	while (curr)
-	{
-		if ( inMenu )
-		{
-			if ( ( curr->type != INFO_NODEMENU &&
-				 curr->type != INFO_NODEMENUCONT ) || rowCount <= 0 )
-			{
-				view->write( "</td></tr></table>" );
-				inMenu = FALSE;
-			}
-		}
-
-		switch (curr->type)
-		{
-			case INFO_NODETEXT:
-				convertSpecial( ((cNodeText *)curr)->text(), converted );
-				view->write( converted );
-				view->write( "\n" );
-				break;
-
-			case INFO_NODEINLINE:
-				convertSpecial( ((cNodeText *)curr)->text(), converted );
-				view->write( converted );
-				break;
-
-			case INFO_NODEMENU:
-				if ( !inMenu )
-				{
-					view->write( "<table>" );
-					rowCount = 100;
-					inMenu = TRUE;
-				}
-				else
-				{
-					view->write( "</td></tr>" );
-					rowCount--;
-				}
-				view->write( "<tr><td valign=top>" );
-				view->write( "<a href=\"info:" );
-				view->write( ((cNodeMenu *)curr)->node );
-				view->write( "\">" );
-				convertSpecial( ((cNodeMenu *)curr)->name, converted );
-				view->write( converted );
-				view->write( "</a>   </td><td valign=top>" );
-				convertSpecial( ((cNodeMenu *)curr)->desc, converted );
-				view->write( converted );
-				view->write( "\n" );
-				break;
-
-			case INFO_NODEMENUCONT:
-				convertSpecial( ((cNodeText *)curr)->text(), converted );
-				view->write( converted );
-				view->write( "\n" );
-				break;
-
-			case INFO_NODEXREF:
-				view->write( "<a href=\"info:" );
-				view->write( ((cNodeXRef *)curr)->node );
-				view->write( "\">" );
-				convertSpecial( ((cNodeXRef *)curr)->name, converted );
-				view->write( converted );
-				view->write( "</a>" );
-				break;
-
-			case INFO_NODEHEADING:
-				{
-					char level = 1;
-					switch ( ((cNodeHeading *)curr)->type )
-					{
-						case INFO_HEADING1:
-							level = '1';
-							break;
-
-						case INFO_HEADING2:
-							level = '2';
-							break;
-
-						case INFO_HEADING3:
-							level = '3';
-							break;
-					}
-
-					QString str;
-					str.sprintf("\n</pre><br><h%c>", level);
-					view->write( str );
-					convertSpecial( ((cNodeText *)curr)->text(), converted );
-					view->write( converted );
-					view->write( "<br>" );
-					str.sprintf("</h%c>", level);
-					view->write( str );
-					view->write( "<pre>\n" );
-				}
-				break;
-		}
-		curr = curr->next;
-	}
-
-	view->write( "\n</pre>" );
-
-	if ( inMenu )
-	{
-		view->write( "</td></tr></table>" );
-		inMenu = FALSE;
-	}
-
-	if ( !bodyOnly )
-	{
-		view->write("</body></html>");
-		view->end();
-	}
-
-	format = info;
-
-	return 0;
-}
-
 int KHelpWindow::formatMan( int bodyOnly )
 {
 	if ( !bodyOnly )
@@ -652,161 +490,6 @@ int KHelpWindow::formatMan( int bodyOnly )
 	return 0;
 }
 
-#if 0
-// convert from general man description to HTML
-int KHelpWindow::formatMan( int bodyOnly )
-{
-	cManBase *curr = man->manList.GotoHead();
-	QString converted;
-	bool inDir = FALSE;
-	int len, maxlen = 0;
-
-	while (curr)
-	{
-		if ( curr->type == MAN_DIR )
-		{
-			len = strlen( curr->text );
-
-			if ( ((cManDir *)curr)->desc )
-				len += strlen( ((cManDir *)curr)->desc ) + 3;
-
-			if ( len > maxlen )
-				maxlen = len;
-		}
-		curr = curr->next;
-	}
-
-        int fonts[7];
-        view->getFontSizes(fonts);
-	QFont font( fixedFont, fonts[fontBase - 1] );
-	QFontMetrics fm( font );
-
-	QString gridWidth;
-	gridWidth.setNum( maxlen * fm.maxWidth() );
-
-	curr = man->manList.GotoHead();
-
-	if ( !bodyOnly )
-	{
-		view->setGranularity( 600 );
-		view->begin();
-		view->write( "<html><head><title>" );
-		view->write( man->GetTitle() );
-		view->write( "</title></head><body>" );
-	}
-
-	view->write( "<pre>\n" );
-
-	while (curr)
-	{
-		if ( inDir && curr->type != MAN_DIR )
-		{
-			view->write( "</grid><pre>\n" );
-			inDir = FALSE;
-		}
-
-		switch (curr->type)
-		{
-			case MAN_TEXT:
-				convertSpecial( curr->text, converted );
-				view->write( converted );
-				break;
-
-			case MAN_UNDERLINE:
-				view->write( "<em>" );
-				convertSpecial( curr->text, converted );
-				view->write( converted );
-				view->write( "</em>" );
-				break;
-
-			case MAN_BOLD:
-				view->write( "<b>" );
-				convertSpecial( curr->text, converted );
-				view->write( converted );
-				view->write( "</b>" );
-				break;
-
-			case MAN_HEADING1:
-				view->write( "\n</pre><h1>" );
-				convertSpecial( curr->text, converted );
-				view->write( converted );
-				view->write( "</h1><pre>\n" );
-				break;
-
-			case MAN_HEADING2:
-				view->write( "\n</pre><h2>" );
-				convertSpecial( curr->text, converted );
-				view->write( converted );
-				view->write( "</h2><pre>\n" );
-				break;
-
-			case MAN_HEADING3:
-				view->write( "<b><i>" );
-				convertSpecial( curr->text, converted );
-				view->write( converted );
-				view->write( "</i></b>" );
-				break;
-
-			case MAN_DIR:
-				if ( !inDir )
-				{
-					view->write( "\n</pre>" );
-					view->write( "<grid width=" );
-					view->write( gridWidth );
-					view->write( " align=left>" );
-					inDir = TRUE;
-				}
-
-				view->write( "<cell width=" );
-				view->write( gridWidth );
-				view->write( " align=left><pre>\n" );
-				view->write( "<a href=\"man:" );
-				view->write( ((cManDir *)curr)->page );
-				view->write( "\">" );
-				convertSpecial( curr->text, converted );
-				view->write( converted );
-				view->write( "</a>" );
-
-				if ( ((cManDir *)curr)->desc )
-				{
-					view->write( "  " );
-					convertSpecial( ((cManDir *)curr)->desc, converted );
-					view->write( converted );
-				}
-				view->write( "\n</pre></cell>" );
-				break;
-
-			case MAN_XREF:
-				view->write( "<a href=\"man:" );
-				view->write( ((cManXRef *)curr)->page );
-				view->write( "\">" );
-				convertSpecial( curr->text, converted );
-				view->write( converted );
-				view->write( "</a>" );
-				break;
-
-			case MAN_CR:
-				view->write( "\n" );
-				break;
-		}
-		curr = curr->next;
-	}
-
-	view->write( "\n</pre>" );
-
-	if ( !bodyOnly )
-	{
-		view->write("</body></html>");
-		view->end();
-	}
-
-	format = man;
-
-	return 0;
-}
-#endif
-
-// open a HTML file
 int KHelpWindow::openHTML( const char *location )
 {
 	if ( html.ReadLocation( location ) )
@@ -861,8 +544,6 @@ int KHelpWindow::runCGI( const char *_url )
 	return 0;
 }
 
-
-// attempt to detect the file type
 KHelpWindow::FileType KHelpWindow::detectFileType( const QString &fileName )
 {
 	FileType type = UnknownFile;
@@ -872,10 +553,6 @@ KHelpWindow::FileType KHelpWindow::detectFileType( const QString &fileName )
 	if ( fileName.find( ".htm" ) > 0 && !access( fileName, 0 ) )
 	{
 		return HTMLFile;
-	}
-	else if ( fileName.find (".info" ) > 0 && !access( fileName, 0 ) )
-	{
-		return InfoFile;
 	}
 	else
 	{
@@ -887,7 +564,7 @@ KHelpWindow::FileType KHelpWindow::detectFileType( const QString &fileName )
 		if ( strstr( fileName, ".gz" ) )
 		{
 			char sysCmd[256];
-			sprintf( fname, "%s/khelpXXXXXX", _PATH_TMP );
+			sprintf( fname, "%s/khelpcenterXXXXXX", _PATH_TMP );
 			mktemp( fname );
 			sprintf(sysCmd, "gzip -cd %s > %s", (const char *)fileName, fname);
             if ( safeCommand( fileName ) )
@@ -911,12 +588,6 @@ KHelpWindow::FileType KHelpWindow::detectFileType( const QString &fileName )
 						buffer.find( ".so" ) >= 0 )
 				{
 					type = ManFile;
-					break;
-				}
-				else if ( buffer.find( "Indirect:" ) >= 0 ||
-						buffer.find( "Node:" ) >= 0 )
-				{
-					type = InfoFile;
 					break;
 				}
 			}
@@ -1090,14 +761,16 @@ void KHelpWindow::slotOpenURL()
 
 void KHelpWindow::slotSearch()
 {
-	QString searchURL = DOCS_PATH + "/ksearch.html";
-	openURL( searchURL );
+  	QMessageBox mb;
+	mb.setText( i18n("Sorry not implemented!"));
+	mb.setButtonText( QMessageBox::Ok, i18n("Oops!") );
+	mb.show();
 }
 
 void KHelpWindow::slotReload()
 {
     currentURL = "";
-    openURL( QUOTE + getPrefix() + format->GetLocation() + QUOTE, false );
+    openURL( "\"" + getPrefix() + format->GetLocation() + "\"", false );
 }
 
 
@@ -1223,22 +896,22 @@ void KHelpWindow::slotDir()
 
 void KHelpWindow::slotTop()
 {
-	openURL( QUOTE + getPrefix() + format->TopNode() + QUOTE );
+	openURL( "\"" + getPrefix() + format->TopNode() + "\"" );
 }
 
 void KHelpWindow::slotUp()
 {
-	openURL( QUOTE + getPrefix() + format->UpNode() + QUOTE );
+	openURL("\"" + getPrefix() + format->UpNode() +"\"" );
 }
 
 void KHelpWindow::slotPrev()
 {
-	openURL( QUOTE + getPrefix() + format->PrevNode() + QUOTE );
+	openURL( "\"" + getPrefix() + format->PrevNode() + "\"" );
 }
 
 void KHelpWindow::slotNext()
 {
-	openURL( QUOTE + getPrefix() + format->NextNode() + QUOTE );
+	openURL( "\"" + getPrefix() + format->NextNode() + "\"" );
 }
 
 void KHelpWindow::slotTextSelected( bool )
@@ -1331,14 +1004,10 @@ void KHelpWindow::slotURLSelected( const char *URL, int button )
 
 void KHelpWindow::slotOnURL( const char *url )
 {
-	if ( url )
-	{
-		emit setURL( url );
-	}
-	else
-	{
-		emit setURL( currentURL );
-	}
+  if ( url )
+	emit setURL( url );
+  else
+	emit setURL( currentURL );
 }
 
 
@@ -1435,7 +1104,7 @@ void KHelpWindow::slotFontSize( int size )
 {
 	fontBase = size;
 	view->setDefaultFontBase( size );
-	view->parse();
+	slotReload();
 	busy = true;
 	emit enableMenuItems();
 }
@@ -1445,7 +1114,8 @@ void KHelpWindow::slotStandardFont( const QString& n )
 {
 	standardFont = n;
 	view->setStandardFont( n );
-	view->parse();
+	//view->parse();
+	slotReload();
 	busy = true;
 	emit enableMenuItems();
 }
@@ -1455,7 +1125,7 @@ void KHelpWindow::slotFixedFont( const QString& n )
 {
 	fixedFont = n;
 	view->setFixedFont( n );
-	view->parse();
+	slotReload();
 	busy = true;
 	emit enableMenuItems();
 }
@@ -1464,14 +1134,10 @@ void KHelpWindow::slotFixedFont( const QString& n )
 void KHelpWindow::slotColorsChanged( const QColor &bg, const QColor &text,
 	const QColor &link, const QColor &vlink, const bool uline, const bool force)
 {
-#if 0
-//WABA: Not supported by KHTML
-    view->setForceDefault( force );
-#endif
 	view->setDefaultBGColor( bg );
 	view->setDefaultTextColors( text, link, vlink );
 	view->setUnderlineLinks(uline);
-	view->parse();
+	slotReload();
 	busy = true;
 	emit enableMenuItems();
 }
@@ -1599,15 +1265,15 @@ bool KHelpWindow::x11Event( XEvent *xevent )
 // called as html is parsed
 void KHelpWindow::slotDocumentChanged()
 {
-	if ( view->docHeight() > view->height() )
-		vert->setRange( 0, view->docHeight() - view->height() );
-	else
-		vert->setRange( 0, 0 );
-
-	if ( view->docWidth() > view->width() )
-		horz->setRange( 0, view->docWidth() - view->width() );
-	else
-		horz->setRange( 0, 0 );
+  if ( view->docHeight() > view->height() )
+	vert->setRange( 0, view->docHeight() - view->height() );
+  else
+	vert->setRange( 0, 0 );
+  
+  if ( view->docWidth() > view->width() )
+	horz->setRange( 0, view->docWidth() - view->width() );
+  else
+	horz->setRange( 0, 0 );
 }
 
 
@@ -1626,7 +1292,8 @@ void KHelpWindow::slotDocumentDone()
 		if ( !view->gotoAnchor( ref ) )
 			vert->setValue( 0 );
 	}
-
+	
+	layout();
 	busy = false;
 	emit enableMenuItems();
 }

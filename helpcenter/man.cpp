@@ -21,7 +21,7 @@
 #include "error.h"
 #include <errno.h>
 
-#include "dbnew.h"
+//#include "dbnew.h"
 
 #include <klocale.h>
 

@@ -17,8 +17,6 @@
 #include "kcolorbtn.h"
 #include "options.h"
 
-#include "dbnew.h"
-
 #include <klocale.h>
 
 //-----------------------------------------------------------------------------

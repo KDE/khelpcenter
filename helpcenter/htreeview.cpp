@@ -152,7 +152,7 @@ void HTreeView::addTreeItems()
   HTreeListItem *ti_info = new HTreeListItem("Browse info pages", document_pm);
   tree->insertItem(ti_info, -1, true);
 
-  ti_info->setURL(QString("info:(dir)"));
+  ti_info->setURL(QString("file:/cgi-bin/info2html"));
   itemList.append(ti_info);
 
   // kde faq
