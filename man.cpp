@@ -142,9 +142,9 @@ void ManSection::readSection()
 	QStringList dirList = dir.entryList();
 	QStringList::Iterator itDir;
 
-	for (itDir = dirList.begin(); !itDir->isNull(); ++itDir)
+	for (itDir = dirList.begin(); !(*itDir).isNull(); ++itDir)
 	{
-	    if ( itDir->at(0) == '.' )
+	    if ( (*itDir).at(0) == '.' )
 		continue;
 
 	    QString folderName = *itDir;
@@ -184,7 +184,7 @@ void ManSection::readDir(const QString& dirName )
     {
 	QStringList fileList = fileDir.entryList();
 	QStringList::Iterator itFile;
-	for (itFile = fileList.begin(); !itFile->isNull(); ++itFile)
+	for (itFile = fileList.begin(); !(*itFile).isNull(); ++itFile)
 	{
 	    QString fileName = *itFile;
 	    QString file = dirName;

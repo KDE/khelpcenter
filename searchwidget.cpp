@@ -43,7 +43,7 @@ void ResultBox::mouseMoveEvent(QMouseEvent *e)
     emit mouseOver(findItem(e->pos().y()));
 }
 
-void ResultBox::leaveEvent(QEvent *e)
+void ResultBox::leaveEvent(QEvent *)
 {
     emit mouseOver(-1);
 }
