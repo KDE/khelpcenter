@@ -163,28 +163,29 @@ void MainWindow::slotOpenURLRequest( const KURL &url,
     
     QString proto = url.protocol().lower();
     if ( proto == "help" || proto == "glossentry" || proto == "about" ||
-	 proto == "man" || proto == "info" || proto == "cgi" ||
+	       proto == "man" || proto == "info" || proto == "cgi" ||
          proto == "http" )
-	own = true;
-    else if (url.isLocalFile()) {
-	static const QString &html = KGlobal::staticQString("text/html");
-	KMimeMagicResult *res = KMimeMagic::self()->findFileType(url.path());
-	if (res->isValid() && res->accuracy() > 40 && res->mimeType() == html)
 	    own = true;
+    else if ( url.isLocalFile() ) {
+	    static const QString &html = KGlobal::staticQString("text/html");
+	    KMimeMagicResult *res = KMimeMagic::self()->findFileType( url.path() );
+	    if ( res->isValid() && res->accuracy() > 40 && res->mimeType() == html )
+	      own = true;
     }
     
-    if (!own) {
-	new KRun( url );
-	return;
+    if ( !own ) {
+  	  new KRun( url );
+	    return;
     }
     
     stop();
 
     mDoc->browserExtension()->setURLArgs( args );
 
-    if (proto == QString::fromLatin1("glossentry"))
-        slotGlossSelected(mNavigator->glossEntry(KURL::decode_string(url.encodedPathAndQuery())));
-    else {
+    if (proto == QString::fromLatin1("glossentry")) {
+        QString decodedEntryId = KURL::decode_string( url.encodedPathAndQuery() );
+        slotGlossSelected( mNavigator->glossEntry( decodedEntryId ) );
+    } else {
         History::self().createEntry();
         mDoc->openURL( url );
     }
