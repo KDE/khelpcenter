@@ -63,6 +63,7 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const char *name)
                   "ht://dig HTML search engine. "
                   "You can get ht://dig at the"), gb);
   l->setAlignment(QLabel::WordBreak);
+  l->setMinimumSize(l->sizeHint());
   grid->addMultiCellWidget(l, 1, 1, 0, 1);
   QWhatsThis::add( gb, i18n( "Information about where to get the ht://dig package." ) );
 
