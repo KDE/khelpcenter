@@ -26,17 +26,16 @@
 class khcNavigatorItem : public QListViewItem
 {
   public:
-    khcNavigatorItem (QListView* parent, const QString& text = QString::null,
+    khcNavigatorItem (QListView *parent, QListViewItem *after);
+    khcNavigatorItem (QListViewItem *parent, QListViewItem *after);
+    khcNavigatorItem (QListView* parent, const QString& text,
                       const QString& icon = QString::null);
-    khcNavigatorItem (QListViewItem* parent,
-                      const QString& text = QString::null,
+    khcNavigatorItem (QListViewItem* parent, const QString& text,
                       const QString& icon = QString::null);
     khcNavigatorItem (QListView* parent, QListViewItem* after,
-		      const QString& text = QString::null,
-                      const QString& icon = QString::null);
+		      const QString& text, const QString& icon = QString::null);
     khcNavigatorItem (QListViewItem* parent, QListViewItem* after,
-		      const QString& text = QString::null,
-                      const QString& icon = QString::null);
+		      const QString& text, const QString& icon = QString::null);
 
     void setName( const QString & );
     void setUrl( const QString & );

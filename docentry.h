@@ -64,6 +64,8 @@ class DocEntry
   
     void setNextSibling( DocEntry * );
     DocEntry *nextSibling();
+
+    QString khelpcenterSpecial() const;
     
     void dump() const;
 
@@ -81,6 +83,8 @@ class DocEntry
     int mWeight;
     bool mSearchEnabled;
     bool mDirectory;
+
+    QString mKhelpcenterSpecial;
 
     List mChildren;
     DocEntry *mParent;

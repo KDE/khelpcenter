@@ -481,15 +481,30 @@ class PluginTraverser : public DocEntryTraverser
 
     void process( DocEntry *entry )
     {
-      if ( mListView ) {        
-        mCurrentItem = new khcNavigatorItem( mListView, mCurrentItem,
-                                             entry->name(), entry->icon() );
-      } else if ( mParentItem ) {
-        mCurrentItem = new khcNavigatorItem( mParentItem, mCurrentItem,
-                                             entry->name(), entry->icon() );
-      } else {
+      if ( !mListView && !mParentItem ) {
         kdDebug() << "ERROR! Neither mListView nor mParentItem is set." << endl;
         return;
+      }
+    
+      if ( entry->khelpcenterSpecial() == "apps" ) {
+        if ( mListView ) {
+          mCurrentItem = new khcNavigatorAppItem( mListView, mCurrentItem );
+        } else {
+          mCurrentItem = new khcNavigatorAppItem( mParentItem, mCurrentItem );
+        }
+      else if ( entry->khelpcenterSpecial() == "info" ) {
+        if ( mListView ) {
+          mCurrentItem = new khcNavigatorAppItem( mListView, mCurrentItem );
+        } else {
+          mCurrentItem = new khcNavigatorAppItem( mParentItem, mCurrentItem );
+        }
+        mNavigator->buildInfoSubTree( mCurrentItem );
+      } else {
+        if ( mListView ) {
+          mCurrentItem = new khcNavigatorItem( mListView, mCurrentItem );
+        } else {
+          mCurrentItem = new khcNavigatorItem( mParentItem, mCurrentItem );
+        }
       }
         
       mCurrentItem->setName( entry->name() );
@@ -516,11 +531,17 @@ class PluginTraverser : public DocEntryTraverser
     QListView *mListView;
     khcNavigatorItem *mParentItem;
     khcNavigatorItem *mCurrentItem;
+    
+    static khcNavigatorWidget *mNavigator;
 };
+
+khcNavigatorWidget *PluginTraverser::mNavigator = 0;
 
 
 void khcNavigatorWidget::insertPlugins()
 {
+  PluginTraverser::mNavigator = this;
+
   PluginTraverser t( contentsTree );
   DocMetaInfo::self()->traverseEntries( &t );
 

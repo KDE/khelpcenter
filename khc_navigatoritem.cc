@@ -34,6 +34,16 @@
 
 #include "khc_navigatoritem.h"
 
+khcNavigatorItem::khcNavigatorItem(QListView *parent, QListViewItem *after)
+  : QListViewItem( parent, after )
+{
+}
+
+khcNavigatorItem::khcNavigatorItem(QListViewItem *parent, QListViewItem *after)
+  : QListViewItem( parent, after )
+{
+}
+
 khcNavigatorItem::khcNavigatorItem(QListView* parent, const QString& _text,
                                    const QString& _miniicon)
     : QListViewItem(parent)

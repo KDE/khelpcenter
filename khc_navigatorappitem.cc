@@ -23,6 +23,18 @@
 
 #include "khc_navigatorappitem.h"
 
+khcNavigatorAppItem::khcNavigatorAppItem(QListView *parent, QListViewItem *after)
+ : khcNavigatorItem(parent, after)
+{
+  setExpandable(true);
+}
+
+khcNavigatorAppItem::khcNavigatorAppItem(QListViewItem *parent, QListViewItem *after)
+ : khcNavigatorItem(parent, after)
+{
+  setExpandable(true);
+}
+
 khcNavigatorAppItem::khcNavigatorAppItem (QListView* parent, const QString& text, const QString& miniicon, const QString& _relpath)
  : khcNavigatorItem(parent, text, miniicon)
  , relpath(_relpath)
@@ -41,7 +53,8 @@ void khcNavigatorAppItem::setOpen(bool open)
 {
   if ( open && (childCount() == 0) )
   {
-kdWarning() << "khcNavigatorWidget::buildManualSubTree(" << this << ", " << relpath << ")" << endl;
+     kdWarning() << "khcNavigatorWidget::buildManualSubTree(" << this << ", "
+                 << relpath << ")" << endl;
      KServiceGroup::Ptr root = KServiceGroup::group(relpath);
      if (!root) {
         kdWarning() << "No Service groups\n";

@@ -122,6 +122,11 @@ int DocEntry::weight() const
   return mWeight;
 }
 
+QString DocEntry::khelpcenterSpecial() const
+{
+  return mKhelpcenterSpecial;
+}
+
 void DocEntry::enableSearch( bool enabled )
 {
   mSearchEnabled = enabled;
@@ -160,6 +165,8 @@ bool DocEntry::readFromFile( const QString &fileName )
   mIndexTestFile = file.readEntry( "X-DOC-IndexTestFile" );
   mSearchEnabled = file.readBoolEntry( "X-DOC-SearchEnabledDefault", false );
   mWeight = file.readNumEntry( "X-DOC-Weight", 0 );
+
+  mKhelpcenterSpecial = file.readEntry("X-KDE-KHelpcenter-Special");
 
   return true;
 }

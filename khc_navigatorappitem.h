@@ -27,6 +27,8 @@ class KService;
 class khcNavigatorAppItem : public khcNavigatorItem
 {
  public:
+    khcNavigatorAppItem (QListView *parent, QListViewItem *after);
+    khcNavigatorAppItem (QListViewItem *parent, QListViewItem *after);    
     khcNavigatorAppItem (QListView* parent, const QString& text, const QString& miniicon, const QString& relpath);
     khcNavigatorAppItem (QListViewItem* parent, const QString& text, const QString& miniicon, const QString& relpath);
 
