@@ -85,6 +85,8 @@ int main(int argc, char *argv[])
   KApplication app;
 
   app.dcopClient()->attach();
+  // we want to get applicationRegistered
+  app.dcopClient()->setNotifications( true );
 
   Listener listener;
 
