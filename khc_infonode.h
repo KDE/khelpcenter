@@ -23,6 +23,7 @@
 
 #include <qstring.h>
 #include <list>
+#include <sys/types.h>
 #include <regex.h>
 
 /** 
