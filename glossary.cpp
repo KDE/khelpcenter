@@ -37,6 +37,8 @@
 
 #include <sys/stat.h>
 
+using namespace KHC;
+
 class SectionItem : public QListViewItem
 {
 	public:
@@ -70,7 +72,7 @@ class EntryItem : public QListViewItem
 		QString m_id;
 };
 
-khcGlossary::khcGlossary( QWidget *parent ) : KListView( parent )
+Glossary::Glossary( QWidget *parent ) : KListView( parent )
 {
 	connect( this, SIGNAL( executed( QListViewItem * ) ),
 	         this, SLOT( treeItemSelected( QListViewItem * ) ) );
@@ -91,7 +93,7 @@ khcGlossary::khcGlossary( QWidget *parent ) : KListView( parent )
 
 	m_cacheFile = locateLocal( "cache", "help/glossary.xml" );
 
-	m_sourceFile = KHCView::langLookup( QString::fromLatin1( "khelpcenter/glossary/index.docbook" ) );
+	m_sourceFile = View::langLookup( QString::fromLatin1( "khelpcenter/glossary/index.docbook" ) );
 
 	m_config = kapp->config();
 	m_config->setGroup( "Glossary" );
@@ -102,18 +104,18 @@ khcGlossary::khcGlossary( QWidget *parent ) : KListView( parent )
 		buildGlossaryTree();
 }
 
-khcGlossary::~khcGlossary()
+Glossary::~Glossary()
 {
 	m_glossEntries.setAutoDelete( true );
 	m_glossEntries.clear();
 }
 
-const khcGlossaryEntry &khcGlossary::entry( const QString &id ) const
+const GlossaryEntry &Glossary::entry( const QString &id ) const
 {
 	return *m_glossEntries[ id ];
 }
 
-khcGlossary::CacheStatus khcGlossary::cacheStatus() const
+Glossary::CacheStatus Glossary::cacheStatus() const
 {
 	if ( !QFile::exists( m_cacheFile ) ||
 	     m_config->readEntry( "CachedGlossary" ) != m_sourceFile ||
@@ -123,7 +125,7 @@ khcGlossary::CacheStatus khcGlossary::cacheStatus() const
 	return CacheOk;
 }
 
-int khcGlossary::glossaryCTime() const
+int Glossary::glossaryCTime() const
 {
 	struct stat stat_buf;
 	stat( QFile::encodeName( m_sourceFile ).data(), &stat_buf );
@@ -131,7 +133,7 @@ int khcGlossary::glossaryCTime() const
 	return stat_buf.st_ctime;
 }
 
-void khcGlossary::rebuildGlossaryCache()
+void Glossary::rebuildGlossaryCache()
 {
 	KProcess *meinproc = new KProcess;
 	connect( meinproc, SIGNAL( processExited( KProcess * ) ),
@@ -146,7 +148,7 @@ void khcGlossary::rebuildGlossaryCache()
 	meinproc->start( KProcess::NotifyOnExit );
 }
 
-void khcGlossary::meinprocExited( KProcess *meinproc )
+void Glossary::meinprocExited( KProcess *meinproc )
 {
 	delete meinproc;
 
@@ -162,7 +164,7 @@ void khcGlossary::meinprocExited( KProcess *meinproc )
 	buildGlossaryTree();
 }
 
-void khcGlossary::buildGlossaryTree()
+void Glossary::buildGlossaryTree()
 {
 	QFile cacheFile(m_cacheFile);
 	if ( !cacheFile.open( IO_ReadOnly ) )
@@ -206,7 +208,7 @@ void khcGlossary::buildGlossaryTree()
 			QDomElement definitionElement = childElement( entryElement, QString::fromLatin1( "definition" ) );
 			QString definition = definitionElement.text().simplifyWhiteSpace();
 
-			khcGlossaryEntryXRef::List seeAlso;
+			GlossaryEntryXRef::List seeAlso;
 
 			QDomElement referencesElement = childElement( entryElement, QString::fromLatin1( "references" ) );
 			QDomNodeList referenceNodes = referencesElement.elementsByTagName( QString::fromLatin1( "reference" ) );
@@ -217,15 +219,15 @@ void khcGlossary::buildGlossaryTree()
 					QString term = referenceElement.attribute( QString::fromLatin1( "term" ) );
 					QString id = referenceElement.attribute( QString::fromLatin1( "id" ) );
 					
-					seeAlso += khcGlossaryEntryXRef( term, id );
+					seeAlso += GlossaryEntryXRef( term, id );
 				}
 			
-			m_glossEntries.insert( entryId, new khcGlossaryEntry( term, definition, seeAlso ) );
+			m_glossEntries.insert( entryId, new GlossaryEntry( term, definition, seeAlso ) );
 		}
 	}
 }
 
-void khcGlossary::treeItemSelected( QListViewItem *item )
+void Glossary::treeItemSelected( QListViewItem *item )
 {
 	if ( !item )
 		return;
@@ -236,7 +238,7 @@ void khcGlossary::treeItemSelected( QListViewItem *item )
 	item->setOpen( !item->isOpen() );
 }
 	
-QDomElement khcGlossary::childElement( const QDomElement &element, const QString &name )
+QDomElement Glossary::childElement( const QDomElement &element, const QString &name )
 {
 	QDomElement e;
 	for ( e = element.firstChild().toElement(); !e.isNull(); e = e.nextSibling().toElement() )

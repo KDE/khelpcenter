@@ -1,5 +1,5 @@
 /*
- *  khc_inforeader.h - part of the KDE Help Center
+ *  This file is part of the KDE Help Center
  *
  *  Copyright (C) 2001 Wojciech Smigaj (achu@klub.chip.pl)
  *
@@ -28,12 +28,14 @@
 #include "infoconsts.h"
 #include "infofile.h"
 
+namespace KHC {
+
 /**
  * Read nodes in an info file sequentially.
  *
  * @author Wojciech Smigaj <achu@klub.chip.pl>
  */
-class khcInfoReader
+class InfoReader
 {
 public:
   /**
@@ -43,15 +45,15 @@ public:
    *        be omitted, but must be set before any reading is done.
    *        Example: "as", "tar"
    */
-  khcInfoReader(QString sTopic = "");
+  InfoReader(QString sTopic = "");
 
   QString topic() const { return m_sTopic; }
   void setTopic(QString sTopic) { m_sTopic = sTopic; }
 
   /**
    * The main routine of the class. It reads next node from the info file
-   * and stores it in a khcInfoNode object.
-   * @param pNode Pointer to a khcInfoNode object in which the read node
+   * and stores it in a InfoNode object.
+   * @param pNode Pointer to a InfoNode object in which the read node
    *        should be stored.
    * @param flags Any combination of the following constants:
    *        @li RETRIEVE_NAME: retrieve node's name
@@ -65,7 +67,7 @@ public:
    *          @li ERR_FILE_UNAVAILABLE if some or all of files on the
    *              specified topic don't exist or cannot be read.
    */
-  uint getNextNode(khcInfoNode* pNode, uint flags);
+  uint getNextNode(InfoNode* pNode, uint flags);
 
 protected:
   /**
@@ -80,10 +82,11 @@ protected:
 // variables
   QString m_sTopic;
 
-  QPtrList<khcInfoFile> m_lFiles;
+  QPtrList<InfoFile> m_lFiles;
 
   bool m_bInitialized;
 };
 
+}
 
 #endif // __KHC_INFOREADER__

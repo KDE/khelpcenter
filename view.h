@@ -6,11 +6,13 @@
 #include "glossary.h"
 #include "navigator.h"
 
-class KHCView : public KHTMLPart
+namespace KHC {
+
+class View : public KHTMLPart
 {
     Q_OBJECT
-public:
-    KHCView( QWidget *parentWidget, const char *widgetName,
+  public:
+    View( QWidget *parentWidget, const char *widgetName,
              QObject *parent, const char *name, KHTMLPart::GUIProfile prof );
 
     virtual bool openURL( const KURL &url );
@@ -21,21 +23,23 @@ public:
     QString title() const { return m_title; }
     static QString langLookup( const QString &fname );
 
-public slots:
-    void showGlossaryEntry( const khcGlossaryEntry &entry );
+  public slots:
+    void showGlossaryEntry( const GlossaryEntry &entry );
 
-private slots:
+  private slots:
     void setTitle( const QString &title );
 
-private:
+  private:
     void showAboutPage();
  
     enum State { Docu, About, GlossEntry };
 
-    khcGlossaryEntry m_glossEntry;
+    GlossaryEntry m_glossEntry;
     int m_state;
     QString m_title;
 };
+
+}
 
 #endif
 /**

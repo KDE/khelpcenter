@@ -27,19 +27,21 @@
 
 #include "inforeader.h"
 
+namespace KHC {
+
 /**
  * This class creates info nodes hierarchy: it reads (indirectly - using
- * khcInfoReader etc.) info files, belonging to the given info subject, and
+ * InfoReader etc.) info files, belonging to the given info subject, and
  * creates the nodes tree. 
  *
  * @author Wojciech Smigaj <achu@klub.chip.pl>
  */
-class khcInfoHierarchyMaker : public QObject
+class InfoHierarchyMaker : public QObject
 {
   Q_OBJECT
 public:
-  khcInfoHierarchyMaker();
-  virtual ~khcInfoHierarchyMaker();
+  InfoHierarchyMaker();
+  virtual ~InfoHierarchyMaker();
 
   /**
    * The most important function. It begins creating the hierarchy of info nodes,
@@ -69,25 +71,27 @@ signals:
    *            they have not to; the specification allows them to be ordered in whatever order)
    * @param pTopNode root of the hierarchy
    */
-  void hierarchyCreated(uint key, uint nErrorCode, const khcInfoNode* pTopNode);
+  void hierarchyCreated(uint key, uint nErrorCode, const InfoNode* pTopNode);
 
 public slots:
   void getSomeNodes();
 
 protected:
   void clearNodesList();
-  bool makeHierarchy(khcInfoNode** ppTopNode, QString topNodeName = "");
-  bool findChildren(khcInfoNode* pParentNode);
-  bool orderSiblings(std::list<khcInfoNode*>& siblingsList);
-  void restoreChildren(khcInfoNode* pParentNode);
+  bool makeHierarchy(InfoNode** ppTopNode, QString topNodeName = "");
+  bool findChildren(InfoNode* pParentNode);
+  bool orderSiblings(std::list<InfoNode*>& siblingsList);
+  void restoreChildren(InfoNode* pParentNode);
 
-  khcInfoReader m_infoReader;
-  std::list<khcInfoNode*> m_lNodes;
+  InfoReader m_infoReader;
+  std::list<InfoNode*> m_lNodes;
 
   QTimer m_timer;
   QString m_root;
   uint m_key;
   bool m_bIsWorking;
 };
+
+}
 
 #endif // __KHC_INFOHIERARCHYMAKER__

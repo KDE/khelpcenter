@@ -28,19 +28,21 @@
 
 #include "infoconsts.h"
 
-// TODO: metoda clear() - ustawiajaca wszystkie zmienne na true;
-bool khcInfoNode::ms_bRegExCompiled = false;
-regex_t khcInfoNode::ms_compRegEx;
-uint khcInfoNode::ms_nExistingNodes = 0;
+using namespace KHC;
 
-khcInfoNode::khcInfoNode()
+// TODO: metoda clear() - ustawiajaca wszystkie zmienne na true;
+bool InfoNode::ms_bRegExCompiled = false;
+regex_t InfoNode::ms_compRegEx;
+uint InfoNode::ms_nExistingNodes = 0;
+
+InfoNode::InfoNode()
 {
   if (!ms_bRegExCompiled)
     compileRegEx();
   ms_nExistingNodes++;
 }
 
-khcInfoNode::~khcInfoNode()
+InfoNode::~InfoNode()
 {
   deleteChildren();
 
@@ -51,7 +53,7 @@ khcInfoNode::~khcInfoNode()
   }
 }
 
-void khcInfoNode::deleteChildren()
+void InfoNode::deleteChildren()
 {
   while (!m_lChildren.empty())
   {
@@ -61,15 +63,15 @@ void khcInfoNode::deleteChildren()
   }
 }
 
-void khcInfoNode::clear()
+void InfoNode::clear()
 {
   m_sTopic = m_sName = m_sTitle = m_sContents = m_sUp = m_sPrev = m_sNext = "";
   deleteChildren();
 }
 
-void khcInfoNode::compileRegEx()
+void InfoNode::compileRegEx()
 {
-  // kdDebug() << "--- khcInfoNode::compileRegEx ---" << endl;
+  // kdDebug() << "--- InfoNode::compileRegEx ---" << endl;
 
   int nResult= regcomp(&ms_compRegEx,
     "^\37\n([^\n]+)\n\n(([^\n]+)\n[-=\\*\\. ]+\n\n)?\n*(.*)", REG_EXTENDED);
@@ -78,9 +80,9 @@ void khcInfoNode::compileRegEx()
   ms_bRegExCompiled = true;
 }
 
-bool khcInfoNode::fromString(QString topic, QString str, uint flags)
+bool InfoNode::fromString(QString topic, QString str, uint flags)
 {
-  // kdDebug() << "--- khcInfoNode::fromString ---" << endl;
+  // kdDebug() << "--- InfoNode::fromString ---" << endl;
 
   Q_ASSERT(!topic.isEmpty() && !str.isEmpty());
   m_sTopic = topic;
@@ -118,9 +120,9 @@ bool khcInfoNode::fromString(QString topic, QString str, uint flags)
   return true;
 }
 
-bool khcInfoNode::fromHdrLine(QString sLine, uint flags)
+bool InfoNode::fromHdrLine(QString sLine, uint flags)
 {
-  //  kdDebug() << "--- khcInfoNode::fromHdrLine ---" << endl;
+  //  kdDebug() << "--- InfoNode::fromHdrLine ---" << endl;
 
   Q_ASSERT(!sLine.isEmpty());
 
@@ -170,9 +172,9 @@ bool khcInfoNode::fromHdrLine(QString sLine, uint flags)
   return true;
 }
 
-void khcInfoNode::dumpChildren(unsigned int nLevel) const
+void InfoNode::dumpChildren(unsigned int nLevel) const
 {
-  for (std::list<khcInfoNode*>::const_iterator it = m_lChildren.begin();
+  for (std::list<InfoNode*>::const_iterator it = m_lChildren.begin();
        it != m_lChildren.end(); ++it)
   {
     QString sTabs;

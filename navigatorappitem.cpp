@@ -23,37 +23,39 @@
 
 #include "navigatorappitem.h"
 
-khcNavigatorAppItem::khcNavigatorAppItem(QListView *parent, QListViewItem *after)
- : khcNavigatorItem(parent, after)
+using namespace KHC;
+
+NavigatorAppItem::NavigatorAppItem(QListView *parent, QListViewItem *after)
+ : NavigatorItem(parent, after)
 {
   setExpandable(true);
 }
 
-khcNavigatorAppItem::khcNavigatorAppItem(QListViewItem *parent, QListViewItem *after)
- : khcNavigatorItem(parent, after)
+NavigatorAppItem::NavigatorAppItem(QListViewItem *parent, QListViewItem *after)
+ : NavigatorItem(parent, after)
 {
   setExpandable(true);
 }
 
-khcNavigatorAppItem::khcNavigatorAppItem (QListView* parent, const QString& text, const QString& miniicon, const QString& _relpath)
- : khcNavigatorItem(parent, text, miniicon)
+NavigatorAppItem::NavigatorAppItem (QListView* parent, const QString& text, const QString& miniicon, const QString& _relpath)
+ : NavigatorItem(parent, text, miniicon)
  , relpath(_relpath)
 {
   setExpandable(true);
 }
  
-khcNavigatorAppItem::khcNavigatorAppItem (QListViewItem* parent, const QString& text, const QString& miniicon, const QString& _relpath)
- : khcNavigatorItem(parent, text, miniicon)
+NavigatorAppItem::NavigatorAppItem (QListViewItem* parent, const QString& text, const QString& miniicon, const QString& _relpath)
+ : NavigatorItem(parent, text, miniicon)
  , relpath(_relpath)
 {
   setExpandable(true);
 }
 
-void khcNavigatorAppItem::setOpen(bool open)
+void NavigatorAppItem::setOpen(bool open)
 {
   if ( open && (childCount() == 0) )
   {
-     kdWarning() << "khcNavigatorWidget::buildManualSubTree(" << this << ", "
+     kdWarning() << "NavigatorWidget::buildManualSubTree(" << this << ", "
                  << relpath << ")" << endl;
      KServiceGroup::Ptr root = KServiceGroup::group(relpath);
      if (!root) {
@@ -67,7 +69,7 @@ void khcNavigatorAppItem::setOpen(bool open)
      {
         KSycocaEntry * e = *it;
         KService::Ptr s;
-        khcNavigatorItem *item;
+        NavigatorItem *item;
         KServiceGroup::Ptr g;
         QString url;
 
@@ -78,7 +80,7 @@ void khcNavigatorAppItem::setOpen(bool open)
               url = documentationURL(s);
               if (!url.isEmpty())
               {
-                 item = new khcNavigatorItem(this, s->name(), s->icon());
+                 item = new NavigatorItem(this, s->name(), s->icon());
                  item->setUrl(url);
               }
               break;
@@ -87,7 +89,7 @@ void khcNavigatorAppItem::setOpen(bool open)
               g = static_cast<KServiceGroup*>(e);
               if ( (g->childCount() == 0 ) || g->name().startsWith("."))
                  continue;
-              item = new khcNavigatorAppItem(this, g->caption(), g->icon(), g->relPath());
+              item = new NavigatorAppItem(this, g->caption(), g->icon(), g->relPath());
               item->setUrl("");
               break;
 
@@ -96,11 +98,11 @@ void khcNavigatorAppItem::setOpen(bool open)
         }
      }
   }
-  khcNavigatorItem::setOpen(open); 
+  NavigatorItem::setOpen(open); 
 }
 
 // derive a valid URL to the documentation
-QString khcNavigatorAppItem::documentationURL(KService *s)
+QString NavigatorAppItem::documentationURL(KService *s)
 {
   // if entry contains a DocPath, process it
   QString docPath = s->property("DocPath").toString();

@@ -26,9 +26,11 @@
 #include <qfile.h>
 #include <qtextstream.h>
 
-uint khcInfoFile::init()
+using namespace KHC;
+
+uint InfoFile::init()
 {
-  //  kdDebug() << "--- khcInfoFile::init ---" << endl;
+  //  kdDebug() << "--- InfoFile::init ---" << endl;
 
   Q_ASSERT(!m_sName.isEmpty());
   Q_ASSERT(!m_sTopic.isEmpty());
@@ -45,9 +47,9 @@ uint khcInfoFile::init()
   return nResult;
 }
 
-uint khcInfoFile::read()
+uint InfoFile::read()
 {
-  //  kdDebug() << "--- khcInfoFile::read: " << m_sName << " ---" << endl;
+  //  kdDebug() << "--- InfoFile::read: " << m_sName << " ---" << endl;
 
   if (m_sName.right(3) == ".gz" || m_sName.right(4) == ".bz2")
   {
@@ -86,9 +88,9 @@ uint khcInfoFile::read()
   return ERR_NONE;
 }
 
-uint khcInfoFile::getIndirectTable(QStringList& lFileNames)
+uint InfoFile::getIndirectTable(QStringList& lFileNames)
 {
-  // kdDebug() << "--- khcInfoFile::getIndirectTable ---" << endl;
+  // kdDebug() << "--- InfoFile::getIndirectTable ---" << endl;
 
   uint nResult;
 
@@ -125,9 +127,9 @@ uint khcInfoFile::getIndirectTable(QStringList& lFileNames)
   return ERR_NONE;
 }
 
-uint khcInfoFile::getNextNode(khcInfoNode* pNode, uint flags)
+uint InfoFile::getNextNode(InfoNode* pNode, uint flags)
 {
-  // kdDebug() << "--- khcInfoFile::getNextNode ---" << endl;
+  // kdDebug() << "--- InfoFile::getNextNode ---" << endl;
 
   uint nResult;
 

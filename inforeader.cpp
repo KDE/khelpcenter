@@ -27,17 +27,19 @@
 
 #include "inforeader.h"
 
-khcInfoReader::khcInfoReader(QString sTopic) :
+using namespace KHC;
+
+InfoReader::InfoReader(QString sTopic) :
   m_sTopic(sTopic), m_bInitialized(false)
 {
-  // kdDebug() << "--- khcInfoReader::khcInfoReader ---" << endl;
+  // kdDebug() << "--- InfoReader::InfoReader ---" << endl;
 
   m_lFiles.setAutoDelete(true); 
 }
 
-uint khcInfoReader::getNextNode(khcInfoNode* pNode, uint flags)
+uint InfoReader::getNextNode(InfoNode* pNode, uint flags)
 {
-  // kdDebug() << "--- khcInfoReader::getNextNode ---" << endl;
+  // kdDebug() << "--- InfoReader::getNextNode ---" << endl;
 
   uint nResult;
 
@@ -48,7 +50,7 @@ uint khcInfoReader::getNextNode(khcInfoNode* pNode, uint flags)
     if ((nResult = init()))
       return nResult;
 
-  khcInfoFile* pFile = 0;
+  InfoFile* pFile = 0;
   while (true) 
   {
     pFile = m_lFiles.current();
@@ -68,9 +70,9 @@ uint khcInfoReader::getNextNode(khcInfoNode* pNode, uint flags)
   }
 }
 
-uint khcInfoReader::init()
+uint InfoReader::init()
 {
-  // kdDebug() << "--- khcInfoReader::init ---" << endl;
+  // kdDebug() << "--- InfoReader::init ---" << endl;
 
   uint nResult; // it will store results from various function calls  
 
@@ -78,7 +80,7 @@ uint khcInfoReader::init()
   if (!getRealFileName(m_sTopic, mainFileName))
     return ERR_FILE_UNAVAILABLE;
 
-  khcInfoFile* pMainFile = new khcInfoFile(mainFileName, m_sTopic);
+  InfoFile* pMainFile = new InfoFile(mainFileName, m_sTopic);
 
   QStringList lFileNames;
   nResult = pMainFile->getIndirectTable(lFileNames);
@@ -102,7 +104,7 @@ uint khcInfoReader::init()
 	  return ERR_FILE_UNAVAILABLE;
 	}
 	// kdDebug() << realName << endl;
-	m_lFiles.append(new khcInfoFile(realName, m_sTopic));
+	m_lFiles.append(new InfoFile(realName, m_sTopic));
       }
       delete pMainFile;
       break;
@@ -124,9 +126,9 @@ uint khcInfoReader::init()
 /* This function could be implemented far better and probably more efficient, 
    but it is written so that it searched for info files in exactly the same
    order the kde-info2html's FindFile function does. */
-bool khcInfoReader::getRealFileName(QString baseName, QString& realName)
+bool InfoReader::getRealFileName(QString baseName, QString& realName)
 {
-  // kdDebug() << "--- khcInfoReader::getRealFileName: " << baseName << " ---" << endl;
+  // kdDebug() << "--- InfoReader::getRealFileName: " << baseName << " ---" << endl;
 
   Q_ASSERT(!baseName.isEmpty());
 

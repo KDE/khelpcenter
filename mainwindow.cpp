@@ -55,18 +55,19 @@
 #include "view.h"
 #include "navigator.h"
 
+using namespace KHC;
+
 #include "mainwindow.h"
 #include "mainwindow.moc"
 
-KHMainWindow::KHMainWindow(const KURL &url)
-    : KMainWindow(0, "khmainwindow"), m_goMenuIndex( -1 ), m_goMenuHistoryStartPos( -1 ),
+MainWindow::MainWindow(const KURL &url)
+    : KMainWindow(0, "MainWindow"), m_goMenuIndex( -1 ), m_goMenuHistoryStartPos( -1 ),
       m_goMenuHistoryCurrentPos( -1 )
 {
     splitter = new QSplitter(this);
     m_goBuffer=0;
 
-    doc = new KHCView( splitter, 0,
-                       this, 0, KHTMLPart::DefaultGUI );
+    doc = new View( splitter, 0, this, 0, KHTMLPart::DefaultGUI );
     connect(doc, SIGNAL(setWindowCaption(const QString &)),
             SLOT(setCaption(const QString &)));
     connect(doc, SIGNAL(setStatusBarText(const QString &)),
@@ -86,11 +87,11 @@ KHMainWindow::KHMainWindow(const KURL &url)
             SLOT(slotOpenURLRequest( const KURL &,
                                      const KParts::URLArgs &)));
 
-    nav = new khcNavigatorWidget( doc, splitter, "nav");
+    nav = new NavigatorWidget( doc, splitter, "nav");
     connect(nav, SIGNAL(itemSelected(const QString &)),
             SLOT(openURL(const QString &)));
-    connect(nav, SIGNAL(glossSelected(const khcGlossaryEntry &)),
-            SLOT(slotGlossSelected(const khcGlossaryEntry &)));
+    connect(nav, SIGNAL(glossSelected(const GlossaryEntry &)),
+            SLOT(slotGlossSelected(const GlossaryEntry &)));
 
     splitter->moveToFirst(nav);
     splitter->setResizeMode(nav, QSplitter::KeepSize);
@@ -139,12 +140,12 @@ KHMainWindow::KHMainWindow(const KURL &url)
     statusBar()->message(i18n("Ready"));
 }
 
-void KHMainWindow::print()
+void MainWindow::print()
 {
     doc->view()->print();
 }
 
-void KHMainWindow::slotStarted(KIO::Job *job)
+void MainWindow::slotStarted(KIO::Job *job)
 {
     if (job)
        connect(job, SIGNAL(infoMessage( KIO::Job *, const QString &)),
@@ -153,7 +154,7 @@ void KHMainWindow::slotStarted(KIO::Job *job)
     updateHistoryActions();
 }
 
-void KHMainWindow::createHistoryEntry()
+void MainWindow::createHistoryEntry()
 {
     // First, remove any forward history
     HistoryEntry * current = m_lstHistory.current();
@@ -177,7 +178,7 @@ void KHMainWindow::createHistoryEntry()
     assert( m_lstHistory.at() == (int) m_lstHistory.count() - 1 );
 }
 
-void KHMainWindow::updateHistoryEntry()
+void MainWindow::updateHistoryEntry()
 {
     HistoryEntry *current = m_lstHistory.current();
 
@@ -189,10 +190,10 @@ void KHMainWindow::updateHistoryEntry()
     current->title = doc->title();
 }
 
-void KHMainWindow::slotOpenURLRequest( const KURL &url,
+void MainWindow::slotOpenURLRequest( const KURL &url,
                                        const KParts::URLArgs &args)
 {
-    kdDebug() << "KHMainWindow::slotOpenURLRequest(): " << url.url() << endl;
+    kdDebug() << "MainWindow::slotOpenURLRequest(): " << url.url() << endl;
 
     bool own = false;
     
@@ -225,27 +226,27 @@ void KHMainWindow::slotOpenURLRequest( const KURL &url,
     }
 }
 
-void KHMainWindow::slotBack()
+void MainWindow::slotBack()
 {
     slotGoHistoryActivated( -1 );
 }
 
-void KHMainWindow::slotBackActivated( int id )
+void MainWindow::slotBackActivated( int id )
 {
     slotGoHistoryActivated( -(back->popupMenu()->indexOf( id ) + 1) );
 }
 
-void KHMainWindow::slotForward()
+void MainWindow::slotForward()
 {
     slotGoHistoryActivated( 1 );
 }
 
-void KHMainWindow::slotForwardActivated( int id )
+void MainWindow::slotForwardActivated( int id )
 {
     slotGoHistoryActivated( forward->popupMenu()->indexOf( id ) + 1 );
 }
 
-void KHMainWindow::slotGoHistoryActivated( int steps )
+void MainWindow::slotGoHistoryActivated( int steps )
 {
     if (!m_goBuffer)
     {
@@ -255,7 +256,7 @@ void KHMainWindow::slotGoHistoryActivated( int steps )
     }
 }
 
-void KHMainWindow::slotGoHistoryDelayed()
+void MainWindow::slotGoHistoryDelayed()
 {
     if (!m_goBuffer) return;
     int steps = m_goBuffer;
@@ -263,7 +264,7 @@ void KHMainWindow::slotGoHistoryDelayed()
     goHistory( steps );
 }
 
-void KHMainWindow::goHistory( int steps )
+void MainWindow::goHistory( int steps )
 {
     stop();
     int newPos = m_lstHistory.at() + steps;
@@ -282,28 +283,28 @@ void KHMainWindow::goHistory( int steps )
     updateHistoryActions();
 }
 
-void KHMainWindow::documentCompleted()
+void MainWindow::documentCompleted()
 {
     updateHistoryEntry();
 
     updateHistoryActions();
 }
 
-void KHMainWindow::fillBackMenu()
+void MainWindow::fillBackMenu()
 {
     QPopupMenu *menu = back->popupMenu();
     menu->clear();
     fillHistoryPopup( menu, true, false, false );
 }
 
-void KHMainWindow::fillForwardMenu()
+void MainWindow::fillForwardMenu()
 {
     QPopupMenu *menu = forward->popupMenu();
     menu->clear();
     fillHistoryPopup( menu, false, true, false );
 }
 
-void KHMainWindow::fillGoMenu()
+void MainWindow::fillGoMenu()
 {
     QPopupMenu *goMenu = dynamic_cast<QPopupMenu *>( guiFactory()->container( "go", this ) );
     if ( !goMenu || m_goMenuIndex == -1 )
@@ -335,7 +336,7 @@ void KHMainWindow::fillGoMenu()
     fillHistoryPopup( goMenu, false, false, true, m_goMenuHistoryStartPos );
 }
 
-void KHMainWindow::goMenuActivated( int id )
+void MainWindow::goMenuActivated( int id )
 {
   QPopupMenu *goMenu = dynamic_cast<QPopupMenu *>( guiFactory()->container( "go", this ) );
   if ( !goMenu )
@@ -353,37 +354,37 @@ void KHMainWindow::goMenuActivated( int id )
   }
 }
 
-void KHMainWindow::slotInfoMessage(KIO::Job *, const QString &m)
+void MainWindow::slotInfoMessage(KIO::Job *, const QString &m)
 {
     statusBar()->message(m);
 }
 
-void KHMainWindow::openURL(const QString &url)
+void MainWindow::openURL(const QString &url)
 {
     openURL( KURL( url ) );
 }
 
-void KHMainWindow::openURL(const KURL &url)
+void MainWindow::openURL(const KURL &url)
 {
     stop();
     KParts::URLArgs args;
     slotOpenURLRequest(url, args);
 }
 
-void KHMainWindow::slotGlossSelected(const khcGlossaryEntry &entry)
+void MainWindow::slotGlossSelected(const GlossaryEntry &entry)
 {
     stop();
     createHistoryEntry();
     doc->showGlossaryEntry( entry );
 }
 
-void KHMainWindow::updateHistoryActions()
+void MainWindow::updateHistoryActions()
 {
     back->setEnabled( canGoBack() );
     forward->setEnabled( canGoForward() );
 }
 
-void KHMainWindow::stop()
+void MainWindow::stop()
 {
     doc->closeURL();
     if ( m_lstHistory.count() > 0 )
@@ -391,7 +392,7 @@ void KHMainWindow::stop()
 }
 
 // ripped from konq_actions :) TODO after 2.2: centralize ;-)
-void KHMainWindow::fillHistoryPopup( QPopupMenu *popup, bool onlyBack, bool onlyForward,
+void MainWindow::fillHistoryPopup( QPopupMenu *popup, bool onlyBack, bool onlyForward,
                                      bool checkCurrentItem, uint startPos )
 {
   assert ( popup ); // kill me if this 0... :/
@@ -425,7 +426,7 @@ void KHMainWindow::fillHistoryPopup( QPopupMenu *popup, bool onlyBack, bool only
   //kdDebug(1202) << "After fillHistoryPopup position: " << history.at() << endl;
 }
 
-KHMainWindow::~KHMainWindow()
+MainWindow::~MainWindow()
 {
     delete doc;
 }
@@ -456,7 +457,7 @@ extern "C" int kdemain(int argc, char *argv[])
 
     if (args->count())
         url = args->url(0);
-    KHMainWindow *mw = new KHMainWindow(url);
+    MainWindow *mw = new MainWindow(url);
     mw->show();
 
     return app.exec();

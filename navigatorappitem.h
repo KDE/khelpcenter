@@ -24,13 +24,15 @@
 
 class KService;
 
-class khcNavigatorAppItem : public khcNavigatorItem
+namespace KHC {
+
+class NavigatorAppItem : public NavigatorItem
 {
  public:
-    khcNavigatorAppItem (QListView *parent, QListViewItem *after);
-    khcNavigatorAppItem (QListViewItem *parent, QListViewItem *after);    
-    khcNavigatorAppItem (QListView* parent, const QString& text, const QString& miniicon, const QString& relpath);
-    khcNavigatorAppItem (QListViewItem* parent, const QString& text, const QString& miniicon, const QString& relpath);
+    NavigatorAppItem (QListView *parent, QListViewItem *after);
+    NavigatorAppItem (QListViewItem *parent, QListViewItem *after);    
+    NavigatorAppItem (QListView* parent, const QString& text, const QString& miniicon, const QString& relpath);
+    NavigatorAppItem (QListViewItem* parent, const QString& text, const QString& miniicon, const QString& relpath);
 
     virtual void setOpen(bool);
     
@@ -39,5 +41,7 @@ class khcNavigatorAppItem : public khcNavigatorItem
 
     QString relpath;
 };
+
+}
 
 #endif

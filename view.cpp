@@ -11,7 +11,9 @@
 #include "view.h"
 #include "view.moc"
 
-KHCView::KHCView( QWidget *parentWidget, const char *widgetName,
+using namespace KHC;
+
+View::View( QWidget *parentWidget, const char *widgetName,
                   QObject *parent, const char *name, KHTMLPart::GUIProfile prof )
     : KHTMLPart( parentWidget, widgetName, parent, name, prof ), m_state( Docu )
 {
@@ -31,7 +33,7 @@ KHCView::KHCView( QWidget *parentWidget, const char *widgetName,
     }
 }
 
-bool KHCView::openURL( const KURL &url )
+bool View::openURL( const KURL &url )
 {
     if ( url.protocol().lower() == "about" )
     {
@@ -42,14 +44,14 @@ bool KHCView::openURL( const KURL &url )
     return KHTMLPart::openURL( url );
 }
 
-void KHCView::saveState( QDataStream &stream )
+void View::saveState( QDataStream &stream )
 {
     stream << m_state << m_glossEntry;
     if ( m_state == Docu )
         KHTMLPart::saveState( stream );
 }
 
-void KHCView::restoreState( QDataStream &stream )
+void View::restoreState( QDataStream &stream )
 {
     stream >> m_state >> m_glossEntry;
     if ( m_state == Docu )
@@ -60,7 +62,7 @@ void KHCView::restoreState( QDataStream &stream )
         showGlossaryEntry( m_glossEntry );
 }
 
-void KHCView::showGlossaryEntry( const khcGlossaryEntry &entry )
+void View::showGlossaryEntry( const GlossaryEntry &entry )
 {
     if(m_glossEntry.term()==entry.term())
         return;
@@ -77,9 +79,9 @@ void KHCView::showGlossaryEntry( const khcGlossaryEntry &entry )
     QString seeAlso;
     if (!entry.seeAlso().isEmpty()) {
         seeAlso = i18n("See also: ");
-        khcGlossaryEntryXRef::List seeAlsos = entry.seeAlso();
-        khcGlossaryEntryXRef::List::ConstIterator it = seeAlsos.begin();
-        khcGlossaryEntryXRef::List::ConstIterator end = seeAlsos.end();
+        GlossaryEntryXRef::List seeAlsos = entry.seeAlso();
+        GlossaryEntryXRef::List::ConstIterator it = seeAlsos.begin();
+        GlossaryEntryXRef::List::ConstIterator end = seeAlsos.end();
         for (; it != end; ++it) {
             seeAlso += QString::fromLatin1("<a href=\"glossentry:");
             seeAlso += (*it).id();
@@ -108,7 +110,7 @@ void KHCView::showGlossaryEntry( const khcGlossaryEntry &entry )
     emit completed();
 }
 
-void KHCView::showAboutPage()
+void View::showAboutPage()
 {
     QString file = locate( "data", "khelpcenter/intro.html.in" );
     if ( file.isEmpty() )
@@ -159,7 +161,7 @@ void KHCView::showAboutPage()
     emit completed();
 }
 
-QString KHCView::langLookup( const QString &fname )
+QString View::langLookup( const QString &fname )
 {
     QStringList search;
 
@@ -197,7 +199,7 @@ QString KHCView::langLookup( const QString &fname )
     return QString::null;
 }
 
-void KHCView::setTitle( const QString &title )
+void View::setTitle( const QString &title )
 {
     m_title = title;
 }

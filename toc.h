@@ -26,11 +26,13 @@
 
 class KProcess;
 
-class khcTOC : public KListView
+namespace KHC {
+
+class TOC : public KListView
 {
 	Q_OBJECT
 	public:
-		khcTOC( QWidget *parent );
+		TOC( QWidget *parent );
 
 		QString application() const { return m_application; }
 		void setApplication( const QString &application ) { m_application = application; }
@@ -60,6 +62,8 @@ class khcTOC : public KListView
 		QString m_cacheFile;
 		QString m_sourceFile;
 };
+
+}
 
 #endif // KHC_TOC_H
 // vim:ts=4:sw=4:noet

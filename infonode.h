@@ -1,5 +1,5 @@
 /*
- *  khc_infonode.h - part of the KDE Help Center
+ *  This file is part of the KDE Help Center
  *
  *  Copyright (C) 2001 Wojciech Smigaj (achu@klub.chip.pl)
  *
@@ -26,16 +26,18 @@
 #include <sys/types.h>
 #include <regex.h>
 
+namespace KHC {
+
 /** 
  * Stores information about an info node.
  *
  * @author Wojciech Smigaj <achu@klub.chip.pl>
  */
-class khcInfoNode
+class InfoNode
 {
 public:
-  khcInfoNode();
-  ~khcInfoNode();
+  InfoNode();
+  ~InfoNode();
   /** 
    * Fills the node basing on a fragment of info file (stored in a string).
    * @param topic topic the node belongs to
@@ -55,7 +57,7 @@ public:
   bool fromString(QString topic, QString str, uint flags);
   bool isTop() const
     { return m_sUp.lower() == "(dir)"; }
-  bool isMyParent(const khcInfoNode& otherNode) const
+  bool isMyParent(const InfoNode& otherNode) const
     { return otherNode.m_sName == m_sUp; }
   void dumpChildren(unsigned int nLevel) const;
   void deleteChildren();
@@ -63,7 +65,7 @@ public:
 
   QString m_sTopic, m_sName, m_sTitle, m_sContents;
   QString m_sUp, m_sPrev, m_sNext;
-  std::list<khcInfoNode*> m_lChildren;
+  std::list<InfoNode*> m_lChildren;
 
 protected:
   bool fromHdrLine(QString sLine, uint flags);
@@ -72,7 +74,9 @@ protected:
   static bool ms_bRegExCompiled;
   static regex_t ms_compRegEx; // compiled regular expression, used to retrieve
                                // information from the node string
-  static uint ms_nExistingNodes; // stores number of khcInfoNode objects existing at the moment 
+  static uint ms_nExistingNodes; // stores number of InfoNode objects existing at the moment 
 };
+
+}
 
 #endif

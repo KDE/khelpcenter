@@ -27,7 +27,9 @@
 #include "infonode.h"
 #include "infoconsts.h"
 
-class khcInfoFile
+namespace KHC {
+
+class InfoFile
 {
 public:
   /** 
@@ -35,7 +37,7 @@ public:
    * @param sName actual name of the info file to be read (e.g. "/usr/share/info/as.info.bz2")
    * @param sTopic topic the file belongs to (e.g. "as")
    */ 
-  khcInfoFile(QString sName = "", QString sTopic = "") : m_sName(sName), m_sTopic(sTopic), m_bInitialized(false) { }
+  InfoFile(QString sName = "", QString sTopic = "") : m_sName(sName), m_sTopic(sTopic), m_bInitialized(false) { }
   
   QString name() const { return m_sName; }
   void setName(QString sName) { m_sName = sName; }
@@ -66,7 +68,7 @@ public:
    *          @li ERR_FILE_UNAVAILABLE if file m_sName doesn't exist or cannot
    *              be read.
    */
-  uint getNextNode(khcInfoNode* pNode, uint flags);
+  uint getNextNode(InfoNode* pNode, uint flags);
 
 protected:
   /** 
@@ -84,5 +86,7 @@ protected:
                          // begin looking for the next node
   bool m_bInitialized;
 };
+
+}
 
 #endif // __KHC_INFO_FILE__

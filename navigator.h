@@ -1,5 +1,5 @@
 /*
- *  khc_navigator.h - part of the KDE Help Center
+ *  This file is part of the KDE Help Center
  *
  *  Copyright (C) 1999 Matthias Elter (me@kde.org)
  *
@@ -20,7 +20,6 @@
 
 #ifndef __khc_navigator_h__
 #define __khc_navigator_h__
-
 
 #include <qptrlist.h>
 #include <qtabwidget.h>
@@ -45,29 +44,32 @@ class KProcess;
 class KProcIO;
 
 class SearchWidget;
-class khcNavigatorItem;
-class khcNavigator;
 class SearchEngine;
-class khcInfoNode;
-class khcInfoHierarchyMaker;
-class KHCView;
 
-class khcNavigatorWidget : public QWidget
+namespace KHC {
+
+class NavigatorItem;
+class Navigator;
+class InfoNode;
+class InfoHierarchyMaker;
+class View;
+
+class NavigatorWidget : public QWidget
 {
     Q_OBJECT
   public:
-    khcNavigatorWidget(KHCView *, QWidget *parent=0, const char *name=0);
-    virtual ~khcNavigatorWidget();
+    NavigatorWidget(View *, QWidget *parent=0, const char *name=0);
+    virtual ~NavigatorWidget();
 
-    const khcGlossaryEntry &glossEntry(const QString &term) const { return glossaryTree->entry( term ); }
+    const GlossaryEntry &glossEntry(const QString &term) const { return glossaryTree->entry( term ); }
 
-    void buildInfoSubTree(khcNavigatorItem *parent);
+    void buildInfoSubTree(NavigatorItem *parent);
 
   public slots:
     void slotURLSelected(QString url);
     void slotItemSelected(QListViewItem* index);
     void slotItemExpanded(QListViewItem* index);
-    void slotInfoHierarchyCreated(uint key, uint nErrorCode, const khcInfoNode* pRootNode);
+    void slotInfoHierarchyCreated(uint key, uint nErrorCode, const InfoNode* pRootNode);
     void slotCleanHierarchyMakers();
 
     void slotSearch();
@@ -76,7 +78,7 @@ class khcNavigatorWidget : public QWidget
 
   signals:
     void itemSelected(const QString& itemURL);
-    void glossSelected(const khcGlossaryEntry &entry);
+    void glossSelected(const GlossaryEntry &entry);
 
   protected slots:
     void slotSearchFinished();
@@ -100,23 +102,23 @@ class khcNavigatorWidget : public QWidget
     QString findInfoDirFile();
     bool readInfoDirFile(QString& sFileContents);
     bool parseInfoSubjectLine(QString sLine, QString& sItemTitle, QString& sItemURL);
-    void addChildren(const khcInfoNode* pParentNode, khcNavigatorItem* pParentTreeItem);
-    khcNavigatorItem *addInfoNode( khcNavigatorItem *parent,
-                                   khcNavigatorItem *next,
+    void addChildren(const InfoNode* pParentNode, NavigatorItem* pParentTreeItem);
+    NavigatorItem *addInfoNode( NavigatorItem *parent,
+                                   NavigatorItem *next,
                                    const QString &line );
 
-    void buildManSubTree(khcNavigatorItem *parent);
+    void buildManSubTree(NavigatorItem *parent);
 
     void insertPlugins();
     void insertScrollKeeperItems();
-    int insertScrollKeeperSection(khcNavigatorItem *parentItem,QDomNode sectNode);
-    void insertScrollKeeperDoc(khcNavigatorItem *parentItem,QDomNode docNode);
+    int insertScrollKeeperSection(NavigatorItem *parentItem,QDomNode sectNode);
+    void insertScrollKeeperDoc(NavigatorItem *parentItem,QDomNode docNode);
 
     void hideSearch();
 
     KListView *contentsTree;
-    khcGlossary *glossaryTree;
-    khcTOC *tocTree;
+    Glossary *glossaryTree;
+    TOC *tocTree;
 
     SearchWidget *mSearchWidget;
 
@@ -126,10 +128,10 @@ class khcNavigatorWidget : public QWidget
     QLineEdit *mSearchEdit;
     QPushButton *mSearchButton;
 
-    QPtrList<khcNavigatorItem> manualItems, pluginItems, scrollKeeperItems;
+    QPtrList<NavigatorItem> manualItems, pluginItems, scrollKeeperItems;
 
     regex_t compInfoRegEx;
-    std::map<khcNavigatorItem*, khcInfoHierarchyMaker*> hierarchyMakers;
+    std::map<NavigatorItem*, InfoHierarchyMaker*> hierarchyMakers;
     QTimer cleaningTimer;
 
     /* Cog-wheel animation handling -- enable after creating the icons
@@ -143,13 +145,13 @@ class khcNavigatorWidget : public QWidget
         uint iconNumber;
         QPixmap originalPixmap;
     };
-    typedef QMap<khcNavigatorItem *, AnimationInfo> MapCurrentOpeningSubjects;
+    typedef QMap<NavigatorItem *, AnimationInfo> MapCurrentOpeningSubjects;
     MapCurrentOpeningSubjects m_mapCurrentOpeningSubjects;
 
     QTimer *m_animationTimer;
 
-    void startAnimation(khcNavigatorItem * item, const char * iconBaseName = "kde", uint iconCount = 6);
-    void stopAnimation(khcNavigatorItem * item);
+    void startAnimation(NavigatorItem * item, const char * iconBaseName = "kde", uint iconCount = 6);
+    void stopAnimation(NavigatorItem * item);
     */
 
     bool mScrollKeeperShowEmptyDirs;
@@ -157,7 +159,9 @@ class khcNavigatorWidget : public QWidget
     
     SearchEngine *mSearchEngine;
 
-    KHCView *mView;
+    View *mView;
 };
+
+}
 
 #endif

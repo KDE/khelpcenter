@@ -33,31 +33,33 @@
 
 #include "navigatoritem.h"
 
-khcNavigatorItem::khcNavigatorItem(QListView *parent, QListViewItem *after)
+using namespace KHC;
+
+NavigatorItem::NavigatorItem(QListView *parent, QListViewItem *after)
   : QListViewItem( parent, after )
 {
 }
 
-khcNavigatorItem::khcNavigatorItem(QListViewItem *parent, QListViewItem *after)
+NavigatorItem::NavigatorItem(QListViewItem *parent, QListViewItem *after)
   : QListViewItem( parent, after )
 {
 }
 
-khcNavigatorItem::khcNavigatorItem(QListView* parent, const QString& _text,
+NavigatorItem::NavigatorItem(QListView* parent, const QString& _text,
                                    const QString& _miniicon)
     : QListViewItem(parent)
 {
     init(_text, _miniicon);
 }
 
-khcNavigatorItem::khcNavigatorItem(QListViewItem* parent, const QString& _text,
+NavigatorItem::NavigatorItem(QListViewItem* parent, const QString& _text,
                                    const QString& _miniicon)
     : QListViewItem(parent)
 {
     init(_text, _miniicon);
 }
 
-khcNavigatorItem::khcNavigatorItem(QListView* parent, QListViewItem* after,
+NavigatorItem::NavigatorItem(QListView* parent, QListViewItem* after,
                                    const QString& _text,
                                    const QString& _miniicon)
     : QListViewItem(parent, after)
@@ -65,7 +67,7 @@ khcNavigatorItem::khcNavigatorItem(QListView* parent, QListViewItem* after,
     init(_text, _miniicon);
 }
 
-khcNavigatorItem::khcNavigatorItem(QListViewItem* parent, QListViewItem* after,
+NavigatorItem::NavigatorItem(QListViewItem* parent, QListViewItem* after,
                                    const QString& _text,
                                    const QString& _miniicon)
     : QListViewItem(parent, after)
@@ -73,29 +75,29 @@ khcNavigatorItem::khcNavigatorItem(QListViewItem* parent, QListViewItem* after,
     init(_text, _miniicon);
 }
 
-void khcNavigatorItem::init(const QString& text, const QString& icon)
+void NavigatorItem::init(const QString& text, const QString& icon)
 {
     setName( text );
     setIcon( icon );
 }
 
-void khcNavigatorItem::setName( const QString &_name )
+void NavigatorItem::setName( const QString &_name )
 {
     mName = _name;
     setText( 0, mName );
 }
 
-void khcNavigatorItem::setUrl( const QString &_url )
+void NavigatorItem::setUrl( const QString &_url )
 {
     mUrl = _url;
 }
 
-void khcNavigatorItem::setInfo( const QString &_info )
+void NavigatorItem::setInfo( const QString &_info )
 {
     mInfo = _info;
 }
 
-void khcNavigatorItem::setIcon( const QString &_icon )
+void NavigatorItem::setIcon( const QString &_icon )
 {
     mIcon = _icon;
     setPixmap( 0, SmallIcon( mIcon ) );

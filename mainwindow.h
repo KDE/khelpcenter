@@ -1,18 +1,23 @@
 #ifndef __khc_main_h__
 #define __khc_main_h__
 
+#include <qptrlist.h>
+
 #include <kmainwindow.h>
 #include <kio/job.h>
-#include <kparts/browserextension.h>
-#include "navigator.h"
 #include <kurl.h>
-#include <qptrlist.h>
+#include <kparts/browserextension.h>
+
+#include "navigator.h"
 #include "glossary.h"
 
 class KHTMLPart;
 class QSplitter;
 class KToolBarPopupAction;
-class KHCView;
+
+namespace KHC {
+
+class View;
 
 struct HistoryEntry
 {
@@ -21,19 +26,18 @@ struct HistoryEntry
   QByteArray buffer;
 };
 
-class KHMainWindow : public KMainWindow
+class MainWindow : public KMainWindow
 {
     Q_OBJECT
+  public:
+    MainWindow(const KURL &url);
+    ~MainWindow();
 
-public:
-    KHMainWindow(const KURL &url);
-    ~KHMainWindow();
-
-public slots:
+  public slots:
     void slotStarted(KIO::Job *job);
     void slotInfoMessage(KIO::Job *, const QString &);
     void openURL(const QString &url);
-    void slotGlossSelected(const khcGlossaryEntry &entry);                              
+    void slotGlossSelected(const GlossaryEntry &entry);                           
     void slotOpenURLRequest( const KURL &url,
                              const KParts::URLArgs &args);
     void slotBack();
@@ -47,9 +51,9 @@ public slots:
     void fillForwardMenu();
     void fillGoMenu();
     void goMenuActivated( int id );
-	void print();
+    void print();
 
-private:
+  private:
     void createHistoryEntry();
     void updateHistoryEntry();
     void goHistory( int steps );
@@ -60,11 +64,12 @@ private:
                            bool checkCurrentItem, uint startPos = 0 );
 
     inline bool canGoBack() const { return m_lstHistory.at() > 0; }
-    inline bool canGoForward() const { return m_lstHistory.at() != (int)m_lstHistory.count() - 1; }
+    inline bool canGoForward() const { return m_lstHistory.at() !=
+                                       (int)m_lstHistory.count() - 1; }
 
-    KHCView *doc;
+    View *doc;
     QSplitter *splitter;
-    khcNavigatorWidget *nav;
+    NavigatorWidget *nav;
     KToolBarPopupAction *back, *forward;
     int m_goBuffer;
     QPtrList<HistoryEntry> m_lstHistory;
@@ -72,5 +77,7 @@ private:
     int m_goMenuHistoryStartPos;
     int m_goMenuHistoryCurrentPos;
 };
+
+}
 
 #endif

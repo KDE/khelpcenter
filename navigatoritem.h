@@ -23,18 +23,20 @@
 
 #include <qlistview.h>
 
-class khcNavigatorItem : public QListViewItem
+namespace KHC {
+
+class NavigatorItem : public QListViewItem
 {
   public:
-    khcNavigatorItem (QListView *parent, QListViewItem *after);
-    khcNavigatorItem (QListViewItem *parent, QListViewItem *after);
-    khcNavigatorItem (QListView* parent, const QString& text,
-                      const QString& icon = QString::null);
-    khcNavigatorItem (QListViewItem* parent, const QString& text,
-                      const QString& icon = QString::null);
-    khcNavigatorItem (QListView* parent, QListViewItem* after,
-		      const QString& text, const QString& icon = QString::null);
-    khcNavigatorItem (QListViewItem* parent, QListViewItem* after,
+    NavigatorItem (QListView *parent, QListViewItem *after);
+    NavigatorItem (QListViewItem *parent, QListViewItem *after);
+    NavigatorItem (QListView* parent, const QString& text,
+                   const QString& icon = QString::null);
+    NavigatorItem (QListViewItem* parent, const QString& text,
+                   const QString& icon = QString::null);
+    NavigatorItem (QListView* parent, QListViewItem* after,
+                   const QString& text, const QString& icon = QString::null);
+    NavigatorItem (QListViewItem* parent, QListViewItem* after,
 		      const QString& text, const QString& icon = QString::null);
 
     void setName( const QString & );
@@ -55,5 +57,7 @@ class khcNavigatorItem : public QListViewItem
     QString mInfo;
     QString mIcon;
 };
+
+}
 
 #endif

@@ -32,24 +32,26 @@
 
 #include <sys/stat.h>
 
+using namespace KHC;
+
 class TOCItem : public KListViewItem
 {
 	public:
 		TOCItem( TOCItem *parent, const QString &text );
 		TOCItem( TOCItem *parent, QListViewItem *after, const QString &text );
-		TOCItem( khcTOC *parent, const QString &text );
-		TOCItem( khcTOC *parent, QListViewItem *after, const QString &text );
+		TOCItem( TOC *parent, const QString &text );
+		TOCItem( TOC *parent, QListViewItem *after, const QString &text );
 
 		virtual QString link() const = 0;
 
-		khcTOC *toc() const;
+		TOC *toc() const;
 };
 
 class TOCChapterItem : public TOCItem
 {
 	public:
-		TOCChapterItem( khcTOC *parent, const QString &title, const QString &name );
-		TOCChapterItem( khcTOC *parent, QListViewItem *after, const QString &title, const QString &name );
+		TOCChapterItem( TOC *parent, const QString &title, const QString &name );
+		TOCChapterItem( TOC *parent, QListViewItem *after, const QString &title, const QString &name );
 
 		virtual QString link() const;
 		
@@ -71,7 +73,7 @@ class TOCSectionItem : public TOCItem
 		QString m_name;
 };
 
-khcTOC::khcTOC( QWidget *parent ) : KListView( parent, "khcTOC" )
+TOC::TOC( QWidget *parent ) : KListView( parent, "TOC" )
 {
 	connect( this, SIGNAL( executed( QListViewItem * ) ),
 	         this, SLOT( slotItemSelected( QListViewItem * ) ) );
@@ -87,14 +89,14 @@ khcTOC::khcTOC( QWidget *parent ) : KListView( parent, "khcTOC" )
 	reset();
 }
 
-void khcTOC::reset()
+void TOC::reset()
 {
 	clear();
 
 	insertItem( new KListViewItem( this, i18n( "No manual selected" ) ) );
 }
 
-void khcTOC::build( const QString &file )
+void TOC::build( const QString &file )
 {
 	QFileInfo fileInfo( file );
 	QString cacheFile = QStringList::split( "/", fileInfo.dirPath() ).last() + ".toc.xml";
@@ -107,7 +109,7 @@ void khcTOC::build( const QString &file )
 		fillTree();
 }
 
-khcTOC::CacheStatus khcTOC::cacheStatus() const
+TOC::CacheStatus TOC::cacheStatus() const
 {
 	if ( !QFile::exists( m_cacheFile ) ||
 	     sourceFileCTime() != cachedCTime() )
@@ -116,7 +118,7 @@ khcTOC::CacheStatus khcTOC::cacheStatus() const
 	return CacheOk;
 }
 
-int khcTOC::sourceFileCTime() const
+int TOC::sourceFileCTime() const
 {
 	struct stat stat_buf;
 	stat( QFile::encodeName( m_sourceFile ).data(), &stat_buf );
@@ -124,7 +126,7 @@ int khcTOC::sourceFileCTime() const
 	return stat_buf.st_ctime;
 }
 
-int khcTOC::cachedCTime() const
+int TOC::cachedCTime() const
 {
 	QFile f( m_cacheFile );
 	if ( !f.open( IO_ReadOnly ) )
@@ -139,7 +141,7 @@ int khcTOC::cachedCTime() const
 	return timestamp.data().stripWhiteSpace().toInt();
 }
 
-void khcTOC::buildCache()
+void TOC::buildCache()
 {
 	KProcess *meinproc = new KProcess;
 	connect( meinproc, SIGNAL( processExited( KProcess * ) ),
@@ -153,7 +155,7 @@ void khcTOC::buildCache()
 	meinproc->start( KProcess::NotifyOnExit );
 }
 
-void khcTOC::meinprocExited( KProcess *meinproc )
+void TOC::meinprocExited( KProcess *meinproc )
 {
 	if ( !meinproc->normalExit() || meinproc->exitStatus() != 0 ) {
 		delete meinproc;
@@ -182,7 +184,7 @@ void khcTOC::meinprocExited( KProcess *meinproc )
 	fillTree();
 }
 
-void khcTOC::fillTree()
+void TOC::fillTree()
 {
 	QFile f( m_cacheFile );
 	if ( !f.open( IO_ReadOnly ) )
@@ -228,7 +230,7 @@ void khcTOC::fillTree()
 	}
 }
 
-QDomElement khcTOC::childElement( const QDomElement &element, const QString &name )
+QDomElement TOC::childElement( const QDomElement &element, const QString &name )
 {
 	QDomElement e;
 	for ( e = element.firstChild().toElement(); !e.isNull(); e = e.nextSibling().toElement() )
@@ -237,7 +239,7 @@ QDomElement khcTOC::childElement( const QDomElement &element, const QString &nam
 	return e;
 }
 
-void khcTOC::slotItemSelected( QListViewItem *item )
+void TOC::slotItemSelected( QListViewItem *item )
 {
 	TOCItem *tocItem;
 	if ( ( tocItem = dynamic_cast<TOCItem *>( item ) ) )
@@ -256,29 +258,29 @@ TOCItem::TOCItem( TOCItem *parent, QListViewItem *after, const QString &text )
 {
 }
 
-TOCItem::TOCItem( khcTOC *parent, const QString &text )
+TOCItem::TOCItem( TOC *parent, const QString &text )
 	: KListViewItem( parent, text )
 {
 }
 
-TOCItem::TOCItem( khcTOC *parent, QListViewItem *after, const QString &text )
+TOCItem::TOCItem( TOC *parent, QListViewItem *after, const QString &text )
 	: KListViewItem( parent, after, text )
 {
 }
 
-khcTOC *TOCItem::toc() const
+TOC *TOCItem::toc() const
 {
-	return static_cast<khcTOC *>( listView() );
+	return static_cast<TOC *>( listView() );
 }
 
-TOCChapterItem::TOCChapterItem( khcTOC *parent, const QString &title, const QString &name )
+TOCChapterItem::TOCChapterItem( TOC *parent, const QString &title, const QString &name )
 	: TOCItem( parent, title ),
 	m_name( name )
 {
 	setOpen( false );
 }
 
-TOCChapterItem::TOCChapterItem( khcTOC *parent, QListViewItem *after, const QString &title, const QString &name )
+TOCChapterItem::TOCChapterItem( TOC *parent, QListViewItem *after, const QString &title, const QString &name )
 	: TOCItem( parent, after, title ),
 	m_name( name )
 {

@@ -29,14 +29,16 @@
 class KConfig;
 class KProcess;
 
-class khcGlossaryEntryXRef
-{
-	friend QDataStream &operator>>( QDataStream &, khcGlossaryEntryXRef & );
-	public:
-		typedef QValueList<khcGlossaryEntryXRef> List;
+namespace KHC {
 
-		khcGlossaryEntryXRef() {}
-		khcGlossaryEntryXRef( const QString &term, const QString &id ) :
+class GlossaryEntryXRef
+{
+	friend QDataStream &operator>>( QDataStream &, GlossaryEntryXRef & );
+	public:
+		typedef QValueList<GlossaryEntryXRef> List;
+
+		GlossaryEntryXRef() {}
+		GlossaryEntryXRef( const QString &term, const QString &id ) :
 			m_term( term ),
 			m_id( id )
 		{
@@ -50,23 +52,23 @@ class khcGlossaryEntryXRef
 		QString m_id;
 };
 
-inline QDataStream &operator<<( QDataStream &stream, const khcGlossaryEntryXRef &e )
+inline QDataStream &operator<<( QDataStream &stream, const GlossaryEntryXRef &e )
 {
 	return stream << e.term() << e.id();
 }
 
-inline QDataStream &operator>>( QDataStream &stream, khcGlossaryEntryXRef &e )
+inline QDataStream &operator>>( QDataStream &stream, GlossaryEntryXRef &e )
 {
 	return stream >> e.m_term >> e.m_id;
 }
 
-class khcGlossaryEntry
+class GlossaryEntry
 {
-	friend QDataStream &operator>>( QDataStream &, khcGlossaryEntry & );
+	friend QDataStream &operator>>( QDataStream &, GlossaryEntry & );
 	public:
-		khcGlossaryEntry() {}
-		khcGlossaryEntry( const QString &term, const QString &definition,
-				const khcGlossaryEntryXRef::List &seeAlso ) :
+		GlossaryEntry() {}
+		GlossaryEntry( const QString &term, const QString &definition,
+				const GlossaryEntryXRef::List &seeAlso ) :
 			m_term( term ),
 			m_definition( definition ),
 			m_seeAlso( seeAlso )
@@ -75,35 +77,35 @@ class khcGlossaryEntry
 
 		QString term() const { return m_term; }
 		QString definition() const { return m_definition; }
-		khcGlossaryEntryXRef::List seeAlso() const { return m_seeAlso; }
+		GlossaryEntryXRef::List seeAlso() const { return m_seeAlso; }
 	
 	private:
 		QString m_term;
 		QString m_definition;
-		khcGlossaryEntryXRef::List m_seeAlso;
+		GlossaryEntryXRef::List m_seeAlso;
 };
 
-inline QDataStream &operator<<( QDataStream &stream, const khcGlossaryEntry &e )
+inline QDataStream &operator<<( QDataStream &stream, const GlossaryEntry &e )
 {
 	return stream << e.term() << e.definition() << e.seeAlso();
 }
 
-inline QDataStream &operator>>( QDataStream &stream, khcGlossaryEntry &e )
+inline QDataStream &operator>>( QDataStream &stream, GlossaryEntry &e )
 {
 	return stream >> e.m_term >> e.m_definition >> e.m_seeAlso;
 }
 
-class khcGlossary : public KListView
+class Glossary : public KListView
 {
 	Q_OBJECT
 	public:
-		khcGlossary( QWidget *parent );
-		virtual ~khcGlossary();
+		Glossary( QWidget *parent );
+		virtual ~Glossary();
 
-		const khcGlossaryEntry &entry( const QString &id ) const;
+		const GlossaryEntry &entry( const QString &id ) const;
 
 	signals:
-		void entrySelected( const khcGlossaryEntry &entry );
+		void entrySelected( const GlossaryEntry &entry );
 		
 	private slots:
 		void meinprocExited( KProcess *meinproc );
@@ -124,8 +126,10 @@ class khcGlossary : public KListView
 		QString m_sourceFile;
 		QString m_cacheFile;
 		CacheStatus m_status;
-		QDict<khcGlossaryEntry> m_glossEntries;
+		QDict<GlossaryEntry> m_glossEntries;
 };
+
+}
 
 #endif // KHC_GLOSSARY_H
 // vim:ts=4:sw=4:noet
