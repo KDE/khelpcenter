@@ -12,17 +12,15 @@
 <section>
 <title><xsl:value-of select="title"/></title>
 <anchor><xsl:value-of select="@id"/></anchor>
-<xsl:apply-templates select="glossentry"/>
+<xsl:apply-templates/>
 </section>
 </xsl:template>
 
 <xsl:template match="glossentry">
 <entry>
-<references>
-<xsl:apply-templates select="glossseealso"/>
-</references>
 <term><xsl:value-of select="glossterm"/></term>
-<definition><xsl:value-of select="glossdef"/></definition>
+<definition><xsl:value-of select="glossdef/*[not(name()='glossseealso')]"/></definition>
+<xsl:apply-templates select="glossdef/glossseealso"/>
 </entry>
 </xsl:template>
 
