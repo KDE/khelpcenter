@@ -3,7 +3,7 @@
 
 #include <qlistview.h>
 
-#include <docmetainfo.h>
+#include "docmetainfo.h"
 
 namespace KHC {
 
@@ -18,8 +18,8 @@ class ScopeItem : public QCheckListItem
       : QCheckListItem( parent, entry->name(), QCheckListItem::CheckBox ),
         mEntry( entry ), mObserver( 0 ) {}
 
-    DocEntry *entry() { return mEntry; }
-    
+    DocEntry *entry()const { return mEntry; }
+
     int rtti() const { return rttiId(); }
 
     static int rttiId() { return 734678; }
