@@ -25,7 +25,7 @@
 #include "khc_infonode.h"
 
 #include <map>
-// #include <qlist.h>
+// #include <qptrlist.h>
 #include <qstringlist.h>
 #include <stdio.h>
 #include <kdebug.h>
@@ -37,14 +37,14 @@ bool khcInfoNode::ms_bRegExCompiled = false;
 regex_t khcInfoNode::ms_compRegEx;
 uint khcInfoNode::ms_nExistingNodes = 0;
 
-khcInfoNode::khcInfoNode() 
+khcInfoNode::khcInfoNode()
 {
   if (!ms_bRegExCompiled)
     compileRegEx();
   ms_nExistingNodes++;
 }
 
-khcInfoNode::~khcInfoNode() 
+khcInfoNode::~khcInfoNode()
 {
   deleteChildren();
 
@@ -102,7 +102,7 @@ bool khcInfoNode::fromString(QString topic, QString str, uint flags)
   }
 
   Q_ASSERT(pRegMatch[0].rm_so == 0 && pRegMatch[0].rm_eo == str.length());
-  
+
   if (!fromHdrLine(str.mid(pRegMatch[1].rm_so,
 			   pRegMatch[1].rm_eo - pRegMatch[1].rm_so), flags))
   {
@@ -132,8 +132,8 @@ bool khcInfoNode::fromHdrLine(QString sLine, uint flags)
   QStringList itemsList = QStringList::split(",  ", sLine);
   // Mapa bedzie zawierac elementy typu "Node" => "xxx"
   std::map<QString, QString> valuesMap;
-  for (QStringList::Iterator listIt = itemsList.begin(); 
-       listIt != itemsList.end(); ++listIt) 
+  for (QStringList::Iterator listIt = itemsList.begin();
+       listIt != itemsList.end(); ++listIt)
   {
     QStringList tempList = QStringList::split(": ", *listIt);
     if (tempList.count() == 2)
@@ -142,7 +142,7 @@ bool khcInfoNode::fromHdrLine(QString sLine, uint flags)
 
   bool bNameFound = false;
 
-  for (std::map<QString, QString>::iterator mapIt = valuesMap.begin(); 
+  for (std::map<QString, QString>::iterator mapIt = valuesMap.begin();
        mapIt != valuesMap.end(); ++mapIt)
   {
     if (mapIt->first == "Node")
@@ -176,14 +176,14 @@ bool khcInfoNode::fromHdrLine(QString sLine, uint flags)
 
 void khcInfoNode::dumpChildren(unsigned int nLevel) const
 {
-  for (std::list<khcInfoNode*>::const_iterator it = m_lChildren.begin(); 
+  for (std::list<khcInfoNode*>::const_iterator it = m_lChildren.begin();
        it != m_lChildren.end(); ++it)
   {
     QString sTabs;
     sTabs.fill('\t', nLevel);
     kdDebug() << sTabs <<
       "Node: " << (*it)->m_sName <<
-      " Up: " << (*it)->m_sUp << 
+      " Up: " << (*it)->m_sUp <<
       " Prev: " << (*it)->m_sPrev <<
       " Next: " << (*it)->m_sNext << endl;
     (*it)->dumpChildren(nLevel + 1);

@@ -118,7 +118,7 @@ KHMainWindow::KHMainWindow(const KURL &url)
         connect( goMenu, SIGNAL( activated( int ) ), this, SLOT( goMenuActivated( int ) ) );
         m_goMenuIndex = goMenu->count();
     }
-    
+
 
     m_lstHistory.setAutoDelete( true );
 
@@ -195,7 +195,7 @@ void KHMainWindow::slotOpenURLRequest( const KURL &url,
     {
         createHistoryEntry();
         doc->openURL(url);
-    }  
+    }
 }
 
 void KHMainWindow::slotBack()
@@ -241,18 +241,18 @@ void KHMainWindow::goHistory( int steps )
     stop();
 
     int newPos = m_lstHistory.at() + steps;
- 
+
     HistoryEntry *current = m_lstHistory.at( newPos );
- 
+
     assert( current );
- 
+
     HistoryEntry h( *current );
     h.buffer.detach();
- 
+
     QDataStream stream( h.buffer, IO_ReadOnly );
- 
+
     doc->browserExtension()->restoreState( stream );
- 
+
     updateHistoryActions();
 }
 
@@ -287,9 +287,9 @@ void KHMainWindow::fillGoMenu()
         goMenu->removeItemAt( i );
 
     // TODO perhaps smarter algorithm (rename existing items, create new ones only if not enough) ?
- 
+
     // Ok, we want to show 10 items in all, among which the current url...
- 
+
     if ( m_lstHistory.count() <= 9 )
     {
         // First case: limited history in both directions -> show it all
@@ -299,7 +299,7 @@ void KHMainWindow::fillGoMenu()
     {
         // Assume both directions first (in this case we place the current URL in the middle)
         m_goMenuHistoryStartPos = m_lstHistory.at() + 4;
- 
+
         // Forward not big enough ?
         if ( m_lstHistory.at() > (int)m_lstHistory.count() - 4 )
           m_goMenuHistoryStartPos = m_lstHistory.count() - 1;
@@ -369,17 +369,17 @@ void KHMainWindow::fillHistoryPopup( QPopupMenu *popup, bool onlyBack, bool only
                                      bool checkCurrentItem, uint startPos )
 {
   assert ( popup ); // kill me if this 0... :/
- 
+
   //kdDebug(1202) << "fillHistoryPopup position: " << history.at() << endl;
   HistoryEntry * current = m_lstHistory.current();
-  QListIterator<HistoryEntry> it( m_lstHistory );
+  QPtrListIterator<HistoryEntry> it( m_lstHistory );
   if (onlyBack || onlyForward)
   {
       it += m_lstHistory.at(); // Jump to current item
       if ( !onlyForward ) --it; else ++it; // And move off it
   } else if ( startPos )
       it += startPos; // Jump to specified start pos
- 
+
   uint i = 0;
   while ( it.current() )
   {

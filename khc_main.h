@@ -7,7 +7,7 @@
 #include <kparts/browserextension.h>
 #include "khc_navigator.h"
 #include <kurl.h>
-#include <qlist.h>
+#include <qptrlist.h>
 
 class KHTMLPart;
 class QSplitter;
@@ -66,7 +66,7 @@ private:
     khcNavigator *nav;
     KToolBarPopupAction *back, *forward;
     int m_goBuffer;
-    QList<HistoryEntry> m_lstHistory;
+    QPtrList<HistoryEntry> m_lstHistory;
     int m_goMenuIndex;
     int m_goMenuHistoryStartPos;
     int m_goMenuHistoryCurrentPos;

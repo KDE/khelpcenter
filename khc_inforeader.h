@@ -22,7 +22,7 @@
 #define __KHC_INFOREADER__
 
 #include <qstring.h>
-#include <qlist.h>
+#include <qptrlist.h>
 
 #include "khc_infonode.h"
 #include "khc_infoconsts.h"
@@ -80,7 +80,7 @@ protected:
 // variables
   QString m_sTopic;
 
-  QList<khcInfoFile> m_lFiles;
+  QPtrList<khcInfoFile> m_lFiles;
 
   bool m_bInitialized;
 };

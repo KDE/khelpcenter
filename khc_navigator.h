@@ -22,7 +22,7 @@
 #define __khc_navigator_h__
 
 
-#include <qlist.h>
+#include <qptrlist.h>
 #include <kparts/browserextension.h>
 #include <kparts/part.h>
 #include <qtabwidget.h>
@@ -165,14 +165,14 @@ class khcNavigatorWidget : public QTabWidget
     int insertScrollKeeperSection(khcNavigatorItem *parentItem,QDomNode sectNode);
     void insertScrollKeeperDoc(khcNavigatorItem *parentItem,QDomNode docNode);
 
-    bool appendEntries (const QString &dirName,  khcNavigatorItem *parent, QList<khcNavigatorItem> *appendList);
-    bool processDir(const QString &dirName, khcNavigatorItem *parent,  QList<khcNavigatorItem> *appendList);
+    bool appendEntries (const QString &dirName,  khcNavigatorItem *parent, QPtrList<khcNavigatorItem> *appendList);
+    bool processDir(const QString &dirName, khcNavigatorItem *parent,  QPtrList<khcNavigatorItem> *appendList);
 
     QListViewItem *byTopicItem, *alphabItem;
     KListView *contentsTree, *glossaryTree;
     // SearchWidget *search;
 
-    QList<khcNavigatorItem> staticItems, manualItems, pluginItems, scrollKeeperItems;
+    QPtrList<khcNavigatorItem> staticItems, manualItems, pluginItems, scrollKeeperItems;
 
     // ACHU
     regex_t compInfoRegEx;

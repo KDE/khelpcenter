@@ -55,7 +55,7 @@
 #include <kiconloader.h>
 #include <kprocio.h>
 
-template class QList<khcNavigatorItem>;
+template class QPtrList<khcNavigatorItem>;
 
 SectionItem::SectionItem(QListViewItem *parent, const QString &text)
 	: QListViewItem(parent, text)
@@ -154,7 +154,7 @@ khcNavigatorWidget::~khcNavigatorWidget()
     delete copyIt->second;
     hierarchyMakers.erase(copyIt);
   }
-  
+
   regfree(&compInfoRegEx);
   // END ACHU
 }
@@ -874,13 +874,13 @@ void khcNavigatorWidget::slotItemExpanded(QListViewItem* index)
 	    item->setExpandable(false);
 	    return;
 	  }
-	  
+
 	  Q_ASSERT(regMatch[0].rm_so == 0 && regMatch[0].rm_eo == sURL.length());
 
 	  QString sTopic = sURL.mid(regMatch[1].rm_so, regMatch[1].rm_eo - regMatch[1].rm_so);
 	  QString sNode = sURL.mid(regMatch[3].rm_so, regMatch[3].rm_eo - regMatch[3].rm_so);
 
-	  kdDebug() << "sTopic: \'" << sTopic << "\'; sNode: \'" << sNode << "\'" << endl; 
+	  kdDebug() << "sTopic: \'" << sTopic << "\'; sNode: \'" << sNode << "\'" << endl;
 
 	  // begin creating hierarchy!
 
@@ -904,7 +904,7 @@ void khcNavigatorWidget::slotInfoHierarchyCreated(uint key, uint nErrorCode, con
   khcNavigatorItem* pItem = (khcNavigatorItem*) key;
 
   kdDebug() << "Info hierarchy for subject \'" << pItem->getName() << "\'created! Result: " << nErrorCode << endl;
-  
+
   if (!nErrorCode)
   {
     if (pRootNode->m_lChildren.empty())
@@ -1018,7 +1018,7 @@ void khcNavigatorWidget::stopAnimation( khcNavigatorItem * item )
 */
 // END ACHU
 
-bool khcNavigatorWidget::appendEntries(const QString &dirName, khcNavigatorItem *parent, QList<khcNavigatorItem> *appendList)
+bool khcNavigatorWidget::appendEntries(const QString &dirName, khcNavigatorItem *parent, QPtrList<khcNavigatorItem> *appendList)
 {
     QDir fileDir(dirName, "*.desktop", 0, QDir::Files | QDir::Hidden | QDir::Readable);
 
@@ -1050,7 +1050,7 @@ bool khcNavigatorWidget::appendEntries(const QString &dirName, khcNavigatorItem 
 }
 
 
-bool khcNavigatorWidget::processDir( const QString &dirName, khcNavigatorItem *parent,  QList<khcNavigatorItem> *appendList)
+bool khcNavigatorWidget::processDir( const QString &dirName, khcNavigatorItem *parent,  QPtrList<khcNavigatorItem> *appendList)
 {
     QString folderName;
 
