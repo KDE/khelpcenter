@@ -1,4 +1,3 @@
-
 SUBDIRS = plugins pics
 
 INCLUDES = $(all_includes)
@@ -8,7 +7,7 @@ bin_PROGRAMS = khelpcenter
 
 khelpcenter_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 khelpcenter_LDADD   = libkhelpcenter_common.la
-khelpcenter_SOURCES = main.cpp
+khelpcenter_SOURCES = main.cpp application.cpp
 
 noinst_LTLIBRARIES = libkhelpcenter_common.la
 kde_module_LTLIBRARIES = khelpcenter.la kcm_helpcenter.la

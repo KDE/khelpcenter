@@ -30,7 +30,7 @@ class MainWindow : public KMainWindow
 {
     Q_OBJECT
   public:
-    MainWindow(const KURL &url);
+    MainWindow(const KURL &url = KURL() );
     ~MainWindow();
 
   public slots:
