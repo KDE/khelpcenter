@@ -1,5 +1,5 @@
 /*
- *  kmb_main.cpp - part of the KDE Help Center
+ *  kmb_main.cc - part of the KDE Help Center
  *
  *  Copyright (C) 199 Matthias Elter (me@kde.org)
  *
