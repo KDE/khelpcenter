@@ -362,7 +362,7 @@ void KHTMLSearchConfig::indexTerminated(KProcess *)
 
 extern "C"
 {
-  KCModule *create_htmlsearch(QWidget *parent, const char *name)
+  KDE_EXPORT KCModule *create_htmlsearch(QWidget *parent, const char *name)
   {
     KGlobal::locale()->insertCatalogue("kcmhtmlsearch");
     return new KHTMLSearchConfig(parent, name);
