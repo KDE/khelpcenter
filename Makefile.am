@@ -10,7 +10,11 @@ khelpcenter_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 khelpcenter_LDADD   = $(LIB_KHTML)
 khelpcenter_SOURCES = main.cpp khc_main.cc $(libkhelpcenterpart_la_SOURCES)
 
-kde_module_LTLIBRARIES = libkhelpcenterpart.la
+khelpcenter_la_LDFLAGS = $(all_libraries) $(KDE_RPATH) -module $(KDE_PLUGIN)
+khelpcenter_la_LIBADD   = $(LIB_KHTML)
+khelpcenter_la_SOURCES = khc_main.cc $(libkhelpcenterpart_la_SOURCES)
+
+kde_module_LTLIBRARIES = libkhelpcenterpart.la khelpcenter.la
 libkhelpcenterpart_la_SOURCES = khc_factory.cc khc_navigator.cc \
 	khc_navigatoritem.cc 
 libkhelpcenterpart_la_LIBADD = htmlsearch/libhtmlsearch.la $(LIB_KPARTS)
@@ -25,6 +29,6 @@ datadir = $(kde_appsdir)
 rc_DATA = khelpcenterui.rc
 rcdir = $(kde_datadir)/khelpcenter
 
-messages:
-	$(XGETTEXT) -C $(libkhelpcenterpart_la_SOURCES) -o $(podir)/khelpcenter.pot
+messages: rc.cpp
+	$(XGETTEXT) *.cc *.cpp -o $(podir)/khelpcenter.pot
 
