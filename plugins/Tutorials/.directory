@@ -3,6 +3,7 @@
 Name=Tutorials
 Name[az]=Leksikalar
 Name[bg]=Îïèñàíèÿ
+Name[bs]=Vodiči
 Name[ca]=Introduccions
 Name[cs]=Výukové dokumenty
 Name[da]=Kurser
@@ -46,6 +47,7 @@ MiniIcon=
 Comment=Tutorial and introduction documents.
 Comment[az]=Leksika və giriş sənədləri
 Comment[bg]=Îïèñàíèÿ è äîêóìåíòè
+Comment[bs]=Vodič i uvodni dokumenti
 Comment[ca]=Documents i curs d'introducció.
 Comment[cs]=Výukové a seznamovací dokumenty.
 Comment[da]=Kursus og introduktions dokumenter
