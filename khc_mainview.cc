@@ -152,7 +152,7 @@ void khcMainView::init()
 
   // open the initial url or show the intro page
   if (m_initURL.isEmpty()) slotIntroduction();
-  else open(m_initURL, false);
+  else open(m_initURL.ascii(), false);
 
   kdebug(KDEBUG_INFO,1400,"khcMainView::init() : done");
 }
@@ -191,7 +191,7 @@ void khcMainView::cleanUp()
   kdebug(KDEBUG_INFO,1400,"khcMainView::cleanUp() : done");
 }
 
-bool khcMainView::event(const char* event, const CORBA::Any& value)
+bool khcMainView::event(const QCString &event, const CORBA::Any& value)
 {
   EVENT_MAPPER(event, value);
 
@@ -231,126 +231,104 @@ bool khcMainView::mappingCreateMenubar(OpenPartsUI::MenuBar_ptr menuBar)
   KStdAccel stdAccel;
   
   // file menu
-  CORBA::WString_var text = Q2C(i18n("&File"));
-  CORBA::Long m_idMenuFile = menuBar->insertMenu(text, m_vMenuFile, -1, -1);
+  long int m_idMenuFile = menuBar->insertMenu(i18n("&File"), m_vMenuFile, -1, -1);
   
   // open new window
-  text = Q2C(i18n("New &Window"));
-  m_vMenuFile->insertItem4(text, this, "slotNewWindow", stdAccel.openNew(), MFILE_NEWWINDOW, -1);
+  m_vMenuFile->insertItem4(i18n("New &Window"), this, "slotNewWindow", stdAccel.openNew(), MFILE_NEWWINDOW, -1);
   
   // seperator
   m_vMenuFile->insertSeparator(-1);
   
   // open file...
   pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("fileopen.png"));
-  text = Q2C(i18n("&Open file..."));
-  m_vMenuFile->insertItem6(pix, text, this, "slotOpenFile", stdAccel.open(), MFILE_OPENFILE, -1);
+  m_vMenuFile->insertItem6(pix, i18n("&Open file..."), this, "slotOpenFile", stdAccel.open(), MFILE_OPENFILE, -1);
   
   // reload
   pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("reload.png"));
-  text = Q2C(i18n("&Reload"));
-  m_vMenuFile->insertItem6(pix, text, this, "slotReload", Key_F5, MFILE_RELOAD, -1);
+  m_vMenuFile->insertItem6(pix, i18n("&Reload"), this, "slotReload", Key_F5, MFILE_RELOAD, -1);
   
   // print
   pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("fileprint.png"));
-  text = Q2C(i18n("&Print"));
-  m_vMenuFile->insertItem6(pix, text, this, "slotPrint", stdAccel.print(), MFILE_PRINT, -1);
+  m_vMenuFile->insertItem6(pix, i18n("&Print"), this, "slotPrint", stdAccel.print(), MFILE_PRINT, -1);
   
   // let the mainwindow know about the file menu so it cna replace its default file menu
   menuBar->setFileMenu(m_idMenuFile);
   
   // edit menu
-  text = Q2C(i18n("&Edit"));
-  menuBar->insertMenu(text, m_vMenuEdit, -1, -1);
+  menuBar->insertMenu(i18n("&Edit"), m_vMenuEdit, -1, -1);
   
   m_vMenuEdit->connect("aboutToShow", this, "slotMenuEditAboutToShow");
   m_bEditMenuDirty = true;
   createEditMenu();
   
   // view menu
-  text = Q2C(i18n("&View"));
-  menuBar->insertMenu( text, m_vMenuView, -1, -1 );  
+  menuBar->insertMenu( i18n("&View"), m_vMenuView, -1, -1 );  
   
   m_vMenuView->connect("aboutToShow", this, "slotMenuViewAboutToShow");
   m_bViewMenuDirty = true;
   createViewMenu();
   
   // go menu
-  text = Q2C(i18n("&Go"));
-  menuBar->insertMenu(text, m_vMenuGo, -1, -1);
+  menuBar->insertMenu(i18n("&Go"), m_vMenuGo, -1, -1);
 
   // back
   pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("back.png"));
-  text = Q2C(i18n("&Back"));
-  m_vMenuGo->insertItem6(pix, text, this, "slotBack", 0, MGO_BACK, -1);
+  m_vMenuGo->insertItem6(pix, i18n("&Back"), this, "slotBack", 0, MGO_BACK, -1);
   
   // forward
   pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("forward.png"));
-  text = Q2C(i18n("&Forward"));
-  m_vMenuGo->insertItem6(pix, text, this, "slotForward", 0, MGO_FORWARD, -1);
+  m_vMenuGo->insertItem6(pix, i18n("&Forward"), this, "slotForward", 0, MGO_FORWARD, -1);
   
   // seperator
   m_vMenuGo->insertSeparator(-1);
   
   // introduction
   pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("home.png"));
-  text = Q2C(i18n("&Introduction"));
-  m_vMenuGo->insertItem6(pix, text, this, "slotIntroduction", 0, MGO_INTRODUCTION, -1);
+  m_vMenuGo->insertItem6(pix, i18n("&Introduction"), this, "slotIntroduction", 0, MGO_INTRODUCTION, -1);
   
   // bookmark menu
-  text = Q2C(i18n("&Bookmarks"));
-  menuBar->insertMenu(text, m_vMenuBookmarks, -1, -1);
+  menuBar->insertMenu(i18n("&Bookmarks"), m_vMenuBookmarks, -1, -1);
   //m_pBookmarkMenu = new KBookmarkMenu( this, m_vMenuBookmarks, this, true );
   
   // options menu
-  text = Q2C(i18n("&Options"));
-  menuBar->insertMenu(text, m_vMenuOptions, -1, -1);
+  menuBar->insertMenu(i18n("&Options"), m_vMenuOptions, -1, -1);
   
   // show navigator
-  text = Q2C(i18n("Show &Navigator"));
-  m_vMenuOptions->insertItem4(text, this, "slotShowNavigator", 0, MOPTIONS_SHOWNAVIGATOR, -1 );
+  m_vMenuOptions->insertItem4(i18n("Show &Navigator"), this, "slotShowNavigator", 0, MOPTIONS_SHOWNAVIGATOR, -1 );
   
   // show menubar
-  text = Q2C(i18n("Show &Menubar"));
-  m_vMenuOptions->insertItem4(text, this, "slotShowMenubar", 0, MOPTIONS_SHOWMENUBAR, -1 );
+  m_vMenuOptions->insertItem4(i18n("Show &Menubar"), this, "slotShowMenubar", 0, MOPTIONS_SHOWMENUBAR, -1 );
   
   // show toolbar
-  text = Q2C(i18n("Show &Toolbar"));
-  m_vMenuOptions->insertItem4( text, this, "slotShowToolbar", 0, MOPTIONS_SHOWTOOLBAR, -1 );
+  m_vMenuOptions->insertItem4( i18n("Show &Toolbar"), this, "slotShowToolbar", 0, MOPTIONS_SHOWTOOLBAR, -1 );
   
   // show locationbar
-  text = Q2C(i18n("Show &Locationbar"));
-  m_vMenuOptions->insertItem4( text, this, "slotShowLocationbar", 0, MOPTIONS_SHOWLOCATIONBAR, -1 );
+  m_vMenuOptions->insertItem4( i18n("Show &Locationbar"), this, "slotShowLocationbar", 0, MOPTIONS_SHOWLOCATIONBAR, -1 );
   
   // show statusbar
-  text = Q2C( i18n("Show &Statusbar"));
-  m_vMenuOptions->insertItem4( text, this, "slotShowStatusbar", 0, MOPTIONS_SHOWSTATUSBAR, -1 );
+  m_vMenuOptions->insertItem4( i18n("Show &Statusbar"), this, "slotShowStatusbar", 0, MOPTIONS_SHOWSTATUSBAR, -1 );
   
   // seperator
   m_vMenuOptions->insertSeparator(-1);
   
   // settings
   pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("kde1.png"));
-  text = Q2C(i18n("&Settings..."));
-  m_vMenuOptions->insertItem6(pix, text, this, "slotSettings", 0, MOPTIONS_SETTINGS, -1);
+  m_vMenuOptions->insertItem6(pix, i18n("&Settings..."), this, "slotSettings", 0, MOPTIONS_SETTINGS, -1);
   
   // help menu
-  text = Q2C(i18n("&Help"));
-  CORBA::Long helpId = m_vMenuBar->insertMenu(text, m_vMenuHelp, -1, -1);
+  long helpId = m_vMenuBar->insertMenu(i18n("&Help"), m_vMenuHelp, -1, -1);
 
   // similar to the file menu the help menu is handled specially by the mainwindow
   m_vMenuBar->setHelpMenu(helpId);
   
   // contents
-  text = Q2C(i18n("&Contents"));
-  m_vMenuHelp->insertItem4(text, this, "slotHelpContents", 0, MHELP_CONTENTS, -1);
+  m_vMenuHelp->insertItem4(i18n("&Contents"), this, "slotHelpContents", 0, MHELP_CONTENTS, -1);
   
   // seperator
   m_vMenuHelp->insertSeparator(-1);
   
   // about khc
-  text = Q2C(i18n("&About KHelpcenter"));
-  m_vMenuHelp->insertItem4(text, this, "slotHelpAbout", 0, MHELP_ABOUT, -1);
+  m_vMenuHelp->insertItem4(i18n("&About KHelpcenter"), this, "slotHelpAbout", 0, MHELP_ABOUT, -1);
   
   m_vMenuOptions->setItemChecked(MOPTIONS_SHOWNAVIGATOR, true);
   m_vMenuOptions->setItemChecked(MOPTIONS_SHOWMENUBAR, true);
@@ -388,31 +366,27 @@ bool khcMainView::mappingCreateToolbar(OpenPartsUI::ToolBarFactory_ptr factory)
   m_vToolBar = factory->create2(OpenPartsUI::ToolBarFactory::Transient, 40);
   m_vToolBar->setIconText(3);
   m_vToolBar->setFullWidth(true);
-				    
-  CORBA::WString_var text;
+
   OpenPartsUI::Pixmap_var pix;
   
   // show/hide navigator
-  text = Q2C(i18n("Navigator"));
   pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("hidenavigator.png"));
-  m_vToolBar->insertButton2(pix, TB_NAVIGATOR, SIGNAL(clicked()), this, "slotShowNavigator", true, text, -1);
+  m_vToolBar->insertButton2(pix, TB_NAVIGATOR, SIGNAL(clicked()), this, "slotShowNavigator", true, i18n("Navigator"), -1);
 
   // seperator
   m_vToolBar->insertSeparator(-1);
   
   // back
-  text = Q2C(i18n("Back"));
   pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("back.png"));
-  m_vToolBar->insertButton2(pix, TB_BACK, SIGNAL(clicked()), this, "slotBack", false, text, -1);
+  m_vToolBar->insertButton2(pix, TB_BACK, SIGNAL(clicked()), this, "slotBack", false, i18n("Back"), -1);
   m_vToolBar->setDelayedPopup(TB_BACK, m_vHistoryBackMenu);
   m_vToolBar->setItemEnabled(TB_BACK, false);
   m_vHistoryBackMenu->connect("aboutToShow", this, "slotHistoryFillBack");
   m_vHistoryBackMenu->connect("activated", this, "slotHistoryBackActivated");
 
   // forward
-  text = Q2C(i18n("Forward"));
   pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("forward.png"));
-  m_vToolBar->insertButton2(pix, TB_FORWARD, SIGNAL(clicked()), this, "slotForward", false, text, -1);
+  m_vToolBar->insertButton2(pix, TB_FORWARD, SIGNAL(clicked()), this, "slotForward", false, i18n("Forward"), -1);
   m_vToolBar->setDelayedPopup(TB_FORWARD, m_vHistoryForwardMenu);
   m_vToolBar->setItemEnabled(TB_FORWARD, false);
   m_vHistoryForwardMenu->connect("aboutToShow", this, "slotHistoryFillForward");
@@ -422,48 +396,41 @@ bool khcMainView::mappingCreateToolbar(OpenPartsUI::ToolBarFactory_ptr factory)
   m_vToolBar->insertSeparator(-1);
 
   // reload
-  text = Q2C(i18n("Reload"));
   pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("reload.png"));
-  m_vToolBar->insertButton2(pix, TB_RELOAD, SIGNAL(clicked()), this, "slotReload", true, text, -1);
+  m_vToolBar->insertButton2(pix, TB_RELOAD, SIGNAL(clicked()), this, "slotReload", true, i18n("Reload"), -1);
    
   // stop
-  text = Q2C(i18n("Stop"));
   pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("stop.png"));
-  m_vToolBar->insertButton2(pix, TB_STOP, SIGNAL(clicked()), this, "slotStop", false, text, -1);
+  m_vToolBar->insertButton2(pix, TB_STOP, SIGNAL(clicked()), this, "slotStop", false, i18n("Stop"), -1);
 
   // bookmark
-  text = Q2C(i18n("Bookmark"));
   pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("flag.png"));
-  m_vToolBar->insertButton2(pix, TB_BOOKMARK, SIGNAL(clicked()), this, "slotBookmark", true, text, -1);
+  m_vToolBar->insertButton2(pix, TB_BOOKMARK, SIGNAL(clicked()), this, "slotBookmark", true, i18n("Bookmark"), -1);
 
   // seperator
   m_vToolBar->insertSeparator(-1);
   
   // zoom in
-  text = Q2C(i18n("Zoom in"));
   pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("viewmag+.png"));
-  m_vToolBar->insertButton2(pix, TB_ZOOMIN, SIGNAL(clicked()), this, "slotZoomIn", true, text, -1);
+  m_vToolBar->insertButton2(pix, TB_ZOOMIN, SIGNAL(clicked()), this, "slotZoomIn", true, i18n("Zoom in"), -1);
 
   // zoom out
-  text = Q2C(i18n("Zoom out"));
   pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("viewmag-.png"));
-  m_vToolBar->insertButton2(pix, TB_ZOOMOUT, SIGNAL(clicked()), this, "slotZoomOut", true, text, -1);
+  m_vToolBar->insertButton2(pix, TB_ZOOMOUT, SIGNAL(clicked()), this, "slotZoomOut", true, i18n("Zoom out"), -1);
   
   // seperator
-  CORBA::Long childButtonIndex = m_vToolBar->insertSeparator(-1);
+  long childButtonIndex = m_vToolBar->insertSeparator(-1);
   
   // print
-  text = Q2C(i18n("Print"));
   pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("fileprint.png"));
-  m_vToolBar->insertButton2(pix, TB_PRINT, SIGNAL(clicked()), this, "slotPrint", true, text, -1);
+  m_vToolBar->insertButton2(pix, TB_PRINT, SIGNAL(clicked()), this, "slotPrint", true, i18n("Print"), -1);
 
   // seperator				
   m_vToolBar->insertSeparator( -1 );				
 
   // help
-  text = Q2C(i18n("Help"));
   pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("help.png"));
-  m_vToolBar->insertButton2(pix, TB_HELP, SIGNAL(clicked()), this, "slotHelpContents", true, text, -1);
+  m_vToolBar->insertButton2(pix, TB_HELP, SIGNAL(clicked()), this, "slotHelpContents", true, i18n("Help"), -1);
   m_vToolBar->alignItemRight(TB_HELP, true);				
   
   // view specific buttons
@@ -475,21 +442,16 @@ bool khcMainView::mappingCreateToolbar(OpenPartsUI::ToolBarFactory_ptr factory)
   m_vLocationBar = factory->create(OpenPartsUI::ToolBarFactory::Transient);
   m_vLocationBar->setFullWidth(true);
   
-  text = Q2C(i18n("Location: "));
-  m_vLocationBar->insertTextLabel(text, -1, -1);
-  CORBA::WString_var toolTip = Q2C(i18n("Current location"));
+  m_vLocationBar->insertTextLabel(i18n("Location: "), -1, -1);
+  QString toolTip = i18n("Current location");
   
-  text = Q2C(QString::null);
   OpenPartsUI::WStrList items;
-  items.length(0);
 
   if (m_vView)
-    {
-      items.length(1);
-      items[0] = Q2C(m_vView->url());
-    }
+      items.append(m_vView->url());
+
   
-  m_vLocationBar->insertCombo3(items, TB_URL, true, SIGNAL(activated(const QString &)),
+  m_vLocationBar->insertCombo(items, TB_URL, true, SIGNAL(activated(const QString &)),
 			       this, "slotURLEntered", true, toolTip, 70, -1,
 			       OpenPartsUI::AfterCurrent);
   
@@ -538,17 +500,17 @@ void khcMainView::createViewMenu()
       m_vMenuView->clear();
       m_vMenuView->setCheckable(true);
       
-      CORBA::WString_var text;
+      QString text;
       OpenPartsUI::Pixmap_var pix;
       
       // zoom in
       pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("viewmag+.png"));
-      text = Q2C(i18n("Zoom &in"));
+      text = i18n("Zoom &in");
       m_vMenuView->insertItem6(pix, text, this, "slotZoomIn", 0, MVIEW_ZOOMIN, -1);
       
       // zoom out
       pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("viewmag+.png"));
-      text = Q2C(i18n("Zoom &out"));
+      text = i18n("Zoom &out");
       m_vMenuView->insertItem6(pix, text, this, "slotZoomOut", 0, MVIEW_ZOOMOUT, -1);
       
       // child view specific menu entries
@@ -562,11 +524,11 @@ void khcMainView::createViewMenu()
 
       // reload document
       pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("reload.png"));
-      text = Q2C(i18n("Reload &document"));
+      text = i18n("Reload &document");
       m_vMenuView->insertItem6(pix, text, this, "slotReload", 0, MVIEW_RELOAD, -1);
 
       // reload navigator
-      text = Q2C(i18n("Reload &navigator"));
+      text = i18n("Reload &navigator");
       m_vMenuView->insertItem4(text, this, "slotReloadNavigator", 0, MVIEW_RELOADNAVIGATOR, -1);
       m_bViewMenuDirty = false;
   }
@@ -597,7 +559,7 @@ void khcMainView::createViewToolBar()
   kdebug(KDEBUG_INFO,1400,"khcMainView::createViewToolBar()");
   
   Browser::View::EventFillToolBar ev;
-  ev.create = (CORBA::Boolean)true;
+  ev.create = true;
   ev.startIndex = m_lToolBarViewStartIndex;
   ev.toolBar = OpenPartsUI::ToolBar::_duplicate(m_vToolBar);
   EMIT_EVENT(m_vView, Browser::View::eventFillToolBar, ev);
@@ -614,7 +576,7 @@ void khcMainView::clearViewGUIElements()
   
   // clear child-view toolbar buttons
   Browser::View::EventFillToolBar ev;
-  ev.create = (CORBA::Boolean)false;
+  ev.create = false;
   ev.toolBar = OpenPartsUI::ToolBar::_duplicate(m_vToolBar);
   EMIT_EVENT(m_vView, Browser::View::eventFillToolBar, ev);
 }
@@ -893,7 +855,7 @@ void khcMainView::slotOpenFile()
     {
       QString url = "file:";
       url += fileName;
-      open(url, false);
+      open(url.ascii(), false);
     }
 }
 
@@ -908,7 +870,7 @@ void khcMainView::slotReload()
 {
   Browser::EventOpenURL eventURL;
   eventURL.url = m_vView->url();
-  eventURL.reload = (CORBA::Boolean)true;
+  eventURL.reload = true;
   eventURL.xOffset = m_vView->xOffset();
   eventURL.yOffset = m_vView->yOffset();
   EMIT_EVENT( m_vView, Browser::eventOpenURL, eventURL );
@@ -979,7 +941,7 @@ void khcMainView::slotIntroduction()
 {
   // show intro page
   QString url = "file:" + locate("html", "default/khelpcenter/main.html");
-  open(url, false); 
+  open(url.ascii(), false); 
 }
 
 void khcMainView::slotForward()
@@ -987,7 +949,7 @@ void khcMainView::slotForward()
   // history forward
   khcHistoryItem *hitem = history.next();
   if (hitem)
-    open(hitem->url(), true, hitem->xOffset(), hitem->yOffset());
+    open(hitem->url().ascii(), true, hitem->xOffset(), hitem->yOffset());
 }
 
 void khcMainView::slotBack()
@@ -995,7 +957,7 @@ void khcMainView::slotBack()
   // history back
   khcHistoryItem *hitem = history.prev();
   if(hitem)
-      open(hitem->url(), true, hitem->xOffset(), hitem->yOffset());
+      open(hitem->url().ascii(), true, hitem->xOffset(), hitem->yOffset());
 }
 
 void khcMainView::slotBookmark()
@@ -1013,7 +975,7 @@ void khcMainView::slotShowNavigator()
       if (!CORBA::is_nil(m_vToolBar))
 	{
 	  OpenPartsUI::Pixmap_var pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("shownavigator.png"));
-	  CORBA::WString_var text = Q2C(i18n("Navigator"));
+	  //CORBA::WString_var text = i18n("Navigator");
   	  m_vToolBar->setButtonPixmap(TB_NAVIGATOR, pix); 
 	}
     }
@@ -1025,7 +987,7 @@ void khcMainView::slotShowNavigator()
       if (!CORBA::is_nil(m_vToolBar))
 	{
 	  OpenPartsUI::Pixmap_var pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("hidenavigator.png"));
-	  CORBA::WString_var text = Q2C(i18n("Navigator"));
+	  //CORBA::WString_var text = i18n("Navigator");
 	  m_vToolBar->setButtonPixmap(TB_NAVIGATOR, pix); 
 	}
     }
@@ -1108,9 +1070,7 @@ void khcMainView::slotHistoryFillBack()
   
   while (item)
     {
-      const CORBA::WChar *text;
-      QString url = item->url(); 
-      m_vHistoryBackMenu->insertItem7((text = Q2C(url)), -1, -1);
+      m_vHistoryBackMenu->insertItem7(item->url(), -1, -1);
       item = list.next();
     }
 }
@@ -1128,31 +1088,29 @@ void khcMainView::slotHistoryFillForward()
   
   while (item)
     {
-      const CORBA::WChar *text;
-      QString url = item->url(); 
-      m_vHistoryForwardMenu->insertItem7((text = Q2C(url)), -1, -1);
+      m_vHistoryForwardMenu->insertItem7(item->url(), -1, -1);
       item = list.next();
     }
 }
 
-void khcMainView::slotHistoryBackActivated(CORBA::Long id)
+void khcMainView::slotHistoryBackActivated(long int id)
 {
   // back-button popupmenu-entry selected
   int steps = m_vHistoryBackMenu->indexOf(id) + 1;
   khcHistoryItem *item = history.back(steps);
   
   if(item)
-    open(item->url(), true, item->xOffset(), item->yOffset());
+    open(item->url().ascii(), true, item->xOffset(), item->yOffset());
 }
 
-void khcMainView::slotHistoryForwardActivated(CORBA::Long id)
+void khcMainView::slotHistoryForwardActivated(long int id)
 {
   // forward-button popupmenu-entry selected
   int steps = m_vHistoryForwardMenu->indexOf(id) + 1;
   khcHistoryItem *item = history.forward(steps);
   
   if(item)
-    open(item->url(), true, item->xOffset(), item->yOffset());
+    open(item->url().ascii(), true, item->xOffset(), item->yOffset());
 }
 
 void khcMainView::slotMenuEditAboutToShow()
@@ -1167,9 +1125,9 @@ void khcMainView::slotMenuViewAboutToShow()
   createViewMenu();
 }
 
-void khcMainView::slotURLEntered(const CORBA::WChar *_url)
+void khcMainView::slotURLEntered(const QString &_url)
 {
-  QString url = C2Q(_url);
+  QString url = _url;
   
   if (url.isEmpty()) return;
   
@@ -1205,28 +1163,25 @@ void khcMainView::slotSetBusy(bool busy)
   m_vToolBar->setItemEnabled(TB_STOP, busy);
 }
    
-void khcMainView::setStatusBarText(const CORBA::WChar *_text)
+void khcMainView::setStatusBarText(const QString &_text)
 {
   if (!CORBA::is_nil(m_vStatusBar))
     m_vStatusBar->changeItem(_text, 1);
 }
 
-void khcMainView::setLocationBarURL(OpenParts::Id, const char *_url)
+void khcMainView::setLocationBarURL(OpenParts::Id, const QCString &_url)
 {
-  CORBA::WString_var wurl = Q2C(QString(_url));
-    
   if (!CORBA::is_nil(m_vLocationBar))
-    m_vLocationBar->changeComboItem(TB_URL, wurl, 0);
-
+    m_vLocationBar->changeComboItem(TB_URL, QString(_url), 0);
 }
 
-void khcMainView::createNewWindow(const char *url)
+void khcMainView::createNewWindow(const QCString &url)
 {
   khcMainWindow *m_pWin = new khcMainWindow(url);
   m_pWin->show();
 }
 
-void khcMainView::slotURLStarted(OpenParts::Id , const char *)
+void khcMainView::slotURLStarted(OpenParts::Id , const QCString &)
 {
   // child view started loading a url
   slotSetBusy(true);
@@ -1247,10 +1202,10 @@ void khcMainView::openURL(const Browser::URLRequest &urlRequest)
 void khcMainView::slotSetURL(const QString& _url)
 {
   // the navigator connects to this slot
-  open(_url, false, 0, 0);
+  open(_url.ascii(), false, 0, 0);
 }
 
-void khcMainView::open(const char* url, CORBA::Boolean reload, CORBA::Long xoffset, CORBA::Long yoffset)
+void khcMainView::open(const QCString &url, bool reload, long int xoffset, long int yoffset)
 {
   kdebug(KDEBUG_INFO,1400,"khcMainView::open()");
 
@@ -1263,7 +1218,7 @@ void khcMainView::open(const char* url, CORBA::Boolean reload, CORBA::Long xoffs
     }
   
   Browser::EventOpenURL eventURL;
-  eventURL.url = CORBA::string_dup(url);
+  eventURL.url = url;
   eventURL.reload = reload;
   eventURL.xOffset = xoffset;
   eventURL.yOffset = yoffset;

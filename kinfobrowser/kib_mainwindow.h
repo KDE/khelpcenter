@@ -40,13 +40,13 @@ class kibMainWindowIf : virtual public OPMainWindowIf,
   ~kibMainWindowIf();
   
   virtual void openURL(const Browser::URLRequest &url );
-  virtual void open(const char* url, CORBA::Boolean reload, CORBA::Long xoffset, CORBA::Long yoffset);
+  virtual void open(const QCString &url, bool reload, long xoffset, long yoffset);
   
-  virtual void setStatusBarText(const CORBA::WChar *_text);
-  virtual void setLocationBarURL(OpenParts::Id id, const char *_url);
+  virtual void setStatusBarText(const QString &_text);
+  virtual void setLocationBarURL(OpenParts::Id id, const QCString &_url);
   
-  virtual void createNewWindow( const char *url );
-  virtual void slotURLStarted( OpenParts::Id id, const char *url );
+  virtual void createNewWindow( const QCString &url );
+  virtual void slotURLStarted( OpenParts::Id id, const QCString &url );
   virtual void slotURLCompleted( OpenParts::Id id );
 
   virtual void zoomIn();
@@ -74,7 +74,7 @@ class kibMainWindow : public OPMainWindow
     virtual ~kibMainWindow();
 
     void openURL(Browser::URLRequest urlRequest);
-    void openURL(const char *url, bool withHistory = true, long xOffset = 0, long yOffset = 0);
+    void openURL(const QCString &url, bool withHistory = true, long xOffset = 0, long yOffset = 0);
 
     virtual OPMainWindowIf* interface();
     virtual kibMainWindowIf* kibInterface();

@@ -66,7 +66,7 @@ khcHTMLView::~khcHTMLView()
   delete m_pFindDlg;
 }
 
-bool khcHTMLView::event(const char *event, const CORBA::Any &value)
+bool khcHTMLView::event(const QCString &event, const CORBA::Any &value)
 {
   EVENT_MAPPER(event, value);
   
@@ -82,8 +82,8 @@ bool khcHTMLView::event(const char *event, const CORBA::Any &value)
 bool khcHTMLView::mappingOpenURL(Browser::EventOpenURL eventURL)
 {
   khcBaseView::mappingOpenURL(eventURL);
-  KBrowser::openURL(QString(eventURL.url), (bool)eventURL.reload ); // implemented by kbrowser
-  SIGNAL_CALL2("started", id(), CORBA::Any::from_string((char *)eventURL.url, 0));
+  KBrowser::openURL(QString(eventURL.url), eventURL.reload ); // implemented by kbrowser
+  SIGNAL_CALL2("started", id(), eventURL.url);
   return true;
 }
 
@@ -92,9 +92,8 @@ bool khcHTMLView::mappingFillMenuView(Browser::View::EventFillMenu_ptr viewMenu)
   m_vViewMenu = OpenPartsUI::Menu::_duplicate(viewMenu);
   if (!CORBA::is_nil(viewMenu))
     {
-      CORBA::WString_var text;
-	  viewMenu->insertItem4((text = Q2C(i18n("&Find in page..."))), this, "slotFind", 0, -1, -1);
-	  viewMenu->insertItem4((text = Q2C(i18n("&Find next in page..."))), this, "slotFindNext", 0, -1, -1);
+      viewMenu->insertItem4( i18n("&Find in page..."), this, "slotFind", 0, -1, -1);
+      viewMenu->insertItem4( i18n("&Find next in page..."), this, "slotFindNext", 0, -1, -1);
     }
   
   return true;
@@ -104,11 +103,7 @@ bool khcHTMLView::mappingFillMenuEdit( Browser::View::EventFillMenu_ptr editMenu
 {
   m_vEditMenu = OpenPartsUI::Menu::_duplicate(editMenu);
   if (!CORBA::is_nil(editMenu))
-    {
-      CORBA::WString_var text;
-      editMenu->insertItem4((text = Q2C(i18n("&Copy"))), this, "slotCopy", 0, -1, -1);
-	  
-    }
+    editMenu->insertItem4( i18n("&Copy"), this, "slotCopy", 0, -1, -1);
   
   return true;
 }
@@ -120,7 +115,7 @@ bool khcHTMLView::mappingFillToolBar(Browser::View::EventFillToolBar viewToolBar
   
   if (viewToolBar.create)
     {
-      CORBA::WString_var toolTip = Q2C(i18n("Find"));
+      QString toolTip = i18n("Find");
       OpenPartsUI::Pixmap_var pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("search.png"));
       viewToolBar.toolBar->insertButton2(pix, TB_SEARCH,SIGNAL(clicked()), this, "slotFind", 
 					 true, toolTip, viewToolBar.startIndex++);
@@ -134,29 +129,22 @@ bool khcHTMLView::mappingFillToolBar(Browser::View::EventFillToolBar viewToolBar
 
 void khcHTMLView::slotURLClicked(QString url)
 {
-  SIGNAL_CALL2("started", id(), CORBA::Any::from_string((char *)url.latin1(), 0));
+  SIGNAL_CALL2( "started", id(), QCString(url.latin1()) );
 }
 
 void khcHTMLView::slotShowURL(KHTMLView *, QString _url)
 {
-  if (_url.isEmpty())
-    {
-      SIGNAL_CALL1("setStatusBarText", CORBA::Any::from_wstring(0L, 0));
-      return;
-    }
-  CORBA::WString_var wurl = Q2C(_url);
-  SIGNAL_CALL1("setStatusBarText", CORBA::Any::from_wstring(wurl.out(), 0));
+  SIGNAL_CALL1("setStatusBarText", _url);
 }
 
 void khcHTMLView::slotSetTitle(QString title)
 {
-  CORBA::WString_var ctitle = Q2C(title);
-  SIGNAL_CALL1("setStatusBarText", CORBA::Any::from_wstring(ctitle.out(), 0));
+  SIGNAL_CALL1("setStatusBarText", title);
 }
 
 void khcHTMLView::slotStarted( const char *url )
 {
-  SIGNAL_CALL2("started", id(), CORBA::Any::from_string( (char *)url, 0 ) );
+  SIGNAL_CALL2("started", id(), QCString(url) );
 }
 
 void khcHTMLView::slotCompleted()
@@ -265,7 +253,7 @@ void khcHTMLView::zoomIn()
       fontBase++;
       setDefaultFontBase(fontBase);
       KBrowser::openURL(url(), true );
-      SIGNAL_CALL2("started", id(), CORBA::Any::from_string((char *)url(), 0));
+      SIGNAL_CALL2("started", id(), url());
     }
 }
 
@@ -276,44 +264,43 @@ void khcHTMLView::zoomOut()
       fontBase--;
       setDefaultFontBase(fontBase);
       KBrowser::openURL(url(), true );
-      SIGNAL_CALL2("started", id(), CORBA::Any::from_string((char *)url(), 0));
+      SIGNAL_CALL2("started", id(), url());
     }
 }
 
-CORBA::Boolean khcHTMLView::canZoomIn()
+bool khcHTMLView::canZoomIn()
 {
-  return (CORBA::Boolean)(fontBase < 5);
+  return (fontBase < 5);
 }
 
-CORBA::Boolean khcHTMLView::canZoomOut()
+bool khcHTMLView::canZoomOut()
 {
-  return (CORBA::Boolean)(fontBase > 2);
+  return (fontBase > 2);
 }
 
-CORBA::Long khcHTMLView::xOffset()
+long khcHTMLView::xOffset()
 {
-  return (CORBA::Long)KBrowser::xOffset();
+  return KBrowser::xOffset();
 }
 
-CORBA::Long khcHTMLView::yOffset()
+long khcHTMLView::yOffset()
 {
-  return (CORBA::Long)KBrowser::yOffset();
+  return KBrowser::yOffset();
 }
 
 void khcHTMLView::openURL(QString _url, bool _reload, int _xoffset, int _yoffset, const char */*_post_data*/)
 {
   Browser::EventOpenURL eventURL;
-  eventURL.url = CORBA::string_dup(_url);
+  eventURL.url = QCString(_url.ascii());
   eventURL.reload = _reload;
   eventURL.xOffset = _xoffset;
   eventURL.yOffset = _yoffset;
   SIGNAL_CALL1("openURL", eventURL);
 }
 
-char *khcHTMLView::url()
+QCString khcHTMLView::url()
 {
-  QString u = KBrowser::m_strURL;
-  return CORBA::string_dup(u.ascii());
+  return KBrowser::m_strURL.ascii();
 }
 
 void khcHTMLView::print()

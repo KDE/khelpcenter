@@ -48,14 +48,14 @@ class kmbView : public QWidget,
   virtual bool mappingOpenURL( Browser::EventOpenURL eventURL );
   
   virtual void stop();
-  virtual char *url();
-  virtual CORBA::Long xOffset();
-  virtual CORBA::Long yOffset();
+  virtual QCString url();
+  virtual long xOffset();
+  virtual long yOffset();
   virtual void print();
   virtual void zoomIn();
   virtual void zoomOut();
-  virtual CORBA::Boolean canZoomIn();
-  virtual CORBA::Boolean canZoomOut();
+  virtual bool canZoomIn();
+  virtual bool canZoomOut();
   virtual void openURL( QString _url, bool _reload, int _xoffset = 0, int _yoffset = 0, const char *_post_data = 0L);
   
  public slots:

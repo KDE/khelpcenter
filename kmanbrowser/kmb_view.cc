@@ -150,15 +150,15 @@ void kmbView::open(QString _url, bool /*_reload*/, int _xoffset, int _yoffset)
 
 bool kmbView::mappingOpenURL( Browser::EventOpenURL eventURL )
 {
-  open(QString(eventURL.url), (bool)eventURL.reload );
-  SIGNAL_CALL2("started", id(), CORBA::Any::from_string((char *)eventURL.url, 0));
-  SIGNAL_CALL2( "setLocationBarURL", id(), (char*)eventURL.url );
+  open(QString(eventURL.url), eventURL.reload );
+  SIGNAL_CALL2("started", id(), eventURL.url);
+  SIGNAL_CALL2( "setLocationBarURL", id(), eventURL.url );
   return true;
 }
 
 void kmbView::slotURLClicked( QString url )
 {
-  SIGNAL_CALL2("started", id(), CORBA::Any::from_string((char *)url.latin1(), 0));
+  SIGNAL_CALL2("started", id(), QCString(url.latin1()) );
 }
 
 void kmbView::slotSetTitle( QString /*title*/ )
@@ -168,7 +168,7 @@ void kmbView::slotSetTitle( QString /*title*/ )
 
 void kmbView::slotStarted( const char *url )
 {
-  SIGNAL_CALL2("started", id(), CORBA::Any::from_string( (char *)url, 0 ) );
+  SIGNAL_CALL2("started", id(), QCString(url) );
 }
 
 void kmbView::slotCompleted()
@@ -225,7 +225,7 @@ void kmbView::zoomIn()
       fontBase++;
       setDefaultFontBase(fontBase);
       open(url(), true);
-      SIGNAL_CALL2("started", id(), CORBA::Any::from_string((char *)url(), 0));
+      SIGNAL_CALL2("started", id(), url() );
     }
 }
 
@@ -236,26 +236,26 @@ void kmbView::zoomOut()
       fontBase--;
       setDefaultFontBase(fontBase);
       open(url(), true);
-      SIGNAL_CALL2("started", id(), CORBA::Any::from_string((char *)url(), 0));
+      SIGNAL_CALL2("started", id(), url() );
     }
 }
 
-CORBA::Boolean kmbView::canZoomIn()
+bool kmbView::canZoomIn()
 {
-  return (CORBA::Boolean)(fontBase < 5);
+  return (fontBase < 5);
 }
 
-CORBA::Boolean kmbView::canZoomOut()
+bool kmbView::canZoomOut()
 {
-  return (CORBA::Boolean)(fontBase > 2);
+  return (fontBase > 2);
 }
 
-CORBA::Long kmbView::xOffset()
+long kmbView::xOffset()
 {
   return (CORBA::Long) view->xOffset();
 }
 
-CORBA::Long kmbView::yOffset()
+long kmbView::yOffset()
 {
   return (CORBA::Long) view->yOffset();
 }
@@ -263,17 +263,16 @@ CORBA::Long kmbView::yOffset()
 void kmbView::openURL(QString _url, bool _reload, int _xoffset, int _yoffset, const char */*_post_data*/)
 {
   Browser::EventOpenURL eventURL;
-  eventURL.url = CORBA::string_dup(_url);
+  eventURL.url = _url.ascii();
   eventURL.reload = _reload;
   eventURL.xOffset = _xoffset;
   eventURL.yOffset = _yoffset;
   SIGNAL_CALL1("openURL", eventURL);
 }
 
-char *kmbView::url()
+QCString kmbView::url()
 {
-  QString u = m_strURL;
-  return CORBA::string_dup(u.ascii());
+  return m_strURL.ascii();
 }
 
 void kmbView::print()

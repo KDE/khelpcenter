@@ -1,6 +1,6 @@
 
 INCLUDES= -I../libkhc -I$(srcdir)/../libkhc  $(all_includes) $(MICO_INCLUDES)
-LDFLAGS = $(all_libraries) $(KDE_RPATH) $(MICO_LDFLAGS)
+LDFLAGS = $(all_libraries) $(KDE_RPATH) $(MICO_LDFLAGS) -lcutesti
 IDL_FLAGS = --relative-paths --any -I$(idldir)
 
 bin_PROGRAMS = kinfobrowser

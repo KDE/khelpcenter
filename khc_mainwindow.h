@@ -72,7 +72,7 @@ protected:
   OPMenu* m_pFileMenu;
   OPMenu* m_pHelpMenu;
 
-  CORBA::Long m_idMenuHelp_About;
+  long int m_idMenuHelp_About;
 
   khcMainView *m_pMainView;
   KHelpCenter::MainView_var m_vMainView;

@@ -59,7 +59,7 @@ void khcBaseView::cleanUp()
     OPPartIf::cleanUp();
 }
 
-bool khcBaseView::event( const char *event, const CORBA::Any &value )
+bool khcBaseView::event( const QCString &event, const CORBA::Any &value )
 {
     EVENT_MAPPER(event, value);
     
@@ -71,23 +71,24 @@ bool khcBaseView::event( const char *event, const CORBA::Any &value )
 
 bool khcBaseView::mappingOpenURL( Browser::EventOpenURL eventURL )
 {
-    SIGNAL_CALL2("setLocationBarURL", id(), (char*)eventURL.url);
+    SIGNAL_CALL2("setLocationBarURL", id(), eventURL.url);
     return false;
 }
 
-char *khcBaseView::url()
+QCString khcBaseView::url()
 {
-    return CORBA::string_dup( m_strURL.data() );
+    return m_strURL.latin1();
 }
 
-void khcBaseView::openURLRequest( const char *_url )
+void khcBaseView::openURLRequest( const QCString &_url )
 {
     // Ask the mainwindow to open this URL, since it might not be suitable
     // for the current type of view.
     Browser::URLRequest urlRequest;
-    urlRequest.url = CORBA::string_dup( _url );
-    urlRequest.reload = (CORBA::Boolean)false;
+    urlRequest.url = _url;
+    urlRequest.reload = false;
     urlRequest.xOffset = 0;
     urlRequest.yOffset = 0;
     SIGNAL_CALL1( "openURL", urlRequest );
 }
+

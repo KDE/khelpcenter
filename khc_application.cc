@@ -69,12 +69,12 @@ khcBrowserFactory::khcBrowserFactory(const CORBA::BOA::ReferenceData &refData)
 khcBrowserFactory::khcBrowserFactory(CORBA::Object_ptr obj)
 : Browser::BrowserFactory_skel(obj){}
 
-OpenParts::MainWindow_ptr khcBrowserFactory::createBrowserWindow(const char *url)
+OpenParts::MainWindow_ptr khcBrowserFactory::createBrowserWindow(const QCString &url)
 {
   return OpenParts::MainWindow::_duplicate(khcApplicationIf::allocMainWindow(url)->interface());
 }
 
-OpenParts::Part_ptr khcBrowserFactory::createBrowserPart(const char *url)
+OpenParts::Part_ptr khcBrowserFactory::createBrowserPart(const QCString &url)
 {
   return OpenParts::Part::_duplicate(khcApplicationIf::allocMainView(url));
 }

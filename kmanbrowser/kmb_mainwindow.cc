@@ -62,7 +62,7 @@ kmbMainWindow::kmbMainWindow(const QString& url)
     if (!url || url.isEmpty())
       slotIndex();
     else
-      openURL(url, true);
+      openURL(url.ascii(), true);
 }
 
 kmbMainWindow::~kmbMainWindow()
@@ -414,12 +414,12 @@ void kmbMainWindow::slotSetLocation(const QString& _url)
 
 void kmbMainWindow::slotLocationEntered()
 {
-    openURL(toolBar(1)->getLinedText(1), true );
+    openURL(toolBar(1)->getLinedText(1).ascii(), true );
 }
 
 void kmbMainWindow::slotURLSelected(const QString& _url, int)
 {
-    openURL( _url, true );
+    openURL( _url.ascii(), true );
 }
 
 void kmbMainWindow::slotToolbarClicked(int item)
@@ -483,7 +483,7 @@ void kmbMainWindow::slotSetTitle( const QString& _title )
 
 void kmbMainWindow::slotSetURL(QString url)
 {
-    openURL(url, true);
+    openURL(url.ascii(), true);
 }
 
 void kmbMainWindow::slotSetBookmark()
@@ -495,7 +495,7 @@ void kmbMainWindow::slotIndex()
 {
     QString url = "man:(index)";
 
-    openURL(url, true); 
+    openURL(url.ascii(), true); 
 }
 
 void kmbMainWindow::slotOpenFile()
@@ -505,7 +505,7 @@ void kmbMainWindow::slotOpenFile()
     {
 	QString url = "file:";
 	url += fileName;
-	openURL(url, true);
+	openURL(url.ascii(), true);
     }
 }
 
@@ -569,14 +569,14 @@ void kmbMainWindow::openURL(Browser::URLRequest urlRequest)
   slotCheckHistory();
 }
 
-void kmbMainWindow::openURL(const char *_url, bool withHistory, long xOffset, long yOffset)
+void kmbMainWindow::openURL(const QCString &_url, bool withHistory, long xOffset, long yOffset)
 {
   slotStopProcessing();
     
   Browser::EventOpenURL eventURL;
   kdebug(KDEBUG_INFO,1400,"openURL:" + QString(_url));
-  eventURL.url = CORBA::string_dup(_url);
-  eventURL.reload = (CORBA::Boolean)false;
+  eventURL.url = _url;
+  eventURL.reload = false;
   eventURL.xOffset = xOffset;
   eventURL.yOffset = yOffset;
 
@@ -660,7 +660,7 @@ void kmbMainWindow::slotReload()
 {
   Browser::EventOpenURL eventURL;
   eventURL.url = m_vView->url();
-  eventURL.reload = (CORBA::Boolean)true;
+  eventURL.reload = true;
   eventURL.xOffset = m_vView->xOffset();
   eventURL.yOffset = m_vView->yOffset();
   EMIT_EVENT( m_vView, Browser::eventOpenURL, eventURL );
@@ -706,14 +706,14 @@ void kmbMainWindow::slotForward()
 {
   khcHistoryItem *hitem = history.next();
   if (hitem)
-    openURL(hitem->url(), false, hitem->xOffset(), hitem->yOffset());
+    openURL(hitem->url().ascii(), false, hitem->xOffset(), hitem->yOffset());
 }
 
 void kmbMainWindow::slotBack()
 {
   khcHistoryItem *hitem = history.prev();
   if(hitem)
-      openURL(hitem->url(), false, hitem->xOffset(), hitem->yOffset());
+      openURL(hitem->url().ascii(), false, hitem->xOffset(), hitem->yOffset());
 }
 
 void kmbMainWindow::slotHistoryFillBack()
@@ -752,7 +752,7 @@ void kmbMainWindow::slotHistoryBackActivated(int id)
   khcHistoryItem *item = history.back(steps);
         
   if(item)
-    openURL(item->url(), false, item->xOffset(), item->yOffset());
+    openURL(item->url().ascii(), false, item->xOffset(), item->yOffset());
 }
 
 void kmbMainWindow::slotHistoryForwardActivated(int id)
@@ -761,7 +761,7 @@ void kmbMainWindow::slotHistoryForwardActivated(int id)
   khcHistoryItem *item = history.forward(steps);
   
   if(item)
-    openURL(item->url(), false, item->xOffset(), item->yOffset());
+    openURL(item->url().ascii(), false, item->xOffset(), item->yOffset());
 }
 
 void kmbMainWindow::slotSetBusy(bool busy)
@@ -782,26 +782,26 @@ kmbMainWindowIf::~kmbMainWindowIf()
   cleanUp();
 }
 
-void kmbMainWindowIf::setStatusBarText(const CORBA::WChar *_text)
+void kmbMainWindowIf::setStatusBarText(const QString &_text)
 {
-  m_pkmbMainWindow->slotSetStatusText(C2Q(_text));
+  m_pkmbMainWindow->slotSetStatusText(_text);
   kdebug(0, 1400, "void kmbMainWindowIf::setStatusBarText(const char *_text)");
 }
 
-void kmbMainWindowIf::setLocationBarURL(OpenParts::Id , const char *_url)
+void kmbMainWindowIf::setLocationBarURL(OpenParts::Id , const QCString &_url)
 {
   m_pkmbMainWindow->slotSetLocation(_url);
   m_pkmbMainWindow->slotSetTitle(_url);
   kdebug(0, 1400, "void kmbMainWindowIf::setLocationBarURL(const char *_url)");
 }
 
-void kmbMainWindowIf::createNewWindow(const char *url)
+void kmbMainWindowIf::createNewWindow(const QCString &url)
 {
   m_pkmbMainWindow->slotOpenNewBrowser(url);
   kdebug(0, 1400, "void kmbMainWindowIf::createNewWindow(const char *url)");
 }
 
-void kmbMainWindowIf::slotURLStarted(OpenParts::Id, const char *)
+void kmbMainWindowIf::slotURLStarted(OpenParts::Id, const QCString &)
 {
   m_pkmbMainWindow->slotSetBusy(true);
   kdebug(0, 1400, "void kmbMainWindowIf::slotURLStarted(const char *url)");
@@ -819,10 +819,10 @@ void kmbMainWindowIf::openURL(const Browser::URLRequest &url)
   kdebug(0, 1400, "void kmbMainWindowIf::openURL(const Browser::URLRequest &url)");
 }
 
-void kmbMainWindowIf::open(const char* url, CORBA::Boolean reload, CORBA::Long xoffset, CORBA::Long yoffset)
+void kmbMainWindowIf::open(const QCString &url, bool reload, long xoffset, long yoffset)
 {
   Browser::EventOpenURL eventURL;
-  eventURL.url = CORBA::string_dup(url);
+  eventURL.url = url;
   eventURL.reload = reload;
   eventURL.xOffset = xoffset;
   eventURL.yOffset = yoffset;

@@ -53,7 +53,7 @@ class khcMainView : public QWidget,
     virtual Browser::View_ptr childView();
     virtual OpenParts::Id childViewId();
 
-    virtual bool event(const char* event, const CORBA::Any& value);
+    virtual bool event(const QCString &event, const CORBA::Any& value);
     bool mappingCreateMenubar(OpenPartsUI::MenuBar_ptr menuBar);
     bool mappingCreateToolbar(OpenPartsUI::ToolBarFactory_ptr factory);
     bool mappingParentGotFocus(OpenParts::Part_ptr child);
@@ -65,13 +65,13 @@ class khcMainView : public QWidget,
     
     // IDL
     virtual void openURL(const Browser::URLRequest &url );
-    virtual void open(const char* url, CORBA::Boolean reload, CORBA::Long xoffset = 0, CORBA::Long yoffset = 0);
+    virtual void open(const QCString &url, bool reload, long xoffset = 0, long yoffset = 0);
     
-    virtual void setStatusBarText(const CORBA::WChar *_text);
-    virtual void setLocationBarURL(OpenParts::Id id, const char *_url);
+    virtual void setStatusBarText(const QString &_text);
+    virtual void setLocationBarURL(OpenParts::Id id, const QCString &_url);
     
-    virtual void createNewWindow( const char *url );
-    virtual void slotURLStarted( OpenParts::Id id, const char *url );
+    virtual void createNewWindow( const QCString &url );
+    virtual void slotURLStarted( OpenParts::Id id, const QCString &url );
     virtual void slotURLCompleted( OpenParts::Id id );
     
 
@@ -119,11 +119,11 @@ class khcMainView : public QWidget,
 
     virtual void slotHistoryFillBack();
     virtual void slotHistoryFillForward();
-    virtual void slotHistoryBackActivated(CORBA::Long);
-    virtual void slotHistoryForwardActivated(CORBA::Long);
+    virtual void slotHistoryBackActivated(long);
+    virtual void slotHistoryForwardActivated(long);
     virtual void slotMenuEditAboutToShow();
     virtual void slotMenuViewAboutToShow();
-    virtual void slotURLEntered(const CORBA::WChar *_url);
+    virtual void slotURLEntered(const QString &_url);
 
     void slotSetBusy(bool busy);
     void slotSetURL(const QString& _url);
@@ -141,7 +141,7 @@ class khcMainView : public QWidget,
 
     bool m_bEditMenuDirty;
     bool m_bViewMenuDirty;
-    CORBA::Long m_lToolBarViewStartIndex;
+    long m_lToolBarViewStartIndex;
 
     Browser::View_var m_vView;
     khcHistory history;

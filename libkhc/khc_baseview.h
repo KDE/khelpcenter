@@ -40,19 +40,19 @@ public:
     virtual void init();
     virtual void cleanUp();
   
-    virtual bool event( const char *event, const CORBA::Any &value );
+    virtual bool event( const QCString &event, const CORBA::Any &value );
     virtual bool mappingOpenURL( Browser::EventOpenURL eventURL );
     
     /**
      * @return the URL shown by this view
      */
-    virtual char *url();
+    virtual QCString url();
     
     /**
      * Ask the mainwindow to open this URL, since it might not be suitable
      * for the current type of view.
      */
-    virtual void openURLRequest(const char *_url);
+    virtual void openURLRequest(const QCString &_url);
     
 protected:
     QString m_strURL;

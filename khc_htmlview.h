@@ -42,21 +42,21 @@ class khcHTMLView : public KBrowser,
     khcHTMLView();
     virtual ~khcHTMLView();
 
-    virtual bool event(const char *event, const CORBA::Any &value);
+    virtual bool event(const QCString &event, const CORBA::Any &value);
     virtual bool mappingOpenURL(Browser::EventOpenURL eventURL);
     virtual bool mappingFillMenuView( Browser::View::EventFillMenu_ptr viewMenu );
     virtual bool mappingFillMenuEdit( Browser::View::EventFillMenu_ptr editMenu );
     virtual bool mappingFillToolBar( Browser::View::EventFillToolBar viewToolBar );
 
     virtual void stop();
-    virtual char *url();
-    virtual CORBA::Long xOffset();
-    virtual CORBA::Long yOffset();
+    virtual QCString url();
+    virtual long xOffset();
+    virtual long yOffset();
     virtual void print();
     virtual void zoomIn();
     virtual void zoomOut();
-    virtual CORBA::Boolean canZoomIn();
-    virtual CORBA::Boolean canZoomOut();
+    virtual bool canZoomIn();
+    virtual bool canZoomOut();
     virtual void openURL( QString _url, bool _reload, int _xoffset = 0, int _yoffset = 0, const char *_post_data = 0L);
 
 public slots:

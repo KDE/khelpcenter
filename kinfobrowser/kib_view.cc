@@ -204,9 +204,9 @@ void kibView::open(QString _url, bool /*_reload*/, int _xoffset, int _yoffset)
 
 bool kibView::mappingOpenURL( Browser::EventOpenURL eventURL )
 {
-  SIGNAL_CALL2("started", id(), CORBA::Any::from_string((char *)eventURL.url, 0));
-  SIGNAL_CALL2( "setLocationBarURL", id(), (char*)eventURL.url );
-  open(QString(eventURL.url), (bool)eventURL.reload );
+  SIGNAL_CALL2("started", id(), eventURL.url);
+  SIGNAL_CALL2( "setLocationBarURL", id(), eventURL.url );
+  open(QString(eventURL.url), eventURL.reload );
   return true;
 }
 
@@ -231,7 +231,7 @@ void kibView::slotSetTitle( QString /*title*/ )
 
 void kibView::slotStarted( const char *url )
 {
-  SIGNAL_CALL2("started", id(), CORBA::Any::from_string( (char *)url, 0 ) );
+  SIGNAL_CALL2("started", id(), QCString(url) );
 }
 
 void kibView::slotCompleted()
@@ -289,7 +289,7 @@ void kibView::zoomIn()
     {
       m_fontBase++;
       setDefaultFontBase(m_fontBase);
-	  SIGNAL_CALL2("started", id(), CORBA::Any::from_string((char *)url(), 0));
+	  SIGNAL_CALL2("started", id(), url() );
       open(url(), true);
     }
 }
@@ -300,45 +300,44 @@ void kibView::zoomOut()
     {
       m_fontBase--;
       setDefaultFontBase(m_fontBase);
-	  SIGNAL_CALL2("started", id(), CORBA::Any::from_string((char *)url(), 0));
+	  SIGNAL_CALL2("started", id(), url() );
       open(url(), true);
     }
 }
 
-CORBA::Boolean kibView::canZoomIn()
+bool kibView::canZoomIn()
 {
-  return (CORBA::Boolean)(m_fontBase < 5);
+  return (m_fontBase < 5);
 }
 
-CORBA::Boolean kibView::canZoomOut()
+bool kibView::canZoomOut()
 {
-  return (CORBA::Boolean)(m_fontBase > 2);
+  return (m_fontBase > 2);
 }
 
-CORBA::Long kibView::xOffset()
+long kibView::xOffset()
 {
-  return (CORBA::Long) m_pView->xOffset();
+  return m_pView->xOffset();
 }
 
-CORBA::Long kibView::yOffset()
+long kibView::yOffset()
 {
-  return (CORBA::Long) m_pView->yOffset();
+  return m_pView->yOffset();
 }
 
 void kibView::openURL(QString _url, bool _reload, int _xoffset, int _yoffset, const char */*_post_data*/)
 {
   Browser::EventOpenURL eventURL;
-  eventURL.url = CORBA::string_dup(_url);
+  eventURL.url = _url.ascii();
   eventURL.reload = _reload;
   eventURL.xOffset = _xoffset;
   eventURL.yOffset = _yoffset;
   SIGNAL_CALL1("openURL", eventURL);
 }
 
-char *kibView::url()
+QCString kibView::url()
 {
-  QString u = m_strURL;
-  return CORBA::string_dup(u.ascii());
+  return m_strURL.ascii();
 }
 
 void kibView::print()
