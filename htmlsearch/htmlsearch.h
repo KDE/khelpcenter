@@ -13,6 +13,9 @@ class QProgressDialog;
 class KProcess;
 
 
+class ProgressDialog;
+
+
 class HTMLSearch : public QObject
 {
   Q_OBJECT
@@ -21,7 +24,7 @@ public:
 
   HTMLSearch();
 
-  bool generateIndex(QString lang, bool init=false, QWidget *parent=0);
+  bool generateIndex(QString lang, QWidget *parent=0);
 
   QString search(QString lang, QString words, QString method="and", int matches=10,
 		 QString format="builtin-long", QString sort="score");
@@ -41,6 +44,7 @@ protected:
   QString dataPath(QString lang);
 
   bool saveFilesList(QString lang);
+  void scanDir(QString dir);
 
   bool createConfig(QString lang);
 
@@ -49,11 +53,11 @@ private:
 
   QStringList   _files;
   KProcess      *_proc;
-  int           _filesToDig, _filesDigged;
+  int           _filesToDig, _filesDigged, _filesScanned;
   volatile bool _htdigRunning, _htmergeRunning, _htsearchRunning;
   QString       _searchResult;
-  QProgressDialog *progress;
-
+  ProgressDialog *progress;
+  
 };
 
 

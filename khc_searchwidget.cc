@@ -20,6 +20,9 @@
  */
 
 
+#include <stdlib.h>
+
+
 #include <qlabel.h>
 #include <qpushbutton.h>
 #include <qcombobox.h>
@@ -32,7 +35,7 @@
 #include <klocale.h>
 
 
-#include "htmlsearch.h"
+#include "htmlsearch/htmlsearch.h"
 #include "khc_searchwidget.moc"
 
 
@@ -157,5 +160,6 @@ void SearchWidget::slotSearch()
 
 void SearchWidget::slotIndex()
 {
-  search->generateIndex("en", this);
+  // TODO: fix this ugly system call
+  system("kcmshell Browsing/Help/htmlsearch &");
 }

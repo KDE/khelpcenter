@@ -5,6 +5,7 @@
 #include <qwidget.h>
 #include <qregexp.h>
 #include <qprogressdialog.h>
+#include <qdir.h>
 
 
 #include <kapp.h>
@@ -12,13 +13,15 @@
 #include <kstddirs.h>
 #include <kprocess.h>
 #include <klocale.h>
+#include <kconfig.h>
 
 
+#include "progressdialog.h"
 #include "htmlsearch.moc"
 
 
 HTMLSearch::HTMLSearch()
-  : QObject()
+  : QObject(), _proc(0)
 {
 }
 
@@ -29,28 +32,59 @@ QString HTMLSearch::dataPath(QString _lang)
 }
 
 
-bool HTMLSearch::saveFilesList(QString _lang)
+void HTMLSearch::scanDir(QString dir)
 {
-  _files = kapp->dirs()->findAllResources("html", QString("%1/*.html").arg(_lang), true);
-  
-  QString fname = dataPath(_lang) + "/files";
-  QFile f(fname);
-  if (f.open(IO_WriteOnly))
+  kdDebug() << "scanDir " << dir << endl;
+
+  QDir d(dir, "*.html", QDir::Name|QDir::IgnoreCase, QDir::Files | QDir::Readable);
+  QStringList const &list = d.entryList();
+  QStringList::ConstIterator it;
+  for (it=list.begin(); it != list.end(); ++it)
     {
-      kdDebug() << "Saving files list for " << _lang << " into " << fname << endl;
-
-      QTextStream ts(&f);
-
-      QStringList::Iterator it;
-      for (it = _files.begin(); it != _files.end(); ++it)
-	ts << "http://localhost" << *it << endl;
-
-      f.close();
-
-      return true;
+      _files.append(dir + "/" + *it);
+      progress->setFilesScanned(++_filesScanned);
     }
 
-  return false;
+  QDir d2(dir, QString::null, QDir::Name|QDir::IgnoreCase, QDir::Dirs);
+  QStringList const &dlist = d2.entryList();
+  for (it=dlist.begin(); it != dlist.end(); ++it)
+    if (*it != "." && *it != "..")
+      {
+	scanDir(dir + "/" + *it);
+	kapp->processEvents();
+      }
+}
+
+
+bool HTMLSearch::saveFilesList(QString _lang)
+{
+  QStringList dirs;
+
+  // throw away old files list
+  _files.clear();
+
+  // open config file
+  KConfig *config = new KConfig("khelpcenterrc");
+  config->setGroup("Scope");
+
+  // add KDE help dirs
+  if (config->readBoolEntry("KDE"))
+    dirs = kapp->dirs()->findDirs("html", _lang);
+
+  // TODO: Man and Info!!
+
+  // add local urls
+  QStringList add = config->readListEntry("Paths");
+  QStringList::Iterator it;
+  for (it = add.begin(); it != add.end(); ++it)
+    dirs.append(*it);
+
+  _filesScanned = 0;
+
+  for (it = dirs.begin(); it != dirs.end(); ++it)
+    scanDir(*it);
+
+  return true;
 }
 
 
@@ -83,11 +117,12 @@ bool HTMLSearch::createConfig(QString _lang)
       ts << "start_url:\t\t`" << dataPath(_lang) << "/files`" << endl;
       ts << "local_urls:\t\thttp://localhost/=/" << endl;
       ts << "local_urls_only:\ttrue" << endl;
-      ts << "local_default_doc:\t\tindex.html" << endl;
       ts << "maximum_pages:\t\t1" << endl;
       ts << "image_url_prefix:\t\t" << images << endl;
       ts << "star_image:\t\t" << images << "star.png" << endl;
       ts << "star_blank:\t\t" << images << "star_blank.png" << endl;
+      ts << "compression_level:\t\t6" << endl;
+      ts << "max_hop_count:\t\t0" << endl;
 
       ts << "search_results_wrapper:\t" << wrapper << "wrapper.html" << endl;
       ts << "nothing_found_file:\t" << wrapper << "nomatch.html" << endl;
@@ -102,21 +137,24 @@ bool HTMLSearch::createConfig(QString _lang)
 }
 
 
-bool HTMLSearch::generateIndex(QString _lang, bool init, QWidget *parent)
+#define CHUNK_SIZE 100
+
+
+bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
 {
-  if (!saveFilesList(_lang))
-    return false;
   if (!createConfig(_lang))
     return false;
 
   // create progress dialog
-  progress = new QProgressDialog(parent, 0, true);
-  progress->setCaption(i18n("Regenerating index"));
-  progress->setLabelText(i18n("KHelpCenter is regenerating the index\n"
-			      "used to perform efficient searches.\n"
-			      "This may take a while..."));
-  progress->setMinimumDuration(0);
-  progress->setCancelButtonText(QString::null);
+  progress = new ProgressDialog(parent);
+  progress->show();
+  kapp->processEvents();
+
+  // create files list ----------------------------------------------
+  if (!saveFilesList(_lang))
+    return false;
+
+  progress->setState(1);
 
   // run htdig ------------------------------------------------------
 
@@ -124,38 +162,73 @@ bool HTMLSearch::generateIndex(QString _lang, bool init, QWidget *parent)
   if (exe.isEmpty())
     return false;
 
-  _proc = new KProcess();
-  *_proc << exe << "-v" << "-c" << dataPath(_lang)+"/htdig.conf";
-  if (init)
-    *_proc << "-i";
+  bool initial = true;
+  bool done = false;
+  int  count = 0;
 
-  kdDebug() << "Running htdig" << endl;
-
-  connect(_proc, SIGNAL(receivedStdout(KProcess *,char*,int)),
-	  this, SLOT(htdigStdout(KProcess *,char*,int)));
-  connect(_proc, SIGNAL(processExited(KProcess *)),
-	  this, SLOT(htdigExited(KProcess *)));
-
-  _htdigRunning = true;
   _filesToDig = _files.count();
+  progress->setFilesToDig(_filesToDig);
   _filesDigged = 0;
 
-  progress->setTotalSteps(_filesToDig);
-
-  _proc->start(KProcess::NotifyOnExit, KProcess::Stdout);
-
-  while (_htdigRunning)
-    kapp->processEvents();
-  
-  if (!_proc->normalExit() || _proc->exitStatus() != 0)
+  while (!done)
     {
+      // kill old process
       delete _proc;
-      delete progress;
-      return false;
+
+      // prepare new process
+      _proc = new KProcess();
+      *_proc << exe << "-c" << dataPath(_lang)+"/htdig.conf";
+      if (initial)
+	{
+	  *_proc << "-i";
+	  initial = false;
+	}
+
+      kdDebug() << "Running htdig" << endl;
+
+      //      connect(_proc, SIGNAL(receivedStdout(KProcess *,char*,int)),
+      //	      this, SLOT(htdigStdout(KProcess *,char*,int)));
+      connect(_proc, SIGNAL(processExited(KProcess *)),
+	      this, SLOT(htdigExited(KProcess *)));
+
+      _htdigRunning = true;
+      
+      // write out file
+      QFile f(dataPath(_lang)+"/files");
+      if (f.open(IO_WriteOnly))
+	{
+	  QTextStream ts(&f);
+
+	  for (int i=0; i<CHUNK_SIZE; ++i, ++count)
+	    if (count < _filesToDig)
+	      ts << "http://localhost/" + _files[count] << endl;
+	    else
+	      {
+		done = true;
+		break;
+	      }
+	}
+      else
+	return false;
+
+      // execute htdig
+      _proc->start(KProcess::NotifyOnExit, KProcess::Stdout);      
+      while (_htdigRunning)
+	kapp->processEvents();
+      
+      if (!_proc->normalExit() || _proc->exitStatus() != 0)
+	{
+	  delete _proc;
+	  delete progress;
+	  return false;
+	}
+
+      _filesDigged += CHUNK_SIZE;
+      progress->setFilesDigged(_filesDigged);
+      kapp->processEvents();
     }
 
-  delete _proc;
-
+  progress->setState(2);
 
   // run htmerge -----------------------------------------------------
 
@@ -188,48 +261,53 @@ bool HTMLSearch::generateIndex(QString _lang, bool init, QWidget *parent)
   delete _proc;
   delete progress;
 
+  progress->setState(3);
+  kapp->processEvents();
+
   return true;
 }
 
 
 
-void HTMLSearch::htdigStdout(KProcess *proc, char *buffer, int len)
+void HTMLSearch::htdigStdout(KProcess *, char *buffer, int len)
 {
   QString line = QString(buffer).left(len);
   
   int cnt=0, index=-1;
   while ( (index = line.find("http://", index+1)) > 0)
     cnt++;
-
   _filesDigged += cnt;
 
-  progress->setProgress(_filesDigged);
+  cnt=0, index=-1;
+  while ( (index = line.find("not changed", index+1)) > 0)
+    cnt++;
+  _filesDigged -= cnt;
 
-  kdDebug() << "processed " << _filesDigged << " of " << _filesToDig << " files" << endl;
+  progress->setFilesDigged(_filesDigged);
 }
 
 
-void HTMLSearch::htdigExited(KProcess *proc)
+void HTMLSearch::htdigExited(KProcess *)
 {
   kdDebug() << "htdig terminated" << endl;
   _htdigRunning = false;
 }
 
 
-void HTMLSearch::htmergeExited(KProcess *proc)
+void HTMLSearch::htmergeExited(KProcess *)
 {
   kdDebug() << "htmerge terminated" << endl;
   _htmergeRunning = false;
 }
 
 
-void HTMLSearch::htsearchStdout(KProcess *proc, char *buffer, int len)
+void HTMLSearch::htsearchStdout(KProcess *, char *buffer, int len)
 {
   _searchResult += QString(buffer).left(len);
 }
 
 
-void HTMLSearch::htsearchExited(KProcess *proc)
+void HTMLSearch::htsearchExited(KProcess *)
 {
   kdDebug() << "htsearch terminated" << endl;
   _htsearchRunning = false;

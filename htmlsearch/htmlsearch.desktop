@@ -1,0 +1,16 @@
+[Desktop Entry]
+Exec=kcmshell Browsing/Help/htmlsearch
+Icon=help
+Type=Application
+
+X-KDE-ModuleType=Library
+X-KDE-LibraryName=htmlsearch
+X-KDE-FactoryName=htmlsearch
+X-KDE-ControlModuleType=User
+X-KDE-HideFromPanel=true
+
+Name=Index
+
+Comment=Index generation
+
+Keywords=Help,HTML,Search,Index,htdig

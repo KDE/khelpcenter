@@ -16,10 +16,9 @@ lib_LTLIBRARIES = libkhelpcenter.la
 
 libkhelpcenter_la_SOURCES = khc_factory.cc \
 	khc_navigator.cc khc_navigatoritem.cc khc_searchwidget.cc \
-	khc_indexwidget.cc khc_htmlsearch.cc khc_mansearch.cc \
-	htmlsearch.cpp
+	khc_indexwidget.cc khc_htmlsearch.cc khc_mansearch.cc
 
-libkhelpcenter_la_LIBADD = -lkparts $(LIB_KDEUI)
+libkhelpcenter_la_LIBADD = htmlsearch/libhtmlsearch.la -lkparts $(LIB_KDEUI)
 
 libkhelpcenter_la_LDFLAGS = $(all_libraries) -version-info 1:0:0 -module -no-undefined
 
