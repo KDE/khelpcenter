@@ -57,9 +57,13 @@ class SearchWidget : public QWidget
     void slotIndex();
     void slotSwitchBoxes();
 
+  protected:
+    void updateScopeItem( ScopeItem *item );
+
   protected slots:
     void scopeDoubleClicked( QListViewItem * );
     void scopeClicked( QListViewItem * );
+
 
   private:
     void loadLanguages();

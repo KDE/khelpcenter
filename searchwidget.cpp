@@ -141,9 +141,12 @@ void SearchWidget::slotSwitchBoxes()
     if ( it.current()->rtti() == ScopeItem::rttiId() ) {
       ScopeItem *item = static_cast<ScopeItem *>( it.current() );
       item->setOn( !item->isOn() );
+      updateScopeItem( item );
     }
     ++it;
   }
+
+  emit enableSearch( mScopeCount > 0 );
 }
 
 QString SearchWidget::method()
@@ -218,6 +221,7 @@ class ScopeTraverser : public DocEntryTraverser
         } else {
           item = new QListViewItem( mWidget->listView(), entry->name() );
         }
+        item->setOpen( true );
         t->mParentItem = item;
         return t;
       }
@@ -279,9 +283,18 @@ void SearchWidget::scopeClicked( QListViewItem *item )
   if ( !item || item->rtti() != ScopeItem::rttiId() ) return;
   ScopeItem *scopeItem = static_cast<ScopeItem *>( item );
 
-  DocEntry *entry = scopeItem->entry();
+  updateScopeItem( scopeItem );
 
-  if ( scopeItem->isOn() ) {
+//  kdDebug() << "SearchWidget::scopeClicked(): count: " << mScopeCount << endl;
+
+  emit enableSearch( mScopeCount > 0 );
+}
+
+void SearchWidget::updateScopeItem( ScopeItem *item )
+{
+  DocEntry *entry = item->entry();
+
+  if ( item->isOn() ) {
     if ( !entry->searchEnabled() ) {
       mScopeCount++;
       entry->enableSearch( true );
@@ -292,8 +305,4 @@ void SearchWidget::scopeClicked( QListViewItem *item )
       entry->enableSearch( false );
     }
   }
-
-//  kdDebug() << "SearchWidget::scopeClicked(): count: " << mScopeCount << endl;
-
-  emit enableSearch( mScopeCount > 0 );
 }
