@@ -1,6 +1,5 @@
 
-
-INCLUDES= $(all_includes) $(MICO_INCLUDES) -I$(idldir)
+INCLUDES= $(all_includes) $(MICO_INCLUDES) 
 LDFLAGS = $(all_libraries) $(MICO_LDFLAGS) $(KDE_RPATH)
 IDL_FLAGS = --query-server-for-narrow --relative-paths -I$(idldir)
 
