@@ -34,7 +34,7 @@ METASOURCES = AUTO
 
 libkhelpcenter_la_LIBADD = -lkparts $(LIB_KDEUI)
 
-libkhelpcenter_la_LDFLAGS = $(all_libraries) -version-info 1:0:0 -module
+libkhelpcenter_la_LDFLAGS = $(all_libraries) -version-info 1:0:0 -module -no-undefined
 
 #khcclient_SOURCES  = khelpcenter.cc khc_client.cc
 

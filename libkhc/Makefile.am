@@ -20,7 +20,7 @@ INCLUDES = -I.. $(all_includes) $(MICO_INCLUDES)
 
 IDL_FLAGS = --relative-paths --any -I$(idldir)
 lib_LTLIBRARIES = libkhc.la
-libkhc_la_LDFLAGS = $(all_libraries) -version-info 1:0
+libkhc_la_LDFLAGS = $(all_libraries) -version-info 1:0 -no-undefined
 libkhc_la_LIBADD = -lkparts
 
 libkhc_la_SOURCES = browser.idl khc_baseview.cc khc_history.cc khc_finddlg.cc
