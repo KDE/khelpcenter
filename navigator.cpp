@@ -256,6 +256,7 @@ void Navigator::buildTree()
   insertAppletDocs();
 
   contentsTree->setCurrentItem(ti_welcome);
+  slotItemSelected(ti_welcome);
 }
 
 void Navigator::clearTree()
