@@ -30,26 +30,24 @@ Application::Application() : KUniqueApplication()
 
 int Application::newInstance()
 {
-	KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
+  KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
 
-	KURL url;
-	if ( args->count() )
-		url = args->url( 0 );
+  KURL url;
+  if ( args->count() )
+    url = args->url( 0 );
 
-	if ( isRestored() ) {
-		RESTORE( MainWindow );
-		return 0;
-	}
-        else
-        {
-            if( ! mainWidget() )
-            {
-                MainWindow *mainWindow = new MainWindow;
-                setMainWidget( mainWindow );
-                mainWindow->show();
-            }
-            static_cast<MainWindow *>( mainWidget() )->slotOpenURL( url.url() );
-        }
+  if ( isRestored() ) {
+    RESTORE( MainWindow );
+    return 0;
+  }
+
+  if( ! mainWidget() ) {
+    MainWindow *mainWindow = new MainWindow;
+    setMainWidget( mainWindow );
+    mainWindow->show();
+  }
+
+  static_cast<MainWindow *>( mainWidget() )->slotOpenURL( url.url() );
 
   return KUniqueApplication::newInstance();
 }
