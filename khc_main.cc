@@ -72,11 +72,14 @@ void Listener::slotAppRegistered( const QCString &appId )
     KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
     QString url;
     if (args->count() >= 1)
-      url = args->arg(0);
+      url = args->url(0).url();
     else
       url = "help:/khelpcenter/main.html";
 
-    str << "View2_URL=" << url << endl;
+    KURL _url(url);
+    _url.setProtocol("help");
+
+    str << "View2_URL=" << _url.url() << endl;
 
     f.close();
 
