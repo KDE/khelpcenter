@@ -127,7 +127,7 @@ SearchWidget::SearchWidget(QWidget *parent)
 
   vbox->addStretch(1);
 
-  indexButton = new QPushButton(i18n("&Update index"), this);
+  indexButton = new QPushButton(i18n("&Update Index"), this);
   indexButton->setFixedSize(indexButton->sizeHint());
   vbox->addWidget(indexButton, 0, Qt::AlignLeft);
  
