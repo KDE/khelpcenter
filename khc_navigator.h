@@ -22,7 +22,7 @@
 #define __khc_navigator_h__
 
 #include <qlist.h>
-#include <kbrowser.h>
+#include <kparts/browserextension.h>
 
 class IndexWidget;
 class SearchWidget;

@@ -28,7 +28,7 @@ khc_main.cc: KonquerorIface_stub.h
 
 libkhelpcenter_la_SOURCES = khc_factory.cc \
 	khc_navigator.cc khc_navigatoritem.cc khc_searchwidget.cc \
-	khc_indexwidget.cc khc_htmlsearch.cc khc_mansearch.cc kbrowser.moc.cc
+	khc_indexwidget.cc khc_htmlsearch.cc khc_mansearch.cc
 
 METASOURCES = AUTO
 
@@ -42,10 +42,6 @@ libkhelpcenter_la_LDFLAGS = $(all_libraries) -version-info 1:0:0 -module
 #	khc_mainview.h khc_htmlview.h khc_indexwidget.h \
 #	khc_mansearch.h khc_navigator.h khc_navigatoritem.h \
 #	khc_searchmatch.h khc_searchwidget.h version.h khc_htmlsearch.h
-
-kbrowser.moc.cc: $(kde_includes)/kbrowser.h
-	$(MOC) $(kde_includes)/kbrowser.h -o $(top_builddir)/khelpcenter/kbrowser.moc.cc
-
 
 ####### Build rules
 
