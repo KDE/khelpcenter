@@ -1,35 +1,19 @@
-# this 10 paths are KDE specific. Use them:
-# kde_htmldir       Where your docs should go to. (contains lang subdirs)
-# kde_appsdir       Where your application file (.kdelnk) should go to. 
-# kde_icondir       Where your icon should go to.
-# kde_sounddir      Where system sounds should go to.
-# kde_datadir       Where you install application data. (Use a subdir)
-# kde_locale        Where translation files should go to.(contains lang subdirs)
-# kde_cgidir        Where cgi-bin executables should go to.
-# kde_confdir       Where config files should go to.
-# kde_mimedir       Where mimetypes should go to.
-# kde_toolbardir    Where general toolbar icons should go to.
-# kde_wallpaperdir  Where general wallpapers should go to.
-
-APPSDIR = $(kde_appsdir)
 INCLUDES= $(all_includes)
+LDFLAGS = $(all_libraries) $(KDE_RPATH)
+LDADD   = $(LIB_KDEUI)
+
+bin_PROGRAMS = kwelcome
+
+kwelcome_SOURCES = kwelcome.cc main.cc
+kwelcome_METASOURCES = kwelcome.moc
+
+noinst_HEADERS = kwelcome.h
 
 pics_DATA = welcome.png
 picsdir = $(kde_datadir)/kwelcome/pics
 
-bin_PROGRAMS = 	kwelcome
-
-kwelcome_SOURCES = kwelcome.cpp main.cpp
-kwelcome_METASOURCES = USE_AUTOMOC
-
-kwelcome_LDFLAGS = $(all_libraries) $(KDE_RPATH)
-kwelcome_LDADD   = $(LIB_KDEUI) 
-
-noinst_HEADERS = kwelcome.h
-
-# make messages.po. Move this one to ../po/ and "make merge" in po
-# the -x is for skipping messages already translated in kdelibs
 messages:
-	$(XGETTEXT) -C -ki18n -x $(includedir)/kde.pot $(kwelcome_SOURCES) && mv messages.po ../../po/kwelcome.pot
+	$(XGETTEXT) -C -ktranslate -kaliasLocal -ki18n -x $(includedir)/kde.pot *.h *.cc && mv messages.po ../../po/kwelcome.pot
+
 
 

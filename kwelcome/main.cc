@@ -1,5 +1,5 @@
 /*
- *  main.cpp - part of the KDE Help Center
+ *  main.cc - part of the KDE Help Center
  *
  *  Copyright (C) 1999 Matthias Elter (me@kde.org)
  *
@@ -30,14 +30,14 @@ int main(int argc, char *argv[])
   KConfig *conf = kapp->getConfig();
   conf->setGroup("General Settings");
   QString tmp = conf->readEntry("AutostartOnKDEStartup", "true");
-
+  
   for (int i = 1; i < argc; i++)
-	{
-	  QString arg = argv[i];
-
-	  if ((arg == "-kdestartup") && (tmp != "true"))
-		return 0;
-	}
+    {
+      QString arg = argv[i];
+      
+      if ((arg == "-kdestartup") && (tmp != "true"))
+	return 0;
+    }
   
   KWelcome *toplevel = new KWelcome();
   app.setMainWidget(toplevel);
@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
   toplevel->show();
   
   int rv = app.exec();
-
+  
   if (toplevel)
     delete toplevel;
   return rv;

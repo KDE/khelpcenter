@@ -18,8 +18,8 @@
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#ifndef KWELCOME_H
-#define KWELCOME_H 
+#ifndef __kwelcome_h__
+#define __kwelcome_h__
 
 #include <qwidget.h>
 
@@ -51,4 +51,4 @@ protected:
   void readSettings();
 };
 
-#endif // KWELCOME_H 
+#endif
