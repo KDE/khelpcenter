@@ -19,6 +19,7 @@
  */
 #include "khc_toc.h"
 
+#include <kdebug.h>
 #include <kiconloader.h>
 #include <klistview.h>
 #include <klocale.h>
@@ -26,7 +27,10 @@
 #include <kstandarddirs.h>
 
 #include <qdom.h>
+#include <qfileinfo.h>
 #include <qheader.h>
+
+#include <sys/stat.h>
 
 khcTOC::khcTOC( QWidget *parent ) : KListView( parent, "khcTOC" )
 {
@@ -53,27 +57,61 @@ void khcTOC::reset()
 
 void khcTOC::build( const QString &file )
 {
-	clear();
+	QFileInfo fileInfo( file );
+	QString cacheFile = QStringList::split( "/", fileInfo.dirPath() ).last() + ".toc.xml";
+	m_cacheFile = locateLocal( "cache", "help/" + cacheFile );
+	m_sourceFile = file;
 
-	m_meinprocBuffer.open( IO_WriteOnly );
+	if ( cacheStatus() == NeedRebuild )
+		buildCache();
+	else
+		fillTree();
+}
 
+khcTOC::CacheStatus khcTOC::cacheStatus() const
+{
+	if ( !QFile::exists( m_cacheFile ) ||
+	     sourceFileCTime() != cacheCTime() )
+		return NeedRebuild;
+
+	return CacheOk;
+}
+
+int khcTOC::sourceFileCTime() const
+{
+	struct stat stat_buf;
+	stat( QFile::encodeName( m_sourceFile ).data(), &stat_buf );
+
+	return stat_buf.st_ctime;
+}
+
+int khcTOC::cacheCTime() const
+{
+	QFile f( m_cacheFile );
+	if ( !f.open( IO_ReadOnly ) )
+		return 0;
+	
+	QDomDocument doc;
+	if ( !doc.setContent( &f ) )
+		return 0;
+
+	QDomComment timestamp = doc.documentElement().lastChild().toComment();
+
+	return timestamp.data().stripWhiteSpace().toInt();
+}
+
+void khcTOC::buildCache()
+{
 	KProcess *meinproc = new KProcess;
-	connect( meinproc, SIGNAL( receivedStdout( KProcess *, char *, int ) ),
-	         this, SLOT( gotMeinprocOutput( KProcess *, char *, int ) ) );
 	connect( meinproc, SIGNAL( processExited( KProcess * ) ),
 	         this, SLOT( meinprocExited( KProcess * ) ) );
 
 	*meinproc << locate( "exe", "meinproc" );
 	*meinproc << "--stylesheet" << locate( "data", "khelpcenter/table-of-contents.xslt" );
-	*meinproc << "--stdout";
-	*meinproc << file;
+	*meinproc << "--output" << m_cacheFile;
+	*meinproc << m_sourceFile;
 
-	meinproc->start( KProcess::NotifyOnExit, KProcess::Stdout );
-}
-
-void khcTOC::gotMeinprocOutput( KProcess * /*meinproc*/, char *data, int len )
-{
-	m_meinprocBuffer.writeBlock( data, len );
+	meinproc->start( KProcess::NotifyOnExit );
 }
 
 void khcTOC::meinprocExited( KProcess *meinproc )
@@ -84,19 +122,37 @@ void khcTOC::meinprocExited( KProcess *meinproc )
 	}
 
 	delete meinproc;
-	
-	QDomDocument doc;
-	if ( !doc.setContent( m_meinprocBuffer.buffer() ) )
+
+	QFile f( m_cacheFile );
+	if ( !f.open( IO_ReadWrite ) )
 		return;
 
-	m_meinprocBuffer.flush();
-	m_meinprocBuffer.close();
+	QDomDocument doc;
+	if ( !doc.setContent( &f ) )
+		return;
 
-	fill( doc );
+	QDomComment timestamp = doc.createComment( QString::number( sourceFileCTime() ) );
+	doc.documentElement().appendChild( timestamp );
+
+	f.at( 0 );
+	QTextStream stream( &f );
+	stream << doc.toString();
+
+	f.close();
+
+	fillTree();
 }
 
-void khcTOC::fill( const QDomDocument &doc )
-{	
+void khcTOC::fillTree()
+{
+	QFile f( m_cacheFile );
+	if ( !f.open( IO_ReadOnly ) )
+		return;
+
+	QDomDocument doc;
+	if ( !doc.setContent( &f ) )
+		return;
+	
 	clear();
 
 	QDomNodeList chapters = doc.documentElement().elementsByTagName( "chapter" );

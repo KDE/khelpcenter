@@ -22,7 +22,6 @@
 
 #include <klistview.h>
 
-#include <qbuffer.h>
 #include <qdom.h>
 
 class KProcess;
@@ -45,15 +44,21 @@ class khcTOC : public KListView
 
 	private slots:
 		void slotItemSelected( QListViewItem *item );
-		void gotMeinprocOutput( KProcess *meinproc, char *data, int len );
 		void meinprocExited( KProcess *meinproc );
 
 	private:
+		enum CacheStatus { NeedRebuild, CacheOk };
+
+		CacheStatus cacheStatus() const;
+		int sourceFileCTime() const;
+		int cacheCTime() const;
 		QDomElement childElement( const QDomElement &e, const QString &name );
-		void fill( const QDomDocument &doc );
+		void buildCache();
+		void fillTree();
 
 		QString m_application;
-		QBuffer m_meinprocBuffer;
+		QString m_cacheFile;
+		QString m_sourceFile;
 };
 
 class khcTOCItem : public KListViewItem
