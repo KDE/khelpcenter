@@ -27,6 +27,8 @@ public slots:
                          const KParts::URLArgs &args);
 
 private:
+    QString langLookup(const QString &);
+
     KHTMLPart *doc;
     QSplitter *splitter;
     khcNavigator *nav;

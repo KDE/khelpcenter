@@ -125,9 +125,7 @@ void KHMainWindow::openURL(const QString &url)
 
 void KHMainWindow::slotGlossSelected(const QString &term)
 {
-	kdDebug() << "slotGlossSelection: term = " << term << endl;
-
-    QFile glossFile("/home/frerich/tmp/glossary.docbook");
+    QFile glossFile(langLookup(QString::fromLatin1("khelpcenter/glossary/index.docbook")));
     if (!glossFile.open(IO_ReadOnly))
         return;
 
@@ -136,38 +134,79 @@ void KHMainWindow::slotGlossSelected(const QString &term)
         return;
 
     QDomNodeList glossEntries = glossDom.documentElement().elementsByTagName(QString::fromLatin1("glossentry"));
-		QDomNode glossEntry;
+    QDomNode glossEntry;
     
     for (unsigned int i = 0; i < glossEntries.count(); i++) {
-		    glossEntry = glossEntries.item(i); 
+        glossEntry = glossEntries.item(i); 
         if (term == glossEntry.namedItem(QString::fromLatin1("glossterm")).toElement().text().simplifyWhiteSpace())
-          break;
-		}
+            break;
+    }
 		
     QString definition = glossEntry.namedItem(QString::fromLatin1("glossdef")).firstChild().toElement().text().simplifyWhiteSpace();
 
     QString seeAlso, seeAlsos;
-		QDomNodeList seeAlsoNodes = glossEntry.toElement().elementsByTagName(QString::fromLatin1("glossseealso"));
+    QDomNodeList seeAlsoNodes = glossEntry.toElement().elementsByTagName(QString::fromLatin1("glossseealso"));
     for (unsigned int i = 0; i < seeAlsoNodes.count(); i++) {
-		    seeAlso = seeAlsoNodes.item(i).toElement().text().simplifyWhiteSpace();
-				if (seeAlso.isEmpty())
-				    continue;
-		    if (seeAlsos.isEmpty())
-		      seeAlsos = i18n("See also: ");
-		    seeAlsos += QString::fromLatin1("<a href=\"glossentry:%1\">%2</a>, ").arg(seeAlso).arg(seeAlso);
+        seeAlso = seeAlsoNodes.item(i).toElement().text().simplifyWhiteSpace();
+        if (seeAlso.isEmpty())
+            continue;
+        if (seeAlsos.isEmpty())
+            seeAlsos = i18n("See also: ");
+        seeAlsos += QString::fromLatin1("<a href=\"glossentry:%1\">%2</a>, ").arg(seeAlso).arg(seeAlso);
     }
     if (!seeAlsos.isEmpty())
         seeAlsos = seeAlsos.left(seeAlsos.length() - 2);
     
-    QFile htmlFile("/home/frerich/src/kde-cvs/kdebase/doc/khelpcenter/glossary.html");
+    QFile htmlFile(langLookup(QString::fromLatin1("khelpcenter/glossary.html")));
     if (!htmlFile.open(IO_ReadOnly))
-      return;
+        return;
+
     QTextStream htmlStream(&htmlFile);
     QString htmlSrc = htmlStream.read().arg(term).arg(definition).arg(seeAlsos);
+
+    KURL dataDir = langLookup(QString::fromLatin1("khelpcenter/glossary.html"));
     
-    doc->begin("/home/frerich/src/kde-cvs/kdebase/doc/khelpcenter/");
+    doc->begin(dataDir.path());
     doc->write(htmlSrc);
     doc->end(); 
+}
+
+QString KHMainWindow::langLookup(const QString &fname)
+{
+    QStringList search;
+
+    // assemble the local search paths
+    const QStringList localDoc = KGlobal::dirs()->resourceDirs("html");
+
+    // look up the different languages
+    for (int id=localDoc.count()-1; id >= 0; --id)
+    {
+        QStringList langs = KGlobal::locale()->languageList();
+        langs.append("default");
+        langs.append("en");
+        QStringList::ConstIterator lang;
+        for (lang = langs.begin(); lang != langs.end(); ++lang)
+            search.append(QString("%1%2/%3").arg(localDoc[id]).arg(*lang).arg(fname));
+    }
+
+    // try to locate the file
+    QStringList::Iterator it;
+    for (it = search.begin(); it != search.end(); ++it)
+    {
+        kdDebug() << "Looking for help in: " << *it << endl;
+
+        QFileInfo info(*it);
+        if (info.exists() && info.isFile() && info.isReadable())
+            return *it;
+
+        QString file = (*it).left((*it).findRev('/')) + "/index.docbook";
+        kdDebug() << "Looking for help in: " << file << endl;
+        info.setFile(file);
+        if (info.exists() && info.isFile() && info.isReadable())
+            return *it;
+    }
+
+    return QString::null;
 }
 
 KHMainWindow::~KHMainWindow()
@@ -206,5 +245,6 @@ extern "C" int kdemain(int argc, char *argv[])
 
     return app.exec();
 }
+
 
 #include "khc_main.moc"
