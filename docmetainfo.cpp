@@ -138,9 +138,9 @@ void DocMetaInfo::scanMetaInfo( bool force )
     mLanguageNames.insert( *it, languageName( *it ) );
   }
 
-  KConfig *config = KGlobal::config();
-  config->setGroup( "General" );
-  QStringList metaInfos = config->readListEntry( "MetaInfoDirs" );
+  KConfig config( "khelpcenterrc" );
+  config.setGroup( "General" );
+  QStringList metaInfos = config.readListEntry( "MetaInfoDirs" );
 
   kdDebug() << "METADIRS: " << metaInfos << endl;
 

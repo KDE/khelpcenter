@@ -220,7 +220,7 @@ void KCMHelpCenter::processIndexQueue()
   QStringList args = QStringList::split( ' ', *it );
   *proc << args;
 
-  kdDebug() << "KCMHelpCenter::processIndexQueue(): " << (*it) << endl;
+  kdDebug() << "KCMHelpCenter::processIndexQueue(): '" << (*it) << "'" << endl;
 
   connect( proc, SIGNAL( processExited( KProcess * ) ),
            SLOT( slotIndexFinished( KProcess * ) ) ); 
