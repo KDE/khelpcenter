@@ -116,7 +116,7 @@ Navigator::Navigator( View *view, QWidget *parent,
     setupSearchTab();
     setupGlossaryTab();
 
-    buildTree();
+    insertPlugins();
 
     if ( DocMetaInfo::self()->searchEntries().isEmpty() ) {
       hideSearch();
@@ -170,12 +170,6 @@ void Navigator::setupGlossaryTab()
     connect( mGlossaryTree, SIGNAL( entrySelected( const GlossaryEntry & ) ),
              this, SIGNAL( glossSelected( const GlossaryEntry & ) ) );
     mTabWidget->addTab( mGlossaryTree, i18n( "G&lossary" ) );
-}
-
-void Navigator::buildTree()
-{
-  // scan plugin dir for plugins
-  insertPlugins();
 }
 
 void Navigator::clearTree()

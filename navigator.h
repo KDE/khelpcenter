@@ -96,7 +96,6 @@ class Navigator : public QWidget
     void setupIndexTab();
     void setupSearchTab();
     void setupGlossaryTab();
-    void buildTree();
     void clearTree();
 
     void insertPlugins();
