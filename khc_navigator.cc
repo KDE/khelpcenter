@@ -1,5 +1,5 @@
 /*
- *  htabview.cpp - part of the KDE Help Center
+ *  khc_navigator.cc - part of the KDE Help Center
  *
  *  Copyright (C) 1999 Matthias Elter (me@kde.org)
  *
@@ -18,10 +18,10 @@
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#include "htabview.h"
-#include "htreelistitem.h"
-#include "indexwidget.h"
-#include "searchwidget.h"
+#include "khc_navigator.h"
+#include "khc_navigatoritem.h"
+#include "khc_indexwidget.h"
+#include "khc_searchwidget.h"
 
 #include <qdir.h>
 #include <qfile.h>
@@ -37,7 +37,7 @@
 #include <kglobal.h>
 #include <klocale.h>
 
-HTabView::HTabView(QWidget *parent, const char *name)
+KHelpNavigator::KHelpNavigator(QWidget *parent, const char *name)
     : QWidget(parent,name)
 {
     tabBar = new QTabBar(this);
@@ -52,7 +52,7 @@ HTabView::HTabView(QWidget *parent, const char *name)
     buildTree();
 }
 
-HTabView::~HTabView()
+KHelpNavigator::~KHelpNavigator()
 {
     delete tree;
     delete search;
@@ -60,7 +60,7 @@ HTabView::~HTabView()
     delete tabBar;
 }
 
-void HTabView::resizeEvent(QResizeEvent *)
+void KHelpNavigator::resizeEvent(QResizeEvent *)
 {
     tabBar->setGeometry(0, 0, width(), 28);
     tree->setGeometry(0, 28, width(), height()-28);
@@ -68,7 +68,7 @@ void HTabView::resizeEvent(QResizeEvent *)
     index->setGeometry(0, 28, width(), height()-28);
 }
 
-void HTabView::setupContentsTab()
+void KHelpNavigator::setupContentsTab()
 {
     tree = new KTreeList(this);
 
@@ -88,7 +88,7 @@ void HTabView::setupContentsTab()
     tree->show();
 }
 
-void HTabView::setupIndexTab()
+void KHelpNavigator::setupIndexTab()
 {
     index = new IndexWidget(this);
     index->hide();
@@ -98,7 +98,7 @@ void HTabView::setupIndexTab()
     tabBar->addTab(newTab);
 }
 
-void HTabView::setupSearchTab()
+void KHelpNavigator::setupSearchTab()
 {
     search = new SearchWidget(this);
     search->hide();
@@ -111,7 +111,7 @@ void HTabView::setupSearchTab()
     tabBar->addTab(newTab);
 }
 
-void HTabView::buildTree()
+void KHelpNavigator::buildTree()
 {
     // introduction document
     HTreeListItem *ti_intro = new HTreeListItem(i18n("Introduction"), "helpdoc.xpm");
@@ -179,7 +179,7 @@ void HTabView::buildTree()
     staticItems.append(ti_contact);  
 }
 
-void HTabView::clearTree()
+void KHelpNavigator::clearTree()
 {
     tree->clear();
 
@@ -193,7 +193,7 @@ void HTabView::clearTree()
 	pluginItems.removeFirst();
 }
 
-void HTabView::buildManSubTree(HTreeListItem *parent)
+void KHelpNavigator::buildManSubTree(HTreeListItem *parent)
 {
     // man (1)
     HTreeListItem *ti_man_s1 = new HTreeListItem("(1) User commands", "helpdoc.xpm");
@@ -256,27 +256,30 @@ void HTabView::buildManSubTree(HTreeListItem *parent)
     staticItems.append(ti_man_sn);
 }
 
-void HTabView::buildManualSubTree(HTreeListItem *parent)
+void KHelpNavigator::buildManualSubTree(HTreeListItem *parent)
 {
-    QStringList list = KGlobal::dirs()->getResourceDirs("apps");
-    for (QStringList::ConstIterator it = list.begin(); it != list.end(); it++) {
-      processDir(*it, parent, &manualItems);
-      appendEntries(*it, parent, &manualItems);
+    // System applications
+    QString appPath = kapp->kde_appsdir();
+    processDir(appPath, parent, &manualItems);
+    appendEntries(appPath, parent, &manualItems);
 
-    }
+    /*
+      // User applications
+      appPath = KApplication::localkdedir() + "/share/applnk";
+      processDir(appPath, userManualTop);
+      appendEntries(appPath, userManualTop);
+    */
 }
 
-void HTabView::insertPlugins()
+void KHelpNavigator::insertPlugins()
 {
-    QStringList list = KGlobal::dirs()->getResourceDirs("plugins");
-    for (QStringList::ConstIterator it = list.begin(); it != list.end(); it++) {
-      processDir(*it, 0, &manualItems);
-      appendEntries(*it, 0, &manualItems);
-
-    }
+    // Scan plugin dir
+    QString path = kapp->kde_datadir() + "/khelpcenter/plugins";
+    processDir(path, 0, &pluginItems);
+    appendEntries(path, 0, &pluginItems);
 }
 
-void HTabView::slotReloadTree()
+void KHelpNavigator::slotReloadTree()
 {
     emit setBussy(true);
     clearTree();
@@ -284,7 +287,7 @@ void HTabView::slotReloadTree()
     emit setBussy(false);
 }
 
-void HTabView::slotTabSelected(int id)
+void KHelpNavigator::slotTabSelected(int id)
 {
     if (id == 0)
     {
@@ -308,12 +311,12 @@ void HTabView::slotTabSelected(int id)
     }
 }
 
-void HTabView::slotURLSelected(QString url)
+void KHelpNavigator::slotURLSelected(QString url)
 {
     emit itemSelected(url);
 }
 
-void HTabView::slotItemSelected(int)
+void KHelpNavigator::slotItemSelected(int)
 {
     HTreeListItem *item;
     KTreeListItem *currentItem;
@@ -389,7 +392,7 @@ void HTabView::slotItemSelected(int)
     }
 }
 
-bool HTabView::appendEntries(const char *dirName, HTreeListItem *parent, QList<HTreeListItem> *appendList)
+bool KHelpNavigator::appendEntries(const char *dirName, HTreeListItem *parent, QList<HTreeListItem> *appendList)
 {
     QDir fileDir(dirName, "*.desktop", 0, QDir::Files | QDir::Hidden | QDir::Readable);
 
@@ -402,7 +405,7 @@ bool HTabView::appendEntries(const char *dirName, HTreeListItem *parent, QList<H
     for ( itFile = fileList.begin(); !(*itFile).isNull(); ++itFile )
     {
 	QString filename = dirName;
-	filename += '/';
+	filename += "/";
 	filename += *itFile;
 
 	HTreeListItem *entry = new HTreeListItem;
@@ -420,7 +423,7 @@ bool HTabView::appendEntries(const char *dirName, HTreeListItem *parent, QList<H
 }
 
 
-bool HTabView::processDir( const char *dirName, HTreeListItem *parent,  QList<HTreeListItem> *appendList)
+bool KHelpNavigator::processDir( const char *dirName, HTreeListItem *parent,  QList<HTreeListItem> *appendList)
 {
     QString folderName;
 
@@ -438,7 +441,7 @@ bool HTabView::processDir( const char *dirName, HTreeListItem *parent,  QList<HT
 
 
 	QString filename = dirDir.path();
-	filename += '/';
+	filename += "/";
 	filename += *itDir;
 
 	if (!containsDocuments(filename))
@@ -476,7 +479,7 @@ bool HTabView::processDir( const char *dirName, HTreeListItem *parent,  QList<HT
     return true;
 }
 
-bool HTabView::containsDocuments(QString dir)
+bool KHelpNavigator::containsDocuments(QString dir)
 {
     QDir fileDir(dir, "*.desktop", 0, QDir::Files | QDir::Hidden | QDir::Readable);
 
@@ -492,7 +495,7 @@ bool HTabView::containsDocuments(QString dir)
 	for ( itFile = fileList.begin(); !(*itFile).isNull(); ++itFile )
 	{
 	    QString filename = dir;
-	    filename += '/';
+	    filename += "/";
 	    filename += *itFile;
 
 	    KSimpleConfig sc( filename, true );
@@ -518,8 +521,10 @@ bool HTabView::containsDocuments(QString dir)
 	if ( (*itDir).at(0) == '.' )
 	    continue;
 
-	if (containsDocuments(dir + '/' + *itDir))
+	if (containsDocuments(dir + "/" + *itDir))
 	    return true;
     }
     return false;
 }
+
+#include "khc_navigator.moc"

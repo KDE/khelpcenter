@@ -1,7 +1,7 @@
 /*
- *  indexwidget.h - part of the KDE Help Center
+ *  khc_testpart.h - part of the KDE Help Center
  *
- *  Copyright (C) 1999 Matthias Elter (me@kde.org)
+ *  Copyright (c) 199 Matthias Elter (me@kde.org)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -18,37 +18,34 @@
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#ifndef __indexwidget_h__
-#define __indexwidget_h__
+#ifndef __khc_testpart_h__
+#define __khc_testpart_h__
 
+#include "khelpcenter.h"
+
+#include <khtmlview.h>
 #include <qwidget.h>
 
-class QLabel;
-class QPushButton;
-class QLineEdit;
-class QListBox;
+#include <opPart.h>
 
-class IndexWidget : public QWidget
+class TestPart : virtual public QWidget,
+		 virtual public OPPartIf,
+		 virtual public KHelpCenter::TestPart_skel
 {
-    Q_OBJECT
-
- public:
-    IndexWidget (QWidget *parent = 0);
-    ~IndexWidget();
-    void tabSelected();
-
- protected:
-    void resizeEvent (QResizeEvent *);
-
- public slots:
-    void slotBuildIndex();
-    void slotFind(); 
-
- private:
-    QLabel *keyWordLabel, *topicLabel;
-    QLineEdit *keyWordString;
-    QPushButton *rebuildButton;
-    QListBox *indexList;
+  Q_OBJECT
+public:
+  TestPart();
+  virtual ~TestPart();
+  
+  virtual void begin( const char* url );
+  virtual void write( const char* text );
+  virtual void end();
+  virtual void parse();
+  
+protected:
+  void resizeEvent( QResizeEvent * );
+  
+  KHTMLView* m_pHTML;
 };
 
 #endif

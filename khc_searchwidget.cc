@@ -1,5 +1,5 @@
 /*
- *  searchwidget.cpp - part of the KDE Help Center
+ *  khc_searchwidget.cpp - part of the KDE Help Center
  *
  *  Copyright (C) 1999 Matthias Elter (me@kde.org)
  *
@@ -28,9 +28,9 @@
 
 #include <stdio.h>
 
-#include "searchwidget.h"
-#include "htmlsearch.h"
-#include "mansearch.h"
+#include "khc_searchwidget.h"
+#include "khc_htmlsearch.h"
+#include "khc_mansearch.h"
 
 ResultBox::ResultBox(QWidget *parent)
     : QListBox(parent)
@@ -187,3 +187,5 @@ void SearchWidget::slotMouseOver(int index)
 
     //printf("mouseover: %d\n",yPos);fflush(stdout);
 }
+
+#include "khc_searchwidget.moc"

@@ -1,5 +1,5 @@
 /*
- *  htmlsearch.cpp - part of the KDE Help Center
+ *  khc_htmlsearch.cpp - part of the KDE Help Center
  *
  *  Copyright (c) 1999 Matthias Elter (me@kde.org)
  *
@@ -24,12 +24,10 @@
 #include <qfile.h>
 #include <qtextstream.h>
 #include <kapp.h>
-#include <kglobal.h>
-#include <kstddirs.h>
 
 #include <stdlib.h>
 
-#include "htmlsearch.h"
+#include "khc_htmlsearch.h"
 
 QString HTMLSearch::readTitle(const char *filename)
 {
@@ -110,7 +108,7 @@ int HTMLSearch::processFiles(const char *dirname, const char *query)
     for ( itFile = fileList.begin(); !(*itFile).isNull(); ++itFile)
     {
 	QString filename = dirname;
-	filename += '/';
+	filename += "/";
 	filename += *itFile;
 	  
 	int weight = countOccurrences(filename, query);
@@ -146,7 +144,7 @@ int HTMLSearch::processDir(const char *dirname, const char *query)
 	    continue;
 
 	QString filename = dirname;
-	filename += '/';
+	filename += "/";
 	filename += *itDir;
 
 	processFiles(filename, query);
@@ -157,9 +155,8 @@ int HTMLSearch::processDir(const char *dirname, const char *query)
 
 void HTMLSearch::search (const char *query)
 {
-    QStringList list = KGlobal::dirs()->getResourceDirs("html");
-    for (QStringList::ConstIterator it = list.begin(); it != list.end(); it++) {
-      processDir(*it + "/en/", query);  //change this for i18n!!!
-    }
+    QString dir = KApplication::kde_htmldir();
+    dir += "/en/"; //change this for i18n!!!
+    processDir(dir, query);
 }
 

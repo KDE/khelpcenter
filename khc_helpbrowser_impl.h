@@ -1,5 +1,5 @@
 /*
- *  khelpcenter_impl.h - part of the KDE Help Center
+ *  khc_helpbrowser_impl.h - part of the KDE Help Center
  *
  *  Copyright (c) 1999 Matthias Elter (me@kde.org)
  *
@@ -18,37 +18,33 @@
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#ifndef _HelpWindow_h_
-#define _HelpWindow_h_
-
 #include "khelpcenter.h"
 
-class HelpWindow_Impl : virtual public KHelpCenter::HelpWindow_skel
+class KHelpBrowser;
+
+class HelpBrowser_Impl : virtual public KHelpCenter::HelpBrowser_skel
 {
 
  public:
-    HelpWindow_Impl();
-    virtual ~HelpWindow_Impl();
+    HelpBrowser_Impl();
+    virtual ~HelpBrowser_Impl();
 
     void open(const char *url);
 
  private:
-    HelpCenter *hc;
+    KHelpBrowser *khb;
 };
 
-class HelpWindowFactory_Impl : virtual public KHelpCenter::HelpWindowFactory_skel
+class HelpBrowserFactory_Impl : virtual public KHelpCenter::HelpBrowserFactory_skel
 {
 public:
-  HelpWindowFactory_Impl() {}
+  HelpBrowserFactory_Impl() {}
 
-  HelpWindowFactory_Impl(const CORBA::ORB::ObjectTag &tag)
-   : KHelpCenter::HelpWindowFactory_skel(tag) {}
+  HelpBrowserFactory_Impl(const CORBA::ORB::ObjectTag &tag)
+   : KHelpCenter::HelpBrowserFactory_skel(tag) {}
   
-  HelpWindowFactory_Impl(CORBA::Object_ptr obj)
-   : KHelpCenter::HelpWindowFactory_skel(obj) {}
+  HelpBrowserFactory_Impl(CORBA::Object_ptr obj)
+   : KHelpCenter::HelpBrowserFactory_skel(obj) {}
 
-  virtual KHelpCenter::HelpWindow_ptr create();  
+  virtual KHelpCenter::HelpBrowser_ptr create();  
 };
-
-#endif
-

@@ -1,5 +1,5 @@
 /*
- *  mansearch.cpp - part of the KDE Help Center
+ *  khc_mansearch.cc - part of the KDE Help Center
  *
  *  Copyright (c) 1999 Matthias Elter (me@kde.org)
  *
@@ -27,7 +27,7 @@
 #include <sys/wait.h>
 #include <dirent.h>
 
-#include "mansearch.h"
+#include "khc_mansearch.h"
 
 #define MAXSECTIONLEN  4
 #define NUMSECTIONS    10
@@ -84,8 +84,8 @@ void ManSearch::search(const char *search)
 
 const char * ManSearch::FindXRef(const char *theText)
 {
-  static const char *sections[] = { "1", "2", "3", "4", "5", "6",
-			  "7", "8", "9", "n" };
+  static char *sections[] = { "1", "2", "3", "4", "5", "6",
+							  "7", "8", "9", "n" };
   const char *ptr, *ptr1, *xrefPtr;
   int i;
   

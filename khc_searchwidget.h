@@ -1,5 +1,5 @@
 /*
- *  searchwidget.h - part of the KDE Help Center
+ *  khc_searchwidget.h - part of the KDE Help Center
  *
  *  Copyright (C) 1999 Matthias Elter (me@kde.org)
  *
@@ -18,14 +18,14 @@
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#ifndef __searchwidget_h__
-#define __searchwidget_h__
+#ifndef __khc_searchwidget_h__
+#define __khc_searchwidget_h__
 
 #include <qwidget.h>
 #include <qlabel.h>
 #include <qlistbox.h>
 
-#include "searchmatch.h"
+#include "khc_searchmatch.h"
 
 class QPushButton;
 class QLineEdit;

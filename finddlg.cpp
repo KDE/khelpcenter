@@ -101,3 +101,4 @@ void KFindTextDialog::slotFind()
     emit find( rExp );
 }
 
+#include "finddlg.moc"

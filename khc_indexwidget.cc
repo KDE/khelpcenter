@@ -1,5 +1,5 @@
 /*
- *  indexwidget.cpp - part of the KDE Help Center
+ *  khc_indexwidget.cpp - part of the KDE Help Center
  *
  *  Copyright (C) 1999 Matthias Elter (me@kde.org)
  *
@@ -25,7 +25,7 @@
 #include <qlineedit.h>
 #include <qlistbox.h>
 
-#include "indexwidget.h"
+#include "khc_indexwidget.h"
 
 IndexWidget::IndexWidget(QWidget *parent)
     : QWidget(parent)
@@ -79,3 +79,5 @@ void IndexWidget::slotBuildIndex()
 void IndexWidget::slotFind()
 {
 }
+
+#include "khc_indexwidget.moc"

@@ -1,5 +1,5 @@
 /*
- *  htabview.h - part of the KDE Help Center
+ *  khc_navigator.h - part of the KDE Help Center
  *
  *  Copyright (C) 1999 Matthias Elter (me@kde.org)
  *
@@ -18,8 +18,8 @@
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#ifndef __htabview_h__
-#define __htabview_h__
+#ifndef __khc_navigator_h__
+#define __khc_navigator_h__
 
 #include <qlist.h>
 
@@ -30,13 +30,13 @@ class SearchWidget;
 class HTreeListItem;
 class QTabBar;
 
-class HTabView : public QWidget
+class KHelpNavigator : public QWidget
 {
     Q_OBJECT
   
  public:
-    HTabView(QWidget *parent=0, const char *name=0);
-    virtual ~HTabView();
+    KHelpNavigator(QWidget *parent=0, const char *name=0);
+    virtual ~KHelpNavigator();
 
  protected:
     void resizeEvent (QResizeEvent *);

@@ -1,5 +1,5 @@
 
-data_DATA = hidetabview.xpm showtabview.xpm
+data_DATA = hidenavigator.xpm shownavigator.xpm
 datadir = $(kde_toolbardir)
 
 kde_icon_DATA = khelpcenter.xpm

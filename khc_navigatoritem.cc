@@ -1,5 +1,5 @@
 /*
- *  htreelistitem.cpp - part of the KDE Help Center
+ *  khc_navigatoritem.cc - part of the KDE Help Center
  *
  *  Copyright (C) 1999 Matthias Elter (me@kde.org)
  *
@@ -24,7 +24,7 @@
 #include <kapp.h>
 #include <ksimpleconfig.h>
 
-#include "htreelistitem.h"
+#include "khc_navigatoritem.h"
 #include <kstddirs.h>
 #include <kglobal.h>
 
@@ -54,7 +54,8 @@ bool HTreeListItem::readKDElnk ( const char *filename )
     if (path.isNull())
 	return false;
 
-    url = locate("html", "default/" + path);
+    url = kapp->kde_htmldir() + "/default/";
+    url += path;
 
     // read comment text
     info = config.readEntry("Info");
@@ -78,7 +79,7 @@ bool HTreeListItem::readKDElnk ( const char *filename )
 	int pos;
 	if ( ( pos = name.findRev( ".desktop" ) ) > 0 )
 	{
-	    name.truncate( pos );
+	    name = name.left( pos );
 	}
     }
     return true;

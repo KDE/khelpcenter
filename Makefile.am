@@ -1,35 +1,50 @@
+INCLUDES= $(all_includes) $(MICO_INCLUDES)
+LDFLAGS = $(all_libraries) $(KDE_RPATH) $(MICO_LDFLAGS)
+IDL_FLAGS = --query-server-for-narrow --relative-paths --any -I$(idldir)
 
-INCLUDES= $(all_includes) $(MICO_INCLUDES) 
-LDFLAGS = $(all_libraries) $(MICO_LDFLAGS) $(KDE_RPATH)
-IDL_FLAGS = --query-server-for-narrow --relative-paths -I$(idldir)
+bin_PROGRAMS = 	khelpcenter khelpcenterclient
 
-khelpcenterd_LDADD   = $(LIB_KDEUI) $(LIB_KFILE) -lkom $(LIB_KHTML)
-khelpcenter_LDADD   = -lkom -lkded
+khelpcenter_LDADD   = -lkparts $(LIB_KDEUI) $(LIB_KFILE) $(LIB_KHTML)
+khelpcenterclient_LDADD   = -lkparts -lkded
 
-SUBDIRS = . kwelcome kwid pics plugins \
-	info2html rman
+SUBDIRS = . pics plugins info2html rman kwelcome
 
-bin_PROGRAMS = 	khelpcenterd khelpcenter
+###### Files
 
-khelpcenterd_SOURCES = main.cpp toplevel.cpp khelpview.cpp \
-	htreelistitem.cpp htabview.cpp man.cpp \
-	finddlg.cpp khelpcenter.cc khelpcenter_impl.cpp \
-	indexwidget.cpp searchwidget.cpp htmlsearch.cpp mansearch.cpp \
-	cgiserver.cpp
+khelpcenter_SOURCES = khelpcenter.idl kbrowser.cc khc_main.cc \
+	khc_mainwindow.cc khc_baseview.cc khc_helpbrowser_impl.cc \
+	khc_navigator.cc khc_indexwidget.cc khc_searchwidget.cc \
+	khc_navigatoritem.cc khc_htmlsearch.cc khc_mansearch.cc \
+	finddlg.cpp khc_htmlview.cc khc_testpart.cc
 
-khelpcenterd_METASOURCES = USE_AUTOMOC
+khelpcenter_METASOURCES = kbrowser.moc khc_mainwindow.moc \
+	khc_navigator.moc khc_indexwidget.moc \
+	khc_searchwidget.moc finddlg.moc khc_htmlview.moc \
+	khc_testpart.moc
 
-khelpcenter_SOURCES  = khelpcenterclient.cpp khelpcenter.idl
+khelpcenterclient_SOURCES  = khelpcenter.cc khc_client.cc
 
+noinst_HEADERS = khelpcenter.h kbrowser.h finddlg.h khc_baseview.h \
+	khc_helpbrowser_impl.h khc_htmlsearch.h khc_htmlview.h khc_indexwidget.h \
+	khc_mainwindow.h khc_mansearch.h khc_navigator.h khc_navigatoritem.h \
+	khc_searchmatch.h khc_searchwidget.h man.h version.h khc_testpart.h
 
-idl_DATA    =  khelpcenter.idl
+DISTCLEANFILES = $(khelpcenter_METASOURCES) khelpcenter.cc khelpcenter.h
 
-main.cpp: khelpcenter.h
+idl_DATA = khelpcenter.idl
+
+####### Build rules
+
+khc_baseview.h: khelpcenter.h
+khc_client.cc: khelpcenter.h
+khc_helpbrowser_impl.h: khelpcenter.h
+khc_htmlview.h: khelpcenter.h
+khc_mainwindow.h: khelpcenter.h
+khc_client.cc: khelpcenter.h
 
 messages:
-	$(XGETTEXT) -C -ki18n -x $(includedir)/kde.pot *.h *.cpp && mv messages.po ../../po/khelpcenter.pot
+	$(XGETTEXT) -C  -ktranslate -kaliasLocal -ki18n -x $(includedir)/kde.pot *.h *.cc *.cpp && mv messages.po ../po/khelpcenter.pot
 	for subdir in $(SUBDIRS); do \
 	   echo "Making messages in $$subdir"; \
 	   (cd $$subdir && $(MAKE) -f Makefile.am messages) || exit 1; \
 	done
-

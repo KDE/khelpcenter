@@ -1,5 +1,5 @@
 /*
- *  htreelistitem.h - part of the KDE Help Center
+ *  khc_navigatoritem.h - part of the KDE Help Center
  *
  *  Copyright (C) 1999 Matthias Elter (me@kde.org)
  *
@@ -18,8 +18,8 @@
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#ifndef HTREELISTITEM_H_
-#define HTREELISTITEM_H_
+#ifndef __khc_navigatoritem_h___
+#define __khc_navigatoritem_h___
 
 #include <ktreelist.h>
 
