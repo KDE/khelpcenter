@@ -32,12 +32,12 @@ class QListView;
 class QListViewItem;
 class QTabBar;
 
-class khcNavigatorExtension : public BrowserExtension
+class khcNavigatorExtension : public KParts::BrowserExtension
 {
     Q_OBJECT
  public:
     khcNavigatorExtension(KParts::ReadOnlyPart *part, const char *name=0) :
-      BrowserExtension( part, name ) {}
+      KParts::BrowserExtension( part, name ) {}
     virtual ~khcNavigatorExtension();
 
  public slots:
