@@ -2,7 +2,6 @@
 [KDE Desktop Entry]
 Name=Tutorials
 Name[ca]=Introduccions
-Name[de]=Lernhilfen
 Name[eo]=Lernolibroj
 Name[fi]=Harjotukset
 Name[hr]=Vodièi
@@ -16,7 +15,6 @@ Name[sv]=Skolor
 MiniIcon=
 Comment=Tutorial and introduction documents.
 Comment[ca]=Documents i curs d'introducció.
-Comment[de]=Einführende und zur Einarbeitung dienende Dokumente
 Comment[eo]=Lernolibroj kaj enkondukaj dokumentoj
 Comment[fi]=Harjoitukset ja esittelevät asiakirjat
 Comment[hr]=Vodiè i uvodni dokumenti
