@@ -1,5 +1,5 @@
 /*
- *  khc_mainwindow.cc - part of the KDE Help Center
+ *  khc_mainwindow.cc - part of the KDE Helpenter
  *
  *  Copyright (c) 1999 Matthias Elter (me@kde.org)
  *
@@ -42,6 +42,7 @@
 
 #include <opFrame.h>
 #include <opUIUtils.h>
+#include <opMenuIf.h>
 #include <opMenuBarManager.h>
 #include <opToolBarManager.h>
 #include <opStatusBarManager.h>
@@ -64,12 +65,6 @@ khcMainWindow::khcMainWindow(const QString& url)
     
     // setup UI
     setupView();
-
-    // dummy calls to create the UI managers
-    (void)menuBarManager();
-    (void)toolBarManager();
-    (void)statusBarManager();
-
     setupMenuBar();
     setupToolBar();
     setupLocationBar();
@@ -104,16 +99,6 @@ khcMainWindow::~khcMainWindow()
   delete m_pNavigator;
   if (m_pSplitter)
     delete m_pSplitter;
-}
-
-void khcMainWindow::slotActivePartChanged( unsigned long new_id, unsigned long /*old_id*/ )
-{
-  menuBarManager()->clear();
-  toolBarManager()->clear();
-  statusBarManager()->clear();
-  menuBarManager()->create(new_id);
-  toolBarManager()->create(new_id);
-  statusBarManager()->create(new_id);
 }
 
 OPMainWindowIf* khcMainWindow::interface()
@@ -180,8 +165,8 @@ void khcMainWindow::setupView()
       {
 	CORBA::Object_var obj = m_vView->getInterface("IDL:Browser/MagnifyingExtension:1.0");
 	Browser::MagnifyingExtension_var magExt = Browser::MagnifyingExtension::_narrow(obj);
-	toolBar(0)->setItemEnabled(TB_ZOOMIN, magExt->canZoomIn());
-	toolBar(0)->setItemEnabled(TB_ZOOMOUT, magExt->canZoomOut());
+	opToolBar(0)->setItemEnabled(TB_ZOOMIN, magExt->canZoomIn());
+	opToolBar(0)->setItemEnabled(TB_ZOOMOUT, magExt->canZoomOut());
       }
 }
 
@@ -191,48 +176,42 @@ void khcMainWindow::setupMenuBar()
     KStdAccel stdAccel;
   
     // file menu
-    m_pFileMenu = new QPopupMenu;
+    m_pFileMenu = new OPMenu;
     CHECK_PTR(m_pFileMenu);
 
-    m_pFileMenu->insertItem(i18n("&New Help Browser"), this, SLOT(slotNewBrowser()), stdAccel.openNew());
+    m_pFileMenu->insertItem(Icon("openbook.xpm"), i18n("&New Help Browser"), this, SLOT(slotNewBrowser()), stdAccel.openNew());
     m_pFileMenu->insertSeparator();
-    m_pFileMenu->insertItem(i18n("&Open File..."), this, SLOT(slotOpenFile()), stdAccel.open());
-    m_pFileMenu->insertItem(i18n("&Reload"), this, SLOT(slotReload()), Key_F5);
-    m_pFileMenu->insertItem(i18n("&Print"), this, SLOT(slotPrint()), stdAccel.print());
+    m_pFileMenu->insertItem(Icon("fileopen.xpm"), i18n("&Open File..."), this, SLOT(slotOpenFile()), stdAccel.open());
+    m_pFileMenu->insertItem(Icon("reload.xpm"), i18n("&Reload"), this, SLOT(slotReload()), Key_F5);
+    m_pFileMenu->insertItem(Icon("fileprint.xpm"), i18n("&Print"), this, SLOT(slotPrint()), stdAccel.print());
     m_pFileMenu->insertSeparator();
-    m_pFileMenu->insertItem(i18n("&Quit"), this, SLOT(slotQuit()), stdAccel.quit());
-  
+    m_pFileMenu->insertItem(Icon("exit.xpm"), i18n("&Quit"), this, SLOT(slotQuit()), stdAccel.quit());
+ 
     // edit menu
-    m_pEditMenu = new QPopupMenu;
+    m_pEditMenu = new OPMenu;
     CHECK_PTR(m_pEditMenu);
+    QObject::connect(m_pEditMenu, "aboutToShow", this, "slotMenuEditAboutToShow");
+    m_bEditMenuDirty = true;
+    createEditMenu();
 
-    idCopy = m_pEditMenu->insertItem(i18n("&Copy"), this, SLOT(slotCopy()), stdAccel.copy());
-    m_pEditMenu->insertSeparator();
-    m_pEditMenu->insertItem(i18n("&Find..."), this, SLOT(slotFind()), stdAccel.find());
-     m_pEditMenu->insertItem(i18n("Find &next"), this, SLOT(slotFindNext()), Key_F3);
-  
     // goto menu
-    m_pGotoMenu = new QPopupMenu;
+    m_pGotoMenu = new OPMenu;
     CHECK_PTR(m_pGotoMenu);
 
-    idBack = m_pGotoMenu->insertItem(i18n("&Back"), this, SLOT(slotBack()));
-    idForward = m_pGotoMenu->insertItem(i18n("&Forward"), this, SLOT(slotForward()));
+    idBack = m_pGotoMenu->insertItem(Icon("back.xpm"), i18n("&Back"), this, SLOT(slotBack()));
+    idForward = m_pGotoMenu->insertItem(Icon("forward.xpm"), i18n("&Forward"), this, SLOT(slotForward()));
     m_pGotoMenu->insertSeparator();
-    m_pGotoMenu->insertItem(i18n("&Introduction"), this, SLOT(slotIntroduction()));
+    m_pGotoMenu->insertItem(Icon("home.xpm"), i18n("&Introduction"), this, SLOT(slotIntroduction()));
   
     // view menu
-    m_pViewMenu = new QPopupMenu;
+    m_pViewMenu = new OPMenu;
     CHECK_PTR(m_pViewMenu);
-
-    idMagPlus = m_pViewMenu->insertItem(i18n("Zoom &in"), this, SLOT(slotMagPlus()));
-    idMagMinus = m_pViewMenu->insertItem(i18n("Zoom &out"), this, SLOT(slotMagMinus()));
-    m_pViewMenu->insertSeparator();
-    m_pViewMenu->insertItem(i18n("&Reload Navigator"), m_pNavigator, SLOT(slotReloadTree()));
-    m_pViewMenu->insertSeparator();
-    m_pViewMenu->insertItem(i18n("Reload &Document"), this, SLOT(slotReload()), Key_F5);
+    QObject::connect(m_pViewMenu,"aboutToShow", this, "slotMenuViewAboutToShow");
+    m_bViewMenuDirty = true;
+    createViewMenu();
   
     // bookmark menu
-    m_pBookmarkMenu = new QPopupMenu;
+    m_pBookmarkMenu = new OPMenu;
     CHECK_PTR(m_pBookmarkMenu);
 
     /*
@@ -241,7 +220,7 @@ void khcMainWindow::setupMenuBar()
     */
 
     // options menu
-    m_pOptionsMenu = new QPopupMenu;
+    m_pOptionsMenu = new OPMenu;
     CHECK_PTR(m_pOptionsMenu);
     m_pOptionsMenu->setCheckable(true);
 
@@ -254,22 +233,58 @@ void khcMainWindow::setupMenuBar()
    
   
     // help menu
-    m_pHelpMenu = kapp->getHelpMenu(true,i18n("KDE HelpCenter v" + QString(HELPCENTER_VERSION) + "\n\n"
-					      "(c) 1998,99 Matthias Elter <me@kde.org>\n\n"
-					      "Additional credits:\n"
-					      "René Beutler <rbeutler@g26.ethz.ch>: kassistant, kcmhelpcenter, kwid,konitemhelp\n"
-					      "Martin Jones <mjones@kde.org> Some code is based on kdehelp written 1997 by Martin.\n"
-					      "The Konqueror team. I have shamelessly :) ripped some code and ideas from Konqueror.\n"));
+    m_pHelpMenu = new OPMenu; 
+    m_pHelpMenu->insertItem(i18n("&Contents"), this, SLOT(slotHelpContents()));
+    m_pHelpMenu->insertItem(i18n("&About KDE Helpcenter"), this, SLOT(slotHelpAbout()));
     
     // insert menu's into menubar
-    menuBar()->insertItem(i18n("&File"), m_pFileMenu);
-    menuBar()->insertItem(i18n("&Edit"), m_pEditMenu);
-    menuBar()->insertItem(i18n("&View"), m_pViewMenu);
-    menuBar()->insertItem(i18n("&Go"), m_pGotoMenu);
-    menuBar()->insertItem(i18n("&Options"), m_pOptionsMenu);
-    menuBar()->insertItem(i18n("&Bookmarks"), m_pBookmarkMenu);
-    menuBar()->insertSeparator();
-    menuBar()->insertItem(i18n("&Help"), m_pHelpMenu);
+    opMenuBar()->insertItem(i18n("&File"), m_pFileMenu);
+    opMenuBar()->insertItem(i18n("&Edit"), m_pEditMenu);
+    opMenuBar()->insertItem(i18n("&View"), m_pViewMenu);
+    opMenuBar()->insertItem(i18n("&Go"), m_pGotoMenu);
+    opMenuBar()->insertItem(i18n("&Options"), m_pOptionsMenu);
+    opMenuBar()->insertItem(i18n("&Bookmarks"), m_pBookmarkMenu);
+    opMenuBar()->insertSeparator();
+    opMenuBar()->insertItem(i18n("&Help"), m_pHelpMenu);
+}
+
+void khcMainWindow::createViewMenu()
+{
+  if (m_bViewMenuDirty)
+  {
+    m_pViewMenu->clear();
+  
+    idMagPlus = m_pViewMenu->insertItem(Icon("viewmag+.xpm"), i18n("Zoom &in"), this, SLOT(slotMagPlus()));
+    idMagMinus = m_pViewMenu->insertItem(Icon("viewmag-.xpm"), i18n("Zoom &out"), this, SLOT(slotMagMinus()));
+
+    if (m_vView)
+      { 
+	OpenPartsUI::Menu_var viewMenu_var = OpenPartsUI::Menu::_duplicate(m_pViewMenu->interface());
+	EMIT_EVENT(m_vView, Browser::View::eventFillMenuView, viewMenu_var);
+      }
+
+    m_pViewMenu->insertSeparator();
+    m_pViewMenu->insertItem(i18n("&Reload Navigator"), m_pNavigator, SLOT(slotReloadTree()));
+    m_pViewMenu->insertItem(Icon("reload.xpm"), i18n("Reload &Document"), this, SLOT(slotReload()), Key_F5);
+
+    m_bViewMenuDirty = false;
+  }
+}
+
+void  khcMainWindow::createEditMenu()
+{
+  if ( m_bEditMenuDirty )
+    {
+      m_pEditMenu->clear();
+
+      if (m_vView)
+      {
+	OpenPartsUI::Menu_var viewMenu_var = OpenPartsUI::Menu::_duplicate(m_pViewMenu->interface());
+	EMIT_EVENT(m_vView, Browser::View::eventFillMenuView, viewMenu_var);
+      }
+
+    m_bEditMenuDirty = false;
+  }
 }
 
 void khcMainWindow::setupToolBar()
@@ -277,60 +292,60 @@ void khcMainWindow::setupToolBar()
     kdebug(KDEBUG_INFO,1400,"khcMainWindow::setupToolBar()");
     
     // history popup menus
-    m_pHistoryBackMenu = new QPopupMenu;
+    m_pHistoryBackMenu = new OPMenu;
     CHECK_PTR(m_pHistoryBackMenu);
     connect(m_pHistoryBackMenu, SIGNAL(aboutToShow()), this, SLOT(slotHistoryFillBack()));
     connect(m_pHistoryBackMenu, SIGNAL(activated(int)), this, SLOT(slotHistoryBackActivated(int)));
 
-    m_pHistoryForwardMenu = new QPopupMenu;
+    m_pHistoryForwardMenu = new OPMenu;
     CHECK_PTR(m_pHistoryForwardMenu);
     connect(m_pHistoryForwardMenu, SIGNAL(aboutToShow()), this, SLOT(slotHistoryFillForward()));
     connect(m_pHistoryForwardMenu, SIGNAL(activated(int)), this, SLOT(slotHistoryForwardActivated(int)));
     
     // explicitely instanciate a toolbar, to make sure it gets the height (40) we want
-    KToolBar *bar = new KToolBar(this, 0, 40);
-    addToolBar(bar, 0);
-    toolBar(0)->setIconText(3);
+    // KToolBar *bar = new KToolBar(this, 0, 40);
+    //addToolBar(bar, 0);
+    // opToolBar(0)->setIconText(3);
 
     // insert toolbar buttons    
-    toolBar(0)->insertButton(Icon("hidenavigator.xpm"), TB_NAVIGATOR, true, i18n("Hide Navigator"));
+    opToolBar(0)->insertButton(Icon("hidenavigator.xpm"), TB_NAVIGATOR, true, i18n("Hide Navigator"));
 
-    toolBar(0)->insertSeparator();
+    opToolBar(0)->insertSeparator();
 
-    toolBar(0)->insertButton(Icon("back.xpm"), TB_BACK, true, i18n("Back"));
-    toolBar(0)->setDelayedPopup(TB_BACK, m_pHistoryBackMenu);
-    toolBar(0)->setItemEnabled(TB_BACK, false);
+    opToolBar(0)->insertButton(Icon("back.xpm"), TB_BACK, true, i18n("Back"));
+    opToolBar(0)->setDelayedPopup(TB_BACK, m_pHistoryBackMenu);
+    opToolBar(0)->setItemEnabled(TB_BACK, false);
   
-    toolBar(0)->insertButton(Icon("forward.xpm"), TB_FORWARD, true, i18n("Forward"));
-    toolBar(0)->setDelayedPopup(TB_FORWARD, m_pHistoryForwardMenu);
-    toolBar(0)->setItemEnabled(TB_FORWARD, false);
+    opToolBar(0)->insertButton(Icon("forward.xpm"), TB_FORWARD, true, i18n("Forward"));
+    opToolBar(0)->setDelayedPopup(TB_FORWARD, m_pHistoryForwardMenu);
+    opToolBar(0)->setItemEnabled(TB_FORWARD, false);
   
-    toolBar(0)->insertButton(Icon("reload.xpm"), TB_RELOAD, true, i18n("Reload"));
-    toolBar(0)->insertButton(Icon("stop.xpm"), TB_STOP, true, i18n("Stop"));
+    opToolBar(0)->insertButton(Icon("reload.xpm"), TB_RELOAD, true, i18n("Reload"));
+    opToolBar(0)->insertButton(Icon("stop.xpm"), TB_STOP, true, i18n("Stop"));
 
-    toolBar(0)->insertSeparator();
+    opToolBar(0)->insertSeparator();
   
-    toolBar(0)->insertButton(Icon("viewmag+.xpm"), TB_ZOOMIN, true, i18n("Zoom in"));
-    toolBar(0)->insertButton(Icon("viewmag-.xpm"), TB_ZOOMOUT, true, i18n("Zoom out"));
+    opToolBar(0)->insertButton(Icon("viewmag+.xpm"), TB_ZOOMIN, true, i18n("Zoom in"));
+    opToolBar(0)->insertButton(Icon("viewmag-.xpm"), TB_ZOOMOUT, true, i18n("Zoom out"));
 
-    toolBar(0)->insertSeparator();
+    opToolBar(0)->insertSeparator();
 
-    toolBar(0)->insertButton(Icon("flag.xpm"), TB_SETBOOKMARK, true, i18n("Bookmark"));
-    toolBar(0)->insertButton(Icon("search.xpm"), TB_FIND, true, i18n("Find"));
-    toolBar(0)->insertButton(Icon("fileprint.xpm"), TB_PRINT, true, i18n("Print"));
+    opToolBar(0)->insertButton(Icon("flag.xpm"), TB_SETBOOKMARK, true, i18n("Bookmark"));
+    opToolBar(0)->insertButton(Icon("search.xpm"), TB_FIND, true, i18n("Find"));
+    opToolBar(0)->insertButton(Icon("fileprint.xpm"), TB_PRINT, true, i18n("Print"));
 
     // connect toolbar
-    connect(toolBar(0), SIGNAL(clicked(int)), SLOT(slotToolbarClicked(int)));
+    connect(opToolBar(0), SIGNAL(clicked(int)), SLOT(slotToolbarClicked(int)));
 }
 
 void khcMainWindow::setupLocationBar()
 {
     kdebug(KDEBUG_INFO,1400,"khcMainWindow::setupLocationbar()");
 
-    toolBar(1)->insertLined("", 1, SIGNAL(returnPressed()), this, SLOT(slotLocationEntered()));
-    toolBar(1)->setFullWidth(TRUE);
-    toolBar(1)->setItemAutoSized(1, TRUE);
-    toolBar(1)->enable(KToolBar::Show);
+    opToolBar(1)->insertLined("", 1, SIGNAL(returnPressed()), this, SLOT(slotLocationEntered()));
+    opToolBar(1)->setFullWidth(TRUE);
+    opToolBar(1)->setItemAutoSized(1, TRUE);
+    opToolBar(1)->enable(KToolBar::Show);
 }
 
 void khcMainWindow::setupStatusBar()
@@ -425,36 +440,36 @@ void khcMainWindow::slotReadSettings()
     // toolbar location
     o = config->readEntry("ToolBarPos");
     if (o.isEmpty())
-	toolBar(0)->setBarPos(KToolBar::Top);
+	opToolBar(0)->setBarPos(KToolBar::Top);
     else if ("Top" == o) 
-	toolBar(0)->setBarPos(KToolBar::Top);
+	opToolBar(0)->setBarPos(KToolBar::Top);
     else if ("Bottom" == o)
-	toolBar(0)->setBarPos(KToolBar::Bottom);
+	opToolBar(0)->setBarPos(KToolBar::Bottom);
     else if ("Left" == o)
-	toolBar(0)->setBarPos(KToolBar::Left);
+	opToolBar(0)->setBarPos(KToolBar::Left);
     else if ("Right" == o)
-	toolBar(0)->setBarPos(KToolBar::Right);
+	opToolBar(0)->setBarPos(KToolBar::Right);
     else if ("Floating" == o)
-	toolBar(0)->setBarPos(KToolBar::Floating);
+	opToolBar(0)->setBarPos(KToolBar::Floating);
     else
-	toolBar(0)->setBarPos(KToolBar::Top);
+	opToolBar(0)->setBarPos(KToolBar::Top);
   
     // locationbar location
     o = config->readEntry("LocationBarPos");
     if ( o.isEmpty() )
-   	toolBar(1)->setBarPos(KToolBar::Top);
+   	opToolBar(1)->setBarPos(KToolBar::Top);
     else if ("Top" == o) 
-	toolBar(1)->setBarPos(KToolBar::Top);
+	opToolBar(1)->setBarPos(KToolBar::Top);
     else if ("Bottom" == o)
-	toolBar(1)->setBarPos(KToolBar::Bottom);
+	opToolBar(1)->setBarPos(KToolBar::Bottom);
     else if ("Left" == o)
-	toolBar(1)->setBarPos(KToolBar::Left);
+	opToolBar(1)->setBarPos(KToolBar::Left);
     else if ("Right" == o)
-	toolBar(1)->setBarPos(KToolBar::Right);
+	opToolBar(1)->setBarPos(KToolBar::Right);
     else if ("Floating" == o)
-	toolBar(1)->setBarPos(KToolBar::Floating);
+	opToolBar(1)->setBarPos(KToolBar::Floating);
     else
-	toolBar(1)->setBarPos(KToolBar::Top);
+	opToolBar(1)->setBarPos(KToolBar::Top);
 
     // set configuration
     if (!m_showNavigator)
@@ -495,7 +510,7 @@ void khcMainWindow::slotSaveSettings()
     config->writeEntry( "ShowStatusBar", m_showStatusBar ? "Yes" : "No" );  
     config->writeEntry( "ShowLocationBar", m_showLocationBar ? "Yes" : "No" );
 
-    switch (toolBar(0)->barPos())
+    switch (opToolBar(0)->barPos())
     {
     case KToolBar::Top:
 	config->writeEntry( "ToolBarPos", "Top");
@@ -517,7 +532,7 @@ void khcMainWindow::slotSaveSettings()
 	break;
     }
 
-    switch (toolBar(1)->barPos())
+    switch (opToolBar(1)->barPos())
     {
     case KToolBar::Top:
 	config->writeEntry( "LocationBarPos", "Top");
@@ -542,12 +557,12 @@ void khcMainWindow::slotSaveSettings()
 
 void khcMainWindow::slotSetLocation(const QString& _url)
 {
-    toolBar(1)->setLinedText(1, _url);
+    opToolBar(1)->setLinedText(1, _url);
 }
 
 void khcMainWindow::slotLocationEntered()
 {
-    openURL(toolBar(1)->getLinedText(1), true );
+    openURL(opToolBar(1)->getLinedText(1), true );
 }
 
 void khcMainWindow::slotURLSelected(const QString& _url, int)
@@ -611,7 +626,7 @@ void khcMainWindow::slotSetStatusText(const QString& text)
 
 void khcMainWindow::slotSetTitle( const QString& _title )
 {
-    QString appCaption = "KDE HelpCenter - ";
+    QString appCaption = "KDE Helpcenter - ";
     appCaption += _title;
   
     setCaption( appCaption );
@@ -652,15 +667,15 @@ void khcMainWindow::slotOptionsNavigator()
     {
 	enableNavigator(false);
 	m_showNavigator = false;
-	toolBar(0)->setButtonPixmap(TB_NAVIGATOR, Icon("shownavigator.xpm"));
-	toolBar(0)->getButton(TB_NAVIGATOR)->setText(i18n("Show Navigator"));
+	opToolBar(0)->setButtonPixmap(TB_NAVIGATOR, Icon("shownavigator.xpm"));
+	opToolBar(0)->getButton(TB_NAVIGATOR)->setText(i18n("Show Navigator"));
     }
     else
     {
 	enableNavigator(true);
 	m_showNavigator = true;
-	toolBar(0)->setButtonPixmap(TB_NAVIGATOR, Icon("hidenavigator.xpm"));
-	toolBar(0)->getButton(TB_NAVIGATOR)->setText(i18n("Hide Navigator"));
+	opToolBar(0)->setButtonPixmap(TB_NAVIGATOR, Icon("hidenavigator.xpm"));
+	opToolBar(0)->getButton(TB_NAVIGATOR)->setText(i18n("Hide Navigator"));
     }
     m_pOptionsMenu->setItemChecked(idNavigator, m_showNavigator);
 }
@@ -812,6 +827,31 @@ void khcMainWindow::slotFindNext()
 
 }
 
+void khcMainWindow::slotMenuEditAboutToShow()
+{
+  createEditMenu();
+}
+
+void khcMainWindow::slotMenuViewAboutToShow()
+{
+  createViewMenu();
+}
+
+void khcMainWindow::slotHelpContents()
+{
+  kapp->invokeHTMLHelp("khelpcenter/index.html", "");
+}
+
+void khcMainWindow::slotHelpAbout()
+{
+  QMessageBox::about(0L, i18n("About KDE Helpcenter"), i18n(
+						       "KDE Helpcenter v" + QString(HELPCENTER_VERSION) + "\n\n"
+						       "Additional credits:\n"
+						       "René Beutler <rbeutler@g26.ethz.ch>: kassistant, kcmhelpcenter, kwid,konitemhelp\n"
+						       "Martin Jones <mjones@kde.org> Some code is based on kdehelp written 1997 by Martin.\n"
+						       "The Konqueror team. I have shamelessly :) ripped some code and ideas from Konqueror.\n" ));
+}
+
 void khcMainWindow::slotReload()
 {
   Browser::EventOpenURL eventURL;
@@ -851,8 +891,8 @@ void khcMainWindow::slotMagMinus()
     CORBA::Object_var obj = m_vView->getInterface("IDL:Browser/MagnifyingExtension:1.0");
     Browser::MagnifyingExtension_var magExt = Browser::MagnifyingExtension::_narrow(obj);
     magExt->zoomOut();
-    toolBar(0)->setItemEnabled(TB_ZOOMIN, magExt->canZoomIn());
-    toolBar(0)->setItemEnabled(TB_ZOOMOUT, magExt->canZoomOut());
+    opToolBar(0)->setItemEnabled(TB_ZOOMIN, magExt->canZoomIn());
+    opToolBar(0)->setItemEnabled(TB_ZOOMOUT, magExt->canZoomOut());
   }
 }
 
@@ -863,15 +903,15 @@ void khcMainWindow::slotMagPlus()
     CORBA::Object_var obj = m_vView->getInterface("IDL:Browser/MagnifyingExtension:1.0");
     Browser::MagnifyingExtension_var magExt = Browser::MagnifyingExtension::_narrow(obj);
     magExt->zoomIn();
-    toolBar(0)->setItemEnabled(TB_ZOOMIN, magExt->canZoomIn());
-    toolBar(0)->setItemEnabled(TB_ZOOMOUT, magExt->canZoomOut());
+    opToolBar(0)->setItemEnabled(TB_ZOOMIN, magExt->canZoomIn());
+    opToolBar(0)->setItemEnabled(TB_ZOOMOUT, magExt->canZoomOut());
   }
 }
 
 void khcMainWindow::slotCheckHistory()
 {
-  toolBar(0)->setItemEnabled(TB_BACK, history.hasPrev());
-  toolBar(0)->setItemEnabled(TB_FORWARD, history.hasNext());
+  opToolBar(0)->setItemEnabled(TB_BACK, history.hasPrev());
+  opToolBar(0)->setItemEnabled(TB_FORWARD, history.hasNext());
 }
 
 void khcMainWindow::slotForward()
@@ -938,7 +978,7 @@ void khcMainWindow::slotHistoryForwardActivated(int id)
 
 void khcMainWindow::slotSetBusy(bool busy)
 {
-  toolBar(0)->setItemEnabled(TB_STOP, busy);
+  opToolBar(0)->setItemEnabled(TB_STOP, busy);
 }
 
 khcMainWindowIf::khcMainWindowIf(khcMainWindow* _main) :

@@ -31,7 +31,7 @@
 
 class QSplitter;
 class OPFrame;
-class QPopupMenu;
+class OPMenu;
 class khcNavigator;
 class khcBaseView;
 class KFileBookmark;
@@ -98,6 +98,9 @@ class khcMainWindow : public OPMainWindow
     void connectView();
     void cleanUp();
 
+    void createViewMenu();
+    void createEditMenu();
+
     void enableNavigator(bool enable);
 
  public slots:
@@ -153,20 +156,25 @@ class khcMainWindow : public OPMainWindow
     void slotHistoryFillForward();
     void slotHistoryBackActivated(int id);
     void slotHistoryForwardActivated(int id);
-    void slotActivePartChanged(unsigned long new_id, unsigned long /*old_id*/ );
- 
+    void slotHelpContents();
+    void slotHelpAbout();
+    void slotMenuEditAboutToShow();
+    void slotMenuViewAboutToShow();
+
  protected:
     QSplitter       *m_pSplitter;
     khcNavigator    *m_pNavigator;
     OPFrame         *m_pFrame;
     khcHTMLView     *m_pView;
     khcMainWindowIf *m_pkhcInterface;
+    bool m_bEditMenuDirty;
+    bool m_bViewMenuDirty;
 
     Browser::View_var m_vView;
     khcHistory history;
 
-    QPopupMenu *m_pFileMenu, *m_pEditMenu, *m_pViewMenu, *m_pGotoMenu, *m_pOptionsMenu, *m_pHelpMenu,*m_pBookmarkMenu;
-    QPopupMenu *m_pHistoryBackMenu, *m_pHistoryForwardMenu;
+    OPMenu *m_pFileMenu, *m_pEditMenu, *m_pViewMenu, *m_pGotoMenu, *m_pOptionsMenu, *m_pHelpMenu,*m_pBookmarkMenu;
+    OPMenu *m_pHistoryBackMenu, *m_pHistoryForwardMenu;
 
     // file type
     enum FileType { HTMLFile, MANFile, INFOFile, TEXTFile, UNKNOWNFile };
