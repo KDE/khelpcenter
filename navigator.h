@@ -92,9 +92,6 @@ class Navigator : public QWidget
 
     bool checkSearchIndex();
 
-  private slots:
-    void getScrollKeeperContentsList(KProcIO *proc);
-
   private:
     void setupContentsTab();
     void setupIndexTab();
@@ -102,11 +99,6 @@ class Navigator : public QWidget
     void setupGlossaryTab();
 
     void insertPlugins();
-    int insertScrollKeeperSection( NavigatorItem *parentItem,
-                                   NavigatorItem *after, QDomNode sectNode,
-                                   NavigatorItem * &created );
-    void insertScrollKeeperDoc(NavigatorItem *parentItem,QDomNode docNode);
-
     void hideSearch();
 
     KListView *mContentsTree;
@@ -120,12 +112,8 @@ class Navigator : public QWidget
     QLineEdit *mSearchEdit;
     QPushButton *mSearchButton;
 
-    QPtrList<NavigatorItem> manualItems, pluginItems, scrollKeeperItems;
+    QPtrList<NavigatorItem> manualItems, pluginItems;
 
-    bool mScrollKeeperShowEmptyDirs;
-
-    QString mScrollKeeperContentsList;
-    
     bool mShowMissingDocs;
     
     SearchEngine *mSearchEngine;
