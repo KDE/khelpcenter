@@ -4,7 +4,6 @@
 #include <kstandarddirs.h>
 #include <klocale.h>
 #include <ksimpleconfig.h>
-#include <kdebugclasses.h>
 
 #include "htmlsearch.h"
 
@@ -136,8 +135,6 @@ void DocMetaInfo::scanMetaInfo( bool force )
   KConfig config( "khelpcenterrc" );
   config.setGroup( "General" );
   QStringList metaInfos = config.readListEntry( "MetaInfoDirs" );
-
-  kdDebug() << "METADIRS: " << metaInfos << endl;
 
   if ( metaInfos.isEmpty() ) {
     KStandardDirs* kstd = KGlobal::dirs();

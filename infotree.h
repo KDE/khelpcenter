@@ -22,8 +22,6 @@
 
 #include "treebuilder.h"
 
-#include <kurl.h>
-
 class QListViewItem;
 
 namespace KHC
