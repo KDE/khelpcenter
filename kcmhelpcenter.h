@@ -53,7 +53,7 @@ class IndexDirDialog : public KDialogBase
 
   protected slots:
     void slotOk();
-    
+    void slotUrlChanged( const QString &_url);    
   private:
     KURLRequester *mIndexUrlRequester;
 };

@@ -40,7 +40,7 @@
 #include <kurlrequester.h>
 #include <kmessagebox.h>
 #include <klistview.h>
-
+#include <klineedit.h>
 #include <qlayout.h>
 #include <qpushbutton.h>
 #include <qdir.h>
@@ -73,7 +73,15 @@ IndexDirDialog::IndexDirDialog( QWidget *parent )
   urlLayout->addWidget( mIndexUrlRequester );
 
   mIndexUrlRequester->setURL( Prefs::indexDirectory() );
+  connect(mIndexUrlRequester->lineEdit(),SIGNAL(textChanged ( const QString & )), this, SLOT(slotUrlChanged( const QString &)));
+  slotUrlChanged( mIndexUrlRequester->lineEdit()->text());
 }
+
+void IndexDirDialog::slotUrlChanged( const QString &_url)
+{
+  enableButtonOK( !_url.isEmpty() );
+}
+  
 
 void IndexDirDialog::slotOk()
 {
