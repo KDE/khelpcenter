@@ -3518,7 +3518,7 @@ preformatted_filter(void) {
 			if (!fcont && fcharout) {
 				if (strchr(escchars,c)!=NULL) {
 					putchar('\\'); putchar(c); I++;
-				} else if (strchr(trouble,c)!=NULL) {
+				} else if (strchr((const char*)trouble,c)!=NULL) {
 					(*fn)(c); fcont=1;
 				} else {
 					putchar(c); I++;
@@ -3844,7 +3844,7 @@ source_flush(void) {
     if (strchr(escchars,c)!=NULL) {
 	 xputchar('\\'); xputchar(c);
 	 if (fcharout) linelen++;
-    } else if (strchr(trouble,c)!=NULL) {
+    } else if (strchr((const char*)trouble,c)!=NULL) {
 	 (*fn)(c);
     } else {		/* normal character */
 	 xputchar(c);
