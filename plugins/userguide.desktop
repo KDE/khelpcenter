@@ -1,8 +1,9 @@
 [KDE Desktop Entry]
 DocPath=help:/khelpcenter/userguide/index.html
 
-Name=KDE user's manual
+Name=KDE users' manual
 Name[af]=Kde gebruiker se hand
+Name[ar]=دليل استخدام كيدي
 Name[bg]=Ръководство за потребителя
 Name[bs]=KDE korisnički priručnik
 Name[ca]=Manual dels usuaris del KDE
@@ -30,6 +31,7 @@ Name[lt]=KDE vartotojo vadovai
 Name[mn]=КДЭ-Хэрэглэгчийн гарын авлага
 Name[mt]=Manwal tal-user ta' KDE
 Name[nb]=KDE brukerhåndbok
+Name[nds]=KDE Bruukerhandbook
 Name[nl]=KDE's handleiding
 Name[nn]=Brukarhandbok for KDE
 Name[nso]=Manual wa Modirisi wa KDE
@@ -44,6 +46,7 @@ Name[sl]=Uporabniški priročnik KDE
 Name[sr]=KDE-ово упутство за кориснике
 Name[sv]=KDE:s användarmanual
 Name[ta]=KDE பயன்படுத்துபவர்கள் கையேடு
+Name[tg]=Роҳбарии корбарони KDE
 Name[th]=คู่มือผู้ใช้งาน KDE
 Name[tr]=KDE kılavuz sayfası
 Name[uk]=Підручник користувача KDE
