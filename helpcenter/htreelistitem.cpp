@@ -45,7 +45,7 @@ bool HTreeListItem::readKDElnk ( const char *filename )
     file.close(); 
 
     KSimpleConfig config( filename, true );
-    config.setGroup("KDE Desktop Entry");
+    config.setDesktopGroup();
 
     // read document url
     QString path = config.readEntry("DocPath");

@@ -437,7 +437,7 @@ bool HTabView::processDir( const char *dirName, HTreeListItem *parent,  QList<HT
 	if ( QFile::exists( dirFile ) )
 	{
 	    KSimpleConfig sc( dirFile, true );
-	    sc.setGroup( "KDE Desktop Entry" );
+            sc.setDesktopGroup();
 	    folderName = sc.readEntry("Name");
 
 	    icon = //sc.readEntry("MiniIcon");
