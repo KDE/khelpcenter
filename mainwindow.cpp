@@ -136,8 +136,8 @@ MainWindow::MainWindow(const KURL &url)
     if ( url.isEmpty() ) u = "help:/khelpcenter/index.html?anchor=welcome";
     else u = url;
       
-    openURL( url );
-    nav->selectItem( url );
+    openURL( u );
+    nav->selectItem( u );
 
     statusBarMessage(i18n("Ready"));
 }

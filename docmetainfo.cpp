@@ -7,6 +7,8 @@
 #include <kdesktopfile.h>
 #include <kstandarddirs.h>
 #include <kglobal.h>
+#include <klocale.h>
+#include <ksimpleconfig.h>
 
 #include "htmlsearch.h"
 
@@ -66,7 +68,12 @@ DocEntry *DocMetaInfo::addDocEntry( const QString &fileName )
   }
 
   if ( entry->readFromFile( fileName ) ) {
-    if ( !lang.isEmpty() ) entry->setLang( lang );
+    if ( !lang.isEmpty() && lang != mLanguages.first() ) {
+      entry->setLang( lang );
+      entry->setName( i18n("doctitle (language)","%1 (%2)")
+                           .arg( entry->name() )
+                           .arg( mLanguageNames[ lang ] ) );
+    }
     if ( entry->searchMethod().lower() == "htdig" ) {
       mHtmlSearch->setupDocEntry( entry );
     }
@@ -97,9 +104,30 @@ DocEntry::List DocMetaInfo::searchEntries()
   return mSearchEntries;
 }
 
+QString DocMetaInfo::languageName( const QString &langcode )
+{
+  if ( langcode == "en" ) return i18n("English");
+
+  QString cfgfile = locate( "locale",
+      QString::fromLatin1( "%1/entry.desktop" ).arg( langcode ) );
+
+  kdDebug() << "-- langcode: " << langcode << " cfgfile: " << cfgfile << endl;
+  
+  KSimpleConfig cfg( cfgfile );
+  cfg.setGroup( "KCM Locale" );
+  QString name = cfg.readEntry( "Name", langcode );
+  
+  return name;
+}
+
 void DocMetaInfo::scanMetaInfo( const QStringList &languages )
 {
   mLanguages = languages;
+
+  QStringList::ConstIterator it;
+  for( it = mLanguages.begin(); it != mLanguages.end(); ++it ) {
+    mLanguageNames.insert( *it, languageName( *it ) );
+  }
 
   KConfig config( "khelpcenterrc" );
   config.setGroup( "General" );
@@ -109,7 +137,6 @@ void DocMetaInfo::scanMetaInfo( const QStringList &languages )
     kstd->addResourceType( "data", "share/apps/khelpcenter" );
     metaInfos = kstd->findDirs( "data", "plugins" );
   }
-  QStringList::ConstIterator it;
   for( it = metaInfos.begin(); it != metaInfos.end(); it++) {
     kdDebug() << "DocMetaInfo::scanMetaInfo(): scanning " << *it << endl;
     scanMetaInfoDir( *it, &mRootEntry );

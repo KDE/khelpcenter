@@ -5,6 +5,7 @@
 #include <qstringlist.h>
 #include <qvaluelist.h>
 #include <qdir.h>
+#include <qmap.h>
 
 #include "docentry.h"
 
@@ -43,6 +44,8 @@ class DocMetaInfo
     void endProcess( DocEntry *entry, DocEntryTraverser *traverser );
     void endTraverseEntries( DocEntryTraverser * );
 
+    static QString languageName( const QString &langcode );
+
   protected:
     DocEntry *scanMetaInfoDir( const QString &filename, DocEntry *parent );
     DocEntry *addDirEntry( const QDir &dir, DocEntry *parent );
@@ -61,6 +64,8 @@ class DocMetaInfo
     DocEntry mRootEntry;
 
     QStringList mLanguages;
+
+    QMap<QString,QString> mLanguageNames;
 
     HTMLSearch *mHtmlSearch;
 
