@@ -104,33 +104,71 @@ bool HTMLSearch::createConfig(QString _lang)
     return false;
   images = images.left(images.length() - 8);
 
-  QString bad_words = i18n( "the\n"
-                            "and\n"
-                            "for\n"
-                            "with\n"
-                            "that\n"
-                            "this\n"
-                            "you\n"
-                            "are\n"
-                            "from\n"
-                            "will\n"
-                            "not\n"
-                            "was\n"
-                            "have\n"
-                            "your\n"
-                            "can\n"
-                            "all\n"
-                            "may\n"
-                            "it\n"
-                            "an\n"
-                            "of\n" );
+  QString bad_words = i18n( "List of words to exclude from index",
+                            "a:above:about:according:across:actually:\n"
+                            "adj:after:afterwards:again:against:all:\n"
+                            "almost:alone:along:already:also:although:\n"
+                            "always:among:amongst:an:and:another:any:\n"
+                            "anyhow:anyone:anything:anywhere:are:aren:\n"
+                            "arent:around:as:at:be:became:because:become:\n"
+                            "becomes:becoming:been:before:beforehand:\n"
+                            "begin:beginning:behind:being:below:beside:\n"
+                            "besides:between:beyond:billion:both:but:by:\n"
+                            "can:cant:cannot:caption:co:could:couldnt:\n"
+                            "did:didnt:do:does:doesnt:dont:down:during:\n"
+                            "each:eg:eight:eighty:either:else:elsewhere:\n"
+                            "end:ending:enough:etc:even:ever:every:\n"
+                            "everyone:everything:everywhere:except:few:\n"
+                            "fifty:first:five:for:former:formerly:forty:\n"
+                            "found:four:from:further:had:has:hasnt:have:\n"
+                            "havent:he:hence:her:here:hereafter:hereby:\n"
+                            "herein:heres:hereupon:hers:herself:hes:him:\n"
+                            "himself:his:how:however:hundred:ie:if:in:\n"
+                            "inc:indeed:instead:into:is:isnt:it:its:\n"
+                            "itself:last:later:latter:latterly:least:\n"
+                            "less:let:like:likely:ltd:made:make:makes:\n"
+                            "many:may:maybe:me:meantime:meanwhile:might:\n"
+                            "million:miss:more:moreover:most:mostly:mr:\n"
+                            "mrs:much:must:my:myself:namely:neither:\n"
+                            "never:nevertheless:next:nine:ninety:no:\n"
+                            "nobody:none:nonetheless:noone:nor:not:\n"
+                            "nothing:now:nowhere:of:off:often:on:once:\n"
+                            "one:only:onto:or:others:otherwise:our:ours:\n"
+                            "ourselves:out:over:overall:own:page:per:\n"
+                            "perhaps:rather:re:recent:recently:same:\n"
+                            "seem:seemed:seeming:seems:seven:seventy:\n"
+                            "several:she:shes:should:shouldnt:since:six:\n"
+                            "sixty:so:some:somehow:someone:something:\n"
+                            "sometime:sometimes:somewhere:still:stop:\n"
+                            "such:taking:ten:than:that:the:their:them:\n"
+                            "themselves:then:thence:there:thereafter:\n"
+                            "thereby:therefore:therein:thereupon:these:\n"
+                            "they:thirty:this:those:though:thousand:\n"
+                            "three:through:throughout:thru:thus:tips:\n"
+                            "to:together:too:toward:towards:trillion:\n"
+                            "twenty:two:under:unless:unlike:unlikely:\n"
+                            "until:up:update:updated:updates:upon:us:\n"
+                            "used:using:ve:very:via:want:wanted:wants:\n"
+                            "was:wasnt:way:ways:we:wed:well:were:\n"
+                            "werent:what:whats:whatever:when:whence:\n"
+                            "whenever:where:whereafter:whereas:whereby:\n"
+                            "wherein:whereupon:wherever:wheres:whether:\n"
+                            "which:while:whither:who:whoever:whole:\n"
+                            "whom:whomever:whose:why:will:with:within:\n"
+                            "without:wont:work:worked:works:working:\n"
+                            "would:wouldnt:yes:yet:you:youd:youll:your:\n"
+                            "youre:yours:yourself:yourselves:youve" );
 
   QFile f;
   f.setName( dataPath(_lang) + "/bad_words" );
   if (f.open(IO_WriteOnly))
   {
       QTextStream ts( &f );
-      ts << bad_words;
+      QStringList words = QStringList::split ( QRegExp ( "\n|:" ),
+                                               bad_words, false);
+      for ( QStringList::ConstIterator it = words.begin();
+            it != words.end(); ++it )
+          ts << *it << endl;
       f.close();
   }
 
