@@ -20,6 +20,7 @@
 
 #include <komApplication.h>
 #include <kded_utils.h>
+#include <kded_instance.h> 
 #include <kactivator.h>
 #include <ktrader.h>
 
