@@ -14,7 +14,7 @@ servicedir = $(kde_servicesdir)
 EXTRA_DIST = $(service_DATA)
 
 #SUBDIRS = libkhc . kmanbrowser kinfobrowser kwelcome pics plugins
-SUBDIRS = pics plugins
+SUBDIRS = libkhc kinfobrowser kwelcome plugins pics
 
 lib_LTLIBRARIES = libkhelpcenter.la
 
