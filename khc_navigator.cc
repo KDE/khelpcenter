@@ -40,6 +40,12 @@
 #include <klocale.h>
 #include <kdebug.h>
 #include <klistview.h>
+#include <kservicegroup.h>
+#include <ksycocaentry.h>
+#include <kservice.h>
+#include <kservicegroup.h>      
+#include <kmessagebox.h>                                                             
+
 
 template class QList<khcNavigatorItem>;
 
@@ -160,7 +166,7 @@ void khcNavigatorWidget::buildTree()
 
   // KDE FAQ
   khcNavigatorItem *ti_faq = new khcNavigatorItem(tree, i18n("The KDE FAQ"), "helpdoc.png");
-  ti_faq->setURL(QString("help:khelpcenter/faq/index.html"));
+  ti_faq->setURL(QString("help:/khelpcenter/faq/index.html"));
   staticItems.append(ti_faq);
 
   // scan plugin dir for plugins
@@ -185,7 +191,7 @@ void khcNavigatorWidget::buildTree()
   staticItems.append(ti_manual);
 
   // fill the application manual subtree
-  buildManualSubTree(ti_manual);
+  buildManualSubTree(ti_manual, "");
 
   // KDE user's manual
   khcNavigatorItem *ti_um = new khcNavigatorItem(tree, i18n("KDE user's manual"), "helpdoc.png");
@@ -266,19 +272,124 @@ void khcNavigatorWidget::buildManSubTree(khcNavigatorItem *parent)
   ti_man_s2->setURL(QString("man:/(2)"));
   staticItems.append(ti_man_s2);
   // man (1)
-  khcNavigatorItem *ti_man_s1 = new khcNavigatorItem(parent, i18n("(1) User commands"), "helpdoc.png");
+  khcNavigatorItem *ti_man_s1 = new khcNavigatorItem(parent, i18n("(1) Usr commands"), "helpdoc.png");
   ti_man_s1->setURL(QString("man:/(1)"));
   staticItems.append(ti_man_s1);
 }
 
-void khcNavigatorWidget::buildManualSubTree(khcNavigatorItem *parent)
+void khcNavigatorWidget::buildManualSubTree(khcNavigatorItem *parent, QString relPath)
 {
-    QStringList list = KGlobal::dirs()->resourceDirs("apps");
-    for(QStringList::Iterator it=list.begin(); it!=list.end(); it++) {
-      processDir(*it, parent, &manualItems);
-      appendEntries(*it, parent, &manualItems);
+  KServiceGroup::Ptr root = KServiceGroup::group(relPath);
+  KServiceGroup::List list = root->entries();                                                
+
+   
+  for (KServiceGroup::List::ConstIterator it = list.begin(); it != list.end(); ++it)
+    {
+      KSycocaEntry * e = *it;
+      KService::Ptr s;
+      khcNavigatorItem *item;
+      KServiceGroup::Ptr g;
+      QString url;
+
+      switch (e->sycocaType()) 
+	{	
+	case KST_KService:
+	  s = static_cast<KService*>(e);
+	  url = documentationURL(s);
+	  if (!url.isEmpty())
+	    {
+	      item = new khcNavigatorItem(parent, s->name(), s->icon());
+	      item->setURL(url);
+	      staticItems.append(item);
+	    }
+	  break;
+	  
+	case KST_KServiceGroup:
+	  g = static_cast<KServiceGroup*>(e);
+	  item = new khcNavigatorItem(parent, g->caption(), g->icon());
+	  item->setURL("");
+	  buildManualSubTree(item, g->relPath());
+	  if (item->childCount() > 0)
+	    staticItems.append(item);
+	  else
+	    delete item;
+	  break;
+
+	default:
+	  break;
+	}
     }
 }
+
+
+
+bool lookupFile(QString fname)
+{
+  QStringList search;
+ 
+  // assemble the local search paths
+  QStringList const &localDoc = KGlobal::dirs()->findDirs("html", "");
+ 
+  // look up the different languages
+  for (int id=localDoc.count()-1; id >= 0; --id)
+    {
+      QStringList langs = KGlobal::locale()->languageList();
+      langs.append("default");
+      langs.append("en");
+      QStringList::ConstIterator lang;
+      for (lang = langs.begin(); lang != langs.end(); ++lang)
+        search.append(QString("%1/%2/%3").arg(localDoc[id]).arg(*lang).arg(fname));
+    }
+ 
+  // try to locate the urls
+  QStringList::Iterator it;
+  for (it = search.begin(); it != search.end(); ++it)
+    {
+      QFileInfo info(*it);
+      if (info.exists() && info.isFile() && info.isReadable())
+	return true;
+    }
+ 
+  return false;
+} 
+
+
+// derive a valid URL to the documentation
+QString khcNavigatorWidget::documentationURL(KService *s)
+{
+  // if entry contains a DocPath, process it
+
+  // TODO: Once DocPath is in ksycoca, use this instead of
+  // parsing the file
+  //  QString docPath = s->property("DocPath").toString();
+  
+  QString path = locate("apps", s->desktopEntryPath());
+  KSimpleConfig config(path, true);
+  config.setDesktopGroup();
+  QString docPath = config.readEntry("DocPath");
+
+  if (!docPath.isEmpty())
+    {
+      // see if it is part of our help system, or external
+      // note that this test might be a bit too stupid
+      if (docPath.left(5) == "file:" || docPath.left(5) == "http:")
+	return docPath;
+      
+      // strip index.html, as we will have to look
+      // for the anchor first
+      if (docPath.right(11) == "/index.html")
+	docPath = docPath.left(docPath.length() - 11);      
+    }
+  else
+    docPath = s->desktopEntryName();
+
+  // TODO: extract the name of the index file from the .anchors file
+  if (lookupFile(docPath+"/index.html"))
+    return QString("help:/%1/index.html").arg(docPath);    
+
+  return QString::null;
+}
+
 
 void khcNavigatorWidget::insertPlugins()
 {
@@ -420,9 +531,6 @@ bool khcNavigatorWidget::processDir( const char *dirName, khcNavigatorItem *pare
 	filename += "/";
 	filename += *itDir;
 
-	if (!containsDocuments(filename))
-	    continue;
-
 	QString dirFile = filename;
 	dirFile += "/.directory";
 	QString icon;
@@ -454,52 +562,5 @@ bool khcNavigatorWidget::processDir( const char *dirName, khcNavigatorItem *pare
     return true;
 }
 
-bool khcNavigatorWidget::containsDocuments(QString dir)
-{
-    QDir fileDir(dir, "*.desktop", 0, QDir::Files | QDir::Hidden | QDir::Readable);
-
-    if (!fileDir.exists())
-	return false;
-
-    // does dir contain files
-    if (fileDir.count() > 0)
-    {
-	// does at least one kdelnk contain a docPath
-	QStringList fileList = fileDir.entryList();
-	QStringList::Iterator itFile;
-	for ( itFile = fileList.begin(); !(*itFile).isNull(); ++itFile )
-	{
-	    QString filename = dir;
-	    filename += "/";
-	    filename += *itFile;
-
-	    KSimpleConfig sc( filename, true );
-	    sc.setDesktopGroup();
-	    QString docpath = sc.readEntry("DocPath");
-		
-	    if (!docpath.isEmpty())
-		return true;
-	}
-    }
-
-    // does it contain subdirs
-    QDir dirDir( dir, "*", 0, QDir::Dirs );
-    if (dirDir.count() < 1)
-	return false;
-
-    // go through subdirs and search for files
-    QStringList dirList = dirDir.entryList();
-    QStringList::Iterator itDir;
-
-    for (itDir = dirList.begin(); !(*itDir).isNull(); ++itDir)
-    {
-	if ( (*itDir).at(0) == '.' )
-	    continue;
-
-	if (containsDocuments(dir + "/" + *itDir))
-	    return true;
-    }
-    return false;
-}
 
 #include "khc_navigator.moc"

@@ -21,10 +21,12 @@
 #ifndef __khc_navigator_h__
 #define __khc_navigator_h__
 
+
 #include <qlist.h>
 #include <kparts/browserextension.h>
 #include <kparts/part.h>
 #include <qwidget.h>
+
 
 class IndexWidget;
 class SearchWidget;
@@ -33,6 +35,8 @@ class khcNavigator;
 class KListView;
 class QListViewItem;
 class QTabBar;
+class KService;
+
 
 class khcNavigatorExtension : public KParts::BrowserExtension
 {
@@ -89,12 +93,14 @@ class khcNavigatorWidget : public QWidget
     void clearTree();
 
     void buildManSubTree(khcNavigatorItem *parent);
-    void buildManualSubTree(khcNavigatorItem *parent);
+
+    void buildManualSubTree(khcNavigatorItem *parent, QString relPath);
+    QString documentationURL(KService *s);
+
     void insertPlugins();
 
     bool appendEntries (const char *dirName,  khcNavigatorItem *parent, QList<khcNavigatorItem> *appendList);
     bool processDir(const char *dirName, khcNavigatorItem *parent,  QList<khcNavigatorItem> *appendList);
-    bool containsDocuments(QString dir);
 
     QTabBar *tabBar;
     KListView *tree;
