@@ -2,6 +2,7 @@
 #include <qregexp.h>
 #include <qfileinfo.h>
 
+#include <kconfig.h>
 #include <kdebug.h>
 #include <kdesktopfile.h>
 #include <kstandarddirs.h>
@@ -97,10 +98,17 @@ void DocMetaInfo::scanMetaInfo( const QStringList &languages )
 {
   mLanguages = languages;
 
-  KStandardDirs* kstd = KGlobal::dirs();
-  kstd->addResourceType( "data", "share/apps/khelpcenter" );
-  QStringList list = kstd->findDirs( "data", "plugins" );
-  for( QStringList::Iterator it=list.begin(); it!=list.end(); it++) {
+  KConfig *config = KGlobal::config();
+  config->setGroup( "General" );
+  QStringList metaInfos = config->readListEntry( "MetaInfoDirs" );
+  if ( metaInfos.isEmpty() ) {
+    KStandardDirs* kstd = KGlobal::dirs();
+    kstd->addResourceType( "data", "share/apps/khelpcenter" );
+    metaInfos = kstd->findDirs( "data", "plugins" );
+  }
+  QStringList::ConstIterator it;
+  for( it = metaInfos.begin(); it != metaInfos.end(); it++) {
+    kdDebug() << "DocMetaInfo::scanMetaInfo(): scanning " << *it << endl;
     scanMetaInfoDir( *it, &mRootEntry );
   }
 }
