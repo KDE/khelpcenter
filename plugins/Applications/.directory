@@ -1,19 +1,18 @@
 [KDE Desktop Entry]
 
 Name=Application Manuals
-Name[af]=aansoek handleidings
-Name[bs]=Priručnici aplikacija
-Name[cs]=Příručky aplikací
-Name[da]=Programmanualer
-Name[eo]=Manlibroj de Aplikaĵoj
-Name[es]=Manuales de aplicaciones
-Name[fi]=Sovellusten ohjekirjat
-Name[he]=ספרי הדרכה של יישומים
-Name[hu]=Az alkalmazások kézikönyvei
-Name[ja]=アプリケーションマニュアル
-Name[pt_BR]=Manuais de Aplicativos
-Name[sv]=Programhandböcker
-Name[tr]=Uygulama Kılavuzları
+Name[af/messages/kdebase/desktop_kdebase.po]=aansoek handleidings
+Name[bs/messages/kdebase/desktop_kdebase.po]=Priručnici aplikacija
+Name[cs/messages/kdebase/desktop_kdebase.po]=Příručky aplikací
+Name[da/messages/kdebase/desktop_kdebase.po]=Programmanualer
+Name[eo/messages/kdebase/desktop_kdebase.po]=Manlibroj de Aplikaĵoj
+Name[es/messages/kdebase/desktop_kdebase.po]=Manuales de aplicaciones
+Name[fi/messages/kdebase/desktop_kdebase.po]=Sovellusten ohjekirjat
+Name[he/messages/kdebase/desktop_kdebase.po]=ספרי הדרכה של יישומים
+Name[hu/messages/kdebase/desktop_kdebase.po]=Az alkalmazások kézikönyvei
+Name[ja/messages/kdebase/desktop_kdebase.po]=アプリケーションマニュアル
+Name[sv/messages/kdebase/desktop_kdebase.po]=Programhandböcker
+Name[tr/messages/kdebase/desktop_kdebase.po]=Uygulama Kılavuzları
 
 X-DOC-Weight=-500
 

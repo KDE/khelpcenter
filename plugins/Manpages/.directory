@@ -1,17 +1,16 @@
 [KDE Desktop Entry]
 Name=UNIX manual pages
-Name[af]=unix hand bladsye
-Name[bs]=Unix manual stranice
-Name[cs]=Unixové manuálové stránky
-Name[da]=UNIX-manualsider
-Name[es]=Páginas de manual de Unix
-Name[fi]=UNIX manuaalisivut
-Name[he]=דפי הוראות של יוניקס
-Name[hu]=UNIX man oldalak
-Name[ja]=UNIX マニュアルページ
-Name[pt_BR]=Páginas de manual UNIX
-Name[sv]=Unix manualsidor
-Name[tr]=Unix kılavuz sayfaları
+Name[af/messages/kdebase/desktop_kdebase.po]=unix hand bladsye
+Name[bs/messages/kdebase/desktop_kdebase.po]=Unix manual stranice
+Name[cs/messages/kdebase/desktop_kdebase.po]=Unixové manuálové stránky
+Name[da/messages/kdebase/desktop_kdebase.po]=UNIX-manualsider
+Name[es/messages/kdebase/desktop_kdebase.po]=Páginas de manual de Unix
+Name[fi/messages/kdebase/desktop_kdebase.po]=UNIX manuaalisivut
+Name[he/messages/kdebase/desktop_kdebase.po]=דפי הוראות של יוניקס
+Name[hu/messages/kdebase/desktop_kdebase.po]=UNIX man oldalak
+Name[ja/messages/kdebase/desktop_kdebase.po]=UNIX マニュアルページ
+Name[sv/messages/kdebase/desktop_kdebase.po]=Unix manualsidor
+Name[tr/messages/kdebase/desktop_kdebase.po]=Unix kılavuz sayfaları
 
 DocPath=man:/
 
