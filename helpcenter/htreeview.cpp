@@ -85,7 +85,7 @@ void HTreeView::buildTree()
   buildManSubTree(ti_man);
 
   // info browser 
-  HTreeListItem *ti_info = new HTreeListItem("Browse info pages", "document.xpm");
+  HTreeListItem *ti_info = new HTreeListItem("Browse info pages", "folder.xpm");
   ti_info->setURL(QString("file:/cgi-bin/info2html"));
   ti_info->insertInTree(tree,0);
   staticItems.append(ti_info);
@@ -105,9 +105,7 @@ void HTreeView::buildTree()
   ti_contact->setURL(QString("file:" + kapp->kde_htmldir().copy()
 						   +"/default/khelpcenter/contact.html"));
   ti_contact->insertInTree(tree,0);
-  staticItems.append(ti_contact);
-
-  
+  staticItems.append(ti_contact);  
 }
 
 void HTreeView::clearTree()
