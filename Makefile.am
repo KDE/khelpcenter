@@ -55,8 +55,7 @@ servicedir = $(kde_servicesdir)
 khelpcenter_data_DATA = Help.desktop
 khelpcenter_datadir = $(kde_appsdir)
 
-#kcmhelpcenter_DATA = kcmhelpcenter.desktop
-#kcmhelpcenterdir = $(kde_appsdir)/Settings/System
+#xdg_apps_DATA = kcmhelpcenter.desktop
 
 rc_DATA = khelpcenterui.rc intro.html.in glossary.html.in table-of-contents.xslt \
 	glossary.xslt

@@ -19,8 +19,7 @@ libkcm_htmlsearch_la_LIBADD = $(LIB_KIO)
 
 noinst_HEADERS = kcmhtmlsearch.h htmlsearch.h
 
-conf_DATA = htmlsearch.desktop
-confdir = $(kde_appsdir)/Settings/Help
+xdg_apps_DATA = htmlsearch.desktop
 
 bin_PROGRAMS = khtmlindex
 
