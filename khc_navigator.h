@@ -27,7 +27,6 @@
 #include <kparts/part.h>
 #include <qwidget.h>
 
-
 class SearchWidget;
 class khcNavigatorItem;
 class khcNavigator;
@@ -105,7 +104,7 @@ class khcNavigatorWidget : public QWidget
 
     QTabBar *tabBar;
     KListView *tree;
-    // SearchWidget *search;
+    SearchWidget *search;
 
     QList<khcNavigatorItem> staticItems, manualItems, pluginItems;
 };

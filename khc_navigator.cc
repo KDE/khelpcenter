@@ -105,7 +105,7 @@ khcNavigatorWidget::khcNavigatorWidget(QWidget *parent, const char *name)
 khcNavigatorWidget::~khcNavigatorWidget()
 {
     delete tree;
-    //delete search;
+    delete search;
     delete tabBar;
 }
 
@@ -113,7 +113,7 @@ void khcNavigatorWidget::resizeEvent(QResizeEvent *)
 {
     tabBar->setGeometry(0, 0, width(), 28);
     tree->setGeometry(0, 28, width(), height()-28);
-    // search->setGeometry(0, 28, width(), height()-28);
+    search->setGeometry(0, 28, width(), height()-28);
 }
 
 void khcNavigatorWidget::setupContentsTab()
@@ -137,7 +137,6 @@ void khcNavigatorWidget::setupContentsTab()
 
 void khcNavigatorWidget::setupSearchTab()
 {
-    /*
     search = new SearchWidget(this);
     search->hide();
 
@@ -147,7 +146,6 @@ void khcNavigatorWidget::setupSearchTab()
     QTab *newTab = new QTab;
     newTab->label = i18n("Search");
     tabBar->addTab(newTab);
-    */
 }
 
 void khcNavigatorWidget::buildTree()
@@ -372,12 +370,12 @@ void khcNavigatorWidget::slotTabSelected(int id)
     if (id == 0)
     {
 	tree->show();
-	// search->hide();
+	search->hide();
     }
     else if (id == 1)
     {
 	tree->hide();
-	// search->show();
+	search->show();
     }
 }
 

@@ -201,7 +201,7 @@ bool HTMLSearch::createConfig(const QString& _lang)
 
         ts << "database_dir:\t\t" << dataPath(_lang) << endl;
         ts << "start_url:\t\t`" << dataPath(_lang) << "/files`" << endl;
-        ts << "local_urls:\t\thttp://localhost/=/" << endl;
+        ts << "local_urls:\t\tfile:/=/" << endl;
         ts << "local_urls_only:\ttrue" << endl;
         ts << "maximum_pages:\t\t1" << endl;
         ts << "image_url_prefix:\t" << images << endl;
@@ -294,7 +294,7 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
 
             for (int i=0; i<CHUNK_SIZE; ++i, ++count)
                 if (count < _filesToDig) {
-                    ts << "http://localhost/" + _files[count] << endl;
+                    ts << "file://" + _files[count] << endl;
                 } else {
                     done = true;
                     break;
@@ -311,8 +311,7 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
         // execute htdig
         _proc->start(KProcess::NotifyOnExit, KProcess::Stdout );
 
-        while (_htdigRunning && _proc->isRunning())
-            kapp->processEvents();
+        kapp->enter_loop();
 
         if (!_proc->normalExit() || _proc->exitStatus() != 0)
 	{
@@ -346,8 +345,7 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
 
     _proc->start(KProcess::NotifyOnExit, KProcess::Stdout);
 
-    while (_htmergeRunning && _proc->isRunning())
-        kapp->processEvents();
+    kapp->enter_loop();
 
     if (!_proc->normalExit() || _proc->exitStatus() != 0)
     {
@@ -373,7 +371,7 @@ void HTMLSearch::htdigStdout(KProcess *, char *buffer, int len)
     QString line = QString(buffer).left(len);
 
     int cnt=0, index=-1;
-    while ( (index = line.find("http://", index+1)) > 0)
+    while ( (index = line.find("file://", index+1)) > 0)
         cnt++;
     _filesDigged += cnt;
 
@@ -391,6 +389,7 @@ void HTMLSearch::htdigExited(KProcess *p)
 {
     kdDebug() << "htdig terminated " << p->exitStatus() << endl;
     _htdigRunning = false;
+    kapp->exit_loop();
 }
 
 
@@ -398,6 +397,7 @@ void HTMLSearch::htmergeExited(KProcess *)
 {
   kdDebug() << "htmerge terminated" << endl;
   _htmergeRunning = false;
+  kapp->exit_loop();
 }
 
 
@@ -411,6 +411,7 @@ void HTMLSearch::htsearchExited(KProcess *)
 {
   kdDebug() << "htsearch terminated" << endl;
   _htsearchRunning = false;
+  kapp->exit_loop();
 }
 
 
@@ -447,8 +448,7 @@ QString HTMLSearch::search(QString _lang, QString words, QString method, int mat
 
   _proc->start(KProcess::NotifyOnExit, KProcess::Stdout);
 
-  while (_htsearchRunning && _proc->isRunning())
-    kapp->processEvents();
+  kapp->enter_loop();
 
   if (!_proc->normalExit() || _proc->exitStatus() != 0)
     {
