@@ -152,10 +152,10 @@ void khcMainWindow::setupView()
    
     kdebug(KDEBUG_INFO,1400,"m_pFrame->attach(m_vView);");
 
-    if (m_vView->supportsInterface("IDL:KHelpCenter/MagnifyingExtension:1.0"))
+    if (m_vView->supportsInterface("IDL:Browser/MagnifyingExtension:1.0"))
       {
-	CORBA::Object_var obj = m_vView->getInterface("IDL:KHelpCenter/MagnifyingExtension:1.0");
-	KHelpCenter::MagnifyingExtension_var magExt = KHelpCenter::MagnifyingExtension::_narrow(obj);
+	CORBA::Object_var obj = m_vView->getInterface("IDL:Browser/MagnifyingExtension:1.0");
+	Browser::MagnifyingExtension_var magExt = Browser::MagnifyingExtension::_narrow(obj);
 	toolBar(0)->setItemEnabled(TB_ZOOMIN, magExt->canZoomIn());
 	toolBar(0)->setItemEnabled(TB_ZOOMOUT, magExt->canZoomOut());
       }
@@ -820,10 +820,10 @@ void khcMainWindow::slotStopProcessing()
 
 void khcMainWindow::slotMagMinus()
 {
-  if (m_vView->supportsInterface("IDL:KHelpCenter/MagnifyingExtension:1.0"))
+  if (m_vView->supportsInterface("IDL:Browser/MagnifyingExtension:1.0"))
   {
-    CORBA::Object_var obj = m_vView->getInterface("IDL:KHelpCenter/MagnifyingExtension:1.0");
-    KHelpCenter::MagnifyingExtension_var magExt = KHelpCenter::MagnifyingExtension::_narrow(obj);
+    CORBA::Object_var obj = m_vView->getInterface("IDL:Browser/MagnifyingExtension:1.0");
+    Browser::MagnifyingExtension_var magExt = Browser::MagnifyingExtension::_narrow(obj);
     magExt->zoomOut();
     toolBar(0)->setItemEnabled(TB_ZOOMIN, magExt->canZoomIn());
     toolBar(0)->setItemEnabled(TB_ZOOMOUT, magExt->canZoomOut());
@@ -832,10 +832,10 @@ void khcMainWindow::slotMagMinus()
 
 void khcMainWindow::slotMagPlus()
 {
-  if (m_vView->supportsInterface("IDL:KHelpCenter/MagnifyingExtension:1.0"))
+  if (m_vView->supportsInterface("IDL:Browser/MagnifyingExtension:1.0"))
   {
-    CORBA::Object_var obj = m_vView->getInterface("IDL:KHelpCenter/MagnifyingExtension:1.0");
-    KHelpCenter::MagnifyingExtension_var magExt = KHelpCenter::MagnifyingExtension::_narrow(obj);
+    CORBA::Object_var obj = m_vView->getInterface("IDL:Browser/MagnifyingExtension:1.0");
+    Browser::MagnifyingExtension_var magExt = Browser::MagnifyingExtension::_narrow(obj);
     magExt->zoomIn();
     toolBar(0)->setItemEnabled(TB_ZOOMIN, magExt->canZoomIn());
     toolBar(0)->setItemEnabled(TB_ZOOMOUT, magExt->canZoomOut());

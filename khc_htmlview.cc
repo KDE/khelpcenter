@@ -28,7 +28,7 @@ khcHTMLView::khcHTMLView()
 {
   ADD_INTERFACE("IDL:KHelpCenter/HTMLView:1.0");
   ADD_INTERFACE("IDL:Browser/PrintingExtension:1.0");
-  ADD_INTERFACE("IDL:KHelpCenter/MagnifyingExtension:1.0");
+  ADD_INTERFACE("IDL:Browser/MagnifyingExtension:1.0");
 
   setWidget(this);
 
