@@ -88,7 +88,7 @@ int main(int argc, char *argv[])
   // init app
   KApplication app(argc, argv, "khelpcenter");
   
-  HelpCenter *toplevel = new HelpCenter();
+  HelpCenter *toplevel;
 
   if (app.isRestored())
 	{

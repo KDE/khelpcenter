@@ -389,8 +389,7 @@ int HelpCenter::openURL( const char *URL, bool withHistory)
 
 void HelpCenter::fillBookmarkMenu(KFileBookmark *parent, QPopupMenu *menu, int &id)
 {
-  KFileBookmark *bm;
-  
+KFileBookmark *bm;
   for ( bm = parent->getChildren().first(); bm != NULL;
 		bm = parent->getChildren().next() )
 	{
@@ -428,6 +427,7 @@ void HelpCenter::enableTree(bool enable)
 	  htmlview->recreate(this, 0, QPoint(0,0),true);
 	  setView(htmlview, true);
 	  delete splitter;
+	  splitter = 0L;
 	  treeview->hide();
 	  resize(width() - 205, height());
 	}
