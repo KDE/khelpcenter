@@ -88,7 +88,7 @@ void KHCView::showGlossaryEntry( const khcNavigatorWidget::GlossaryEntry &entry 
                       .arg(seeAlso)
                       .arg( langLookup( "khelpcenter/kdelogo2.png" ) );
 
-    begin("about:glossary" );
+    begin("help:/khelpcenter/glossary" );
     write(htmlSrc);
     end();
     emit completed();
