@@ -83,6 +83,7 @@ KCMHelpCenter::KCMHelpCenter(QWidget *parent, const char *name)
 
   mConfig = new KConfig("kcmhelpcenterrc");
 
+  delete DocMetaInfo::self();
   DocMetaInfo::self()->scanMetaInfo( KGlobal::locale()->languagesTwoAlpha() );
 
   load();
@@ -104,6 +105,8 @@ void KCMHelpCenter::save()
 
 void KCMHelpCenter::load()
 {
+  mListView->clear();
+
   DocEntry::List entries = DocMetaInfo::self()->docEntries();
   DocEntry::List::ConstIterator it;
   for( it = entries.begin(); it != entries.end(); ++it ) {
