@@ -158,9 +158,6 @@ class khcNavigatorWidget : public QTabWidget
 
     void buildManSubTree(khcNavigatorItem *parent);
 
-    void buildManualSubTree(khcNavigatorItem *parent, QString relPath);
-    QString documentationURL(KService *s);
-
     void insertPlugins();
     void insertScrollKeeperItems();
     int insertScrollKeeperSection(khcNavigatorItem *parentItem,QDomNode sectNode);
@@ -173,7 +170,7 @@ class khcNavigatorWidget : public QTabWidget
     KListView *contentsTree, *glossaryTree;
     // SearchWidget *search;
 
-    QPtrList<khcNavigatorItem> staticItems, manualItems, pluginItems, scrollKeeperItems;
+    QPtrList<khcNavigatorItem> manualItems, pluginItems, scrollKeeperItems;
 
     // ACHU
     regex_t compInfoRegEx;

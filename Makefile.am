@@ -16,7 +16,7 @@ khelpcenter_la_SOURCES = khc_main.cc $(libkhelpcenterpart_la_SOURCES)
 
 kde_module_LTLIBRARIES = libkhelpcenterpart.la khelpcenter.la
 libkhelpcenterpart_la_SOURCES = khc_factory.cc khc_navigator.cc \
-	khc_navigatoritem.cc khc_view.cc \
+	khc_navigatoritem.cc khc_navigatorappitem.cc khc_view.cc \
 	khc_infohierarchymaker.cc khc_inforeader.cc khc_infofile.cc khc_infonode.cc
 libkhelpcenterpart_la_LIBADD = $(LIB_KHTML) $(LIB_KPARTS)
 libkhelpcenterpart_la_LDFLAGS = $(all_libraries) $(KDE_PLUGIN)
