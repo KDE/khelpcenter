@@ -222,7 +222,7 @@ void kmbMainWindow::setupToolBar()
     connect(m_pHistoryForwardMenu, SIGNAL(activated(int)), this, SLOT(slotHistoryForwardActivated(int)));
     
     // explicitely instanciate a toolbar, to make sure it gets the height (40) we want
-    KToolBar *bar = new KToolBar(this, 0, 40);
+    KToolBar *bar = new KToolBar(this, 0, false, 40);
     addToolBar(bar, 0);
     toolBar(0)->setIconText(3);
 

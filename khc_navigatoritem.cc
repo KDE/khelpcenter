@@ -50,7 +50,7 @@ void khcNavigatorItem::init(const QString& _text, const QString& _miniicon)
     
     setText(0, name);
     //    setPixmap(0, QPixmap(locate("mini", miniicon)));
-    setPixmap( 0, KHCFactory::instance()->iconLoader()->loadApplicationIcon( miniicon ) );
+    setPixmap( 0, KHCFactory::instance()->iconLoader()->loadIcon( miniicon ) );
 }
 
 bool khcNavigatorItem::readKDElnk ( const char *filename )
