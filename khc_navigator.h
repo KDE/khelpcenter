@@ -89,7 +89,7 @@ class khcNavigatorWidget : public QWidget
     khcNavigatorWidget(KHCView *, QWidget *parent=0, const char *name=0);
     virtual ~khcNavigatorWidget();
 
-    khcGlossaryEntry glossEntry(const QString &term) const { return glossaryTree->entry( term ); }
+    const khcGlossaryEntry &glossEntry(const QString &term) const { return glossaryTree->entry( term ); }
 
   public slots:
     void slotURLSelected(QString url);
