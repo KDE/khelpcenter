@@ -389,11 +389,11 @@ void khcNavigatorWidget::buildTree()
   khcNavigatorItem *ti_qs = new khcNavigatorItem(contentsTree, i18n("Introduction to KDE"),"document2");
   ti_qs->setURL(QString("help:/khelpcenter/quickstart/index.html"));
 
-  // introduction page
-  khcNavigatorItem *ti_intro = new khcNavigatorItem(contentsTree, i18n("Introduction"),"document2");
-  ti_intro->setURL(QString("help:/khelpcenter/index.html?anchor=welcome"));
+  // Welcome page
+  khcNavigatorItem *ti_welcome = new khcNavigatorItem(contentsTree, i18n("Welcome to KDE"),"document2");
+  ti_welcome->setURL(QString("help:/khelpcenter/index.html?anchor=welcome"));
 
-  contentsTree->setCurrentItem(ti_intro);
+  contentsTree->setCurrentItem(ti_welcome);
 }
 
 void khcNavigatorWidget::clearTree()
