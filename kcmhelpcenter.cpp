@@ -191,7 +191,8 @@ void KCMHelpCenter::buildIndex()
   if ( mIndexQueue.isEmpty() ) return;
 
   if ( !mProgressDialog ) {
-    mProgressDialog = new QProgressDialog( "", i18n("Cancel"), 1, this,
+    mProgressDialog = new QProgressDialog( "", i18n("Cancel"), 1,
+                                           topLevelWidget(),
                                            "mProgressDialog", true );
     mProgressDialog->setCaption( i18n("Build Search Indices") );
     connect( mProgressDialog, SIGNAL( cancelled() ),
