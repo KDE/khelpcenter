@@ -79,7 +79,7 @@ void Listener::slotAppRegistered( const QCString &appId )
 int main(int argc, char *argv[])
 {
   KAboutData aboutData( "khelpcenter", I18N_NOOP("KDE HelpCenter"), 
-    HELPCENTER_VERSION, description, KAboutData::GPL, 
+    HELPCENTER_VERSION, description, KAboutData::License_GPL, 
     "(c) 1999-2000, Matthias Elter");
   aboutData.addAuthor("Matthias Elter",0, "me@kde.org");
   KCmdLineArgs::init( argc, argv, &aboutData );
