@@ -23,6 +23,7 @@
 #include <kdebug.h>
 #include <kcursor.h>
 
+#include "man.h"
 #include "kmb_view.h"
 
 kmbView::kmbView( QWidget *parent, char *name )
@@ -43,11 +44,11 @@ kmbView::kmbView( QWidget *parent, char *name )
   //m_pView->setFixedFont();
 
   connect(m_pView, SIGNAL(setTitle(const QString &)), this, SLOT(slotSetTitle(const QString &)));
-  connect(m_pView, SIGNAL(documentDone()), this, SLOT(slotCompleted()));
+  connect(m_pView, SIGNAL(completed()), this, SLOT(slotCompleted()));
   // ### fix cursor scrolling
   //connect(m_pView, SIGNAL(scrollVert(int)), this, SLOT(slotScrollVert(int)));
   //connect(m_pView, SIGNAL(scrollHorz(int)), this, SLOT(slotScrollHorz(int)));
-  connect(m_pView, SIGNAL(resized(const QSize &)), SLOT(slotViewResized(const QSize &)));
+  //connect(m_pView, SIGNAL(resized(const QSize &)), SLOT(slotViewResized(const QSize &)));
 }
 
 kmbView::~kmbView()
@@ -75,19 +76,42 @@ void kmbView::resizeEvent(QResizeEvent *)
     m_pView->resize( size() );
 }
 
-void kmbView::open(QString url, bool /*reload*/, int xoffset, int yoffset)
+void kmbView::open( QString url, bool /*reload*/, int xoffset, int yoffset )
 {
+  debug( "kmbView::open" );
+
+  ManParser parser;
   m_url = url;
 
+  if( url.left( 4 ) == "man:" )
+      url = url.right( url.length() - 4 );
+  
   m_pView->begin( url );
-  m_pView->write("<html><head><title>Test!</title></head><body>");
-  m_pView->write("<H2>Test!</H2>");
-  m_pView->write("<br>Viewing: " + url + " not implemented, yet.<br>");
+
+  if( !parser.readLocation( url ) )
+  {
+      QString str = parser.page();
+   
+      debug( "MICHAEL" );
+      debug( str.data() );
+      debug( "MICHAEL" );
+      
+      //str = "<html><title>test</title><body>" + str + "</body></html>";
+      m_pView->write( str );
+      //m_pView->write( "<html><head><title>Test!</title></head><body><H2>Test!</H2></body></html>" );
+  }
+  else
+  {
+    m_pView->write("<html><head><title>Test!</title></head><body>");
+    m_pView->write("<H2>Test!</H2>");
+    m_pView->write("<br>Viewing: " + url + " not implemented, yet.<br></body></html>");
+  }
+
   m_pView->end();
-  
-  
 
   m_pView->setContentsPos( xoffset, yoffset );
+
+  debug( "kmbView::open" );
 }
 
 bool kmbView::mappingOpenURL( const QString& url )
@@ -204,7 +228,7 @@ long kmbView::yOffset()
   return m_pView->contentsY();
 }
 
-void kmbView::openURL(QString /*url*/, bool /*reload*/, int /*xoffset*/, int /*yoffset*/, const char */*post_data*/)
+void kmbView::openURL( QString url, bool reload, int xoffset, int yoffset, const char */*post_data*/ )
 {
     /*
   Browser::EventOpenURL eventURL;
@@ -214,6 +238,8 @@ void kmbView::openURL(QString /*url*/, bool /*reload*/, int /*xoffset*/, int /*y
   eventURL.yOffset = _yoffset;
   SIGNAL_CALL1("openURL", eventURL);
     */
+
+  open( url, reload, xoffset, yoffset );
 }
 
 QString kmbView::url()

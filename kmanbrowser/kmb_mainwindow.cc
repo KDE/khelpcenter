@@ -40,7 +40,7 @@
 kmbMainWindow::kmbMainWindow(const QString& url)
 {
     kDebugInfo( 1400,"kmbMainWindow::kmbMainWindow()");
-    
+
     setCaption(i18n("KDE ManBrowser"));
     resize(800, 580);
     setMinimumSize(200, 100);
@@ -101,26 +101,26 @@ void kmbMainWindow::setupActions()
     KStdAction::findNext( this, SLOT( slotFindNext() ), actionCollection(), "find_next" );
 
     m_back = KStdAction::back( this, SLOT( slotBack() ), actionCollection(), "back" );
-    
+
     m_forward = KStdAction::forward( this, SLOT( slotForward() ), actionCollection(), "forward" );
 
     new KAction( i18n( "&Index" ), 0, this, SLOT( slotIndex() ), actionCollection(), "index" );
 
     m_zoomIn = KStdAction::zoomIn( this, SLOT( slotMagPlus() ), actionCollection(), "zoom_in" );
-    
+
     m_zoomOut = KStdAction::zoomOut( this, SLOT( slotMagMinus() ), actionCollection(), "zoom_out" );
 
     m_stop = new KAction( i18n( "&Stop" ), 0, this, SLOT( slotStop() ), actionCollection(), "stop" );
-    
+
     /*
     connect(m_pBookmarkMenu, SIGNAL(activated(int)), this, SLOT(slotBookmarkSelected(int)));
     connect(m_pBookmarkMenu, SIGNAL(highlighted(int)), this, SLOT(slotBookmarkHighlighted(int)));
     */
 
     m_toolBar = KStdAction::showToolbar( this, SLOT( slotOptionsToolbar() ), actionCollection(), "show_toolbar" );
-    
+
     m_locationBar = new KToggleAction( i18n( "Show &Location"), 0, this, SLOT( slotOptionsLocationbar() ), actionCollection(), "show_locationbar" );
-    
+
     m_statusBar = KStdAction::showStatusbar( this, SLOT( slotOptionsStatusbar() ), actionCollection(), "show_statusbar" );
 
     KStdAction::preferences( this, SLOT( slotOptionsGeneral() ), actionCollection(), "settings" );
@@ -144,7 +144,7 @@ void kmbMainWindow::setupLocationBar()
 void kmbMainWindow::setupStatusBar()
 {
     kDebugInfo( 1400, "kmbMainWindow::setupStatusbar()" );
-    
+
     statusBar()->insertItem( "", 1 );
     enableStatusBar( KStatusBar::Show );
 }
@@ -161,7 +161,7 @@ void kmbMainWindow::slotReadSettings()
 
     // toolbar location
     QString o = config->readEntry( "ToolBarPos", "Top" );
-    
+
     if ("Top" == o)
 	toolBar(0)->setBarPos(KToolBar::Top);
     else if ("Bottom" == o)
@@ -217,7 +217,7 @@ void kmbMainWindow::slotSaveSettings()
     KConfig *config = KApplication::kApplication()->config();
 
     config->setGroup( "Appearance" );
-    
+
     config->writeEntry( "ShowToolBar", m_showToolBar );
     config->writeEntry( "ShowStatusBar", m_showStatusBar );
     config->writeEntry( "ShowLocationBar", m_showLocationBar );
@@ -383,6 +383,8 @@ void kmbMainWindow::slotQuit()
 
 void kmbMainWindow::openURL( const QString& url )
 {
+    debug( "kmbMainWindow::openURL" );
+    
   slotStopProcessing();
 
   //khcHistoryItem *hitem = new khcHistoryItem(urlRequest.url, urlRequest.xOffset, urlRequest.yOffset);
@@ -390,33 +392,26 @@ void kmbMainWindow::openURL( const QString& url )
   history.append( hitem );
 
   slotSetLocation( url );
-  
+
   //EMIT_EVENT(m_vView, Browser::eventOpenURL, urlRequest);
   slotCheckHistory();
 }
 
 void kmbMainWindow::openURL( const QString& url, bool withHistory, long xOffset, long yOffset )
 {
+  debug( "kmbMainWindow::openURL 2" );
+    
   slotStopProcessing();
 
-  /*
-  Browser::EventOpenURL eventURL;
-  kDebugInfo( 1400,"openURL:" + QString(_url));
-  eventURL.url = _url;
-  eventURL.reload = false;
-  eventURL.xOffset = xOffset;
-  eventURL.yOffset = yOffset;
-  */
-  
-  if (withHistory)
-    {
+  if( withHistory )
+  {
       khcHistoryItem *hitem = new khcHistoryItem( url, xOffset, yOffset );
       history.append( hitem );
-    }
+  }
 
   slotSetLocation( url );
-  
-  //EMIT_EVENT(m_vView, Browser::eventOpenURL, eventURL);
+
+  m_pView->openURL( url, withHistory, xOffset, yOffset );
   slotCheckHistory();
 }
 
@@ -534,7 +529,7 @@ void kmbMainWindow::slotCheckHistory()
 void kmbMainWindow::slotForward()
 {
   khcHistoryItem *hitem = history.next();
-  
+
   if( hitem )
     openURL( hitem->url(), false, hitem->xOffset(), hitem->yOffset() );
 }
@@ -542,7 +537,7 @@ void kmbMainWindow::slotForward()
 void kmbMainWindow::slotBack()
 {
   khcHistoryItem *hitem = history.prev();
-  
+
   if( hitem )
       openURL( hitem->url(), false, hitem->xOffset(), hitem->yOffset() );
 }

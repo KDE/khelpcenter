@@ -88,7 +88,7 @@ class ManParser
     int  readLocation(const QString& location);
     const QString& location() { return m_location; }
 
-    QString *page() { return &m_page; }
+    QString page() { return m_page; }
 
  private:
 

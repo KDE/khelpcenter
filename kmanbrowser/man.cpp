@@ -37,14 +37,15 @@
 #define _PATH_TMP "/tmp"
 #endif
 
-#include "man.h"
+#include <qdir.h>
+#include <qfile.h>
+#include <qtextstream.h>
 
 #include <kapp.h>
 #include <klocale.h>
 #include <kstddirs.h>
 
-#include <qdir.h>
-#include <qfile.h>
+#include "man.h"
 
 static ManSection *sections[MAN_MAXSECTIONS];
 static int numSections = 0;
@@ -103,7 +104,7 @@ ManSection::ManSection(const QString& name)
 				
 		if (envPath.contains(":") > 0)
 		    envPath = envPath.remove(0, envPath.find(":")+1);
-		else 
+		else
 		    envPath += ":";
 	    }
         }
@@ -139,7 +140,7 @@ void ManSection::readSection()
 	QDir dir( searchPath[i], "*", 0, QDir::Dirs );
 
 	if (!dir.exists()) continue;
-  
+
 	QStringList dirList = dir.entryList();
 	QStringList::Iterator itDir;
 
@@ -191,13 +192,13 @@ void ManSection::readDir(const QString& dirName )
 	    QString file = dirName;
 	    file += '/';
 	    file += *itFile;
-	    
+	
 	    // skip compress extension
 	    if (fileName.right(3) == ".gz")
             {
 		fileName.truncate(fileName.length()-3);
             }
-	    else if (fileName.right(2) == ".Z") 
+	    else if (fileName.right(2) == ".Z")
 	    {
 		fileName.truncate(fileName.length()-2);
 	    }
@@ -217,10 +218,10 @@ int ManParser::instance = 0;
 ManParser::ManParser()
 {
     QString sectList = getenv("MANSECT");
-  
+
     if (sectList.isEmpty())
 	sectList = MAN_SECTIONS;
-  
+
     // create the sections
     if (instance == 0)
     {
@@ -234,10 +235,10 @@ ManParser::ManParser()
 
 	    s = sectList.left(sectList.find(":"));
 	    sections[numSections++] = new ManSection(s);
-	   
+	
 	    if (sectList.contains(":") > 0)
 		sectList = sectList.remove(0, sectList.find(":")+1);
-	    else 
+	    else
 		sectList += ":";
 	}
     }
@@ -263,10 +264,13 @@ ManParser::~ManParser()
 //
 int ManParser::readLocation(const QString& name)
 {
-   QString tmpName = name;
-  
-   if (tmpName.at(0) == '(')				// read a list of pages in this section
-   {
+    debug( "ManParser::readLocation" );
+    debug( name.data() );
+
+    QString tmpName = name;
+
+    if (tmpName.at(0) == '(') // read a list of pages in this section
+    {
 	QString sec = tmpName.mid(1, tmpName.findRev(")") -1);
 	for (int i = 0; i < numSections; i++)
 	{
@@ -288,7 +292,7 @@ int ManParser::readLocation(const QString& name)
 		    m_page += page->name();
 		    m_page += "</A>";
 		    m_page += "</cell>";
-		} 
+		}
 		m_location = i18n("Unix man pages - Section ");
 		m_location += sections[i]->name();
 		if (!sections[i]->description().isEmpty())
@@ -296,115 +300,134 @@ int ManParser::readLocation(const QString& name)
 		    m_location += " - ";
 		    m_location += sections[i]->description();
 		}
+		debug( "Schade 1" );
 		return 0;
 	    }
 	}
+	debug( "Schade 2" );
 	return 1;
     }
-   else
-   {
-       m_location = "Error: Invalid URL";
-       m_page = "<br>Could not find or access URL: man:/" + name;
-   }
-    /*else									// read the specified page
+    /*
+    else
     {
-	char stdFile[256];
-	char errFile[256];
-	char sysCmd[256];
-	char rmanCmd[256];
+        m_location = "Error: Invalid URL";
+        m_page = "<br>Could not find or access URL: man:/" + name;
+    }
+    */
+    else	  // read the specified page
+    {
+	char stdFile[ 256 ];
+	char errFile[ 256 ];
+	char sysCmd[ 256 ];
+	char rmanCmd [256 ];
 	char *ptr;
-	  
-	sysCmd[0] = '\0';
-	  
-	sprintf(stdFile, "%s/khelpcenterXXXXXX", _PATH_TMP);	// temp file
-	mktemp(stdFile);
-	  
-	sprintf(errFile, "%s/khelpcenterXXXXXX", _PATH_TMP);	// temp file
-	mktemp(errFile);
-	  
-	sprintf(rmanCmd, "%s/rman -f HTML", locate("exe", "rman"));
-debug("==> rmanCmd = %s", rmanCmd);
-	  
+	
+	sysCmd[ 0 ] = '\0';
+	
+	sprintf( stdFile, "%s/khelpcenterXXXXXX", _PATH_TMP );	// temp file
+	mktemp( stdFile );
+	
+	sprintf( errFile, "%s/khelpcenterXXXXXX", _PATH_TMP );	// temp file
+	mktemp( errFile );
+	
+	sprintf( rmanCmd, "%s/rman -f HTML", locate( "exe", "rman" ).data() );
+	
+	debug( "==> rmanCmd = %s", rmanCmd );
+	
 	// create the system cmd to read the man page
-	if ( (ptr = strchr(tmpName, '(')) )
+	if( ( ptr = strchr( tmpName, '(' ) ) )
 	{
-	    if (!strchr(tmpName, ')')) return 1;	// check for closing )
+	    int pos = 0;
+	    
+	    if( !strchr( tmpName, ')' ) ) return 1;	// check for closing )
+	    
 	    *ptr = '\0';
 	    ptr++;
-	    for (i = 0; i < numSections; i++)	// read which section?
+	    
+	    for( int i = 0; i < numSections; i++ )	// read which section?
 	    {
-		if (!strncmp(ptr, sections[i]->getName(),
-			     strlen(sections[i]->getName())))
+		if( !strncmp( ptr, sections[ i ]->name(),
+			      strlen( sections[ i ]->name() ) ) )
 		{
 		    pos = i;
 		    break;
 		}
 	    }
-	    if ( safeCommand( sections[pos]->getName() ) &&
+	    
+	    /*
+	    if( safeCommand( sections[ pos ]->name() ) &&
 		 safeCommand( tmpName ) )
             {
-		sprintf(sysCmd, "man %s %s < /dev/null 2> %s | %s > %s",
-			sections[pos]->getName(),
-			tmpName, errFile, rmanCmd, stdFile );
+		sprintf( sysCmd, "man %s %s < /dev/null 2> %s | %s > %s",
+			 sections[ pos ]->name().data(),
+			 tmpName.data(), errFile, rmanCmd, stdFile );
             }
+	    */
 	}
-	else if ( safeCommand( tmpName ) )
+	/*
+	else if( safeCommand( tmpName ) )
 	{
 	    sprintf(sysCmd, "man %s < /dev/null 2> %s | %s > %s",
-		    tmpName, errFile, rmanCmd, stdFile);
+		    tmpName.data(), errFile, rmanCmd, stdFile );
 	}
-	  
+	*/
+	
 	if ( sysCmd[0] == '\0' )
         {
 	    //Error.Set(ERR_WARNING, i18n("\"man\" system call failed"));
 	    return -1;
         }
-	  
+	
 	// call 'man' to read man page
 	int status = system(sysCmd);
-	  
+	
 	if (status < 0)			// system returns -ve on failure
 	{
 	    //Error.Set(ERR_WARNING, i18n("\"man\" system call failed"));
 	    return 1;
 	}
-	  
+	
 	// open the man page and parse it
-	ifstream stream(stdFile);
-	  
-	if (stream.fail())
+	QFile file( stdFile );
+	
+	if( file.open( IO_ReadOnly ) )
 	{
 	    //Error.Set(ERR_FATAL, i18n("Opening temporary file failed"));
 	    return 1;
 	}
-	  
+	
 	// if this file is very short assume the man call failed
+	/*
 	stream.seekg( 0, ios::end );
-	if ( stream.tellg() < 5 )
-	{
+        if ( stream.tellg() < 5 )
+        {
 	    stream.close();
 	    stream.open( errFile );
 	}
 	stream.seekg( 0, ios::beg );
-	  
-	char buffer[256];
-	HTMLPage = "";
-	  
-	while ( !stream.eof() )
+	*/
+	
+	QString temp;
+	QTextStream text( &file );
+
+	while ( !text.eof() )
 	{
-	    stream.getline( buffer, 256 );
-	    HTMLPage += buffer;
-	    if ( HTMLPage.at(HTMLPage.length() - 1) == '-' )
-		HTMLPage.truncate( HTMLPage.length() - 1 );
+	    temp = text.readLine();
+	    
+	    if( temp.at( temp.length() - 1) == '-' )
+		temp.truncate( temp.length() - 1 );
 	    else
-		HTMLPage.append(' ');
+		temp.append(' ');
 	}
-	  
-	stream.close();
-	posString = name;
-	  
-	remove(stdFile);	// don't need tmp file anymore
-	remove(errFile);	// don't need tmp file anymore
-	}*/
+	
+	file.close();
+	// posString = name;
+	
+	remove( stdFile );	// don't need tmp file anymore
+	remove( errFile );	// don't need tmp file anymore
+    }
+
+    m_page = "<html><body>Manchmal funktioniert was.</body></html>";
+
     return 0;
 }
