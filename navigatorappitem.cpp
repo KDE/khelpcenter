@@ -108,7 +108,7 @@ void NavigatorAppItem::populate( bool recursive )
               item = new NavigatorAppItem(this, g->caption(), g->icon(), g->relPath());
               item->setUrl("");
               if ( recursive )
-                static_cast<NavigatorAppItem *>( item )->populate();
+                static_cast<NavigatorAppItem *>( item )->populate( recursive );
               break;
 
         default:
