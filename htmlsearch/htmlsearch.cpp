@@ -34,8 +34,6 @@ QString HTMLSearch::dataPath(const QString& _lang)
 
 void HTMLSearch::scanDir(const QString& dir)
 {
-    kdDebug () << "scanning dir " << dir << endl;
-
     assert( dir.at( dir.length() - 1 ) == '/' );
 
     QStringList::ConstIterator it;
@@ -135,29 +133,29 @@ bool HTMLSearch::createConfig(const QString& _lang)
                               "arent:around:became:because:become:\n"
                               "becomes:becoming:been:before:beforehand:\n"
                               "begin:beginning:behind:being:below:beside:\n"
-                              "besides:between:beyond:billion:both:but:by:\n"
+                              "besides:between:beyond:billion:both:but:\n"
                               "can:cant:cannot:caption:could:couldnt:\n"
-                              "did:didnt:do:does:doesnt:dont:down:during:\n"
+                              "did:didnt:does:doesnt:dont:down:during:\n"
                               "each:eight:eighty:either:else:elsewhere:\n"
                               "end:ending:enough:etc:even:ever:every:\n"
                               "everyone:everything:everywhere:except:few:\n"
                               "fifty:first:five:for:former:formerly:forty:\n"
                               "found:four:from:further:had:has:hasnt:have:\n"
-                              "havent:he:hence:her:here:hereafter:hereby:\n"
+                              "havent:hence:her:here:hereafter:hereby:\n"
                               "herein:heres:hereupon:hers:herself:hes:him:\n"
-                              "himself:his:how:however:hundred:ie:if:in:\n"
+                              "himself:his:how:however:hundred:\n"
                               "inc:indeed:instead:into:isnt:its:\n"
                               "itself:last:later:latter:latterly:least:\n"
                               "less:let:like:likely:ltd:made:make:makes:\n"
-                              "many:may:maybe:me:meantime:meanwhile:might:\n"
-                              "million:miss:more:moreover:most:mostly:mr:\n"
-                              "mrs:much:must:my:myself:namely:neither:\n"
-                              "never:nevertheless:next:nine:ninety:no:\n"
+                              "many:may:maybe:meantime:meanwhile:might:\n"
+                              "million:miss:more:moreover:most:mostly:\n"
+                              "mrs:much:must:myself:namely:neither:\n"
+                              "never:nevertheless:next:nine:ninety:\n"
                               "nobody:none:nonetheless:noone:nor:not:\n"
-                              "nothing:now:nowhere:off:often:on:once:\n"
+                              "nothing:now:nowhere:off:often:once:\n"
                               "one:only:onto:others:otherwise:our:ours:\n"
                               "ourselves:out:over:overall:own:page:per:\n"
-                              "perhaps:rather:re:recent:recently:same:\n"
+                              "perhaps:rather:recent:recently:same:\n"
                               "seem:seemed:seeming:seems:seven:seventy:\n"
                               "several:she:shes:should:shouldnt:since:six:\n"
                               "sixty:some:somehow:someone:something:\n"
@@ -167,11 +165,11 @@ bool HTMLSearch::createConfig(const QString& _lang)
                               "thereby:therefore:therein:thereupon:these:\n"
                               "they:thirty:this:those:though:thousand:\n"
                               "three:through:throughout:thru:thus:tips:\n"
-                              "to:together:too:toward:towards:trillion:\n"
+                              "together:too:toward:towards:trillion:\n"
                               "twenty:two:under:unless:unlike:unlikely:\n"
-                              "until:update:updated:updates:upon:us:\n"
+                              "until:update:updated:updates:upon:\n"
                               "used:using:very:via:want:wanted:wants:\n"
-                              "was:wasnt:way:ways:we:wed:well:were:\n"
+                              "was:wasnt:way:ways:wed:well:were:\n"
                               "werent:what:whats:whatever:when:whence:\n"
                               "whenever:where:whereafter:whereas:whereby:\n"
                               "wherein:whereupon:wherever:wheres:whether:\n"
@@ -215,7 +213,7 @@ bool HTMLSearch::createConfig(const QString& _lang)
         ts << "search_results_wrapper:\t" << wrapper << "wrapper.html" << endl;
         ts << "nothing_found_file:\t" << wrapper << "nomatch.html" << endl;
         ts << "syntax_error_file:\t" << wrapper << "syntax.html" << endl;
-        ts << "bad_word_list:\t\t" << wrapper << "bad_words" << endl;
+        ts << "bad_word_list:\t\t" << dataPath(_lang) << "/bad_words" << endl;
         ts << "external_parsers:\t" << "text/xml\t" << locate( "data", "khelpcenter/meinproc_wrapper" ) << endl;
         f.close();
         return true;
@@ -225,8 +223,7 @@ bool HTMLSearch::createConfig(const QString& _lang)
 }
 
 
-#define CHUNK_SIZE 100
-
+#define CHUNK_SIZE 15
 
 bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
 {
@@ -251,6 +248,7 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
     KConfig *config = new KConfig("khelpcenterrc", true);
     KConfigGroupSaver saver(config, "htdig");
     QString exe = config->readEntry("htdig", kapp->dirs()->findExe("htdig"));
+
     if (exe.isEmpty())
         return false;
 
@@ -271,7 +269,7 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
 
         // prepare new process
         _proc = new KProcess();
-        *_proc << exe << "-c" << dataPath(_lang)+"/htdig.conf";
+        *_proc << exe  << "-v" << "-c" << dataPath(_lang)+"/htdig.conf";
         if (initial)
 	{
             *_proc << "-i";
@@ -280,8 +278,9 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
 
         kdDebug() << "Running htdig" << endl;
 
-        //      connect(_proc, SIGNAL(receivedStdout(KProcess *,char*,int)),
-        //	      this, SLOT(htdigStdout(KProcess *,char*,int)));
+        connect(_proc, SIGNAL(receivedStdout(KProcess *,char*,int)),
+                this, SLOT(htdigStdout(KProcess *,char*,int)));
+
         connect(_proc, SIGNAL(processExited(KProcess *)),
                 this, SLOT(htdigExited(KProcess *)));
 
@@ -294,13 +293,13 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
             QTextStream ts(&f);
 
             for (int i=0; i<CHUNK_SIZE; ++i, ++count)
-                if (count < _filesToDig)
+                if (count < _filesToDig) {
                     ts << "http://localhost/" + _files[count] << endl;
-                else
-                {
+                } else {
                     done = true;
                     break;
                 }
+            f.close();
 	}
         else
 	{
@@ -308,8 +307,10 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
             return false;
 	}
 
+
         // execute htdig
-        _proc->start(KProcess::NotifyOnExit, KProcess::Stdout);
+        _proc->start(KProcess::NotifyOnExit, KProcess::Stdout );
+
         while (_htdigRunning && _proc->isRunning())
             kapp->processEvents();
 
@@ -320,7 +321,7 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
             return false;
 	}
 
-        _filesDigged += CHUNK_SIZE;
+        // _filesDigged += CHUNK_SIZE;
         progress->setFilesDigged(_filesDigged);
         kapp->processEvents();
     }
@@ -376,7 +377,8 @@ void HTMLSearch::htdigStdout(KProcess *, char *buffer, int len)
         cnt++;
     _filesDigged += cnt;
 
-    cnt=0, index=-1;
+    cnt=0;
+    index=-1;
     while ( (index = line.find("not changed", index+1)) > 0)
         cnt++;
     _filesDigged -= cnt;
@@ -385,10 +387,10 @@ void HTMLSearch::htdigStdout(KProcess *, char *buffer, int len)
 }
 
 
-void HTMLSearch::htdigExited(KProcess *)
+void HTMLSearch::htdigExited(KProcess *p)
 {
-  kdDebug() << "htdig terminated" << endl;
-  _htdigRunning = false;
+    kdDebug() << "htdig terminated " << p->exitStatus() << endl;
+    _htdigRunning = false;
 }
 
 
