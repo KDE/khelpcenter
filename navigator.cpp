@@ -150,8 +150,6 @@ void Navigator::setupContentsTab()
             SLOT(slotItemSelected(QListViewItem*)));
     connect(mContentsTree, SIGNAL(returnPressed(QListViewItem*)),
            SLOT(slotItemSelected(QListViewItem*)));
-    connect(mContentsTree, SIGNAL(expanded(QListViewItem*)),
-            SLOT(slotItemExpanded(QListViewItem*)));
     mTabWidget->addTab(mContentsTree, i18n("&Contents"));
 }
 
@@ -556,10 +554,6 @@ void Navigator::slotItemSelected(QListViewItem* currentItem)
     }
     emit itemSelected(item->url());
   }
-}
-
-void Navigator::slotItemExpanded(QListViewItem* index)
-{
 }
 
 void Navigator::slotSearch()

@@ -71,7 +71,6 @@ class Navigator : public QWidget
   public slots:
     void slotURLSelected(QString url);
     void slotItemSelected(QListViewItem* index);
-    void slotItemExpanded(QListViewItem* index);
 
     void slotSearch();
 
