@@ -468,7 +468,7 @@ void Navigator::insertParentAppDocs( const QString &name, NavigatorItem *topItem
   KServiceGroup::List::ConstIterator end = entries.end();
   for ( ; it != end; ++it ) {
     QString desktopFile = ( *it )->entryPath();
-    if ( !desktopFile.startsWith( QString::fromLatin1( "/" ) ) )
+    if ( QDir::isRelativePath( desktopFile ) )
         desktopFile = locate( "apps", desktopFile );
     createItemFromDesktopFile( topItem, desktopFile );
   }
