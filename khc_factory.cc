@@ -45,7 +45,7 @@ KHCFactory::~KHCFactory()
 
 QObject* KHCFactory::create( QObject* parent, const char* name, const char* /*classname*/, const QStringList & )
 {
-  khcNavigator *nav = new khcNavigator;
+  khcNavigator *nav = new khcNavigator( (QWidget *)parent, name );
 
   emit objectCreated( nav );
 
