@@ -1,0 +1,11 @@
+# KDE Config File
+[KDE Desktop Entry]
+Name=Quickstart Guide
+Name[de]=QuickStart Einführung
+Name[pt_BR]=Guia Rápido
+Comment=KDE quickstart guid.
+Comment[de]=Einführung in KDE
+Comment[pt_BR]=Guia rápido do KDE.
+Icon=
+MiniIcon=helpdoc.xpm
+DocPath=khelpcenter/tutorials/quickstart/index.html

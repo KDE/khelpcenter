@@ -1,0 +1,23 @@
+/* XPM */
+static char*helpdoc[]={
+"16 14 6 1",
+"c c #808080",
+"d c #7f7f7f",
+"# c #000000",
+"b c #0000c0",
+". c None",
+"a c #ffffff",
+"...#######......",
+"...#aaaaa##.....",
+"...#abbba#a#....",
+"...#aaaaa####...",
+"...#abbbbacc#d..",
+"...#aaaaaaaa#d..",
+"...#abbbbbba#d..",
+"...#aaaaaaaa#d..",
+"...#abbbbbba#d..",
+"...#aaaaaaaa#d..",
+"...#abbbbbba#d..",
+"...#aaaaaaaa#d..",
+"...##########d..",
+"....dddddddddd.."};

@@ -1,0 +1,2 @@
+#! /bin/sh
+khelpcenter.bin -ORBIIOPAddr inet:localhost:8887 &
