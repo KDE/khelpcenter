@@ -159,7 +159,7 @@ void KCMHelpCenter::updateStatus()
     ScopeItem *item = static_cast<ScopeItem *>( it.current() );
     QString status;
     if ( item->entry()->indexExists() ) {
-      status = i18n("Ok");
+      status = i18n("OK");
     } else {
       status = i18n("Missing");
     }
