@@ -51,6 +51,8 @@ void khcNavigatorItem::init(const QString& _text, const QString& _miniicon)
     setText(0, name);
     //    setPixmap(0, QPixmap(locate("mini", miniicon)));
     setPixmap( 0, SmallIcon(miniicon, 0, 0, KHCFactory::instance()));
+
+    url = QString::null;
 }
 
 bool khcNavigatorItem::readKDElnk ( const char *filename )
@@ -69,9 +71,7 @@ bool khcNavigatorItem::readKDElnk ( const char *filename )
     if (path.isNull())
 	return false;
 
-    QStringList list = KGlobal::dirs()->findDirs("html", "default");
-    QStringList::Iterator it = list.begin();
-    url = *it + path;
+    url = QString("help:/%1").arg(path);
 
     // read comment text
     info = config.readEntry("Info");

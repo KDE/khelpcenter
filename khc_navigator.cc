@@ -178,6 +178,7 @@ void khcNavigatorWidget::buildTree()
 
   // application manuals
   khcNavigatorItem *ti_manual = new khcNavigatorItem(tree, i18n("Application manuals"), "helpbook.png");
+  ti_manual->setURL("");
   staticItems.append(ti_manual);
 
   // fill the application manual subtree
@@ -344,7 +345,7 @@ void khcNavigatorWidget::slotItemSelected(QListViewItem* /*currentItem*/)
     {
       if (item == tree->currentItem())
 	{
-	  if (item->getURL() != "")
+	  if (!item->getURL().isEmpty())
 	    emit itemSelected(item->getURL());
 	  return;
 	}
@@ -353,7 +354,7 @@ void khcNavigatorWidget::slotItemSelected(QListViewItem* /*currentItem*/)
     {
       if (item == tree->currentItem())
 	{
-	  if (item->getURL() != "")
+	  if (!item->getURL().isEmpty())
 	    emit itemSelected(item->getURL());
 	  return;
 	}
@@ -362,7 +363,7 @@ void khcNavigatorWidget::slotItemSelected(QListViewItem* /*currentItem*/)
     {
       if (item == tree->currentItem())
 	{
-	  if (item->getURL() != "")
+	  if (!item->getURL().isEmpty())
 	    emit itemSelected(item->getURL());
 	  return;
 	}
