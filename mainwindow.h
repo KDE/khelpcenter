@@ -29,13 +29,15 @@ class View;
     ~MainWindow();
 k_dcop:
     void openURL(const QString &url);
+    void showHome();
+    void lastSearch();
 
 public slots:
     void slotOpenURL(const QString &url);
     void print();
     void statusBarMessage(const QString &m);
-    void showHome();
-    void lastSearch();
+    void slotShowHome();
+    void slotLastSearch();
 
   protected:
     void setupActions();

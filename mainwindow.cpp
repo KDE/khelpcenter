@@ -96,7 +96,7 @@ MainWindow::MainWindow(const KURL &url)
     History::self().installMenuBarHook( this );
 
     if ( url.isEmpty() ) {
-      showHome();
+      slotShowHome();
     } else {
       openURL( url );
       mNavigator->selectItem( url );
@@ -115,9 +115,9 @@ void MainWindow::setupActions()
     KStdAction::print( this, SLOT( print() ), actionCollection(),
                        "printFrame" );
 
-    KStdAction::home( this, SLOT( showHome() ), actionCollection() );
+    KStdAction::home( this, SLOT( slotShowHome() ), actionCollection() );
     mLastSearchAction = new KAction( i18n("&Last Search Result"), 0, this,
-                                     SLOT( lastSearch() ),
+                                     SLOT( slotLastSearch() ),
                                      actionCollection(), "lastsearch" );
     mLastSearchAction->setEnabled( false );
 
@@ -242,6 +242,11 @@ void MainWindow::stop()
 
 void MainWindow::showHome()
 {
+    slotShowHome();
+}
+
+void MainWindow::slotShowHome()
+{
     KConfig *cfg = KGlobal::config();
     cfg->setGroup( "General" );
     KURL url = cfg->readEntry( "StartUrl",
@@ -251,6 +256,11 @@ void MainWindow::showHome()
 }
 
 void MainWindow::lastSearch()
+{
+    slotLastSearch();
+}
+
+void MainWindow::slotLastSearch()
 {
     mDoc->lastSearch();
 }
