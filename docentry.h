@@ -76,6 +76,8 @@ class DocEntry
     DocEntry *nextSibling();
 
     QString khelpcenterSpecial() const;
+
+    bool isSearchable();
     
     void dump() const;
 

@@ -7,6 +7,8 @@
 #include <kstandarddirs.h>
 #include <kapplication.h>
 
+#include "prefs.h"
+
 #include "docentry.h"
 
 using namespace KHC;
@@ -309,6 +311,12 @@ void DocEntry::setNextSibling( DocEntry *next )
 DocEntry *DocEntry::nextSibling()
 {
   return mNextSibling;
+}
+
+bool DocEntry::isSearchable()
+{
+  return !search().isEmpty() && docExists() &&
+    indexExists( Prefs::indexDirectory() );
 }
 
 void DocEntry::dump() const

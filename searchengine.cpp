@@ -60,18 +60,19 @@ void SearchTraverser::process( DocEntry * )
 
 void SearchTraverser::startProcess( DocEntry *entry )
 {
-//  kdDebug() << "SearchTraverser::startProcess(): " << entry->name() << endl;
+//  kdDebug() << "SearchTraverser::startProcess(): " << entry->name() << "  "
+//    << "SEARCH: '" << entry->search() << "'" << endl;
 
   mEntry = entry;
 
-  if ( entry->search().isEmpty() || !entry->searchEnabled() ) {
+  if ( !entry->isSearchable() || !entry->searchEnabled() ) {
     mNotifyee->endProcess( entry, this );
     return;
   }
 
   QString search = mEngine->substituteSearchQuery( entry->search() );
 
-  kdDebug() << "SearchTraverser::startProcess(): search: " << search << endl;
+  kdDebug() << "SEARCH: " << search << endl;
 
   mJobData = QString::null;
 
@@ -189,12 +190,12 @@ void SearchEngine::searchExited(KProcess *)
   mSearchRunning = false;
 }
 
-bool SearchEngine::search( QString _words, QString method, int matches,
+bool SearchEngine::search( QString words, QString method, int matches,
                            QString scope )
 {
   if ( mSearchRunning ) return false;
 
-  mWords = _words;
+  mWords = words;
   mMethod = method;
   mMatches = matches;
   mScope = scope;
@@ -286,9 +287,10 @@ bool SearchEngine::search( QString _words, QString method, int matches,
     mView->beginSearchResult();
     mView->writeSearchResult( mSearchResult );
     mView->endSearchResult();
+
+    emit searchFinished();
   }
 
-  emit searchFinished();
   return true;
 }
 

@@ -22,7 +22,8 @@ khelpcenter_la_SOURCES = navigator.cpp \
 	history.cpp application.cpp searchwidget.skel treebuilder.cpp \
 	infotree.cpp  mainwindow.skel \
         kcmhelpcenter.cpp htmlsearchconfig.cpp kcmhelpcenter.skel \
-        fontdialog.cpp plugintraverser.cpp scrollkeepertreebuilder.cpp
+        fontdialog.cpp plugintraverser.cpp scrollkeepertreebuilder.cpp \
+        prefs.kcfgc
 
 #kcm_helpcenter_la_LDFLAGS = $(KDE_RPATH) -module -avoid-version \
 #                            $(all_libraries) -no-undefined
@@ -49,5 +50,8 @@ rc_DATA = khelpcenterui.rc intro.html.in glossary.html.in table-of-contents.xslt
 	glossary.xslt
 rcdir = $(kde_datadir)/khelpcenter
 
+kde_kcfg_DATA = khelpcenter.kcfg
+
 messages: rc.cpp
+	$(EXTRACTRC) `find . -name "*.kcfg"` >> rc.cpp
 	$(XGETTEXT) *.cpp -o $(podir)/khelpcenter.pot

@@ -37,19 +37,15 @@
 #include "scopeitem.h"
 #include "docentrytraverser.h"
 #include "kcmhelpcenter.h"
+#include "prefs.h"
 
 #include "searchwidget.h"
-#include "searchwidget.moc"
-
 
 namespace KHC {
 
 SearchWidget::SearchWidget( QWidget *parent )
-  : QWidget( parent ), DCOPObject( "SearchWidget" ),
-    mScopeCount( 0 ), mIndexDialog( 0 )
+  : QWidget( parent ), DCOPObject( "SearchWidget" ), mIndexDialog( 0 )
 {
-  updateConfig();
-
   QBoxLayout *topLayout = new QVBoxLayout( this, 2, 2 );
 
   QBoxLayout *hLayout = new QHBoxLayout( topLayout );
@@ -122,11 +118,8 @@ void SearchWidget::readConfig( KConfig *cfg )
   mScopeCombo->setCurrentItem( scopeSelection );
   if ( scopeSelection != ScopeDefault ) scopeSelectionChanged( scopeSelection );
 
-  int method = cfg->readNumEntry( "Method", 0 );
-  mMethodCombo->setCurrentItem( method );
-  
-  int pages = cfg->readNumEntry( "MaxCount", 0 );
-  mPagesCombo->setCurrentItem( pages );
+  mMethodCombo->setCurrentItem( Prefs::method() );
+  mPagesCombo->setCurrentItem( Prefs::maxCount() );
 
   if ( scopeSelection == ScopeCustom ) {
     cfg->setGroup( "Custom Search Scope" );
@@ -140,6 +133,8 @@ void SearchWidget::readConfig( KConfig *cfg )
       ++it;
     }
   }
+  
+  checkScope();
 }
 
 void SearchWidget::writeConfig( KConfig *cfg )
@@ -147,8 +142,8 @@ void SearchWidget::writeConfig( KConfig *cfg )
   cfg->setGroup( "Search" );
   
   cfg->writeEntry( "ScopeSelection", mScopeCombo->currentItem() );
-  cfg->writeEntry( "Method", mMethodCombo->currentItem() );
-  cfg->writeEntry( "MaxCount", mPagesCombo->currentItem() );
+  Prefs::setMethod( mMethodCombo->currentItem() );
+  Prefs::setMaxCount( mPagesCombo->currentItem() );
 
   if ( mScopeCombo->currentItem() == ScopeCustom ) {
     cfg->setGroup( "Custom Search Scope" );
@@ -182,12 +177,11 @@ void SearchWidget::slotSwitchBoxes()
     if ( it.current()->rtti() == ScopeItem::rttiId() ) {
       ScopeItem *item = static_cast<ScopeItem *>( it.current() );
       item->setOn( !item->isOn() );
-      updateScopeItem( item );
     }
     ++it;
   }
 
-  emit enableSearch( mScopeCount > 0 );
+  checkScope();
 }
 
 void SearchWidget::scopeSelectionChanged( int id )
@@ -212,13 +206,12 @@ void SearchWidget::scopeSelectionChanged( int id )
       }
       if ( state != item->isOn() ) {
         item->setOn( state );
-        updateScopeItem( item );
       }
     }
     ++it;
   }
 
-  emit enableSearch( mScopeCount > 0 );
+  checkScope();
 }
 
 QString SearchWidget::method()
@@ -269,15 +262,14 @@ class ScopeTraverser : public DocEntryTraverser
 
     void process( DocEntry *entry )
     {
-      if ( !entry->search().isEmpty() && entry->docExists() &&
-           entry->indexExists( mWidget->indexDir() ) ) {
+      if ( entry->isSearchable() ) {
         ScopeItem *item = 0;
         if ( mParentItem ) {
           item = new ScopeItem( mParentItem, entry );
         } else {
           item = new ScopeItem( mWidget->listView(), entry );
         }
-        mWidget->registerScopeItem( item );
+        item->setOn( entry->searchEnabled() );
       }
     }
 
@@ -310,7 +302,7 @@ class ScopeTraverser : public DocEntryTraverser
     {
       if ( mLevel > mNestingLevel ) --mLevel;
       else delete this;
-    }    
+    }
 
   private:
     SearchWidget *mWidget;
@@ -322,12 +314,6 @@ class ScopeTraverser : public DocEntryTraverser
 
 int ScopeTraverser::mNestingLevel = 2;
 
-void SearchWidget::registerScopeItem( ScopeItem *item )
-{
-  item->setOn( item->entry()->searchEnabled() );
-  if ( item->entry()->searchEnabled() ) mScopeCount++;
-}
-
 void SearchWidget::searchIndexUpdated()
 {
   KGlobal::config()->reparseConfiguration();
@@ -338,12 +324,11 @@ void SearchWidget::searchIndexUpdated()
 void SearchWidget::updateScopeList()
 {
   mScopeListView->clear();
-  mScopeCount = 0;
 
   ScopeTraverser t( this, 0 );
   DocMetaInfo::self()->traverseEntries( &t );
 
-  emit enableSearch( mScopeCount > 0 );
+  checkScope();
 }
 
 void SearchWidget::scopeDoubleClicked( QListViewItem *item )
@@ -358,35 +343,11 @@ void SearchWidget::scopeDoubleClicked( QListViewItem *item )
   emit searchResult( searchUrl );
 }
 
-void SearchWidget::scopeClicked( QListViewItem *item )
+void SearchWidget::scopeClicked( QListViewItem * )
 {
-  if ( !item || item->rtti() != ScopeItem::rttiId() ) return;
-  ScopeItem *scopeItem = static_cast<ScopeItem *>( item );
-
-  updateScopeItem( scopeItem );
-
-//  kdDebug() << "SearchWidget::scopeClicked(): count: " << mScopeCount << endl;
-
-  emit enableSearch( mScopeCount > 0 );
+  checkScope();
 
   mScopeCombo->setCurrentItem( ScopeCustom );
-}
-
-void SearchWidget::updateScopeItem( ScopeItem *item )
-{
-  DocEntry *entry = item->entry();
-
-  if ( item->isOn() ) {
-    if ( !entry->searchEnabled() ) {
-      mScopeCount++;
-      entry->enableSearch( true );
-    }
-  } else {
-    if ( entry->searchEnabled() ) {
-      mScopeCount--;
-      entry->enableSearch( false );
-    }
-  }
 }
 
 QString SearchWidget::scopeSelectionLabel( int id ) const
@@ -405,13 +366,27 @@ QString SearchWidget::scopeSelectionLabel( int id ) const
   }
 }
 
-void SearchWidget::updateConfig()
+void SearchWidget::checkScope()
 {
-  KGlobal::config()->setGroup( "Search" );
-  mIndexDir = KGlobal::config()->readPathEntry( "IndexDirectory" );
+  int scopeCount = 0;
 
-  kdDebug() << "SearchWidget::updateConfig(): indexDir: " << mIndexDir << endl;
+  QListViewItemIterator it( mScopeListView );
+  while( it.current() ) {
+    if ( it.current()->rtti() == ScopeItem::rttiId() ) {
+      ScopeItem *item = static_cast<ScopeItem *>( it.current() );
+      if ( item->isOn() ) {
+        scopeCount += 1;
+      }
+      item->entry()->enableSearch( item->isOn() );
+    }
+    ++it;
+  }
+  
+  emit enableSearch( scopeCount > 0 );
 }
 
 }
+
+#include "searchwidget.moc"
+
 // vim:ts=2:sw=2:et

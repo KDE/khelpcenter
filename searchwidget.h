@@ -57,15 +57,11 @@ class SearchWidget : public QWidget, public DCOPObject
     int pages();
     QString scope();
 
-    void registerScopeItem( ScopeItem * );
-
     QListView *listView() { return mScopeListView; }
 
     enum { ScopeDefault, ScopeAll, ScopeNone, ScopeCustom, ScopeNum };
 
     QString scopeSelectionLabel( int ) const;
-
-    QString indexDir() const { return mIndexDir; }
 
     KCMHelpCenter *indexDialog() const { return mIndexDialog; }
 
@@ -82,15 +78,12 @@ class SearchWidget : public QWidget, public DCOPObject
     void scopeSelectionChanged( int );
     void updateScopeList();
 
-    void updateConfig();
-
   protected:
-    void updateScopeItem( ScopeItem *item );
+    void checkScope();
 
   protected slots:
     void scopeDoubleClicked( QListViewItem * );
     void scopeClicked( QListViewItem * );
-
 
   private:
     void loadLanguages();
@@ -100,11 +93,7 @@ class SearchWidget : public QWidget, public DCOPObject
     QComboBox *mScopeCombo;
     QListView *mScopeListView;
 
-    int mScopeCount;
-
     KCMHelpCenter *mIndexDialog;
-
-    QString mIndexDir;
 };
 
 }
