@@ -61,7 +61,7 @@ KHMainWindow::KHMainWindow(const KURL &url)
     m_goBuffer=0;
 
     doc = new KHCView( splitter, 0,
-                       this, 0, KHTMLPart::BrowserViewGUI );
+                       this, 0, KHTMLPart::DefaultGUI );
     connect(doc, SIGNAL(setWindowCaption(const QString &)),
             SLOT(setCaption(const QString &)));
     connect(doc, SIGNAL(setStatusBarText(const QString &)),
