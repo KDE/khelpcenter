@@ -932,16 +932,13 @@ void khcNavigatorWidget::slotInfoHierarchyCreated(uint key, uint nErrorCode, con
     switch (nErrorCode)
     {
     case ERR_FILE_UNAVAILABLE:
-      sErrMsg = i18n("One or more files containing info nodes belonging to the subject\'") +
-	pItem->getName() + i18n("\' do(es) not exist.");
+      sErrMsg = i18n("One or more files containing info nodes belonging to the subject '%1' do(es) not exist.").arg(pItem->getName());
       break;
     case ERR_NO_HIERARCHY:
-      sErrMsg = i18n("Info nodes belonging to the subject \'") + pItem->getName() +
-	i18n("\' seem to be not ordered in a hierarchy.");
+      sErrMsg = i18n("Info nodes belonging to the subject '%1' seem to be not ordered in a hierarchy.").arg(pItem->getName());
       break;
     default:
-      sErrMsg = i18n("An unknown error occured while creating the hierarchy of info nodes belonging to the subject\'") +
-	pItem->getName() + "\'.";
+      sErrMsg = i18n("An unknown error occured while creating the hierarchy of info nodes belonging to the subject '%1'.").arg(pItem->getName());
     }
     KMessageBox::sorry(0, sErrMsg, i18n("Cannot create hierarchy of info nodes"));
     pItem->setExpandable(false);
