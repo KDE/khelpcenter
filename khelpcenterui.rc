@@ -1,6 +1,6 @@
 <!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
-<kpartgui name="khelpcenter" version="6">
-<MenuBar noMerge="1">
+<kpartgui name="khelpcenter" version="7">
+<MenuBar>
  <Menu name="file" noMerge="1">
     <text>&amp;File</text>
     <Action name="printFrame" group="print" />
