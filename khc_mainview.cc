@@ -387,7 +387,7 @@ bool khcMainView::mappingCreateToolbar(OpenPartsUI::ToolBarFactory_ptr factory)
   OpenPartsUI::Pixmap_var pix;
 
   // show/hide navigator
-  text = Q2C(i18n("Hide navigator"));
+  text = Q2C(i18n("Navigator"));
   pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("hidenavigator.xpm"));
   m_vToolBar->insertButton2(pix, TB_NAVIGATOR, SIGNAL(clicked()), this, "slotShowNavigator", false, text, -1);
 
@@ -429,6 +429,19 @@ bool khcMainView::mappingCreateToolbar(OpenPartsUI::ToolBarFactory_ptr factory)
   text = Q2C(i18n("Bookmark"));
   pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("flag.xpm"));
   m_vToolBar->insertButton2(pix, TB_BOOKMARK, SIGNAL(clicked()), this, "slotBookmark", true, text, -1);
+
+  // seperator
+  m_vToolBar->insertSeparator(-1);
+  
+  // zoom in
+  text = Q2C(i18n("Zoom in"));
+  pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("viewmag+.xpm"));
+  m_vToolBar->insertButton2(pix, TB_ZOOMIN, SIGNAL(clicked()), this, "slotZoomIn", true, text, -1);
+
+  // zoom out
+  text = Q2C(i18n("Zoom out"));
+  pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("viewmag-.xpm"));
+  m_vToolBar->insertButton2(pix, TB_ZOOMOUT, SIGNAL(clicked()), this, "slotZoomOut", true, text, -1);
   
   // seperator
   CORBA::Long childButtonIndex = m_vToolBar->insertSeparator(-1);
@@ -510,10 +523,9 @@ bool khcMainView::mappingOpenURL( Browser::EventOpenURL eventURL )
 
 void khcMainView::createViewMenu()
 {
-  kdebug(KDEBUG_INFO,1400,"khcMainView::createViewMenu()");
-
   if (!CORBA::is_nil(m_vMenuView) && m_bViewMenuDirty)
     {
+      kdebug(KDEBUG_INFO,1400,"khcMainView::createViewMenu()");
       m_vMenuView->clear();
       m_vMenuView->setCheckable(true);
 
@@ -550,13 +562,13 @@ void khcMainView::createViewMenu()
 
       m_bViewMenuDirty = false;
   }
-  kdebug(KDEBUG_INFO,1400,"khcMainView::createViewMenu() done");
 }
 
 void khcMainView::createEditMenu()
 {
   if (!CORBA::is_nil(m_vMenuEdit) && m_bEditMenuDirty)
     {
+      kdebug(KDEBUG_INFO,1400,"khcMainView::createEditMenu()");
       m_vMenuEdit->clear();
       m_vMenuEdit->setCheckable(true);
 
@@ -572,6 +584,7 @@ void khcMainView::createEditMenu()
 
 void khcMainView::createViewToolBar()
 {
+  kdebug(KDEBUG_INFO,1400,"khcMainView::createViewToolBar()");
   if (CORBA::is_nil(m_vToolBar))
     return;
 
@@ -598,20 +611,32 @@ void khcMainView::checkExtensions()
 {
   if (m_vView)
     {
-      bool mag = m_vView->supportsInterface("IDL:Browser/MagnifyingExtension:1.0");
       bool print = m_vView->supportsInterface("IDL:Browser/PrintingExtension:1.0");
+      bool canZoomIn, canZoomOut = false;
+
+      if (m_vView->supportsInterface("IDL:Browser/MagnifyingExtension:1.0"))
+	{
+	  CORBA::Object_var obj = m_vView->getInterface("IDL:Browser/MagnifyingExtension:1.0");
+	  Browser::MagnifyingExtension_var magExt = Browser::MagnifyingExtension::_narrow(obj);
+	  canZoomIn =  magExt->canZoomIn();
+	  canZoomIn =  magExt->canZoomOut();
+	}
 
       if (m_vMenuView)
 	{
-	  m_vMenuView->setItemEnabled(MVIEW_ZOOMIN, mag);
-	  m_vMenuView->setItemEnabled(MVIEW_ZOOMOUT, mag);
+	  m_vMenuView->setItemEnabled(MVIEW_ZOOMIN, canZoomIn);
+	  m_vMenuView->setItemEnabled(MVIEW_ZOOMOUT, canZoomOut);
 	}
 
       if(m_vMenuFile)
 	m_vMenuFile->setItemEnabled(MFILE_PRINT, print);
 
       if (m_vToolBar)
-	m_vToolBar->setItemEnabled(TB_PRINT, print);
+	{
+	  m_vToolBar->setItemEnabled(TB_PRINT, print);
+	  m_vToolBar->setItemEnabled(TB_ZOOMIN, canZoomIn);
+	  m_vToolBar->setItemEnabled(TB_ZOOMOUT, canZoomOut);
+	}
     }
 }
 
@@ -865,8 +890,18 @@ void khcMainView::slotZoomOut()
       CORBA::Object_var obj = m_vView->getInterface("IDL:Browser/MagnifyingExtension:1.0");
       Browser::MagnifyingExtension_var magExt = Browser::MagnifyingExtension::_narrow(obj);
       magExt->zoomOut();
-      m_vToolBar->setItemEnabled(TB_ZOOMIN, magExt->canZoomIn());
-      m_vToolBar->setItemEnabled(TB_ZOOMOUT, magExt->canZoomOut());
+
+      if (!CORBA::is_nil(m_vToolBar))
+	{
+	  m_vToolBar->setItemEnabled(TB_ZOOMIN, magExt->canZoomIn());
+	  m_vToolBar->setItemEnabled(TB_ZOOMOUT, magExt->canZoomOut());
+	}
+
+      if (!CORBA::is_nil(m_vMenuView))
+	{
+	  m_vMenuView->setItemEnabled(MVIEW_ZOOMIN, magExt->canZoomIn());
+	  m_vMenuView->setItemEnabled(MVIEW_ZOOMOUT, magExt->canZoomOut());
+	}
     }
 }
 
@@ -877,8 +912,18 @@ void khcMainView::slotZoomIn()
     CORBA::Object_var obj = m_vView->getInterface("IDL:Browser/MagnifyingExtension:1.0");
     Browser::MagnifyingExtension_var magExt = Browser::MagnifyingExtension::_narrow(obj);
     magExt->zoomIn();
-    m_vToolBar->setItemEnabled(TB_ZOOMIN, magExt->canZoomIn());
-    m_vToolBar->setItemEnabled(TB_ZOOMOUT, magExt->canZoomOut());
+
+    if (!CORBA::is_nil(m_vToolBar))
+      {
+	m_vToolBar->setItemEnabled(TB_ZOOMIN, magExt->canZoomIn());
+	m_vToolBar->setItemEnabled(TB_ZOOMOUT, magExt->canZoomOut());
+      }
+    
+    if (!CORBA::is_nil(m_vMenuView))
+      {
+	m_vMenuView->setItemEnabled(MVIEW_ZOOMIN, magExt->canZoomIn());
+	m_vMenuView->setItemEnabled(MVIEW_ZOOMOUT, magExt->canZoomOut());
+      }
   }
 }
 
@@ -889,7 +934,7 @@ void khcMainView::slotPrint()
       CORBA::Object_var obj = m_vView->getInterface("IDL:Browser/PrintingExtension:1.0");
       Browser::PrintingExtension_var printExt = Browser::PrintingExtension::_narrow(obj);
       printExt->print();
-  }
+    }
 }
 
 void khcMainView::slotIntroduction()
@@ -928,8 +973,9 @@ void khcMainView::slotShowNavigator()
 
       if (m_vToolBar)
 	{
-	  //m_vToolBar->setButtonPixmap(TB_NAVIGATOR, Icon("shownavigator.xpm"));
-	  //m_vToolBar->getButton(TB_NAVIGATOR)->setText(i18n("Show Navigator"));
+	  OpenPartsUI::Pixmap_var pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("shownavigator.xpm"));
+	  CORBA::WString_var text = Q2C(i18n("Navigator"));
+  	  m_vToolBar->setButtonPixmap(TB_NAVIGATOR, pix); 
 	}
     }
   else
@@ -939,8 +985,9 @@ void khcMainView::slotShowNavigator()
 
       if (m_vToolBar)
 	{
-	  //m_vToolBar->setButtonPixmap(TB_NAVIGATOR, Icon("hidenavigator.xpm"));
-	  //m_vToolBar->getButton(TB_NAVIGATOR)->setText(i18n("Hide Navigator"));
+	  OpenPartsUI::Pixmap_var pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("hidenavigator.xpm"));
+	  CORBA::WString_var text = Q2C(i18n("Navigator"));
+	  m_vToolBar->setButtonPixmap(TB_NAVIGATOR, pix); 
 	}
     }
   if (m_vMenuOptions)
@@ -1081,11 +1128,17 @@ void khcMainView::slotURLEntered(const CORBA::WChar *_url)
 
 void khcMainView::slotCheckHistory()
 {
-  if (CORBA::is_nil(m_vToolBar))
-    return;
-  
-  m_vToolBar->setItemEnabled(TB_BACK, history.hasPrev());
-  m_vToolBar->setItemEnabled(TB_FORWARD, history.hasNext());
+  if (!CORBA::is_nil(m_vToolBar))
+    {
+      m_vToolBar->setItemEnabled(TB_BACK, history.hasPrev());
+      m_vToolBar->setItemEnabled(TB_FORWARD, history.hasNext());
+    }
+
+ if (!CORBA::is_nil(m_vToolBar))
+   {
+     m_vMenuGo->setItemEnabled(MGO_BACK, history.hasPrev());
+     m_vMenuGo->setItemEnabled(MGO_FORWARD, history.hasNext());
+   }
 }
 
 void khcMainView::slotSetBusy(bool busy)
