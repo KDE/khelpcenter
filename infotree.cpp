@@ -25,6 +25,7 @@
 #include <kdebug.h>
 #include <kiconloader.h>
 #include <klistview.h>
+#include <klocale.h>
 #include <kstandarddirs.h>
 #include <kurl.h>
 
@@ -84,6 +85,9 @@ void InfoTree::build( NavigatorItem *parent )
 
   m_parentItem = parent;
 
+  m_alphabItem = new NavigatorItem( parent, i18n( "Alphabetically" ) );
+  m_categoryItem = new NavigatorItem( parent, i18n( "By Category" ) );
+
   KConfig *cfg = kapp->config();
   cfg->setGroup( "Info pages" );
   QStringList infoDirFiles = cfg->readListEntry( "Search paths" );
@@ -110,6 +114,8 @@ void InfoTree::build( NavigatorItem *parent )
     if ( QFile::exists( infoDirFileName ) )
       parseInfoDirFile( infoDirFileName );
   }
+
+  m_alphabItem->sortChildItems( 0, true /* ascending */ );
 }
 
 void InfoTree::parseInfoDirFile( const QString &infoDirFileName )
@@ -129,7 +135,7 @@ void InfoTree::parseInfoDirFile( const QString &infoDirFileName )
     if ( s.stripWhiteSpace().isEmpty() )
       continue;
 
-    InfoCategoryItem *catItem = new InfoCategoryItem( m_parentItem, s );
+    InfoCategoryItem *catItem = new InfoCategoryItem( m_categoryItem, s );
     while ( !stream.eof() && !s.stripWhiteSpace().isEmpty() ) {
       s = stream.readLine();
       if ( s[ 0 ] == '*' ) {
@@ -146,6 +152,20 @@ void InfoTree::parseInfoDirFile( const QString &infoDirFileName )
           url += "/Top";
 
         InfoNodeItem *item = new InfoNodeItem( catItem, appName );
+        item->setUrl( url );
+
+        InfoCategoryItem *alphabSection = 0;
+        for ( QListViewItemIterator it( m_alphabItem ); it.current(); it++ ) {
+          if ( it.current()->text( 0 ) == appName[ 0 ].upper() ) {
+            alphabSection = static_cast<InfoCategoryItem *>( it.current() );
+            break;
+          }
+        }
+
+        if ( alphabSection == 0 )
+          alphabSection = new InfoCategoryItem( m_alphabItem, appName[ 0 ].upper() );
+
+        item = new InfoNodeItem( alphabSection, appName );
         item->setUrl( url );
       }
     }

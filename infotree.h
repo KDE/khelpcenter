@@ -41,6 +41,8 @@ namespace KHC
       void parseInfoDirFile( const QString &fileName );
 
       NavigatorItem *m_parentItem;
+      NavigatorItem *m_alphabItem;
+      NavigatorItem *m_categoryItem;
   };
 }
 
