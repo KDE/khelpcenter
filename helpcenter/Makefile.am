@@ -14,8 +14,8 @@ INCLUDES= $(all_includes) $(MICO_INCLUDES) -I$(idldir)
 LDFLAGS = $(all_libraries) $(MICO_LDFLAGS) $(KDE_RPATH)
 IDL_FLAGS = --query-server-for-narrow --relative-paths -I$(idldir)
 
-khelpcenter_bin_LDADD   = $(LIB_KFILE) $(LIB_KFM) $(LIB_KIO) -lkom $(LIB_KHTML) $(LIB_KDEUI) $(LIBMICO) $(LIBDL)
-khelpcenterclient_LDADD   = $(LIB_KDEUI) -lkom $(LIBMICO) $(LIBDL)
+khelpcenter_bin_LDADD   = $(LIB_KFILE) $(LIB_KFM) -lkom $(LIB_KHTML)
+khelpcenterclient_LDADD   = $(LIB_KDEUI) -lkom 
 
 SUBDIRS = pics plugins info2html rman
 
@@ -37,9 +37,7 @@ DISTCLEANFILES = $(khelpcenter_METASOURCES) khelpcenter.cc khelpcenter.h
 idl_DATA    =  khelpcenter.idl
 idl_HEADERS =  khelpcenter.h
 
-khelpcenterclient.cpp: khelpcenter.h
-helpcentercom_impl.cpp: khelpcenter.h
-main.cpp: khelpcenter.h
+BUILDSOURCES = khelpcenter.h
 
 khelpcenter.h: $(srcdir)/khelpcenter.idl
 	rm -rf khelpcenter.h

@@ -102,14 +102,14 @@ int HTMLSearch::processFiles(const char *dirname, const char *query)
   if (!files.exists())
 	return 0;
 	
-  const QStrList *fileList = files.entryList();
-  QStrListIterator itFile(*fileList);
+  const QStringList *fileList = files.entryList();
+  QStringList::ConstIterator itFile;
 
-  for (; itFile.current(); ++itFile)
+  for ( itFile = fileList->begin(); !itFile->isNull(); ++itFile)
 	{
 	  QString filename = dirname;
 	  filename += "/";
-	  filename += itFile.current();
+	  filename += *itFile;
 	  
 	  int weight = countOccurrences(filename, query);
  
@@ -135,17 +135,17 @@ int HTMLSearch::processDir(const char *dirname, const char *query)
   if (!dir.exists())
 	return 0;
 	
-  const QStrList *dirList = dir.entryList();
-  QStrListIterator itDir(*dirList);
+  const QStringList *dirList = dir.entryList();
+  QStringList::ConstIterator itDir;
 
-  for (; itDir.current(); ++itDir)
+  for ( itDir = dirList->begin(); !itDir->isNull(); ++itDir)
 	{
-	  if (itDir.current()[0] == '.')
+	  if (itDir->at(0) == '.')
 		continue;
 
 	  QString filename = dirname;
 	  filename += "/";
-	  filename += itDir.current();
+	  filename += *itDir;
 
 	  processFiles(filename, query);
 	  processDir(filename, query);
