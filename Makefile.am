@@ -1,5 +1,4 @@
-#SUBDIRS = libkhc . kmanbrowser kinfobrowser kwelcome pics plugins
-SUBDIRS = libkhc kwelcome plugins pics
+SUBDIRS = kwelcome plugins pics
 
 INCLUDES = $(all_includes)
 METASOURCES = AUTO
