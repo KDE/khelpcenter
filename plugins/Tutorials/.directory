@@ -1,6 +1,7 @@
 # KDE Config File
 [KDE Desktop Entry]
 Name=Tutorials
+Name[af]=tutoriale
 Name[az]=Leksikalar
 Name[bg]=Учебни ръководства
 Name[br]=KelennantoÃ¹
@@ -49,6 +50,7 @@ Name[zh_CN.GB2312]=指南
 Name[zh_TW.Big5]=導覽
 MiniIcon=
 Comment=Tutorial and introduction documents.
+Comment[af]=tutoriaal en inleiding dokumente.
 Comment[az]=Leksika və giriş sənədləri
 Comment[bg]=Учебни ръководства и справочници
 Comment[br]=Kelennant ha teulioÃ¹ deraouiÃ±
