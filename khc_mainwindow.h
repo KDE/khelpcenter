@@ -49,9 +49,7 @@ public:
   
   virtual void setStatusBarText( const char *_text );
   virtual void setLocationBarURL( const char *_url );
-  
   virtual void createNewWindow( const char *url );
-  
   virtual void slotURLStarted( const char *url );
   virtual void slotURLCompleted( );
   
@@ -78,17 +76,15 @@ class khcMainWindow : public OPMainWindow
     virtual khcMainWindowIf* khcInterface();
 
  protected:
-    void cleanUp();
     void setupMenuBar();
     void setupToolBar();
     void setupStatusBar();
     void setupLocationBar();
     void setupView();
     void connectView();
+    void cleanUp();
 
     void enableNavigator(bool enable);
-
-    void fillBookmarkMenu(KFileBookmark *parent, QPopupMenu *menu, int &id);
 
  public slots:
 
@@ -147,10 +143,10 @@ class khcMainWindow : public OPMainWindow
     QSplitter       *m_pSplitter;
     KHelpNavigator  *m_pNavigator;
     OPFrame         *m_pFrame;
-    KHelpCenter::View_var m_vView;
     khcHTMLView     *m_pView;
     khcMainWindowIf *m_pkhcInterface;
 
+    KHelpCenter::View_var m_vView;
     khcHistory history;
 
     QPopupMenu *m_pFileMenu, *m_pEditMenu, *m_pViewMenu, *m_pGotoMenu, *m_pOptionsMenu, *m_pHelpMenu,*m_pBookmarkMenu;
