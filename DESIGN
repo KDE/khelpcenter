@@ -157,6 +157,24 @@ regexp' or 'Search case sensitive'.
 ## like web searches or special search methods optimized for certain kind of
 ## documents.
 
+# I just thought about it - isn't that a bit overkill for the web search
+# stuff? I just thought about it - all we need to do is to copy the .desktop
+# files (at least some of them, like the ones for google, yahoo and excite)
+# from the enhanced browsing thing and treat those as plugin .desktop files.
+# We could show them in a listview on the Search tab, each found search engine
+# being represented by a checkable listview item. So, we just let the user
+# enter a term, replace the \{@} placeholder in the URIs specified in the
+# selected .desktop files with that term, send out a request via KIO and show
+# the results in our KHTMLPart (after all KHC::View is a KHTMLPart already). A
+# problem with this: How to display the multiple HTML pages returned by the
+# selected search engines? Using a QSplitter to split multiple KHTMLParts?
+# Hmm... just wondered... perhaps we can work around that by not showing the
+# returned HTML data at all but rather use a XSLT script (that is, one XSLT
+# script per web search) which transforms the returned search results into a
+# common format - that way, we could also filter out duplicates and then
+# transform that filtered output into a nice, uniform HTML page. How about
+# that?
+
 KHC::View
 ---------
 KHC::View inherits KHTMLPart and does the actual job of showing some sort of
