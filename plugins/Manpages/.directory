@@ -1,6 +1,7 @@
 [KDE Desktop Entry]
 Name=UNIX manual pages
 Name[af]=Unix hand bladsye
+Name[ar]=صفحات دليل UNIX
 Name[bg]=Ръководство за Unix
 Name[bs]=UNIX manual stranice
 Name[ca]=Pàgines del manual UNIX
@@ -28,6 +29,7 @@ Name[lt]=Unix man puslapiai
 Name[mn]=UNIX-Гарын авлага хуудсууд
 Name[mt]=Paġni tal-manwali UNIX
 Name[nb]=UNIX manualsider
+Name[nds]=UNIX-Handbook
 Name[nl]=UNIX-man-pagina's
 Name[nn]=UNIX-manualsider
 Name[nso]=Matlakala a manual wa UNIX
@@ -42,6 +44,7 @@ Name[sl]=Strani priročnika za UNIX
 Name[sr]=UNIX ман странице
 Name[sv]=Unix-manualsidor
 Name[ta]=UNIX கையேடு பக்கங்கள்
+Name[tg]=Дастномаҳои UNIX
 Name[th]=หน้าคู่มือ UNIX
 Name[tr]=Unix kılavuz sayfaları
 Name[uk]=Сторінки довідки UNIX
