@@ -168,7 +168,7 @@ void MainWindow::slotOpenURLRequest( const KURL &url,
     QString proto = url.protocol().lower();
     if ( proto == "help" || proto == "glossentry" || proto == "about" ||
          proto == "man" || proto == "info" || proto == "cgi" ||
-         proto == "http" || proto == "ghelp" )
+         proto == "ghelp" )
 	    own = true;
     else if ( url.isLocalFile() ) {
 	    KMimeMagicResult *res = KMimeMagic::self()->findFileType( url.path() );
