@@ -7,7 +7,7 @@ bin_PROGRAMS = 	khelpcenter khelpcenterclient
 khelpcenter_LDADD   = -lkparts $(LIB_KDEUI) $(LIB_KFILE) $(LIB_KHTML)
 khelpcenterclient_LDADD   = -lkparts -lkded
 
-SUBDIRS = . pics plugins info2html rman kwelcome
+SUBDIRS = . kmanbrowser pics plugins info2html rman kwelcome
 
 ###### Files
 
