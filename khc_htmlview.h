@@ -24,6 +24,7 @@
 #include "khelpcenter.h"
 #include "khc_baseview.h"
 
+#include <khtml.h>
 #include <kbrowser.h>
 
 #define SCROLLBAR_WIDTH		16
