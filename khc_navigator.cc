@@ -22,6 +22,7 @@
 #include "khc_navigatoritem.h"
 #include "khc_indexwidget.h"
 #include "khc_searchwidget.h"
+#include "khc_factory.h"
 
 #include <qdir.h>
 #include <qfile.h>
@@ -31,6 +32,7 @@
 #include <qlistview.h>
 #include <qtabbar.h>
 
+#include <kaction.h>
 #include <kapp.h>
 #include <ksimpleconfig.h>
 #include <kstddirs.h>	
@@ -38,10 +40,37 @@
 #include <klocale.h>
 
 khcNavigator::khcNavigator(QWidget *parent, const char *name)
-    : BrowserView(parent,name)
+    : KParts::ReadOnlyPart(parent,name)
 {
-    tabBar = new QTabBar(this);
-        
+    setInstance( KHCFactory::instance() );
+
+    setWidget( new khcNavigatorWidget( parent ) );
+
+    connect( widget(), SIGNAL( itemSelected(const QString&) ),
+             m_extension, SLOT( slotItemSelected(const QString&) ) );
+    //setXMLFile( "khcnavigator_part.rc" );
+}
+
+bool khcNavigator::openFile()
+{
+  return true; // easy one...
+}
+
+khcNavigator::~khcNavigator()
+{
+  // KParts deletes the widget. Cool.
+}
+
+void khcNavigatorExtension::slotItemSelected(const QString& url)
+{
+  emit openURLRequest( url, false, 0, 0 );
+}
+
+khcNavigatorWidget::khcNavigatorWidget(QWidget *parent, const char *name)
+   : QWidget(parent, name)
+{
+    tabBar = new QTabBar(parent);
+
     setupContentsTab();
     setupIndexTab();
     setupSearchTab();
@@ -52,7 +81,7 @@ khcNavigator::khcNavigator(QWidget *parent, const char *name)
     buildTree();
 }
 
-khcNavigator::~khcNavigator()
+khcNavigatorWidget::~khcNavigatorWidget()
 {
     delete tree;
     delete search;
@@ -60,30 +89,7 @@ khcNavigator::~khcNavigator()
     delete tabBar;
 }
 
-void khcNavigator::openURL( const QString &, bool, int, int )
-{
-}
-
-QString khcNavigator::url()
-{
-  return QString::null;
-}
-
-int khcNavigator::xOffset()
-{
-  return 0;
-}
-
-int khcNavigator::yOffset()
-{
-  return 0;
-}
-
-void khcNavigator::stop()
-{
-}
-
-void khcNavigator::resizeEvent(QResizeEvent *)
+void khcNavigatorWidget::resizeEvent(QResizeEvent *)
 {
     tabBar->setGeometry(0, 0, width(), 28);
     tree->setGeometry(0, 28, width(), height()-28);
@@ -91,7 +97,7 @@ void khcNavigator::resizeEvent(QResizeEvent *)
     index->setGeometry(0, 28, width(), height()-28);
 }
 
-void khcNavigator::setupContentsTab()
+void khcNavigatorWidget::setupContentsTab()
 {
     tree = new QListView(this);
     tree->addColumn("Contents");
@@ -107,7 +113,7 @@ void khcNavigator::setupContentsTab()
     tree->show();
 }
 
-void khcNavigator::setupIndexTab()
+void khcNavigatorWidget::setupIndexTab()
 {
     index = new IndexWidget(this);
     index->hide();
@@ -117,7 +123,7 @@ void khcNavigator::setupIndexTab()
     tabBar->addTab(newTab);
 }
 
-void khcNavigator::setupSearchTab()
+void khcNavigatorWidget::setupSearchTab()
 {
     search = new SearchWidget(this);
     search->hide();
@@ -130,7 +136,7 @@ void khcNavigator::setupSearchTab()
     tabBar->addTab(newTab);
 }
 
-void khcNavigator::buildTree()
+void khcNavigatorWidget::buildTree()
 {
   // kde contacts
   khcNavigatorItem *ti_contact = new khcNavigatorItem(tree, i18n("Contact Information"), "helpdoc.png");
@@ -188,7 +194,7 @@ void khcNavigator::buildTree()
   tree->setCurrentItem(ti_intro);
 }
 
-void khcNavigator::clearTree()
+void khcNavigatorWidget::clearTree()
 {
     tree->clear();
 
@@ -202,7 +208,7 @@ void khcNavigator::clearTree()
 	pluginItems.removeFirst();
 }
 
-void khcNavigator::buildManSubTree(khcNavigatorItem *parent)
+void khcNavigatorWidget::buildManSubTree(khcNavigatorItem *parent)
 {
   // man(n)
   khcNavigatorItem *ti_man_sn = new khcNavigatorItem(parent, "(n) New", "helpdoc.png");
@@ -256,7 +262,7 @@ void khcNavigator::buildManSubTree(khcNavigatorItem *parent)
   parent->setOpen(true);
 }
 
-void khcNavigator::buildManualSubTree(khcNavigatorItem *parent)
+void khcNavigatorWidget::buildManualSubTree(khcNavigatorItem *parent)
 {
     QStringList list = KGlobal::dirs()->resourceDirs("apps");
     for(QStringList::Iterator it=list.begin(); it!=list.end(); it++) {
@@ -265,7 +271,7 @@ void khcNavigator::buildManualSubTree(khcNavigatorItem *parent)
     }
 }
 
-void khcNavigator::insertPlugins()
+void khcNavigatorWidget::insertPlugins()
 {
     // Scan plugin dir
     QStringList list = KGlobal::dirs()->findDirs("appdata", "plugins");
@@ -275,7 +281,7 @@ void khcNavigator::insertPlugins()
     }
 }
 
-void khcNavigator::slotReloadTree()
+void khcNavigatorWidget::slotReloadTree()
 {
     emit setBussy(true);
     clearTree();
@@ -283,7 +289,7 @@ void khcNavigator::slotReloadTree()
     emit setBussy(false);
 }
 
-void khcNavigator::slotTabSelected(int id)
+void khcNavigatorWidget::slotTabSelected(int id)
 {
     if (id == 0)
     {
@@ -307,13 +313,12 @@ void khcNavigator::slotTabSelected(int id)
     }
 }
 
-void khcNavigator::slotURLSelected(QString url)
+void khcNavigatorWidget::slotURLSelected(QString url)
 {
-  //    emit itemSelected(url);
-  emit openURLRequest( url, false, 0, 0 );
+  emit itemSelected(url);
 }
 
-void khcNavigator::slotItemSelected(QListViewItem* /*currentItem*/)
+void khcNavigatorWidget::slotItemSelected(QListViewItem* /*currentItem*/)
 {
   khcNavigatorItem *item;
   
@@ -333,8 +338,7 @@ void khcNavigator::slotItemSelected(QListViewItem* /*currentItem*/)
       if (item == tree->currentItem())
 	{
 	  if (item->getURL() != "")
-	    //	    emit itemSelected(item->getURL());
-	    emit openURLRequest( item->getURL(), false, 0, 0 );
+	    emit itemSelected(item->getURL());
 	  return;
 	}
     }
@@ -343,8 +347,7 @@ void khcNavigator::slotItemSelected(QListViewItem* /*currentItem*/)
       if (item == tree->currentItem())
 	{
 	  if (item->getURL() != "")
-	    //	    emit itemSelected(item->getURL());
-	    emit openURLRequest( item->getURL(), false, 0, 0 );
+	    emit itemSelected(item->getURL());
 	  return;
 	}
     }
@@ -353,14 +356,13 @@ void khcNavigator::slotItemSelected(QListViewItem* /*currentItem*/)
       if (item == tree->currentItem())
 	{
 	  if (item->getURL() != "")
-	    //	    emit itemSelected(item->getURL());
-	    emit openURLRequest( item->getURL(), false, 0, 0 );
+	    emit itemSelected(item->getURL());
 	  return;
 	}
     }
 }
 
-bool khcNavigator::appendEntries(const char *dirName, khcNavigatorItem *parent, QList<khcNavigatorItem> *appendList)
+bool khcNavigatorWidget::appendEntries(const char *dirName, khcNavigatorItem *parent, QList<khcNavigatorItem> *appendList)
 {
     QDir fileDir(dirName, "*.desktop", 0, QDir::Files | QDir::Hidden | QDir::Readable);
 
@@ -388,7 +390,7 @@ bool khcNavigator::appendEntries(const char *dirName, khcNavigatorItem *parent, 
 }
 
 
-bool khcNavigator::processDir( const char *dirName, khcNavigatorItem *parent,  QList<khcNavigatorItem> *appendList)
+bool khcNavigatorWidget::processDir( const char *dirName, khcNavigatorItem *parent,  QList<khcNavigatorItem> *appendList)
 {
     QString folderName;
 
@@ -443,7 +445,7 @@ bool khcNavigator::processDir( const char *dirName, khcNavigatorItem *parent,  Q
     return true;
 }
 
-bool khcNavigator::containsDocuments(QString dir)
+bool khcNavigatorWidget::containsDocuments(QString dir)
 {
     QDir fileDir(dir, "*.desktop", 0, QDir::Files | QDir::Hidden | QDir::Readable);
 

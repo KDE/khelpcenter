@@ -27,34 +27,53 @@
 class IndexWidget;
 class SearchWidget;
 class khcNavigatorItem;
+class khcNavigator;
 class QListView;
 class QListViewItem;
 class QTabBar;
 
-class khcNavigator : public BrowserView
+class khcNavigatorExtension : public BrowserExtension
+{
+    Q_OBJECT
+ public:
+    khcNavigatorExtension(KParts::ReadOnlyPart *part, const char *name=0) :
+      BrowserExtension( part, name ) {}
+    virtual ~khcNavigatorExtension();
+
+ public slots:
+    void slotItemSelected(const QString&);
+};
+
+class khcNavigator : public KParts::ReadOnlyPart
+{
+    Q_OBJECT
+
+ public:
+    khcNavigator(QWidget *widget, const char *name=0);
+    virtual ~khcNavigator();
+
+ protected:
+    bool openFile(); 
+    khcNavigatorExtension * m_extension;
+
+};
+
+class khcNavigatorWidget : public QWidget
 {
     Q_OBJECT
   
  public:
-    khcNavigator(QWidget *parent=0, const char *name=0);
-    virtual ~khcNavigator();
-
-  virtual void openURL( const QString &url, bool reload = false,
-                        int xOffset = 0, int yOffset = 0 );
-
-  virtual QString url();
-  virtual int xOffset();
-  virtual int yOffset();
-  virtual void stop();
-
- protected:
-    void resizeEvent (QResizeEvent *);
+    khcNavigatorWidget(QWidget *parent=0, const char *name=0);
+    virtual ~khcNavigatorWidget();
 
  public slots:
     void slotURLSelected(QString url);
     void slotItemSelected(QListViewItem* index);
     void slotReloadTree();
     void slotTabSelected(int);
+
+ protected:
+    virtual void resizeEvent(QResizeEvent *);
 
  signals:
     void itemSelected(const QString& itemURL);
