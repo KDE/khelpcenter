@@ -93,6 +93,8 @@ bool HTMLSearch::saveFilesList(const QString& _lang)
     for (it = dirs.begin(); it != dirs.end(); ++it)
         scanDir(*it);
 
+    delete config;
+
     return true;
 }
 
@@ -244,8 +246,10 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
     QString exe = config->readPathEntry("htdig", kapp->dirs()->findExe("htdig"));
 
     if (exe.isEmpty())
+    {
+        delete config;
         return false;
-
+    }
     bool initial = true;
     bool done = false;
     int  count = 0;
@@ -298,6 +302,7 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
         else
 	{
             kdDebug() << "Could not open `files` for writing" << endl;
+            delete config;
             return false;
 	}
 
@@ -311,6 +316,7 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
 	{
             delete _proc;
             delete progress;
+            delete config;
             return false;
 	}
 
@@ -324,8 +330,10 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
     // run htmerge -----------------------------------------------------
     exe = config->readPathEntry("htmerge", kapp->dirs()->findExe("htmerge"));
     if (exe.isEmpty())
+    {
+        delete config;
         return false;
-
+    }
     delete _proc;
     _proc = new KProcess();
     *_proc << exe << "-c" << dataPath(_lang)+"/htdig.conf";
@@ -345,6 +353,7 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
     {
         delete _proc;
         delete progress;
+        delete config;
         return false;
     }
 
@@ -354,6 +363,7 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
     kapp->processEvents();
 
     delete progress;
+    delete config;
 
     return true;
 }
@@ -424,8 +434,10 @@ QString HTMLSearch::search(QString _lang, QString words, QString method, int mat
   KConfigGroupSaver saver(config, "htdig");
   QString exe = config->readPathEntry("htsearch", kapp->dirs()->findExe("htsearch"));
   if (exe.isEmpty())
+  {
+      delete config;
     return QString::null;
-
+  }
   _proc = new KProcess();
   *_proc << exe << "-c" << dataPath(_lang)+"/htdig.conf" <<
     QString("words=%1;method=%2;matchesperpage=%3;format=%4;sort=%5").arg(words).arg(method).arg(matches).arg(format).arg(sort);
@@ -448,6 +460,7 @@ QString HTMLSearch::search(QString _lang, QString words, QString method, int mat
     {
       kdDebug() << "Error running htsearch... returning now" << endl;
       delete _proc;
+      delete config;
       return QString::null;
     }
 
@@ -466,8 +479,9 @@ QString HTMLSearch::search(QString _lang, QString words, QString method, int mat
       ts << _searchResult << endl;
 
       f.close();
+      delete config;
       return result;
     }
-
+  delete config;
   return QString::null;
 }
