@@ -103,7 +103,7 @@ HtmlSearchConfig::HtmlSearchConfig(QWidget *parent, const char *name)
   QWhatsThis::add( l, wtstr );
 
   mDbDir = new KURLRequester(gb);
-  l = new QLabel(mDbDir, i18n("htdig data base:"), gb);
+  l = new QLabel(mDbDir, i18n("htdig database:"), gb);
   l->setBuddy( mDbDir );
   grid->addWidget(l, 3,0);
   grid->addWidget(mDbDir, 3,1);
