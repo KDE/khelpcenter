@@ -129,7 +129,7 @@ void khcNavigatorWidget::setupContentsTab()
 	    SLOT(slotItemSelected(QListViewItem*)));
 
     QTab *newTab = new QTab;
-    newTab->label = "Contents";
+    newTab->label = i18n("Contents");
     tabBar->addTab(newTab);
     tree->show();
 }
@@ -143,7 +143,7 @@ void khcNavigatorWidget::setupSearchTab()
 	    SLOT(slotURLSelected(QString)));
 
     QTab *newTab = new QTab;
-    newTab->label = "Search";
+    newTab->label = i18n("Search");
     tabBar->addTab(newTab);
 }
 

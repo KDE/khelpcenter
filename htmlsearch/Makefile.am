@@ -34,5 +34,6 @@ xpmdir = $(kde_datadir)/khelpcenter/pics
 #KDE_ICON = sample
 
 messages:
-	$(XGETTEXT) $(libkcm_htmlsearch_la_SOURCES) -o $(podir)/htmlsearch.pot
+	$(XGETTEXT) $(libhtmlsearch_la_SOURCES) -o $(podir)/htmlsearch.pot
+	$(XGETTEXT) $(libkcm_htmlsearch_la_SOURCES) -o $(podir)/kcmhtmlsearch.pot
 

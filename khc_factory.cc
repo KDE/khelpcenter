@@ -17,6 +17,9 @@
 
 */
 
+#include <kglobal.h>
+#include <klocale.h>
+
 #include "khc_factory.h"
 #include "khc_navigator.h"
 #include "khc_navigatoritem.h"
@@ -46,6 +49,7 @@ KHCFactory::~KHCFactory()
 
 QObject* KHCFactory::create( QObject* parent, const char* name, const char* /*classname*/, const QStringList & )
 {
+  KGlobal::locale()->insertCatalogue(QString::fromLatin1("khelpcenter"));
   khcNavigator *nav = new khcNavigator( (QWidget *)parent, name );
 
   emit objectCreated( nav );
