@@ -27,7 +27,6 @@
 #include <kurl.h>
 #include <krun.h>
 #include <kfiledialog.h>
-#include <kmsgbox.h>
 #include <kcursor.h>
 
 #include "khelpview.h"
@@ -592,17 +591,17 @@ void KHelpView::slotFindNext( const QRegExp &regExp )
 {
     if (!view->findTextNext(regExp))
     {
-	if (KMsgBox::yesNo(this, i18n("Find Complete"),
-			   i18n("Continue search from the top of the page?"),
-			   KMsgBox::DB_SECOND | KMsgBox::QUESTION) == 1)
+      if (!QMessageBox::information(this, i18n("Find Complete - Help Viewer"),
+				    i18n("Continue search from the top of the page?"),
+				    i18n("&Yes"), i18n("&No"), 0, 1))
 	{
-	    view->findTextBegin();
-	    slotFindNext(regExp);
+	  view->findTextBegin();
+	  slotFindNext(regExp);
 	}
-	else
+      else
 	{
-	    view->findTextEnd();
-	    findDialog->hide();
+	  view->findTextEnd();
+	  findDialog->hide();
 	}
     }
 }
