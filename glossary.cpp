@@ -39,29 +39,29 @@
 
 using namespace KHC;
 
-class SectionItem : public QListViewItem
+class SectionItem : public KListViewItem
 {
 	public:
 		SectionItem( QListViewItem *parent, const QString &text )
-			: QListViewItem( parent, text )
+			: KListViewItem( parent, text )
 		{
 			setOpen( false );
 		}
 		
 		virtual void setOpen( bool open )
 		{
-				QListViewItem::setOpen(open);
+				KListViewItem::setOpen(open);
 				
 				setPixmap( 0, SmallIcon( QString::fromLatin1( open ? "contents" : "contents2" ) ) );
 
 		}
 };
 
-class EntryItem : public QListViewItem
+class EntryItem : public KListViewItem
 {
 	public:
 		EntryItem( SectionItem *parent, const QString &term, const QString &id )
-			: QListViewItem( parent, term ),
+			: KListViewItem( parent, term ),
 			m_id( id )
 		{
 		}
@@ -85,10 +85,10 @@ Glossary::Glossary( QWidget *parent ) : KListView( parent )
 	setAllColumnsShowFocus( true );
 	setRootIsDecorated( true );
 
-	m_byTopicItem = new QListViewItem( this, i18n( "By topic" ) );
+	m_byTopicItem = new KListViewItem( this, i18n( "By topic" ) );
 	m_byTopicItem->setPixmap( 0, SmallIcon( "help" ) );
 
-	m_alphabItem = new QListViewItem( this, i18n( "Alphabetically" ) );
+	m_alphabItem = new KListViewItem( this, i18n( "Alphabetically" ) );
 	m_alphabItem->setPixmap( 0, SmallIcon( "charset" ) );
 
 	m_cacheFile = locateLocal( "cache", "help/glossary.xml" );
@@ -191,7 +191,7 @@ void Glossary::buildGlossaryTree()
 			QDomElement termElement = childElement( entryElement, QString::fromLatin1( "term" ) );
 			QString term = termElement.text().simplifyWhiteSpace();
 
-			new QListViewItem(topicSection, term);
+			new KListViewItem(topicSection, term);
 
 			SectionItem *alphabSection = 0L;
 			for ( QListViewItemIterator it( m_alphabItem ); it.current(); it++ )
