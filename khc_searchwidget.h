@@ -31,7 +31,7 @@ class QPushButton;
 class QLineEdit;
 class QCheckBox;
 class QListBox;
-class KLanguageCombo;
+class KLanguageButton;
 
 class HTMLSearch;
 
@@ -66,7 +66,7 @@ private:
     QLineEdit *searchString;
     QComboBox *method, *pages, *format, *sort;
     QCheckBox *revSort;
-    KLanguageCombo *language;
+    KLanguageButton *language;
 
     HTMLSearch *search;
 

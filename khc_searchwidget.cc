@@ -30,7 +30,7 @@
 #include <qcheckbox.h>
 #include <qlayout.h>
 #include <qframe.h>
-#include <klangcombo.h>
+#include <klanguagebutton.h>
 #include <kglobal.h>
 #include <kstddirs.h>
 #include <ksimpleconfig.h>
@@ -69,7 +69,7 @@ SearchWidget::SearchWidget(QWidget *parent)
 
   QHBoxLayout *hbox = new QHBoxLayout(vbox);
 
-  language = new KLanguageCombo(this);
+  language = new KLanguageButton(this);
   QWhatsThis::add(language, i18n("Here you can select the language you want to search in."));
   l = new QLabel(language, i18n("&Language"), this);
   hbox->addWidget(l);
