@@ -1,5 +1,3 @@
-AM_CPPFLAGS = -DQT_NO_ASCII_CAST
-
 SUBDIRS = htmlsearch plugins pics 
 
 INCLUDES = $(all_includes)
