@@ -458,7 +458,7 @@ int KHelpWindow::openFile( const QString &location )
 			{
 				QMessageBox mb;
 				mb.setText( i18n("Unknown format: ") + fileName );
-				mb.setButtonText( QMessageBox::Ok, i18n("Oops!") );
+				mb.setButtonText( QMessageBox::Ok, i18n("Error") );
 				mb.show();
 			}
 	}
@@ -663,10 +663,7 @@ bool KHelpWindow::canCurrentlyDo(AllowedActions action)
 	case Copy:        return view->isTextSelected();
 	case GoBack:      return history.IsBack();
 	case GoForward:   return history.IsForward();
-	case GoPrevious:  return format->PrevNode() != NULL;
-	case GoNext:      return format->NextNode() != NULL;
-	case GoUp:        return format->UpNode() != NULL;
-	case GoTop:       return format->TopNode() != NULL;
+	case GoUp:        return false;
 	case Stop:        return busy;
 	default: 
 	      warning("KHelpWindow::canCurrentlyDo: missing case in \"switch\" statement\n");
@@ -769,8 +766,9 @@ void KHelpWindow::slotSearch()
 
 void KHelpWindow::slotReload()
 {
-    currentURL = "";
-    openURL( "\"" + getPrefix() + format->GetLocation() + "\"", false );
+  QString url = currentURL;
+  currentURL = "";
+  openURL(url);
 }
 
 
@@ -893,25 +891,9 @@ void KHelpWindow::slotDir()
     openURL( initDoc );
 }
 
-
-void KHelpWindow::slotTop()
-{
-	openURL( "\"" + getPrefix() + format->TopNode() + "\"" );
-}
-
 void KHelpWindow::slotUp()
 {
-	openURL("\"" + getPrefix() + format->UpNode() +"\"" );
-}
 
-void KHelpWindow::slotPrev()
-{
-	openURL( "\"" + getPrefix() + format->PrevNode() + "\"" );
-}
-
-void KHelpWindow::slotNext()
-{
-	openURL( "\"" + getPrefix() + format->NextNode() + "\"" );
 }
 
 void KHelpWindow::slotTextSelected( bool )
@@ -1043,21 +1025,12 @@ void KHelpWindow::slotPopupMenu( const char *url, const QPoint &p )
 	if ( url )
 	{
 		rmbPopup->insertSeparator();
-		if ( strstr( url, "info:" ) )
-		{
-			const char *ptr = strchr( url, ':' ) + 1;
-			if ( *ptr != '(' )
-				newURL = "info:(" + currentInfo + ')' + ptr;
-		}
-		else
-		{
-			int pos;
-			if ( url[0] == '\"' )
-				url++;
-			newURL = url;
-			if ( ( pos  = newURL.findRev( '\"' ) ) > 0)
-				newURL.truncate( pos );
-		}
+		int pos;
+		if ( url[0] == '\"' )
+		  url++;
+		newURL = url;
+		if ( ( pos  = newURL.findRev( '\"' ) ) > 0)
+		  newURL.truncate( pos );
 		rmbPopup->insertItem(i18n("Open this Link"),this,SLOT(slotPopupOpenURL()));
 		rmbPopup->insertItem(i18n("Add Bookmark"),this,SLOT(slotPopupAddBookmark()));
 		rmbPopup->insertItem(i18n("Open in new Window"),this,SLOT(slotPopupOpenNew()));
@@ -1274,6 +1247,8 @@ void KHelpWindow::slotDocumentChanged()
 	horz->setRange( 0, view->docWidth() - view->width() );
   else
 	horz->setRange( 0, 0 );
+
+  layout();
 }
 
 
@@ -1292,8 +1267,9 @@ void KHelpWindow::slotDocumentDone()
 		if ( !view->gotoAnchor( ref ) )
 			vert->setValue( 0 );
 	}
-	
+
 	layout();
+	
 	busy = false;
 	emit enableMenuItems();
 }

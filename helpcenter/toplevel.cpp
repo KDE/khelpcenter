@@ -147,11 +147,6 @@ void HelpCenter::setupMenubar()
   fileMenu->insertSeparator();
   fileMenu->insertItem(i18n("&Open File..."), htmlview,
 						SLOT(slotOpenFile()), stdAccel.open() );
-  fileMenu->insertItem(i18n("&Reload"),  htmlview,
-						SLOT(slotReload()) );
-  fileMenu->insertSeparator();
-  fileMenu->insertItem(i18n("&Search"), htmlview,
-					   SLOT(slotSearch()) );
   fileMenu->insertSeparator();
   fileMenu->insertItem( i18n("&Print..."),
 						htmlview, SLOT(slotPrint()), stdAccel.print() );
@@ -161,31 +156,23 @@ void HelpCenter::setupMenubar()
   
   editMenu = new QPopupMenu;
   CHECK_PTR( editMenu );
-  idCopy = editMenu->insertItem(i18n("&Copy"),
-								htmlview, SLOT(slotCopy()), stdAccel.copy() );
-  editMenu->insertItem(i18n("&Find..."),
-					   htmlview, SLOT(slotFind()), stdAccel.find() );
-  editMenu->insertItem(i18n("Find &next"),
-					   htmlview, SLOT(slotFindNext()), Key_F3 );
+  idCopy = editMenu->insertItem(i18n("&Copy"), htmlview, SLOT(slotCopy()), stdAccel.copy());
+  editMenu->insertItem(i18n("&Find..."), htmlview, SLOT(slotFind()), stdAccel.find());
+  editMenu->insertItem(i18n("Find &next"), htmlview, SLOT(slotFindNext()), Key_F3);
   
   gotoMenu = new QPopupMenu;
-  CHECK_PTR( gotoMenu );
-  idBack = gotoMenu->insertItem( i18n("&Back"),
-								 htmlview, SLOT(slotBack()) );
-  idForward = gotoMenu->insertItem( i18n("&Forward"),
-									htmlview, SLOT(slotForward()) );
+  CHECK_PTR(gotoMenu);
+  idUp = gotoMenu->insertItem(i18n("&Up"), htmlview, SLOT(slotUp()));
+  idBack = gotoMenu->insertItem(i18n("&Back"), htmlview, SLOT(slotBack()));
+  idForward = gotoMenu->insertItem(i18n("&Forward"), htmlview, SLOT(slotForward()));
   gotoMenu->insertSeparator();
-  gotoMenu->insertItem( i18n("&Contents"),
-						htmlview, SLOT(slotDir()) );
-  idTop = gotoMenu->insertItem( i18n("&Top"),
-								htmlview, SLOT(slotTop()) );
-  idUp = gotoMenu->insertItem( i18n("&Up"),
-							   htmlview, SLOT(slotUp()) );
-  idPrevious = gotoMenu->insertItem( i18n("&Previous"),
-									 htmlview, SLOT(slotPrev()) );
-  idNext = gotoMenu->insertItem( i18n("&Next"),
-								 htmlview, SLOT(slotNext()) );
- 
+  gotoMenu->insertItem(i18n("&Contents"), htmlview, SLOT(slotDir()));
+  
+  viewMenu = new QPopupMenu;
+  CHECK_PTR(viewMenu);
+  viewMenu->insertItem(i18n("&Reload Tree"), treeview, SLOT(slotReloadTree()));
+  viewMenu->insertItem(i18n("Reload &Document"), htmlview, SLOT(slotReload()), Key_F5);
+  
   bookmarkMenu = new QPopupMenu;
   CHECK_PTR( bookmarkMenu );
   connect( bookmarkMenu, SIGNAL( activated( int ) ),
@@ -194,7 +181,7 @@ void HelpCenter::setupMenubar()
 		   htmlview, SLOT( slotBookmarkHighlighted( int ) ) );
    
   optionsMenu = new QPopupMenu;
-  CHECK_PTR( optionsMenu );
+  CHECK_PTR(optionsMenu);
   optionsMenu->setCheckable( true );
 
   optionsMenu->insertItem(i18n("&General Preferences..."),
@@ -218,7 +205,8 @@ void HelpCenter::setupMenubar()
   
   menuBar()->insertItem(i18n("&File"), fileMenu);
   menuBar()->insertItem(i18n("&Edit"), editMenu);
-  menuBar()->insertItem(i18n("&Goto"), gotoMenu);
+  menuBar()->insertItem(i18n("&View"), viewMenu);
+  menuBar()->insertItem(i18n("&Go"), gotoMenu);
   menuBar()->insertItem(i18n("&Options"), optionsMenu);
   menuBar()->insertItem(i18n("&Bookmarks"), bookmarkMenu);
   menuBar()->insertSeparator();
@@ -229,19 +217,12 @@ void HelpCenter::setupToolbar()
 {
   toolBar(0)->insertButton(Icon("hidetree.xpm"), TB_TREE,
 						   true, i18n("Toogle Treeview"));
-  toolBar(0)->insertButton(Icon("back.xpm"), TB_PREVDOC,
-						   true, i18n("Previous Document"));
-  toolBar(0)->insertButton(Icon("forward.xpm"), TB_NEXTDOC,
-						   true, i18n("Next Document"));
-  toolBar(0)->insertButton(Icon("up.xpm"), TB_UPDOC,
-						   true, i18n("Up one Document"));
-  toolBar(0)->insertSeparator();
-  toolBar(0)->insertButton(Icon("prev.xpm"), TB_PREVNODE,
-						   true, i18n("Previous Node"));
-  toolBar(0)->insertButton(Icon("next.xpm"), TB_NEXTNODE,
-						   true, i18n("Next Node"));
-  toolBar(0)->insertButton(Icon("top.xpm"), TB_TOPNODE,
-						   true, i18n("Top Node"));
+  toolBar(0)->insertButton(Icon("up.xpm"), TB_UP,
+						   true, i18n("Up"));
+  toolBar(0)->insertButton(Icon("back.xpm"), TB_BACK,
+						   true, i18n("Previous document in history"));
+  toolBar(0)->insertButton(Icon("forward.xpm"), TB_FORWARD,
+						   true, i18n("Next document in history"));
   toolBar(0)->insertSeparator();
   toolBar(0)->insertButton(Icon("contents.xpm"), TB_INTRO,
 						   true, i18n("Introduction"));
@@ -265,8 +246,8 @@ void HelpCenter::setupLocationbar()
 
 void HelpCenter::setupStatusbar()
 {
+  statusBar()->insertItem("Test", 1);
   enableStatusBar(KStatusBar::Show);
-  statusBar()->insertItem("", 0);
 }
 
 void HelpCenter::resizeEvent(QResizeEvent *)
@@ -386,29 +367,16 @@ void HelpCenter::enableMenuItems()
   
   val = htmlview->canCurrentlyDo(KHelpWindow::GoBack); // history.isback
   gotoMenu->setItemEnabled( idBack, val );
-  toolBar(0)->setItemEnabled( TB_PREVDOC, val );
+  toolBar(0)->setItemEnabled( TB_BACK, val );
   
   val = htmlview->canCurrentlyDo(KHelpWindow::GoForward); // history.IsForward
   gotoMenu->setItemEnabled( idForward, val );
-  toolBar(0)->setItemEnabled( TB_NEXTDOC, val );
+  toolBar(0)->setItemEnabled( TB_FORWARD, val );
   
-  val = htmlview->canCurrentlyDo(KHelpWindow::GoPrevious); // format->PrevNode()
-  gotoMenu->setItemEnabled( idPrevious, val );
-  toolBar(0)->setItemEnabled( TB_PREVNODE, val );
-	
-  val = htmlview->canCurrentlyDo(KHelpWindow::GoNext); // format->NextNode()
-  gotoMenu->setItemEnabled( idNext, val );
-  toolBar(0)->setItemEnabled( TB_NEXTNODE, val );
-	
-  val = htmlview->canCurrentlyDo(KHelpWindow::GoUp); // format->UpNode()
+ 	
+  val = htmlview->canCurrentlyDo(KHelpWindow::GoUp); 
   gotoMenu->setItemEnabled( idUp, val );
-  toolBar(0)->setItemEnabled( TB_UPDOC, val );
-  
-  val = htmlview->canCurrentlyDo(KHelpWindow::GoTop); // format->UpTop()
-  gotoMenu->setItemEnabled( idTop, val );
-  toolBar(0)->setItemEnabled( TB_TOPNODE, val );
-  
-  toolBar(0)->setItemEnabled( TB_RELOAD, TRUE );
+  toolBar(0)->setItemEnabled( TB_UP, val );
   
   val = htmlview->canCurrentlyDo(KHelpWindow::Stop); // busy
   toolBar(0)->setItemEnabled( TB_STOP, val );
@@ -488,23 +456,14 @@ void HelpCenter::slotToolbarClicked(int item)
 	case TB_TREE:
 	  slotOptionsTree();
 	  break;
-	case TB_PREVDOC:
+	case TB_BACK:
 	  htmlview->slotBack();
 	  break;
-	case TB_NEXTDOC:
+	case TB_FORWARD:
 	  htmlview->slotForward();
 	  break;
-	case TB_UPDOC:
+	case TB_UP:
 	  htmlview->slotUp();
-	  break;
-	case TB_PREVNODE:
-	  htmlview->slotPrev();
-	  break;
-	case TB_NEXTNODE:
-	  htmlview->slotNext();
-	  break;
-	case TB_TOPNODE:
-	  htmlview->slotTop();
 	  break;
 	case TB_INTRO:
 	  htmlview->slotDir();
@@ -567,7 +526,7 @@ void HelpCenter::slotCloneWindow()
 
 void HelpCenter::slotSetStatusText(const QString& text)
 {
-  statusBar()->replaceItem(0, text);
+  statusBar()->changeItem(text, 1);
 }
 
 void HelpCenter::slotBookmarkChanged(KFileBookmark *parent)
@@ -582,8 +541,7 @@ void HelpCenter::slotBookmarkChanged(KFileBookmark *parent)
 
 void HelpCenter::slotSetTitle( const QString& _title )
 {
-  QString appCaption = kapp->getCaption();
-  appCaption += " - ";
+  QString appCaption = "KDE Help Center - ";
   appCaption += _title;
   
   setCaption( appCaption );

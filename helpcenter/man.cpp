@@ -21,8 +21,6 @@
 #include "error.h"
 #include <errno.h>
 
-//#include "dbnew.h"
-
 #include <klocale.h>
 
 #ifdef HAVE_PATHS_H
@@ -144,6 +142,8 @@ cManSection::cManSection(const char *theName)
 			sdesc = i18n("Miscellaneous");
 		else if ( strncmp( theName, "8", 1 ) == 0 )
 			sdesc = i18n("System Administration");
+		else if ( strncmp( theName, "9", 1 ) == 0 )
+		  sdesc = i18n("Kernel");
 		else if ( strncmp( theName, "n", 1 ) == 0 )
 			sdesc = i18n("New");
 		else
@@ -458,10 +458,10 @@ int cMan::ReadLocation(const char *name)
 
         sysCmd[0] = '\0';
 
-		sprintf(stdFile, "%s/khelpXXXXXX", _PATH_TMP);	// temp file
+		sprintf(stdFile, "%s/khelpcenterXXXXXX", _PATH_TMP);	// temp file
 		mktemp(stdFile);
 
-		sprintf(errFile, "%s/khelpXXXXXX", _PATH_TMP);	// temp file
+		sprintf(errFile, "%s/khelpcenterXXXXXX", _PATH_TMP);	// temp file
 		mktemp(errFile);
 
 		sprintf(rmanCmd, "%s/rman -f HTML",

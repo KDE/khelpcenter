@@ -98,11 +98,10 @@ private:
 	KHelpWindow *htmlview;
 	HTreeView *treeview;
 
-	QPopupMenu *fileMenu, *editMenu, *gotoMenu, *optionsMenu, *helpMenu,*bookmarkMenu;
+	QPopupMenu *fileMenu, *editMenu, *viewMenu, *gotoMenu, *optionsMenu, *helpMenu,*bookmarkMenu;
 
 	// toolbar id's:
-	enum {TB_PREVDOC, TB_NEXTDOC, TB_UPDOC, TB_PREVNODE, TB_NEXTNODE,
-		  TB_TOPNODE, TB_INTRO, TB_RELOAD, TB_STOP, TB_TREE};
+	enum {TB_BACK, TB_FORWARD, TB_UP, TB_INTRO, TB_RELOAD, TB_STOP, TB_TREE};
 	// menu id's:
 	int idCopy, idBack, idForward, idTop, idUp, idPrevious, idNext, idTree, idToolbar
 	  ,idLocationbar, idStatusbar;

@@ -36,7 +36,7 @@ HTreeView::HTreeView(QWidget *parent, const char *name)
   search = new QWidget(this);
   
   tree->setSmoothScrolling(true);
-  staticItems.setAutoDelete(true);
+
   addTab(tree, "Contents");
   addTab(search, "Search");
 
@@ -85,7 +85,7 @@ void HTreeView::buildTree()
   buildManSubTree(ti_man);
 
   // info browser 
-  HTreeListItem *ti_info = new HTreeListItem("Browse info pages", "folder.xpm");
+  HTreeListItem *ti_info = new HTreeListItem("Browse info pages", "document.xpm");
   ti_info->setURL(QString("file:/cgi-bin/info2html"));
   ti_info->insertInTree(tree,0);
   staticItems.append(ti_info);
@@ -110,6 +110,16 @@ void HTreeView::buildTree()
 
 void HTreeView::clearTree()
 {
+  tree->clear();
+
+  while(!staticItems.isEmpty())
+	staticItems.removeFirst();
+
+  while(!manualItems.isEmpty())
+	manualItems.removeFirst();
+
+  while(!pluginItems.isEmpty())
+	  pluginItems.removeFirst();
 }
 
 void HTreeView::buildManSubTree(HTreeListItem *parent)
