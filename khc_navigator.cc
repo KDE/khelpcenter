@@ -133,7 +133,7 @@ void khcNavigatorWidget::setupContentsTab()
     contentsTree->header()->hide();
     contentsTree->setRootIsDecorated(false);
     contentsTree->setSorting(-1, false);
-    connect(contentsTree, SIGNAL(clicked(QListViewItem*)), this,
+    connect(contentsTree, SIGNAL(executed(QListViewItem*)), this,
 	    SLOT(slotItemSelected(QListViewItem*)));
 
     addTab(contentsTree, i18n("Contents"));
@@ -156,7 +156,7 @@ void khcNavigatorWidget::setupGlossaryTab()
 	glossaryTree->header()->hide();
 	glossaryTree->setAllColumnsShowFocus(true);
 	glossaryTree->setRootIsDecorated(true);
-	connect(glossaryTree, SIGNAL(clicked(QListViewItem *)),
+	connect(glossaryTree, SIGNAL(executed(QListViewItem *)),
 			SLOT(slotGlossaryItemSelected(QListViewItem *)));
 	
 	QListViewItem *byTopicItem = new QListViewItem(glossaryTree, i18n("By topic"));
@@ -553,8 +553,13 @@ void khcNavigatorWidget::slotURLSelected(QString url)
 
 void khcNavigatorWidget::slotGlossaryItemSelected(QListViewItem *item)
 {
-	if (item && dynamic_cast<SectionItem *>(item->parent()))
+	if (!item)
+		return;
+	
+	if (dynamic_cast<SectionItem *>(item->parent()))
 		emit glossSelected(item->text(0));
+
+	item->setOpen(!item->isOpen());
 }
 
 void khcNavigatorWidget::slotItemSelected(QListViewItem* currentItem)
