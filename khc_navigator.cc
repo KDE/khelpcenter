@@ -59,9 +59,49 @@
 #include "khc_infonode.h"
 #include "searchengine.h"
 #include "khc_view.h"
-
 #include "khc_navigator.h"
 #include "khc_navigator.moc"
+
+namespace {
+
+QString langLookup(const QString &fname)
+{
+    QStringList search;
+
+    // assemble the local search paths
+    const QStringList localDoc = KGlobal::dirs()->resourceDirs("html");
+
+    // look up the different languages
+    for (int id=localDoc.count()-1; id >= 0; --id)
+    {
+        QStringList langs = KGlobal::locale()->languageList();
+        langs.append("default");
+        langs.append("en");
+        QStringList::ConstIterator lang;
+        for (lang = langs.begin(); lang != langs.end(); ++lang)
+            search.append(QString("%1%2/%3").arg(localDoc[id]).arg(*lang).arg(fname));
+    }
+
+    // try to locate the file
+    QStringList::Iterator it;
+    for (it = search.begin(); it != search.end(); ++it)
+    {
+        kdDebug(1400) << "Looking for help in: " << *it << endl;
+
+        QFileInfo info(*it);
+        if (info.exists() && info.isFile() && info.isReadable())
+            return *it;
+
+        QString file = (*it).left((*it).findRev('/')) + "/index.docbook";
+        kdDebug(1400) << "Looking for help in: " << file << endl;
+        info.setFile(file);
+        if (info.exists() && info.isFile() && info.isReadable())
+            return *it;
+    }
+
+    return QString::null;
+}
+};
 
 SectionItem::SectionItem(QListViewItem *parent, const QString &text)
         : QListViewItem(parent, text)
@@ -77,6 +117,85 @@ void SectionItem::setOpen(bool open)
     setPixmap(0, KGlobal::iconLoader()->loadIcon(QString::fromLatin1("contents2"), KIcon::Small));
 
   QListViewItem::setOpen(open);
+}
+
+TOCListView::TOCListView( QWidget *parent )
+  : KListView( parent )
+{
+  setFrameStyle( QFrame::Panel | QFrame::Sunken );
+  addColumn( QString::null );
+	header()->hide();
+  setSorting( -1, true );
+	setRootIsDecorated( true );
+}
+
+TOCListViewItem::TOCListViewItem( TOCListViewItem *parent, const QString &text )
+  : QListViewItem( parent, text )
+{
+}
+
+TOCListViewItem::TOCListViewItem( TOCListViewItem *parent, QListViewItem *after, const QString &text )
+  : QListViewItem( parent, after, text )
+{
+}
+
+TOCListViewItem::TOCListViewItem( TOCListView *parent, const QString &text )
+  : QListViewItem( parent, text )
+{
+}
+
+TOCListViewItem::TOCListViewItem( TOCListView *parent, QListViewItem *after, const QString &text  )
+  : QListViewItem( parent, after, text )
+{
+}
+
+TOCListView *TOCListViewItem::toc() const
+{
+  return static_cast<TOCListView *>( listView() );
+}
+
+TOCChapterItem::TOCChapterItem( TOCListView *parent, const QString &title, const QString &name )
+  : TOCListViewItem( parent, title ), m_name( name )
+{
+  setOpen( false );
+}
+
+TOCChapterItem::TOCChapterItem( TOCListView *parent, QListViewItem *after, const QString &title, const QString &name )
+  : TOCListViewItem( parent, after, title ), m_name( name )
+{
+  setOpen( false );
+}
+
+void TOCChapterItem::setOpen( bool open )
+{
+  setPixmap( 0, SmallIcon( open ? "contents" : "contents2" ) );
+
+  QListViewItem::setOpen(open);
+}
+
+QString TOCChapterItem::link() const
+{
+  return "help:" + toc()->application() + "/" + m_name + ".html";
+}
+
+TOCSectionItem::TOCSectionItem( TOCChapterItem *parent, const QString &title, const QString &name )
+  : TOCListViewItem( parent, title ), m_name( name )
+{
+  setPixmap( 0, SmallIcon( "document" ) );
+}
+
+TOCSectionItem::TOCSectionItem( TOCChapterItem *parent, QListViewItem *after, const QString &title, const QString &name )
+  : TOCListViewItem( parent, after, title ), m_name( name )
+{
+  setPixmap( 0, SmallIcon( "document" ) );
+}
+
+QString TOCSectionItem::link() const
+{
+  if ( parent()->firstChild() == this )
+    return static_cast<TOCChapterItem *>( parent() )->link() + "#" + m_name;
+  else
+    return "help:" + toc()->application() + "/" + m_name + ".html";
 }
 
 khcNavigator::khcNavigator( KHCView *view, QWidget *parentWidget,
@@ -119,7 +238,6 @@ void khcNavigatorExtension::slotItemSelected(const QString& url)
     emit openURLRequest( url, urlArgs );
 }
 
-
 khcNavigatorWidget::khcNavigatorWidget( KHCView *view, QWidget *parent,
                                         const char *name )
    : QWidget( parent, name ),
@@ -157,6 +275,7 @@ khcNavigatorWidget::khcNavigatorWidget( KHCView *view, QWidget *parent,
     setupContentsTab();
     setupSearchTab();
     setupGlossaryTab();
+    setupTOCTab();
 
     // compiling the regex used while parsing the info directory (dir) file
     int nResult = regcomp(&compInfoRegEx, "^\\* ([^:]+)\\: \\(([^)]+)\\)([[:space:]]|(([^.]*)\\.)).*$", REG_EXTENDED);
@@ -219,7 +338,6 @@ void khcNavigatorWidget::setupContentsTab()
            SLOT(slotItemSelected(QListViewItem*)));
     connect(contentsTree, SIGNAL(expanded(QListViewItem*)),
             SLOT(slotItemExpanded(QListViewItem*)));
-
     mTabWidget->addTab(contentsTree, i18n("&Contents"));
 }
 
@@ -241,6 +359,72 @@ void khcNavigatorWidget::slotShowPage(QWidget *w)
        buildGlossary();
     }
     mTabWidget->showPage(w);
+}
+
+void khcNavigatorWidget::setupTOCTab()
+{
+  tocTree = new TOCListView( this );
+	connect( tocTree, SIGNAL( executed( QListViewItem * ) ),
+	         this, SLOT( slotTOCItemSelected( QListViewItem * ) ) );
+	connect( tocTree, SIGNAL( returnPressed( QListViewItem * ) ),
+	         this, SLOT( slotTOCItemSelected( QListViewItem * ) ) );
+
+	resetTOCTree();
+
+	mTabWidget->addTab( tocTree, "&Table of contents" );
+}
+
+void khcNavigatorWidget::resetTOCTree()
+{
+	while ( tocTree->firstChild() )
+		delete tocTree->firstChild();
+
+	tocTree->insertItem( new QListViewItem( tocTree, i18n( "No manual selected" ) ) );
+}
+
+void khcNavigatorWidget::fillTOCTree( const QDomDocument &doc )
+{
+	while ( tocTree->firstChild() )
+		delete tocTree->firstChild();
+    
+	QDomNodeList chapters = doc.documentElement().elementsByTagName( "chapter" );
+	for ( unsigned int chapterCount = 0; chapterCount < chapters.count(); chapterCount++ ) {
+		QDomElement chapElem = chapters.item( chapterCount ).toElement();
+		QDomElement chapTitleElem = chapElem.elementsByTagName( "title" ).item( 0 ).toElement();
+		QString chapTitle = chapTitleElem.text().simplifyWhiteSpace();
+		QString chapRef = chapElem.attribute( "id" );
+
+    TOCChapterItem *chapItem;
+    if ( tocTree->childCount() == 0 )
+      chapItem = new TOCChapterItem( tocTree, chapTitle, chapRef );
+    else
+      chapItem = new TOCChapterItem( tocTree, tocTree->lastChild(), chapTitle, chapRef );
+
+    QDomNodeList sections = chapElem.elementsByTagName( "sect1" );
+    for ( unsigned int sectCount = 0; sectCount < sections.count(); sectCount++ ) {
+      QDomElement sectElem = sections.item( sectCount ).toElement();
+      QDomElement sectTitleElem = sectElem.elementsByTagName( "title" ).item( 0 ).toElement();
+      QString sectTitle = sectTitleElem.text().simplifyWhiteSpace();
+			QString sectRef = sectElem.attribute( "id" );
+
+      if ( chapItem->childCount() == 0 )
+        new TOCSectionItem( chapItem, sectTitle, sectRef );
+      else {
+        QListViewItem *lastChild = chapItem->firstChild();
+        while ( lastChild->nextSibling() )
+          lastChild = lastChild->nextSibling();
+        new TOCSectionItem( chapItem, lastChild, sectTitle, sectRef );
+      }
+    }
+	}
+}
+
+void khcNavigatorWidget::slotTOCItemSelected( QListViewItem *item )
+{
+  TOCListViewItem *tocItem;
+  if ( ( tocItem = dynamic_cast<TOCSectionItem *>( item ) ) ||
+       ( tocItem = dynamic_cast<TOCChapterItem *>( item ) ) )
+    emit itemSelected( tocItem->link() );
 }
 
 void khcNavigatorWidget::setupGlossaryTab()
@@ -822,8 +1006,27 @@ void khcNavigatorWidget::slotItemSelected(QListViewItem* currentItem)
     return;
   }
 
-  if (!item->url().isEmpty())
+  if (!item->url().isEmpty()) {
+  	KURL u = item->url();
+  	if ( u.protocol() == "help" ) {
+      tocTree->setApplication( u.directory() );
+  		QString doc = langLookup( u.path() );
+  		// Enforce the original .docbook version, in case langLookup returns a cached version
+  		doc.replace( doc.find( ".html" ), 5, ".docbook" );
+  		kdDebug( 1400 ) << "slotURLSelected(): doc = " << doc << endl;
+		
+  		QFile f( doc );
+  		if ( f.open( IO_ReadOnly ) ) {
+  			QDomDocument domDoc;
+  			if ( domDoc.setContent( &f ) ) {
+	  			fillTOCTree( domDoc );
+          mTabWidget->setCurrentPage( mTabWidget->indexOf( tocTree ) );
+        }
+  			f.close();
+  		}
+  	}
     emit itemSelected(item->url());
+  }
 }
 
 void khcNavigatorWidget::slotItemExpanded(QListViewItem* index)
@@ -1035,7 +1238,6 @@ bool khcNavigatorWidget::appendEntries(const QString &dirName, khcNavigatorItem 
     return true;
 }
 
-
 bool khcNavigatorWidget::processDir( const QString &dirName, khcNavigatorItem *parent,  QPtrList<khcNavigatorItem> *appendList)
 {
     QString folderName;
@@ -1085,44 +1287,6 @@ bool khcNavigatorWidget::processDir( const QString &dirName, khcNavigatorItem *p
     return true;
 }
 
-QString khcNavigatorWidget::langLookup(const QString &fname)
-{
-    QStringList search;
-
-    // assemble the local search paths
-    const QStringList localDoc = KGlobal::dirs()->resourceDirs("html");
-
-    // look up the different languages
-    for (int id=localDoc.count()-1; id >= 0; --id)
-    {
-        QStringList langs = KGlobal::locale()->languageList();
-        langs.append("default");
-        langs.append("en");
-        QStringList::ConstIterator lang;
-        for (lang = langs.begin(); lang != langs.end(); ++lang)
-            search.append(QString("%1%2/%3").arg(localDoc[id]).arg(*lang).arg(fname));
-    }
-
-    // try to locate the file
-    QStringList::Iterator it;
-    for (it = search.begin(); it != search.end(); ++it)
-    {
-        kdDebug(1400) << "Looking for help in: " << *it << endl;
-
-        QFileInfo info(*it);
-        if (info.exists() && info.isFile() && info.isReadable())
-            return *it;
-
-        QString file = (*it).left((*it).findRev('/')) + "/index.docbook";
-        kdDebug(1400) << "Looking for help in: " << file << endl;
-        info.setFile(file);
-        if (info.exists() && info.isFile() && info.isReadable())
-            return *it;
-    }
-
-    return QString::null;
-}
-
 void khcNavigatorWidget::slotSearch()
 {
   QString words = mSearchEdit->text();
@@ -1170,3 +1334,5 @@ void khcNavigatorWidget::hideSearch()
   mSearchFrame->hide();
   mTabWidget->removePage( mSearchWidget );
 }
+
+// vim:et:ts=2:sw=2
