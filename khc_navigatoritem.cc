@@ -70,7 +70,7 @@ bool khcNavigatorItem::readKDElnk ( const QString &filename )
     if (path.isNull())
 	return false;
 
-    url = QString("help:/%1").arg(path);
+    url = path;
 
     // read comment text
     info = config.readEntry("Info");

@@ -638,8 +638,15 @@ void khcNavigatorWidget::slotItemSelected(QListViewItem* currentItem)
     {
       if (item == contentsTree->currentItem())
 	{
-	  if (!item->getURL().isEmpty())
-	    emit itemSelected(item->getURL());
+	  if (!item->getURL().isEmpty()) {
+            QString url = item->getURL();
+            kdDebug(1400) << "plugin url: " << url << endl;
+            int colonPos = url.find(':');
+            if (colonPos < 0 || colonPos > url.find('/')) {
+              url = "file:" + langLookup(url);
+            }
+	    emit itemSelected(url);
+          }
 	  return;
 	}
     }
