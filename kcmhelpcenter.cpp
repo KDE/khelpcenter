@@ -141,6 +141,8 @@ void KCMHelpCenter::load()
   DocEntry::List entries = DocMetaInfo::self()->docEntries();
   DocEntry::List::ConstIterator it;
   for( it = entries.begin(); it != entries.end(); ++it ) {
+//    kdDebug() << "Entry: " << (*it)->name() << " Indexer: '"
+//              << (*it)->indexer() << "'" << endl;
     if ( !(*it)->indexer().isEmpty() ) {
       ScopeItem *item = new ScopeItem( mListView, *it );
       item->setOn( (*it)->searchEnabled() );

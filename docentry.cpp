@@ -175,7 +175,7 @@ bool DocEntry::readFromFile( const QString &fileName )
   mIdentifier = file.readEntry( "X-DOC-Identifier" );
   if ( mIdentifier.isEmpty() ) {
     QFileInfo fi( fileName );
-    mIdentifier = fi.baseName();
+    mIdentifier = fi.baseName( true );
   }
   mIndexer = file.readEntry( "X-DOC-Indexer" );
   mIndexer.replace( QRegExp( "%f" ) , fileName );

@@ -70,6 +70,9 @@ DocEntry *DocMetaInfo::addDocEntry( const QString &fileName )
     if ( entry->searchMethod().lower() == "htdig" ) {
       mHtmlSearch->setupDocEntry( entry );
     }
+    QString indexer = entry->indexer();
+    indexer.replace( QRegExp( "%f" ), fileName );
+    entry->setIndexer( indexer );
     addDocEntry( entry );
     return entry;
   } else {
@@ -98,9 +101,9 @@ void DocMetaInfo::scanMetaInfo( const QStringList &languages )
 {
   mLanguages = languages;
 
-  KConfig *config = KGlobal::config();
-  config->setGroup( "General" );
-  QStringList metaInfos = config->readListEntry( "MetaInfoDirs" );
+  KConfig config( "khelpcenterrc" );
+  config.setGroup( "General" );
+  QStringList metaInfos = config.readListEntry( "MetaInfoDirs" );
   if ( metaInfos.isEmpty() ) {
     KStandardDirs* kstd = KGlobal::dirs();
     kstd->addResourceType( "data", "share/apps/khelpcenter" );
