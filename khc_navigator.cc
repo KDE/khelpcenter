@@ -62,7 +62,7 @@
 template class QPtrList<khcNavigatorItem>;
 
 SectionItem::SectionItem(QListViewItem *parent, const QString &text)
-	: QListViewItem(parent, text)
+        : QListViewItem(parent, text)
 {
   setOpen(false);
 }
@@ -175,10 +175,10 @@ void khcNavigatorWidget::setupContentsTab()
     contentsTree->setRootIsDecorated(false);
     contentsTree->setSorting(-1, false);
     connect(contentsTree, SIGNAL(executed(QListViewItem*)), this,
-	    SLOT(slotItemSelected(QListViewItem*)));
+            SLOT(slotItemSelected(QListViewItem*)));
     // ACHU
     connect(contentsTree, SIGNAL(expanded(QListViewItem*)),this,
-	    SLOT(slotItemExpanded(QListViewItem*)));
+            SLOT(slotItemExpanded(QListViewItem*)));
     // END ACHU
 
 
@@ -189,7 +189,7 @@ void khcNavigatorWidget::setupSearchTab()
 {
     /* search = new SearchWidget(this);
     connect(search, SIGNAL(searchResult(QString)),this,
-	    SLOT(slotURLSelected(QString)));
+            SLOT(slotURLSelected(QString)));
 
     addTab(search, i18n("Search"));
  */
@@ -428,43 +428,43 @@ void khcNavigatorWidget::buildInfoSubTree(khcNavigatorItem *parent)
       sLine = stream.readLine();
       while (!sLine.isNull())
       {
-	if (reSectionHdr.search(sLine, 0) == 0)
-	{
-	  // add the section header
-	  khcNavigatorItem* pSectionRoot = new khcNavigatorItem(parent, pLastSection, sLine, "contents2");
-	  pSectionRoot->setURL("");
+        if (reSectionHdr.search(sLine, 0) == 0)
+        {
+          // add the section header
+          khcNavigatorItem* pSectionRoot = new khcNavigatorItem(parent, pLastSection, sLine, "contents2");
+          pSectionRoot->setURL("");
 
-	  // will point to the last added subitem
-	  khcNavigatorItem* pLastChild = 0;
+          // will point to the last added subitem
+          khcNavigatorItem* pLastChild = 0;
 
-	  sLine = stream.readLine();
-	  while (!sLine.isNull())
-	  {
-	    if (sLine.startsWith("* "))
-	    {
-	      QString sItemTitle, sItemURL;
-	      if (parseInfoSubjectLine(sLine, sItemTitle, sItemURL))
-	      {
-		// add subject's root node
-		khcNavigatorItem *pItem = new khcNavigatorItem(pSectionRoot, pLastChild, sItemTitle, "document2");
-		pItem->setURL(sItemURL);
-		pItem->setExpandable(true);
-		pLastChild = pItem;
-	      }
-	    }
-	    else if (sLine.isEmpty())
-	      break; // go to the next section
-	    sLine = stream.readLine();
-	  }
+          sLine = stream.readLine();
+          while (!sLine.isNull())
+          {
+            if (sLine.startsWith("* "))
+            {
+              QString sItemTitle, sItemURL;
+              if (parseInfoSubjectLine(sLine, sItemTitle, sItemURL))
+              {
+                // add subject's root node
+                khcNavigatorItem *pItem = new khcNavigatorItem(pSectionRoot, pLastChild, sItemTitle, "document2");
+                pItem->setURL(sItemURL);
+                pItem->setExpandable(true);
+                pLastChild = pItem;
+              }
+            }
+            else if (sLine.isEmpty())
+              break; // go to the next section
+            sLine = stream.readLine();
+          }
 
-	  if (pSectionRoot->childCount() > 0)
-	  {
-	    pLastSection = pSectionRoot;
-	  }
-	  else
-	    delete pSectionRoot;
-	}
-	sLine = stream.readLine();
+          if (pSectionRoot->childCount() > 0)
+          {
+            pLastSection = pSectionRoot;
+          }
+          else
+            delete pSectionRoot;
+        }
+        sLine = stream.readLine();
       }
     }
     sLine = stream.readLine();
@@ -508,7 +508,7 @@ bool khcNavigatorWidget::parseInfoSubjectLine(QString sLine, QString& sItemTitle
   Q_CHECK_PTR(pRegMatch);
 
   int nResult = regexec(&compInfoRegEx, sLine.latin1(),
-			compInfoRegEx.re_nsub + 1, pRegMatch, 0);
+                        compInfoRegEx.re_nsub + 1, pRegMatch, 0);
   if (nResult)
   {
     kdWarning() << "Could not parse line \'" << sLine << "\' from the info directory (dir) file; regexec() returned " <<
@@ -758,7 +758,7 @@ void khcNavigatorWidget::slotItemSelected(QListViewItem* currentItem)
         if (colonPos < 0 || colonPos > url.find('/')) {
            url = "file:" + langLookup(url);
         }
-	emit itemSelected(url);
+        emit itemSelected(url);
      }
      return;
   }
@@ -778,56 +778,56 @@ void khcNavigatorWidget::slotItemExpanded(QListViewItem* index)
     if ((parent = parent->parent())) // it _is_ an assignment, not a comparison !
       // item is at least on the third level of the tree
       if (parent->text(0) == i18n("Browse info pages") && index->childCount() == 0)
-	// it is an unexpanded info subject's root node. Let's check if we are have already started to create the hierarchy.
+        // it is an unexpanded info subject's root node. Let's check if we are have already started to create the hierarchy.
       {
-	khcNavigatorItem* item = static_cast<khcNavigatorItem*>(index);
-  	// const QString itemName(item->getName());
-	if (hierarchyMakers.find(item) == hierarchyMakers.end())
-	  // no. We must create one.
-	{
-	  khcInfoHierarchyMaker* pMaker = new khcInfoHierarchyMaker;
-	  Q_CHECK_PTR(pMaker);
-	  hierarchyMakers[item] = pMaker;
+        khcNavigatorItem* item = static_cast<khcNavigatorItem*>(index);
+          // const QString itemName(item->getName());
+        if (hierarchyMakers.find(item) == hierarchyMakers.end())
+          // no. We must create one.
+        {
+          khcInfoHierarchyMaker* pMaker = new khcInfoHierarchyMaker;
+          Q_CHECK_PTR(pMaker);
+          hierarchyMakers[item] = pMaker;
 
-	  QString sURL = item->getURL();
-	  Q_ASSERT(!sURL.isEmpty());
+          QString sURL = item->getURL();
+          Q_ASSERT(!sURL.isEmpty());
 
-	  regex_t reInfoURL;
-	  int nResult = regcomp(&reInfoURL, "^info:/([^/]*)(/(.*))?$", REG_EXTENDED);
-	  Q_ASSERT(!nResult);
-	  Q_ASSERT(reInfoURL.re_nsub == 3);
+          regex_t reInfoURL;
+          int nResult = regcomp(&reInfoURL, "^info:/([^/]*)(/(.*))?$", REG_EXTENDED);
+          Q_ASSERT(!nResult);
+          Q_ASSERT(reInfoURL.re_nsub == 3);
 
-	  regmatch_t regMatch[4];
+          regmatch_t regMatch[4];
 
-	  nResult = regexec(&reInfoURL, sURL.latin1(), reInfoURL.re_nsub + 1, regMatch, 0);
-	  if (nResult)
-	  {
-	    kdWarning() << "Could not parse URL \'" << sURL << "\'; regexec() returned " << nResult << "." << endl;
-	    hierarchyMakers.erase(item);
-	    item->setExpandable(false);
-	    return;
-	  }
+          nResult = regexec(&reInfoURL, sURL.latin1(), reInfoURL.re_nsub + 1, regMatch, 0);
+          if (nResult)
+          {
+            kdWarning() << "Could not parse URL \'" << sURL << "\'; regexec() returned " << nResult << "." << endl;
+            hierarchyMakers.erase(item);
+            item->setExpandable(false);
+            return;
+          }
 
-	  Q_ASSERT(regMatch[0].rm_so == 0 && regMatch[0].rm_eo == sURL.length());
+          Q_ASSERT(regMatch[0].rm_so == 0 && regMatch[0].rm_eo == sURL.length());
 
-	  QString sTopic = sURL.mid(regMatch[1].rm_so, regMatch[1].rm_eo - regMatch[1].rm_so);
-	  QString sNode = sURL.mid(regMatch[3].rm_so, regMatch[3].rm_eo - regMatch[3].rm_so);
+          QString sTopic = sURL.mid(regMatch[1].rm_so, regMatch[1].rm_eo - regMatch[1].rm_so);
+          QString sNode = sURL.mid(regMatch[3].rm_so, regMatch[3].rm_eo - regMatch[3].rm_so);
 
-	  kdDebug() << "sTopic: \'" << sTopic << "\'; sNode: \'" << sNode << "\'" << endl;
+          kdDebug() << "sTopic: \'" << sTopic << "\'; sNode: \'" << sNode << "\'" << endl;
 
-	  // begin creating hierarchy!
+          // begin creating hierarchy!
 
-	  /* Cog-wheel animation handling -- enable after creating the icons
-	     startAnimation(item);
-	  */
-	  connect(pMaker, SIGNAL(hierarchyCreated(uint, uint, const khcInfoNode*)),
-		  SLOT(slotInfoHierarchyCreated(uint, uint, const khcInfoNode*)));
-	  pMaker->createHierarchy((uint) item, sTopic, sNode);
+          /* Cog-wheel animation handling -- enable after creating the icons
+             startAnimation(item);
+          */
+          connect(pMaker, SIGNAL(hierarchyCreated(uint, uint, const khcInfoNode*)),
+                  SLOT(slotInfoHierarchyCreated(uint, uint, const khcInfoNode*)));
+          pMaker->createHierarchy((uint) item, sTopic, sNode);
 
-	  regfree(&reInfoURL);
-	}
-	else
-	  kdDebug() << "Hierarchy creation already in progress..." << endl;
+          regfree(&reInfoURL);
+        }
+        else
+          kdDebug() << "Hierarchy creation already in progress..." << endl;
       }
 }
 
@@ -884,7 +884,7 @@ void khcNavigatorWidget::addChildren(const khcInfoNode* pParentNode, khcNavigato
   {
     //    khcNavigatorItem *pItem = new khcNavigatorItem(pParentTreeItem, pLastChild, (*it)->m_sTitle, "document2");
     khcNavigatorItem *pItem = new khcNavigatorItem(pParentTreeItem, pLastChild,
-						   (*it)->m_sTitle.isEmpty() ? (*it)->m_sName : (*it)->m_sTitle, "document2");
+                                                   (*it)->m_sTitle.isEmpty() ? (*it)->m_sName : (*it)->m_sTitle, "document2");
     pItem->setURL("info:/" + (*it)->m_sTopic + "/" + (*it)->m_sName);
     pLastChild = pItem;
 
@@ -952,27 +952,27 @@ bool khcNavigatorWidget::appendEntries(const QString &dirName, khcNavigatorItem 
     QDir fileDir(dirName, "*.desktop", 0, QDir::Files | QDir::Hidden | QDir::Readable);
 
     if (!fileDir.exists())
-	return false;
+        return false;
 
     QStringList fileList = fileDir.entryList();
     QStringList::Iterator itFile;
 
     for ( itFile = fileList.begin(); !(*itFile).isNull(); ++itFile )
     {
-	QString filename = dirName;
-	filename += "/";
-	filename += *itFile;
+        QString filename = dirName;
+        filename += "/";
+        filename += *itFile;
 
-    khcNavigatorItem *entry;
-    if (parent)
-        entry = new khcNavigatorItem(parent);
-    else
-        entry = new khcNavigatorItem(contentsTree);
+        khcNavigatorItem *entry;
+        if (parent)
+            entry = new khcNavigatorItem(parent);
+        else
+            entry = new khcNavigatorItem(contentsTree);
 
-	if (entry->readKDElnk(filename))
-	    appendList->append(entry);
-	else
-	    delete entry;
+        if (entry->readKDElnk(filename))
+            appendList->append(entry);
+        else
+            delete entry;
     }
 
     return true;
@@ -992,45 +992,44 @@ bool khcNavigatorWidget::processDir( const QString &dirName, khcNavigatorItem *p
 
     for ( itDir = dirList.begin(); !(*itDir).isNull(); ++itDir )
     {
-	if ( (*itDir)[0] == '.' )
-	    continue;
+        if ( (*itDir)[0] == '.' )
+            continue;
 
 
-	QString filename = dirDir.path();
-	filename += "/";
-	filename += *itDir;
+        QString filename = dirDir.path();
+        filename += "/";
+        filename += *itDir;
 
-	QString dirFile = filename;
-	dirFile += "/.directory";
-	QString icon;
+        QString dirFile = filename;
+        dirFile += "/.directory";
+        QString icon;
 
-	if ( QFile::exists( dirFile ) )
-	{
-	    KSimpleConfig sc( dirFile, true );
+        if ( QFile::exists( dirFile ) )
+        {
+            KSimpleConfig sc( dirFile, true );
             sc.setDesktopGroup();
-	    folderName = sc.readEntry("Name");
+            folderName = sc.readEntry("Name");
 
-	    //icon = sc.readEntry("MiniIcon");
-	    //if (icon.isEmpty())
-	    icon = "contents2";
-	}
-	else
-	{
-	    folderName = *itDir;
-	    icon = "contents2";
-	}
+            //icon = sc.readEntry("MiniIcon");
+            //if (icon.isEmpty())
+            icon = "contents2";
+        }
+        else
+        {
+            folderName = *itDir;
+            icon = "contents2";
+        }
 
-    khcNavigatorItem *dirItem;
-    if (parent)
-        dirItem = new khcNavigatorItem(parent, folderName, icon);
-    else
-        dirItem = new khcNavigatorItem(contentsTree, folderName, icon);
-    appendList->append(dirItem);
+        khcNavigatorItem *dirItem;
+        if (parent)
+            dirItem = new khcNavigatorItem(parent, folderName, icon);
+        else
+            dirItem = new khcNavigatorItem(contentsTree, folderName, icon);
+        appendList->append(dirItem);
 
-
-	// read and append child items
-	appendEntries(filename, dirItem, appendList);
-	processDir(filename, dirItem, appendList);
+        // read and append child items
+        appendEntries(filename, dirItem, appendList);
+        processDir(filename, dirItem, appendList);
     }
     return true;
 }

@@ -21,7 +21,7 @@
 	<TR>
 		<TD WIDTH=176 COLSPAN=2 ROWSPAN=2> &nbsp;</TD>
 		<TD BGCOLOR=#DDDDDD><IMG WIDTH=282 HEIGHT=77 SRC="file:%1"></TD> <!-- khelpcenter.png -->
-		<TD BGCOLOR=#DDDDDD BACKGROUND="%1">&nbsp;</TD> <!-- lines.png -->
+		<TD BGCOLOR=#DDDDDD BACKGROUND="file:%1">&nbsp;</TD> <!-- lines.png -->
 	</TR>
 
 	<TR>
