@@ -1,11 +1,29 @@
 # KDE Config File
 [KDE Desktop Entry]
 Name=Quickstart Guide
-Name[de]=QuickStart Einführung
+Name[ca]=Guia ràpida
+Name[eo]=Konciza gvidlibro
+Name[fi]=Pikaohje
+Name[hr]=Kratki vodiè
+Name[hu]=Rövid Bevezetõ
+Name[ja]=¥¯¥¤¥Ã¥¯¥¹¥¿¡¼¥È
+Name[mi]=Rövid Bevezetõ
+Name[no_NY]=Snøggstart-guide
 Name[pt_BR]=Guia Rápido
+Name[sr]=Poèetni vodiè
+Name[sv]=Snabbstartsguide
 Comment=KDE quickstart guid.
-Comment[de]=Einführung in KDE
+Comment[ca]=Guia ràpida del KDE
+Comment[eo]=konciza gvidlibro por KDE
+Comment[fi]=KDE pikaohje
+Comment[hr]=KDE kratki vodiè
+Comment[hu]=Rövid bevezetés a KDE-be
+Comment[ja]=KDE ¥¯¥¤¥Ã¥¯¥¹¥¿¡¼¥È¥¬¥¤¥É
+Comment[mi]=Rövid bevezetés a KDE-be
+Comment[no_NY]=KDE snøggstart-guide
 Comment[pt_BR]=Guia rápido do KDE.
+Comment[sr]=KDE-ov poèetni vodiè
+Comment[sv]=KDE snabbstartsguide
 Icon=
-MiniIcon=helpdoc.xpm
+MiniIcon=helpdoc
 DocPath=khelpcenter/tutorials/quickstart/index.html
