@@ -786,7 +786,7 @@ void kibMainWindowIf::setStatusBarText(const CORBA::WChar *_text)
   kdebug(0, 1400, "void kibMainWindowIf::setStatusBarText(const char *_text)");
 }
 
-void kibMainWindowIf::setLocationBarURL(OpenParts::Id id, const char *_url)
+void kibMainWindowIf::setLocationBarURL(OpenParts::Id , const char *_url)
 {
   m_pkibMainWindow->slotSetLocation(_url);
   m_pkibMainWindow->slotSetTitle(_url);
@@ -799,13 +799,13 @@ void kibMainWindowIf::createNewWindow(const char *url)
   kdebug(0, 1400, "void kibMainWindowIf::createNewWindow(const char *url)");
 }
 
-void kibMainWindowIf::slotURLStarted(OpenParts::Id id, const char *)
+void kibMainWindowIf::slotURLStarted(OpenParts::Id , const char *)
 {
   m_pkibMainWindow->slotSetBusy(true);
   kdebug(0, 1400, "void kibMainWindowIf::slotURLStarted(const char *url)");
 }
 
-void kibMainWindowIf::slotURLCompleted(OpenParts::Id id)
+void kibMainWindowIf::slotURLCompleted(OpenParts::Id )
 {
   m_pkibMainWindow->slotSetBusy(false);
   kdebug(0, 1400, "void kibMainWindowIf::slotURLCompleted()");
