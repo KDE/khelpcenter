@@ -47,6 +47,7 @@ public slots:
     void fillForwardMenu();
     void fillGoMenu();
     void goMenuActivated( int id );
+	void print();
 
 private:
     void createHistoryEntry();

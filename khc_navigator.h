@@ -69,6 +69,7 @@ class khcNavigatorExtension : public KParts::BrowserExtension
 
  public slots:
     void slotItemSelected(const QString&);
+    void print() {}
 };
 
 class khcNavigator : public KParts::ReadOnlyPart

@@ -43,6 +43,7 @@
 #include <kstdaction.h>
 #include <qtimer.h>
 
+#include <khtmlview.h>
 #include "version.h"
 #include <khtml_part.h>
 #include <qlayout.h>
@@ -96,6 +97,7 @@ KHMainWindow::KHMainWindow(const KURL &url)
 
     (*actionCollection()) += *doc->actionCollection();
     (void)KStdAction::quit(this, SLOT(close()), actionCollection());
+	(void)KStdAction::print(this, SLOT(print()), actionCollection(), "printFrame");
 
     back = new KToolBarPopupAction( i18n( "&Back" ), "back", ALT+Key_Left,
                                     this, SLOT( slotBack() ),
@@ -131,6 +133,11 @@ KHMainWindow::KHMainWindow(const KURL &url)
         openURL( url );
 
     statusBar()->message(i18n("Ready"));
+}
+
+void KHMainWindow::print()
+{
+		doc->view()->print();
 }
 
 void KHMainWindow::slotStarted(KIO::Job *job)
