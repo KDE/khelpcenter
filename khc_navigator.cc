@@ -192,7 +192,7 @@ TOCSectionItem::TOCSectionItem( TOCChapterItem *parent, QListViewItem *after, co
 
 QString TOCSectionItem::link() const
 {
-  if ( parent()->firstChild() == this )
+  if ( static_cast<TOCSectionItem *>( parent()->firstChild() ) == this )
     return static_cast<TOCChapterItem *>( parent() )->link() + "#" + m_name;
   else
     return "help:" + toc()->application() + "/" + m_name + ".html";
