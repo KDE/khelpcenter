@@ -29,6 +29,6 @@ noinst_HEADERS = kwelcome.h kwelcomewidget.h
 # make messages.po. Move this one to ../po/ and "make merge" in po
 # the -x is for skipping messages already translated in kdelibs
 messages:
-	$(XGETTEXT) -C -ki18n -x $(includedir)/kde.pot $(kwelcome_SOURCES) && mv messages.po ../po/kwelcome.pot
+	$(XGETTEXT) -C -ki18n -x $(includedir)/kde.pot $(kwelcome_SOURCES) && mv messages.po ../../po/kwelcome.pot
 
 

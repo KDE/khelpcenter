@@ -48,7 +48,7 @@ khelpcenter.cc: $(srcdir)/khelpcenter.idl
 	$(IDL) $(IDL_FLAGS) $(srcdir)/khelpcenter.idl
 
 messages:
-	$(XGETTEXT) -C -ki18n -x $(includedir)/kde.pot $(khelpcenter_bin_SOURCES) && mv messages.po ../po/khelpcenter.pot
+	$(XGETTEXT) -C -ki18n -x $(includedir)/kde.pot *.h *.cpp && mv messages.po ../../po/khelpcenter.pot
 
 install-exec-local:
 	$(INSTALL_SCRIPT) $(srcdir)/khelpcenter $(bindir)/khelpcenter

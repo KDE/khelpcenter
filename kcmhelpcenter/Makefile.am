@@ -28,6 +28,6 @@ uninstall-local:
 #	rm -f $(kde_minidir)/assistant.xpm
 
 messages:
-	$(XGETTEXT) -C -ktranslate -ki18n -x $(includedir)/kde.pot $(kcmlocale_SOURCES) && mv messages.po ../../po/kcmhelpcenter.pot
+	$(XGETTEXT) -C -ktranslate -ki18n -x $(includedir)/kde.pot *.cpp && mv messages.po ../../po/kcmhelpcenter.pot
 
 DISTCLEANFILES = $(BUILT_SOURCES)

@@ -14,4 +14,4 @@ METASOURCES             = eyes.moc kwid.moc
 
 noinst_HEADERS          = eyes.h kwid.h
 
-DISTCLEANFILES          = *~
+messages:

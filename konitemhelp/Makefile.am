@@ -17,3 +17,5 @@ DISTCLEANFILES = $(METASOURCES)
 MOCS = help.moc
 
 noinst_HEADERS = help.h 
+
+messages:
