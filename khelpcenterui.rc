@@ -1,5 +1,5 @@
 <!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
-<kpartgui name="khelpcenter" version="12">
+<kpartgui name="khelpcenter" version="13">
 <MenuBar>
  <Menu name="file" noMerge="1">
     <text>&amp;File</text>
@@ -40,10 +40,13 @@
  <Action name="go_home" />
  <Action name="back" />
  <Action name="forward" />
+ <Separator />
  <Action name="printFrame" />
+ <Separator /> 
+ <Action name="copy_text" />
  <Action name="find" /> 
+ <Separator />
  <Action name="incFontSizes" />
  <Action name="decFontSizes" />
- <Action name="copy_text" />
 </ToolBar>
 </kpartgui>
