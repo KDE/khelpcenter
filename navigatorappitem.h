@@ -37,11 +37,13 @@ class NavigatorAppItem : public NavigatorItem
     void setRelpath( const QString & );
 
     virtual void setOpen(bool);
+    void populate( bool recursive = false );
 
  protected:
     QString documentationURL(KService *s);
 
     QString mRelpath;
+    bool mPopulated;
 };
 
 }

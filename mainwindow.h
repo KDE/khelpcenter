@@ -27,6 +27,8 @@ class MainWindow : public KMainWindow, public DCOPObject
     Q_OBJECT
     K_DCOP
   public:
+    static KURL homeURL();
+
     MainWindow(const KURL &url = KURL() );
     ~MainWindow();
   k_dcop:

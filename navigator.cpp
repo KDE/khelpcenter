@@ -63,6 +63,7 @@
 #include "toc.h"
 #include "view.h"
 #include "infotree.h"
+#include "mainwindow.h"
 
 using namespace KHC;
 
@@ -506,11 +507,20 @@ void Navigator::insertScrollKeeperDoc(NavigatorItem *parentItem,QDomNode docNode
 
 void Navigator::selectItem( const KURL &url )
 {
+  if ( static_cast<NavigatorItem *>( mContentsTree->currentItem() )->url() == url.url() )
+    return;
+
+  // First, populate the NavigatorAppItems if we don't want the home page
+  if ( url != MainWindow::homeURL() ) {
+    for ( QListViewItem *item = mContentsTree->firstChild(); item != 0; item = item->nextSibling() ) {
+      NavigatorAppItem *appItem = dynamic_cast<NavigatorAppItem *>( item );
+      if ( appItem != 0 )
+        appItem->populate( true /* recursive */ );
+    }
+  }
+
   kdDebug() << "Navigator::selectItem(): " << url.url() << endl;
 
-  if ( url.protocol() == "help" ) {
-    kdDebug() << "TODO: Look up help item." << endl;
-  } else {
     QListViewItemIterator it( mContentsTree );
     while ( it.current() != 0 ) {
       NavigatorItem *item = static_cast<NavigatorItem *>( it.current() );
@@ -518,11 +528,11 @@ void Navigator::selectItem( const KURL &url )
       if ( itemUrl == url ) {
         mContentsTree->setCurrentItem( item );
         mContentsTree->ensureItemVisible( item );
+        slotItemSelected( item );
         break;
       }
       ++it;
     }
-  }
 }
 
 void Navigator::clearSelection()

@@ -297,12 +297,17 @@ void MainWindow::showHome()
 
 void MainWindow::slotShowHome()
 {
+    openURL( homeURL() );
+    mNavigator->clearSelection();
+}
+
+KURL MainWindow::homeURL()
+{
     KConfig *cfg = KGlobal::config();
     cfg->setGroup( "General" );
     KURL url = cfg->readEntry( "StartUrl",
                                "help:/khelpcenter/index.html?anchor=welcome" );
-    openURL( url );
-    mNavigator->clearSelection();
+    return url;
 }
 
 void MainWindow::lastSearch()

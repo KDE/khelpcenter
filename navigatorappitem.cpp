@@ -25,27 +25,31 @@
 using namespace KHC;
 
 NavigatorAppItem::NavigatorAppItem(QListView *parent, QListViewItem *after)
- : NavigatorItem(parent, after)
+ : NavigatorItem(parent, after),
+ mPopulated( false )
 {
   setExpandable(true);
 }
 
 NavigatorAppItem::NavigatorAppItem(QListViewItem *parent, QListViewItem *after)
- : NavigatorItem(parent, after)
+ : NavigatorItem(parent, after),
+ mPopulated( false )
 {
   setExpandable(true);
 }
 
 NavigatorAppItem::NavigatorAppItem (QListView* parent, const QString& text, const QString& miniicon, const QString& _relpath)
  : NavigatorItem(parent, text, miniicon)
- , mRelpath(_relpath)
+ , mRelpath(_relpath),
+ mPopulated( false )
 {
   setExpandable(true);
 }
  
 NavigatorAppItem::NavigatorAppItem (QListViewItem* parent, const QString& text, const QString& miniicon, const QString& _relpath)
  : NavigatorItem(parent, text, miniicon)
- , mRelpath(_relpath)
+ , mRelpath(_relpath),
+ mPopulated( false )
 {
   setExpandable(true);
 }
@@ -57,10 +61,17 @@ void NavigatorAppItem::setRelpath( const QString &relpath )
 
 void NavigatorAppItem::setOpen(bool open)
 {
-  if ( open && (childCount() == 0) )
+  if ( open && (childCount() == 0) && !mPopulated )
   {
      kdDebug() << "NavigatorAppItem::setOpen(" << this << ", "
                << mRelpath << ")" << endl;
+     populate();
+  }
+  NavigatorItem::setOpen(open); 
+}
+
+void NavigatorAppItem::populate( bool recursive )
+{
      KServiceGroup::Ptr root = KServiceGroup::group(mRelpath);
      if (!root) {
         kdWarning() << "No Service groups\n";
@@ -86,6 +97,7 @@ void NavigatorAppItem::setOpen(bool open)
               {
                  item = new NavigatorItem(this, s->name(), s->icon());
                  item->setUrl(url);
+                 item->setExpandable( true );
               }
               break;
 
@@ -95,14 +107,15 @@ void NavigatorAppItem::setOpen(bool open)
                  continue;
               item = new NavigatorAppItem(this, g->caption(), g->icon(), g->relPath());
               item->setUrl("");
+              if ( recursive )
+                static_cast<NavigatorAppItem *>( item )->populate();
               break;
 
         default:
               break;
         }
      }
-  }
-  NavigatorItem::setOpen(open); 
+     mPopulated = true;
 }
 
 QString NavigatorAppItem::documentationURL( KService *s )
