@@ -3,7 +3,6 @@ Encoding=UTF-8
 Type=Application
 Exec=kcmshell kcmhelpcenter
 Icon=help
-DocPath=kcontrol/kcmhelpcenter.html
 
 X-KDE-SubstituteUID=true
 X-KDE-ModuleType=Library
