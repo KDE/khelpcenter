@@ -1,5 +1,5 @@
 /*
- *  kwelcome.cpp - part of KWelcome
+ *  kwelcome.cpp - part of the KDE Help Center
  *
  *  Copyright (C) 1998,99 Matthias Elter (me@kde.org)
  *

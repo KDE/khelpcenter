@@ -36,15 +36,18 @@
 class KWelcomeWidget : public QWidget
 {
   Q_OBJECT
+
 public:
   KWelcomeWidget(QWidget *parent = 0, const char *name = 0);
   virtual ~KWelcomeWidget();
+
 public slots:
   void slotAboutButtonClicked();
   void slotAboutKWelcome();
   void slotAboutKDE();
   void slotWizardStart();
   void slotHelpCenterStart();
+
 private:
   QWidget *topView, *bottomView;
   QCheckBox *autostart_kwelcome;
@@ -52,6 +55,7 @@ private:
   QPushButton *aboutButton, *quitButton, *wizardButton, *helpcenterButton;
   QScrollView *welcomesv;
   QLabel *welcometext, *bigklogo;
+
 protected:
   void resizeEvent (QResizeEvent *);
   void saveSettings();

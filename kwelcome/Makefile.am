@@ -20,7 +20,7 @@ kwelcome_SOURCES = kwelcome.cpp kwelcomewidget.cpp main.cpp
 kwelcome_METASOURCES = USE_AUTOMOC
 
 kwelcome_LDFLAGS = $(all_libraries) $(KDE_RPATH)
-kwelcome_LDADD   = $(LIB_KFILE)
+kwelcome_LDADD   = -lkdeui -lkdecore -lqt -lXext -lX11 $(LIBSOCKET) -ljpeg
 
 SUBDIRS = pics
 

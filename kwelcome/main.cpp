@@ -1,5 +1,5 @@
 /*
- *  main.cpp - part of KWelcome
+ *  main.cpp - part of the KDE Help Center
  *
  *  Copyright (C) 1998,99 Matthias Elter (me@kde.org)
  *
@@ -25,34 +25,27 @@ int main(int argc, char *argv[])
 {
   KApplication app(argc, argv, "kwelcome");
   
-  // check for --kdestartup
+  // check for -kdestartup
   KConfig *conf = kapp->getConfig();
   conf->setGroup("General Settings");
   QString tmp = conf->readEntry("AutostartOnKDEStartup", "true");
 
-  for (i = 1; i < argc; i++)
+  for (int i = 1; i < argc; i++)
 	{
-	  if ( argv[i][0] == '-' )
-		{
-		  // skip caption
-		  if ( strcasecmp( argv[i], "-caption" ) == 0 )
-			i++;
-		  if ( strcasecmp( argv[i], "-icon" ) == 0 )
-			i++;
-		  if ( strcasecmp( argv[i], "-miniicon" ) == 0 )
-			i++;
-		  continue;
-		}
 	  QString arg = argv[i];
+
+	  if ((arg == "-kdestartup") && (tmp != "true"))
+		return 0;
 	}
-  
-  if ((arg == "--kdestartup") && (tmp != "true"))
-	return 0;
   
   KWelcome *widget = new KWelcome();
   app.setMainWidget(widget);
   app.setTopWidget(widget);
   widget->show();
   
-  return app.exec();
+  int rc = app.exec();
+  if (widget != 0)
+	delete widget;
+  
+  return rc;
 }

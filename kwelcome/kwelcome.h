@@ -1,5 +1,5 @@
 /*
- *  kwelcome.h - part of KWelcome
+ *  kwelcome.h - part of the KDE Help Center
  *
  *  Copyright (C) 1998,99 Matthias Elter (me@kde.org)
  *
@@ -32,6 +32,7 @@
 class KWelcome : public KTMainWindow
 {
   Q_OBJECT
+
 public:
   KWelcome();
   

@@ -71,7 +71,7 @@ KWelcomeWidget::KWelcomeWidget(QWidget *parent, const char *name)
   autostart_kwelcome->setChecked(TRUE);
   autostart_kwelcome->setAutoResize(TRUE);
   
-  // kdelogo label
+  // tiny KDE-logo label
   QLabel *kdelogo = new QLabel(topView);
   kdelogo->setGeometry(2,2,238,70);
 	
@@ -87,7 +87,7 @@ KWelcomeWidget::KWelcomeWidget(QWidget *parent, const char *name)
   bline->setGeometry(8,75,250,2);
   bline->setBackgroundColor(QColor(20,20,20));
   
-  // big kdelogo label
+  // large KDE-logo label
   bigklogo = new QLabel(topView);
   bigklogo->setGeometry(0,0,250,302);
   
@@ -105,7 +105,7 @@ KWelcomeWidget::KWelcomeWidget(QWidget *parent, const char *name)
   wizardButton->setFixedHeight(26);
   
   // create help center button
-  helpcenterButton = new QPushButton(i18n("Help &center"), topView);
+  helpcenterButton = new QPushButton(i18n("Help &Center"), topView);
   connect(helpcenterButton, SIGNAL(clicked()), this, SLOT(slotHelpCenterStart()));
   helpcenterButton->setFixedWidth(133);
   helpcenterButton->setFixedHeight(26);
@@ -176,8 +176,7 @@ void KWelcomeWidget::slotAboutButtonClicked()
 void KWelcomeWidget::slotAboutKDE()
 {
   QMessageBox::about( 0L, i18n( "About KDE" ),
-					  i18n(
-						   "\nThe KDE Desktop Environment was written by the KDE Team,\n"
+					  i18n("\nThe KDE Desktop Environment was written by the KDE Team,\n"
 						   "a world-wide network of software engineers committed to\n"
 						   "free software development.\n\n"
 						   "Visit http://www.kde.org for more information on the KDE\n"
@@ -190,7 +189,7 @@ void KWelcomeWidget::slotAboutKWelcome()
 {
   QMessageBox::about( 0L, i18n( "About KWelcome" ),
 					  i18n("KWelcome\n\n"
-						   "(c) 1998,99 Matthias Elter me@kde.org\n"));
+						   "(c) 1998,99 Matthias Elter\nme@kde.org\n"));
 }
 
 void KWelcomeWidget::slotWizardStart()
@@ -212,21 +211,21 @@ void KWelcomeWidget::saveSettings()
   KConfig *conf = kapp->getConfig();
   conf->setGroup("General Settings");
   if (autostart_kwelcome->isChecked())
-	conf->writeEntry("AutostartOnKDEStartup", "1");
+	conf->writeEntry("AutostartOnKDEStartup", "true");
   else
-	conf->writeEntry("AutostartOnKDEStartup", "0");
+	conf->writeEntry("AutostartOnKDEStartup", "false");
   conf->sync();
-  
+  printf("KWelcome: Configuration written.\n");
 }
 
 void KWelcomeWidget::readSettings()
 {
   KConfig *conf = kapp->getConfig();
   conf->setGroup("General Settings");
-  QString tmp = conf->readEntry("AutostartOnKDEStartup", "0");
+  QString tmp = conf->readEntry("AutostartOnKDEStartup", "true");
   
-  if (tmp == "1")
-	autostart_kwelcome->setChecked(TRUE);
+  if (tmp == "true")
+	autostart_kwelcome->setChecked(true);
   else
-	autostart_kwelcome->setChecked(FALSE);	
+	autostart_kwelcome->setChecked(false);	
 }
