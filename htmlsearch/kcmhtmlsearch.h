@@ -30,6 +30,7 @@ class QCheckBox;
 class QPushButton;
 class KListBox;
 class KProcess;
+class KLanguageCombo;
 
 
 class KHTMLSearchConfig : public KCModule
@@ -65,11 +66,13 @@ protected slots:
 private:
 
   void checkButtons();
- 
+  void loadLanguages();
+
   QLineEdit *htdigBin, *htsearchBin, *htmergeBin;
   QCheckBox *indexKDE, *indexMan, *indexInfo;
   QPushButton *addButton, *delButton, *runButton;
   KListBox *searchPaths;
+  KLanguageCombo *language;
 
   KProcess *indexProc;
 

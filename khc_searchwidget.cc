@@ -30,6 +30,11 @@
 #include <qcheckbox.h>
 #include <qlayout.h>
 #include <qframe.h>
+#include <klangcombo.h>
+#include <kglobal.h>
+#include <kstddirs.h>
+#include <ksimpleconfig.h>
+#include <qwhatsthis.h>
 
 
 #include <klocale.h>
@@ -63,6 +68,18 @@ SearchWidget::SearchWidget(QWidget *parent)
   vbox->addSpacing(4);
 
   QHBoxLayout *hbox = new QHBoxLayout(vbox);
+
+  language = new KLanguageCombo(this);
+  QWhatsThis::add(language, i18n("Here you can select the language you want to search in."));
+  l = new QLabel(language, i18n("&Language"), this);
+  hbox->addWidget(l);
+  hbox->addWidget(language,1);
+
+  loadLanguages();
+
+  language->setCurrentItem(KGlobal::locale()->language());
+
+  hbox = new QHBoxLayout(vbox);
 
   method = new QComboBox(this);
   method->insertItem(i18n("and"));
@@ -113,7 +130,7 @@ SearchWidget::SearchWidget(QWidget *parent)
   indexButton = new QPushButton(i18n("&Update index"), this);
   indexButton->setFixedSize(indexButton->sizeHint());
   vbox->addWidget(indexButton, 0, Qt::AlignLeft);
-  
+ 
   connect(searchButton, SIGNAL(clicked()), this, SLOT(slotSearch()));
   connect(indexButton, SIGNAL(clicked()), this, SLOT(slotIndex()));
 
@@ -124,6 +141,32 @@ SearchWidget::SearchWidget(QWidget *parent)
 SearchWidget::~SearchWidget()
 {
   delete search;
+}
+
+
+void SearchWidget::loadLanguages()
+{
+  // clear the list
+  language->clear();
+ 
+  // add all languages to the list
+  QStringList langs = KGlobal::dirs()->findAllResources("locale",
+							QString::fromLatin1("*/entry.desktop"));
+  langs.sort();
+
+  for (QStringList::ConstIterator it = langs.begin(); it != langs.end(); ++it)
+    {
+      KSimpleConfig entry(*it);
+      entry.setGroup(QString::fromLatin1("KCM Locale"));
+      QString name = entry.readEntry(QString::fromLatin1("Name"), KGlobal::locale()->translate("without name"));
+      
+      QString path = *it;
+      int index = path.findRev('/');
+      path = path.left(index);
+      index = path.findRev('/');
+      path = path.mid(index+1);
+      language->insertLanguage(path, name);      
+    }
 }
 
 
@@ -150,8 +193,8 @@ void SearchWidget::slotSearch()
     so = "date";
   if (revSort->isChecked())
     so = QString("rev%1").arg(so);
-
-  QString url = search->search("en", words, m, p, f, so);
+  
+  QString url = search->search(language->currentTag(), words, m, p, f, so);
  
   if (!url.isEmpty())
     emit searchResult(url);

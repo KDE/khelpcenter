@@ -31,6 +31,7 @@ class QPushButton;
 class QLineEdit;
 class QCheckBox;
 class QListBox;
+class KLanguageCombo;
 
 class HTMLSearch;
 
@@ -58,11 +59,14 @@ public slots:
 
 private:
 
+    void loadLanguages();
+
     QLabel *keyWordLabel;
     QPushButton *searchButton, *indexButton;
     QLineEdit *searchString;
     QComboBox *method, *pages, *format, *sort;
     QCheckBox *revSort;
+    KLanguageCombo *language;
 
     HTMLSearch *search;
 

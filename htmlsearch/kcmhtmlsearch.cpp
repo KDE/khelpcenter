@@ -37,6 +37,10 @@
 #include <klistbox.h>
 #include <kfiledialog.h>
 #include <kprocess.h>
+#include <klangcombo.h>
+#include <klocale.h>
+#include <kstddirs.h>
+#include <kglobal.h>
 
 
 #include "kcmhtmlsearch.moc"
@@ -146,6 +150,20 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const char *name)
   grid->addMultiCellWidget(searchPaths, 1,3, 1,1);
   grid->setRowStretch(2,2);
 
+  gb = new QGroupBox(i18n("Language settings"), this);
+  vbox->addWidget(gb);
+  QWhatsThis::add(gb, i18n("Here you can select the language you want to create the index for."));
+  language = new KLanguageCombo(gb);
+  l = new QLabel(language, i18n("&Language"), gb);
+  vvbox = new QVBoxLayout(gb, 6,2);
+  vvbox->addSpacing(gb->fontMetrics().lineSpacing());
+  hbox = new QHBoxLayout(vvbox, 6);
+  hbox->addWidget(l);
+  hbox->addWidget(language,1);
+  hbox->addStretch(1);
+
+  loadLanguages();
+
   vbox->addStretch(1);
 
   runButton = new QPushButton(i18n("Generate index..."), this);
@@ -162,6 +180,32 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const char *name)
   checkButtons();
 
   load();
+}
+
+
+void KHTMLSearchConfig::loadLanguages()
+{
+  // clear the list
+  language->clear();
+ 
+  // add all languages to the list
+  QStringList langs = KGlobal::dirs()->findAllResources("locale",
+							QString::fromLatin1("*/entry.desktop"));
+  langs.sort();
+
+  for (QStringList::ConstIterator it = langs.begin(); it != langs.end(); ++it)
+    {
+      KSimpleConfig entry(*it);
+      entry.setGroup(QString::fromLatin1("KCM Locale"));
+      QString name = entry.readEntry(QString::fromLatin1("Name"), KGlobal::locale()->translate("without name"));
+      
+      QString path = *it;
+      int index = path.findRev('/');
+      path = path.left(index);
+      index = path.findRev('/');
+      path = path.mid(index+1);
+      language->insertLanguage(path, name);      
+    }
 }
 
 
@@ -238,6 +282,10 @@ void KHTMLSearchConfig::load()
   for (it=l.begin(); it != l.end(); ++it)
     searchPaths->insertItem(*it);
 
+  config->setGroup("Locale");
+  QString lang = config->readEntry("Language", KGlobal::locale()->language());
+  language->setCurrentItem(lang);
+
   emit changed(false);
 }
 
@@ -261,6 +309,9 @@ void KHTMLSearchConfig::save()
     l.append(searchPaths->text(i));
   config->writeEntry("Paths", l);
 
+  config->setGroup("Locale");
+  config->writeEntry("Language", language->currentTag());
+
   config->sync();
   delete config;
 
@@ -279,6 +330,8 @@ void KHTMLSearchConfig::defaults()
   indexInfo->setChecked(false);
 
   searchPaths->clear();
+
+  language->setCurrentItem(KGlobal::locale()->language());
 
   emit changed(true);
 }
@@ -301,7 +354,7 @@ void KHTMLSearchConfig::generateIndex()
   delete indexProc;
 
   indexProc = new KProcess;
-  *indexProc << exe;
+  *indexProc << exe << "--lang" << language->currentTag();
 
   connect(indexProc, SIGNAL(processExited(KProcess *)),
       this, SLOT(indexTerminated(KProcess *)));

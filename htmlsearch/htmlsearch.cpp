@@ -34,8 +34,6 @@ QString HTMLSearch::dataPath(QString _lang)
 
 void HTMLSearch::scanDir(QString dir)
 {
-  kdDebug() << "scanDir " << dir << endl;
-
   QDir d(dir, "*.html", QDir::Name|QDir::IgnoreCase, QDir::Files | QDir::Readable);
   QStringList const &list = d.entryList();
   QStringList::ConstIterator it;
@@ -142,6 +140,9 @@ bool HTMLSearch::createConfig(QString _lang)
 
 bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
 {
+  if (_lang == "C")
+    _lang = "en";
+
   if (!createConfig(_lang))
     return false;
 
@@ -170,6 +171,8 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
   _filesToDig = _files.count();
   progress->setFilesToDig(_filesToDig);
   _filesDigged = 0;
+
+  QDir d; d.mkdir(dataPath(_lang));
 
   while (!done)
     {
@@ -210,7 +213,10 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
 	      }
 	}
       else
-	return false;
+	{
+	  kdDebug() << "Could not open `files` for writing" << endl;
+	  return false;
+	}
 
       // execute htdig
       _proc->start(KProcess::NotifyOnExit, KProcess::Stdout);      
@@ -318,6 +324,9 @@ void HTMLSearch::htsearchExited(KProcess *)
 QString HTMLSearch::search(QString _lang, QString words, QString method, int matches,
 			   QString format, QString sort)
 {
+  if (_lang == "C")
+    _lang = "en";
+
   createConfig(_lang);
 
   QString result = dataPath(_lang)+"/result.html";

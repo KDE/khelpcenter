@@ -13,7 +13,7 @@ lib_LTLIBRARIES = libhtmlsearch.la libkcm_htmlsearch.la
 libhtmlsearch_la_SOURCES = htmlsearch.cpp progressdialog.cpp
 libhtmlsearch_la_LDFLAGS = $(all_libraries) -module -avoid-version
 
-libkcm_htmlsearch_la_SOURCES = kcmhtmlsearch.cpp 
+libkcm_htmlsearch_la_SOURCES = kcmhtmlsearch.cpp klangcombo.cpp ktagcombobox.cpp
 libkcm_htmlsearch_la_LDFLAGS  = $(all_libraries) -module -avoid-version -no-undefined
 libkcm_htmlsearch_la_LIBADD = -lkdeui -lkfile
 

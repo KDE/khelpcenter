@@ -15,7 +15,8 @@ khc_main.cc: KonquerorIface_stub.h
 lib_LTLIBRARIES = libkhelpcenter.la
 
 libkhelpcenter_la_SOURCES = khc_factory.cc \
-	khc_navigator.cc khc_navigatoritem.cc khc_searchwidget.cc 
+	khc_navigator.cc khc_navigatoritem.cc khc_searchwidget.cc \
+	klangcombo.cpp ktagcombobox.cpp
 
 libkhelpcenter_la_LIBADD = htmlsearch/libhtmlsearch.la -lkparts $(LIB_KDEUI)
 
