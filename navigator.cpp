@@ -176,8 +176,6 @@ void Navigator::buildTree()
 {
   // scan plugin dir for plugins
   insertPlugins();
-
-  insertScrollKeeperItems();
 }
 
 void Navigator::clearTree()
@@ -226,6 +224,9 @@ class PluginTraverser : public DocEntryTraverser
                   entry->khelpcenterSpecial() == "konqueror" )
           mNavigator->insertParentAppDocs( entry->khelpcenterSpecial(),
                                            mCurrentItem );
+
+        if ( entry->khelpcenterSpecial() == "scrollkeeper" )
+          mNavigator->insertScrollKeeperDocs( mCurrentItem );
       }
 
       mCurrentItem->setName( entry->name() );
@@ -344,7 +345,7 @@ void Navigator::createItemFromDesktopFile( NavigatorItem *topItem, const QString
     }
 }
 
-void Navigator::insertScrollKeeperItems()
+void Navigator::insertScrollKeeperDocs( NavigatorItem *topItem )
 {
     KProcIO proc;
     proc << "scrollkeeper-get-content-list";
@@ -372,8 +373,6 @@ void Navigator::insertScrollKeeperItems()
     f.close();
 
     // Create top-level item
-    NavigatorItem *topItem = new NavigatorItem(mContentsTree, i18n("Scrollkeeper"),"contents2");
-    topItem->setUrl("");
     scrollKeeperItems.append(topItem);
 
     QDomElement docElem = doc.documentElement();

@@ -61,6 +61,7 @@ class Navigator : public QWidget
 
     void insertParentAppDocs( const QString &name, NavigatorItem *parent );
     void insertAppletDocs( NavigatorItem *parent );
+    void insertScrollKeeperDocs( NavigatorItem *parentItem );
     void createItemFromDesktopFile( NavigatorItem *item, const QString &name );
 
     bool showMissingDocs() const;
@@ -99,7 +100,6 @@ class Navigator : public QWidget
     void clearTree();
 
     void insertPlugins();
-    void insertScrollKeeperItems();
     int insertScrollKeeperSection(NavigatorItem *parentItem,QDomNode sectNode);
     void insertScrollKeeperDoc(NavigatorItem *parentItem,QDomNode docNode);
 
