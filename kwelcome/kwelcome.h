@@ -50,6 +50,7 @@ private:
   QCheckBox *autostart_kwelcome;
   QPushButton *aboutButton, *quitButton, *wizardButton, *helpcenterButton;
   QLabel *welcome;
+  bool first_time;
 };
 
 #endif

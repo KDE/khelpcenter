@@ -36,6 +36,8 @@
 #include <kstddirs.h>
 #include <kglobal.h>
 
+#include <qdir.h>
+#include <qfile.h>
 #include <qcheckbox.h>
 #include <qlabel.h>
 #include <qlayout.h>
@@ -122,6 +124,10 @@ KWelcome::KWelcome(QWidget *parent, const char *name)
 
   // read settings
   readSettings();
+
+  // the first time, we start the wizard
+  if ( first_time )
+    slotWizardStart();
 }
 
 KWelcome::~KWelcome()
@@ -155,6 +161,7 @@ void KWelcome::saveSettings()
   KConfig *conf = KGlobal::config();
   KConfigGroupSaver saver(conf, "General Settings");
   conf->writeEntry( "AutostartOnKDEStartup", autostart_kwelcome->isChecked() );
+  conf->writeEntry( "FirstTime", false );
   conf->sync();
 }
 
@@ -162,12 +169,10 @@ void KWelcome::readSettings()
 {
   KConfig *conf = KGlobal::config();
   KConfigGroupSaver saver(conf, "General Settings");
-  QString tmp = conf->readEntry("AutostartOnKDEStartup", "true");
-  
   autostart_kwelcome->setChecked(conf->readBoolEntry("AutostartOnKDEStartup",
                                                      true));
+  first_time = conf->readBoolEntry( "FirstTime", true );
 }
-
 
 void KWelcome::keyPressEvent( QKeyEvent *e )
 {
