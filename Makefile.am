@@ -26,7 +26,7 @@ servicedir = $(kde_servicesdir)
 data_DATA = Help.desktop
 datadir = $(kde_appsdir)
 
-rc_DATA = khelpcenterui.rc intro.html.in
+rc_DATA = khelpcenterui.rc intro.html.in glossary.html.in
 rcdir = $(kde_datadir)/khelpcenter
 
 messages: rc.cpp
