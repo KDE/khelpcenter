@@ -148,7 +148,7 @@ void khcMainWindow::setupView()
     m_vView->setMainWindow(khcInterface());
     kdebug(KDEBUG_INFO,1400,"m_vView->setMainWindow(khcInterface());");
     connectView();
-     m_pFrame->attach(m_vView);
+    m_pFrame->attach(m_vView);
    
     kdebug(KDEBUG_INFO,1400,"m_pFrame->attach(m_vView);");
 }
@@ -805,7 +805,14 @@ void khcMainWindow::slotFindNext()
 
 void khcMainWindow::slotReload()
 {
-  khcInterface()->reload();
+  Browser::EventOpenURL eventURL;
+  eventURL.url = m_vView->url();
+  eventURL.reload = (CORBA::Boolean)true;
+  eventURL.xOffset = m_vView->xOffset();
+  eventURL.yOffset = m_vView->yOffset();
+  EMIT_EVENT( m_vView, Browser::eventOpenURL, eventURL );
+  kdebug(0, 1400, "EMIT_EVENT( m_vView, Browser::eventOpenURL, eventURL );");
+  //khcInterface()->reload();
 }
 
 void khcMainWindow::slotCopy()
@@ -815,8 +822,12 @@ void khcMainWindow::slotCopy()
 
 void khcMainWindow::slotPrint()
 {
-  //if (m_vView)
-  //  m_vView->print();
+  if (m_vView->supportsInterface("IDL:Browser/PrintingExtension:1.0"))
+  {
+    CORBA::Object_var obj = m_vView->getInterface("IDL:Browser/PrintingExtension:1.0");
+    Browser::PrintingExtension_var printExt = Browser::PrintingExtension::_narrow(obj);
+    printExt->print();
+  }
 }
 
 void khcMainWindow::slotStopProcessing()
@@ -923,12 +934,6 @@ khcMainWindowIf::khcMainWindowIf(khcMainWindow* _main) :
 khcMainWindowIf::~khcMainWindowIf()
 {
   cleanUp();
-}
-
-void khcMainWindowIf::reload()
-{
-  SIGNAL_CALL0("reload");
-  kdebug(0, 1400, "SIGNAL_CALL0(\"reload\");");
 }
 
 void khcMainWindowIf::zoomIn()

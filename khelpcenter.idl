@@ -47,23 +47,21 @@ module KHelpCenter
     
 		slot void createNewWindow( in string url );
 
-		void reload();
 		void zoomIn();
 		void zoomOut();
 	};
 	  	
 	interface HTMLView : Browser::View, Browser::PrintingExtension
 	{
-		slot void slotReload();
 		slot void slotZoomIn();
 		slot void slotZoomOut();
 	};
 
-	interface ManView : Browser::View
+	interface ManView : Browser::View, Browser::PrintingExtension
 	{
 	};
 
-	interface InfoView: Browser::View
+	interface InfoView: Browser::View, Browser::PrintingExtension
 	{
 	};
 };

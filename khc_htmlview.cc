@@ -27,6 +27,7 @@
 khcHTMLView::khcHTMLView()
 {
   ADD_INTERFACE("IDL:KHelpCenter/HTMLView:1.0");
+  ADD_INTERFACE("IDL:Browser/PrintingExtension:1.0");
 
   setWidget(this);
 
@@ -100,11 +101,6 @@ void khcHTMLView::slotCanceled()
 void khcHTMLView::stop()
 {
   KBrowser::slotStop();
-}
-
-void khcHTMLView::slotReload()
-{
-  KBrowser::slotReload();
 }
 
 void khcHTMLView::setDefaultFontBase(int fSize)

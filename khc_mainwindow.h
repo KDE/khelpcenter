@@ -54,7 +54,6 @@ public:
   virtual void slotURLStarted( OpenParts::Id id, const char *url );
   virtual void slotURLCompleted( OpenParts::Id id );
 
-  virtual void reload();
   virtual void zoomIn();
   virtual void zoomOut();
 
