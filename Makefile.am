@@ -44,3 +44,4 @@ messages:
 	   (cd $$subdir && $(MAKE) -f Makefile.am messages) || exit 1; \
 	 fi ;\
 	done
+
