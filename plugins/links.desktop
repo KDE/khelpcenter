@@ -1,10 +1,12 @@
 [KDE Desktop Entry]
 DocPath=help:/khelpcenter/index.html?anchor=links
 
-Name=KDE on the web
+Name=KDE on the Web
 Name[af]=Kde op die web
+Name[ar]=كيدي على الإنترنت
 Name[be]=KDE ў Інтэрнэце
 Name[bg]=КДЕ в Интернет
+Name[br]=KDE war ar gwiad
 Name[bs]=KDE na webu
 Name[ca]=KDE a la web
 Name[cs]=KDE na webu
@@ -24,6 +26,7 @@ Name[he]=KDE באינטרנט
 Name[hi]=केडीई वेब पर
 Name[hr]=KDE na webu
 Name[hu]=A KDE az interneten
+Name[is]=KDE á vefnum
 Name[it]=KDE su internet
 Name[ja]=Web上のKDE
 Name[lo]=ຄົ້ນຫາບົນເວ໊ບ
@@ -31,7 +34,8 @@ Name[lt]=KDE WWW
 Name[mn]=Веб КДЭ
 Name[mt]=KDE fuq il-Web
 Name[nb]=KDE på nettet
-Name[nl]=KDE op het Internet
+Name[nds]=KDE in't Web
+Name[nl]=KDE op het internet
 Name[nn]=KDE på verdsveven
 Name[nso]=KDE go Web
 Name[pl]=KDE w sieci
@@ -43,8 +47,10 @@ Name[se]=KDE fierpmádagas
 Name[sk]=KDE na webe
 Name[sl]=KDE na spletu
 Name[sr]=KDE на вебу
+Name[sr@Latn]=KDE na vebu
 Name[sv]=KDE på Internet
-Name[ta]=வலையத்தில் Kசாளர
+Name[ta]=வலையத்தில் KDE
+Name[tg]=KDE дар вэб
 Name[th]=KDE บนเว็บ
 Name[tr]=İnternet'te KDE
 Name[uk]=KDE в Тенетах
