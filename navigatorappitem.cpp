@@ -55,7 +55,7 @@ void NavigatorAppItem::setOpen(bool open)
 {
   if ( open && (childCount() == 0) )
   {
-     kdWarning() << "NavigatorWidget::buildManualSubTree(" << this << ", "
+     kdWarning() << "NavigatorAppItem::setOpen(" << this << ", "
                  << relpath << ")" << endl;
      KServiceGroup::Ptr root = KServiceGroup::group(relpath);
      if (!root) {

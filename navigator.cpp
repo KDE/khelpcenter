@@ -69,7 +69,7 @@ using namespace KHC;
 #include "navigator.h"
 #include "navigator.moc"
 
-NavigatorWidget::NavigatorWidget( View *view, QWidget *parent,
+Navigator::Navigator( View *view, QWidget *parent,
                                         const char *name )
    : QWidget( parent, name ),
      mView( view )
@@ -138,7 +138,7 @@ NavigatorWidget::NavigatorWidget( View *view, QWidget *parent,
     }
 }
 
-NavigatorWidget::~NavigatorWidget()
+Navigator::~Navigator()
 {
   for (std::map<NavigatorItem*, InfoHierarchyMaker*>::iterator it = hierarchyMakers.begin();
        it != hierarchyMakers.end(); )
@@ -154,7 +154,7 @@ NavigatorWidget::~NavigatorWidget()
   delete mSearchEngine;
 }
 
-void NavigatorWidget::setupContentsTab()
+void Navigator::setupContentsTab()
 {
     contentsTree = new KListView( mTabWidget );
     contentsTree->setFrameStyle(QFrame::Panel | QFrame::Sunken);
@@ -173,7 +173,7 @@ void NavigatorWidget::setupContentsTab()
     mTabWidget->addTab(contentsTree, i18n("&Contents"));
 }
 
-void NavigatorWidget::setupSearchTab()
+void Navigator::setupSearchTab()
 {
     mSearchWidget = new SearchWidget( mTabWidget );
     connect( mSearchWidget, SIGNAL( searchResult( const QString & ) ),
@@ -184,7 +184,7 @@ void NavigatorWidget::setupSearchTab()
     mTabWidget->addTab( mSearchWidget, i18n("Search"));
 }
 
-void NavigatorWidget::setupTOCTab()
+void Navigator::setupTOCTab()
 {
   tocTree = new TOC( this );
   connect( tocTree, SIGNAL( itemSelected( const QString & ) ),
@@ -195,7 +195,7 @@ void NavigatorWidget::setupTOCTab()
 	mTabWidget->addTab( tocTree, "&Table of contents" );
 }
 
-void NavigatorWidget::setupGlossaryTab()
+void Navigator::setupGlossaryTab()
 {
     glossaryTree = new Glossary( mTabWidget );
     connect( glossaryTree, SIGNAL( entrySelected( const GlossaryEntry & ) ),
@@ -203,7 +203,7 @@ void NavigatorWidget::setupGlossaryTab()
     mTabWidget->addTab( glossaryTree, i18n( "G&lossary" ) );
 }
 
-void NavigatorWidget::buildTree()
+void Navigator::buildTree()
 {
   // supporting KDE
   NavigatorItem *ti_support = new NavigatorItem(contentsTree, i18n("Supporting KDE"),"document2");
@@ -255,7 +255,7 @@ void NavigatorWidget::buildTree()
   contentsTree->setCurrentItem(ti_welcome);
 }
 
-void NavigatorWidget::clearTree()
+void Navigator::clearTree()
 {
   // Remove all children.
   for(QListViewItem *child = contentsTree->firstChild(); child; child = contentsTree->firstChild())
@@ -264,7 +264,7 @@ void NavigatorWidget::clearTree()
   }
 }
 
-void NavigatorWidget::buildInfoSubTree(NavigatorItem *parent)
+void Navigator::buildInfoSubTree(NavigatorItem *parent)
 {
   QString dirContents;
   if (!readInfoDirFile(dirContents)) return;
@@ -313,7 +313,7 @@ void NavigatorWidget::buildInfoSubTree(NavigatorItem *parent)
   }
 }
 
-NavigatorItem *NavigatorWidget::addInfoNode( NavigatorItem *parent,
+NavigatorItem *Navigator::addInfoNode( NavigatorItem *parent,
                                                    NavigatorItem *last,
                                                    const QString &line )
 {
@@ -330,7 +330,7 @@ NavigatorItem *NavigatorWidget::addInfoNode( NavigatorItem *parent,
   return 0;
 }
 
-QString NavigatorWidget::findInfoDirFile()
+QString Navigator::findInfoDirFile()
 {
   for (uint i = 0; i < INFODIRS; i++)
     if (QFile::exists(INFODIR[i] + "dir"))
@@ -338,7 +338,7 @@ QString NavigatorWidget::findInfoDirFile()
   return QString();
 }
 
-bool NavigatorWidget::readInfoDirFile(QString& sFileContents)
+bool Navigator::readInfoDirFile(QString& sFileContents)
 {
   const QString dirPath = findInfoDirFile();
   if (dirPath.isEmpty())
@@ -361,7 +361,7 @@ bool NavigatorWidget::readInfoDirFile(QString& sFileContents)
   return true;
 }
 
-bool NavigatorWidget::parseInfoSubjectLine(QString sLine, QString& sItemTitle, QString& sItemURL)
+bool Navigator::parseInfoSubjectLine(QString sLine, QString& sItemTitle, QString& sItemURL)
 {
   regmatch_t* pRegMatch = new regmatch_t[compInfoRegEx.re_nsub + 1];
   Q_CHECK_PTR(pRegMatch);
@@ -389,7 +389,7 @@ bool NavigatorWidget::parseInfoSubjectLine(QString sLine, QString& sItemTitle, Q
   return true;
 }
 
-void NavigatorWidget::buildManSubTree(NavigatorItem *parent)
+void Navigator::buildManSubTree(NavigatorItem *parent)
 {
   // man(n)
   NavigatorItem *ti_man_sn = new NavigatorItem(parent, i18n("(n) New"),"document2");
@@ -436,10 +436,10 @@ void NavigatorWidget::buildManSubTree(NavigatorItem *parent)
 class PluginTraverser : public DocEntryTraverser
 {
   public:
-    PluginTraverser( NavigatorWidget *navigator, QListView *listView  ) :
+    PluginTraverser( Navigator *navigator, QListView *listView  ) :
       mListView( listView ), mParentItem( 0 ), mCurrentItem( 0 ),
       mNavigator( navigator ) {}
-    PluginTraverser( NavigatorWidget *navigator, NavigatorItem *listViewItem  ) :
+    PluginTraverser( Navigator *navigator, NavigatorItem *listViewItem  ) :
       mListView( 0 ), mParentItem( listViewItem ), mCurrentItem( 0 ),
       mNavigator( navigator ) {}
 
@@ -496,11 +496,11 @@ class PluginTraverser : public DocEntryTraverser
     NavigatorItem *mParentItem;
     NavigatorItem *mCurrentItem;
     
-    NavigatorWidget *mNavigator;
+    Navigator *mNavigator;
 };
 
 
-void NavigatorWidget::insertPlugins()
+void Navigator::insertPlugins()
 {
   PluginTraverser t( this, contentsTree );
   DocMetaInfo::self()->traverseEntries( &t );
@@ -516,7 +516,7 @@ void NavigatorWidget::insertPlugins()
 #endif
 }
 
-void NavigatorWidget::insertScrollKeeperItems()
+void Navigator::insertScrollKeeperItems()
 {
     KProcIO proc;
     proc << "scrollkeeper-get-content-list";
@@ -562,7 +562,7 @@ void NavigatorWidget::insertScrollKeeperItems()
     }
 }
 
-void NavigatorWidget::getScrollKeeperContentsList(KProcIO *proc)
+void Navigator::getScrollKeeperContentsList(KProcIO *proc)
 {
     QString filename;
     proc->readln(filename,true);
@@ -570,7 +570,7 @@ void NavigatorWidget::getScrollKeeperContentsList(KProcIO *proc)
     mScrollKeeperContentsList = filename;
 }
 
-int NavigatorWidget::insertScrollKeeperSection(NavigatorItem *parentItem,QDomNode sectNode)
+int Navigator::insertScrollKeeperSection(NavigatorItem *parentItem,QDomNode sectNode)
 {
     NavigatorItem *sectItem = new NavigatorItem(parentItem,"","contents2");
     sectItem->setUrl("");
@@ -600,7 +600,7 @@ int NavigatorWidget::insertScrollKeeperSection(NavigatorItem *parentItem,QDomNod
     return numDocs;
 }
 
-void NavigatorWidget::insertScrollKeeperDoc(NavigatorItem *parentItem,QDomNode docNode)
+void Navigator::insertScrollKeeperDoc(NavigatorItem *parentItem,QDomNode docNode)
 {
     NavigatorItem *docItem = new NavigatorItem(parentItem,"","document2");
     scrollKeeperItems.append(docItem);
@@ -636,12 +636,12 @@ void NavigatorWidget::insertScrollKeeperDoc(NavigatorItem *parentItem,QDomNode d
     docItem->setUrl(url);
 }
 
-void NavigatorWidget::slotURLSelected(QString url)
+void Navigator::slotURLSelected(QString url)
 {
     emit itemSelected(url);
 }
 
-void NavigatorWidget::slotItemSelected(QListViewItem* currentItem)
+void Navigator::slotItemSelected(QListViewItem* currentItem)
 {
   if (!currentItem)
     return;
@@ -697,7 +697,7 @@ void NavigatorWidget::slotItemSelected(QListViewItem* currentItem)
   }
 }
 
-void NavigatorWidget::slotItemExpanded(QListViewItem* index)
+void Navigator::slotItemExpanded(QListViewItem* index)
 {
   if (!index)
     return;
@@ -760,7 +760,7 @@ void NavigatorWidget::slotItemExpanded(QListViewItem* index)
       }
 }
 
-void NavigatorWidget::slotInfoHierarchyCreated(uint key, uint nErrorCode, const InfoNode* pRootNode)
+void Navigator::slotInfoHierarchyCreated(uint key, uint nErrorCode, const InfoNode* pRootNode)
 {
   Q_ASSERT(key);
   NavigatorItem* pItem = (NavigatorItem*) key;
@@ -805,7 +805,7 @@ void NavigatorWidget::slotInfoHierarchyCreated(uint key, uint nErrorCode, const 
   }
 }
 
-void NavigatorWidget::addChildren(const InfoNode* pParentNode, NavigatorItem* pParentTreeItem)
+void Navigator::addChildren(const InfoNode* pParentNode, NavigatorItem* pParentTreeItem)
 {
   NavigatorItem* pLastChild = 0;
   for (std::list<InfoNode*>::const_iterator it = pParentNode->m_lChildren.begin();
@@ -821,7 +821,7 @@ void NavigatorWidget::addChildren(const InfoNode* pParentNode, NavigatorItem* pP
   }
 }
 
-void NavigatorWidget::slotCleanHierarchyMakers()
+void Navigator::slotCleanHierarchyMakers()
 {
 //  kdDebug() << "--- slotCleanHierarchyMakers ---" << endl;
   for (std::map<NavigatorItem*, InfoHierarchyMaker*>::iterator it = hierarchyMakers.begin();
@@ -839,7 +839,7 @@ void NavigatorWidget::slotCleanHierarchyMakers()
 }
 
 /* Cog-wheel animation handling -- enable after creating the icons
-void NavigatorWidget::slotAnimation()
+void Navigator::slotAnimation()
 {
     MapCurrentOpeningSubjects::Iterator it = m_mapCurrentOpeningSubjects.begin();
     MapCurrentOpeningSubjects::Iterator end = m_mapCurrentOpeningSubjects.end();
@@ -855,14 +855,14 @@ void NavigatorWidget::slotAnimation()
     }
 }
 
-void NavigatorWidget::startAnimation( NavigatorItem * item, const char * iconBaseName, uint iconCount )
+void Navigator::startAnimation( NavigatorItem * item, const char * iconBaseName, uint iconCount )
 {
     m_mapCurrentOpeningSubjects.insert( item, AnimationInfo( iconBaseName, iconCount, *item->pixmap(0) ) );
     if ( !m_animationTimer->isActive() )
         m_animationTimer->start( 50 );
 }
 
-void NavigatorWidget::stopAnimation( NavigatorItem * item )
+void Navigator::stopAnimation( NavigatorItem * item )
 {
     MapCurrentOpeningSubjects::Iterator it = m_mapCurrentOpeningSubjects.find(item);
     if ( it != m_mapCurrentOpeningSubjects.end() )
@@ -876,7 +876,7 @@ void NavigatorWidget::stopAnimation( NavigatorItem * item )
 */
 
 
-void NavigatorWidget::slotSearch()
+void Navigator::slotSearch()
 {
   QString words = mSearchEdit->text();
   QString method = mSearchWidget->method();
@@ -894,7 +894,7 @@ void NavigatorWidget::slotSearch()
   }
 }
 
-void NavigatorWidget::slotShowSearchResult( const QString &url )
+void Navigator::slotShowSearchResult( const QString &url )
 {
   QString u = url;
   u.replace( QRegExp( "%k" ), mSearchEdit->text() );
@@ -902,7 +902,7 @@ void NavigatorWidget::slotShowSearchResult( const QString &url )
   slotURLSelected( u );
 }
 
-void NavigatorWidget::slotSearchFinished()
+void Navigator::slotSearchFinished()
 {
   mSearchButton->setEnabled(true);
   QApplication::restoreOverrideCursor();
@@ -910,15 +910,15 @@ void NavigatorWidget::slotSearchFinished()
   kdDebug() << "Search finished." << endl;
 }
 
-void NavigatorWidget::slotSearchTextChanged( const QString &text )
+void Navigator::slotSearchTextChanged( const QString &text )
 {
-//  kdDebug() << "NavigatorWidget::slotSearchTextCanged() '" << text << "'"
+//  kdDebug() << "Navigator::slotSearchTextCanged() '" << text << "'"
 //            << endl;
 
   mSearchButton->setEnabled( !text.isEmpty() );
 }
 
-void NavigatorWidget::hideSearch()
+void Navigator::hideSearch()
 {
   mSearchFrame->hide();
   mTabWidget->removePage( mSearchWidget );

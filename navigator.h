@@ -54,12 +54,12 @@ class InfoNode;
 class InfoHierarchyMaker;
 class View;
 
-class NavigatorWidget : public QWidget
+class Navigator : public QWidget
 {
     Q_OBJECT
   public:
-    NavigatorWidget(View *, QWidget *parent=0, const char *name=0);
-    virtual ~NavigatorWidget();
+    Navigator(View *, QWidget *parent=0, const char *name=0);
+    virtual ~Navigator();
 
     const GlossaryEntry &glossEntry(const QString &term) const { return glossaryTree->entry( term ); }
 

@@ -87,7 +87,7 @@ MainWindow::MainWindow(const KURL &url)
             SLOT(slotOpenURLRequest( const KURL &,
                                      const KParts::URLArgs &)));
 
-    nav = new NavigatorWidget( doc, splitter, "nav");
+    nav = new Navigator( doc, splitter, "nav");
     connect(nav, SIGNAL(itemSelected(const QString &)),
             SLOT(openURL(const QString &)));
     connect(nav, SIGNAL(glossSelected(const GlossaryEntry &)),
