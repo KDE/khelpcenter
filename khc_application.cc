@@ -33,7 +33,7 @@ khcApplicationIf::khcApplicationIf(CORBA::Object_ptr _obj) : KHelpCenter::Applic
 khcMainView *khcApplicationIf::allocMainView(const char *url)
 {
   khcMainView *mainView = new khcMainView(url);
-  KOMShutdownManager::self()->watchObject(mainView);
+  //KOMShutdownManager::self()->watchObject(mainView);
   return mainView;
 }
 
@@ -41,7 +41,7 @@ khcMainWindow *khcApplicationIf::allocMainWindow(const char *url)
 {
   khcMainWindow * mw = new khcMainWindow(url);
   mw->show();
-  KOMShutdownManager::self()->watchObject(mw->interface());
+  //KOMShutdownManager::self()->watchObject(mw->interface());
   return mw;
 }
 
@@ -58,7 +58,7 @@ OpenParts::MainWindow_ptr khcApplicationIf::createWindow()
 KHelpCenter::HTMLView_ptr khcApplicationIf::createHTMLView()
 {
   khcHTMLView *htmlView = new khcHTMLView;
-  KOMShutdownManager::self()->watchObject(htmlView);
+  // KOMShutdownManager::self()->watchObject(htmlView);
   return KHelpCenter::HTMLView::_duplicate(htmlView);
 }
 

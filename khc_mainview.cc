@@ -114,10 +114,11 @@ void khcMainView::init()
   if (!CORBA::is_nil(statusBarManager))
     m_vStatusBar = statusBarManager->registerClient(id());
   
+  // this is causing a MICO exception when called by khcclient ?!?
   // add a statusbar field
-  CORBA::WString_var item = Q2C(i18n("KDE Helpcenter"));
-  if (!CORBA::is_nil(m_vStatusBar))
-    m_vStatusBar->insertItem(item, 1);
+  //CORBA::WString_var item = Q2C(i18n("KDE Helpcenter"));
+  //if (!CORBA::is_nil(m_vStatusBar))
+  ///  m_vStatusBar->insertItem(item, 1);
   
   // the splitter managing the OPFrame and khcNavigator
   m_pSplitter = new QSplitter(QSplitter::Horizontal, this);
@@ -137,7 +138,7 @@ void khcMainView::init()
   sizes << 200 << 600;
   m_pSplitter->setSizes(sizes);
   m_pSplitter->setGeometry(0, 0, width(), height()); 
-  
+  m_pSplitter->show();
 
   // embed a HTMLView since automatic view embeding based on protocol/mimetype is not implemented yet
   m_pView = new khcHTMLView;
@@ -148,7 +149,6 @@ void khcMainView::init()
   m_pFrame->attach(m_vView);
   connectView();
   
-  m_pSplitter->show();
 
   // open the initial url or show the intro page
   if (m_initURL.isEmpty()) slotIntroduction();
@@ -518,7 +518,7 @@ bool khcMainView::mappingParentGotFocus(OpenParts::Part_ptr )
   return true;
 }
 
-bool khcMainView::mappingChildGotFocus(OpenParts::Part_ptr child)
+bool khcMainView::mappingChildGotFocus(OpenParts::Part_ptr)
 {
   kdebug(KDEBUG_INFO, 1400, "bool khcMainView::mappingChildGotFocus(OpenParts::Part_ptr child)");
   return true;
@@ -1211,7 +1211,7 @@ void khcMainView::setStatusBarText(const CORBA::WChar *_text)
     m_vStatusBar->changeItem(_text, 1);
 }
 
-void khcMainView::setLocationBarURL(OpenParts::Id id, const char *_url)
+void khcMainView::setLocationBarURL(OpenParts::Id, const char *_url)
 {
   CORBA::WString_var wurl = Q2C(QString(_url));
     

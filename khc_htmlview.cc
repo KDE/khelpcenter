@@ -55,6 +55,7 @@ khcHTMLView::khcHTMLView()
 
   htmlWidget->setUnderlineLinks(true);
   htmlWidget->setURLCursor(KCursor().handCursor());
+  QWidget::show();
 }
 
 khcHTMLView::~khcHTMLView()

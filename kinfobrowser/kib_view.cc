@@ -134,7 +134,7 @@ void kibView::resizeEvent(QResizeEvent *)
   layout();
 }
 
-void kibView::open(QString _url, bool _reload, int _xoffset, int _yoffset)
+void kibView::open(QString _url, bool /*_reload*/, int _xoffset, int _yoffset)
 {
   m_strURL = _url;
 
@@ -260,7 +260,7 @@ CORBA::Long kibView::yOffset()
   return (CORBA::Long) view->yOffset();
 }
 
-void kibView::openURL(QString _url, bool _reload, int _xoffset, int _yoffset, const char *_post_data)
+void kibView::openURL(QString _url, bool _reload, int _xoffset, int _yoffset, const char */*_post_data*/)
 {
   Browser::EventOpenURL eventURL;
   eventURL.url = CORBA::string_dup(_url);

@@ -134,7 +134,7 @@ void kmbView::resizeEvent(QResizeEvent *)
   layout();
 }
 
-void kmbView::open(QString _url, bool _reload, int _xoffset, int _yoffset)
+void kmbView::open(QString _url, bool /*_reload*/, int _xoffset, int _yoffset)
 {
   m_strURL = _url;
 
@@ -260,7 +260,7 @@ CORBA::Long kmbView::yOffset()
   return (CORBA::Long) view->yOffset();
 }
 
-void kmbView::openURL(QString _url, bool _reload, int _xoffset, int _yoffset, const char *_post_data)
+void kmbView::openURL(QString _url, bool _reload, int _xoffset, int _yoffset, const char */*_post_data*/)
 {
   Browser::EventOpenURL eventURL;
   eventURL.url = CORBA::string_dup(_url);
