@@ -86,8 +86,8 @@ HelpCenter::HelpCenter()
  
     // restore geometry settings
     KConfig *config = KApplication::getKApplication()->getConfig();
-    config->setGroup( "Appearance" );
-    QString geom = config->readEntry( "Geometry" );
+    config->setGroup("Appearance");
+    QString geom = config->readEntry("Geometry");
     if (!geom.isEmpty())
     {
 	int width, height;
@@ -205,9 +205,10 @@ void HelpCenter::setupMenubar()
     optionsMenu->insertItem(i18n("&Save Options"),
 			    this, SLOT(slotOptionsSave()) );
   
-    helpMenu = kapp->getHelpMenu(true,i18n("The KDE Help Center\n\n"
-					   "(c) 1998,99\n"
-					   "Matthias Elter <me@main-echo.net> \n"));
+    helpMenu = kapp->getHelpMenu(true,i18n("The KDE HelpCenter\n\n"
+					   "(c) 1998,99 Matthias Elter <me@kde.org>: khelpcenter base application, kwelcome\n"
+					   "(c) 1998,99 René Beutler <rbeutler@g26.ethz.ch>: kassistant, kcmhelpcenter, kwid,konitemhelp\n"
+					   "(c) 1997 Martin Jones <mjones@kde.org> Some code is based on kdehelp written by Martin."));
   
     menuBar()->insertItem(i18n("&File"), fileMenu);
     menuBar()->insertItem(i18n("&Edit"), editMenu);
@@ -237,7 +238,7 @@ void HelpCenter::setupToolbar()
 
     toolBar(0)->setIconText(3);
     toolBar(0)->insertButton(Icon("hidetabview.xpm"), TB_TREE,
-			     true, i18n("Tree off"));
+			     true, i18n("Hide Index"));
 
     toolBar(0)->insertSeparator();
   
@@ -610,14 +611,14 @@ void HelpCenter::slotOptionsTree()
 	enableTree(false);
 	showTree = false;
 	toolBar(0)->setButtonPixmap(TB_TREE, Icon("showtabview.xpm"));
-	toolBar(0)->getButton(TB_TREE)->setText("Tree on");
+	toolBar(0)->getButton(TB_TREE)->setText(i18n("Show Index"));
     }
     else
     {
 	enableTree(true);
 	showTree = true;
 	toolBar(0)->setButtonPixmap(TB_TREE, Icon("hidetabview.xpm"));
-	toolBar(0)->getButton(TB_TREE)->setText("Tree off");
+	toolBar(0)->getButton(TB_TREE)->setText(i18n("Hide Index"));
     }
     optionsMenu->setItemChecked(idTree, showTree);
     updateRects();

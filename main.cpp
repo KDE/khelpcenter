@@ -33,6 +33,9 @@
 
 int main(int argc, char *argv[])
 {
+    bool standalone = false;
+    HelpCenter *hc;
+
     // create local data directory if necessary
     QDir dir;
     dir.setPath(KApplication::localkdedir() + "/share/apps");
@@ -44,10 +47,36 @@ int main(int argc, char *argv[])
     if (!dir.exists())
 	dir.mkdir(KApplication::localkdedir() + "/share/apps/khelpcenter");
 
-    // init app
-    KOMApplication app(argc, argv, "KDE HelpCenter");
-    KOMAutoLoader<HelpWindowFactory_Impl> HelpWindowFactoryLoader("IDL:KHelpCenter/HelpWindowFactory:1.0" , "KHelpCenter");
- 
-    app.exec();
-    return 0;
+    for (int i=0; i< argc; i++)
+    {
+	if (strcmp(argv[i], "--standalone") == 0)
+	    standalone = true;
+    }
+
+    if (standalone)
+    {
+	KApplication app(argc, argv, "KDE HelpCenter");
+	hc = new HelpCenter;
+
+	QString _url = "file:";
+	_url += kapp->kde_htmldir().copy();
+	_url += "/default/khelpcenter/main.html";
+
+	hc->show();
+	hc->openURL(_url, true);
+	
+	int rv = app.exec();
+	if (hc)
+	    delete hc;
+	return rv;
+    }
+    else
+    {
+	// init KOM server app
+	KOMApplication app(argc, argv, "KDE HelpCenter");
+	KOMAutoLoader<HelpWindowFactory_Impl> HelpWindowFactoryLoader("IDL:KHelpCenter/HelpWindowFactory:1.0" , "KHelpCenter");
+	app.exec();
+	return 0;
+    }
+    
 }

@@ -41,8 +41,7 @@ HTabView::HTabView(QWidget *parent, const char *name)
     : QWidget(parent,name)
 {
     tabBar = new QTabBar(this);
-    
-    
+        
     setupContentsTab();
     setupIndexTab();
     setupSearchTab();
@@ -115,16 +114,28 @@ void HTabView::setupSearchTab()
 void HTabView::buildTree()
 {
     // introduction document
-    HTreeListItem *ti_intro = new HTreeListItem("Introduction", "helpdoc.xpm");
+    HTreeListItem *ti_intro = new HTreeListItem(i18n("Introduction"), "helpdoc.xpm");
     ti_intro->setURL(QString("file:" + locate("html", "default/khelpcenter/main.html")));
     ti_intro->insertInTree(tree, 0);
     staticItems.append(ti_intro);
+    
+    // KDE quickstart guide
+    HTreeListItem *ti_qs = new HTreeListItem(i18n("Introduction to KDE"), "helpdoc.xpm");
+    ti_qs->setURL(QString("file:" + locate("html", "default/khelpcenter/quickstart/index.html")));
+    ti_qs->insertInTree(tree, 0);
+    staticItems.append(ti_qs);
+
+    // KDE user's manual
+    HTreeListItem *ti_um = new HTreeListItem(i18n("KDE user's manual"), "helpdoc.xpm");
+    ti_um->setURL(QString("file:" + locate("html", "default/khelpcenter/userguide/index.html")));
+    ti_um->insertInTree(tree, 0);
+    staticItems.append(ti_um);
   
     // set the introduction page as current document
     tree->setCurrentItem(tree->itemIndex(ti_intro));
 
     // application manuals
-    HTreeListItem *ti_manual = new HTreeListItem("Application manuals", "helpbook.xpm");
+    HTreeListItem *ti_manual = new HTreeListItem(i18n("Application manuals"), "helpbook.xpm");
     ti_manual->insertInTree(tree, 0);
     staticItems.append(ti_manual);
 
@@ -132,7 +143,7 @@ void HTabView::buildTree()
     buildManualSubTree(ti_manual);
 
     // unix man pages
-    HTreeListItem *ti_man = new HTreeListItem("Unix manual pages", "helpbook.xpm");
+    HTreeListItem *ti_man = new HTreeListItem(i18n("Unix manual pages"), "helpbook.xpm");
     //ti_man->setURL(QString("man:/(index)"));
     ti_man->insertInTree(tree, 0);
     staticItems.append(ti_man);
@@ -141,7 +152,7 @@ void HTabView::buildTree()
     buildManSubTree(ti_man);
 
     // info browser 
-    HTreeListItem *ti_info = new HTreeListItem("Browse info pages", "helpdoc.xpm");
+    HTreeListItem *ti_info = new HTreeListItem(i18n("Browse info pages"), "helpdoc.xpm");
     ti_info->setURL(QString("file:/cgi-bin/info2html"));
     ti_info->insertInTree(tree,0);
     staticItems.append(ti_info);
@@ -149,14 +160,20 @@ void HTabView::buildTree()
     // scan plugin dir for plugins
     insertPlugins();
 
+    // KDE FAQ
+    HTreeListItem *ti_faq = new HTreeListItem(i18n("The KDE FAQ"), "helpdoc.xpm");
+    ti_faq->setURL(QString("file:" + locate("html", "default/khelpcenter/faq/index.html")));
+    ti_faq->insertInTree(tree, 0);
+    staticItems.append(ti_faq);
+
     // kde links
-    HTreeListItem *ti_links = new HTreeListItem("KDE related WWW links", "helpdoc.xpm");
+    HTreeListItem *ti_links = new HTreeListItem(i18n("KDE on the web"), "helpdoc.xpm");
     ti_links->setURL(QString("file:" + locate("html", "default/khelpcenter/links.html")));
     ti_links->insertInTree(tree,0);
     staticItems.append(ti_links);
 
     // kde contacts
-    HTreeListItem *ti_contact = new HTreeListItem("Contact Information", "helpdoc.xpm");
+    HTreeListItem *ti_contact = new HTreeListItem(i18n("Contact Information"), "helpdoc.xpm");
     ti_contact->setURL(QString("file:" + locate("html", "default/khelpcenter/contact.html")));
     ti_contact->insertInTree(tree,0);
     staticItems.append(ti_contact);  
@@ -272,7 +289,6 @@ void HTabView::slotReloadTree()
 
 void HTabView::slotTabSelected(int id)
 {
-    printf("khelpcenter: tab %d selected.\n", id); fflush(stdout);
     if (id == 0)
     {
 	tree->show();
