@@ -14,6 +14,9 @@
 APPSDIR = $(kde_appsdir)
 INCLUDES= $(all_includes)
 
+pics_DATA = welcome.png
+picsdir = $(kde_datadir)/kwelcome/pics
+
 bin_PROGRAMS = 	kwelcome
 
 kwelcome_SOURCES = kwelcome.cpp kwelcomewidget.cpp main.cpp
