@@ -22,7 +22,7 @@
 #ifndef __khc_baseview_h__
 #define __khc_baseview_h__
 
-#include "khelpcenter.h"
+#include "browser.h"
 
 #include <opPart.h>
 #include <qstring.h>

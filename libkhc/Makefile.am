@@ -23,15 +23,13 @@ lib_LTLIBRARIES = libkhc.la
 libkhc_la_LDFLAGS = $(all_libraries) -version-info 1:0
 libkhc_la_LIBADD = -lkparts
 
-libkhc_la_SOURCES = browser.idl khelpcenter.idl khc_baseview.cc khc_history.cc
+libkhc_la_SOURCES = browser.idl khc_baseview.cc khc_history.cc
 
-include_HEADERS = khelpcenter.h browser.h khc_history.h khc_baseview.h
+include_HEADERS = browser.h khc_history.h khc_baseview.h
 
-DISTCLEANFILES = khelpcenter.cc khelpcenter.h browser.cc browser.h
+DISTCLEANFILES = browser.cc browser.h
 
 browser_IDLDIR = $(idldir)
-
-idl_DATA = khelpcenter.idl
 
 messages:
 	$(XGETTEXT) -C -ki18n -x $(includedir)/kde.pot *.cc *.h && mv messages.po ../po/libkhc.pot
