@@ -147,4 +147,4 @@ Keywords[xx]=xxkhelpcenter,help,index,searchxx
 Keywords[zh_CN]=khelpcenter,help,index,search,帮助中心,帮助,索引,搜索
 Keywords[zh_TW]=khelpcenter,help,index,search,求助,索引,搜尋
 Keywords[zu]=khelpcenter,usizo,uhlelo lokuqukethwe,usesho
-Categories=Qt;KDE;Settings;X-KDE-settings-system
+Categories=Qt;KDE;X-KDE-settings-system
