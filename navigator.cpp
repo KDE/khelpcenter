@@ -648,12 +648,7 @@ void Navigator::slotItemSelected(QListViewItem* currentItem)
   NavigatorItem *item = static_cast<NavigatorItem*>(currentItem);
 
   if (item->childCount() > 0 || item->isExpandable())
-  {
-      if (item->isOpen())
-        item->setOpen(false);
-      else
-        item->setOpen(true);
-  }
+    item->setOpen( !item->isOpen() );
 
 #if 0
   if (pluginItems.find(item) > -1)
