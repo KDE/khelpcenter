@@ -66,6 +66,4 @@ protected:
   khcHistoryItem *m_current;
 };
 
-
-
 #endif
