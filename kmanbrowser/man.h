@@ -23,8 +23,8 @@
 #ifndef __man_h__
 #define __man_h__
 
-#include <qstring.h>
 #include <qlist.h>
+#include <qstring.h>
 
 #define MAN_SECTIONS		"1:2:3:4:5:6:7:8:9:n"
 #define MAN_ENV			"MANPATH"
@@ -34,20 +34,23 @@
 class ManPage
 {
  public:
-    ManPage (const QString& name = "", const QString& location = "") 
+
+    ManPage (const QString& name = "", const QString& location = "")
 	{ m_name = name; m_location = location; }
 
     const QString& name() const { return m_name; }
     const QString& location() const { return m_location; }
 
  private:
-    QString  m_name;
-    QString  m_location;
+
+    QString m_name;
+    QString m_location;
 };
 
 class ManSection
 {
  public:
+
     ManSection(const QString& name);
     ~ManSection();
 
@@ -60,6 +63,7 @@ class ManSection
     QList<ManPage> *pages() { return &m_pages; }
 
  private:
+
     QList<ManPage> m_pages;
 
     QString m_name;
@@ -70,13 +74,14 @@ class ManSection
 
     // static search path for man pages
     static QString searchPath[MAN_MAXPATHS];
-    static int	numPaths;
-    static int  sectCount;
+    static int numPaths;
+    static int sectCount;
 };
 
 class ManParser
 {
  public:
+
     ManParser();
     ~ManParser();
 

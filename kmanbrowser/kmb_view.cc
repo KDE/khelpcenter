@@ -20,8 +20,8 @@
 
 #include <qapp.h>
 
-#include <kcursor.h>
 #include <kdebug.h>
+#include <kcursor.h>
 
 #include "kmb_view.h"
 
@@ -29,25 +29,25 @@ kmbView::kmbView( QWidget *parent, char *name )
     : khcBaseView( parent, name )
     , m_fontBase( 3 )
 {
-  view = new KHTMLWidget( this );
-  CHECK_PTR( view );
+  m_pView = new KHTMLWidget( this );
+  CHECK_PTR( m_pView );
 
-  view->setURLCursor(KCursor::handCursor());
-  view->setUnderlineLinks(true);
-  view->setFocusPolicy(QWidget::StrongFocus);
-  view->setFocus();
-  view->setUpdatesEnabled(true);
-  view->setDefaultBGColor(white);
-  view->setDefaultTextColors(black, blue, blue);
-  //view->setStandardFont();
-  //view->setFixedFont();
+  m_pView->setURLCursor(KCursor::handCursor());
+  m_pView->setUnderlineLinks(true);
+  m_pView->setFocusPolicy(QWidget::StrongFocus);
+  m_pView->setFocus();
+  m_pView->setUpdatesEnabled(true);
+  m_pView->setDefaultBGColor(white);
+  m_pView->setDefaultTextColors(black, blue, blue);
+  //m_pView->setStandardFont();
+  //m_pView->setFixedFont();
 
-  connect(view, SIGNAL(setTitle(const QString &)), this, SLOT(slotSetTitle(const QString &)));
-  connect(view, SIGNAL(documentDone()), this, SLOT(slotCompleted()));
+  connect(m_pView, SIGNAL(setTitle(const QString &)), this, SLOT(slotSetTitle(const QString &)));
+  connect(m_pView, SIGNAL(documentDone()), this, SLOT(slotCompleted()));
   // ### fix cursor scrolling
-  //connect(view, SIGNAL(scrollVert(int)), this, SLOT(slotScrollVert(int)));
-  //connect(view, SIGNAL(scrollHorz(int)), this, SLOT(slotScrollHorz(int)));
-  connect(view, SIGNAL(resized(const QSize &)), SLOT(slotViewResized(const QSize &)));
+  //connect(m_pView, SIGNAL(scrollVert(int)), this, SLOT(slotScrollVert(int)));
+  //connect(m_pView, SIGNAL(scrollHorz(int)), this, SLOT(slotScrollHorz(int)));
+  connect(m_pView, SIGNAL(resized(const QSize &)), SLOT(slotViewResized(const QSize &)));
 }
 
 kmbView::~kmbView()
@@ -56,12 +56,12 @@ kmbView::~kmbView()
 
 void kmbView::slotScrollVert(int y)
 {
-    view->scrollBy(0, y);
+    m_pView->scrollBy(0, y);
 }
 
 void kmbView::slotScrollHorz(int x)
 {
-    view->scrollBy(x, 0);
+    m_pView->scrollBy(x, 0);
 }
 
 void kmbView::slotViewResized(const QSize &)
@@ -72,20 +72,22 @@ void kmbView::slotViewResized(const QSize &)
 
 void kmbView::resizeEvent(QResizeEvent *)
 {
-    view->resize( size() );
+    m_pView->resize( size() );
 }
 
 void kmbView::open(QString url, bool /*reload*/, int xoffset, int yoffset)
 {
   m_url = url;
 
-  view->begin( url );
-  view->write("<html><head><title>Test!</title></head><body>");
-  view->write("<H2>Test!</H2>");
-  view->write("<br>Viewing: " + url + " not implemented, yet.<br>");
-  view->end();
+  m_pView->begin( url );
+  m_pView->write("<html><head><title>Test!</title></head><body>");
+  m_pView->write("<H2>Test!</H2>");
+  m_pView->write("<br>Viewing: " + url + " not implemented, yet.<br>");
+  m_pView->end();
+  
+  
 
-  view->setContentsPos( xoffset, yoffset );
+  m_pView->setContentsPos( xoffset, yoffset );
 }
 
 bool kmbView::mappingOpenURL( const QString& url )
@@ -125,16 +127,16 @@ void kmbView::slotCanceled()
 void kmbView::stop()
 {
     // ### FIXME
-    //view->stopParser();
+    //m_pView->stopParser();
 }
 
 void kmbView::setDefaultFontBase(int fSize)
 {
-    view->resetFontSizes();
+    m_pView->resetFontSizes();
     if (fSize != 3)
     {
         int fontSizes[7];
-        view->fontSizes(fontSizes);
+        m_pView->fontSizes(fontSizes);
 
         if (fSize > 3)
         {
@@ -156,7 +158,7 @@ void kmbView::setDefaultFontBase(int fSize)
                 fontSizes[i] = fontSizes[j];
             }
         }
-        view->setFontSizes(fontSizes);
+        m_pView->setFontSizes(fontSizes);
     }
 }
 
@@ -194,12 +196,12 @@ bool kmbView::canZoomOut()
 
 long kmbView::xOffset()
 {
-  return view->contentsX();
+  return m_pView->contentsX();
 }
 
 long kmbView::yOffset()
 {
-  return view->contentsY();
+  return m_pView->contentsY();
 }
 
 void kmbView::openURL(QString /*url*/, bool /*reload*/, int /*xoffset*/, int /*yoffset*/, const char */*post_data*/)
@@ -222,7 +224,7 @@ QString kmbView::url()
 void kmbView::print()
 {
     // ### FIXME
-    //view->print();
+    //m_pView->print();
 }
 
 #include "kmb_view.moc"

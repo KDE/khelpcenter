@@ -35,7 +35,7 @@ class kmbView : public khcBaseView
 {
   Q_OBJECT
 
- public:
+public:
 
   kmbView( QWidget *parent = 0, char *name = 0 );
   virtual ~kmbView();
@@ -53,7 +53,7 @@ class kmbView : public khcBaseView
   virtual bool canZoomOut();
   virtual void openURL( const QString url, bool reload, int xoffset = 0, int yoffset = 0, const char* post_data = 0L);
 
- public slots:
+public slots:
 
   void slotURLClicked( QString url );
 
@@ -73,8 +73,10 @@ protected:
   void setDefaultFontBase(int fSize);
   void open( const QString url, bool reload, int xoffset = 0, int yoffset = 0);
 
-  int m_fontBase;
-  KHTMLWidget *view;
+private:
+
+  int          m_fontBase;
+  KHTMLWidget *m_pView;
 };
 
 #endif
