@@ -18,6 +18,7 @@
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+#include <klocale.h>
 #include "kwelcome.h"
 
 KWelcome::KWelcome()

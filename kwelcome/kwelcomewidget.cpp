@@ -19,6 +19,7 @@
  */
 
 #include "kwelcomewidget.h"
+#include <klocale.h>
 #include <kprocess.h>
 #include <qlayout.h>
 #include <qcheckbox.h>
