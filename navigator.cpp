@@ -194,7 +194,7 @@ void Navigator::setupTOCTab()
 
   tocTree->reset();
 
-	mTabWidget->addTab( tocTree, "&Table of contents" );
+	mTabWidget->addTab( tocTree, i18n("&Table of contents") );
 }
 
 void Navigator::setupGlossaryTab()
