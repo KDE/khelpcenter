@@ -103,7 +103,7 @@ void khcInfoHierarchyMaker::createHierarchy(uint key, QString topic, QString roo
 {
   //  qDebug("--- createHierarchy ---");
 
-  ASSERT(!topic.isEmpty());
+  Q_ASSERT(!topic.isEmpty());
    
   clearNodesList();
 
@@ -210,7 +210,7 @@ bool khcInfoHierarchyMaker::makeHierarchy(khcInfoNode** ppTopNode,
 // them to m_lNodes.
 void khcInfoHierarchyMaker::restoreChildren(khcInfoNode* pParentNode)
 {
-  ASSERT(pParentNode);
+  Q_ASSERT(pParentNode);
 
   std::list<khcInfoNode*>& L = pParentNode->m_lChildren;
   for (std::list<khcInfoNode*>::iterator it = L.begin(); it != L.end(); )

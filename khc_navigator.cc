@@ -127,7 +127,7 @@ khcNavigatorWidget::khcNavigatorWidget(QWidget *parent, const char *name)
     // ACHU
     // compiling the regex used while parsing the info directory (dir) file
     int nResult = regcomp(&compInfoRegEx, "^\\* ([^:]+)\\: \\(([^)]+)\\)([[:space:]]|(([^.]*)\\.)).*$", REG_EXTENDED);
-    ASSERT(!nResult);
+    Q_ASSERT(!nResult);
 
     // set up the timer which produces signals every 30 sec. The cleanHierarchyMakers function
     // checks entries in the hierarchyMakers map and deletes these which have already finished work.
@@ -470,7 +470,7 @@ bool khcNavigatorWidget::readInfoDirFile(QString& sFileContents)
 bool khcNavigatorWidget::parseInfoSubjectLine(QString sLine, QString& sItemTitle, QString& sItemURL)
 {
   regmatch_t* pRegMatch = new regmatch_t[compInfoRegEx.re_nsub + 1];
-  CHECK_PTR(pRegMatch);
+  Q_CHECK_PTR(pRegMatch);
 
   int nResult = regexec(&compInfoRegEx, sLine.latin1(),
 			compInfoRegEx.re_nsub + 1, pRegMatch, 0);
@@ -482,7 +482,7 @@ bool khcNavigatorWidget::parseInfoSubjectLine(QString sLine, QString& sItemTitle
     return false;
   }
 
-  ASSERT(pRegMatch[0].rm_so == 0 && pRegMatch[0].rm_eo == sLine.length());
+  Q_ASSERT(pRegMatch[0].rm_so == 0 && pRegMatch[0].rm_eo == sLine.length());
 
   sItemTitle = sLine.mid(pRegMatch[1].rm_so, pRegMatch[1].rm_eo - pRegMatch[1].rm_so);
   sItemURL = "info:/" + sLine.mid(pRegMatch[2].rm_so, pRegMatch[2].rm_eo - pRegMatch[2].rm_so);
@@ -853,16 +853,16 @@ void khcNavigatorWidget::slotItemExpanded(QListViewItem* index)
 	  // no. We must create one.
 	{
 	  khcInfoHierarchyMaker* pMaker = new khcInfoHierarchyMaker;
-	  CHECK_PTR(pMaker);
+	  Q_CHECK_PTR(pMaker);
 	  hierarchyMakers[item] = pMaker;
 
 	  QString sURL = item->getURL();
-	  ASSERT(!sURL.isEmpty());
+	  Q_ASSERT(!sURL.isEmpty());
 
 	  regex_t reInfoURL;
 	  int nResult = regcomp(&reInfoURL, "^info:/([^/]*)(/(.*))?$", REG_EXTENDED);
-	  ASSERT(!nResult);
-	  ASSERT(reInfoURL.re_nsub == 3);
+	  Q_ASSERT(!nResult);
+	  Q_ASSERT(reInfoURL.re_nsub == 3);
 
 	  regmatch_t regMatch[4];
 
@@ -875,7 +875,7 @@ void khcNavigatorWidget::slotItemExpanded(QListViewItem* index)
 	    return;
 	  }
 	  
-	  ASSERT(regMatch[0].rm_so == 0 && regMatch[0].rm_eo == sURL.length());
+	  Q_ASSERT(regMatch[0].rm_so == 0 && regMatch[0].rm_eo == sURL.length());
 
 	  QString sTopic = sURL.mid(regMatch[1].rm_so, regMatch[1].rm_eo - regMatch[1].rm_so);
 	  QString sNode = sURL.mid(regMatch[3].rm_so, regMatch[3].rm_eo - regMatch[3].rm_so);
@@ -900,7 +900,7 @@ void khcNavigatorWidget::slotItemExpanded(QListViewItem* index)
 
 void khcNavigatorWidget::slotInfoHierarchyCreated(uint key, uint nErrorCode, const khcInfoNode* pRootNode)
 {
-  ASSERT(key);
+  Q_ASSERT(key);
   khcNavigatorItem* pItem = (khcNavigatorItem*) key;
 
   kdDebug() << "Info hierarchy for subject \'" << pItem->getName() << "\'created! Result: " << nErrorCode << endl;

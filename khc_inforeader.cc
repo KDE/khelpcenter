@@ -40,8 +40,8 @@ uint khcInfoReader::getNextNode(khcInfoNode* pNode, uint flags)
 
   uint nResult;
 
-  ASSERT(!m_sTopic.isEmpty());
-  ASSERT(pNode);
+  Q_ASSERT(!m_sTopic.isEmpty());
+  Q_ASSERT(pNode);
   
   if (!m_bInitialized)
     if ((nResult = init()))
@@ -127,7 +127,7 @@ bool khcInfoReader::getRealFileName(QString baseName, QString& realName)
 {
   // kdDebug() << "--- khcInfoReader::getRealFileName: " << baseName << " ---" << endl;
 
-  ASSERT(!baseName.isEmpty());
+  Q_ASSERT(!baseName.isEmpty());
 
   QString sPossibleNames[6] = { baseName };
   QRegExp reEndsWithInfo("^(.+)\\.info$");

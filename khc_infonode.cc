@@ -77,7 +77,7 @@ void khcInfoNode::compileRegEx()
 
   int nResult= regcomp(&ms_compRegEx,
     "^\37\n([^\n]+)\n\n(([^\n]+)\n[-=\\*\\. ]+\n\n)?\n*(.*)", REG_EXTENDED);
-  ASSERT(!nResult);
+  Q_ASSERT(!nResult);
 
   ms_bRegExCompiled = true;
 }
@@ -86,11 +86,11 @@ bool khcInfoNode::fromString(QString topic, QString str, uint flags)
 {
   // qDebug("--- khcInfoNode::fromString ---");
 
-  ASSERT(!topic.isEmpty() && !str.isEmpty());
+  Q_ASSERT(!topic.isEmpty() && !str.isEmpty());
   m_sTopic = topic;
 
   regmatch_t* pRegMatch = new regmatch_t[ms_compRegEx.re_nsub + 1];
-  CHECK_PTR(pRegMatch);
+  Q_CHECK_PTR(pRegMatch);
 
   int nResult = regexec(&ms_compRegEx, str.latin1(),
 			ms_compRegEx.re_nsub + 1, pRegMatch, 0);
@@ -101,7 +101,7 @@ bool khcInfoNode::fromString(QString topic, QString str, uint flags)
     return false;
   }
 
-  ASSERT(pRegMatch[0].rm_so == 0 && pRegMatch[0].rm_eo == str.length());
+  Q_ASSERT(pRegMatch[0].rm_so == 0 && pRegMatch[0].rm_eo == str.length());
   
   if (!fromHdrLine(str.mid(pRegMatch[1].rm_so,
 			   pRegMatch[1].rm_eo - pRegMatch[1].rm_so), flags))
@@ -126,7 +126,7 @@ bool khcInfoNode::fromHdrLine(QString sLine, uint flags)
 {
   //  qDebug("--- khcInfoNode::fromHdrLine ---");
 
-  ASSERT(!sLine.isEmpty());
+  Q_ASSERT(!sLine.isEmpty());
 
   // Lista bedzie zawierac ciagi typu "Node: xxx"
   QStringList itemsList = QStringList::split(",  ", sLine);

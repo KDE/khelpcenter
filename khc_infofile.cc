@@ -34,8 +34,8 @@ uint khcInfoFile::init()
 {
   //  qDebug("--- khcInfoFile::init ---");
 
-  ASSERT(!m_sName.isEmpty());
-  ASSERT(!m_sTopic.isEmpty());
+  Q_ASSERT(!m_sName.isEmpty());
+  Q_ASSERT(!m_sTopic.isEmpty());
 
   if (!QFile::exists(m_sName))
     return ERR_FILE_UNAVAILABLE;
