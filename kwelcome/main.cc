@@ -20,6 +20,7 @@
 
 #include <kwelcome.h>
 
+#include <kglobal.h>
 #include <kaboutdata.h>
 #include <kcmdlineargs.h>
 #include <kconfig.h>
