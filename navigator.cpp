@@ -208,7 +208,7 @@ class PluginTraverser : public DocEntryTraverser
         else if ( entry->khelpcenterSpecial() == "kinfocenter" ||
                   entry->khelpcenterSpecial() == "kcontrol" ||
                   entry->khelpcenterSpecial() == "konqueror" ||
-		  entry->khelpcenterSpecial() == "kioslave" )
+                  entry->khelpcenterSpecial() == "kioslave" )
           mNavigator->insertParentAppDocs( entry->khelpcenterSpecial(),
                                            mCurrentItem );
 
@@ -220,7 +220,7 @@ class PluginTraverser : public DocEntryTraverser
 
       mCurrentItem->setName( entry->name() );
       mCurrentItem->setUrl( entry->docPath() );
-      
+
       if ( !entry->docExists() ) {
         mCurrentItem->setIcon( "unknown" );
       } else {
