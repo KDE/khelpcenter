@@ -470,9 +470,12 @@ void Navigator::insertParentAppDocs( const QString &name, NavigatorItem *topItem
   KServiceGroup::List entries = grp->entries();
   KServiceGroup::List::ConstIterator it = entries.begin();
   KServiceGroup::List::ConstIterator end = entries.end();
-  for ( ; it != end; ++it )
-    createItemFromDesktopFile( topItem,
-        locate( "apps", ( *it )->name().latin1() ) );
+  for ( ; it != end; ++it ) {
+    QString desktopFile = ( *it )->entryPath();
+    if ( !desktopFile.startsWith( QString::fromLatin1( "/" ) ) )
+        desktopFile = locate( "apps", desktopFile );
+    createItemFromDesktopFile( topItem, desktopFile );
+  }
 #endif
 }
 
