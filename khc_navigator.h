@@ -100,8 +100,8 @@ class khcNavigatorWidget : public QWidget
 
     void insertPlugins();
 
-    bool appendEntries (const char *dirName,  khcNavigatorItem *parent, QList<khcNavigatorItem> *appendList);
-    bool processDir(const char *dirName, khcNavigatorItem *parent,  QList<khcNavigatorItem> *appendList);
+    bool appendEntries (const QString &dirName,  khcNavigatorItem *parent, QList<khcNavigatorItem> *appendList);
+    bool processDir(const QString &dirName, khcNavigatorItem *parent,  QList<khcNavigatorItem> *appendList);
 
     QTabBar *tabBar;
     KListView *tree;

@@ -1,3 +1,5 @@
+AM_CPPFLAGS = -DQT_NO_ASCII_CAST
+
 SUBDIRS = htmlsearch kwelcome plugins pics 
 
 INCLUDES = $(all_includes)

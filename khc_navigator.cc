@@ -460,7 +460,7 @@ void khcNavigatorWidget::slotItemSelected(QListViewItem* currentItem)
     }
 }
 
-bool khcNavigatorWidget::appendEntries(const char *dirName, khcNavigatorItem *parent, QList<khcNavigatorItem> *appendList)
+bool khcNavigatorWidget::appendEntries(const QString &dirName, khcNavigatorItem *parent, QList<khcNavigatorItem> *appendList)
 {
     QDir fileDir(dirName, "*.desktop", 0, QDir::Files | QDir::Hidden | QDir::Readable);
 
@@ -488,7 +488,7 @@ bool khcNavigatorWidget::appendEntries(const char *dirName, khcNavigatorItem *pa
 }
 
 
-bool khcNavigatorWidget::processDir( const char *dirName, khcNavigatorItem *parent,  QList<khcNavigatorItem> *appendList)
+bool khcNavigatorWidget::processDir( const QString &dirName, khcNavigatorItem *parent,  QList<khcNavigatorItem> *appendList)
 {
     QString folderName;
 

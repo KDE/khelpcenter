@@ -55,7 +55,7 @@ void khcNavigatorItem::init(const QString& _text, const QString& _miniicon)
     url = QString::null;
 }
 
-bool khcNavigatorItem::readKDElnk ( const char *filename )
+bool khcNavigatorItem::readKDElnk ( const QString &filename )
 {
     QFile file(filename);
     if (!file.open(IO_ReadOnly))
@@ -88,11 +88,7 @@ bool khcNavigatorItem::readKDElnk ( const char *filename )
   
     if (name.isNull())
     {
-	const char *p = strrchr( filename, '/' );
-	if (p)
-	    name = p + 1;
-	else
-	    name = filename;
+        name = filename.mid(filename.find('/'));
 	int pos;
 	if ( ( pos = name.findRev( ".desktop" ) ) > 0 )
 	{

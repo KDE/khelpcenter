@@ -1,3 +1,5 @@
+AM_CPPFLAGS = -DQT_NO_ASCII_CAST
+
 INCLUDES= $(all_includes)
 LDFLAGS = $(all_libraries) $(KDE_RPATH)
 LDADD   = $(LIB_KDEUI)
@@ -14,4 +16,4 @@ pics_DATA = welcome.png
 picsdir = $(kde_datadir)/kwelcome/pics
 
 messages:
-	$(XGETTEXT) -kaliasLocal *.h *.cc -o $(podir)/kwelcome.pot
+	$(XGETTEXT) *.cc -o $(podir)/kwelcome.pot
