@@ -145,7 +145,7 @@ void MainWindow::slotStarted(KIO::Job *job)
 void MainWindow::slotOpenURLRequest( const KURL &url,
                                      const KParts::URLArgs &args)
 {
-    kdDebug() << "MainWindow::slotOpenURLRequest(): " << url.url() << endl;
+    kdDebug( 1400 ) << "MainWindow::slotOpenURLRequest(): " << url.url() << endl;
 
     bool own = false;
     
