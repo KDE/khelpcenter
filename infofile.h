@@ -1,5 +1,5 @@
 /*
- *  khc_infofile.h - part of the KDE Help Center
+ *  infofile.h - part of the KDE Help Center
  *
  *  Copyright (C) 2001 Wojciech Smigaj (achu@klub.chip.pl)
  *

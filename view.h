@@ -1,5 +1,5 @@
-#ifndef __khc_view_h__
-#define __khc_view_h__
+#ifndef __view_h__
+#define __view_h__
 
 #include <khtml_part.h>
 

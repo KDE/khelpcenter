@@ -1,5 +1,5 @@
-#ifndef __khc_main_h__
-#define __khc_main_h__
+#ifndef __mainwindow_h__
+#define __mainwindow_h__
 
 #include <qptrlist.h>
 

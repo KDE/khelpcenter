@@ -1,5 +1,5 @@
 /*
- *  khc_infoconsts.h - part of the KDE Help Center
+ *  infoconsts.h - part of the KDE Help Center
  *
  *  Copyright (C) 2001 Wojciech Smigaj (achu@klub.chip.pl)
  *

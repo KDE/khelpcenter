@@ -18,8 +18,8 @@
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#ifndef __khc_navigator_h__
-#define __khc_navigator_h__
+#ifndef __navigator_h__
+#define __navigator_h__
 
 #include <qptrlist.h>
 #include <qtabwidget.h>

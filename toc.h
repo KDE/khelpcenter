@@ -1,5 +1,5 @@
 /*
- *  khc_toc.h - part of the KDE Help Center
+ *  toc.h - part of the KDE Help Center
  *
  *  Copyright (C) 2002 Frerich Raabe (raabe@kde.org)
  *

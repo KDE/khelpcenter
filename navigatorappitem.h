@@ -1,5 +1,5 @@
 /*
- *  khc_navigatorappitem.h - part of the KDE Help Center
+ *  navigatorappitem.h - part of the KDE Help Center
  *
  *  Copyright (C) 2001 Waldo Bastian <bastian@kde.org>
  *
@@ -17,8 +17,8 @@
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#ifndef __khc_navigatorappitem_h___
-#define __khc_navigatorappitem_h___
+#ifndef __navigatorappitem_h___
+#define __navigatorappitem_h___
 
 #include <navigatoritem.h>
 
