@@ -55,6 +55,9 @@ class DocEntry
     void setSearchEnabledDefault( bool enabled );
     bool searchEnabledDefault() const;
 
+    void setDocumentType( const QString & );
+    QString documentType() const;
+
     void setDirectory( bool );
     bool isDirectory() const;
 
@@ -98,6 +101,7 @@ class DocEntry
     QString mSearchMethod;
     bool mSearchEnabled;
     bool mSearchEnabledDefault;
+    QString mDocumentType;
     bool mDirectory;
 
     QString mKhelpcenterSpecial;

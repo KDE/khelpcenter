@@ -1,4 +1,4 @@
-SUBDIRS = plugins pics
+SUBDIRS = plugins pics searchhandlers
 
 INCLUDES = $(all_includes)
 METASOURCES = AUTO
@@ -23,7 +23,7 @@ khelpcenter_la_SOURCES = navigator.cpp \
 	infotree.cpp  mainwindow.skel \
         kcmhelpcenter.cpp htmlsearchconfig.cpp kcmhelpcenter.skel \
         fontdialog.cpp plugintraverser.cpp scrollkeepertreebuilder.cpp \
-        prefs.kcfgc
+        prefs.kcfgc searchhandler.cpp
 
 #kcm_helpcenter_la_LDFLAGS = $(KDE_RPATH) -module -avoid-version \
 #                            $(all_libraries) -no-undefined

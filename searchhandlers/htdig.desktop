@@ -1,0 +1,6 @@
+[Desktop Entry]
+
+DocumentTypes=text/html
+
+SearchCommand=khc_htsearch.pl --config=%i --words=%w --method=%o --num=%m --lang=en
+IndexCommand=khc_htdig.pl --indexdir=%d --docpath=%p --identifier=%i

@@ -41,6 +41,8 @@ class KService;
 class KProcess;
 class KProcIO;
 
+class KCMHelpCenter;
+
 namespace KHC {
 
 class NavigatorItem;
@@ -79,14 +81,17 @@ class Navigator : public QWidget
 
     void showOverview( NavigatorItem *item, const KURL &url );
 
+    void readConfig();
+    void writeConfig();
+
   public slots:
     void openInternalUrl( const KURL &url );
     void slotItemSelected(QListViewItem* index);
     void slotSearch();
     void slotShowSearchResult( const QString & );
     void slotSelectGlossEntry( const QString &id );
-    void showPreferencesDialog();
     void selectItem( const KURL &url );
+    void showIndexDialog();
 
   signals:
     void itemSelected(const QString& itemURL);
@@ -94,10 +99,12 @@ class Navigator : public QWidget
 
   protected slots:
     void slotSearchFinished();
-    void slotSearchTextChanged( const QString & );
     void slotTabChanged( QWidget * );
+    void checkSearchButton();
 
     bool checkSearchIndex();
+
+    void clearSearch();
 
   protected:
     QString createChildrenList( QListViewItem *child );
@@ -115,6 +122,7 @@ class Navigator : public QWidget
     Glossary *mGlossaryTree;
 
     SearchWidget *mSearchWidget;
+    KCMHelpCenter *mIndexDialog;
 
     QTabWidget *mTabWidget;
 

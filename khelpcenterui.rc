@@ -1,5 +1,5 @@
 <!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
-<kpartgui name="khelpcenter" version="13">
+<kpartgui name="khelpcenter" version="14">
 <MenuBar>
  <Menu name="file" noMerge="1">
     <text>&amp;File</text>
@@ -33,6 +33,7 @@
  </Menu>
  <Menu name="settings">
   <Action name="configure_fonts" />
+  <Action name="build_index" />
  </Menu>
 </MenuBar>
 <ToolBar name="mainToolBar" noMerge="1">

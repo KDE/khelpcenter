@@ -48,7 +48,9 @@ class View : public KHTMLPart
     int zoomStepping() const { return m_zoomStepping; }
 
     Formatter *formatter() const { return mFormatter; }
+
     void copySelectedText();
+
   public slots:
     void lastSearch();
     void slotIncFontSizes();

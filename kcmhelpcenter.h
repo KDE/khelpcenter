@@ -27,7 +27,6 @@
 
 #include "scopeitem.h"
 
-class QListView;
 class QPushButton;
 class QProgressBar;
 class QTextEdit;
@@ -38,11 +37,26 @@ class KConfig;
 class KAboutData;
 class KTempFile;
 class KURLRequester;
+class KListView;
 
 namespace KHC {
 class HtmlSearchConfig;
 class DocEntry;
+class SearchEngine;
 }
+
+class IndexDirDialog : public KDialogBase
+{
+    Q_OBJECT
+  public:
+    IndexDirDialog( QWidget *parent );
+
+  protected slots:
+    void slotOk();
+    
+  private:
+    KURLRequester *mIndexUrlRequester;
+};
 
 class IndexProgressDialog : public KDialog
 {
@@ -82,20 +96,20 @@ class KCMHelpCenterIface : virtual public DCOPObject
     K_DCOP
   k_dcop:
     virtual void slotIndexProgress() = 0;
+    virtual void slotIndexError( const QString & ) = 0;
 };
 
 class KCMHelpCenter : public KDialogBase, virtual public KCMHelpCenterIface
 {
     Q_OBJECT
   public:
-    KCMHelpCenter( QWidget* parent = 0, const char* name = 0 );
+    KCMHelpCenter( KHC::SearchEngine *, QWidget *parent = 0,
+      const char *name = 0 );
     ~KCMHelpCenter();
     
     void load();
-    void save();
+    bool save();
     void defaults();
-
-    QString indexDir();
 
   public slots:
 
@@ -103,25 +117,34 @@ class KCMHelpCenter : public KDialogBase, virtual public KCMHelpCenterIface
     void searchIndexUpdated();
 
   protected slots:
-    void buildIndex();
+    bool buildIndex();
     void cancelBuildIndex();
     void slotIndexFinished( KProcess * );
     void slotIndexProgress();
+    void slotIndexError( const QString & );
     void slotReceivedStdout(KProcess *proc, char *buffer, int buflen);
     void slotReceivedStderr(KProcess *proc, char *buffer, int buflen);
     void slotProgressClosed();
 
     void slotOk();
-    void slotApply();
+
+    void showIndexDirDialog();
 
   protected:
-    QWidget *createScopeTab( QWidget *parent );
+    void setupMainWidget( QWidget *parent );
     void updateStatus();
     void startIndexProcess();
 
+    void deleteProcess();
+    void deleteCmdFile();
+
+    void advanceProgress();
+
   private:
-    QListView *mListView;
-    KURLRequester *mIndexUrlRequester;
+    KHC::SearchEngine *mEngine;
+  
+    KListView *mListView;
+    QLabel *mIndexDirLabel;
     QPushButton *mBuildButton;
     IndexProgressDialog *mProgressDialog;
     

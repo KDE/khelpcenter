@@ -93,9 +93,12 @@ void IndexBuilder::processCmdQueue()
   connect( proc, SIGNAL( receivedStderr(KProcess *, char *, int ) ),
            SLOT( slotReceivedStderr(KProcess *, char *, int ) ) );
 
-  proc->start( KProcess::NotifyOnExit, KProcess::AllOutput );
-
   mCmdQueue.remove( it );
+
+  if ( !proc->start( KProcess::NotifyOnExit, KProcess::AllOutput ) ) {
+    sendErrorSignal( i18n("Unable to start command '%1'.").arg( cmd ) );
+    processCmdQueue();
+  }
 }
 
 void IndexBuilder::slotProcessExited( KProcess *proc )
@@ -128,10 +131,20 @@ void IndexBuilder::slotReceivedStderr( KProcess *, char *buffer, int buflen )
   std::cerr << text.local8Bit().data() << std::flush;
 }
 
+void IndexBuilder::sendErrorSignal( const QString &error )
+{
+  kdDebug(1402) << "IndexBuilder::sendErrorSignal()" << endl;
+  
+  QByteArray params;
+  QDataStream stream( params, IO_WriteOnly );
+  stream << error;
+  kapp->dcopClient()->emitDCOPSignal("buildIndexError(QString)", params );  
+}
+
 void IndexBuilder::sendProgressSignal()
 {
   kdDebug(1402) << "IndexBuilder::sendProgressSignal()" << endl;
-  
+ 
   kapp->dcopClient()->emitDCOPSignal("buildIndexProgress()", QByteArray() );  
 }
 

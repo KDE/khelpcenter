@@ -19,12 +19,13 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#include <stdlib.h>
-#include <assert.h>
+#include "mainwindow.h"
 
-#include <qsplitter.h>
-#include <qtextedit.h>
-#include <qlayout.h>
+#include "history.h"
+#include "view.h"
+#include "searchengine.h"
+#include "fontdialog.h"
+#include "prefs.h"
 
 #include <kapplication.h>
 #include <kconfig.h>
@@ -41,14 +42,14 @@
 #include <kstdaccel.h>
 #include <kdialogbase.h>
 
-#include "history.h"
-#include "view.h"
-#include "searchengine.h"
-#include "fontdialog.h"
-using namespace KHC;
+#include <qsplitter.h>
+#include <qtextedit.h>
+#include <qlayout.h>
 
-#include "mainwindow.h"
-#include "mainwindow.moc"
+#include <stdlib.h>
+#include <assert.h>
+
+using namespace KHC;
 
 class LogDialog : public KDialogBase
 {
@@ -184,6 +185,8 @@ void MainWindow::readConfig()
     if ( sizes.count() == 2 ) {
         mSplitter->setSizes( sizes );
     }
+
+    mNavigator->readConfig();
 }
 
 void MainWindow::writeConfig()
@@ -191,6 +194,10 @@ void MainWindow::writeConfig()
     KConfig *config = KGlobal::config();
     config->setGroup( "MainWindowState" );
     config->writeEntry( "Splitter", mSplitter->sizes() );
+
+    mNavigator->writeConfig();
+
+    Prefs::writeConfig();
 }
 
 void MainWindow::setupActions()
@@ -219,10 +226,10 @@ void MainWindow::setupActions()
                                      actionCollection(), "lastsearch" );
     mLastSearchAction->setEnabled( false );
 
-    KStdAction::preferences( mNavigator, SLOT( showPreferencesDialog() ),
-                             actionCollection() );
-    KStdAction::keyBindings(guiFactory(), SLOT(configureShortcuts()), 
-actionCollection());
+    new KAction( i18n("Build Search Index..."), 0, mNavigator,
+      SLOT( showIndexDialog() ), actionCollection(), "build_index" );
+    KStdAction::keyBindings( guiFactory(), SLOT( configureShortcuts() ),
+      actionCollection() );
 
     KConfig *cfg = KGlobal::config();
     cfg->setGroup( "Debug" );
@@ -448,5 +455,7 @@ void MainWindow::slotConfigureFonts()
   if ( dlg.exec() == QDialog::Accepted )
     mDoc->slotReload();
 }
+
+#include "mainwindow.moc"
 
 // vim:ts=2:sw=2:et

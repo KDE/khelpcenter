@@ -1,0 +1,61 @@
+KHelpcenter Search Handlers
+===========================
+
+Searching documents in KHelpcenter is handled by document-type-specific search
+handlers. Each searchable document provides provides a document type in its meta
+data and if a corresponding handler is found, it can be searched.
+
+Search handlers are described by a desktop file which is put in the khelpcenter
+app directory in a "searchhandlers" directory. The desktop file contains the
+information about which document types the handler covers, how to do a search
+query and how to create a search index.
+
+A search handler has to provide a command line tool based interface. There has
+to be a command to do a query and, if previous creation of an index is required,
+a command to create a search index. The search commands returns its results as
+HTML on stdout.
+
+
+Search Query
+------------
+
+KHelpcenter reads the command to execute for submitting a search query from the
+search handler's desktop file ("SearchCommand"). The search command can contain
+some symbols which are replaced by KHelpcenter with the data for the concrete
+search request:
+
+%i  Identifier of document (usually the name of the document's desktop file)
+%w  Words to be searched for
+%o  Operation for combining multiple search words. Allowed values: "and" and
+    "or".
+%m  Maximum number of results
+%d  Directory containing search indices
+
+Search Query Result
+-------------------
+
+The result has to be returned as HTML page. The content of the <body> tag will
+be extracted and inserted in the search results page. If there is no body tag,
+the complete result text will be inserted.
+
+
+Building a Search Index
+-----------------------
+
+KHelpcenter reads the command to build a search index from the search handler's
+desktop file ("IndexCommand"). The indexing command can contain some symbols
+which are replaced by KHelpcenter with the data for the concrete index creation
+call:
+
+%i  Identifier of document (usually the name of the document's desktop file)
+%d  Directory containing search indices
+%p  Path to document to be indexed
+
+Index Creation Result
+---------------------
+
+As result of the indexing command an index is created in the directory specified
+by KHelpcenter. The format and structure of the index is handler-specific. When
+index creation is finished the indexing command has to create a special file
+with the name "<identifier>.exists", where <identifier> has to have the value
+passed by the %i symbol. This file indicates the existance of the index.

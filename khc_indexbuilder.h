@@ -37,6 +37,7 @@ class IndexBuilder : public QObject
     IndexBuilder();
 
     void sendProgressSignal();
+    void sendErrorSignal( const QString &error );
     void quit();
 
     void buildIndices( const QString &cmdFile );

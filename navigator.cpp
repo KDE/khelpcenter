@@ -35,6 +35,7 @@
 #include <qlayout.h>
 #include <qlineedit.h>
 #include <qpushbutton.h>
+#include <qtooltip.h>
 
 #include <kaction.h>
 #include <kapplication.h>
@@ -69,13 +70,14 @@
 #include "kcmhelpcenter.h"
 #include "formatter.h"
 #include "history.h"
+#include "prefs.h"
 
 #include "navigator.h"
 
 using namespace KHC;
 
 Navigator::Navigator( View *view, QWidget *parent, const char *name )
-   : QWidget( parent, name ),
+   : QWidget( parent, name ), mIndexDialog( 0 ),
      mView( view ), mSelected( false )
 {
     KConfig *config = kapp->config();
@@ -94,17 +96,27 @@ Navigator::Navigator( View *view, QWidget *parent, const char *name )
     topLayout->addWidget( mSearchFrame );
 
     QBoxLayout *searchLayout = new QHBoxLayout( mSearchFrame );
-    searchLayout->setMargin( KDialog::spacingHint() );
+    searchLayout->setSpacing( KDialog::spacingHint() );
+    searchLayout->setMargin( 6 );
+
+    QPushButton *clearButton = new QPushButton( mSearchFrame );
+    clearButton->setIconSet( KApplication::reverseLayout() ?
+      SmallIconSet( "clear_left" ) : SmallIconSet("locationbar_erase") );
+    searchLayout->addWidget( clearButton );
+    connect( clearButton, SIGNAL( clicked() ), SLOT( clearSearch() ) );
+    QToolTip::add( clearButton, i18n("Clear Search") );
 
     mSearchEdit = new QLineEdit( mSearchFrame );
     searchLayout->addWidget( mSearchEdit );
     connect( mSearchEdit, SIGNAL( returnPressed() ), SLOT( slotSearch() ) );
     connect( mSearchEdit, SIGNAL( textChanged( const QString & ) ),
-             SLOT( slotSearchTextChanged( const QString & ) ) );
+             SLOT( checkSearchButton() ) );
 
     mSearchButton = new QPushButton( i18n("Search"), mSearchFrame );
     searchLayout->addWidget( mSearchButton );
     connect( mSearchButton, SIGNAL( clicked() ), SLOT( slotSearch() ) );
+
+    clearButton->setFixedHeight( mSearchButton->height() );
 
     mTabWidget = new QTabWidget( this );
     topLayout->addWidget( mTabWidget );
@@ -117,12 +129,11 @@ Navigator::Navigator( View *view, QWidget *parent, const char *name )
 
     insertPlugins();
 
-    if ( DocMetaInfo::self()->searchEntries().isEmpty() ) {
+    if ( DocMetaInfo::self()->searchEntries().isEmpty() ||
+         !mSearchEngine->initSearchHandlers() ) {
       hideSearch();
     } else {
-      mSearchWidget->updateScopeList();
-      slotSearchTextChanged( mSearchEdit->text() );
-      
+      mSearchWidget->updateScopeList();      
       mSearchWidget->readConfig( KGlobal::config() );
     }
 }
@@ -169,8 +180,10 @@ void Navigator::setupSearchTab()
     mSearchWidget = new SearchWidget( mTabWidget );
     connect( mSearchWidget, SIGNAL( searchResult( const QString & ) ),
              SLOT( slotShowSearchResult( const QString & ) ) );
-    connect( mSearchWidget, SIGNAL( enableSearch( bool ) ),
-             mSearchButton, SLOT( setEnabled( bool ) ) ); 
+    connect( mSearchWidget, SIGNAL( scopeCountChanged( int ) ),
+             SLOT( checkSearchButton() ) );
+    connect( mSearchWidget, SIGNAL( showIndexDialog() ),
+      SLOT( showIndexDialog() ) );
 
     mTabWidget->addTab( mSearchWidget, i18n("Search"));
 }
@@ -546,12 +559,10 @@ void Navigator::slotSearchFinished()
   kdDebug( 1400 ) << "Search finished." << endl;
 }
 
-void Navigator::slotSearchTextChanged( const QString &text )
+void Navigator::checkSearchButton()
 {
-//  kdDebug( 1400 ) << "Navigator::slotSearchTextCanged() '" << text << "'"
-//            << endl;
-
-  mSearchButton->setEnabled( !text.isEmpty() );
+  mSearchButton->setEnabled( !mSearchEdit->text().isEmpty() &&
+    mSearchWidget->scopeCount() > 0 );
 }
 
 void Navigator::hideSearch()
@@ -566,8 +577,7 @@ bool Navigator::checkSearchIndex()
   cfg->setGroup( "Search" );
   if ( cfg->readBoolEntry( "IndexExists", false ) ) return true;
 
-  KCMHelpCenter *indexDialog = mSearchWidget->indexDialog();
-  if ( indexDialog && indexDialog->isShown() ) return true;
+  if ( mIndexDialog && mIndexDialog->isShown() ) return true;
 
   QString text = i18n( "A search index does not yet exist. Do you want "
                        "to create the index now?" );
@@ -577,7 +587,7 @@ bool Navigator::checkSearchIndex()
                                            KStdGuiItem::no(),
                                            "indexcreation" );
   if ( result == KMessageBox::Yes ) {
-    mSearchWidget->slotIndex();
+    showIndexDialog();
     return false;
   }
   
@@ -587,11 +597,6 @@ bool Navigator::checkSearchIndex()
 void Navigator::slotTabChanged( QWidget *wid )
 {
   if ( wid == mSearchWidget ) checkSearchIndex();
-}
-
-void Navigator::showPreferencesDialog()
-{
-  mSearchWidget->slotIndex();
 }
 
 void Navigator::slotSelectGlossEntry( const QString &id )
@@ -610,6 +615,44 @@ KURL Navigator::homeURL()
   cfg->setGroup( "General" );
   mHomeUrl = cfg->readPathEntry( "StartUrl", "khelpcenter:home" );
   return mHomeUrl;
+}
+
+void Navigator::showIndexDialog()
+{
+  if ( !mIndexDialog ) {
+    mIndexDialog = new KCMHelpCenter( mSearchEngine, this );
+    connect( mIndexDialog, SIGNAL( searchIndexUpdated() ), mSearchWidget,
+             SLOT( updateScopeList() ) );
+  }
+  mIndexDialog->show();
+  mIndexDialog->raise();
+}
+
+void Navigator::readConfig()
+{
+  if ( Prefs::currentTab() == Prefs::Search ) {
+    mTabWidget->showPage( mSearchWidget );
+  } else if ( Prefs::currentTab() == Prefs::Glossary ) {
+    mTabWidget->showPage( mGlossaryTree );
+  } else {
+    mTabWidget->showPage( mContentsTree );
+  }
+}
+
+void Navigator::writeConfig()
+{
+  if ( mTabWidget->currentPage() == mSearchWidget ) {
+    Prefs::setCurrentTab( Prefs::Search );
+  } else if ( mTabWidget->currentPage() == mGlossaryTree ) {
+    Prefs::setCurrentTab( Prefs::Glossary );
+  } else {
+    Prefs::setCurrentTab( Prefs::Content );
+  }
+}
+
+void Navigator::clearSearch()
+{
+  mSearchEdit->setText( QString::null );
 }
 
 #include "navigator.moc"

@@ -93,7 +93,9 @@ X-KDE-KHelpcenter           string    If this entry is set to one of the
                                       'konqueror'    konqueror plugin docs
                                       'kioslave'     kioslave docs
                                       'info'         info pages
-
+X-DOC-DocumentType          string    Type of document. The type is used to look
+                                      up corresponding search handlers.
+                                      
 Meta File Location
 ------------------
 

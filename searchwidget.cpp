@@ -44,7 +44,7 @@
 namespace KHC {
 
 SearchWidget::SearchWidget( QWidget *parent )
-  : QWidget( parent ), DCOPObject( "SearchWidget" ), mIndexDialog( 0 )
+  : QWidget( parent ), DCOPObject( "SearchWidget" ), mScopeCount( 0 )
 {
   QBoxLayout *topLayout = new QVBoxLayout( this, 2, 2 );
 
@@ -92,9 +92,9 @@ SearchWidget::SearchWidget( QWidget *parent )
   mScopeListView->addColumn( i18n("Scope") );
   topLayout->addWidget( mScopeListView, 1 );
 
-  QPushButton *indexButton = new QPushButton( i18n("Create Search &Index..."),
+  QPushButton *indexButton = new QPushButton( i18n("Build Search &Index..."),
                                               this );
-  connect( indexButton, SIGNAL( clicked() ), SLOT( slotIndex() ) );
+  connect( indexButton, SIGNAL( clicked() ), SIGNAL( showIndexDialog() ) );
   topLayout->addWidget( indexButton );
 
   connect( mScopeListView, SIGNAL( doubleClicked( QListViewItem * ) ),
@@ -156,18 +156,6 @@ void SearchWidget::writeConfig( KConfig *cfg )
       ++it;
     }
   }
-}
-
-void SearchWidget::slotIndex()
-{
-  if ( !mIndexDialog ) {
-    mIndexDialog = new KCMHelpCenter( this );
-    connect( mIndexDialog, SIGNAL( finished() ), SLOT( updateConfig() ) );
-    connect( mIndexDialog, SIGNAL( searchIndexUpdated() ),
-             SLOT( updateScopeList() ) );
-  }
-  mIndexDialog->show();
-  mIndexDialog->raise();
 }
 
 void SearchWidget::slotSwitchBoxes()
@@ -368,21 +356,26 @@ QString SearchWidget::scopeSelectionLabel( int id ) const
 
 void SearchWidget::checkScope()
 {
-  int scopeCount = 0;
+  mScopeCount = 0;
 
   QListViewItemIterator it( mScopeListView );
   while( it.current() ) {
     if ( it.current()->rtti() == ScopeItem::rttiId() ) {
       ScopeItem *item = static_cast<ScopeItem *>( it.current() );
       if ( item->isOn() ) {
-        scopeCount += 1;
+        ++mScopeCount;
       }
       item->entry()->enableSearch( item->isOn() );
     }
     ++it;
   }
   
-  emit enableSearch( scopeCount > 0 );
+  emit scopeCountChanged( mScopeCount );
+}
+
+int SearchWidget::scopeCount() const
+{
+  return mScopeCount;
 }
 
 }

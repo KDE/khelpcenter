@@ -20,6 +20,7 @@ namespace KHC {
 class Formatter;
 class SearchEngine;
 class View;
+class SearchHandler;
 
 class SearchTraverser : public QObject, public DocEntryTraverser
 {
@@ -41,8 +42,8 @@ class SearchTraverser : public QObject, public DocEntryTraverser
     void finishTraversal();
 
   protected slots:
-    void slotJobResult( KIO::Job * );
-    void slotJobData( KIO::Job *, const QByteArray & );
+    void showSearchResult( const QString &result );
+    void showSearchError( const QString &error );
 
   private:
     SearchEngine *mEngine;
@@ -59,8 +60,12 @@ class SearchEngine : public QObject
 {
     Q_OBJECT
   public:
+    enum Operation { And, Or };
+
     SearchEngine( View * );
     ~SearchEngine();
+
+    bool SearchEngine::initSearchHandlers();
     
     bool search( QString words, QString method = "and", int matches = 5,
                  QString scope = "" );
@@ -70,11 +75,21 @@ class SearchEngine : public QObject
 
     QString substituteSearchQuery( const QString &query );
 
+    static QString SearchEngine::substituteSearchQuery( const QString &query,
+      const QString &identifier, const QStringList &words, int maxResults,
+      Operation operation );
+
     void finishSearch();
 
     QString errorLog() const;
 
     bool isRunning() const;
+
+    SearchHandler *handler( const QString &documentType ) const;
+
+    QStringList words() const;
+    int maxResults() const;
+    Operation operation() const;
 
   signals:
     void searchFinished();
@@ -101,8 +116,14 @@ class SearchEngine : public QObject
     QString mMethod;
     QString mLang;
     QString mScope;
+
+    QStringList mWordList;
+    int mMaxResults;
+    Operation mOperation;
     
     DocEntryTraverser *mRootTraverser;
+
+    QMap<QString, SearchHandler *> mHandlers;
 };
 
 }

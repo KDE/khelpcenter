@@ -63,17 +63,17 @@ class SearchWidget : public QWidget, public DCOPObject
 
     QString scopeSelectionLabel( int ) const;
 
-    KCMHelpCenter *indexDialog() const { return mIndexDialog; }
-
     void readConfig( KConfig * );
     void writeConfig( KConfig * );
 
+    int scopeCount() const;
+
   signals:
     void searchResult( const QString &url );
-    void enableSearch( bool );
+    void scopeCountChanged( int );
+    void showIndexDialog();
 
   public slots:
-    void slotIndex();
     void slotSwitchBoxes();
     void scopeSelectionChanged( int );
     void updateScopeList();
@@ -93,7 +93,7 @@ class SearchWidget : public QWidget, public DCOPObject
     QComboBox *mScopeCombo;
     QListView *mScopeListView;
 
-    KCMHelpCenter *mIndexDialog;
+    int mScopeCount;
 };
 
 }

@@ -157,6 +157,16 @@ QString DocEntry::searchMethod() const
   return mSearchMethod;
 }
 
+void DocEntry::setDocumentType( const QString &str )
+{
+  mDocumentType = str;
+}
+
+QString DocEntry::documentType() const
+{
+  return mDocumentType;
+}
+
 QString DocEntry::khelpcenterSpecial() const
 {
   return mKhelpcenterSpecial;
@@ -216,6 +226,7 @@ bool DocEntry::readFromFile( const QString &fileName )
   mSearchEnabled = mSearchEnabledDefault;
   mWeight = file.readNumEntry( "X-DOC-Weight", 0 );
   mSearchMethod = file.readEntry( "X-DOC-SearchMethod" );
+  mDocumentType = file.readEntry( "X-DOC-DocumentType" );
 
   mKhelpcenterSpecial = file.readEntry("X-KDE-KHelpcenter-Special");
 
@@ -329,6 +340,7 @@ void DocEntry::dump() const
   kdDebug() << "    <indextestfile>" << mIndexTestFile << "</indextestfile>" << endl;
   kdDebug() << "    <icon>" << mIcon << "</icon>" << endl;
   kdDebug() << "    <url>" << mUrl << "</url>" << endl;
+  kdDebug() << "    <documenttype>" << mDocumentType << "</documenttype>" << endl; 
   kdDebug() << "  </docentry>" << endl;
 }
 // vim:ts=2:sw=2:et

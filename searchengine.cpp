@@ -1,19 +1,19 @@
 #include "stdlib.h"
 
-
 #include <kapplication.h>
 #include <kconfig.h>
 #include <kdebug.h>
 #include <kstandarddirs.h>
 #include <kprocess.h>
 #include <klocale.h>
+#include <kmessagebox.h>
 
 #include "docmetainfo.h"
 #include "formatter.h"
 #include "view.h"
+#include "searchhandler.h"
 
 #include "searchengine.h"
-#include "searchengine.moc"
 
 namespace KHC
 {
@@ -71,23 +71,36 @@ void SearchTraverser::startProcess( DocEntry *entry )
     return;
   }
 
-  QString search = mEngine->substituteSearchQuery( entry->search() );
+  kdDebug() << "SearchTraverser::startProcess(): " << entry->identifier()
+    << endl;
 
-  kdDebug() << "SEARCH: " << search << endl;
+  SearchHandler *handler = mEngine->handler( entry->documentType() );
 
-  mJobData = QString::null;
+  if ( !handler ) {
+    QString txt;
+    if ( entry->documentType().isEmpty() ) {
+      txt = i18n("Error: No document type specified.");
+    } else { 
+      txt = i18n("Error: No search handler for document type '%1'.")
+        .arg( entry->documentType() );
+    }
+    showSearchError( txt );
+    return;
+  }
 
-  KIO::TransferJob *job = KIO::get( KURL( search ) );
-  connect( job, SIGNAL( result( KIO::Job * ) ),
-           SLOT( slotJobResult( KIO::Job * ) ) );
-  connect( job, SIGNAL( data( KIO::Job *, const QByteArray & ) ),
-           SLOT( slotJobData( KIO::Job *, const QByteArray & ) ) );
+  connect( handler, SIGNAL( searchFinished( const QString & ) ),
+    SLOT( showSearchResult( const QString & ) ) );
 
-//  kdDebug() << "SearchTraverser::startProcess() done: " << entry->name() << endl;
+  handler->search( entry->identifier(), mEngine->words(), mEngine->maxResults(),
+    mEngine->operation() );
+
+  kdDebug() << "SearchTraverser::startProcess() done: " << entry->name() << endl;
 }
 
 DocEntryTraverser *SearchTraverser::createChild( DocEntry *parentEntry )
 {
+  kdDebug() << "SearchTraverser::createChild() level " << mLevel << endl;
+
   if ( mLevel >= 3 ) {
     ++mLevel;
     return this;
@@ -111,6 +124,8 @@ DocEntryTraverser *SearchTraverser::parentTraverser()
 
 void SearchTraverser::deleteTraverser()
 {
+  kdDebug() << "SearchTraverser::deleteTraverser()" << endl;
+
   if ( mLevel > 3 ) {
     --mLevel;
   } else {
@@ -118,25 +133,23 @@ void SearchTraverser::deleteTraverser()
   }
 }
 
-void SearchTraverser::slotJobResult( KIO::Job *job )
+void SearchTraverser::showSearchError( const QString &error )
 {
-  kdDebug() << "SearchTraverser::slotJobResult(): " << mEntry->name() << endl;
-
-  if ( job->error() ) {
-    job->showErrorDialog( mEngine->view()->widget() );
-  }
-
   mResult += mEngine->formatter()->docTitle( mEntry->name() );
-  mResult += mEngine->formatter()->processResult( mJobData );
+  mResult += mEngine->formatter()->paragraph( error );
 
   mNotifyee->endProcess( mEntry, this );
 }
 
-void SearchTraverser::slotJobData( KIO::Job *, const QByteArray &data )
+void SearchTraverser::showSearchResult( const QString &result )
 {
-//  kdDebug() << "SearchTraverser::slotJobData()" << endl;
+  kdDebug() << "SearchTraverser::showSearchResult(): " << mEntry->name()
+    << endl;
 
-  mJobData.append( data.data() );
+  mResult += mEngine->formatter()->docTitle( mEntry->name() );
+  mResult += mEngine->formatter()->processResult( result );
+
+  mNotifyee->endProcess( mEntry, this );
 }
 
 void SearchTraverser::finishTraversal()
@@ -159,6 +172,37 @@ SearchEngine::SearchEngine( View *destination )
 SearchEngine::~SearchEngine()
 {
   delete mRootTraverser;
+}
+
+bool SearchEngine::initSearchHandlers()
+{
+  QStringList resources = KGlobal::dirs()->findAllResources(
+    "appdata", "searchhandlers/*.desktop" );
+  QStringList::ConstIterator it;
+  for( it = resources.begin(); it != resources.end(); ++it ) {
+    QString filename = *it;
+    kdDebug() << "SearchEngine::initSearchHandlers(): " << filename << endl;
+    SearchHandler *handler = SearchHandler::initFromFile( filename );
+    if ( !handler ) {
+      KMessageBox::sorry( mView->widget(),
+        i18n("Unable to initialize SearchHandler from file '%1'.")
+        .arg( filename ) );
+    } else {
+      QStringList documentTypes = handler->documentTypes();
+      QStringList::ConstIterator it;
+      for( it = documentTypes.begin(); it != documentTypes.end(); ++it ) {
+        mHandlers.insert( *it, handler );
+      }
+    }
+  }
+  
+  if ( mHandlers.isEmpty() ) {
+    KMessageBox::sorry( mView->widget(),
+      i18n("No valid search handler found.") );
+    return false;
+  }
+
+  return true;
 }
 
 void SearchEngine::searchStdout(KProcess *, char *buffer, int len)
@@ -196,10 +240,17 @@ bool SearchEngine::search( QString words, QString method, int matches,
 {
   if ( mSearchRunning ) return false;
 
+  // These should be removed
   mWords = words;
   mMethod = method;
   mMatches = matches;
   mScope = scope;
+
+  // Saner variables to store search parameters:
+  mWordList = QStringList::split( " ", words );
+  mMaxResults = matches;
+  if ( method == "or" ) mOperation = Or;
+  else mOperation = And;
 
   KConfig *cfg = KGlobal::config();
   cfg->setGroup( "Search" );
@@ -309,6 +360,24 @@ QString SearchEngine::substituteSearchQuery( const QString &query )
   return result;
 }
 
+QString SearchEngine::substituteSearchQuery( const QString &query,
+  const QString &identifier, const QStringList &words, int maxResults,
+  Operation operation )
+{
+  QString result = query;
+  result.replace( "%i", identifier );
+  result.replace( "%w", words.join( "+" ) );
+  result.replace( "%m", QString::number( maxResults ) );
+  QString o;
+  if ( operation == Or ) o = "or";
+  else o = "and";
+  result.replace( "%o", o );
+// FIXME: handle lang
+//  result.replace( "%l", mLang );
+
+  return result;
+}
+
 Formatter *SearchEngine::formatter() const
 {
   return mView->formatter();
@@ -337,6 +406,32 @@ bool SearchEngine::isRunning() const
   return mSearchRunning;
 }
 
+SearchHandler *SearchEngine::handler( const QString &documentType ) const
+{
+  QMap<QString,SearchHandler *>::ConstIterator it;
+  it = mHandlers.find( documentType );
+
+  if ( it == mHandlers.end() ) return 0;
+  else return *it;
+}
+
+QStringList SearchEngine::words() const
+{
+  return mWordList;
+}
+
+int SearchEngine::maxResults() const
+{
+  return mMaxResults;
+}
+
+SearchEngine::Operation SearchEngine::operation() const
+{
+  return mOperation;
+}
 
 }
+
+#include "searchengine.moc"
+
 // vim:ts=2:sw=2:et

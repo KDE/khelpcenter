@@ -205,9 +205,8 @@ QString Formatter::processResult( const QString &data )
     }
   }
 
-//  kdDebug() << "Result:" << endl << result << endl;
-
-  return result;
+  if ( state == Header ) return data;
+  else return result;
 }
 
 QString Formatter::paragraph( const QString &str )
