@@ -121,6 +121,9 @@ void MainWindow::setupActions()
                                      actionCollection(), "lastsearch" );
     mLastSearchAction->setEnabled( false );
 
+    KStdAction::preferences( mNavigator, SLOT( showPreferencesDialog() ),
+                             actionCollection() );
+
    // Need to override the Manual link in the help menu to avoid spawning
    // a second helpcenter.
     /*

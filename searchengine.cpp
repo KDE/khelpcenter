@@ -260,7 +260,8 @@ bool SearchEngine::search( QString _words, QString method, int matches,
       kapp->processEvents();
 
     if ( !mProc->normalExit() || mProc->exitStatus() != 0 ) {
-      kdDebug() << "Error running search script... returning now" << endl;
+      kdError() << "Unable to run search program '" << commonSearchProgram
+                << "'" << endl;
       delete mProc;
       
       return false;

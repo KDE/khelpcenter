@@ -1,7 +1,7 @@
-/**
- * This file is part of KHelpCenter
+/*
+ *  This file is part of the KDE Help Center
  *
- * Copyright (c) 2000 Matthias Hölzer-Klüpfel <hoelzer@kde.org>
+ *  Copyright (C) 2003 Cornelius Schumacher <schumacher@kde.org>
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -15,44 +15,45 @@
  *
  *  You should have received a copy of the GNU General Public License
  *  along with this program; if not, write to the Free Software
- *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+ *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
+#ifndef KHC_INDEXBUILDER_H
+#define KHC_INDEXBUILDER_H
 
-#ifndef KHC_HTMLSEARCHCONFIG_H
-#define KHC_HTMLSEARCHCONFIG_H
+#include <kuniqueapplication.h>
 
-#include <qwidget.h>
+#include <qobject.h>
+#include <qtimer.h>
 
-class KURLRequester;
-class KConfig;
+class KProcess;
 
 namespace KHC {
 
-class HtmlSearchConfig : public QWidget
+class IndexBuilder : public QObject
 {
     Q_OBJECT
   public:
-    HtmlSearchConfig(QWidget *parent = 0L, const char *name = 0L);
-    virtual ~HtmlSearchConfig();
+    IndexBuilder();
 
-    void load( KConfig * );
-    void save( KConfig * );
-    void defaults();
-    void makeReadOnly();
+    void sendProgressSignal();
+    void quit();
 
-  signals:
-    void changed();
+    void buildIndices( const QString &cmdFile );
+
+    void processCmdQueue();
 
   protected slots:
-    void urlClicked(const QString&);
+    void slotProcessExited( KProcess * );
+    void slotReceivedStdout( KProcess *, char *buffer, int buflen );
+    void slotReceivedStderr( KProcess *, char *buffer, int buflen );
 
   private:
-    KURLRequester *mHtsearchUrl;
-    KURLRequester *mIndexerBin;
-    KURLRequester *mDbDir;
+    QTimer mTimer;
+    QStringList mCmdQueue;
 };
 
 }
 
 #endif
+
 // vim:ts=2:sw=2:et

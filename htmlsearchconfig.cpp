@@ -75,7 +75,8 @@ HtmlSearchConfig::HtmlSearchConfig(QWidget *parent, const char *name)
   l->setBuddy( mHtsearchUrl );
   grid->addWidget(l, 1,0);
   grid->addWidget(mHtsearchUrl, 1,1);
-  connect(mHtsearchUrl->lineEdit(), SIGNAL(textChanged(const QString&)), this, SLOT(configChanged()));
+  connect( mHtsearchUrl->lineEdit(), SIGNAL( textChanged( const QString & ) ),
+           SIGNAL( changed() ) );
   QString wtstr = i18n( "Enter the URL of the htsearch CGI program." );
   QWhatsThis::add( mHtsearchUrl, wtstr );
   QWhatsThis::add( l, wtstr );
@@ -85,7 +86,8 @@ HtmlSearchConfig::HtmlSearchConfig(QWidget *parent, const char *name)
   l->setBuddy( mIndexerBin );
   grid->addWidget(l, 2,0);
   grid->addWidget(mIndexerBin, 2,1);
-  connect(mIndexerBin->lineEdit(), SIGNAL(textChanged(const QString&)), this, SLOT(configChanged()));
+  connect( mIndexerBin->lineEdit(), SIGNAL( textChanged( const QString & ) ),
+           SIGNAL( changed() ) );
   wtstr = i18n( "Enter the path to your htdig indexer program here." );
   QWhatsThis::add( mIndexerBin, wtstr );
   QWhatsThis::add( l, wtstr );
@@ -96,7 +98,8 @@ HtmlSearchConfig::HtmlSearchConfig(QWidget *parent, const char *name)
   l->setBuddy( mDbDir );
   grid->addWidget(l, 3,0);
   grid->addWidget(mDbDir, 3,1);
-  connect(mDbDir->lineEdit(), SIGNAL(textChanged(const QString&)), this, SLOT(configChanged()));
+  connect( mDbDir->lineEdit(), SIGNAL( textChanged( const QString & ) ),
+           SIGNAL( changed() ) );
   wtstr = i18n( "Enter the path to the htdig database directory." );
   QWhatsThis::add( mDbDir, wtstr );
   QWhatsThis::add( l, wtstr );
@@ -114,11 +117,6 @@ void HtmlSearchConfig::makeReadOnly()
     mDbDir->setEnabled( false );
 }
 
-void HtmlSearchConfig::configChanged()
-{
-  emit changed(true);
-}
-
 void HtmlSearchConfig::load( KConfig *config )
 {
   config->setGroup("htdig");
@@ -126,8 +124,6 @@ void HtmlSearchConfig::load( KConfig *config )
   mHtsearchUrl->lineEdit()->setText(config->readEntry("htsearch", kapp->dirs()->findExe("htsearch")));
   mIndexerBin->lineEdit()->setText(config->readEntry("indexer"));
   mDbDir->lineEdit()->setText(config->readEntry("dbdir", "/opt/www/htdig/db/" ) );
-
-  emit changed(false);
 }
 
 void HtmlSearchConfig::save( KConfig *config )
@@ -137,8 +133,6 @@ void HtmlSearchConfig::save( KConfig *config )
   config->writeEntry("htsearch", mHtsearchUrl->lineEdit()->text());
   config->writeEntry("indexer", mIndexerBin->lineEdit()->text());
   config->writeEntry("dbdir", mDbDir->lineEdit()->text());
-
-  emit changed(false);
 }
 
 void HtmlSearchConfig::defaults()

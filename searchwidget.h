@@ -34,6 +34,8 @@ class QComboBox;
 
 class KLanguageCombo;
 
+class KCMHelpCenter;
+
 namespace KHC {
 
 class ScopeItem;
@@ -54,8 +56,6 @@ class SearchWidget : public QWidget, public DCOPObject
     int pages();
     QString scope();
 
-    void updateScopeList();
-
     void registerScopeItem( ScopeItem * );
 
     QListView *listView() { return mScopeListView; }
@@ -63,6 +63,8 @@ class SearchWidget : public QWidget, public DCOPObject
     enum { ScopeDefault, ScopeAll, ScopeNone, ScopeCustom, ScopeNum };
 
     QString scopeSelectionLabel( int ) const;
+
+    QString indexDir() const { return mIndexDir; }
 
   signals:
     void searchResult( const QString &url );
@@ -72,6 +74,9 @@ class SearchWidget : public QWidget, public DCOPObject
     void slotIndex();
     void slotSwitchBoxes();
     void scopeSelectionChanged( int );
+    void updateScopeList();
+
+    void updateConfig();
 
   protected:
     void updateScopeItem( ScopeItem *item );
@@ -90,6 +95,10 @@ class SearchWidget : public QWidget, public DCOPObject
     QListView *mScopeListView;
 
     int mScopeCount;
+
+    KCMHelpCenter *mIndexDialog;
+
+    QString mIndexDir;
 };
 
 }

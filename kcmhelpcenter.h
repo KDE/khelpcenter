@@ -20,55 +20,131 @@
 #ifndef KCMHELPCENTER_H
 #define KCMHELPCENTER_H
 
-#include <kcmodule.h>
+#include <kdialog.h>
+#include <kdialogbase.h>
+
+#include <dcopobject.h>
+
+#include "scopeitem.h"
 
 class QListView;
 class QPushButton;
-class QProgressDialog;
+class QProgressBar;
+class QTextEdit;
+class QLabel;
+
 class KProcess;
+class KConfig;
+class KAboutData;
+class KTempFile;
+class KURLRequester;
 
+namespace KHC {
 class HtmlSearchConfig;
+class DocEntry;
+}
 
-namespace KHC { class DocEntry; }
+class IndexProgressDialog : public KDialog
+{
+    Q_OBJECT
+  public:
+    IndexProgressDialog( QWidget *parent );
 
-class KCMHelpCenter : public KCModule
+    void setTotalSteps( int );
+    void advanceProgress();
+    void setLabelText( const QString & );
+    void setMinimumLabelWidth( int width );
+    void setFinished( bool );
+
+    void appendLog( const QString &text );
+
+  signals:
+    void closed();
+    void cancelled();
+
+  protected slots:
+    void slotEnd();
+    void toggleDetails();
+
+  private:
+    QLabel *mLabel;
+    QProgressBar *mProgressBar;
+    QLabel *mLogLabel;
+    QTextEdit *mLogView;
+    QPushButton *mDetailsButton;
+    QPushButton *mEndButton;
+
+    bool mFinished;
+};
+
+class KCMHelpCenterIface : virtual public DCOPObject
+{
+    K_DCOP
+  k_dcop:
+    virtual void slotIndexProgress() = 0;
+};
+
+class KCMHelpCenter : public KDialogBase, virtual public KCMHelpCenterIface
 {
     Q_OBJECT
   public:
     KCMHelpCenter( QWidget* parent = 0, const char* name = 0 );
     ~KCMHelpCenter();
     
-    virtual const KAboutData *aboutData() const;
-
     void load();
     void save();
     void defaults();
-    QString quickHelp() const;
+
+    QString indexDir();
 
   public slots:
+
+  signals:
+    void searchIndexUpdated();
 
   protected slots:
     void buildIndex();
     void cancelBuildIndex();
     void slotIndexFinished( KProcess * );
+    void slotIndexProgress();
+    void slotReceivedStdout(KProcess *proc, char *buffer, int buflen);
+    void slotReceivedStderr(KProcess *proc, char *buffer, int buflen);
+    void slotProgressClosed();
+
+    void slotOk();
+    void slotApply();
 
   protected:
     QWidget *createScopeTab( QWidget *parent );
-    void processIndexQueue();
     void updateStatus();
+    void startIndexProcess();
 
   private:
     QListView *mListView;
+    KURLRequester *mIndexUrlRequester;
     QPushButton *mBuildButton;
-    QProgressDialog *mProgressDialog;
+    IndexProgressDialog *mProgressDialog;
     
     QValueList<KHC::DocEntry *> mIndexQueue;
+    QValueList<KHC::DocEntry *>::ConstIterator mCurrentEntry;
     
     KConfig *mConfig;
     
     KAboutData *mAboutData;
 
     KHC::HtmlSearchConfig *mHtmlSearchTab;
+    QWidget *mScopeTab;
+
+    KTempFile *mCmdFile;
+
+    KProcess *mProcess;
+
+    bool mIsClosing;
+
+    QString mStdOut;
+    QString mStdErr;
+
+    bool mRunAsRoot;
 };
 
 #endif

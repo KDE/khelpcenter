@@ -77,6 +77,7 @@ Navigator::Navigator( View *view, QWidget *parent,
     KConfig *config = kapp->config();
     config->setGroup("ScrollKeeper");
     mScrollKeeperShowEmptyDirs = config->readBoolEntry("ShowEmptyDirs",false);
+    mScrollKeeperEnabled = config->readBoolEntry("Enabled",false);
     
     config->setGroup("General");
     mShowMissingDocs = config->readBoolEntry("ShowMissingDocs",false);
@@ -346,6 +347,8 @@ void Navigator::insertInfoDocs( NavigatorItem *topItem )
 
 void Navigator::insertScrollKeeperDocs( NavigatorItem *topItem )
 {
+    if ( !mScrollKeeperEnabled ) return;
+
     KProcIO proc;
     proc << "scrollkeeper-get-content-list";
     proc << KGlobal::locale()->language();
@@ -576,6 +579,7 @@ void Navigator::slotSearch()
 
   if ( !mSearchEngine->search( words, method, pages, scope ) ) {
     slotSearchFinished();
+    KMessageBox::sorry( this, i18n("Unable to run search program.") );
   }
 }
 
@@ -633,6 +637,11 @@ bool Navigator::checkSearchIndex()
 void Navigator::slotTabChanged( QWidget *wid )
 {
   if ( wid == mSearchWidget ) checkSearchIndex();
+}
+
+void Navigator::showPreferencesDialog()
+{
+  mSearchWidget->slotIndex();
 }
 
 // vim:ts=2:sw=2:et

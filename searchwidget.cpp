@@ -36,6 +36,7 @@
 
 #include "scopeitem.h"
 #include "docentrytraverser.h"
+#include "kcmhelpcenter.h"
 
 #include "searchwidget.h"
 #include "searchwidget.moc"
@@ -45,8 +46,10 @@ namespace KHC {
 
 SearchWidget::SearchWidget( QWidget *parent )
   : QWidget( parent ), DCOPObject( "SearchWidget" ),
-    mScopeCount( 0 )
+    mScopeCount( 0 ), mIndexDialog( 0 )
 {
+  updateConfig();
+
   QBoxLayout *topLayout = new QVBoxLayout( this, 2, 2 );
 
   QBoxLayout *hLayout = new QHBoxLayout( topLayout );
@@ -112,7 +115,14 @@ SearchWidget::~SearchWidget()
 
 void SearchWidget::slotIndex()
 {
-  kapp->startServiceByDesktopName( "kcmhelpcenter", QString::null );
+  if ( !mIndexDialog ) {
+    mIndexDialog = new KCMHelpCenter( this );
+    connect( mIndexDialog, SIGNAL( finished() ), SLOT( updateConfig() ) );
+    connect( mIndexDialog, SIGNAL( searchIndexUpdated() ),
+             SLOT( updateScopeList() ) );
+  }
+  mIndexDialog->show();
+  mIndexDialog->raise();
 }
 
 void SearchWidget::slotSwitchBoxes()
@@ -210,7 +220,7 @@ class ScopeTraverser : public DocEntryTraverser
     void process( DocEntry *entry )
     {
       if ( !entry->search().isEmpty() && entry->docExists() &&
-           entry->indexExists() ) {
+           entry->indexExists( mWidget->indexDir() ) ) {
         ScopeItem *item = 0;
         if ( mParentItem ) {
           item = new ScopeItem( mParentItem, entry );
@@ -345,6 +355,13 @@ QString SearchWidget::scopeSelectionLabel( int id ) const
   }
 }
 
+void SearchWidget::updateConfig()
+{
+  KGlobal::config()->setGroup( "Search" );
+  mIndexDir = KGlobal::config()->readEntry( "IndexDirectory" );
+
+  kdDebug() << "SearchWidget::updateConfig(): indexDir: " << mIndexDir << endl;
+}
 
 }
 // vim:ts=2:sw=2:et

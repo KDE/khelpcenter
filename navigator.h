@@ -80,6 +80,8 @@ class Navigator : public QWidget
 
     void slotShowSearchResult( const QString & );
 
+    void showPreferencesDialog();
+
   signals:
     void itemSelected(const QString& itemURL);
     void glossSelected(const GlossaryEntry &entry);
@@ -119,6 +121,7 @@ class Navigator : public QWidget
 
     QPtrList<NavigatorItem> manualItems, pluginItems, scrollKeeperItems;
 
+    bool mScrollKeeperEnabled;
     bool mScrollKeeperShowEmptyDirs;
     QString mScrollKeeperContentsList;
     

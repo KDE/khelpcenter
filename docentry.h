@@ -60,7 +60,7 @@ class DocEntry
 
     bool readFromFile( const QString &fileName );
 
-    bool indexExists();
+    bool indexExists( const QString &indexDir );
 
     bool docExists();
 

@@ -26,7 +26,12 @@
 #include <qpushbutton.h>
 #include <qdir.h>
 #include <qtabwidget.h>
-#include <qprogressdialog.h>
+#include <qprogressbar.h>
+#include <qfile.h>
+#include <qlabel.h>
+#include <qvbox.h>
+#include <qtextedit.h>
+#include <qregexp.h>
 
 #include <kconfig.h>
 #include <kdebug.h>
@@ -38,65 +43,161 @@
 #include <kprocess.h>
 #include <kapplication.h>
 #include <dcopclient.h>
+#include <ktempfile.h>
+#include <kurlrequester.h>
+#include <kmessagebox.h>
 
 #include "htmlsearchconfig.h"
 
 #include "docmetainfo.h"
-#include "scopeitem.h"
 
 #include "kcmhelpcenter.h"
 #include "kcmhelpcenter.moc"
 
-extern "C"
+using namespace KHC;
+
+IndexProgressDialog::IndexProgressDialog( QWidget *parent )
+  : KDialog( parent, "IndexProgressDialog", true ),
+    mFinished( true )
 {
-  KCModule *create_helpcenter( QWidget *parent, const char * )
-  {
-    KGlobal::locale()->insertCatalogue( "khelpcenter" );
-    return new KCMHelpCenter( parent, "kcmhelpcenter" );
+  setCaption( i18n("Build Search Indices") );
+
+  QBoxLayout *topLayout = new QVBoxLayout( this );
+  topLayout->setMargin( marginHint() );
+  topLayout->setSpacing( spacingHint() );
+
+  mLabel = new QLabel( this );
+  mLabel->setAlignment( AlignHCenter );
+  topLayout->addWidget( mLabel );
+
+  mProgressBar = new QProgressBar( this );
+  topLayout->addWidget( mProgressBar );
+
+  mLogLabel = new QLabel( i18n("Index creation log:"), this );
+  topLayout->addWidget( mLogLabel );
+
+  mLogView = new QTextEdit( this );
+  mLogView->setTextFormat( LogText );
+  mLogView->setMinimumHeight( 200 );
+  topLayout->addWidget( mLogView, 1 );
+
+  QBoxLayout *buttonLayout = new QHBoxLayout( topLayout );
+
+  buttonLayout->addStretch( 1 );
+
+  mDetailsButton = new QPushButton( this );
+  connect( mDetailsButton, SIGNAL( clicked() ), SLOT( toggleDetails() ) );
+  buttonLayout->addWidget( mDetailsButton );
+
+  toggleDetails();
+
+  mEndButton = new QPushButton( this );
+  connect( mEndButton, SIGNAL( clicked() ), SLOT( slotEnd() ) );
+  buttonLayout->addWidget( mEndButton );
+
+  setFinished( false );
+}
+
+void IndexProgressDialog::setTotalSteps( int steps )
+{
+  mProgressBar->setTotalSteps( steps );
+  mProgressBar->setProgress( 0 );
+  setFinished( false );
+  mLogView->clear();
+}
+
+void IndexProgressDialog::advanceProgress()
+{
+  mProgressBar->setProgress( mProgressBar->progress() + 1 );
+}
+
+void IndexProgressDialog::setLabelText( const QString &text )
+{
+  mLabel->setText( text );
+}
+
+void IndexProgressDialog::setMinimumLabelWidth( int width )
+{
+  mLabel->setMinimumWidth( width );
+}
+
+void IndexProgressDialog::setFinished( bool finished )
+{
+  if ( finished == mFinished ) return;
+  
+  mFinished = finished;
+
+  if ( mFinished ) {
+    mEndButton->setText( i18n("Close") );
+    mLabel->setText( i18n("Index creation finished.") );
+  } else {
+    mEndButton->setText( i18n("Stop") );
   }
 }
 
-using namespace KHC;
+void IndexProgressDialog::appendLog( const QString &text )
+{
+  mLogView->append( text );
+}
+
+void IndexProgressDialog::slotEnd()
+{
+  if ( mFinished ) {
+    emit closed();
+    accept();
+  } else {
+    emit cancelled();
+    reject();
+  }
+}
+
+void IndexProgressDialog::toggleDetails()
+{
+  if ( mLogView->isHidden() ) {
+    mLogLabel->show();
+    mLogView->show();
+    mDetailsButton->setText( i18n("Details <<") );
+  } else {
+    mLogLabel->hide();
+    mLogView->hide();
+    mDetailsButton->setText( i18n("Details >>") );
+    layout()->activate();
+    adjustSize();
+  }
+}
+
 
 KCMHelpCenter::KCMHelpCenter(QWidget *parent, const char *name)
-  : KCModule(parent, name), mProgressDialog( 0 )
+  : KDialogBase( parent, name, false, i18n("Build Search Index") ),
+    DCOPObject( "kcmhelpcenter" ),
+    mProgressDialog( 0 ), mCurrentEntry( 0 ), mCmdFile( 0 ),
+    mProcess( 0 ), mIsClosing( false ), mRunAsRoot( false )
 {
-//  setButtons(Help);
-
-  QVBoxLayout *tabLayout = new QVBoxLayout( this );
-
   QTabWidget *tabWidget = new QTabWidget( this );
-  tabLayout->addWidget( tabWidget );
 
-  QWidget *scopeTab = createScopeTab( tabWidget );
-  tabWidget->addTab( scopeTab, i18n( "Index" ) );
+  setMainWidget( tabWidget );
+
+  mScopeTab = createScopeTab( tabWidget );
+  tabWidget->addTab( mScopeTab, i18n( "Index" ) );
 
   mHtmlSearchTab = new KHC::HtmlSearchConfig( tabWidget );
-  connect( mHtmlSearchTab, SIGNAL( changed( bool ) ),
-           SIGNAL( changed( bool ) ) );
   tabWidget->addTab( mHtmlSearchTab, i18n("HTML Search") );
 
-#if 0
-  if ( getuid() != 0 ) {
-    mBuildButton->setEnabled( false );
-  }
-#endif
-
-  mConfig = new KConfig( locate( "config", "khelpcenterrc" ) );
+  mConfig = KGlobal::config();
 
   delete DocMetaInfo::self();
   DocMetaInfo::self()->scanMetaInfo();
 
   load();
-  if (getuid() != 0) {
-      mHtmlSearchTab->makeReadOnly();
-  }
 
+  bool success = kapp->dcopClient()->connectDCOPSignal( "khc_indexbuilder",
+      0, "buildIndexProgress()", "kcmhelpcenter",
+      "slotIndexProgress()", false );
+  if ( !success ) kdError() << "connect DCOP signal failed" << endl;
 }
 
 KCMHelpCenter::~KCMHelpCenter()
 {
-  delete mConfig;
 }
 
 QWidget *KCMHelpCenter::createScopeTab( QWidget *parent )
@@ -113,36 +214,54 @@ QWidget *KCMHelpCenter::createScopeTab( QWidget *parent )
   mListView->setColumnAlignment( 1, AlignCenter );
   topLayout->addWidget( mListView );
 
+  QBoxLayout *urlLayout = new QHBoxLayout( topLayout );
+
+  QLabel *urlLabel = new QLabel( i18n("Index Directory:"), scopeTab );
+  urlLayout->addWidget( urlLabel );
+
+  mIndexUrlRequester = new KURLRequester( scopeTab );
+  mIndexUrlRequester->setMode( KFile::Directory | KFile::ExistingOnly |
+                               KFile::LocalOnly );
+  urlLayout->addWidget( mIndexUrlRequester );
+
   QBoxLayout *buttonLayout = new QHBoxLayout( topLayout );
 
   buttonLayout->addStretch( 1 );
-
-  mBuildButton = new QPushButton( i18n("Build Index"), scopeTab );
-  buttonLayout->addWidget( mBuildButton );
-  connect( mBuildButton, SIGNAL( clicked() ), SLOT( buildIndex() ) );
 
   return scopeTab;
 }
 
 void KCMHelpCenter::defaults()
 {
-    mHtmlSearchTab->defaults();
+  mHtmlSearchTab->defaults();
 }
 
 void KCMHelpCenter::save()
 {
   kdDebug(1401) << "KCMHelpCenter::save()" << endl;
 
+  mConfig->setGroup( "Search" );
+  mConfig->writeEntry( "IndexDirectory", indexDir() );
+
   mHtmlSearchTab->save( mConfig );
 
   mConfig->sync();
 
-  QByteArray data;
-  kapp->dcopClient()->send("khelpcenter", "SearchWidget", "searchIndexUpdated()", data);
+  if ( !QFile::exists( indexDir() ) ) {
+    KMessageBox::sorry( this,
+      i18n("The directory '%1' doesn't exist. Unable to create index.")
+      .arg( indexDir() ) );
+  } else {
+    buildIndex();
+  }
 }
 
 void KCMHelpCenter::load()
 {
+  mConfig->setGroup( "Search" );
+  QString indexUrl = mConfig->readEntry( "IndexDirectory" );
+  mIndexUrlRequester->setURL( indexUrl );
+
   mHtmlSearchTab->load( mConfig );
 
   mListView->clear();
@@ -167,8 +286,9 @@ void KCMHelpCenter::updateStatus()
   while ( it.current() != 0 ) {
     ScopeItem *item = static_cast<ScopeItem *>( it.current() );
     QString status;
-    if ( item->entry()->indexExists() ) {
+    if ( item->entry()->indexExists( indexDir() ) ) {
       status = i18n("OK");
+      item->setOn( false );
     } else {
       status = i18n("Missing");
     }
@@ -181,6 +301,15 @@ void KCMHelpCenter::updateStatus()
 void KCMHelpCenter::buildIndex()
 {
   kdDebug(1401) << "Build Index" << endl;
+
+  kdDebug() << "IndexPath: '" << indexDir() << "'" << endl;
+
+  if ( mProcess ) {
+    kdError() << "Error: Index Process still running." << endl;
+    return;
+  }
+
+  mIndexQueue.clear();
 
   QFontMetrics fm( font() );
   int maxWidth = 0;
@@ -199,94 +328,201 @@ void KCMHelpCenter::buildIndex()
 
   if ( mIndexQueue.isEmpty() ) return;
 
+  mCurrentEntry = mIndexQueue.begin();
+  QString name = (*mCurrentEntry)->name();
+
   if ( !mProgressDialog ) {
-    mProgressDialog = new QProgressDialog( "", i18n("Cancel"), 1,
-                                           topLevelWidget(),
-                                           "mProgressDialog", true );
-    mProgressDialog->setCaption( i18n("Build Search Indices") );
+    mProgressDialog = new IndexProgressDialog( this );
     connect( mProgressDialog, SIGNAL( cancelled() ),
              SLOT( cancelBuildIndex() ) );
+    connect( mProgressDialog, SIGNAL( closed() ),
+             SLOT( slotProgressClosed() ) );
   }
+  mProgressDialog->setLabelText( name );
   mProgressDialog->setTotalSteps( mIndexQueue.count() );
-  mProgressDialog->setProgress( 0 );
-
-  mProgressDialog->setMinimumWidth( maxWidth + 130 );
-
+  mProgressDialog->setMinimumLabelWidth( maxWidth );
   mProgressDialog->show();
 
-  processIndexQueue();
+  mCmdFile = new KTempFile;
+  QTextStream *ts = mCmdFile->textStream();
+  if ( !ts ) {
+    kdError() << "Error opening command file." << endl;
+  } else {
+    kdDebug() << "Writing to file '" << mCmdFile->name() << "'" << endl;
+    QValueList<KHC::DocEntry *>::ConstIterator it;
+    for( it = mIndexQueue.begin(); it != mIndexQueue.end(); ++it ) {
+      QString indexer = (*it)->indexer();
+      indexer.replace( QRegExp( "%i" ), indexDir() );
+      kdDebug() << "INDEXER: " << indexer << endl;
+      *ts << indexer << endl;
+    }
+    mCmdFile->close();
+  }
+
+  startIndexProcess();
+}
+
+void KCMHelpCenter::startIndexProcess()
+{
+  kdDebug() << "KCMHelpCenter::startIndexProcess()" << endl;
+
+  mProcess = new KProcess;
+
+  if ( mRunAsRoot ) {
+    *mProcess << "kdesu" << "--nonewdcop";
+    kdDebug() << "Run as root" << endl;
+  }
+  
+  *mProcess << "khc_indexbuilder";
+  *mProcess << mCmdFile->name();
+  *mProcess << indexDir();
+
+  connect( mProcess, SIGNAL( processExited( KProcess * ) ),
+           SLOT( slotIndexFinished( KProcess * ) ) );
+  connect( mProcess, SIGNAL( receivedStdout( KProcess *, char *, int ) ),
+           SLOT( slotReceivedStdout(KProcess *, char *, int ) ) );
+  connect( mProcess, SIGNAL( receivedStderr( KProcess *, char *, int ) ),
+           SLOT( slotReceivedStderr( KProcess *, char *, int ) ) );
+
+  mProcess->start( KProcess::NotifyOnExit, KProcess::AllOutput );
 }
 
 void KCMHelpCenter::cancelBuildIndex()
 {
-  mProgressDialog->hide();
-  mIndexQueue.clear();
-}
+  kdDebug() << "cancelBuildIndex()" << endl;
 
-void KCMHelpCenter::processIndexQueue()
-{
-  QValueList<KHC::DocEntry *>::Iterator it = mIndexQueue.begin();
-
-  if ( it == mIndexQueue.end() ) {
-    mProgressDialog->hide();
-    mConfig->setGroup( "Search" );
-    mConfig->writeEntry( "IndexExists", true );
-    return;
+  if ( mProcess ) {
+    delete mProcess; mProcess = 0;
   }
+  mIndexQueue.clear();
 
-  mProgressDialog->setLabelText( i18n("Indexing '%1'.").arg( (*it)->name() ) );
-
-  KProcess *proc = new KProcess;
-
-  QString indexer = (*it)->indexer();
-
-  QStringList args = QStringList::split( ' ', indexer );
-  *proc << args;
-
-  kdDebug(1401) << "KCMHelpCenter::processIndexQueue(): '" << indexer << "'" << endl;
-
-  connect( proc, SIGNAL( processExited( KProcess * ) ),
-           SLOT( slotIndexFinished( KProcess * ) ) );
-
-  proc->start();
-
-  mIndexQueue.remove( it );
+  if ( mIsClosing ) {
+    mIsClosing = false;
+  }
 }
 
 void KCMHelpCenter::slotIndexFinished( KProcess *proc )
 {
-  if ( !proc->normalExit() || proc->exitStatus() != 0 ) {
-    kdDebug() << "KProcess reported an error." << endl;
+  kdDebug() << "KCMHelpCenter::slotIndexFinished()" << endl;
+
+  if ( proc == 0 ) {
+    kdWarning() << "Process null." << endl;
+    return;
   }
 
-  delete proc;
+  if ( proc != mProcess ) {
+    kdError() << "Unexpected Process finished." << endl;
+    return;
+  }
+
+  if ( mProcess->normalExit() && mProcess->exitStatus() == 2 ) {
+    if ( mRunAsRoot ) {
+      kdError() << "Insufficient permissions." << endl;
+    } else {
+      kdDebug() << "Insufficient permissions. Trying again as root." << endl;
+      mRunAsRoot = true;
+      delete mProcess; mProcess = 0;
+      startIndexProcess();
+      return;
+    }
+  } else if ( !mProcess->normalExit() || mProcess->exitStatus() != 0 ) {
+    kdDebug() << "KProcess reported an error." << endl;
+    KMessageBox::error( this, i18n("Failed to build index.") );
+  } else {
+    mConfig->setGroup( "Search" );
+    mConfig->writeEntry( "IndexExists", true );
+    emit searchIndexUpdated();
+  }
+
+  delete mProcess; mProcess = 0;
+  
+  delete mCmdFile; mCmdFile = 0;
+
+  mCurrentEntry = 0;
+
+  if ( mProgressDialog ) {
+    mProgressDialog->setFinished( true );
+  }
+
+  mStdOut = QString();
+  mStdErr = QString();
+
+  if ( mIsClosing ) {
+    if ( !mProgressDialog->isVisible() ) {
+      mIsClosing = false;
+      accept();
+    }
+  }
+}
+
+void KCMHelpCenter::slotIndexProgress()
+{
+  kdDebug() << "KCMHelpCenter::slotIndexProgress()" << endl;
 
   updateStatus();
 
-  if ( mProgressDialog->isVisible() ) {
-    mProgressDialog->setProgress( mProgressDialog->progress() + 1 );
+  if ( mProgressDialog && mProgressDialog->isVisible() ) {
+    mProgressDialog->advanceProgress();
+    mCurrentEntry++;
+    if ( mCurrentEntry != mIndexQueue.end() ) {
+      QString name = (*mCurrentEntry)->name();
+      mProgressDialog->setLabelText( name );
+    }
   }
-
-  processIndexQueue();
 }
 
-QString KCMHelpCenter::quickHelp() const
+void KCMHelpCenter::slotReceivedStdout( KProcess *, char *buffer, int buflen )
 {
-  return i18n("<h1>Help Index</h1> With this control module you configure "
-              "and build the index files required by the search function of "
-              "the help center.");
+  QString text = QString::fromLocal8Bit( buffer, buflen );
+  int pos = text.findRev( '\n' );
+  if ( pos < 0 ) {
+    mStdOut.append( text );
+  } else {
+    if ( mProgressDialog ) {
+      mProgressDialog->appendLog( mStdOut + text.left( pos ) );
+      mStdOut = text.mid( pos + 1 );
+    }
+  }
 }
 
-const KAboutData* KCMHelpCenter::aboutData() const
+void KCMHelpCenter::slotReceivedStderr( KProcess *, char *buffer, int buflen )
 {
-  KAboutData *about =
-    new KAboutData( I18N_NOOP("KCMHelpCenter"),
-                    I18N_NOOP("Help Center Control Module"),
-                    0, 0, KAboutData::License_GPL,
-                    I18N_NOOP("(c) 2002 Cornelius Schumacher") );
-
-  about->addAuthor( "Cornelius Schumacher", 0, "schumacher@kde.org" );
-
-  return about;
+  QString text = QString::fromLocal8Bit( buffer, buflen );
+  int pos = text.findRev( '\n' );
+  if ( pos < 0 ) {
+    mStdErr.append( text );
+  } else {
+    if ( mProgressDialog ) {
+      mProgressDialog->appendLog( "<i>" + mStdErr + text.left( pos ) +
+                                  "</i>");
+      mStdErr = text.mid( pos + 1 );
+    }
+  }
 }
+
+void KCMHelpCenter::slotOk()
+{
+  slotApply();
+  if ( !mProcess ) accept();
+  else mIsClosing = true;
+}
+
+void KCMHelpCenter::slotApply()
+{
+  save();
+}
+
+QString KCMHelpCenter::indexDir()
+{
+  return mIndexUrlRequester->url();
+}
+
+void KCMHelpCenter::slotProgressClosed()
+{
+  kdDebug() << "KCMHelpCenter::slotProgressClosed()" << endl;
+
+  if ( mIsClosing ) accept();
+}
+
+
 // vim:ts=2:sw=2:et

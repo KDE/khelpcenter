@@ -202,11 +202,16 @@ bool DocEntry::readFromFile( const QString &fileName )
   return true;
 }
 
-bool DocEntry::indexExists()
+bool DocEntry::indexExists( const QString &indexDir )
 {
   if ( mIndexTestFile.isEmpty() ) return true;
-  
-  return QFile::exists( mIndexTestFile );
+
+  QString testFile;
+
+  if ( mIndexTestFile.startsWith( "/" ) ) testFile = mIndexTestFile;
+  else testFile = indexDir + "/" + mIndexTestFile;
+
+  return QFile::exists( testFile );
 }
 
 bool DocEntry::docExists()

@@ -48,16 +48,14 @@ QString HTMLSearch::defaultSearch( KHC::DocEntry *entry )
 QString HTMLSearch::defaultIndexer( KHC::DocEntry * )
 {
   QString indexer = mConfig->readEntry( "indexer" );
-  indexer += " %f";
+  indexer += " --indexdir=%i %f";
 
   return indexer;
 }
 
 QString HTMLSearch::defaultIndexTestFile( KHC::DocEntry *entry )
 {
-  QString testFile = mConfig->readEntry( "dbdir" );
-  testFile += entry->identifier() + ".docs.index";
-
-  return testFile;
+  return entry->identifier() + ".exists";
 }
+
 // vim:ts=2:sw=2:et
