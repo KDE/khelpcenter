@@ -36,7 +36,6 @@ khelpcenter_SOURCES  = khelpcenterclient.cpp khelpcenter.cc
 DISTCLEANFILES = $(khelpcenter_METASOURCES) khelpcenter.cc khelpcenter.h
 
 idl_DATA    =  khelpcenter.idl
-idl_HEADERS =  khelpcenter.h
 
 khelpcenter.cc: khelpcenter.h
 khelpcenter.h: $(srcdir)/khelpcenter.idl $(micodir)/include/CORBA.h
