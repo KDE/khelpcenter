@@ -12,6 +12,9 @@
 #
 # AUTHOR
 #   Karl Guggisberg  <guggis@iam.unibe.ch>
+#
+#   Changes for the KDE Help Center (c) 1999 Matthias ELter 
+#                                           (me@kde.org)
 # 
 # HISTORY
 #   11.10.93  V 1.0 
@@ -22,13 +25,22 @@
 #   28.6.94   V 1.0d  some minor changes
 #   8.4.95    V 1.1   bug fixes by Tim Witham 
 #                     <twitham@eng.fm.intel.com>
+#   March 1999        Changes for use in KDE Help Center
 #
 #------------------------------------------------------- 
 
 # set here the full path of the info2html.conf
 $0 =~ m!(.*/)[^/]+$!;
 $INFO2HTMLCONF = "$1info2html.conf";
+$IMAGEDIR = $ENV{KDEDIR};
+$IMAGEDIR = "$IMAGEDIR/share/apps/khelpcenter/gif";
 require($INFO2HTMLCONF);  #-- configuration settings
+
+$CR_URL = "<img src=\"$IMAGEDIR/r_hand.gif\" align=top border=0 alt=\"See\">";
+$UP_URL = "<img src=\"$IMAGEDIR/u_arrow.gif\" align=top border=0 alt=\"Up\">";
+$NEXT_URL = "<img src=\"$IMAGEDIR/r_arrow.gif\" align=top border=0 alt=\"Next\">";
+$PREV_URL = "<img src=\"$IMAGEDIR/l_arrow.gif\" align=top border=0 alt=\"Prev\">";
+
 
 #-- patterns
 $NODEBORDER    = '\037\014?';      #-- delimiter of an info node
@@ -205,7 +217,7 @@ sub MenuItem2HTML{
     }
     $MenuLinkTag = &Escape($MenuLinkTag); # -- escape special chars
     #-- produce a HTML line
-    return "* <a href=\"$PROGRAM?($MenuLinkFile)$MenuLinkTag\">$MenuLinkRef</a>$MenuLinkText";
+    return "* <a href=\"file:/cgi-bin/$PROGRAM?($MenuLinkFile)$MenuLinkTag\">$MenuLinkRef</a>$MenuLinkText";
 }
   
 #-------------------------------------------------------------
@@ -334,7 +346,7 @@ sub ParsCrossRefs{
       $CrossRefRef =~ s/-NEWLINE-/\n/g;
       $CrossRefTag = &Escape($CrossRefTag);   # -- escape specials
       $BaseInfoFile = &Escape($BaseInfoFile);
-      $NewLine .= "<a href=\"$PROGRAM?($BaseInfoFile)$CrossRefTag\">";
+      $NewLine .= "<a href=\"file:/cgi-bin/$PROGRAM?($BaseInfoFile)$CrossRefTag\">";
       $NewLine .= "$CR_URL$CrossRefRef</a>$CrossRefText";
       next;                     # -- .. take the next one
     }
@@ -369,7 +381,7 @@ sub ParsCrossRefs{
     $CrossRefTag = &Escape($CrossRefTag);      #-- escape specials
     $CrossRefFile = &Escape($CrossRefFile);
     #-- append the HTML text
-    $NewLine .= "<a href=\"$PROGRAM?($CrossRefFile)$CrossRefTag\">";
+    $NewLine .= "<a href=\"file:/cgi-bin/$PROGRAM?($CrossRefFile)$CrossRefTag\">";
     $NewLine .= "$CR_URL$CrossRefRef</a>$CrossRefText";
   }
   if ($NewLine =~ /\*Note([^\t\,\.]*)$/i) {
@@ -411,7 +423,7 @@ sub PrintLinkInfo{
   $LinkFileEsc = &Escape($LinkFile);
   #-- print the HTML Text
   print <<EOF;
-<a href="$PROGRAM?($LinkFileEsc)$LinkTag">
+<a href="file:/cgi-bin/$PROGRAM?($LinkFileEsc)$LinkTag">
 #   $LinkTypeText
   <em>($LinkFile)</em> <strong>$LinkRef</strong>
 </a>

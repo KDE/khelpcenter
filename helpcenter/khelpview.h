@@ -135,8 +135,8 @@ class KHelpView : public QWidget
  private:
   enum FileType { UnknownFile, HTMLFile, InfoFile, ManFile, CannotOpenFile };
   
-  int openFile( const QString & );
-  int formatMan( int bodyOnly = FALSE );
+  int openFile(const QString &);
+  int formatMan(int bodyOnly = false);
   int openHTML( const char *location );
   int runCGI( const char *_url );
   FileType detectFileType( const QString &filename );

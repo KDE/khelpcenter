@@ -761,12 +761,14 @@ void KHelpView::slotPopupMenu(const char *url, const QPoint &p)
   if (url)
 	{
 	  rmbPopup->insertSeparator();
+	  
 	  int pos;
 	  if (url[0] == '\"')
 		url++;
 	  newURL = url;
 	  if ((pos  = newURL.findRev('\"')) > 0)
 		newURL.truncate(pos);
+	  
 	  rmbPopup->insertItem(i18n("Open this Link"),this,SLOT(slotPopupOpenURL()));
 	  rmbPopup->insertItem(i18n("Add Bookmark"),this,SLOT(slotPopupAddBookmark()));
 	  rmbPopup->insertItem(i18n("Open in new Window"),this,SLOT(slotPopupOpenNew()));
@@ -964,8 +966,6 @@ void KHelpView::slotDocumentChanged()
 	horz->setRange(0, view->docWidth() - view->width());
   else
 	horz->setRange(0, 0);
-  
-  layout();
 }
 
 // called when all html has been parsed
@@ -984,7 +984,7 @@ void KHelpView::slotDocumentDone()
 		vert->setValue(0);
 	}
   
-	layout();
-	busy = false;
-	emit enableMenuItems();
+  layout();
+  busy = false;
+  emit enableMenuItems();
 }
