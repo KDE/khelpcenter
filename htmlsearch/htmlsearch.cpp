@@ -311,7 +311,7 @@ void HTMLSearch::htmergeExited(KProcess *)
 
 void HTMLSearch::htsearchStdout(KProcess *, char *buffer, int len)
 {
-  _searchResult += QString(buffer).left(len);
+  _searchResult += QString::fromLocal8Bit(buffer,len);
 }
 
 
