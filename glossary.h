@@ -108,6 +108,8 @@ class Glossary : public KListView
  
     static QString entryToHtml( const GlossaryEntry &entry );
 
+    virtual void show();
+
 	public slots:
 		void slotSelectGlossEntry( const QString &id );
 
@@ -135,6 +137,7 @@ class Glossary : public KListView
 		CacheStatus m_status;
 		QDict<GlossaryEntry> m_glossEntries;
     QDict<EntryItem> m_idDict;
+    bool m_initialized;
 };
 
 }

@@ -25,8 +25,10 @@
 #include <kdebug.h>
 #include <kiconloader.h>
 #include <klocale.h>
+#include <kmainwindow.h>
 #include <kprocess.h>
 #include <kstandarddirs.h>
+#include <kstatusbar.h>
 
 #include <qheader.h>
 
@@ -69,6 +71,8 @@ class EntryItem : public KListViewItem
 
 Glossary::Glossary( QWidget *parent ) : KListView( parent )
 {
+	m_initialized = false;
+
 	connect( this, SIGNAL( clicked( QListViewItem * ) ),
 	         this, SLOT( treeItemSelected( QListViewItem * ) ) );
 	connect( this, SIGNAL( returnPressed( QListViewItem * ) ),
@@ -93,10 +97,18 @@ Glossary::Glossary( QWidget *parent ) : KListView( parent )
 	m_config = kapp->config();
 	m_config->setGroup( "Glossary" );
 
-	if ( cacheStatus() == NeedRebuild )
-		rebuildGlossaryCache();
-	else
-		buildGlossaryTree();
+}
+
+void Glossary::show()
+{
+	if ( !m_initialized ) {
+		if ( cacheStatus() == NeedRebuild )
+			rebuildGlossaryCache();
+		else
+			buildGlossaryTree();
+		m_initialized = true;
+	}
+	KListView::show();
 }
 
 Glossary::~Glossary()
@@ -130,6 +142,10 @@ int Glossary::glossaryCTime() const
 
 void Glossary::rebuildGlossaryCache()
 {
+	KMainWindow *mainWindow = dynamic_cast<KMainWindow *>( kapp->mainWidget() );
+	Q_ASSERT( mainWindow );
+	mainWindow->statusBar()->message( i18n( "Rebuilding cache..." ) );
+
 	KProcess *meinproc = new KProcess;
 	connect( meinproc, SIGNAL( processExited( KProcess * ) ),
 	         this, SLOT( meinprocExited( KProcess * ) ) );
@@ -155,6 +171,10 @@ void Glossary::meinprocExited( KProcess *meinproc )
 	m_config->sync();
 	
 	m_status = CacheOk;
+
+	KMainWindow *mainWindow = dynamic_cast<KMainWindow *>( kapp->mainWidget() );
+	Q_ASSERT( mainWindow );
+	mainWindow->statusBar()->message( i18n( "Rebuilding cache... done!" ), 2000 );
 
 	buildGlossaryTree();
 }
