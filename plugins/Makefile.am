@@ -1,5 +1,3 @@
 
 SUBDIRS = Tutorials
 
-messages:
-
