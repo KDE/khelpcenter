@@ -37,7 +37,7 @@ DISTCLEANFILES = $(khelpcenter_METASOURCES) khelpcenter.cc khelpcenter.h
 idl_DATA    =  khelpcenter.idl
 idl_HEADERS =  khelpcenter.h
 
-BUILDSOURCES = khelpcenter.h
+BUILT_SOURCES = khelpcenter.h
 
 khelpcenter.h: $(srcdir)/khelpcenter.idl
 	rm -rf khelpcenter.h

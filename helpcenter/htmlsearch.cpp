@@ -102,10 +102,10 @@ int HTMLSearch::processFiles(const char *dirname, const char *query)
   if (!files.exists())
 	return 0;
 	
-  const QStringList *fileList = files.entryList();
-  QStringList::ConstIterator itFile;
+  QStringList fileList = files.entryList();
+  QStringList::Iterator itFile;
 
-  for ( itFile = fileList->begin(); !itFile->isNull(); ++itFile)
+  for ( itFile = fileList.begin(); !itFile->isNull(); ++itFile)
 	{
 	  QString filename = dirname;
 	  filename += "/";
@@ -135,10 +135,10 @@ int HTMLSearch::processDir(const char *dirname, const char *query)
   if (!dir.exists())
 	return 0;
 	
-  const QStringList *dirList = dir.entryList();
-  QStringList::ConstIterator itDir;
+  QStringList dirList = dir.entryList();
+  QStringList::Iterator itDir;
 
-  for ( itDir = dirList->begin(); !itDir->isNull(); ++itDir)
+  for ( itDir = dirList.begin(); !itDir->isNull(); ++itDir)
 	{
 	  if (itDir->at(0) == '.')
 		continue;

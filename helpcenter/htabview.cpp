@@ -345,10 +345,10 @@ bool HTabView::appendEntries(const char *dirName, HTreeListItem *parent, QList<H
   if (!fileDir.exists())
 	return false;
 
-  const QStringList *fileList = fileDir.entryList();
-  QStringList::ConstIterator itFile;
+  QStringList fileList = fileDir.entryList();
+  QStringList::Iterator itFile;
 
-  for ( itFile = fileList->begin(); !itFile->isNull(); ++itFile )
+  for ( itFile = fileList.begin(); !itFile->isNull(); ++itFile )
 	{
 	  QString filename = dirName;
 	  filename += "/";
@@ -377,10 +377,10 @@ bool HTabView::processDir( const char *dirName, HTreeListItem *parent,  QList<HT
 
   if (!dirDir.exists()) return false;
   
-  const QStringList *dirList = dirDir.entryList();
-  QStringList::ConstIterator itDir;
+  QStringList dirList = dirDir.entryList();
+  QStringList::Iterator itDir;
   
-  for ( itDir = dirList->begin(); !itDir->isNull(); ++itDir )
+  for ( itDir = dirList.begin(); !itDir->isNull(); ++itDir )
 	{
 	  if ( itDir->at(0) == '.' )
 		continue;
@@ -436,9 +436,9 @@ bool HTabView::containsDocuments(QString dir)
   if (fileDir.count() > 0)
 	{
 	  // does at least one kdelnk contain a docPath
-	  const QStringList *fileList = fileDir.entryList();
-	  QStringList::ConstIterator itFile;
-	  for ( itFile = fileList->begin(); !itFile->isNull(); ++itFile )
+	  QStringList fileList = fileDir.entryList();
+	  QStringList::Iterator itFile;
+	  for ( itFile = fileList.begin(); !itFile->isNull(); ++itFile )
 		{
 		  QString filename = dir;
 		  filename += "/";
@@ -459,10 +459,10 @@ bool HTabView::containsDocuments(QString dir)
 	return false;
 
   // go through subdirs and search for files
-  const QStringList *dirList = dirDir.entryList();
-  QStringList::ConstIterator itDir;
+  QStringList dirList = dirDir.entryList();
+  QStringList::Iterator itDir;
   
-  for (itDir = dirList->begin(); !itDir->isNull(); ++itDir)
+  for (itDir = dirList.begin(); !itDir->isNull(); ++itDir)
 	{
 	  if ( itDir->at(0) == '.' )
 		continue;
