@@ -185,7 +185,6 @@ KCMHelpCenter::KCMHelpCenter(QWidget *parent, const char *name)
 
   mConfig = KGlobal::config();
 
-  delete DocMetaInfo::self();
   DocMetaInfo::self()->scanMetaInfo();
 
   load();
