@@ -9,6 +9,8 @@
 #include "docmetainfo.h"
 #include "docentrytraverser.h"
 
+using namespace KHC;
+
 class MyTraverser : public DocEntryTraverser
 {
   public:
