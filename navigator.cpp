@@ -224,7 +224,9 @@ void Navigator::insertIOSlaveDocs( const QString &name, NavigatorItem *topItem )
 
 #if KDE_IS_VERSION( 3, 1, 90 ) 
   QStringList list = KProtocolInfo::protocols();
+  list.sort();
 
+  NavigatorItem *prevItem = 0;
   for ( QStringList::ConstIterator it = list.begin(); it != list.end(); ++it ) 
   {
     QString docPath = KProtocolInfo::docPath(*it);
@@ -235,7 +237,8 @@ void Navigator::insertIOSlaveDocs( const QString &name, NavigatorItem *topItem )
       QString icon = KProtocolInfo::icon(*it);
       if ( icon.isEmpty() ) icon = "document2";
       DocEntry *entry = new DocEntry( *it, url.url(), icon );
-      NavigatorItem *item = new NavigatorItem( entry, topItem );
+      NavigatorItem *item = new NavigatorItem( entry, topItem, prevItem );
+      prevItem = item;
       item->setAutoDeleteDocEntry( true );
     }
   }
