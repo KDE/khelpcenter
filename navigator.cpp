@@ -499,7 +499,11 @@ void Navigator::createItemFromDesktopFile( NavigatorItem *topItem, const QString
 #endif
     if ( !docPath.isNull() ) {
       NavigatorItem *item = new NavigatorItem( topItem, desktopFile.readName() );
-      item->setUrl( "help:/" + docPath );
+      KURL url = docPath;
+      if ( url.protocol().isEmpty() )
+        item->setUrl( "help:/" + docPath );
+      else
+        item->setUrl( docPath );
       QString icon = desktopFile.readIcon();
       item->setIcon( icon.isNull() ? "document2" : icon );
     }
