@@ -5,8 +5,6 @@ Icon=khelpcenter
 DocPath=khelpcenter/index.html
 Type=Application
 Terminal=false
-
-<<<<<<< Help.desktop
 Name[af]=Hulp
 Name[ar]=مساعدة
 Name[az]=Yardım
@@ -68,7 +66,7 @@ Name[tr]=Yardım
 Name[uk]=Довідка
 Name[uz]=Ёрдам
 Name[ven]=Thuso
-Name[vi]=Trợ giúp 
+Name[vi]=Trợ giúp
 Name[wa]=Aidance
 Name[xh]=Uncedo
 Name[xx]=xxHelpxx
