@@ -1,11 +1,6 @@
-Matthias Elter <me@kde.org>:
-	khelpcenter base application, kwelcome
-
-René Beutler <rbeutler@g26.ethz.ch>:
-	kassistant, kcmhelpcenter, kwid,konitemhelp
-
-Martin Jones <mjones@kde.org>
-	Some code is based on kdehelp written by Martin.
+Matthias Elter <me@kde.org>
 
 Additional Credits:
- - The Konqueror team, I have shamelessly :) ripped some code and ideas from konqy.
+René Beutler <rbeutler@g26.ethz.ch> kassistant, kcmhelpcenter, kwid,konitemhelp
+Martin Jones <mjones@kde.org> Some code is based on kdehelp written by Martin.
+The Konqueror team. I have shamelessly :) ripped some code and ideas from konqy.

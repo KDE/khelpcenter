@@ -27,21 +27,10 @@
 
 kmbView::kmbView()
 {
-  ADD_INTERFACE("IDL:Browser/View:1.0");
   ADD_INTERFACE("IDL:KManBrowser/View:1.0");
   ADD_INTERFACE("IDL:Browser/PrintingExtension:1.0");
   ADD_INTERFACE("IDL:Browser/MagnifyingExtension:1.0");  
 
-  SIGNAL_IMPL("openURL");
-  SIGNAL_IMPL("started");
-  SIGNAL_IMPL("completed");
-  SIGNAL_IMPL("canceled");
-  SIGNAL_IMPL("setStatusBarText");
-  SIGNAL_IMPL("setLocationBarURL");
-  SIGNAL_IMPL("createNewWindow");
-  
-  OPPartIf::setFocusPolicy(OpenParts::Part::ClickFocus);
-  
   setWidget(this);
 
   fontBase = 3;
@@ -61,37 +50,6 @@ kmbView::kmbView()
 
 kmbView::~kmbView()
 {
-  kdebug(0,1400,"kmbView::~kmbView()");
-  cleanUp();
-}
-
-void kmbView::cleanUp()
-{
-  if (m_bIsClean)
-    return;
-    
-  kdebug(0,1400,"void kmbView::cleanUp()");
-  OPPartIf::cleanUp();
-}
-
-bool kmbView::event( const char *event, const CORBA::Any &value )
-{
-  EVENT_MAPPER(event, value);
-  MAPPING(Browser::eventOpenURL, Browser::EventOpenURL, mappingOpenURL);
-  END_EVENT_MAPPER;
-  return false;
-}
-
-void kmbView::openURLRequest( const char *_url )
-{
-    // Ask the mainwindow to open this URL, since it might not be suitable
-    // for the current type of view.
-    Browser::URLRequest urlRequest;
-    urlRequest.url = CORBA::string_dup( _url );
-    urlRequest.reload = (CORBA::Boolean)false;
-    urlRequest.xOffset = 0;
-    urlRequest.yOffset = 0;
-    SIGNAL_CALL1( "openURL", urlRequest );
 }
 
 bool kmbView::mappingOpenURL( Browser::EventOpenURL eventURL )

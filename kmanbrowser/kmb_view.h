@@ -22,6 +22,7 @@
 #define __kmb_view_h__
 
 #include "kmanbrowser.h"
+#include "khc_baseview.h"
 
 #include <khtml.h>
 
@@ -33,7 +34,7 @@
 #define MAX_HISTORY_LENGHT  15
 
 class kmbView : public KHTMLWidget,
-		virtual public OPPartIf,
+		public khcBaseView,
 		virtual public KManBrowser::View_skel
 {
     Q_OBJECT
@@ -42,9 +43,6 @@ class kmbView : public KHTMLWidget,
     kmbView();
     virtual ~kmbView();
 
-    virtual void cleanUp();
-  
-    virtual bool event( const char *event, const CORBA::Any &value );
     virtual bool mappingOpenURL( Browser::EventOpenURL eventURL );
 
     virtual void stop();
@@ -59,8 +57,6 @@ class kmbView : public KHTMLWidget,
     virtual CORBA::Boolean canZoomOut();
     virtual void openURL( QString _url, bool _reload, int _xoffset = 0, int _yoffset = 0, const char *_post_data = 0L);
 
-    virtual void openURLRequest(const char *_url);
-
 public slots:
   void slotURLClicked( QString url );
 
@@ -71,12 +67,8 @@ protected slots:
   void slotCanceled();
 
 protected:
-  CORBA::String_var debug_ViewName;
   void setDefaultFontBase(int fSize);
-
- protected:
   int fontBase;
-  QString m_strURL;
 };
 
 #endif

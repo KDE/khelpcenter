@@ -230,10 +230,12 @@ void khcMainWindow::setupMenuBar()
    
   
     // help menu
-    m_pHelpMenu = kapp->getHelpMenu(true,i18n("The KDE HelpCenter v" + QString(HELPCENTER_VERSION) + "\n\n"
-			     "(c) 1998,99 Matthias Elter <me@kde.org>: khelpcenter base application, kwelcome\n"
-			     "(c) 1998,99 René Beutler <rbeutler@g26.ethz.ch>: kassistant, kcmhelpcenter, kwid,konitemhelp\n"
-			     "(c) 1997 Martin Jones <mjones@kde.org> Some code is based on kdehelp written by Martin."));
+    m_pHelpMenu = kapp->getHelpMenu(true,i18n("KDE HelpCenter v" + QString(HELPCENTER_VERSION) + "\n\n"
+					      "(c) 1998,99 Matthias Elter <me@kde.org>\n\n"
+					      "Additional credits:\n"
+					      "René Beutler <rbeutler@g26.ethz.ch>: kassistant, kcmhelpcenter, kwid,konitemhelp\n"
+					      "Martin Jones <mjones@kde.org> Some code is based on kdehelp written 1997 by Martin.\n"
+					      "The Konqueror team. I have shamelessly :) ripped some code and ideas from Konqueror.\n"));
     
     // insert menu's into menubar
     menuBar()->insertItem(i18n("&File"), m_pFileMenu);
