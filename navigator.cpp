@@ -157,7 +157,7 @@ void Navigator::setupContentsTab()
     mContentsTree->setRootIsDecorated(false);
     mContentsTree->setSorting(-1, false);
 
-    connect(mContentsTree, SIGNAL(executed(QListViewItem*)),
+    connect(mContentsTree, SIGNAL(clicked(QListViewItem*)),
             SLOT(slotItemSelected(QListViewItem*)));
     connect(mContentsTree, SIGNAL(returnPressed(QListViewItem*)),
            SLOT(slotItemSelected(QListViewItem*)));
