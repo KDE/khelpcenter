@@ -147,9 +147,6 @@ MainWindow::MainWindow()
              mNavigator, SLOT( selectItem( const KURL & ) ) );
 
     statusBarMessage(i18n("Ready"));
-
-    const QRect rect = kapp->desktop()->availableGeometry( this );
-    setMaximumSize( rect.width(), rect.height() );
 }
 
 MainWindow::~MainWindow()
