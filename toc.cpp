@@ -193,6 +193,8 @@ void TOC::fillTree()
 			sectItem = new TOCSectionItem( this, chapItem, sectItem, sectTitle, sectRef );
 		}
 	}
+
+  m_parentItem->setOpen( true );
 }
 
 QDomElement TOC::childElement( const QDomElement &element, const QString &name )
