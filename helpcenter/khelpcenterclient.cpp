@@ -103,7 +103,7 @@ int main(int argc, char *argv[])
 	{
 	  if (url.isEmpty())
 		url = "file:" + kapp->kde_htmldir() + "/en/khelpcenter/main.html";
-	  kdebug(KDEBUG_INFO,1401,"khelpcenterclient open %s", url);
+	  kdebug(KDEBUG_INFO,1401,"khelpcenterclient open %s", url.ascii());
 	  server->openHelpView (url, enableTree);
 	}
   
