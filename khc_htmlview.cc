@@ -101,10 +101,15 @@ void khcHTMLView::stop()
 
 void khcHTMLView::openURL(QString _url, bool _reload, int _xoffset, int _yoffset, const char *_post_data)
 {
-  KBrowser::openURL( _url, _reload, _xoffset, _yoffset, _post_data );
-
-  SIGNAL_CALL1("setStatusBarText", CORBA::Any::from_string((char *) _url.data(), 0));
-  SIGNAL_CALL1("setLocationBarURL", CORBA::Any::from_string((char *) _url.data(), 0));
+  //KBrowser::openURL( _url, _reload, _xoffset, _yoffset, _post_data );
+  KHelpCenter::EventOpenURL eventURL;
+  eventURL.url = CORBA::string_dup(_url);
+  eventURL.reload = _reload;
+  eventURL.xOffset = _xoffset;
+  eventURL.yOffset = _yoffset;
+  SIGNAL_CALL1("openURL", eventURL);
+  //SIGNAL_CALL1("setStatusBarText", CORBA::Any::from_string((char *) _url.data(), 0));
+  //SIGNAL_CALL1("setLocationBarURL", CORBA::Any::from_string((char *) _url.data(), 0));
 }
 
 char *khcHTMLView::url()
