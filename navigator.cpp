@@ -342,50 +342,6 @@ bool Navigator::parseInfoSubjectLine(QString sLine, QString& sItemTitle, QString
   return true;
 }
 
-void Navigator::buildManSubTree(NavigatorItem *parent)
-{
-  // man(n)
-  NavigatorItem *ti_man_sn = new NavigatorItem(parent, i18n("(n) New"),"document2");
-  ti_man_sn->setUrl(QString("man:/(n)"));
-
-  // man(9)
-  NavigatorItem *ti_man_s9 = new NavigatorItem(parent, i18n("(9) Kernel"),"document2");
-  ti_man_s9->setUrl(QString("man:/(9)"));
-
-  // man(8)
-  NavigatorItem *ti_man_s8 = new NavigatorItem(parent, i18n("(8) Sys. Administration"),"document2");
-  ti_man_s8->setUrl(QString("man:/(8)"));
-
-  // man(7)
-  NavigatorItem *ti_man_s7 = new NavigatorItem(parent, i18n("(7) Miscellaneous"),"document2");
-  ti_man_s7->setUrl(QString("man:/(7)"));
-
-  // man(6)
-  NavigatorItem *ti_man_s6 = new NavigatorItem(parent, i18n("(6) Games"),"document2");
-  ti_man_s6->setUrl(QString("man:/(6)"));
-
-  // man(5)
-  NavigatorItem *ti_man_s5 = new NavigatorItem(parent, i18n("(5) File Formats"),"document2");
-  ti_man_s5->setUrl(QString("man:/(5)"));
-
-  // man(4)
-  NavigatorItem *ti_man_s4 = new NavigatorItem(parent, i18n("(4) Devices"),"document2");
-  ti_man_s4->setUrl(QString("man:/(4)"));
-
-  // man(3)
-  NavigatorItem *ti_man_s3 = new NavigatorItem(parent, i18n("(3) Subroutines"),"document2");
-  ti_man_s3->setUrl(QString("man:/(3)"));
-
-  // man(2)
-  NavigatorItem *ti_man_s2 = new NavigatorItem(parent, i18n("(2) System calls"),"document2");
-  ti_man_s2->setUrl(QString("man:/(2)"));
-
-  // man (1)
-  NavigatorItem *ti_man_s1 = new NavigatorItem(parent, i18n("(1) User commands"),"document2");
-  ti_man_s1->setUrl(QString("man:/(1)"));
-}
-
-
 class PluginTraverser : public DocEntryTraverser
 {
   public:

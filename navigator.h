@@ -107,8 +107,6 @@ class Navigator : public QWidget
                                    NavigatorItem *next,
                                    const QString &line );
 
-    void buildManSubTree(NavigatorItem *parent);
-
     void insertPlugins();
     void insertScrollKeeperItems();
     int insertScrollKeeperSection(NavigatorItem *parentItem,QDomNode sectNode);
