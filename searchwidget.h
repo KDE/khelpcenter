@@ -51,6 +51,10 @@ class SearchWidget : public QWidget
 
     QListView *listView() { return mScopeListView; }
 
+    enum { ScopeDefault, ScopeAll, ScopeNone, ScopeCustom, ScopeNum };
+
+    QString scopeSelectionLabel( int ) const;
+
   signals:
     void searchResult( const QString &url );
     void enableSearch( bool );
@@ -58,6 +62,7 @@ class SearchWidget : public QWidget
   public slots:
     void slotIndex();
     void slotSwitchBoxes();
+    void scopeSelectionChanged( int );
 
   protected:
     void updateScopeItem( ScopeItem *item );
@@ -72,7 +77,7 @@ class SearchWidget : public QWidget
 
     QComboBox *mMethodCombo;
     QComboBox *mPagesCombo;
-    QFrame *mAdvOptions;
+    QComboBox *mScopeCombo;
     QListView *mScopeListView;
 
     int mScopeCount;

@@ -150,6 +150,16 @@ bool DocEntry::searchEnabled() const
   return mSearchEnabled;
 }
 
+void DocEntry::setSearchEnabledDefault( bool enabled )
+{
+  mSearchEnabledDefault = enabled;
+}
+
+bool DocEntry::searchEnabledDefault() const
+{
+  return mSearchEnabledDefault;
+}
+
 void DocEntry::setDirectory( bool dir )
 {
   mDirectory = dir;
@@ -180,7 +190,9 @@ bool DocEntry::readFromFile( const QString &fileName )
   mIndexer = file.readEntry( "X-DOC-Indexer" );
   mIndexer.replace( QRegExp( "%f" ) , fileName );
   mIndexTestFile = file.readEntry( "X-DOC-IndexTestFile" );
-  mSearchEnabled = file.readBoolEntry( "X-DOC-SearchEnabledDefault", false );
+  mSearchEnabledDefault = file.readBoolEntry( "X-DOC-SearchEnabledDefault",
+                                              false );
+  mSearchEnabled = mSearchEnabledDefault;
   mWeight = file.readNumEntry( "X-DOC-Weight", 0 );
   mSearchMethod = file.readEntry( "X-DOC-SearchMethod" );
 

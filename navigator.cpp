@@ -363,6 +363,7 @@ class PluginTraverser : public DocEntryTraverser
       if ( !docPath.isEmpty() ) {
         KURL docUrl( docPath );
         if ( docUrl.isLocalFile() && !KStandardDirs::exists( docUrl.path() ) ) {
+          kdDebug(1400) << "URL not found: " << docUrl.url() << endl;
           missing = true;
         }
       }

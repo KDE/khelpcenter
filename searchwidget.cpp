@@ -64,61 +64,56 @@ SearchWidget::SearchWidget( QWidget *parent )
   : QWidget( parent ),
     mScopeCount( 0 )
 {
-  QVBoxLayout *vbox = new QVBoxLayout( this, 2, 2 );
-  vbox->setAlignment( Qt::AlignLeft );
+  QBoxLayout *topLayout = new QVBoxLayout( this, 2, 2 );
 
-  mAdvOptions = new QFrame( this );
-  vbox->addWidget( mAdvOptions );
+  QBoxLayout *hLayout = new QHBoxLayout( topLayout );
 
-  QVBoxLayout *vframebox = new QVBoxLayout( mAdvOptions, 3 );
-
-  QHBoxLayout *hbox = new QHBoxLayout( vframebox );
-
-  mMethodCombo = new QComboBox( mAdvOptions );
+  mMethodCombo = new QComboBox( this );
   mMethodCombo->insertItem( i18n("and") );
   mMethodCombo->insertItem( i18n("or") );
 
-  QLabel *l = new QLabel( mMethodCombo, i18n("Method"), mAdvOptions);
-  hbox->addWidget( l );
-  hbox->addWidget( mMethodCombo );
+  QLabel *l = new QLabel( mMethodCombo, i18n("&Method:"), this );
 
-  hbox = new QHBoxLayout( vframebox );
+  hLayout->addWidget( l );
+  hLayout->addWidget( mMethodCombo );
 
-  mPagesCombo = new QComboBox( mAdvOptions );
+  hLayout = new QHBoxLayout( topLayout );
+
+  mPagesCombo = new QComboBox( this );
   mPagesCombo->insertItem( "5" );
   mPagesCombo->insertItem( "10" );
   mPagesCombo->insertItem( "25" );
   mPagesCombo->insertItem( "50" );
   mPagesCombo->insertItem( "1000" );
 
-  l = new QLabel( mPagesCombo, i18n("Max. &results"), mAdvOptions );
-  hbox->addWidget( l );
-  hbox->addWidget( mPagesCombo );
+  l = new QLabel( mPagesCombo, i18n("Max. &results:"), this );
+  
+  hLayout->addWidget( l );
+  hLayout->addWidget( mPagesCombo );
 
-  vframebox->addSpacing( 10 );
+  hLayout = new QHBoxLayout( topLayout );
 
-  hbox = new QHBoxLayout( vframebox );
+  mScopeCombo = new QComboBox( this );
+  for (int i=0; i < ScopeNum; ++i ) {
+    mScopeCombo->insertItem( scopeSelectionLabel( i ) );
+  }
+  connect( mScopeCombo, SIGNAL( activated( int ) ),
+           SLOT( scopeSelectionChanged( int ) ) );
 
-  // insert toggle box checked status button
-  QPushButton *button = new QPushButton( "reload", mAdvOptions );
-  button->setPixmap(KGlobal::iconLoader()->loadIcon("reload", KIcon::Toolbar));
-  button->setFixedSize(button->sizeHint());
-  connect(button, SIGNAL(clicked()), this, SLOT(slotSwitchBoxes()));
-  hbox->addWidget( button );
+  l = new QLabel( mScopeCombo, i18n("&Scope selection:"), this );
 
-  hbox->addStretch();
-
-  // insert kcmshell launcher
-  QPushButton *kcmButton = new QPushButton( "kcmshell", mAdvOptions );
-  kcmButton->setPixmap(KGlobal::iconLoader()->loadIcon("package_settings", KIcon::Toolbar));
-  kcmButton->setFixedSize(button->sizeHint());
-  connect( kcmButton, SIGNAL( clicked() ), this, SLOT( slotIndex() ) );
-  hbox->addWidget( kcmButton );
+  hLayout->addWidget( l );
+  hLayout->addWidget( mScopeCombo );
 
   mScopeListView = new QListView( this );
   mScopeListView->setRootIsDecorated( true );
   mScopeListView->addColumn( i18n("Scope") );
-  vbox->addWidget( mScopeListView, 1 );
+  topLayout->addWidget( mScopeListView, 1 );
+
+  QPushButton *indexButton = new QPushButton( i18n("Create Search &Index..."),
+                                              this );
+  connect( indexButton, SIGNAL( clicked() ), SLOT( slotIndex() ) );
+  topLayout->addWidget( indexButton );
 
   connect( mScopeListView, SIGNAL( doubleClicked( QListViewItem * ) ),
            SLOT( scopeDoubleClicked( QListViewItem * ) ) );
@@ -145,6 +140,37 @@ void SearchWidget::slotSwitchBoxes()
       ScopeItem *item = static_cast<ScopeItem *>( it.current() );
       item->setOn( !item->isOn() );
       updateScopeItem( item );
+    }
+    ++it;
+  }
+
+  emit enableSearch( mScopeCount > 0 );
+}
+
+void SearchWidget::scopeSelectionChanged( int id )
+{
+  QListViewItemIterator it( mScopeListView );
+  while( it.current() ) {
+    if ( it.current()->rtti() == ScopeItem::rttiId() ) {
+      ScopeItem *item = static_cast<ScopeItem *>( it.current() );
+      bool state = item->isOn();
+      switch( id ) {
+        case ScopeDefault:
+          state = item->entry()->searchEnabledDefault();
+          break;
+        case ScopeAll:
+          state = true;
+          break;
+        case ScopeNone:
+          state = false;
+          break;
+        default:
+          break;
+      }
+      if ( state != item->isOn() ) {
+        item->setOn( state );
+        updateScopeItem( item );
+      }
     }
     ++it;
   }
@@ -291,6 +317,8 @@ void SearchWidget::scopeClicked( QListViewItem *item )
 //  kdDebug() << "SearchWidget::scopeClicked(): count: " << mScopeCount << endl;
 
   emit enableSearch( mScopeCount > 0 );
+
+  mScopeCombo->setCurrentItem( ScopeCustom );
 }
 
 void SearchWidget::updateScopeItem( ScopeItem *item )
@@ -309,6 +337,23 @@ void SearchWidget::updateScopeItem( ScopeItem *item )
     }
   }
 }
+
+QString SearchWidget::scopeSelectionLabel( int id ) const
+{
+  switch( id ) {
+    case ScopeCustom:
+      return i18n("Custom");
+    case ScopeDefault:
+      return i18n("Default");
+    case ScopeAll:
+      return i18n("All");
+    case ScopeNone:
+      return i18n("None");
+    default:
+      return i18n("unknown");
+  }
+}
+
 
 }
 // vim:ts=2:sw=2:et
