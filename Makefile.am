@@ -25,9 +25,12 @@ khelpcenter_SOURCES  = khelpcenterclient.cpp khelpcenter.idl
 
 idl_DATA    =  khelpcenter.idl
 
+main.cpp: khelpcenter.h
+
 messages:
 	$(XGETTEXT) -C -ki18n -x $(includedir)/kde.pot *.h *.cpp && mv messages.po ../../po/khelpcenter.pot
 	for subdir in $(SUBDIRS); do \
 	   echo "Making messages in $$subdir"; \
 	   (cd $$subdir && $(MAKE) -f Makefile.am messages) || exit 1; \
 	done
+
