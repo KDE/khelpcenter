@@ -39,37 +39,41 @@ QString HTMLSearch::readTitle(const char *filename)
   
     if (file.open(IO_ReadOnly))
     {
-	QTextStream stream(&file);
-	QString buffer;
-	int pos;
-	  
-	do
-	{
-	    buffer = stream.readLine();
-	    if (stream.eof())
-		return filename;
-	}
-	while ((pos = buffer.find("<TITLE>", 0, FALSE)) < 0);
-	  
-	title = buffer.right(buffer.length() - pos - 7);
+        QTextStream stream(&file);
+        QString buffer;
+        int pos;
+          
+        do
+        {
+            buffer = stream.readLine();
+            if (stream.eof())
+            return filename;
+        }
+        while ((pos = buffer.find("<TITLE>", 0, FALSE)) < 0);
 
-	if ((pos = title.find("</TITLE>", 0, FALSE )) > 0)
-	    title.truncate(pos);
-	else
-	{
-	    do
-	    {
-		buffer = stream.readLine();
-		title += buffer;
-		if (stream.eof())
-		    return title;
-	    }
-	    while ((pos = buffer.find("</TITLE>", 0, FALSE)) < 0);
-		  
-	    if ((pos = title.find("</TITLE>", 0, FALSE)) > 0)
-		title.truncate(pos);
-	}
+        if(pos>=0) {
+            title = buffer.right(buffer.length() - pos - 7);
+            if ((pos = title.find("</TITLE>", 0, FALSE )) >= 0)
+                title.truncate(pos);
+            else  {
+                if(pos!=0) {
+                    do {
+                        buffer = stream.readLine();
+                        title += buffer;
+                        if (stream.eof())
+                            return title;
+                    }
+                    while ((pos = buffer.find("</TITLE>", 0, FALSE)) < 0);
+                      
+                    if ((pos = title.find("</TITLE>", 0, FALSE)) >= 0)
+                    title.truncate(pos);
+                } 
+            }
+        }
     }
+    title.replace(QRegExp("^[ \n\r]"),"");
+    if(title.length()<=0)
+        return "Unnamed";
     return title;
 }
 
