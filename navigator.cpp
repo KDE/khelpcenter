@@ -696,7 +696,10 @@ void Navigator::slotItemSelected(QListViewItem* currentItem)
         // Enforce the original .docbook version, in case langLookup returns a
         // cached version
         if ( !doc.isNull() ) {
-          doc.replace( doc.find( ".html" ), 5, ".docbook" );
+          int pos = doc.find( ".html" );
+          if ( pos >= 0 ) {
+            doc.replace( pos, 5, ".docbook" );
+          }
           kdDebug( 1400 ) << "slotURLSelected(): doc = " << doc << endl;
 
           tocTree->build( doc );
