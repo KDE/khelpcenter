@@ -100,6 +100,7 @@ class khcNavigatorWidget : public QTabWidget
     void setupGlossaryTab();
     void buildTree();
     void clearTree();
+		QString langLookup(const QString &);
 
     void buildManSubTree(khcNavigatorItem *parent);
 

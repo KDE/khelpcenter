@@ -167,7 +167,7 @@ void khcNavigatorWidget::setupGlossaryTab()
 
 	addTab(glossaryTree, i18n("Glossary"));
 	
-	QFile glossFile("/home/frerich/tmp/glossary.docbook");
+  QFile glossFile(langLookup(QString::fromLatin1("khelpcenter/glossary/index.docbook")));
 	if (!glossFile.open(IO_ReadOnly))
 		return;
 
@@ -697,5 +697,45 @@ bool khcNavigatorWidget::processDir( const QString &dirName, khcNavigatorItem *p
     }
     return true;
 }
+
+QString khcNavigatorWidget::langLookup(const QString &fname)
+{
+    QStringList search;
+
+    // assemble the local search paths
+    const QStringList localDoc = KGlobal::dirs()->resourceDirs("html");
+
+    // look up the different languages
+    for (int id=localDoc.count()-1; id >= 0; --id)
+    {
+        QStringList langs = KGlobal::locale()->languageList();
+        langs.append("default");
+        langs.append("en");
+        QStringList::ConstIterator lang;
+        for (lang = langs.begin(); lang != langs.end(); ++lang)
+            search.append(QString("%1%2/%3").arg(localDoc[id]).arg(*lang).arg(fname));
+    }
+
+    // try to locate the file
+    QStringList::Iterator it;
+    for (it = search.begin(); it != search.end(); ++it)
+    {
+        kdDebug() << "Looking for help in: " << *it << endl;
+
+        QFileInfo info(*it);
+        if (info.exists() && info.isFile() && info.isReadable())
+            return *it;
+
+        QString file = (*it).left((*it).findRev('/')) + "/index.docbook";
+        kdDebug() << "Looking for help in: " << file << endl;
+        info.setFile(file);
+        if (info.exists() && info.isFile() && info.isReadable())
+            return *it;
+    }
+
+    return QString::null;
+}
+
+
 
 #include "khc_navigator.moc"
