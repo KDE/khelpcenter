@@ -66,7 +66,7 @@ int kdemain( int argc, char **argv )
 	                      HELPCENTER_VERSION,
 	                      I18N_NOOP("The KDE Help Center"),
 	                      KAboutData::License_GPL,
-	                      I18N_NOOP("(c) 1999-2002, The KHelpcenter developers") );
+	                      I18N_NOOP("(c) 1999-2002, The KHelpCenter developers") );
 
 	aboutData.addAuthor( "Cornelius Schumacher", 0, "schumacher@kde.org" );
 	aboutData.addAuthor( "Frerich Raabe", 0, "raabe@kde.org" );
