@@ -62,7 +62,7 @@ public:
 
   QString m_sTopic, m_sName, m_sTitle, m_sContents;
   QString m_sUp, m_sPrev, m_sNext;
-  list<khcInfoNode*> m_lChildren;
+  std::list<khcInfoNode*> m_lChildren;
 
 protected:
   bool fromHdrLine(QString sLine, uint flags);

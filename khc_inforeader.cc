@@ -43,7 +43,7 @@ uint khcInfoReader::getNextNode(khcInfoNode* pNode, uint flags)
   ASSERT(pNode);
   
   if (!m_bInitialized)
-    if (nResult = init())
+    if ((nResult = init()))
       return nResult;
 
   khcInfoFile* pFile = 0;

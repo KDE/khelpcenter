@@ -32,7 +32,7 @@
 
 #include <kdebug.h>
 
-struct isParent: binary_function<const khcInfoNode*, const khcInfoNode*, bool>
+struct isParent: std::binary_function<const khcInfoNode*, const khcInfoNode*, bool>
 { 
   bool operator()(const khcInfoNode* pPotentialChild, 
 	 	  const khcInfoNode* pPotentialParent) const
@@ -41,7 +41,7 @@ struct isParent: binary_function<const khcInfoNode*, const khcInfoNode*, bool>
   } 
 };  
 
-struct isNode: binary_function<const khcInfoNode*, QString, bool>
+struct isNode: std::binary_function<const khcInfoNode*, QString, bool>
 {
   bool operator()(const khcInfoNode* pNode, 
 		  QString sName) const
@@ -50,7 +50,7 @@ struct isNode: binary_function<const khcInfoNode*, QString, bool>
   }
 }; 
 
-struct isTop: unary_function<const khcInfoNode*, bool>
+struct isTop: std::unary_function<const khcInfoNode*, bool>
 {
   bool operator()(const khcInfoNode* pNode) const
   {
@@ -58,7 +58,7 @@ struct isTop: unary_function<const khcInfoNode*, bool>
   }
 }; 
 
-struct isFirstSibling: unary_function<const khcInfoNode*, bool>
+struct isFirstSibling: std::unary_function<const khcInfoNode*, bool>
 {
   bool operator()(const khcInfoNode* pNode) const
   {
@@ -66,7 +66,7 @@ struct isFirstSibling: unary_function<const khcInfoNode*, bool>
   }
 }; 
 
-struct isNextSibling: binary_function<const khcInfoNode*, 
+struct isNextSibling: std::binary_function<const khcInfoNode*, 
 		                      const khcInfoNode*, bool>
 {
   bool operator()(const khcInfoNode* pPrevSibling, 
@@ -90,9 +90,9 @@ khcInfoHierarchyMaker::~khcInfoHierarchyMaker()
 
 void khcInfoHierarchyMaker::clearNodesList()
 {
-  for (list<khcInfoNode*>::iterator it = m_lNodes.begin(); it != m_lNodes.end(); )
+  for (std::list<khcInfoNode*>::iterator it = m_lNodes.begin(); it != m_lNodes.end(); )
   {
-    list<khcInfoNode*>::iterator copyIt(it);
+    std::list<khcInfoNode*>::iterator copyIt(it);
     it++;
     delete *copyIt;
     m_lNodes.erase(copyIt);
@@ -181,7 +181,7 @@ bool khcInfoHierarchyMaker::makeHierarchy(khcInfoNode** ppTopNode,
 {
   // qDebug("--- makeHierarchy ---");
 
-  list<khcInfoNode*>::iterator topIt;
+  std::list<khcInfoNode*>::iterator topIt;
 
   if (topNodeName.isEmpty())
     topIt = find_if(m_lNodes.begin(), m_lNodes.end(), isTop());
@@ -212,10 +212,10 @@ void khcInfoHierarchyMaker::restoreChildren(khcInfoNode* pParentNode)
 {
   ASSERT(pParentNode);
 
-  list<khcInfoNode*>& L = pParentNode->m_lChildren;
-  for (list<khcInfoNode*>::iterator it = L.begin(); it != L.end(); )
+  std::list<khcInfoNode*>& L = pParentNode->m_lChildren;
+  for (std::list<khcInfoNode*>::iterator it = L.begin(); it != L.end(); )
   {
-    list<khcInfoNode*>::iterator copyIt(it);
+    std::list<khcInfoNode*>::iterator copyIt(it);
     it++;
     restoreChildren(*copyIt);
     L.erase(copyIt);
@@ -227,25 +227,25 @@ void khcInfoHierarchyMaker::restoreChildren(khcInfoNode* pParentNode)
 
 bool khcInfoHierarchyMaker::findChildren(khcInfoNode* pParentNode)
 {
-  list<khcInfoNode*>::iterator itAfterChildren = 
+  std::list<khcInfoNode*>::iterator itAfterChildren = 
     partition(m_lNodes.begin(), m_lNodes.end(), 
 	      bind2nd(isParent(), pParentNode));
-  list<khcInfoNode*>& L = pParentNode->m_lChildren;
+  std::list<khcInfoNode*>& L = pParentNode->m_lChildren;
   L.splice(L.begin(), m_lNodes, m_lNodes.begin(), itAfterChildren);
-  for (list<khcInfoNode*>::iterator it = L.begin(); it != L.end(); ++it)
+  for (std::list<khcInfoNode*>::iterator it = L.begin(); it != L.end(); ++it)
     if (!findChildren(*it))
       return false;
 
   return orderSiblings(pParentNode->m_lChildren);
 }
 
-bool khcInfoHierarchyMaker::orderSiblings(list<khcInfoNode*>& siblingsList)
+bool khcInfoHierarchyMaker::orderSiblings(std::list<khcInfoNode*>& siblingsList)
 {
   if (siblingsList.empty())
     return true;
 
   // Szukanie pierwszego elementu
-  list<khcInfoNode*>::iterator itFirst = 
+  std::list<khcInfoNode*>::iterator itFirst = 
     find_if(siblingsList.begin(), siblingsList.end(), isFirstSibling());
   if (itFirst == siblingsList.end())
     // Nie znaleziono "pierwszego" elementu
@@ -256,13 +256,13 @@ bool khcInfoHierarchyMaker::orderSiblings(list<khcInfoNode*>& siblingsList)
   }
   siblingsList.splice(siblingsList.begin(), siblingsList, itFirst);
 
-  list<khcInfoNode*>::iterator itStart = ++siblingsList.begin();
+  std::list<khcInfoNode*>::iterator itStart = ++siblingsList.begin();
   while (itStart != siblingsList.end())
   {
-    list<khcInfoNode*>::iterator itPrev = itStart;
+    std::list<khcInfoNode*>::iterator itPrev = itStart;
     --itPrev;
 
-    list<khcInfoNode*>::iterator itNext =
+    std::list<khcInfoNode*>::iterator itNext =
       find_if(itStart, siblingsList.end(),
 	      bind1st(isNextSibling(), *itPrev));
     if (itNext == siblingsList.end())

@@ -145,10 +145,10 @@ khcNavigatorWidget::khcNavigatorWidget(QWidget *parent, const char *name)
 khcNavigatorWidget::~khcNavigatorWidget()
 {
   // ACHU
-  for (map<khcNavigatorItem*, khcInfoHierarchyMaker*>::iterator it = hierarchyMakers.begin();
+  for (std::map<khcNavigatorItem*, khcInfoHierarchyMaker*>::iterator it = hierarchyMakers.begin();
        it != hierarchyMakers.end(); )
   {
-    map<khcNavigatorItem*, khcInfoHierarchyMaker*>::iterator copyIt(it);
+    std::map<khcNavigatorItem*, khcInfoHierarchyMaker*>::iterator copyIt(it);
     it++;
     delete copyIt->second;
     hierarchyMakers.erase(copyIt);
@@ -840,8 +840,8 @@ void khcNavigatorWidget::slotItemExpanded(QListViewItem* index)
     return;
 
   QListViewItem* parent;
-  if (parent = index->parent()) // it _is_ an assignment, not a comparison !
-    if (parent = parent->parent()) // it _is_ an assignment, not a comparison !
+  if ((parent = index->parent())) // it _is_ an assignment, not a comparison !
+    if ((parent = parent->parent())) // it _is_ an assignment, not a comparison !
       // item is at least on the third level of the tree
       if (parent->text(0) == i18n("Browse info pages") && index->childCount() == 0)
 	// it is an unexpanded info subject's root node. Let's check if we are have already started to create the hierarchy.
@@ -948,7 +948,7 @@ void khcNavigatorWidget::slotInfoHierarchyCreated(uint key, uint nErrorCode, con
 void khcNavigatorWidget::addChildren(const khcInfoNode* pParentNode, khcNavigatorItem* pParentTreeItem)
 {
   khcNavigatorItem* pLastChild = 0;
-  for (list<khcInfoNode*>::const_iterator it = pParentNode->m_lChildren.begin();
+  for (std::list<khcInfoNode*>::const_iterator it = pParentNode->m_lChildren.begin();
        it != pParentNode->m_lChildren.end(); ++it)
   {
     //    khcNavigatorItem *pItem = new khcNavigatorItem(pParentTreeItem, pLastChild, (*it)->m_sTitle, "document2");
@@ -965,10 +965,10 @@ void khcNavigatorWidget::addChildren(const khcInfoNode* pParentNode, khcNavigato
 void khcNavigatorWidget::slotCleanHierarchyMakers()
 {
   kdDebug() << "--- slotCleanHierarchyMakers ---" << endl;
-  for (map<khcNavigatorItem*, khcInfoHierarchyMaker*>::iterator it = hierarchyMakers.begin();
+  for (std::map<khcNavigatorItem*, khcInfoHierarchyMaker*>::iterator it = hierarchyMakers.begin();
        it != hierarchyMakers.end(); )
   {
-    map<khcNavigatorItem*, khcInfoHierarchyMaker*>::iterator copyIt(it);
+    std::map<khcNavigatorItem*, khcInfoHierarchyMaker*>::iterator copyIt(it);
     it++;
     if (!copyIt->second->isWorking())
     {

@@ -131,18 +131,18 @@ bool khcInfoNode::fromHdrLine(QString sLine, uint flags)
   // Lista bedzie zawierac ciagi typu "Node: xxx"
   QStringList itemsList = QStringList::split(",  ", sLine);
   // Mapa bedzie zawierac elementy typu "Node" => "xxx"
-  map<QString, QString> valuesMap;
+  std::map<QString, QString> valuesMap;
   for (QStringList::Iterator listIt = itemsList.begin(); 
        listIt != itemsList.end(); ++listIt) 
   {
     QStringList tempList = QStringList::split(": ", *listIt);
     if (tempList.count() == 2)
-      valuesMap.insert(pair<QString, QString>(tempList[0], tempList[1]));
+      valuesMap.insert(std::pair<QString, QString>(tempList[0], tempList[1]));
   }
 
   bool bNameFound = false;
 
-  for (map<QString, QString>::iterator mapIt = valuesMap.begin(); 
+  for (std::map<QString, QString>::iterator mapIt = valuesMap.begin(); 
        mapIt != valuesMap.end(); ++mapIt)
   {
     if (mapIt->first == "Node")
@@ -176,7 +176,7 @@ bool khcInfoNode::fromHdrLine(QString sLine, uint flags)
 
 void khcInfoNode::dumpChildren(unsigned int nLevel) const
 {
-  for (list<khcInfoNode*>::const_iterator it = m_lChildren.begin(); 
+  for (std::list<khcInfoNode*>::const_iterator it = m_lChildren.begin(); 
        it != m_lChildren.end(); ++it)
   {
     QString sTabs;

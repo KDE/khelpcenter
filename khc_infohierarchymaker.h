@@ -78,11 +78,11 @@ protected:
   void clearNodesList();
   bool makeHierarchy(khcInfoNode** ppTopNode, QString topNodeName = "");
   bool findChildren(khcInfoNode* pParentNode);
-  bool orderSiblings(list<khcInfoNode*>& siblingsList);
+  bool orderSiblings(std::list<khcInfoNode*>& siblingsList);
   void restoreChildren(khcInfoNode* pParentNode);
 
   khcInfoReader m_infoReader;
-  list<khcInfoNode*> m_lNodes;
+  std::list<khcInfoNode*> m_lNodes;
 
   QTimer m_timer;
   QString m_root;

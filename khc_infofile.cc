@@ -102,7 +102,7 @@ uint khcInfoFile::getIndirectTable(QStringList& lFileNames)
   uint nResult;
 
   if (!m_bInitialized)
-    if (nResult = init()) // it _is_ an assignment, not a comparison
+    if ((nResult = init())) // it _is_ an assignment, not a comparison
       return nResult;
 
   const QString INDIRECT_HDR = "\37\nIndirect:\n";
@@ -141,7 +141,7 @@ uint khcInfoFile::getNextNode(khcInfoNode* pNode, uint flags)
   uint nResult;
 
   if (!m_bInitialized)
-    if (nResult = init())  // it _is_ an assignment, not a comparison
+    if ((nResult = init()))  // it _is_ an assignment, not a comparison
       return nResult;
 
   const QString NODE_HDR_BEGIN("\37\nFile: ");

@@ -175,7 +175,7 @@ class khcNavigatorWidget : public QTabWidget
 
     // ACHU
     regex_t compInfoRegEx;
-    map<khcNavigatorItem*, khcInfoHierarchyMaker*> hierarchyMakers;
+    std::map<khcNavigatorItem*, khcInfoHierarchyMaker*> hierarchyMakers;
     QTimer cleaningTimer;
     // END ACHU
 
