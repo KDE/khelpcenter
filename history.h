@@ -41,6 +41,8 @@ class History : public QObject
     friend class foo; // to make gcc shut up
     struct Entry
     {
+      Entry() : view( 0 ), search( false ) {}
+
       View *view;
       KURL url;
       QString title;

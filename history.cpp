@@ -104,7 +104,11 @@ void History::createEntry()
         m_entries.at( m_entries.count() - 1 );
     }
     // Now current is the current again.
+
+    // If current entry is empty reuse it.
+    if ( !current->view ) return;
   }
+
   // Append a new entry
   m_entries.append( new Entry ); // made current
   Q_ASSERT( m_entries.at() == (int) m_entries.count() - 1 );
@@ -191,11 +195,20 @@ void History::goHistory( int steps )
 {
   kdDebug() << "History::goHistory(): " << steps << endl;
 
+  // If current entry is empty remove it.
+  Entry *current = m_entries.current();
+  if ( current && !current->view ) m_entries.remove();
+
   int newPos = m_entries.at() + steps;
 
-  Entry *current = m_entries.at( newPos );
+  current = m_entries.at( newPos );
   if ( !current ) {
     kdError() << "No History entry at position " << newPos << endl;
+    return;
+  }
+
+  if ( !current->view ) {
+    kdWarning() << "Empty history entry." << endl;
     return;
   }
 
