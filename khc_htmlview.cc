@@ -22,6 +22,10 @@
 
 #include <kcursor.h>
 #include <kapp.h>
+#include <klocale.h>
+#include <kpixmapcache.h>
+
+#include <qclipboard.h>
 
 #include <opUIUtils.h>
 
@@ -92,7 +96,7 @@ bool khcHTMLView::mappingFillMenuView(Browser::View::EventFillMenu_ptr viewMenu)
   return true;
 }
 
-bool KonqHTMLView::mappingFillMenuEdit( Browser::View::EventFillMenu_ptr editMenu)
+bool khcHTMLView::mappingFillMenuEdit( Browser::View::EventFillMenu_ptr editMenu)
 {
   m_vEditMenu = OpenPartsUI::Menu::_duplicate(editMenu);
   if (!CORBA::is_nil(editMenu))
@@ -104,7 +108,7 @@ bool KonqHTMLView::mappingFillMenuEdit( Browser::View::EventFillMenu_ptr editMen
   return true;
 }
 
-bool KonqHTMLView::mappingFillToolBar(Browser::View::EventFillToolBar viewToolBar)
+bool khcHTMLView::mappingFillToolBar(Browser::View::EventFillToolBar viewToolBar)
 {
   if (CORBA::is_nil(viewToolBar.toolBar))
     return true;
