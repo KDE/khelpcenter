@@ -3,29 +3,18 @@ SUBDIRS = plugins pics
 INCLUDES = $(all_includes)
 METASOURCES = AUTO
 
-bin_PROGRAMS = khelpcenter khc_indexbuilder
-
-khelpcenter_LDFLAGS = $(all_libraries) $(KDE_RPATH)
-khelpcenter_LDADD   = libkhelpcenter_common.la
-khelpcenter_SOURCES = main.cpp
+bin_PROGRAMS = khc_indexbuilder
+lib_LTLIBRARIES = 
 
 khc_indexbuilder_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 khc_indexbuilder_LDADD = libkhelpcenter_common.la
 khc_indexbuilder_SOURCES = khc_indexbuilder.cpp
 
-noinst_LTLIBRARIES = libkhelpcenter_common.la
-kde_module_LTLIBRARIES = khelpcenter.la # kcm_helpcenter.la
+kdeinit_LTLIBRARIES = khelpcenter.la # kcm_helpcenter.la
 
-khelpcenter_la_LDFLAGS = $(all_libraries) $(KDE_RPATH) -module $(KDE_PLUGIN)
-khelpcenter_la_LIBADD  = libkhelpcenter_common.la
-khelpcenter_la_SOURCES = dummy.cpp
-
-dummy.cpp:
-	echo > $@
-
-libkhelpcenter_common_la_LDFLAGS = $(all_libraries) -no-undefined
-libkhelpcenter_common_la_LIBADD = $(LIB_KHTML)
-libkhelpcenter_common_la_SOURCES = navigator.cpp \
+khelpcenter_la_LDFLAGS = $(all_libraries) -module $(KDE_PLUGIN)
+khelpcenter_la_LIBADD = $(LIB_KHTML)
+khelpcenter_la_SOURCES = navigator.cpp \
 	navigatoritem.cpp navigatorappitem.cpp view.cpp \
 	searchwidget.cpp klanguagebutton.cpp searchengine.cpp \
 	docmetainfo.cpp docentrytraverser.cpp formatter.cpp \
