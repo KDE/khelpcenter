@@ -1,0 +1,6 @@
+# KDE Config File
+[KDE Desktop Entry]
+Name=A Visual Guide to KDE
+Comment=Guide to KDE widgets
+Icon=helpdoc
+DocPath=khelpcenter/visualdict/index.html
