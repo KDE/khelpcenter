@@ -1,6 +1,4 @@
 - rewrite bookmark system
-- KHelpCenter::TextSearchExtension ?!
-- write man-Browser and info_Browser View (seperate binary, Browser::View interface)
 - rewrite khc_navigator (+ add CORBA interface -> navigator plugins)
 - rewrite kcmhelpcenter
 - hack a Browser::View interface into kdvi and kghostview

@@ -23,11 +23,12 @@ lib_LTLIBRARIES = libkhc.la
 libkhc_la_LDFLAGS = $(all_libraries) -version-info 1:0
 libkhc_la_LIBADD = -lkparts
 
-libkhc_la_SOURCES = browser.idl khc_baseview.cc khc_history.cc
+libkhc_la_SOURCES = browser.idl khc_baseview.cc khc_history.cc khc_finddlg.cc
 
-include_HEADERS = khc_history.h khc_baseview.h
+include_HEADERS = khc_history.h khc_baseview.h khc_finddlg.h
 
 DISTCLEANFILES = browser.cc browser.h
+METASOURCES = khc_finddlg.moc
 
 browser_IDLDIR = $(idldir)
 

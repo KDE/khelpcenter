@@ -1,21 +1,23 @@
-/* This file is part of the KDE libraries
-    Copyright (C) 1998 Martin Jones (mjones@kde.org)
-
-    This library is free software; you can redistribute it and/or
-    modify it under the terms of the GNU Library General Public
-    License as published by the Free Software Foundation; either
-    version 2 of the License, or (at your option) any later version.
-
-    This library is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-    Library General Public License for more details.
-
-    You should have received a copy of the GNU Library General Public License
-    along with this library; see the file COPYING.LIB.  If not, write to
-    the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
-    Boston, MA 02111-1307, USA.
-*/
+/*
+ *  khc_finddlg.cc - part of the KDE HelpCenter
+ *
+ *  Copyright (c) 1999 Matthias Elter (me@kde.org)
+ *  Copyright (C) 1998 Martin Jones (mjones@kde.org)
+ *
+ *  This program is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 2 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program; if not, write to the Free Software
+ *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ */
 
 #include <qpushbutton.h>
 #include <qcheckbox.h>
@@ -23,7 +25,7 @@
 #include <qlineedit.h>
 #include <qlayout.h>
 #include <kapp.h>
-#include "finddlg.h"
+#include "khc_finddlg.h"
 #include <klocale.h>
 
 KFindTextDialog::KFindTextDialog( QWidget *parent, const char *name )
@@ -101,4 +103,4 @@ void KFindTextDialog::slotFind()
     emit find( rExp );
 }
 
-#include "finddlg.moc"
+#include "khc_finddlg.moc"

@@ -42,6 +42,10 @@
 
 #include <opFrame.h>
 #include <opUIUtils.h>
+#include <opMenuBarManager.h>
+#include <opToolBarManager.h>
+#include <opStatusBarManager.h>
+#include <opMenu.h>
 
 // static list of khcMainWindow windows:
 QList<khcMainWindow> khcMainWindow::helpWindowList;
@@ -53,9 +57,18 @@ khcMainWindow::khcMainWindow(const QString& url)
     
     resize(800, 580);
     setMinimumSize(200, 100);
+
+    connect(this, SIGNAL(activePartChanged(unsigned long, unsigned long)),
+	    this, SLOT(slotActivePartChanged(unsigned long, unsigned long)));
     
     // setup UI
     setupView();
+
+    // dummy calls to create the UI managers
+    (void)menuBarManager();
+    (void)toolBarManager();
+    (void)statusBarManager();
+
     setupMenuBar();
     setupToolBar();
     setupLocationBar();
@@ -90,6 +103,16 @@ khcMainWindow::~khcMainWindow()
   delete m_pNavigator;
   if (m_pSplitter)
     delete m_pSplitter;
+}
+
+void khcMainWindow::slotActivePartChanged( unsigned long new_id, unsigned long /*old_id*/ )
+{
+  menuBarManager()->clear();
+  toolBarManager()->clear();
+  statusBarManager()->clear();
+  menuBarManager()->create(new_id);
+  toolBarManager()->create(new_id);
+  statusBarManager()->create(new_id);
 }
 
 OPMainWindowIf* khcMainWindow::interface()

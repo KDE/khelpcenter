@@ -146,13 +146,15 @@ class khcMainWindow : public OPMainWindow
     void slotMagPlus();
     void slotStopProcessing();
 
- private slots:
+ protected slots:
+
     void slotLocationEntered();
     void slotHistoryFillBack();
     void slotHistoryFillForward();
     void slotHistoryBackActivated(int id);
     void slotHistoryForwardActivated(int id);
-
+    void slotActivePartChanged(unsigned long new_id, unsigned long /*old_id*/ );
+ 
  protected:
     QSplitter       *m_pSplitter;
     khcNavigator    *m_pNavigator;
