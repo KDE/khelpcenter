@@ -26,6 +26,7 @@
 #include <klocale.h>
 #include <ktempfile.h>
 #include <kstddirs.h>
+#include <kcmdlineargs.h>
 
 #include <qdir.h>
 #include <qfile.h>
@@ -33,6 +34,11 @@
 
 #include "khc_main.h"
 #include "KonquerorIface_stub.h"
+
+#include "version.h"
+
+static const char *description = 
+	I18N_NOOP("KDE Help Center");
 
 void Listener::slotAppRegistered( const QCString &appId )
 {
@@ -73,7 +79,10 @@ void Listener::slotAppRegistered( const QCString &appId )
 
 int main(int argc, char *argv[])
 {
-  KApplication app( argc, argv, "khelpcenter", false );
+  KCmdLineArgs::init(argc, argv, "khelpcenter", description, 
+		 HELPCENTER_VERSION );
+
+  KApplication app;
 
   app.dcopClient()->attach();
 
