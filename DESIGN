@@ -279,4 +279,9 @@ protocol == "help") by itself and otherwise use the plain URL.
 # - is it possible to map the WinID of the window the user clicked on to
 # the process name we should send your DCOP call to?
 
+## One thing we should also keep in mind is that it might be useful to provide
+## the help center as a component. FOr example KDevelop has a very similar
+## thing. It would be much nicer, if it could reuse the KHelpcenter code. This
+## would probbaly also mean to at a DoxygenTreeBuilder or something similar.
+
 // vim:tw=78
