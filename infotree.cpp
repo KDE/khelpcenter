@@ -84,9 +84,6 @@ void InfoTree::build( NavigatorItem *parent )
 
   m_parentItem = parent;
 
-  connect( parent->listView(), SIGNAL( currentChanged( QListViewItem * ) ),
-           this, SLOT( slotItemSelected( QListViewItem * ) ) );
-
   KConfig *cfg = kapp->config();
   cfg->setGroup( "Info pages" );
   QStringList infoDirFiles = cfg->readListEntry( "Search paths" );
@@ -102,7 +99,7 @@ void InfoTree::build( NavigatorItem *parent )
     infoDirFiles << "/usr/X11R6/lib/xemacs/info";
   }
 
-  QString infoPath = getenv( "INFOPATH" );
+  QString infoPath = ::getenv( "INFOPATH" );
   if ( !infoPath.isEmpty() )
     infoDirFiles += QStringList::split( ':', infoPath );
 
@@ -154,15 +151,6 @@ void InfoTree::parseInfoDirFile( const QString &infoDirFileName )
     }
   }
   infoDirFile.close();
-} 
-
-void InfoTree::slotItemSelected( QListViewItem *item )
-{
-  InfoNodeItem *nodeItem;
-  if ( ( nodeItem = dynamic_cast<InfoNodeItem *>( item ) ) ) {
-    kdDebug() << "Selected info node item with URL " << nodeItem->url() << endl;
-    emit urlSelected( KURL( nodeItem->url() ) );
-  }
 }
 
 #include "infotree.moc"

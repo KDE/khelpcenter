@@ -37,12 +37,6 @@ namespace KHC
 
       virtual void build( NavigatorItem  *parentItem );
 
-    signals:
-      void infoPageSelected( const KURL &url );
-
-    private slots:
-      void slotItemSelected( QListViewItem *item );
-
     private:
       void parseInfoDirFile( const QString &fileName );
 
