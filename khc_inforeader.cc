@@ -131,7 +131,7 @@ bool khcInfoReader::getRealFileName(QString baseName, QString& realName)
 
   QString sPossibleNames[6] = { baseName };
   QRegExp reEndsWithInfo("^(.+)\\.info$");
-  if (reEndsWithInfo.match(baseName, 0) == 0)
+  if (reEndsWithInfo.exactMatch(baseName))
     sPossibleNames[3] = baseName.left(baseName.length() - 5);
   else
     sPossibleNames[3] = baseName + ".info";
