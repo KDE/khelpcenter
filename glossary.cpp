@@ -84,7 +84,7 @@ Glossary::Glossary( QWidget *parent ) : KListView( parent )
 	setAllColumnsShowFocus( true );
 	setRootIsDecorated( true );
 
-	m_byTopicItem = new KListViewItem( this, i18n( "By topic" ) );
+	m_byTopicItem = new KListViewItem( this, i18n( "By Topic" ) );
 	m_byTopicItem->setPixmap( 0, SmallIcon( "help" ) );
 
 	m_alphabItem = new KListViewItem( this, i18n( "Alphabetically" ) );
