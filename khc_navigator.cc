@@ -112,17 +112,17 @@ void khcNavigator::setupSearchTab()
 void khcNavigator::buildTree()
 {
   // kde contacts
-  khcNavigatorItem *ti_contact = new khcNavigatorItem(tree, i18n("Contact Information"), "helpdoc.xpm");
+  khcNavigatorItem *ti_contact = new khcNavigatorItem(tree, i18n("Contact Information"), "helpdoc.png");
   ti_contact->setURL(QString("file:" + locate("html", "default/khelpcenter/contact.html")));
   staticItems.append(ti_contact);  
   
   // kde links
-  khcNavigatorItem *ti_links = new khcNavigatorItem(tree, i18n("KDE on the web"), "helpdoc.xpm");
+  khcNavigatorItem *ti_links = new khcNavigatorItem(tree, i18n("KDE on the web"), "helpdoc.png");
   ti_links->setURL(QString("file:" + locate("html", "default/khelpcenter/links.html")));
   staticItems.append(ti_links);
 
   // KDE FAQ
-  khcNavigatorItem *ti_faq = new khcNavigatorItem(tree, i18n("The KDE FAQ"), "helpdoc.xpm");
+  khcNavigatorItem *ti_faq = new khcNavigatorItem(tree, i18n("The KDE FAQ"), "helpdoc.png");
   ti_faq->setURL(QString("file:" + locate("html", "default/khelpcenter/faq/index.html")));
   staticItems.append(ti_faq);
 
@@ -130,12 +130,12 @@ void khcNavigator::buildTree()
   insertPlugins();
   
   // info browser 
-  khcNavigatorItem *ti_info = new khcNavigatorItem(tree, i18n("Browse info pages"), "helpdoc.xpm");
+  khcNavigatorItem *ti_info = new khcNavigatorItem(tree, i18n("Browse info pages"), "helpdoc.png");
   ti_info->setURL(QString("file:/cgi-bin/info2html"));
   staticItems.append(ti_info);
 
   // unix man pages
-  khcNavigatorItem *ti_man = new khcNavigatorItem(tree, i18n("Unix manual pages"), "helpbook.xpm");
+  khcNavigatorItem *ti_man = new khcNavigatorItem(tree, i18n("Unix manual pages"), "helpbook.png");
   ti_man->setURL(QString("man:/(index)"));
   staticItems.append(ti_man);
 
@@ -143,24 +143,24 @@ void khcNavigator::buildTree()
   buildManSubTree(ti_man);
 
   // application manuals
-  khcNavigatorItem *ti_manual = new khcNavigatorItem(tree, i18n("Application manuals"), "helpbook.xpm");
+  khcNavigatorItem *ti_manual = new khcNavigatorItem(tree, i18n("Application manuals"), "helpbook.png");
   staticItems.append(ti_manual);
 
   // fill the application manual subtree
   buildManualSubTree(ti_manual);
 
   // KDE user's manual
-  khcNavigatorItem *ti_um = new khcNavigatorItem(tree, i18n("KDE user's manual"), "helpdoc.xpm");
+  khcNavigatorItem *ti_um = new khcNavigatorItem(tree, i18n("KDE user's manual"), "helpdoc.png");
   ti_um->setURL(QString("file:" + locate("html", "default/khelpcenter/userguide/index.html")));
   staticItems.append(ti_um);
  
   // KDE quickstart guide
-  khcNavigatorItem *ti_qs = new khcNavigatorItem(tree, i18n("Introduction to KDE"), "helpdoc.xpm");
+  khcNavigatorItem *ti_qs = new khcNavigatorItem(tree, i18n("Introduction to KDE"), "helpdoc.png");
   ti_qs->setURL(QString("file:" + locate("html", "default/khelpcenter/quickstart/index.html")));
   staticItems.append(ti_qs);
 
   // introduction page
-  khcNavigatorItem *ti_intro = new khcNavigatorItem(tree, i18n("Introduction"), "helpdoc.xpm");
+  khcNavigatorItem *ti_intro = new khcNavigatorItem(tree, i18n("Introduction"), "helpdoc.png");
   ti_intro->setURL(QString("file:" + locate("html", "default/khelpcenter/main.html")));
   staticItems.append(ti_intro);
     
@@ -184,51 +184,51 @@ void khcNavigator::clearTree()
 void khcNavigator::buildManSubTree(khcNavigatorItem *parent)
 {
   // man(n)
-  khcNavigatorItem *ti_man_sn = new khcNavigatorItem(parent, "(n) New", "helpdoc.xpm");
+  khcNavigatorItem *ti_man_sn = new khcNavigatorItem(parent, "(n) New", "helpdoc.png");
   ti_man_sn->setURL(QString("man:/(n)"));
   staticItems.append(ti_man_sn);
 
   // man(9)
-  khcNavigatorItem *ti_man_s9 = new khcNavigatorItem(parent, "(9) Kernel", "helpdoc.xpm");
+  khcNavigatorItem *ti_man_s9 = new khcNavigatorItem(parent, "(9) Kernel", "helpdoc.png");
   ti_man_s9->setURL(QString("man:/(9)"));
   staticItems.append(ti_man_s9);
 
   // man(8)
-  khcNavigatorItem *ti_man_s8 = new khcNavigatorItem(parent, "(8) Sys. Administration", "helpdoc.xpm");
+  khcNavigatorItem *ti_man_s8 = new khcNavigatorItem(parent, "(8) Sys. Administration", "helpdoc.png");
   ti_man_s8->setURL(QString("man:/(8)"));
   staticItems.append(ti_man_s8);
   
   // man(7)
-  khcNavigatorItem *ti_man_s7 = new khcNavigatorItem(parent, "(7) Miscellaneous", "helpdoc.xpm");
+  khcNavigatorItem *ti_man_s7 = new khcNavigatorItem(parent, "(7) Miscellaneous", "helpdoc.png");
   ti_man_s7->setURL(QString("man:/(7)"));
   staticItems.append(ti_man_s7);
   
   // man(6)
-  khcNavigatorItem *ti_man_s6 = new khcNavigatorItem(parent, "(6) Games", "helpdoc.xpm");
+  khcNavigatorItem *ti_man_s6 = new khcNavigatorItem(parent, "(6) Games", "helpdoc.png");
   ti_man_s6->setURL(QString("man:/(6)"));
   staticItems.append(ti_man_s6);
 
   // man(5)
-  khcNavigatorItem *ti_man_s5 = new khcNavigatorItem(parent, "(5) File Formats", "helpdoc.xpm");
+  khcNavigatorItem *ti_man_s5 = new khcNavigatorItem(parent, "(5) File Formats", "helpdoc.png");
   ti_man_s5->setURL(QString("man:/(5)"));
   staticItems.append(ti_man_s5);
   
   // man(4)
-  khcNavigatorItem *ti_man_s4 = new khcNavigatorItem(parent, "(4) Devices", "helpdoc.xpm");
+  khcNavigatorItem *ti_man_s4 = new khcNavigatorItem(parent, "(4) Devices", "helpdoc.png");
   ti_man_s4->setURL(QString("man:/(4)"));
   staticItems.append(ti_man_s4);
 
   // man(3)
-  khcNavigatorItem *ti_man_s3 = new khcNavigatorItem(parent, "(3) Subroutines", "helpdoc.xpm");
+  khcNavigatorItem *ti_man_s3 = new khcNavigatorItem(parent, "(3) Subroutines", "helpdoc.png");
   ti_man_s3->setURL(QString("man:/(3)"));
   staticItems.append(ti_man_s3);
 
   // man(2)
-  khcNavigatorItem *ti_man_s2 = new khcNavigatorItem(parent, "(2) System calls", "helpdoc.xpm");
+  khcNavigatorItem *ti_man_s2 = new khcNavigatorItem(parent, "(2) System calls", "helpdoc.png");
   ti_man_s2->setURL(QString("man:/(2)"));
   staticItems.append(ti_man_s2);
   // man (1)
-  khcNavigatorItem *ti_man_s1 = new khcNavigatorItem(parent, "(1) User commands", "helpdoc.xpm");
+  khcNavigatorItem *ti_man_s1 = new khcNavigatorItem(parent, "(1) User commands", "helpdoc.png");
   ti_man_s1->setURL(QString("man:/(1)"));
   staticItems.append(ti_man_s1);
 
@@ -399,12 +399,12 @@ bool khcNavigator::processDir( const char *dirName, khcNavigatorItem *parent,  Q
 
 	    //icon = sc.readEntry("MiniIcon");
 	    //if (icon.isEmpty())
-	    icon = "helpbook.xpm";
+	    icon = "helpbook.png";
 	}
 	else
 	{
 	    folderName = *itDir;
-	    icon = "helpbook.xpm";
+	    icon = "helpbook.png";
 	}
 	  
 	khcNavigatorItem *dirItem = new khcNavigatorItem(parent, folderName, icon);

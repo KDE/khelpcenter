@@ -242,17 +242,17 @@ bool khcMainView::mappingCreateMenubar(OpenPartsUI::MenuBar_ptr menuBar)
   m_vMenuFile->insertSeparator(-1);
   
   // open file...
-  pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("fileopen.xpm"));
+  pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("fileopen.png"));
   text = Q2C(i18n("&Open file..."));
   m_vMenuFile->insertItem6(pix, text, this, "slotOpenFile", stdAccel.open(), MFILE_OPENFILE, -1);
   
   // reload
-  pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("reload.xpm"));
+  pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("reload.png"));
   text = Q2C(i18n("&Reload"));
   m_vMenuFile->insertItem6(pix, text, this, "slotReload", Key_F5, MFILE_RELOAD, -1);
   
   // print
-  pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("fileprint.xpm"));
+  pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("fileprint.png"));
   text = Q2C(i18n("&Print"));
   m_vMenuFile->insertItem6(pix, text, this, "slotPrint", stdAccel.print(), MFILE_PRINT, -1);
   
@@ -280,12 +280,12 @@ bool khcMainView::mappingCreateMenubar(OpenPartsUI::MenuBar_ptr menuBar)
   menuBar->insertMenu(text, m_vMenuGo, -1, -1);
 
   // back
-  pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("back.xpm"));
+  pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("back.png"));
   text = Q2C(i18n("&Back"));
   m_vMenuGo->insertItem6(pix, text, this, "slotBack", 0, MGO_BACK, -1);
   
   // forward
-  pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("forward.xpm"));
+  pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("forward.png"));
   text = Q2C(i18n("&Forward"));
   m_vMenuGo->insertItem6(pix, text, this, "slotForward", 0, MGO_FORWARD, -1);
   
@@ -293,7 +293,7 @@ bool khcMainView::mappingCreateMenubar(OpenPartsUI::MenuBar_ptr menuBar)
   m_vMenuGo->insertSeparator(-1);
   
   // introduction
-  pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("home.xpm"));
+  pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("home.png"));
   text = Q2C(i18n("&Introduction"));
   m_vMenuGo->insertItem6(pix, text, this, "slotIntroduction", 0, MGO_INTRODUCTION, -1);
   
@@ -330,7 +330,7 @@ bool khcMainView::mappingCreateMenubar(OpenPartsUI::MenuBar_ptr menuBar)
   m_vMenuOptions->insertSeparator(-1);
   
   // settings
-  pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("kde1.xpm"));
+  pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("kde1.png"));
   text = Q2C(i18n("&Settings..."));
   m_vMenuOptions->insertItem6(pix, text, this, "slotSettings", 0, MOPTIONS_SETTINGS, -1);
   
@@ -394,7 +394,7 @@ bool khcMainView::mappingCreateToolbar(OpenPartsUI::ToolBarFactory_ptr factory)
   
   // show/hide navigator
   text = Q2C(i18n("Navigator"));
-  pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("hidenavigator.xpm"));
+  pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("hidenavigator.png"));
   m_vToolBar->insertButton2(pix, TB_NAVIGATOR, SIGNAL(clicked()), this, "slotShowNavigator", true, text, -1);
 
   // seperator
@@ -402,7 +402,7 @@ bool khcMainView::mappingCreateToolbar(OpenPartsUI::ToolBarFactory_ptr factory)
   
   // back
   text = Q2C(i18n("Back"));
-  pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("back.xpm"));
+  pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("back.png"));
   m_vToolBar->insertButton2(pix, TB_BACK, SIGNAL(clicked()), this, "slotBack", false, text, -1);
   m_vToolBar->setDelayedPopup(TB_BACK, m_vHistoryBackMenu);
   m_vToolBar->setItemEnabled(TB_BACK, false);
@@ -411,7 +411,7 @@ bool khcMainView::mappingCreateToolbar(OpenPartsUI::ToolBarFactory_ptr factory)
 
   // forward
   text = Q2C(i18n("Forward"));
-  pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("forward.xpm"));
+  pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("forward.png"));
   m_vToolBar->insertButton2(pix, TB_FORWARD, SIGNAL(clicked()), this, "slotForward", false, text, -1);
   m_vToolBar->setDelayedPopup(TB_FORWARD, m_vHistoryForwardMenu);
   m_vToolBar->setItemEnabled(TB_FORWARD, false);
@@ -423,17 +423,17 @@ bool khcMainView::mappingCreateToolbar(OpenPartsUI::ToolBarFactory_ptr factory)
 
   // reload
   text = Q2C(i18n("Reload"));
-  pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("reload.xpm"));
+  pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("reload.png"));
   m_vToolBar->insertButton2(pix, TB_RELOAD, SIGNAL(clicked()), this, "slotReload", true, text, -1);
    
   // stop
   text = Q2C(i18n("Stop"));
-  pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("stop.xpm"));
+  pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("stop.png"));
   m_vToolBar->insertButton2(pix, TB_STOP, SIGNAL(clicked()), this, "slotStop", false, text, -1);
 
   // bookmark
   text = Q2C(i18n("Bookmark"));
-  pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("flag.xpm"));
+  pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("flag.png"));
   m_vToolBar->insertButton2(pix, TB_BOOKMARK, SIGNAL(clicked()), this, "slotBookmark", true, text, -1);
 
   // seperator
@@ -441,12 +441,12 @@ bool khcMainView::mappingCreateToolbar(OpenPartsUI::ToolBarFactory_ptr factory)
   
   // zoom in
   text = Q2C(i18n("Zoom in"));
-  pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("viewmag+.xpm"));
+  pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("viewmag+.png"));
   m_vToolBar->insertButton2(pix, TB_ZOOMIN, SIGNAL(clicked()), this, "slotZoomIn", true, text, -1);
 
   // zoom out
   text = Q2C(i18n("Zoom out"));
-  pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("viewmag-.xpm"));
+  pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("viewmag-.png"));
   m_vToolBar->insertButton2(pix, TB_ZOOMOUT, SIGNAL(clicked()), this, "slotZoomOut", true, text, -1);
   
   // seperator
@@ -454,7 +454,7 @@ bool khcMainView::mappingCreateToolbar(OpenPartsUI::ToolBarFactory_ptr factory)
   
   // print
   text = Q2C(i18n("Print"));
-  pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("fileprint.xpm"));
+  pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("fileprint.png"));
   m_vToolBar->insertButton2(pix, TB_PRINT, SIGNAL(clicked()), this, "slotPrint", true, text, -1);
 
   // seperator				
@@ -462,7 +462,7 @@ bool khcMainView::mappingCreateToolbar(OpenPartsUI::ToolBarFactory_ptr factory)
 
   // help
   text = Q2C(i18n("Help"));
-  pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("help.xpm"));
+  pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("help.png"));
   m_vToolBar->insertButton2(pix, TB_HELP, SIGNAL(clicked()), this, "slotHelpContents", true, text, -1);
   m_vToolBar->alignItemRight(TB_HELP, true);				
   
@@ -542,12 +542,12 @@ void khcMainView::createViewMenu()
       OpenPartsUI::Pixmap_var pix;
       
       // zoom in
-      pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("viewmag+.xpm"));
+      pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("viewmag+.png"));
       text = Q2C(i18n("Zoom &in"));
       m_vMenuView->insertItem6(pix, text, this, "slotZoomIn", 0, MVIEW_ZOOMIN, -1);
       
       // zoom out
-      pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("viewmag+.xpm"));
+      pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("viewmag+.png"));
       text = Q2C(i18n("Zoom &out"));
       m_vMenuView->insertItem6(pix, text, this, "slotZoomOut", 0, MVIEW_ZOOMOUT, -1);
       
@@ -561,7 +561,7 @@ void khcMainView::createViewMenu()
       m_vMenuView->insertSeparator(-1);
 
       // reload document
-      pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("reload.xpm"));
+      pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("reload.png"));
       text = Q2C(i18n("Reload &document"));
       m_vMenuView->insertItem6(pix, text, this, "slotReload", 0, MVIEW_RELOAD, -1);
 
@@ -1012,7 +1012,7 @@ void khcMainView::slotShowNavigator()
       
       if (!CORBA::is_nil(m_vToolBar))
 	{
-	  OpenPartsUI::Pixmap_var pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("shownavigator.xpm"));
+	  OpenPartsUI::Pixmap_var pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("shownavigator.png"));
 	  CORBA::WString_var text = Q2C(i18n("Navigator"));
   	  m_vToolBar->setButtonPixmap(TB_NAVIGATOR, pix); 
 	}
@@ -1024,7 +1024,7 @@ void khcMainView::slotShowNavigator()
       
       if (!CORBA::is_nil(m_vToolBar))
 	{
-	  OpenPartsUI::Pixmap_var pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("hidenavigator.xpm"));
+	  OpenPartsUI::Pixmap_var pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("hidenavigator.png"));
 	  CORBA::WString_var text = Q2C(i18n("Navigator"));
 	  m_vToolBar->setButtonPixmap(TB_NAVIGATOR, pix); 
 	}

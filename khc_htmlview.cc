@@ -121,7 +121,7 @@ bool khcHTMLView::mappingFillToolBar(Browser::View::EventFillToolBar viewToolBar
   if (viewToolBar.create)
     {
       CORBA::WString_var toolTip = Q2C(i18n("Find"));
-      OpenPartsUI::Pixmap_var pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("search.xpm"));
+      OpenPartsUI::Pixmap_var pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("search.png"));
       viewToolBar.toolBar->insertButton2(pix, TB_SEARCH,SIGNAL(clicked()), this, "slotFind", 
 					 true, toolTip, viewToolBar.startIndex++);
     }
