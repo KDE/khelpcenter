@@ -37,6 +37,7 @@
 #include <qheader.h>
 #include <qdom.h>
 #include <qtextstream.h>
+#include <qregexp.h>
 
 #include <kaction.h>
 #include <kapp.h>
@@ -390,7 +391,7 @@ void khcNavigatorWidget::buildInfoSubTree(khcNavigatorItem *parent)
       sLine = stream.readLine();
       while (!sLine.isNull())
       {
-	if (reSectionHdr.find(sLine, 0) == 0)
+	if (reSectionHdr.match(sLine, 0) == 0)
 	{
 	  // add the section header
 	  khcNavigatorItem* pSectionRoot = new khcNavigatorItem(parent, pLastSection, sLine, "contents2");

@@ -27,6 +27,7 @@
 #include <kparts/part.h>
 #include <qtabwidget.h>
 #include <qlistview.h>
+#include <qdict.h>
 #include <kprocess.h>
 
 // ACHU

@@ -21,6 +21,7 @@
 #include "khc_inforeader.h"
 
 #include <qdir.h>
+#include <qregexp.h>
 #include <kdebug.h>
 
 #include "khc_infoconsts.h"
@@ -130,7 +131,7 @@ bool khcInfoReader::getRealFileName(QString baseName, QString& realName)
 
   QString sPossibleNames[6] = { baseName };
   QRegExp reEndsWithInfo("^(.+)\\.info$");
-  if (reEndsWithInfo.find(baseName, 0) == 0)
+  if (reEndsWithInfo.match(baseName, 0) == 0)
     sPossibleNames[3] = baseName.left(baseName.length() - 5);
   else
     sPossibleNames[3] = baseName + ".info";
