@@ -22,23 +22,25 @@
 
 #include "qobject.h"
 
-class KListView;
+#include <kurl.h>
 
 namespace KHC
 {
 
-/**
- * Interface to be used from KHC::Navigator. Get's reimplemented by
- * InfoPageBuilder, ManPageBuilder, GlossaryBuilder etc. to build the
- * corresponding trees in the contents pane.
- */
+class NavigatorItem;
 class TreeBuilder : public QObject
 {
 	Q_OBJECT
 	public:
 		TreeBuilder( QObject *parent, const char *name = 0 );
 
-		virtual void build( KListView *listView ) = 0;
+		virtual void build( NavigatorItem *item ) = 0;
+
+  public slots:
+    virtual void selectURL( const QString &url );
+
+  signals:
+    void urlSelected( const KURL &url );
 };
 
 }

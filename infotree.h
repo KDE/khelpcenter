@@ -20,7 +20,7 @@
 #ifndef KHC_INFOTREE_H
 #define KHC_INFOTREE_H
 
-#include <qobject.h>
+#include "treebuilder.h"
 
 #include <kurl.h>
 
@@ -29,13 +29,13 @@ class QListViewItem;
 namespace KHC
 {
   class NavigatorItem;
-  class InfoTree : public QObject
+  class InfoTree : public TreeBuilder
   {
     Q_OBJECT
     public:
       InfoTree( QObject *parent, const char *name = 0 );
 
-      void build( NavigatorItem *parentItem );
+      virtual void build( NavigatorItem  *parentItem );
 
     signals:
       void infoPageSelected( const KURL &url );

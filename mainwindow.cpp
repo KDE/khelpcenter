@@ -24,8 +24,10 @@
 
 #include <qsplitter.h>
 
+#include <kapplication.h>
 #include <kconfig.h>
 #include <dcopclient.h>
+#include <kiconloader.h>
 #include <kmimemagic.h>
 #include <krun.h>
 #include <kaboutdata.h>
@@ -33,6 +35,7 @@
 #include <khtmlview.h>
 #include <kaction.h>
 #include <kstatusbar.h>
+#include <kstdaccel.h>
 
 
 #include "history.h"
@@ -117,7 +120,22 @@ void MainWindow::setupActions()
                                      SLOT( lastSearch() ),
                                      actionCollection(), "lastsearch" );
     mLastSearchAction->setEnabled( false );
- 
+
+   // Need to override the Manual link in the help menu to avoid spawning
+   // a second helpcenter.
+    /*
+    KAction *oldA = actionCollection()->action( "help_contents" );
+    connect( oldA, SIGNAL( activated()), this, SLOT(openOwnManual()));
+    if ( oldA )
+      kdDebug(1400) << "got old action" << endl;
+    const KAboutData *aboutData = KGlobal::instance()->aboutData();
+    QString appName = aboutData ? aboutData->programName() : kapp->name();
+    new KAction( i18n( "%1 &Handbook").arg( appName ),
+                 QIconSet( SmallIcon( "contents" ) ),
+                 KStdAccel::shortcut( KStdAccel::Help ),
+                 this, SLOT( openOwnManual() ),
+                 actionCollection(), "help_contents" );
+    */
     History::self().setupActions( actionCollection() );
 }
 
@@ -233,6 +251,11 @@ void MainWindow::lastSearch()
 void MainWindow::enableLastSearchAction()
 {
     mLastSearchAction->setEnabled( true );
+}
+
+void MainWindow::openOwnManual()
+{
+  openURL( KURL( "help:/khelpcenter" ) );
 }
 
 // vim:ts=2:sw=2:et

@@ -334,7 +334,7 @@ void Navigator::createItemFromDesktopFile( NavigatorItem *topItem, const QString
 void Navigator::insertInfoDocs( NavigatorItem *topItem )
 {
   InfoTree *infoTree = new InfoTree( this );
-  connect( infoTree, SIGNAL( infoPageSelected( const KURL & ) ),
+  connect( infoTree, SIGNAL( urlSelected( const KURL & ) ),
            mView, SLOT( openURL( const KURL & ) ) );
   infoTree->build( topItem );
 }

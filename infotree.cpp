@@ -76,7 +76,7 @@ InfoNodeItem::InfoNodeItem( InfoCategoryItem *parent, const QString &url, const 
 }
 
 InfoTree::InfoTree( QObject *parent, const char *name )
-  : QObject( parent, name ),
+  : TreeBuilder( parent, name ),
   m_parentItem( 0 )
 {
 }
@@ -158,7 +158,7 @@ void InfoTree::slotItemSelected( QListViewItem *item )
 {
   InfoNodeItem *nodeItem;
   if ( ( nodeItem = dynamic_cast<InfoNodeItem *>( item ) ) )
-    emit infoPageSelected( KURL( nodeItem->url() ) );
+    emit urlSelected( KURL( nodeItem->url() ) );
 }
 
 #include "infotree.moc"

@@ -26,6 +26,10 @@ TreeBuilder::TreeBuilder( QObject *parent, const char *name )
 {
 }
 
+void TreeBuilder::selectURL( const QString & )
+{
+}
+
 #include "treebuilder.moc"
 
 // vim:ts=2:sw=2:et

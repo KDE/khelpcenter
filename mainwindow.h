@@ -49,6 +49,7 @@ class MainWindow : public KMainWindow
     void slotOpenURLRequest( const KURL &url,
                              const KParts::URLArgs &args);
     void documentCompleted();
+    void openOwnManual();
 
   private:
     View *mDoc;
