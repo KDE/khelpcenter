@@ -217,6 +217,8 @@ void khcNavigatorWidget::setupGlossaryTab()
     glossaryTree->setRootIsDecorated(true);
     connect(glossaryTree, SIGNAL(executed(QListViewItem *)),
         SLOT(slotGlossaryItemSelected(QListViewItem *)));
+    connect(glossaryTree, SIGNAL(returnPressed(QListViewItem*)), this,
+	    SLOT(slotGlossaryItemSelected(QListViewItem*)));
 
     byTopicItem = new QListViewItem(glossaryTree, i18n("By topic"));
     byTopicItem->setPixmap(0, KGlobal::iconLoader()->loadIcon(QString::fromLatin1("help"), KIcon::Small));
