@@ -324,12 +324,12 @@ void SearchEngine::finishSearch()
   emit searchFinished();  
 }
 
-QString SearchEngine::errorLog()
+QString SearchEngine::errorLog() const
 {
   return mStderr;
 }
 
-bool SearchEngine::isRunning()
+bool SearchEngine::isRunning() const
 {
   return mSearchRunning;
 }

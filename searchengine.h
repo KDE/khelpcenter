@@ -72,9 +72,9 @@ class SearchEngine : public QObject
 
     void finishSearch();
 
-    QString errorLog();
+    QString errorLog() const;
 
-    bool isRunning();
+    bool isRunning() const;
 
   signals:
     void searchFinished();
