@@ -22,6 +22,7 @@
 
 #include <kapplication.h>
 #include <kconfig.h>
+#include <kdebug.h>
 #include <kiconloader.h>
 #include <klistview.h>
 #include <kstandarddirs.h>
@@ -67,6 +68,7 @@ void InfoCategoryItem::setOpen( bool open )
 InfoNodeItem::InfoNodeItem( InfoCategoryItem *parent, const QString &text )
   : NavigatorItem( parent, text )
 {
+  kdDebug( 1440 ) << "Created info node item: " << text << endl;
 }
 
 InfoTree::InfoTree( QObject *parent, const char *name )
@@ -77,6 +79,8 @@ InfoTree::InfoTree( QObject *parent, const char *name )
 
 void InfoTree::build( NavigatorItem *parent )
 {
+  kdDebug( 1400 ) << "Populating info tree." << endl;
+
   m_parentItem = parent;
 
   connect( parent->listView(), SIGNAL( currentChanged( QListViewItem * ) ),
@@ -111,7 +115,9 @@ void InfoTree::build( NavigatorItem *parent )
 }
 
 void InfoTree::parseInfoDirFile( const QString &infoDirFileName )
-{ 
+{
+  kdDebug( 1400 ) << "Parsing info dir file " << infoDirFileName << endl;
+
   QFile infoDirFile( infoDirFileName );
   if ( !infoDirFile.open( IO_ReadOnly ) )
     return;
