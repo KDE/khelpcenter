@@ -5,6 +5,7 @@
     <text>&amp;File</text>
     <Action name="printFrame" group="print" />
     <Action name="show_search_stderr" />
+    <Separator />
     <Action name="file_quit"/> 
  </Menu>
  <Menu name="edit" noMerge="1">
