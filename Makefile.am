@@ -31,7 +31,7 @@ libkhelpcenter_common_la_SOURCES = navigator.cpp \
 
 kcm_helpcenter_la_LDFLAGS = $(KDE_RPATH) -module -avoid-version \
                             $(all_libraries) -no-undefined
-kcm_helpcenter_la_LIBADD  = $(LIB_KDEUI)
+kcm_helpcenter_la_LIBADD  = $(LIB_KIO)
 kcm_helpcenter_la_SOURCES = kcmhelpcenter.cpp docmetainfo.cpp \
                             docentrytraverser.cpp docentry.cpp htmlsearch.cpp \
                             htmlsearchconfig.cpp
