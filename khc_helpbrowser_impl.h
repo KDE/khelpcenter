@@ -20,7 +20,7 @@
 
 #include "khelpcenter.h"
 
-class KHelpBrowser;
+class khcMainWindow;
 
 class HelpBrowser_Impl : virtual public KHelpCenter::HelpBrowser_skel
 {
@@ -32,7 +32,7 @@ class HelpBrowser_Impl : virtual public KHelpCenter::HelpBrowser_skel
     void open(const char *url);
 
  private:
-    KHelpBrowser *khb;
+    khcMainWindow *khb;
 };
 
 class HelpBrowserFactory_Impl : virtual public KHelpCenter::HelpBrowserFactory_skel

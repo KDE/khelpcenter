@@ -60,7 +60,7 @@ int main(int argc, char *argv[])
     {
 	// standalone app
 	OPApplication app(argc, argv, "khelpcenter");
-	KHelpBrowser *khb = new KHelpBrowser;
+	khcMainWindow *khb = new khcMainWindow;
 	khb->show();
 	
 	app.exec();

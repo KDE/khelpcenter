@@ -35,11 +35,7 @@ KHelpCenter::HelpBrowser_ptr HelpBrowserFactory_Impl::create()
 
 HelpBrowser_Impl::HelpBrowser_Impl()
 {
-  khb = new KHelpBrowser;
-
-  QString _url =(QString("file:" + locate("html", "default/khelpcenter/main.html")));
-
-  khb->openURL(_url, true);
+  khb = new khcMainWindow;
   khb->show();
 
   kdebug(KDEBUG_INFO,1400,"KHelpBrowser::HelpBrowser_Impl()");

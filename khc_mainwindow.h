@@ -34,14 +34,14 @@ class QPopupMenu;
 class KHelpNavigator;
 class KHCBaseView;
 class KFileBookmark;
-class KHelpBrowser;
+class khcMainWindow;
 class khcHTMLView;
 
 class khcMainWindowIf : virtual public OPMainWindowIf,
 			virtual public KHelpCenter::MainWindow_skel
 {
 public:
-  khcMainWindowIf(KHelpBrowser* _main);
+  khcMainWindowIf(khcMainWindow* _main);
   ~khcMainWindowIf();
 
   virtual void openURL( const KHelpCenter::URLRequest &url );
@@ -55,21 +55,21 @@ public:
   virtual void slotURLCompleted( );
   
  protected:
-  KHelpBrowser* m_pkhcMainWindow;
+  khcMainWindow* m_pkhcMainWindow;
 };
 
-class KHelpBrowser : public OPMainWindow
+class khcMainWindow : public OPMainWindow
 {
     Q_OBJECT
 
  public:
-    KHelpBrowser(const QString& url = 0);
-    virtual ~KHelpBrowser();
+    khcMainWindow(const QString& url = 0);
+    virtual ~khcMainWindow();
 
     int openURL(const char *URL, bool withHistory = true);
 
     unsigned long getListIndex() { return listIndex; }
-    static KHelpBrowser *getHelpWindowAt(unsigned long id) 
+    static khcMainWindow *getHelpWindowAt(unsigned long id) 
 	{ return helpWindowList.at(id); }
 
     virtual OPMainWindowIf* interface();
@@ -84,7 +84,6 @@ class KHelpBrowser : public OPMainWindow
     void setupView();
     void connectView();
 
-    void enableMenuItems();
     void enableNavigator(bool enable);
 
     void fillBookmarkMenu(KFileBookmark *parent, QPopupMenu *menu, int &id);
@@ -98,6 +97,8 @@ class KHelpBrowser : public OPMainWindow
     void slotIntroduction();
     void slotForward();
     void slotBack();
+
+    void slotSetBusy(bool busy);
 
     void slotSetBookmark();
 
@@ -121,7 +122,6 @@ class KHelpBrowser : public OPMainWindow
     void slotSetLocation(const QString& _url);
     void slotSetURL(QString url);
     void slotSetStatusText(const QString& text);
-    void slotEnableMenuItems();
 
     // forward actions to the views
     void slotFind();
@@ -162,10 +162,10 @@ class KHelpBrowser : public OPMainWindow
     // UI options:
     bool m_showStatusBar, m_showToolBar, m_showLocationBar, m_showNavigator;
     
-    // static list of KHelpBrowser windows
-    static QList<KHelpBrowser> helpWindowList;
+    // static list of khcMainWindow windows
+    static QList<khcMainWindow> helpWindowList;
 
-    // index of KHelpBrowser instance in helpWindowList
+    // index of khcMainWindow instance in helpWindowList
     unsigned long listIndex;
 };
 

@@ -1,5 +1,5 @@
 /*
- *  khc_helpbrowser.cc - part of the KDE Help Center
+ *  khc_mainwindow.cc - part of the KDE Help Center
  *
  *  Copyright (c) 1999 Matthias Elter (me@kde.org)
  *
@@ -43,12 +43,12 @@
 
 #include <opFrame.h>
 
-// static list of KHelpBrowser windows:
-QList<KHelpBrowser> KHelpBrowser::helpWindowList;
+// static list of khcMainWindow windows:
+QList<khcMainWindow> khcMainWindow::helpWindowList;
 
-KHelpBrowser::KHelpBrowser(const QString& url)
+khcMainWindow::khcMainWindow(const QString& url)
 {
-    kdebug(KDEBUG_INFO,1400,"KHelpBrowser::KHelpBrowser()");
+    kdebug(KDEBUG_INFO,1400,"khcMainWindow::khcMainWindow()");
     setCaption(i18n("KDE HelpCenter"));
     
     resize(800, 580);
@@ -79,9 +79,9 @@ KHelpBrowser::KHelpBrowser(const QString& url)
       openURL(url, true);
 }
 
-KHelpBrowser::~KHelpBrowser()
+khcMainWindow::~khcMainWindow()
 {
-  kdebug(KDEBUG_INFO,1400,"KHelpBrowser::~KHelpBrowser()");
+  kdebug(KDEBUG_INFO,1400,"khcMainWindow::~khcMainWindow()");
 
   cleanUp();
   slotSaveSettings();
@@ -92,7 +92,7 @@ KHelpBrowser::~KHelpBrowser()
     delete m_pSplitter;
 }
 
-OPMainWindowIf* KHelpBrowser::interface()
+OPMainWindowIf* khcMainWindow::interface()
 {
   if ( m_pInterface == 0L )
     {    
@@ -102,7 +102,7 @@ OPMainWindowIf* KHelpBrowser::interface()
   return m_pInterface;
 }
 
-khcMainWindowIf* KHelpBrowser::khcInterface()
+khcMainWindowIf* khcMainWindow::khcInterface()
 {
   if ( m_pInterface == 0L )
     {
@@ -112,9 +112,9 @@ khcMainWindowIf* KHelpBrowser::khcInterface()
   return m_pkhcInterface;
 }
 
-void KHelpBrowser::cleanUp()
+void khcMainWindow::cleanUp()
 {
-  kdebug(KDEBUG_INFO,1400,"void KHelpBrowser::cleanUp()");
+  kdebug(KDEBUG_INFO,1400,"void khcMainWindow::cleanUp()");
  
   m_vView = 0L;
 
@@ -123,9 +123,9 @@ void KHelpBrowser::cleanUp()
     m_pFrame->detach();
 }
 
-void KHelpBrowser::setupView()
+void khcMainWindow::setupView()
 {
-    kdebug(KDEBUG_INFO,1400,"KHelpBrowser::setupView()");
+    kdebug(KDEBUG_INFO,1400,"khcMainWindow::setupView()");
     m_pSplitter = new QSplitter(QSplitter::Horizontal, this);
     CHECK_PTR(m_pSplitter);
 
@@ -153,9 +153,9 @@ void KHelpBrowser::setupView()
     kdebug(KDEBUG_INFO,1400,"m_pFrame->attach(m_vView);");
 }
 
-void KHelpBrowser::setupMenuBar()
+void khcMainWindow::setupMenuBar()
 {
-    kdebug(KDEBUG_INFO,1400,"KHelpBrowser::setupMenuBar()");
+    kdebug(KDEBUG_INFO,1400,"khcMainWindow::setupMenuBar()");
     KStdAccel stdAccel;
   
     // file menu
@@ -238,9 +238,9 @@ void KHelpBrowser::setupMenuBar()
     menuBar()->insertItem(i18n("&Help"), m_pHelpMenu);
 }
 
-void KHelpBrowser::setupToolBar()
+void khcMainWindow::setupToolBar()
 {
-    kdebug(KDEBUG_INFO,1400,"KHelpBrowser::setupToolBar()");
+    kdebug(KDEBUG_INFO,1400,"khcMainWindow::setupToolBar()");
     
     // history popup menus
     m_pHistoryBackMenu = new QPopupMenu;
@@ -287,9 +287,9 @@ void KHelpBrowser::setupToolBar()
     connect(toolBar(0), SIGNAL(clicked(int)), SLOT(slotToolbarClicked(int)));
 }
 
-void KHelpBrowser::setupLocationBar()
+void khcMainWindow::setupLocationBar()
 {
-    kdebug(KDEBUG_INFO,1400,"KHelpBrowser::setupLocationbar()");
+    kdebug(KDEBUG_INFO,1400,"khcMainWindow::setupLocationbar()");
 
     toolBar(1)->insertLined("", 1, SIGNAL(returnPressed()), this, SLOT(slotLocationEntered()));
     toolBar(1)->setFullWidth(TRUE);
@@ -297,14 +297,14 @@ void KHelpBrowser::setupLocationBar()
     toolBar(1)->enable(KToolBar::Show);
 }
 
-void KHelpBrowser::setupStatusBar()
+void khcMainWindow::setupStatusBar()
 {
-    kdebug(KDEBUG_INFO,1400,"KHelpBrowser::setupStatusbar()");
+    kdebug(KDEBUG_INFO,1400,"khcMainWindow::setupStatusbar()");
     statusBar()->insertItem("", 1);
     enableStatusBar(KStatusBar::Show);
 }
 
-void KHelpBrowser::enableNavigator(bool enable)
+void khcMainWindow::enableNavigator(bool enable)
 {
   if (enable)
     {
@@ -356,7 +356,7 @@ void KHelpBrowser::enableNavigator(bool enable)
   */
 }
 
-void KHelpBrowser::slotReadSettings()
+void khcMainWindow::slotReadSettings()
 {
     KConfig *config = KApplication::getKApplication()->getConfig();
     config->setGroup("Appearance");
@@ -449,7 +449,7 @@ void KHelpBrowser::slotReadSettings()
     }
 }
 
-void KHelpBrowser::slotSaveSettings()
+void khcMainWindow::slotSaveSettings()
 {
     KConfig *config = KApplication::getKApplication()->getConfig();
 
@@ -499,27 +499,27 @@ void KHelpBrowser::slotSaveSettings()
 	config->writeEntry( "LocationBarPos", "Floating");
 	break;
     default:
-	warning("KHelpBrowser::slotOptionsSave: illegal default in case reached\n");
+	warning("khcMainWindow::slotOptionsSave: illegal default in case reached\n");
 	break;
     }
 }
 
-void KHelpBrowser::slotSetLocation(const QString& _url)
+void khcMainWindow::slotSetLocation(const QString& _url)
 {
     toolBar(1)->setLinedText(1, _url);
 }
 
-void KHelpBrowser::slotLocationEntered()
+void khcMainWindow::slotLocationEntered()
 {
     openURL(toolBar(1)->getLinedText(1), true );
 }
 
-void KHelpBrowser::slotURLSelected(const QString& _url, int)
+void khcMainWindow::slotURLSelected(const QString& _url, int)
 {
     openURL( _url, true );
 }
 
-void KHelpBrowser::slotToolbarClicked(int item)
+void khcMainWindow::slotToolbarClicked(int item)
 {
     switch (item)
     {
@@ -556,29 +556,24 @@ void KHelpBrowser::slotToolbarClicked(int item)
     }
 }
 
-void KHelpBrowser::slotEnableMenuItems()
-{
-    enableMenuItems();
-}
-
-void KHelpBrowser::slotNewBrowser()
+void khcMainWindow::slotNewBrowser()
 {
     slotOpenNewBrowser(QString(""));
 }
 
-void KHelpBrowser::slotOpenNewBrowser(const QString& url)
+void khcMainWindow::slotOpenNewBrowser(const QString& url)
 {
-    KHelpBrowser *win = new KHelpBrowser(url);
+    khcMainWindow *win = new khcMainWindow(url);
     win->resize(size());
     win->show();
 }
 
-void KHelpBrowser::slotSetStatusText(const QString& text)
+void khcMainWindow::slotSetStatusText(const QString& text)
 {
     statusBar()->changeItem(text, 1);
 }
 
-void KHelpBrowser::slotSetTitle( const QString& _title )
+void khcMainWindow::slotSetTitle( const QString& _title )
 {
     QString appCaption = "KDE HelpCenter - ";
     appCaption += _title;
@@ -586,17 +581,17 @@ void KHelpBrowser::slotSetTitle( const QString& _title )
     setCaption( appCaption );
 }
 
-void KHelpBrowser::slotSetURL(QString url)
+void khcMainWindow::slotSetURL(QString url)
 {
     openURL(url, true);
 }
 
-void KHelpBrowser::slotSetBookmark()
+void khcMainWindow::slotSetBookmark()
 {
   
 }
 
-void KHelpBrowser::slotIntroduction()
+void khcMainWindow::slotIntroduction()
 {
     QString url = "file:";
     url += locate("html", "default/khelpcenter/main.html");
@@ -604,7 +599,7 @@ void KHelpBrowser::slotIntroduction()
     openURL(url, true); 
 }
 
-void KHelpBrowser::slotOpenFile()
+void khcMainWindow::slotOpenFile()
 {
     QString fileName = KFileDialog::getOpenFileName();
     if (!fileName.isNull())
@@ -615,7 +610,7 @@ void KHelpBrowser::slotOpenFile()
     }
 }
 
-void KHelpBrowser::slotOptionsNavigator()
+void khcMainWindow::slotOptionsNavigator()
 {
     if (m_showNavigator)
     {
@@ -634,7 +629,7 @@ void KHelpBrowser::slotOptionsNavigator()
     m_pOptionsMenu->setItemChecked(idNavigator, m_showNavigator);
 }
 
-void KHelpBrowser::slotOptionsToolbar()
+void khcMainWindow::slotOptionsToolbar()
 {
     if (m_showToolBar)
     {
@@ -650,7 +645,7 @@ void KHelpBrowser::slotOptionsToolbar()
     m_pOptionsMenu->setItemChecked(idToolBar, m_showToolBar);
 }
 
-void KHelpBrowser::slotOptionsLocationbar()
+void khcMainWindow::slotOptionsLocationbar()
 { 
     if (m_showLocationBar)
     {
@@ -665,24 +660,24 @@ void KHelpBrowser::slotOptionsLocationbar()
     m_pOptionsMenu->setItemChecked(idLocationBar, m_showLocationBar); 
 }
 
-void KHelpBrowser::slotOptionsStatusbar()
+void khcMainWindow::slotOptionsStatusbar()
 {
     m_showStatusBar = !m_showStatusBar;
     m_pOptionsMenu->setItemChecked(idStatusBar, m_showStatusBar); 
     enableStatusBar(KStatusBar::Toggle);
 }
 
-void KHelpBrowser::slotOptionsGeneral()
+void khcMainWindow::slotOptionsGeneral()
 {
   
 }
 
-void KHelpBrowser::slotQuit()
+void khcMainWindow::slotQuit()
 {
     close();
 }
 
-int KHelpBrowser::openURL(const char *_url, bool withHistory)
+int khcMainWindow::openURL(const char *_url, bool withHistory)
 {
   slotStopProcessing();
     
@@ -693,17 +688,9 @@ int KHelpBrowser::openURL(const char *_url, bool withHistory)
   eventURL.yOffset = 0;
   kdebug(KDEBUG_INFO,1400,"EMIT_EVENT(m_vView, KHelpCenter::eventOpenURL, eventURL)");
   EMIT_EVENT(m_vView, KHelpCenter::eventOpenURL, eventURL);
-  
-  /*
-    m_vView->begin( "meta:/" );
-    m_vView->parse();
-    m_vView->write( "<HTML><HEAD><TITLE>OpenParts</TITLE></HEAD>" );
-    m_vView->write( "<BODY bgcolor=#FFFFFF><H1>OpenParts ... are cool</H1></BODY></HTML>" );
-    m_vView->end();
-  */
 }
 
-void KHelpBrowser::connectView()
+void khcMainWindow::connectView()
 {
   try
     {
@@ -757,39 +744,39 @@ void KHelpBrowser::connectView()
   
 }
 
-void KHelpBrowser::slotFind()
+void khcMainWindow::slotFind()
 {
   
 }
 
-void KHelpBrowser::slotFindNext()
+void khcMainWindow::slotFindNext()
 {
   
 }
 
-void KHelpBrowser::slotReload()
+void khcMainWindow::slotReload()
 {
   if (m_pView)
     m_pView->slotReload();
 }
 
-void KHelpBrowser::slotCopy()
+void khcMainWindow::slotCopy()
 {
   
 }
 
-void KHelpBrowser::slotPrint()
+void khcMainWindow::slotPrint()
 {
   
 }
 
-void KHelpBrowser::slotStopProcessing()
+void khcMainWindow::slotStopProcessing()
 {
   if (m_pView)
    m_pView->slotStop();
 }
 
-void KHelpBrowser::slotMagMinus()
+void khcMainWindow::slotMagMinus()
 {
     /*if(fontBase > 2)
     {
@@ -809,7 +796,7 @@ void KHelpBrowser::slotMagMinus()
 	}*/
 }
 
-void KHelpBrowser::slotMagPlus()
+void khcMainWindow::slotMagPlus()
 {
     /*if(fontBase < 5)
     {
@@ -829,17 +816,17 @@ void KHelpBrowser::slotMagPlus()
 	}*/	
 }
 
-void KHelpBrowser::slotForward()
+void khcMainWindow::slotForward()
 {
   
 }
 
-void KHelpBrowser::slotBack()
+void khcMainWindow::slotBack()
 {
   
 }
 
-void KHelpBrowser::slotHistoryFillBack()
+void khcMainWindow::slotHistoryFillBack()
 {
     /*
     m_pHistoryBackMenu->clear();
@@ -858,7 +845,7 @@ void KHelpBrowser::slotHistoryFillBack()
     */
 }
 
-void KHelpBrowser::slotHistoryFillForward()
+void khcMainWindow::slotHistoryFillForward()
 {
     /*
     historyForwardMenu->clear();
@@ -877,7 +864,7 @@ void KHelpBrowser::slotHistoryFillForward()
     */
 }
 
-void KHelpBrowser::slotHistoryBackActivated(int id)
+void khcMainWindow::slotHistoryBackActivated(int id)
 {
     /*
     QList<KPageInfo> history = htmlview->getHistory();
@@ -899,7 +886,7 @@ void KHelpBrowser::slotHistoryBackActivated(int id)
     */
 }
 
-void KHelpBrowser::slotHistoryForwardActivated(int id)
+void khcMainWindow::slotHistoryForwardActivated(int id)
 {
     /*
     QList<KPageInfo> history = htmlview->getHistory();
@@ -921,62 +908,12 @@ void KHelpBrowser::slotHistoryForwardActivated(int id)
     */
 }
 
-void KHelpBrowser::enableMenuItems()
+void khcMainWindow::slotSetBusy(bool busy)
 {
-   /*
-    bool val = htmlview->canCurrentlyDo(KHelpView::Copy);
-    m_pEditMenu->setItemEnabled( idCopy, val );
-  
-    val = htmlview->canCurrentlyDo(KHelpView::GoBack); // history.isback
-    m_pGotoMenu->setItemEnabled( idBack, val );
-    toolBar(0)->setItemEnabled( TB_BACK, val );
-  
-    val = htmlview->canCurrentlyDo(KHelpView::GoForward); // history.IsForward
-    m_pGotoMenu->setItemEnabled( idForward, val );
-    toolBar(0)->setItemEnabled( TB_FORWARD, val );
-  
- 	
-    val = htmlview->canCurrentlyDo(KHelpView::Stop); // busy
-    toolBar(0)->setItemEnabled( TB_STOP, val);
-    emit setBusy(val);
-   */
+  toolBar(0)->setItemEnabled(TB_STOP, busy);
 }
 
-void KHelpBrowser::fillBookmarkMenu(KFileBookmark *parent, QPopupMenu *menu, int &id)
-{
-    /*
-      KFileBookmark *bm;
-    for ( bm = parent->getChildren().first(); bm != NULL;
-	  bm = parent->getChildren().next() )
-    {
-	if ( bm->getType() == KFileBookmark::URL )
-	{
-	    menu->insertItem( bm->getText(), id );
-	    id++;
-	}
-	else
-	{
-	    QPopupMenu *subMenu = new QPopupMenu;
-	    menu->insertItem( bm->getText(), subMenu );
-	    fillBookmarkMenu( bm, subMenu, id );
-	}
-    }
-    */
-}
-
-/*
-void KHelpBrowser::slotBookmarkChanged(KFileBookmark *parent)
-{
-    bookmarkMenu->clear();
-    bookmarkMenu->insertItem(i18n("&Add Bookmark"),
-			     htmlview, SLOT(slotAddBookmark()) );
-    bookmarkMenu->insertSeparator();
-    int idStart = BOOKMARK_ID_BASE;
-    fillBookmarkMenu( parent, bookmarkMenu, idStart );
-}
-*/
-
-khcMainWindowIf::khcMainWindowIf(KHelpBrowser* _main) :
+khcMainWindowIf::khcMainWindowIf(khcMainWindow* _main) :
   OPMainWindowIf( _main )
 {
   ADD_INTERFACE("IDL:KHelpCenter/MainWindow:1.0" );
@@ -998,27 +935,31 @@ void khcMainWindowIf::setStatusBarText(const char *_text)
 void khcMainWindowIf::setLocationBarURL(const char *_url)
 {
   m_pkhcMainWindow->slotSetLocation(_url);
-  m_pkhcMainWindow->slotSetTitle(QString("KDE HelpCenter ") + _url);
+  m_pkhcMainWindow->slotSetTitle(_url);
   kdebug(0, 1400, "void khcMainWindowIf::setLocationBarURL(const char *_url)");
 }
 
 void khcMainWindowIf::createNewWindow(const char *url)
 {
+  m_pkhcMainWindow->slotOpenNewBrowser(QString(url));
   kdebug(0, 1400, "void khcMainWindowIf::createNewWindow(const char *url)");
 }
 
 void khcMainWindowIf::slotURLStarted(const char *url)
 {
+  m_pkhcMainWindow->slotSetBusy(true);
   kdebug(0, 1400, "void khcMainWindowIf::slotURLStarted(const char *url)");
 }
 
-void khcMainWindowIf::slotURLCompleted( )
+void khcMainWindowIf::slotURLCompleted()
 {
+  m_pkhcMainWindow->slotSetBusy(false);
   kdebug(0, 1400, "void khcMainWindowIf::slotURLCompleted()");
 }
 
 void khcMainWindowIf::openURL(const KHelpCenter::URLRequest &url)
 {
+  //m_pkhcMainWindow->openURL(url);
   kdebug(0, 1400, "void khcMainWindowIf::openURL(const KHelpCenter::URLRequest &url)");
 }
 
