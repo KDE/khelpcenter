@@ -99,6 +99,9 @@ MainWindow::MainWindow()
     connect( mDoc, SIGNAL( searchResultCacheAvailable() ),
              SLOT( enableLastSearchAction() ) );
 
+    connect( mDoc, SIGNAL( selectionChanged() ),
+             SLOT( enableCopyTextAction() ) );
+
     statusBar()->insertItem(i18n("Preparing Index"), 0, 1);
     statusBar()->setItemAlignment(0, AlignLeft | AlignVCenter);
 
@@ -147,10 +150,16 @@ MainWindow::MainWindow()
              mNavigator, SLOT( selectItem( const KURL & ) ) );
 
     statusBarMessage(i18n("Ready"));
+    enableCopyTextAction();
 }
 
 MainWindow::~MainWindow()
 {
+}
+
+void MainWindow::enableCopyTextAction()
+{
+    mCopyText->setEnabled( mDoc->hasSelection() );
 }
 
 void MainWindow::saveProperties( KConfig *config )
@@ -172,7 +181,7 @@ void MainWindow::setupActions()
                        "printFrame" );
 
     KStdAction::home( this, SLOT( slotShowHome() ), actionCollection() );
-    KStdAction::copy( this, SLOT(slotCopySelectedText()), actionCollection(), "copy_text");
+    mCopyText = KStdAction::copy( this, SLOT(slotCopySelectedText()), actionCollection(), "copy_text");
 
     mLastSearchAction = new KAction( i18n("&Last Search Result"), 0, this,
                                      SLOT( slotLastSearch() ),

@@ -50,8 +50,8 @@ class MainWindow : public KMainWindow, public DCOPObject
     /**
       Show document corresponding to given URL in viewer part.
     */
-    void viewUrl( const QString & );    
-    
+    void viewUrl( const QString & );
+
     /**
       Open document corresponding to given URL, i.e. show it in the viewer part
       and select the corresponding entry in the navigator widget.
@@ -66,6 +66,7 @@ class MainWindow : public KMainWindow, public DCOPObject
 
   protected slots:
     void enableLastSearchAction();
+    void enableCopyTextAction();
 
   private:
     void stop();
@@ -86,6 +87,7 @@ class MainWindow : public KMainWindow, public DCOPObject
     void slotConfigureFonts();
     void slotConfigureKeys();
     void slotCopySelectedText();
+
 private:
     void updateZoomActions();
 
@@ -93,7 +95,7 @@ private:
     Navigator *mNavigator;
 
     KAction *mLastSearchAction;
-
+    KAction *mCopyText;
     LogDialog *mLogDialog;
 };
 
