@@ -38,10 +38,10 @@ using namespace KHC;
 
 class InfoCategoryItem : public NavigatorItem
 {
-	public:
+  public:
     InfoCategoryItem( NavigatorItem *parent, const QString &text );
-		
-		virtual void setOpen( bool open );
+	
+    virtual void setOpen( bool open );
 };
 
 class InfoNodeItem : public NavigatorItem
@@ -53,7 +53,7 @@ class InfoNodeItem : public NavigatorItem
 InfoCategoryItem::InfoCategoryItem( NavigatorItem *parent, const QString &text )
   : NavigatorItem( parent, text )
 {
-  kdDebug(1440) << "Got category: " << text << endl;
+//  kdDebug(1400) << "Got category: " << text << endl;
   setOpen( false );
 }
 
@@ -61,16 +61,14 @@ void InfoCategoryItem::setOpen( bool open )
 {
   NavigatorItem::setOpen( open );
 
-	if ( open && childCount() > 0 )	
-		setPixmap( 0, SmallIcon( "contents" ) );
-	else
-		setPixmap( 0, SmallIcon( "contents2" ) );
+  if ( open && childCount() > 0 ) setPixmap( 0, SmallIcon( "contents" ) );
+  else setPixmap( 0, SmallIcon( "contents2" ) );
 }
 
 InfoNodeItem::InfoNodeItem( InfoCategoryItem *parent, const QString &text )
   : NavigatorItem( parent, text )
 {
-  kdDebug( 1440 ) << "Created info node item: " << text << endl;
+//  kdDebug( 1400 ) << "Created info node item: " << text << endl;
 }
 
 InfoTree::InfoTree( QObject *parent, const char *name )
