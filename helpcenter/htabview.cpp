@@ -482,7 +482,7 @@ bool HTabView::containsDocuments(QString dir)
 	    filename += *itFile;
 
 	    KSimpleConfig sc( filename, true );
-	    sc.setGroup( "KDE Desktop Entry" );
+	    sc.setDesktopGroup();
 	    QString docpath = sc.readEntry("DocPath");
 		  
 	    if (!docpath.isEmpty())
