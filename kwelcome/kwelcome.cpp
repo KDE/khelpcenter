@@ -26,6 +26,8 @@
 #include <kconfig.h>
 
 #include <qlayout.h>
+#include <qlabel.h>
+#include <qpushbutton.h>
 #include <qcheckbox.h>
 #include <qmsgbox.h>
 
@@ -35,12 +37,11 @@ KWelcome::KWelcome(QWidget *parent, const char *name)
 	: QWidget(parent, name, WStyle_Tool)
 {
   setCaption(i18n("Welcome to the K Desktop Environment!"));
-  setMinimumSize(559, 416);
-  setMaximumSize(559, 416);
+  setFixedSize(559, 416);
   setGeometry(QApplication::desktop()->width()/2 - width()/2,
 			  QApplication::desktop()->height()/2 - height()/2,
 			  590, 416);
-  
+
   // setup topView
   topView = new QWidget(this);
   topView->setBackgroundColor(QColor(255,255,255));

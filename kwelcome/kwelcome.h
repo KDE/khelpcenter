@@ -22,11 +22,10 @@
 #define KWELCOME_H 
 
 #include <qwidget.h>
-#include <qpopupmenu.h>
-#include <qpushbutton.h>
-#include <qlabel.h>
-#include <qscrollview.h>
-#include <qcheckbox.h>
+
+class QCheckBox;
+class QLabel;
+class QPushbutton;
 
 class KWelcome : public QWidget
 {
@@ -44,7 +43,6 @@ public slots:
 private:
   QWidget *topView, *bottomView;
   QCheckBox *autostart_kwelcome;
-  QPopupMenu *aboutMenu;
   QPushButton *aboutButton, *quitButton, *wizardButton, *helpcenterButton;
   QLabel *welcome;
 
