@@ -50,7 +50,7 @@ public:
     KHelpWindow *htmlView() { return htmlview; }
 
 public slots:
-	void slotBookmarkChanged(KBookmark *parent);
+	void slotBookmarkChanged(KFileBookmark *parent);
 	void slotToolbarClicked(int);
 	void slotURLSelected(const QString& _url, int _button);
 
@@ -85,7 +85,7 @@ private slots:
 private:
 	void enableMenuItems();
 	void enableTree(bool enable);
-	void fillBookmarkMenu(KBookmark *parent, QPopupMenu *menu, int &id);
+	void fillBookmarkMenu(KFileBookmark *parent, QPopupMenu *menu, int &id);
 	void readConfig();
 	void setupMenubar();
 	void setupToolbar();

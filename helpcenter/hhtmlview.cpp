@@ -138,7 +138,7 @@ bool KHelpView::URLVisited( const char *_url )
 
 // statics
 QString KHelpWindow::newURL;
-KBookmarkManager KHelpWindow::bookmarkManager;
+KFileBookmarkManager KHelpWindow::bookmarkManager;
 int  KHelpWindow::fontBase = 3;
 QString KHelpWindow::standardFont;
 QString KHelpWindow::fixedFont;
@@ -1271,7 +1271,7 @@ void KHelpWindow::slotBookmarkSelected( int id )
 {
 	id -= BOOKMARK_ID_BASE;
 
-	KBookmark *bm = bookmarkManager.getBookmark( id );
+	KFileBookmark *bm = bookmarkManager.getBookmark( id );
 
 	if ( bm )
 		openURL( bm->getURL() );
@@ -1282,7 +1282,7 @@ void KHelpWindow::slotBookmarkHighlighted( int id )
 {
 	id -= BOOKMARK_ID_BASE;
 
-	KBookmark *bm = bookmarkManager.getBookmark( id );
+	KFileBookmark *bm = bookmarkManager.getBookmark( id );
 
 	if ( bm )
 	{

@@ -19,7 +19,7 @@ bin_PROGRAMS = 	khelpcenter
 
 khelpcenter_SOURCES = main.cpp toplevel.cpp hhtmlview.cpp \
 htreelistitem.cpp htreeview.cpp cgi.cpp info.cpp man.cpp error.cpp dbnew.cpp \
-misc.cpp history.cpp booktoken.cpp bookmark.cpp finddlg.cpp options.cpp
+misc.cpp history.cpp finddlg.cpp options.cpp
 
 khelpcenter_METASOURCES = USE_AUTOMOC
 

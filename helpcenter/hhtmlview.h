@@ -21,10 +21,10 @@
 #include <qcursor.h>
 
 #include <kfm.h>
+#include <khtml.h>
+#include <kfilebookmark.h>
 
 #include "cgi.h"
-#include "khtml.h"
-#include "bookmark.h"
 #include "misc.h"
 #include "fmthtml.h"
 #include "info.h"
@@ -136,7 +136,7 @@ signals:
 	void setLocation( const QString& url);
 	// This signal gets emitted when the URL in the LocationBar should be changed
      
-	void bookmarkChanged(KBookmark *);
+	void bookmarkChanged(KFileBookmark *);
 
 	void setTitle(const QString& _title);
 
@@ -224,7 +224,7 @@ private:
 	KCGI *CGIServer;
 
 	static KHelpOptionsDialog *optionsDialog;
-	static KBookmarkManager bookmarkManager;
+	static KFileBookmarkManager bookmarkManager;
 
 	// html view preferences
 	static int  fontBase;

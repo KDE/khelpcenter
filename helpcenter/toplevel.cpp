@@ -80,8 +80,8 @@ HelpCenter::HelpCenter()
 		   this, SLOT ( slotSetStatusText(const QString&) ) );
   connect (htmlview, SIGNAL ( setLocation(const QString&) ),
 		   this, SLOT ( slotSetLocation(const QString&) ) );  
-  connect (htmlview, SIGNAL ( bookmarkChanged(KBookmark *) ),
-		   this, SLOT ( slotBookmarkChanged(KBookmark *) ) );
+  connect (htmlview, SIGNAL ( bookmarkChanged(KFileBookmark *) ),
+		   this, SLOT ( slotBookmarkChanged(KFileBookmark *) ) );
   
   connect(htmlview , SIGNAL( setTitle(const QString& ) ),
 		   this, SLOT( slotSetTitle(const QString& ) ) );
@@ -419,14 +419,14 @@ int HelpCenter::openURL( const char *URL, bool withHistory)
   return htmlview->openURL(URL, withHistory);
 }
 
-void HelpCenter::fillBookmarkMenu(KBookmark *parent, QPopupMenu *menu, int &id)
+void HelpCenter::fillBookmarkMenu(KFileBookmark *parent, QPopupMenu *menu, int &id)
 {
-  KBookmark *bm;
+  KFileBookmark *bm;
   
   for ( bm = parent->getChildren().first(); bm != NULL;
 		bm = parent->getChildren().next() )
 	{
-	  if ( bm->getType() == KBookmark::URL )
+	  if ( bm->getType() == KFileBookmark::URL )
 		{
 		  menu->insertItem( bm->getText(), id );
 		  id++;
@@ -570,7 +570,7 @@ void HelpCenter::slotSetStatusText(const QString& text)
   statusBar()->replaceItem(0, text);
 }
 
-void HelpCenter::slotBookmarkChanged(KBookmark *parent)
+void HelpCenter::slotBookmarkChanged(KFileBookmark *parent)
 {
   bookmarkMenu->clear();
   bookmarkMenu->insertItem(i18n("&Add Bookmark"),
