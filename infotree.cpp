@@ -45,12 +45,7 @@ class InfoCategoryItem : public NavigatorItem
 class InfoNodeItem : public NavigatorItem
 {
   public:
-    InfoNodeItem( InfoCategoryItem *parent, const QString &url, const QString &text );
-
-    QString url() const { return m_url; }
-
-  private:
-    QString m_url;
+    InfoNodeItem( InfoCategoryItem *parent, const QString &text );
 };
 
 InfoCategoryItem::InfoCategoryItem( NavigatorItem *parent, const QString &text )
@@ -69,9 +64,8 @@ void InfoCategoryItem::setOpen( bool open )
 		setPixmap( 0, SmallIcon( "contents2" ) );
 }
 
-InfoNodeItem::InfoNodeItem( InfoCategoryItem *parent, const QString &url, const QString &text )
-  : NavigatorItem( parent, text ),
-  m_url( url )
+InfoNodeItem::InfoNodeItem( InfoCategoryItem *parent, const QString &text )
+  : NavigatorItem( parent, text )
 {
 }
 
@@ -146,7 +140,8 @@ void InfoTree::parseInfoDirFile( const QString &infoDirFileName )
       else
         url += "/Top";
 
-      new InfoNodeItem( catItem, url, appName );
+      InfoNodeItem *item = new InfoNodeItem( catItem, appName );
+      item->setUrl( url );
 
       s = stream.readLine();
     }
