@@ -229,28 +229,27 @@ bool khcMainView::mappingCreateMenubar(OpenPartsUI::MenuBar_ptr menuBar)
     }
   
   OpenPartsUI::Pixmap_var pix;
-  KStdAccel stdAccel;
   
   // file menu
   long int m_idMenuFile = menuBar->insertMenu(i18n("&File"), m_vMenuFile, -1, -1);
   
   // open new window
-  m_vMenuFile->insertItem4(i18n("New &Window"), this, "slotNewWindow", stdAccel.openNew(), MFILE_NEWWINDOW, -1);
+	m_vMenuFile->insertItem4(i18n("New &Window"), this, "slotNewWindow", KStdAccel::key(KStdAccel::New), MFILE_NEWWINDOW, -1);
   
   // seperator
   m_vMenuFile->insertSeparator(-1);
   
   // open file...
   pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("fileopen.png"));
-  m_vMenuFile->insertItem6(pix, i18n("&Open file..."), this, "slotOpenFile", stdAccel.open(), MFILE_OPENFILE, -1);
+	m_vMenuFile->insertItem6(pix, i18n("&Open file..."), this, "slotOpenFile", KStdAccel::key(KStdAccel::Open), MFILE_OPENFILE, -1);
   
   // reload
   pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("reload.png"));
-  m_vMenuFile->insertItem6(pix, i18n("&Reload"), this, "slotReload", Key_F5, MFILE_RELOAD, -1);
+	m_vMenuFile->insertItem6(pix, i18n("&Reload"), this, "slotReload", KStdAccel::key(KStdAccel::Reload), MFILE_RELOAD, -1);
   
   // print
   pix = OPUIUtils::convertPixmap(*KPixmapCache::toolbarPixmap("fileprint.png"));
-  m_vMenuFile->insertItem6(pix, i18n("&Print"), this, "slotPrint", stdAccel.print(), MFILE_PRINT, -1);
+	m_vMenuFile->insertItem6(pix, i18n("&Print"), this, "slotPrint", KStdAccel::key(KStdAccel::Print), MFILE_PRINT, -1);
   
   // let the mainwindow know about the file menu so it cna replace its default file menu
   menuBar->setFileMenu(m_idMenuFile);

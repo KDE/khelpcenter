@@ -129,28 +129,35 @@ void kmbMainWindow::setupView()
 void kmbMainWindow::setupMenuBar()
 {
     kdebug(KDEBUG_INFO,1400,"kmbMainWindow::setupMenuBar()");
-    KStdAccel stdAccel;
   
     // file menu
     m_pFileMenu = new QPopupMenu;
     CHECK_PTR(m_pFileMenu);
 
-    m_pFileMenu->insertItem(i18n("Open &new window"), this, SLOT(slotNewBrowser()), stdAccel.openNew());
+    m_pFileMenu->insertItem(i18n("Open &new window"), this, SLOT(slotNewBrowser()),
+							KStdAccel::key(KStdAccel::New));
     m_pFileMenu->insertSeparator();
-    m_pFileMenu->insertItem(i18n("&Open File..."), this, SLOT(slotOpenFile()), stdAccel.open());
-    m_pFileMenu->insertItem(i18n("&Reload"), this, SLOT(slotReload()), Key_F5);
-    m_pFileMenu->insertItem(i18n("&Print"), this, SLOT(slotPrint()), stdAccel.print());
+    m_pFileMenu->insertItem(i18n("&Open File..."), this, SLOT(slotOpenFile()),
+							KStdAccel::key(KStdAccel::Open));
+    m_pFileMenu->insertItem(i18n("&Reload"), this, SLOT(slotReload()),
+							KStdAccel::key(KStdAccel::Reload));
+    m_pFileMenu->insertItem(i18n("&Print"), this, SLOT(slotPrint()),
+							KStdAccel::key(KStdAccel::Print));
     m_pFileMenu->insertSeparator();
-    m_pFileMenu->insertItem(i18n("&Quit"), this, SLOT(slotQuit()), stdAccel.quit());
+    m_pFileMenu->insertItem(i18n("&Quit"), this, SLOT(slotQuit()),
+							KStdAccel::key(KStdAccel::Quit));
   
     // edit menu
     m_pEditMenu = new QPopupMenu;
     CHECK_PTR(m_pEditMenu);
 
-    idCopy = m_pEditMenu->insertItem(i18n("&Copy"), this, SLOT(slotCopy()), stdAccel.copy());
+    idCopy = m_pEditMenu->insertItem(i18n("&Copy"), this, SLOT(slotCopy()),
+									 KStdAccel::key(KStdAccel::Copy));
     m_pEditMenu->insertSeparator();
-    m_pEditMenu->insertItem(i18n("&Find..."), this, SLOT(slotFind()), stdAccel.find());
-     m_pEditMenu->insertItem(i18n("Find &next"), this, SLOT(slotFindNext()), Key_F3);
+    m_pEditMenu->insertItem(i18n("&Find..."), this, SLOT(slotFind()),
+							KStdAccel::key(KStdAccel::Find));
+     m_pEditMenu->insertItem(i18n("Find &next"), this, SLOT(slotFindNext()),
+							 KStdAccel::key(KStdAccel::FindNext));
   
     // goto menu
     m_pGotoMenu = new QPopupMenu;
@@ -168,7 +175,8 @@ void kmbMainWindow::setupMenuBar()
     idMagPlus = m_pViewMenu->insertItem(i18n("Zoom &in"), this, SLOT(slotMagPlus()));
     idMagMinus = m_pViewMenu->insertItem(i18n("Zoom &out"), this, SLOT(slotMagMinus()));
     m_pViewMenu->insertSeparator();
-    m_pViewMenu->insertItem(i18n("&Reload"), this, SLOT(slotReload()), Key_F5);
+    m_pViewMenu->insertItem(i18n("&Reload"), this, SLOT(slotReload()),
+							KStdAccel::key(KStdAccel::Reload));
   
     // bookmark menu
     m_pBookmarkMenu = new QPopupMenu;
