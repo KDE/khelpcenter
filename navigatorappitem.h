@@ -20,7 +20,7 @@
 #ifndef __khc_navigatorappitem_h___
 #define __khc_navigatorappitem_h___
 
-#include <khc_navigatoritem.h>
+#include <navigatoritem.h>
 
 class KService;
 

@@ -1,5 +1,5 @@
 /*
- *  khc_toc.cc - part of the KDE Help Center
+ *  This file is part of the KDE Help Center
  *
  *  Copyright (C) 2002 Frerich Raabe (raabe@kde.org)
  *
@@ -17,7 +17,7 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
-#include "khc_toc.h"
+#include "toc.h"
 
 #include <kdebug.h>
 #include <kiconloader.h>
@@ -322,5 +322,5 @@ QString TOCSectionItem::link() const
 	return "help:" + toc()->application() + "/" + m_name + ".html";
 }
 
-#include "khc_toc.moc"
+#include "toc.moc"
 // vim:ts=4:sw=4:noet

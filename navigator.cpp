@@ -1,5 +1,5 @@
 /*
- *  khc_navigator.cc - part of the KDE Help Center
+ *  This file is part of the KDE Help Center
  *
  *  Copyright (C) 1999 Matthias Elter (me@kde.org)
  *
@@ -50,22 +50,22 @@
 #include <kcharsets.h>
 #include <kdialog.h>
 
-#include "khc_navigatoritem.h"
-#include "khc_navigatorappitem.h"
+#include "navigatoritem.h"
+#include "navigatorappitem.h"
 #include "searchwidget.h"
-#include "khc_infoconsts.h"
-#include "khc_infohierarchymaker.h"
-#include "khc_infonode.h"
+#include "infoconsts.h"
+#include "infohierarchymaker.h"
+#include "infonode.h"
 #include "searchengine.h"
-#include "khc_view.h"
+#include "view.h"
 #include "docmetainfo.h"
 #include "docentrytraverser.h"
-#include "khc_glossary.h"
-#include "khc_toc.h"
-#include "khc_view.h"
+#include "glossary.h"
+#include "toc.h"
+#include "view.h"
 
-#include "khc_navigator.h"
-#include "khc_navigator.moc"
+#include "navigator.h"
+#include "navigator.moc"
 
 khcNavigatorWidget::khcNavigatorWidget( KHCView *view, QWidget *parent,
                                         const char *name )

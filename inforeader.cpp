@@ -1,5 +1,5 @@
 /*
- *  khc_inforeader.cc - part of the KDE Help Center
+ *  This file is part of the KDE Help Center
  *
  *  Copyright (C) 2001 Wojciech Smigaj (achu@klub.chip.pl)
  *
@@ -18,13 +18,14 @@
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#include "khc_inforeader.h"
-
 #include <qdir.h>
 #include <qregexp.h>
+
 #include <kdebug.h>
 
-#include "khc_infoconsts.h"
+#include "infoconsts.h"
+
+#include "inforeader.h"
 
 khcInfoReader::khcInfoReader(QString sTopic) :
   m_sTopic(sTopic), m_bInitialized(false)

@@ -1,11 +1,7 @@
 /*
- *  khc_infonode.cc - part of the KDE Help Center
+ *  This file is part of the KDE Help Center
  *
  *  Copyright (C) 2001 Wojciech Smigaj (achu@klub.chip.pl)
- *
- *  khc_navigator.h - part of the KDE Help Center
- *
- *  Copyright (C) 1999 Matthias Elter (me@kde.org)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -22,7 +18,7 @@
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#include "khc_infonode.h"
+#include "infonode.h"
 
 #include <map>
 // #include <qptrlist.h>
@@ -30,7 +26,7 @@
 #include <stdio.h>
 #include <kdebug.h>
 
-#include "khc_infoconsts.h"
+#include "infoconsts.h"
 
 // TODO: metoda clear() - ustawiajaca wszystkie zmienne na true;
 bool khcInfoNode::ms_bRegExCompiled = false;

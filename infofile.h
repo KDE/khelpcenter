@@ -24,8 +24,8 @@
 #include <qstring.h>
 #include <qstringlist.h>
 
-#include "khc_infonode.h"
-#include "khc_infoconsts.h"
+#include "infonode.h"
+#include "infoconsts.h"
 
 class khcInfoFile
 {

@@ -1,5 +1,5 @@
 /*
- *  khc_glossary.cc - part of the KDE Help Center
+ *  This file is part of the KDE Help Center
  *
  *  Copyright (C) 2002 Frerich Raabe (raabe@kde.org)
  *
@@ -17,8 +17,8 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
-#include "khc_glossary.h"
-#include "khc_view.h"
+#include "glossary.h"
+#include "view.h"
 
 #include <kapplication.h>
 #include <kcharsets.h>
@@ -244,5 +244,5 @@ QDomElement khcGlossary::childElement( const QDomElement &element, const QString
 			break;
 	return e;
 }
-#include "khc_glossary.moc"
+#include "glossary.moc"
 // vim:ts=4:sw=4:noet

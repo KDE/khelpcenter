@@ -3,8 +3,8 @@
 
 #include <khtml_part.h>
 
-#include "khc_glossary.h"
-#include "khc_navigator.h"
+#include "glossary.h"
+#include "navigator.h"
 
 class KHCView : public KHTMLPart
 {

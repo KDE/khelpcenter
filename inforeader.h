@@ -24,9 +24,9 @@
 #include <qstring.h>
 #include <qptrlist.h>
 
-#include "khc_infonode.h"
-#include "khc_infoconsts.h"
-#include "khc_infofile.h"
+#include "infonode.h"
+#include "infoconsts.h"
+#include "infofile.h"
 
 /**
  * Read nodes in an info file sequentially.

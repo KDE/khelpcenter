@@ -4,10 +4,10 @@
 #include <kmainwindow.h>
 #include <kio/job.h>
 #include <kparts/browserextension.h>
-#include "khc_navigator.h"
+#include "navigator.h"
 #include <kurl.h>
 #include <qptrlist.h>
-#include "khc_glossary.h"
+#include "glossary.h"
 
 class KHTMLPart;
 class QSplitter;

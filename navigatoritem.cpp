@@ -1,5 +1,5 @@
 /*
- *  khc_navigatoritem.cc - part of the KDE Help Center
+ *  This file is part of the KDE Help Center
  *
  *  Copyright (C) 1999 Matthias Elter (me@kde.org)
  *
@@ -31,7 +31,7 @@
 
 #include "docmetainfo.h"
 
-#include "khc_navigatoritem.h"
+#include "navigatoritem.h"
 
 khcNavigatorItem::khcNavigatorItem(QListView *parent, QListViewItem *after)
   : QListViewItem( parent, after )

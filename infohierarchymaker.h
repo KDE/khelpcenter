@@ -25,7 +25,7 @@
 #include <qstring.h>
 #include <qtimer.h>
 
-#include "khc_inforeader.h"
+#include "inforeader.h"
 
 /**
  * This class creates info nodes hierarchy: it reads (indirectly - using

@@ -28,8 +28,8 @@
 #include <qdict.h>
 #include <klistview.h>
 
-#include "khc_glossary.h"
-#include "khc_toc.h"
+#include "glossary.h"
+#include "toc.h"
 
 #include <regex.h>
 #include <qfile.h>

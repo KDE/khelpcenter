@@ -1,5 +1,5 @@
 /*
- *  khc_navigatorappitem.cc - part of the KDE Help Center
+ *  This file is part of the KDE Help Center
  *
  *  Copyright (C) 2001 Waldo Bastian <bastian@kde.org>
  *
@@ -21,7 +21,7 @@
 #include <kservice.h>
 #include <kservicegroup.h>
 
-#include "khc_navigatorappitem.h"
+#include "navigatorappitem.h"
 
 khcNavigatorAppItem::khcNavigatorAppItem(QListView *parent, QListViewItem *after)
  : khcNavigatorItem(parent, after)

@@ -1,5 +1,5 @@
  /*
- *  khc_main.cpp - part of the KDE Help Center
+ *  This file is part of the KDE Help Center
  *
  *  Copyright (C) 1999 Matthias Elter (me@kde.org)
  *                2001 Stephan Kulow (coolo@kde.org)
@@ -20,6 +20,15 @@
  */
 
 #include <stdlib.h>
+#include <assert.h>
+
+#include <qdir.h>
+#include <qfile.h>
+#include <qtextstream.h>
+#include <qtimer.h>
+#include <qlayout.h>
+#include <qsplitter.h>
+#include <qhbox.h>
 
 #include <kapplication.h>
 #include <dcopclient.h>
@@ -31,31 +40,23 @@
 #include <kstringhandler.h>
 #include <kmimemagic.h>
 #include <krun.h>
-
-#include <qdir.h>
-#include <qfile.h>
-#include <qtextstream.h>
-#include <assert.h>
-
-#include "khc_main.h"
-#include "khc_view.h"
-
 #include <kaboutdata.h>
 #include <kdebug.h>
 #include <kstdaction.h>
 #include <kstdguiitem.h>
-#include <qtimer.h>
-
 #include <khtmlview.h>
-#include "version.h"
 #include <khtml_part.h>
-#include <qlayout.h>
 #include <kaction.h>
-#include <qsplitter.h>
-#include "khc_navigator.h"
-#include <qhbox.h>
 #include <kstatusbar.h>
 #include <kdebugclasses.h>
+
+#include "version.h"
+
+#include "view.h"
+#include "navigator.h"
+
+#include "mainwindow.h"
+#include "mainwindow.moc"
 
 KHMainWindow::KHMainWindow(const KURL &url)
     : KMainWindow(0, "khmainwindow"), m_goMenuIndex( -1 ), m_goMenuHistoryStartPos( -1 ),
@@ -460,6 +461,3 @@ extern "C" int kdemain(int argc, char *argv[])
 
     return app.exec();
 }
-
-
-#include "khc_main.moc"

@@ -1,7 +1,3 @@
-
-#include "khc_view.h"
-#include "khc_main.h"
-
 #include <qtextstream.h>
 #include <qfile.h>
 #include <qfileinfo.h>
@@ -9,6 +5,11 @@
 #include <kstandarddirs.h>
 #include <klocale.h>
 #include <kdebug.h>
+
+#include "mainwindow.h"
+
+#include "view.h"
+#include "view.moc"
 
 KHCView::KHCView( QWidget *parentWidget, const char *widgetName,
                   QObject *parent, const char *name, KHTMLPart::GUIProfile prof )
@@ -200,8 +201,6 @@ void KHCView::setTitle( const QString &title )
 {
     m_title = title;
 }
-
-#include "khc_view.moc"
 
 /*
  * vim:et
