@@ -125,14 +125,11 @@ void KHMainWindow::prepareAbout()
 
     QString res = t.read();
 
-    file = langLookup( "khelpcenter/index.docbook" );
-
-    // otherwise all embedded objects are referenced as about:/...
-    QString basehref = QString::fromLatin1("<BASE HREF=\"file:") +
-                       file.left( file.findRev( '/' ) )
-		       + QString::fromLatin1("/\">\n");
-    res.prepend( basehref );
     res = res.arg( i18n("Conquer your Desktop!") )
+          .arg( langLookup( "khelpcenter/konq.css" ) )
+          .arg( langLookup( "khelpcenter/pointers.png" ) )
+          .arg( langLookup( "khelpcenter/khelpcenter.png" ) )
+          .arg( langLookup( "khelpcenter/lines.png" ) )
           .arg( i18n( "Welcome to the K Desktop Environment" ) )
           .arg( i18n( "The KDE team welcomes you to user-friendly UNIX computing" ) )
           .arg( i18n( "KDE is a powerful graphical desktop environment for Unix workstations.  A\n"
@@ -151,8 +148,8 @@ void KHMainWindow::prepareAbout()
           .arg( i18n( "Basic Applications" ) )
           .arg( i18n( "The Kicker Desktop Panel" ) )
           .arg( i18n( "The KDE Control Center" ) )
-          .arg( i18n( "The Konqueror File manager and Web Browser" ) );
-
+          .arg( i18n( "The Konqueror File manager and Web Browser" ) )
+          .arg( langLookup( "khelpcenter/kdelogo2.png" ) );
     doc->begin( "about:khelpcenter" );
     doc->write( res );
     doc->end();
@@ -230,7 +227,7 @@ void KHMainWindow::slotGoHistoryActivated( int steps )
 void KHMainWindow::slotGoHistoryDelayed()
 {
   if (!m_goBuffer) return;
-  int steps = m_goBuffer;
+  //int steps = m_goBuffer;
   m_goBuffer = 0;
   // m_currentView->go( steps );
 }
@@ -267,10 +264,16 @@ void KHMainWindow::slotGlossSelected(const khcNavigatorWidget::GlossaryEntry &en
     }
 
     QTextStream htmlStream(&htmlFile);
-    QString htmlSrc = htmlStream.read().
-                      arg( i18n( "KDE Glossary" ) ).
-                      arg(entry.term).
-                      arg(entry.definition).arg(seeAlso);
+    QString htmlSrc = htmlStream.read()
+                      .arg( i18n( "KDE Glossary" ) )
+                      .arg( langLookup( "khelpcenter/konq.css" ) )
+                      .arg( langLookup( "khelpcenter/pointers.png" ) )
+                      .arg( langLookup( "khelpcenter/khelpcenter.png" ) )
+                      .arg( langLookup( "khelpcenter/lines.png" ) )
+                      .arg(entry.term)
+                      .arg(entry.definition)
+                      .arg(seeAlso)
+                      .arg( langLookup( "khelpcenter/kdelogo2.png" ) );
 
     doc->begin("about:glossary" );
     doc->write(htmlSrc);
@@ -288,7 +291,8 @@ QString KHMainWindow::langLookup(const QString &fname)
     for (int id=localDoc.count()-1; id >= 0; --id)
     {
         QStringList langs = KGlobal::locale()->languageList();
-        langs.append("en");
+        langs.append( "en" );
+        langs.remove( "C" );
         QStringList::ConstIterator lang;
         for (lang = langs.begin(); lang != langs.end(); ++lang)
             search.append(QString("%1%2/%3").arg(localDoc[id]).arg(*lang).arg(fname));
@@ -301,12 +305,6 @@ QString KHMainWindow::langLookup(const QString &fname)
         kdDebug() << "Looking for help in: " << *it << endl;
 
         QFileInfo info(*it);
-        if (info.exists() && info.isFile() && info.isReadable())
-            return *it;
-
-        QString file = (*it).left((*it).findRev('/')) + "/index.docbook";
-        kdDebug() << "Looking for help in: " << file << endl;
-        info.setFile(file);
         if (info.exists() && info.isFile() && info.isReadable())
             return *it;
     }
