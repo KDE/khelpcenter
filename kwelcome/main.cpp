@@ -28,8 +28,25 @@ int main(int argc, char *argv[])
   // check for --kdestartup
   KConfig *conf = kapp->getConfig();
   conf->setGroup("General Settings");
-  QString tmp = conf->readEntry("AutostartOnKDEStartup", "0");
-  if (tmp == "0" && (strcmp(argv[1], "--kdestartup") == 0))
+  QString tmp = conf->readEntry("AutostartOnKDEStartup", "true");
+
+  for (i = 1; i < argc; i++)
+	{
+	  if ( argv[i][0] == '-' )
+		{
+		  // skip caption
+		  if ( strcasecmp( argv[i], "-caption" ) == 0 )
+			i++;
+		  if ( strcasecmp( argv[i], "-icon" ) == 0 )
+			i++;
+		  if ( strcasecmp( argv[i], "-miniicon" ) == 0 )
+			i++;
+		  continue;
+		}
+	  QString arg = argv[i];
+	}
+  
+  if ((arg == "--kdestartup") && (tmp != "true"))
 	return 0;
   
   KWelcome *widget = new KWelcome();
