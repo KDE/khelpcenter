@@ -185,7 +185,7 @@ void khcNavigatorWidget::setupContentsTab()
     // END ACHU
 
 
-    addTab(contentsTree, i18n("Contents"));
+    addTab(contentsTree, i18n("&Contents"));
 }
 
 void khcNavigatorWidget::setupSearchTab()
@@ -226,7 +226,7 @@ void khcNavigatorWidget::setupGlossaryTab()
     alphabItem = new QListViewItem(glossaryTree, i18n("Alphabetically"));
     alphabItem->setPixmap(0, KGlobal::iconLoader()->loadIcon(QString::fromLatin1("charset"), KIcon::Small));
 
-    addTab(glossaryTree, i18n("Glossary"));
+    addTab(glossaryTree, i18n("G&lossary"));
 
     glossaryHtmlFile = locateLocal("cache", "help/glossary.html");
     glossarySource = langLookup(QString::fromLatin1("khelpcenter/glossary/index.docbook"));
