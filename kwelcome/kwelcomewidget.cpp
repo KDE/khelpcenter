@@ -24,6 +24,7 @@
 #include <qcheckbox.h>
 #include <qmsgbox.h>
 #include <klocale.h>
+#include <kconfig.h>
 
 KWelcomeWidget::KWelcomeWidget(QWidget *parent, const char *name)
 	: QWidget(parent, name)
