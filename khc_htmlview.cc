@@ -71,7 +71,7 @@ void khcHTMLView::slotShowURL( KHTMLView *, QString _url )
       SIGNAL_CALL1("setStatusBarText", CORBA::Any::from_string(0L, 0));
       return;
     }
-  SIGNAL_CALL1("setStatusBarText", CORBA::Any::from_string(_url.data(), 0));
+  SIGNAL_CALL1("setStatusBarText", CORBA::Any::from_string((char *) _url.data(), 0));
 }
 
 void khcHTMLView::slotSetTitle( QString title )
@@ -103,8 +103,8 @@ void khcHTMLView::openURL(QString _url, bool _reload, int _xoffset, int _yoffset
 {
   KBrowser::openURL( _url, _reload, _xoffset, _yoffset, _post_data );
 
-  SIGNAL_CALL1("setStatusBarText", CORBA::Any::from_string(_url.data(), 0));
-  SIGNAL_CALL1("setLocationBarURL", CORBA::Any::from_string(_url.data(), 0));
+  SIGNAL_CALL1("setStatusBarText", CORBA::Any::from_string((char *) _url.data(), 0));
+  SIGNAL_CALL1("setLocationBarURL", CORBA::Any::from_string((char *) _url.data(), 0));
 }
 
 char *khcHTMLView::url()
