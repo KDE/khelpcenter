@@ -505,7 +505,8 @@ void Navigator::insertScrollKeeperDoc(NavigatorItem *parentItem,QDomNode docNode
 
 void Navigator::selectItem( const KURL &url )
 {
-  if ( static_cast<NavigatorItem *>( mContentsTree->currentItem() )->url() == url.url() )
+  const KURL currentURL = static_cast<NavigatorItem *>( mContentsTree->currentItem() )->url();
+  if ( currentURL.prettyURL() == url.prettyURL() )
     return;
 
   // First, populate the NavigatorAppItems if we don't want the home page
