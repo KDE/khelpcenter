@@ -65,8 +65,8 @@ class SearchEngine : public QObject
     SearchEngine( View * );
     ~SearchEngine();
 
-    bool SearchEngine::initSearchHandlers();
-    
+    bool initSearchHandlers();
+
     bool search( QString words, QString method = "and", int matches = 5,
                  QString scope = "" );
 
@@ -75,7 +75,7 @@ class SearchEngine : public QObject
 
     QString substituteSearchQuery( const QString &query );
 
-    static QString SearchEngine::substituteSearchQuery( const QString &query,
+    static QString substituteSearchQuery( const QString &query,
       const QString &identifier, const QStringList &words, int maxResults,
       Operation operation );
 
