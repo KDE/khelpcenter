@@ -155,18 +155,14 @@ MainWindow::~MainWindow()
 
 void MainWindow::saveProperties( KConfig *config )
 {
-    kdDebug()<<"void MainWindow::saveProperties( KConfig *config )\n";
-    config->setDesktopGroup();
+    kdDebug()<<"void MainWindow::saveProperties( KConfig *config )" << endl;
     config->writePathEntry( "URL" , mDoc->baseURL().url() );
 }
 
 void MainWindow::readProperties( KConfig *config )
 {
-#if 0 // I don't understand it doesn't read in good group ...
-    kdDebug()<<"void MainWindow::readProperties( KConfig *config )\n";
-    config->setDesktopGroup();
+    kdDebug()<<"void MainWindow::readProperties( KConfig *config )" << endl;
     mDoc->slotReload( config->readPathEntry( "URL" ) );
-#endif
 }
 
 void MainWindow::setupActions()

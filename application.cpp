@@ -33,16 +33,13 @@ Application::Application() : KUniqueApplication(), mMainWindow( 0 )
 
 int Application::newInstance()
 {
+  if (restoringSession()) return 0;
+  
   KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
 
   KURL url;
   if ( args->count() )
     url = args->url( 0 );
-
-  if ( isRestored() ) {
-    RESTORE( MainWindow );
-    return 0;
-  }
 
   if( !mMainWindow ) {
     mMainWindow = new MainWindow;
@@ -81,6 +78,10 @@ extern "C" int kdemain( int argc, char **argv )
   KApplication::addCmdLineOptions();
 
   KHC::Application app;
+
+  if ( app.isRestored() ) {
+     RESTORE( MainWindow );
+  }
 
   return app.exec();
 }

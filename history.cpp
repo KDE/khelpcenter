@@ -70,7 +70,7 @@ void History::setupActions( KActionCollection *coll )
            SLOT( forwardActivated( int ) ) );
   connect( m_forwardAction->popupMenu(), SIGNAL( aboutToShow() ),
            SLOT( fillForwardMenu() ) );
-  m_backAction->setEnabled( false );
+  m_forwardAction->setEnabled( false );
 }
 
 void History::installMenuBarHook( KMainWindow *mainWindow )
