@@ -128,7 +128,7 @@ void KWelcome::slotWizardStart()
 void KWelcome::slotHelpCenterStart()
 {
   KProcess proc;	
-  proc << "khcclient";
+  proc << "khelpcenter";
   proc.start(KProcess::DontCare);
 }
 
