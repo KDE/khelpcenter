@@ -81,7 +81,7 @@ Navigator::Navigator( View *view, QWidget *parent,
 
     QStringList languages = KGlobal::locale()->languagesTwoAlpha();
 
-    kdDebug() << "LANGS: " << languages.join( " " ) << endl;
+    kdDebug( 1400 ) << "LANGS: " << languages.join( " " ) << endl;
 
     DocMetaInfo::self()->scanMetaInfo( languages );
 
@@ -336,7 +336,7 @@ bool Navigator::parseInfoSubjectLine(QString sLine, QString& sItemTitle, QString
   if (pRegMatch[5].rm_eo - pRegMatch[5].rm_so > 0) // it isn't the main node
     sItemURL += "/" + sLine.mid(pRegMatch[5].rm_so, pRegMatch[5].rm_eo - pRegMatch[5].rm_so);
 
-  //   kdDebug() << "title: " << sItemTitle << "; url: " << sItemURL << endl;
+  //   kdDebug( 1400 ) << "title: " << sItemTitle << "; url: " << sItemURL << endl;
 
   delete[] pRegMatch;
   return true;
@@ -355,7 +355,7 @@ class PluginTraverser : public DocEntryTraverser
     void process( DocEntry *entry )
     {
       if ( !mListView && !mParentItem ) {
-        kdDebug() << "ERROR! Neither mListView nor mParentItem is set." << endl;
+        kdDebug( 1400 ) << "ERROR! Neither mListView nor mParentItem is set." << endl;
         return;
       }
     
@@ -403,7 +403,7 @@ class PluginTraverser : public DocEntryTraverser
     DocEntryTraverser *createChild( DocEntry * )
     {
       if ( mCurrentItem ) return new PluginTraverser( mNavigator, mCurrentItem );
-      kdDebug() << "ERROR! mCurrentItem is not set." << endl;
+      kdDebug( 1400 ) << "ERROR! mCurrentItem is not set." << endl;
       return 0;
     }
 
@@ -422,13 +422,13 @@ void Navigator::insertPlugins()
   DocMetaInfo::self()->traverseEntries( &t );
 
 #if 0
-  kdDebug() << "<docmetainfo>" << endl;
+  kdDebug( 1400 ) << "<docmetainfo>" << endl;
   DocEntry::List entries = DocMetaInfo::self()->docEntries();
   DocEntry::List::ConstIterator it;
   for( it = entries.begin(); it != entries.end(); ++it ) {
     (*it)->dump();
   }
-  kdDebug() << "</docmetainfo>" << endl;
+  kdDebug( 1400 ) << "</docmetainfo>" << endl;
 #endif
 }
 
@@ -575,7 +575,7 @@ void Navigator::slotItemSelected(QListViewItem* currentItem)
   if (pluginItems.find(item) > -1)
   {
     QString url = item->url();
-    kdDebug() << "--ITEM: " << url << endl;
+    kdDebug( 1400 ) << "--ITEM: " << url << endl;
   
     if (!url.isEmpty()) {
       if ( url.left(1) == "/" ) {
@@ -588,7 +588,7 @@ void Navigator::slotItemSelected(QListViewItem* currentItem)
         }
       }
       
-      kdDebug() << "--URL: " << url << endl;
+      kdDebug( 1400 ) << "--URL: " << url << endl;
       
       emit itemSelected(url);
     }
@@ -661,7 +661,7 @@ void Navigator::slotItemExpanded(QListViewItem* index)
           QString sTopic = sURL.mid(regMatch[1].rm_so, regMatch[1].rm_eo - regMatch[1].rm_so);
           QString sNode = sURL.mid(regMatch[3].rm_so, regMatch[3].rm_eo - regMatch[3].rm_so);
 
-          kdDebug() << "sTopic: \'" << sTopic << "\'; sNode: \'" << sNode << "\'" << endl;
+          kdDebug( 1400 ) << "sTopic: \'" << sTopic << "\'; sNode: \'" << sNode << "\'" << endl;
 
           // begin creating hierarchy!
 
@@ -675,7 +675,7 @@ void Navigator::slotItemExpanded(QListViewItem* index)
           regfree(&reInfoURL);
         }
         else
-          kdDebug() << "Hierarchy creation already in progress..." << endl;
+          kdDebug( 1400 ) << "Hierarchy creation already in progress..." << endl;
       }
 }
 
@@ -684,7 +684,7 @@ void Navigator::slotInfoHierarchyCreated(uint key, uint nErrorCode, const InfoNo
   Q_ASSERT(key);
   NavigatorItem* pItem = (NavigatorItem*) key;
 
-  kdDebug() << "Info hierarchy for subject \'" << pItem->name() << "\'created! Result: " << nErrorCode << endl;
+  kdDebug( 1400 ) << "Info hierarchy for subject \'" << pItem->name() << "\'created! Result: " << nErrorCode << endl;
 
   if (!nErrorCode)
   {
@@ -742,7 +742,7 @@ void Navigator::addChildren(const InfoNode* pParentNode, NavigatorItem* pParentT
 
 void Navigator::slotCleanHierarchyMakers()
 {
-//  kdDebug() << "--- slotCleanHierarchyMakers ---" << endl;
+//  kdDebug( 1400 ) << "--- slotCleanHierarchyMakers ---" << endl;
   HierarchyMap::Iterator it = hierarchyMakers.begin();
   HierarchyMap::Iterator end = hierarchyMakers.end();
   for (; it != end; ++it)
@@ -819,12 +819,12 @@ void Navigator::slotSearchFinished()
   mSearchButton->setEnabled(true);
   QApplication::restoreOverrideCursor();
 
-  kdDebug() << "Search finished." << endl;
+  kdDebug( 1400 ) << "Search finished." << endl;
 }
 
 void Navigator::slotSearchTextChanged( const QString &text )
 {
-//  kdDebug() << "Navigator::slotSearchTextCanged() '" << text << "'"
+//  kdDebug( 1400 ) << "Navigator::slotSearchTextCanged() '" << text << "'"
 //            << endl;
 
   mSearchButton->setEnabled( !text.isEmpty() );
