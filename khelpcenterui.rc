@@ -32,8 +32,8 @@
   <Action name="lastsearch" />
  </Menu>
  <Menu name="settings">
-  <Action name="configure_fonts" />
-  <Action name="build_index" />
+  <Action name="configure_fonts" append="save_merge"/>
+  <Action name="build_index" append="save_merge"/>
  </Menu>
 </MenuBar>
 <ToolBar name="mainToolBar" noMerge="1">
