@@ -25,7 +25,7 @@ confdir = $(kde_appsdir)/Settings/Help
 bin_PROGRAMS = khtmlindex
 
 khtmlindex_SOURCES = index.cpp
-khtmlindex_LDFLAGS = $(all_libraries)
+khtmlindex_LDFLAGS = $(KDE_RPATH) $(all_libraries)
 khtmlindex_LDADD = libhtmlsearch.la $(LIB_KDEUI)
 
 xpm_DATA = unchecked.xpm checked.xpm
