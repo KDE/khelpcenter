@@ -255,7 +255,6 @@ class PluginTraverser : public DocEntryTraverser
     DocEntryTraverser *createChild( DocEntry * )
     {
       if ( mCurrentItem ) {
-        kdDebug() << "PluginTraverser::createChild()" << endl;
         return new PluginTraverser( mNavigator, mCurrentItem );
       }
       kdDebug( 1400 ) << "ERROR! mCurrentItem is not set." << endl;
@@ -366,8 +365,6 @@ void Navigator::insertInfoDocs( NavigatorItem *topItem )
 NavigatorItem *Navigator::insertScrollKeeperDocs( NavigatorItem *topItem,
                                                   NavigatorItem *after )
 {
-    if ( after ) kdDebug() << "AFTER: " << after->name() << endl;
-
     QString lang = KGlobal::locale()->language();
 
     kdDebug(1400) << "ScrollKeeper language: " << lang << endl;
@@ -512,7 +509,8 @@ void Navigator::selectItem( const KURL &url )
     QListViewItemIterator it( mContentsTree );
     while ( it.current() != 0 ) {
       NavigatorItem *item = static_cast<NavigatorItem *>( it.current() );
-      if ( item->url() == url.url() ) {
+      KURL itemUrl( item->url() );
+      if ( itemUrl == url ) {
         mContentsTree->setCurrentItem( item );
         mContentsTree->ensureItemVisible( item );
         break;
@@ -538,7 +536,7 @@ void Navigator::slotItemSelected(QListViewItem* currentItem)
     return;
   NavigatorItem *item = static_cast<NavigatorItem*>(currentItem);
 
-  kdDebug() << "Navigator::slotItemSelected(): " << item->name() << endl;  
+  kdDebug(1400) << "Navigator::slotItemSelected(): " << item->name() << endl;  
 
   if (item->childCount() > 0 || item->isExpandable())
     item->setOpen( !item->isOpen() );
