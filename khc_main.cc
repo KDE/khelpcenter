@@ -136,7 +136,7 @@ int main(int argc, char *argv[])
   app.dcopClient()->setNotifications( true );
   QObject::connect( app.dcopClient(), SIGNAL( applicationRegistered( const QCString& ) ),
 		    &listener, SLOT( slotAppRegistered( const QCString & ) ) );
-  if (app.startServiceByDesktopName("konqueror", "--silent", dcopService, error))
+  if (app.startServiceByDesktopName("konqueror", QString::fromLatin1("--silent"), &error))
     {
       warning("Could not launch browser:\n%s\n", error.local8Bit().data());
       return 1;
