@@ -48,8 +48,6 @@ namespace KHC {
 
 class NavigatorItem;
 class Navigator;
-class InfoNode;
-class InfoHierarchyMaker;
 class View;
 
 class Navigator : public QWidget
@@ -61,7 +59,6 @@ class Navigator : public QWidget
 
     const GlossaryEntry &glossEntry(const QString &term) const { return mGlossaryTree->entry( term ); }
 
-    void buildInfoSubTree(NavigatorItem *parent);
     void insertParentAppDocs( const QString &name, NavigatorItem *parent );
     void insertAppletDocs( NavigatorItem *parent );
     void createItemFromDesktopFile( NavigatorItem *item, const QString &name );
@@ -75,8 +72,6 @@ class Navigator : public QWidget
     void slotURLSelected(QString url);
     void slotItemSelected(QListViewItem* index);
     void slotItemExpanded(QListViewItem* index);
-    void slotInfoHierarchyCreated(uint key, uint nErrorCode, const InfoNode* pRootNode);
-    void slotCleanHierarchyMakers();
 
     void slotSearch();
 
@@ -104,14 +99,6 @@ class Navigator : public QWidget
     void buildTree();
     void clearTree();
 
-    QString findInfoDirFile();
-    bool readInfoDirFile(QString& sFileContents);
-    bool parseInfoSubjectLine(QString sLine, QString& sItemTitle, QString& sItemURL);
-    void addChildren(const InfoNode* pParentNode, NavigatorItem* pParentTreeItem);
-    NavigatorItem *addInfoNode( NavigatorItem *parent,
-                                   NavigatorItem *next,
-                                   const QString &line );
-
     void insertPlugins();
     void insertScrollKeeperItems();
     int insertScrollKeeperSection(NavigatorItem *parentItem,QDomNode sectNode);
@@ -131,11 +118,6 @@ class Navigator : public QWidget
     QPushButton *mSearchButton;
 
     QPtrList<NavigatorItem> manualItems, pluginItems, scrollKeeperItems;
-
-    regex_t compInfoRegEx;
-	typedef QMap<NavigatorItem *, InfoHierarchyMaker *> HierarchyMap;
-	HierarchyMap hierarchyMakers;
-    QTimer cleaningTimer;
 
     bool mScrollKeeperShowEmptyDirs;
     QString mScrollKeeperContentsList;

@@ -59,9 +59,6 @@
 #include "navigatoritem.h"
 #include "navigatorappitem.h"
 #include "searchwidget.h"
-#include "infoconsts.h"
-#include "infohierarchymaker.h"
-#include "infonode.h"
 #include "searchengine.h"
 #include "docmetainfo.h"
 #include "docentrytraverser.h"
@@ -119,15 +116,6 @@ Navigator::Navigator( View *view, QWidget *parent,
     setupSearchTab();
     setupGlossaryTab();
 
-    // compiling the regex used while parsing the info directory (dir) file
-    int nResult = regcomp(&compInfoRegEx, "^\\* ([^:]+)\\: \\(([^)]+)\\)([[:space:]]|(([^.]*)\\.)).*$", REG_EXTENDED);
-    Q_ASSERT(!nResult);
-
-    // set up the timer which produces signals every 30 sec. The cleanHierarchyMakers function
-    // checks entries in the hierarchyMakers map and deletes these which have already finished work.
-    connect(&cleaningTimer, SIGNAL(timeout()), SLOT(slotCleanHierarchyMakers()));
-    cleaningTimer.start(30000);
-
     buildTree();
 
     if ( DocMetaInfo::self()->searchEntries().isEmpty() ) {
@@ -140,13 +128,6 @@ Navigator::Navigator( View *view, QWidget *parent,
 
 Navigator::~Navigator()
 {
-  HierarchyMap::Iterator it = hierarchyMakers.begin();
-  HierarchyMap::Iterator end = hierarchyMakers.end();
-  for (; it != end; ++it)
-    delete *it;
-
-  regfree(&compInfoRegEx);
-
   delete mSearchEngine;
 }
 
@@ -210,131 +191,6 @@ void Navigator::clearTree()
   }
 }
 
-void Navigator::buildInfoSubTree(NavigatorItem *parent)
-{
-  QString dirContents;
-  if (!readInfoDirFile(dirContents)) return;
-
-  // actual processing...
-  QRegExp reSectionHdr("^[A-Za-z0-9]");
-  QTextStream stream(&dirContents, IO_ReadOnly);
-  QString sLine;
-
-  sLine = stream.readLine();
-  while (!sLine.isNull()) {
-    if ( sLine.startsWith( "* Menu: " ) ) {
-      // will point to the last added section item
-      NavigatorItem* pLastSection = 0;
-
-      sLine = stream.readLine();
-      while (!sLine.isNull()) {
-        if (reSectionHdr.search(sLine, 0) == 0) {
-          // add the section header
-          NavigatorItem* pSectionRoot = new NavigatorItem(parent, pLastSection, sLine, "contents2");
-          pSectionRoot->setUrl("");
-
-          // will point to the last added subitem
-          NavigatorItem* pLastChild = 0;
-
-          sLine = stream.readLine();
-          while (!sLine.isNull()) {
-            if (sLine.startsWith("* ")) {
-              NavigatorItem *item = addInfoNode( pSectionRoot, pLastChild, sLine );
-              if ( item ) pLastChild = item;
-            } else if (sLine.isEmpty())
-              break; // go to the next section
-            sLine = stream.readLine();
-          }
-
-          if (pSectionRoot->childCount() > 0) pLastSection = pSectionRoot;
-          else delete pSectionRoot;
-        } else if (sLine.startsWith("* ")) {
-          NavigatorItem *item = addInfoNode( parent, pLastSection, sLine );
-          if ( item ) pLastSection = item;
-        }
-        sLine = stream.readLine();
-      }
-    }
-    sLine = stream.readLine();
-  }
-}
-
-NavigatorItem *Navigator::addInfoNode( NavigatorItem *parent,
-                                                   NavigatorItem *last,
-                                                   const QString &line )
-{
-  QString sItemTitle, sItemURL;
-  if (parseInfoSubjectLine(line, sItemTitle, sItemURL))
-  {
-    // add subject's root node
-    NavigatorItem *pItem = new NavigatorItem(parent, last, sItemTitle, "document2");
-    pItem->setUrl(sItemURL);
-    pItem->setExpandable(true);
-    return pItem;
-  }
-  
-  return 0;
-}
-
-QString Navigator::findInfoDirFile()
-{
-  for (uint i = 0; i < INFODIRS; i++)
-    if (QFile::exists(INFODIR[i] + "dir"))
-      return INFODIR[i] + "dir";
-  return QString();
-}
-
-bool Navigator::readInfoDirFile(QString& sFileContents)
-{
-  const QString dirPath = findInfoDirFile();
-  if (dirPath.isEmpty())
-  {
-    kdWarning() << "Info directory (dir) file not found." << endl;
-    return false;
-  }
-
-  QFile file(dirPath);
-  if (!file.open(IO_ReadOnly))
-  {
-    kdWarning() << "Cannot open info directory (dir) file." << endl;
-    return false;
-  }
-
-  QTextStream stream(&file);
-  sFileContents = stream.read();
-
-  file.close();
-  return true;
-}
-
-bool Navigator::parseInfoSubjectLine(QString sLine, QString& sItemTitle, QString& sItemURL)
-{
-  regmatch_t* pRegMatch = new regmatch_t[compInfoRegEx.re_nsub + 1];
-  Q_CHECK_PTR(pRegMatch);
-
-  int nResult = regexec(&compInfoRegEx, sLine.latin1(),
-                        compInfoRegEx.re_nsub + 1, pRegMatch, 0);
-  if (nResult)
-  {
-    kdWarning() << "Could not parse line \'" << sLine << "\' from the info directory (dir) file; regexec() returned " <<
-      nResult << "." << endl;
-    delete[] pRegMatch;
-    return false;
-  }
-
-  Q_ASSERT(pRegMatch[0].rm_so == 0 && pRegMatch[0].rm_eo == int(sLine.length()));
-
-  sItemTitle = sLine.mid(pRegMatch[1].rm_so, pRegMatch[1].rm_eo - pRegMatch[1].rm_so);
-  sItemURL = "info:/" + sLine.mid(pRegMatch[2].rm_so, pRegMatch[2].rm_eo - pRegMatch[2].rm_so);
-  if (pRegMatch[5].rm_eo - pRegMatch[5].rm_so > 0) // it isn't the main node
-    sItemURL += "/" + sLine.mid(pRegMatch[5].rm_so, pRegMatch[5].rm_eo - pRegMatch[5].rm_so);
-
-  //   kdDebug( 1400 ) << "title: " << sItemTitle << "; url: " << sItemURL << endl;
-
-  delete[] pRegMatch;
-  return true;
-}
-
 class PluginTraverser : public DocEntryTraverser
 {
   public:
@@ -365,9 +221,7 @@ class PluginTraverser : public DocEntryTraverser
         else
           mCurrentItem = new NavigatorItem( mParentItem, mCurrentItem );
 
-        if ( entry->khelpcenterSpecial() == "info" )
-          mNavigator->buildInfoSubTree( mCurrentItem );
-        else if (entry->khelpcenterSpecial() == "applets" )
+        if (entry->khelpcenterSpecial() == "applets" )
           mNavigator->insertAppletDocs( mCurrentItem );
         else if ( entry->khelpcenterSpecial() == "kinfocenter" ||
                   entry->khelpcenterSpecial() == "kcontrol" ||
@@ -706,131 +560,6 @@ void Navigator::slotItemSelected(QListViewItem* currentItem)
 
 void Navigator::slotItemExpanded(QListViewItem* index)
 {
-  if (!index)
-    return;
-
-  kdDebug() << "Navigator::slotItemExpanded()" << endl;  
-
-  QListViewItem* parent;
-  if ((parent = index->parent())) // it _is_ an assignment, not a comparison !
-    if ((parent = parent->parent())) // it _is_ an assignment, not a comparison !
-      // item is at least on the third level of the tree
-      if (parent->text(0) == i18n("Browse info pages") && index->childCount() == 0)
-        // it is an unexpanded info subject's root node. Let's check if we are have already started to create the hierarchy.
-      {
-        NavigatorItem* item = static_cast<NavigatorItem*>(index);
-          // const QString itemName(item->name());
-        if (hierarchyMakers.find(item) == hierarchyMakers.end())
-          // no. We must create one.
-        {
-          InfoHierarchyMaker* pMaker = new InfoHierarchyMaker;
-          Q_CHECK_PTR(pMaker);
-          hierarchyMakers[item] = pMaker;
-
-          QString sURL = item->url();
-          Q_ASSERT(!sURL.isEmpty());
-
-          regex_t reInfoURL;
-          int nResult = regcomp(&reInfoURL, "^info:/([^/]*)(/(.*))?$", REG_EXTENDED);
-          Q_ASSERT(!nResult);
-          Q_ASSERT(reInfoURL.re_nsub == 3);
-
-          regmatch_t regMatch[4];
-
-          nResult = regexec(&reInfoURL, sURL.latin1(), reInfoURL.re_nsub + 1, regMatch, 0);
-          if (nResult)
-          {
-            kdWarning() << "Could not parse URL \'" << sURL << "\'; regexec() returned " << nResult << "." << endl;
-            hierarchyMakers.erase(item);
-            item->setExpandable(false);
-            return;
-          }
-
-          Q_ASSERT(regMatch[0].rm_so == 0 && regMatch[0].rm_eo == int(sURL.length()));
-
-          QString sTopic = sURL.mid(regMatch[1].rm_so, regMatch[1].rm_eo - regMatch[1].rm_so);
-          QString sNode = sURL.mid(regMatch[3].rm_so, regMatch[3].rm_eo - regMatch[3].rm_so);
-
-          kdDebug( 1400 ) << "sTopic: \'" << sTopic << "\'; sNode: \'" << sNode << "\'" << endl;
-
-          // begin creating hierarchy!
-
-          /* Cog-wheel animation handling -- enable after creating the icons
-             startAnimation(item);
-          */
-          connect(pMaker, SIGNAL(hierarchyCreated(uint, uint, const InfoNode*)),
-                  SLOT(slotInfoHierarchyCreated(uint, uint, const InfoNode*)));
-          pMaker->createHierarchy((uint) item, sTopic, sNode);
-
-          regfree(&reInfoURL);
-        }
-        else
-          kdDebug( 1400 ) << "Hierarchy creation already in progress..." << endl;
-      }
-}
-
-void Navigator::slotInfoHierarchyCreated(uint key, uint nErrorCode, const InfoNode* pRootNode)
-{
-  Q_ASSERT(key);
-  NavigatorItem* pItem = (NavigatorItem*) key;
-
-  kdDebug( 1400 ) << "Info hierarchy for subject \'" << pItem->name() << "\'created! Result: " << nErrorCode << endl;
-
-  if (!nErrorCode)
-  {
-    if (pRootNode->m_lChildren.empty())
-      // "Hierarchy" consists of only one element (pRootNode has no children)
-    {
-      pItem->setExpandable(false);
-      pItem->repaint();
-    }
-    else
-      addChildren(pRootNode, pItem);
-  }
-  else
-  {
-    QString sErrMsg;
-    switch (nErrorCode)
-    {
-    case ERR_FILE_UNAVAILABLE:
-      sErrMsg = i18n("One or more files containing info nodes belonging to the subject '%1' do(es) not exist.").arg(pItem->name());
-      break;
-    case ERR_NO_HIERARCHY:
-      sErrMsg = i18n("Info nodes belonging to the subject '%1' seem to be not ordered in a hierarchy.").arg(pItem->name());
-      break;
-    default:
-      sErrMsg = i18n("An unknown error occurred while creating the hierarchy of info nodes belonging to the subject '%1'.").arg(pItem->name());
-    }
-    KMessageBox::sorry(0, sErrMsg, i18n("Cannot Create Hierarchy of Info Nodes"));
-    pItem->setExpandable(false);
-    pItem->repaint();
-  }
-}
-
-void Navigator::addChildren(const InfoNode* pParentNode, NavigatorItem* pParentTreeItem)
-{
-  NavigatorItem* pLastChild = 0;
-  for (std::list<InfoNode*>::const_iterator it = pParentNode->m_lChildren.begin();
-       it != pParentNode->m_lChildren.end(); ++it)
-  {
-    //    NavigatorItem *pItem = new NavigatorItem(pParentTreeItem, pLastChild, (*it)->m_sTitle, "document2");
-    NavigatorItem *pItem = new NavigatorItem(pParentTreeItem, pLastChild,
-                                                   (*it)->m_sTitle.isEmpty() ? (*it)->m_sName : (*it)->m_sTitle, "document2");
-    pItem->setUrl("info:/" + (*it)->m_sTopic + "/" + (*it)->m_sName);
-    pLastChild = pItem;
-
-    addChildren(*it, pItem);
-  }
-}
-
-void Navigator::slotCleanHierarchyMakers()
-{
-//  kdDebug( 1400 ) << "--- slotCleanHierarchyMakers ---" << endl;
-  HierarchyMap::Iterator it = hierarchyMakers.begin();
-  HierarchyMap::Iterator end = hierarchyMakers.end();
-  for (; it != end; ++it)
-    if (!(*it)->isWorking())
-      delete *it;
 }
 
 void Navigator::slotSearch()

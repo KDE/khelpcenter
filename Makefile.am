@@ -23,8 +23,7 @@ libkhelpcenter_common_la_LDFLAGS = $(all_libraries) -no-undefined
 libkhelpcenter_common_la_LIBADD = $(LIB_KHTML)
 libkhelpcenter_common_la_SOURCES = navigator.cpp \
 	navigatoritem.cpp navigatorappitem.cpp view.cpp \
-	infohierarchymaker.cpp inforeader.cpp infofile.cpp \
-	infonode.cpp searchwidget.cpp klanguagebutton.cpp searchengine.cpp \
+	searchwidget.cpp klanguagebutton.cpp searchengine.cpp \
 	docmetainfo.cpp docentrytraverser.cpp searchformatter.cpp \
 	glossary.cpp toc.cpp mainwindow.cpp docentry.cpp htmlsearch.cpp \
 	history.cpp application.cpp searchwidget.skel treebuilder.cpp
