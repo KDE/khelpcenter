@@ -37,12 +37,8 @@ install-data-local:
 	$(INSTALL_DATA) pics/khelpcenter.xpm $(kde_icondir)
 	$(mkinstalldirs) $(kde_minidir)
 	$(INSTALL_DATA) pics/mini-khelpcenter.xpm $(kde_minidir)/khelpcenter.xpm
-	$(mkinstalldirs) $(kde_datadir)
-	$(mkinstalldirs) $(kde_datadir)/khelpcenter
-	$(mkinstalldirs) $(kde_datadir)/khelpcenter/pics
 
 # remove ALL you have installed in install-data-local or install-exec-local
 uninstall-local:
 	-rm -f $(kde_icondir)/khelpcenter.xpm
 	-rm -f $(kde_minidir)/khelpcenter.xpm
-	-rm -rf $(kde_datadir)/khelpcenter

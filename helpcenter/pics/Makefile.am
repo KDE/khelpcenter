@@ -1,3 +1,4 @@
+
 data_DATA = book.xpm document.xpm folder.xpm folder_open.xpm kdelogo.gif kdelogo_big.gif
 extradata_DATA = hidetree.xpm showtree.xpm
 

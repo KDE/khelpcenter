@@ -22,6 +22,8 @@ kwelcome_METASOURCES = USE_AUTOMOC
 kwelcome_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 kwelcome_LDADD   = $(LIB_KFILE)
 
+SUBDIRS = pics
+
 noinst_HEADERS = kwelcome.h kwelcomewidget.h
 
 # make messages.po. Move this one to ../po/ and "make merge" in po
@@ -29,17 +31,4 @@ noinst_HEADERS = kwelcome.h kwelcomewidget.h
 messages:
 	$(XGETTEXT) -C -ki18n -x $(includedir)/kde.pot $(kwelcome_SOURCES) && mv messages.po ../po/kwelcome.pot
 
-install-data-local: 
-	$(mkinstalldirs) $(kde_icondir)
-	$(INSTALL_DATA) pics/kwelcome.xpm $(kde_icondir)
-	$(mkinstalldirs) $(kde_minidir)
-	$(INSTALL_DATA) pics/mini-kwelcome.xpm $(kde_minidir)/kwelcome.xpm
-	$(mkinstalldirs) $(kde_datadir)/kwelcome/pics
-	$(INSTALL_DATA) pics/kdelogo.gif $(kde_datadir)/kwelcome/pics/kdelogo.gif
-	$(INSTALL_DATA) pics/kdelogo_big.gif $(kde_datadir)/kwelcome/pics/kdelogo_big.gif
-	
-uninstall-local:
-	-rm -f $(kde_icondir)/kwelcome.xpm
-	-rm -f $(kde_minidir)/kwelcome.xpm
-	-rm -rf $(kde_datadir)/kwelcome
 
