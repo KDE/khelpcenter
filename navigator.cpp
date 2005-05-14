@@ -184,7 +184,7 @@ void Navigator::setupSearchTab()
     connect( mSearchWidget, SIGNAL( showIndexDialog() ),
       SLOT( showIndexDialog() ) );
 
-    mTabWidget->addTab( mSearchWidget, i18n("Search"));
+    mTabWidget->addTab( mSearchWidget, i18n("Search Options"));
 }
 
 void Navigator::setupGlossaryTab()
