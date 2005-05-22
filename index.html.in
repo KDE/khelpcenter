@@ -1,0 +1,84 @@
+<html>
+
+    <head>
+        <title>%1</title> 
+        <link rel="stylesheet" href="help:/common/kde-default.css" type="text/css" />
+    </head>
+
+    <body>
+        <div style="background-image: url(help:/common/top-middle.png); width: 100%; height: 131px;">
+            <div style="position: absolute; right: 0px;">
+                <img src="help:/common/top-right-konqueror.png" style="margin: 0px" alt="">
+            </div>
+            <div style="position: absolute; left: 0px;">
+                <img src="help:/common/top-left.png" style="margin: 0px" alt="">
+            </div>
+            <div style="position: absolute;
+                        top: 25px;
+                        right: 100px;
+                        text-align: right;
+                        font-size: xx-large;
+                        font-weight: bold;
+                        text-shadow: #fff 0px 0px 5px;
+                        color: #444">
+                        %2
+            </div>
+        </div>
+        %3
+        <div class="bannerBottom" style="background-image: url(help:/common/bottom-middle.png);
+                                           background-repeat: x-repeat;
+                                           width: 100%;
+                                           height: 100px;
+                                           bottom:0px;">
+            <div class="bannerBottomRight">
+                <img src="help:/common/bottom-right.png" style="margin: 0px" alt="">
+            </div>
+            <div class="bannerBottomLeft">
+                <img src="help:/common/bottom-left.png" style="margin: 0px;" alt="">
+            </div>
+        </div>
+    </body>
+
+</html>
+<html>
+
+    <head>
+        <title>%1</title> 
+        <link rel="stylesheet" href="help:/common/kde-default.css" type="text/css" />
+    </head>
+
+    <body>
+        <div style="background-image: url(help:/common/top-middle.png); width: 100%; height: 131px;">
+            <div style="position: absolute; right: 0px;">
+                <img src="help:/common/top-right-konqueror.png" style="margin: 0px" alt="">
+            </div>
+            <div style="position: absolute; left: 0px;">
+                <img src="help:/common/top-left.png" style="margin: 0px" alt="">
+            </div>
+            <div style="position: absolute;
+                        top: 25px;
+                        right: 100px;
+                        text-align: right;
+                        font-size: xx-large;
+                        font-weight: bold;
+                        text-shadow: #fff 0px 0px 5px;
+                        color: #444">
+                        %2
+            </div>
+        </div>
+        %3
+        <div class="bannerBottom" style="background-image: url(help:/common/bottom-middle.png);
+                                           background-repeat: x-repeat;
+                                           width: 100%;
+                                           height: 100px;
+                                           bottom:0px;">
+            <div class="bannerBottomRight">
+                <img src="help:/common/bottom-right.png" style="margin: 0px" alt="">
+            </div>
+            <div class="bannerBottomLeft">
+                <img src="help:/common/bottom-left.png" style="margin: 0px;" alt="">
+            </div>
+        </div>
+    </body>
+
+</html>

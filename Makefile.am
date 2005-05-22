@@ -47,7 +47,7 @@ xdg_apps_DATA = Help.desktop
 #xdg_apps_DATA = kcmhelpcenter.desktop
 
 rc_DATA = khelpcenterui.rc intro.html.in glossary.html.in table-of-contents.xslt \
-	glossary.xslt
+	glossary.xslt index.html.in
 rcdir = $(kde_datadir)/khelpcenter
 
 kde_kcfg_DATA = khelpcenter.kcfg

@@ -438,21 +438,33 @@ void Navigator::showOverview( NavigatorItem *item, const KURL &url )
 {
   mView->beginInternal( url );
 
-  QString t;
+  QString fileName = locate( "data", "khelpcenter/index.html.in" );
+  if ( fileName.isEmpty() )
+    return;
+
+  QFile file( fileName );
+
+  if ( !file.open( IO_ReadOnly ) )
+    return;
+
+  QTextStream stream( &file );
+  QString res = stream.read();
+
+  QString title,name,content;
   uint childCount;
 
   if ( item ) {
-    t += formatter()->header( item->entry()->name() );
-
-    t += "<h1>" + item->entry()->name() + "</h1>\n";
+    title = item->entry()->name();
+    name = item->entry()->name();
 
     QString info = item->entry()->info();
-    if ( !info.isEmpty() ) t += "<p>" + info + "</p>\n";
-  
+    if ( !info.isEmpty() ) content = "<p>" + info + "</p>\n";
+
     childCount = item->childCount();
   } else {
-    t += formatter()->header( i18n("Start Page") );
-  
+    title = i18n("Start Page");
+    name = i18n("The KDE Help Center");
+
     childCount = mContentsTree->childCount();
   }
 
@@ -463,14 +475,14 @@ void Navigator::showOverview( NavigatorItem *item, const KURL &url )
 
     mDirLevel = 0;
 
-    t += createChildrenList( child );
+    content += createChildrenList( child );
   }
+  else
+    content += "<p></p>";
 
-  t += formatter()->footer();
+  res = res.arg(title).arg(name).arg(content);
 
-//    kdDebug() << "HTML--" << endl << t << "--HTML" << endl;
-
-  mView->write( t );
+  mView->write( res );
 
   mView->end();
 }
