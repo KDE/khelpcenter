@@ -463,7 +463,7 @@ void Navigator::showOverview( NavigatorItem *item, const KURL &url )
     childCount = item->childCount();
   } else {
     title = i18n("Start Page");
-    name = i18n("The KDE Help Center");
+    name = i18n("KDE Help Center");
 
     childCount = mContentsTree->childCount();
   }
