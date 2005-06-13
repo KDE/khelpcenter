@@ -124,15 +124,15 @@ Navigator::Navigator( View *view, QWidget *parent, const char *name )
              SLOT( slotTabChanged( QWidget * ) ) );
 
     setupContentsTab();
-    setupSearchTab();
     setupGlossaryTab();
+    setupSearchTab();
 
     insertPlugins();
 
     if ( !mSearchEngine->initSearchHandlers() ) {
       hideSearch();
     } else {
-      mSearchWidget->updateScopeList();      
+      mSearchWidget->updateScopeList();
       mSearchWidget->readConfig( KGlobal::config() );
     }
 }
@@ -214,7 +214,7 @@ void Navigator::insertPlugins()
 void Navigator::insertParentAppDocs( const QString &name, NavigatorItem *topItem )
 {
   kdDebug(1400) << "Requested plugin documents for ID " << name << endl;
- 
+
   KServiceGroup::Ptr grp = KServiceGroup::childGroup( name );
   if ( !grp )
     return;
@@ -234,15 +234,15 @@ void Navigator::insertIOSlaveDocs( const QString &name, NavigatorItem *topItem )
 {
   kdDebug(1400) << "Requested IOSlave documents for ID " << name << endl;
 
-#if KDE_IS_VERSION( 3, 1, 90 ) 
+#if KDE_IS_VERSION( 3, 1, 90 )
   QStringList list = KProtocolInfo::protocols();
   list.sort();
 
   NavigatorItem *prevItem = 0;
-  for ( QStringList::ConstIterator it = list.begin(); it != list.end(); ++it ) 
+  for ( QStringList::ConstIterator it = list.begin(); it != list.end(); ++it )
   {
     QString docPath = KProtocolInfo::docPath(*it);
-    if ( !docPath.isNull() ) 
+    if ( !docPath.isNull() )
     {
       // First parameter is ignored if second is an absolute path
       KURL url(KURL("help:/"), docPath);
@@ -370,9 +370,9 @@ void Navigator::clearSelection()
 void Navigator::slotItemSelected( QListViewItem *currentItem )
 {
   if ( !currentItem ) return;
-  
+
   mSelected = true;
-  
+
   NavigatorItem *item = static_cast<NavigatorItem *>( currentItem );
 
   kdDebug(1400) << "Navigator::slotItemSelected(): " << item->entry()->name()
@@ -427,7 +427,7 @@ void Navigator::openInternalUrl( const KURL &url )
 
   selectItem( url );
   if ( !mSelected ) return;
-  
+
   NavigatorItem *item =
     static_cast<NavigatorItem *>( mContentsTree->currentItem() );
 
@@ -574,6 +574,7 @@ void Navigator::checkSearchButton()
 {
   mSearchButton->setEnabled( !mSearchEdit->text().isEmpty() &&
     mSearchWidget->scopeCount() > 0 );
+  mTabWidget->showPage( mSearchWidget );
 }
 
 void Navigator::hideSearch()
@@ -601,7 +602,7 @@ bool Navigator::checkSearchIndex()
     showIndexDialog();
     return false;
   }
-  
+
   return true;
 }
 
