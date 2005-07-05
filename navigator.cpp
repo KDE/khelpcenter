@@ -112,7 +112,7 @@ Navigator::Navigator( View *view, QWidget *parent, const char *name )
     connect( mSearchEdit, SIGNAL( textChanged( const QString & ) ),
              SLOT( checkSearchButton() ) );
 
-    mSearchButton = new QPushButton( i18n("Search"), mSearchFrame );
+    mSearchButton = new QPushButton( i18n("&Search"), mSearchFrame );
     searchLayout->addWidget( mSearchButton );
     connect( mSearchButton, SIGNAL( clicked() ), SLOT( slotSearch() ) );
 
