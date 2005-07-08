@@ -595,8 +595,8 @@ bool Navigator::checkSearchIndex()
                        "to create the index now?" );
 
   int result = KMessageBox::questionYesNo( this, text, QString::null,
-                                           KStdGuiItem::yes(),
-                                           KStdGuiItem::no(),
+                                           i18n("Create"),
+                                           i18n("Do Not Create"),
                                            "indexcreation" );
   if ( result == KMessageBox::Yes ) {
     showIndexDialog();
