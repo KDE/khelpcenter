@@ -75,7 +75,7 @@ NavigatorItem *ScrollKeeperTreeBuilder::build( NavigatorItem *parent,
 
   QDomDocument doc("ScrollKeeperContentsList");
   QFile f(mContentsList);
-  if ( !f.open( IO_ReadOnly ) )
+  if ( !f.open( QIODevice::ReadOnly ) )
     return 0;
   if ( !doc.setContent( &f ) ) {
     f.close();

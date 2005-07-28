@@ -264,7 +264,7 @@ void DocEntry::addChild( DocEntry *entry )
 {
   entry->setParent( this );
 
-  uint i;
+  int i;
   for( i = 0; i < mChildren.count(); ++i ) {
     if ( i == 0 ) {
       if ( entry->weight() < mChildren.first()->weight() ) {

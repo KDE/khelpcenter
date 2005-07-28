@@ -17,6 +17,10 @@
 
 #include <qfileinfo.h>
 #include <qclipboard.h>
+//Added by qt3to4:
+#include <QTextStream>
+#include <QKeyEvent>
+#include <QEvent>
 
 using namespace KHC;
 
@@ -40,7 +44,7 @@ View::View( QWidget *parentWidget, const char *widgetName,
     if (!css.isEmpty())
     {
        QFile css_file(css);
-       if (css_file.open(IO_ReadOnly))
+       if (css_file.open(QIODevice::ReadOnly))
        {
           QTextStream s(&css_file);
           QString stylesheet = s.read();
@@ -96,7 +100,7 @@ void View::showAboutPage()
 
     QFile f( file );
 
-    if ( !f.open( IO_ReadOnly ) )
+    if ( !f.open( QIODevice::ReadOnly ) )
     return;
 
     mState = About;
@@ -317,7 +321,7 @@ bool View::eventFilter( QObject *o, QEvent *e )
     return KHTMLPart::eventFilter( o, e );
 
   QKeyEvent *ke = static_cast<QKeyEvent *>( e );
-  if ( ke->state() & Qt::ShiftButton && ke->key() == Key_Space ) {
+  if ( ke->state() & Qt::ShiftModifier && ke->key() == Qt::Key_Space ) {
     // If we're on the first page, it does not make sense to go back.
     if ( baseURL().path().endsWith( "/index.html" ) )
       return KHTMLPart::eventFilter( o, e );
@@ -327,7 +331,7 @@ bool View::eventFilter( QObject *o, QEvent *e )
       if (prevPage())
          return true;
     }
-  } else if ( ke->key() == Key_Space ) {
+  } else if ( ke->key() == Qt::Key_Space ) {
     const QScrollBar * const scrollBar = view()->verticalScrollBar();
     if ( scrollBar->value() == scrollBar->maxValue() ) {
       if (nextPage())

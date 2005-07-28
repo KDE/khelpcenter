@@ -56,7 +56,7 @@ bool Formatter::readTemplates()
   }
   
   QFile f( mainTemplate );
-  if ( !f.open( IO_ReadOnly ) ) {
+  if ( !f.open( QIODevice::ReadOnly ) ) {
     kdWarning() << "Unable to open main template file '" << mainTemplate
                 << "'." << endl;
     return false;
@@ -178,7 +178,7 @@ QString Formatter::processResult( const QString &data )
 
   int state = Header;
 
-  for( uint i = 0; i < data.length(); ++i ) {
+  for( int i = 0; i < data.length(); ++i ) {
     QChar c = data[i];
     switch ( state ) {
       case Header:

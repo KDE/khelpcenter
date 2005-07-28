@@ -19,7 +19,7 @@
  */
 #include "history.h"
 #include "view.h"
-
+#include <QMenu>
 #include <kaction.h>
 #include <kapplication.h>
 #include <kdebug.h>
@@ -55,7 +55,7 @@ void History::setupActions( KActionCollection *coll )
 {
   QPair<KGuiItem, KGuiItem> backForward = KStdGuiItem::backAndForward();
 
-  m_backAction = new KToolBarPopupAction( backForward.first, ALT+Key_Left,
+  m_backAction = new KToolBarPopupAction( backForward.first, Qt::ALT+Qt::Key_Left,
       this, SLOT( back() ), coll, "back" );
   connect( m_backAction->popupMenu(), SIGNAL( activated( int ) ),
            SLOT( backActivated( int ) ) );
@@ -63,7 +63,7 @@ void History::setupActions( KActionCollection *coll )
            SLOT( fillBackMenu() ) );
   m_backAction->setEnabled( false );
 
-  m_forwardAction = new KToolBarPopupAction( backForward.second, ALT+Key_Right,
+  m_forwardAction = new KToolBarPopupAction( backForward.second, Qt::ALT+Qt::Key_Right,
       this, SLOT( forward() ), coll,
       "forward" );
   connect( m_forwardAction->popupMenu(), SIGNAL( activated( int ) ),
@@ -72,10 +72,9 @@ void History::setupActions( KActionCollection *coll )
            SLOT( fillForwardMenu() ) );
   m_forwardAction->setEnabled( false );
 }
-
 void History::installMenuBarHook( KMainWindow *mainWindow )
 {
-  QPopupMenu *goMenu = dynamic_cast<QPopupMenu *>(
+  QMenu *goMenu = dynamic_cast<QMenu *>(
       mainWindow->guiFactory()->container( "go_web", mainWindow ) );
   if ( goMenu ) {
     connect( goMenu, SIGNAL( aboutToShow() ), SLOT( fillGoMenu() ) );
@@ -123,7 +122,7 @@ void History::updateCurrentEntry( View *view )
   
   Entry *current = m_entries.current();
 
-  QDataStream stream( current->buffer, IO_WriteOnly );
+  QDataStream stream( &current->buffer, QIODevice::WriteOnly );
   view->browserExtension()->saveState( stream );
 
   current->view = view;
@@ -231,7 +230,7 @@ void History::goHistory( int steps )
   Entry h( *current );
   h.buffer.detach();
 
-  QDataStream stream( h.buffer, IO_ReadOnly );
+  QDataStream stream( h.buffer );
 
   h.view->closeURL();
   updateCurrentEntry( h.view );
@@ -242,14 +241,14 @@ void History::goHistory( int steps )
 
 void History::fillBackMenu()
 {
-  QPopupMenu *menu = m_backAction->popupMenu();
+  QMenu *menu = m_backAction->popupMenu();
   menu->clear();
   fillHistoryPopup( menu, true, false, false );
 }
 
 void History::fillForwardMenu()
 {
-  QPopupMenu *menu = m_forwardAction->popupMenu();
+  QMenu *menu = m_forwardAction->popupMenu();
   menu->clear();
   fillHistoryPopup( menu, false, true, false );
 }
@@ -257,7 +256,7 @@ void History::fillForwardMenu()
 void History::fillGoMenu()
 {
   KMainWindow *mainWindow = static_cast<KMainWindow *>( kapp->mainWidget() );
-  QPopupMenu *goMenu = dynamic_cast<QPopupMenu *>( mainWindow->guiFactory()->container( QString::fromLatin1( "go" ), mainWindow ) );
+  QMenu *goMenu = dynamic_cast<QMenu *>( mainWindow->guiFactory()->container( QString::fromLatin1( "go" ), mainWindow ) );
   if ( !goMenu || m_goMenuIndex == -1 )
     return;
 
@@ -290,7 +289,7 @@ void History::fillGoMenu()
 void History::goMenuActivated( int id )
 {
   KMainWindow *mainWindow = static_cast<KMainWindow *>( kapp->mainWidget() );
-  QPopupMenu *goMenu = dynamic_cast<QPopupMenu *>( mainWindow->guiFactory()->container( QString::fromLatin1( "go" ), mainWindow ) );
+  QMenu *goMenu = dynamic_cast<QMenu *>( mainWindow->guiFactory()->container( QString::fromLatin1( "go" ), mainWindow ) );
   if ( !goMenu )
     return;
 
@@ -306,12 +305,12 @@ void History::goMenuActivated( int id )
   }
 }
 
-void History::fillHistoryPopup( QPopupMenu *popup, bool onlyBack, bool onlyForward, bool checkCurrentItem, uint startPos )
+void History::fillHistoryPopup( QMenu *popup, bool onlyBack, bool onlyForward, bool checkCurrentItem, uint startPos )
 {
   Q_ASSERT ( popup ); // kill me if this 0... :/
 
   Entry * current = m_entries.current();
-  QPtrListIterator<Entry> it( m_entries );
+  Q3PtrListIterator<Entry> it( m_entries );
   if (onlyBack || onlyForward)
   {
     it += m_entries.at(); // Jump to current item

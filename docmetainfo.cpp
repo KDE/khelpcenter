@@ -155,16 +155,13 @@ DocEntry *DocMetaInfo::scanMetaInfoDir( const QString &dirName,
   QDir dir( dirName );
   if ( !dir.exists() ) return 0;
 
-  const QFileInfoList *entryList = dir.entryInfoList();
-  QFileInfoListIterator it( *entryList );
-  QFileInfo *fi;
-  for( ; ( fi = it.current() ); ++it ) {
+  foreach( QFileInfo fi, dir.entryInfoList() ) {
     DocEntry *entry = 0;
-    if ( fi->isDir() && fi->fileName() != "." && fi->fileName() != ".." ) {
-      DocEntry *dirEntry = addDirEntry( QDir( fi->absFilePath() ), parent );
-      entry = scanMetaInfoDir( fi->absFilePath(), dirEntry );
-    } else if ( fi->extension( false ) == "desktop" ) {
-      entry = addDocEntry( fi->absFilePath() );
+    if ( fi.isDir() && fi.fileName() != "." && fi.fileName() != ".." ) {
+      DocEntry *dirEntry = addDirEntry( QDir( fi.absFilePath() ), parent );
+      entry = scanMetaInfoDir( fi.absFilePath(), dirEntry );
+    } else if ( fi.extension( false ) == "desktop" ) {
+      entry = addDocEntry( fi.absFilePath() );
       if ( parent && entry ) parent->addChild( entry );
     }
   }

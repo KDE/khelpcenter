@@ -28,10 +28,12 @@
 #include <klocale.h>
 #include <knuminput.h>
 
-#include <qgroupbox.h>
+#include <q3groupbox.h>
 #include <qlabel.h>
 #include <qlayout.h>
 #include <qspinbox.h>
+//Added by qt3to4:
+#include <QGridLayout>
 
 using namespace KHC;
 
@@ -56,7 +58,7 @@ void FontDialog::slotOk()
 
 void FontDialog::setupFontSizesBox()
 {
-	QGroupBox *gb = new QGroupBox( i18n( "Sizes" ), mainWidget() );
+	Q3GroupBox *gb = new Q3GroupBox( i18n( "Sizes" ), mainWidget() );
 
 	QGridLayout *layout = new QGridLayout( gb );
 	layout->setSpacing( KDialog::spacingHint() );
@@ -79,7 +81,7 @@ void FontDialog::setupFontSizesBox()
 
 void FontDialog::setupFontTypesBox()
 {
-	QGroupBox *gb = new QGroupBox( i18n( "Fonts" ), mainWidget() );
+	Q3GroupBox *gb = new Q3GroupBox( i18n( "Fonts" ), mainWidget() );
 
 	QGridLayout *layout = new QGridLayout( gb );
 	layout->setSpacing( KDialog::spacingHint() );
@@ -124,7 +126,7 @@ void FontDialog::setupFontTypesBox()
 
 void FontDialog::setupFontEncodingBox()
 {
-	QGroupBox *gb = new QGroupBox( i18n( "Encoding" ), mainWidget() );
+	Q3GroupBox *gb = new Q3GroupBox( i18n( "Encoding" ), mainWidget() );
 
 	QGridLayout *layout = new QGridLayout( gb );
 	layout->setSpacing( KDialog::spacingHint() );
@@ -162,7 +164,8 @@ void FontDialog::load()
 			      << HTML_DEFAULT_VIEW_SERIF_FONT
 			      << HTML_DEFAULT_VIEW_SANSSERIF_FONT
 			      << HTML_DEFAULT_VIEW_CURSIVE_FONT
-			      << HTML_DEFAULT_VIEW_FANTASY_FONT;
+			      << HTML_DEFAULT_VIEW_FANTASY_FONT
+                              << QString();
 
 		m_standardFontCombo->setCurrentFont( fonts[ 0 ] );
 		m_fixedFontCombo->setCurrentFont( fonts[ 1 ] );

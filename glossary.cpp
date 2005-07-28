@@ -30,7 +30,10 @@
 #include <kstandarddirs.h>
 #include <kstatusbar.h>
 
-#include <qheader.h>
+#include <q3header.h>
+//Added by qt3to4:
+#include <Q3Frame>
+#include <QTextStream>
 
 #include <sys/stat.h>
 
@@ -39,7 +42,7 @@ using namespace KHC;
 class SectionItem : public KListViewItem
 {
 	public:
-		SectionItem( QListViewItem *parent, const QString &text )
+		SectionItem( Q3ListViewItem *parent, const QString &text )
 			: KListViewItem( parent, text )
 		{
 			setOpen( false );
@@ -73,12 +76,12 @@ Glossary::Glossary( QWidget *parent ) : KListView( parent )
 {
 	m_initialized = false;
 
-	connect( this, SIGNAL( clicked( QListViewItem * ) ),
-	         this, SLOT( treeItemSelected( QListViewItem * ) ) );
-	connect( this, SIGNAL( returnPressed( QListViewItem * ) ),
-	         this, SLOT( treeItemSelected( QListViewItem * ) ) );
+	connect( this, SIGNAL( clicked( Q3ListViewItem * ) ),
+	         this, SLOT( treeItemSelected( Q3ListViewItem * ) ) );
+	connect( this, SIGNAL( returnPressed( Q3ListViewItem * ) ),
+	         this, SLOT( treeItemSelected( Q3ListViewItem * ) ) );
 	
-	setFrameStyle( QFrame::Panel | QFrame::Sunken );
+	setFrameStyle( Q3Frame::Panel | Q3Frame::Sunken );
 	addColumn( QString::null );
 	header()->hide();
 	setAllColumnsShowFocus( true );
@@ -182,7 +185,7 @@ void Glossary::meinprocExited( KProcess *meinproc )
 void Glossary::buildGlossaryTree()
 {
 	QFile cacheFile(m_cacheFile);
-	if ( !cacheFile.open( IO_ReadOnly ) )
+	if ( !cacheFile.open( QIODevice::ReadOnly ) )
 		return;
 
 	QDomDocument doc;
@@ -190,13 +193,13 @@ void Glossary::buildGlossaryTree()
 		return;
 
 	QDomNodeList sectionNodes = doc.documentElement().elementsByTagName( QString::fromLatin1( "section" ) );
-	for ( unsigned int i = 0; i < sectionNodes.count(); i++ ) {
+	for ( int i = 0; i < sectionNodes.count(); i++ ) {
 		QDomElement sectionElement = sectionNodes.item( i ).toElement();
 		QString title = sectionElement.attribute( QString::fromLatin1( "title" ) );
 		SectionItem *topicSection = new SectionItem( m_byTopicItem, title );
 
 		QDomNodeList entryNodes = sectionElement.elementsByTagName( QString::fromLatin1( "entry" ) );
-		for ( unsigned int j = 0; j < entryNodes.count(); j++ ) {
+		for ( int j = 0; j < entryNodes.count(); j++ ) {
 			QDomElement entryElement = entryNodes.item( j ).toElement();
 			
 			QString entryId = entryElement.attribute( QString::fromLatin1( "id" ) );
@@ -210,14 +213,14 @@ void Glossary::buildGlossaryTree()
             m_idDict.insert( entryId, entry );
 
 			SectionItem *alphabSection = 0L;
-			for ( QListViewItemIterator it( m_alphabItem ); it.current(); it++ )
-				if ( it.current()->text( 0 ) == term[ 0 ].upper() ) {
+			for ( Q3ListViewItemIterator it( m_alphabItem ); it.current(); it++ )
+				if ( it.current()->text( 0 ) == QString( term[ 0 ].upper() ) ) {
 					alphabSection = static_cast<SectionItem *>( it.current() );
 					break;
 				}
 
 			if ( !alphabSection )
-				alphabSection = new SectionItem( m_alphabItem, term[ 0 ].upper() );
+				alphabSection = new SectionItem( m_alphabItem, QString( term[ 0 ].upper() ) );
 
 			new EntryItem( alphabSection, term, entryId );
 
@@ -229,7 +232,7 @@ void Glossary::buildGlossaryTree()
 			QDomElement referencesElement = childElement( entryElement, QString::fromLatin1( "references" ) );
 			QDomNodeList referenceNodes = referencesElement.elementsByTagName( QString::fromLatin1( "reference" ) );
 			if ( referenceNodes.count() > 0 )
-				for ( unsigned int k = 0; k < referenceNodes.count(); k++ ) {
+				for ( int k = 0; k < referenceNodes.count(); k++ ) {
 					QDomElement referenceElement = referenceNodes.item( k ).toElement();
 
 					QString term = referenceElement.attribute( QString::fromLatin1( "term" ) );
@@ -243,7 +246,7 @@ void Glossary::buildGlossaryTree()
 	}
 }
 
-void Glossary::treeItemSelected( QListViewItem *item )
+void Glossary::treeItemSelected( Q3ListViewItem *item )
 {
 	if ( !item )
 		return;
@@ -266,7 +269,7 @@ QDomElement Glossary::childElement( const QDomElement &element, const QString &n
 QString Glossary::entryToHtml( const GlossaryEntry &entry )
 {
     QFile htmlFile( locate("data", "khelpcenter/glossary.html.in" ) );
-    if (!htmlFile.open(IO_ReadOnly))
+    if (!htmlFile.open(QIODevice::ReadOnly))
       return QString( "<html><head></head><body><h3>%1</h3>%2</body></html>" )
              .arg( i18n( "Error" ) )
              .arg( i18n( "Unable to show selected glossary entry: unable to open "

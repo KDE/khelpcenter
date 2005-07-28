@@ -20,23 +20,23 @@
 #ifndef KHC_NAVIGATORITEM_H
 #define KHC_NAVIGATORITEM_H
 
-#include <qlistview.h>
+#include <q3listview.h>
 
 namespace KHC {
 
 class TOC;
 class DocEntry;
 
-class NavigatorItem : public QListViewItem
+class NavigatorItem : public Q3ListViewItem
 {
   public:
-    NavigatorItem( DocEntry *entry, QListView *parent );
-    NavigatorItem( DocEntry *entry, QListViewItem *parent );
+    NavigatorItem( DocEntry *entry, Q3ListView *parent );
+    NavigatorItem( DocEntry *entry, Q3ListViewItem *parent );
 
-    NavigatorItem( DocEntry *entry, QListView *parent,
-                   QListViewItem *after );
-    NavigatorItem( DocEntry *entry, QListViewItem *parent,
-                   QListViewItem *after );
+    NavigatorItem( DocEntry *entry, Q3ListView *parent,
+                   Q3ListViewItem *after );
+    NavigatorItem( DocEntry *entry, Q3ListViewItem *parent,
+                   Q3ListViewItem *after );
 
     ~NavigatorItem();
 

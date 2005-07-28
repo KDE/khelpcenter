@@ -23,12 +23,14 @@
 #include <kurl.h>
 
 #include <qobject.h>
-#include <qptrlist.h>
+#include <q3ptrlist.h>
+#include <QMenu>
+#include <QMenu>
 
 class KActionCollection;
 class KMainWindow;
 class KToolBarPopupAction;
-class QPopupMenu;
+class QMenu;
 
 namespace KHC {
 
@@ -85,11 +87,11 @@ class History : public QObject
 
     bool canGoBack() const;
     bool canGoForward() const;
-    void fillHistoryPopup( QPopupMenu *, bool, bool, bool, uint = 0 );
+    void fillHistoryPopup( QMenu *, bool, bool, bool, uint = 0 );
 
     static History *m_instance;
 
-    QPtrList<Entry> m_entries;
+    Q3PtrList<Entry> m_entries;
 
 
     int m_goBuffer;

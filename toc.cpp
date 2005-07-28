@@ -29,6 +29,8 @@
 
 #include <qdir.h>
 #include <qfileinfo.h>
+//Added by qt3to4:
+#include <QTextStream>
 
 #include <sys/stat.h>
 
@@ -37,7 +39,7 @@ using namespace KHC;
 class TOCItem : public NavigatorItem
 {
 	public:
-		TOCItem( TOC *parent, QListViewItem *parentItem, QListViewItem *after, const QString &text );
+		TOCItem( TOC *parent, Q3ListViewItem *parentItem, Q3ListViewItem *after, const QString &text );
 
 		const TOC *toc() const { return m_toc; }
 
@@ -48,7 +50,7 @@ class TOCItem : public NavigatorItem
 class TOCChapterItem : public TOCItem
 {
 	public:
-		TOCChapterItem( TOC *toc, NavigatorItem *parent, QListViewItem *after, const QString &title, 
+		TOCChapterItem( TOC *toc, NavigatorItem *parent, Q3ListViewItem *after, const QString &title, 
 				const QString &name );
 
 		virtual QString url();
@@ -60,7 +62,7 @@ class TOCChapterItem : public TOCItem
 class TOCSectionItem : public TOCItem
 {
 	public:
-		TOCSectionItem( TOC *toc, TOCChapterItem *parent, QListViewItem *after, const QString &title, 
+		TOCSectionItem( TOC *toc, TOCChapterItem *parent, Q3ListViewItem *after, const QString &title, 
 				const QString &name );
 
 		virtual QString url();
@@ -118,7 +120,7 @@ int TOC::sourceFileCTime() const
 int TOC::cachedCTime() const
 {
 	QFile f( m_cacheFile );
-	if ( !f.open( IO_ReadOnly ) )
+	if ( !f.open( QIODevice::ReadOnly ) )
 		return 0;
 	
 	QDomDocument doc;
@@ -154,7 +156,7 @@ void TOC::meinprocExited( KProcess *meinproc )
 	delete meinproc;
 
 	QFile f( m_cacheFile );
-	if ( !f.open( IO_ReadWrite ) )
+	if ( !f.open( QIODevice::ReadWrite ) )
 		return;
 
 	QDomDocument doc;
@@ -177,7 +179,7 @@ void TOC::meinprocExited( KProcess *meinproc )
 void TOC::fillTree()
 {
 	QFile f( m_cacheFile );
-	if ( !f.open( IO_ReadOnly ) )
+	if ( !f.open( QIODevice::ReadOnly ) )
 		return;
 
 	QDomDocument doc;
@@ -186,7 +188,7 @@ void TOC::fillTree()
 	
 	TOCChapterItem *chapItem = 0;
 	QDomNodeList chapters = doc.documentElement().elementsByTagName( "chapter" );
-	for ( unsigned int chapterCount = 0; chapterCount < chapters.count(); chapterCount++ ) {
+	for ( int chapterCount = 0; chapterCount < chapters.count(); chapterCount++ ) {
 		QDomElement chapElem = chapters.item( chapterCount ).toElement();
 		QDomElement chapTitleElem = childElement( chapElem, QString::fromLatin1( "title" ) );
 		QString chapTitle = chapTitleElem.text().simplifyWhiteSpace();
@@ -197,7 +199,7 @@ void TOC::fillTree()
 
 		TOCSectionItem *sectItem = 0;
 		QDomNodeList sections = chapElem.elementsByTagName( "section" );
-		for ( unsigned int sectCount = 0; sectCount < sections.count(); sectCount++ ) {
+		for ( int sectCount = 0; sectCount < sections.count(); sectCount++ ) {
 			QDomElement sectElem = sections.item( sectCount ).toElement();
 			QDomElement sectTitleElem = childElement( sectElem, QString::fromLatin1( "title" ) );
 			QString sectTitle = sectTitleElem.text().simplifyWhiteSpace();
@@ -220,7 +222,7 @@ QDomElement TOC::childElement( const QDomElement &element, const QString &name )
 	return e;
 }
 
-void TOC::slotItemSelected( QListViewItem *item )
+void TOC::slotItemSelected( Q3ListViewItem *item )
 {
 	TOCItem *tocItem;
 	if ( ( tocItem = dynamic_cast<TOCItem *>( item ) ) )
@@ -229,14 +231,14 @@ void TOC::slotItemSelected( QListViewItem *item )
 	item->setOpen( !item->isOpen() );
 }
 
-TOCItem::TOCItem( TOC *toc, QListViewItem *parentItem, QListViewItem *after, const QString &text )
+TOCItem::TOCItem( TOC *toc, Q3ListViewItem *parentItem, Q3ListViewItem *after, const QString &text )
 	: NavigatorItem( new DocEntry( text ), parentItem, after )
 {
         setAutoDeleteDocEntry( true );
 	m_toc = toc;
 }
 
-TOCChapterItem::TOCChapterItem( TOC *toc, NavigatorItem *parent, QListViewItem *after,
+TOCChapterItem::TOCChapterItem( TOC *toc, NavigatorItem *parent, Q3ListViewItem *after,
 				const QString &title, const QString &name )
 	: TOCItem( toc, parent, after, title ),
 	m_name( name )
@@ -250,7 +252,7 @@ QString TOCChapterItem::url()
 	return "help:" + toc()->application() + "/" + m_name + ".html";
 }
 
-TOCSectionItem::TOCSectionItem( TOC *toc, TOCChapterItem *parent, QListViewItem *after,
+TOCSectionItem::TOCSectionItem( TOC *toc, TOCChapterItem *parent, Q3ListViewItem *after,
 				const QString &title, const QString &name )
 	: TOCItem( toc, parent, after, title ),
 	m_name( name )

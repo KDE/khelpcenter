@@ -49,7 +49,7 @@ IndexBuilder::IndexBuilder()
 void IndexBuilder::buildIndices( const QString &cmdFile )
 {
   QFile f( cmdFile );
-  if ( !f.open( IO_ReadOnly ) ) {
+  if ( !f.open( QIODevice::ReadOnly ) ) {
     kdError() << "Unable to open file '" << cmdFile << "'" << endl;
     exit( 1 );
   }
@@ -136,7 +136,9 @@ void IndexBuilder::sendErrorSignal( const QString &error )
   kdDebug(1402) << "IndexBuilder::sendErrorSignal()" << endl;
   
   QByteArray params;
-  QDataStream stream( params, IO_WriteOnly );
+  QDataStream stream( &params, QIODevice::WriteOnly );
+
+  stream.setVersion(QDataStream::Qt_3_1);
   stream << error;
   kapp->dcopClient()->emitDCOPSignal("buildIndexError(QString)", params );  
 }
@@ -194,7 +196,7 @@ int main( int argc, char **argv )
   kdDebug(1402) << "indexDir: " << indexDir << endl;
 
   QFile file( indexDir + "/testaccess" );
-  if ( !file.open( IO_WriteOnly ) || file.putch( ' ' ) < 0 ) {
+  if ( !file.open( QIODevice::WriteOnly ) || file.putch( ' ' ) < 0 ) {
     kdDebug(1402) << "access denied" << endl;
     return 2;
   } else {

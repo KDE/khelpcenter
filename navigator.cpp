@@ -28,7 +28,7 @@
 #include <qpixmap.h>
 #include <qstring.h>
 #include <qlabel.h>
-#include <qheader.h>
+#include <q3header.h>
 #include <qdom.h>
 #include <qtextstream.h>
 #include <qregexp.h>
@@ -36,6 +36,11 @@
 #include <qlineedit.h>
 #include <qpushbutton.h>
 #include <qtooltip.h>
+//Added by qt3to4:
+#include <Q3Frame>
+#include <QHBoxLayout>
+#include <QBoxLayout>
+#include <QVBoxLayout>
 
 #include <kaction.h>
 #include <kapplication.h>
@@ -92,7 +97,7 @@ Navigator::Navigator( View *view, QWidget *parent, const char *name )
 
     QBoxLayout *topLayout = new QVBoxLayout( this );
 
-    mSearchFrame = new QFrame( this );
+    mSearchFrame = new Q3Frame( this );
     topLayout->addWidget( mSearchFrame );
 
     QBoxLayout *searchLayout = new QHBoxLayout( mSearchFrame );
@@ -160,17 +165,17 @@ bool Navigator::showMissingDocs() const
 void Navigator::setupContentsTab()
 {
     mContentsTree = new KListView( mTabWidget );
-    mContentsTree->setFrameStyle(QFrame::Panel | QFrame::Sunken);
+    mContentsTree->setFrameStyle(Q3Frame::Panel | Q3Frame::Sunken);
     mContentsTree->addColumn(QString::null);
     mContentsTree->setAllColumnsShowFocus(true);
     mContentsTree->header()->hide();
     mContentsTree->setRootIsDecorated(false);
     mContentsTree->setSorting(-1, false);
 
-    connect(mContentsTree, SIGNAL(clicked(QListViewItem*)),
-            SLOT(slotItemSelected(QListViewItem*)));
-    connect(mContentsTree, SIGNAL(returnPressed(QListViewItem*)),
-           SLOT(slotItemSelected(QListViewItem*)));
+    connect(mContentsTree, SIGNAL(clicked(Q3ListViewItem*)),
+            SLOT(slotItemSelected(Q3ListViewItem*)));
+    connect(mContentsTree, SIGNAL(returnPressed(Q3ListViewItem*)),
+           SLOT(slotItemSelected(Q3ListViewItem*)));
     mTabWidget->addTab(mContentsTree, i18n("&Contents"));
 }
 
@@ -332,14 +337,14 @@ void Navigator::selectItem( const KURL &url )
 
   // First, populate the NavigatorAppItems if we don't want the home page
   if ( url != homeURL() ) {
-    for ( QListViewItem *item = mContentsTree->firstChild(); item;
+    for ( Q3ListViewItem *item = mContentsTree->firstChild(); item;
           item = item->nextSibling() ) {
       NavigatorAppItem *appItem = dynamic_cast<NavigatorAppItem *>( item );
       if ( appItem ) appItem->populate( true /* recursive */ );
     }
   }
 
-  QListViewItemIterator it( mContentsTree );
+  Q3ListViewItemIterator it( mContentsTree );
   while ( it.current() ) {
     NavigatorItem *item = static_cast<NavigatorItem *>( it.current() );
     KURL itemUrl( item->entry()->url() );
@@ -367,7 +372,7 @@ void Navigator::clearSelection()
   mSelected = false;
 }
 
-void Navigator::slotItemSelected( QListViewItem *currentItem )
+void Navigator::slotItemSelected( Q3ListViewItem *currentItem )
 {
   if ( !currentItem ) return;
 
@@ -469,7 +474,7 @@ void Navigator::showOverview( NavigatorItem *item, const KURL &url )
   }
 
   if ( childCount > 0 ) {
-    QListViewItem *child;
+    Q3ListViewItem *child;
     if ( item ) child = item->firstChild();
     else child = mContentsTree->firstChild();
 
@@ -487,7 +492,7 @@ void Navigator::showOverview( NavigatorItem *item, const KURL &url )
   mView->end();
 }
 
-QString Navigator::createChildrenList( QListViewItem *child )
+QString Navigator::createChildrenList( Q3ListViewItem *child )
 {
   ++mDirLevel;
 
@@ -546,7 +551,7 @@ void Navigator::slotSearch()
 
   // disable search Button during searches
   mSearchButton->setEnabled(false);
-  QApplication::setOverrideCursor(waitCursor);
+  QApplication::setOverrideCursor(Qt::WaitCursor);
 
   if ( !mSearchEngine->search( words, method, pages, scope ) ) {
     slotSearchFinished();

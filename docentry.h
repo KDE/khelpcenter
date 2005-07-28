@@ -2,14 +2,14 @@
 #define DOCENTRY_H
 
 #include <qstring.h>
-#include <qvaluelist.h>
+#include <q3valuelist.h>
 
 namespace KHC {
 
 class DocEntry
 {
   public:
-    typedef QValueList<DocEntry *> List;
+    typedef Q3ValueList<DocEntry *> List;
 
     DocEntry();
     

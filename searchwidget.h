@@ -28,8 +28,8 @@
 #include "docmetainfo.h"
 
 class QCheckBox;
-class QListView;
-class QListViewItem;
+class Q3ListView;
+class Q3ListViewItem;
 class QComboBox;
 
 class KLanguageCombo;
@@ -58,7 +58,7 @@ class SearchWidget : public QWidget, public DCOPObject
     int pages();
     QString scope();
 
-    QListView *listView() { return mScopeListView; }
+    Q3ListView *listView() { return mScopeListView; }
 
     enum { ScopeDefault, ScopeAll, ScopeNone, ScopeCustom, ScopeNum };
 
@@ -85,8 +85,8 @@ class SearchWidget : public QWidget, public DCOPObject
     void checkScope();
 
   protected slots:
-    void scopeDoubleClicked( QListViewItem * );
-    void scopeClicked( QListViewItem * );
+    void scopeDoubleClicked( Q3ListViewItem * );
+    void scopeClicked( Q3ListViewItem * );
 
   private:
     void loadLanguages();
@@ -96,7 +96,7 @@ class SearchWidget : public QWidget, public DCOPObject
     QComboBox *mMethodCombo;
     QComboBox *mPagesCombo;
     QComboBox *mScopeCombo;
-    QListView *mScopeListView;
+    Q3ListView *mScopeListView;
 
     int mScopeCount;
 };

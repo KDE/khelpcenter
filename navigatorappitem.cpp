@@ -26,7 +26,7 @@
 
 using namespace KHC;
 
-NavigatorAppItem::NavigatorAppItem( DocEntry *entry, QListView *parent,
+NavigatorAppItem::NavigatorAppItem( DocEntry *entry, Q3ListView *parent,
                   const QString &relPath )
   : NavigatorItem( entry, parent ),
     mRelpath( relPath ),
@@ -35,7 +35,7 @@ NavigatorAppItem::NavigatorAppItem( DocEntry *entry, QListView *parent,
   setExpandable( true );
 }
 
-NavigatorAppItem::NavigatorAppItem( DocEntry *entry, QListViewItem *parent,
+NavigatorAppItem::NavigatorAppItem( DocEntry *entry, Q3ListViewItem *parent,
                   const QString &relPath )
   : NavigatorItem( entry, parent ),
     mRelpath( relPath ),
@@ -44,16 +44,16 @@ NavigatorAppItem::NavigatorAppItem( DocEntry *entry, QListViewItem *parent,
   setExpandable( true );
 }
 
-NavigatorAppItem::NavigatorAppItem( DocEntry *entry, QListView *parent,
-                  QListViewItem *after )
+NavigatorAppItem::NavigatorAppItem( DocEntry *entry, Q3ListView *parent,
+                  Q3ListViewItem *after )
   : NavigatorItem( entry, parent, after ),
     mPopulated( false )
 {
   setExpandable( true );
 }
 
-NavigatorAppItem::NavigatorAppItem( DocEntry *entry, QListViewItem *parent,
-                  QListViewItem *after )
+NavigatorAppItem::NavigatorAppItem( DocEntry *entry, Q3ListViewItem *parent,
+                  Q3ListViewItem *after )
   : NavigatorItem( entry, parent, after ),
     mPopulated( false )
 {
@@ -75,7 +75,7 @@ void NavigatorAppItem::setOpen(bool open)
                << mRelpath << ")" << endl;
      populate();
   }
-  QListViewItem::setOpen(open); 
+  Q3ListViewItem::setOpen(open); 
 }
 
 void NavigatorAppItem::populate( bool recursive )

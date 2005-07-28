@@ -21,6 +21,8 @@
 #define FONTDIALOG_H
 
 #include <kdialogbase.h>
+//Added by qt3to4:
+#include <QBoxLayout>
 
 class QBoxLayout;
 class QSpinBox;

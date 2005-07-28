@@ -45,12 +45,18 @@
 #include <qpushbutton.h>
 #include <qdir.h>
 #include <qtabwidget.h>
-#include <qprogressbar.h>
+#include <q3progressbar.h>
 #include <qfile.h>
 #include <qlabel.h>
-#include <qvbox.h>
-#include <qtextedit.h>
+#include <q3vbox.h>
+#include <q3textedit.h>
 #include <qregexp.h>
+//Added by qt3to4:
+#include <QTextStream>
+#include <QFrame>
+#include <QHBoxLayout>
+#include <QBoxLayout>
+#include <QVBoxLayout>
 
 #include <unistd.h>
 #include <sys/types.h>
@@ -101,17 +107,17 @@ IndexProgressDialog::IndexProgressDialog( QWidget *parent )
   topLayout->setSpacing( spacingHint() );
 
   mLabel = new QLabel( this );
-  mLabel->setAlignment( AlignHCenter );
+  mLabel->setAlignment( Qt::AlignHCenter );
   topLayout->addWidget( mLabel );
 
-  mProgressBar = new QProgressBar( this );
+  mProgressBar = new Q3ProgressBar( this );
   topLayout->addWidget( mProgressBar );
 
   mLogLabel = new QLabel( i18n("Index creation log:"), this );
   topLayout->addWidget( mLogLabel );
 
-  mLogView = new QTextEdit( this );
-  mLogView->setTextFormat( LogText );
+  mLogView = new Q3TextEdit( this );
+  mLogView->setTextFormat( Qt::LogText );
   mLogView->setMinimumHeight( 200 );
   topLayout->addWidget( mLogView, 1 );
 
@@ -225,7 +231,7 @@ KCMHelpCenter::KCMHelpCenter( KHC::SearchEngine *engine, QWidget *parent,
   : DCOPObject( "kcmhelpcenter" ),
     KDialogBase( parent, name, false, i18n("Build Search Index"),
       Ok | Cancel, Ok, true ),
-    mEngine( engine ), mProgressDialog( 0 ), mCurrentEntry( 0 ), mCmdFile( 0 ),
+    mEngine( engine ), mProgressDialog( 0 ), mCmdFile( 0 ),
     mProcess( 0 ), mIsClosing( false ), mRunAsRoot( false )
 {
   QWidget *widget = makeMainWidget();
@@ -277,9 +283,9 @@ void KCMHelpCenter::setupMainWidget( QWidget *parent )
   mListView->setFullWidth( true );
   mListView->addColumn( i18n("Search Scope") );
   mListView->addColumn( i18n("Status") );
-  mListView->setColumnAlignment( 1, AlignCenter );
+  mListView->setColumnAlignment( 1, Qt::AlignCenter );
   topLayout->addWidget( mListView );
-  connect( mListView, SIGNAL( clicked( QListViewItem * ) ),
+  connect( mListView, SIGNAL( clicked( Q3ListViewItem * ) ),
     SLOT( checkSelection() ) );
 
   QBoxLayout *urlLayout = new QHBoxLayout( topLayout );
@@ -341,7 +347,7 @@ void KCMHelpCenter::load()
 
 void KCMHelpCenter::updateStatus()
 {
-  QListViewItemIterator it( mListView );
+  Q3ListViewItemIterator it( mListView );
   while ( it.current() != 0 ) {
     ScopeItem *item = static_cast<ScopeItem *>( it.current() );
     QString status;
@@ -388,7 +394,7 @@ bool KCMHelpCenter::buildIndex()
 
   bool hasError = false;
 
-  QListViewItemIterator it( mListView );
+  Q3ListViewItemIterator it( mListView );
   while ( it.current() != 0 ) {
     ScopeItem *item = static_cast<ScopeItem *>( it.current() );
     if ( item->isOn() ) {
@@ -537,8 +543,6 @@ void KCMHelpCenter::slotIndexFinished( KProcess *proc )
   deleteProcess();
   deleteCmdFile();
 
-  mCurrentEntry = 0;
-
   if ( mProgressDialog ) {
     mProgressDialog->setFinished( true );
   }
@@ -657,7 +661,7 @@ void KCMHelpCenter::checkSelection()
 {
   int count = 0;
 
-  QListViewItemIterator it( mListView );
+  Q3ListViewItemIterator it( mListView );
   while ( it.current() != 0 ) {
     ScopeItem *item = static_cast<ScopeItem *>( it.current() );
     if ( item->isOn() ) {

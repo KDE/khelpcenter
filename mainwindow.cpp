@@ -43,8 +43,14 @@
 #include <kdialogbase.h>
 
 #include <qsplitter.h>
-#include <qtextedit.h>
+#include <q3textedit.h>
 #include <qlayout.h>
+//Added by qt3to4:
+#include <QVBoxLayout>
+#include <QFrame>
+#include <Q3ValueList>
+#include <Q3CString>
+#include <QBoxLayout>
 
 #include <stdlib.h>
 #include <assert.h>
@@ -62,8 +68,8 @@ class LogDialog : public KDialogBase
 
       QBoxLayout *topLayout = new QVBoxLayout( topFrame );
 
-      mTextView = new QTextEdit( topFrame );
-      mTextView->setTextFormat( LogText );
+      mTextView = new Q3TextEdit( topFrame );
+      mTextView->setTextFormat( Qt::LogText );
       topLayout->addWidget( mTextView );
 
       resize( configDialogSize( "logdialog" ) );
@@ -80,7 +86,7 @@ class LogDialog : public KDialogBase
     }
 
   private:
-    QTextEdit *mTextView;
+    Q3TextEdit *mTextView;
 };
 
 
@@ -108,7 +114,7 @@ MainWindow::MainWindow()
              SLOT( enableCopyTextAction() ) );
 
     statusBar()->insertItem(i18n("Preparing Index"), 0, 1);
-    statusBar()->setItemAlignment(0, AlignLeft | AlignVCenter);
+    statusBar()->setItemAlignment(0, Qt::AlignLeft | Qt::AlignVCenter);
 
     connect( mDoc->browserExtension(),
              SIGNAL( openURLRequest( const KURL &,
@@ -125,7 +131,7 @@ MainWindow::MainWindow()
     mSplitter->moveToFirst(mNavigator);
     mSplitter->setResizeMode(mNavigator, QSplitter::KeepSize);
     setCentralWidget( mSplitter );
-    QValueList<int> sizes;
+    Q3ValueList<int> sizes;
     sizes << 220 << 580;
     mSplitter->setSizes(sizes);
     setGeometry(366, 0, 800, 600);
@@ -187,7 +193,7 @@ void MainWindow::readConfig()
 {
     KConfig *config = KGlobal::config();
     config->setGroup( "MainWindowState" );
-    QValueList<int> sizes = config->readIntListEntry( "Splitter" );
+    Q3ValueList<int> sizes = config->readIntListEntry( "Splitter" );
     if ( sizes.count() == 2 ) {
         mSplitter->setSizes( sizes );
     }
@@ -212,11 +218,11 @@ void MainWindow::setupActions()
     KStdAction::print( this, SLOT( print() ), actionCollection(),
                        "printFrame" );
 
-    KAction *prevPage  = new KAction( i18n( "Previous Page" ), CTRL+Key_PageUp, mDoc, SLOT( prevPage() ),
+    KAction *prevPage  = new KAction( i18n( "Previous Page" ), Qt::CTRL+Qt::Key_PageUp, mDoc, SLOT( prevPage() ),
                          actionCollection(), "prevPage" );
     prevPage->setWhatsThis( i18n( "Moves to the previous page of the document" ) );
 
-    KAction *nextPage  = new KAction( i18n( "Next Page" ), CTRL + Key_PageDown, mDoc, SLOT( nextPage() ),
+    KAction *nextPage  = new KAction( i18n( "Next Page" ), Qt::CTRL + Qt::Key_PageDown, mDoc, SLOT( nextPage() ),
                          actionCollection(), "nextPage" );
     nextPage->setWhatsThis( i18n( "Moves to the next page of the document" ) );
 
@@ -357,7 +363,7 @@ void MainWindow::openUrl( const QString &url )
     openUrl( KURL( url ) );
 }
 
-void MainWindow::openUrl( const QString &url, const QCString& startup_id )
+void MainWindow::openUrl( const QString &url, const Q3CString& startup_id )
 {
     KStartupInfo::setNewStartupId( this, startup_id );
     openUrl( KURL( url ) );

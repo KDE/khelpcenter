@@ -23,7 +23,7 @@
 #include "navigatoritem.h"
 
 #include <qdom.h>
-#include <qlistview.h>
+#include <q3listview.h>
 #include <qobject.h>
 
 class KProcess;
@@ -46,7 +46,7 @@ class TOC : public QObject
 		void itemSelected( const QString &url );
 
 	private slots:
-		void slotItemSelected( QListViewItem *item );
+		void slotItemSelected( Q3ListViewItem *item );
 		void meinprocExited( KProcess *meinproc );
 
 	private:

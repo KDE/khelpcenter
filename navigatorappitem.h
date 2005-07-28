@@ -29,15 +29,15 @@ namespace KHC {
 class NavigatorAppItem : public NavigatorItem
 {
   public:
-    NavigatorAppItem( DocEntry *entry, QListView *parent,
+    NavigatorAppItem( DocEntry *entry, Q3ListView *parent,
                       const QString &relPath );
-    NavigatorAppItem( DocEntry *entry, QListViewItem *parent,
+    NavigatorAppItem( DocEntry *entry, Q3ListViewItem *parent,
                       const QString &relPath );
 
-    NavigatorAppItem( DocEntry *entry, QListView *parent,
-                      QListViewItem *after );
-    NavigatorAppItem( DocEntry *entry, QListViewItem *parent,
-                      QListViewItem *after );
+    NavigatorAppItem( DocEntry *entry, Q3ListView *parent,
+                      Q3ListViewItem *after );
+    NavigatorAppItem( DocEntry *entry, Q3ListViewItem *parent,
+                      Q3ListViewItem *after );
 
     void setRelpath( const QString & );
 

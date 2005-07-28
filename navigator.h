@@ -29,10 +29,12 @@
 #include <qfile.h>
 #include <qtextstream.h>
 #include <qtimer.h>
-#include <qptrlist.h>
+#include <q3ptrlist.h>
 #include <qtabwidget.h>
-#include <qlistview.h>
-#include <qdict.h>
+#include <q3listview.h>
+#include <q3dict.h>
+//Added by qt3to4:
+#include <Q3Frame>
 
 class QPushButton;
 
@@ -86,7 +88,7 @@ class Navigator : public QWidget
 
   public slots:
     void openInternalUrl( const KURL &url );
-    void slotItemSelected(QListViewItem* index);
+    void slotItemSelected(Q3ListViewItem* index);
     void slotSearch();
     void slotShowSearchResult( const QString & );
     void slotSelectGlossEntry( const QString &id );
@@ -107,7 +109,7 @@ class Navigator : public QWidget
     void clearSearch();
 
   protected:
-    QString createChildrenList( QListViewItem *child );
+    QString createChildrenList( Q3ListViewItem *child );
 
   private:
     void setupContentsTab();
@@ -126,11 +128,11 @@ class Navigator : public QWidget
 
     QTabWidget *mTabWidget;
 
-    QFrame *mSearchFrame;
+    Q3Frame *mSearchFrame;
     QLineEdit *mSearchEdit;
     QPushButton *mSearchButton;
 
-    QPtrList<NavigatorItem> manualItems, pluginItems;
+    Q3PtrList<NavigatorItem> manualItems, pluginItems;
 
     bool mShowMissingDocs;
     

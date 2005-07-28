@@ -3,7 +3,7 @@
 
 #include <qstring.h>
 #include <qstringlist.h>
-#include <qvaluelist.h>
+#include <q3valuelist.h>
 #include <qdir.h>
 #include <qmap.h>
 

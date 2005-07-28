@@ -2,7 +2,7 @@
 #define SEARCHENGINE_H
 
 #include <qobject.h>
-#include <qptrlist.h>
+#include <q3ptrlist.h>
 #include <qstring.h>
 
 #include <kpixmap.h>

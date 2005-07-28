@@ -22,9 +22,11 @@
 
 #include <klistview.h>
 
-#include <qdict.h>
+#include <q3dict.h>
 #include <qdom.h>
 #include <qstringlist.h>
+//Added by qt3to4:
+#include <Q3ValueList>
 
 class KConfig;
 class KProcess;
@@ -37,7 +39,7 @@ class GlossaryEntryXRef
 {
 	friend QDataStream &operator>>( QDataStream &, GlossaryEntryXRef & );
 	public:
-		typedef QValueList<GlossaryEntryXRef> List;
+		typedef Q3ValueList<GlossaryEntryXRef> List;
 
 		GlossaryEntryXRef() {}
 		GlossaryEntryXRef( const QString &term, const QString &id ) :
@@ -118,7 +120,7 @@ class Glossary : public KListView
 		
 	private slots:
 		void meinprocExited( KProcess *meinproc );
-		void treeItemSelected( QListViewItem *item );
+		void treeItemSelected( Q3ListViewItem *item );
 
 	private:
 		enum CacheStatus { NeedRebuild, CacheOk };
@@ -130,13 +132,13 @@ class Glossary : public KListView
 		QDomElement childElement( const QDomElement &e, const QString &name );
 
 		KConfig *m_config;
-		QListViewItem *m_byTopicItem;
-		QListViewItem *m_alphabItem;
+		Q3ListViewItem *m_byTopicItem;
+		Q3ListViewItem *m_alphabItem;
 		QString m_sourceFile;
 		QString m_cacheFile;
 		CacheStatus m_status;
-		QDict<GlossaryEntry> m_glossEntries;
-    QDict<EntryItem> m_idDict;
+		Q3Dict<GlossaryEntry> m_glossEntries;
+    Q3Dict<EntryItem> m_idDict;
     bool m_initialized;
 };
 

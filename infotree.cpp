@@ -130,20 +130,20 @@ void InfoTree::parseInfoDirFile( const QString &infoDirFileName )
   kdDebug( 1400 ) << "Parsing info dir file " << infoDirFileName << endl;
 
   QFile infoDirFile( infoDirFileName );
-  if ( !infoDirFile.open( IO_ReadOnly ) )
+  if ( !infoDirFile.open( QIODevice::ReadOnly ) )
     return;
 
   QTextStream stream( &infoDirFile );
   // Skip introduction blurb.
-  while ( !stream.eof() && !stream.readLine().startsWith( "* Menu:" ) );
+  while ( !stream.atEnd() && !stream.readLine().startsWith( "* Menu:" ) );
 
-  while ( !stream.eof() ) {
+  while ( !stream.atEnd() ) {
     QString s = stream.readLine();
     if ( s.stripWhiteSpace().isEmpty() )
       continue;
 
     InfoCategoryItem *catItem = new InfoCategoryItem( m_categoryItem, s );
-    while ( !stream.eof() && !s.stripWhiteSpace().isEmpty() ) {
+    while ( !stream.atEnd() && !s.stripWhiteSpace().isEmpty() ) {
       s = stream.readLine();
       if ( s[ 0 ] == '*' ) {
         const int colon = s.find( ":" );
@@ -162,15 +162,15 @@ void InfoTree::parseInfoDirFile( const QString &infoDirFileName )
         item->entry()->setUrl( url );
 
         InfoCategoryItem *alphabSection = 0;
-        for ( QListViewItem* it=m_alphabItem->firstChild(); it; it=it->nextSibling() ) {
-          if ( it->text( 0 ) == appName[ 0 ].upper() ) {
+        for ( Q3ListViewItem* it=m_alphabItem->firstChild(); it; it=it->nextSibling() ) {
+          if ( it->text( 0 ) == QString( appName[ 0 ].upper() ) ) {
             alphabSection = static_cast<InfoCategoryItem *>( it );
             break;
           }
         }
 
         if ( alphabSection == 0 )
-          alphabSection = new InfoCategoryItem( m_alphabItem, appName[ 0 ].upper() );
+          alphabSection = new InfoCategoryItem( m_alphabItem, QString( appName[ 0 ].upper() ) );
 
         item = new InfoNodeItem( alphabSection, appName );
         item->entry()->setUrl( url );

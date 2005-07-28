@@ -26,10 +26,13 @@
 #include <dcopobject.h>
 
 #include "scopeitem.h"
+//Added by qt3to4:
+#include <QLabel>
+#include <Q3ValueList>
 
 class QPushButton;
-class QProgressBar;
-class QTextEdit;
+class Q3ProgressBar;
+class Q3TextEdit;
 class QLabel;
 
 class KProcess;
@@ -86,9 +89,9 @@ class IndexProgressDialog : public KDialog
 
   private:
     QLabel *mLabel;
-    QProgressBar *mProgressBar;
+    Q3ProgressBar *mProgressBar;
     QLabel *mLogLabel;
-    QTextEdit *mLogView;
+    Q3TextEdit *mLogView;
     QPushButton *mDetailsButton;
     QPushButton *mEndButton;
 
@@ -154,8 +157,8 @@ class KCMHelpCenter : public KDialogBase, virtual public KCMHelpCenterIface
     QPushButton *mBuildButton;
     IndexProgressDialog *mProgressDialog;
     
-    QValueList<KHC::DocEntry *> mIndexQueue;
-    QValueList<KHC::DocEntry *>::ConstIterator mCurrentEntry;
+    Q3ValueList<KHC::DocEntry *> mIndexQueue;
+    Q3ValueList<KHC::DocEntry *>::ConstIterator mCurrentEntry;
     
     KConfig *mConfig;
     

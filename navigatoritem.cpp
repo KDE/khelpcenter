@@ -28,28 +28,28 @@
 
 using namespace KHC;
 
-NavigatorItem::NavigatorItem( DocEntry *entry, QListView *parent,
-                              QListViewItem *after )
-  : QListViewItem( parent, after )
+NavigatorItem::NavigatorItem( DocEntry *entry, Q3ListView *parent,
+                              Q3ListViewItem *after )
+  : Q3ListViewItem( parent, after )
 {
   init( entry );
 }
 
-NavigatorItem::NavigatorItem( DocEntry *entry, QListViewItem *parent,
-                              QListViewItem *after )
-  : QListViewItem( parent, after )
+NavigatorItem::NavigatorItem( DocEntry *entry, Q3ListViewItem *parent,
+                              Q3ListViewItem *after )
+  : Q3ListViewItem( parent, after )
 {
   init( entry );
 }
 
-NavigatorItem::NavigatorItem( DocEntry *entry, QListView *parent )
-  : QListViewItem( parent )
+NavigatorItem::NavigatorItem( DocEntry *entry, Q3ListView *parent )
+  : Q3ListViewItem( parent )
 {
     init( entry );
 }
 
-NavigatorItem::NavigatorItem( DocEntry *entry, QListViewItem *parent )
-  : QListViewItem( parent )
+NavigatorItem::NavigatorItem( DocEntry *entry, Q3ListViewItem *parent )
+  : Q3ListViewItem( parent )
 {
   init( entry );
 }
@@ -94,7 +94,7 @@ TOC *NavigatorItem::createTOC()
 
 void NavigatorItem::setOpen( bool open )
 {
-  QListViewItem::setOpen( open );
+  Q3ListViewItem::setOpen( open );
 
   if ( entry()->icon().isEmpty() || entry()->icon() == "contents2" ) {
     if ( open && childCount() > 0 ) setPixmap( 0, SmallIcon( "contents" ) );
