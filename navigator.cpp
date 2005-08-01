@@ -109,7 +109,7 @@ Navigator::Navigator( View *view, QWidget *parent, const char *name )
       SmallIconSet( "clear_left" ) : SmallIconSet("locationbar_erase") );
     searchLayout->addWidget( clearButton );
     connect( clearButton, SIGNAL( clicked() ), SLOT( clearSearch() ) );
-    QToolTip::add( clearButton, i18n("Clear Search") );
+    QToolTip::add( clearButton, i18n("Clear search") );
 
     mSearchEdit = new QLineEdit( mSearchFrame );
     searchLayout->addWidget( mSearchEdit );
