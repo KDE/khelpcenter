@@ -27,7 +27,7 @@ class ScopeItem : public Q3CheckListItem
     class Observer
     {
       public:
-        virtual ~Observer() {};
+        virtual ~Observer() {}
         virtual void scopeItemChanged( ScopeItem * ) = 0;
     };
 
