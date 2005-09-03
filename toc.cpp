@@ -30,7 +30,6 @@
 #include <qdir.h>
 #include <qfileinfo.h>
 //Added by qt3to4:
-#include <QPixmap>
 #include <QTextStream>
 
 #include <sys/stat.h>

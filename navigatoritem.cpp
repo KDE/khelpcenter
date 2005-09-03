@@ -23,8 +23,6 @@
 #include "toc.h"
 #include "docentry.h"
 
-#include <QPixmap>
-
 #include <kdebug.h>
 #include <kiconloader.h>
 
