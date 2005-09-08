@@ -37,3 +37,4 @@ messages:
 	$(XGETTEXT) index.cpp $(libhtmlsearch_la_SOURCES) -o $(podir)/htmlsearch.pot
 	$(XGETTEXT) $(libkcm_htmlsearch_la_SOURCES) -o $(podir)/kcmhtmlsearch.pot
 
+KDE_ICON=AUTO
