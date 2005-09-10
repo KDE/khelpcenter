@@ -239,7 +239,6 @@ void Navigator::insertIOSlaveDocs( const QString &name, NavigatorItem *topItem )
 {
   kdDebug(1400) << "Requested IOSlave documents for ID " << name << endl;
 
-#if KDE_IS_VERSION( 3, 1, 90 )
   QStringList list = KProtocolInfo::protocols();
   list.sort();
 
@@ -259,9 +258,6 @@ void Navigator::insertIOSlaveDocs( const QString &name, NavigatorItem *topItem )
       item->setAutoDeleteDocEntry( true );
     }
   }
-#else
-  Q_UNUSED( topItem );
-#endif
 }
 
 void Navigator::insertAppletDocs( NavigatorItem *topItem )
