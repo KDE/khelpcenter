@@ -256,7 +256,7 @@ void History::fillForwardMenu()
 void History::fillGoMenu()
 {
   KMainWindow *mainWindow = static_cast<KMainWindow *>( kapp->mainWidget() );
-  QMenu *goMenu = dynamic_cast<QMenu *>( mainWindow->guiFactory()->container( QString::fromLatin1( "go" ), mainWindow ) );
+  QMenu *goMenu = dynamic_cast<QMenu *>( mainWindow->guiFactory()->container( QLatin1String( "go" ), mainWindow ) );
   if ( !goMenu || m_goMenuIndex == -1 )
     return;
 
@@ -289,7 +289,7 @@ void History::fillGoMenu()
 void History::goMenuActivated( int id )
 {
   KMainWindow *mainWindow = static_cast<KMainWindow *>( kapp->mainWidget() );
-  QMenu *goMenu = dynamic_cast<QMenu *>( mainWindow->guiFactory()->container( QString::fromLatin1( "go" ), mainWindow ) );
+  QMenu *goMenu = dynamic_cast<QMenu *>( mainWindow->guiFactory()->container( QLatin1String( "go" ), mainWindow ) );
   if ( !goMenu )
     return;
 

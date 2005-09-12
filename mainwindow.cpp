@@ -331,7 +331,7 @@ void MainWindow::viewUrl( const KURL &url, const KParts::URLArgs &args )
 
     mDoc->browserExtension()->setURLArgs( args );
 
-    if ( proto == QString::fromLatin1("glossentry") ) {
+    if ( proto == QLatin1String("glossentry") ) {
         QString decodedEntryId = KURL::decode_string( url.encodedPathAndQuery() );
         slotGlossSelected( mNavigator->glossEntry( decodedEntryId ) );
         mNavigator->slotSelectGlossEntry( decodedEntryId );

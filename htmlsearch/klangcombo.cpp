@@ -39,14 +39,14 @@ KLanguageCombo::KLanguageCombo (QWidget * parent, const char *name)
 
 void KLanguageCombo::insertLanguage(const QString& path, const QString& name, const QString& sub, const QString &submenu, int index)
 {
-  QString output = name + QString::fromLatin1(" (") + path + QString::fromLatin1(")");
-  QPixmap flag(locate("locale", sub + path + QString::fromLatin1("/flag.png")));
+  QString output = name + QLatin1String(" (") + path + QString::fromLatin1(")");
+  QPixmap flag(locate("locale", sub + path + QLatin1String("/flag.png")));
   insertItem(QIconSet(flag), output, path, submenu, index);
 }
 
 void KLanguageCombo::changeLanguage(const QString& name, int i)
 {
   if (i < 0 || i >= count()) return;
-  QString output = name + QString::fromLatin1(" (") + tag(i) + QString::fromLatin1(")");
+  QString output = name + QLatin1String(" (") + tag(i) + QString::fromLatin1(")");
   changeItem(output, i);
 }

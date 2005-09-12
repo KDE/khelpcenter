@@ -179,14 +179,14 @@ void KHTMLSearchConfig::loadLanguages()
 
   // add all languages to the list
   QStringList langs = KGlobal::dirs()->findAllResources("locale",
-							QString::fromLatin1("*/entry.desktop"));
+							QLatin1String("*/entry.desktop"));
   langs.sort();
 
   for (QStringList::ConstIterator it = langs.begin(); it != langs.end(); ++it)
     {
       KSimpleConfig entry(*it);
-      entry.setGroup(QString::fromLatin1("KCM Locale"));
-      QString name = entry.readEntry(QString::fromLatin1("Name"), KGlobal::locale()->translate("without name"));
+      entry.setGroup(QLatin1String("KCM Locale"));
+      QString name = entry.readEntry(QLatin1String("Name"), KGlobal::locale()->translate("without name"));
 
       QString path = *it;
       int index = path.findRev('/');

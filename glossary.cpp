@@ -52,7 +52,7 @@ class SectionItem : public KListViewItem
 		{
 				KListViewItem::setOpen(open);
 				
-				setPixmap( 0, SmallIcon( QString::fromLatin1( open ? "contents" : "contents2" ) ) );
+				setPixmap( 0, SmallIcon( QLatin1String( open ? "contents" : "contents2" ) ) );
 
 		}
 };
@@ -95,7 +95,7 @@ Glossary::Glossary( QWidget *parent ) : KListView( parent )
 
 	m_cacheFile = locateLocal( "cache", "help/glossary.xml" );
 
-	m_sourceFile = View::View::langLookup( QString::fromLatin1( "khelpcenter/glossary/index.docbook" ) );
+	m_sourceFile = View::View::langLookup( QLatin1String( "khelpcenter/glossary/index.docbook" ) );
 
 	m_config = kapp->config();
 	m_config->setGroup( "Glossary" );
@@ -153,10 +153,10 @@ void Glossary::rebuildGlossaryCache()
 	connect( meinproc, SIGNAL( processExited( KProcess * ) ),
 	         this, SLOT( meinprocExited( KProcess * ) ) );
 
-	*meinproc << locate( "exe", QString::fromLatin1( "meinproc" ) );
-	*meinproc << QString::fromLatin1( "--output" ) << m_cacheFile;
-	*meinproc << QString::fromLatin1( "--stylesheet" )
-	          << locate( "data", QString::fromLatin1( "khelpcenter/glossary.xslt" ) );
+	*meinproc << locate( "exe", QLatin1String( "meinproc" ) );
+	*meinproc << QLatin1String( "--output" ) << m_cacheFile;
+	*meinproc << QLatin1String( "--stylesheet" )
+	          << locate( "data", QLatin1String( "khelpcenter/glossary.xslt" ) );
 	*meinproc << m_sourceFile;
 
 	meinproc->start( KProcess::NotifyOnExit );
@@ -192,21 +192,21 @@ void Glossary::buildGlossaryTree()
 	if ( !doc.setContent( &cacheFile ) )
 		return;
 
-	QDomNodeList sectionNodes = doc.documentElement().elementsByTagName( QString::fromLatin1( "section" ) );
+	QDomNodeList sectionNodes = doc.documentElement().elementsByTagName( QLatin1String( "section" ) );
 	for ( int i = 0; i < sectionNodes.count(); i++ ) {
 		QDomElement sectionElement = sectionNodes.item( i ).toElement();
-		QString title = sectionElement.attribute( QString::fromLatin1( "title" ) );
+		QString title = sectionElement.attribute( QLatin1String( "title" ) );
 		SectionItem *topicSection = new SectionItem( m_byTopicItem, title );
 
-		QDomNodeList entryNodes = sectionElement.elementsByTagName( QString::fromLatin1( "entry" ) );
+		QDomNodeList entryNodes = sectionElement.elementsByTagName( QLatin1String( "entry" ) );
 		for ( int j = 0; j < entryNodes.count(); j++ ) {
 			QDomElement entryElement = entryNodes.item( j ).toElement();
 			
-			QString entryId = entryElement.attribute( QString::fromLatin1( "id" ) );
+			QString entryId = entryElement.attribute( QLatin1String( "id" ) );
 			if ( entryId.isNull() )
 				continue;
 				
-			QDomElement termElement = childElement( entryElement, QString::fromLatin1( "term" ) );
+			QDomElement termElement = childElement( entryElement, QLatin1String( "term" ) );
 			QString term = termElement.text().simplifyWhiteSpace();
 
 			EntryItem *entry = new EntryItem(topicSection, term, entryId );
@@ -224,19 +224,19 @@ void Glossary::buildGlossaryTree()
 
 			new EntryItem( alphabSection, term, entryId );
 
-			QDomElement definitionElement = childElement( entryElement, QString::fromLatin1( "definition" ) );
+			QDomElement definitionElement = childElement( entryElement, QLatin1String( "definition" ) );
 			QString definition = definitionElement.text().simplifyWhiteSpace();
 
 			GlossaryEntryXRef::List seeAlso;
 
-			QDomElement referencesElement = childElement( entryElement, QString::fromLatin1( "references" ) );
-			QDomNodeList referenceNodes = referencesElement.elementsByTagName( QString::fromLatin1( "reference" ) );
+			QDomElement referencesElement = childElement( entryElement, QLatin1String( "references" ) );
+			QDomNodeList referenceNodes = referencesElement.elementsByTagName( QLatin1String( "reference" ) );
 			if ( referenceNodes.count() > 0 )
 				for ( int k = 0; k < referenceNodes.count(); k++ ) {
 					QDomElement referenceElement = referenceNodes.item( k ).toElement();
 
-					QString term = referenceElement.attribute( QString::fromLatin1( "term" ) );
-					QString id = referenceElement.attribute( QString::fromLatin1( "id" ) );
+					QString term = referenceElement.attribute( QLatin1String( "term" ) );
+					QString id = referenceElement.attribute( QLatin1String( "id" ) );
 					
 					seeAlso += GlossaryEntryXRef( term, id );
 				}
@@ -282,10 +282,10 @@ QString Glossary::entryToHtml( const GlossaryEntry &entry )
         GlossaryEntryXRef::List::ConstIterator it = seeAlsos.begin();
         GlossaryEntryXRef::List::ConstIterator end = seeAlsos.end();
         for (; it != end; ++it) {
-            seeAlso += QString::fromLatin1("<a href=\"glossentry:");
+            seeAlso += QLatin1String("<a href=\"glossentry:");
             seeAlso += (*it).id();
-            seeAlso += QString::fromLatin1("\">") + (*it).term();
-            seeAlso += QString::fromLatin1("</a>, ");
+            seeAlso += QLatin1String("\">") + (*it).term();
+            seeAlso += QLatin1String("</a>, ");
         }
         seeAlso = seeAlso.left(seeAlso.length() - 2);
     }

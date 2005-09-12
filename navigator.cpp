@@ -262,8 +262,8 @@ void Navigator::insertIOSlaveDocs( const QString &name, NavigatorItem *topItem )
 
 void Navigator::insertAppletDocs( NavigatorItem *topItem )
 {
-  QDir appletDir( locate( "data", QString::fromLatin1( "kicker/applets/" ) ) );
-  appletDir.setNameFilter( QString::fromLatin1( "*.desktop" ) );
+  QDir appletDir( locate( "data", QLatin1String( "kicker/applets/" ) ) );
+  appletDir.setNameFilter( QLatin1String( "*.desktop" ) );
 
   QStringList files = appletDir.entryList( QDir::Files | QDir::Readable );
   QStringList::ConstIterator it = files.begin();
