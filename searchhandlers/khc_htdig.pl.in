@@ -28,7 +28,7 @@ use Getopt::Long;
 
 my $htdigdata = "/srv/www/htdig/common/";
 my $htdigbin = "/usr/bin";
-my $kdeprefix = `kde-config --prefix`;
+my $kdeprefix = "@prefix@";
 chomp $kdeprefix;
 
 my $dbg = 1;
@@ -109,6 +109,8 @@ EOT
 close CONF;
 
 $ENV{ PATH } = '';
+$ENV{ CDPATH } = '';
+$ENV{ ENV } = '';
 
 my $ret = system( "$htdigbin/htdig -s -i -c $conffile" );
 if ( $ret != 0 ) {
