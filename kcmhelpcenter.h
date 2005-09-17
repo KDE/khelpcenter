@@ -28,7 +28,8 @@
 #include "scopeitem.h"
 //Added by qt3to4:
 #include <QLabel>
-#include <Q3ValueList>
+#include <QList>
+#include <QList>
 
 class QPushButton;
 class Q3ProgressBar;
@@ -157,8 +158,8 @@ class KCMHelpCenter : public KDialogBase, virtual public KCMHelpCenterIface
     QPushButton *mBuildButton;
     IndexProgressDialog *mProgressDialog;
     
-    Q3ValueList<KHC::DocEntry *> mIndexQueue;
-    Q3ValueList<KHC::DocEntry *>::ConstIterator mCurrentEntry;
+    QList<KHC::DocEntry *> mIndexQueue;
+    QList<KHC::DocEntry *>::ConstIterator mCurrentEntry;
     
     KConfig *mConfig;
     

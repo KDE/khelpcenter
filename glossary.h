@@ -26,7 +26,8 @@
 #include <qdom.h>
 #include <qstringlist.h>
 //Added by qt3to4:
-#include <Q3ValueList>
+#include <QList>
+#include <QList>
 
 class KConfig;
 class KProcess;
@@ -39,7 +40,7 @@ class GlossaryEntryXRef
 {
 	friend QDataStream &operator>>( QDataStream &, GlossaryEntryXRef & );
 	public:
-		typedef Q3ValueList<GlossaryEntryXRef> List;
+		typedef QList<GlossaryEntryXRef> List;
 
 		GlossaryEntryXRef() {}
 		GlossaryEntryXRef( const QString &term, const QString &id ) :

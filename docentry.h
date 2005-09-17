@@ -3,13 +3,14 @@
 
 #include <qstring.h>
 #include <q3valuelist.h>
+#include <QList>
 
 namespace KHC {
 
 class DocEntry
 {
   public:
-    typedef Q3ValueList<DocEntry *> List;
+    typedef QList<DocEntry *> List;
 
     DocEntry();
     

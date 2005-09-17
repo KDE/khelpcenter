@@ -278,7 +278,7 @@ void DocEntry::addChild( DocEntry *entry )
            entry->weight() < mChildren[ i + 1 ]->weight() ) {
         entry->setNextSibling( mChildren[ i + 1 ] );
         mChildren[ i ]->setNextSibling( entry );
-        mChildren.insert( mChildren.at( i + 1 ), entry );
+        mChildren.insert( mChildren.indexOf(mChildren.at( i + 1 )), entry );
         break;
       }
     }

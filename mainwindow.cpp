@@ -48,12 +48,13 @@
 //Added by qt3to4:
 #include <QVBoxLayout>
 #include <QFrame>
-#include <Q3ValueList>
+#include <QList>
 #include <Q3CString>
 #include <QBoxLayout>
 
 #include <stdlib.h>
 #include <assert.h>
+#include <QList>
 
 using namespace KHC;
 
@@ -131,7 +132,7 @@ MainWindow::MainWindow()
     mSplitter->moveToFirst(mNavigator);
     mSplitter->setResizeMode(mNavigator, QSplitter::KeepSize);
     setCentralWidget( mSplitter );
-    Q3ValueList<int> sizes;
+    QList<int> sizes;
     sizes << 220 << 580;
     mSplitter->setSizes(sizes);
     setGeometry(366, 0, 800, 600);
@@ -193,7 +194,7 @@ void MainWindow::readConfig()
 {
     KConfig *config = KGlobal::config();
     config->setGroup( "MainWindowState" );
-    Q3ValueList<int> sizes = config->readIntListEntry( "Splitter" );
+    QList<int> sizes = config->readIntListEntry( "Splitter" );
     if ( sizes.count() == 2 ) {
         mSplitter->setSizes( sizes );
     }
