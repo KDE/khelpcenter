@@ -112,7 +112,7 @@ void InfoTree::build( NavigatorItem *parent )
 
   QString infoPath = ::getenv( "INFOPATH" );
   if ( !infoPath.isEmpty() )
-    infoDirFiles += QStringList::split( ':', infoPath );
+    infoDirFiles += infoPath.split( ':');
 
   QStringList::ConstIterator it = infoDirFiles.begin();
   QStringList::ConstIterator end = infoDirFiles.end();

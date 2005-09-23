@@ -287,7 +287,7 @@ bool SearchEngine::search( QString words, QString method, int matches,
   mScope = scope;
 
   // Saner variables to store search parameters:
-  mWordList = QStringList::split( " ", words );
+  mWordList = words.split( " ");
   mMaxResults = matches;
   if ( method == "or" ) mOperation = Or;
   else mOperation = And;
@@ -341,7 +341,7 @@ bool SearchEngine::search( QString words, QString method, int matches,
 
     mProc = new KProcess();
 
-    QStringList cmd = QStringList::split( " ", commonSearchProgram );
+    QStringList cmd = commonSearchProgram.split( " ");
     QStringList::ConstIterator it;
     for( it = cmd.begin(); it != cmd.end(); ++it ) {
       QString arg = *it;

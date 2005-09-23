@@ -54,7 +54,7 @@ DocEntry *DocMetaInfo::addDocEntry( const QString &fileName )
   if ( !fi.exists() ) return 0;
   
   QString extension = fi.extension();
-  QStringList extensions = QStringList::split( '.', extension );
+  QStringList extensions = extension.split( '.');
   QString lang;
   if ( extensions.count() >= 2 ) {
     lang = extensions[ extensions.count() - 2 ];

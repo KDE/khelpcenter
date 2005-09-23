@@ -83,7 +83,7 @@ void IndexBuilder::processCmdQueue()
   KProcess *proc = new KProcess;
   proc->setRunPrivileged( true );
 
-  QStringList args = QStringList::split( " ", cmd );
+  QStringList args = cmd.split( " ");
   *proc << args;
 
   connect( proc, SIGNAL( processExited( KProcess * ) ),

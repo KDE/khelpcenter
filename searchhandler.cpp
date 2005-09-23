@@ -104,7 +104,7 @@ void SearchHandler::search( DocEntry *entry, const QStringList &words,
 
     KProcess *proc = new KProcess();
 
-    QStringList cmd = QStringList::split( " ", cmdString );
+    QStringList cmd = cmdString.split( " ");
     QStringList::ConstIterator it;
     for( it = cmd.begin(); it != cmd.end(); ++it ) {
       QString arg = *it;
