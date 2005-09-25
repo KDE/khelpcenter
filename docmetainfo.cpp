@@ -158,10 +158,10 @@ DocEntry *DocMetaInfo::scanMetaInfoDir( const QString &dirName,
   foreach( QFileInfo fi, dir.entryInfoList() ) {
     DocEntry *entry = 0;
     if ( fi.isDir() && fi.fileName() != "." && fi.fileName() != ".." ) {
-      DocEntry *dirEntry = addDirEntry( QDir( fi.absFilePath() ), parent );
-      entry = scanMetaInfoDir( fi.absFilePath(), dirEntry );
+      DocEntry *dirEntry = addDirEntry( QDir( fi.absoluteFilePath() ), parent );
+      entry = scanMetaInfoDir( fi.absoluteFilePath(), dirEntry );
     } else if ( fi.extension( false ) == "desktop" ) {
-      entry = addDocEntry( fi.absFilePath() );
+      entry = addDocEntry( fi.absoluteFilePath() );
       if ( parent && entry ) parent->addChild( entry );
     }
   }
@@ -171,7 +171,7 @@ DocEntry *DocMetaInfo::scanMetaInfoDir( const QString &dirName,
 
 DocEntry *DocMetaInfo::addDirEntry( const QDir &dir, DocEntry *parent )
 {
-  DocEntry *dirEntry = addDocEntry( dir.absPath() + "/.directory" );
+  DocEntry *dirEntry = addDocEntry( dir.absolutePath() + "/.directory" );
 
   if ( !dirEntry ) {
     dirEntry = new DocEntry;

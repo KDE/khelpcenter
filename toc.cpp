@@ -79,7 +79,7 @@ TOC::TOC( NavigatorItem *parentItem )
 void TOC::build( const QString &file )
 {
 	QFileInfo fileInfo( file );
-	QString fileName = fileInfo.absFilePath();
+	QString fileName = fileInfo.absoluteFilePath();
 	const QStringList resourceDirs = KGlobal::dirs()->resourceDirs( "html" );
 	QStringList::ConstIterator it = resourceDirs.begin();
 	QStringList::ConstIterator end = resourceDirs.end();
@@ -129,7 +129,7 @@ int TOC::cachedCTime() const
 
 	QDomComment timestamp = doc.documentElement().lastChild().toComment();
 
-	return timestamp.data().stripWhiteSpace().toInt();
+	return timestamp.data().trimmed().toInt();
 }
 
 void TOC::buildCache()
@@ -191,9 +191,9 @@ void TOC::fillTree()
 	for ( int chapterCount = 0; chapterCount < chapters.count(); chapterCount++ ) {
 		QDomElement chapElem = chapters.item( chapterCount ).toElement();
 		QDomElement chapTitleElem = childElement( chapElem, QLatin1String( "title" ) );
-		QString chapTitle = chapTitleElem.text().simplifyWhiteSpace();
+		QString chapTitle = chapTitleElem.text().simplified();
 		QDomElement chapRefElem = childElement( chapElem, QLatin1String( "anchor" ) );
-		QString chapRef = chapRefElem.text().stripWhiteSpace();
+		QString chapRef = chapRefElem.text().trimmed();
 
 		chapItem = new TOCChapterItem( this, m_parentItem, chapItem, chapTitle, chapRef );
 
@@ -202,9 +202,9 @@ void TOC::fillTree()
 		for ( int sectCount = 0; sectCount < sections.count(); sectCount++ ) {
 			QDomElement sectElem = sections.item( sectCount ).toElement();
 			QDomElement sectTitleElem = childElement( sectElem, QLatin1String( "title" ) );
-			QString sectTitle = sectTitleElem.text().simplifyWhiteSpace();
+			QString sectTitle = sectTitleElem.text().simplified();
 			QDomElement sectRefElem = childElement( sectElem, QLatin1String( "anchor" ) );
-			QString sectRef = sectRefElem.text().stripWhiteSpace();
+			QString sectRef = sectRefElem.text().trimmed();
 
 			sectItem = new TOCSectionItem( this, chapItem, sectItem, sectTitle, sectRef );
 		}

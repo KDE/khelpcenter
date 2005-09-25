@@ -111,7 +111,7 @@ void SearchHandler::search( DocEntry *entry, const QStringList &words,
       if ( arg.left( 1 ) == "\"" && arg.right( 1 ) =="\"" ) {
         arg = arg.mid( 1, arg.length() - 2 );
       }
-      *proc << arg.utf8();
+      *proc << arg.toUtf8();
     }
 
     connect( proc, SIGNAL( receivedStdout( KProcess *, char *, int ) ),

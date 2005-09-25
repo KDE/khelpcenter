@@ -608,7 +608,7 @@ void KCMHelpCenter::advanceProgress()
 void KCMHelpCenter::slotReceivedStdout( KProcess *, char *buffer, int buflen )
 {
   QString text = QString::fromLocal8Bit( buffer, buflen );
-  int pos = text.findRev( '\n' );
+  int pos = text.lastIndexOf( '\n' );
   if ( pos < 0 ) {
     mStdOut.append( text );
   } else {
@@ -622,7 +622,7 @@ void KCMHelpCenter::slotReceivedStdout( KProcess *, char *buffer, int buflen )
 void KCMHelpCenter::slotReceivedStderr( KProcess *, char *buffer, int buflen )
 {
   QString text = QString::fromLocal8Bit( buffer, buflen );
-  int pos = text.findRev( '\n' );
+  int pos = text.lastIndexOf( '\n' );
   if ( pos < 0 ) {
     mStdErr.append( text );
   } else {

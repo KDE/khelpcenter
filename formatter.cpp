@@ -76,11 +76,11 @@ bool Formatter::readTemplates()
           int pos = line.find( "<<" );
           if ( pos >= 0 ) {
             state = MULTILINE;
-            symbol = line.left( pos ).stripWhiteSpace();
-            endMarker = line.mid( pos + 2 ).stripWhiteSpace();
+            symbol = line.left( pos ).trimmed();
+            endMarker = line.mid( pos + 2 ).trimmed();
           } else {
             state = SINGLELINE;
-            symbol = line.stripWhiteSpace();
+            symbol = line.trimmed();
           }
         }
         break;

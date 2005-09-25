@@ -122,13 +122,13 @@ void IndexBuilder::slotProcessExited( KProcess *proc )
 void IndexBuilder::slotReceivedStdout( KProcess *, char *buffer, int buflen )
 {
   QString text = QString::fromLocal8Bit( buffer, buflen );
-  std::cout << text.local8Bit().data() << std::flush;
+  std::cout << text.toLocal8Bit().data() << std::flush;
 }
 
 void IndexBuilder::slotReceivedStderr( KProcess *, char *buffer, int buflen )
 {
   QString text = QString::fromLocal8Bit( buffer, buflen );
-  std::cerr << text.local8Bit().data() << std::flush;
+  std::cerr << text.toLocal8Bit().data() << std::flush;
 }
 
 void IndexBuilder::sendErrorSignal( const QString &error )

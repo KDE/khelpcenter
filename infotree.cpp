@@ -139,11 +139,11 @@ void InfoTree::parseInfoDirFile( const QString &infoDirFileName )
 
   while ( !stream.atEnd() ) {
     QString s = stream.readLine();
-    if ( s.stripWhiteSpace().isEmpty() )
+    if ( s.trimmed().isEmpty() )
       continue;
 
     InfoCategoryItem *catItem = new InfoCategoryItem( m_categoryItem, s );
-    while ( !stream.atEnd() && !s.stripWhiteSpace().isEmpty() ) {
+    while ( !stream.atEnd() && !s.trimmed().isEmpty() ) {
       s = stream.readLine();
       if ( s[ 0 ] == '*' ) {
         const int colon = s.find( ":" );

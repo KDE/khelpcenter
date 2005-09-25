@@ -207,7 +207,7 @@ void Glossary::buildGlossaryTree()
 				continue;
 				
 			QDomElement termElement = childElement( entryElement, QLatin1String( "term" ) );
-			QString term = termElement.text().simplifyWhiteSpace();
+			QString term = termElement.text().simplified();
 
 			EntryItem *entry = new EntryItem(topicSection, term, entryId );
             m_idDict.insert( entryId, entry );
@@ -225,7 +225,7 @@ void Glossary::buildGlossaryTree()
 			new EntryItem( alphabSection, term, entryId );
 
 			QDomElement definitionElement = childElement( entryElement, QLatin1String( "definition" ) );
-			QString definition = definitionElement.text().simplifyWhiteSpace();
+			QString definition = definitionElement.text().simplified();
 
 			GlossaryEntryXRef::List seeAlso;
 

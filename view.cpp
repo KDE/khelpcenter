@@ -169,7 +169,7 @@ QString View::langLookup( const QString &fname )
         if (info.exists() && info.isFile() && info.isReadable())
             return *it;
         
-		QString file = (*it).left((*it).findRev('/')) + "/index.docbook";
+		QString file = (*it).left((*it).lastIndexOf('/')) + "/index.docbook";
 		info.setFile(file);
 		if (info.exists() && info.isFile() && info.isReadable())
 			return *it;
@@ -353,7 +353,7 @@ KURL View::urlFromLinkNode( const DOM::Node &n ) const
     return href;
 
   QString path = baseURL().path();
-  path.truncate( path.findRev( '/' ) + 1 );
+  path.truncate( path.lastIndexOf( '/' ) + 1 );
   path += href.url();
 
   KURL url = baseURL();

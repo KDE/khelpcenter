@@ -189,9 +189,9 @@ void KHTMLSearchConfig::loadLanguages()
       QString name = entry.readEntry(QLatin1String("Name"), KGlobal::locale()->translate("without name"));
 
       QString path = *it;
-      int index = path.findRev('/');
+      int index = path.lastIndexOf('/');
       path = path.left(index);
-      index = path.findRev('/');
+      index = path.lastIndexOf('/');
       path = path.mid(index+1);
       language->insertLanguage(path, name);
     }

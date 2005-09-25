@@ -331,8 +331,8 @@ bool SearchEngine::search( QString words, QString method, int matches,
     }
  
     // replace whitespace with a '+'
-    mWords = mWords.stripWhiteSpace();
-    mWords = mWords.simplifyWhiteSpace();
+    mWords = mWords.trimmed();
+    mWords = mWords.simplified();
     mWords.replace(QRegExp("\\s"), "+");
     
     commonSearchProgram = substituteSearchQuery( commonSearchProgram );
@@ -348,7 +348,7 @@ bool SearchEngine::search( QString words, QString method, int matches,
       if ( arg.left( 1 ) == "\"" && arg.right( 1 ) =="\"" ) {
         arg = arg.mid( 1, arg.length() - 2 );
       }
-      *mProc << arg.utf8();
+      *mProc << arg.toUtf8();
     }
 
     connect( mProc, SIGNAL( receivedStdout( KProcess *, char *, int ) ),

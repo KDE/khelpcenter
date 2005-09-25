@@ -269,7 +269,7 @@ void Navigator::insertAppletDocs( NavigatorItem *topItem )
   QStringList::ConstIterator it = files.begin();
   QStringList::ConstIterator end = files.end();
   for ( ; it != end; ++it )
-    createItemFromDesktopFile( topItem, appletDir.absPath() + "/" + *it );
+    createItemFromDesktopFile( topItem, appletDir.absolutePath() + "/" + *it );
 }
 
 void Navigator::createItemFromDesktopFile( NavigatorItem *topItem,
