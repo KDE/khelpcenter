@@ -24,6 +24,7 @@
 
 #include <kcmdlineargs.h>
 #include <kaboutdata.h>
+#include <klocale.h>
 
 using namespace KHC;
 
@@ -75,7 +76,7 @@ extern "C" int KDE_EXPORT kdemain( int argc, char **argv )
 
   KCmdLineArgs::init( argc, argv, &aboutData );
   KCmdLineArgs::addCmdLineOptions( options );
-  KApplication::addCmdLineOptions();
+  KCmdLineArgs::addStdCmdLineOptions();
 
   KHC::Application app;
 

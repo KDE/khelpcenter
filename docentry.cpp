@@ -6,6 +6,7 @@
 #include <kurl.h>
 #include <kstandarddirs.h>
 #include <kapplication.h>
+#include <krandom.h>
 
 #include "prefs.h"
 
@@ -113,7 +114,7 @@ void DocEntry::setIdentifier( const QString &identifier )
 
 QString DocEntry::identifier() const
 {
-  if ( mIdentifier.isEmpty() ) mIdentifier = KApplication::randomString( 15 );
+  if ( mIdentifier.isEmpty() ) mIdentifier = KRandom::randomString( 15 );
   return mIdentifier;
 }
 

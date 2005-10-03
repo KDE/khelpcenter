@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
   KCmdLineArgs::init(argc, argv, &aboutData);
   KCmdLineArgs::addCmdLineOptions( options );
 
-  KGlobal::locale()->setMainCatalogue("htmlsearch");
+  KGlobal::locale()->setMainCatalog("htmlsearch");
   KApplication app;
   HTMLSearch search;
 

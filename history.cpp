@@ -24,10 +24,10 @@
 #include <kapplication.h>
 #include <kdebug.h>
 #include <kmainwindow.h>
-#include <kpopupmenu.h>
+#include <kmenu.h>
 #include <kstdguiitem.h>
 #include <kstringhandler.h>
-
+#include <kxmlguifactory.h>
 
 
 using namespace KHC;

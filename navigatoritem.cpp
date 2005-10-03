@@ -25,7 +25,7 @@
 
 #include <kdebug.h>
 #include <kiconloader.h>
-
+#include <QPixmap>
 using namespace KHC;
 
 NavigatorItem::NavigatorItem( DocEntry *entry, Q3ListView *parent,

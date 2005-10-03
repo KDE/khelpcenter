@@ -34,7 +34,7 @@
 
 #include <qfile.h>
 #include <qtextstream.h>
-
+#include <QPixmap>
 #include <stdlib.h>  // for getenv()
 
 using namespace KHC;

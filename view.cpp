@@ -12,7 +12,7 @@
 #include <khtml_settings.h>
 #include <khtmlview.h>
 #include <klocale.h>
-#include <kpopupmenu.h>
+#include <kmenu.h>
 #include <kstandarddirs.h>
 
 #include <qfileinfo.h>
@@ -237,7 +237,7 @@ void View::slotDecFontSizes()
 
 void View::showMenu( const QString& url, const QPoint& pos)
 {
-  KPopupMenu* pop = new KPopupMenu(view());
+  KMenu* pop = new KMenu(view());
   if (url.isEmpty())
   {
     KAction *action;

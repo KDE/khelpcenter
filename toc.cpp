@@ -31,7 +31,7 @@
 #include <qfileinfo.h>
 //Added by qt3to4:
 #include <QTextStream>
-
+#include <QPixmap>
 #include <sys/stat.h>
 
 using namespace KHC;

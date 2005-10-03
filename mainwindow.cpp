@@ -41,6 +41,8 @@
 #include <kstatusbar.h>
 #include <kstdaccel.h>
 #include <kdialogbase.h>
+#include <klocale.h>
+#include <kxmlguifactory.h>
 
 #include <qsplitter.h>
 #include <q3textedit.h>
@@ -324,7 +326,7 @@ void MainWindow::viewUrl( const KURL &url, const KParts::URLArgs &args )
     }
 
     if ( !own ) {
-        new KRun( url );
+        new KRun( url,this );
         return;
     }
 

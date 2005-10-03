@@ -30,6 +30,7 @@
 #include "klangcombo.h"
 #include <kurlrequester.h>
 #include <klineedit.h>
+#include <ktoolinvocation.h>
 
 #include "kcmhtmlsearch.moc"
 
@@ -328,7 +329,7 @@ void KHTMLSearchConfig::defaults()
 
 void KHTMLSearchConfig::urlClicked(const QString &url)
 {
-  kapp->invokeBrowser(url);
+  KToolInvocation::invokeBrowser(url);
 }
 
 
@@ -364,7 +365,7 @@ extern "C"
 {
   KDE_EXPORT KCModule *create_htmlsearch(QWidget *parent, const char *name)
   {
-    KGlobal::locale()->insertCatalogue("kcmhtmlsearch");
+    KGlobal::locale()->insertCatalog("kcmhtmlsearch");
     return new KHTMLSearchConfig(parent, name);
   };
 }

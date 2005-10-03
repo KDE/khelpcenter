@@ -32,6 +32,7 @@
 #include <kfiledialog.h>
 #include <kurlrequester.h>
 #include <klineedit.h>
+#include <ktoolinvocation.h>
 
 #include "htmlsearchconfig.h"
 #include "htmlsearchconfig.moc"
@@ -146,7 +147,7 @@ void HtmlSearchConfig::defaults()
 
 void HtmlSearchConfig::urlClicked(const QString &url)
 {
-  kapp->invokeBrowser(url);
+  KToolInvocation::invokeBrowser(url);
 }
 
 } // End namespace KHC
