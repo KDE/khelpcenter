@@ -80,7 +80,7 @@ extern "C" int KDE_EXPORT kdemain( int argc, char **argv )
 
   KHC::Application app;
 
-  if ( app.isRestored() ) {
+  if ( app.isSessionRestored() ) {
      RESTORE( MainWindow );
   }
 
