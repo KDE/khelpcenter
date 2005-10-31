@@ -45,7 +45,7 @@ class NavigatorAppItem : public NavigatorItem
     void populate( bool recursive = false );
 
   protected:
-    QString documentationURL( KService *s );
+    QString documentationURL( const KService *s );
 
   private:
     QString mRelpath;
