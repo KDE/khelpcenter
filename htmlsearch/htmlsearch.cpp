@@ -11,6 +11,7 @@
 
 
 #include "progressdialog.h"
+#include <qtextstream.h>
 #include "htmlsearch.moc"
 
 
@@ -69,18 +70,18 @@ bool HTMLSearch::saveFilesList(const QString& _lang)
     _files.clear();
 
     // open config file
-    KConfig *config = new KConfig("khelpcenterrc");
-    config->setGroup("Scope");
+    KConfig config("khelpcenterrc");
+    KConfigGroup scopeGroup( &config, "Scope" );
 
     // add KDE help dirs
-    if (config->readBoolEntry("KDE", true))
+    if (scopeGroup.readBoolEntry("KDE", true))
         dirs = kapp->dirs()->findDirs("html", _lang + "/");
     kdDebug() << "got " << dirs.count() << " dirs\n";
 
     // TODO: Man and Info!!
 
     // add local urls
-    QStringList add = config->readListEntry("Paths");
+    QStringList add = scopeGroup.readListEntry("Paths");
     QStringList::Iterator it;
     for (it = add.begin(); it != add.end(); ++it) {
         if ( ( *it ).at( ( *it ).length() - 1 ) != '/' )
@@ -92,8 +93,6 @@ bool HTMLSearch::saveFilesList(const QString& _lang)
 
     for (it = dirs.begin(); it != dirs.end(); ++it)
         scanDir(*it);
-
-    delete config;
 
     return true;
 }
@@ -241,13 +240,12 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
     progress->setState(1);
 
     // run htdig ------------------------------------------------------
-    KConfig *config = new KConfig("khelpcenterrc", true);
-    KConfigGroupSaver saver(config, "htdig");
-    QString exe = config->readPathEntry("htdig", kapp->dirs()->findExe("htdig"));
+    KConfig config("khelpcenterrc", true);
+    KConfigGroup group(&config, "htdig");
+    QString exe = group.readPathEntry("htdig", KGlobal::dirs()->findExe("htdig"));
 
     if (exe.isEmpty())
     {
-        delete config;
         return false;
     }
     bool initial = true;
@@ -302,7 +300,6 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
         else
 	{
             kdDebug() << "Could not open `files` for writing" << endl;
-            delete config;
             return false;
 	}
 
@@ -316,7 +313,6 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
 	{
             delete _proc;
             delete progress;
-            delete config;
             return false;
 	}
 
@@ -328,10 +324,9 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
     progress->setState(2);
 
     // run htmerge -----------------------------------------------------
-    exe = config->readPathEntry("htmerge", kapp->dirs()->findExe("htmerge"));
+    exe = group.readPathEntry("htmerge", kapp->dirs()->findExe("htmerge"));
     if (exe.isEmpty())
     {
-        delete config;
         return false;
     }
     delete _proc;
@@ -353,7 +348,6 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
     {
         delete _proc;
         delete progress;
-        delete config;
         return false;
     }
 
@@ -363,7 +357,6 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
     kapp->processEvents();
 
     delete progress;
-    delete config;
 
     return true;
 }
@@ -431,8 +424,8 @@ QString HTMLSearch::search(QString _lang, QString words, QString method, int mat
 
   // run htsearch ----------------------------------------------------
   KConfig *config = new KConfig("khelpcenterrc", true);
-  KConfigGroupSaver saver(config, "htdig");
-  QString exe = config->readPathEntry("htsearch", kapp->dirs()->findExe("htsearch"));
+  KConfigGroup group(config, "htdig");
+  QString exe = group.readPathEntry("htsearch", kapp->dirs()->findExe("htsearch"));
   if (exe.isEmpty())
   {
       delete config;

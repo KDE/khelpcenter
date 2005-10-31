@@ -3,6 +3,7 @@
 #include <kaboutdata.h>
 #include <kglobal.h>
 #include <kapplication.h>
+#include <klocale.h>
 
 #include "htmlsearch.h"
 

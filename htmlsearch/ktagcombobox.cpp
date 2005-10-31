@@ -23,7 +23,7 @@
 
 #define INCLUDE_MENUITEM_DEF 1
 #include <qpainter.h>
-#include <qpopupmenu.h>
+#include <q3popupmenu.h>
 
 #include <kdebug.h>
 
@@ -33,7 +33,6 @@
 KTagComboBox::~KTagComboBox ()
 {
   delete popup;
-  delete tags;
 }
 
 KTagComboBox::KTagComboBox (QWidget * parent, const char *name)
@@ -41,8 +40,6 @@ KTagComboBox::KTagComboBox (QWidget * parent, const char *name)
 	popup(0),
 	old_popup(0)
 {
-  tags = new QStringList;
-
   clear();
 }
 
@@ -55,10 +52,10 @@ void KTagComboBox::keyPressEvent( QKeyEvent *e )
 {
     int c;
 
-    if ( ( e->key() == Key_F4 && e->state() == 0 ) || 
+    if ( ( e->key() == Key_F4 && e->state() == 0 ) ||
          ( e->key() == Key_Down && (e->state() & AltButton) ) ||
          ( e->key() == Key_Space ) ) {
-        if ( count() ) { 
+        if ( count() ) {
             popup->setActiveItem( current );
             popupMenu();
         }
@@ -93,7 +90,7 @@ void KTagComboBox::internalHighlight( int index )
 
 void KTagComboBox::clear()
 {
-  tags->clear();
+  tags.clear();
 
   delete old_popup;
   old_popup = popup;
@@ -106,7 +103,7 @@ void KTagComboBox::clear()
 
 int KTagComboBox::count() const
 {
-  return tags->count();
+  return tags.count();
 }
 
 static inline void checkInsertPos(QPopupMenu *popup, const QString & str, int &index)
@@ -131,9 +128,9 @@ static inline void checkInsertPos(QPopupMenu *popup, const QString & str, int &i
   index = a; // it doesn't really matter ... a == b here.
 }
 
-static inline QPopupMenu *checkInsertIndex(QPopupMenu *popup, const QStringList *tags, const QString &submenu)
+static inline QPopupMenu *checkInsertIndex(QPopupMenu *popup, const QStringList& tags, const QString &submenu)
 {
-  int pos = tags->findIndex(submenu);
+  int pos = tags.findIndex(submenu);
 
   QPopupMenu *pi = 0;
   if (pos != -1)
@@ -151,7 +148,7 @@ void KTagComboBox::insertItem(const QIconSet& icon, const QString &text, const Q
   QPopupMenu *pi = checkInsertIndex(popup, tags, submenu);
   checkInsertPos(pi, text, index);
   pi->insertItem(icon, text, count(), index);
-  tags->append(tag);
+  tags.append(tag);
 }
 
 void KTagComboBox::insertItem(const QString &text, const QString &tag, const QString &submenu, int index )
@@ -159,14 +156,14 @@ void KTagComboBox::insertItem(const QString &text, const QString &tag, const QSt
   QPopupMenu *pi = checkInsertIndex(popup, tags, submenu);
   checkInsertPos(pi, text, index);
   pi->insertItem(text, count(), index);
-  tags->append(tag);
+  tags.append(tag);
 }
 
 void KTagComboBox::insertSeparator(const QString &submenu, int index)
 {
   QPopupMenu *pi = checkInsertIndex(popup, tags, submenu);
   pi->insertSeparator(index);
-  tags->append(QString::null);
+  tags.append(QString::null);
 }
 
 void KTagComboBox::insertSubmenu(const QString &text, const QString &tag, const QString &submenu, int index)
@@ -175,7 +172,7 @@ void KTagComboBox::insertSubmenu(const QString &text, const QString &tag, const 
   QPopupMenu *p = new QPopupMenu(pi);
   checkInsertPos(pi, text, index);
   pi->insertItem(text, p, count(), index);
-  tags->append(tag);
+  tags.append(tag);
   connect( p, SIGNAL(activated(int)),
                         SLOT(internalActivate(int)) );
   connect( p, SIGNAL(highlighted(int)),
@@ -206,12 +203,12 @@ void KTagComboBox::paintEvent( QPaintEvent * ev)
 
 bool KTagComboBox::containsTag( const QString &str ) const
 {
-  return tags->contains(str) > 0;
+  return tags.contains(str) > 0;
 }
 
 QString KTagComboBox::currentTag() const
 {
-  return *tags->at(currentItem());
+  return tags.at(currentItem());
 }
 
 QString KTagComboBox::tag(int i) const
@@ -221,7 +218,7 @@ QString KTagComboBox::tag(int i) const
     kdDebug() << "KTagComboBox::tag(), unknown tag " << i << endl;
     return QString::null;
   }
-  return *tags->at(i);
+  return *tags.at(i);
 }
 
 int KTagComboBox::currentItem() const
@@ -238,7 +235,7 @@ void KTagComboBox::setCurrentItem(int i)
 
 void KTagComboBox::setCurrentItem(const QString &code)
 {
-  int i = tags->findIndex(code);
+  int i = tags.findIndex(code);
   if (code.isNull())
     i = 0;
   if (i != -1)

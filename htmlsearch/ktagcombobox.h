@@ -84,7 +84,7 @@ protected:
 
 private:
   // work space for the new class
-  QStringList *tags;  
+  QStringList tags;
   QPopupMenu *popup, *old_popup;
   int current;
 };
