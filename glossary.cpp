@@ -36,6 +36,7 @@
 #include <QTextStream>
 
 #include <sys/stat.h>
+#include <kglobal.h>
 
 using namespace KHC;
 
@@ -97,7 +98,7 @@ Glossary::Glossary( QWidget *parent ) : KListView( parent )
 
 	m_sourceFile = View::View::langLookup( QLatin1String( "khelpcenter/glossary/index.docbook" ) );
 
-	m_config = kapp->config();
+	m_config = KGlobal::config();
 	m_config->setGroup( "Glossary" );
 
 }

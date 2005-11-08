@@ -85,7 +85,7 @@ Navigator::Navigator( View *view, QWidget *parent, const char *name )
    : QWidget( parent, name ), mIndexDialog( 0 ),
      mView( view ), mSelected( false )
 {
-    KConfig *config = kapp->config();
+    KConfig *config = KGlobal::config();
     config->setGroup("General");
     mShowMissingDocs = config->readBoolEntry("ShowMissingDocs",false);
 

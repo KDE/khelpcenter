@@ -41,7 +41,7 @@ void KLanguageCombo::insertLanguage(const QString& path, const QString& name, co
 {
   QString output = name + QLatin1String(" (") + path + QString::fromLatin1(")");
   QPixmap flag(locate("locale", sub + path + QLatin1String("/flag.png")));
-  insertItem(QIconSet(flag), output, path, submenu, index);
+  insertItem(QIcon(flag), output, path, submenu, index);
 }
 
 void KLanguageCombo::changeLanguage(const QString& name, int i)

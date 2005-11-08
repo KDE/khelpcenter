@@ -21,6 +21,7 @@
 #include <QTextStream>
 #include <QKeyEvent>
 #include <QEvent>
+#include <kglobal.h>
 
 using namespace KHC;
 
@@ -365,7 +366,7 @@ KURL View::urlFromLinkNode( const DOM::Node &n ) const
 
 void View::slotReload( const KURL &url )
 {
-  const_cast<KHTMLSettings *>( settings() )->init( kapp->config() );
+  const_cast<KHTMLSettings *>( settings() )->init( KGlobal::config() );
   KParts::URLArgs args = browserExtension()->urlArgs();
   args.reload = true;
   browserExtension()->setURLArgs( args );

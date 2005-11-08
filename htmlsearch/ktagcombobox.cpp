@@ -143,7 +143,7 @@ static inline QPopupMenu *checkInsertIndex(QPopupMenu *popup, const QStringList&
   return pi;
 }
 
-void KTagComboBox::insertItem(const QIconSet& icon, const QString &text, const QString &tag, const QString &submenu, int index )
+void KTagComboBox::insertItem(const QIcon& icon, const QString &text, const QString &tag, const QString &submenu, int index )
 {
   QPopupMenu *pi = checkInsertIndex(popup, tags, submenu);
   checkInsertPos(pi, text, index);
@@ -194,7 +194,7 @@ void KTagComboBox::paintEvent( QPaintEvent * ev)
   p.drawText(clip, AlignCenter | SingleLine, popup->text( current ));
 
   // Icon
-  QIconSet *icon = popup->iconSet( this->current );
+  QIcon *icon = popup->iconSet( this->current );
   if (icon) {
     QPixmap pm = icon->pixmap();
     p.drawPixmap( 4, (height()-pm.height())/2, pm );

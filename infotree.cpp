@@ -36,6 +36,7 @@
 #include <qtextstream.h>
 #include <QPixmap>
 #include <stdlib.h>  // for getenv()
+#include <kglobal.h>
 
 using namespace KHC;
 
@@ -95,7 +96,7 @@ void InfoTree::build( NavigatorItem *parent )
   m_categoryItem = new NavigatorItem( entry, parent );
   m_categoryItem->setAutoDeleteDocEntry( true );
 
-  KConfig *cfg = kapp->config();
+  KConfig *cfg = KGlobal::config();
   cfg->setGroup( "Info pages" );
   QStringList infoDirFiles = cfg->readListEntry( "Search paths" );
   // Default paths taken fron kdebase/kioslave/info/kde-info2html.conf

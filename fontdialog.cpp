@@ -34,6 +34,7 @@
 #include <qspinbox.h>
 //Added by qt3to4:
 #include <QGridLayout>
+#include <kglobal.h>
 
 using namespace KHC;
 
@@ -150,7 +151,7 @@ void FontDialog::setupFontEncodingBox()
 
 void FontDialog::load()
 {
-	KConfig *cfg = kapp->config();
+	KConfig *cfg = KGlobal::config();
 	{
 		KConfigGroup configGroup( cfg, "HTML Settings" );
 
@@ -181,7 +182,7 @@ void FontDialog::load()
 
 void FontDialog::save()
 {
-	KConfig *cfg = kapp->config();
+	KConfig *cfg = KGlobal::config();
 	{
 		KConfigGroup configGroup( cfg, "General" );
 		configGroup.writeEntry( "UseKonqSettings", false );

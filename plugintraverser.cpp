@@ -29,6 +29,7 @@
 #include <kiconloader.h>
 
 #include <q3listview.h>
+#include <kglobal.h>
 
 using namespace KHC;
 
@@ -73,7 +74,7 @@ void PluginTraverser::process( DocEntry *entry )
       appItem = new NavigatorAppItem( entry, mListView, mCurrentItem );
     else
       appItem = new NavigatorAppItem( entry, mParentItem, mCurrentItem );
-    KConfig *cfg = kapp->config();
+    KConfig *cfg = KGlobal::config();
     cfg->setGroup( "General" );
     appItem->setRelpath( cfg->readPathEntry( "AppsRoot" ) );
     mCurrentItem = appItem;

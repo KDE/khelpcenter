@@ -57,6 +57,7 @@
 #include <stdlib.h>
 #include <assert.h>
 #include <QList>
+#include <kglobal.h>
 
 using namespace KHC;
 
@@ -139,7 +140,7 @@ MainWindow::MainWindow()
     mSplitter->setSizes(sizes);
     setGeometry(366, 0, 800, 600);
 
-    KConfig *cfg = kapp->config();
+    KConfig *cfg = KGlobal::config();
     {
       KConfigGroup configGroup( cfg, "General" );
       if ( configGroup.readBoolEntry( "UseKonqSettings", true ) ) {

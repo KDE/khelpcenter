@@ -31,7 +31,7 @@ class QPopupMenu;
 
 /*
  * This class should be just like qcombobox, but it should be possible
- * to have have a QIconSet for each entry, and each entry should have a tag.
+ * to have have a QIcon for each entry, and each entry should have a tag.
  *
  * It has also support for sub menues.
  */
@@ -43,7 +43,7 @@ public:
   KTagComboBox(QWidget *parent=0, const char *name=0);
   ~KTagComboBox();
 
-  void insertItem(const QIconSet& icon, const QString &text, const QString &tag, const QString &submenu = QString::null, int index=-1 );
+  void insertItem(const QIcon& icon, const QString &text, const QString &tag, const QString &submenu = QString::null, int index=-1 );
   void insertItem(const QString &text, const QString &tag, const QString &submenu = QString::null, int index=-1 );
   void insertSeparator(const QString &submenu = QString::null, int index=-1 );
   void insertSubmenu(const QString &text, const QString &tag, const QString &submenu = QString::null, int index=-1);
