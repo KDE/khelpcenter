@@ -176,7 +176,7 @@ bool HTMLSearch::createConfig(const QString& _lang)
 
     QFile f;
     f.setName( dataPath(_lang) + "/bad_words" );
-    if (f.open(IO_WriteOnly))
+    if (f.open(QIODevice::WriteOnly))
     {
         QTextStream ts( &f );
         QStringList words = QStringList::split ( QRegExp ( "[\n:]" ),
@@ -188,7 +188,7 @@ bool HTMLSearch::createConfig(const QString& _lang)
     }
 
     f.setName(fname);
-    if (f.open(IO_WriteOnly))
+    if (f.open(QIODevice::WriteOnly))
     {
         kdDebug() << "Writing config for " << _lang << " to " << fname << endl;
 
@@ -284,7 +284,7 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
 
         // write out file
         QFile f(dataPath(_lang)+"/files");
-        if (f.open(IO_WriteOnly))
+        if (f.open(QIODevice::WriteOnly))
 	{
             QTextStream ts(&f);
 
@@ -465,7 +465,7 @@ QString HTMLSearch::search(QString _lang, QString words, QString method, int mat
 
   // dump the search result
   QFile f(result);
-  if (f.open(IO_WriteOnly))
+  if (f.open(QIODevice::WriteOnly))
     {
       QTextStream ts(&f);
 

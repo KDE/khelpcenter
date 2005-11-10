@@ -445,7 +445,7 @@ void Navigator::showOverview( NavigatorItem *item, const KURL &url )
 
   QFile file( fileName );
 
-  if ( !file.open( IO_ReadOnly ) )
+  if ( !file.open( QIODevice::ReadOnly ) )
     return;
 
   QTextStream stream( &file );
