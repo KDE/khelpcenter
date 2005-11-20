@@ -2,8 +2,6 @@
 #define __mainwindow_h__
 
 #include <q3ptrlist.h>
-//Added by qt3to4:
-#include <Q3CString>
 
 #include <kmainwindow.h>
 #include <kio/job.h>
@@ -34,7 +32,7 @@ class MainWindow : public KMainWindow, public DCOPObject
 
   k_dcop:
     void openUrl( const QString &url );
-    void openUrl( const QString &url, const Q3CString& startup_id );
+    void openUrl( const QString &url, const QByteArray& startup_id );
     void showHome();
     void lastSearch();
 

@@ -51,7 +51,6 @@
 #include <QVBoxLayout>
 #include <QFrame>
 #include <QList>
-#include <Q3CString>
 #include <QBoxLayout>
 
 #include <stdlib.h>
@@ -366,7 +365,7 @@ void MainWindow::openUrl( const QString &url )
     openUrl( KURL( url ) );
 }
 
-void MainWindow::openUrl( const QString &url, const Q3CString& startup_id )
+void MainWindow::openUrl( const QString &url, const QByteArray& startup_id )
 {
     KStartupInfo::setNewStartupId( this, startup_id );
     openUrl( KURL( url ) );
