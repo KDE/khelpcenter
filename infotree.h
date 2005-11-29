@@ -22,8 +22,6 @@
 
 #include "treebuilder.h"
 
-class Q3ListViewItem;
-
 namespace KHC
 {
   class NavigatorItem;

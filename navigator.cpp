@@ -37,7 +37,7 @@
 #include <qpushbutton.h>
 #include <qtooltip.h>
 //Added by qt3to4:
-#include <Q3Frame>
+#include <QFrame>
 #include <QHBoxLayout>
 #include <QBoxLayout>
 #include <QVBoxLayout>
@@ -97,7 +97,7 @@ Navigator::Navigator( View *view, QWidget *parent, const char *name )
 
     QBoxLayout *topLayout = new QVBoxLayout( this );
 
-    mSearchFrame = new Q3Frame( this );
+    mSearchFrame = new QFrame( this );
     topLayout->addWidget( mSearchFrame );
 
     QBoxLayout *searchLayout = new QHBoxLayout( mSearchFrame );
@@ -165,7 +165,7 @@ bool Navigator::showMissingDocs() const
 void Navigator::setupContentsTab()
 {
     mContentsTree = new KListView( mTabWidget );
-    mContentsTree->setFrameStyle(Q3Frame::Panel | Q3Frame::Sunken);
+    mContentsTree->setFrameStyle(QFrame::Panel | QFrame::Sunken);
     mContentsTree->addColumn(QString::null);
     mContentsTree->setAllColumnsShowFocus(true);
     mContentsTree->header()->hide();

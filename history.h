@@ -25,7 +25,6 @@
 #include <qobject.h>
 #include <q3ptrlist.h>
 #include <QMenu>
-#include <QMenu>
 
 class KActionCollection;
 class KMainWindow;

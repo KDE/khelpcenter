@@ -45,7 +45,7 @@ HtmlSearchConfig::HtmlSearchConfig(QWidget *parent, const char *name)
   QVBoxLayout *vbox = new QVBoxLayout(this, 5);
 
 
-  Q3GroupBox *gb = new Q3GroupBox(i18n("ht://dig"), this);
+  QGroupBox *gb = new QGroupBox(i18n("ht://dig"), this);
   vbox->addWidget(gb);
 
   QGridLayout *grid = new QGridLayout(gb, 3,2, 6,6);
@@ -67,7 +67,7 @@ HtmlSearchConfig::HtmlSearchConfig(QWidget *parent, const char *name)
   connect(url, SIGNAL(leftClickedURL(const QString&)),
       this, SLOT(urlClicked(const QString&)));
 
-  gb = new Q3GroupBox(i18n("Program Locations"), this);
+  gb = new QGroupBox(i18n("Program Locations"), this);
 
   vbox->addWidget(gb);
   grid = new QGridLayout(gb, 4,2, 6,6);

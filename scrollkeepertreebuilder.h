@@ -21,7 +21,6 @@
 #define KHC_SCROLLKEEPERTREEBUILDER_H
 
 #include <qobject.h>
-#include <q3ptrlist.h>
 
 #include "navigatoritem.h"
 
@@ -50,7 +49,7 @@ class ScrollKeeperTreeBuilder : public QObject
 
     bool mShowEmptyDirs;
     QString mContentsList;
-    Q3PtrList<NavigatorItem> mItems;
+    QList<NavigatorItem*> mItems;
 };
 
 }

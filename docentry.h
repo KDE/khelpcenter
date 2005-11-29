@@ -2,7 +2,6 @@
 #define DOCENTRY_H
 
 #include <qstring.h>
-#include <q3valuelist.h>
 #include <QList>
 
 namespace KHC {

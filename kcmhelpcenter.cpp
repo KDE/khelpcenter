@@ -48,7 +48,6 @@
 #include <q3progressbar.h>
 #include <qfile.h>
 #include <qlabel.h>
-#include <q3vbox.h>
 #include <q3textedit.h>
 #include <qregexp.h>
 //Added by qt3to4:

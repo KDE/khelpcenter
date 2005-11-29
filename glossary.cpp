@@ -32,7 +32,7 @@
 
 #include <q3header.h>
 //Added by qt3to4:
-#include <Q3Frame>
+#include <QFrame>
 #include <QTextStream>
 
 #include <sys/stat.h>
@@ -82,7 +82,7 @@ Glossary::Glossary( QWidget *parent ) : KListView( parent )
 	connect( this, SIGNAL( returnPressed( Q3ListViewItem * ) ),
 	         this, SLOT( treeItemSelected( Q3ListViewItem * ) ) );
 	
-	setFrameStyle( Q3Frame::Panel | Q3Frame::Sunken );
+	setFrameStyle( QFrame::Panel | QFrame::Sunken );
 	addColumn( QString::null );
 	header()->hide();
 	setAllColumnsShowFocus( true );

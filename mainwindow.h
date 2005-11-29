@@ -1,8 +1,6 @@
 #ifndef __mainwindow_h__
 #define __mainwindow_h__
 
-#include <q3ptrlist.h>
-
 #include <kmainwindow.h>
 #include <kio/job.h>
 #include <kurl.h>

@@ -28,7 +28,7 @@
 #include <klocale.h>
 #include <knuminput.h>
 
-#include <q3groupbox.h>
+#include <qgroupbox.h>
 #include <qlabel.h>
 #include <qlayout.h>
 #include <qspinbox.h>
@@ -59,7 +59,7 @@ void FontDialog::slotOk()
 
 void FontDialog::setupFontSizesBox()
 {
-	Q3GroupBox *gb = new Q3GroupBox( i18n( "Sizes" ), mainWidget() );
+	QGroupBox *gb = new QGroupBox( i18n( "Sizes" ), mainWidget() );
 
 	QGridLayout *layout = new QGridLayout( gb );
 	layout->setSpacing( KDialog::spacingHint() );
@@ -82,7 +82,7 @@ void FontDialog::setupFontSizesBox()
 
 void FontDialog::setupFontTypesBox()
 {
-	Q3GroupBox *gb = new Q3GroupBox( i18n( "Fonts" ), mainWidget() );
+	QGroupBox *gb = new QGroupBox( i18n( "Fonts" ), mainWidget() );
 
 	QGridLayout *layout = new QGridLayout( gb );
 	layout->setSpacing( KDialog::spacingHint() );
@@ -127,7 +127,7 @@ void FontDialog::setupFontTypesBox()
 
 void FontDialog::setupFontEncodingBox()
 {
-	Q3GroupBox *gb = new Q3GroupBox( i18n( "Encoding" ), mainWidget() );
+	QGroupBox *gb = new QGroupBox( i18n( "Encoding" ), mainWidget() );
 
 	QGridLayout *layout = new QGridLayout( gb );
 	layout->setSpacing( KDialog::spacingHint() );

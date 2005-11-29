@@ -34,7 +34,7 @@
 #include <q3listview.h>
 #include <q3dict.h>
 //Added by qt3to4:
-#include <Q3Frame>
+#include <QFrame>
 
 class QPushButton;
 
@@ -128,7 +128,7 @@ class Navigator : public QWidget
 
     QTabWidget *mTabWidget;
 
-    Q3Frame *mSearchFrame;
+    QFrame *mSearchFrame;
     QLineEdit *mSearchEdit;
     QPushButton *mSearchButton;
 
