@@ -23,7 +23,6 @@
 
 #define INCLUDE_MENUITEM_DEF 1
 #include <qpainter.h>
-#include <q3popupmenu.h>
 
 #include <kdebug.h>
 
