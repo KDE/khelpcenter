@@ -45,7 +45,7 @@
 #include <qpushbutton.h>
 #include <qdir.h>
 #include <qtabwidget.h>
-#include <q3progressbar.h>
+#include <qprogressbar.h>
 #include <qfile.h>
 #include <qlabel.h>
 #include <q3textedit.h>
@@ -109,7 +109,7 @@ IndexProgressDialog::IndexProgressDialog( QWidget *parent )
   mLabel->setAlignment( Qt::AlignHCenter );
   topLayout->addWidget( mLabel );
 
-  mProgressBar = new Q3ProgressBar( this );
+  mProgressBar = new QProgressBar( this );
   topLayout->addWidget( mProgressBar );
 
   mLogLabel = new QLabel( i18n("Index creation log:"), this );
@@ -148,15 +148,15 @@ IndexProgressDialog::~IndexProgressDialog()
 
 void IndexProgressDialog::setTotalSteps( int steps )
 {
-  mProgressBar->setTotalSteps( steps );
-  mProgressBar->setProgress( 0 );
+  mProgressBar->setRange( 0, steps );
+  mProgressBar->setValue( 0 );
   setFinished( false );
   mLogView->clear();
 }
 
 void IndexProgressDialog::advanceProgress()
 {
-  mProgressBar->setProgress( mProgressBar->progress() + 1 );
+  mProgressBar->setValue( mProgressBar->value() + 1 );
 }
 
 void IndexProgressDialog::setLabelText( const QString &text )

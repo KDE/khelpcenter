@@ -29,10 +29,9 @@
 //Added by qt3to4:
 #include <QLabel>
 #include <QList>
-#include <QList>
 
 class QPushButton;
-class Q3ProgressBar;
+class QProgressBar;
 class Q3TextEdit;
 class QLabel;
 
@@ -90,7 +89,7 @@ class IndexProgressDialog : public KDialog
 
   private:
     QLabel *mLabel;
-    Q3ProgressBar *mProgressBar;
+    QProgressBar *mProgressBar;
     QLabel *mLogLabel;
     Q3TextEdit *mLogView;
     QPushButton *mDetailsButton;
