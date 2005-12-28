@@ -1,9 +1,8 @@
 #include <qlayout.h>
 #include <qlabel.h>
-
+#include <QProgressBar>
 
 #include <klocale.h>
-#include <kprogress.h>
 #include <kstandarddirs.h>
 
 
@@ -15,10 +14,10 @@ ProgressDialog::ProgressDialog(QWidget *parent, const char *name)
 		parent, name, false)
 {
   QGridLayout *grid = new QGridLayout(plainPage(), 5,3, spacingHint());
-  
+
   QLabel *l = new QLabel(i18n("Scanning for files"), plainPage());
   grid->addMultiCellWidget(l, 0,0, 1,2);
-  
+
   filesScanned = new QLabel(plainPage());
   grid->addWidget(filesScanned, 1,2);
   setFilesScanned(0);
@@ -28,8 +27,8 @@ ProgressDialog::ProgressDialog(QWidget *parent, const char *name)
 
   l = new QLabel(i18n("Extracting search terms"), plainPage());
   grid->addMultiCellWidget(l, 2,2, 1,2);
-  
-  bar = new KProgress(plainPage());
+
+  bar = new QProgressBar(plainPage());
   grid->addWidget(bar, 3,2);
 
   check2 = new QLabel(plainPage());
@@ -55,13 +54,13 @@ void ProgressDialog::setFilesScanned(int n)
 
 void ProgressDialog::setFilesToDig(int n)
 {
-  bar->setTotalSteps(n);
+  bar->setRange(0, n);
 }
 
 
 void ProgressDialog::setFilesDigged(int n)
 {
-  bar->setProgress(n);
+  bar->setValue(n);
 }
 
 

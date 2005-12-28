@@ -1,13 +1,10 @@
 #ifndef __PROGRESS_DIALOG_H__
 #define __PROGRESS_DIALOG_H__
 
-
 #include <kdialogbase.h>
 
-
 class QLabel;
-class KProgress;
-
+class QProgressBar;
 
 class ProgressDialog : public KDialogBase
 {
@@ -27,7 +24,7 @@ public:
 private:
 
   QLabel    *filesScanned, *check1, *check2, *check3;
-  KProgress *bar;
+  QProgressBar *bar;
 
 };
 
