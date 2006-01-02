@@ -82,7 +82,7 @@ QString DocEntry::url() const
 {
   if ( !mUrl.isEmpty() ) return mUrl;
 
-  if ( identifier().isEmpty() ) return QString::null;
+  if ( identifier().isEmpty() ) return QString();
 
   return "khelpcenter:" + identifier();
 }

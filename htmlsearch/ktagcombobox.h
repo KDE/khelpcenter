@@ -43,10 +43,10 @@ public:
   KTagComboBox(QWidget *parent=0, const char *name=0);
   ~KTagComboBox();
 
-  void insertItem(const QIcon& icon, const QString &text, const QString &tag, const QString &submenu = QString::null, int index=-1 );
-  void insertItem(const QString &text, const QString &tag, const QString &submenu = QString::null, int index=-1 );
-  void insertSeparator(const QString &submenu = QString::null, int index=-1 );
-  void insertSubmenu(const QString &text, const QString &tag, const QString &submenu = QString::null, int index=-1);
+  void insertItem(const QIcon& icon, const QString &text, const QString &tag, const QString &submenu = QString(), int index=-1 );
+  void insertItem(const QString &text, const QString &tag, const QString &submenu = QString(), int index=-1 );
+  void insertSeparator(const QString &submenu = QString(), int index=-1 );
+  void insertSubmenu(const QString &text, const QString &tag, const QString &submenu = QString(), int index=-1);
 
   int count() const;
   void clear();

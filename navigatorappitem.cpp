@@ -134,7 +134,7 @@ QString NavigatorAppItem::documentationURL( const KService *s )
 {
   QString docPath = s->property( "DocPath" ).toString();
   if ( docPath.isEmpty() )
-    return QString::null;
+    return QString();
 
   if ( docPath.startsWith( "file:") || docPath.startsWith( "http:" ) )
     return docPath;

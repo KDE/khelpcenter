@@ -176,7 +176,7 @@ QString View::langLookup( const QString &fname )
 			return *it;
     }
 
-    return QString::null;
+    return QString();
 }
 
 void View::setTitle( const QString &title )
@@ -358,7 +358,7 @@ KURL View::urlFromLinkNode( const DOM::Node &n ) const
   path += href.url();
 
   KURL url = baseURL();
-  url.setRef( QString::null );
+  url.setRef( QString() );
   url.setEncodedPathAndQuery( path );
 
   return url;

@@ -40,7 +40,7 @@ public:
   KLanguageCombo(QWidget *parent=0, const char *name=0);
   ~KLanguageCombo();
 
-  void insertLanguage(const QString& path, const QString& name, const QString& sub = QString::null, const QString &submenu = QString::null, int index = -1);
+  void insertLanguage(const QString& path, const QString& name, const QString& sub = QString(), const QString &submenu = QString(), int index = -1);
   void changeLanguage(const QString& name, int i);
 };
 

@@ -83,7 +83,7 @@ Glossary::Glossary( QWidget *parent ) : KListView( parent )
 	         this, SLOT( treeItemSelected( Q3ListViewItem * ) ) );
 	
 	setFrameStyle( QFrame::Panel | QFrame::Sunken );
-	addColumn( QString::null );
+	addColumn( QString() );
 	header()->hide();
 	setAllColumnsShowFocus( true );
 	setRootIsDecorated( true );

@@ -205,7 +205,7 @@ void FontDialog::save()
 		configGroup.writeEntry( "Fonts", fonts );
 
 		if ( m_defaultEncoding->currentText() == i18n( "Use Language Encoding" ) )
-			configGroup.writeEntry( "DefaultEncoding", QString::null );
+			configGroup.writeEntry( "DefaultEncoding", QString() );
 		else
 			configGroup.writeEntry( "DefaultEncoding", m_defaultEncoding->currentText() );
 	}

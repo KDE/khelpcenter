@@ -166,7 +166,7 @@ void Navigator::setupContentsTab()
 {
     mContentsTree = new KListView( mTabWidget );
     mContentsTree->setFrameStyle(QFrame::Panel | QFrame::Sunken);
-    mContentsTree->addColumn(QString::null);
+    mContentsTree->addColumn(QString());
     mContentsTree->setAllColumnsShowFocus(true);
     mContentsTree->header()->hide();
     mContentsTree->setRootIsDecorated(false);
@@ -317,7 +317,7 @@ void Navigator::selectItem( const KURL &url )
   if (url.hasRef())
   {
      alternativeURL.setQuery("anchor="+url.ref());
-     alternativeURL.setRef(QString::null);
+     alternativeURL.setRef(QString());
   }
 
   // If the navigator already has the given URL selected, do nothing.
@@ -595,7 +595,7 @@ bool Navigator::checkSearchIndex()
   QString text = i18n( "A search index does not yet exist. Do you want "
                        "to create the index now?" );
 
-  int result = KMessageBox::questionYesNo( this, text, QString::null,
+  int result = KMessageBox::questionYesNo( this, text, QString(),
                                            i18n("Create"),
                                            i18n("Do Not Create"),
                                            "indexcreation" );
@@ -665,7 +665,7 @@ void Navigator::writeConfig()
 
 void Navigator::clearSearch()
 {
-  mSearchEdit->setText( QString::null );
+  mSearchEdit->setText( QString() );
 }
 
 #include "navigator.moc"

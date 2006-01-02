@@ -162,7 +162,7 @@ void KTagComboBox::insertSeparator(const QString &submenu, int index)
 {
   QPopupMenu *pi = checkInsertIndex(popup, tags, submenu);
   pi->insertSeparator(index);
-  tags.append(QString::null);
+  tags.append(QString());
 }
 
 void KTagComboBox::insertSubmenu(const QString &text, const QString &tag, const QString &submenu, int index)
@@ -215,7 +215,7 @@ QString KTagComboBox::tag(int i) const
   if (i < 0 || i >= count())
   {
     kdDebug() << "KTagComboBox::tag(), unknown tag " << i << endl;
-    return QString::null;
+    return QString();
   }
   return *tags.at(i);
 }

@@ -51,7 +51,7 @@ void HTMLSearch::scanDir(const QString& dir)
         }
     }
 
-    QDir d2(dir, QString::null, QDir::Name|QDir::IgnoreCase, QDir::Dirs);
+    QDir d2(dir, QString(), QDir::Name|QDir::IgnoreCase, QDir::Dirs);
     QStringList const &dlist = d2.entryList();
     for (it=dlist.begin(); it != dlist.end(); ++it)
         if (*it != "." && *it != "..")
@@ -429,7 +429,7 @@ QString HTMLSearch::search(QString _lang, QString words, QString method, int mat
   if (exe.isEmpty())
   {
       delete config;
-    return QString::null;
+    return QString();
   }
   _proc = new KProcess();
   *_proc << exe << "-c" << dataPath(_lang)+"/htdig.conf" <<
@@ -454,14 +454,14 @@ QString HTMLSearch::search(QString _lang, QString words, QString method, int mat
       kdDebug() << "Error running htsearch... returning now" << endl;
       delete _proc;
       delete config;
-      return QString::null;
+      return QString();
     }
 
   delete _proc;
 
   // modify the search result
   _searchResult = _searchResult.replace("http://localhost/", "file:/");
-  _searchResult = _searchResult.replace("Content-type: text/html", QString::null);
+  _searchResult = _searchResult.replace("Content-type: text/html", QString());
 
   // dump the search result
   QFile f(result);
@@ -476,5 +476,5 @@ QString HTMLSearch::search(QString _lang, QString words, QString method, int mat
       return result;
     }
   delete config;
-  return QString::null;
+  return QString();
 }

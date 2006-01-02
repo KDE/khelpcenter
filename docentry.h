@@ -13,8 +13,8 @@ class DocEntry
 
     DocEntry();
     
-    DocEntry( const QString &name, const QString &url = QString::null,
-              const QString &icon = QString::null );
+    DocEntry( const QString &name, const QString &url = QString(),
+              const QString &icon = QString() );
     
     void setName( const QString & );
     QString name() const;
