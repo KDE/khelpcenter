@@ -45,7 +45,7 @@ ScrollKeeperTreeBuilder::ScrollKeeperTreeBuilder( QObject *parent, const char *n
 void ScrollKeeperTreeBuilder::loadConfig()
 {
   KConfigGroup configGroup( KGlobal::config(), "ScrollKeeper" );
-  mShowEmptyDirs = configGroup.readBoolEntry( "ShowEmptyDirs", false );
+  mShowEmptyDirs = configGroup.readEntry( "ShowEmptyDirs", QVariant(false )).toBool();
 }
 
 NavigatorItem *ScrollKeeperTreeBuilder::build( NavigatorItem *parent,

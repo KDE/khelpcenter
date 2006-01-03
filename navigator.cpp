@@ -87,7 +87,7 @@ Navigator::Navigator( View *view, QWidget *parent, const char *name )
 {
     KConfig *config = KGlobal::config();
     config->setGroup("General");
-    mShowMissingDocs = config->readBoolEntry("ShowMissingDocs",false);
+    mShowMissingDocs = config->readEntry("ShowMissingDocs", QVariant(false)).toBool();
 
     mSearchEngine = new SearchEngine( view );
     connect( mSearchEngine, SIGNAL( searchFinished() ),
@@ -588,7 +588,7 @@ bool Navigator::checkSearchIndex()
 {
   KConfig *cfg = KGlobal::config();
   cfg->setGroup( "Search" );
-  if ( cfg->readBoolEntry( "IndexExists", false ) ) return true;
+  if ( cfg->readEntry( "IndexExists", QVariant(false )).toBool() ) return true;
 
   if ( mIndexDialog && mIndexDialog->isShown() ) return true;
 

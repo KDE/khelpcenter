@@ -136,8 +136,8 @@ void SearchWidget::readConfig( KConfig *cfg )
     while( it.current() ) {
       if ( it.current()->rtti() == ScopeItem::rttiId() ) {
         ScopeItem *item = static_cast<ScopeItem *>( it.current() );
-        item->setOn( cfg->readBoolEntry( item->entry()->identifier(),
-                                         item->isOn() ) );
+        item->setOn( cfg->readEntry( item->entry()->identifier(),
+                                         QVariant(item->isOn()) ).toBool() );
       }
       ++it;
     }

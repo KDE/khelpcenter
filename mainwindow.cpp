@@ -142,7 +142,7 @@ MainWindow::MainWindow()
     KConfig *cfg = KGlobal::config();
     {
       KConfigGroup configGroup( cfg, "General" );
-      if ( configGroup.readBoolEntry( "UseKonqSettings", true ) ) {
+      if ( configGroup.readEntry( "UseKonqSettings", QVariant(true )).toBool() ) {
         KConfig konqCfg( "konquerorrc" );
         const_cast<KHTMLSettings *>( mDoc->settings() )->init( &konqCfg );
       }
@@ -247,7 +247,7 @@ void MainWindow::setupActions()
       actionCollection() );
 
     KConfigGroup debugGroup( KGlobal::config(), "Debug" );
-    if ( debugGroup.readBoolEntry( "SearchErrorLog", false ) ) {
+    if ( debugGroup.readEntry( "SearchErrorLog", QVariant(false )).toBool() ) {
       new KAction( i18n("Show Search Error Log"), 0, this,
                    SLOT( showSearchStderr() ), actionCollection(),
                    "show_search_stderr" );

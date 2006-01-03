@@ -74,7 +74,7 @@ bool HTMLSearch::saveFilesList(const QString& _lang)
     KConfigGroup scopeGroup( &config, "Scope" );
 
     // add KDE help dirs
-    if (scopeGroup.readBoolEntry("KDE", true))
+    if (scopeGroup.readEntry("KDE", QVariant(true)).toBool())
         dirs = kapp->dirs()->findDirs("html", _lang + "/");
     kdDebug() << "got " << dirs.count() << " dirs\n";
 
