@@ -96,7 +96,7 @@ void IndexDirDialog::slotOk()
 
 
 IndexProgressDialog::IndexProgressDialog( QWidget *parent )
-  : KDialog( parent, "IndexProgressDialog", true ),
+  : KDialog( parent ),
     mFinished( true )
 {
   setCaption( i18n("Build Search Indices") );
