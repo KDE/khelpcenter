@@ -222,7 +222,7 @@ bool DocEntry::readFromFile( const QString &fileName )
   mIndexer = file.readEntry( "X-DOC-Indexer" );
   mIndexer.replace( "%f", fileName );
   mIndexTestFile = file.readEntry( "X-DOC-IndexTestFile" );
-  mSearchEnabledDefault = file.readBoolEntry( "X-DOC-SearchEnabledDefault",
+  mSearchEnabledDefault = file.readEntry( "X-DOC-SearchEnabledDefault",
                                               false );
   mSearchEnabled = mSearchEnabledDefault;
   mWeight = file.readNumEntry( "X-DOC-Weight", 0 );
