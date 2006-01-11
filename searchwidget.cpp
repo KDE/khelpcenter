@@ -123,7 +123,7 @@ void SearchWidget::readConfig( KConfig *cfg )
 {
   cfg->setGroup( "Search" );
 
-  int scopeSelection = cfg->readNumEntry( "ScopeSelection", ScopeDefault );
+  int scopeSelection = cfg->readEntry( "ScopeSelection", (int)ScopeDefault );
   mScopeCombo->setCurrentItem( scopeSelection );
   if ( scopeSelection != ScopeDefault ) scopeSelectionChanged( scopeSelection );
 

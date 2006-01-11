@@ -75,12 +75,16 @@ class LogDialog : public KDialogBase
       mTextView->setTextFormat( Qt::LogText );
       topLayout->addWidget( mTextView );
 
-      resize( configDialogSize( "logdialog" ) );
+      KConfig *cfg = KGlobal::config();
+      cfg->setGroup( "logdialog" );
+      restoreDialogSize( cfg );
     }
 
     ~LogDialog()
     {
-      saveDialogSize( "logdialog" );
+      KConfig *cfg = KGlobal::config();
+      cfg->setGroup( "logdialog" );
+      KDialog::saveDialogSize( cfg );
     }
 
     void setLog( const QString &log )
@@ -146,7 +150,7 @@ MainWindow::MainWindow()
         KConfig konqCfg( "konquerorrc" );
         const_cast<KHTMLSettings *>( mDoc->settings() )->init( &konqCfg );
       }
-      const int zoomFactor = configGroup.readNumEntry( "Font zoom factor", 100 );
+      const int zoomFactor = configGroup.readEntry( "Font zoom factor", 100 );
       mDoc->setZoomFactor( zoomFactor );
     }
 
@@ -196,7 +200,7 @@ void MainWindow::readConfig()
 {
     KConfig *config = KGlobal::config();
     config->setGroup( "MainWindowState" );
-    QList<int> sizes = config->readIntListEntry( "Splitter" );
+    QList<int> sizes = config->readEntry( "Splitter", QList<int>() );
     if ( sizes.count() == 2 ) {
         mSplitter->setSizes( sizes );
     }

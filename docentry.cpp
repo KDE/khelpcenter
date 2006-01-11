@@ -225,7 +225,7 @@ bool DocEntry::readFromFile( const QString &fileName )
   mSearchEnabledDefault = file.readEntry( "X-DOC-SearchEnabledDefault",
                                               false );
   mSearchEnabled = mSearchEnabledDefault;
-  mWeight = file.readNumEntry( "X-DOC-Weight", 0 );
+  mWeight = file.readEntry( "X-DOC-Weight", 0 );
   mSearchMethod = file.readEntry( "X-DOC-SearchMethod" );
   mDocumentType = file.readEntry( "X-DOC-DocumentType" );
 

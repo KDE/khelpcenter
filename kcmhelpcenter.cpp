@@ -207,7 +207,7 @@ void IndexProgressDialog::toggleDetails()
     mLogLabel->show();
     mLogView->show();
     mDetailsButton->setText( i18n("Details <<") );
-    QSize size = cfg->readSizeEntry( "size" );
+    QSize size = cfg->readEntry( "size", QSize() );
     if ( !size.isEmpty() ) resize( size );
   } else {
     cfg->writeEntry( "size", size() );
@@ -237,7 +237,7 @@ KCMHelpCenter::KCMHelpCenter( KHC::SearchEngine *engine, QWidget *parent,
 
   setupMainWidget( widget );
 
-  setButtonOK( i18n("Build Index") );
+  setButtonGuiItem( KDialog::Ok, i18n("Build Index") );
 
   mConfig = KGlobal::config();
 
@@ -255,12 +255,15 @@ KCMHelpCenter::KCMHelpCenter( KHC::SearchEngine *engine, QWidget *parent,
       "slotIndexError(QString)", false );
   if ( !success ) kdError() << "connect DCOP signal failed" << endl;
 
-  resize( configDialogSize( "IndexDialog" ) );
+  mConfig->setGroup( "IndexDialog" );
+  restoreDialogSize( mConfig );
 }
 
 KCMHelpCenter::~KCMHelpCenter()
 {
-  saveDialogSize( "IndexDialog" );
+  KConfig *cfg = KGlobal::config();
+  cfg->setGroup( "IndexDialog" );
+  KDialog::saveDialogSize( cfg );
 }
 
 void KCMHelpCenter::setupMainWidget( QWidget *parent )

@@ -130,7 +130,7 @@ Glossary::CacheStatus Glossary::cacheStatus() const
 {
 	if ( !QFile::exists( m_cacheFile ) ||
 	     m_config->readPathEntry( "CachedGlossary" ) != m_sourceFile ||
-	     m_config->readNumEntry( "CachedGlossaryTimestamp" ) != glossaryCTime() )
+	     m_config->readEntry( "CachedGlossaryTimestamp" ).toInt() != glossaryCTime() )
 		return NeedRebuild;
 
 	return CacheOk;
