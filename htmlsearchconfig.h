@@ -40,10 +40,10 @@ class HtmlSearchConfig : public QWidget
     void defaults();
     void makeReadOnly();
 
-  signals:
+  Q_SIGNALS:
     void changed();
 
-  protected slots:
+  protected Q_SLOTS:
     void urlClicked(const QString&);
 
   private:

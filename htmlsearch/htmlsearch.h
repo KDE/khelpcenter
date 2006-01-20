@@ -30,7 +30,7 @@ public:
 		 QString format="builtin-long", QString sort="score");
 
 
-protected slots:
+protected Q_SLOTS:
 
   void htdigStdout(KProcess *proc, char *buffer, int buflen);
   void htdigExited(KProcess *proc);

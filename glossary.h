@@ -113,13 +113,13 @@ class Glossary : public KListView
 
     virtual void show();
 
-	public slots:
+	public Q_SLOTS:
 		void slotSelectGlossEntry( const QString &id );
 
-	signals:
+	Q_SIGNALS:
 		void entrySelected( const GlossaryEntry &entry );
 		
-	private slots:
+	private Q_SLOTS:
 		void meinprocExited( KProcess *meinproc );
 		void treeItemSelected( Q3ListViewItem *item );
 

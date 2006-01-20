@@ -44,7 +44,7 @@ class IndexBuilder : public QObject
 
     void processCmdQueue();
 
-  protected slots:
+  protected Q_SLOTS:
     void slotProcessExited( KProcess * );
     void slotReceivedStdout( KProcess *, char *buffer, int buflen );
     void slotReceivedStderr( KProcess *, char *buffer, int buflen );

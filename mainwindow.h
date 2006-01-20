@@ -34,7 +34,7 @@ class MainWindow : public KMainWindow, public DCOPObject
     void showHome();
     void lastSearch();
 
-  public slots:
+  public Q_SLOTS:
     void print();
     void statusBarMessage(const QString &m);
     void slotShowHome();
@@ -65,14 +65,14 @@ class MainWindow : public KMainWindow, public DCOPObject
     void readConfig();
     void writeConfig();
 
-  protected slots:
+  protected Q_SLOTS:
     void enableLastSearchAction();
     void enableCopyTextAction();
 
   private:
     void stop();
 
-  private slots:
+  private Q_SLOTS:
     void slotGlossSelected(const GlossaryEntry &entry);
     void slotStarted(KIO::Job *job);
     void slotInfoMessage(KIO::Job *, const QString &);

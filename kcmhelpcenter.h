@@ -54,7 +54,7 @@ class IndexDirDialog : public KDialogBase
   public:
     IndexDirDialog( QWidget *parent );
 
-  protected slots:
+  protected Q_SLOTS:
     void slotOk();
     void slotUrlChanged( const QString &_url);    
   private:
@@ -76,14 +76,14 @@ class IndexProgressDialog : public KDialog
 
     void appendLog( const QString &text );
 
-  signals:
+  Q_SIGNALS:
     void closed();
     void cancelled();
 
   protected:
     void hideDetails();
 
-  protected slots:
+  protected Q_SLOTS:
     void slotEnd();
     void toggleDetails();
 
@@ -118,12 +118,12 @@ class KCMHelpCenter : public KDialogBase, virtual public KCMHelpCenterIface
     bool save();
     void defaults();
 
-  public slots:
+  public Q_SLOTS:
 
-  signals:
+  Q_SIGNALS:
     void searchIndexUpdated();
 
-  protected slots:
+  protected Q_SLOTS:
     bool buildIndex();
     void cancelBuildIndex();
     void slotIndexFinished( KProcess * );

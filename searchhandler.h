@@ -63,14 +63,14 @@ class SearchHandler : public QObject
 
     bool checkPaths() const;
 
-  signals:
+  Q_SIGNALS:
     void searchFinished( SearchHandler *, DocEntry *, const QString & );
     void searchError( SearchHandler *, DocEntry *, const QString & );
 
   protected:
     bool checkBinary( const QString &cmd ) const;
 
-  protected slots:
+  protected Q_SLOTS:
     void searchStdout( KProcess *proc, char *buffer, int buflen );
     void searchStderr( KProcess *proc, char *buffer, int buflen );
     void searchExited( KProcess *proc ); 

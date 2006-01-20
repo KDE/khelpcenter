@@ -36,10 +36,10 @@ class TreeBuilder : public QObject
 
 		virtual void build( NavigatorItem *item ) = 0;
 
-  public slots:
+  public Q_SLOTS:
     virtual void selectURL( const QString &url );
 
-  signals:
+  Q_SIGNALS:
     void urlSelected( const KURL &url );
 };
 

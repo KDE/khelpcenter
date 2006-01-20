@@ -53,7 +53,7 @@ class View : public KHTMLPart
 
     void copySelectedText();
 
-  public slots:
+  public Q_SLOTS:
     void lastSearch();
     void slotIncFontSizes();
     void slotDecFontSizes();
@@ -62,13 +62,13 @@ class View : public KHTMLPart
     bool nextPage(bool checkOnly = false);
     bool prevPage(bool checkOnly = false);
 
-  signals:
+  Q_SIGNALS:
     void searchResultCacheAvailable();
 
   protected:
     bool eventFilter( QObject *o, QEvent *e );
 
-  private slots:
+  private Q_SLOTS:
     void setTitle( const QString &title );
     void showMenu( const QString& url, const QPoint& pos);
 

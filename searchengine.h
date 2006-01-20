@@ -44,7 +44,7 @@ class SearchTraverser : public QObject, public DocEntryTraverser
     void connectHandler( SearchHandler *handler );
     void disconnectHandler( SearchHandler *handler );
 
-  protected slots:
+  protected Q_SLOTS:
     void showSearchResult( SearchHandler *, DocEntry *, const QString &result );
     void showSearchError( SearchHandler *, DocEntry *, const QString &error );
 
@@ -109,10 +109,10 @@ class SearchEngine : public QObject
     bool canSearch( DocEntry * );
     bool needsIndex( DocEntry * );
 
-  signals:
+  Q_SIGNALS:
     void searchFinished();
 
-  protected slots:
+  protected Q_SLOTS:
     void searchStdout(KProcess *proc, char *buffer, int buflen);
     void searchStderr(KProcess *proc, char *buffer, int buflen);
     void searchExited(KProcess *proc);

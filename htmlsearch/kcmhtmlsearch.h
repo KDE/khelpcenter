@@ -51,7 +51,7 @@ public:
   int buttons();
 
   
-protected slots:
+protected Q_SLOTS:
 
   void configChanged();
   void addClicked(); 

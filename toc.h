@@ -39,13 +39,13 @@ class TOC : public QObject
 		QString application() const { return m_application; }
 		void setApplication( const QString &application ) { m_application = application; }
 	
-	public slots:
+	public Q_SLOTS:
 		void build( const QString &file );
 		
-	signals:
+	Q_SIGNALS:
 		void itemSelected( const QString &url );
 
-	private slots:
+	private Q_SLOTS:
 		void slotItemSelected( Q3ListViewItem *item );
 		void meinprocExited( KProcess *meinproc );
 

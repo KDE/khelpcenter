@@ -39,7 +39,7 @@ class FontDialog : public KDialogBase
 	public:
 		FontDialog( QWidget *parent, const char *name = 0 );
 
-	protected slots:
+	protected Q_SLOTS:
 		virtual void slotOk();
 
 	private:

@@ -71,12 +71,12 @@ class SearchWidget : public QWidget, public DCOPObject
 
     SearchEngine *engine() const { return mEngine; }
 
-  signals:
+  Q_SIGNALS:
     void searchResult( const QString &url );
     void scopeCountChanged( int );
     void showIndexDialog();
 
-  public slots:
+  public Q_SLOTS:
     void slotSwitchBoxes();
     void scopeSelectionChanged( int );
     void updateScopeList();
@@ -84,7 +84,7 @@ class SearchWidget : public QWidget, public DCOPObject
   protected:
     void checkScope();
 
-  protected slots:
+  protected Q_SLOTS:
     void scopeDoubleClicked( Q3ListViewItem * );
     void scopeClicked( Q3ListViewItem * );
 

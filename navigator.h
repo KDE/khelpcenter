@@ -86,7 +86,7 @@ class Navigator : public QWidget
     void readConfig();
     void writeConfig();
 
-  public slots:
+  public Q_SLOTS:
     void openInternalUrl( const KURL &url );
     void slotItemSelected(Q3ListViewItem* index);
     void slotSearch();
@@ -95,11 +95,11 @@ class Navigator : public QWidget
     void selectItem( const KURL &url );
     void showIndexDialog();
 
-  signals:
+  Q_SIGNALS:
     void itemSelected(const QString& itemURL);
     void glossSelected(const GlossaryEntry &entry);
 
-  protected slots:
+  protected Q_SLOTS:
     void slotSearchFinished();
     void slotTabChanged( QWidget * );
     void checkSearchButton();

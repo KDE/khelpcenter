@@ -61,11 +61,11 @@ class History : public QObject
     void createEntry();
     void updateCurrentEntry( KHC::View *view );
 
-  signals:
+  Q_SIGNALS:
     void goInternalUrl( const KURL & );
     void goUrl( const KURL & );
 
-  private slots:
+  private Q_SLOTS:
     void backActivated( int id );
     void fillBackMenu();
     void forwardActivated( int id );

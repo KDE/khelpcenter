@@ -68,11 +68,11 @@ public:
   // widget stuff
   virtual void setFont( const QFont & );
 
-signals:
+Q_SIGNALS:
   void activated( int index );
   void highlighted( int index );
 
-private slots:
+private Q_SLOTS:
   void internalActivate( int );
   void internalHighlight( int );
 

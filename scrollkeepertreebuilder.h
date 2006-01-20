@@ -38,7 +38,7 @@ class ScrollKeeperTreeBuilder : public QObject
 
     NavigatorItem *build( NavigatorItem *parent, NavigatorItem *after );
 
-  private slots:
+  private Q_SLOTS:
     void getContentsList( KProcIO *proc );
 
   private:
