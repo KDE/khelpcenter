@@ -23,7 +23,7 @@
 
 #include <qwidget.h>
 
-class KURLRequester;
+class KUrlRequester;
 class KConfig;
 
 namespace KHC {
@@ -47,9 +47,9 @@ class HtmlSearchConfig : public QWidget
     void urlClicked(const QString&);
 
   private:
-    KURLRequester *mHtsearchUrl;
-    KURLRequester *mIndexerBin;
-    KURLRequester *mDbDir;
+    KUrlRequester *mHtsearchUrl;
+    KUrlRequester *mIndexerBin;
+    KUrlRequester *mDbDir;
 };
 
 }

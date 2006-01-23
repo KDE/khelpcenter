@@ -70,7 +70,7 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const char *name)
   grid = new QGridLayout(gb, 4,2, 6,6);
   grid->addRowSpacing(0, gb->fontMetrics().lineSpacing());
 
-  htdigBin = new KURLRequester(gb);
+  htdigBin = new KUrlRequester(gb);
   l = new QLabel(htdigBin, i18n("ht&dig"), gb);
   l->setBuddy( htdigBin );
   grid->addWidget(l, 1,0);
@@ -80,7 +80,7 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const char *name)
   QWhatsThis::add( htdigBin, wtstr );
   QWhatsThis::add( l, wtstr );
 
-  htsearchBin = new KURLRequester(gb);
+  htsearchBin = new KUrlRequester(gb);
   l = new QLabel(htsearchBin, i18n("ht&search"), gb);
   l->setBuddy( htsearchBin );
   grid->addWidget(l, 2,0);
@@ -90,7 +90,7 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const char *name)
   QWhatsThis::add( htsearchBin, wtstr );
   QWhatsThis::add( l, wtstr );
 
-  htmergeBin = new KURLRequester(gb);
+  htmergeBin = new KUrlRequester(gb);
   l = new QLabel(htmergeBin, i18n("ht&merge"), gb);
   l->setBuddy( htmergeBin );
   grid->addWidget(l, 3,0);

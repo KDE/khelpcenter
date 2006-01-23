@@ -72,7 +72,7 @@ IndexDirDialog::IndexDirDialog( QWidget *parent )
   QLabel *label = new QLabel( i18n("Index folder:"), topFrame );
   urlLayout->addWidget( label );
 
-  mIndexUrlRequester = new KURLRequester( topFrame );
+  mIndexUrlRequester = new KUrlRequester( topFrame );
   mIndexUrlRequester->setMode( KFile::Directory | KFile::ExistingOnly |
                                KFile::LocalOnly );
   urlLayout->addWidget( mIndexUrlRequester );

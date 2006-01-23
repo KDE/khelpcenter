@@ -39,7 +39,7 @@ class KProcess;
 class KConfig;
 class KAboutData;
 class KTempFile;
-class KURLRequester;
+class KUrlRequester;
 class KListView;
 
 namespace KHC {
@@ -58,7 +58,7 @@ class IndexDirDialog : public KDialogBase
     void slotOk();
     void slotUrlChanged( const QString &_url);    
   private:
-    KURLRequester *mIndexUrlRequester;
+    KUrlRequester *mIndexUrlRequester;
 };
 
 class IndexProgressDialog : public KDialog
