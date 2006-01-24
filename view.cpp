@@ -66,7 +66,7 @@ void View::copySelectedText()
   kapp->clipboard()->setText( selectedText() );
 }
 
-bool View::openURL( const KURL &url )
+bool View::openURL( const KUrl &url )
 {
     if ( url.protocol().lower() == "about" )
     {
@@ -204,13 +204,13 @@ void View::endSearchResult()
   if ( !mSearchResult.isEmpty() ) emit searchResultCacheAvailable();
 }
 
-void View::beginInternal( const KURL &url )
+void View::beginInternal( const KUrl &url )
 {
   mInternalUrl = url;
   begin();
 }
 
-KURL View::internalUrl() const
+KUrl View::internalUrl() const
 {
   return mInternalUrl;
 }
@@ -278,7 +278,7 @@ bool View::prevPage(bool checkOnly)
 
   // The first link on a page (top-left corner) would be the Prev link.
   const DOM::Node prevLinkNode = links.item( 0 );
-  KURL prevURL = urlFromLinkNode( prevLinkNode );
+  KUrl prevURL = urlFromLinkNode( prevLinkNode );
   if (!prevURL.isValid())
     return false;
 
@@ -291,7 +291,7 @@ bool View::nextPage(bool checkOnly)
 {
   const DOM::HTMLCollection links = htmlDocument().links();
 
-  KURL nextURL;
+  KUrl nextURL;
 
   // If we're on the first page, the "Next" link is the last link
   if ( baseURL().path().endsWith( "/index.html" ) )
@@ -342,14 +342,14 @@ bool View::eventFilter( QObject *o, QEvent *e )
   return KHTMLPart::eventFilter( o, e );
 }
 
-KURL View::urlFromLinkNode( const DOM::Node &n ) const
+KUrl View::urlFromLinkNode( const DOM::Node &n ) const
 {
   if ( n.isNull() || n.nodeType() != DOM::Node::ELEMENT_NODE )
     return KURL();
 
   DOM::Element elem = static_cast<DOM::Element>( n );
 
-  KURL href ( elem.getAttribute( "href" ).string() );
+  KUrl href ( elem.getAttribute( "href" ).string() );
   if ( !href.protocol().isNull() )
     return href;
 
@@ -357,14 +357,14 @@ KURL View::urlFromLinkNode( const DOM::Node &n ) const
   path.truncate( path.lastIndexOf( '/' ) + 1 );
   path += href.url();
 
-  KURL url = baseURL();
+  KUrl url = baseURL();
   url.setRef( QString() );
   url.setEncodedPathAndQuery( path );
 
   return url;
 }
 
-void View::slotReload( const KURL &url )
+void View::slotReload( const KUrl &url )
 {
   const_cast<KHTMLSettings *>( settings() )->init( KGlobal::config() );
   KParts::URLArgs args = browserExtension()->urlArgs();

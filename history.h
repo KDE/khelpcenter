@@ -45,7 +45,7 @@ class History : public QObject
       Entry() : view( 0 ), search( false ) {}
 
       View *view;
-      KURL url;
+      KUrl url;
       QString title;
       QByteArray buffer;
       bool search;
@@ -62,8 +62,8 @@ class History : public QObject
     void updateCurrentEntry( KHC::View *view );
 
   Q_SIGNALS:
-    void goInternalUrl( const KURL & );
-    void goUrl( const KURL & );
+    void goInternalUrl( const KUrl & );
+    void goUrl( const KUrl & );
 
   private Q_SLOTS:
     void backActivated( int id );

@@ -124,9 +124,9 @@ MainWindow::MainWindow()
     statusBar()->setItemAlignment(0, Qt::AlignLeft | Qt::AlignVCenter);
 
     connect( mDoc->browserExtension(),
-             SIGNAL( openURLRequest( const KURL &,
+             SIGNAL( openURLRequest( const KUrl &,
                                      const KParts::URLArgs & ) ),
-             SLOT( slotOpenURLRequest( const KURL &,
+             SLOT( slotOpenURLRequest( const KUrl &,
                                        const KParts::URLArgs & ) ) );
 
     mNavigator = new Navigator( mDoc, mSplitter, "nav" );
@@ -163,10 +163,10 @@ MainWindow::MainWindow()
 
     History::self().installMenuBarHook( this );
 
-    connect( &History::self(), SIGNAL( goInternalUrl( const KURL & ) ),
-             mNavigator, SLOT( openInternalUrl( const KURL & ) ) );
-    connect( &History::self(), SIGNAL( goUrl( const KURL & ) ),
-             mNavigator, SLOT( selectItem( const KURL & ) ) );
+    connect( &History::self(), SIGNAL( goInternalUrl( const KUrl & ) ),
+             mNavigator, SLOT( openInternalUrl( const KUrl & ) ) );
+    connect( &History::self(), SIGNAL( goUrl( const KUrl & ) ),
+             mNavigator, SLOT( selectItem( const KUrl & ) ) );
 
     statusBarMessage(i18n("Ready"));
     enableCopyTextAction();
@@ -283,13 +283,13 @@ void MainWindow::slotStarted(KIO::Job *job)
     History::self().updateActions();
 }
 
-void MainWindow::goInternalUrl( const KURL &url )
+void MainWindow::goInternalUrl( const KUrl &url )
 {
   mDoc->closeURL();
   slotOpenURLRequest( url, KParts::URLArgs() );
 }
 
-void MainWindow::slotOpenURLRequest( const KURL &url,
+void MainWindow::slotOpenURLRequest( const KUrl &url,
                                      const KParts::URLArgs &args )
 {
   kdDebug( 1400 ) << "MainWindow::slotOpenURLRequest(): " << url.url() << endl;
@@ -303,7 +303,7 @@ void MainWindow::viewUrl( const QString &url )
   viewUrl( KURL( url ) );
 }
 
-void MainWindow::viewUrl( const KURL &url, const KParts::URLArgs &args )
+void MainWindow::viewUrl( const KUrl &url, const KParts::URLArgs &args )
 {
     stop();
 
@@ -338,7 +338,7 @@ void MainWindow::viewUrl( const KURL &url, const KParts::URLArgs &args )
     mDoc->browserExtension()->setURLArgs( args );
 
     if ( proto == QLatin1String("glossentry") ) {
-        QString decodedEntryId = KURL::decode_string( url.encodedPathAndQuery() );
+        QString decodedEntryId = KUrl::decode_string( url.encodedPathAndQuery() );
         slotGlossSelected( mNavigator->glossEntry( decodedEntryId ) );
         mNavigator->slotSelectGlossEntry( decodedEntryId );
     } else {
@@ -375,7 +375,7 @@ void MainWindow::openUrl( const QString &url, const QByteArray& startup_id )
     openUrl( KURL( url ) );
 }
 
-void MainWindow::openUrl( const KURL &url )
+void MainWindow::openUrl( const KUrl &url )
 {
     if ( url.isEmpty() ) slotShowHome();
     else {

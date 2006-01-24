@@ -28,7 +28,7 @@ class View : public KHTMLPart
 
     ~View();
 
-    virtual bool openURL( const KURL &url );
+    virtual bool openURL( const KUrl &url );
 
     virtual void saveState( QDataStream &stream );
     virtual void restoreState( QDataStream &stream );
@@ -44,8 +44,8 @@ class View : public KHTMLPart
     void writeSearchResult( const QString & );
     void endSearchResult();
 
-    void beginInternal( const KURL & );
-    KURL internalUrl() const;
+    void beginInternal( const KUrl & );
+    KUrl internalUrl() const;
 
     int zoomStepping() const { return m_zoomStepping; }
 
@@ -57,7 +57,7 @@ class View : public KHTMLPart
     void lastSearch();
     void slotIncFontSizes();
     void slotDecFontSizes();
-    void slotReload( const KURL &url = KURL() );
+    void slotReload( const KUrl &url = KURL() );
     void slotCopyLink();
     bool nextPage(bool checkOnly = false);
     bool prevPage(bool checkOnly = false);
@@ -74,13 +74,13 @@ class View : public KHTMLPart
 
   private:
     void showAboutPage();
-    KURL urlFromLinkNode( const DOM::Node &n ) const;
+    KUrl urlFromLinkNode( const DOM::Node &n ) const;
  
     int mState;
     QString mTitle;
 
     QString mSearchResult;
-    KURL mInternalUrl;
+    KUrl mInternalUrl;
 
     int m_zoomStepping;
 

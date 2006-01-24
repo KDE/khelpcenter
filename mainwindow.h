@@ -43,7 +43,7 @@ class MainWindow : public KMainWindow, public DCOPObject
     /**
       Show document corresponding to given URL in viewer part.
     */
-    void viewUrl( const KURL &url,
+    void viewUrl( const KUrl &url,
                   const KParts::URLArgs &args = KParts::URLArgs() );
     /**
       Show document corresponding to given URL in viewer part.
@@ -54,7 +54,7 @@ class MainWindow : public KMainWindow, public DCOPObject
       Open document corresponding to given URL, i.e. show it in the viewer part
       and select the corresponding entry in the navigator widget.
     */
-    void openUrl( const KURL &url );
+    void openUrl( const KUrl &url );
 
   protected:
     void setupActions();
@@ -76,11 +76,11 @@ class MainWindow : public KMainWindow, public DCOPObject
     void slotGlossSelected(const GlossaryEntry &entry);
     void slotStarted(KIO::Job *job);
     void slotInfoMessage(KIO::Job *, const QString &);
-    void goInternalUrl( const KURL & );
+    void goInternalUrl( const KUrl & );
     /**
       This function is called when the user clicks on a link in the viewer part.
     */
-    void slotOpenURLRequest( const KURL &url,
+    void slotOpenURLRequest( const KUrl &url,
                              const KParts::URLArgs &args);
     void documentCompleted();
     void slotIncFontSizes();

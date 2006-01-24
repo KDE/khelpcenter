@@ -38,7 +38,7 @@ int Application::newInstance()
   
   KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
 
-  KURL url;
+  KUrl url;
   if ( args->count() )
     url = args->url( 0 );
 

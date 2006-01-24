@@ -40,7 +40,7 @@ class TreeBuilder : public QObject
     virtual void selectURL( const QString &url );
 
   Q_SIGNALS:
-    void urlSelected( const KURL &url );
+    void urlSelected( const KUrl &url );
 };
 
 }

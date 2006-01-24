@@ -249,7 +249,7 @@ void Navigator::insertIOSlaveDocs( const QString &name, NavigatorItem *topItem )
     if ( !docPath.isNull() )
     {
       // First parameter is ignored if second is an absolute path
-      KURL url(KURL("help:/"), docPath);
+      KUrl url(KURL("help:/"), docPath);
       QString icon = KProtocolInfo::icon(*it);
       if ( icon.isEmpty() ) icon = "document2";
       DocEntry *entry = new DocEntry( *it, url.url(), icon );
@@ -279,7 +279,7 @@ void Navigator::createItemFromDesktopFile( NavigatorItem *topItem,
     QString docPath = desktopFile.readDocPath();
     if ( !docPath.isNull() ) {
       // First parameter is ignored if second is an absolute path
-      KURL url(KURL("help:/"), docPath);
+      KUrl url(KURL("help:/"), docPath);
       QString icon = desktopFile.readIcon();
       if ( icon.isEmpty() ) icon = "document2";
       DocEntry *entry = new DocEntry( desktopFile.readName(), url.url(), icon );
@@ -301,7 +301,7 @@ NavigatorItem *Navigator::insertScrollKeeperDocs( NavigatorItem *topItem,
   return builder->build( topItem, after );
 }
 
-void Navigator::selectItem( const KURL &url )
+void Navigator::selectItem( const KUrl &url )
 {
   kdDebug() << "Navigator::selectItem(): " << url.url() << endl;
 
@@ -313,7 +313,7 @@ void Navigator::selectItem( const KURL &url )
   // help:/foo&anchor=bar gets redirected to help:/foo#bar
   // Make sure that we match both the original URL as well as
   // its counterpart.
-  KURL alternativeURL = url;
+  KUrl alternativeURL = url;
   if (url.hasRef())
   {
      alternativeURL.setQuery("anchor="+url.ref());
@@ -324,7 +324,7 @@ void Navigator::selectItem( const KURL &url )
   NavigatorItem *item;
   item = static_cast<NavigatorItem *>( mContentsTree->selectedItem() );
   if ( item && mSelected ) {
-    KURL currentURL ( item->entry()->url() );
+    KUrl currentURL ( item->entry()->url() );
     if ( (currentURL == url) || (currentURL == alternativeURL) ) {
       kdDebug() << "URL already shown." << endl;
       return;
@@ -343,7 +343,7 @@ void Navigator::selectItem( const KURL &url )
   Q3ListViewItemIterator it( mContentsTree );
   while ( it.current() ) {
     NavigatorItem *item = static_cast<NavigatorItem *>( it.current() );
-    KURL itemUrl( item->entry()->url() );
+    KUrl itemUrl( item->entry()->url() );
     if ( (itemUrl == url) || (itemUrl == alternativeURL) ) {
       mContentsTree->setCurrentItem( item );
       // If the current item was not selected and remained unchanged it
@@ -382,7 +382,7 @@ void Navigator::slotItemSelected( Q3ListViewItem *currentItem )
   if ( item->childCount() > 0 || item->isExpandable() )
     item->setOpen( !item->isOpen() );
 
-  KURL url ( item->entry()->url() );
+  KUrl url ( item->entry()->url() );
 
   if ( url.protocol() == "khelpcenter" ) {
       mView->closeURL();
@@ -418,7 +418,7 @@ void Navigator::slotItemSelected( Q3ListViewItem *currentItem )
   mLastUrl = url;
 }
 
-void Navigator::openInternalUrl( const KURL &url )
+void Navigator::openInternalUrl( const KUrl &url )
 {
   if ( url.url() == "khelpcenter:home" ) {
     clearSelection();
@@ -435,7 +435,7 @@ void Navigator::openInternalUrl( const KURL &url )
   if ( item ) showOverview( item, url );
 }
 
-void Navigator::showOverview( NavigatorItem *item, const KURL &url )
+void Navigator::showOverview( NavigatorItem *item, const KUrl &url )
 {
   mView->beginInternal( url );
 
@@ -617,7 +617,7 @@ void Navigator::slotSelectGlossEntry( const QString &id )
   mGlossaryTree->slotSelectGlossEntry( id );
 }
 
-KURL Navigator::homeURL()
+KUrl Navigator::homeURL()
 {
   if ( !mHomeUrl.isEmpty() ) return mHomeUrl;
 

@@ -251,7 +251,7 @@ bool DocEntry::indexExists( const QString &indexDir )
 bool DocEntry::docExists() const
 {
   if ( !mUrl.isEmpty() ) {
-    KURL docUrl( mUrl );
+    KUrl docUrl( mUrl );
     if ( docUrl.isLocalFile() && !KStandardDirs::exists( docUrl.path() ) ) {
 //      kdDebug(1400) << "URL not found: " << docUrl.url() << endl;
       return false;

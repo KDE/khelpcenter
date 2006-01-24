@@ -118,7 +118,7 @@ void History::updateCurrentEntry( View *view )
   if ( m_entries.isEmpty() )
     return;
 
-  KURL url = view->url();
+  KUrl url = view->url();
   
   Entry *current = m_entries.current();
 

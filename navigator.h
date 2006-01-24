@@ -61,7 +61,7 @@ class Navigator : public QWidget
     Navigator(View *, QWidget *parent=0, const char *name=0);
     virtual ~Navigator();
 
-    KURL homeURL();
+    KUrl homeURL();
 
     SearchEngine *searchEngine() const;
     Formatter *formatter() const;
@@ -81,18 +81,18 @@ class Navigator : public QWidget
 
     void clearSelection();
 
-    void showOverview( NavigatorItem *item, const KURL &url );
+    void showOverview( NavigatorItem *item, const KUrl &url );
 
     void readConfig();
     void writeConfig();
 
   public Q_SLOTS:
-    void openInternalUrl( const KURL &url );
+    void openInternalUrl( const KUrl &url );
     void slotItemSelected(Q3ListViewItem* index);
     void slotSearch();
     void slotShowSearchResult( const QString & );
     void slotSelectGlossEntry( const QString &id );
-    void selectItem( const KURL &url );
+    void selectItem( const KUrl &url );
     void showIndexDialog();
 
   Q_SIGNALS:
@@ -140,11 +140,11 @@ class Navigator : public QWidget
 
     View *mView;
 
-    KURL mHomeUrl;
+    KUrl mHomeUrl;
     
     bool mSelected;
 
-    KURL mLastUrl;
+    KUrl mLastUrl;
 
     int mDirLevel;
 };
