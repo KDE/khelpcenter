@@ -98,7 +98,7 @@ void InfoTree::build( NavigatorItem *parent )
 
   KConfig *cfg = KGlobal::config();
   cfg->setGroup( "Info pages" );
-  QStringList infoDirFiles = cfg->readListEntry( "Search paths" );
+  QStringList infoDirFiles = cfg->readEntry( "Search paths" , QStringList() );
   // Default paths taken fron kdebase/kioslave/info/kde-info2html.conf
   if ( infoDirFiles.isEmpty() ) { 
     infoDirFiles << "/usr/share/info";

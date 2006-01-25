@@ -81,7 +81,7 @@ bool HTMLSearch::saveFilesList(const QString& _lang)
     // TODO: Man and Info!!
 
     // add local urls
-    QStringList add = scopeGroup.readListEntry("Paths");
+    QStringList add = scopeGroup.readEntry("Paths", QStringList() );
     QStringList::Iterator it;
     for (it = add.begin(); it != add.end(); ++it) {
         if ( ( *it ).at( ( *it ).length() - 1 ) != '/' )

@@ -49,7 +49,7 @@ SearchHandler *SearchHandler::initFromFile( const QString &filename )
   handler->mSearchCommand = file.readEntry( "SearchCommand" );
   handler->mSearchUrl = file.readEntry( "SearchUrl" );
   handler->mIndexCommand = file.readEntry( "IndexCommand" );
-  handler->mDocumentTypes = file.readListEntry( "DocumentTypes" );
+  handler->mDocumentTypes = file.readEntry( "DocumentTypes" , QStringList() );
 
   return handler;
 }

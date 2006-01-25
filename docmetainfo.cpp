@@ -134,7 +134,7 @@ void DocMetaInfo::scanMetaInfo( bool force )
 
   KConfig config( "khelpcenterrc" );
   config.setGroup( "General" );
-  QStringList metaInfos = config.readListEntry( "MetaInfoDirs" );
+  QStringList metaInfos = config.readEntry( "MetaInfoDirs" , QStringList() );
 
   if ( metaInfos.isEmpty() ) {
     KStandardDirs* kstd = KGlobal::dirs();

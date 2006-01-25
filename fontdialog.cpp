@@ -158,7 +158,7 @@ void FontDialog::load()
 		m_minFontSize->setValue( configGroup.readEntry( "MinimumFontSize", (int)HTML_DEFAULT_MIN_FONT_SIZE ) );
 		m_medFontSize->setValue( configGroup.readEntry( "MediumFontSize", 10 ) );
 
-		QStringList fonts = configGroup.readListEntry( "Fonts" );
+		QStringList fonts = configGroup.readEntry( "Fonts" , QStringList() );
 		if ( fonts.isEmpty() )
 			fonts << KGlobalSettings::generalFont().family()
 			      << KGlobalSettings::fixedFont().family()
