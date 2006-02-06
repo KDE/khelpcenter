@@ -86,7 +86,7 @@ void History::installMenuBarHook( KMainWindow *mainWindow )
 
 void History::createEntry()
 {
-  kdDebug() << "History::createEntry()" << endl;
+  kDebug() << "History::createEntry()" << endl;
 
   // First, remove any forward history
   Entry * current = m_entries.current();
@@ -128,11 +128,11 @@ void History::updateCurrentEntry( View *view )
   current->view = view;
 
   if ( url.isEmpty() ) {
-    kdDebug() << "History::updateCurrentEntry(): internal url" << endl;
+    kDebug() << "History::updateCurrentEntry(): internal url" << endl;
     url = view->internalUrl();
   }
 
-  kdDebug() << "History::updateCurrentEntry(): " << view->title()
+  kDebug() << "History::updateCurrentEntry(): " << view->title()
             << " (URL: " << url.url() << ")" << endl;
 
   current->url = url;
@@ -149,31 +149,31 @@ void History::updateActions()
 
 void History::back()
 {
-  kdDebug( 1400 ) << "History::back()" << endl;
+  kDebug( 1400 ) << "History::back()" << endl;
   goHistoryActivated( -1 );
 }
 
 void History::backActivated( int id )
 {
-  kdDebug( 1400 ) << "History::backActivated(): id = " << id << endl;
+  kDebug( 1400 ) << "History::backActivated(): id = " << id << endl;
   goHistoryActivated( -( m_backAction->popupMenu()->indexOf( id ) + 1 ) );
 }
 
 void History::forward()
 {
-  kdDebug( 1400 ) << "History::forward()" << endl;
+  kDebug( 1400 ) << "History::forward()" << endl;
   goHistoryActivated( 1 );
 }
 
 void History::forwardActivated( int id )
 {
-  kdDebug( 1400 ) << "History::forwardActivated(): id = " << id << endl;
+  kDebug( 1400 ) << "History::forwardActivated(): id = " << id << endl;
   goHistoryActivated( m_forwardAction->popupMenu()->indexOf( id ) + 1 );
 }
 
 void History::goHistoryActivated( int steps )
 {
-  kdDebug( 1400 ) << "History::goHistoryActivated(): m_goBuffer = " << m_goBuffer << endl;
+  kDebug( 1400 ) << "History::goHistoryActivated(): m_goBuffer = " << m_goBuffer << endl;
   if ( m_goBuffer )
     return;
   m_goBuffer = steps;
@@ -182,7 +182,7 @@ void History::goHistoryActivated( int steps )
 
 void History::goHistoryDelayed()
 {
-  kdDebug( 1400 ) << "History::goHistoryDelayed(): m_goBuffer = " << m_goBuffer << endl;
+  kDebug( 1400 ) << "History::goHistoryDelayed(): m_goBuffer = " << m_goBuffer << endl;
   if ( !m_goBuffer )
     return;
   int steps = m_goBuffer;
@@ -192,7 +192,7 @@ void History::goHistoryDelayed()
 
 void History::goHistory( int steps )
 {
-  kdDebug() << "History::goHistory(): " << steps << endl;
+  kDebug() << "History::goHistory(): " << steps << endl;
 
   // If current entry is empty remove it.
   Entry *current = m_entries.current();
@@ -202,28 +202,28 @@ void History::goHistory( int steps )
 
   current = m_entries.at( newPos );
   if ( !current ) {
-    kdError() << "No History entry at position " << newPos << endl;
+    kError() << "No History entry at position " << newPos << endl;
     return;
   }
 
   if ( !current->view ) {
-    kdWarning() << "Empty history entry." << endl;
+    kWarning() << "Empty history entry." << endl;
     return;
   }
 
   if ( current->search ) {
-    kdDebug() << "History::goHistory(): search" << endl;
+    kDebug() << "History::goHistory(): search" << endl;
     current->view->lastSearch();
     return;
   }
 
   if ( current->url.protocol() == "khelpcenter" ) {
-    kdDebug() << "History::goHistory(): internal" << endl;
+    kDebug() << "History::goHistory(): internal" << endl;
     emit goInternalUrl( current->url );
     return;
   }
 
-  kdDebug() << "History::goHistory(): restore state" << endl;
+  kDebug() << "History::goHistory(): restore state" << endl;
 
   emit goUrl( current->url );
 
@@ -297,10 +297,10 @@ void History::goMenuActivated( int id )
   int index = goMenu->indexOf(id) - m_goMenuIndex + 1;
   if ( index > 0 )
   {
-    kdDebug(1400) << "Item clicked has index " << index << endl;
+    kDebug(1400) << "Item clicked has index " << index << endl;
     // -1 for one step back, 0 for don't move, +1 for one step forward, etc.
     int steps = ( m_goMenuHistoryStartPos+1 ) - index - m_goMenuHistoryCurrentPos; // make a drawing to understand this :-)
-    kdDebug(1400) << "Emit activated with steps = " << steps << endl;
+    kDebug(1400) << "Emit activated with steps = " << steps << endl;
     goHistory( steps );
   }
 }

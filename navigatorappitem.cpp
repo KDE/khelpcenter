@@ -67,11 +67,11 @@ void NavigatorAppItem::setRelpath( const QString &relpath )
 
 void NavigatorAppItem::setOpen(bool open)
 {
-  kdDebug() << "NavigatorAppItem::setOpen()" << endl;
+  kDebug() << "NavigatorAppItem::setOpen()" << endl;
 
   if ( open && (childCount() == 0) && !mPopulated )
   {
-     kdDebug() << "NavigatorAppItem::setOpen(" << this << ", "
+     kDebug() << "NavigatorAppItem::setOpen(" << this << ", "
                << mRelpath << ")" << endl;
      populate();
   }
@@ -84,7 +84,7 @@ void NavigatorAppItem::populate( bool recursive )
 
   KServiceGroup::Ptr root = KServiceGroup::group(mRelpath);
   if ( !root ) {
-    kdWarning() << "No Service groups\n";
+    kWarning() << "No Service groups\n";
     return;
   }
   KServiceGroup::List list = root->entries();

@@ -51,13 +51,13 @@ bool Formatter::readTemplates()
   }
   
   if ( mainTemplate.isEmpty() ) {
-    kdWarning() << "Main template file name is empty." << endl;
+    kWarning() << "Main template file name is empty." << endl;
     return false;
   }
   
   QFile f( mainTemplate );
   if ( !f.open( QIODevice::ReadOnly ) ) {
-    kdWarning() << "Unable to open main template file '" << mainTemplate
+    kWarning() << "Unable to open main template file '" << mainTemplate
                 << "'." << endl;
     return false;
   }
@@ -98,7 +98,7 @@ bool Formatter::readTemplates()
         }
         break;
       default:
-        kdError() << "Formatter::readTemplates(): Illegal state: "
+        kError() << "Formatter::readTemplates(): Illegal state: "
                   << state << endl;
         break;
     }
@@ -109,8 +109,8 @@ bool Formatter::readTemplates()
 #if 0
   QMap<QString,QString>::ConstIterator it;
   for( it = mSymbols.begin(); it != mSymbols.end(); ++it ) {
-    kdDebug() << "KEY: " << it.key() << endl;
-    kdDebug() << "VALUE: " << it.data() << endl;
+    kDebug() << "KEY: " << it.key() << endl;
+    kDebug() << "VALUE: " << it.data() << endl;
   }
 #endif
 
@@ -122,7 +122,7 @@ bool Formatter::readTemplates()
   for( it2 = requiredSymbols.begin(); it2 != requiredSymbols.end(); ++it2 ) {
     if ( !mSymbols.contains( *it2 ) ) {
       success = false;
-      kdError() << "Symbol '" << *it2 << "' is missing from main template file."
+      kError() << "Symbol '" << *it2 << "' is missing from main template file."
                 << endl;
     }
   }

@@ -214,7 +214,7 @@ QString KTagComboBox::tag(int i) const
 {
   if (i < 0 || i >= count())
   {
-    kdDebug() << "KTagComboBox::tag(), unknown tag " << i << endl;
+    kDebug() << "KTagComboBox::tag(), unknown tag " << i << endl;
     return QString();
   }
   return *tags.at(i);

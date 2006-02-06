@@ -43,21 +43,21 @@ using namespace KHC;
 
 IndexBuilder::IndexBuilder()
 {
-  kdDebug(1402) << "IndexBuilder()" << endl;
+  kDebug(1402) << "IndexBuilder()" << endl;
 }
 
 void IndexBuilder::buildIndices( const QString &cmdFile )
 {
   QFile f( cmdFile );
   if ( !f.open( QIODevice::ReadOnly ) ) {
-    kdError() << "Unable to open file '" << cmdFile << "'" << endl;
+    kError() << "Unable to open file '" << cmdFile << "'" << endl;
     exit( 1 );
   }
-  kdDebug(1402) << "Opened file '" << cmdFile << "'" << endl;
+  kDebug(1402) << "Opened file '" << cmdFile << "'" << endl;
   QTextStream ts( &f );
   QString line = ts.readLine();
   while ( !line.isNull() ) {
-    kdDebug(1402) << "LINE: " << line << endl;
+    kDebug(1402) << "LINE: " << line << endl;
     mCmdQueue.append( line );
     line = ts.readLine();
   }
@@ -67,7 +67,7 @@ void IndexBuilder::buildIndices( const QString &cmdFile )
 
 void IndexBuilder::processCmdQueue()
 {
-  kdDebug(1402) << "IndexBuilder::processCmdQueue()" << endl;
+  kDebug(1402) << "IndexBuilder::processCmdQueue()" << endl;
 
   QStringList::Iterator it = mCmdQueue.begin();
 
@@ -78,7 +78,7 @@ void IndexBuilder::processCmdQueue()
 
   QString cmd = *it;
 
-  kdDebug(1402) << "PROCESS: " << cmd << endl;
+  kDebug(1402) << "PROCESS: " << cmd << endl;
 
   KProcess *proc = new KProcess;
   proc->setRunPrivileged( true );
@@ -103,13 +103,13 @@ void IndexBuilder::processCmdQueue()
 
 void IndexBuilder::slotProcessExited( KProcess *proc )
 {
-  kdDebug(1402) << "IndexBuilder::slotIndexFinished()" << endl;
+  kDebug(1402) << "IndexBuilder::slotIndexFinished()" << endl;
 
   if ( !proc->normalExit() ) {
-    kdError(1402) << "Process failed" << endl;
+    kError(1402) << "Process failed" << endl;
   } else {
     int status = proc->exitStatus();
-    kdDebug(1402) << "Exit status: " << status << endl;
+    kDebug(1402) << "Exit status: " << status << endl;
   }
 
   delete proc;
@@ -133,7 +133,7 @@ void IndexBuilder::slotReceivedStderr( KProcess *, char *buffer, int buflen )
 
 void IndexBuilder::sendErrorSignal( const QString &error )
 {
-  kdDebug(1402) << "IndexBuilder::sendErrorSignal()" << endl;
+  kDebug(1402) << "IndexBuilder::sendErrorSignal()" << endl;
   
   QByteArray params;
   QDataStream stream( &params, QIODevice::WriteOnly );
@@ -145,14 +145,14 @@ void IndexBuilder::sendErrorSignal( const QString &error )
 
 void IndexBuilder::sendProgressSignal()
 {
-  kdDebug(1402) << "IndexBuilder::sendProgressSignal()" << endl;
+  kDebug(1402) << "IndexBuilder::sendProgressSignal()" << endl;
  
   kapp->dcopClient()->emitDCOPSignal("buildIndexProgress()", QByteArray() );  
 }
 
 void IndexBuilder::quit()
 {
-  kdDebug(1402) << "IndexBuilder::quit()" << endl;
+  kDebug(1402) << "IndexBuilder::quit()" << endl;
 
   kapp->quit();
 }
@@ -185,22 +185,22 @@ int main( int argc, char **argv )
   KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
 
   if ( args->count() != 2 ) {
-    kdDebug(1402) << "Wrong number of arguments." << endl;
+    kDebug(1402) << "Wrong number of arguments." << endl;
     return 1;
   }
 
   QString cmdFile = args->arg( 0 );
   QString indexDir = args->arg( 1 );
 
-  kdDebug(1402) << "cmdFile: " << cmdFile << endl;
-  kdDebug(1402) << "indexDir: " << indexDir << endl;
+  kDebug(1402) << "cmdFile: " << cmdFile << endl;
+  kDebug(1402) << "indexDir: " << indexDir << endl;
 
   QFile file( indexDir + "/testaccess" );
   if ( !file.open( QIODevice::WriteOnly ) || file.putch( ' ' ) < 0 ) {
-    kdDebug(1402) << "access denied" << endl;
+    kDebug(1402) << "access denied" << endl;
     return 2;
   } else {
-    kdDebug(1402) << "can access" << endl;
+    kDebug(1402) << "can access" << endl;
     file.remove();
   }
   

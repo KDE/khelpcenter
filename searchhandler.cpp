@@ -94,13 +94,13 @@ void SearchHandler::search( DocEntry *entry, const QStringList &words,
   int maxResults,
   SearchEngine::Operation operation )
 {
-  kdDebug() << "SearchHandler::search(): " << entry->identifier() << endl;
+  kDebug() << "SearchHandler::search(): " << entry->identifier() << endl;
 
   if ( !mSearchCommand.isEmpty() ) {
     QString cmdString = SearchEngine::substituteSearchQuery( mSearchCommand,
       entry->identifier(), words, maxResults, operation, mLang );
 
-    kdDebug() << "SearchHandler::search() CMD: " << cmdString << endl;
+    kDebug() << "SearchHandler::search() CMD: " << cmdString << endl;
 
     KProcess *proc = new KProcess();
 
@@ -136,7 +136,7 @@ void SearchHandler::search( DocEntry *entry, const QStringList &words,
     QString urlString = SearchEngine::substituteSearchQuery( mSearchUrl,
       entry->identifier(), words, maxResults, operation, mLang );
   
-    kdDebug() << "SearchHandler::search() URL: " << urlString << endl;
+    kDebug() << "SearchHandler::search() URL: " << urlString << endl;
   
     KIO::TransferJob *job = KIO::get( KURL( urlString ) );
     connect( job, SIGNAL( result( KIO::Job * ) ),
@@ -187,7 +187,7 @@ void SearchHandler::searchStderr( KProcess *proc, char *buffer, int len )
 
 void SearchHandler::searchExited( KProcess *proc )
 {
-//  kdDebug() << "SearchHandler::searchExited()" << endl;
+//  kDebug() << "SearchHandler::searchExited()" << endl;
 
   QString result;
   QString error;
@@ -203,7 +203,7 @@ void SearchHandler::searchExited( KProcess *proc )
     mProcessJobs.remove( proc );
     delete j;
   } else {
-    kdError() << "No search job for exited process found." << endl;
+    kError() << "No search job for exited process found." << endl;
   }
 
   if ( proc->normalExit() && proc->exitStatus() == 0 ) {
@@ -238,7 +238,7 @@ void SearchHandler::slotJobResult( KIO::Job *job )
  
 void SearchHandler::slotJobData( KIO::Job *job, const QByteArray &data )
 {
-//  kdDebug() << "SearchHandler::slotJobData()" << endl;
+//  kDebug() << "SearchHandler::slotJobData()" << endl;
 
   QMap<KIO::Job *, SearchJob *>::ConstIterator it = mKioJobs.find( job );
   if ( it != mKioJobs.end() ) {

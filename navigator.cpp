@@ -206,19 +206,19 @@ void Navigator::insertPlugins()
   DocMetaInfo::self()->traverseEntries( &t );
 
 #if 0
-  kdDebug( 1400 ) << "<docmetainfo>" << endl;
+  kDebug( 1400 ) << "<docmetainfo>" << endl;
   DocEntry::List entries = DocMetaInfo::self()->docEntries();
   DocEntry::List::ConstIterator it;
   for( it = entries.begin(); it != entries.end(); ++it ) {
     (*it)->dump();
   }
-  kdDebug( 1400 ) << "</docmetainfo>" << endl;
+  kDebug( 1400 ) << "</docmetainfo>" << endl;
 #endif
 }
 
 void Navigator::insertParentAppDocs( const QString &name, NavigatorItem *topItem )
 {
-  kdDebug(1400) << "Requested plugin documents for ID " << name << endl;
+  kDebug(1400) << "Requested plugin documents for ID " << name << endl;
 
   KServiceGroup::Ptr grp = KServiceGroup::childGroup( name );
   if ( !grp )
@@ -237,7 +237,7 @@ void Navigator::insertParentAppDocs( const QString &name, NavigatorItem *topItem
 
 void Navigator::insertIOSlaveDocs( const QString &name, NavigatorItem *topItem )
 {
-  kdDebug(1400) << "Requested IOSlave documents for ID " << name << endl;
+  kDebug(1400) << "Requested IOSlave documents for ID " << name << endl;
 
   QStringList list = KProtocolInfo::protocols();
   list.sort();
@@ -303,7 +303,7 @@ NavigatorItem *Navigator::insertScrollKeeperDocs( NavigatorItem *topItem,
 
 void Navigator::selectItem( const KUrl &url )
 {
-  kdDebug() << "Navigator::selectItem(): " << url.url() << endl;
+  kDebug() << "Navigator::selectItem(): " << url.url() << endl;
 
   if ( url.url() == "khelpcenter:home" ) {
     clearSelection();
@@ -326,7 +326,7 @@ void Navigator::selectItem( const KUrl &url )
   if ( item && mSelected ) {
     KUrl currentURL ( item->entry()->url() );
     if ( (currentURL == url) || (currentURL == alternativeURL) ) {
-      kdDebug() << "URL already shown." << endl;
+      kDebug() << "URL already shown." << endl;
       return;
     }
   }
@@ -376,7 +376,7 @@ void Navigator::slotItemSelected( Q3ListViewItem *currentItem )
 
   NavigatorItem *item = static_cast<NavigatorItem *>( currentItem );
 
-  kdDebug(1400) << "Navigator::slotItemSelected(): " << item->entry()->name()
+  kDebug(1400) << "Navigator::slotItemSelected(): " << item->entry()->name()
                 << endl;
 
   if ( item->childCount() > 0 || item->isExpandable() )
@@ -391,11 +391,11 @@ void Navigator::slotItemSelected( Q3ListViewItem *currentItem )
       showOverview( item, url );
   } else {
     if ( url.protocol() == "help" ) {
-      kdDebug( 1400 ) << "slotItemSelected(): Got help URL " << url.url()
+      kDebug( 1400 ) << "slotItemSelected(): Got help URL " << url.url()
                       << endl;
       if ( !item->toc() ) {
         TOC *tocTree = item->createTOC();
-        kdDebug( 1400 ) << "slotItemSelected(): Trying to build TOC for "
+        kDebug( 1400 ) << "slotItemSelected(): Trying to build TOC for "
                         << item->entry()->name() << endl;
         tocTree->setApplication( url.directory() );
         QString doc = View::langLookup( url.path() );
@@ -406,7 +406,7 @@ void Navigator::slotItemSelected( Q3ListViewItem *currentItem )
           if ( pos >= 0 ) {
             doc.replace( pos, 5, ".docbook" );
           }
-          kdDebug( 1400 ) << "slotItemSelected(): doc = " << doc << endl;
+          kDebug( 1400 ) << "slotItemSelected(): doc = " << doc << endl;
 
           tocTree->build( doc );
         }
@@ -529,7 +529,7 @@ QString Navigator::createChildrenList( Q3ListViewItem *child )
 
 void Navigator::slotSearch()
 {
-  kdDebug(1400) << "Navigator::slotSearch()" << endl;
+  kDebug(1400) << "Navigator::slotSearch()" << endl;
 
   if ( !checkSearchIndex() ) return;
 
@@ -540,8 +540,8 @@ void Navigator::slotSearch()
   int pages = mSearchWidget->pages();
   QString scope = mSearchWidget->scope();
 
-  kdDebug(1400) << "Navigator::slotSearch() words: " << words << endl;
-  kdDebug(1400) << "Navigator::slotSearch() scope: " << scope << endl;
+  kDebug(1400) << "Navigator::slotSearch() words: " << words << endl;
+  kDebug(1400) << "Navigator::slotSearch() scope: " << scope << endl;
 
   if ( words.isEmpty() || scope.isEmpty() ) return;
 
@@ -568,7 +568,7 @@ void Navigator::slotSearchFinished()
   mSearchButton->setEnabled(true);
   QApplication::restoreOverrideCursor();
 
-  kdDebug( 1400 ) << "Search finished." << endl;
+  kDebug( 1400 ) << "Search finished." << endl;
 }
 
 void Navigator::checkSearchButton()

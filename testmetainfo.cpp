@@ -18,12 +18,12 @@ class MyTraverser : public DocEntryTraverser
 
     void process( DocEntry *entry )
     {
-      kdDebug() << mIndent << entry->name() << " - WEIGHT: " << entry->weight()
+      kDebug() << mIndent << entry->name() << " - WEIGHT: " << entry->weight()
                 << endl;
 #if 0
-      if ( entry->parent() ) kdDebug() << mIndent << "  PARENT: "
+      if ( entry->parent() ) kDebug() << mIndent << "  PARENT: "
                                        << entry->parent()->name() << endl;
-      if ( entry->nextSibling() ) kdDebug() << mIndent << "  NEXT: "
+      if ( entry->nextSibling() ) kDebug() << mIndent << "  NEXT: "
                                        << entry->nextSibling()->name() << endl;
 #endif
     }
@@ -42,7 +42,7 @@ class LinearTraverser : public DocEntryTraverser
   public:
     void process( DocEntry *entry )
     {
-      kdDebug() << "PROCESS: " << entry->name() << endl;
+      kDebug() << "PROCESS: " << entry->name() << endl;
     }
     
     DocEntryTraverser *createChild( DocEntry * )
@@ -63,22 +63,22 @@ class AsyncTraverser : public DocEntryTraverser
   public:
     AsyncTraverser( const QString &indent = "" ) : mIndent( indent )
     {
-//      kdDebug() << "AsyncTraverser()" << endl;
+//      kDebug() << "AsyncTraverser()" << endl;
     }
     
     ~AsyncTraverser()
     {
-//      kdDebug() << "~AsyncTraverser()" << endl;
+//      kDebug() << "~AsyncTraverser()" << endl;
     }
     
     void process( DocEntry *entry )
     {
-      kdDebug() << mIndent << entry->name() << endl;
+      kDebug() << mIndent << entry->name() << endl;
     }
     
     DocEntryTraverser *createChild( DocEntry * )
     {
-//      kdDebug() << "AsyncTraverser::childTraverser()" << endl;
+//      kDebug() << "AsyncTraverser::childTraverser()" << endl;
       return new AsyncTraverser( mIndent + "  " );
     }
 
@@ -93,7 +93,7 @@ int main(int argc,char **argv)
 
   KApplication app;
 
-  kdDebug() << "Scanning Meta Info" << endl;
+  kDebug() << "Scanning Meta Info" << endl;
 
   QStringList langs;
   langs << "en";
@@ -101,19 +101,19 @@ int main(int argc,char **argv)
 
   DocMetaInfo::self()->scanMetaInfo( langs );
 
-  kdDebug() << "My TRAVERSE start" << endl;
+  kDebug() << "My TRAVERSE start" << endl;
   MyTraverser t;
   DocMetaInfo::self()->startTraverseEntries( &t );
-  kdDebug() << "My TRAVERSE end" << endl;
+  kDebug() << "My TRAVERSE end" << endl;
 
-  kdDebug() << "Linear TRAVERSE start" << endl;
+  kDebug() << "Linear TRAVERSE start" << endl;
   LinearTraverser l;
   DocMetaInfo::self()->startTraverseEntries( &l );
-  kdDebug() << "Linear TRAVERSE end" << endl;
+  kDebug() << "Linear TRAVERSE end" << endl;
 
-  kdDebug() << "Async TRAVERSE start" << endl;
+  kDebug() << "Async TRAVERSE start" << endl;
   AsyncTraverser a;
   DocMetaInfo::self()->startTraverseEntries( &a );
-  kdDebug() << "Async TRAVERSE end" << endl;
+  kDebug() << "Async TRAVERSE end" << endl;
 }
 // vim:ts=2:sw=2:et

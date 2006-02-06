@@ -59,7 +59,7 @@ InfoCategoryItem::InfoCategoryItem( NavigatorItem *parent, const QString &text )
 {
   setAutoDeleteDocEntry( true );
   setOpen( false );
-//  kdDebug(1400) << "Got category: " << text << endl;
+//  kDebug(1400) << "Got category: " << text << endl;
 }
 
 void InfoCategoryItem::setOpen( bool open )
@@ -74,7 +74,7 @@ InfoNodeItem::InfoNodeItem( InfoCategoryItem *parent, const QString &text )
   : NavigatorItem( new DocEntry( text ), parent )
 {
   setAutoDeleteDocEntry( true );
-//  kdDebug( 1400 ) << "Created info node item: " << text << endl;
+//  kDebug( 1400 ) << "Created info node item: " << text << endl;
 }
 
 InfoTree::InfoTree( QObject *parent, const char *name )
@@ -85,7 +85,7 @@ InfoTree::InfoTree( QObject *parent, const char *name )
 
 void InfoTree::build( NavigatorItem *parent )
 {
-  kdDebug( 1400 ) << "Populating info tree." << endl;
+  kDebug( 1400 ) << "Populating info tree." << endl;
 
   m_parentItem = parent;
 
@@ -128,7 +128,7 @@ void InfoTree::build( NavigatorItem *parent )
 
 void InfoTree::parseInfoDirFile( const QString &infoDirFileName )
 {
-  kdDebug( 1400 ) << "Parsing info dir file " << infoDirFileName << endl;
+  kDebug( 1400 ) << "Parsing info dir file " << infoDirFileName << endl;
 
   QFile infoDirFile( infoDirFileName );
   if ( !infoDirFile.open( QIODevice::ReadOnly ) )

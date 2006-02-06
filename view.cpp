@@ -31,7 +31,7 @@ View::View( QWidget *parentWidget, const char *widgetName,
 {
     mFormatter = new Formatter;
     if ( !mFormatter->readTemplates() ) {
-      kdDebug() << "Unable to read Formatter templates." << endl;
+      kDebug() << "Unable to read Formatter templates." << endl;
     }
 
     m_zoomStepping = 10;

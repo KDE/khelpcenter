@@ -248,12 +248,12 @@ KCMHelpCenter::KCMHelpCenter( KHC::SearchEngine *engine, QWidget *parent,
   bool success = kapp->dcopClient()->connectDCOPSignal( "khc_indexbuilder",
       0, "buildIndexProgress()", "kcmhelpcenter",
       "slotIndexProgress()", false );
-  if ( !success ) kdError() << "connect DCOP signal failed" << endl;
+  if ( !success ) kError() << "connect DCOP signal failed" << endl;
 
   success = kapp->dcopClient()->connectDCOPSignal( "khc_indexbuilder",
       0, "buildIndexError(QString)", "kcmhelpcenter",
       "slotIndexError(QString)", false );
-  if ( !success ) kdError() << "connect DCOP signal failed" << endl;
+  if ( !success ) kError() << "connect DCOP signal failed" << endl;
 
   mConfig->setGroup( "IndexDialog" );
   restoreDialogSize( mConfig );
@@ -313,7 +313,7 @@ void KCMHelpCenter::defaults()
 
 bool KCMHelpCenter::save()
 {
-  kdDebug(1401) << "KCMHelpCenter::save()" << endl;
+  kDebug(1401) << "KCMHelpCenter::save()" << endl;
 
   if ( !QFile::exists( Prefs::indexDirectory() ) ) {
     KMessageBox::sorry( this,
@@ -336,7 +336,7 @@ void KCMHelpCenter::load()
   DocEntry::List entries = DocMetaInfo::self()->docEntries();
   DocEntry::List::ConstIterator it;
   for( it = entries.begin(); it != entries.end(); ++it ) {
-//    kdDebug(1401) << "Entry: " << (*it)->name() << " Indexer: '"
+//    kDebug(1401) << "Entry: " << (*it)->name() << " Indexer: '"
 //              << (*it)->indexer() << "'" << endl;
     if ( mEngine->canSearch( *it ) && mEngine->needsIndex( *it ) ) {
       ScopeItem *item = new ScopeItem( mListView, *it );
@@ -369,12 +369,12 @@ void KCMHelpCenter::updateStatus()
 
 bool KCMHelpCenter::buildIndex()
 {
-  kdDebug(1401) << "Build Index" << endl;
+  kDebug(1401) << "Build Index" << endl;
 
-  kdDebug() << "IndexPath: '" << Prefs::indexDirectory() << "'" << endl;
+  kDebug() << "IndexPath: '" << Prefs::indexDirectory() << "'" << endl;
 
   if ( mProcess ) {
-    kdError() << "Error: Index Process still running." << endl;
+    kError() << "Error: Index Process still running." << endl;
     return false;
   }
 
@@ -387,11 +387,11 @@ bool KCMHelpCenter::buildIndex()
   mCmdFile->setAutoDelete( true );
   QTextStream *ts = mCmdFile->textStream();
   if ( !ts ) {
-    kdError() << "Error opening command file." << endl;
+    kError() << "Error opening command file." << endl;
     deleteCmdFile();
     return false;
   } else {
-    kdDebug() << "Writing to file '" << mCmdFile->name() << "'" << endl;
+    kDebug() << "Writing to file '" << mCmdFile->name() << "'" << endl;
   }
 
   bool hasError = false;
@@ -427,7 +427,7 @@ bool KCMHelpCenter::buildIndex()
             indexer.replace( QRegExp( "%i" ), entry->identifier() );
             indexer.replace( QRegExp( "%d" ), Prefs::indexDirectory() );
             indexer.replace( QRegExp( "%p" ), entry->url() );
-            kdDebug() << "INDEXER: " << indexer << endl;
+            kDebug() << "INDEXER: " << indexer << endl;
             *ts << indexer << endl;
 
             int width = fm.width( entry->name() );
@@ -470,13 +470,13 @@ bool KCMHelpCenter::buildIndex()
 
 void KCMHelpCenter::startIndexProcess()
 {
-  kdDebug() << "KCMHelpCenter::startIndexProcess()" << endl;
+  kDebug() << "KCMHelpCenter::startIndexProcess()" << endl;
 
   mProcess = new KProcess;
 
   if ( mRunAsRoot ) {
     *mProcess << "kdesu" << "--nonewdcop";
-    kdDebug() << "Run as root" << endl;
+    kDebug() << "Run as root" << endl;
   }
 
   *mProcess << "khc_indexbuilder";
@@ -491,14 +491,14 @@ void KCMHelpCenter::startIndexProcess()
            SLOT( slotReceivedStderr( KProcess *, char *, int ) ) );
 
   if ( !mProcess->start( KProcess::NotifyOnExit, KProcess::AllOutput ) ) {
-    kdError() << "KCMHelpcenter::startIndexProcess(): Failed to start process."
+    kError() << "KCMHelpcenter::startIndexProcess(): Failed to start process."
       << endl;
   }
 }
 
 void KCMHelpCenter::cancelBuildIndex()
 {
-  kdDebug() << "cancelBuildIndex()" << endl;
+  kDebug() << "cancelBuildIndex()" << endl;
 
   deleteProcess();
   deleteCmdFile();
@@ -511,30 +511,30 @@ void KCMHelpCenter::cancelBuildIndex()
 
 void KCMHelpCenter::slotIndexFinished( KProcess *proc )
 {
-  kdDebug() << "KCMHelpCenter::slotIndexFinished()" << endl;
+  kDebug() << "KCMHelpCenter::slotIndexFinished()" << endl;
 
   if ( proc == 0 ) {
-    kdWarning() << "Process null." << endl;
+    kWarning() << "Process null." << endl;
     return;
   }
 
   if ( proc != mProcess ) {
-    kdError() << "Unexpected Process finished." << endl;
+    kError() << "Unexpected Process finished." << endl;
     return;
   }
 
   if ( mProcess->normalExit() && mProcess->exitStatus() == 2 ) {
     if ( mRunAsRoot ) {
-      kdError() << "Insufficient permissions." << endl;
+      kError() << "Insufficient permissions." << endl;
     } else {
-      kdDebug() << "Insufficient permissions. Trying again as root." << endl;
+      kDebug() << "Insufficient permissions. Trying again as root." << endl;
       mRunAsRoot = true;
       deleteProcess();
       startIndexProcess();
       return;
     }
   } else if ( !mProcess->normalExit() || mProcess->exitStatus() != 0 ) {
-    kdDebug() << "KProcess reported an error." << endl;
+    kDebug() << "KProcess reported an error." << endl;
     KMessageBox::error( this, i18n("Failed to build index.") );
   } else {
     mConfig->setGroup( "Search" );
@@ -574,7 +574,7 @@ void KCMHelpCenter::deleteCmdFile()
 
 void KCMHelpCenter::slotIndexProgress()
 {
-  kdDebug() << "KCMHelpCenter::slotIndexProgress()" << endl;
+  kDebug() << "KCMHelpCenter::slotIndexProgress()" << endl;
 
   updateStatus();
 
@@ -583,7 +583,7 @@ void KCMHelpCenter::slotIndexProgress()
 
 void KCMHelpCenter::slotIndexError( const QString &str )
 {
-  kdDebug() << "KCMHelpCenter::slotIndexError()" << endl;
+  kDebug() << "KCMHelpCenter::slotIndexError()" << endl;
 
   KMessageBox::sorry( this, i18n("Error executing indexing build command:\n%1")
     .arg( str ) );
@@ -646,7 +646,7 @@ void KCMHelpCenter::slotOk()
 
 void KCMHelpCenter::slotProgressClosed()
 {
-  kdDebug() << "KCMHelpCenter::slotProgressClosed()" << endl;
+  kDebug() << "KCMHelpCenter::slotProgressClosed()" << endl;
 
   if ( mIsClosing ) accept();
 }

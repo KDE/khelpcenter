@@ -53,19 +53,19 @@ NavigatorItem *ScrollKeeperTreeBuilder::build( NavigatorItem *parent,
 {
   QString lang = KGlobal::locale()->language();
 
-  kdDebug(1400) << "ScrollKeeper language: " << lang << endl;
+  kDebug(1400) << "ScrollKeeper language: " << lang << endl;
 
   KProcIO proc;
   proc << "scrollkeeper-get-content-list";
   proc << lang;
   connect(&proc,SIGNAL(readReady(KProcIO *)),SLOT(getContentsList(KProcIO *)));
   if (!proc.start(KProcess::Block)) {
-    kdDebug(1400) << "Could not execute scrollkeeper-get-content-list" << endl;
+    kDebug(1400) << "Could not execute scrollkeeper-get-content-list" << endl;
     return 0;
   }
 
   if (!QFile::exists(mContentsList)) {
-    kdDebug(1400) << "Scrollkeeper contents file '" << mContentsList
+    kDebug(1400) << "Scrollkeeper contents file '" << mContentsList
       << "' does not exist." << endl;
     return 0;
   }
