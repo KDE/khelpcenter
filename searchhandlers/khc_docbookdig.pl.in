@@ -89,7 +89,8 @@ $ENV{ PATH } = '/bin:/usr/bin';
 $ENV{ CDPATH } = '';
 $ENV{ ENV } = '';
 
-my $findcmd = "find $kdeprefix/share/doc/HTML/$lang/ -name index.docbook";
+my $findpath = "$kdeprefix/share/doc/HTML/$lang/";
+my $findcmd = "find $findpath -name index.docbook";
 
 print STDERR "FINDCMD: $findcmd\n";
 
@@ -100,7 +101,7 @@ if ( !open FIND, "$findcmd|" ) {
 while ( <FIND> ) {
   chomp;
   my $path = $_;
-  $path =~ /\/([^\/]*)\/index.docbook$/;
+  $path =~ /$findpath(.*)\/index.docbook$/;
   my $app = $1;
   print START "<a href=\"help://$app/index.docbook\">$path</a>\n";
 }
@@ -131,14 +132,14 @@ mime=\$1
 shift
 
 if test "\$#" -gt 0; then
-  orig=\${1/file:\/\//}
+  orig=\${1/file:\\//}
   shift
 fi
 
 case "\$orig" in
   help:/*)
-	orig=\${orig/help:\//}
-	orig=\${orig/\/index.docbook//}
+	orig=\${orig/help:\\//}
+	orig=\${orig/\/index.docbook/}
 	cd $kdeprefix/share/doc/HTML/en/\$orig
 	file=index.docbook
 	;;
