@@ -85,6 +85,10 @@ if ( !open( START, ">$startfile" ) ) {
   exit 1;
 }
 
+$ENV{ PATH } = '/bin:/usr/bin';
+$ENV{ CDPATH } = '';
+$ENV{ ENV } = '';
+
 my $findcmd = "find $kdeprefix/share/doc/HTML/$lang/ -name index.docbook";
 
 print STDERR "FINDCMD: $findcmd\n";
@@ -179,10 +183,6 @@ valid_extensions:       .docbook .html
 mime_types:             $mimetypefile
 EOT
 close CONF;
-
-$ENV{ PATH } = '';
-$ENV{ CDPATH } = '';
-$ENV{ ENV } = '';
 
 my $ret = system( "$htdigbin/htdig -v -s -i -c $conffile" );
 if ( $ret != 0 ) {
