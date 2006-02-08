@@ -574,6 +574,9 @@ void KCMHelpCenter::deleteCmdFile()
 
 void KCMHelpCenter::slotIndexProgress()
 {
+  if( !mProcess )
+    return;
+
   kDebug() << "KCMHelpCenter::slotIndexProgress()" << endl;
 
   updateStatus();
@@ -583,6 +586,9 @@ void KCMHelpCenter::slotIndexProgress()
 
 void KCMHelpCenter::slotIndexError( const QString &str )
 {
+  if( !mProcess )
+    return;
+
   kDebug() << "KCMHelpCenter::slotIndexError()" << endl;
 
   KMessageBox::sorry( this, i18n("Error executing indexing build command:\n%1")
