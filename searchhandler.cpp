@@ -138,7 +138,7 @@ void SearchHandler::search( DocEntry *entry, const QStringList &words,
   
     kDebug() << "SearchHandler::search() URL: " << urlString << endl;
   
-    KIO::TransferJob *job = KIO::get( KURL( urlString ) );
+    KIO::TransferJob *job = KIO::get( KUrl( urlString ) );
     connect( job, SIGNAL( result( KIO::Job * ) ),
              SLOT( slotJobResult( KIO::Job * ) ) );
     connect( job, SIGNAL( data( KIO::Job *, const QByteArray & ) ),

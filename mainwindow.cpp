@@ -193,7 +193,7 @@ void MainWindow::saveProperties( KConfig *config )
 void MainWindow::readProperties( KConfig *config )
 {
     kDebug()<<"void MainWindow::readProperties( KConfig *config )" << endl;
-    mDoc->slotReload( KURL( config->readPathEntry( "URL" ) ) );
+    mDoc->slotReload( KUrl( config->readPathEntry( "URL" ) ) );
 }
 
 void MainWindow::readConfig()
@@ -300,7 +300,7 @@ void MainWindow::slotOpenURLRequest( const KUrl &url,
 
 void MainWindow::viewUrl( const QString &url )
 {
-  viewUrl( KURL( url ) );
+  viewUrl( KUrl( url ) );
 }
 
 void MainWindow::viewUrl( const KUrl &url, const KParts::URLArgs &args )
@@ -366,13 +366,13 @@ void MainWindow::statusBarMessage(const QString &m)
 
 void MainWindow::openUrl( const QString &url )
 {
-    openUrl( KURL( url ) );
+    openUrl( KUrl( url ) );
 }
 
 void MainWindow::openUrl( const QString &url, const QByteArray& startup_id )
 {
     KStartupInfo::setNewStartupId( this, startup_id );
-    openUrl( KURL( url ) );
+    openUrl( KUrl( url ) );
 }
 
 void MainWindow::openUrl( const KUrl &url )
@@ -390,7 +390,7 @@ void MainWindow::slotGlossSelected(const GlossaryEntry &entry)
 
     stop();
     History::self().createEntry();
-    mDoc->begin( KURL( "help:/khelpcenter/glossary" ) );
+    mDoc->begin( KUrl( "help:/khelpcenter/glossary" ) );
     mDoc->write( Glossary::entryToHtml( entry ) );
     mDoc->end();
 }

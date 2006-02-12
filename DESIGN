@@ -275,7 +275,7 @@ regexp' or 'Search case sensitive'.
 KHC::View
 ---------
 KHC::View inherits KHTMLPart and does the actual job of showing some sort of
-document. Most importantly, it has a slot which passes it a KURL pointing to a
+document. Most importantly, it has a slot which passes it a KUrl pointing to a
 document to show. KHC::View will invoke kio_help if necessary (if the URL's
 protocol == "help") by itself and otherwise use the plain URL.
 

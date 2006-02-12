@@ -138,7 +138,7 @@ void View::showAboutPage()
           .arg( i18n( "The KDE Control Center" ) )
           .arg( i18n( "The Konqueror File manager and Web Browser" ) )
           .arg( langLookup( "khelpcenter/kdelogo2.png" ) );
-    begin( KURL( "about:khelpcenter" ) );
+    begin( KUrl( "about:khelpcenter" ) );
     write( res );
     end();
     emit completed();
@@ -345,7 +345,7 @@ bool View::eventFilter( QObject *o, QEvent *e )
 KUrl View::urlFromLinkNode( const DOM::Node &n ) const
 {
   if ( n.isNull() || n.nodeType() != DOM::Node::ELEMENT_NODE )
-    return KURL();
+    return KUrl();
 
   DOM::Element elem = static_cast<DOM::Element>( n );
 

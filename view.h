@@ -57,7 +57,7 @@ class View : public KHTMLPart
     void lastSearch();
     void slotIncFontSizes();
     void slotDecFontSizes();
-    void slotReload( const KUrl &url = KURL() );
+    void slotReload( const KUrl &url = KUrl() );
     void slotCopyLink();
     bool nextPage(bool checkOnly = false);
     bool prevPage(bool checkOnly = false);
