@@ -2,6 +2,7 @@
 DocPath=help:/khelpcenter/index.html?anchor=contact
 
 Name=Contact Information
+Name[fr]=Contacter l'équipe KDE
 Name[x-test]=xxContact Informationxx
 
 X-DOC-Weight=3000

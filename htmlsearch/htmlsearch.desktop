@@ -14,8 +14,10 @@ Name=Index
 Name[x-test]=xxIndexxx
 
 Comment=Index generation
+Comment[fr]=Génération d'index
 Comment[x-test]=xxIndex generationxx
 
 Keywords=Help,HTML,Search,Index,htdig,htsearch,htmerge,Scope,Language
+Keywords[fr]=aide,HTML,recherche,index,htdig,htsearch,htmerge,pays,langue
 Keywords[x-test]=xxHelp,HTML,Search,Index,htdig,htsearch,htmerge,Scope,Languagexx
 Categories=Qt;KDE;X-KDE-settings-system;

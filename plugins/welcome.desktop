@@ -2,6 +2,7 @@
 DocPath=help:/khelpcenter/index.html?anchor=welcome
 
 Name=Welcome to KDE
+Name[fr]=Bienvenue sur KDE
 Name[x-test]=xxWelcome to KDExx
 
 X-DOC-Weight=-3000

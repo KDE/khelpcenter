@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=(n) New
+Name[fr]=(n) Nouveautés
 Name[x-test]=xx(n) Newxx
 
 DocPath=man:/(n)

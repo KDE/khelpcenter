@@ -2,6 +2,7 @@
 DocPath=help:/khelpcenter/index.html?anchor=links
 
 Name=KDE on the Web
+Name[fr]=KDE sur le web
 Name[x-test]=xxKDE on the Webxx
 
 X-DOC-Weight=4000

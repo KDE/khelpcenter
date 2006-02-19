@@ -2,8 +2,10 @@
 [Desktop Entry]
 Encoding=UTF-8
 Name=Quickstart Guide
+Name[fr]=Guide de démarrage rapide
 Name[x-test]=xxQuickstart Guidexx
 Comment=KDE quickstart guide.
+Comment[fr]=Guide de démarrage rapide de KDE.
 Comment[x-test]=xxKDE quickstart guide.xx
 Icon=helpdoc
 DocPath=help:/khelpcenter/quickstart/index.html
