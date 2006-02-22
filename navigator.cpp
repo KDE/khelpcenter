@@ -654,9 +654,9 @@ void Navigator::readConfig()
 
 void Navigator::writeConfig()
 {
-  if ( mTabWidget->currentPage() == mSearchWidget ) {
+  if ( mTabWidget->currentWidget() == mSearchWidget ) {
     Prefs::setCurrentTab( Prefs::Search );
-  } else if ( mTabWidget->currentPage() == mGlossaryTree ) {
+  } else if ( mTabWidget->currentWidget() == mGlossaryTree ) {
     Prefs::setCurrentTab( Prefs::Glossary );
   } else {
     Prefs::setCurrentTab( Prefs::Content );
