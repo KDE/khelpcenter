@@ -105,7 +105,7 @@ Navigator::Navigator( View *view, QWidget *parent, const char *name )
     searchLayout->setMargin( 6 );
 
     QPushButton *clearButton = new QPushButton( mSearchFrame );
-    clearButton->setIconSet( KApplication::reverseLayout() ?
+    clearButton->setIconSet( KApplication::layoutDirection() == Qt::RightToLeft ?
       SmallIconSet( "clear_left" ) : SmallIconSet("locationbar_erase") );
     searchLayout->addWidget( clearButton );
     connect( clearButton, SIGNAL( clicked() ), SLOT( clearSearch() ) );
