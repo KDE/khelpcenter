@@ -35,7 +35,7 @@ xpmdir = $(kde_datadir)/khelpcenter/pics
 
 ### TODO: why do we need 2 POT files for one directory?
 messages:
-	$(XGETTEXT) index.cpp tmlsearch.cpp progressdialog.cpp -o $(podir)/htmlsearch.pot
+	$(XGETTEXT) index.cpp htmlsearch.cpp progressdialog.cpp -o $(podir)/htmlsearch.pot
 	$(XGETTEXT) kcmhtmlsearch.cpp klangcombo.cpp ktagcombobox.cpp -o $(podir)/kcmhtmlsearch.pot
 
 KDE_ICON=AUTO
