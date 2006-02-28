@@ -56,7 +56,7 @@ kde4_add_kcfg_files(khelpcenter_KDEINIT_SRCS prefs.kcfgc )
 
 kde4_add_kdeinit_executable( khelpcenter ${khelpcenter_KDEINIT_SRCS})
 
-target_link_libraries(kdeinit_khelpcenter  ${QT_AND_KDECORE_LIBS} khtml )
+target_link_libraries(kdeinit_khelpcenter  ${QT_AND_KDECORE_LIBS} khtml DCOP kio ${QT_QTXML_LIBRARY} kdeui ${QT_QTGUI_LIBRARY} ${QT_QT3SUPPORT_LIBRARY} kparts )
 
 install_targets(${LIB_INSTALL_DIR} kdeinit_khelpcenter )
 
