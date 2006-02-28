@@ -1,0 +1,29 @@
+kde4_header()
+
+add_subdirectory( Applications ) 
+add_subdirectory( Manpages ) 
+add_subdirectory( Tutorials ) 
+add_subdirectory( Scrollkeeper ) 
+
+include_directories( ${KDE4_INCLUDE_DIR} ${QT_INCLUDES} ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}  )
+
+
+########### install files ###############
+
+install_files( ${DATA_INSTALL_DIR}/khelpcenter/plugins FILES applets.desktop contact.desktop faq.desktop info.desktop    links.desktop support.desktop userguide.desktop welcome.desktop    kicmodules.desktop kcontrolmodules.desktop konqplugins.desktop    kioslaves.desktop )
+
+kde4_footer()
+
+
+
+#original Makefile.am contents follow:
+
+#
+#SUBDIRS = Applications Manpages Tutorials Scrollkeeper
+#
+#plugin_DATA = applets.desktop contact.desktop faq.desktop info.desktop \
+#  links.desktop support.desktop userguide.desktop welcome.desktop \
+#  kicmodules.desktop kcontrolmodules.desktop konqplugins.desktop \
+#  kioslaves.desktop
+#
+#plugindir = $(kde_datadir)/khelpcenter/plugins
