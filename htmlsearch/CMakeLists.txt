@@ -52,7 +52,7 @@ install_files( ${DATA_INSTALL_DIR}/khelpcenter/en FILES long.html short.html wra
 install_files( ${DATA_INSTALL_DIR}/khelpcenter/pics FILES star.png star_blank.png )
 install_files( ${DATA_INSTALL_DIR}/khelpcenter/pics FILES unchecked.xpm checked.xpm )
 
-kde4_install_icons( hicolor crystalsvg )
+kde4_install_icons( ${ICON_INSTALL_DIR} crystalsvg )
 
 kde4_footer()
 
