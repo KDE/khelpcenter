@@ -5,9 +5,9 @@ include_directories( ${KDE4_INCLUDE_DIR} ${QT_INCLUDES} ${CMAKE_CURRENT_SOURCE_D
 
 ########### install files ###############
 
-install_files( ${DATA_INSTALL_DIR}/khelpcenter/icons FILES  )
+#install_files( ${DATA_INSTALL_DIR}/khelpcenter/icons FILES helpdoc.png helpbook.png helpbook_open.png )
 
-kde4_install_icons( hicolor crystalsvg )
+kde4_install_icons( ${ICON_INSTALL_DIR} crystalsvg )
 
 kde4_footer()
 
