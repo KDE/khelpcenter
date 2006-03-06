@@ -156,7 +156,7 @@ QString View::langLookup( const QString &fname )
     {
         QStringList langs = KGlobal::locale()->languageList();
         langs.append( "en" );
-        langs.remove( "C" );
+        langs.removeAll( "C" );
         QStringList::ConstIterator lang;
         for (lang = langs.begin(); lang != langs.end(); ++lang)
             search.append(QString("%1%2/%3").arg(localDoc[id]).arg(*lang).arg(fname));
