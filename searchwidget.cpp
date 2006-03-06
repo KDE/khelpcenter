@@ -150,11 +150,11 @@ void SearchWidget::writeConfig( KConfig *cfg )
 {
   cfg->setGroup( "Search" );
   
-  cfg->writeEntry( "ScopeSelection", mScopeCombo->currentItem() );
-  Prefs::setMethod( mMethodCombo->currentItem() );
-  Prefs::setMaxCount( mPagesCombo->currentItem() );
+  cfg->writeEntry( "ScopeSelection", mScopeCombo->currentIndex() );
+  Prefs::setMethod( mMethodCombo->currentIndex() );
+  Prefs::setMaxCount( mPagesCombo->currentIndex() );
 
-  if ( mScopeCombo->currentItem() == ScopeCustom ) {
+  if ( mScopeCombo->currentIndex() == ScopeCustom ) {
     cfg->setGroup( "Custom Search Scope" );
     Q3ListViewItemIterator it( mScopeListView );
     while( it.current() ) {
@@ -214,7 +214,7 @@ void SearchWidget::scopeSelectionChanged( int id )
 QString SearchWidget::method()
 {
   QString m = "and";
-  if ( mMethodCombo->currentItem() == 1)
+  if ( mMethodCombo->currentIndex() == 1)
     m = "or";
 
   return m;
