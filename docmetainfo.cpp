@@ -73,7 +73,7 @@ DocEntry *DocMetaInfo::addDocEntry( const QString &fileName )
                            .arg( entry->name() )
                            .arg( mLanguageNames[ lang ] ) );
     }
-    if ( entry->searchMethod().lower() == "htdig" ) {
+    if ( entry->searchMethod().toLower() == "htdig" ) {
       mHtmlSearch->setupDocEntry( entry );
     }
     QString indexer = entry->indexer();

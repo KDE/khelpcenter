@@ -23,7 +23,7 @@ void HTMLSearch::setupDocEntry( KHC::DocEntry *entry )
 {
 //  kDebug() << "HTMLSearch::setupDocEntry(): " << entry->name() << endl;
 
-  if ( entry->searchMethod().lower() != "htdig" ) return;
+  if ( entry->searchMethod().toLower() != "htdig" ) return;
 
   if ( entry->search().isEmpty() )
     entry->setSearch( defaultSearch( entry ) );

@@ -182,7 +182,7 @@ QString Formatter::processResult( const QString &data )
     QChar c = data[i];
     switch ( state ) {
       case Header:
-        if ( c == '<' && data.mid( i, 5 ).lower() == "<body" ) {
+        if ( c == '<' && data.mid( i, 5 ).toLower() == "<body" ) {
           state = BodyTag;
           i += 4;
         }
@@ -191,7 +191,7 @@ QString Formatter::processResult( const QString &data )
         if ( c == '>' ) state = Body;
         break;
       case Body:
-        if ( c == '<' && data.mid( i, 7 ).lower() == "</body>" ) {
+        if ( c == '<' && data.mid( i, 7 ).toLower() == "</body>" ) {
           state = Footer;
         } else {
           result.append( c );

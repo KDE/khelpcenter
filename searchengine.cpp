@@ -321,7 +321,7 @@ bool SearchEngine::search( QString words, QString method, int matches,
   } else {
     QString lang = KGlobal::locale()->language().left(2);
 
-    if ( lang.lower() == "c" || lang.lower() == "posix" )
+    if ( lang.toLower() == "c" || lang.toLower() == "posix" )
 	  lang = "en";
 
     // if the string contains '&' replace with a '+' and set search method to and

@@ -68,7 +68,7 @@ void View::copySelectedText()
 
 bool View::openURL( const KUrl &url )
 {
-    if ( url.protocol().lower() == "about" )
+    if ( url.protocol().toLower() == "about" )
     {
         showAboutPage();
         return true;

@@ -307,7 +307,7 @@ void MainWindow::viewUrl( const KUrl &url, const KParts::URLArgs &args )
 {
     stop();
 
-    QString proto = url.protocol().lower();
+    QString proto = url.protocol().toLower();
 
     if ( proto == "khelpcenter" ) {
       History::self().createEntry();
