@@ -124,11 +124,11 @@ void SearchWidget::readConfig( KConfig *cfg )
   cfg->setGroup( "Search" );
 
   int scopeSelection = cfg->readEntry( "ScopeSelection", (int)ScopeDefault );
-  mScopeCombo->setCurrentItem( scopeSelection );
+  mScopeCombo->setCurrentIndex( scopeSelection );
   if ( scopeSelection != ScopeDefault ) scopeSelectionChanged( scopeSelection );
 
-  mMethodCombo->setCurrentItem( Prefs::method() );
-  mPagesCombo->setCurrentItem( Prefs::maxCount() );
+  mMethodCombo->setCurrentIndex( Prefs::method() );
+  mPagesCombo->setCurrentIndex( Prefs::maxCount() );
 
   if ( scopeSelection == ScopeCustom ) {
     cfg->setGroup( "Custom Search Scope" );
@@ -346,7 +346,7 @@ void SearchWidget::scopeClicked( Q3ListViewItem * )
 {
   checkScope();
 
-  mScopeCombo->setCurrentItem( ScopeCustom );
+  mScopeCombo->setCurrentIndex( ScopeCustom );
 }
 
 QString SearchWidget::scopeSelectionLabel( int id ) const
