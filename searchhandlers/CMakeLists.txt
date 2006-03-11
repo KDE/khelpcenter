@@ -1,13 +1,16 @@
 kde4_header()
 
 include_directories( ${KDE4_INCLUDE_DIR} ${QT_INCLUDES} ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}  )
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/khc_docbookdig.pl.cmake ${CMAKE_CURRENT_BINARY_DIR}/khc_docbookdig.pl )
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/khc_htdig.pl.cmake ${CMAKE_CURRENT_BINARY_DIR}/khc_htdig.pl )
 
+macro_additional_clean_files( ${CMAKE_CURRENT_BINARY_DIR}/khc_htdig.pl {CMAKE_CURRENT_BINARY_DIR}/khc_docbookdig.pl )
 
 ########### install files ###############
 
 install_files( ${DATA_INSTALL_DIR}/khelpcenter/searchhandlers/htdig FILES htdig_long.html )
 install_files( ${DATA_INSTALL_DIR}/khelpcenter/searchhandlers FILES htdig.desktop man.desktop docbook.desktop )
-
+install_files( /bin FILES khc_htdig.pl khc_htsearch.pl khc_mansearch.pl khc_docbookdig.pl )
 kde4_footer()
 
 
