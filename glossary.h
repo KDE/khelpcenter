@@ -20,7 +20,7 @@
 #ifndef KHC_GLOSSARY_H
 #define KHC_GLOSSARY_H
 
-#include <klistview.h>
+#include <k3listview.h>
 
 #include <q3dict.h>
 #include <qdom.h>
@@ -100,7 +100,7 @@ inline QDataStream &operator>>( QDataStream &stream, GlossaryEntry &e )
 	return stream >> e.m_term >> e.m_definition >> e.m_seeAlso;
 }
 
-class Glossary : public KListView
+class Glossary : public K3ListView
 {
 	Q_OBJECT
 	public:

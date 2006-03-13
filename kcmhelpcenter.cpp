@@ -39,7 +39,7 @@
 #include <ktempfile.h>
 #include <kurlrequester.h>
 #include <kmessagebox.h>
-#include <klistview.h>
+#include <k3listview.h>
 #include <klineedit.h>
 #include <qlayout.h>
 #include <qpushbutton.h>
@@ -281,7 +281,7 @@ void KCMHelpCenter::setupMainWidget( QWidget *parent )
   QLabel *label = new QLabel( helpText, parent );
   topLayout->addWidget( label );
 
-  mListView = new KListView( parent );
+  mListView = new K3ListView( parent );
   mListView->setFullWidth( true );
   mListView->addColumn( i18n("Search Scope") );
   mListView->addColumn( i18n("Status") );

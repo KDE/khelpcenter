@@ -49,7 +49,7 @@
 #include <kglobal.h>
 #include <klocale.h>
 #include <kdebug.h>
-#include <klistview.h>
+#include <k3listview.h>
 #include <kmessagebox.h>
 #include <kiconloader.h>
 #include <kprocio.h>
@@ -164,7 +164,7 @@ bool Navigator::showMissingDocs() const
 
 void Navigator::setupContentsTab()
 {
-    mContentsTree = new KListView( mTabWidget );
+    mContentsTree = new K3ListView( mTabWidget );
     mContentsTree->setFrameStyle(QFrame::Panel | QFrame::Sunken);
     mContentsTree->addColumn(QString());
     mContentsTree->setAllColumnsShowFocus(true);

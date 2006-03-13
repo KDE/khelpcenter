@@ -73,7 +73,7 @@ class EntryItem : public KListViewItem
 		QString m_id;
 };
 
-Glossary::Glossary( QWidget *parent ) : KListView( parent )
+Glossary::Glossary( QWidget *parent ) : K3ListView( parent )
 {
 	m_initialized = false;
 
@@ -112,7 +112,7 @@ void Glossary::show()
 			buildGlossaryTree();
 		m_initialized = true;
 	}
-	KListView::show();
+	K3ListView::show();
 }
 
 Glossary::~Glossary()

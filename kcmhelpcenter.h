@@ -40,7 +40,7 @@ class KConfig;
 class KAboutData;
 class KTempFile;
 class KUrlRequester;
-class KListView;
+class K3ListView;
 
 namespace KHC {
 class HtmlSearchConfig;
@@ -152,7 +152,7 @@ class KCMHelpCenter : public KDialogBase, virtual public KCMHelpCenterIface
   private:
     KHC::SearchEngine *mEngine;
   
-    KListView *mListView;
+    K3ListView *mListView;
     QLabel *mIndexDirLabel;
     QPushButton *mBuildButton;
     IndexProgressDialog *mProgressDialog;

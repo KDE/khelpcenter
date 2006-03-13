@@ -23,7 +23,7 @@
 
 #include "glossary.h"
 
-#include <klistview.h>
+#include <k3listview.h>
 #include <kurl.h>
 
 #include <qfile.h>
@@ -38,7 +38,7 @@
 
 class QPushButton;
 
-class KListView;
+class K3ListView;
 class KService;
 class KProcess;
 class KProcIO;
@@ -120,7 +120,7 @@ class Navigator : public QWidget
     void insertPlugins();
     void hideSearch();
 
-    KListView *mContentsTree;
+    K3ListView *mContentsTree;
     Glossary *mGlossaryTree;
 
     SearchWidget *mSearchWidget;
