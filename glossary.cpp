@@ -40,29 +40,29 @@
 
 using namespace KHC;
 
-class SectionItem : public KListViewItem
+class SectionItem : public K3ListViewItem
 {
 	public:
 		SectionItem( Q3ListViewItem *parent, const QString &text )
-			: KListViewItem( parent, text )
+			: K3ListViewItem( parent, text )
 		{
 			setOpen( false );
 		}
 		
 		virtual void setOpen( bool open )
 		{
-				KListViewItem::setOpen(open);
+				K3ListViewItem::setOpen(open);
 				
 				setPixmap( 0, SmallIcon( QLatin1String( open ? "contents" : "contents2" ) ) );
 
 		}
 };
 
-class EntryItem : public KListViewItem
+class EntryItem : public K3ListViewItem
 {
 	public:
 		EntryItem( SectionItem *parent, const QString &term, const QString &id )
-			: KListViewItem( parent, term ),
+			: K3ListViewItem( parent, term ),
 			m_id( id )
 		{
 		}
@@ -88,10 +88,10 @@ Glossary::Glossary( QWidget *parent ) : K3ListView( parent )
 	setAllColumnsShowFocus( true );
 	setRootIsDecorated( true );
 
-	m_byTopicItem = new KListViewItem( this, i18n( "By Topic" ) );
+	m_byTopicItem = new K3ListViewItem( this, i18n( "By Topic" ) );
 	m_byTopicItem->setPixmap( 0, SmallIcon( "help" ) );
 
-	m_alphabItem = new KListViewItem( this, i18n( "Alphabetically" ) );
+	m_alphabItem = new K3ListViewItem( this, i18n( "Alphabetically" ) );
 	m_alphabItem->setPixmap( 0, SmallIcon( "charset" ) );
 
 	m_cacheFile = locateLocal( "cache", "help/glossary.xml" );
