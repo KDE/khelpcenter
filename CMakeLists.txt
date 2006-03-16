@@ -1,5 +1,7 @@
 kde4_header()
 
+project(khelpcenter)
+
 add_subdirectory( plugins ) 
 add_subdirectory( pics ) 
 add_subdirectory( searchhandlers ) 
