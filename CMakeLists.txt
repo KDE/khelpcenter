@@ -17,7 +17,7 @@ kde4_automoc(${khc_indexbuilder_SRCS})
 
 kde4_add_executable(khc_indexbuilder ${khc_indexbuilder_SRCS})
 
-target_link_libraries(khc_indexbuilder  ${QT_AND_KDECORE_LIBS} )
+target_link_libraries(khc_indexbuilder  ${KDE4_KDECORE_LIBS} )
 
 install_targets(/bin khc_indexbuilder )
 
@@ -75,7 +75,7 @@ if(KDE4_BUILD_TESTS)
 
 kde4_add_executable(testmetainfo ${testmetainfo_SRCS})
 
-target_link_libraries(testmetainfo  ${QT_AND_KDECORE_LIBS} )
+target_link_libraries(testmetainfo  ${KDE4_KDECORE_LIBS} )
 
 endif(KDE4_BUILD_TESTS)
 
