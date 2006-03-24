@@ -10,7 +10,7 @@ kde4_automoc(${htmlsearch_LIB_SRCS})
 
 kde4_add_library(htmlsearch SHARED ${htmlsearch_LIB_SRCS})
 
-target_link_libraries(htmlsearch  ${KDE4_KDECORE_LIBS} kio )
+target_link_libraries(htmlsearch  ${KDE4_KIO_LIBS} )
 
 set_target_properties(htmlsearch PROPERTIES VERSION 1.0.0 SOVERSION 1 )
 install_targets(${LIB_INSTALL_DIR} htmlsearch )
@@ -24,7 +24,7 @@ kde4_automoc(${kcm_htmlsearch_LIB_SRCS})
 
 kde4_add_library(kcm_htmlsearch SHARED ${kcm_htmlsearch_LIB_SRCS})
 
-target_link_libraries(kcm_htmlsearch  ${KDE4_KDECORE_LIBS} kio )
+target_link_libraries(kcm_htmlsearch  ${KDE4_KIO_LIBS} )
 
 set_target_properties(kcm_htmlsearch PROPERTIES VERSION 1.0.0 SOVERSION 1 )
 install_targets(${LIB_INSTALL_DIR} kcm_htmlsearch )
