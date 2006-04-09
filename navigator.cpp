@@ -402,7 +402,7 @@ void Navigator::slotItemSelected( Q3ListViewItem *currentItem )
         // Enforce the original .docbook version, in case langLookup returns a
         // cached version
         if ( !doc.isNull() ) {
-          int pos = doc.find( ".html" );
+          int pos = doc.indexOf( ".html" );
           if ( pos >= 0 ) {
             doc.replace( pos, 5, ".docbook" );
           }

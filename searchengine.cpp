@@ -325,7 +325,7 @@ bool SearchEngine::search( QString words, QString method, int matches,
 	  lang = "en";
 
     // if the string contains '&' replace with a '+' and set search method to and
-    if (mWords.find("&") != -1) {
+    if (mWords.indexOf("&") != -1) {
       mWords.replace("&", " ");
       method = "and";
     }
@@ -379,7 +379,7 @@ bool SearchEngine::search( QString words, QString method, int matches,
 
     // modify the search result
     mSearchResult = mSearchResult.replace("http://localhost/", "file:/");
-    mSearchResult = mSearchResult.mid( mSearchResult.find( '<' ) );
+    mSearchResult = mSearchResult.mid( mSearchResult.indexOf( '<' ) );
 
     mView->beginSearchResult();
     mView->writeSearchResult( mSearchResult );

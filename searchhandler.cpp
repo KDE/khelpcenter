@@ -83,7 +83,7 @@ bool SearchHandler::checkBinary( const QString &cmd ) const
 {
   QString binary;
 
-  int pos = cmd.find( ' ' );
+  int pos = cmd.indexOf( ' ' );
   if ( pos < 0 ) binary = cmd;
   else binary = cmd.left( pos );
 

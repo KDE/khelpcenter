@@ -147,10 +147,10 @@ void InfoTree::parseInfoDirFile( const QString &infoDirFileName )
     while ( !stream.atEnd() && !s.trimmed().isEmpty() ) {
       s = stream.readLine();
       if ( s[ 0 ] == '*' ) {
-        const int colon = s.find( ":" );
-        const int openBrace = s.find( "(", colon );
-        const int closeBrace = s.find( ")", openBrace );
-        const int dot = s.find( ".", closeBrace );
+        const int colon = s.indexOf( ":" );
+        const int openBrace = s.indexOf( "(", colon );
+        const int closeBrace = s.indexOf( ")", openBrace );
+        const int dot = s.indexOf( ".", closeBrace );
 
         QString appName = s.mid( 2, colon - 2 );
         QString url = "info:/" + s.mid( openBrace + 1, closeBrace - openBrace - 1 );
@@ -164,14 +164,14 @@ void InfoTree::parseInfoDirFile( const QString &infoDirFileName )
 
         InfoCategoryItem *alphabSection = 0;
         for ( Q3ListViewItem* it=m_alphabItem->firstChild(); it; it=it->nextSibling() ) {
-          if ( it->text( 0 ) == QString( appName[ 0 ].upper() ) ) {
+          if ( it->text( 0 ) == QString( appName[ 0 ].toUpper() ) ) {
             alphabSection = static_cast<InfoCategoryItem *>( it );
             break;
           }
         }
 
         if ( alphabSection == 0 )
-          alphabSection = new InfoCategoryItem( m_alphabItem, QString( appName[ 0 ].upper() ) );
+          alphabSection = new InfoCategoryItem( m_alphabItem, QString( appName[ 0 ].toUpper() ) );
 
         item = new InfoNodeItem( alphabSection, appName );
         item->entry()->setUrl( url );
