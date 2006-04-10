@@ -74,8 +74,8 @@ void SearchTraverser::startProcess( DocEntry *entry )
     if ( entry->documentType().isEmpty() ) {
       txt = i18n("Error: No document type specified.");
     } else { 
-      txt = i18n("Error: No search handler for document type '%1'.")
-        .arg( entry->documentType() );
+      txt = i18n("Error: No search handler for document type '%1'.",
+          entry->documentType() );
     }
     showSearchError( handler, entry, txt );
     return;
@@ -222,8 +222,8 @@ bool SearchEngine::initSearchHandlers()
     kDebug() << "SearchEngine::initSearchHandlers(): " << filename << endl;
     SearchHandler *handler = SearchHandler::initFromFile( filename );
     if ( !handler || !handler->checkPaths() ) {
-      QString txt = i18n("Unable to initialize SearchHandler from file '%1'.")
-        .arg( filename );
+      QString txt = i18n("Unable to initialize SearchHandler from file '%1'.",
+          filename );
       kWarning() << txt << endl;
 //      KMessageBox::sorry( mView->widget(), txt );        
     } else {
@@ -302,7 +302,7 @@ bool SearchEngine::search( QString words, QString method, int matches,
       return false;
     }
 
-    QString txt = i18n("Search Results for '%1':").arg( words );
+    QString txt = i18n("Search Results for '%1':", words );
 
     mStderr = "<b>" + txt + "</b>\n";
 

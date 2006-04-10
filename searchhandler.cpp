@@ -129,7 +129,7 @@ void SearchHandler::search( DocEntry *entry, const QStringList &words,
     mProcessJobs.insert( proc, searchJob );
 
     if ( !proc->start( KProcess::NotifyOnExit, KProcess::All ) ) {
-      QString txt = i18n("Error executing search command '%1'.").arg( cmdString );
+      QString txt = i18n("Error executing search command '%1'.", cmdString );
       emit searchFinished( this, entry, txt );
     }
   } else if ( !mSearchUrl.isEmpty() ) {
@@ -230,7 +230,7 @@ void SearchHandler::slotJobResult( KIO::Job *job )
   }
 
   if ( job->error() ) {
-    emit searchError( this, entry, i18n("Error: %1").arg( job->errorString() ) );
+    emit searchError( this, entry, i18n("Error: %1", job->errorString() ) );
   } else {
     emit searchFinished( this, entry, result );
   }

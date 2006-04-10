@@ -96,7 +96,7 @@ void IndexBuilder::processCmdQueue()
   mCmdQueue.remove( it );
 
   if ( !proc->start( KProcess::NotifyOnExit, KProcess::AllOutput ) ) {
-    sendErrorSignal( i18n("Unable to start command '%1'.").arg( cmd ) );
+    sendErrorSignal( i18n("Unable to start command '%1'.", cmd ) );
     processCmdQueue();
   }
 }

@@ -69,9 +69,9 @@ DocEntry *DocMetaInfo::addDocEntry( const QString &fileName )
   if ( entry->readFromFile( fileName ) ) {
     if ( !lang.isEmpty() && lang != mLanguages.first() ) {
       entry->setLang( lang );
-      entry->setName( i18n("doctitle (language)","%1 (%2)")
-                           .arg( entry->name() )
-                           .arg( mLanguageNames[ lang ] ) );
+      entry->setName( i18nc("doctitle (language)","%1 (%2)",
+                             entry->name() ,
+                             mLanguageNames[ lang ] ) );
     }
     if ( entry->searchMethod().toLower() == "htdig" ) {
       mHtmlSearch->setupDocEntry( entry );

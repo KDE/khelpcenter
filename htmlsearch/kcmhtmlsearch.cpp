@@ -187,7 +187,7 @@ void KHTMLSearchConfig::loadLanguages()
     {
       KSimpleConfig entry(*it);
       entry.setGroup(QLatin1String("KCM Locale"));
-      QString name = entry.readEntry(QLatin1String("Name"), KGlobal::locale()->translate("without name"));
+      QString name = entry.readEntry(QLatin1String("Name"), i18n("without name"));
 
       QString path = *it;
       int index = path.lastIndexOf('/');

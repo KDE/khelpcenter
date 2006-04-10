@@ -317,8 +317,8 @@ bool KCMHelpCenter::save()
 
   if ( !QFile::exists( Prefs::indexDirectory() ) ) {
     KMessageBox::sorry( this,
-      i18n("<qt>The folder <b>%1</b> does not exist; unable to create index.</qt>")
-      .arg( Prefs::indexDirectory() ) );
+      i18n("<qt>The folder <b>%1</b> does not exist; unable to create index.</qt>",
+        Prefs::indexDirectory() ) );
     return false;
   } else {
     return buildIndex();
@@ -402,9 +402,9 @@ bool KCMHelpCenter::buildIndex()
     if ( item->isOn() ) {
       DocEntry *entry = item->entry();
 
-      QString docText = i18n("Document '%1' (%2):\n")
-        .arg( entry->identifier() )
-        .arg( entry->name() );
+      QString docText = i18n("Document '%1' (%2):\n",
+          entry->identifier() ,
+          entry->name() );
       if ( entry->documentType().isEmpty() ) {
         KMessageBox::sorry( this, docText +
           i18n("No document type.") );
@@ -413,15 +413,15 @@ bool KCMHelpCenter::buildIndex()
         SearchHandler *handler = mEngine->handler( entry->documentType() );
         if ( !handler ) {
           KMessageBox::sorry( this, docText +
-            i18n("No search handler available for document type '%1'.")
-            .arg( entry->documentType() ) );
+            i18n("No search handler available for document type '%1'.",
+              entry->documentType() ) );
           hasError = true;
         } else {
           QString indexer = handler->indexCommand( entry->identifier() );
           if ( indexer.isEmpty() ) {
             KMessageBox::sorry( this, docText +
-              i18n("No indexing command specified for document type '%1'.")
-              .arg( entry->documentType() ) );
+              i18n("No indexing command specified for document type '%1'.",
+                entry->documentType() ) );
             hasError = true;
           } else {
             indexer.replace( QRegExp( "%i" ), entry->identifier() );
@@ -591,8 +591,8 @@ void KCMHelpCenter::slotIndexError( const QString &str )
 
   kDebug() << "KCMHelpCenter::slotIndexError()" << endl;
 
-  KMessageBox::sorry( this, i18n("Error executing indexing build command:\n%1")
-    .arg( str ) );
+  KMessageBox::sorry( this, i18n("Error executing indexing build command:\n%1",
+      str ) );
 
   if ( mProgressDialog ) {
     mProgressDialog->appendLog( "<i>" + str + "</i>" );

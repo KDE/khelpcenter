@@ -119,7 +119,7 @@ bool HTMLSearch::createConfig(const QString& _lang)
     // This is an example replacement for the default bad_words file
     // distributed with ht://Dig. It was compiled by Marjolein Katsma
     // <HSH@taxon.demon.nl>.
-    QString bad_words = i18n( "List of words to exclude from index",
+    QString bad_words = i18nc( "List of words to exclude from index",
                               "above:about:according:across:actually:\n"
                               "adj:after:afterwards:again:against:all:\n"
                               "almost:alone:along:already:also:although:\n"
