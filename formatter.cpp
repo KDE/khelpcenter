@@ -73,7 +73,7 @@ bool Formatter::readTemplates()
     switch ( state ) {
       case IDLE:
         if ( !line.isEmpty() && !line.startsWith( "#" ) ) {
-          int pos = line.find( "<<" );
+          int pos = line.indexOf( "<<" );
           if ( pos >= 0 ) {
             state = MULTILINE;
             symbol = line.left( pos ).trimmed();

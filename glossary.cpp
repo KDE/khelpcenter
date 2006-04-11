@@ -215,13 +215,13 @@ void Glossary::buildGlossaryTree()
 
 			SectionItem *alphabSection = 0L;
 			for ( Q3ListViewItemIterator it( m_alphabItem ); it.current(); it++ )
-				if ( it.current()->text( 0 ) == QString( term[ 0 ].upper() ) ) {
+				if ( it.current()->text( 0 ) == QString( term[ 0 ].toUpper() ) ) {
 					alphabSection = static_cast<SectionItem *>( it.current() );
 					break;
 				}
 
 			if ( !alphabSection )
-				alphabSection = new SectionItem( m_alphabItem, QString( term[ 0 ].upper() ) );
+				alphabSection = new SectionItem( m_alphabItem, QString( term[ 0 ].toUpper() ) );
 
 			new EntryItem( alphabSection, term, entryId );
 

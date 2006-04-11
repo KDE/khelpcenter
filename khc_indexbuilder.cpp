@@ -93,7 +93,7 @@ void IndexBuilder::processCmdQueue()
   connect( proc, SIGNAL( receivedStderr(KProcess *, char *, int ) ),
            SLOT( slotReceivedStderr(KProcess *, char *, int ) ) );
 
-  mCmdQueue.remove( it );
+  mCmdQueue.erase( it );
 
   if ( !proc->start( KProcess::NotifyOnExit, KProcess::AllOutput ) ) {
     sendErrorSignal( i18n("Unable to start command '%1'.", cmd ) );
