@@ -44,7 +44,6 @@ int Application::newInstance()
 
   if( !mMainWindow ) {
     mMainWindow = new MainWindow;
-    setMainWidget( mMainWindow );
     mMainWindow->show();
   }
 

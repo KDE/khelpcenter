@@ -166,9 +166,9 @@ void TOC::meinprocExited( KProcess *meinproc )
 	QDomComment timestamp = doc.createComment( QString::number( sourceFileCTime() ) );
 	doc.documentElement().appendChild( timestamp );
 
-	f.at( 0 );
+	f.seek( 0 );
 	QTextStream stream( &f );
-	stream.setEncoding( QTextStream::UnicodeUTF8 );
+	stream.setCodec( "UTF-8" );
 	stream << doc.toString();
 
 	f.close();

@@ -48,7 +48,7 @@ View::View( QWidget *parentWidget, const char *widgetName,
        if (css_file.open(QIODevice::ReadOnly))
        {
           QTextStream s(&css_file);
-          QString stylesheet = s.read();
+          QString stylesheet = s.readAll();
           preloadStyleSheet("help:/common/kde-default.css", stylesheet);
        }
     }
@@ -110,7 +110,7 @@ void View::showAboutPage()
 
     QTextStream t( &f );
 
-    QString res = t.read();
+    QString res = t.readAll();
 
     res = res.arg( i18n("Conquer your Desktop!") )
           .arg( langLookup( "khelpcenter/konq.css" ) )
@@ -238,33 +238,35 @@ void View::slotDecFontSizes()
 
 void View::showMenu( const QString& url, const QPoint& pos)
 {
-  KMenu* pop = new KMenu(view());
+  KMenu pop(view());
+
   if (url.isEmpty())
   {
     KAction *action;
     action = mActionCollection->action("go_home");
-    if (action) action->plug(pop);
+    if (action) pop.addAction( action );
 
-    pop->insertSeparator();
+    pop.addSeparator();
 
     action = mActionCollection->action("prevPage");
-    if (action) action->plug(pop);
+    if (action) pop.addAction( action );
     action = mActionCollection->action("nextPage");
-    if (action) action->plug(pop);
+    if (action) pop.addAction( action);
 
-    pop->insertSeparator();
+    pop.addSeparator();
 
-    History::self().m_backAction->plug(pop);
-    History::self().m_forwardAction->plug(pop);
+    pop.addAction( History::self().m_backAction );
+    pop.addAction( History::self().m_forwardAction );
   }
   else
   {
-    pop->insertItem(i18n("Copy Link Address"), this, SLOT(slotCopyLink()));
+    QAction *action = pop.addAction(i18n("Copy Link Address"));
+    connect( action, SIGNAL( triggered() ), this, SLOT( slotCopyLink() ) );
+
     mCopyURL = completeURL(url).url();
   }
-	
-  pop->exec(pos);
-  delete pop;
+
+  pop.exec(pos);
 }
 
 void View::slotCopyLink()
@@ -322,19 +324,19 @@ bool View::eventFilter( QObject *o, QEvent *e )
     return KHTMLPart::eventFilter( o, e );
 
   QKeyEvent *ke = static_cast<QKeyEvent *>( e );
-  if ( ke->state() & Qt::ShiftModifier && ke->key() == Qt::Key_Space ) {
+  if ( ke->modifiers() & Qt::ShiftModifier && ke->key() == Qt::Key_Space ) {
     // If we're on the first page, it does not make sense to go back.
     if ( baseURL().path().endsWith( "/index.html" ) )
       return KHTMLPart::eventFilter( o, e );
 
     const QScrollBar * const scrollBar = view()->verticalScrollBar();
-    if ( scrollBar->value() == scrollBar->minValue() ) {
+    if ( scrollBar->value() == scrollBar->minimum() ) {
       if (prevPage())
          return true;
     }
   } else if ( ke->key() == Qt::Key_Space ) {
     const QScrollBar * const scrollBar = view()->verticalScrollBar();
-    if ( scrollBar->value() == scrollBar->maxValue() ) {
+    if ( scrollBar->value() == scrollBar->maximum() ) {
       if (nextPage())
         return true;
     }

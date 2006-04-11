@@ -82,9 +82,11 @@
 using namespace KHC;
 
 Navigator::Navigator( View *view, QWidget *parent, const char *name )
-   : QWidget( parent, name ), mIndexDialog( 0 ),
+   : QWidget( parent ), mIndexDialog( 0 ),
      mView( view ), mSelected( false )
 {
+    setObjectName( name );
+
     KConfig *config = KGlobal::config();
     config->setGroup("General");
     mShowMissingDocs = config->readEntry("ShowMissingDocs", QVariant(false)).toBool();
@@ -105,7 +107,7 @@ Navigator::Navigator( View *view, QWidget *parent, const char *name )
     searchLayout->setMargin( 6 );
 
     QPushButton *clearButton = new QPushButton( mSearchFrame );
-    clearButton->setIconSet( KApplication::layoutDirection() == Qt::RightToLeft ?
+    clearButton->setIcon( KApplication::layoutDirection() == Qt::RightToLeft ?
       SmallIconSet( "clear_left" ) : SmallIconSet("locationbar_erase") );
     searchLayout->addWidget( clearButton );
     connect( clearButton, SIGNAL( clicked() ), SLOT( clearSearch() ) );
@@ -263,7 +265,7 @@ void Navigator::insertIOSlaveDocs( const QString &name, NavigatorItem *topItem )
 void Navigator::insertAppletDocs( NavigatorItem *topItem )
 {
   QDir appletDir( locate( "data", QLatin1String( "kicker/applets/" ) ) );
-  appletDir.setNameFilter( QLatin1String( "*.desktop" ) );
+  appletDir.setNameFilters( QStringList( "*.desktop" ) );
 
   QStringList files = appletDir.entryList( QDir::Files | QDir::Readable );
   QStringList::ConstIterator it = files.begin();
@@ -449,7 +451,7 @@ void Navigator::showOverview( NavigatorItem *item, const KUrl &url )
     return;
 
   QTextStream stream( &file );
-  QString res = stream.read();
+  QString res = stream.readAll();
 
   QString title,name,content;
   uint childCount;
@@ -575,13 +577,13 @@ void Navigator::checkSearchButton()
 {
   mSearchButton->setEnabled( !mSearchEdit->text().isEmpty() &&
     mSearchWidget->scopeCount() > 0 );
-  mTabWidget->showPage( mSearchWidget );
+  mTabWidget->setCurrentIndex( mTabWidget->indexOf( mSearchWidget ) );
 }
 
 void Navigator::hideSearch()
 {
   mSearchFrame->hide();
-  mTabWidget->removePage( mSearchWidget );
+  mTabWidget->removeTab( mTabWidget->indexOf( mSearchWidget ) );
 }
 
 bool Navigator::checkSearchIndex()
@@ -590,7 +592,7 @@ bool Navigator::checkSearchIndex()
   cfg->setGroup( "Search" );
   if ( cfg->readEntry( "IndexExists", QVariant(false )).toBool() ) return true;
 
-  if ( mIndexDialog && mIndexDialog->isShown() ) return true;
+  if ( mIndexDialog && !mIndexDialog->isHidden() ) return true;
 
   QString text = i18n( "A search index does not yet exist. Do you want "
                        "to create the index now?" );
@@ -644,11 +646,11 @@ void Navigator::showIndexDialog()
 void Navigator::readConfig()
 {
   if ( Prefs::currentTab() == Prefs::Search ) {
-    mTabWidget->showPage( mSearchWidget );
+    mTabWidget->setCurrentIndex( mTabWidget->indexOf( mSearchWidget ) );
   } else if ( Prefs::currentTab() == Prefs::Glossary ) {
-    mTabWidget->showPage( mGlossaryTree );
+    mTabWidget->setCurrentIndex( mTabWidget->indexOf( mGlossaryTree ) );
   } else {
-    mTabWidget->showPage( mContentsTree );
+    mTabWidget->setCurrentIndex( mTabWidget->indexOf( mContentsTree ) );
   }
 }
 

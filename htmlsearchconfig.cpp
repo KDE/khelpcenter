@@ -40,41 +40,48 @@
 namespace KHC {
 
 HtmlSearchConfig::HtmlSearchConfig(QWidget *parent, const char *name)
-  : QWidget(parent, name)
+  : QWidget(parent)
 {
-  QVBoxLayout *vbox = new QVBoxLayout(this, 5);
+  setObjectName( name );
+
+  QVBoxLayout *vbox = new QVBoxLayout(this);
+  vbox->setMargin( 5 );
 
 
   QGroupBox *gb = new QGroupBox(i18n("ht://dig"), this);
   vbox->addWidget(gb);
 
-  QGridLayout *grid = new QGridLayout(gb, 3,2, 6,6);
+  QGridLayout *grid = new QGridLayout(gb);
+  grid->setMargin( 6 );
+  grid->setSpacing( 6 );
 
-  grid->addRowSpacing(0, gb->fontMetrics().lineSpacing());
+  grid->addItem( new QSpacerItem( 0, gb->fontMetrics().lineSpacing() ), 0, 0 );
 
   QLabel *l = new QLabel(i18n("The fulltext search feature makes use of the "
                   "ht://dig HTML search engine. "
                   "You can get ht://dig at the"), gb);
   l->setMinimumSize(l->sizeHint());
-  grid->addMultiCellWidget(l, 1, 1, 0, 1);
+  grid->addWidget(l, 1, 1, 0, 1);
   gb->setWhatsThis( i18n( "Information about where to get the ht://dig package." ) );
 
   KUrlLabel *url = new KUrlLabel(gb);
   url->setURL("http://www.htdig.org");
   url->setText(i18n("ht://dig home page"));
   url->setAlignment(Qt::AlignHCenter);
-  grid->addMultiCellWidget(url, 2,2, 0, 1);
+  grid->addWidget(url, 2,2, 0, 1);
   connect(url, SIGNAL(leftClickedURL(const QString&)),
       this, SLOT(urlClicked(const QString&)));
 
   gb = new QGroupBox(i18n("Program Locations"), this);
 
   vbox->addWidget(gb);
-  grid = new QGridLayout(gb, 4,2, 6,6);
-  grid->addRowSpacing(0, gb->fontMetrics().lineSpacing());
+  grid = new QGridLayout(gb);
+  grid->setMargin( 6 );
+  grid->setSpacing( 6 );
+  grid->addItem( new QSpacerItem( 0, gb->fontMetrics().lineSpacing() ), 0, 0 );
 
   mHtsearchUrl = new KUrlRequester(gb);
-  l = new QLabel(mHtsearchUrl, i18n("htsearch:"), gb);
+  l = new QLabel(i18n("htsearch:"), gb);
   l->setBuddy( mHtsearchUrl );
   grid->addWidget(l, 1,0);
   grid->addWidget(mHtsearchUrl, 1,1);
@@ -85,7 +92,7 @@ HtmlSearchConfig::HtmlSearchConfig(QWidget *parent, const char *name)
   l->setWhatsThis( wtstr );
 
   mIndexerBin = new KUrlRequester(gb);
-  l = new QLabel(mIndexerBin, i18n("Indexer:"), gb);
+  l = new QLabel(i18n("Indexer:"), gb);
   l->setBuddy( mIndexerBin );
   grid->addWidget(l, 2,0);
   grid->addWidget(mIndexerBin, 2,1);
@@ -97,7 +104,7 @@ HtmlSearchConfig::HtmlSearchConfig(QWidget *parent, const char *name)
 
   mDbDir = new KUrlRequester(gb);
   mDbDir->setMode( KFile::Directory | KFile::LocalOnly );
-  l = new QLabel(mDbDir, i18n("htdig database:"), gb);
+  l = new QLabel(i18n("htdig database:"), gb);
   l->setBuddy( mDbDir );
   grid->addWidget(l, 3,0);
   grid->addWidget(mDbDir, 3,1);

@@ -55,20 +55,23 @@ void History::setupActions( KActionCollection *coll )
 {
   QPair<KGuiItem, KGuiItem> backForward = KStdGuiItem::backAndForward();
 
-  m_backAction = new KToolBarPopupAction( backForward.first, Qt::ALT+Qt::Key_Left,
-      this, SLOT( back() ), coll, "back" );
-  connect( m_backAction->popupMenu(), SIGNAL( activated( int ) ),
+  m_backAction = new KToolBarPopupAction( KIcon( backForward.first.iconName() ), backForward.first.text(), coll, "back" );
+  m_backAction->setShortcut( Qt::ALT+Qt::Key_Left );
+  connect( m_backAction, SIGNAL( triggered() ), this, SLOT( back() ) );
+
+  connect( m_backAction->menu(), SIGNAL( activated( int ) ),
            SLOT( backActivated( int ) ) );
-  connect( m_backAction->popupMenu(), SIGNAL( aboutToShow() ),
+  connect( m_backAction->menu(), SIGNAL( aboutToShow() ),
            SLOT( fillBackMenu() ) );
   m_backAction->setEnabled( false );
 
-  m_forwardAction = new KToolBarPopupAction( backForward.second, Qt::ALT+Qt::Key_Right,
-      this, SLOT( forward() ), coll,
-      "forward" );
-  connect( m_forwardAction->popupMenu(), SIGNAL( activated( int ) ),
+  m_forwardAction = new KToolBarPopupAction( KIcon( backForward.second.iconName() ), backForward.second.text(), coll, "forward" );
+  m_forwardAction->setShortcut( Qt::ALT+Qt::Key_Right );
+  connect( m_forwardAction, SIGNAL( triggered() ), this, SLOT( forward() ) );
+
+  connect( m_forwardAction->menu(), SIGNAL( activated( int ) ),
            SLOT( forwardActivated( int ) ) );
-  connect( m_forwardAction->popupMenu(), SIGNAL( aboutToShow() ),
+  connect( m_forwardAction->menu(), SIGNAL( aboutToShow() ),
            SLOT( fillForwardMenu() ) );
   m_forwardAction->setEnabled( false );
 }
@@ -80,7 +83,7 @@ void History::installMenuBarHook( KMainWindow *mainWindow )
     connect( goMenu, SIGNAL( aboutToShow() ), SLOT( fillGoMenu() ) );
     connect( goMenu, SIGNAL( activated( int ) ),
              SLOT( goMenuActivated( int ) ) );
-    m_goMenuIndex = goMenu->count();
+    m_goMenuIndex = goMenu->actions().count();
   }
 }
 
@@ -156,7 +159,7 @@ void History::back()
 void History::backActivated( int id )
 {
   kDebug( 1400 ) << "History::backActivated(): id = " << id << endl;
-  goHistoryActivated( -( m_backAction->popupMenu()->indexOf( id ) + 1 ) );
+  goHistoryActivated( -( m_backAction->menu()->indexOf( id ) + 1 ) );
 }
 
 void History::forward()
@@ -168,7 +171,7 @@ void History::forward()
 void History::forwardActivated( int id )
 {
   kDebug( 1400 ) << "History::forwardActivated(): id = " << id << endl;
-  goHistoryActivated( m_forwardAction->popupMenu()->indexOf( id ) + 1 );
+  goHistoryActivated( m_forwardAction->menu()->indexOf( id ) + 1 );
 }
 
 void History::goHistoryActivated( int steps )
@@ -241,26 +244,26 @@ void History::goHistory( int steps )
 
 void History::fillBackMenu()
 {
-  QMenu *menu = m_backAction->popupMenu();
+  QMenu *menu = m_backAction->menu();
   menu->clear();
   fillHistoryPopup( menu, true, false, false );
 }
 
 void History::fillForwardMenu()
 {
-  QMenu *menu = m_forwardAction->popupMenu();
+  QMenu *menu = m_forwardAction->menu();
   menu->clear();
   fillHistoryPopup( menu, false, true, false );
 }
 
 void History::fillGoMenu()
 {
-  KMainWindow *mainWindow = static_cast<KMainWindow *>( kapp->mainWidget() );
+  KMainWindow *mainWindow = static_cast<KMainWindow *>( kapp->activeWindow() );
   QMenu *goMenu = dynamic_cast<QMenu *>( mainWindow->guiFactory()->container( QLatin1String( "go" ), mainWindow ) );
   if ( !goMenu || m_goMenuIndex == -1 )
     return;
 
-  for ( int i = goMenu->count() - 1 ; i >= m_goMenuIndex; i-- )
+  for ( int i = goMenu->actions().count() - 1 ; i >= m_goMenuIndex; i-- )
     goMenu->removeItemAt( i );
 
   // TODO perhaps smarter algorithm (rename existing items, create new ones only if not enough) ?
@@ -288,7 +291,7 @@ void History::fillGoMenu()
 
 void History::goMenuActivated( int id )
 {
-  KMainWindow *mainWindow = static_cast<KMainWindow *>( kapp->mainWidget() );
+  KMainWindow *mainWindow = static_cast<KMainWindow *>( kapp->activeWindow() );
   QMenu *goMenu = dynamic_cast<QMenu *>( mainWindow->guiFactory()->container( QLatin1String( "go" ), mainWindow ) );
   if ( !goMenu )
     return;

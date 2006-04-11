@@ -39,7 +39,7 @@
 using namespace KHC;
 
 FontDialog::FontDialog( QWidget *parent, const char *name )
-	: KDialogBase( parent, name, true, i18n( "Font Configuration" ),
+	: KDialogBase( Swallow, 0, parent, name, true, i18n( "Font Configuration" ),
 	               Ok | Cancel )
 {
 	makeVBoxMainWidget();
@@ -139,12 +139,14 @@ void FontDialog::setupFontEncodingBox()
 	layout->addWidget( m_defaultEncoding, 0, 1 );
 	QStringList encodings = KGlobal::charsets()->availableEncodingNames();
 	encodings.prepend( i18n( "Use Language Encoding" ) );
-	m_defaultEncoding->insertStringList( encodings );
+	m_defaultEncoding->addItems( encodings );
 	lDefaultEncoding->setBuddy( m_defaultEncoding );
 
 	QLabel *lFontSizeAdjustement = new QLabel( i18n( "&Font size adjustment:" ), gb );
 	layout->addWidget( lFontSizeAdjustement, 1, 0 );
-	m_fontSizeAdjustement = new QSpinBox( -5, 5, 1, gb );
+	m_fontSizeAdjustement = new QSpinBox( gb );
+	m_fontSizeAdjustement->setRange( -5, 5 );
+	m_fontSizeAdjustement->setSingleStep( 1 );
 	layout->addWidget( m_fontSizeAdjustement, 1, 1 );
 	lFontSizeAdjustement->setBuddy( m_fontSizeAdjustement );
 }

@@ -146,9 +146,9 @@ int Glossary::glossaryCTime() const
 
 void Glossary::rebuildGlossaryCache()
 {
-	KMainWindow *mainWindow = dynamic_cast<KMainWindow *>( kapp->mainWidget() );
+	KMainWindow *mainWindow = dynamic_cast<KMainWindow *>( kapp->activeWindow() );
 	Q_ASSERT( mainWindow );
-	mainWindow->statusBar()->message( i18n( "Rebuilding cache..." ) );
+	mainWindow->statusBar()->showMessage( i18n( "Rebuilding cache..." ) );
 
 	KProcess *meinproc = new KProcess;
 	connect( meinproc, SIGNAL( processExited( KProcess * ) ),
@@ -176,9 +176,9 @@ void Glossary::meinprocExited( KProcess *meinproc )
 	
 	m_status = CacheOk;
 
-	KMainWindow *mainWindow = dynamic_cast<KMainWindow *>( kapp->mainWidget() );
+	KMainWindow *mainWindow = dynamic_cast<KMainWindow *>( kapp->activeWindow() );
 	Q_ASSERT( mainWindow );
-	mainWindow->statusBar()->message( i18n( "Rebuilding cache... done." ), 2000 );
+	mainWindow->statusBar()->showMessage( i18n( "Rebuilding cache... done." ), 2000 );
 
 	buildGlossaryTree();
 }
@@ -292,7 +292,7 @@ QString Glossary::entryToHtml( const GlossaryEntry &entry )
     }
 
     QTextStream htmlStream(&htmlFile);
-    return htmlStream.read()
+    return htmlStream.readAll()
            .arg( i18n( "KDE Glossary" ) )
            .arg( entry.term() )
            .arg( View::langLookup( "khelpcenter/konq.css" ) )

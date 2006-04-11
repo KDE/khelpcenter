@@ -53,14 +53,14 @@ DocEntry *DocMetaInfo::addDocEntry( const QString &fileName )
   QFileInfo fi( fileName );
   if ( !fi.exists() ) return 0;
   
-  QString extension = fi.extension();
+  QString extension = fi.completeSuffix();
   QStringList extensions = extension.split( '.');
   QString lang;
   if ( extensions.count() >= 2 ) {
     lang = extensions[ extensions.count() - 2 ];
   }
 
-  if ( !lang.isEmpty() && mLanguages.find( lang ) == mLanguages.end() ) {
+  if ( !lang.isEmpty() && !mLanguages.contains( lang ) ) {
     return 0;
   }
 
@@ -160,7 +160,7 @@ DocEntry *DocMetaInfo::scanMetaInfoDir( const QString &dirName,
     if ( fi.isDir() && fi.fileName() != "." && fi.fileName() != ".." ) {
       DocEntry *dirEntry = addDirEntry( QDir( fi.absoluteFilePath() ), parent );
       entry = scanMetaInfoDir( fi.absoluteFilePath(), dirEntry );
-    } else if ( fi.extension( false ) == "desktop" ) {
+    } else if ( fi.suffix() == "desktop" ) {
       entry = addDocEntry( fi.absoluteFilePath() );
       if ( parent && entry ) parent->addChild( entry );
     }

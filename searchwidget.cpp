@@ -27,7 +27,6 @@
 #include <qpushbutton.h>
 #include <qcombobox.h>
 #include <qlayout.h>
-//Added by qt3to4:
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QBoxLayout>
@@ -52,43 +51,51 @@ SearchWidget::SearchWidget( SearchEngine *engine, QWidget *parent )
   : QWidget( parent ), DCOPObject( "SearchWidget" ), mEngine( engine ),
   mScopeCount( 0 )
 {
-  QBoxLayout *topLayout = new QVBoxLayout( this, 2, 2 );
+  QBoxLayout *topLayout = new QVBoxLayout( this );
+  topLayout->setMargin( 2 );
+  topLayout->setSpacing( 2 );
 
-  QBoxLayout *hLayout = new QHBoxLayout( topLayout );
+  QBoxLayout *hLayout = new QHBoxLayout();
+  topLayout->addLayout( hLayout );
 
   mMethodCombo = new QComboBox( this );
-  mMethodCombo->insertItem( i18n("and") );
-  mMethodCombo->insertItem( i18n("or") );
+  mMethodCombo->addItem( i18n("and") );
+  mMethodCombo->addItem( i18n("or") );
 
-  QLabel *l = new QLabel( mMethodCombo, i18n("&Method:"), this );
+  QLabel *l = new QLabel( i18n("&Method:"), this );
+  l->setBuddy( mMethodCombo );
 
   hLayout->addWidget( l );
   hLayout->addWidget( mMethodCombo );
 
-  hLayout = new QHBoxLayout( topLayout );
+  hLayout = new QHBoxLayout();
+  topLayout->addLayout( hLayout );
 
   mPagesCombo = new QComboBox( this );
-  mPagesCombo->insertItem( "5" );
-  mPagesCombo->insertItem( "10" );
-  mPagesCombo->insertItem( "25" );
-  mPagesCombo->insertItem( "50" );
-  mPagesCombo->insertItem( "1000" );
+  mPagesCombo->addItem( "5" );
+  mPagesCombo->addItem( "10" );
+  mPagesCombo->addItem( "25" );
+  mPagesCombo->addItem( "50" );
+  mPagesCombo->addItem( "1000" );
 
-  l = new QLabel( mPagesCombo, i18n("Max. &results:"), this );
-  
+  l = new QLabel( i18n("Max. &results:"), this );
+  l->setBuddy( mPagesCombo );
+
   hLayout->addWidget( l );
   hLayout->addWidget( mPagesCombo );
 
-  hLayout = new QHBoxLayout( topLayout );
+  hLayout = new QHBoxLayout();
+  topLayout->addLayout( hLayout );
 
   mScopeCombo = new QComboBox( this );
   for (int i=0; i < ScopeNum; ++i ) {
-    mScopeCombo->insertItem( scopeSelectionLabel( i ) );
+    mScopeCombo->addItem( scopeSelectionLabel( i ) );
   }
   connect( mScopeCombo, SIGNAL( activated( int ) ),
            SLOT( scopeSelectionChanged( int ) ) );
 
-  l = new QLabel( mScopeCombo, i18n("&Scope selection:"), this );
+  l = new QLabel( i18n("&Scope selection:"), this );
+  l->setBuddy( mScopeCombo );
 
   hLayout->addWidget( l );
   hLayout->addWidget( mScopeCombo );

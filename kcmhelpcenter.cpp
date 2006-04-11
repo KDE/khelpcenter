@@ -63,7 +63,7 @@
 using namespace KHC;
 
 IndexDirDialog::IndexDirDialog( QWidget *parent )
-  : KDialogBase( parent, 0, true, i18n("Change Index Folder"), Ok | Cancel )
+  : KDialogBase( Swallow, 0, parent, 0, true, i18n("Change Index Folder"), Ok | Cancel )
 {
   QFrame *topFrame = makeMainWidget();
 
@@ -120,7 +120,8 @@ IndexProgressDialog::IndexProgressDialog( QWidget *parent )
   mLogView->setMinimumHeight( 200 );
   topLayout->addWidget( mLogView, 1 );
 
-  QBoxLayout *buttonLayout = new QHBoxLayout( topLayout );
+  QBoxLayout *buttonLayout = new QHBoxLayout();
+  topLayout->addLayout( buttonLayout );
 
   buttonLayout->addStretch( 1 );
 
@@ -228,7 +229,7 @@ void IndexProgressDialog::hideDetails()
 KCMHelpCenter::KCMHelpCenter( KHC::SearchEngine *engine, QWidget *parent,
   const char *name)
   : DCOPObject( "kcmhelpcenter" ),
-    KDialogBase( parent, name, false, i18n("Build Search Index"),
+    KDialogBase( Swallow, 0, parent, name, false, i18n("Build Search Index"),
       Ok | Cancel, Ok, true ),
     mEngine( engine ), mProgressDialog( 0 ), mCmdFile( 0 ),
     mProcess( 0 ), mIsClosing( false ), mRunAsRoot( false )
@@ -290,7 +291,8 @@ void KCMHelpCenter::setupMainWidget( QWidget *parent )
   connect( mListView, SIGNAL( clicked( Q3ListViewItem * ) ),
     SLOT( checkSelection() ) );
 
-  QBoxLayout *urlLayout = new QHBoxLayout( topLayout );
+  QBoxLayout *urlLayout = new QHBoxLayout();
+  topLayout->addLayout( urlLayout );
 
   QLabel *urlLabel = new QLabel( i18n("Index folder:"), parent );
   urlLayout->addWidget( urlLabel );
@@ -302,7 +304,8 @@ void KCMHelpCenter::setupMainWidget( QWidget *parent )
   connect( button, SIGNAL( clicked() ), SLOT( showIndexDirDialog() ) );
   urlLayout->addWidget( button );
 
-  QBoxLayout *buttonLayout = new QHBoxLayout( topLayout );
+  QBoxLayout *buttonLayout = new QHBoxLayout();
+  topLayout->addLayout( buttonLayout );
 
   buttonLayout->addStretch( 1 );
 }

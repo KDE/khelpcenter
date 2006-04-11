@@ -135,8 +135,8 @@ MainWindow::MainWindow()
     connect( mNavigator, SIGNAL( glossSelected( const GlossaryEntry & ) ),
              SLOT( slotGlossSelected( const GlossaryEntry & ) ) );
 
-    mSplitter->moveToFirst(mNavigator);
-    mSplitter->setResizeMode(mNavigator, QSplitter::KeepSize);
+    mSplitter->insertWidget(0, mNavigator);
+    mSplitter->setStretchFactor(mSplitter->indexOf(mNavigator), 0);
     setCentralWidget( mSplitter );
     QList<int> sizes;
     sizes << 220 << 580;
@@ -225,13 +225,15 @@ void MainWindow::setupActions()
     KStdAction::print( this, SLOT( print() ), actionCollection(),
                        "printFrame" );
 
-    KAction *prevPage  = new KAction( i18n( "Previous Page" ), Qt::CTRL+Qt::Key_PageUp, mDoc, SLOT( prevPage() ),
-                         actionCollection(), "prevPage" );
+    KAction *prevPage  = new KAction( i18n( "Previous Page" ), actionCollection(), "prevPage" );
+    prevPage->setShortcut( Qt::CTRL+Qt::Key_PageUp );
     prevPage->setWhatsThis( i18n( "Moves to the previous page of the document" ) );
+    connect( prevPage, SIGNAL( triggered() ), mDoc, SLOT( prevPage() ) );
 
-    KAction *nextPage  = new KAction( i18n( "Next Page" ), Qt::CTRL + Qt::Key_PageDown, mDoc, SLOT( nextPage() ),
-                         actionCollection(), "nextPage" );
+    KAction *nextPage  = new KAction( i18n( "Next Page" ), actionCollection(), "nextPage" );
+    nextPage->setShortcut( Qt::CTRL + Qt::Key_PageDown );
     nextPage->setWhatsThis( i18n( "Moves to the next page of the document" ) );
+    connect( nextPage, SIGNAL( triggered() ), mDoc, SLOT( nextPage() ) );
 
     KAction *home = KStdAction::home( this, SLOT( slotShowHome() ), actionCollection() );
     home->setText(i18n("Table of &Contents"));
@@ -240,28 +242,34 @@ void MainWindow::setupActions()
 
     mCopyText = KStdAction::copy( this, SLOT(slotCopySelectedText()), actionCollection(), "copy_text");
 
-    mLastSearchAction = new KAction( i18n("&Last Search Result"), 0, this,
-                                     SLOT( slotLastSearch() ),
-                                     actionCollection(), "lastsearch" );
+    mLastSearchAction = new KAction( i18n("&Last Search Result"), actionCollection(), "lastsearch" );
     mLastSearchAction->setEnabled( false );
+    connect( mLastSearchAction, SIGNAL( triggered() ), this, SLOT( slotLastSearch() ) );
 
-    new KAction( i18n("Build Search Index..."), 0, mNavigator,
-      SLOT( showIndexDialog() ), actionCollection(), "build_index" );
+    KAction *action = new KAction( i18n("Build Search Index..."), actionCollection(), "build_index" );
+    connect( action, SIGNAL( triggered() ), mNavigator, SLOT( showIndexDialog() ) );
+
     KStdAction::keyBindings( guiFactory(), SLOT( configureShortcuts() ),
       actionCollection() );
 
     KConfigGroup debugGroup( KGlobal::config(), "Debug" );
     if ( debugGroup.readEntry( "SearchErrorLog", QVariant(false )).toBool() ) {
-      new KAction( i18n("Show Search Error Log"), 0, this,
-                   SLOT( showSearchStderr() ), actionCollection(),
-                   "show_search_stderr" );
+      action = new KAction( i18n("Show Search Error Log"), actionCollection(), "show_search_stderr" );
+      connect( action, SIGNAL( triggered() ), this, SLOT( showSearchStderr() ) );
     }
 
     History::self().setupActions( actionCollection() );
 
-    new KAction( i18n( "Configure Fonts..." ), KShortcut(), this, SLOT( slotConfigureFonts() ), actionCollection(), "configure_fonts" );
-    new KAction( i18n( "Increase Font Sizes" ), "viewmag+", KShortcut(), this, SLOT( slotIncFontSizes() ), actionCollection(), "incFontSizes" );
-    new KAction( i18n( "Decrease Font Sizes" ), "viewmag-", KShortcut(), this, SLOT( slotDecFontSizes() ), actionCollection(), "decFontSizes" );
+    action = new KAction( i18n( "Configure Fonts..." ), actionCollection(), "configure_fonts" );
+    connect( action, SIGNAL( triggered() ), this, SLOT( slotConfigureFonts() ) );
+
+    action = new KAction( i18n( "Increase Font Sizes" ), actionCollection(), "incFontSizes" );
+    action->setIcon( KIcon( "viewmag+" ) );
+    connect( action, SIGNAL( triggered() ), this, SLOT( slotIncFontSizes() ) );
+
+    action = new KAction( i18n( "Decrease Font Sizes" ), actionCollection(), "decFontSizes" );
+    action->setIcon( KIcon( "viewmag-" ) );
+    connect( action, SIGNAL( triggered() ), this, SLOT( slotDecFontSizes() ) );
 }
 
 void MainWindow::slotCopySelectedText()
@@ -338,7 +346,7 @@ void MainWindow::viewUrl( const KUrl &url, const KParts::URLArgs &args )
     mDoc->browserExtension()->setURLArgs( args );
 
     if ( proto == QLatin1String("glossentry") ) {
-        QString decodedEntryId = KUrl::decode_string( url.encodedPathAndQuery() );
+        QString decodedEntryId = QUrl::fromPercentEncoding( url.encodedPathAndQuery().toAscii() );
         slotGlossSelected( mNavigator->glossEntry( decodedEntryId ) );
         mNavigator->slotSelectGlossEntry( decodedEntryId );
     } else {
