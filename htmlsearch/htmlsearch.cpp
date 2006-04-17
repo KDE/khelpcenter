@@ -179,8 +179,7 @@ bool HTMLSearch::createConfig(const QString& _lang)
     if (f.open(QIODevice::WriteOnly))
     {
         QTextStream ts( &f );
-        QStringList words = QStringList::split ( QRegExp ( "[\n:]" ),
-                                                 bad_words, false);
+        QStringList words = bad_words.split( QRegExp ( "[\n:]" ), QString::SkipEmptyParts );
         for ( QStringList::ConstIterator it = words.begin();
               it != words.end(); ++it )
             ts << *it << endl;
