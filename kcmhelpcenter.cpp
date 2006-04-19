@@ -556,7 +556,7 @@ void KCMHelpCenter::slotIndexFinished( KProcess *proc )
   mStdErr.clear();
 
   if ( mIsClosing ) {
-    if ( !mProgressDialog->isVisible() ) {
+    if ( !mProgressDialog || !mProgressDialog->isVisible() ) {
       mIsClosing = false;
       accept();
     }
