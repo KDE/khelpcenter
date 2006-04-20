@@ -16,7 +16,7 @@ ProgressDialog::ProgressDialog(QWidget *parent, const char *name)
   QGridLayout *grid = new QGridLayout(plainPage(), 5,3, spacingHint());
 
   QLabel *l = new QLabel(i18n("Scanning for files"), plainPage());
-  grid->addMultiCellWidget(l, 0,0, 1,2);
+  grid->addWidget(l, 0, 1, 1,2);
 
   filesScanned = new QLabel(plainPage());
   grid->addWidget(filesScanned, 1,2);
@@ -26,7 +26,7 @@ ProgressDialog::ProgressDialog(QWidget *parent, const char *name)
   grid->addWidget(check1, 0,0);
 
   l = new QLabel(i18n("Extracting search terms"), plainPage());
-  grid->addMultiCellWidget(l, 2,2, 1,2);
+  grid->addWidget(l, 2, 1, 1,2);
 
   bar = new QProgressBar(plainPage());
   grid->addWidget(bar, 3,2);
@@ -35,7 +35,7 @@ ProgressDialog::ProgressDialog(QWidget *parent, const char *name)
   grid->addWidget(check2, 2,0);
 
   l = new QLabel(i18n("Generating index..."), plainPage());
-  grid->addMultiCellWidget(l, 4,4, 1,2);
+  grid->addWidget(l, 4, 1, 1,2);
 
   check3 = new QLabel(plainPage());
   grid->addWidget(check3, 4,0);

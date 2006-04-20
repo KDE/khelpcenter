@@ -53,14 +53,14 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const char *name)
                   "You can get ht://dig at the"), gb);
   l->setAlignment(QLabel::WordBreak);
   l->setMinimumSize(l->sizeHint());
-  grid->addMultiCellWidget(l, 1, 1, 0, 1);
+  grid->addWidget(l, 1, 0, 1, 2 );
   QWhatsThis::add( gb, i18n( "Information about where to get the ht://dig package." ) );
 
   KUrlLabel *url = new KUrlLabel(gb);
   url->setURL("http://www.htdig.org");
   url->setText(i18n("ht://dig home page"));
   url->setAlignment(QLabel::AlignHCenter);
-  grid->addMultiCellWidget(url, 2,2, 0, 1);
+  grid->addWidget(url, 2, 0, 1, 2 );
   connect(url, SIGNAL(leftClickedURL(const QString&)),
       this, SLOT(urlClicked(const QString&)));
 
@@ -137,7 +137,7 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const char *name)
   grid->addWidget(delButton, 2,0);
 
   searchPaths = new KListBox(gb);
-  grid->addMultiCellWidget(searchPaths, 1,3, 1,1);
+  grid->addWidget(searchPaths, 1, 1,3, 1);
   grid->setRowStretch(2,2);
 
   gb = new QGroupBox(i18n("Language Settings"), this);
