@@ -66,7 +66,7 @@ install_targets(/bin khelpcenter )
 
 ########### next target ###############
 
-set(testmetainfo_SRCS testmetainfo.cpp )
+set(testmetainfo_SRCS testmetainfo.cpp docmetainfo.cpp docentry.cpp prefs.cpp docentrytraverser.cpp htmlsearch.cpp )
 
 kde4_automoc(${testmetainfo_SRCS})
 

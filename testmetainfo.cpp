@@ -95,11 +95,7 @@ int main(int argc,char **argv)
 
   kDebug() << "Scanning Meta Info" << endl;
 
-  QStringList langs;
-  langs << "en";
-//  langs << "de";
-
-  DocMetaInfo::self()->scanMetaInfo( langs );
+  DocMetaInfo::self()->scanMetaInfo( );
 
   kDebug() << "My TRAVERSE start" << endl;
   MyTraverser t;
