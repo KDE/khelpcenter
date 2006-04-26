@@ -4,7 +4,6 @@
 #include <qobject.h>
 #include <qstring.h>
 
-#include <kpixmap.h>
 #include <kio/job.h>
 
 #include "docentrytraverser.h"

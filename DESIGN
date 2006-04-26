@@ -138,14 +138,14 @@ items is (with one exception) delegated to four helper classes, which inherit a
 'KHC::TreeBuilder' class which has the following interface:
 
 class KHC::TreeBuilder
-	virtual void build( KListViewItem *parent ) = 0;
+	virtual void build( K3ListViewItem *parent ) = 0;
 
 ## What about the trees generated as children of the contents list view?
 
 # Oops, that's a typo, what you mean is what I originally intented: a
 # TreeBuilder should take a 'K3ListView' as it's parent, subclasses can then
 # overload that method (such as the KHC::TOCBuilder which will want to provide
-# a build( KListViewItem *parent ) method).
+# a build( K3ListViewItem *parent ) method).
 
 # This concept of using a TreeBuilder baseclass might make it possible to turn
 # all the classes which use that interface into plugins. That way we could

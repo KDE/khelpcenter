@@ -122,7 +122,7 @@ void History::updateCurrentEntry( View *view )
     return;
 
   KUrl url = view->url();
-  
+
   Entry *current = m_entries.current();
 
   QDataStream stream( &current->buffer, QIODevice::WriteOnly );
