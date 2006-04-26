@@ -285,8 +285,8 @@ void MainWindow::print()
 void MainWindow::slotStarted(KIO::Job *job)
 {
     if (job)
-       connect(job, SIGNAL(infoMessage( KIO::Job *, const QString &)),
-               SLOT(slotInfoMessage(KIO::Job *, const QString &)));
+       connect(job, SIGNAL(infoMessage( KJob *, const QString &, const QString &)),
+               SLOT(slotInfoMessage(KJob *, const QString &)));
 
     History::self().updateActions();
 }
@@ -362,7 +362,7 @@ void MainWindow::documentCompleted()
     History::self().updateActions();
 }
 
-void MainWindow::slotInfoMessage(KIO::Job *, const QString &m)
+void MainWindow::slotInfoMessage(KJob *, const QString &m)
 {
     statusBarMessage(m);
 }

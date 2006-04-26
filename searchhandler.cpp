@@ -7,12 +7,12 @@
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation; either version 2 of the License, or
     (at your option) any later version.
-    
+
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
     GNU General Public License for more details.
-    
+
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
@@ -135,12 +135,12 @@ void SearchHandler::search( DocEntry *entry, const QStringList &words,
   } else if ( !mSearchUrl.isEmpty() ) {
     QString urlString = SearchEngine::substituteSearchQuery( mSearchUrl,
       entry->identifier(), words, maxResults, operation, mLang );
-  
+
     kDebug() << "SearchHandler::search() URL: " << urlString << endl;
-  
+
     KIO::TransferJob *job = KIO::get( KUrl( urlString ) );
-    connect( job, SIGNAL( result( KIO::Job * ) ),
-             SLOT( slotJobResult( KIO::Job * ) ) );
+    connect( job, SIGNAL( result( KJob * ) ),
+             SLOT( slotJobResult( KJob * ) ) );
     connect( job, SIGNAL( data( KIO::Job *, const QByteArray & ) ),
              SLOT( slotJobData( KIO::Job *, const QByteArray & ) ) );
 
@@ -199,7 +199,7 @@ void SearchHandler::searchExited( KProcess *proc )
     entry = j->mEntry;
     result = j->mResult;
     error = "<em>" + j->mCmd + "</em>\n" + j->mError;
-    
+
     mProcessJobs.remove( proc );
     delete j;
   } else {
@@ -213,18 +213,18 @@ void SearchHandler::searchExited( KProcess *proc )
   }
 }
 
-void SearchHandler::slotJobResult( KIO::Job *job )
+void SearchHandler::slotJobResult( KJob *job )
 {
   QString result;
   DocEntry *entry = 0;
 
-  QMap<KIO::Job *, SearchJob *>::ConstIterator it = mKioJobs.find( job );
+  QMap<KJob *, SearchJob *>::ConstIterator it = mKioJobs.find( job );
   if ( it != mKioJobs.end() ) {
     SearchJob *j = *it;
 
     entry = j->mEntry;
-    result = j->mResult;    
-    
+    result = j->mResult;
+
     mKioJobs.remove( job );
     delete j;
   }
@@ -235,12 +235,12 @@ void SearchHandler::slotJobResult( KIO::Job *job )
     emit searchFinished( this, entry, result );
   }
 }
- 
+
 void SearchHandler::slotJobData( KIO::Job *job, const QByteArray &data )
 {
 //  kDebug() << "SearchHandler::slotJobData()" << endl;
 
-  QMap<KIO::Job *, SearchJob *>::ConstIterator it = mKioJobs.find( job );
+  QMap<KJob *, SearchJob *>::ConstIterator it = mKioJobs.find( job );
   if ( it != mKioJobs.end() ) {
     (*it)->mResult += data.data();
   }

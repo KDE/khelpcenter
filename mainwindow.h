@@ -75,7 +75,7 @@ class MainWindow : public KMainWindow, public DCOPObject
   private Q_SLOTS:
     void slotGlossSelected(const GlossaryEntry &entry);
     void slotStarted(KIO::Job *job);
-    void slotInfoMessage(KIO::Job *, const QString &);
+    void slotInfoMessage(KJob *, const QString &);
     void goInternalUrl( const KUrl & );
     /**
       This function is called when the user clicks on a link in the viewer part.
