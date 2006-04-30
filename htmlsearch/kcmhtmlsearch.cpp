@@ -71,7 +71,8 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const char *name)
   grid->addRowSpacing(0, gb->fontMetrics().lineSpacing());
 
   htdigBin = new KUrlRequester(gb);
-  l = new QLabel(htdigBin, i18n("ht&dig"), gb);
+  l = new QLabel(i18n("ht&dig"),gb);
+  l->setBuddy(htdigBin);
   l->setBuddy( htdigBin );
   grid->addWidget(l, 1,0);
   grid->addWidget(htdigBin, 1,1);
@@ -81,7 +82,8 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const char *name)
   QWhatsThis::add( l, wtstr );
 
   htsearchBin = new KUrlRequester(gb);
-  l = new QLabel(htsearchBin, i18n("ht&search"), gb);
+  l = new QLabel(i18n("ht&search"),gb);
+  l->setBuddy(htsearchBin);
   l->setBuddy( htsearchBin );
   grid->addWidget(l, 2,0);
   grid->addWidget(htsearchBin, 2,1);
@@ -91,7 +93,8 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const char *name)
   QWhatsThis::add( l, wtstr );
 
   htmergeBin = new KUrlRequester(gb);
-  l = new QLabel(htmergeBin, i18n("ht&merge"), gb);
+  l = new QLabel(i18n("ht&merge"),gb);
+  l->setBuddy(htmergeBin);
   l->setBuddy( htmergeBin );
   grid->addWidget(l, 3,0);
   grid->addWidget(htmergeBin, 3,1);
@@ -144,7 +147,8 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const char *name)
   vbox->addWidget(gb);
   QWhatsThis::add(gb, i18n("Here you can select the language you want to create the index for."));
   language = new KLanguageCombo(gb);
-  l = new QLabel(language, i18n("&Language"), gb);
+  l = new QLabel(i18n("&Language"),gb);
+  l->setBuddy(language);
   vvbox = new QVBoxLayout(gb, 6,2);
   vvbox->addSpacing(gb->fontMetrics().lineSpacing());
   hbox = new QHBoxLayout(vvbox, 6);
