@@ -13,7 +13,8 @@ ProgressDialog::ProgressDialog(QWidget *parent, const char *name)
   : KDialogBase(KDialogBase::Plain, i18n("Generating Index"), Cancel, Cancel,
 		parent, name, false)
 {
-  QGridLayout *grid = new QGridLayout(plainPage(), 5,3, spacingHint());
+  QGridLayout *grid = new QGridLayout(plainPage());
+  grid->setSpacing(spacingHint());
 
   QLabel *l = new QLabel(i18n("Scanning for files"), plainPage());
   grid->addWidget(l, 0, 1, 1,2);

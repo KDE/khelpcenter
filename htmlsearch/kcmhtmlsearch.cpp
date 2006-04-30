@@ -44,7 +44,9 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const char *name)
   QGroupBox *gb = new QGroupBox(i18n("ht://dig"), this);
   vbox->addWidget(gb);
 
-  QGridLayout *grid = new QGridLayout(gb, 3,2, 6,6);
+  QGridLayout *grid = new QGridLayout(gb);
+  grid->setSpacing(6);
+  grid->setMargin(6);
 
   grid->addRowSpacing(0, gb->fontMetrics().lineSpacing());
 
@@ -67,7 +69,9 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const char *name)
   gb = new QGroupBox(i18n("Program Locations"), this);
 
   vbox->addWidget(gb);
-  grid = new QGridLayout(gb, 4,2, 6,6);
+  grid = new QGridLayout(gb);
+  grid->setSpacing(6);
+  grid->setMargin(6);
   grid->addRowSpacing(0, gb->fontMetrics().lineSpacing());
 
   htdigBin = new KUrlRequester(gb);
@@ -130,7 +134,9 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const char *name)
   hbox->addWidget(gb);
   QWhatsThis::add( gb, i18n( "Here you can add additional paths to search for documentation. To add a path, click on the <em>Add...</em> button and select the folder from where additional documentation should be searched. You can remove folders by clicking on the <em>Delete</em> button." ) );
 
-  grid = new QGridLayout(gb, 4,3, 6,2);
+  grid = new QGridLayout(gb);
+  grid->setSpacing(2);
+  grid->setMargin(6);
   grid->addRowSpacing(0, gb->fontMetrics().lineSpacing());
 
   addButton = new QPushButton(i18n("Add..."), gb);
