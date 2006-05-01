@@ -52,6 +52,3 @@ rcdir = $(kde_datadir)/khelpcenter
 
 kde_kcfg_DATA = khelpcenter.kcfg
 
-messages: rc.cpp
-	$(EXTRACTRC) `find . -name "*.kcfg"` >> rc.cpp
-	$(XGETTEXT) *.cpp -o $(podir)/khelpcenter.pot
