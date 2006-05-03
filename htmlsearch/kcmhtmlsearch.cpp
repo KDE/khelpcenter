@@ -38,7 +38,8 @@
 KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const char *name)
   : KCModule(parent, name), indexProc(0)
 {
-  QVBoxLayout *vbox = new QVBoxLayout(this, 5);
+  QVBoxLayout *vbox = new QVBoxLayout(this);
+  vbox->setSpacing(5);
 
 
   QGroupBox *gb = new QGroupBox(i18n("ht://dig"), this);
@@ -113,7 +114,9 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const char *name)
   hbox->addWidget(gb);
   QWhatsThis::add( gb, i18n( "Here you can select which parts of the documentation should be included in the fulltext search index. Available options are the KDE Help pages, the installed man pages, and the installed info pages. You can select any number of these." ) );
 
-  QVBoxLayout *vvbox = new QVBoxLayout(gb, 6,2);
+  QVBoxLayout *vvbox = new QVBoxLayout(gb);
+  vvbox->setSpacing(2);
+  vvbox->setMargin(6);
   vvbox->addSpacing(gb->fontMetrics().lineSpacing());
 
   indexKDE = new QCheckBox(i18n("&KDE help"), gb);
@@ -155,9 +158,12 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const char *name)
   language = new KLanguageCombo(gb);
   l = new QLabel(i18n("&Language"),gb);
   l->setBuddy(language);
-  vvbox = new QVBoxLayout(gb, 6,2);
+  vvbox = new QVBoxLayout(gb);
+  vvbox->setSpacing(2);
+  vvbox->setMargin(6);
   vvbox->addSpacing(gb->fontMetrics().lineSpacing());
-  hbox = new QHBoxLayout(vvbox, 6);
+  hbox = new QHBoxLayout(vvbox);
+  hbox->setSpacing(6);
   hbox->addWidget(l);
   hbox->addWidget(language,1);
   hbox->addStretch(1);
