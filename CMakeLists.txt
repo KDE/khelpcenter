@@ -18,7 +18,7 @@ kde4_add_executable(khc_indexbuilder ${khc_indexbuilder_SRCS})
 
 target_link_libraries(khc_indexbuilder  ${KDE4_KDECORE_LIBS} )
 
-install_targets(/bin khc_indexbuilder )
+install(TARGETS khc_indexbuilder DESTINATION bin)
 
 
 ########### next target ###############
@@ -62,7 +62,7 @@ target_link_libraries(kdeinit_khelpcenter  ${KDE4_KDE3SUPPORT_LIBS} khtml  ${QT_
 install_targets(${LIB_INSTALL_DIR} kdeinit_khelpcenter )
 
 target_link_libraries( khelpcenter kdeinit_khelpcenter )
-install_targets(/bin khelpcenter )
+install(TARGETS khelpcenter DESTINATION bin)
 
 ########### next target ###############
 
