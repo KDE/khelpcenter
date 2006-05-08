@@ -14,6 +14,7 @@
 #include <klocale.h>
 #include <kmenu.h>
 #include <kstandarddirs.h>
+#include <ktoolbarpopupaction.h>
 
 #include <qfileinfo.h>
 #include <qclipboard.h>
@@ -25,9 +26,8 @@
 
 using namespace KHC;
 
-View::View( QWidget *parentWidget, const char *widgetName,
-                  QObject *parent, const char *name, KHTMLPart::GUIProfile prof, KActionCollection *col )
-    : KHTMLPart( parentWidget, widgetName, parent, name, prof ), mState( Docu ), mActionCollection(col)
+View::View( QWidget *parentWidget, QObject *parent, KHTMLPart::GUIProfile prof, KActionCollection *col )
+    : KHTMLPart( parentWidget, parent, prof ), mState( Docu ), mActionCollection(col)
 {
     mFormatter = new Formatter;
     if ( !mFormatter->readTemplates() ) {

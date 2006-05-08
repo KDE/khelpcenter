@@ -27,6 +27,8 @@
 #include "fontdialog.h"
 #include "prefs.h"
 
+#include <kaction.h>
+#include <kactioncollection.h>
 #include <kapplication.h>
 #include <kconfig.h>
 #include <dcopclient.h>
@@ -37,11 +39,11 @@
 #include <kdebug.h>
 #include <khtmlview.h>
 #include <khtml_settings.h>
-#include <kaction.h>
 #include <kstatusbar.h>
 #include <kstdaccel.h>
 #include <kdialogbase.h>
 #include <klocale.h>
+#include <kstdaction.h>
 #include <kxmlguifactory.h>
 
 #include <qsplitter.h>
@@ -103,7 +105,7 @@ MainWindow::MainWindow()
 {
     mSplitter = new QSplitter( this );
 
-    mDoc = new View( mSplitter, 0, this, 0, KHTMLPart::DefaultGUI, actionCollection() );
+    mDoc = new View( mSplitter, this, KHTMLPart::DefaultGUI, actionCollection() );
     connect( mDoc, SIGNAL( setWindowCaption( const QString & ) ),
              SLOT( setCaption( const QString & ) ) );
     connect( mDoc, SIGNAL( setStatusBarText( const QString & ) ),

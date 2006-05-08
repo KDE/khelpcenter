@@ -22,8 +22,7 @@ class View : public KHTMLPart
 {
     Q_OBJECT
   public:
-    View( QWidget *parentWidget, const char *widgetName,
-          QObject *parent, const char *name, KHTMLPart::GUIProfile prof,
+    View( QWidget *parentWidget, QObject *parent, KHTMLPart::GUIProfile prof,
           KActionCollection *col );
 
     ~View();

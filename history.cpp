@@ -27,6 +27,7 @@
 #include <kmenu.h>
 #include <kstdguiitem.h>
 #include <kstringhandler.h>
+#include <ktoolbarpopupaction.h>
 #include <kxmlguifactory.h>
 
 
