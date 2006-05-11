@@ -25,7 +25,7 @@
 #ifndef __KTAGCOMBOBOX_H__
 #define __KTAGCOMBOBOX_H__
 
-#include <qcombobox.h>
+#include <QComboBox>
 
 class QPopupMenu;
 

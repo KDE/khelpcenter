@@ -1,5 +1,5 @@
-#include <qlayout.h>
-#include <qlabel.h>
+#include <QLayout>
+#include <QLabel>
 #include <QProgressBar>
 
 #include <klocale.h>

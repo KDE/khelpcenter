@@ -26,9 +26,9 @@
 #include <k3listview.h>
 #include <kurl.h>
 
-#include <qfile.h>
+#include <QFile>
 #include <qtextstream.h>
-#include <qtimer.h>
+#include <QTimer>
 #include <q3ptrlist.h>
 #include <qtabwidget.h>
 #include <q3listview.h>

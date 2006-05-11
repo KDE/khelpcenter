@@ -1,5 +1,5 @@
-#include <qregexp.h>
-#include <qdir.h>
+#include <QRegExp>
+#include <QDir>
 #include <assert.h>
 
 #include <kapplication.h>

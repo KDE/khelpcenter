@@ -2,7 +2,7 @@
 #define __HTMLSEARCH_H__
 
 
-#include <qstring.h>
+#include <QString>
 #include <qstringlist.h>
 
 

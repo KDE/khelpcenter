@@ -20,7 +20,7 @@
 #ifndef KHC_SCROLLKEEPERTREEBUILDER_H
 #define KHC_SCROLLKEEPERTREEBUILDER_H
 
-#include <qobject.h>
+#include <QObject>
 
 #include "navigatoritem.h"
 

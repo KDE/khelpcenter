@@ -23,10 +23,10 @@
 #include <unistd.h>
 #include <errno.h>
 
-#include <qlabel.h>
-#include <qpushbutton.h>
-#include <qcombobox.h>
-#include <qlayout.h>
+#include <QLabel>
+#include <QPushButton>
+#include <QComboBox>
+#include <QLayout>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QBoxLayout>

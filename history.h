@@ -22,7 +22,7 @@
 
 #include <kurl.h>
 
-#include <qobject.h>
+#include <QObject>
 #include <q3ptrlist.h>
 #include <QMenu>
 

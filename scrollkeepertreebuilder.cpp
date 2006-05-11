@@ -31,8 +31,8 @@
 #include <kprocio.h>
 
 #include <qdom.h>
-#include <qfile.h>
-#include <qregexp.h>
+#include <QFile>
+#include <QRegExp>
 
 using namespace KHC;
 

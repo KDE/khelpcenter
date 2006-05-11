@@ -1,4 +1,4 @@
-#include <qregexp.h>
+#include <QRegExp>
 #include <qfileinfo.h>
 
 #include <kdebug.h>

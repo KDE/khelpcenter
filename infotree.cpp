@@ -32,7 +32,7 @@
 #include <kstandarddirs.h>
 #include <kurl.h>
 
-#include <qfile.h>
+#include <QFile>
 #include <qtextstream.h>
 #include <QPixmap>
 #include <stdlib.h>  // for getenv()

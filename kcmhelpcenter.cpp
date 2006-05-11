@@ -41,15 +41,15 @@
 #include <kmessagebox.h>
 #include <k3listview.h>
 #include <klineedit.h>
-#include <qlayout.h>
-#include <qpushbutton.h>
-#include <qdir.h>
+#include <QLayout>
+#include <QPushButton>
+#include <QDir>
 #include <qtabwidget.h>
 #include <qprogressbar.h>
-#include <qfile.h>
-#include <qlabel.h>
+#include <QFile>
+#include <QLabel>
 #include <q3textedit.h>
-#include <qregexp.h>
+#include <QRegExp>
 //Added by qt3to4:
 #include <QTextStream>
 #include <QFrame>

@@ -1,8 +1,8 @@
 #ifndef SEARCHENGINE_H
 #define SEARCHENGINE_H
 
-#include <qobject.h>
-#include <qstring.h>
+#include <QObject>
+#include <QString>
 
 #include <kio/job.h>
 

@@ -20,8 +20,8 @@
 #ifndef KHC_FORMATTER_H
 #define KHC_FORMATTER_H
 
-#include <qstring.h>
-#include <qmap.h>
+#include <QString>
+#include <QMap>
 
 namespace KHC {
 

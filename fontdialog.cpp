@@ -29,9 +29,9 @@
 #include <knuminput.h>
 
 #include <qgroupbox.h>
-#include <qlabel.h>
-#include <qlayout.h>
-#include <qspinbox.h>
+#include <QLabel>
+#include <QLayout>
+#include <QSpinBox>
 //Added by qt3to4:
 #include <QGridLayout>
 #include <kglobal.h>

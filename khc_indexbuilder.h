@@ -23,8 +23,8 @@
 
 #include <kuniqueapplication.h>
 
-#include <qobject.h>
-#include <qtimer.h>
+#include <QObject>
+#include <QTimer>
 
 class KProcess;
 

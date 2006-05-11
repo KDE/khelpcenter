@@ -22,7 +22,7 @@
 
 #include "searchengine.h"
 
-#include <qobject.h>
+#include <QObject>
 #include <qstringlist.h>
 
 namespace KIO {

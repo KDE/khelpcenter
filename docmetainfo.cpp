@@ -1,4 +1,4 @@
-#include <qregexp.h>
+#include <QRegExp>
 
 #include <kdebug.h>
 #include <kstandarddirs.h>

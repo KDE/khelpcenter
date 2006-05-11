@@ -26,7 +26,7 @@
 #include <kconfig.h>
 #include <kstandarddirs.h>
 
-#include <qfile.h>
+#include <QFile>
 #include <qtextstream.h>
 
 using namespace KHC;

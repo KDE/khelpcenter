@@ -23,19 +23,19 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
-#include <qdir.h>
-#include <qfile.h>
+#include <QDir>
+#include <QFile>
 #include <qpixmap.h>
-#include <qstring.h>
-#include <qlabel.h>
+#include <QString>
+#include <QLabel>
 #include <q3header.h>
 #include <qdom.h>
 #include <qtextstream.h>
-#include <qregexp.h>
-#include <qlayout.h>
-#include <qlineedit.h>
-#include <qpushbutton.h>
-#include <qtooltip.h>
+#include <QRegExp>
+#include <QLayout>
+#include <QLineEdit>
+#include <QPushButton>
+#include <QToolTip>
 //Added by qt3to4:
 #include <QFrame>
 #include <QHBoxLayout>

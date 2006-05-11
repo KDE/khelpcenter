@@ -21,7 +21,7 @@
 #ifndef KHC_HTMLSEARCHCONFIG_H
 #define KHC_HTMLSEARCHCONFIG_H
 
-#include <qwidget.h>
+#include <QWidget>
 
 class KUrlRequester;
 class KConfig;

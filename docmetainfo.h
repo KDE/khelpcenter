@@ -1,10 +1,10 @@
 #ifndef DOCMETAINFO_H
 #define DOCMETAINFO_H
 
-#include <qstring.h>
+#include <QString>
 #include <qstringlist.h>
-#include <qdir.h>
-#include <qmap.h>
+#include <QDir>
+#include <QMap>
 
 #include "docentry.h"
 

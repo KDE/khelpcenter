@@ -21,7 +21,7 @@
 #ifndef __searchwidget_h__
 #define __searchwidget_h__
 
-#include <qwidget.h>
+#include <QWidget>
 
 #include <dcopobject.h>
 

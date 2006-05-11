@@ -1,8 +1,8 @@
 #ifndef KHC_HTMLSEARCH_H
 #define KHC_HTMLSEARCH_H
 
-#include <qobject.h>
-#include <qstring.h>
+#include <QObject>
+#include <QString>
 
 class KConfig;
 

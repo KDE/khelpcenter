@@ -32,7 +32,7 @@
 #include <kprocess.h>
 #include <kconfig.h>
 
-#include <qfile.h>
+#include <QFile>
 #include <qtextstream.h>
 
 #include <unistd.h>

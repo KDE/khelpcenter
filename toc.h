@@ -24,7 +24,7 @@
 
 #include <qdom.h>
 #include <q3listview.h>
-#include <qobject.h>
+#include <QObject>
 
 class KProcess;
 

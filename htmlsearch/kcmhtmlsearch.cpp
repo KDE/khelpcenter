@@ -18,12 +18,12 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#include <qlayout.h>
+#include <QLayout>
 #include <kstandarddirs.h>
 #include <klocale.h>
 #include <kurllabel.h>
 #include <kapplication.h>
-#include <qcheckbox.h>
+#include <QCheckBox>
 #include <qwhatsthis.h>
 #include <kfiledialog.h>
 #include <kprocess.h>
