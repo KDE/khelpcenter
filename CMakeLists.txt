@@ -1,4 +1,3 @@
-kde4_header()
 
 project(khelpcenter)
 
@@ -85,7 +84,6 @@ install_files( ${KCFG_INSTALL_DIR} FILES khelpcenter.kcfg )
 install_files( ${SERVICES_INSTALL_DIR} FILES khelpcenter.desktop )
 install_files( ${DATA_INSTALL_DIR}/khelpcenter FILES khelpcenterui.rc intro.html.in glossary.html.in table-of-contents.xslt  	glossary.xslt index.html.in )
 
-kde4_footer()
 
 
 
