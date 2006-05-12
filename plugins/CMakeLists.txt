@@ -4,7 +4,7 @@ add_subdirectory( Applications )
 add_subdirectory( Manpages ) 
 add_subdirectory( Tutorials ) 
 add_subdirectory( Scrollkeeper ) 
-include_directories(  ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR} ${KDE4_INCLUDES} )
+
 
 
 ########### install files ###############
