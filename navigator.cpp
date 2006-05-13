@@ -25,12 +25,12 @@
 
 #include <QDir>
 #include <QFile>
-#include <qpixmap.h>
+#include <QPixmap>
 #include <QString>
 #include <QLabel>
 #include <q3header.h>
 #include <qdom.h>
-#include <qtextstream.h>
+#include <QTextStream>
 #include <QRegExp>
 #include <QLayout>
 #include <QLineEdit>

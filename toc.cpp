@@ -28,7 +28,7 @@
 #include <kdebug.h>
 
 #include <QDir>
-#include <qfileinfo.h>
+#include <QFileInfo>
 //Added by qt3to4:
 #include <QTextStream>
 #include <QPixmap>

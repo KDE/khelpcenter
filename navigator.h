@@ -27,10 +27,10 @@
 #include <kurl.h>
 
 #include <QFile>
-#include <qtextstream.h>
+#include <QTextStream>
 #include <QTimer>
 #include <q3ptrlist.h>
-#include <qtabwidget.h>
+#include <QTabWidget>
 #include <q3listview.h>
 #include <q3dict.h>
 //Added by qt3to4:

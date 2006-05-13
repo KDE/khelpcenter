@@ -3,7 +3,7 @@
 
 
 #include <QString>
-#include <qstringlist.h>
+#include <QStringList>
 
 
 class QWidget;

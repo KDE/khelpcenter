@@ -16,8 +16,8 @@
 #include <kstandarddirs.h>
 #include <ktoolbarpopupaction.h>
 
-#include <qfileinfo.h>
-#include <qclipboard.h>
+#include <QFileInfo>
+#include <QClipboard>
 //Added by qt3to4:
 #include <QTextStream>
 #include <QKeyEvent>

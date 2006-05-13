@@ -28,7 +28,7 @@
 #include <klocale.h>
 #include <knuminput.h>
 
-#include <qgroupbox.h>
+#include <QGroupBox>
 #include <QLabel>
 #include <QLayout>
 #include <QSpinBox>

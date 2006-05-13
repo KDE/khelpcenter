@@ -1,4 +1,4 @@
-#include <qstringlist.h>
+#include <QStringList>
 
 #include <kaboutdata.h>
 #include <kapplication.h>

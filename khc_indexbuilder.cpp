@@ -33,7 +33,7 @@
 #include <kconfig.h>
 
 #include <QFile>
-#include <qtextstream.h>
+#include <QTextStream>
 
 #include <unistd.h>
 #include <stdlib.h>

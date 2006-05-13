@@ -24,7 +24,7 @@
 #include <kurllabel.h>
 #include <kapplication.h>
 #include <QCheckBox>
-#include <qwhatsthis.h>
+#include <QWhatsThis>
 #include <kfiledialog.h>
 #include <kprocess.h>
 #include "klangcombo.h"

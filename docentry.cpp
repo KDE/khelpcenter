@@ -1,5 +1,5 @@
 #include <QRegExp>
-#include <qfileinfo.h>
+#include <QFileInfo>
 
 #include <kdebug.h>
 #include <kdesktopfile.h>

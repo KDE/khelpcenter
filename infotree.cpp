@@ -33,7 +33,7 @@
 #include <kurl.h>
 
 #include <QFile>
-#include <qtextstream.h>
+#include <QTextStream>
 #include <QPixmap>
 #include <stdlib.h>  // for getenv()
 #include <kglobal.h>

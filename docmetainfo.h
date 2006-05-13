@@ -2,7 +2,7 @@
 #define DOCMETAINFO_H
 
 #include <QString>
-#include <qstringlist.h>
+#include <QStringList>
 #include <QDir>
 #include <QMap>
 

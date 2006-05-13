@@ -22,7 +22,7 @@
  */
 
 #define INCLUDE_MENUITEM_DEF 1
-#include <qpainter.h>
+#include <QPainter>
 
 #include <kdebug.h>
 

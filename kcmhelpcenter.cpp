@@ -44,7 +44,7 @@
 #include <QLayout>
 #include <QPushButton>
 #include <QDir>
-#include <qtabwidget.h>
+#include <QTabWidget>
 #include <qprogressbar.h>
 #include <QFile>
 #include <QLabel>

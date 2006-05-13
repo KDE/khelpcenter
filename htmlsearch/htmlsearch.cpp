@@ -11,7 +11,7 @@
 
 
 #include "progressdialog.h"
-#include <qtextstream.h>
+#include <QTextStream>
 #include "htmlsearch.moc"
 
 

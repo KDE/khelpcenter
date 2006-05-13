@@ -46,7 +46,7 @@
 #include <kstdaction.h>
 #include <kxmlguifactory.h>
 
-#include <qsplitter.h>
+#include <QSplitter>
 #include <q3textedit.h>
 #include <QLayout>
 //Added by qt3to4:
