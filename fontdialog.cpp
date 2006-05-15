@@ -39,7 +39,7 @@
 using namespace KHC;
 
 FontDialog::FontDialog( QWidget *parent, const char *name )
-	: KDialogBase( Swallow, 0, parent, name, true, i18n( "Font Configuration" ),
+	: KDialogBase( parent, name, true, i18n( "Font Configuration" ),
 	               Ok | Cancel )
 {
 	makeVBoxMainWidget();
