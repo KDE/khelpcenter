@@ -9,7 +9,7 @@ macro_additional_clean_files( ${CMAKE_CURRENT_BINARY_DIR}/khc_htdig.pl {CMAKE_CU
 install_files( ${DATA_INSTALL_DIR}/khelpcenter/searchhandlers/htdig FILES htdig_long.html )
 install_files( ${DATA_INSTALL_DIR}/khelpcenter/searchhandlers FILES htdig.desktop man.desktop docbook.desktop )
 
-install(PROGRAMS khc_htdig.pl khc_htsearch.pl khc_mansearch.pl khc_docbookdig.pl DESTINATION bin)
+install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/khc_htdig.pl khc_htsearch.pl khc_mansearch.pl ${CMAKE_CURRENT_BINARY_DIR}/khc_docbookdig.pl DESTINATION bin)
 
 
 
