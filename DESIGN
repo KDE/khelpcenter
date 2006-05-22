@@ -302,7 +302,7 @@ protocol == "help") by itself and otherwise use the plain URL.
 # which corresponds to an URL (hmm, this makes me think, TreeBuilder is a bad
 # name. Perhaps just 'Tree'?) and selects it (using
 # QListView::ensureItemVisible() or so) if requested. This probably implies.
-# that a TreeBuilder needs an internal QMap<KURL, QListViewItem *>.
+# that a TreeBuilder needs an internal QMap<KUrl, QListViewItem *>.
 
 # Also, the whole search engine needs more thought, that DataCollection idea
 # seems promising to me but I'm not yet decided on how to do it properly.
