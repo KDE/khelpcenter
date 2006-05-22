@@ -77,7 +77,7 @@ IndexDirDialog::IndexDirDialog( QWidget *parent )
                                KFile::LocalOnly );
   urlLayout->addWidget( mIndexUrlRequester );
 
-  mIndexUrlRequester->setURL( Prefs::indexDirectory() );
+  mIndexUrlRequester->setUrl( Prefs::indexDirectory() );
   connect(mIndexUrlRequester->lineEdit(),SIGNAL(textChanged ( const QString & )), this, SLOT(slotUrlChanged( const QString &)));
   slotUrlChanged( mIndexUrlRequester->lineEdit()->text() );
 }
