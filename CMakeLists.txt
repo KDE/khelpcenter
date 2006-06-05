@@ -50,7 +50,6 @@ set(khelpcenter_KDEINIT_SRCS
 
 kde4_automoc(${khelpcenter_KDEINIT_SRCS})
 
-kde4_add_dcop_skels(khelpcenter_KDEINIT_SRCS searchwidget.h mainwindow.h kcmhelpcenter.h )
 
 kde4_add_kcfg_files(khelpcenter_KDEINIT_SRCS prefs.kcfgc )
 
