@@ -78,7 +78,6 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const char *name)
   htdigBin = new KUrlRequester(gb);
   l = new QLabel(i18n("ht&dig"),gb);
   l->setBuddy(htdigBin);
-  l->setBuddy( htdigBin );
   grid->addWidget(l, 1,0);
   grid->addWidget(htdigBin, 1,1);
   connect(htdigBin->lineEdit(), SIGNAL(textChanged(const QString&)), this, SLOT(configChanged()));
@@ -89,7 +88,6 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const char *name)
   htsearchBin = new KUrlRequester(gb);
   l = new QLabel(i18n("ht&search"),gb);
   l->setBuddy(htsearchBin);
-  l->setBuddy( htsearchBin );
   grid->addWidget(l, 2,0);
   grid->addWidget(htsearchBin, 2,1);
   connect(htsearchBin->lineEdit(), SIGNAL(textChanged(const QString&)), this, SLOT(configChanged()));
@@ -100,7 +98,6 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const char *name)
   htmergeBin = new KUrlRequester(gb);
   l = new QLabel(i18n("ht&merge"),gb);
   l->setBuddy(htmergeBin);
-  l->setBuddy( htmergeBin );
   grid->addWidget(l, 3,0);
   grid->addWidget(htmergeBin, 3,1);
   connect(htmergeBin->lineEdit(), SIGNAL(textChanged(const QString&)), this, SLOT(configChanged()));
