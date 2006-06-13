@@ -41,7 +41,7 @@
 #include <khtml_settings.h>
 #include <kstatusbar.h>
 #include <kstdaccel.h>
-#include <kdialogbase.h>
+#include <kdialog.h>
 #include <klocale.h>
 #include <kstdaction.h>
 #include <kxmlguifactory.h>
