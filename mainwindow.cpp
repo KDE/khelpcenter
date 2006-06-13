@@ -62,14 +62,17 @@
 
 using namespace KHC;
 
-class LogDialog : public KDialogBase
+class LogDialog : public KDialog
 {
   public:
     LogDialog( QWidget *parent = 0 )
-      : KDialogBase( Plain, i18n("Search Error Log"), Ok, Ok, parent, 0,
-                     false )
+      : KDialog( parent )
     {
-      QFrame *topFrame = plainPage();
+      setCaption( i18n("Search Error Log") );
+      setButtons( Ok );
+
+      QFrame *topFrame = new QFrame( this );
+      setMainWidget( topFrame );
 
       QBoxLayout *topLayout = new QVBoxLayout( topFrame );
 

@@ -24,42 +24,48 @@
 #include <kcombobox.h>
 #include <kconfig.h>
 #include <kfontcombo.h>
+#include <kglobal.h>
 #include <khtmldefaults.h>
 #include <klocale.h>
 #include <knuminput.h>
+#include <kvbox.h>
 
 #include <QGroupBox>
 #include <QLabel>
 #include <QLayout>
 #include <QSpinBox>
-//Added by qt3to4:
-#include <QGridLayout>
-#include <kglobal.h>
 
 using namespace KHC;
 
 FontDialog::FontDialog( QWidget *parent, const char *name )
-	: KDialogBase( parent, name, true, i18n( "Font Configuration" ),
-	               Ok | Cancel )
+	: KDialog( parent )
 {
-	makeVBoxMainWidget();
+  setObjectName( name );
+  setModal( true );
+  setCaption( i18n( "Font Configuration" ) );
+  setButtons( Ok | Cancel );
+
+	m_mainWidget = new KVBox( this );
+  setMainWidget( m_mainWidget );
 
 	setupFontSizesBox();
 	setupFontTypesBox();
 	setupFontEncodingBox();
 
 	load();
+
+  connect( this, SIGNAL( okClicked() ), SLOT( slotOk() ) );
 }
 
 void FontDialog::slotOk()
 {
 	save();
-	accept();
+  accept();
 }
 
 void FontDialog::setupFontSizesBox()
 {
-	QGroupBox *gb = new QGroupBox( i18n( "Sizes" ), mainWidget() );
+	QGroupBox *gb = new QGroupBox( i18n( "Sizes" ), m_mainWidget );
 
 	QGridLayout *layout = new QGridLayout( gb );
 	layout->setSpacing( KDialog::spacingHint() );
@@ -82,7 +88,7 @@ void FontDialog::setupFontSizesBox()
 
 void FontDialog::setupFontTypesBox()
 {
-	QGroupBox *gb = new QGroupBox( i18n( "Fonts" ), mainWidget() );
+	QGroupBox *gb = new QGroupBox( i18n( "Fonts" ), m_mainWidget );
 
 	QGridLayout *layout = new QGridLayout( gb );
 	layout->setSpacing( KDialog::spacingHint() );
@@ -127,7 +133,7 @@ void FontDialog::setupFontTypesBox()
 
 void FontDialog::setupFontEncodingBox()
 {
-	QGroupBox *gb = new QGroupBox( i18n( "Encoding" ), mainWidget() );
+	QGroupBox *gb = new QGroupBox( i18n( "Encoding" ), m_mainWidget );
 
 	QGridLayout *layout = new QGridLayout( gb );
 	layout->setSpacing( KDialog::spacingHint() );

@@ -20,20 +20,18 @@
 #ifndef FONTDIALOG_H
 #define FONTDIALOG_H
 
-#include <kdialogbase.h>
-//Added by qt3to4:
-#include <QBoxLayout>
+#include <kdialog.h>
 
-class QBoxLayout;
 class QSpinBox;
 
 class KComboBox;
 class KFontCombo;
 class KIntNumInput;
+class KVBox;
 
 namespace KHC {
 
-class FontDialog : public KDialogBase
+class FontDialog : public KDialog
 {
 	Q_OBJECT
 	public:
@@ -60,6 +58,7 @@ class FontDialog : public KDialogBase
 		KFontCombo *m_fantasyFontCombo;
 		KComboBox *m_defaultEncoding;
 		QSpinBox *m_fontSizeAdjustement;
+    KVBox *m_mainWidget;
 };
 
 }

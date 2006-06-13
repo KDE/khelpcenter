@@ -21,7 +21,6 @@
 #define KCMHELPCENTER_H
 
 #include <kdialog.h>
-#include <kdialogbase.h>
 
 #include <dcopobject.h>
 
@@ -48,7 +47,7 @@ class DocEntry;
 class SearchEngine;
 }
 
-class IndexDirDialog : public KDialogBase
+class IndexDirDialog : public KDialog
 {
     Q_OBJECT
   public:
@@ -106,7 +105,7 @@ class KCMHelpCenterIface : virtual public DCOPObject
     virtual void slotIndexError( const QString & ) = 0;
 };
 
-class KCMHelpCenter : public KDialogBase, virtual public KCMHelpCenterIface
+class KCMHelpCenter : public KDialog, virtual public KCMHelpCenterIface
 {
     Q_OBJECT
   public:

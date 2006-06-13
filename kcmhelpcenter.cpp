@@ -63,9 +63,14 @@
 using namespace KHC;
 
 IndexDirDialog::IndexDirDialog( QWidget *parent )
-  : KDialogBase( parent, 0, true, i18n("Change Index Folder"), Ok | Cancel )
+  : KDialog( parent )
 {
-  QFrame *topFrame = makeMainWidget();
+  setModal( true );
+  setCaption( i18n("Change Index Folder") );
+  setButtons( Ok | Cancel );
+
+  QFrame *topFrame = new QFrame( this );
+  setMainWidget( topFrame );
 
   QBoxLayout *urlLayout = new QHBoxLayout( topFrame );
 
@@ -80,6 +85,8 @@ IndexDirDialog::IndexDirDialog( QWidget *parent )
   mIndexUrlRequester->setUrl( Prefs::indexDirectory() );
   connect(mIndexUrlRequester->lineEdit(),SIGNAL(textChanged ( const QString & )), this, SLOT(slotUrlChanged( const QString &)));
   slotUrlChanged( mIndexUrlRequester->lineEdit()->text() );
+
+  connect( this, SIGNAL( okClicked() ), SLOT( slotOk() ) );
 }
 
 void IndexDirDialog::slotUrlChanged( const QString &_url )
@@ -229,12 +236,17 @@ void IndexProgressDialog::hideDetails()
 KCMHelpCenter::KCMHelpCenter( KHC::SearchEngine *engine, QWidget *parent,
   const char *name)
   : DCOPObject( "kcmhelpcenter" ),
-    KDialogBase( parent, name, false, i18n("Build Search Index"),
-      Ok | Cancel, Ok, true ),
+    KDialog( parent ),
     mEngine( engine ), mProgressDialog( 0 ), mCmdFile( 0 ),
     mProcess( 0 ), mIsClosing( false ), mRunAsRoot( false )
 {
-  QWidget *widget = makeMainWidget();
+  setObjectName( name );
+  setCaption( i18n("Build Search Index") );
+  setButtons( Ok | Cancel );
+  enableButtonSeparator( true );
+
+  QWidget *widget = new QWidget( this );
+  setMainWidget( widget );
 
   setupMainWidget( widget );
 
@@ -308,6 +320,8 @@ void KCMHelpCenter::setupMainWidget( QWidget *parent )
   topLayout->addLayout( buttonLayout );
 
   buttonLayout->addStretch( 1 );
+
+  connect( this, SIGNAL( okClicked() ), SLOT( slotOk() ) );
 }
 
 void KCMHelpCenter::defaults()

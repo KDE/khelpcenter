@@ -10,9 +10,14 @@
 
 
 ProgressDialog::ProgressDialog(QWidget *parent, const char *name)
-  : KDialogBase(KDialogBase::Plain, i18n("Generating Index"), Cancel, Cancel,
-		parent, name, false)
+  : KDialog( parent )
 {
+  setCaption( i18n("Generating Index") );
+  setButtons( Cancel );
+  setDefaultButton( Cancel );
+  setObjectName( name );
+  setModal( false );
+
   QGridLayout *grid = new QGridLayout(plainPage());
   grid->setSpacing(spacingHint());
 

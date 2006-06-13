@@ -1,12 +1,12 @@
 #ifndef __PROGRESS_DIALOG_H__
 #define __PROGRESS_DIALOG_H__
 
-#include <kdialogbase.h>
+#include <kdialog.h>
 
 class QLabel;
 class QProgressBar;
 
-class ProgressDialog : public KDialogBase
+class ProgressDialog : public KDialog
 {
 
   Q_OBJECT
