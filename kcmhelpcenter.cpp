@@ -26,6 +26,10 @@
 #include "searchhandler.h"
 #include "searchengine.h"
 
+
+#include "kcmhelpcenteradaptor.h"
+#include <dbus/qdbus.h>
+
 #include <kconfig.h>
 #include <kdebug.h>
 #include <klocale.h>
@@ -35,7 +39,6 @@
 #include <kstandarddirs.h>
 #include <kprocess.h>
 #include <kapplication.h>
-#include <dcopclient.h>
 #include <ktempfile.h>
 #include <kurlrequester.h>
 #include <kmessagebox.h>
@@ -93,7 +96,7 @@ void IndexDirDialog::slotUrlChanged( const QString &_url )
 {
   enableButtonOK( !_url.isEmpty() );
 }
-  
+
 
 void IndexDirDialog::slotOk()
 {
@@ -235,11 +238,12 @@ void IndexProgressDialog::hideDetails()
 
 KCMHelpCenter::KCMHelpCenter( KHC::SearchEngine *engine, QWidget *parent,
   const char *name)
-  : DCOPObject( "kcmhelpcenter" ),
-    KDialog( parent ),
+  : KDialog( parent ),
     mEngine( engine ), mProgressDialog( 0 ), mCmdFile( 0 ),
     mProcess( 0 ), mIsClosing( false ), mRunAsRoot( false )
 {
+    new KcmhelpcenterAdaptor(this);
+    QDBus::sessionBus().registerObject("/kcmhelpcenter", this);
   setObjectName( name );
   setCaption( i18n("Build Search Index") );
   setButtons( Ok | Cancel );
@@ -257,7 +261,8 @@ KCMHelpCenter::KCMHelpCenter( KHC::SearchEngine *engine, QWidget *parent,
   DocMetaInfo::self()->scanMetaInfo();
 
   load();
-
+#warning "kde4: TODO port to dbus"
+#if 0  
   bool success = kapp->dcopClient()->connectDCOPSignal( "khc_indexbuilder",
       0, "buildIndexProgress()", "kcmhelpcenter",
       "slotIndexProgress()", false );
@@ -267,7 +272,7 @@ KCMHelpCenter::KCMHelpCenter( KHC::SearchEngine *engine, QWidget *parent,
       0, "buildIndexError(QString)", "kcmhelpcenter",
       "slotIndexError(QString)", false );
   if ( !success ) kError() << "connect DCOP signal failed" << endl;
-
+#endif
   mConfig->setGroup( "IndexDialog" );
   restoreDialogSize( mConfig );
 }
@@ -694,7 +699,7 @@ void KCMHelpCenter::checkSelection()
     }
     ++it;
   }
-  
+
   enableButtonOK( count != 0 );
 }
 

@@ -22,7 +22,6 @@
 
 #include <kdialog.h>
 
-#include <dcopobject.h>
 
 #include "scopeitem.h"
 //Added by qt3to4:
@@ -97,15 +96,7 @@ class IndexProgressDialog : public KDialog
     bool mFinished;
 };
 
-class KCMHelpCenterIface : virtual public DCOPObject
-{
-    K_DCOP
-  k_dcop:
-    virtual void slotIndexProgress() = 0;
-    virtual void slotIndexError( const QString & ) = 0;
-};
-
-class KCMHelpCenter : public KDialog, virtual public KCMHelpCenterIface
+class KCMHelpCenter : public KDialog
 {
     Q_OBJECT
   public:

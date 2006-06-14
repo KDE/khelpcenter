@@ -22,8 +22,7 @@
 #define __searchwidget_h__
 
 #include <QWidget>
-
-#include <dcopobject.h>
+#include <dbus/qdbus.h>
 
 #include "docmetainfo.h"
 
@@ -42,13 +41,13 @@ namespace KHC {
 class ScopeItem;
 class SearchEngine;
 
-class SearchWidget : public QWidget, public DCOPObject
+class SearchWidget : public QWidget
 {
     Q_OBJECT
-    K_DCOP
+    Q_CLASSINFO("D-Bus Interface", "org.kde.khelpcenter.searchwidget")
 
-  k_dcop:
-    ASYNC searchIndexUpdated(); // called from kcmhelpcenter
+public Q_SLOTS:
+    Q_SCRIPTABLE Q_ASYNC void searchIndexUpdated(); // called from kcmhelpcenter
 
   public:
     SearchWidget ( SearchEngine *, QWidget *parent = 0 );

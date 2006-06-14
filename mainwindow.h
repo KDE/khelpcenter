@@ -5,8 +5,6 @@
 #include <kio/job.h>
 #include <kurl.h>
 #include <kparts/browserextension.h>
-#include <dcopclient.h>
-#include <dcopobject.h>
 
 #include "navigator.h"
 #include "glossary.h"
@@ -20,19 +18,19 @@ namespace KHC {
 
 class View;
 
-class MainWindow : public KMainWindow, public DCOPObject
+class MainWindow : public KMainWindow
 {
     Q_OBJECT
-    K_DCOP
+	Q_CLASSINFO("D-Bus Interface", "org.kde.khelpcenter.khelpcenter")
   public:
     MainWindow();
     ~MainWindow();
 
-  k_dcop:
-    void openUrl( const QString &url );
-    void openUrl( const QString &url, const QByteArray& startup_id );
-    void showHome();
-    void lastSearch();
+  public Q_SLOTS:
+    Q_SCRIPTABLE void openUrl( const QString &url );
+    Q_SCRIPTABLE void openUrl( const QString &url, const QByteArray& startup_id );
+    Q_SCRIPTABLE void showHome();
+    Q_SCRIPTABLE void lastSearch();
 
   public Q_SLOTS:
     void print();

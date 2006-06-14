@@ -22,7 +22,7 @@ install(TARGETS khc_indexbuilder DESTINATION bin)
 
 ########### next target ###############
 
-set(khelpcenter_KDEINIT_SRCS 
+set(khelpcenter_KDEINIT_SRCS kcmhelpcenteradaptor.cpp
    navigator.cpp 
    navigatoritem.cpp 
    navigatorappitem.cpp 

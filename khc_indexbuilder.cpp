@@ -28,7 +28,6 @@
 #include <kcmdlineargs.h>
 #include <kuniqueapplication.h>
 #include <kdebug.h>
-#include <dcopclient.h>
 #include <kprocess.h>
 #include <kconfig.h>
 
@@ -134,20 +133,22 @@ void IndexBuilder::slotReceivedStderr( KProcess *, char *buffer, int buflen )
 void IndexBuilder::sendErrorSignal( const QString &error )
 {
   kDebug(1402) << "IndexBuilder::sendErrorSignal()" << endl;
-  
+#warning "kde4: TODO dbus port"  
+#if 0  
   QByteArray params;
   QDataStream stream( &params, QIODevice::WriteOnly );
 
   stream.setVersion(QDataStream::Qt_3_1);
   stream << error;
   kapp->dcopClient()->emitDCOPSignal("buildIndexError(QString)", params );  
+#endif  
 }
 
 void IndexBuilder::sendProgressSignal()
 {
   kDebug(1402) << "IndexBuilder::sendProgressSignal()" << endl;
- 
-  kapp->dcopClient()->emitDCOPSignal("buildIndexProgress()", QByteArray() );  
+#warning "kde4: DBUS port !!!"
+  //kapp->dcopClient()->emitDCOPSignal("buildIndexProgress()", QByteArray() );  
 }
 
 void IndexBuilder::quit()
@@ -203,8 +204,8 @@ int main( int argc, char **argv )
     kDebug(1402) << "can access" << endl;
     file.remove();
   }
-  
-  app.dcopClient()->registerAs( "khc_indexbuilder", false );
+#warning "kde4 port: TODO DBUS"  
+  //app.dcopClient()->registerAs( "khc_indexbuilder", false );
 
   IndexBuilder builder;
 

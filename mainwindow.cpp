@@ -26,12 +26,11 @@
 #include "searchengine.h"
 #include "fontdialog.h"
 #include "prefs.h"
-
+#include <dbus/qdbusconnection.h>
 #include <kaction.h>
 #include <kactioncollection.h>
 #include <kapplication.h>
 #include <kconfig.h>
-#include <dcopclient.h>
 #include <kiconloader.h>
 #include <kmimemagic.h>
 #include <krun.h>
@@ -103,9 +102,10 @@ class LogDialog : public KDialog
 
 
 MainWindow::MainWindow()
-    : KMainWindow(0, "MainWindow"), DCOPObject( "KHelpCenterIface" ),
+    : KMainWindow(0, "MainWindow"),
       mLogDialog( 0 )
 {
+    QDBus::sessionBus().registerObject("/KHelpCenter", this, QDBusConnection::ExportSlots);
     mSplitter = new QSplitter( this );
 
     mDoc = new View( mSplitter, this, KHTMLPart::DefaultGUI, actionCollection() );

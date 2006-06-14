@@ -44,13 +44,16 @@
 #include "searchengine.h"
 
 #include "searchwidget.h"
+#include <dbus/qdbusconnection.h>
 
 namespace KHC {
 
 SearchWidget::SearchWidget( SearchEngine *engine, QWidget *parent )
-  : QWidget( parent ), DCOPObject( "SearchWidget" ), mEngine( engine ),
+  : QWidget( parent ), mEngine( engine ),
   mScopeCount( 0 )
 {
+    QDBus::sessionBus().registerObject("/SearchWidget", this, QDBusConnection::ExportSlots);
+
   QBoxLayout *topLayout = new QVBoxLayout( this );
   topLayout->setMargin( 2 );
   topLayout->setSpacing( 2 );
@@ -149,14 +152,14 @@ void SearchWidget::readConfig( KConfig *cfg )
       ++it;
     }
   }
-  
+
   checkScope();
 }
 
 void SearchWidget::writeConfig( KConfig *cfg )
 {
   cfg->setGroup( "Search" );
-  
+
   cfg->writeEntry( "ScopeSelection", mScopeCombo->currentIndex() );
   Prefs::setMethod( mMethodCombo->currentIndex() );
   Prefs::setMaxCount( mPagesCombo->currentIndex() );
@@ -267,7 +270,7 @@ class ScopeTraverser : public DocEntryTraverser
     void process( DocEntry *entry )
     {
       if ( mWidget->engine()->canSearch( entry ) &&
-           ( !mWidget->engine()->needsIndex( entry ) || 
+           ( !mWidget->engine()->needsIndex( entry ) ||
            entry->indexExists( Prefs::indexDirectory() ) ) ) {
         ScopeItem *item = 0;
         if ( mParentItem ) {
@@ -343,9 +346,9 @@ void SearchWidget::scopeDoubleClicked( Q3ListViewItem *item )
   ScopeItem *scopeItem = static_cast<ScopeItem *>( item );
 
   QString searchUrl = scopeItem->entry()->search();
-  
+
   kDebug() << "DoubleClick: " << searchUrl << endl;
-  
+
   emit searchResult( searchUrl );
 }
 
@@ -387,7 +390,7 @@ void SearchWidget::checkScope()
     }
     ++it;
   }
-  
+
   emit scopeCountChanged( mScopeCount );
 }
 
