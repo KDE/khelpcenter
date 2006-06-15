@@ -102,9 +102,11 @@ class LogDialog : public KDialog
 
 
 MainWindow::MainWindow()
-    : KMainWindow(0, "MainWindow"),
+    : KMainWindow(0),
       mLogDialog( 0 )
 {
+    setObjectName( "MainWindow" );
+
     QDBus::sessionBus().registerObject("/KHelpCenter", this, QDBusConnection::ExportSlots);
     mSplitter = new QSplitter( this );
 

@@ -100,7 +100,7 @@ void IndexDirDialog::slotUrlChanged( const QString &_url )
 
 void IndexDirDialog::slotOk()
 {
-  Prefs::setIndexDirectory( mIndexUrlRequester->url() );
+  Prefs::setIndexDirectory( mIndexUrlRequester->url().url() );
   accept();
 }
 
