@@ -94,7 +94,7 @@ IndexDirDialog::IndexDirDialog( QWidget *parent )
 
 void IndexDirDialog::slotUrlChanged( const QString &_url )
 {
-  enableButtonOK( !_url.isEmpty() );
+  enableButtonOk( !_url.isEmpty() );
 }
 
 
@@ -700,7 +700,7 @@ void KCMHelpCenter::checkSelection()
     ++it;
   }
 
-  enableButtonOK( count != 0 );
+  enableButtonOk( count != 0 );
 }
 
 #include "kcmhelpcenter.moc"
