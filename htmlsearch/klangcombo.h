@@ -30,7 +30,7 @@
 /*
  * Extends KTagCombo to support adding and changing languages.
  *
- * It has also support for sub menues.
+ * It has also support for sub menus.
  */
 class KLanguageCombo : public KTagComboBox
 {

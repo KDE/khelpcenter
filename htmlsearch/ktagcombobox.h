@@ -33,7 +33,7 @@ class QPopupMenu;
  * This class should be just like qcombobox, but it should be possible
  * to have have a QIcon for each entry, and each entry should have a tag.
  *
- * It has also support for sub menues.
+ * It has also support for sub menus.
  */
 class KTagComboBox : public QComboBox
 {
