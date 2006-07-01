@@ -155,7 +155,7 @@ void InfoTree::parseInfoDirFile( const QString &infoDirFileName )
         QString appName = s.mid( 2, colon - 2 );
         QString url = "info:/" + s.mid( openBrace + 1, closeBrace - openBrace - 1 );
         if ( dot - closeBrace > 1 )
-          url += "/" + s.mid( closeBrace + 1, dot - closeBrace - 1 );
+          url += '/' + s.mid( closeBrace + 1, dot - closeBrace - 1 );
         else
           url += "/Top";
 

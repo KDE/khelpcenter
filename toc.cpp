@@ -249,7 +249,7 @@ TOCChapterItem::TOCChapterItem( TOC *toc, NavigatorItem *parent, Q3ListViewItem 
 
 QString TOCChapterItem::url()
 {
-	return "help:" + toc()->application() + "/" + m_name + ".html";
+	return "help:" + toc()->application() + '/' + m_name + ".html";
 }
 
 TOCSectionItem::TOCSectionItem( TOC *toc, TOCChapterItem *parent, Q3ListViewItem *after,
@@ -264,9 +264,9 @@ TOCSectionItem::TOCSectionItem( TOC *toc, TOCChapterItem *parent, Q3ListViewItem
 QString TOCSectionItem::url()
 {
 	if ( static_cast<TOCSectionItem *>( parent()->firstChild() ) == this )
-		return static_cast<TOCChapterItem *>( parent() )->url() + "#" + m_name;
+		return static_cast<TOCChapterItem *>( parent() )->url() + '#' + m_name;
 	
-	return "help:" + toc()->application() + "/" + m_name + ".html";
+	return "help:" + toc()->application() + '/' + m_name + ".html";
 }
 
 #include "toc.moc"

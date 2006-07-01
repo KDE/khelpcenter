@@ -243,7 +243,7 @@ bool DocEntry::indexExists( const QString &indexDir )
     testFile = mIndexTestFile;
   }
 
-  if ( !testFile.startsWith( "/" ) ) testFile = indexDir + "/" + testFile;
+  if ( !testFile.startsWith( "/" ) ) testFile = indexDir + '/' + testFile;
 
   return QFile::exists( testFile );
 }

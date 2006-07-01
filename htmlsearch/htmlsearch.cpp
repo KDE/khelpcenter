@@ -39,7 +39,7 @@ void HTMLSearch::scanDir(const QString& dir)
     } else {
         QDir d(dir, "*.html", QDir::Name|QDir::IgnoreCase, QDir::Files | QDir::Readable);
         QStringList const &list = d.entryList();
-        QString adir = d.canonicalPath () + "/";
+        QString adir = d.canonicalPath () + '/';
         QString file;
         for (it=list.begin(); it != list.end(); ++it)
         {
@@ -56,7 +56,7 @@ void HTMLSearch::scanDir(const QString& dir)
     for (it=dlist.begin(); it != dlist.end(); ++it)
         if (*it != "." && *it != "..")
         {
-            scanDir(dir + *it + "/");
+            scanDir(dir + *it + '/');
             kapp->processEvents();
         }
 }
@@ -75,7 +75,7 @@ bool HTMLSearch::saveFilesList(const QString& _lang)
 
     // add KDE help dirs
     if (scopeGroup.readEntry("KDE", QVariant(true)).toBool())
-        dirs = kapp->dirs()->findDirs("html", _lang + "/");
+        dirs = kapp->dirs()->findDirs("html", _lang + '/');
     kDebug() << "got " << dirs.count() << " dirs\n";
 
     // TODO: Man and Info!!
