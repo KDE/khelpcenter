@@ -22,7 +22,7 @@
 #define __searchwidget_h__
 
 #include <QWidget>
-#include <dbus/qdbus.h>
+#include <QtDBus/QtDBus>
 
 #include "docmetainfo.h"
 
@@ -47,7 +47,7 @@ class SearchWidget : public QWidget
     Q_CLASSINFO("D-Bus Interface", "org.kde.khelpcenter.searchwidget")
 
 public Q_SLOTS:
-    Q_SCRIPTABLE Q_ASYNC void searchIndexUpdated(); // called from kcmhelpcenter
+    Q_SCRIPTABLE Q_NOREPLY void searchIndexUpdated(); // called from kcmhelpcenter
 
   public:
     SearchWidget ( SearchEngine *, QWidget *parent = 0 );

@@ -28,7 +28,7 @@
 
 
 #include "kcmhelpcenteradaptor.h"
-#include <dbus/qdbus.h>
+#include <QtDBus/QtDBus>
 
 #include <kconfig.h>
 #include <kdebug.h>
@@ -247,7 +247,7 @@ KCMHelpCenter::KCMHelpCenter( KHC::SearchEngine *engine, QWidget *parent,
   setObjectName( name );
   setCaption( i18n("Build Search Index") );
   setButtons( Ok | Cancel );
-  enableButtonSeparator( true );
+  showButtonSeparator( true );
 
   QWidget *widget = new QWidget( this );
   setMainWidget( widget );
