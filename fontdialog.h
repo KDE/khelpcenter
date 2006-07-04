@@ -25,7 +25,7 @@
 class QSpinBox;
 
 class KComboBox;
-class KFontCombo;
+class QFontComboBox;
 class KIntNumInput;
 class KVBox;
 
@@ -50,12 +50,12 @@ class FontDialog : public KDialog
 
 		KIntNumInput *m_minFontSize;
 		KIntNumInput *m_medFontSize;
-		KFontCombo *m_standardFontCombo;
-		KFontCombo *m_fixedFontCombo;
-		KFontCombo *m_serifFontCombo;
-		KFontCombo *m_sansSerifFontCombo;
-		KFontCombo *m_italicFontCombo;
-		KFontCombo *m_fantasyFontCombo;
+		QFontComboBox *m_standardFontCombo;
+		QFontComboBox *m_fixedFontCombo;
+		QFontComboBox *m_serifFontCombo;
+		QFontComboBox *m_sansSerifFontCombo;
+		QFontComboBox *m_italicFontCombo;
+		QFontComboBox *m_fantasyFontCombo;
 		KComboBox *m_defaultEncoding;
 		QSpinBox *m_fontSizeAdjustement;
     KVBox *m_mainWidget;

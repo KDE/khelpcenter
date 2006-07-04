@@ -23,13 +23,13 @@
 #include <kcharsets.h>
 #include <kcombobox.h>
 #include <kconfig.h>
-#include <kfontcombo.h>
 #include <kglobal.h>
 #include <khtmldefaults.h>
 #include <klocale.h>
 #include <knuminput.h>
 #include <kvbox.h>
 
+#include <QFontComboBox>
 #include <QGroupBox>
 #include <QLabel>
 #include <QLayout>
@@ -96,37 +96,37 @@ void FontDialog::setupFontTypesBox()
 
 	QLabel *lStandardFont = new QLabel( i18n( "S&tandard font:" ), gb );
 	layout->addWidget( lStandardFont, 0, 0 );
-	m_standardFontCombo = new KFontCombo( gb );
+	m_standardFontCombo = new QFontComboBox( gb );
 	layout->addWidget( m_standardFontCombo, 0, 1 );
 	lStandardFont->setBuddy( m_standardFontCombo );
 
 	QLabel *lFixedFont = new QLabel( i18n( "F&ixed font:" ), gb );
 	layout->addWidget( lFixedFont, 1, 0 );
-	m_fixedFontCombo = new KFontCombo( gb );
+	m_fixedFontCombo = new QFontComboBox( gb );
 	layout->addWidget( m_fixedFontCombo, 1, 1 );
 	lFixedFont->setBuddy( m_fixedFontCombo );
 
 	QLabel *lSerifFont = new QLabel( i18n( "S&erif font:" ), gb );
 	layout->addWidget( lSerifFont, 2, 0 );
-	m_serifFontCombo = new KFontCombo( gb );
+	m_serifFontCombo = new QFontComboBox( gb );
 	layout->addWidget( m_serifFontCombo, 2, 1 );
 	lSerifFont->setBuddy( m_serifFontCombo );
 
 	QLabel *lSansSerifFont = new QLabel( i18n( "S&ans serif font:" ), gb );
 	layout->addWidget( lSansSerifFont, 3, 0 );
-	m_sansSerifFontCombo = new KFontCombo( gb );
+	m_sansSerifFontCombo = new QFontComboBox( gb );
 	layout->addWidget( m_sansSerifFontCombo, 3, 1 );
 	lSansSerifFont->setBuddy( m_sansSerifFontCombo );
 
 	QLabel *lItalicFont = new QLabel( i18n( "&Italic font:" ), gb );
 	layout->addWidget( lItalicFont, 4, 0 );
-	m_italicFontCombo = new KFontCombo( gb );
+	m_italicFontCombo = new QFontComboBox( gb );
 	layout->addWidget( m_italicFontCombo, 4, 1 );
 	lItalicFont->setBuddy( m_italicFontCombo );
 
 	QLabel *lFantasyFont = new QLabel( i18n( "&Fantasy font:" ), gb );
 	layout->addWidget( lFantasyFont, 5, 0 );
-	m_fantasyFontCombo = new KFontCombo( gb );
+	m_fantasyFontCombo = new QFontComboBox( gb );
 	layout->addWidget( m_fantasyFontCombo, 5, 1 );
 	lFantasyFont->setBuddy( m_fantasyFontCombo );
 }
@@ -202,12 +202,12 @@ void FontDialog::save()
 		configGroup.writeEntry( "MediumFontSize", m_medFontSize->value() );
 
 		QStringList fonts;
-		fonts << m_standardFontCombo->currentText()
-		      << m_fixedFontCombo->currentText()
-		      << m_serifFontCombo->currentText()
-		      << m_sansSerifFontCombo->currentText()
-		      << m_italicFontCombo->currentText()
-		      << m_fantasyFontCombo->currentText()
+		fonts << m_standardFontCombo->currentFont().family()
+		      << m_fixedFontCombo->currentFont().family()
+		      << m_serifFontCombo->currentFont().family()
+		      << m_sansSerifFontCombo->currentFont().family()
+		      << m_italicFontCombo->currentFont().family()
+		      << m_fantasyFontCombo->currentFont().family()
 		      << QString::number( m_fontSizeAdjustement->value() );
 
 		configGroup.writeEntry( "Fonts", fonts );
