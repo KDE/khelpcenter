@@ -26,7 +26,7 @@
 #include "searchengine.h"
 #include "fontdialog.h"
 #include "prefs.h"
-#include <dbus/qdbusconnection.h>
+#include <qdbusconnection.h>
 #include <kaction.h>
 #include <kactioncollection.h>
 #include <kapplication.h>

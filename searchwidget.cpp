@@ -44,7 +44,7 @@
 #include "searchengine.h"
 
 #include "searchwidget.h"
-#include <dbus/qdbusconnection.h>
+#include <qdbusconnection.h>
 
 namespace KHC {
 

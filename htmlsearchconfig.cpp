@@ -65,7 +65,7 @@ HtmlSearchConfig::HtmlSearchConfig(QWidget *parent, const char *name)
   gb->setWhatsThis( i18n( "Information about where to get the ht://dig package." ) );
 
   KUrlLabel *url = new KUrlLabel(gb);
-  url->setURL("http://www.htdig.org");
+  url->setUrl("http://www.htdig.org");
   url->setText(i18n("ht://dig home page"));
   url->setAlignment(Qt::AlignHCenter);
   grid->addWidget(url, 2,2, 0, 1);
