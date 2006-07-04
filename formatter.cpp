@@ -47,14 +47,14 @@ bool Formatter::readTemplates()
   QString mainTemplate = cfg->readEntry( "MainTemplate" );
 
   if ( mainTemplate.isEmpty() ) {
-    mainTemplate = locate( "appdata", "maintemplate" );
+    mainTemplate = KStandardDirs::locate( "appdata", "maintemplate" );
   }
-  
+
   if ( mainTemplate.isEmpty() ) {
     kWarning() << "Main template file name is empty." << endl;
     return false;
   }
-  
+
   QFile f( mainTemplate );
   if ( !f.open( QIODevice::ReadOnly ) ) {
     kWarning() << "Unable to open main template file '" << mainTemplate

@@ -40,7 +40,7 @@ View::View( QWidget *parentWidget, QObject *parent, KHTMLPart::GUIProfile prof, 
              this, SLOT( setTitle( const QString & ) ) );
     connect( this, SIGNAL( popupMenu( const QString &, const QPoint& ) ),
              this, SLOT( showMenu( const QString &, const QPoint& ) ) );
-             
+
     QString css = langLookup("common/kde-default.css");
     if (!css.isEmpty())
     {
@@ -95,7 +95,7 @@ void View::restoreState( QDataStream &stream )
 
 void View::showAboutPage()
 {
-    QString file = locate( "data", "khelpcenter/intro.html.in" );
+    QString file = KStandardDirs::locate( "data", "khelpcenter/intro.html.in" );
     if ( file.isEmpty() )
         return;
 
@@ -169,7 +169,7 @@ QString View::langLookup( const QString &fname )
         QFileInfo info(*it);
         if (info.exists() && info.isFile() && info.isReadable())
             return *it;
-        
+
 		QString file = (*it).left((*it).lastIndexOf('/')) + "/index.docbook";
 		info.setFile(file);
 		if (info.exists() && info.isFile() && info.isReadable())
@@ -218,9 +218,9 @@ KUrl View::internalUrl() const
 void View::lastSearch()
 {
   if ( mSearchResult.isEmpty() ) return;
- 
+
   mState = Search;
-  
+
   begin();
   write( mSearchResult );
   end();

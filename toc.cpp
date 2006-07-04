@@ -50,11 +50,11 @@ class TOCItem : public NavigatorItem
 class TOCChapterItem : public TOCItem
 {
 	public:
-		TOCChapterItem( TOC *toc, NavigatorItem *parent, Q3ListViewItem *after, const QString &title, 
+		TOCChapterItem( TOC *toc, NavigatorItem *parent, Q3ListViewItem *after, const QString &title,
 				const QString &name );
 
 		virtual QString url();
-			
+
 	private:
 		QString m_name;
 };
@@ -62,11 +62,11 @@ class TOCChapterItem : public TOCItem
 class TOCSectionItem : public TOCItem
 {
 	public:
-		TOCSectionItem( TOC *toc, TOCChapterItem *parent, Q3ListViewItem *after, const QString &title, 
+		TOCSectionItem( TOC *toc, TOCChapterItem *parent, Q3ListViewItem *after, const QString &title,
 				const QString &name );
 
 		virtual QString url();
-	
+
 	private:
 		QString m_name;
 };
@@ -91,7 +91,7 @@ void TOC::build( const QString &file )
 	}
 
 	QString cacheFile = fileName.replace( QDir::separator(), "__" );
-	m_cacheFile = locateLocal( "cache", "help/" + cacheFile );
+	m_cacheFile = KStandardDirs::locateLocal( "cache", "help/" + cacheFile );
 	m_sourceFile = file;
 
 	if ( cacheStatus() == NeedRebuild )
@@ -122,7 +122,7 @@ int TOC::cachedCTime() const
 	QFile f( m_cacheFile );
 	if ( !f.open( QIODevice::ReadOnly ) )
 		return 0;
-	
+
 	QDomDocument doc;
 	if ( !doc.setContent( &f ) )
 		return 0;
@@ -138,8 +138,8 @@ void TOC::buildCache()
 	connect( meinproc, SIGNAL( processExited( KProcess * ) ),
 	         this, SLOT( meinprocExited( KProcess * ) ) );
 
-	*meinproc << locate( "exe", "meinproc" );
-	*meinproc << "--stylesheet" << locate( "data", "khelpcenter/table-of-contents.xslt" );
+	*meinproc << KStandardDirs::locate( "exe", "meinproc" );
+	*meinproc << "--stylesheet" << KStandardDirs::locate( "data", "khelpcenter/table-of-contents.xslt" );
 	*meinproc << "--output" << m_cacheFile;
 	*meinproc << m_sourceFile;
 
@@ -185,7 +185,7 @@ void TOC::fillTree()
 	QDomDocument doc;
 	if ( !doc.setContent( &f ) )
 		return;
-	
+
 	TOCChapterItem *chapItem = 0;
 	QDomNodeList chapters = doc.documentElement().elementsByTagName( "chapter" );
 	for ( int chapterCount = 0; chapterCount < chapters.count(); chapterCount++ ) {
@@ -265,7 +265,7 @@ QString TOCSectionItem::url()
 {
 	if ( static_cast<TOCSectionItem *>( parent()->firstChild() ) == this )
 		return static_cast<TOCChapterItem *>( parent() )->url() + '#' + m_name;
-	
+
 	return "help:" + toc()->application() + '/' + m_name + ".html";
 }
 

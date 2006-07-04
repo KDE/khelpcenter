@@ -57,7 +57,7 @@ kde4_add_kdeinit_executable( khelpcenter ${khelpcenter_KDEINIT_SRCS})
 
 target_link_libraries(kdeinit_khelpcenter  ${KDE4_KDE3SUPPORT_LIBS} khtml  ${QT_QTXML_LIBRARY}  )
 
-install_targets(${LIB_INSTALL_DIR} kdeinit_khelpcenter )
+install(TARGETS kdeinit_khelpcenter  DESTINATION ${LIB_INSTALL_DIR} )
 
 target_link_libraries( khelpcenter kdeinit_khelpcenter )
 install(TARGETS khelpcenter DESTINATION bin)
@@ -78,10 +78,10 @@ endif(KDE4_BUILD_TESTS)
 
 ########### install files ###############
 
-install_files( ${XDG_APPS_DIR} FILES Help.desktop )
-install_files( ${KCFG_INSTALL_DIR} FILES khelpcenter.kcfg )
-install_files( ${SERVICES_INSTALL_DIR} FILES khelpcenter.desktop )
-install_files( ${DATA_INSTALL_DIR}/khelpcenter FILES khelpcenterui.rc intro.html.in glossary.html.in table-of-contents.xslt  	glossary.xslt index.html.in )
+install( FILES Help.desktop  DESTINATION  ${XDG_APPS_DIR} )
+install( FILES khelpcenter.kcfg  DESTINATION  ${KCFG_INSTALL_DIR} )
+install( FILES khelpcenter.desktop  DESTINATION  ${SERVICES_INSTALL_DIR} )
+install( FILES khelpcenterui.rc intro.html.in glossary.html.in table-of-contents.xslt  	glossary.xslt index.html.in  DESTINATION  ${DATA_INSTALL_DIR}/khelpcenter )
 
 
 

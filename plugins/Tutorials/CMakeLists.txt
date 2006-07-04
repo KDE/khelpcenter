@@ -3,7 +3,7 @@
 
 ########### install files ###############
 
-install_files( ${DATA_INSTALL_DIR}/khelpcenter/plugins/Tutorials FILES .directory quickstart.desktop visualdict.desktop )
+install( FILES .directory quickstart.desktop visualdict.desktop  DESTINATION  ${DATA_INSTALL_DIR}/khelpcenter/plugins/Tutorials )
 
 
 

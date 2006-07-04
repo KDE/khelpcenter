@@ -232,7 +232,7 @@ void Navigator::insertParentAppDocs( const QString &name, NavigatorItem *topItem
   for ( ; it != end; ++it ) {
     QString desktopFile = ( *it )->entryPath();
     if ( QDir::isRelativePath( desktopFile ) )
-        desktopFile = locate( "apps", desktopFile );
+        desktopFile = KStandardDirs::locate( "apps", desktopFile );
     createItemFromDesktopFile( topItem, desktopFile );
   }
 }
@@ -264,7 +264,7 @@ void Navigator::insertIOSlaveDocs( const QString &name, NavigatorItem *topItem )
 
 void Navigator::insertAppletDocs( NavigatorItem *topItem )
 {
-  QDir appletDir( locate( "data", QLatin1String( "kicker/applets/" ) ) );
+  QDir appletDir( KStandardDirs::locate( "data", QLatin1String( "kicker/applets/" ) ) );
   appletDir.setNameFilters( QStringList( "*.desktop" ) );
 
   QStringList files = appletDir.entryList( QDir::Files | QDir::Readable );
@@ -441,7 +441,7 @@ void Navigator::showOverview( NavigatorItem *item, const KUrl &url )
 {
   mView->beginInternal( url );
 
-  QString fileName = locate( "data", "khelpcenter/index.html.in" );
+  QString fileName = KStandardDirs::locate( "data", "khelpcenter/index.html.in" );
   if ( fileName.isEmpty() )
     return;
 

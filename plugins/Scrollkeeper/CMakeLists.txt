@@ -3,7 +3,7 @@
 
 ########### install files ###############
 
-install_files( ${DATA_INSTALL_DIR}/khelpcenter/plugins/Scrollkeeper FILES .directory scrollkeeper.desktop )
+install( FILES .directory scrollkeeper.desktop  DESTINATION  ${DATA_INSTALL_DIR}/khelpcenter/plugins/Scrollkeeper )
 
 
 

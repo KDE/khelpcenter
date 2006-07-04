@@ -48,11 +48,11 @@ class SectionItem : public K3ListViewItem
 		{
 			setOpen( false );
 		}
-		
+
 		virtual void setOpen( bool open )
 		{
 				K3ListViewItem::setOpen(open);
-				
+
 				setPixmap( 0, SmallIcon( QLatin1String( open ? "contents" : "contents2" ) ) );
 
 		}
@@ -68,7 +68,7 @@ class EntryItem : public K3ListViewItem
 		}
 
 		QString id() const { return m_id; }
-	
+
 	private:
 		QString m_id;
 };
@@ -81,7 +81,7 @@ Glossary::Glossary( QWidget *parent ) : K3ListView( parent )
 	         this, SLOT( treeItemSelected( Q3ListViewItem * ) ) );
 	connect( this, SIGNAL( returnPressed( Q3ListViewItem * ) ),
 	         this, SLOT( treeItemSelected( Q3ListViewItem * ) ) );
-	
+
 	setFrameStyle( QFrame::Panel | QFrame::Sunken );
 	addColumn( QString() );
 	header()->hide();
@@ -94,7 +94,7 @@ Glossary::Glossary( QWidget *parent ) : K3ListView( parent )
 	m_alphabItem = new K3ListViewItem( this, i18n( "Alphabetically" ) );
 	m_alphabItem->setPixmap( 0, SmallIcon( "charset" ) );
 
-	m_cacheFile = locateLocal( "cache", "help/glossary.xml" );
+	m_cacheFile = KStandardDirs::locateLocal( "cache", "help/glossary.xml" );
 
 	m_sourceFile = View::View::langLookup( QLatin1String( "khelpcenter/glossary/index.docbook" ) );
 
@@ -154,10 +154,10 @@ void Glossary::rebuildGlossaryCache()
 	connect( meinproc, SIGNAL( processExited( KProcess * ) ),
 	         this, SLOT( meinprocExited( KProcess * ) ) );
 
-	*meinproc << locate( "exe", QLatin1String( "meinproc" ) );
+	*meinproc << KStandardDirs::locate( "exe", QLatin1String( "meinproc" ) );
 	*meinproc << QLatin1String( "--output" ) << m_cacheFile;
 	*meinproc << QLatin1String( "--stylesheet" )
-	          << locate( "data", QLatin1String( "khelpcenter/glossary.xslt" ) );
+	          << KStandardDirs::locate( "data", QLatin1String( "khelpcenter/glossary.xslt" ) );
 	*meinproc << m_sourceFile;
 
 	meinproc->start( KProcess::NotifyOnExit );
@@ -173,7 +173,7 @@ void Glossary::meinprocExited( KProcess *meinproc )
 	m_config->writePathEntry( "CachedGlossary", m_sourceFile );
 	m_config->writeEntry( "CachedGlossaryTimestamp", glossaryCTime() );
 	m_config->sync();
-	
+
 	m_status = CacheOk;
 
 	KMainWindow *mainWindow = dynamic_cast<KMainWindow *>( kapp->activeWindow() );
@@ -202,11 +202,11 @@ void Glossary::buildGlossaryTree()
 		QDomNodeList entryNodes = sectionElement.elementsByTagName( QLatin1String( "entry" ) );
 		for ( int j = 0; j < entryNodes.count(); j++ ) {
 			QDomElement entryElement = entryNodes.item( j ).toElement();
-			
+
 			QString entryId = entryElement.attribute( QLatin1String( "id" ) );
 			if ( entryId.isNull() )
 				continue;
-				
+
 			QDomElement termElement = childElement( entryElement, QLatin1String( "term" ) );
 			QString term = termElement.text().simplified();
 
@@ -238,10 +238,10 @@ void Glossary::buildGlossaryTree()
 
 					QString term = referenceElement.attribute( QLatin1String( "term" ) );
 					QString id = referenceElement.attribute( QLatin1String( "id" ) );
-					
+
 					seeAlso += GlossaryEntryXRef( term, id );
 				}
-			
+
 			m_glossEntries.insert( entryId, new GlossaryEntry( term, definition, seeAlso ) );
 		}
 	}
@@ -257,7 +257,7 @@ void Glossary::treeItemSelected( Q3ListViewItem *item )
 
 	item->setOpen( !item->isOpen() );
 }
-	
+
 QDomElement Glossary::childElement( const QDomElement &element, const QString &name )
 {
 	QDomElement e;
@@ -269,7 +269,7 @@ QDomElement Glossary::childElement( const QDomElement &element, const QString &n
 
 QString Glossary::entryToHtml( const GlossaryEntry &entry )
 {
-    QFile htmlFile( locate("data", "khelpcenter/glossary.html.in" ) );
+    QFile htmlFile( KStandardDirs::locate("data", "khelpcenter/glossary.html.in" ) );
     if (!htmlFile.open(QIODevice::ReadOnly))
       return QString( "<html><head></head><body><h3>%1</h3>%2</body></html>" )
              .arg( i18n( "Error" ) )

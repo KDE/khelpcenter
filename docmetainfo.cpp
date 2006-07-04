@@ -52,7 +52,7 @@ DocEntry *DocMetaInfo::addDocEntry( const QString &fileName )
 {
   QFileInfo fi( fileName );
   if ( !fi.exists() ) return 0;
-  
+
   QString extension = fi.completeSuffix();
   QStringList extensions = extension.split( '.');
   QString lang;
@@ -107,15 +107,15 @@ QString DocMetaInfo::languageName( const QString &langcode )
 {
   if ( langcode == "en" ) return i18n("English");
 
-  QString cfgfile = locate( "locale",
+  QString cfgfile = KStandardDirs::locate( "locale",
       QString::fromLatin1( "%1/entry.desktop" ).arg( langcode ) );
 
   kDebug() << "-- langcode: " << langcode << " cfgfile: " << cfgfile << endl;
-  
+
   KSimpleConfig cfg( cfgfile );
   cfg.setGroup( "KCM Locale" );
   QString name = cfg.readEntry( "Name", langcode );
-  
+
   return name;
 }
 
@@ -245,7 +245,7 @@ void DocMetaInfo::endProcess( DocEntry *entry, DocEntryTraverser *traverser )
     endTraverseEntries( traverser );
     return;
   }
-  
+
   if ( entry->hasChildren() ) {
     startTraverseEntry( entry->firstChild(), traverser->childTraverser( entry ) );
   } else if ( entry->nextSibling() ) {

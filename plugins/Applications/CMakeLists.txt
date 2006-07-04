@@ -3,7 +3,7 @@
 
 ########### install files ###############
 
-install_files( ${DATA_INSTALL_DIR}/khelpcenter/plugins/Applications FILES .directory )
+install( FILES .directory  DESTINATION  ${DATA_INSTALL_DIR}/khelpcenter/plugins/Applications )
 
 
 
