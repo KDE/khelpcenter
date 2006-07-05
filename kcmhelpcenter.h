@@ -112,13 +112,13 @@ class KCMHelpCenter : public KDialog
 
   Q_SIGNALS:
     void searchIndexUpdated();
-
+  public Q_SLOTS:
+    void slotIndexError( const QString & );
+    void slotIndexProgress();
   protected Q_SLOTS:
     bool buildIndex();
     void cancelBuildIndex();
     void slotIndexFinished( KProcess * );
-    void slotIndexProgress();
-    void slotIndexError( const QString & );
     void slotReceivedStdout(KProcess *proc, char *buffer, int buflen);
     void slotReceivedStderr(KProcess *proc, char *buffer, int buflen);
     void slotProgressClosed();

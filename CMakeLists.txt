@@ -22,7 +22,7 @@ install(TARGETS khc_indexbuilder DESTINATION bin)
 
 ########### next target ###############
 
-set(khelpcenter_KDEINIT_SRCS kcmhelpcenteradaptor.cpp
+set(khelpcenter_KDEINIT_SRCS 
    navigator.cpp 
    navigatoritem.cpp 
    navigatorappitem.cpp 
@@ -48,6 +48,7 @@ set(khelpcenter_KDEINIT_SRCS kcmhelpcenteradaptor.cpp
    scrollkeepertreebuilder.cpp 
    searchhandler.cpp )
 
+qt4_add_dbus_adaptor( khelpcenter_KDEINIT_SRCS org.kde.khelpcenter.kcmhelpcenter.xml kcmhelpcenter.h KCMHelpCenter )
 kde4_automoc(${khelpcenter_KDEINIT_SRCS})
 
 
