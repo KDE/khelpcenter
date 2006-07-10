@@ -5,7 +5,6 @@ Exec=kcmshell kcmhelpcenter
 Icon=help
 
 X-KDE-SubstituteUID=true
-X-KDE-ModuleType=Library
 X-KDE-Library=helpcenter
 X-KDE-RootOnly=true
 X-KDE-HasReadOnlyMode=true

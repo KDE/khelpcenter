@@ -5,7 +5,6 @@ Icon=help_index
 Type=Application
 DocPath=kcontrol/help-index.html
 
-X-KDE-ModuleType=Library
 X-KDE-Library=htmlsearch
 X-KDE-FactoryName=htmlsearch
 X-KDE-ControlModuleType=User
