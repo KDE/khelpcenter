@@ -37,9 +37,9 @@ kde4_automoc(${khtmlindex_SRCS})
 
 kde4_add_executable(khtmlindex ${khtmlindex_SRCS})
 
-target_link_libraries(khtmlindex  ${KDE4_KDECORE_LIBS} htmlsearch kdeui )
+target_link_libraries(khtmlindex  ${KDE4_KDEUI_LIBS} htmlsearch )
 
-install(TARGETS khtmlindex DESTINATION bin)
+install(TARGETS khtmlindex DESTINATION ${BIN_INSTALL_DIR})
 
 
 ########### install files ###############

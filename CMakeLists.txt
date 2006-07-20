@@ -17,7 +17,7 @@ kde4_add_executable(khc_indexbuilder ${khc_indexbuilder_SRCS})
 
 target_link_libraries(khc_indexbuilder  ${KDE4_KDECORE_LIBS} )
 
-install(TARGETS khc_indexbuilder DESTINATION bin)
+install(TARGETS khc_indexbuilder DESTINATION ${BIN_INSTALL_DIR})
 
 
 ########### next target ###############
@@ -61,15 +61,14 @@ target_link_libraries(kdeinit_khelpcenter  ${KDE4_KDE3SUPPORT_LIBS} khtml  ${QT_
 install(TARGETS kdeinit_khelpcenter  DESTINATION ${LIB_INSTALL_DIR} )
 
 target_link_libraries( khelpcenter kdeinit_khelpcenter )
-install(TARGETS khelpcenter DESTINATION bin)
+install(TARGETS khelpcenter DESTINATION ${BIN_INSTALL_DIR})
 
 ########### next target ###############
 
+if(KDE4_BUILD_TESTS)
 set(testmetainfo_SRCS testmetainfo.cpp docmetainfo.cpp docentry.cpp prefs.cpp docentrytraverser.cpp htmlsearch.cpp )
 
 kde4_automoc(${testmetainfo_SRCS})
-
-if(KDE4_BUILD_TESTS)
 
 kde4_add_executable(testmetainfo ${testmetainfo_SRCS})
 
