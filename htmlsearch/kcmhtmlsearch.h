@@ -32,6 +32,7 @@ class KListBox;
 class KProcess;
 class KLanguageCombo;
 class KUrlRequester;
+class QStringList;
 
 class KHTMLSearchConfig : public KCModule
 {
@@ -39,7 +40,7 @@ class KHTMLSearchConfig : public KCModule
 
 public:
 
-  KHTMLSearchConfig(QWidget *parent = 0L, const char *name = 0L);
+  KHTMLSearchConfig(QWidget *parent, const QStringList &args);
   virtual ~KHTMLSearchConfig();
   
   void load();

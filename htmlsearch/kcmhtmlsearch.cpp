@@ -31,12 +31,15 @@
 #include <kurlrequester.h>
 #include <klineedit.h>
 #include <ktoolinvocation.h>
+#include <kgenericfactory.h>
 
 #include "kcmhtmlsearch.moc"
 
+typedef KGenericFactory<KHTMLSearchConfig> KHTMLSearchConfigFactory;
+K_EXPORT_COMPONENT_FACTORY(htmlsearch, KHTMLSearchConfigFactory("kcmhtmlsearch"))
 
-KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const char *name)
-  : KCModule(parent, name), indexProc(0)
+KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const QStringList &)
+  : KCModule(KHTMLSearchConfigFactory::instance(), parent), indexProc(0)
 {
   QVBoxLayout *vbox = new QVBoxLayout(this);
   vbox->setSpacing(5);
@@ -371,14 +374,4 @@ void KHTMLSearchConfig::generateIndex()
 void KHTMLSearchConfig::indexTerminated(KProcess *)
 {
   runButton->setEnabled(true);
-}
-
-
-extern "C"
-{
-  KDE_EXPORT KCModule *create_htmlsearch(QWidget *parent, const char *name)
-  {
-    KGlobal::locale()->insertCatalog("kcmhtmlsearch");
-    return new KHTMLSearchConfig(parent, name);
-  };
 }

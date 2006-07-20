@@ -2,12 +2,13 @@
 Encoding=UTF-8
 Exec=kcmshell htmlsearch
 Icon=help_index
-Type=Application
+Type=Service
+ServiceTypes=KCModule
 DocPath=kcontrol/help-index.html
 
-X-KDE-Library=htmlsearch
+X-KDE-Library=kcm_htmlsearch
 X-KDE-FactoryName=htmlsearch
-X-KDE-ControlModuleType=User
+X-KDE-ParentApp=kcontrol
 
 Name=Index
 Name[x-test]=xxIndexxx
@@ -19,4 +20,3 @@ Comment[x-test]=xxIndex generationxx
 Keywords=Help,HTML,Search,Index,htdig,htsearch,htmerge,Scope,Language
 Keywords[fr]=aide,HTML,recherche,index,htdig,htsearch,htmerge,pays,langue
 Keywords[x-test]=xxHelp,HTML,Search,Index,htdig,htsearch,htmerge,Scope,Languagexx
-Categories=Qt;KDE;X-KDE-settings-system;
