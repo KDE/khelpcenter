@@ -1,17 +1,8 @@
 
-
-
-########### install files ###############
 #install( FILES helpdoc.png helpbook.png helpbook_open.png  DESTINATION  ${DATA_INSTALL_DIR}/khelpcenter/icons )
 
-kde4_install_icons( ${DATA_INSTALL_DIR}/khelpcenter/icons/ crystalsvg )
+kde4_install_icons( ${DATA_INSTALL_DIR}/khelpcenter/icons/ hicolor )
 
-
-
-
-#original Makefile.am contents follow:
-
-#
 #KDE_ICON = khelpcenter
 #
 #khelpcenter_ICON = helpdoc helpbook helpbook_open
