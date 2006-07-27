@@ -45,14 +45,13 @@ install(TARGETS khtmlindex DESTINATION ${BIN_INSTALL_DIR})
 ########### install files ###############
 
 install( FILES htmlsearch.desktop  DESTINATION  ${SERVICES_INSTALL_DIR} )
-install( FILES   DESTINATION  ${DATA_INSTALL_DIR}/khelpcenter/ )
 install( FILES long.html short.html wrapper.html nomatch.html syntax.html   DESTINATION  ${DATA_INSTALL_DIR}/khelpcenter/en )
 install( FILES star.png star_blank.png  DESTINATION  ${DATA_INSTALL_DIR}/khelpcenter/pics )
 install( FILES unchecked.xpm checked.xpm  DESTINATION  ${DATA_INSTALL_DIR}/khelpcenter/pics )
 
 install( FILES meinproc_wrapper  DESTINATION  ${DATA_INSTALL_DIR}/khelpcenter/ )
 
-kde4_install_icons( ${ICON_INSTALL_DIR} crystalsvg )
+kde4_install_icons( ${DATA_INSTALL_DIR}/khelpcenter/ crystalsvg )
 
 
 
