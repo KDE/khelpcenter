@@ -46,7 +46,7 @@
 #include <kxmlguifactory.h>
 
 #include <QSplitter>
-#include <q3textedit.h>
+#include <QTextEdit>
 #include <QLayout>
 //Added by qt3to4:
 #include <QVBoxLayout>
@@ -75,7 +75,7 @@ class LogDialog : public KDialog
 
       QBoxLayout *topLayout = new QVBoxLayout( topFrame );
 
-      mTextView = new Q3TextEdit( topFrame );
+      mTextView = new QTextEdit( topFrame );
       mTextView->setTextFormat( Qt::LogText );
       topLayout->addWidget( mTextView );
 
@@ -97,7 +97,7 @@ class LogDialog : public KDialog
     }
 
   private:
-    Q3TextEdit *mTextView;
+    QTextEdit *mTextView;
 };
 
 
