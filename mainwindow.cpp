@@ -31,6 +31,7 @@
 #include <kactioncollection.h>
 #include <kapplication.h>
 #include <kconfig.h>
+#include <kicon.h>
 #include <kiconloader.h>
 #include <kmimemagic.h>
 #include <krun.h>

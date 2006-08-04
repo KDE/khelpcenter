@@ -23,6 +23,7 @@
 #include <kaction.h>
 #include <kapplication.h>
 #include <kdebug.h>
+#include <kicon.h>
 #include <kmainwindow.h>
 #include <kmenu.h>
 #include <kstdguiitem.h>
