@@ -69,7 +69,7 @@ HtmlSearchConfig::HtmlSearchConfig(QWidget *parent, const char *name)
   url->setText(i18n("ht://dig home page"));
   url->setAlignment(Qt::AlignHCenter);
   grid->addWidget(url, 2,2, 0, 1);
-  connect(url, SIGNAL(leftClickedURL(const QString&)),
+  connect(url, SIGNAL(leftClickedUrl(const QString&)),
       this, SLOT(urlClicked(const QString&)));
 
   gb = new QGroupBox(i18n("Program Locations"), this);
