@@ -51,7 +51,7 @@ install( FILES unchecked.xpm checked.xpm  DESTINATION  ${DATA_INSTALL_DIR}/khelp
 
 install( FILES meinproc_wrapper  DESTINATION  ${DATA_INSTALL_DIR}/khelpcenter/ )
 
-kde4_install_icons( ${DATA_INSTALL_DIR}/khelpcenter/ crystalsvg )
+kde4_install_icons( ${DATA_INSTALL_DIR}/khelpcenter/  )
 
 
 
