@@ -11,17 +11,3 @@ install( FILES htdig.desktop man.desktop docbook.desktop  DESTINATION  ${DATA_IN
 
 install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/khc_htdig.pl khc_htsearch.pl khc_mansearch.pl ${CMAKE_CURRENT_BINARY_DIR}/khc_docbookdig.pl DESTINATION ${BIN_INSTALL_DIR})
 
-
-
-#original Makefile.am contents follow:
-
-#searchhandlers_DATA = htdig.desktop man.desktop docbook.desktop
-#
-#searchhandlersdir = $(kde_datadir)/khelpcenter/searchhandlers
-#
-#kde_bin_SCRIPTS = khc_htdig.pl khc_htsearch.pl khc_mansearch.pl \
-#  khc_docbookdig.pl
-#
-#htdigdata_DATA = htdig_long.html
-#
-#htdigdatadir = $(kde_datadir)/khelpcenter/searchhandlers/htdig
