@@ -243,7 +243,7 @@ KCMHelpCenter::KCMHelpCenter( KHC::SearchEngine *engine, QWidget *parent,
     mProcess( 0 ), mIsClosing( false ), mRunAsRoot( false )
 {
     new KcmhelpcenterAdaptor(this);
-    QDBus::sessionBus().registerObject("/kcmhelpcenter", this);
+    QDBusConnection::sessionBus().registerObject("/kcmhelpcenter", this);
   setObjectName( name );
   setCaption( i18n("Build Search Index") );
   setButtons( Ok | Cancel );

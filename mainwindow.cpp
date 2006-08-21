@@ -108,7 +108,7 @@ MainWindow::MainWindow()
 {
     setObjectName( "MainWindow" );
 
-    QDBus::sessionBus().registerObject("/KHelpCenter", this, QDBusConnection::ExportSlots);
+    QDBusConnection::sessionBus().registerObject("/KHelpCenter", this, QDBusConnection::ExportScriptableSlots);
     mSplitter = new QSplitter( this );
 
     mDoc = new View( mSplitter, this, KHTMLPart::DefaultGUI, actionCollection() );

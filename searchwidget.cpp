@@ -52,7 +52,7 @@ SearchWidget::SearchWidget( SearchEngine *engine, QWidget *parent )
   : QWidget( parent ), mEngine( engine ),
   mScopeCount( 0 )
 {
-    QDBus::sessionBus().registerObject("/SearchWidget", this, QDBusConnection::ExportSlots);
+    QDBusConnection::sessionBus().registerObject("/SearchWidget", this, QDBusConnection::ExportScriptableSlots);
 
   QBoxLayout *topLayout = new QVBoxLayout( this );
   topLayout->setMargin( 2 );
