@@ -295,14 +295,14 @@ QString Glossary::entryToHtml( const GlossaryEntry &entry )
     return htmlStream.readAll()
            .arg( i18n( "KDE Glossary" ) )
            .arg( entry.term() )
-           .arg( View::langLookup( "khelpcenter/konq.css" ) )
-           .arg( View::langLookup( "khelpcenter/pointers.png" ) )
-           .arg( View::langLookup( "khelpcenter/khelpcenter.png" ) )
-           .arg( View::langLookup( "khelpcenter/lines.png" ) )
+           .arg( View::langLookup( QLatin1String("khelpcenter/konq.css") ) )
+           .arg( View::langLookup( QLatin1String("khelpcenter/pointers.png") ) )
+           .arg( View::langLookup( QLatin1String("khelpcenter/khelpcenter.png") ) )
+           .arg( View::langLookup( QLatin1String("khelpcenter/lines.png") ) )
            .arg( entry.term() )
            .arg( entry.definition() )
            .arg( seeAlso)
-           .arg( View::langLookup( "khelpcenter/kdelogo2.png" ) );
+           .arg( View::langLookup( QLatin1String("khelpcenter/kdelogo2.png") ) );
 }
 
 void Glossary::slotSelectGlossEntry( const QString &id )

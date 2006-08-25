@@ -198,7 +198,7 @@ void SearchHandler::searchExited( KProcess *proc )
     SearchJob *j = *it;
     entry = j->mEntry;
     result = j->mResult;
-    error = "<em>" + j->mCmd + "</em>\n" + j->mError;
+    error = QLatin1String("<em>") + j->mCmd + QLatin1String("</em>\n") + j->mError;
 
     mProcessJobs.remove( proc );
     delete j;

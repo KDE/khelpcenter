@@ -345,7 +345,8 @@ bool SearchEngine::search( QString words, QString method, int matches,
     QStringList::ConstIterator it;
     for( it = cmd.begin(); it != cmd.end(); ++it ) {
       QString arg = *it;
-      if ( arg.left( 1 ) == "\"" && arg.right( 1 ) =="\"" ) {
+      if ( arg.startsWith(QLatin1Char('\"')) && 
+           arg.endsWith(QLatin1Char('\"'))) {
         arg = arg.mid( 1, arg.length() - 2 );
       }
       *mProc << arg.toUtf8();
@@ -378,7 +379,7 @@ bool SearchEngine::search( QString words, QString method, int matches,
     delete mProc;
 
     // modify the search result
-    mSearchResult = mSearchResult.replace("http://localhost/", "file:/");
+    mSearchResult = mSearchResult.replace(QLatin1String("http://localhost/"), QLatin1String("file:/"));
     mSearchResult = mSearchResult.mid( mSearchResult.indexOf( '<' ) );
 
     mView->beginSearchResult();
@@ -394,11 +395,11 @@ bool SearchEngine::search( QString words, QString method, int matches,
 QString SearchEngine::substituteSearchQuery( const QString &query )
 {
   QString result = query;
-  result.replace( "%k", mWords );
-  result.replace( "%n", QString::number( mMatches ) );
-  result.replace( "%m", mMethod );
-  result.replace( "%l", mLang );
-  result.replace( "%s", mScope );
+  result.replace( QLatin1String("%k"), mWords );
+  result.replace( QLatin1String("%n"), QString::number( mMatches ) );
+  result.replace( QLatin1String("%m"), mMethod );
+  result.replace( QLatin1String("%l"), mLang );
+  result.replace( QLatin1String("%s"), mScope );
 
   return result;
 }
@@ -408,15 +409,13 @@ QString SearchEngine::substituteSearchQuery( const QString &query,
   Operation operation, const QString &lang )
 {
   QString result = query;
-  result.replace( "%i", identifier );
-  result.replace( "%w", words.join( "+" ) );
-  result.replace( "%m", QString::number( maxResults ) );
-  QString o;
-  if ( operation == Or ) o = "or";
-  else o = "and";
-  result.replace( "%o", o );
-  result.replace( "%d", Prefs::indexDirectory() );
-  result.replace( "%l", lang );
+  result.replace( QLatin1String("%i"), identifier );
+  result.replace( QLatin1String("%w"), words.join( "+" ) );
+  result.replace( QLatin1String("%m"), QString::number( maxResults ) );
+  QString o = QLatin1String(operation == Or ? "or" : "and");
+  result.replace( QLatin1String("%o"), o );
+  result.replace( QLatin1String("%d"), Prefs::indexDirectory() );
+  result.replace( QLatin1String("%l"), lang );
 
   return result;
 }
@@ -446,7 +445,7 @@ QString SearchEngine::errorLog() const
 
 void SearchEngine::logError( DocEntry *entry, const QString &msg )
 {
-  mStderr += entry->identifier() + ": " + msg;
+  mStderr += entry->identifier() + QLatin1String(": ") + msg;
 }
 
 bool SearchEngine::isRunning() const

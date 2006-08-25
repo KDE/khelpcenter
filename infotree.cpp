@@ -77,8 +77,8 @@ InfoNodeItem::InfoNodeItem( InfoCategoryItem *parent, const QString &text )
 //  kDebug( 1400 ) << "Created info node item: " << text << endl;
 }
 
-InfoTree::InfoTree( QObject *parent, const char *name )
-  : TreeBuilder( parent, name ),
+InfoTree::InfoTree( QObject *parent )
+  : TreeBuilder( parent ),
     m_parentItem( 0 )
 {
 }
@@ -155,9 +155,9 @@ void InfoTree::parseInfoDirFile( const QString &infoDirFileName )
         QString appName = s.mid( 2, colon - 2 );
         QString url = "info:/" + s.mid( openBrace + 1, closeBrace - openBrace - 1 );
         if ( dot - closeBrace > 1 )
-          url += '/' + s.mid( closeBrace + 1, dot - closeBrace - 1 );
+          url += QLatin1Char('/') + s.mid( closeBrace + 1, dot - closeBrace - 1 );
         else
-          url += "/Top";
+          url += QLatin1String("/Top");
 
         InfoNodeItem *item = new InfoNodeItem( catItem, appName );
         item->entry()->setUrl( url );

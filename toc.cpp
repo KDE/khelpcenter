@@ -249,7 +249,8 @@ TOCChapterItem::TOCChapterItem( TOC *toc, NavigatorItem *parent, Q3ListViewItem 
 
 QString TOCChapterItem::url()
 {
-	return "help:" + toc()->application() + '/' + m_name + ".html";
+	return QLatin1String("help:") + toc()->application() + QLatin1Char('/') + m_name 
+               + QLatin1String(".html");
 }
 
 TOCSectionItem::TOCSectionItem( TOC *toc, TOCChapterItem *parent, Q3ListViewItem *after,

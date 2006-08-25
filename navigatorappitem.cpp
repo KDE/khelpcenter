@@ -132,14 +132,14 @@ void NavigatorAppItem::populate( bool recursive )
 
 QString NavigatorAppItem::documentationURL( const KService *s )
 {
-  QString docPath = s->property( "DocPath" ).toString();
+  QString docPath = s->property( QLatin1String("DocPath") ).toString();
   if ( docPath.isEmpty() )
     return QString();
 
-  if ( docPath.startsWith( "file:") || docPath.startsWith( "http:" ) )
+  if ( docPath.startsWith( QLatin1String("file:")) || docPath.startsWith( QLatin1String("http:") ) )
     return docPath;
 
-  return QString( "help:/" ) + docPath;
+  return QLatin1String( "help:/" ) + docPath;
 }
 
 // vim:ts=2:sw=2:et

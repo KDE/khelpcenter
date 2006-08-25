@@ -461,7 +461,7 @@ void Navigator::showOverview( NavigatorItem *item, const KUrl &url )
     name = item->entry()->name();
 
     QString info = item->entry()->info();
-    if ( !info.isEmpty() ) content = "<p>" + info + "</p>\n";
+    if ( !info.isEmpty() ) content = QLatin1String("<p>") + info + QLatin1String("</p>\n");
 
     childCount = item->childCount();
   } else {
@@ -481,7 +481,7 @@ void Navigator::showOverview( NavigatorItem *item, const KUrl &url )
     content += createChildrenList( child );
   }
   else
-    content += "<p></p>";
+    content += QLatin1String("<p></p>");
 
   res = res.arg(title).arg(name).arg(content);
 
@@ -496,24 +496,24 @@ QString Navigator::createChildrenList( Q3ListViewItem *child )
 
   QString t;
 
-  t += "<ul>\n";
+  t += QLatin1String("<ul>\n");
 
   while ( child ) {
     NavigatorItem *childItem = static_cast<NavigatorItem *>( child );
 
     DocEntry *e = childItem->entry();
 
-    t += "<li><a href=\"" + e->url() + "\">";
-    if ( e->isDirectory() ) t += "<b>";
+    t += QLatin1String("<li><a href=\"") + e->url() + QLatin1String("\">");
+    if ( e->isDirectory() ) t += QLatin1String("<b>");
     t += e->name();
-    if ( e->isDirectory() ) t += "</b>";
-    t += "</a>";
+    if ( e->isDirectory() ) t += QLatin1String("</b>");
+    t += QLatin1String("</a>");
 
     if ( !e->info().isEmpty() ) {
-      t += "<br>" + e->info();
+      t += QLatin1String("<br>") + e->info();
     }
 
-    t += "</li>\n";
+    t += QLatin1String("</li>\n");
 
     if ( childItem->childCount() > 0 && mDirLevel < 2 ) {
       t += createChildrenList( childItem->firstChild() );
@@ -522,7 +522,7 @@ QString Navigator::createChildrenList( Q3ListViewItem *child )
     child = child->nextSibling();
   }
 
-  t += "</ul>\n";
+  t += QLatin1String("</ul>\n");
 
   --mDirLevel;
 
@@ -600,7 +600,7 @@ bool Navigator::checkSearchIndex()
   int result = KMessageBox::questionYesNo( this, text, QString(),
                                            i18n("Create"),
                                            i18n("Do Not Create"),
-                                           "indexcreation" );
+                                           QLatin1String("indexcreation") );
   if ( result == KMessageBox::Yes ) {
     showIndexDialog();
     return false;
@@ -628,7 +628,7 @@ KUrl Navigator::homeURL()
   // language-specific StartUrl, e.g. "StartUrl[de]".
   cfg->reparseConfiguration();
   cfg->setGroup( "General" );
-  mHomeUrl = cfg->readPathEntry( "StartUrl", "khelpcenter:home" );
+  mHomeUrl = cfg->readPathEntry( "StartUrl", QLatin1String("khelpcenter:home") );
   return mHomeUrl;
 }
 

@@ -29,7 +29,7 @@ namespace KHC
   {
     Q_OBJECT
     public:
-      InfoTree( QObject *parent, const char *name = 0 );
+      InfoTree( QObject *parent );
 
       virtual void build( NavigatorItem  *parentItem );
 

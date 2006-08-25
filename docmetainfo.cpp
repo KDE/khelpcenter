@@ -125,20 +125,20 @@ void DocMetaInfo::scanMetaInfo( bool force )
 
   mLanguages = KGlobal::locale()->languagesTwoAlpha();
 
-  kDebug( 1400 ) << "LANGS: " << mLanguages.join( " " ) << endl;
+  kDebug( 1400 ) << "LANGS: " << mLanguages.join( QLatin1String(" ") ) << endl;
 
   QStringList::ConstIterator it;
   for( it = mLanguages.begin(); it != mLanguages.end(); ++it ) {
     mLanguageNames.insert( *it, languageName( *it ) );
   }
 
-  KConfig config( "khelpcenterrc" );
-  config.setGroup( "General" );
+  KConfig config( QLatin1String("khelpcenterrc") );
+  config.setGroup( QLatin1String("General") );
   QStringList metaInfos = config.readEntry( "MetaInfoDirs" , QStringList() );
 
   if ( metaInfos.isEmpty() ) {
     KStandardDirs* kstd = KGlobal::dirs();
-    kstd->addResourceType( "data", "share/apps/khelpcenter" );
+    kstd->addResourceType( "data", QLatin1String("share/apps/khelpcenter") );
     metaInfos = kstd->findDirs( "data", "plugins" );
   }
   for( it = metaInfos.begin(); it != metaInfos.end(); it++) {
@@ -157,10 +157,11 @@ DocEntry *DocMetaInfo::scanMetaInfoDir( const QString &dirName,
 
   foreach( QFileInfo fi, dir.entryInfoList() ) {
     DocEntry *entry = 0;
-    if ( fi.isDir() && fi.fileName() != "." && fi.fileName() != ".." ) {
+    if ( fi.isDir() && fi.fileName() != QLatin1String(".") 
+         && fi.fileName() != QLatin1String("..") ) {
       DocEntry *dirEntry = addDirEntry( QDir( fi.absoluteFilePath() ), parent );
       entry = scanMetaInfoDir( fi.absoluteFilePath(), dirEntry );
-    } else if ( fi.suffix() == "desktop" ) {
+    } else if ( fi.suffix() == QLatin1String("desktop") ) {
       entry = addDocEntry( fi.absoluteFilePath() );
       if ( parent && entry ) parent->addChild( entry );
     }
@@ -171,7 +172,7 @@ DocEntry *DocMetaInfo::scanMetaInfoDir( const QString &dirName,
 
 DocEntry *DocMetaInfo::addDirEntry( const QDir &dir, DocEntry *parent )
 {
-  DocEntry *dirEntry = addDocEntry( dir.absolutePath() + "/.directory" );
+  DocEntry *dirEntry = addDocEntry( dir.absolutePath() + QLatin1String("/.directory") );
 
   if ( !dirEntry ) {
     dirEntry = new DocEntry;

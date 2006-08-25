@@ -35,7 +35,7 @@ class FontDialog : public KDialog
 {
 	Q_OBJECT
 	public:
-		FontDialog( QWidget *parent, const char *name = 0 );
+		FontDialog( QWidget *parent );
 
 	protected Q_SLOTS:
 		virtual void slotOk();

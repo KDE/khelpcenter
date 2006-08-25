@@ -65,7 +65,7 @@ HtmlSearchConfig::HtmlSearchConfig(QWidget *parent, const char *name)
   gb->setWhatsThis( i18n( "Information about where to get the ht://dig package." ) );
 
   KUrlLabel *url = new KUrlLabel(gb);
-  url->setUrl("http://www.htdig.org");
+  url->setUrl(QLatin1String("http://www.htdig.org"));
   url->setText(i18n("ht://dig home page"));
   url->setAlignment(Qt::AlignHCenter);
   grid->addWidget(url, 2,2, 0, 1);
@@ -149,7 +149,7 @@ void HtmlSearchConfig::defaults()
 {
     mHtsearchUrl->lineEdit()->setText(kapp->dirs()->findExe("htsearch"));
     mIndexerBin->lineEdit()->setText("");
-    mDbDir->lineEdit()->setText("/opt/www/htdig/db/" );
+    mDbDir->lineEdit()->setText(QLatin1String("/opt/www/htdig/db/") );
 }
 
 void HtmlSearchConfig::urlClicked(const QString &url)

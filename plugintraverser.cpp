@@ -67,7 +67,7 @@ void PluginTraverser::process( DocEntry *entry )
     << ( mParentItem ? mParentItem->name() : "0" ) << ")" << endl;
 #endif
 
-  if ( entry->khelpcenterSpecial() == "apps" ) {
+  if ( entry->khelpcenterSpecial() == QLatin1String("apps") ) {
     NavigatorAppItem *appItem;
     entry->setIcon( "kmenu" );
     if ( mListView )
@@ -78,7 +78,7 @@ void PluginTraverser::process( DocEntry *entry )
     cfg->setGroup( "General" );
     appItem->setRelpath( cfg->readPathEntry( "AppsRoot" ) );
     mCurrentItem = appItem;
-  } else if ( entry->khelpcenterSpecial() == "scrollkeeper" ) {
+  } else if ( entry->khelpcenterSpecial() == QLatin1String("scrollkeeper" )) {
     if ( mParentItem ) {
       mCurrentItem = mNavigator->insertScrollKeeperDocs( mParentItem, mCurrentItem );
     }
@@ -89,20 +89,20 @@ void PluginTraverser::process( DocEntry *entry )
     else
       mCurrentItem = new NavigatorItem( entry, mParentItem, mCurrentItem );
 
-    if (entry->khelpcenterSpecial() == "applets" ) {
+    if (entry->khelpcenterSpecial() == QLatin1String("applets") ) {
       mNavigator->insertAppletDocs( mCurrentItem );
-    } else if ( entry->khelpcenterSpecial() == "kinfocenter" ||
-                entry->khelpcenterSpecial() == "kcontrol" ||
-                entry->khelpcenterSpecial() == "konqueror" ) {
+    } else if ( entry->khelpcenterSpecial() == QLatin1String("kinfocenter") ||
+                entry->khelpcenterSpecial() == QLatin1String("kcontrol" )||
+                entry->khelpcenterSpecial() == QLatin1String("konqueror") ) {
       mNavigator->insertParentAppDocs( entry->khelpcenterSpecial(), mCurrentItem );
-    } else if ( entry->khelpcenterSpecial() == "kioslave" ) {
+    } else if ( entry->khelpcenterSpecial() == QLatin1String("kioslave") ) {
       mNavigator->insertIOSlaveDocs( entry->khelpcenterSpecial(), mCurrentItem );
-    } else if ( entry->khelpcenterSpecial() == "info" ) {
+    } else if ( entry->khelpcenterSpecial() == QLatin1String("info") ) {
       mNavigator->insertInfoDocs( mCurrentItem );
     } else {
       return;
     }
-    mCurrentItem->setPixmap( 0, SmallIcon( "contents2" ) );
+    mCurrentItem->setPixmap( 0, SmallIcon( QLatin1String("contents2") ) );
   }
 }
 

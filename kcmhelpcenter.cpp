@@ -242,8 +242,8 @@ KCMHelpCenter::KCMHelpCenter( KHC::SearchEngine *engine, QWidget *parent,
     mEngine( engine ), mProgressDialog( 0 ), mCmdFile( 0 ),
     mProcess( 0 ), mIsClosing( false ), mRunAsRoot( false )
 {
-    new KcmhelpcenterAdaptor(this);
-    QDBusConnection::sessionBus().registerObject("/kcmhelpcenter", this);
+  new KcmhelpcenterAdaptor(this);
+  QDBusConnection::sessionBus().registerObject(QLatin1String("/kcmhelpcenter"), this);
   setObjectName( name );
   setCaption( i18n("Build Search Index") );
   setButtons( Ok | Cancel );
@@ -446,9 +446,9 @@ bool KCMHelpCenter::buildIndex()
                 entry->documentType() ) );
             hasError = true;
           } else {
-            indexer.replace( QRegExp( "%i" ), entry->identifier() );
-            indexer.replace( QRegExp( "%d" ), Prefs::indexDirectory() );
-            indexer.replace( QRegExp( "%p" ), entry->url() );
+            indexer.replace( QLatin1String("%i" ), entry->identifier() );
+            indexer.replace( QLatin1String( "%d" ), Prefs::indexDirectory() );
+            indexer.replace( QLatin1String( "%p" ), entry->url() );
             kDebug() << "INDEXER: " << indexer << endl;
             *ts << indexer << endl;
 
@@ -638,7 +638,7 @@ void KCMHelpCenter::advanceProgress()
 void KCMHelpCenter::slotReceivedStdout( KProcess *, char *buffer, int buflen )
 {
   QString text = QString::fromLocal8Bit( buffer, buflen );
-  int pos = text.lastIndexOf( '\n' );
+  int pos = text.lastIndexOf( QLatin1Char('\n') );
   if ( pos < 0 ) {
     mStdOut.append( text );
   } else {
@@ -652,13 +652,13 @@ void KCMHelpCenter::slotReceivedStdout( KProcess *, char *buffer, int buflen )
 void KCMHelpCenter::slotReceivedStderr( KProcess *, char *buffer, int buflen )
 {
   QString text = QString::fromLocal8Bit( buffer, buflen );
-  int pos = text.lastIndexOf( '\n' );
+  int pos = text.lastIndexOf( QLatin1Char('\n') );
   if ( pos < 0 ) {
     mStdErr.append( text );
   } else {
     if ( mProgressDialog ) {
-      mProgressDialog->appendLog( "<i>" + mStdErr + text.left( pos ) +
-                                  "</i>");
+      mProgressDialog->appendLog( QLatin1String("<i>") + mStdErr + text.left( pos ) +
+                                  QLatin1String("</i>"));
       mStdErr = text.mid( pos + 1 );
     }
   }

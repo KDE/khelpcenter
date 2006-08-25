@@ -67,9 +67,9 @@ QString DocEntry::icon() const
 {
   if ( !mIcon.isEmpty() ) return mIcon;
 
-  if ( !docExists() ) return "unknown";
+  if ( !docExists() ) return QLatin1String("unknown");
 
-  if ( isDirectory() ) return "contents2";
+  if ( isDirectory() ) return QLatin1String("contents2");
   else return "document2";
 }
 
@@ -238,12 +238,12 @@ bool DocEntry::indexExists( const QString &indexDir )
 {
   QString testFile;
   if ( mIndexTestFile.isEmpty() ) {
-    testFile = identifier() + ".exists";
+    testFile = identifier() + QLatin1String(".exists");
   } else {
     testFile = mIndexTestFile;
   }
 
-  if ( !testFile.startsWith( "/" ) ) testFile = indexDir + '/' + testFile;
+  if ( !testFile.startsWith( QLatin1Char('/') ) ) testFile = indexDir + QLatin1Char('/') + testFile;
 
   return QFile::exists( testFile );
 }

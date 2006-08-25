@@ -250,11 +250,11 @@ void MainWindow::setupActions()
 
     mCopyText = KStdAction::copy( this, SLOT(slotCopySelectedText()), actionCollection(), "copy_text");
 
-    mLastSearchAction = new KAction( i18n("&Last Search Result"), actionCollection(), "lastsearch" );
+    mLastSearchAction = new KAction( i18n("&Last Search Result"), actionCollection(), QLatin1String("lastsearch") );
     mLastSearchAction->setEnabled( false );
     connect( mLastSearchAction, SIGNAL( triggered() ), this, SLOT( slotLastSearch() ) );
 
-    KAction *action = new KAction( i18n("Build Search Index..."), actionCollection(), "build_index" );
+    KAction *action = new KAction( i18n("Build Search Index..."), actionCollection(), QLatin1String("build_index") );
     connect( action, SIGNAL( triggered() ), mNavigator, SLOT( showIndexDialog() ) );
 
     KStdAction::keyBindings( guiFactory(), SLOT( configureShortcuts() ),
@@ -262,21 +262,21 @@ void MainWindow::setupActions()
 
     KConfigGroup debugGroup( KGlobal::config(), "Debug" );
     if ( debugGroup.readEntry( "SearchErrorLog", QVariant(false )).toBool() ) {
-      action = new KAction( i18n("Show Search Error Log"), actionCollection(), "show_search_stderr" );
+      action = new KAction( i18n("Show Search Error Log"), actionCollection(), QLatin1String("show_search_stderr") );
       connect( action, SIGNAL( triggered() ), this, SLOT( showSearchStderr() ) );
     }
 
     History::self().setupActions( actionCollection() );
 
-    action = new KAction( i18n( "Configure Fonts..." ), actionCollection(), "configure_fonts" );
+    action = new KAction( i18n( "Configure Fonts..." ), actionCollection(), QLatin1String("configure_fonts" ));
     connect( action, SIGNAL( triggered() ), this, SLOT( slotConfigureFonts() ) );
 
-    action = new KAction( i18n( "Increase Font Sizes" ), actionCollection(), "incFontSizes" );
-    action->setIcon( KIcon( "viewmag+" ) );
+    action = new KAction( i18n( "Increase Font Sizes" ), actionCollection(), QLatin1String("incFontSizes") );
+    action->setIcon( KIcon( QLatin1String("viewmag+") ) );
     connect( action, SIGNAL( triggered() ), this, SLOT( slotIncFontSizes() ) );
 
-    action = new KAction( i18n( "Decrease Font Sizes" ), actionCollection(), "decFontSizes" );
-    action->setIcon( KIcon( "viewmag-" ) );
+    action = new KAction( i18n( "Decrease Font Sizes" ), actionCollection(), QLatin1String("decFontSizes") );
+    action->setIcon( KIcon( QLatin1String("viewmag-") ) );
     connect( action, SIGNAL( triggered() ), this, SLOT( slotDecFontSizes() ) );
 }
 
@@ -333,9 +333,13 @@ void MainWindow::viewUrl( const KUrl &url, const KParts::URLArgs &args )
 
     bool own = false;
 
-    if ( proto == "help" || proto == "glossentry" || proto == "about" ||
-         proto == "man" || proto == "info" || proto == "cgi" ||
-         proto == "ghelp" )
+    if ( proto == QLatin1String("help") 
+        || proto == QLatin1String("glossentry") 
+        || proto == QLatin1String("about") 
+        || proto == QLatin1String("man")
+        || proto == QLatin1String("info") 
+        || proto == QLatin1String("cgi")
+        || proto == QLatin1String("ghelp"))
         own = true;
     else if ( url.isLocalFile() ) {
         KMimeMagicResult *res = KMimeMagic::self()->findFileType( url.path() );
@@ -472,11 +476,11 @@ void MainWindow::slotDecFontSizes()
 
 void MainWindow::updateZoomActions()
 {
-  actionCollection()->action( "incFontSizes" )->setEnabled( mDoc->zoomFactor() + mDoc->zoomStepping() <= 300 );
-  actionCollection()->action( "decFontSizes" )->setEnabled( mDoc->zoomFactor() - mDoc->zoomStepping() >= 20 );
+  actionCollection()->action( QLatin1String("incFontSizes") )->setEnabled( mDoc->zoomFactor() + mDoc->zoomStepping() <= 300 );
+  actionCollection()->action( QLatin1String("decFontSizes") )->setEnabled( mDoc->zoomFactor() - mDoc->zoomStepping() >= 20 );
 
-  KConfigGroup configGroup( KGlobal::config(), "General" );
-  configGroup.writeEntry( "Font zoom factor", mDoc->zoomFactor() );
+  KConfigGroup configGroup( KGlobal::config(), QLatin1String("General") );
+  configGroup.writeEntry( QLatin1String("Font zoom factor"), mDoc->zoomFactor() );
   configGroup.sync();
 }
 

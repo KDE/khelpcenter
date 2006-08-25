@@ -23,7 +23,7 @@ void HTMLSearch::setupDocEntry( KHC::DocEntry *entry )
 {
 //  kDebug() << "HTMLSearch::setupDocEntry(): " << entry->name() << endl;
 
-  if ( entry->searchMethod().toLower() != "htdig" ) return;
+  if ( entry->searchMethod().toLower() != QLatin1String("htdig") ) return;
 
   if ( entry->search().isEmpty() )
     entry->setSearch( defaultSearch( entry ) );
@@ -37,7 +37,7 @@ void HTMLSearch::setupDocEntry( KHC::DocEntry *entry )
 
 QString HTMLSearch::defaultSearch( KHC::DocEntry *entry )
 {
-  QString htsearch = "cgi:";
+  QString htsearch = QLatin1String("cgi:");
   htsearch += mConfig->readPathEntry( "htsearch" );
   htsearch += "?words=%k&method=and&format=-desc&config=";
   htsearch += entry->identifier();
@@ -55,7 +55,7 @@ QString HTMLSearch::defaultIndexer( KHC::DocEntry * )
 
 QString HTMLSearch::defaultIndexTestFile( KHC::DocEntry *entry )
 {
-  return entry->identifier() + ".exists";
+  return entry->identifier() + QLatin1String(".exists");
 }
 
 // vim:ts=2:sw=2:et

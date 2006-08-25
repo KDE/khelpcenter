@@ -37,10 +37,9 @@
 
 using namespace KHC;
 
-FontDialog::FontDialog( QWidget *parent, const char *name )
+FontDialog::FontDialog( QWidget *parent )
 	: KDialog( parent )
 {
-  setObjectName( name );
   setModal( true );
   setCaption( i18n( "Font Configuration" ) );
   setButtons( Ok | Cancel );
@@ -170,10 +169,10 @@ void FontDialog::load()
 		if ( fonts.isEmpty() )
 			fonts << KGlobalSettings::generalFont().family()
 			      << KGlobalSettings::fixedFont().family()
-			      << HTML_DEFAULT_VIEW_SERIF_FONT
-			      << HTML_DEFAULT_VIEW_SANSSERIF_FONT
-			      << HTML_DEFAULT_VIEW_CURSIVE_FONT
-			      << HTML_DEFAULT_VIEW_FANTASY_FONT
+			      << QLatin1String(HTML_DEFAULT_VIEW_SERIF_FONT)
+			      << QLatin1String(HTML_DEFAULT_VIEW_SANSSERIF_FONT)
+			      << QLatin1String(HTML_DEFAULT_VIEW_CURSIVE_FONT)
+			      << QLatin1String(HTML_DEFAULT_VIEW_FANTASY_FONT)
                               << QString();
 
 		m_standardFontCombo->setCurrentFont( fonts[ 0 ] );

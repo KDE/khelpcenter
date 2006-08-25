@@ -21,10 +21,9 @@
 
 using namespace KHC;
 
-TreeBuilder::TreeBuilder( QObject *parent, const char *name )
+TreeBuilder::TreeBuilder( QObject *parent )
   : QObject( parent )
 {
-  setObjectName( name );
 }
 
 void TreeBuilder::selectURL( const QString & )

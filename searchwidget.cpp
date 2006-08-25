@@ -75,11 +75,11 @@ SearchWidget::SearchWidget( SearchEngine *engine, QWidget *parent )
   topLayout->addLayout( hLayout );
 
   mPagesCombo = new QComboBox( this );
-  mPagesCombo->addItem( "5" );
-  mPagesCombo->addItem( "10" );
-  mPagesCombo->addItem( "25" );
-  mPagesCombo->addItem( "50" );
-  mPagesCombo->addItem( "1000" );
+  mPagesCombo->addItem( QLatin1String("5") );
+  mPagesCombo->addItem( QLatin1String("10") );
+  mPagesCombo->addItem( QLatin1String("25") );
+  mPagesCombo->addItem( QLatin1String("50") );
+  mPagesCombo->addItem( QLatin1String("1000") );
 
   l = new QLabel( i18n("Max. &results:"), this );
   l->setBuddy( mPagesCombo );
@@ -247,7 +247,7 @@ QString SearchWidget::scope()
       ScopeItem *item = static_cast<ScopeItem *>( it.current() );
       if ( item->isOn() ) {
         if ( !scope.isEmpty() ) scope += '&';
-        scope += "scope=" + item->entry()->identifier();
+        scope += QLatin1String("scope=") + item->entry()->identifier();
       }
     }
     ++it;

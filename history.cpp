@@ -67,7 +67,7 @@ void History::setupActions( KActionCollection *coll )
            SLOT( fillBackMenu() ) );
   m_backAction->setEnabled( false );
 
-  m_forwardAction = new KToolBarPopupAction( KIcon( backForward.second.iconName() ), backForward.second.text(), coll, "forward" );
+  m_forwardAction = new KToolBarPopupAction( KIcon( backForward.second.iconName() ), backForward.second.text(), coll, QLatin1String("forward") );
   m_forwardAction->setShortcut( Qt::ALT+Qt::Key_Right );
   connect( m_forwardAction, SIGNAL( triggered() ), this, SLOT( forward() ) );
 
@@ -80,7 +80,7 @@ void History::setupActions( KActionCollection *coll )
 void History::installMenuBarHook( KMainWindow *mainWindow )
 {
   QMenu *goMenu = dynamic_cast<QMenu *>(
-      mainWindow->guiFactory()->container( "go_web", mainWindow ) );
+      mainWindow->guiFactory()->container( QLatin1String("go_web"), mainWindow ) );
   if ( goMenu ) {
     connect( goMenu, SIGNAL( aboutToShow() ), SLOT( fillGoMenu() ) );
     connect( goMenu, SIGNAL( activated( int ) ),
@@ -222,7 +222,7 @@ void History::goHistory( int steps )
     return;
   }
 
-  if ( current->url.protocol() == "khelpcenter" ) {
+  if ( current->url.protocol() == QLatin1String("khelpcenter") ) {
     kDebug() << "History::goHistory(): internal" << endl;
     emit goInternalUrl( current->url );
     return;

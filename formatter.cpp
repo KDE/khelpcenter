@@ -139,7 +139,7 @@ QString Formatter::header( const QString &title )
     s = mSymbols[ "HEADER" ];
     s.replace( "--TITLE:--", title );
   } else {
-    s = "<html><head><title>" + title + "</title></head>\n<body>\n";
+    s = QLatin1String("<html><head><title>") + title + QLatin1String("</title></head>\n<body>\n");
   }
   return s;
 }
@@ -149,7 +149,7 @@ QString Formatter::footer()
   if ( mHasTemplate ) {
     return mSymbols[ "FOOTER" ];
   } else {
-    return "</body></html>";
+    return QLatin1String("</body></html>");
   }
 }
 
@@ -162,12 +162,12 @@ QString Formatter::separator()
 
 QString Formatter::docTitle( const QString &title )
 {
-  return "<h3><font color=\"red\">" + title + "</font></h3>";
+  return QLatin1String("<h3><font color=\"red\">") + title + QLatin1String("</font></h3>");
 }
 
 QString Formatter::sectionHeader( const QString &section )
 {
-  return "<h2><font color=\"blue\">" + section + "</font></h2>";
+  return QLatin1String("<h2><font color=\"blue\">") + section + QLatin1String("</font></h2>");
 }
 
 QString Formatter::processResult( const QString &data )
@@ -182,7 +182,7 @@ QString Formatter::processResult( const QString &data )
     QChar c = data[i];
     switch ( state ) {
       case Header:
-        if ( c == '<' && data.mid( i, 5 ).toLower() == "<body" ) {
+        if ( c == QLatin1Char('<') && data.mid( i, 5 ).toLower() == QLatin1String("<body") ) {
           state = BodyTag;
           i += 4;
         }
@@ -191,7 +191,7 @@ QString Formatter::processResult( const QString &data )
         if ( c == '>' ) state = Body;
         break;
       case Body:
-        if ( c == '<' && data.mid( i, 7 ).toLower() == "</body>" ) {
+        if ( c == QLatin1Char('<') && data.mid( i, 7 ).toLower() == QLatin1String("</body>") ) {
           state = Footer;
         } else {
           result.append( c );
@@ -211,12 +211,12 @@ QString Formatter::processResult( const QString &data )
 
 QString Formatter::paragraph( const QString &str )
 {
-  return "<p>" + str + "</p>";
+  return QLatin1String("<p>") + str + QLatin1String("</p>");
 }
 
 QString Formatter::title( const QString &title )
 {
-  return "<h2>" + title + "</h2>";
+  return QLatin1String("<h2>") + title + QLatin1String("</h2>");
 }
 
 // vim:ts=2:sw=2:et
