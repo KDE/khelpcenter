@@ -371,7 +371,7 @@ void View::slotReload( const KUrl &url )
   const_cast<KHTMLSettings *>( settings() )->init( KGlobal::config() );
   KParts::URLArgs args = browserExtension()->urlArgs();
   args.reload = true;
-  browserExtension()->setURLArgs( args );
+  browserExtension()->setUrlArgs( args );
   if ( url.isEmpty() )
     openURL( baseURL() );
   else

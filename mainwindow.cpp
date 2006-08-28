@@ -355,7 +355,7 @@ void MainWindow::viewUrl( const KUrl &url, const KParts::URLArgs &args )
 
     History::self().createEntry();
 
-    mDoc->browserExtension()->setURLArgs( args );
+    mDoc->browserExtension()->setUrlArgs( args );
 
     if ( proto == QLatin1String("glossentry") ) {
         QString decodedEntryId = QUrl::fromPercentEncoding( url.encodedPathAndQuery().toAscii() );
