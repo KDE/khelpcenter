@@ -301,7 +301,7 @@ void MainWindow::slotStarted(KIO::Job *job)
 
 void MainWindow::goInternalUrl( const KUrl &url )
 {
-  mDoc->closeURL();
+  mDoc->closeUrl();
   slotOpenURLRequest( url, KParts::URLArgs() );
 }
 
@@ -362,7 +362,7 @@ void MainWindow::viewUrl( const KUrl &url, const KParts::URLArgs &args )
         slotGlossSelected( mNavigator->glossEntry( decodedEntryId ) );
         mNavigator->slotSelectGlossEntry( decodedEntryId );
     } else {
-        mDoc->openURL( url );
+        mDoc->openUrl( url );
     }
 }
 
@@ -419,7 +419,7 @@ void MainWindow::stop()
 {
     kDebug() << "MainWindow::stop()" << endl;
 
-    mDoc->closeURL();
+    mDoc->closeUrl();
     History::self().updateCurrentEntry( mDoc );
 }
 

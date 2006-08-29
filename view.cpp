@@ -66,7 +66,7 @@ void View::copySelectedText()
   kapp->clipboard()->setText( selectedText() );
 }
 
-bool View::openURL( const KUrl &url )
+bool View::openUrl( const KUrl &url )
 {
     if ( url.protocol().toLower() == "about" )
     {
@@ -74,7 +74,7 @@ bool View::openURL( const KUrl &url )
         return true;
     }
     mState = Docu;
-    return KHTMLPart::openURL( url );
+    return KHTMLPart::openUrl( url );
 }
 
 void View::saveState( QDataStream &stream )
@@ -285,7 +285,7 @@ bool View::prevPage(bool checkOnly)
     return false;
 
   if (!checkOnly)
-    openURL( prevURL );
+    openUrl( prevURL );
   return true;
 }
 
@@ -313,7 +313,7 @@ bool View::nextPage(bool checkOnly)
     return false;
 
   if (!checkOnly)
-    openURL( nextURL );
+    openUrl( nextURL );
   return true;
 }
 
@@ -373,9 +373,9 @@ void View::slotReload( const KUrl &url )
   args.reload = true;
   browserExtension()->setUrlArgs( args );
   if ( url.isEmpty() )
-    openURL( baseURL() );
+    openUrl( baseURL() );
   else
-    openURL( url );
+    openUrl( url );
 }
 
 #include "view.moc"

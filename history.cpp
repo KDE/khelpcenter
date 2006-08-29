@@ -237,7 +237,7 @@ void History::goHistory( int steps )
 
   QDataStream stream( h.buffer );
 
-  h.view->closeURL();
+  h.view->closeUrl();
   updateCurrentEntry( h.view );
   h.view->browserExtension()->restoreState( stream );
 

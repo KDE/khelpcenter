@@ -387,7 +387,7 @@ void Navigator::slotItemSelected( Q3ListViewItem *currentItem )
   KUrl url ( item->entry()->url() );
 
   if ( url.protocol() == "khelpcenter" ) {
-      mView->closeURL();
+      mView->closeUrl();
       History::self().updateCurrentEntry( mView );
       History::self().createEntry();
       showOverview( item, url );
