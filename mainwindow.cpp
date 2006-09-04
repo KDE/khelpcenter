@@ -132,7 +132,7 @@ MainWindow::MainWindow()
     statusBar()->setItemAlignment(0, Qt::AlignLeft | Qt::AlignVCenter);
 
     connect( mDoc->browserExtension(),
-             SIGNAL( openURLRequest( const KUrl &,
+             SIGNAL( openUrlRequest( const KUrl &,
                                      const KParts::URLArgs & ) ),
              SLOT( slotOpenURLRequest( const KUrl &,
                                        const KParts::URLArgs & ) ) );
