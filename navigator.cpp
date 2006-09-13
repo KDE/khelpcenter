@@ -598,8 +598,8 @@ bool Navigator::checkSearchIndex()
                        "to create the index now?" );
 
   int result = KMessageBox::questionYesNo( this, text, QString(),
-                                           i18n("Create"),
-                                           i18n("Do Not Create"),
+                                           KGuiItem(i18n("Create")),
+                                           KGuiItem(i18n("Do Not Create")),
                                            QLatin1String("indexcreation") );
   if ( result == KMessageBox::Yes ) {
     showIndexDialog();

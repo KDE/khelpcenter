@@ -254,7 +254,7 @@ KCMHelpCenter::KCMHelpCenter( KHC::SearchEngine *engine, QWidget *parent,
 
   setupMainWidget( widget );
 
-  setButtonGuiItem( KDialog::Ok, i18n("Build Index") );
+  setButtonGuiItem( KDialog::Ok, KGuiItem(i18n("Build Index")) );
 
   mConfig = KGlobal::config();
 
