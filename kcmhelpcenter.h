@@ -36,7 +36,7 @@ class QLabel;
 class KProcess;
 class KConfig;
 class KAboutData;
-class KTempFile;
+class KTemporaryFile;
 class KUrlRequester;
 class K3ListView;
 
@@ -157,7 +157,7 @@ class KCMHelpCenter : public KDialog
     KHC::HtmlSearchConfig *mHtmlSearchTab;
     QWidget *mScopeTab;
 
-    KTempFile *mCmdFile;
+    KTemporaryFile *mCmdFile;
 
     KProcess *mProcess;
 

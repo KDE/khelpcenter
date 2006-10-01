@@ -39,7 +39,7 @@
 #include <kstandarddirs.h>
 #include <kprocess.h>
 #include <kapplication.h>
-#include <ktempfile.h>
+#include <ktemporaryfile.h>
 #include <kurlrequester.h>
 #include <kmessagebox.h>
 #include <k3listview.h>
@@ -405,16 +405,15 @@ bool KCMHelpCenter::buildIndex()
   QFontMetrics fm( font() );
   int maxWidth = 0;
 
-  mCmdFile = new KTempFile;
-  mCmdFile->setAutoDelete( true );
-  QTextStream *ts = mCmdFile->textStream();
-  if ( !ts ) {
+  mCmdFile = new KTemporaryFile;
+  if ( !mCmdFile->open() ) {
     kError() << "Error opening command file." << endl;
     deleteCmdFile();
     return false;
-  } else {
-    kDebug() << "Writing to file '" << mCmdFile->name() << "'" << endl;
   }
+
+  QTextStream ts ( mCmdFile );
+  kDebug() << "Writing to file '" << mCmdFile->fileName() << "'" << endl;
 
   bool hasError = false;
 
@@ -450,7 +449,7 @@ bool KCMHelpCenter::buildIndex()
             indexer.replace( QLatin1String( "%d" ), Prefs::indexDirectory() );
             indexer.replace( QLatin1String( "%p" ), entry->url() );
             kDebug() << "INDEXER: " << indexer << endl;
-            *ts << indexer << endl;
+            ts << indexer << endl;
 
             int width = fm.width( entry->name() );
             if ( width > maxWidth ) maxWidth = width;
@@ -463,7 +462,7 @@ bool KCMHelpCenter::buildIndex()
     ++it;
   }
 
-  mCmdFile->close();
+  ts.flush();
 
   if ( mIndexQueue.isEmpty() ) {
     deleteCmdFile();
