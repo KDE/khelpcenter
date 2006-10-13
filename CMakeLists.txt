@@ -52,7 +52,7 @@ qt4_add_dbus_adaptor( khelpcenter_KDEINIT_SRCS org.kde.khelpcenter.kcmhelpcenter
 kde4_automoc(khelpcenter ${khelpcenter_KDEINIT_SRCS})
 
 
-kde4_add_kcfg_files(khelpcenter_KDEINIT_SRCS prefs.kcfgc )
+kde4_add_kcfg_files(khelpcenter khelpcenter_KDEINIT_SRCS prefs.kcfgc )
 
 kde4_add_kdeinit_executable( khelpcenter ${khelpcenter_KDEINIT_SRCS})
 
