@@ -11,7 +11,7 @@ add_subdirectory( searchhandlers )
 
 set(khc_indexbuilder_SRCS khc_indexbuilder.cpp )
 
-kde4_automoc(${khc_indexbuilder_SRCS})
+kde4_automoc(khc_indexbuilder ${khc_indexbuilder_SRCS})
 
 kde4_add_executable(khc_indexbuilder ${khc_indexbuilder_SRCS})
 
@@ -49,7 +49,7 @@ set(khelpcenter_KDEINIT_SRCS
    searchhandler.cpp )
 
 qt4_add_dbus_adaptor( khelpcenter_KDEINIT_SRCS org.kde.khelpcenter.kcmhelpcenter.xml kcmhelpcenter.h KCMHelpCenter )
-kde4_automoc(${khelpcenter_KDEINIT_SRCS})
+kde4_automoc(khelpcenter ${khelpcenter_KDEINIT_SRCS})
 
 
 kde4_add_kcfg_files(khelpcenter_KDEINIT_SRCS prefs.kcfgc )
@@ -68,7 +68,7 @@ install(TARGETS khelpcenter DESTINATION ${BIN_INSTALL_DIR})
 if(KDE4_BUILD_TESTS)
 set(testmetainfo_SRCS testmetainfo.cpp docmetainfo.cpp docentry.cpp prefs.cpp docentrytraverser.cpp htmlsearch.cpp )
 
-kde4_automoc(${testmetainfo_SRCS})
+kde4_automoc(testmetainfo ${testmetainfo_SRCS})
 
 kde4_add_executable(testmetainfo ${testmetainfo_SRCS})
 
