@@ -5,7 +5,7 @@
 
 set(htmlsearch_LIB_SRCS htmlsearch.cpp progressdialog.cpp )
 
-kde4_automoc(htmlsearch ${htmlsearch_LIB_SRCS})
+kde4_automoc(${htmlsearch_LIB_SRCS})
 
 kde4_add_library(htmlsearch SHARED ${htmlsearch_LIB_SRCS})
 
@@ -19,7 +19,7 @@ install(TARGETS htmlsearch  DESTINATION ${LIB_INSTALL_DIR} )
 
 set(kcm_htmlsearch_LIB_SRCS kcmhtmlsearch.cpp klangcombo.cpp ktagcombobox.cpp )
 
-kde4_automoc(kcm_htmlsearch ${kcm_htmlsearch_LIB_SRCS})
+kde4_automoc(${kcm_htmlsearch_LIB_SRCS})
 
 kde4_add_library(kcm_htmlsearch SHARED ${kcm_htmlsearch_LIB_SRCS})
 
@@ -33,7 +33,7 @@ install(TARGETS kcm_htmlsearch  DESTINATION ${LIB_INSTALL_DIR} )
 
 set(khtmlindex_SRCS index.cpp )
 
-kde4_automoc(khtmlindex ${khtmlindex_SRCS})
+kde4_automoc(${khtmlindex_SRCS})
 
 kde4_add_executable(khtmlindex ${khtmlindex_SRCS})
 
