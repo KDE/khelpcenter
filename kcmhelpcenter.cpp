@@ -261,7 +261,9 @@ KCMHelpCenter::KCMHelpCenter( KHC::SearchEngine *engine, QWidget *parent,
   DocMetaInfo::self()->scanMetaInfo();
 
   load();
+#ifdef __GNUC__
 #warning "kde4: TODO port to dbus"
+#endif  
 #if 0  
   bool success = kapp->dcopClient()->connectDCOPSignal( "khc_indexbuilder",
       0, "buildIndexProgress()", "kcmhelpcenter",
