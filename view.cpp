@@ -29,6 +29,10 @@ using namespace KHC;
 View::View( QWidget *parentWidget, QObject *parent, KHTMLPart::GUIProfile prof, KActionCollection *col )
     : KHTMLPart( parentWidget, parent, prof ), mState( Docu ), mActionCollection(col)
 {
+    setJScriptEnabled(false);
+    setJavaEnabled(false);
+    setPluginsEnabled(false);
+
     mFormatter = new Formatter;
     if ( !mFormatter->readTemplates() ) {
       kDebug() << "Unable to read Formatter templates." << endl;
