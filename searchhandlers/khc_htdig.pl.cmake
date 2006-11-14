@@ -112,11 +112,11 @@ $ENV{ PATH } = '';
 $ENV{ CDPATH } = '';
 $ENV{ ENV } = '';
 
-my $ret = system( "$htdigbin/htdig -s -i -c $conffile" );
+my $ret = system( "$htdigbin/htdig", "-s", "-i", "-c", $conffile );
 if ( $ret != 0 ) {
   print STDERR "htdig failed\n";
 } else {
-  $ret = system( "$htdigbin/htmerge -c $conffile" );
+  $ret = system( "$htdigbin/htmerge", "-c", $conffile );
   if ( $ret != 0 ) { print STDERR "htmerge failed\n"; }
 }
 

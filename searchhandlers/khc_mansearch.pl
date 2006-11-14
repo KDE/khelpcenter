@@ -47,7 +47,7 @@ if ( !$words ) {
 }
 
 # Perform search
-if ( !open( MAN, "apropos $words|" ) ) {
+if ( !open( MAN, "-|", "apropos", $words ) ) {
   print "Can't open apropos.\n";
   exit 1;
 }

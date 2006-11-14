@@ -41,12 +41,9 @@ my $charset = langCharset( $lang );
 
 $words = encode( $charset, $words );
 
-my $htsearchcmd = "$htsearchpath -c $indexdir/$config.conf ";
-$htsearchcmd .= "\"format=$format&method=$method&words=$words\"";
-
-print STDERR "HTSEARCHCMD: $htsearchcmd\n";
-
-if ( !open( HTSEARCH, "$htsearchcmd|" ) ) {
+if ( !open( HTSEARCH, "-|", "$htsearchpath", "-c", "$indexdir/$config.conf",
+            "format=$format&method=$method&words=$words" ) )
+{
   print "Can't execute htsearch at '$htsearchpath'.\n";
   exit 1;
 }
