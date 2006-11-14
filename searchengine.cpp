@@ -1,5 +1,6 @@
 #include "stdlib.h"
 
+#include <QTextDocument>
 #include <kapplication.h>
 #include <kconfig.h>
 #include <kdebug.h>
@@ -303,7 +304,7 @@ bool SearchEngine::search( QString words, QString method, int matches,
       return false;
     }
 
-    QString txt = i18n("Search Results for '%1':", words );
+    QString txt = i18n("Search Results for '%1':", Qt::escape(words) );
 
     mStderr = "<b>" + txt + "</b>\n";
 
