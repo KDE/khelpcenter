@@ -8,7 +8,6 @@
 #include <kprocess.h>
 #include <klocale.h>
 #include <kmessagebox.h>
-#include <krun.h>
 
 #include "docmetainfo.h"
 #include "formatter.h"
@@ -412,9 +411,7 @@ QString SearchEngine::substituteSearchQuery( const QString &query,
 {
   QString result = query;
   result.replace( QLatin1String("%i"), identifier );
-  QString tmp = words.join( "+" );
-  KRun::shellQuote( tmp );
-  result.replace( QLatin1String("%w"), tmp );
+  result.replace( QLatin1String("%w"), words.join( "+" ) );
   result.replace( QLatin1String("%m"), QString::number( maxResults ) );
   QString o = QLatin1String(operation == Or ? "or" : "and");
   result.replace( QLatin1String("%o"), o );
