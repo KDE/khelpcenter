@@ -1,7 +1,7 @@
 #include <QStringList>
+#include <QCoreApplication>
 
 #include <kaboutdata.h>
-#include <kapplication.h>
 #include <kdebug.h>
 #include <klocale.h>
 #include <kcmdlineargs.h>
@@ -89,9 +89,8 @@ class AsyncTraverser : public DocEntryTraverser
 int main(int argc,char **argv)
 {
   KAboutData aboutData("testmetainfo","TestDocMetaInfo","0.1");
-  KCmdLineArgs::init(argc,argv,&aboutData);
-
-  KApplication app;
+  // KInstance instance(&aboutData); doesn't seem to be necessary
+  QCoreApplication app(argc,argv);
 
   kDebug() << "Scanning Meta Info" << endl;
 
@@ -111,5 +110,7 @@ int main(int argc,char **argv)
   AsyncTraverser a;
   DocMetaInfo::self()->startTraverseEntries( &a );
   kDebug() << "Async TRAVERSE end" << endl;
+
+  return 0;
 }
 // vim:ts=2:sw=2:et

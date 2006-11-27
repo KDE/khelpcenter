@@ -155,7 +155,7 @@ void IndexBuilder::quit()
 {
   kDebug(1402) << "IndexBuilder::quit()" << endl;
 
-  kapp->quit();
+  qApp->quit();
 }
 
 
@@ -179,9 +179,9 @@ int main( int argc, char **argv )
 
   KCmdLineArgs::init( argc, argv, &aboutData );
   KCmdLineArgs::addCmdLineOptions( options );
-  KUniqueApplication::addCmdLineOptions();
 
-  KApplication app;
+  // Note: no KInstance seems necessary
+  QCoreApplication app( *KCmdLineArgs::qt_argc(), *KCmdLineArgs::qt_argv() );
 
   KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
 
