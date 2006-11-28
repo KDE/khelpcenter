@@ -99,7 +99,7 @@ bool Formatter::readTemplates()
         break;
       default:
         kError() << "Formatter::readTemplates(): Illegal state: "
-                  << state << endl;
+                  << static_cast<int>(state) << endl;
         break;
     }
   }
