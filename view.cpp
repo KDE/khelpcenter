@@ -246,7 +246,7 @@ void View::showMenu( const QString& url, const QPoint& pos)
 
   if (url.isEmpty())
   {
-    KAction *action;
+    QAction *action;
     action = mActionCollection->action("go_home");
     if (action) pop.addAction( action );
 
