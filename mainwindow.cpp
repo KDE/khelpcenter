@@ -43,7 +43,7 @@
 #include <kstdaccel.h>
 #include <kdialog.h>
 #include <klocale.h>
-#include <kstdaction.h>
+#include <kstandardaction.h>
 #include <kxmlguifactory.h>
 
 #include <QSplitter>
@@ -229,8 +229,8 @@ void MainWindow::writeConfig()
 
 void MainWindow::setupActions()
 {
-    KStdAction::quit( this, SLOT( close() ), actionCollection() );
-    KStdAction::print( this, SLOT( print() ), actionCollection(),
+    KStandardAction::quit( this, SLOT( close() ), actionCollection() );
+    KStandardAction::print( this, SLOT( print() ), actionCollection(),
                        "printFrame" );
 
     KAction *prevPage  = new KAction( i18n( "Previous Page" ), actionCollection(), "prevPage" );
@@ -243,12 +243,12 @@ void MainWindow::setupActions()
     nextPage->setWhatsThis( i18n( "Moves to the next page of the document" ) );
     connect( nextPage, SIGNAL( triggered() ), mDoc, SLOT( nextPage() ) );
 
-    KAction *home = KStdAction::home( this, SLOT( slotShowHome() ), actionCollection() );
+    KAction *home = KStandardAction::home( this, SLOT( slotShowHome() ), actionCollection() );
     home->setText(i18n("Table of &Contents"));
     home->setToolTip(i18n("Table of contents"));
     home->setWhatsThis(i18n("Go back to the table of contents"));
 
-    mCopyText = KStdAction::copy( this, SLOT(slotCopySelectedText()), actionCollection(), "copy_text");
+    mCopyText = KStandardAction::copy( this, SLOT(slotCopySelectedText()), actionCollection(), "copy_text");
 
     mLastSearchAction = new KAction( i18n("&Last Search Result"), actionCollection(), QLatin1String("lastsearch") );
     mLastSearchAction->setEnabled( false );
@@ -257,7 +257,7 @@ void MainWindow::setupActions()
     KAction *action = new KAction( i18n("Build Search Index..."), actionCollection(), QLatin1String("build_index") );
     connect( action, SIGNAL( triggered() ), mNavigator, SLOT( showIndexDialog() ) );
 
-    KStdAction::keyBindings( guiFactory(), SLOT( configureShortcuts() ),
+    KStandardAction::keyBindings( guiFactory(), SLOT( configureShortcuts() ),
       actionCollection() );
 
     KConfigGroup debugGroup( KGlobal::config(), "Debug" );
