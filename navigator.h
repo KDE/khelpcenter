@@ -39,6 +39,7 @@
 class QPushButton;
 
 class K3ListView;
+class KLineEdit;
 class KService;
 class KProcess;
 class KProcIO;
@@ -129,7 +130,7 @@ class Navigator : public QWidget
     QTabWidget *mTabWidget;
 
     QFrame *mSearchFrame;
-    QLineEdit *mSearchEdit;
+    KLineEdit *mSearchEdit;
     QPushButton *mSearchButton;
 
     Q3PtrList<NavigatorItem> manualItems, pluginItems;

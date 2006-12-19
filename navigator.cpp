@@ -33,7 +33,6 @@
 #include <QTextStream>
 #include <QRegExp>
 #include <QLayout>
-#include <QLineEdit>
 #include <QPushButton>
 #include <QToolTip>
 //Added by qt3to4:
@@ -50,6 +49,7 @@
 #include <klocale.h>
 #include <kdebug.h>
 #include <k3listview.h>
+#include <KLineEdit>
 #include <kmessagebox.h>
 #include <kiconloader.h>
 #include <kprocio.h>
@@ -106,14 +106,8 @@ Navigator::Navigator( View *view, QWidget *parent, const char *name )
     searchLayout->setSpacing( KDialog::spacingHint() );
     searchLayout->setMargin( 6 );
 
-    QPushButton *clearButton = new QPushButton( mSearchFrame );
-    clearButton->setIcon( KApplication::layoutDirection() == Qt::RightToLeft ?
-      SmallIconSet( "clear_left" ) : SmallIconSet("locationbar_erase") );
-    searchLayout->addWidget( clearButton );
-    connect( clearButton, SIGNAL( clicked() ), SLOT( clearSearch() ) );
-    clearButton->setToolTip( i18n("Clear search") );
-
-    mSearchEdit = new QLineEdit( mSearchFrame );
+    mSearchEdit = new KLineEdit( mSearchFrame );
+    mSearchEdit->setClearButtonShown(true);
     searchLayout->addWidget( mSearchEdit );
     connect( mSearchEdit, SIGNAL( returnPressed() ), SLOT( slotSearch() ) );
     connect( mSearchEdit, SIGNAL( textChanged( const QString & ) ),
@@ -122,8 +116,6 @@ Navigator::Navigator( View *view, QWidget *parent, const char *name )
     mSearchButton = new QPushButton( i18n("&Search"), mSearchFrame );
     searchLayout->addWidget( mSearchButton );
     connect( mSearchButton, SIGNAL( clicked() ), SLOT( slotSearch() ) );
-
-    clearButton->setFixedHeight( mSearchButton->height() );
 
     mTabWidget = new QTabWidget( this );
     topLayout->addWidget( mTabWidget );
