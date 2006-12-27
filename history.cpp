@@ -26,7 +26,7 @@
 #include <kicon.h>
 #include <kmainwindow.h>
 #include <kmenu.h>
-#include <kstdguiitem.h>
+#include <kstandardguiitem.h>
 #include <kstringhandler.h>
 #include <ktoolbarpopupaction.h>
 #include <kxmlguifactory.h>
@@ -55,7 +55,7 @@ History::~History()
 
 void History::setupActions( KActionCollection *coll )
 {
-  QPair<KGuiItem, KGuiItem> backForward = KStdGuiItem::backAndForward();
+  QPair<KGuiItem, KGuiItem> backForward = KStandardGuiItem::backAndForward();
 
   m_backAction = new KToolBarPopupAction( KIcon( backForward.first.iconName() ), backForward.first.text(), coll, "back" );
   m_backAction->setShortcut( Qt::ALT+Qt::Key_Left );

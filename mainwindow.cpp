@@ -40,7 +40,7 @@
 #include <khtmlview.h>
 #include <khtml_settings.h>
 #include <kstatusbar.h>
-#include <kstdaccel.h>
+#include <kstandardshortcut.h>
 #include <kdialog.h>
 #include <klocale.h>
 #include <kstandardaction.h>
