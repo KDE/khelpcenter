@@ -93,8 +93,8 @@ private:
     View *mDoc;
     Navigator *mNavigator;
 
-    KAction *mLastSearchAction;
-    KAction *mCopyText;
+    QAction *mLastSearchAction;
+    QAction *mCopyText;
     LogDialog *mLogDialog;
 };
 

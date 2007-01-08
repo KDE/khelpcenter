@@ -229,53 +229,61 @@ void MainWindow::writeConfig()
 
 void MainWindow::setupActions()
 {
-    KStandardAction::quit( this, SLOT( close() ), actionCollection() );
-    KStandardAction::print( this, SLOT( print() ), actionCollection(),
-                       "printFrame" );
+    actionCollection()->addAction( KStandardAction::Quit, this, SLOT( close() ) );
+    actionCollection()->addAction( KStandardAction::Print, "printFrame", this, SLOT( print() ) );
 
-    KAction *prevPage  = new KAction( i18n( "Previous Page" ), actionCollection(), "prevPage" );
+    QAction *prevPage  = actionCollection()->addAction( "prevPage" );
+    prevPage->setText( i18n( "Previous Page" ) );
     prevPage->setShortcut( Qt::CTRL+Qt::Key_PageUp );
     prevPage->setWhatsThis( i18n( "Moves to the previous page of the document" ) );
     connect( prevPage, SIGNAL( triggered() ), mDoc, SLOT( prevPage() ) );
 
-    KAction *nextPage  = new KAction( i18n( "Next Page" ), actionCollection(), "nextPage" );
+    QAction *nextPage  = actionCollection()->addAction( "nextPage" );
+    nextPage->setText( i18n( "Next Page" ) );
     nextPage->setShortcut( Qt::CTRL + Qt::Key_PageDown );
     nextPage->setWhatsThis( i18n( "Moves to the next page of the document" ) );
     connect( nextPage, SIGNAL( triggered() ), mDoc, SLOT( nextPage() ) );
 
-    KAction *home = KStandardAction::home( this, SLOT( slotShowHome() ), actionCollection() );
+    QAction *home = KStandardAction::home( this, SLOT( slotShowHome() ), this );
+    actionCollection()->addAction( home->objectName(), home );
     home->setText(i18n("Table of &Contents"));
     home->setToolTip(i18n("Table of contents"));
     home->setWhatsThis(i18n("Go back to the table of contents"));
 
-    mCopyText = KStandardAction::copy( this, SLOT(slotCopySelectedText()), actionCollection(), "copy_text");
+    mCopyText = KStandardAction::copy( this, SLOT(slotCopySelectedText()), this );
+    actionCollection()->addAction( "copy_text", mCopyText );
 
-    mLastSearchAction = new KAction( i18n("&Last Search Result"), actionCollection(), QLatin1String("lastsearch") );
+    mLastSearchAction = actionCollection()->addAction( QLatin1String("lastsearch") );
+    mLastSearchAction->setText( i18n("&Last Search Result") );
     mLastSearchAction->setEnabled( false );
     connect( mLastSearchAction, SIGNAL( triggered() ), this, SLOT( slotLastSearch() ) );
 
-    KAction *action = new KAction( i18n("Build Search Index..."), actionCollection(), QLatin1String("build_index") );
+    QAction *action = actionCollection()->addAction( QLatin1String("build_index") );
+    action->setText( i18n("Build Search Index...") );
     connect( action, SIGNAL( triggered() ), mNavigator, SLOT( showIndexDialog() ) );
 
-    KStandardAction::keyBindings( guiFactory(), SLOT( configureShortcuts() ),
-      actionCollection() );
+    actionCollection()->addAction( KStandardAction::KeyBindings, guiFactory(), SLOT( configureShortcuts() ) );
 
     KConfigGroup debugGroup( KGlobal::config(), "Debug" );
     if ( debugGroup.readEntry( "SearchErrorLog", QVariant(false )).toBool() ) {
-      action = new KAction( i18n("Show Search Error Log"), actionCollection(), QLatin1String("show_search_stderr") );
-      connect( action, SIGNAL( triggered() ), this, SLOT( showSearchStderr() ) );
+        action = actionCollection()->addAction(QLatin1String("show_search_stderr"));
+        action->setText( i18n("Show Search Error Log") );
+        connect( action, SIGNAL( triggered() ), this, SLOT( showSearchStderr() ) );
     }
 
     History::self().setupActions( actionCollection() );
 
-    action = new KAction( i18n( "Configure Fonts..." ), actionCollection(), QLatin1String("configure_fonts" ));
+    action = actionCollection()->addAction(QLatin1String("configure_fonts" ));
+    action->setText( i18n( "Configure Fonts..." ) );
     connect( action, SIGNAL( triggered() ), this, SLOT( slotConfigureFonts() ) );
 
-    action = new KAction( i18n( "Increase Font Sizes" ), actionCollection(), QLatin1String("incFontSizes") );
+    action = actionCollection()->addAction(QLatin1String("incFontSizes"));
+    action->setText( i18n( "Increase Font Sizes" ) );
     action->setIcon( KIcon( QLatin1String("viewmag+") ) );
     connect( action, SIGNAL( triggered() ), this, SLOT( slotIncFontSizes() ) );
 
-    action = new KAction( i18n( "Decrease Font Sizes" ), actionCollection(), QLatin1String("decFontSizes") );
+    action = actionCollection()->addAction(QLatin1String("decFontSizes"));
+    action->setText( i18n( "Decrease Font Sizes" ) );
     action->setIcon( KIcon( QLatin1String("viewmag-") ) );
     connect( action, SIGNAL( triggered() ), this, SLOT( slotDecFontSizes() ) );
 }
@@ -333,11 +341,11 @@ void MainWindow::viewUrl( const KUrl &url, const KParts::URLArgs &args )
 
     bool own = false;
 
-    if ( proto == QLatin1String("help") 
-        || proto == QLatin1String("glossentry") 
-        || proto == QLatin1String("about") 
+    if ( proto == QLatin1String("help")
+        || proto == QLatin1String("glossentry")
+        || proto == QLatin1String("about")
         || proto == QLatin1String("man")
-        || proto == QLatin1String("info") 
+        || proto == QLatin1String("info")
         || proto == QLatin1String("cgi")
         || proto == QLatin1String("ghelp"))
         own = true;

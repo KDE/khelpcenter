@@ -21,6 +21,7 @@
 #include "view.h"
 #include <QMenu>
 #include <kaction.h>
+#include <kactioncollection.h>
 #include <kapplication.h>
 #include <kdebug.h>
 #include <kicon.h>
@@ -57,7 +58,8 @@ void History::setupActions( KActionCollection *coll )
 {
   QPair<KGuiItem, KGuiItem> backForward = KStandardGuiItem::backAndForward();
 
-  m_backAction = new KToolBarPopupAction( KIcon( backForward.first.iconName() ), backForward.first.text(), coll, "back" );
+  m_backAction = new KToolBarPopupAction( KIcon( backForward.first.iconName() ), backForward.first.text(), this );
+  coll->addAction( "back", m_backAction );
   m_backAction->setShortcut( Qt::ALT+Qt::Key_Left );
   connect( m_backAction, SIGNAL( triggered() ), this, SLOT( back() ) );
 
@@ -67,7 +69,8 @@ void History::setupActions( KActionCollection *coll )
            SLOT( fillBackMenu() ) );
   m_backAction->setEnabled( false );
 
-  m_forwardAction = new KToolBarPopupAction( KIcon( backForward.second.iconName() ), backForward.second.text(), coll, QLatin1String("forward") );
+  m_forwardAction = new KToolBarPopupAction( KIcon( backForward.second.iconName() ), backForward.second.text(), this );
+  coll->addAction( QLatin1String("forward"), m_forwardAction );
   m_forwardAction->setShortcut( Qt::ALT+Qt::Key_Right );
   connect( m_forwardAction, SIGNAL( triggered() ), this, SLOT( forward() ) );
 
