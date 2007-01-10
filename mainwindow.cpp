@@ -33,7 +33,7 @@
 #include <kconfig.h>
 #include <kicon.h>
 #include <kiconloader.h>
-#include <kmimemagic.h>
+#include <kmimetype.h>
 #include <krun.h>
 #include <kaboutdata.h>
 #include <kdebug.h>
@@ -350,9 +350,8 @@ void MainWindow::viewUrl( const KUrl &url, const KParts::URLArgs &args )
         || proto == QLatin1String("ghelp"))
         own = true;
     else if ( url.isLocalFile() ) {
-        KMimeMagicResult *res = KMimeMagic::self()->findFileType( url.path() );
-        if ( res->isValid() && res->accuracy() > 40
-             && res->mimeType() == "text/html" )
+        KMimeType::Ptr mime = KMimeType::findByPath( url.path() );
+        if ( mime->is("text/html") )
             own = true;
     }
 
