@@ -261,20 +261,14 @@ KCMHelpCenter::KCMHelpCenter( KHC::SearchEngine *engine, QWidget *parent,
   DocMetaInfo::self()->scanMetaInfo();
 
   load();
-#ifdef __GNUC__
-#warning "kde4: TODO port to dbus"
-#endif  
-#if 0  
-  bool success = kapp->dcopClient()->connectDCOPSignal( "khc_indexbuilder",
-      0, "buildIndexProgress()", "kcmhelpcenter",
-      "slotIndexProgress()", false );
-  if ( !success ) kError() << "connect DCOP signal failed" << endl;
-
-  success = kapp->dcopClient()->connectDCOPSignal( "khc_indexbuilder",
-      0, "buildIndexError(QString)", "kcmhelpcenter",
-      "slotIndexError(QString)", false );
-  if ( !success ) kError() << "connect DCOP signal failed" << endl;
-#endif
+  const QString dbusInterface = "org.kde.khelpcenter.kcmhelpcenter";
+  QDBusConnection dbus = QDBusConnection::sessionBus();
+  bool success = dbus.connect(QString(), "/kcmhelpcenter", dbusInterface, "buildIndexProgress", this, SLOT(slotIndexProgress()));
+  if ( !success ) 
+    kError() << "connect D-Bus signal failed" << endl;
+  success = dbus.connect(QString(), "/kcmhelpcenter", dbusInterface, "buildIndexError", this, SLOT(slotIndexError(const QString&)));
+  if ( !success ) 
+    kError() << "connect D-Bus signal failed" << endl;
   mConfig->setGroup( "IndexDialog" );
   restoreDialogSize( mConfig );
 }

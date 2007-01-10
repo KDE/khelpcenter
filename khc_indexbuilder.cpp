@@ -33,6 +33,8 @@
 
 #include <QFile>
 #include <QTextStream>
+#include <QDBusMessage>
+#include <QDBusConnection>
 
 #include <unistd.h>
 #include <stdlib.h>
@@ -134,22 +136,19 @@ void IndexBuilder::slotReceivedStderr( KProcess *, char *buffer, int buflen )
 void IndexBuilder::sendErrorSignal( const QString &error )
 {
   kDebug(1402) << "IndexBuilder::sendErrorSignal()" << endl;
-#warning "kde4: TODO dbus port"  
-#if 0  
-  QByteArray params;
-  QDataStream stream( &params, QIODevice::WriteOnly );
+  QDBusMessage message =
+     QDBusMessage::createSignal("/kcmhelpcenter", "org.kde.kcmhelpcenter", "buildIndexError");
+  message <<error;
+  QDBusConnection::sessionBus().send(message);
 
-  stream.setVersion(QDataStream::Qt_3_1);
-  stream << error;
-  kapp->dcopClient()->emitDCOPSignal("buildIndexError(QString)", params );  
-#endif  
 }
 
 void IndexBuilder::sendProgressSignal()
 {
   kDebug(1402) << "IndexBuilder::sendProgressSignal()" << endl;
-#warning "kde4: DBUS port !!!"
-  //kapp->dcopClient()->emitDCOPSignal("buildIndexProgress()", QByteArray() );  
+  QDBusMessage message =
+        QDBusMessage::createSignal("/kcmhelpcenter", "org.kde.kcmhelpcenter", "buildIndexProgress");
+  QDBusConnection::sessionBus().send(message);
 }
 
 void IndexBuilder::quit()
@@ -205,8 +204,6 @@ int main( int argc, char **argv )
     kDebug(1402) << "can access" << endl;
     file.remove();
   }
-#warning "kde4 port: TODO DBUS"  
-  //app.dcopClient()->registerAs( "khc_indexbuilder", false );
 
   IndexBuilder builder;
 

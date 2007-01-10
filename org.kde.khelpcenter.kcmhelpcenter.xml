@@ -6,5 +6,9 @@
     <method name="slotIndexError">
       <arg name="error" type="s" direction="in"/>
     </method>
+    <signal name="buildIndexProgress"/>
+    <signal name="buildIndexError">
+      <arg name="buildIndexError" type="s" direction="out"/>
+    </signal>
   </interface>
 </node>
