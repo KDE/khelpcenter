@@ -2,6 +2,7 @@
 DocPath=help:/khelpcenter/faq/index.html
 
 Name=The KDE FAQ
+Name[el]=Το KDE FAQ
 Name[fr]=La FAQ (questions fréquentes) de KDE
 Name[x-test]=xxThe KDE FAQxx
 

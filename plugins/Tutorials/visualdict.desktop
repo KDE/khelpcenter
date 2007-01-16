@@ -2,9 +2,11 @@
 [Desktop Entry]
 Encoding=UTF-8
 Name=A Visual Guide to KDE
+Name[el]=Ένας οπτικός οδηγός για το KDE
 Name[fr]=Un guide visuel de KDE
 Name[x-test]=xxA Visual Guide to KDExx
 Comment=Guide to KDE widgets
+Comment[el]=Οδηγός για τα γραφικά συστατικά του KDE
 Comment[fr]=Guide des éléments graphiques de KDE
 Comment[x-test]=xxGuide to KDE widgetsxx
 Icon=helpdoc

@@ -2,6 +2,7 @@
 DocPath=help:/khelpcenter/index.html?anchor=support
 
 Name=Supporting KDE
+Name[el]=Υποστήριξη στο KDE
 Name[fr]=Aider KDE
 Name[x-test]=xxSupporting KDExx
 

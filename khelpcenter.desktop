@@ -4,6 +4,7 @@ Name=KHelpCenter
 Name[fr]=Centre d'aide de KDE
 Name[x-test]=xxKHelpCenterxx
 Comment=The KDE Help Center
+Comment[el]=Το κέντρο βοήθειας του KDE
 Comment[fr]=Le centre de documentation de KDE
 Comment[x-test]=xxThe KDE Help Centerxx
 Icon=khelpcenter

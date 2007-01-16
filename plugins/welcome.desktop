@@ -2,6 +2,7 @@
 DocPath=help:/khelpcenter/index.html?anchor=welcome
 
 Name=Welcome to KDE
+Name[el]=Καλωσορίσατε στο KDE
 Name[fr]=Bienvenue sur KDE
 Name[x-test]=xxWelcome to KDExx
 

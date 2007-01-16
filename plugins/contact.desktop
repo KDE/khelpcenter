@@ -2,6 +2,7 @@
 DocPath=help:/khelpcenter/index.html?anchor=contact
 
 Name=Contact Information
+Name[el]=Πληροφορίες επικοινωνίας
 Name[fr]=Contacter l'équipe KDE
 Name[x-test]=xxContact Informationxx
 

@@ -11,14 +11,17 @@ X-KDE-HasReadOnlyMode=true
 X-KDE-ParentApp=kcontrol
 
 Name=Help Index
+Name[el]=Ευρετήριο βοήθειας
 Name[fr]=Index d'aide
 Name[x-test]=xxHelp Indexxx
 
 Comment=Help center search index configuration and generation
+Comment[el]=Ρύθμιση και δημιουργία του ευρετηρίου αναζήτησης του Κέντρου βοήθειας
 Comment[fr]=Configuration et génération de l'index de recherche du centre d'aide
 Comment[x-test]=xxHelp center search index configuration and generationxx
 
 Keywords=khelpcenter,help,index,search
+Keywords[el]=khelpcenter,βοήθεια,ευρετήριο,αναζήτηση
 Keywords[fr]=khelpcenter,aide,index,recherche
 Keywords[x-test]=xxkhelpcenter,help,index,searchxx
 Categories=Qt;KDE;X-KDE-settings-system;

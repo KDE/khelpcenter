@@ -6,6 +6,7 @@ DocPath=khelpcenter/index.html
 Type=Application
 Terminal=false
 Name=Help
+Name[el]=Βοήθεια
 Name[fr]=Aide
 Name[x-test]=xxHelpxx
 Categories=Qt;KDE;Core;

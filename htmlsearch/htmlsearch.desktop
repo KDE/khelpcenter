@@ -11,12 +11,15 @@ X-KDE-FactoryName=htmlsearch
 X-KDE-ParentApp=kcontrol
 
 Name=Index
+Name[el]=Ευρετήριο
 Name[x-test]=xxIndexxx
 
 Comment=Index generation
+Comment[el]=Δημιουργία Περιεχομένων
 Comment[fr]=Génération d'index
 Comment[x-test]=xxIndex generationxx
 
 Keywords=Help,HTML,Search,Index,htdig,htsearch,htmerge,Scope,Language
+Keywords[el]=Βοήθεια,HTML,Αναζήτηση,Ευρετήριο,htdig,htsearch,htmerge,Scope,Γλώσσα
 Keywords[fr]=aide,HTML,recherche,index,htdig,htsearch,htmerge,pays,langue
 Keywords[x-test]=xxHelp,HTML,Search,Index,htdig,htsearch,htmerge,Scope,Languagexx
