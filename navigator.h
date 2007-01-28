@@ -133,8 +133,6 @@ class Navigator : public QWidget
     KLineEdit *mSearchEdit;
     QPushButton *mSearchButton;
 
-    Q3PtrList<NavigatorItem> manualItems, pluginItems;
-
     bool mShowMissingDocs;
     
     SearchEngine *mSearchEngine;

@@ -197,7 +197,7 @@ int main( int argc, char **argv )
   kDebug(1402) << "indexDir: " << indexDir << endl;
 
   QFile file( indexDir + "/testaccess" );
-  if ( !file.open( QIODevice::WriteOnly ) || file.putChar( ' ' ) < 0 ) {
+  if ( !file.open( QIODevice::WriteOnly ) || !file.putChar( ' ' ) ) {
     kDebug(1402) << "access denied" << endl;
     return 2;
   } else {

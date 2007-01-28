@@ -22,12 +22,11 @@
 
 #include <k3listview.h>
 
-#include <q3dict.h>
-#include <qdom.h>
+#include <QDomElement>
 #include <QStringList>
-//Added by qt3to4:
 #include <QList>
 #include <QList>
+#include <QHash>
 
 class KConfig;
 class KProcess;
@@ -138,8 +137,8 @@ class Glossary : public K3ListView
 		QString m_sourceFile;
 		QString m_cacheFile;
 		CacheStatus m_status;
-		Q3Dict<GlossaryEntry> m_glossEntries;
-    Q3Dict<EntryItem> m_idDict;
+		QHash<QString, GlossaryEntry*> m_glossEntries;
+    QHash<QString, EntryItem*> m_idDict;
     bool m_initialized;
 };
 

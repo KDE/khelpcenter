@@ -96,7 +96,7 @@ Glossary::Glossary( QWidget *parent ) : K3ListView( parent )
 
 	m_cacheFile = KStandardDirs::locateLocal( "cache", "help/glossary.xml" );
 
-	m_sourceFile = View::View::langLookup( QLatin1String( "khelpcenter/glossary/index.docbook" ) );
+	m_sourceFile = View::langLookup( QLatin1String( "khelpcenter/glossary/index.docbook" ) );
 
 	m_config = KGlobal::config();
 	m_config->setGroup( "Glossary" );
@@ -117,8 +117,7 @@ void Glossary::show()
 
 Glossary::~Glossary()
 {
-	m_glossEntries.setAutoDelete( true );
-	m_glossEntries.clear();
+	qDeleteAll( m_glossEntries );
 }
 
 const GlossaryEntry &Glossary::entry( const QString &id ) const
@@ -307,10 +306,10 @@ QString Glossary::entryToHtml( const GlossaryEntry &entry )
 
 void Glossary::slotSelectGlossEntry( const QString &id )
 {
-    EntryItem *newItem = m_idDict.find( id );
-    if ( newItem == 0 )
+    if ( !m_idDict.contains( id ) )
         return;
 
+    EntryItem *newItem = m_idDict.value( id );
     EntryItem *curItem = dynamic_cast<EntryItem *>( currentItem() );
     if ( curItem != 0 ) {
         if ( curItem->id() == id )
