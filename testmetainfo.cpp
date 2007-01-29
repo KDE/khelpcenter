@@ -89,7 +89,7 @@ class AsyncTraverser : public DocEntryTraverser
 int main(int argc,char **argv)
 {
   KAboutData aboutData("testmetainfo","TestDocMetaInfo","0.1");
-  // KInstance instance(&aboutData); doesn't seem to be necessary
+  // KComponentData componentData(&aboutData); doesn't seem to be necessary
   QCoreApplication app(argc,argv);
 
   kDebug() << "Scanning Meta Info" << endl;

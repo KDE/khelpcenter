@@ -39,7 +39,7 @@ typedef KGenericFactory<KHTMLSearchConfig> KHTMLSearchConfigFactory;
 K_EXPORT_COMPONENT_FACTORY(htmlsearch, KHTMLSearchConfigFactory("kcmhtmlsearch"))
 
 KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const QStringList &)
-  : KCModule(KHTMLSearchConfigFactory::instance(), parent), indexProc(0)
+  : KCModule(KHTMLSearchConfigFactory::componentData(), parent), indexProc(0)
 {
   QVBoxLayout *vbox = new QVBoxLayout(this);
   vbox->setSpacing(5);

@@ -25,7 +25,7 @@
 #include <QDomElement>
 #include <QStringList>
 #include <QList>
-#include <QList>
+#include <kconfig.h>
 #include <QHash>
 
 class KConfig;
@@ -131,7 +131,7 @@ class Glossary : public K3ListView
 		void buildGlossaryTree();
 		QDomElement childElement( const QDomElement &e, const QString &name );
 
-		KConfig *m_config;
+		KSharedConfigPtr m_config;
 		Q3ListViewItem *m_byTopicItem;
 		Q3ListViewItem *m_alphabItem;
 		QString m_sourceFile;

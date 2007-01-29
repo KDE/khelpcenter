@@ -372,7 +372,7 @@ KUrl View::urlFromLinkNode( const DOM::Node &n ) const
 
 void View::slotReload( const KUrl &url )
 {
-  const_cast<KHTMLSettings *>( settings() )->init( KGlobal::config() );
+  const_cast<KHTMLSettings *>( settings() )->init( KGlobal::config().data() );
   KParts::URLArgs args = browserExtension()->urlArgs();
   args.reload = true;
   browserExtension()->setUrlArgs( args );

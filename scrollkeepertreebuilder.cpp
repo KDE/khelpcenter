@@ -33,6 +33,7 @@
 #include <qdom.h>
 #include <QFile>
 #include <QRegExp>
+#include <kconfiggroup.h>
 
 using namespace KHC;
 

@@ -151,7 +151,7 @@ IndexProgressDialog::IndexProgressDialog( QWidget *parent )
 IndexProgressDialog::~IndexProgressDialog()
 {
   if ( !mLogView->isHidden() ) {
-    KConfig *cfg = KGlobal::config();
+    KSharedConfig::Ptr cfg = KGlobal::config();
     cfg->setGroup( "indexprogressdialog" );
     cfg->writeEntry( "size", size() );
   }
@@ -212,7 +212,7 @@ void IndexProgressDialog::slotEnd()
 
 void IndexProgressDialog::toggleDetails()
 {
-  KConfig *cfg = KGlobal::config();
+  KSharedConfig::Ptr cfg = KGlobal::config();
   cfg->setGroup( "indexprogressdialog" );
   if ( mLogView->isHidden() ) {
     mLogLabel->show();
@@ -270,14 +270,14 @@ KCMHelpCenter::KCMHelpCenter( KHC::SearchEngine *engine, QWidget *parent,
   if ( !success ) 
     kError() << "connect D-Bus signal failed" << endl;
   mConfig->setGroup( "IndexDialog" );
-  restoreDialogSize( mConfig );
+  restoreDialogSize( mConfig.data() );
 }
 
 KCMHelpCenter::~KCMHelpCenter()
 {
-  KConfig *cfg = KGlobal::config();
+  KSharedConfig::Ptr cfg = KGlobal::config();
   cfg->setGroup( "IndexDialog" );
-  KDialog::saveDialogSize( cfg );
+  KDialog::saveDialogSize( cfg.data() );
 }
 
 void KCMHelpCenter::setupMainWidget( QWidget *parent )

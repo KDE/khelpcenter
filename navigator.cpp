@@ -87,7 +87,7 @@ Navigator::Navigator( View *view, QWidget *parent, const char *name )
 {
     setObjectName( name );
 
-    KConfig *config = KGlobal::config();
+    KSharedConfig::Ptr config = KGlobal::config();
     config->setGroup("General");
     mShowMissingDocs = config->readEntry("ShowMissingDocs", QVariant(false)).toBool();
 
@@ -132,7 +132,7 @@ Navigator::Navigator( View *view, QWidget *parent, const char *name )
       hideSearch();
     } else {
       mSearchWidget->updateScopeList();
-      mSearchWidget->readConfig( KGlobal::config() );
+      mSearchWidget->readConfig( KGlobal::config().data() );
     }
 }
 
@@ -580,7 +580,7 @@ void Navigator::hideSearch()
 
 bool Navigator::checkSearchIndex()
 {
-  KConfig *cfg = KGlobal::config();
+  KSharedConfig::Ptr cfg = KGlobal::config();
   cfg->setGroup( "Search" );
   if ( cfg->readEntry( "IndexExists", QVariant(false )).toBool() ) return true;
 
@@ -615,7 +615,7 @@ KUrl Navigator::homeURL()
 {
   if ( !mHomeUrl.isEmpty() ) return mHomeUrl;
 
-  KConfig *cfg = KGlobal::config();
+  KSharedConfig::Ptr cfg = KGlobal::config();
   // We have to reparse the configuration here in order to get a
   // language-specific StartUrl, e.g. "StartUrl[de]".
   cfg->reparseConfiguration();

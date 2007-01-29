@@ -131,7 +131,7 @@ void HtmlSearchConfig::load( KConfig *config )
 {
   config->setGroup("htdig");
 
-  mHtsearchUrl->lineEdit()->setText(config->readPathEntry("htsearch", kapp->dirs()->findExe("htsearch")));
+  mHtsearchUrl->lineEdit()->setText(config->readPathEntry("htsearch", KGlobal::mainComponent().dirs()->findExe("htsearch")));
   mIndexerBin->lineEdit()->setText(config->readPathEntry("indexer"));
   mDbDir->lineEdit()->setText(config->readPathEntry("dbdir", "/opt/www/htdig/db/" ) );
 }
@@ -147,7 +147,7 @@ void HtmlSearchConfig::save( KConfig *config )
 
 void HtmlSearchConfig::defaults()
 {
-    mHtsearchUrl->lineEdit()->setText(kapp->dirs()->findExe("htsearch"));
+    mHtsearchUrl->lineEdit()->setText(KGlobal::mainComponent().dirs()->findExe("htsearch"));
     mIndexerBin->lineEdit()->setText("");
     mDbDir->lineEdit()->setText(QLatin1String("/opt/www/htdig/db/") );
 }

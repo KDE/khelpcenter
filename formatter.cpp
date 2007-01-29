@@ -42,7 +42,7 @@ Formatter:: ~Formatter()
 
 bool Formatter::readTemplates()
 {
-  KConfig *cfg = KGlobal::config();
+  KSharedConfig::Ptr cfg = KGlobal::config();
   cfg->setGroup( "Templates" );
   QString mainTemplate = cfg->readEntry( "MainTemplate" );
 

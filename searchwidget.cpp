@@ -125,7 +125,7 @@ SearchWidget::SearchWidget( SearchEngine *engine, QWidget *parent )
 
 SearchWidget::~SearchWidget()
 {
-  writeConfig( KGlobal::config() );
+  writeConfig( KGlobal::config().data() );
 }
 
 

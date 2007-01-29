@@ -21,7 +21,7 @@
 #define KCMHELPCENTER_H
 
 #include <kdialog.h>
-
+#include <kconfig.h>
 
 #include "scopeitem.h"
 //Added by qt3to4:
@@ -150,7 +150,7 @@ class KCMHelpCenter : public KDialog
     QList<KHC::DocEntry *> mIndexQueue;
     QList<KHC::DocEntry *>::ConstIterator mCurrentEntry;
     
-    KConfig *mConfig;
+    KSharedConfigPtr mConfig;
     
     KAboutData *mAboutData;
 

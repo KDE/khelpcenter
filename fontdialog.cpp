@@ -34,6 +34,7 @@
 #include <QLabel>
 #include <QLayout>
 #include <QSpinBox>
+#include <kconfiggroup.h>
 
 using namespace KHC;
 
@@ -158,7 +159,7 @@ void FontDialog::setupFontEncodingBox()
 
 void FontDialog::load()
 {
-	KConfig *cfg = KGlobal::config();
+	KSharedConfig::Ptr cfg = KGlobal::config();
 	{
 		KConfigGroup configGroup( cfg, "HTML Settings" );
 
@@ -189,7 +190,7 @@ void FontDialog::load()
 
 void FontDialog::save()
 {
-	KConfig *cfg = KGlobal::config();
+	KSharedConfig::Ptr cfg = KGlobal::config();
 	{
 		KConfigGroup configGroup( cfg, "General" );
 		configGroup.writeEntry( "UseKonqSettings", false );

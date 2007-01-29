@@ -293,7 +293,7 @@ bool SearchEngine::search( QString words, QString method, int matches,
   if ( method == "or" ) mOperation = Or;
   else mOperation = And;
 
-  KConfig *cfg = KGlobal::config();
+  KSharedConfig::Ptr cfg = KGlobal::config();
   cfg->setGroup( "Search" );
   QString commonSearchProgram = cfg->readPathEntry( "CommonProgram" );
   bool useCommon = cfg->readEntry( "UseCommonProgram", QVariant(false )).toBool();

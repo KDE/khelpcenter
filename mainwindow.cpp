@@ -59,6 +59,7 @@
 #include <assert.h>
 #include <QList>
 #include <kglobal.h>
+#include <kconfiggroup.h>
 
 using namespace KHC;
 
@@ -80,16 +81,16 @@ class LogDialog : public KDialog
       mTextView->setTextFormat( Qt::LogText );
       topLayout->addWidget( mTextView );
 
-      KConfig *cfg = KGlobal::config();
+      KSharedConfig::Ptr cfg = KGlobal::config();
       cfg->setGroup( "logdialog" );
-      restoreDialogSize( cfg );
+      restoreDialogSize( cfg.data() );
     }
 
     ~LogDialog()
     {
-      KConfig *cfg = KGlobal::config();
+      KSharedConfig::Ptr cfg = KGlobal::config();
       cfg->setGroup( "logdialog" );
-      KDialog::saveDialogSize( cfg );
+      KDialog::saveDialogSize( cfg.data() );
     }
 
     void setLog( const QString &log )
@@ -151,7 +152,7 @@ MainWindow::MainWindow()
     mSplitter->setSizes(sizes);
     setGeometry(366, 0, 800, 600);
 
-    KConfig *cfg = KGlobal::config();
+    KSharedConfig::Ptr cfg = KGlobal::config();
     {
       KConfigGroup configGroup( cfg, "General" );
       if ( configGroup.readEntry( "UseKonqSettings", QVariant(true )).toBool() ) {
@@ -206,7 +207,7 @@ void MainWindow::readProperties( KConfig *config )
 
 void MainWindow::readConfig()
 {
-    KConfig *config = KGlobal::config();
+    KSharedConfig::Ptr config = KGlobal::config();
     config->setGroup( "MainWindowState" );
     QList<int> sizes = config->readEntry( "Splitter", QList<int>() );
     if ( sizes.count() == 2 ) {
@@ -218,7 +219,7 @@ void MainWindow::readConfig()
 
 void MainWindow::writeConfig()
 {
-    KConfig *config = KGlobal::config();
+    KSharedConfig::Ptr config = KGlobal::config();
     config->setGroup( "MainWindowState" );
     config->writeEntry( "Splitter", mSplitter->sizes() );
 
