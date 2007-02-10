@@ -296,7 +296,7 @@ bool SearchEngine::search( QString words, QString method, int matches,
   KSharedConfig::Ptr cfg = KGlobal::config();
   cfg->setGroup( "Search" );
   QString commonSearchProgram = cfg->readPathEntry( "CommonProgram" );
-  bool useCommon = cfg->readEntry( "UseCommonProgram", QVariant(false )).toBool();
+  bool useCommon = cfg->readEntry( "UseCommonProgram", false);
   
   if ( commonSearchProgram.isEmpty() || !useCommon ) {
     if ( !mView ) {

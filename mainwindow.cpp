@@ -155,7 +155,7 @@ MainWindow::MainWindow()
     KSharedConfig::Ptr cfg = KGlobal::config();
     {
       KConfigGroup configGroup( cfg, "General" );
-      if ( configGroup.readEntry( "UseKonqSettings", QVariant(true )).toBool() ) {
+      if ( configGroup.readEntry( "UseKonqSettings", true) ) {
         KConfig konqCfg( "konquerorrc" );
         const_cast<KHTMLSettings *>( mDoc->settings() )->init( &konqCfg );
       }
@@ -266,7 +266,7 @@ void MainWindow::setupActions()
     actionCollection()->addAction( KStandardAction::KeyBindings, guiFactory(), SLOT( configureShortcuts() ) );
 
     KConfigGroup debugGroup( KGlobal::config(), "Debug" );
-    if ( debugGroup.readEntry( "SearchErrorLog", QVariant(false )).toBool() ) {
+    if ( debugGroup.readEntry( "SearchErrorLog", false) ) {
         action = actionCollection()->addAction(QLatin1String("show_search_stderr"));
         action->setText( i18n("Show Search Error Log") );
         connect( action, SIGNAL( triggered() ), this, SLOT( showSearchStderr() ) );
