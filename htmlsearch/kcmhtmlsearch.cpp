@@ -148,7 +148,7 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const QStringList &)
   delButton = new QPushButton(i18n("Delete"), gb);
   grid->addWidget(delButton, 2,0);
 
-  searchPaths = new KListBox(gb);
+  searchPaths = new KListWidget(gb);
   grid->addWidget(searchPaths, 1, 1,3, 1);
   grid->setRowStretch(2,2);
 
