@@ -96,9 +96,8 @@ void InfoTree::build( NavigatorItem *parent )
   m_categoryItem = new NavigatorItem( entry, parent );
   m_categoryItem->setAutoDeleteDocEntry( true );
 
-  KSharedConfig::Ptr cfg = KGlobal::config();
-  cfg->setGroup( "Info pages" );
-  QStringList infoDirFiles = cfg->readEntry( "Search paths" , QStringList() );
+  KConfigGroup cfg(KGlobal::config(), "Info pages");
+  QStringList infoDirFiles = cfg.readEntry( "Search paths" , QStringList() );
   // Default paths taken fron kdebase/kioslave/info/kde-info2html.conf
   if ( infoDirFiles.isEmpty() ) { 
     infoDirFiles << "/usr/share/info";

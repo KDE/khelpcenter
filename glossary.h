@@ -25,7 +25,7 @@
 #include <QDomElement>
 #include <QStringList>
 #include <QList>
-#include <kconfig.h>
+#include <ksharedconfig.h>
 #include <QHash>
 
 class KConfig;

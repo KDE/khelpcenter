@@ -42,9 +42,8 @@ Formatter:: ~Formatter()
 
 bool Formatter::readTemplates()
 {
-  KSharedConfig::Ptr cfg = KGlobal::config();
-  cfg->setGroup( "Templates" );
-  QString mainTemplate = cfg->readEntry( "MainTemplate" );
+  KConfigGroup cfg(KGlobal::config(), "Templates");
+  QString mainTemplate = cfg.readEntry( "MainTemplate" );
 
   if ( mainTemplate.isEmpty() ) {
     mainTemplate = KStandardDirs::locate( "appdata", "maintemplate" );

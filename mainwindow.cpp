@@ -81,16 +81,14 @@ class LogDialog : public KDialog
       mTextView->setTextFormat( Qt::LogText );
       topLayout->addWidget( mTextView );
 
-      KSharedConfig::Ptr cfg = KGlobal::config();
-      cfg->setGroup( "logdialog" );
-      restoreDialogSize( cfg.data() );
+      KConfigGroup cg = KGlobal::config()->group( "logdialog" );
+      restoreDialogSize( cg );
     }
 
     ~LogDialog()
     {
-      KSharedConfig::Ptr cfg = KGlobal::config();
-      cfg->setGroup( "logdialog" );
-      KDialog::saveDialogSize( cfg.data() );
+      KConfigGroup cg = KGlobal::config()->group( "logdialog" );
+      KDialog::saveDialogSize( cg );
     }
 
     void setLog( const QString &log )
@@ -207,9 +205,8 @@ void MainWindow::readProperties( KConfig *config )
 
 void MainWindow::readConfig()
 {
-    KSharedConfig::Ptr config = KGlobal::config();
-    config->setGroup( "MainWindowState" );
-    QList<int> sizes = config->readEntry( "Splitter", QList<int>() );
+    KConfigGroup config(KGlobal::config(), "MainWindowState");
+    QList<int> sizes = config.readEntry( "Splitter", QList<int>() );
     if ( sizes.count() == 2 ) {
         mSplitter->setSizes( sizes );
     }
@@ -219,9 +216,8 @@ void MainWindow::readConfig()
 
 void MainWindow::writeConfig()
 {
-    KSharedConfig::Ptr config = KGlobal::config();
-    config->setGroup( "MainWindowState" );
-    config->writeEntry( "Splitter", mSplitter->sizes() );
+    KConfigGroup config(KGlobal::config(), "MainWindowState");
+    config.writeEntry( "Splitter", mSplitter->sizes() );
 
     mNavigator->writeConfig();
 

@@ -43,7 +43,7 @@
 
 #include <kaction.h>
 #include <kapplication.h>
-#include <ksimpleconfig.h>
+#include <kconfig.h>
 #include <kstandarddirs.h>
 #include <kglobal.h>
 #include <klocale.h>
@@ -87,9 +87,8 @@ Navigator::Navigator( View *view, QWidget *parent, const char *name )
 {
     setObjectName( name );
 
-    KSharedConfig::Ptr config = KGlobal::config();
-    config->setGroup("General");
-    mShowMissingDocs = config->readEntry("ShowMissingDocs", false);
+    KConfigGroup config(KGlobal::config(), "General");
+    mShowMissingDocs = config.readEntry("ShowMissingDocs", false);
 
     mSearchEngine = new SearchEngine( view );
     connect( mSearchEngine, SIGNAL( searchFinished() ),
@@ -580,9 +579,8 @@ void Navigator::hideSearch()
 
 bool Navigator::checkSearchIndex()
 {
-  KSharedConfig::Ptr cfg = KGlobal::config();
-  cfg->setGroup( "Search" );
-  if ( cfg->readEntry( "IndexExists", false) ) return true;
+  KConfigGroup cfg(KGlobal::config(), "Search" );
+  if ( cfg.readEntry( "IndexExists", false) ) return true;
 
   if ( mIndexDialog && !mIndexDialog->isHidden() ) return true;
 

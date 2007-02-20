@@ -21,7 +21,7 @@
 #define KCMHELPCENTER_H
 
 #include <kdialog.h>
-#include <kconfig.h>
+#include <ksharedconfig.h>
 
 #include "scopeitem.h"
 //Added by qt3to4:

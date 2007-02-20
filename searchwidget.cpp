@@ -31,7 +31,7 @@
 #include <QHBoxLayout>
 #include <QBoxLayout>
 
-#include <ksimpleconfig.h>
+#include <kconfig.h>
 #include <kapplication.h>
 #include <klocale.h>
 #include <kdebug.h>

@@ -151,9 +151,8 @@ IndexProgressDialog::IndexProgressDialog( QWidget *parent )
 IndexProgressDialog::~IndexProgressDialog()
 {
   if ( !mLogView->isHidden() ) {
-    KSharedConfig::Ptr cfg = KGlobal::config();
-    cfg->setGroup( "indexprogressdialog" );
-    cfg->writeEntry( "size", size() );
+    KConfigGroup cfg(KGlobal::config(), "indexprogressdialog");
+    cfg.writeEntry( "size", size() );
   }
 }
 
@@ -212,16 +211,15 @@ void IndexProgressDialog::slotEnd()
 
 void IndexProgressDialog::toggleDetails()
 {
-  KSharedConfig::Ptr cfg = KGlobal::config();
-  cfg->setGroup( "indexprogressdialog" );
+  KConfigGroup cfg(KGlobal::config(), "indexprogressdialog");
   if ( mLogView->isHidden() ) {
     mLogLabel->show();
     mLogView->show();
     mDetailsButton->setText( i18n("Details <<") );
-    QSize size = cfg->readEntry( "size", QSize() );
+    QSize size = cfg.readEntry( "size", QSize() );
     if ( !size.isEmpty() ) resize( size );
   } else {
-    cfg->writeEntry( "size", size() );
+    cfg.writeEntry( "size", size() );
     hideDetails();
   }
 }
@@ -264,20 +262,19 @@ KCMHelpCenter::KCMHelpCenter( KHC::SearchEngine *engine, QWidget *parent,
   const QString dbusInterface = "org.kde.khelpcenter.kcmhelpcenter";
   QDBusConnection dbus = QDBusConnection::sessionBus();
   bool success = dbus.connect(QString(), "/kcmhelpcenter", dbusInterface, "buildIndexProgress", this, SLOT(slotIndexProgress()));
-  if ( !success ) 
+  if ( !success )
     kError() << "connect D-Bus signal failed" << endl;
   success = dbus.connect(QString(), "/kcmhelpcenter", dbusInterface, "buildIndexError", this, SLOT(slotIndexError(const QString&)));
-  if ( !success ) 
+  if ( !success )
     kError() << "connect D-Bus signal failed" << endl;
-  mConfig->setGroup( "IndexDialog" );
-  restoreDialogSize( mConfig.data() );
+  KConfigGroup id( mConfig, "IndexDialog" );
+  restoreDialogSize( id );
 }
 
 KCMHelpCenter::~KCMHelpCenter()
 {
-  KSharedConfig::Ptr cfg = KGlobal::config();
-  cfg->setGroup( "IndexDialog" );
-  KDialog::saveDialogSize( cfg.data() );
+  KConfigGroup cg( KGlobal::config(), "IndexDialog" );
+  KDialog::saveDialogSize( cg );
 }
 
 void KCMHelpCenter::setupMainWidget( QWidget *parent )
@@ -554,8 +551,7 @@ void KCMHelpCenter::slotIndexFinished( KProcess *proc )
     kDebug() << "KProcess reported an error." << endl;
     KMessageBox::error( this, i18n("Failed to build index.") );
   } else {
-    mConfig->setGroup( "Search" );
-    mConfig->writeEntry( "IndexExists", true );
+    mConfig->group( "Search" ).writeEntry( "IndexExists", true );
     emit searchIndexUpdated();
   }
 

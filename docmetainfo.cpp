@@ -3,7 +3,7 @@
 #include <kdebug.h>
 #include <kstandarddirs.h>
 #include <klocale.h>
-#include <ksimpleconfig.h>
+#include <kconfig.h>
 
 #include "htmlsearch.h"
 
@@ -112,8 +112,8 @@ QString DocMetaInfo::languageName( const QString &langcode )
 
   kDebug() << "-- langcode: " << langcode << " cfgfile: " << cfgfile << endl;
 
-  KSimpleConfig cfg( cfgfile );
-  cfg.setGroup( "KCM Locale" );
+  KConfig _cfg( cfgfile, KConfig::OnlyLocal );
+  KConfigGroup cfg(&_cfg, "KCM Locale" );
   QString name = cfg.readEntry( "Name", langcode );
 
   return name;
