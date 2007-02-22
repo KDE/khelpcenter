@@ -131,9 +131,8 @@ SearchWidget::~SearchWidget()
 
 void SearchWidget::readConfig( KConfig *cfg )
 {
-  cfg->setGroup( "Search" );
-
-  int scopeSelection = cfg->readEntry( "ScopeSelection", (int)ScopeDefault );
+  KConfigGroup searchGroup(cfg, "Search");
+  int scopeSelection = searchGroup.readEntry( "ScopeSelection", (int)ScopeDefault );
   mScopeCombo->setCurrentIndex( scopeSelection );
   if ( scopeSelection != ScopeDefault ) scopeSelectionChanged( scopeSelection );
 
@@ -141,13 +140,14 @@ void SearchWidget::readConfig( KConfig *cfg )
   mPagesCombo->setCurrentIndex( Prefs::maxCount() );
 
   if ( scopeSelection == ScopeCustom ) {
-    cfg->setGroup( "Custom Search Scope" );
+    KConfigGroup searchScopeGroup(cfg, "Custom Search Scope" );
     Q3ListViewItemIterator it( mScopeListView );
     while( it.current() ) {
       if ( it.current()->rtti() == ScopeItem::rttiId() ) {
         ScopeItem *item = static_cast<ScopeItem *>( it.current() );
-        item->setOn( cfg->readEntry( item->entry()->identifier(),
-                                         QVariant(item->isOn()) ).toBool() );
+        item->setOn( searchScopeGroup.readEntry( 
+                         item->entry()->identifier(),
+                         item->isOn() ) );
       }
       ++it;
     }
