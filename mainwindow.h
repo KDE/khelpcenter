@@ -57,8 +57,8 @@ class MainWindow : public KMainWindow
   protected:
     void setupActions();
 
-    virtual void saveProperties( KConfig *config );
-    virtual void readProperties( KConfig *config );
+    virtual void saveProperties( KConfigGroup &config );
+    virtual void readProperties( const KConfigGroup &config );
 
     void readConfig();
     void writeConfig();

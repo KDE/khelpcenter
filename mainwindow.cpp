@@ -191,16 +191,16 @@ void MainWindow::enableCopyTextAction()
     mCopyText->setEnabled( mDoc->hasSelection() );
 }
 
-void MainWindow::saveProperties( KConfig *config )
+void MainWindow::saveProperties( KConfigGroup &config )
 {
     kDebug()<<"void MainWindow::saveProperties( KConfig *config )" << endl;
-    config->writePathEntry( "URL" , mDoc->baseURL().url() );
+    config.writePathEntry( "URL" , mDoc->baseURL().url() );
 }
 
-void MainWindow::readProperties( KConfig *config )
+void MainWindow::readProperties( const KConfigGroup &config )
 {
     kDebug()<<"void MainWindow::readProperties( KConfig *config )" << endl;
-    mDoc->slotReload( KUrl( config->readPathEntry( "URL" ) ) );
+    mDoc->slotReload( KUrl( config.readPathEntry( "URL" ) ) );
 }
 
 void MainWindow::readConfig()
