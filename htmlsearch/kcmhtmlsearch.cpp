@@ -278,9 +278,9 @@ void KHTMLSearchConfig::load()
   htmergeBin->lineEdit()->setText(config->readPathEntry("htmerge", kapp->dirs()->findExe("htmerge")));
 
   config->setGroup("Scope");
-  indexKDE->setChecked(config->readEntry("KDE", QVariant(true)).toBool());
-  indexMan->setChecked(config->readEntry("Man", QVariant(false)).toBool());
-  indexInfo->setChecked(config->readEntry("Info", QVariant(false)).toBool());
+  indexKDE->setChecked(config->readEntry("KDE", true));
+  indexMan->setChecked(config->readEntry("Man", false));
+  indexInfo->setChecked(config->readEntry("Info", false));
 
   QStringList l = config->readPathListEntry("Paths");
   searchPaths->clear();
