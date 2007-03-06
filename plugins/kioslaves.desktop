@@ -1,6 +1,28 @@
 [Desktop Entry]
 
 Name=Kioslaves
+Name[cs]=Pomocné protokoly KDE
+Name[da]=Kioslaver
+Name[de]=Ein-/Ausgabemodule
+Name[eo]=Kenelservoj
+Name[et]=KIO moodulid
+Name[fi]=KIO-palvelut
+Name[gl]=Escravos Kio
+Name[hu]=KDE-protokollok
+Name[it]=Kioslave
+Name[ja]=Kioslave
+Name[lt]=Kiovergai
+Name[lv]=KIO vergi
+Name[nb]=Kioslaver
+Name[nds]=In-/Utgaavmodulen
+Name[ne]=किओस्लेभ
+Name[nn]=Kioslavar
+Name[pl]=Wtyczki wejścia/wyjścia
+Name[ro]=Dispozitive KIO
+Name[se]=KIO-šlávat
+Name[sv]=I/O-slavar
+Name[tg]=Бандаҳои Kio
+Name[uk]=Підлеглі В/В
 Name[x-test]=xxKioslavesxx
 Icon=contents2
 
