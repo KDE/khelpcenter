@@ -53,7 +53,7 @@ class SectionItem : public K3ListViewItem
 		{
 				K3ListViewItem::setOpen(open);
 
-				setPixmap( 0, SmallIcon( QLatin1String( open ? "contents" : "contents2" ) ) );
+				setPixmap( 0, SmallIcon( QLatin1String( open ? "help-contents" : "contents2" ) ) );
 
 		}
 };
@@ -89,10 +89,10 @@ Glossary::Glossary( QWidget *parent ) : K3ListView( parent )
 	setRootIsDecorated( true );
 
 	m_byTopicItem = new K3ListViewItem( this, i18n( "By Topic" ) );
-	m_byTopicItem->setPixmap( 0, SmallIcon( "help" ) );
+	m_byTopicItem->setPixmap( 0, SmallIcon( "help-contents" ) );
 
 	m_alphabItem = new K3ListViewItem( this, i18n( "Alphabetically" ) );
-	m_alphabItem->setPixmap( 0, SmallIcon( "charset" ) );
+	m_alphabItem->setPixmap( 0, SmallIcon( "character-set" ) );
 
 	m_cacheFile = KStandardDirs::locateLocal( "cache", "help/glossary.xml" );
 

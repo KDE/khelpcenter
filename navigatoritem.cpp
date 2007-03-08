@@ -97,7 +97,7 @@ void NavigatorItem::setOpen( bool open )
   Q3ListViewItem::setOpen( open );
 
   if ( entry()->icon().isEmpty() || entry()->icon() == "contents2" ) {
-    if ( open && childCount() > 0 ) setPixmap( 0, SmallIcon( "contents" ) );
+    if ( open && childCount() > 0 ) setPixmap( 0, SmallIcon( "help-contents" ) );
     else setPixmap( 0, SmallIcon( "contents2" ) );
   }
 }

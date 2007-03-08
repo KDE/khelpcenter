@@ -66,7 +66,7 @@ void InfoCategoryItem::setOpen( bool open )
 {
   NavigatorItem::setOpen( open );
 
-  if ( open && childCount() > 0 ) setPixmap( 0, SmallIcon( "contents" ) );
+  if ( open && childCount() > 0 ) setPixmap( 0, SmallIcon( "help-contents" ) );
   else setPixmap( 0, SmallIcon( "contents2" ) );
 }
 
