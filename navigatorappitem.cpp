@@ -22,6 +22,7 @@
 #include "docentry.h"
 
 #include <kdebug.h>
+#include <kservice.h>
 #include <kservicegroup.h>
 
 using namespace KHC;
