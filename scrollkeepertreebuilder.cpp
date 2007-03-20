@@ -176,7 +176,8 @@ void ScrollKeeperTreeBuilder::insertDoc( NavigatorItem *parent,
         QString mimeType = e.text();
         if ( mimeType == "text/html") {
           // Let the HTML part figure out how to get the doc
-        } else if ( mimeType == "text/xml" ) {
+        } else if ( mimeType == "application/xml"
+                   || mimeType == "text/xml" /*deprecated name*/ ) {
           if ( url.left( 5 ) == "file:" ) url = url.mid( 5 );
           url.prepend( "ghelp:" );
 #if 0
