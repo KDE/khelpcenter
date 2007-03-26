@@ -103,7 +103,7 @@ Glossary::Glossary( QWidget *parent ) : K3ListView( parent )
 
 }
 
-void Glossary::show()
+void Glossary::showEvent(QShowEvent *event)
 {
 	if ( !m_initialized ) {
 		if ( cacheStatus() == NeedRebuild )
@@ -112,7 +112,7 @@ void Glossary::show()
 			buildGlossaryTree();
 		m_initialized = true;
 	}
-	K3ListView::show();
+	K3ListView::showEvent(event);
 }
 
 Glossary::~Glossary()

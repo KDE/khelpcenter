@@ -110,8 +110,6 @@ class Glossary : public K3ListView
  
     static QString entryToHtml( const GlossaryEntry &entry );
 
-    virtual void show();
-
 	public Q_SLOTS:
 		void slotSelectGlossEntry( const QString &id );
 
@@ -122,6 +120,9 @@ class Glossary : public K3ListView
 		void meinprocExited( K3Process *meinproc );
 		void treeItemSelected( Q3ListViewItem *item );
 
+        protected:
+                virtual void showEvent(QShowEvent *event);
+                
 	private:
 		enum CacheStatus { NeedRebuild, CacheOk };
 
