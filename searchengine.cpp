@@ -5,7 +5,7 @@
 #include <kconfig.h>
 #include <kdebug.h>
 #include <kstandarddirs.h>
-#include <kprocess.h>
+#include <k3process.h>
 #include <klocale.h>
 #include <kmessagebox.h>
 
@@ -246,7 +246,7 @@ bool SearchEngine::initSearchHandlers()
   return true;
 }
 
-void SearchEngine::searchStdout(KProcess *, char *buffer, int len)
+void SearchEngine::searchStdout(K3Process *, char *buffer, int len)
 {
   if ( !buffer || len == 0 )
     return;
@@ -262,7 +262,7 @@ void SearchEngine::searchStdout(KProcess *, char *buffer, int len)
   free(p);
 }
 
-void SearchEngine::searchStderr(KProcess *, char *buffer, int len)
+void SearchEngine::searchStderr(K3Process *, char *buffer, int len)
 {
   if ( !buffer || len == 0 )
     return;
@@ -270,7 +270,7 @@ void SearchEngine::searchStderr(KProcess *, char *buffer, int len)
   mStderr.append( QString::fromUtf8( buffer, len ) );
 }
 
-void SearchEngine::searchExited(KProcess *)
+void SearchEngine::searchExited(K3Process *)
 {
   kDebug() << "Search terminated" << endl;
   mSearchRunning = false;
@@ -339,7 +339,7 @@ bool SearchEngine::search( QString words, QString method, int matches,
 
     kDebug() << "Common Search: " << commonSearchProgram << endl;
 
-    mProc = new KProcess();
+    mProc = new K3Process();
 
     QStringList cmd = commonSearchProgram.split( " ");
     QStringList::ConstIterator it;
@@ -352,18 +352,18 @@ bool SearchEngine::search( QString words, QString method, int matches,
       *mProc << arg.toUtf8();
     }
 
-    connect( mProc, SIGNAL( receivedStdout( KProcess *, char *, int ) ),
-             SLOT( searchStdout( KProcess *, char *, int ) ) );
-    connect( mProc, SIGNAL( receivedStderr( KProcess *, char *, int ) ),
-             SLOT( searchStderr( KProcess *, char *, int ) ) );
-    connect( mProc, SIGNAL( processExited( KProcess * ) ),
-             SLOT( searchExited( KProcess * ) ) );
+    connect( mProc, SIGNAL( receivedStdout( K3Process *, char *, int ) ),
+             SLOT( searchStdout( K3Process *, char *, int ) ) );
+    connect( mProc, SIGNAL( receivedStderr( K3Process *, char *, int ) ),
+             SLOT( searchStderr( K3Process *, char *, int ) ) );
+    connect( mProc, SIGNAL( processExited( K3Process * ) ),
+             SLOT( searchExited( K3Process * ) ) );
 
     mSearchRunning = true;
     mSearchResult = "";
     mStderr = "<b>" + commonSearchProgram + "</b>\n\n";
 
-    mProc->start(KProcess::NotifyOnExit, KProcess::All);
+    mProc->start(K3Process::NotifyOnExit, K3Process::All);
 
     while (mSearchRunning && mProc->isRunning())
       kapp->processEvents();

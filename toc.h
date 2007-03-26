@@ -26,7 +26,7 @@
 #include <q3listview.h>
 #include <QObject>
 
-class KProcess;
+class K3Process;
 
 namespace KHC {
 
@@ -47,7 +47,7 @@ class TOC : public QObject
 
 	private Q_SLOTS:
 		void slotItemSelected( Q3ListViewItem *item );
-		void meinprocExited( KProcess *meinproc );
+		void meinprocExited( K3Process *meinproc );
 
 	private:
 		enum CacheStatus { NeedRebuild, CacheOk };

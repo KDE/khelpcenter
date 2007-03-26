@@ -28,7 +28,7 @@
 #include <kcmdlineargs.h>
 #include <kuniqueapplication.h>
 #include <kdebug.h>
-#include <kprocess.h>
+#include <k3process.h>
 #include <kconfig.h>
 
 #include <QFile>
@@ -81,29 +81,29 @@ void IndexBuilder::processCmdQueue()
 
   kDebug(1402) << "PROCESS: " << cmd << endl;
 
-  KProcess *proc = new KProcess;
+  K3Process *proc = new K3Process;
   proc->setRunPrivileged( true );
 
   QStringList args = cmd.split( " ");
   *proc << args;
 
-  connect( proc, SIGNAL( processExited( KProcess * ) ),
-           SLOT( slotProcessExited( KProcess * ) ) );
-  connect( proc, SIGNAL( receivedStdout(KProcess *, char *, int ) ),
-           SLOT( slotReceivedStdout(KProcess *, char *, int ) ) );
-  connect( proc, SIGNAL( receivedStderr(KProcess *, char *, int ) ),
-           SLOT( slotReceivedStderr(KProcess *, char *, int ) ) );
+  connect( proc, SIGNAL( processExited( K3Process * ) ),
+           SLOT( slotProcessExited( K3Process * ) ) );
+  connect( proc, SIGNAL( receivedStdout(K3Process *, char *, int ) ),
+           SLOT( slotReceivedStdout(K3Process *, char *, int ) ) );
+  connect( proc, SIGNAL( receivedStderr(K3Process *, char *, int ) ),
+           SLOT( slotReceivedStderr(K3Process *, char *, int ) ) );
 
   mCmdQueue.erase( it );
 
-  if ( !proc->start( KProcess::NotifyOnExit, KProcess::AllOutput ) ) {
+  if ( !proc->start( K3Process::NotifyOnExit, K3Process::AllOutput ) ) {
     sendErrorSignal( i18n("Unable to start command '%1'.", cmd ) );
     processCmdQueue();
     delete proc;
   }
 }
 
-void IndexBuilder::slotProcessExited( KProcess *proc )
+void IndexBuilder::slotProcessExited( K3Process *proc )
 {
   kDebug(1402) << "IndexBuilder::slotIndexFinished()" << endl;
 
@@ -121,13 +121,13 @@ void IndexBuilder::slotProcessExited( KProcess *proc )
   processCmdQueue();
 }
 
-void IndexBuilder::slotReceivedStdout( KProcess *, char *buffer, int buflen )
+void IndexBuilder::slotReceivedStdout( K3Process *, char *buffer, int buflen )
 {
   QString text = QString::fromLocal8Bit( buffer, buflen );
   std::cout << text.toLocal8Bit().data() << std::flush;
 }
 
-void IndexBuilder::slotReceivedStderr( KProcess *, char *buffer, int buflen )
+void IndexBuilder::slotReceivedStderr( K3Process *, char *buffer, int buflen )
 {
   QString text = QString::fromLocal8Bit( buffer, buflen );
   std::cerr << text.toLocal8Bit().data() << std::flush;

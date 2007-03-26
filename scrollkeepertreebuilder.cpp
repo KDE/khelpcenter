@@ -28,7 +28,7 @@
 #include <kdebug.h>
 #include <kglobal.h>
 #include <klocale.h>
-#include <kprocio.h>
+#include <k3procio.h>
 
 #include <qdom.h>
 #include <QFile>
@@ -58,11 +58,11 @@ NavigatorItem *ScrollKeeperTreeBuilder::build( NavigatorItem *parent,
 
   kDebug(1400) << "ScrollKeeper language: " << lang << endl;
 
-  KProcIO proc;
+  K3ProcIO proc;
   proc << "scrollkeeper-get-content-list";
   proc << lang;
-  connect(&proc,SIGNAL(readReady(KProcIO *)),SLOT(getContentsList(KProcIO *)));
-  if (!proc.start(KProcess::Block)) {
+  connect(&proc,SIGNAL(readReady(K3ProcIO *)),SLOT(getContentsList(K3ProcIO *)));
+  if (!proc.start(K3Process::Block)) {
     kDebug(1400) << "Could not execute scrollkeeper-get-content-list" << endl;
     return 0;
   }
@@ -106,7 +106,7 @@ NavigatorItem *ScrollKeeperTreeBuilder::build( NavigatorItem *parent,
   return result;
 }
 
-void ScrollKeeperTreeBuilder::getContentsList( KProcIO *proc )
+void ScrollKeeperTreeBuilder::getContentsList( K3ProcIO *proc )
 {
   QString filename;
   proc->readln( filename, true );

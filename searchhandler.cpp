@@ -25,7 +25,7 @@
 #include "docentry.h"
 
 #include <kdesktopfile.h>
-#include <kprocess.h>
+#include <k3process.h>
 #include <kdebug.h>
 #include <kmessagebox.h>
 #include <klocale.h>
@@ -102,7 +102,7 @@ void SearchHandler::search( DocEntry *entry, const QStringList &words,
 
     kDebug() << "SearchHandler::search() CMD: " << cmdString << endl;
 
-    KProcess *proc = new KProcess();
+    K3Process *proc = new K3Process();
 
     QStringList cmd = cmdString.split( " ");
     QStringList::ConstIterator it;
@@ -114,12 +114,12 @@ void SearchHandler::search( DocEntry *entry, const QStringList &words,
       *proc << arg.toUtf8();
     }
 
-    connect( proc, SIGNAL( receivedStdout( KProcess *, char *, int ) ),
-             SLOT( searchStdout( KProcess *, char *, int ) ) );
-    connect( proc, SIGNAL( receivedStderr( KProcess *, char *, int ) ),
-             SLOT( searchStderr( KProcess *, char *, int ) ) );
-    connect( proc, SIGNAL( processExited( KProcess * ) ),
-             SLOT( searchExited( KProcess * ) ) );
+    connect( proc, SIGNAL( receivedStdout( K3Process *, char *, int ) ),
+             SLOT( searchStdout( K3Process *, char *, int ) ) );
+    connect( proc, SIGNAL( receivedStderr( K3Process *, char *, int ) ),
+             SLOT( searchStderr( K3Process *, char *, int ) ) );
+    connect( proc, SIGNAL( processExited( K3Process * ) ),
+             SLOT( searchExited( K3Process * ) ) );
 
     SearchJob *searchJob = new SearchJob;
     searchJob->mEntry = entry;
@@ -128,7 +128,7 @@ void SearchHandler::search( DocEntry *entry, const QStringList &words,
 
     mProcessJobs.insert( proc, searchJob );
 
-    if ( !proc->start( KProcess::NotifyOnExit, KProcess::All ) ) {
+    if ( !proc->start( K3Process::NotifyOnExit, K3Process::All ) ) {
       QString txt = i18n("Error executing search command '%1'.", cmdString );
       emit searchFinished( this, entry, txt );
     }
@@ -155,7 +155,7 @@ void SearchHandler::search( DocEntry *entry, const QStringList &words,
   }
 }
 
-void SearchHandler::searchStdout( KProcess *proc, char *buffer, int len )
+void SearchHandler::searchStdout( K3Process *proc, char *buffer, int len )
 {
   if ( !buffer || len == 0 )
     return;
@@ -166,7 +166,7 @@ void SearchHandler::searchStdout( KProcess *proc, char *buffer, int len )
   p = strncpy( p, buffer, len );
   p[len] = '\0';
 
-  QMap<KProcess *, SearchJob *>::ConstIterator it = mProcessJobs.find( proc );
+  QMap<K3Process *, SearchJob *>::ConstIterator it = mProcessJobs.find( proc );
   if ( it != mProcessJobs.end() ) {
     (*it)->mResult += bufferStr.fromUtf8( p );
   }
@@ -174,18 +174,18 @@ void SearchHandler::searchStdout( KProcess *proc, char *buffer, int len )
   free( p );
 }
 
-void SearchHandler::searchStderr( KProcess *proc, char *buffer, int len )
+void SearchHandler::searchStderr( K3Process *proc, char *buffer, int len )
 {
   if ( !buffer || len == 0 )
     return;
 
-  QMap<KProcess *, SearchJob *>::ConstIterator it = mProcessJobs.find( proc );
+  QMap<K3Process *, SearchJob *>::ConstIterator it = mProcessJobs.find( proc );
   if ( it != mProcessJobs.end() ) {
     (*it)->mError += QString::fromUtf8( buffer, len );
   }
 }
 
-void SearchHandler::searchExited( KProcess *proc )
+void SearchHandler::searchExited( K3Process *proc )
 {
 //  kDebug() << "SearchHandler::searchExited()" << endl;
 
@@ -193,7 +193,7 @@ void SearchHandler::searchExited( KProcess *proc )
   QString error;
   DocEntry *entry = 0;
 
-  QMap<KProcess *, SearchJob *>::ConstIterator it = mProcessJobs.find( proc );
+  QMap<K3Process *, SearchJob *>::ConstIterator it = mProcessJobs.find( proc );
   if ( it != mProcessJobs.end() ) {
     SearchJob *j = *it;
     entry = j->mEntry;

@@ -26,7 +26,7 @@
 #include <QCheckBox>
 #include <QWhatsThis>
 #include <kfiledialog.h>
-#include <kprocess.h>
+#include <k3process.h>
 #include "klangcombo.h"
 #include <kurlrequester.h>
 #include <klineedit.h>
@@ -359,11 +359,11 @@ void KHTMLSearchConfig::generateIndex()
 
   delete indexProc;
 
-  indexProc = new KProcess;
+  indexProc = new K3Process;
   *indexProc << exe << "--lang" << language->currentTag();
 
-  connect(indexProc, SIGNAL(processExited(KProcess *)),
-      this, SLOT(indexTerminated(KProcess *)));
+  connect(indexProc, SIGNAL(processExited(K3Process *)),
+      this, SLOT(indexTerminated(K3Process *)));
 
   runButton->setEnabled(false);
 
@@ -371,7 +371,7 @@ void KHTMLSearchConfig::generateIndex()
 }
 
 
-void KHTMLSearchConfig::indexTerminated(KProcess *)
+void KHTMLSearchConfig::indexTerminated(K3Process *)
 {
   runButton->setEnabled(true);
 }

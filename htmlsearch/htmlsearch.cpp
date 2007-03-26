@@ -5,7 +5,7 @@
 #include <kapplication.h>
 #include <kdebug.h>
 #include <kstandarddirs.h>
-#include <kprocess.h>
+#include <k3process.h>
 #include <klocale.h>
 #include <kconfig.h>
 
@@ -263,7 +263,7 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
         delete _proc;
 
         // prepare new process
-        _proc = new KProcess();
+        _proc = new K3Process();
         *_proc << exe  << "-v" << "-c" << dataPath(_lang)+"/htdig.conf";
         if (initial)
 	{
@@ -273,11 +273,11 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
 
         kDebug() << "Running htdig" << endl;
 
-        connect(_proc, SIGNAL(receivedStdout(KProcess *,char*,int)),
-                this, SLOT(htdigStdout(KProcess *,char*,int)));
+        connect(_proc, SIGNAL(receivedStdout(K3Process *,char*,int)),
+                this, SLOT(htdigStdout(K3Process *,char*,int)));
 
-        connect(_proc, SIGNAL(processExited(KProcess *)),
-                this, SLOT(htdigExited(KProcess *)));
+        connect(_proc, SIGNAL(processExited(K3Process *)),
+                this, SLOT(htdigExited(K3Process *)));
 
         _htdigRunning = true;
 
@@ -304,7 +304,7 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
 
 
         // execute htdig
-        _proc->start(KProcess::NotifyOnExit, KProcess::Stdout );
+        _proc->start(K3Process::NotifyOnExit, K3Process::Stdout );
 
         kapp->enter_loop();
 
@@ -329,17 +329,17 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
         return false;
     }
     delete _proc;
-    _proc = new KProcess();
+    _proc = new K3Process();
     *_proc << exe << "-c" << dataPath(_lang)+"/htdig.conf";
 
     kDebug() << "Running htmerge" << endl;
 
-    connect(_proc, SIGNAL(processExited(KProcess *)),
-            this, SLOT(htmergeExited(KProcess *)));
+    connect(_proc, SIGNAL(processExited(K3Process *)),
+            this, SLOT(htmergeExited(K3Process *)));
 
     _htmergeRunning = true;
 
-    _proc->start(KProcess::NotifyOnExit, KProcess::Stdout);
+    _proc->start(K3Process::NotifyOnExit, K3Process::Stdout);
 
     kapp->enter_loop();
 
@@ -362,7 +362,7 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
 
 
 
-void HTMLSearch::htdigStdout(KProcess *, char *buffer, int len)
+void HTMLSearch::htdigStdout(K3Process *, char *buffer, int len)
 {
     QString line = QString(buffer).left(len);
 
@@ -381,7 +381,7 @@ void HTMLSearch::htdigStdout(KProcess *, char *buffer, int len)
 }
 
 
-void HTMLSearch::htdigExited(KProcess *p)
+void HTMLSearch::htdigExited(K3Process *p)
 {
     kDebug() << "htdig terminated " << p->exitStatus() << endl;
     _htdigRunning = false;
@@ -389,7 +389,7 @@ void HTMLSearch::htdigExited(KProcess *p)
 }
 
 
-void HTMLSearch::htmergeExited(KProcess *)
+void HTMLSearch::htmergeExited(K3Process *)
 {
   kDebug() << "htmerge terminated" << endl;
   _htmergeRunning = false;
@@ -397,13 +397,13 @@ void HTMLSearch::htmergeExited(KProcess *)
 }
 
 
-void HTMLSearch::htsearchStdout(KProcess *, char *buffer, int len)
+void HTMLSearch::htsearchStdout(K3Process *, char *buffer, int len)
 {
   _searchResult += QString::fromLocal8Bit(buffer,len);
 }
 
 
-void HTMLSearch::htsearchExited(KProcess *)
+void HTMLSearch::htsearchExited(K3Process *)
 {
   kDebug() << "htsearch terminated" << endl;
   _htsearchRunning = false;
@@ -430,21 +430,21 @@ QString HTMLSearch::search(QString _lang, QString words, QString method, int mat
       delete config;
     return QString();
   }
-  _proc = new KProcess();
+  _proc = new K3Process();
   *_proc << exe << "-c" << dataPath(_lang)+"/htdig.conf" <<
     QString("words=%1;method=%2;matchesperpage=%3;format=%4;sort=%5").arg(words).arg(method).arg(matches).arg(format).arg(sort);
 
   kDebug() << "Running htsearch" << endl;
 
-  connect(_proc, SIGNAL(receivedStdout(KProcess *,char*,int)),
-	  this, SLOT(htsearchStdout(KProcess *,char*,int)));
-  connect(_proc, SIGNAL(processExited(KProcess *)),
-	  this, SLOT(htsearchExited(KProcess *)));
+  connect(_proc, SIGNAL(receivedStdout(K3Process *,char*,int)),
+	  this, SLOT(htsearchStdout(K3Process *,char*,int)));
+  connect(_proc, SIGNAL(processExited(K3Process *)),
+	  this, SLOT(htsearchExited(K3Process *)));
 
   _htsearchRunning = true;
   _searchResult = "";
 
-  _proc->start(KProcess::NotifyOnExit, KProcess::Stdout);
+  _proc->start(K3Process::NotifyOnExit, K3Process::Stdout);
 
   kapp->enter_loop();
 

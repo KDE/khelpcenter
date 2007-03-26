@@ -37,7 +37,7 @@
 #include <kaboutdata.h>
 #include <kdialog.h>
 #include <kstandarddirs.h>
-#include <kprocess.h>
+#include <k3process.h>
 #include <kapplication.h>
 #include <ktemporaryfile.h>
 #include <kurlrequester.h>
@@ -486,7 +486,7 @@ void KCMHelpCenter::startIndexProcess()
 {
   kDebug() << "KCMHelpCenter::startIndexProcess()" << endl;
 
-  mProcess = new KProcess;
+  mProcess = new K3Process;
 
   if ( mRunAsRoot ) {
     *mProcess << "kdesu" << "--nonewdcop";
@@ -497,14 +497,14 @@ void KCMHelpCenter::startIndexProcess()
   *mProcess << mCmdFile->name();
   *mProcess << Prefs::indexDirectory();
 
-  connect( mProcess, SIGNAL( processExited( KProcess * ) ),
-           SLOT( slotIndexFinished( KProcess * ) ) );
-  connect( mProcess, SIGNAL( receivedStdout( KProcess *, char *, int ) ),
-           SLOT( slotReceivedStdout(KProcess *, char *, int ) ) );
-  connect( mProcess, SIGNAL( receivedStderr( KProcess *, char *, int ) ),
-           SLOT( slotReceivedStderr( KProcess *, char *, int ) ) );
+  connect( mProcess, SIGNAL( processExited( K3Process * ) ),
+           SLOT( slotIndexFinished( K3Process * ) ) );
+  connect( mProcess, SIGNAL( receivedStdout( K3Process *, char *, int ) ),
+           SLOT( slotReceivedStdout(K3Process *, char *, int ) ) );
+  connect( mProcess, SIGNAL( receivedStderr( K3Process *, char *, int ) ),
+           SLOT( slotReceivedStderr( K3Process *, char *, int ) ) );
 
-  if ( !mProcess->start( KProcess::NotifyOnExit, KProcess::AllOutput ) ) {
+  if ( !mProcess->start( K3Process::NotifyOnExit, K3Process::AllOutput ) ) {
     kError() << "KCMHelpcenter::startIndexProcess(): Failed to start process."
       << endl;
   }
@@ -523,7 +523,7 @@ void KCMHelpCenter::cancelBuildIndex()
   }
 }
 
-void KCMHelpCenter::slotIndexFinished( KProcess *proc )
+void KCMHelpCenter::slotIndexFinished( K3Process *proc )
 {
   kDebug() << "KCMHelpCenter::slotIndexFinished()" << endl;
 
@@ -548,7 +548,7 @@ void KCMHelpCenter::slotIndexFinished( KProcess *proc )
       return;
     }
   } else if ( !mProcess->normalExit() || mProcess->exitStatus() != 0 ) {
-    kDebug() << "KProcess reported an error." << endl;
+    kDebug() << "K3Process reported an error." << endl;
     KMessageBox::error( this, i18n("Failed to build index.") );
   } else {
     mConfig->group( "Search" ).writeEntry( "IndexExists", true );
@@ -626,7 +626,7 @@ void KCMHelpCenter::advanceProgress()
   }
 }
 
-void KCMHelpCenter::slotReceivedStdout( KProcess *, char *buffer, int buflen )
+void KCMHelpCenter::slotReceivedStdout( K3Process *, char *buffer, int buflen )
 {
   QString text = QString::fromLocal8Bit( buffer, buflen );
   int pos = text.lastIndexOf( QLatin1Char('\n') );
@@ -640,7 +640,7 @@ void KCMHelpCenter::slotReceivedStdout( KProcess *, char *buffer, int buflen )
   }
 }
 
-void KCMHelpCenter::slotReceivedStderr( KProcess *, char *buffer, int buflen )
+void KCMHelpCenter::slotReceivedStderr( K3Process *, char *buffer, int buflen )
 {
   QString text = QString::fromLocal8Bit( buffer, buflen );
   int pos = text.lastIndexOf( QLatin1Char('\n') );

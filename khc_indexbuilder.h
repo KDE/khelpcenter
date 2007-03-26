@@ -26,7 +26,7 @@
 #include <QObject>
 #include <QTimer>
 
-class KProcess;
+class K3Process;
 
 namespace KHC {
 
@@ -45,9 +45,9 @@ class IndexBuilder : public QObject
     void processCmdQueue();
 
   protected Q_SLOTS:
-    void slotProcessExited( KProcess * );
-    void slotReceivedStdout( KProcess *, char *buffer, int buflen );
-    void slotReceivedStderr( KProcess *, char *buffer, int buflen );
+    void slotProcessExited( K3Process * );
+    void slotReceivedStdout( K3Process *, char *buffer, int buflen );
+    void slotReceivedStderr( K3Process *, char *buffer, int buflen );
 
   private:
     QTimer mTimer;

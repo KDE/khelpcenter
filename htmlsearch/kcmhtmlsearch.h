@@ -29,7 +29,7 @@ class QLineEdit;
 class QCheckBox;
 class QPushButton;
 class KListWidget;
-class KProcess;
+class K3Process;
 class KLanguageCombo;
 class KUrlRequester;
 class QStringList;
@@ -61,7 +61,7 @@ protected Q_SLOTS:
   void urlClicked(const QString&);
   void generateIndex();
 
-  void indexTerminated(KProcess *proc);
+  void indexTerminated(K3Process *proc);
 
       
 private:
@@ -75,7 +75,7 @@ private:
   KListWidget *searchPaths;
   KLanguageCombo *language;
 
-  KProcess *indexProc;
+  K3Process *indexProc;
 
 };
 

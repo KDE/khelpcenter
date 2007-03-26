@@ -26,7 +26,7 @@
 #include <kiconloader.h>
 #include <klocale.h>
 #include <kmainwindow.h>
-#include <kprocess.h>
+#include <k3process.h>
 #include <kstandarddirs.h>
 #include <kstatusbar.h>
 
@@ -149,9 +149,9 @@ void Glossary::rebuildGlossaryCache()
 	Q_ASSERT( mainWindow );
 	mainWindow->statusBar()->showMessage( i18n( "Rebuilding cache..." ) );
 
-	KProcess *meinproc = new KProcess;
-	connect( meinproc, SIGNAL( processExited( KProcess * ) ),
-	         this, SLOT( meinprocExited( KProcess * ) ) );
+	K3Process *meinproc = new K3Process;
+	connect( meinproc, SIGNAL( processExited( K3Process * ) ),
+	         this, SLOT( meinprocExited( K3Process * ) ) );
 
 	*meinproc << KStandardDirs::locate( "exe", QLatin1String( "meinproc" ) );
 	*meinproc << QLatin1String( "--output" ) << m_cacheFile;
@@ -159,10 +159,10 @@ void Glossary::rebuildGlossaryCache()
 	          << KStandardDirs::locate( "data", QLatin1String( "khelpcenter/glossary.xslt" ) );
 	*meinproc << m_sourceFile;
 
-	meinproc->start( KProcess::NotifyOnExit );
+	meinproc->start( K3Process::NotifyOnExit );
 }
 
-void Glossary::meinprocExited( KProcess *meinproc )
+void Glossary::meinprocExited( K3Process *meinproc )
 {
 	delete meinproc;
 

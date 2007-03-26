@@ -10,7 +10,7 @@ class QWidget;
 class QProgressDialog;
 
 
-class KProcess;
+class K3Process;
 
 
 class ProgressDialog;
@@ -32,11 +32,11 @@ public:
 
 protected Q_SLOTS:
 
-  void htdigStdout(KProcess *proc, char *buffer, int buflen);
-  void htdigExited(KProcess *proc);
-  void htmergeExited(KProcess *proc);
-  void htsearchStdout(KProcess *proc, char *buffer, int buflen);
-  void htsearchExited(KProcess *proc);
+  void htdigStdout(K3Process *proc, char *buffer, int buflen);
+  void htdigExited(K3Process *proc);
+  void htmergeExited(K3Process *proc);
+  void htsearchStdout(K3Process *proc, char *buffer, int buflen);
+  void htsearchExited(K3Process *proc);
 
 
 protected:
@@ -52,7 +52,7 @@ protected:
 private:
 
   QStringList   _files;
-  KProcess      *_proc;
+  K3Process      *_proc;
   int           _filesToDig, _filesDigged, _filesScanned;
   volatile bool _htdigRunning, _htmergeRunning, _htsearchRunning;
   QString       _searchResult;

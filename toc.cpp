@@ -23,7 +23,7 @@
 #include "docentry.h"
 
 #include <kiconloader.h>
-#include <kprocess.h>
+#include <k3process.h>
 #include <kstandarddirs.h>
 #include <kdebug.h>
 
@@ -134,19 +134,19 @@ int TOC::cachedCTime() const
 
 void TOC::buildCache()
 {
-	KProcess *meinproc = new KProcess;
-	connect( meinproc, SIGNAL( processExited( KProcess * ) ),
-	         this, SLOT( meinprocExited( KProcess * ) ) );
+	K3Process *meinproc = new K3Process;
+	connect( meinproc, SIGNAL( processExited( K3Process * ) ),
+	         this, SLOT( meinprocExited( K3Process * ) ) );
 
 	*meinproc << KStandardDirs::locate( "exe", "meinproc" );
 	*meinproc << "--stylesheet" << KStandardDirs::locate( "data", "khelpcenter/table-of-contents.xslt" );
 	*meinproc << "--output" << m_cacheFile;
 	*meinproc << m_sourceFile;
 
-	meinproc->start( KProcess::NotifyOnExit );
+	meinproc->start( K3Process::NotifyOnExit );
 }
 
-void TOC::meinprocExited( KProcess *meinproc )
+void TOC::meinprocExited( K3Process *meinproc )
 {
 	if ( !meinproc->normalExit() || meinproc->exitStatus() != 0 ) {
 		delete meinproc;

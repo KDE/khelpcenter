@@ -9,7 +9,7 @@
 #include "docentrytraverser.h"
 
 class QWidget;
-class KProcess;
+class K3Process;
 class KConfig;
 class KHTMLPart;
 
@@ -112,15 +112,15 @@ class SearchEngine : public QObject
     void searchFinished();
 
   protected Q_SLOTS:
-    void searchStdout(KProcess *proc, char *buffer, int buflen);
-    void searchStderr(KProcess *proc, char *buffer, int buflen);
-    void searchExited(KProcess *proc);
+    void searchStdout(K3Process *proc, char *buffer, int buflen);
+    void searchStderr(K3Process *proc, char *buffer, int buflen);
+    void searchExited(K3Process *proc);
 
   protected:
     void processSearchQueue();
     
   private:
-    KProcess *mProc;
+    K3Process *mProc;
     bool mSearchRunning;
     QString mSearchResult;
 

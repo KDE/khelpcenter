@@ -33,7 +33,7 @@ class QProgressBar;
 class Q3TextEdit;
 class QLabel;
 
-class KProcess;
+class K3Process;
 class KConfig;
 class KAboutData;
 class KTemporaryFile;
@@ -118,9 +118,9 @@ class KCMHelpCenter : public KDialog
   protected Q_SLOTS:
     bool buildIndex();
     void cancelBuildIndex();
-    void slotIndexFinished( KProcess * );
-    void slotReceivedStdout(KProcess *proc, char *buffer, int buflen);
-    void slotReceivedStderr(KProcess *proc, char *buffer, int buflen);
+    void slotIndexFinished( K3Process * );
+    void slotReceivedStdout(K3Process *proc, char *buffer, int buflen);
+    void slotReceivedStderr(K3Process *proc, char *buffer, int buflen);
     void slotProgressClosed();
 
     void slotOk();
@@ -159,7 +159,7 @@ class KCMHelpCenter : public KDialog
 
     KTemporaryFile *mCmdFile;
 
-    KProcess *mProcess;
+    K3Process *mProcess;
 
     bool mIsClosing;
 

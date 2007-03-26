@@ -29,7 +29,7 @@
 #include <QHash>
 
 class KConfig;
-class KProcess;
+class K3Process;
 
 class EntryItem;
 
@@ -119,7 +119,7 @@ class Glossary : public K3ListView
 		void entrySelected( const GlossaryEntry &entry );
 		
 	private Q_SLOTS:
-		void meinprocExited( KProcess *meinproc );
+		void meinprocExited( K3Process *meinproc );
 		void treeItemSelected( Q3ListViewItem *item );
 
 	private:
