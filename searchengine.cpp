@@ -488,7 +488,7 @@ bool SearchEngine::needsIndex( DocEntry *entry )
   if ( !canSearch( entry ) ) return false;
 
   SearchHandler *h = handler( entry->documentType() );
-  if ( h->indexCommand( entry->identifier() ).isEmpty() ) return false;
+  if ( !h || h->indexCommand( entry->identifier() ).isEmpty() ) return false;
   
   return true;
 }
