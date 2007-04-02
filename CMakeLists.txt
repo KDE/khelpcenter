@@ -72,7 +72,7 @@ kde4_automoc(${testmetainfo_SRCS})
 
 kde4_add_executable(testmetainfo ${testmetainfo_SRCS})
 
-target_link_libraries(testmetainfo  ${KDE4_KDECORE_LIBS} )
+target_link_libraries(testmetainfo  ${KDE4_KDEUI_LIBS} )
 
 endif(KDE4_BUILD_TESTS)
 
