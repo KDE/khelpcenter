@@ -6,6 +6,7 @@ add_subdirectory( pics )
 add_subdirectory( searchhandlers ) 
 
 
+add_definitions (-DQT3_SUPPORT)
 
 ########### next target ###############
 
