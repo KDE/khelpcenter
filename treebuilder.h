@@ -20,7 +20,7 @@
 #ifndef TREEBUILDER_H
 #define TREEBUILDER_H
 
-#include "qobject.h"
+#include "QtCore/QObject"
 
 #include <kurl.h>
 

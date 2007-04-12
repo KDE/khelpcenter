@@ -28,8 +28,8 @@
 #include <QPixmap>
 #include <QString>
 #include <QLabel>
-#include <q3header.h>
-#include <qdom.h>
+#include <Qt3Support/Q3Header>
+#include <Qt/qdom.h>
 #include <QTextStream>
 #include <QRegExp>
 #include <QLayout>

@@ -22,8 +22,8 @@
 
 #include "navigatoritem.h"
 
-#include <qdom.h>
-#include <q3listview.h>
+#include <Qt/qdom.h>
+#include <Qt3Support/Q3CheckListItem>
 #include <QObject>
 
 class K3Process;

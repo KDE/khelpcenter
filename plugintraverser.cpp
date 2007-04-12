@@ -28,7 +28,7 @@
 #include <kdebug.h>
 #include <kiconloader.h>
 
-#include <q3listview.h>
+#include <Qt3Support/Q3CheckListItem>
 #include <kglobal.h>
 
 using namespace KHC;

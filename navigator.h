@@ -29,10 +29,10 @@
 #include <QFile>
 #include <QTextStream>
 #include <QTimer>
-#include <q3ptrlist.h>
+#include <Qt3Support/Q3PtrList>
 #include <QTabWidget>
-#include <q3listview.h>
-#include <q3dict.h>
+#include <Qt3Support/Q3CheckListItem>
+#include <Qt3Support/Q3Dict>
 //Added by qt3to4:
 #include <QFrame>
 

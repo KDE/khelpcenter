@@ -20,7 +20,7 @@
 #ifndef KHC_NAVIGATORITEM_H
 #define KHC_NAVIGATORITEM_H
 
-#include <q3listview.h>
+#include <Qt3Support/Q3CheckListItem>
 
 namespace KHC {
 

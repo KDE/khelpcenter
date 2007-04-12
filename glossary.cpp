@@ -30,7 +30,7 @@
 #include <kstandarddirs.h>
 #include <kstatusbar.h>
 
-#include <q3header.h>
+#include <Qt3Support/Q3Header>
 //Added by qt3to4:
 #include <QFrame>
 #include <QTextStream>

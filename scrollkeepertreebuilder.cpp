@@ -30,7 +30,7 @@
 #include <klocale.h>
 #include <k3procio.h>
 
-#include <qdom.h>
+#include <Qt/qdom.h>
 #include <QFile>
 #include <QRegExp>
 #include <kconfiggroup.h>

@@ -1,7 +1,7 @@
 #ifndef SCOPEITEM_H
 #define SCOPEITEM_H
 
-#include <q3listview.h>
+#include <Qt3Support/Q3CheckListItem>
 
 #include "docmetainfo.h"
 

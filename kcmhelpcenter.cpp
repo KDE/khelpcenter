@@ -48,10 +48,10 @@
 #include <QPushButton>
 #include <QDir>
 #include <QTabWidget>
-#include <qprogressbar.h>
+#include <QtGui/QProgressBar>
 #include <QFile>
 #include <QLabel>
-#include <q3textedit.h>
+#include <Qt3Support/Q3TextEdit>
 #include <QRegExp>
 //Added by qt3to4:
 #include <QTextStream>
