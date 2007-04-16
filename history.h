@@ -27,7 +27,7 @@
 #include <QMenu>
 
 class KActionCollection;
-class KMainWindow;
+class KXmlGuiWindow;
 class KToolBarPopupAction;
 class QMenu;
 
@@ -56,7 +56,7 @@ class History : public QObject
     void setupActions( KActionCollection *coll );
     void updateActions();
 
-    void installMenuBarHook( KMainWindow *mainWindow );
+    void installMenuBarHook( KXmlGuiWindow *mainWindow );
 
     void createEntry();
     void updateCurrentEntry( KHC::View *view );

@@ -1,7 +1,7 @@
 #ifndef __mainwindow_h__
 #define __mainwindow_h__
 
-#include <kmainwindow.h>
+#include <kxmlguiwindow.h>
 #include <kio/job.h>
 #include <kurl.h>
 #include <kparts/browserextension.h>
@@ -18,7 +18,7 @@ namespace KHC {
 
 class View;
 
-class MainWindow : public KMainWindow
+class MainWindow : public KXmlGuiWindow
 {
     Q_OBJECT
 	Q_CLASSINFO("D-Bus Interface", "org.kde.khelpcenter.khelpcenter")

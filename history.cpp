@@ -25,7 +25,7 @@
 #include <kapplication.h>
 #include <kdebug.h>
 #include <kicon.h>
-#include <kmainwindow.h>
+#include <kxmlguiwindow.h>
 #include <kmenu.h>
 #include <kstandardguiitem.h>
 #include <kstringhandler.h>
@@ -80,7 +80,7 @@ void History::setupActions( KActionCollection *coll )
            SLOT( fillForwardMenu() ) );
   m_forwardAction->setEnabled( false );
 }
-void History::installMenuBarHook( KMainWindow *mainWindow )
+void History::installMenuBarHook( KXmlGuiWindow *mainWindow )
 {
   QMenu *goMenu = dynamic_cast<QMenu *>(
       mainWindow->guiFactory()->container( QLatin1String("go_web"), mainWindow ) );
@@ -263,7 +263,7 @@ void History::fillForwardMenu()
 
 void History::fillGoMenu()
 {
-  KMainWindow *mainWindow = static_cast<KMainWindow *>( kapp->activeWindow() );
+  KXmlGuiWindow *mainWindow = static_cast<KXmlGuiWindow *>( kapp->activeWindow() );
   QMenu *goMenu = dynamic_cast<QMenu *>( mainWindow->guiFactory()->container( QLatin1String( "go" ), mainWindow ) );
   if ( !goMenu || m_goMenuIndex == -1 )
     return;
@@ -296,7 +296,7 @@ void History::fillGoMenu()
 
 void History::goMenuActivated( int id )
 {
-  KMainWindow *mainWindow = static_cast<KMainWindow *>( kapp->activeWindow() );
+  KXmlGuiWindow *mainWindow = static_cast<KXmlGuiWindow *>( kapp->activeWindow() );
   QMenu *goMenu = dynamic_cast<QMenu *>( mainWindow->guiFactory()->container( QLatin1String( "go" ), mainWindow ) );
   if ( !goMenu )
     return;

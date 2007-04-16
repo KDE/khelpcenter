@@ -25,7 +25,7 @@
 #include <kdebug.h>
 #include <kiconloader.h>
 #include <klocale.h>
-#include <kmainwindow.h>
+#include <kxmlguiwindow.h>
 #include <k3process.h>
 #include <kstandarddirs.h>
 #include <kstatusbar.h>
@@ -145,7 +145,7 @@ int Glossary::glossaryCTime() const
 
 void Glossary::rebuildGlossaryCache()
 {
-	KMainWindow *mainWindow = dynamic_cast<KMainWindow *>( kapp->activeWindow() );
+	KXmlGuiWindow *mainWindow = dynamic_cast<KXmlGuiWindow *>( kapp->activeWindow() );
 	Q_ASSERT( mainWindow );
 	mainWindow->statusBar()->showMessage( i18n( "Rebuilding cache..." ) );
 
@@ -175,7 +175,7 @@ void Glossary::meinprocExited( K3Process *meinproc )
 
 	m_status = CacheOk;
 
-	KMainWindow *mainWindow = dynamic_cast<KMainWindow *>( kapp->activeWindow() );
+	KXmlGuiWindow *mainWindow = dynamic_cast<KXmlGuiWindow *>( kapp->activeWindow() );
 	Q_ASSERT( mainWindow );
 	mainWindow->statusBar()->showMessage( i18n( "Rebuilding cache... done." ), 2000 );
 

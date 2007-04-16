@@ -102,7 +102,7 @@ class LogDialog : public KDialog
 
 
 MainWindow::MainWindow()
-    : KMainWindow(0),
+    : KXmlGuiWindow(0),
       mLogDialog( 0 )
 {
     setObjectName( "MainWindow" );
