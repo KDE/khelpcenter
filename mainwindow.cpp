@@ -164,7 +164,7 @@ MainWindow::MainWindow()
     setupActions();
 
 #ifdef __GNUC__
-#warning what about action names? I don't know if text() is correct.
+#warning what about action names? I do not know if text() is correct.
 #endif
     foreach (QAction *act, mDoc->actionCollection()->actions())
         actionCollection()->addAction(act->text(), act);
