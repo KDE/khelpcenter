@@ -34,7 +34,7 @@
 #include <QRegExp>
 #include <QLayout>
 #include <QPushButton>
-#include <QToolTip>
+
 //Added by qt3to4:
 #include <QFrame>
 #include <QHBoxLayout>
