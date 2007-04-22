@@ -26,7 +26,7 @@
 #include <QDir>
 #include <QFile>
 #include <QPixmap>
-#include <QString>
+
 #include <QLabel>
 #include <Qt3Support/Q3Header>
 #include <Qt/qdom.h>

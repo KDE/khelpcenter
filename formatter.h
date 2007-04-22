@@ -20,7 +20,7 @@
 #ifndef KHC_FORMATTER_H
 #define KHC_FORMATTER_H
 
-#include <QString>
+
 #include <QMap>
 
 namespace KHC {

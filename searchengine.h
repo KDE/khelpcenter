@@ -2,7 +2,7 @@
 #define SEARCHENGINE_H
 
 #include <QObject>
-#include <QString>
+
 
 #include <kio/job.h>
 

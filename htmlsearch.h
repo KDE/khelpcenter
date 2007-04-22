@@ -2,7 +2,7 @@
 #define KHC_HTMLSEARCH_H
 
 #include <QObject>
-#include <QString>
+
 
 class KConfig;
 

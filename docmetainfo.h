@@ -1,7 +1,7 @@
 #ifndef DOCMETAINFO_H
 #define DOCMETAINFO_H
 
-#include <QString>
+
 #include <QStringList>
 #include <QDir>
 #include <QMap>

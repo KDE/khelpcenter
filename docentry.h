@@ -1,7 +1,7 @@
 #ifndef DOCENTRY_H
 #define DOCENTRY_H
 
-#include <QString>
+
 #include <QList>
 
 namespace KHC {
