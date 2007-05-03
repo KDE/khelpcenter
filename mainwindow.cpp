@@ -57,7 +57,6 @@
 
 #include <stdlib.h>
 #include <assert.h>
-#include <QList>
 #include <kglobal.h>
 #include <kconfiggroup.h>
 

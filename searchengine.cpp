@@ -1,21 +1,21 @@
+#include "searchengine.h"
+
 #include "stdlib.h"
 
 #include <QTextDocument>
-#include <kapplication.h>
-#include <kconfig.h>
-#include <kdebug.h>
-#include <kstandarddirs.h>
-#include <k3process.h>
-#include <klocale.h>
-#include <kmessagebox.h>
+#include <KApplication>
+#include <KConfig>
+#include <KDebug>
+#include <KStandardDirs>
+#include <K3Process>
+#include <KLocale>
+#include <KMessageBox>
 
 #include "docmetainfo.h"
 #include "formatter.h"
 #include "view.h"
 #include "searchhandler.h"
 #include "prefs.h"
-
-#include "searchengine.h"
 
 namespace KHC
 {

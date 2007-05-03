@@ -18,6 +18,7 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+#include "navigator.h"
 
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -76,8 +77,6 @@
 #include "formatter.h"
 #include "history.h"
 #include "prefs.h"
-
-#include "navigator.h"
 
 using namespace KHC;
 

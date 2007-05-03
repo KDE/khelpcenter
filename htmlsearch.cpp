@@ -1,9 +1,10 @@
+#include "htmlsearch.h"
+
 #include <kdebug.h>
 #include <kconfig.h>
 
 #include "docentry.h"
 
-#include "htmlsearch.h"
 #include "htmlsearch.moc"
 
 using namespace KHC;

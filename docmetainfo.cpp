@@ -1,3 +1,6 @@
+
+#include "docmetainfo.h"
+
 #include <QRegExp>
 
 #include <kdebug.h>
@@ -8,8 +11,6 @@
 #include "htmlsearch.h"
 
 #include "docentrytraverser.h"
-
-#include "docmetainfo.h"
 
 using namespace KHC;
 

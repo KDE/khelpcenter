@@ -19,6 +19,8 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+#include "searchwidget.h"
+
 #include <stdlib.h>
 #include <unistd.h>
 #include <errno.h>
@@ -31,11 +33,11 @@
 #include <QHBoxLayout>
 #include <QBoxLayout>
 
-#include <kconfig.h>
-#include <kapplication.h>
-#include <klocale.h>
-#include <kdebug.h>
-#include <kiconloader.h>
+#include <KConfig>
+#include <KApplication>
+#include <KLocale>
+#include <KDebug>
+#include <KIconLoader>
 
 #include "scopeitem.h"
 #include "docentrytraverser.h"
@@ -43,7 +45,6 @@
 #include "prefs.h"
 #include "searchengine.h"
 
-#include "searchwidget.h"
 #include <QtDBus/QDBusConnection>
 
 namespace KHC {

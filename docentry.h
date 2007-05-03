@@ -2,6 +2,7 @@
 #define DOCENTRY_H
 
 
+#include <QString>
 #include <QList>
 
 namespace KHC {
@@ -12,19 +13,19 @@ class DocEntry
     typedef QList<DocEntry *> List;
 
     DocEntry();
-    
+
     DocEntry( const QString &name, const QString &url = QString(),
               const QString &icon = QString() );
-    
+
     void setName( const QString & );
     QString name() const;
-    
+
     void setSearch( const QString & );
     QString search() const;
-    
+
     void setIcon( const QString & );
     QString icon() const;
-    
+
     void setUrl( const QString & );
     QString url() const;
 
@@ -33,7 +34,7 @@ class DocEntry
 
     void setLang( const QString & );
     QString lang() const;
-    
+
     void setIdentifier( const QString & );
     QString identifier() const;
 
@@ -71,17 +72,17 @@ class DocEntry
     bool hasChildren();
     DocEntry *firstChild();
     List children();
-  
+
     void setParent( DocEntry * );
     DocEntry *parent();
-  
+
     void setNextSibling( DocEntry * );
     DocEntry *nextSibling();
 
     QString khelpcenterSpecial() const;
 
     bool isSearchable();
-    
+
     void dump() const;
 
   protected:

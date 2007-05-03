@@ -1,16 +1,16 @@
+#include "docentry.h"
+
 #include <QRegExp>
 #include <QFileInfo>
 
-#include <kdebug.h>
-#include <kdesktopfile.h>
-#include <kurl.h>
-#include <kstandarddirs.h>
-#include <kapplication.h>
-#include <krandom.h>
+#include <KDebug>
+#include <KDesktopFile>
+#include <KUrl>
+#include <KStandardDirs>
+#include <KApplication>
+#include <KRandom>
 
 #include "prefs.h"
-
-#include "docentry.h"
 
 using namespace KHC;
 

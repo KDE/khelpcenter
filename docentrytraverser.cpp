@@ -1,6 +1,5 @@
-#include "docmetainfo.h"
-
 #include "docentrytraverser.h"
+#include "docmetainfo.h"
 
 using namespace KHC;
 
