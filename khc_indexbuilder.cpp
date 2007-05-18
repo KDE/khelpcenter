@@ -42,19 +42,20 @@
 
 using namespace KHC;
 
-IndexBuilder::IndexBuilder()
+IndexBuilder::IndexBuilder(const QString& cmdFile)
 {
+  m_cmdFile = cmdFile;
   kDebug(1402) << "IndexBuilder()" << endl;
 }
 
-void IndexBuilder::buildIndices( const QString &cmdFile )
+void IndexBuilder::buildIndices()
 {
-  QFile f( cmdFile );
+  QFile f( m_cmdFile );
   if ( !f.open( QIODevice::ReadOnly ) ) {
-    kError() << "Unable to open file '" << cmdFile << "'" << endl;
+    kError() << "Unable to open file '" << m_cmdFile << "'" << endl;
     exit( 1 );
   }
-  kDebug(1402) << "Opened file '" << cmdFile << "'" << endl;
+  kDebug(1402) << "Opened file '" << m_cmdFile << "'" << endl;
   QTextStream ts( &f );
   QString line = ts.readLine();
   while ( !line.isNull() ) {
@@ -205,9 +206,9 @@ int main( int argc, char **argv )
     file.remove();
   }
 
-  IndexBuilder builder;
+  IndexBuilder builder(cmdFile);
 
-  builder.buildIndices( cmdFile );
+  QTimer::singleShot(0, &builder, SLOT(buildIndices()));
 
   return app.exec();
 }

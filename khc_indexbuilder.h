@@ -34,17 +34,17 @@ class IndexBuilder : public QObject
 {
     Q_OBJECT
   public:
-    IndexBuilder();
+    IndexBuilder(const QString& cmdFile);
 
     void sendProgressSignal();
     void sendErrorSignal( const QString &error );
     void quit();
 
-    void buildIndices( const QString &cmdFile );
 
     void processCmdQueue();
 
   protected Q_SLOTS:
+    void buildIndices();
     void slotProcessExited( K3Process * );
     void slotReceivedStdout( K3Process *, char *buffer, int buflen );
     void slotReceivedStderr( K3Process *, char *buffer, int buflen );
