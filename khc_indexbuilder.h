@@ -50,6 +50,7 @@ class IndexBuilder : public QObject
     void slotReceivedStderr( K3Process *, char *buffer, int buflen );
 
   private:
+    QString m_cmdFile;
     QTimer mTimer;
     QStringList mCmdQueue;
 };
