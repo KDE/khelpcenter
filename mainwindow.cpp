@@ -224,7 +224,7 @@ void MainWindow::writeConfig()
 
     mNavigator->writeConfig();
 
-    Prefs::writeConfig();
+    Prefs::self()->writeConfig();
 }
 
 void MainWindow::setupActions()
