@@ -77,12 +77,13 @@ Glossary::Glossary( QWidget *parent ) : K3ListView( parent )
 {
 	m_initialized = false;
 
+    setFrameStyle( QFrame::NoFrame );
+
 	connect( this, SIGNAL( clicked( Q3ListViewItem * ) ),
 	         this, SLOT( treeItemSelected( Q3ListViewItem * ) ) );
 	connect( this, SIGNAL( returnPressed( Q3ListViewItem * ) ),
 	         this, SLOT( treeItemSelected( Q3ListViewItem * ) ) );
 
-	setFrameStyle( QFrame::Panel | QFrame::Sunken );
 	addColumn( QString() );
 	header()->hide();
 	setAllColumnsShowFocus( true );

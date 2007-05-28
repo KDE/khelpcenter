@@ -157,7 +157,7 @@ bool Navigator::showMissingDocs() const
 void Navigator::setupContentsTab()
 {
     mContentsTree = new K3ListView( mTabWidget );
-    mContentsTree->setFrameStyle(QFrame::Panel | QFrame::Sunken);
+    mContentsTree->setFrameStyle( QFrame::NoFrame );
     mContentsTree->addColumn(QString());
     mContentsTree->setAllColumnsShowFocus(true);
     mContentsTree->header()->hide();
