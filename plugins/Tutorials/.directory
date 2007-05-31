@@ -1,6 +1,8 @@
 # KDE Config File
 [KDE Desktop Entry]
 Name=Tutorials
+Name[zh_TW]=教學
 MiniIcon=
 Comment=Tutorial and introduction documents.
+Comment[zh_TW]=教學與介紹文件。
 DocPath=

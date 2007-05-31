@@ -1,5 +1,6 @@
 [KDE Desktop Entry]
 Name=UNIX manual pages
+Name[zh_TW]=UNIX 手冊
 
 DocPath=man:/
 
