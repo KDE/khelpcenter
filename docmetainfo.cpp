@@ -124,7 +124,7 @@ void DocMetaInfo::scanMetaInfo( bool force )
 {
   if ( mLoaded && !force ) return;
 
-  mLanguages = KGlobal::locale()->languagesTwoAlpha();
+  mLanguages = KGlobal::locale()->languageList();
 
   kDebug( 1400 ) << "LANGS: " << mLanguages.join( QLatin1String(" ") ) << endl;
 
