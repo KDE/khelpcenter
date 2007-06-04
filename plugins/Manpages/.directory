@@ -1,6 +1,7 @@
 [KDE Desktop Entry]
 Name=UNIX manual pages
 Name[de]=UNIX Hilfeseiten
+Name[el]=Σελίδες εγχειριδίου UNIX
 Name[zh_TW]=UNIX 手冊
 
 DocPath=man:/
