@@ -40,9 +40,6 @@ class QPushButton;
 
 class K3ListView;
 class KLineEdit;
-class KService;
-class K3Process;
-class K3ProcIO;
 
 class KCMHelpCenter;
 

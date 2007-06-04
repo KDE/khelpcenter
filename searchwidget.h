@@ -26,19 +26,15 @@
 
 #include "docmetainfo.h"
 
-class QCheckBox;
 class Q3ListView;
 class Q3ListViewItem;
 class QComboBox;
 
-class KLanguageCombo;
 class KConfig;
 
-class KCMHelpCenter;
 
 namespace KHC {
 
-class ScopeItem;
 class SearchEngine;
 
 class SearchWidget : public QWidget

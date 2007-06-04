@@ -25,7 +25,6 @@
 #include <kcmodule.h>
 
 
-class QLineEdit;
 class QCheckBox;
 class QPushButton;
 class KListWidget;

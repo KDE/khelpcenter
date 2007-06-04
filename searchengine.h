@@ -8,10 +8,7 @@
 
 #include "docentrytraverser.h"
 
-class QWidget;
 class K3Process;
-class KConfig;
-class KHTMLPart;
 
 namespace KHC {
 

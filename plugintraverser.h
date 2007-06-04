@@ -23,7 +23,6 @@
 #include "docentrytraverser.h"
 
 class Q3ListView;
-class Q3ListViewItem;
 
 namespace KHC {
   class Navigator;

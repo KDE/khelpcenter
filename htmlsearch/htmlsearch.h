@@ -7,7 +7,6 @@
 
 
 class QWidget;
-class QProgressDialog;
 
 
 class K3Process;

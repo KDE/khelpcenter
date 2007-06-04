@@ -9,7 +9,6 @@
 #include "navigator.h"
 #include "glossary.h"
 
-class KHTMLPart;
 class QSplitter;
 
 class LogDialog;

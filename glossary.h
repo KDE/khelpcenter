@@ -28,7 +28,6 @@
 #include <ksharedconfig.h>
 #include <QHash>
 
-class KConfig;
 class K3Process;
 
 class EntryItem;

@@ -34,7 +34,6 @@ class Q3TextEdit;
 class QLabel;
 
 class K3Process;
-class KConfig;
 class KAboutData;
 class KTemporaryFile;
 class KUrlRequester;
