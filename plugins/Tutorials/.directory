@@ -3,10 +3,12 @@
 Name=Tutorials
 Name[de]=Anleitungen
 Name[el]=Εκμάθηση
+Name[nds]=Anleden
 Name[zh_TW]=教學
 MiniIcon=
 Comment=Tutorial and introduction documents.
 Comment[de]=Anleitungen und Einführungen
 Comment[el]=Έγγραφα εκμάθησης και εισαγωγής
+Comment[nds]=Anleden un inföhren Dokmenten
 Comment[zh_TW]=教學與介紹文件。
 DocPath=
