@@ -3,7 +3,6 @@
 
 
 
-#include <QStringList>
 
 
 class QWidget;

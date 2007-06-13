@@ -23,7 +23,6 @@
 #include <k3listview.h>
 
 #include <QDomElement>
-#include <QStringList>
 #include <QList>
 #include <ksharedconfig.h>
 #include <QHash>

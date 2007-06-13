@@ -23,7 +23,6 @@
 #include "searchengine.h"
 
 #include <QObject>
-#include <QStringList>
 
 namespace KIO {
 class Job;

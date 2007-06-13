@@ -1,4 +1,3 @@
-#include <QStringList>
 #include <QCoreApplication>
 
 #include <kaboutdata.h>
