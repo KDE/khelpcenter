@@ -2,6 +2,7 @@
 Encoding=UTF-8
 Name=KHelpCenter
 Name[af]=Khulpsentrum
+Name[be]=Цэнтр дапамогі KDE
 Name[cs]=Centrum nápovědy
 Name[csb]=Centróm Pòmòcë
 Name[cy]=KCanolfanCymorth
@@ -33,6 +34,7 @@ Name[x-test]=xxKHelpCenterxx
 Comment=The KDE Help Center
 Comment[af]=Die Kde Hulp Sentrum
 Comment[ar]=مركز KDE للمساعدة
+Comment[be]=Цэнтр дапамогі KDE
 Comment[br]=Kreizenn sikour KDE
 Comment[ca]=El centre d'ajuda KDE
 Comment[cs]=Centrum nápovědy prostředí KDE
