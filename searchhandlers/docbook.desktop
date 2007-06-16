@@ -1,5 +1,5 @@
 [Desktop Entry]
-
+Encoding=UTF-8
 DocumentTypes=application/docbook+xml
 
 SearchCommand=khc_htsearch.pl --docbook --indexdir=%d --config=%i --words=%w --method=%o --maxnum=%m --lang=en
