@@ -66,16 +66,13 @@ install(TARGETS khelpcenter DESTINATION ${BIN_INSTALL_DIR})
 
 ########### next target ###############
 
-if(KDE4_BUILD_TESTS)
 set(testmetainfo_SRCS testmetainfo.cpp docmetainfo.cpp docentry.cpp ${CMAKE_CURRENT_BINARY_DIR}/prefs.cpp docentrytraverser.cpp htmlsearch.cpp )
 
 kde4_automoc(${testmetainfo_SRCS})
 
-kde4_add_executable(testmetainfo ${testmetainfo_SRCS})
+kde4_add_test_executable(testmetainfo ${testmetainfo_SRCS})
 
 target_link_libraries(testmetainfo  ${KDE4_KDEUI_LIBS} )
-
-endif(KDE4_BUILD_TESTS)
 
 ########### install files ###############
 
