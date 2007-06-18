@@ -45,6 +45,7 @@
 #include <klocale.h>
 #include <kstandardaction.h>
 #include <kxmlguifactory.h>
+#include <kstartupinfo.h>
 
 #include <QSplitter>
 #include <QTextEdit>
