@@ -1,6 +1,8 @@
 
 add_definitions (-DQT3_SUPPORT)
 
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/.. )
+
 ########### next target ###############
 
 set(khelpcenter_KDEINIT_SRCS 
@@ -31,11 +33,13 @@ set(khelpcenter_KDEINIT_SRCS
 
 ########### next target ###############
 
+kde4_add_kcfg_files(khelpcenter_SRCS ../prefs.kcfgc )
+
 set(testmetainfo_SRCS
     testmetainfo.cpp 
     ${CMAKE_CURRENT_SOURCE_DIR}/../docmetainfo.cpp 
     ${CMAKE_CURRENT_SOURCE_DIR}/../docentry.cpp 
-    ${CMAKE_CURRENT_BINARY_DIR}/../prefs.cpp 
+    ${khelpcenter_SRCS}
     ${CMAKE_CURRENT_SOURCE_DIR}/../docentrytraverser.cpp 
     ${CMAKE_CURRENT_SOURCE_DIR}/../htmlsearch.cpp )
 
