@@ -12,7 +12,6 @@ X-KDE-ParentApp=kcontrol
 
 Name=Index
 Name[af]=Indeks
-Name[ar]=الفهرس
 Name[be]=Індэкс
 Name[br]=Meneger
 Name[ca]=Índex
@@ -69,7 +68,6 @@ Name[zh_TW]=索引
 
 Comment=Index generation
 Comment[af]=Indeks genereering
-Comment[ar]=توليد الفهارس
 Comment[be]=Стварэнне індэксу
 Comment[br]=Genel ar meneger
 Comment[ca]=Generació de l'índex
@@ -129,7 +127,6 @@ Comment[xh]=Ulwenziwo Lwesalathiso
 Comment[zh_TW]=產生索引
 
 Keywords=Help,HTML,Search,Index,htdig,htsearch,htmerge,Scope,Language
-Keywords[ar]=مساعدة,HTML,بحث,فهرس,htdig,htsearch,htmerge,Scope,اللغة
 Keywords[be]=Дапамога,Даведка,Пошук,Індэкс,Мова,Help,HTML,Search,Index,htdig,htsearch,htmerge,Scope,Language
 Keywords[ca]=Ajuda,HTML,Cerca,Índex,htdig,htsearch,htmerge,Scope,Llengua
 Keywords[cs]=Nápověda,HTML,Hledat,Index,htdig,htsearch,htmerge,Rejstřík,Jazyk,Rozsah
