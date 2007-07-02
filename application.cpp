@@ -52,28 +52,25 @@ int Application::newInstance()
   return KUniqueApplication::newInstance();
 }
 
-static KCmdLineOptions options[] =
-{
-  { "+[url]", I18N_NOOP("URL to display"), "" },
-  KCmdLineLastOption
-};
-
 extern "C" int KDE_EXPORT kdemain( int argc, char **argv )
 {
-  KAboutData aboutData( "khelpcenter", I18N_NOOP("KDE Help Center"),
+  KAboutData aboutData( "khelpcenter", 0, ki18n("KDE Help Center"),
                         HELPCENTER_VERSION,
-                        I18N_NOOP("The KDE Help Center"),
+                        ki18n("The KDE Help Center"),
                         KAboutData::License_GPL,
-                        I18N_NOOP("(c) 1999-2003, The KHelpCenter developers") );
+                        ki18n("(c) 1999-2003, The KHelpCenter developers") );
 
-  aboutData.addAuthor( "Cornelius Schumacher", 0, "schumacher@kde.org" );
-  aboutData.addAuthor( "Frerich Raabe", 0, "raabe@kde.org" );
-  aboutData.addAuthor( "Matthias Elter", I18N_NOOP("Original Author"),
+  aboutData.addAuthor( ki18n("Cornelius Schumacher"), KLocalizedString(), "schumacher@kde.org" );
+  aboutData.addAuthor( ki18n("Frerich Raabe"), KLocalizedString(), "raabe@kde.org" );
+  aboutData.addAuthor( ki18n("Matthias Elter"), ki18n("Original Author"),
                        "me@kde.org" );
-  aboutData.addAuthor( "Wojciech Smigaj", I18N_NOOP("Info page support"),
+  aboutData.addAuthor( ki18n("Wojciech Smigaj"), ki18n("Info page support"),
                        "achu@klub.chip.pl" );
 
   KCmdLineArgs::init( argc, argv, &aboutData );
+
+  KCmdLineOptions options;
+  options.add("+[url]", ki18n("URL to display"));
   KCmdLineArgs::addCmdLineOptions( options );
   KCmdLineArgs::addStdCmdLineOptions();
 

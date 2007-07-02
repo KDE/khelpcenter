@@ -160,25 +160,22 @@ void IndexBuilder::quit()
 }
 
 
-static KCmdLineOptions options[] =
-{
-  { "+cmdfile", I18N_NOOP("Document to be indexed"), 0 },
-  { "+indexdir", I18N_NOOP("Index directory"), 0 },
-  KCmdLineLastOption
-};
-
 int main( int argc, char **argv )
 {
-  KAboutData aboutData( "khc_indexbuilder",
-                        I18N_NOOP("KHelpCenter Index Builder"),
+  KAboutData aboutData( "khc_indexbuilder", 0,
+                        ki18n("KHelpCenter Index Builder"),
                         HELPCENTER_VERSION,
-                        I18N_NOOP("The KDE Help Center"),
+                        ki18n("The KDE Help Center"),
                         KAboutData::License_GPL,
-                        I18N_NOOP("(c) 2003, The KHelpCenter developers") );
+                        ki18n("(c) 2003, The KHelpCenter developers") );
 
-  aboutData.addAuthor( "Cornelius Schumacher", 0, "schumacher@kde.org" );
+  aboutData.addAuthor( ki18n("Cornelius Schumacher"), KLocalizedString(), "schumacher@kde.org" );
 
   KCmdLineArgs::init( argc, argv, &aboutData );
+
+  KCmdLineOptions options;
+  options.add("+cmdfile", ki18n("Document to be indexed"));
+  options.add("+indexdir", ki18n("Index directory"));
   KCmdLineArgs::addCmdLineOptions( options );
 
   // Note: no KComponentData seems necessary
