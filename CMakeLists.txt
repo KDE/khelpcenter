@@ -1,5 +1,4 @@
 
-project(khelpcenter)
 
 add_subdirectory( plugins ) 
 add_subdirectory( pics ) 
