@@ -142,7 +142,7 @@ void DocMetaInfo::scanMetaInfo( bool force )
     kstd->addResourceType( "data", QLatin1String("share/apps/khelpcenter") );
     metaInfos = kstd->findDirs( "data", "plugins" );
   }
-  for( it = metaInfos.begin(); it != metaInfos.end(); it++) {
+  for( it = metaInfos.begin(); it != metaInfos.end(); ++it) {
     kDebug() << "DocMetaInfo::scanMetaInfo(): scanning " << *it << endl;
     scanMetaInfoDir( *it, &mRootEntry );
   }
