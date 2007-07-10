@@ -12,7 +12,6 @@ add_definitions (-DQT3_SUPPORT)
 
 set(khc_indexbuilder_SRCS khc_indexbuilder.cpp )
 
-kde4_automoc(${khc_indexbuilder_SRCS})
 
 kde4_add_executable(khc_indexbuilder ${khc_indexbuilder_SRCS})
 
@@ -50,7 +49,6 @@ set(khelpcenter_KDEINIT_SRCS
    searchhandler.cpp )
 
 qt4_add_dbus_adaptor( khelpcenter_KDEINIT_SRCS org.kde.khelpcenter.kcmhelpcenter.xml kcmhelpcenter.h KCMHelpCenter )
-kde4_automoc(${khelpcenter_KDEINIT_SRCS})
 
 
 kde4_add_kcfg_files(khelpcenter_KDEINIT_SRCS prefs.kcfgc )

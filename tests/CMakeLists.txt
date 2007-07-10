@@ -43,7 +43,6 @@ set(testmetainfo_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/../docentrytraverser.cpp 
     ${CMAKE_CURRENT_SOURCE_DIR}/../htmlsearch.cpp )
 
-kde4_automoc(${testmetainfo_SRCS})
 
 kde4_add_test_executable(testmetainfo ${testmetainfo_SRCS})
 
