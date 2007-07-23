@@ -64,8 +64,8 @@ install(TARGETS khelpcenter DESTINATION ${BIN_INSTALL_DIR})
 
 ########### install files ###############
 
-install( FILES Help.desktop  DESTINATION  ${XDG_APPS_DIR} )
+install( FILES Help.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
 install( FILES khelpcenter.kcfg  DESTINATION  ${KCFG_INSTALL_DIR} )
 install( FILES khelpcenter.desktop  DESTINATION  ${SERVICES_INSTALL_DIR} )
 install( FILES khelpcenterui.rc intro.html.in glossary.html.in table-of-contents.xslt  	glossary.xslt index.html.in  DESTINATION  ${DATA_INSTALL_DIR}/khelpcenter )
-install( FILES org.kde.khelpcenter.kcmhelpcenter.xml DESTINATION ${DBUS_INTERFACES_DIR})
+install( FILES org.kde.khelpcenter.kcmhelpcenter.xml DESTINATION ${DBUS_INTERFACES_INSTALL_DIR})
