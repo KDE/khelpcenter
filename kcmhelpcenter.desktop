@@ -13,6 +13,7 @@ X-KDE-ParentApp=kcontrol
 Name=Help Index
 Name[af]=Hulp Indeks
 Name[be]=Індэкс дапамогі
+Name[bg]=Помощна информация
 Name[br]=Meneger ar skoazell
 Name[ca]=Índex d'ajuda
 Name[cs]=Rejstřík nápovědy
@@ -73,6 +74,7 @@ Name[zh_TW]=說明索引
 Comment=Help center search index configuration and generation
 Comment[af]=Hulp sentrum soektog indeks opstelling en genereering
 Comment[be]=Настаўленне і стварэнне індэксу для пошуку ў дакументацыі
+Comment[bg]=Създаване на индекс за ускоряване на търсенето в помощната информация
 Comment[ca]=Configuració i generació de l'índex de recerca per al Centre d'ajuda
 Comment[cs]=Generování a konfigurace rejstříku nápovědy
 Comment[csb]=Kònfigùracëjë ë generowanié indeksu pòmòcë
@@ -130,6 +132,7 @@ Comment[zh_TW]=求助中心搜尋索引的組態與產生
 
 Keywords=khelpcenter,help,index,search
 Keywords[be]=Цэнтр дапамогі,Дапамога,Даведка,Індэкс,Пошук,khelpcenter,help,index,search
+Keywords[bg]=Keywords=индекс, търсене, помощ, информация, khelpcenter, help, index, search
 Keywords[br]=khelpcenter,skoazell,meneger,klask
 Keywords[ca]=khelpcenter,ajuda,índex,cerca
 Keywords[cs]=khelpcenter,nápověda,rejstřík,index,hledání
