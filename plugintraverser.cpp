@@ -54,7 +54,7 @@ PluginTraverser::PluginTraverser( Navigator *navigator, NavigatorItem *parent )
 void PluginTraverser::process( DocEntry *entry )
 {
   if ( !mListView && !mParentItem ) {
-    kDebug( 1400 ) << "ERROR! Neither mListView nor mParentItem is set." << endl;
+    kDebug( 1400 ) << "ERROR! Neither mListView nor mParentItem is set.";
     return;
   }
 
@@ -110,7 +110,7 @@ DocEntryTraverser *PluginTraverser::createChild( DocEntry * /*entry*/ )
   if ( mCurrentItem ) {
     return new PluginTraverser( mNavigator, mCurrentItem );
   }
-  kDebug( 1400 ) << "ERROR! mCurrentItem is not set." << endl;
+  kDebug( 1400 ) << "ERROR! mCurrentItem is not set.";
   return 0;
 }
 

@@ -56,14 +56,14 @@ NavigatorItem *ScrollKeeperTreeBuilder::build( NavigatorItem *parent,
 {
   QString lang = KGlobal::locale()->language();
 
-  kDebug(1400) << "ScrollKeeper language: " << lang << endl;
+  kDebug(1400) << "ScrollKeeper language: " << lang;
 
   K3ProcIO proc;
   proc << "scrollkeeper-get-content-list";
   proc << lang;
   connect(&proc,SIGNAL(readReady(K3ProcIO *)),SLOT(getContentsList(K3ProcIO *)));
   if (!proc.start(K3Process::Block)) {
-    kDebug(1400) << "Could not execute scrollkeeper-get-content-list" << endl;
+    kDebug(1400) << "Could not execute scrollkeeper-get-content-list";
     return 0;
   }
 

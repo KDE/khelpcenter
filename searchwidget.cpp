@@ -348,7 +348,7 @@ void SearchWidget::scopeDoubleClicked( Q3ListViewItem *item )
 
   QString searchUrl = scopeItem->entry()->search();
 
-  kDebug() << "DoubleClick: " << searchUrl << endl;
+  kDebug() << "DoubleClick: " << searchUrl;
 
   emit searchResult( searchUrl );
 }

@@ -35,7 +35,7 @@ View::View( QWidget *parentWidget, QObject *parent, KHTMLPart::GUIProfile prof, 
 
     mFormatter = new Formatter;
     if ( !mFormatter->readTemplates() ) {
-      kDebug() << "Unable to read Formatter templates." << endl;
+      kDebug() << "Unable to read Formatter templates.";
     }
 
     m_zoomStepping = 10;

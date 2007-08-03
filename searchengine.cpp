@@ -52,7 +52,7 @@ SearchTraverser::~SearchTraverser()
 
 void SearchTraverser::process( DocEntry * )
 {
-  kDebug() << "SearchTraverser::process()" << endl;
+  kDebug() << "SearchTraverser::process()";
 }
 
 void SearchTraverser::startProcess( DocEntry *entry )
@@ -87,7 +87,7 @@ void SearchTraverser::startProcess( DocEntry *entry )
   handler->search( entry, mEngine->words(), mEngine->maxResults(),
     mEngine->operation() );
 
-//  kDebug() << "SearchTraverser::startProcess() done: " << entry->name() << endl;
+//  kDebug() << "SearchTraverser::startProcess() done: " << entry->name();
 }
 
 void SearchTraverser::connectHandler( SearchHandler *handler )
@@ -127,7 +127,7 @@ void SearchTraverser::disconnectHandler( SearchHandler *handler )
 
 DocEntryTraverser *SearchTraverser::createChild( DocEntry *parentEntry )
 {
-//  kDebug() << "SearchTraverser::createChild() level " << mLevel << endl;
+//  kDebug() << "SearchTraverser::createChild() level " << mLevel;
 
   if ( mLevel >= mMaxLevel ) {
     ++mLevel;
@@ -141,7 +141,7 @@ DocEntryTraverser *SearchTraverser::createChild( DocEntry *parentEntry )
 
 DocEntryTraverser *SearchTraverser::parentTraverser()
 {
-//  kDebug() << "SearchTraverser::parentTraverser(): level: " << mLevel << endl;
+//  kDebug() << "SearchTraverser::parentTraverser(): level: " << mLevel;
 
   if ( mLevel > mMaxLevel ) {
     return this;
@@ -152,7 +152,7 @@ DocEntryTraverser *SearchTraverser::parentTraverser()
 
 void SearchTraverser::deleteTraverser()
 {
-//  kDebug() << "SearchTraverser::deleteTraverser()" << endl;
+//  kDebug() << "SearchTraverser::deleteTraverser()";
 
   if ( mLevel > mMaxLevel ) {
     --mLevel;
@@ -191,7 +191,7 @@ void SearchTraverser::showSearchResult( SearchHandler *handler, DocEntry *entry,
 
 void SearchTraverser::finishTraversal()
 {
-//  kDebug() << "SearchTraverser::finishTraversal()" << endl;
+//  kDebug() << "SearchTraverser::finishTraversal()";
 
   mEngine->view()->writeSearchResult( mEngine->formatter()->footer() );
   mEngine->view()->endSearchResult();
@@ -220,12 +220,12 @@ bool SearchEngine::initSearchHandlers()
   QStringList::ConstIterator it;
   for( it = resources.begin(); it != resources.end(); ++it ) {
     QString filename = *it;
-    kDebug() << "SearchEngine::initSearchHandlers(): " << filename << endl;
+    kDebug() << "SearchEngine::initSearchHandlers(): " << filename;
     SearchHandler *handler = SearchHandler::initFromFile( filename );
     if ( !handler || !handler->checkPaths() ) {
       QString txt = i18n("Unable to initialize SearchHandler from file '%1'.",
           filename );
-      kWarning() << txt << endl;
+      kWarning() << txt ;
 //      KMessageBox::sorry( mView->widget(), txt );        
     } else {
       QStringList documentTypes = handler->documentTypes();
@@ -238,7 +238,7 @@ bool SearchEngine::initSearchHandlers()
   
   if ( mHandlers.isEmpty() ) {
     QString txt = i18n("No valid search handler found.");
-    kWarning() << txt << endl;
+    kWarning() << txt ;
 //    KMessageBox::sorry( mView->widget(), txt );
     return false;
   }
@@ -272,7 +272,7 @@ void SearchEngine::searchStderr(K3Process *, char *buffer, int len)
 
 void SearchEngine::searchExited(K3Process *)
 {
-  kDebug() << "Search terminated" << endl;
+  kDebug() << "Search terminated";
   mSearchRunning = false;
 }
 
@@ -311,7 +311,7 @@ bool SearchEngine::search( QString words, QString method, int matches,
     mView->writeSearchResult( formatter()->title( txt ) );
 
     if ( mRootTraverser ) {
-      kDebug() << "SearchEngine::search(): mRootTraverser not null." << endl;
+      kDebug() << "SearchEngine::search(): mRootTraverser not null.";
       return false;
     }
     mRootTraverser = new SearchTraverser( this, 0 );
@@ -337,7 +337,7 @@ bool SearchEngine::search( QString words, QString method, int matches,
     
     commonSearchProgram = substituteSearchQuery( commonSearchProgram );
 
-    kDebug() << "Common Search: " << commonSearchProgram << endl;
+    kDebug() << "Common Search: " << commonSearchProgram;
 
     mProc = new K3Process();
 

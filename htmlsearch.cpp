@@ -22,7 +22,7 @@ HTMLSearch::~HTMLSearch()
 
 void HTMLSearch::setupDocEntry( KHC::DocEntry *entry )
 {
-//  kDebug() << "HTMLSearch::setupDocEntry(): " << entry->name() << endl;
+//  kDebug() << "HTMLSearch::setupDocEntry(): " << entry->name();
 
   if ( entry->searchMethod().toLower() != QLatin1String("htdig") ) return;
 

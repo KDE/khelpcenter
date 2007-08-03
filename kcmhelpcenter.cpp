@@ -328,7 +328,7 @@ void KCMHelpCenter::defaults()
 
 bool KCMHelpCenter::save()
 {
-  kDebug(1401) << "KCMHelpCenter::save()" << endl;
+  kDebug(1401) << "KCMHelpCenter::save()";
 
   if ( !QFile::exists( Prefs::indexDirectory() ) ) {
     KMessageBox::sorry( this,
@@ -384,9 +384,9 @@ void KCMHelpCenter::updateStatus()
 
 bool KCMHelpCenter::buildIndex()
 {
-  kDebug(1401) << "Build Index" << endl;
+  kDebug(1401) << "Build Index";
 
-  kDebug() << "IndexPath: '" << Prefs::indexDirectory() << "'" << endl;
+  kDebug() << "IndexPath: '" << Prefs::indexDirectory() << "'";
 
   if ( mProcess ) {
     kError() << "Error: Index Process still running." << endl;
@@ -406,7 +406,7 @@ bool KCMHelpCenter::buildIndex()
   }
 
   QTextStream ts ( mCmdFile );
-  kDebug() << "Writing to file '" << mCmdFile->fileName() << "'" << endl;
+  kDebug() << "Writing to file '" << mCmdFile->fileName() << "'";
 
   bool hasError = false;
 
@@ -441,7 +441,7 @@ bool KCMHelpCenter::buildIndex()
             indexer.replace( QLatin1String("%i" ), entry->identifier() );
             indexer.replace( QLatin1String( "%d" ), Prefs::indexDirectory() );
             indexer.replace( QLatin1String( "%p" ), entry->url() );
-            kDebug() << "INDEXER: " << indexer << endl;
+            kDebug() << "INDEXER: " << indexer;
             ts << indexer << endl;
 
             int width = fm.width( entry->name() );
@@ -484,13 +484,13 @@ bool KCMHelpCenter::buildIndex()
 
 void KCMHelpCenter::startIndexProcess()
 {
-  kDebug() << "KCMHelpCenter::startIndexProcess()" << endl;
+  kDebug() << "KCMHelpCenter::startIndexProcess()";
 
   mProcess = new K3Process;
 
   if ( mRunAsRoot ) {
     *mProcess << "kdesu" << "--nonewdcop";
-    kDebug() << "Run as root" << endl;
+    kDebug() << "Run as root";
   }
 
   *mProcess << "khc_indexbuilder";
@@ -512,7 +512,7 @@ void KCMHelpCenter::startIndexProcess()
 
 void KCMHelpCenter::cancelBuildIndex()
 {
-  kDebug() << "cancelBuildIndex()" << endl;
+  kDebug() << "cancelBuildIndex()";
 
   deleteProcess();
   deleteCmdFile();
@@ -525,10 +525,10 @@ void KCMHelpCenter::cancelBuildIndex()
 
 void KCMHelpCenter::slotIndexFinished( K3Process *proc )
 {
-  kDebug() << "KCMHelpCenter::slotIndexFinished()" << endl;
+  kDebug() << "KCMHelpCenter::slotIndexFinished()";
 
   if ( proc == 0 ) {
-    kWarning() << "Process null." << endl;
+    kWarning() << "Process null." ;
     return;
   }
 
@@ -541,14 +541,14 @@ void KCMHelpCenter::slotIndexFinished( K3Process *proc )
     if ( mRunAsRoot ) {
       kError() << "Insufficient permissions." << endl;
     } else {
-      kDebug() << "Insufficient permissions. Trying again as root." << endl;
+      kDebug() << "Insufficient permissions. Trying again as root.";
       mRunAsRoot = true;
       deleteProcess();
       startIndexProcess();
       return;
     }
   } else if ( !mProcess->normalExit() || mProcess->exitStatus() != 0 ) {
-    kDebug() << "K3Process reported an error." << endl;
+    kDebug() << "K3Process reported an error.";
     KMessageBox::error( this, i18n("Failed to build index.") );
   } else {
     mConfig->group( "Search" ).writeEntry( "IndexExists", true );
@@ -590,7 +590,7 @@ void KCMHelpCenter::slotIndexProgress()
   if( !mProcess )
     return;
 
-  kDebug() << "KCMHelpCenter::slotIndexProgress()" << endl;
+  kDebug() << "KCMHelpCenter::slotIndexProgress()";
 
   updateStatus();
 
@@ -602,7 +602,7 @@ void KCMHelpCenter::slotIndexError( const QString &str )
   if( !mProcess )
     return;
 
-  kDebug() << "KCMHelpCenter::slotIndexError()" << endl;
+  kDebug() << "KCMHelpCenter::slotIndexError()";
 
   KMessageBox::sorry( this, i18n("Error executing indexing build command:\n%1",
       str ) );
@@ -665,7 +665,7 @@ void KCMHelpCenter::slotOk()
 
 void KCMHelpCenter::slotProgressClosed()
 {
-  kDebug() << "KCMHelpCenter::slotProgressClosed()" << endl;
+  kDebug() << "KCMHelpCenter::slotProgressClosed()";
 
   if ( mIsClosing ) accept();
 }

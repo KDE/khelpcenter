@@ -94,7 +94,7 @@ void History::installMenuBarHook( KXmlGuiWindow *mainWindow )
 
 void History::createEntry()
 {
-  kDebug() << "History::createEntry()" << endl;
+  kDebug() << "History::createEntry()";
 
   // First, remove any forward history
   Entry * current = m_entries.current();
@@ -136,7 +136,7 @@ void History::updateCurrentEntry( View *view )
   current->view = view;
 
   if ( url.isEmpty() ) {
-    kDebug() << "History::updateCurrentEntry(): internal url" << endl;
+    kDebug() << "History::updateCurrentEntry(): internal url";
     url = view->internalUrl();
   }
 
@@ -157,31 +157,31 @@ void History::updateActions()
 
 void History::back()
 {
-  kDebug( 1400 ) << "History::back()" << endl;
+  kDebug( 1400 ) << "History::back()";
   goHistoryActivated( -1 );
 }
 
 void History::backActivated( int id )
 {
-  kDebug( 1400 ) << "History::backActivated(): id = " << id << endl;
+  kDebug( 1400 ) << "History::backActivated(): id = " << id;
   goHistoryActivated( -( m_backAction->menu()->indexOf( id ) + 1 ) );
 }
 
 void History::forward()
 {
-  kDebug( 1400 ) << "History::forward()" << endl;
+  kDebug( 1400 ) << "History::forward()";
   goHistoryActivated( 1 );
 }
 
 void History::forwardActivated( int id )
 {
-  kDebug( 1400 ) << "History::forwardActivated(): id = " << id << endl;
+  kDebug( 1400 ) << "History::forwardActivated(): id = " << id;
   goHistoryActivated( m_forwardAction->menu()->indexOf( id ) + 1 );
 }
 
 void History::goHistoryActivated( int steps )
 {
-  kDebug( 1400 ) << "History::goHistoryActivated(): m_goBuffer = " << m_goBuffer << endl;
+  kDebug( 1400 ) << "History::goHistoryActivated(): m_goBuffer = " << m_goBuffer;
   if ( m_goBuffer )
     return;
   m_goBuffer = steps;
@@ -190,7 +190,7 @@ void History::goHistoryActivated( int steps )
 
 void History::goHistoryDelayed()
 {
-  kDebug( 1400 ) << "History::goHistoryDelayed(): m_goBuffer = " << m_goBuffer << endl;
+  kDebug( 1400 ) << "History::goHistoryDelayed(): m_goBuffer = " << m_goBuffer;
   if ( !m_goBuffer )
     return;
   int steps = m_goBuffer;
@@ -200,7 +200,7 @@ void History::goHistoryDelayed()
 
 void History::goHistory( int steps )
 {
-  kDebug() << "History::goHistory(): " << steps << endl;
+  kDebug() << "History::goHistory(): " << steps;
 
   // If current entry is empty remove it.
   Entry *current = m_entries.current();
@@ -215,23 +215,23 @@ void History::goHistory( int steps )
   }
 
   if ( !current->view ) {
-    kWarning() << "Empty history entry." << endl;
+    kWarning() << "Empty history entry." ;
     return;
   }
 
   if ( current->search ) {
-    kDebug() << "History::goHistory(): search" << endl;
+    kDebug() << "History::goHistory(): search";
     current->view->lastSearch();
     return;
   }
 
   if ( current->url.protocol() == QLatin1String("khelpcenter") ) {
-    kDebug() << "History::goHistory(): internal" << endl;
+    kDebug() << "History::goHistory(): internal";
     emit goInternalUrl( current->url );
     return;
   }
 
-  kDebug() << "History::goHistory(): restore state" << endl;
+  kDebug() << "History::goHistory(): restore state";
 
   emit goUrl( current->url );
 
@@ -305,10 +305,10 @@ void History::goMenuActivated( int id )
   int index = goMenu->indexOf(id) - m_goMenuIndex + 1;
   if ( index > 0 )
   {
-    kDebug(1400) << "Item clicked has index " << index << endl;
+    kDebug(1400) << "Item clicked has index " << index;
     // -1 for one step back, 0 for don't move, +1 for one step forward, etc.
     int steps = ( m_goMenuHistoryStartPos+1 ) - index - m_goMenuHistoryCurrentPos; // make a drawing to understand this :-)
-    kDebug(1400) << "Emit activated with steps = " << steps << endl;
+    kDebug(1400) << "Emit activated with steps = " << steps;
     goHistory( steps );
   }
 }

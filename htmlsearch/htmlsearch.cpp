@@ -189,7 +189,7 @@ bool HTMLSearch::createConfig(const QString& _lang)
     f.setName(fname);
     if (f.open(QIODevice::WriteOnly))
     {
-        kDebug() << "Writing config for " << _lang << " to " << fname << endl;
+        kDebug() << "Writing config for " << _lang << " to " << fname;
 
         QTextStream ts(&f);
 
@@ -271,7 +271,7 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
             initial = false;
 	}
 
-        kDebug() << "Running htdig" << endl;
+        kDebug() << "Running htdig";
 
         connect(_proc, SIGNAL(receivedStdout(K3Process *,char*,int)),
                 this, SLOT(htdigStdout(K3Process *,char*,int)));
@@ -298,7 +298,7 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
 	}
         else
 	{
-            kDebug() << "Could not open `files` for writing" << endl;
+            kDebug() << "Could not open `files` for writing";
             return false;
 	}
 
@@ -332,7 +332,7 @@ bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
     _proc = new K3Process();
     *_proc << exe << "-c" << dataPath(_lang)+"/htdig.conf";
 
-    kDebug() << "Running htmerge" << endl;
+    kDebug() << "Running htmerge";
 
     connect(_proc, SIGNAL(processExited(K3Process *)),
             this, SLOT(htmergeExited(K3Process *)));
@@ -383,7 +383,7 @@ void HTMLSearch::htdigStdout(K3Process *, char *buffer, int len)
 
 void HTMLSearch::htdigExited(K3Process *p)
 {
-    kDebug() << "htdig terminated " << p->exitStatus() << endl;
+    kDebug() << "htdig terminated " << p->exitStatus();
     _htdigRunning = false;
     kapp->exit_loop();
 }
@@ -391,7 +391,7 @@ void HTMLSearch::htdigExited(K3Process *p)
 
 void HTMLSearch::htmergeExited(K3Process *)
 {
-  kDebug() << "htmerge terminated" << endl;
+  kDebug() << "htmerge terminated";
   _htmergeRunning = false;
   kapp->exit_loop();
 }
@@ -405,7 +405,7 @@ void HTMLSearch::htsearchStdout(K3Process *, char *buffer, int len)
 
 void HTMLSearch::htsearchExited(K3Process *)
 {
-  kDebug() << "htsearch terminated" << endl;
+  kDebug() << "htsearch terminated";
   _htsearchRunning = false;
   kapp->exit_loop();
 }
@@ -434,7 +434,7 @@ QString HTMLSearch::search(QString _lang, QString words, QString method, int mat
   *_proc << exe << "-c" << dataPath(_lang)+"/htdig.conf" <<
     QString("words=%1;method=%2;matchesperpage=%3;format=%4;sort=%5").arg(words).arg(method).arg(matches).arg(format).arg(sort);
 
-  kDebug() << "Running htsearch" << endl;
+  kDebug() << "Running htsearch";
 
   connect(_proc, SIGNAL(receivedStdout(K3Process *,char*,int)),
 	  this, SLOT(htsearchStdout(K3Process *,char*,int)));
@@ -450,7 +450,7 @@ QString HTMLSearch::search(QString _lang, QString words, QString method, int mat
 
   if (!_proc->normalExit() || _proc->exitStatus() != 0)
     {
-      kDebug() << "Error running htsearch... returning now" << endl;
+      kDebug() << "Error running htsearch... returning now";
       delete _proc;
       delete config;
       return QString();

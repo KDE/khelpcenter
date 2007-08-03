@@ -26,7 +26,7 @@ DocMetaInfo *DocMetaInfo::self()
 
 DocMetaInfo::DocMetaInfo()
 {
-  kDebug() << "DocMetaInfo()" << endl;
+  kDebug() << "DocMetaInfo()";
 
   mHtmlSearch = new HTMLSearch;
 
@@ -35,7 +35,7 @@ DocMetaInfo::DocMetaInfo()
 
 DocMetaInfo::~DocMetaInfo()
 {
-  kDebug() << "~DocMetaInfo()" << endl;
+  kDebug() << "~DocMetaInfo()";
 
   DocEntry::List::ConstIterator it;
   for( it = mDocEntries.begin(); it != mDocEntries.end(); ++it ) {
@@ -111,7 +111,7 @@ QString DocMetaInfo::languageName( const QString &langcode )
   QString cfgfile = KStandardDirs::locate( "locale",
       QString::fromLatin1( "%1/entry.desktop" ).arg( langcode ) );
 
-  kDebug() << "-- langcode: " << langcode << " cfgfile: " << cfgfile << endl;
+  kDebug() << "-- langcode: " << langcode << " cfgfile: " << cfgfile;
 
   KConfig _cfg( cfgfile, KConfig::OnlyLocal );
   KConfigGroup cfg(&_cfg, "KCM Locale" );
@@ -126,7 +126,7 @@ void DocMetaInfo::scanMetaInfo( bool force )
 
   mLanguages = KGlobal::locale()->languageList();
 
-  kDebug( 1400 ) << "LANGS: " << mLanguages.join( QLatin1String(" ") ) << endl;
+  kDebug( 1400 ) << "LANGS: " << mLanguages.join( QLatin1String(" ") );
 
   QStringList::ConstIterator it;
   for( it = mLanguages.begin(); it != mLanguages.end(); ++it ) {
@@ -143,7 +143,7 @@ void DocMetaInfo::scanMetaInfo( bool force )
     metaInfos = kstd->findDirs( "data", "plugins" );
   }
   for( it = metaInfos.begin(); it != metaInfos.end(); ++it) {
-    kDebug() << "DocMetaInfo::scanMetaInfo(): scanning " << *it << endl;
+    kDebug() << "DocMetaInfo::scanMetaInfo(): scanning " << *it;
     scanMetaInfoDir( *it, &mRootEntry );
   }
 
@@ -214,7 +214,7 @@ void DocMetaInfo::traverseEntry( DocEntry *entry, DocEntryTraverser *traverser )
 
 void DocMetaInfo::startTraverseEntries( DocEntryTraverser *traverser )
 {
-  kDebug() << "DocMetaInfo::startTraverseEntries()" << endl;
+  kDebug() << "DocMetaInfo::startTraverseEntries()";
   traverser->setNotifyee( this );
   startTraverseEntry( &mRootEntry, traverser );
 }
@@ -222,7 +222,7 @@ void DocMetaInfo::startTraverseEntries( DocEntryTraverser *traverser )
 void DocMetaInfo::startTraverseEntry( DocEntry *entry,
                                       DocEntryTraverser *traverser )
 {
-//  kDebug() << "DocMetaInfo::startTraverseEntry() " << entry->name() << endl;
+//  kDebug() << "DocMetaInfo::startTraverseEntry() " << entry->name();
 
   if ( !traverser ) {
     kDebug() << "DocMetaInfo::startTraverseEntry(): ERROR. No Traverser."
@@ -231,7 +231,7 @@ void DocMetaInfo::startTraverseEntry( DocEntry *entry,
   }
 
   if ( !entry ) {
-    kDebug() << "DocMetaInfo::startTraverseEntry(): no entry." << endl;
+    kDebug() << "DocMetaInfo::startTraverseEntry(): no entry.";
     endTraverseEntries( traverser );
     return;
   }
@@ -241,7 +241,7 @@ void DocMetaInfo::startTraverseEntry( DocEntry *entry,
 
 void DocMetaInfo::endProcess( DocEntry *entry, DocEntryTraverser *traverser )
 {
-//  kDebug() << "DocMetaInfo::endProcess() " << entry->name() << endl;
+//  kDebug() << "DocMetaInfo::endProcess() " << entry->name();
 
   if ( !entry ) {
     endTraverseEntries( traverser );
@@ -274,10 +274,10 @@ void DocMetaInfo::endProcess( DocEntry *entry, DocEntryTraverser *traverser )
 
 void DocMetaInfo::endTraverseEntries( DocEntryTraverser *traverser )
 {
-  kDebug() << "DocMetaInfo::endTraverseEntries()" << endl;
+  kDebug() << "DocMetaInfo::endTraverseEntries()";
 
   if ( !traverser ) {
-    kDebug() << " no more traversers." << endl;
+    kDebug() << " no more traversers.";
     return;
   }
 

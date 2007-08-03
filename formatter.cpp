@@ -50,7 +50,7 @@ bool Formatter::readTemplates()
   }
 
   if ( mainTemplate.isEmpty() ) {
-    kWarning() << "Main template file name is empty." << endl;
+    kWarning() << "Main template file name is empty." ;
     return false;
   }
 
@@ -108,8 +108,8 @@ bool Formatter::readTemplates()
 #if 0
   QMap<QString,QString>::ConstIterator it;
   for( it = mSymbols.begin(); it != mSymbols.end(); ++it ) {
-    kDebug() << "KEY: " << it.key() << endl;
-    kDebug() << "VALUE: " << it.data() << endl;
+    kDebug() << "KEY: " << it.key();
+    kDebug() << "VALUE: " << it.data();
   }
 #endif
 

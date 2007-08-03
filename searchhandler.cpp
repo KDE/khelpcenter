@@ -94,13 +94,13 @@ void SearchHandler::search( DocEntry *entry, const QStringList &words,
   int maxResults,
   SearchEngine::Operation operation )
 {
-  kDebug() << "SearchHandler::search(): " << entry->identifier() << endl;
+  kDebug() << "SearchHandler::search(): " << entry->identifier();
 
   if ( !mSearchCommand.isEmpty() ) {
     QString cmdString = SearchEngine::substituteSearchQuery( mSearchCommand,
       entry->identifier(), words, maxResults, operation, mLang );
 
-    kDebug() << "SearchHandler::search() CMD: " << cmdString << endl;
+    kDebug() << "SearchHandler::search() CMD: " << cmdString;
 
     K3Process *proc = new K3Process();
 
@@ -136,7 +136,7 @@ void SearchHandler::search( DocEntry *entry, const QStringList &words,
     QString urlString = SearchEngine::substituteSearchQuery( mSearchUrl,
       entry->identifier(), words, maxResults, operation, mLang );
 
-    kDebug() << "SearchHandler::search() URL: " << urlString << endl;
+    kDebug() << "SearchHandler::search() URL: " << urlString;
 
     KIO::TransferJob *job = KIO::get( KUrl( urlString ) );
     connect( job, SIGNAL( result( KJob * ) ),
@@ -187,7 +187,7 @@ void SearchHandler::searchStderr( K3Process *proc, char *buffer, int len )
 
 void SearchHandler::searchExited( K3Process *proc )
 {
-//  kDebug() << "SearchHandler::searchExited()" << endl;
+//  kDebug() << "SearchHandler::searchExited()";
 
   QString result;
   QString error;
@@ -238,7 +238,7 @@ void SearchHandler::slotJobResult( KJob *job )
 
 void SearchHandler::slotJobData( KIO::Job *job, const QByteArray &data )
 {
-//  kDebug() << "SearchHandler::slotJobData()" << endl;
+//  kDebug() << "SearchHandler::slotJobData()";
 
   QMap<KJob *, SearchJob *>::ConstIterator it = mKioJobs.find( job );
   if ( it != mKioJobs.end() ) {

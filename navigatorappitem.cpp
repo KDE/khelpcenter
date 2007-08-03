@@ -68,7 +68,7 @@ void NavigatorAppItem::setRelpath( const QString &relpath )
 
 void NavigatorAppItem::setOpen(bool open)
 {
-  kDebug() << "NavigatorAppItem::setOpen()" << endl;
+  kDebug() << "NavigatorAppItem::setOpen()";
 
   if ( open && (childCount() == 0) && !mPopulated )
   {

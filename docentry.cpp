@@ -253,7 +253,7 @@ bool DocEntry::docExists() const
   if ( !mUrl.isEmpty() ) {
     KUrl docUrl( mUrl );
     if ( docUrl.isLocalFile() && !KStandardDirs::exists( docUrl.path() ) ) {
-//      kDebug(1400) << "URL not found: " << docUrl.url() << endl;
+//      kDebug(1400) << "URL not found: " << docUrl.url();
       return false;
     }
   }
@@ -335,15 +335,15 @@ bool DocEntry::isSearchable()
 
 void DocEntry::dump() const
 {
-  kDebug() << "  <docentry>" << endl;
-  kDebug() << "    <name>" << mName << "</name>" << endl;
-  kDebug() << "    <searchmethod>" << mSearchMethod << "</searchmethod>" << endl;
-  kDebug() << "    <search>" << mSearch << "</search>" << endl;
-  kDebug() << "    <indexer>" << mIndexer << "</indexer>" << endl;
-  kDebug() << "    <indextestfile>" << mIndexTestFile << "</indextestfile>" << endl;
-  kDebug() << "    <icon>" << mIcon << "</icon>" << endl;
-  kDebug() << "    <url>" << mUrl << "</url>" << endl;
-  kDebug() << "    <documenttype>" << mDocumentType << "</documenttype>" << endl; 
-  kDebug() << "  </docentry>" << endl;
+  kDebug() << "  <docentry>";
+  kDebug() << "    <name>" << mName << "</name>";
+  kDebug() << "    <searchmethod>" << mSearchMethod << "</searchmethod>";
+  kDebug() << "    <search>" << mSearch << "</search>";
+  kDebug() << "    <indexer>" << mIndexer << "</indexer>";
+  kDebug() << "    <indextestfile>" << mIndexTestFile << "</indextestfile>";
+  kDebug() << "    <icon>" << mIcon << "</icon>";
+  kDebug() << "    <url>" << mUrl << "</url>";
+  kDebug() << "    <documenttype>" << mDocumentType << "</documenttype>"; 
+  kDebug() << "  </docentry>";
 }
 // vim:ts=2:sw=2:et

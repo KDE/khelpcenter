@@ -41,7 +41,7 @@ class LinearTraverser : public DocEntryTraverser
   public:
     void process( DocEntry *entry )
     {
-      kDebug() << "PROCESS: " << entry->name() << endl;
+      kDebug() << "PROCESS: " << entry->name();
     }
     
     DocEntryTraverser *createChild( DocEntry * )
@@ -62,22 +62,22 @@ class AsyncTraverser : public DocEntryTraverser
   public:
     AsyncTraverser( const QString &indent = "" ) : mIndent( indent )
     {
-//      kDebug() << "AsyncTraverser()" << endl;
+//      kDebug() << "AsyncTraverser()";
     }
     
     ~AsyncTraverser()
     {
-//      kDebug() << "~AsyncTraverser()" << endl;
+//      kDebug() << "~AsyncTraverser()";
     }
     
     void process( DocEntry *entry )
     {
-      kDebug() << mIndent << entry->name() << endl;
+      kDebug() << mIndent << entry->name();
     }
     
     DocEntryTraverser *createChild( DocEntry * )
     {
-//      kDebug() << "AsyncTraverser::childTraverser()" << endl;
+//      kDebug() << "AsyncTraverser::childTraverser()";
       return new AsyncTraverser( mIndent + "  " );
     }
 
@@ -91,24 +91,24 @@ int main(int argc,char **argv)
   // KComponentData componentData(&aboutData); doesn't seem to be necessary
   QCoreApplication app(argc,argv);
 
-  kDebug() << "Scanning Meta Info" << endl;
+  kDebug() << "Scanning Meta Info";
 
   DocMetaInfo::self()->scanMetaInfo( );
 
-  kDebug() << "My TRAVERSE start" << endl;
+  kDebug() << "My TRAVERSE start";
   MyTraverser t;
   DocMetaInfo::self()->startTraverseEntries( &t );
-  kDebug() << "My TRAVERSE end" << endl;
+  kDebug() << "My TRAVERSE end";
 
-  kDebug() << "Linear TRAVERSE start" << endl;
+  kDebug() << "Linear TRAVERSE start";
   LinearTraverser l;
   DocMetaInfo::self()->startTraverseEntries( &l );
-  kDebug() << "Linear TRAVERSE end" << endl;
+  kDebug() << "Linear TRAVERSE end";
 
-  kDebug() << "Async TRAVERSE start" << endl;
+  kDebug() << "Async TRAVERSE start";
   AsyncTraverser a;
   DocMetaInfo::self()->startTraverseEntries( &a );
-  kDebug() << "Async TRAVERSE end" << endl;
+  kDebug() << "Async TRAVERSE end";
 
   return 0;
 }
