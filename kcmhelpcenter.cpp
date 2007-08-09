@@ -215,7 +215,7 @@ void IndexProgressDialog::toggleDetails()
   if ( mLogView->isHidden() ) {
     mLogLabel->show();
     mLogView->show();
-    mDetailsButton->setText( i18n("Details <<") );
+    mDetailsButton->setText( i18n("Details &lt;&lt;") );
     QSize size = cfg.readEntry( "size", QSize() );
     if ( !size.isEmpty() ) resize( size );
   } else {
@@ -228,7 +228,7 @@ void IndexProgressDialog::hideDetails()
 {
   mLogLabel->hide();
   mLogView->hide();
-  mDetailsButton->setText( i18n("Details >>") );
+  mDetailsButton->setText( i18n("Details &gt;&gt;") );
   layout()->activate();
   adjustSize();
 }
