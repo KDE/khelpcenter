@@ -219,7 +219,7 @@ bool HTMLSearch::createConfig(const QString& _lang)
 
 #define CHUNK_SIZE 15
 
-bool HTMLSearch::generateIndex(QString _lang, QWidget *parent)
+bool HTMLSearch::generateIndex( const QString & _lang, QWidget *parent)
 {
     if (_lang == "C")
         _lang = "en";
@@ -411,8 +411,8 @@ void HTMLSearch::htsearchExited(K3Process *)
 }
 
 
-QString HTMLSearch::search(QString _lang, QString words, QString method, int matches,
-			   QString format, QString sort)
+QString HTMLSearch::search( const QString & _lang, const QString & words, const QString & method, int matches,
+			   const QString & format, const QString & sort)
 {
   if (_lang == "C")
     _lang = "en";

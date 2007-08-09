@@ -276,8 +276,8 @@ void SearchEngine::searchExited(K3Process *)
   mSearchRunning = false;
 }
 
-bool SearchEngine::search( QString words, QString method, int matches,
-                           QString scope )
+bool SearchEngine::search( const QString & words, const QString & method, int matches,
+                           const QString & scope )
 {
   if ( mSearchRunning ) return false;
 
@@ -327,7 +327,7 @@ bool SearchEngine::search( QString words, QString method, int matches,
     // if the string contains '&' replace with a '+' and set search method to and
     if (mWords.indexOf("&") != -1) {
       mWords.replace("&", " ");
-      method = "and";
+      mMethod = "and";
     }
  
     // replace whitespace with a '+'

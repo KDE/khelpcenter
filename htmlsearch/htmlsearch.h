@@ -22,10 +22,10 @@ public:
 
   HTMLSearch();
 
-  bool generateIndex(QString lang, QWidget *parent=0);
+  bool generateIndex(const QString & lang, QWidget *parent=0);
 
-  QString search(QString lang, QString words, QString method="and", int matches=10,
-		 QString format="builtin-long", QString sort="score");
+  QString search(const QString & lang, const QString & words, const QString & method="and", int matches=10,
+		 const QString & format="builtin-long", const QString & sort="score");
 
 
 protected Q_SLOTS:

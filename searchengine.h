@@ -70,8 +70,8 @@ class SearchEngine : public QObject
 
     bool initSearchHandlers();
 
-    bool search( QString words, QString method = "and", int matches = 5,
-                 QString scope = "" );
+    bool search( const QString & words, const QString & method = "and", int matches = 5,
+                 const QString & scope = "" );
 
     Formatter *formatter() const; 
     View *view() const;
