@@ -364,15 +364,15 @@ QString SearchWidget::scopeSelectionLabel( int id ) const
 {
   switch( id ) {
     case ScopeCustom:
-      return i18n("Custom");
+      return i18nc("Label for searching documentation using custom (user defined) scope", "Custom");
     case ScopeDefault:
-      return i18n("Default");
+      return i18nc("Label for searching documentation using default search scope", "Default");
     case ScopeAll:
-      return i18n("All");
+      return i18nc("Label for searching documentation in all subsections", "All");
     case ScopeNone:
-      return i18n("None");
+      return i18nc("Label for scope that deselects all search subsections", "None");
     default:
-      return i18n("unknown");
+      return i18nc("Label for Unknown search scope, that should never appear", "unknown");
   }
 }
 

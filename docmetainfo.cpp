@@ -106,7 +106,7 @@ DocEntry::List DocMetaInfo::searchEntries()
 
 QString DocMetaInfo::languageName( const QString &langcode )
 {
-  if ( langcode == "en" ) return i18n("English");
+  if ( langcode == "en" ) return i18nc("Describes documentation entries that are in English","English");
 
   QString cfgfile = KStandardDirs::locate( "locale",
       QString::fromLatin1( "%1/entry.desktop" ).arg( langcode ) );

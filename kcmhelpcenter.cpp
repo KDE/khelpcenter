@@ -186,10 +186,10 @@ void IndexProgressDialog::setFinished( bool finished )
   mFinished = finished;
 
   if ( mFinished ) {
-    mEndButton->setText( i18n("Close") );
+    mEndButton->setText( i18nc("Label for button to close search index progress dialog after successful completion", "Close") );
     mLabel->setText( i18n("Index creation finished.") );
   } else {
-    mEndButton->setText( i18n("Stop") );
+    mEndButton->setText( i18nc("Label for stopping search index generation before completion", "Stop") );
   }
 }
 
@@ -215,7 +215,7 @@ void IndexProgressDialog::toggleDetails()
   if ( mLogView->isHidden() ) {
     mLogLabel->show();
     mLogView->show();
-    mDetailsButton->setText( i18n("Details <<") );
+    mDetailsButton->setText( i18n("Details <<") ); //krazy:exclude-i18ncheckarg
     QSize size = cfg.readEntry( "size", QSize() );
     if ( !size.isEmpty() ) resize( size );
   } else {
@@ -228,7 +228,7 @@ void IndexProgressDialog::hideDetails()
 {
   mLogLabel->hide();
   mLogView->hide();
-  mDetailsButton->setText( i18n("Details >>") );
+  mDetailsButton->setText( i18n("Details >>") ); //krazy:exclude-i18ncheckarg
   layout()->activate();
   adjustSize();
 }
@@ -369,10 +369,10 @@ void KCMHelpCenter::updateStatus()
     ScopeItem *item = static_cast<ScopeItem *>( it.current() );
     QString status;
     if ( item->entry()->indexExists( Prefs::indexDirectory() ) ) {
-      status = i18n("OK");
+      status = i18nc("Describes the status of a documentation index that is present", "OK");
       item->setOn( false );
     } else {
-      status = i18n("Missing");
+      status = i18nc("Describes the status of a documentation index that is missing", "Missing");
     }
     item->setText( 1, status );
 
@@ -416,7 +416,7 @@ bool KCMHelpCenter::buildIndex()
     if ( item->isOn() ) {
       DocEntry *entry = item->entry();
 
-      QString docText = i18n("Document '%1' (%2):\n",
+      QString docText = i18nc(" Generic prefix label for error messages when creating documentation index, first arg is the document's identifier, second is the document's name", "Document '%1' (%2):\n",
           entry->identifier() ,
           entry->name() );
       if ( entry->documentType().isEmpty() ) {
