@@ -40,7 +40,7 @@ class KTagComboBox : public QComboBox
   Q_OBJECT
 
 public:
-  KTagComboBox(QWidget *parent=0, const char *name=0);
+  explicit KTagComboBox(QWidget *parent=0, const char *name=0);
   ~KTagComboBox();
 
   void insertItem(const QIcon& icon, const QString &text, const QString &tag, const QString &submenu = QString(), int index=-1 );

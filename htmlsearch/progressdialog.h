@@ -13,7 +13,7 @@ class ProgressDialog : public KDialog
 
 public:
 
-  ProgressDialog(QWidget *parent=0, const char *name=0);
+  explicit ProgressDialog(QWidget *parent=0, const char *name=0);
 
   void setFilesScanned(int s);
   void setFilesToDig(int d);

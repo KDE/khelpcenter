@@ -99,7 +99,7 @@ class KCMHelpCenter : public KDialog
 {
     Q_OBJECT
   public:
-    KCMHelpCenter( KHC::SearchEngine *, QWidget *parent = 0,
+    explicit KCMHelpCenter( KHC::SearchEngine *, QWidget *parent = 0,
       const char *name = 0 );
     ~KCMHelpCenter();
     

@@ -34,7 +34,7 @@ class ScrollKeeperTreeBuilder : public QObject
 {
   Q_OBJECT
   public:
-    ScrollKeeperTreeBuilder( QObject *parent, const char *name = 0 );
+    explicit ScrollKeeperTreeBuilder( QObject *parent, const char *name = 0 );
 
     NavigatorItem *build( NavigatorItem *parent, NavigatorItem *after );
 

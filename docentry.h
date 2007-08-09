@@ -14,7 +14,7 @@ class DocEntry
 
     DocEntry();
 
-    DocEntry( const QString &name, const QString &url = QString(),
+    explicit DocEntry( const QString &name, const QString &url = QString(),
               const QString &icon = QString() );
 
     void setName( const QString & );

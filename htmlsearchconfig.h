@@ -32,7 +32,7 @@ class HtmlSearchConfig : public QWidget
 {
     Q_OBJECT
   public:
-    HtmlSearchConfig(QWidget *parent = 0L, const char *name = 0L);
+    explicit HtmlSearchConfig(QWidget *parent = 0L, const char *name = 0L);
     virtual ~HtmlSearchConfig();
 
     void load( KConfig * );

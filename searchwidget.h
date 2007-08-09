@@ -46,7 +46,7 @@ public Q_SLOTS:
     Q_SCRIPTABLE Q_NOREPLY void searchIndexUpdated(); // called from kcmhelpcenter
 
   public:
-    SearchWidget ( SearchEngine *, QWidget *parent = 0 );
+    explicit SearchWidget ( SearchEngine *, QWidget *parent = 0 );
     ~SearchWidget();
 
     QString method();
