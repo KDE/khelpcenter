@@ -22,12 +22,11 @@
  */
 
 #define INCLUDE_MENUITEM_DEF 1
+#include "ktagcombobox.h"
+
 #include <QPainter>
 
 #include <kdebug.h>
-
-#include "ktagcombobox.h"
-#include "ktagcombobox.moc"
 
 KTagComboBox::~KTagComboBox ()
 {
@@ -246,3 +245,6 @@ void KTagComboBox::setFont( const QFont &font )
   QComboBox::setFont( font );
   popup->setFont( font );
 }
+
+#include "ktagcombobox.moc"
+

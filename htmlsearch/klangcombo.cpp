@@ -21,12 +21,11 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+#include "klangcombo.h"
+
 #include <Qt3Support/qiconset.h>
 
 #include <kstandarddirs.h>
-
-#include "klangcombo.h"
-#include "klangcombo.moc"
 
 KLanguageCombo::~KLanguageCombo ()
 {
@@ -50,3 +49,6 @@ void KLanguageCombo::changeLanguage(const QString& name, int i)
   QString output = name + QLatin1String(" (") + tag(i) + QString::fromLatin1(")");
   changeItem(output, i);
 }
+
+#include "klangcombo.moc"
+

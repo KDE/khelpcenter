@@ -18,6 +18,8 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+#include "htmlsearchconfig.h"
+
 #include <QLayout>
 //Added by qt3to4:
 #include <QLabel>
@@ -33,9 +35,6 @@
 #include <kurlrequester.h>
 #include <klineedit.h>
 #include <ktoolinvocation.h>
-
-#include "htmlsearchconfig.h"
-#include "htmlsearchconfig.moc"
 
 namespace KHC {
 
@@ -159,3 +158,6 @@ void HtmlSearchConfig::urlClicked(const QString &url)
 
 } // End namespace KHC
 // vim:ts=2:sw=2:et
+
+#include "htmlsearchconfig.moc"
+
