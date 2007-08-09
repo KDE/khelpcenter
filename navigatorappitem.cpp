@@ -114,7 +114,7 @@ void NavigatorAppItem::populate( bool recursive )
       case KST_KServiceGroup:
       {
         KServiceGroup::Ptr g = KServiceGroup::Ptr::staticCast(e);
-        if ( ( g->childCount() == 0 ) || g->name().startsWith( "." ) )
+        if ( ( g->childCount() == 0 ) || g->name().startsWith( '.' ) )
           continue;
         DocEntry *entry = new DocEntry( g->caption(), "", g->icon() );
         NavigatorAppItem *appItem;
