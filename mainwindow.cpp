@@ -311,16 +311,17 @@ void MainWindow::slotStarted(KIO::Job *job)
 void MainWindow::goInternalUrl( const KUrl &url )
 {
   mDoc->closeUrl();
-  slotOpenURLRequest( url, KParts::URLArgs() );
+  slotOpenURLRequest( url );
 }
 
 void MainWindow::slotOpenURLRequest( const KUrl &url,
-                                     const KParts::URLArgs &args )
+                                     const KParts::OpenUrlArguments &args,
+                                     const KParts::BrowserArguments &browserArgs )
 {
   kDebug( 1400 ) << "MainWindow::slotOpenURLRequest(): " << url.url();
 
   mNavigator->selectItem( url );
-  viewUrl( url, args );
+  viewUrl( url, args, browserArgs );
 }
 
 void MainWindow::viewUrl( const QString &url )
@@ -328,7 +329,7 @@ void MainWindow::viewUrl( const QString &url )
   viewUrl( KUrl( url ) );
 }
 
-void MainWindow::viewUrl( const KUrl &url, const KParts::URLArgs &args )
+void MainWindow::viewUrl( const KUrl &url, const KParts::OpenUrlArguments &args, const KParts::BrowserArguments &browserArgs )
 {
     stop();
 
@@ -363,7 +364,8 @@ void MainWindow::viewUrl( const KUrl &url, const KParts::URLArgs &args )
 
     History::self().createEntry();
 
-    mDoc->browserExtension()->setUrlArgs( args );
+    mDoc->setArguments( args );
+    mDoc->browserExtension()->setBrowserArguments( browserArgs );
 
     if ( proto == QLatin1String("glossentry") ) {
         QString decodedEntryId = QUrl::fromPercentEncoding( url.encodedPathAndQuery().toAscii() );

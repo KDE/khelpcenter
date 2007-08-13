@@ -40,11 +40,6 @@ class MainWindow : public KXmlGuiWindow
     /**
       Show document corresponding to given URL in viewer part.
     */
-    void viewUrl( const KUrl &url,
-                  const KParts::URLArgs &args = KParts::URLArgs() );
-    /**
-      Show document corresponding to given URL in viewer part.
-    */
     void viewUrl( const QString & );
 
     /**
@@ -55,6 +50,12 @@ class MainWindow : public KXmlGuiWindow
 
   protected:
     void setupActions();
+    /**
+      Show document corresponding to given URL in viewer part.
+    */
+    void viewUrl( const KUrl &url,
+                  const KParts::OpenUrlArguments &args = KParts::OpenUrlArguments(),
+                  const KParts::BrowserArguments &browserArgs = KParts::BrowserArguments() );
 
     virtual void saveProperties( KConfigGroup &config );
     virtual void readProperties( const KConfigGroup &config );
@@ -78,7 +79,8 @@ class MainWindow : public KXmlGuiWindow
       This function is called when the user clicks on a link in the viewer part.
     */
     void slotOpenURLRequest( const KUrl &url,
-                             const KParts::URLArgs &args);
+                             const KParts::OpenUrlArguments &args = KParts::OpenUrlArguments(),
+                             const KParts::BrowserArguments &browserArgs = KParts::BrowserArguments());
     void documentCompleted();
     void slotIncFontSizes();
     void slotDecFontSizes();
