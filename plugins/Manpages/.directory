@@ -1,10 +1,12 @@
 [Desktop Entry]
 Name=UNIX manual pages
+Name[bg]=Наръчник за UNIX
 Name[csb]=Pòdrãczniczi dlô UNIXA
 Name[de]=UNIX Hilfeseiten
 Name[el]=Σελίδες εγχειριδίου UNIX
 Name[es]=Páginas de manual de Unix
 Name[fa]=صفحات راهنمای یونیکس
+Name[he]=דפי הוראות של יוניקס
 Name[ja]=UNIX マニュアルページ
 Name[km]=ទំព័រ​សៀវភៅ​ដៃ​របស់ UNIX 
 Name[nds]=UNIX man-Sieden
@@ -13,6 +15,7 @@ Name[pa]=UNIX ਦਸਤਾਵੇਜ਼ ਪੇਜ਼
 Name[pt]=Páginas de manual do UNIX
 Name[pt_BR]=Páginas de manual do UNIX
 Name[sv]=Unix manualsidor
+Name[th]=หน้าคู่มือ UNIX
 Name[zh_TW]=UNIX 手冊
 
 DocPath=man:/
