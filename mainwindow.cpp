@@ -132,9 +132,9 @@ MainWindow::MainWindow()
 
     connect( mDoc->browserExtension(),
              SIGNAL( openUrlRequest( const KUrl &,
-                                     const KParts::URLArgs & ) ),
+                                     const KParts::OpenUrlArguments &, const KParts::BrowserArguments & ) ),
              SLOT( slotOpenURLRequest( const KUrl &,
-                                       const KParts::URLArgs & ) ) );
+                                       const KParts::OpenUrlArguments &, const KParts::BrowserArguments & ) ) );
 
     mNavigator = new Navigator( mDoc, mSplitter, "nav" );
     connect( mNavigator, SIGNAL( itemSelected( const QString & ) ),
