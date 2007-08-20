@@ -12,6 +12,7 @@ X-KDE-ParentApp=kcontrol
 
 Name=Help Index
 Name[af]=Hulp Indeks
+Name[ar]=فهرس المساعدة
 Name[be]=Індэкс дапамогі
 Name[bg]=Помощна информация
 Name[br]=Meneger ar skoazell
@@ -108,7 +109,7 @@ Comment[lv]=Palīdzības centra meklēšanas indeksa konfigurācija un ģenerāc
 Comment[mk]=Конфигурирање и генерирање на индексот на Центарот за Помош
 Comment[nb]=Tilpass søkeindeksen og legg den til i hjelpesenteret
 Comment[nds]=Söökindex för't Hülpzentrum inrichten un maken laten
-Comment[ne]=मद्दत केन्द्र खोजी अनुक्रमणिका कन्फिगरेसन र उत्पादन
+Comment[ne]=मद्दत केन्द्र खोजी अनुक्रमणिका कन्फिगरेसन र सिर्जना
 Comment[nl]=Zoekindex van het documentatiecentrum instellen en genereren
 Comment[nn]=Oppsett og generering av søkjeindeks for hjelpesenteret
 Comment[pa]=ਮੱਦਦ ਕੇਂਦਰ ਖੋਜ ਇੰਡੈਕਸ ਸੰਰਚਨਾ ਅਤੇ ਨਿਰਮਾਣ

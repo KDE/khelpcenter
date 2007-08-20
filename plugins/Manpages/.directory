@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=UNIX manual pages
+Name[ar]=صفحات دليل يونيكس
 Name[bg]=Наръчник за UNIX
 Name[csb]=Pòdrãczniczi dlô UNIXA
 Name[de]=UNIX Hilfeseiten
@@ -10,6 +11,7 @@ Name[he]=דפי הוראות של יוניקס
 Name[ja]=UNIX マニュアルページ
 Name[km]=ទំព័រ​សៀវភៅ​ដៃ​របស់ UNIX 
 Name[nds]=UNIX man-Sieden
+Name[ne]=युनिक्स म्यानुअल पृष्ठ
 Name[nl]=UNIX-handboeken
 Name[pa]=UNIX ਦਸਤਾਵੇਜ਼ ਪੇਜ਼
 Name[pt]=Páginas de manual do UNIX

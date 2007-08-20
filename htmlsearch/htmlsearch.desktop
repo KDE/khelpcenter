@@ -12,6 +12,7 @@ X-KDE-ParentApp=kcontrol
 
 Name=Index
 Name[af]=Indeks
+Name[ar]=الفهرس
 Name[be]=Індэкс
 Name[bg]=Индекс
 Name[br]=Meneger
@@ -106,7 +107,7 @@ Comment[mk]=Генерирање на индекс
 Comment[ms]=Penjanaan indeks
 Comment[nb]=Indekslaging
 Comment[nds]=Index maken
-Comment[ne]=अनुक्रमणिका उत्पादन
+Comment[ne]=अनुक्रमणिका सिर्जना
 Comment[nl]=Indexgeneratie
 Comment[nn]=Indekslaging
 Comment[pa]=ਇੰਡੈਕਸ ਬਣਾਓ
