@@ -206,30 +206,31 @@ bool DocEntry::isDirectory() const
 bool DocEntry::readFromFile( const QString &fileName )
 {
   KDesktopFile file( fileName );
+  KConfigGroup desktopGroup = file.desktopGroup();
 
   mName = file.readName();
-  mSearch = file.desktopGroup().readEntry( "X-DOC-Search" );
+  mSearch = desktopGroup.readEntry( "X-DOC-Search" );
   mIcon = file.readIcon();
-  mUrl = file.desktopGroup().readPathEntry( "DocPath" );
-  mInfo = file.desktopGroup().readEntry( "Info" );
-  if ( mInfo.isNull() ) mInfo = file.desktopGroup().readEntry( "Comment" );
-  mLang = file.desktopGroup().readEntry( "Lang", "en" );
-  mIdentifier = file.desktopGroup().readEntry( "X-DOC-Identifier" );
+  mUrl = desktopGroup.readPathEntry( "DocPath" );
+  mInfo = desktopGroup.readEntry( "Info" );
+  if ( mInfo.isNull() ) mInfo = desktopGroup.readEntry( "Comment" );
+  mLang = desktopGroup.readEntry( "Lang", "en" );
+  mIdentifier = desktopGroup.readEntry( "X-DOC-Identifier" );
   if ( mIdentifier.isEmpty() ) {
     QFileInfo fi( fileName );
     mIdentifier = fi.completeBaseName();
   }
-  mIndexer = file.desktopGroup().readEntry( "X-DOC-Indexer" );
+  mIndexer = desktopGroup.readEntry( "X-DOC-Indexer" );
   mIndexer.replace( "%f", fileName );
-  mIndexTestFile = file.desktopGroup().readEntry( "X-DOC-IndexTestFile" );
-  mSearchEnabledDefault = file.desktopGroup().readEntry( "X-DOC-SearchEnabledDefault",
+  mIndexTestFile = desktopGroup.readEntry( "X-DOC-IndexTestFile" );
+  mSearchEnabledDefault = desktopGroup.readEntry( "X-DOC-SearchEnabledDefault",
                                               false );
   mSearchEnabled = mSearchEnabledDefault;
-  mWeight = file.desktopGroup().readEntry( "X-DOC-Weight", 0 );
-  mSearchMethod = file.desktopGroup().readEntry( "X-DOC-SearchMethod" );
-  mDocumentType = file.desktopGroup().readEntry( "X-DOC-DocumentType" );
+  mWeight = desktopGroup.readEntry( "X-DOC-Weight", 0 );
+  mSearchMethod = desktopGroup.readEntry( "X-DOC-SearchMethod" );
+  mDocumentType = desktopGroup.readEntry( "X-DOC-DocumentType" );
 
-  mKhelpcenterSpecial = file.desktopGroup().readEntry("X-KDE-KHelpcenter-Special");
+  mKhelpcenterSpecial = desktopGroup.readEntry("X-KDE-KHelpcenter-Special");
 
   return true;
 }
