@@ -100,7 +100,7 @@ Glossary::Glossary( QWidget *parent ) : K3ListView( parent )
 	m_sourceFile = View::langLookup( QLatin1String( "khelpcenter/glossary/index.docbook" ) );
 
 	m_config = KGlobal::config();
-	m_config->setGroup( "Glossary" );
+	//m_config->setGroup( "Glossary" );
 
 }
 
@@ -129,8 +129,8 @@ const GlossaryEntry &Glossary::entry( const QString &id ) const
 Glossary::CacheStatus Glossary::cacheStatus() const
 {
 	if ( !QFile::exists( m_cacheFile ) ||
-	     m_config->readPathEntry( "CachedGlossary" ) != m_sourceFile ||
-	     m_config->readEntry( "CachedGlossaryTimestamp" ).toInt() != glossaryCTime() )
+	     m_config->group("Glossary").readPathEntry( "CachedGlossary" ) != m_sourceFile ||
+	     m_config->group("Glossary").readEntry( "CachedGlossaryTimestamp" ).toInt() != glossaryCTime() )
 		return NeedRebuild;
 
 	return CacheOk;
@@ -170,8 +170,8 @@ void Glossary::meinprocExited( K3Process *meinproc )
 	if ( !QFile::exists( m_cacheFile ) )
 		return;
 
-	m_config->writePathEntry( "CachedGlossary", m_sourceFile );
-	m_config->writeEntry( "CachedGlossaryTimestamp", glossaryCTime() );
+	m_config->group("Glossary").writePathEntry( "CachedGlossary", m_sourceFile );
+	m_config->group("Glossary").writeEntry( "CachedGlossaryTimestamp", glossaryCTime() );
 	m_config->sync();
 
 	m_status = CacheOk;

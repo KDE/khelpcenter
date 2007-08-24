@@ -46,10 +46,10 @@ SearchHandler *SearchHandler::initFromFile( const QString &filename )
 
   KDesktopFile file( filename );
 
-  handler->mSearchCommand = file.readEntry( "SearchCommand" );
-  handler->mSearchUrl = file.readEntry( "SearchUrl" );
-  handler->mIndexCommand = file.readEntry( "IndexCommand" );
-  handler->mDocumentTypes = file.readEntry( "DocumentTypes" , QStringList() );
+  handler->mSearchCommand = file.desktopGroup().readEntry( "SearchCommand" );
+  handler->mSearchUrl = file.desktopGroup().readEntry( "SearchUrl" );
+  handler->mIndexCommand = file.desktopGroup().readEntry( "IndexCommand" );
+  handler->mDocumentTypes = file.desktopGroup().readEntry( "DocumentTypes" , QStringList() );
 
   return handler;
 }

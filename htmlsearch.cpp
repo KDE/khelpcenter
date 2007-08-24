@@ -12,7 +12,6 @@ using namespace KHC;
 HTMLSearch::HTMLSearch()
 {
   mConfig = new KConfig("khelpcenterrc");
-  mConfig->setGroup( "htdig" );
 }
 
 HTMLSearch::~HTMLSearch()
@@ -39,7 +38,7 @@ void HTMLSearch::setupDocEntry( KHC::DocEntry *entry )
 QString HTMLSearch::defaultSearch( KHC::DocEntry *entry )
 {
   QString htsearch = QLatin1String("cgi:");
-  htsearch += mConfig->readPathEntry( "htsearch" );
+  htsearch += mConfig->group("htdig").readPathEntry( "htsearch" );
   htsearch += "?words=%k&method=and&format=-desc&config=";
   htsearch += entry->identifier();
 
@@ -48,7 +47,7 @@ QString HTMLSearch::defaultSearch( KHC::DocEntry *entry )
 
 QString HTMLSearch::defaultIndexer( KHC::DocEntry * )
 {
-  QString indexer = mConfig->readPathEntry( "indexer" );
+  QString indexer = mConfig->group("htdig").readPathEntry( "indexer" );
   indexer += " --indexdir=%i %f";
 
   return indexer;

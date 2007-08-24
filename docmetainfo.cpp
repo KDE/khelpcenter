@@ -134,8 +134,8 @@ void DocMetaInfo::scanMetaInfo( bool force )
   }
 
   KConfig config( QLatin1String("khelpcenterrc") );
-  config.setGroup( QLatin1String("General") );
-  QStringList metaInfos = config.readEntry( "MetaInfoDirs" , QStringList() );
+  KConfigGroup cg(&config, "General");
+  QStringList metaInfos = cg.readEntry( "MetaInfoDirs" , QStringList() );
 
   if ( metaInfos.isEmpty() ) {
     KStandardDirs* kstd = KGlobal::dirs();

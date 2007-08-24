@@ -159,19 +159,19 @@ void SearchWidget::readConfig( KConfig *cfg )
 
 void SearchWidget::writeConfig( KConfig *cfg )
 {
-  cfg->setGroup( "Search" );
+  KConfigGroup cg (cfg, "Search");
 
-  cfg->writeEntry( "ScopeSelection", mScopeCombo->currentIndex() );
+  cg.writeEntry( "ScopeSelection", mScopeCombo->currentIndex() );
   Prefs::setMethod( mMethodCombo->currentIndex() );
   Prefs::setMaxCount( mPagesCombo->currentIndex() );
 
   if ( mScopeCombo->currentIndex() == ScopeCustom ) {
-    cfg->setGroup( "Custom Search Scope" );
+    KConfigGroup cg2 (cfg, "Custom Search Scope");
     Q3ListViewItemIterator it( mScopeListView );
     while( it.current() ) {
       if ( it.current()->rtti() == ScopeItem::rttiId() ) {
         ScopeItem *item = static_cast<ScopeItem *>( it.current() );
-        cfg->writeEntry( item->entry()->identifier(), item->isOn() );
+        cg2.writeEntry( item->entry()->identifier(), item->isOn() );
       }
       ++it;
     }

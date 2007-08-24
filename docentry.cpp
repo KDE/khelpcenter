@@ -208,28 +208,28 @@ bool DocEntry::readFromFile( const QString &fileName )
   KDesktopFile file( fileName );
 
   mName = file.readName();
-  mSearch = file.readEntry( "X-DOC-Search" );
+  mSearch = file.desktopGroup().readEntry( "X-DOC-Search" );
   mIcon = file.readIcon();
-  mUrl = file.readPathEntry( "DocPath" );
-  mInfo = file.readEntry( "Info" );
-  if ( mInfo.isNull() ) mInfo = file.readEntry( "Comment" );
-  mLang = file.readEntry( "Lang", "en" );
-  mIdentifier = file.readEntry( "X-DOC-Identifier" );
+  mUrl = file.desktopGroup().readPathEntry( "DocPath" );
+  mInfo = file.desktopGroup().readEntry( "Info" );
+  if ( mInfo.isNull() ) mInfo = file.desktopGroup().readEntry( "Comment" );
+  mLang = file.desktopGroup().readEntry( "Lang", "en" );
+  mIdentifier = file.desktopGroup().readEntry( "X-DOC-Identifier" );
   if ( mIdentifier.isEmpty() ) {
     QFileInfo fi( fileName );
     mIdentifier = fi.completeBaseName();
   }
-  mIndexer = file.readEntry( "X-DOC-Indexer" );
+  mIndexer = file.desktopGroup().readEntry( "X-DOC-Indexer" );
   mIndexer.replace( "%f", fileName );
-  mIndexTestFile = file.readEntry( "X-DOC-IndexTestFile" );
-  mSearchEnabledDefault = file.readEntry( "X-DOC-SearchEnabledDefault",
+  mIndexTestFile = file.desktopGroup().readEntry( "X-DOC-IndexTestFile" );
+  mSearchEnabledDefault = file.desktopGroup().readEntry( "X-DOC-SearchEnabledDefault",
                                               false );
   mSearchEnabled = mSearchEnabledDefault;
-  mWeight = file.readEntry( "X-DOC-Weight", 0 );
-  mSearchMethod = file.readEntry( "X-DOC-SearchMethod" );
-  mDocumentType = file.readEntry( "X-DOC-DocumentType" );
+  mWeight = file.desktopGroup().readEntry( "X-DOC-Weight", 0 );
+  mSearchMethod = file.desktopGroup().readEntry( "X-DOC-SearchMethod" );
+  mDocumentType = file.desktopGroup().readEntry( "X-DOC-DocumentType" );
 
-  mKhelpcenterSpecial = file.readEntry("X-KDE-KHelpcenter-Special");
+  mKhelpcenterSpecial = file.desktopGroup().readEntry("X-KDE-KHelpcenter-Special");
 
   return true;
 }

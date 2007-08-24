@@ -128,20 +128,16 @@ void HtmlSearchConfig::makeReadOnly()
 
 void HtmlSearchConfig::load( KConfig *config )
 {
-  config->setGroup("htdig");
-
-  mHtsearchUrl->lineEdit()->setText(config->readPathEntry("htsearch", KGlobal::mainComponent().dirs()->findExe("htsearch")));
-  mIndexerBin->lineEdit()->setText(config->readPathEntry("indexer"));
-  mDbDir->lineEdit()->setText(config->readPathEntry("dbdir", "/opt/www/htdig/db/" ) );
+  mHtsearchUrl->lineEdit()->setText(config->group("htdig").readPathEntry("htsearch", KGlobal::mainComponent().dirs()->findExe("htsearch")));
+  mIndexerBin->lineEdit()->setText(config->group("htdig").readPathEntry("indexer"));
+  mDbDir->lineEdit()->setText(config->group("htdig").readPathEntry("dbdir", "/opt/www/htdig/db/" ) );
 }
 
 void HtmlSearchConfig::save( KConfig *config )
 {
-  config->setGroup("htdig");
-
-  config->writePathEntry("htsearch", mHtsearchUrl->lineEdit()->text());
-  config->writePathEntry("indexer", mIndexerBin->lineEdit()->text());
-  config->writePathEntry("dbdir", mDbDir->lineEdit()->text());
+  config->group("htdig").writePathEntry("htsearch", mHtsearchUrl->lineEdit()->text());
+  config->group("htdig").writePathEntry("indexer", mIndexerBin->lineEdit()->text());
+  config->group("htdig").writePathEntry("dbdir", mDbDir->lineEdit()->text());
 }
 
 void HtmlSearchConfig::defaults()
