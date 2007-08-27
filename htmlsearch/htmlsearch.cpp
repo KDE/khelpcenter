@@ -130,12 +130,12 @@ bool HTMLSearch::createConfig(const QString& _lang)
                               "begin:beginning:behind:being:below:beside:\n"
                               "besides:between:beyond:billion:both:but:\n"
                               "can:cant:cannot:caption:could:couldnt:\n"
-                              "did:didnt:does:doesnt:dont:down:during:\n" //krazy:exclude-spelling
+                              "did:didnt:does:doesnt:dont:down:during:\n" //krazy:exclude=spelling
                               "each:eight:eighty:either:else:elsewhere:\n"
                               "end:ending:enough:etc:even:ever:every:\n"
                               "everyone:everything:everywhere:except:few:\n"
                               "fifty:first:five:for:former:formerly:forty:\n"
-                              "found:four:from:further:had:has:hasnt:have:\n" //krazy:exclude-spelling
+                              "found:four:from:further:had:has:hasnt:have:\n" //krazy:exclude=spelling
                               "havent:hence:her:here:hereafter:hereby:\n"
                               "herein:heres:hereupon:hers:herself:hes:him:\n"
                               "himself:his:how:however:hundred:\n"
@@ -146,13 +146,13 @@ bool HTMLSearch::createConfig(const QString& _lang)
                               "million:miss:more:moreover:most:mostly:\n"
                               "mrs:much:must:myself:namely:neither:\n"
                               "never:nevertheless:next:nine:ninety:\n"
-                              "nobody:none:nonetheless:noone:nor:not:\n" //krazy:exclude-spelling
+                              "nobody:none:nonetheless:noone:nor:not:\n" //krazy:exclude=spelling
                               "nothing:now:nowhere:off:often:once:\n"
                               "one:only:onto:others:otherwise:our:ours:\n"
                               "ourselves:out:over:overall:own:page:per:\n"
                               "perhaps:rather:recent:recently:same:\n"
                               "seem:seemed:seeming:seems:seven:seventy:\n"
-                              "several:she:shes:should:shouldnt:since:six:\n" //krazy:exclude-spelling
+                              "several:she:shes:should:shouldnt:since:six:\n" //krazy:exclude=spelling
                               "sixty:some:somehow:someone:something:\n"
                               "sometime:sometimes:somewhere:still:stop:\n"
                               "such:taking:ten:than:that:the:their:them:\n"
