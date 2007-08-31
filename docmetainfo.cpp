@@ -139,7 +139,7 @@ void DocMetaInfo::scanMetaInfo( bool force )
 
   if ( metaInfos.isEmpty() ) {
     KStandardDirs* kstd = KGlobal::dirs();
-    kstd->addResourceType( "data", QLatin1String("share/apps/khelpcenter") );
+    kstd->addResourceType( "data", 0, QLatin1String("share/apps/khelpcenter") );
     metaInfos = kstd->findDirs( "data", "plugins" );
   }
   for( it = metaInfos.begin(); it != metaInfos.end(); ++it) {
