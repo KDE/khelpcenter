@@ -154,7 +154,7 @@ void Glossary::rebuildGlossaryCache()
 	connect( meinproc, SIGNAL( processExited( K3Process * ) ),
 	         this, SLOT( meinprocExited( K3Process * ) ) );
 
-	*meinproc << KStandardDirs::locate( "exe", QLatin1String( "meinproc" ) );
+	*meinproc << KStandardDirs::locate( "exe", QLatin1String( "meinproc4" ) );
 	*meinproc << QLatin1String( "--output" ) << m_cacheFile;
 	*meinproc << QLatin1String( "--stylesheet" )
 	          << KStandardDirs::locate( "data", QLatin1String( "khelpcenter/glossary.xslt" ) );

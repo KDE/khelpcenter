@@ -138,7 +138,7 @@ void TOC::buildCache()
 	connect( meinproc, SIGNAL( processExited( K3Process * ) ),
 	         this, SLOT( meinprocExited( K3Process * ) ) );
 
-	*meinproc << KStandardDirs::locate( "exe", "meinproc" );
+	*meinproc << KStandardDirs::locate( "exe", "meinproc4" );
 	*meinproc << "--stylesheet" << KStandardDirs::locate( "data", "khelpcenter/table-of-contents.xslt" );
 	*meinproc << "--output" << m_cacheFile;
 	*meinproc << m_sourceFile;
