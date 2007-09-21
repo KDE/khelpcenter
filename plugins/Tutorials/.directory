@@ -1,6 +1,7 @@
 # KDE Config File
 [Desktop Entry]
 Name=Tutorials
+Name[ar]=دروس
 Name[be]=Падручнікі
 Name[bg]=Triangles
 Name[de]=Anleitungen
@@ -12,6 +13,7 @@ Name[he]=הדרכות
 Name[ja]=チュートリアル
 Name[kk]=Оқулықтар
 Name[km]=ការ​បង្រៀន
+Name[ko]=따라하기
 Name[nb]=Veiledninger
 Name[nds]=Anleden
 Name[ne]=ट्यूटोरियल
@@ -25,6 +27,7 @@ Name[vi]=Trợ lý
 Name[zh_TW]=教學
 MiniIcon=
 Comment=Tutorial and introduction documents.
+Comment[ar]=درس ومقدمة عن المستندات
 Comment[be]=Падручнікі і ўводная дакументацыя.
 Comment[bg]=Ръководство и въведение.
 Comment[de]=Anleitungen und Einführungen
@@ -35,6 +38,7 @@ Comment[he]=מסמכי הדרכה ומבוא.
 Comment[ja]=チュートリアルと導入用ドキュメント
 Comment[kk]=Оқулық және кіріспе құжаттары
 Comment[km]=ការ​បង្រៀន និងឯកសារ​ណែនាំ​​
+Comment[ko]=소개와 따라하기 글입니다.
 Comment[nb]=Veiledninger og innføringsdokumenter.
 Comment[nds]=Anleden un inföhren Dokmenten
 Comment[ne]=ट्यूटोरियल र परिचय कागजात ।

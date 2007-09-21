@@ -2,6 +2,7 @@
 Encoding=UTF-8
 Name=(2) System Calls
 Name[af]=(2) Stelsel Oproepe
+Name[ar]=(2) استدعاءات النظام
 Name[be]=(2) Сістэмныя выклікі
 Name[bg]=(2) Системни сигнали
 Name[br]=(3) Galvioù reizhiad
@@ -31,6 +32,7 @@ Name[ja]=(2) システムコール
 Name[ka]=(2) სისტემური გამოძახებები
 Name[kk]=(2) Жүйелік шақырулар
 Name[km]=(២) ការ​ហៅ​ប្រព័ន្ធ
+Name[ko]=(2) 시스템 콜
 Name[lt]=(2) Sisteminiai iškvietimai
 Name[lv]=(2) Sistēmas izsaukumi
 Name[mk]=(2) Системски повици
