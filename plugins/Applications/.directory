@@ -34,5 +34,5 @@ X-DOC-Weight=-500
 
 X-KDE-KHelpcenter-Special=apps
 
-X-DOC-DocumentType=text/docbook
+X-DOC-DocumentType=application/docbook+xml
 X-DOC-Identifier=kde_application_manuals
