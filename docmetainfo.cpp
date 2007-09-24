@@ -156,10 +156,9 @@ DocEntry *DocMetaInfo::scanMetaInfoDir( const QString &dirName,
   QDir dir( dirName );
   if ( !dir.exists() ) return 0;
 
-  foreach( QFileInfo fi, dir.entryInfoList() ) {
+  foreach( const QFileInfo &fi, dir.entryInfoList(QDir::Dirs | QDir::Files | QDir::NoDotAndDotDot) ) {
     DocEntry *entry = 0;
-    if ( fi.isDir() && fi.fileName() != QLatin1String(".") 
-         && fi.fileName() != QLatin1String("..") ) {
+    if ( fi.isDir() ) {
       DocEntry *dirEntry = addDirEntry( QDir( fi.absoluteFilePath() ), parent );
       entry = scanMetaInfoDir( fi.absoluteFilePath(), dirEntry );
     } else if ( fi.suffix() == QLatin1String("desktop") ) {

@@ -348,12 +348,12 @@ void KCMHelpCenter::load()
 
   mListView->clear();
 
-  DocEntry::List entries = DocMetaInfo::self()->docEntries();
+  const DocEntry::List &entries = DocMetaInfo::self()->docEntries();
   DocEntry::List::ConstIterator it;
   for( it = entries.begin(); it != entries.end(); ++it ) {
 //    kDebug(1401) << "Entry: " << (*it)->name() << " Indexer: '"
 //              << (*it)->indexer() << "'" << endl;
-    if ( mEngine->canSearch( *it ) && mEngine->needsIndex( *it ) ) {
+    if ( mEngine->needsIndex( *it ) ) {
       ScopeItem *item = new ScopeItem( mListView, *it );
       item->setOn( (*it)->searchEnabled() );
     }

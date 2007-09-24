@@ -455,11 +455,7 @@ bool SearchEngine::isRunning() const
 
 SearchHandler *SearchEngine::handler( const QString &documentType ) const
 {
-  QMap<QString,SearchHandler *>::ConstIterator it;
-  it = mHandlers.find( documentType );
-
-  if ( it == mHandlers.end() ) return 0;
-  else return *it;
+  return mHandlers.value( documentType, 0 );
 }
 
 QStringList SearchEngine::words() const
