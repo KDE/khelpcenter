@@ -1,3 +1,4 @@
+set( EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR} )
 
 add_definitions (-DQT3_SUPPORT)
 
@@ -44,7 +45,7 @@ set(testmetainfo_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/../htmlsearch.cpp )
 
 
-kde4_add_test_executable(testmetainfo ${testmetainfo_SRCS})
+kde4_add_executable(testmetainfo TEST ${testmetainfo_SRCS})
 
 target_link_libraries(testmetainfo  ${KDE4_KDEUI_LIBS} )
 
