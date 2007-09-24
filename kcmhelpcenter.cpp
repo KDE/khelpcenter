@@ -28,7 +28,6 @@
 
 
 #include "kcmhelpcenteradaptor.h"
-#include <QtDBus/QtDBus>
 
 #include <kconfig.h>
 #include <kdebug.h>
@@ -44,21 +43,12 @@
 #include <kmessagebox.h>
 #include <k3listview.h>
 #include <klineedit.h>
-#include <QLayout>
-#include <QPushButton>
-#include <QDir>
-#include <QTabWidget>
-#include <QtGui/QProgressBar>
-#include <QFile>
+
+#include <QtDBus/QtDBus>
 #include <QLabel>
-#include <Qt3Support/Q3TextEdit>
-#include <QRegExp>
-//Added by qt3to4:
-#include <QTextStream>
-#include <QFrame>
-#include <QHBoxLayout>
-#include <QBoxLayout>
-#include <QVBoxLayout>
+#include <QLayout>
+#include <QProgressBar>
+#include <QTextEdit>
 
 #include <unistd.h>
 #include <sys/types.h>
@@ -111,39 +101,31 @@ IndexProgressDialog::IndexProgressDialog( QWidget *parent )
 {
   setCaption( i18n("Build Search Indices") );
 
-  QBoxLayout *topLayout = new QVBoxLayout( this );
+  QVBoxLayout *topLayout = new QVBoxLayout( mainWidget() );
   topLayout->setMargin( marginHint() );
   topLayout->setSpacing( spacingHint() );
 
-  mLabel = new QLabel( this );
+  mLabel = new QLabel( mainWidget() );
   mLabel->setAlignment( Qt::AlignHCenter );
   topLayout->addWidget( mLabel );
 
-  mProgressBar = new QProgressBar( this );
+  mProgressBar = new QProgressBar( mainWidget() );
   topLayout->addWidget( mProgressBar );
 
-  mLogLabel = new QLabel( i18n("Index creation log:"), this );
+  mLogLabel = new QLabel( i18n("Index creation log:"), mainWidget() );
   topLayout->addWidget( mLogLabel );
 
-  mLogView = new Q3TextEdit( this );
+  mLogView = new QTextEdit( mainWidget() );
+  mLogView->setReadOnly( true );
   mLogView->setTextFormat( Qt::LogText );
   mLogView->setMinimumHeight( 200 );
-  topLayout->addWidget( mLogView, 1 );
+  topLayout->addWidget( mLogView );
 
-  QBoxLayout *buttonLayout = new QHBoxLayout();
-  topLayout->addLayout( buttonLayout );
-
-  buttonLayout->addStretch( 1 );
-
-  mDetailsButton = new QPushButton( this );
-  connect( mDetailsButton, SIGNAL( clicked() ), SLOT( toggleDetails() ) );
-  buttonLayout->addWidget( mDetailsButton );
+  setButtons( User1 | Close );
+  connect( this, SIGNAL( closeClicked() ), SLOT( slotEnd() ) );
+  connect( this, SIGNAL( user1Clicked() ), SLOT( toggleDetails() ) );
 
   hideDetails();
-
-  mEndButton = new QPushButton( this );
-  connect( mEndButton, SIGNAL( clicked() ), SLOT( slotEnd() ) );
-  buttonLayout->addWidget( mEndButton );
 
   setFinished( false );
 }
@@ -186,10 +168,11 @@ void IndexProgressDialog::setFinished( bool finished )
   mFinished = finished;
 
   if ( mFinished ) {
-    mEndButton->setText( i18nc("Label for button to close search index progress dialog after successful completion", "Close") );
+    setButtonText( Close, i18nc("Label for button to close search index progress dialog after successful completion", "Close") );
     mLabel->setText( i18n("Index creation finished.") );
+    mProgressBar->setValue( mProgressBar->maximum() );
   } else {
-    mEndButton->setText( i18nc("Label for stopping search index generation before completion", "Stop") );
+    setButtonText( Close, i18nc("Label for stopping search index generation before completion", "Stop") );
   }
 }
 
@@ -215,7 +198,7 @@ void IndexProgressDialog::toggleDetails()
   if ( mLogView->isHidden() ) {
     mLogLabel->show();
     mLogView->show();
-    mDetailsButton->setText( i18n("Details &lt;&lt;") );
+    setButtonText( User1, i18n("Details &lt;&lt;") );
     QSize size = cfg.readEntry( "size", QSize() );
     if ( !size.isEmpty() ) resize( size );
   } else {
@@ -228,7 +211,7 @@ void IndexProgressDialog::hideDetails()
 {
   mLogLabel->hide();
   mLogView->hide();
-  mDetailsButton->setText( i18n("Details &gt;&gt;") );
+  setButtonText( User1, i18n("Details &gt;&gt;") );
   layout()->activate();
   adjustSize();
 }

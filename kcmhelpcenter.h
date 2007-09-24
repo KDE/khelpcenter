@@ -24,13 +24,10 @@
 #include <ksharedconfig.h>
 
 #include "scopeitem.h"
-//Added by qt3to4:
-#include <QLabel>
-#include <QList>
 
 class QPushButton;
 class QProgressBar;
-class Q3TextEdit;
+class QTextEdit;
 class QLabel;
 
 class K3Process;
@@ -88,9 +85,7 @@ class IndexProgressDialog : public KDialog
     QLabel *mLabel;
     QProgressBar *mProgressBar;
     QLabel *mLogLabel;
-    Q3TextEdit *mLogView;
-    QPushButton *mDetailsButton;
-    QPushButton *mEndButton;
+    QTextEdit *mLogView;
 
     bool mFinished;
 };
