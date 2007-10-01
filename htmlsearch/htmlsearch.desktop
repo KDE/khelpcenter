@@ -69,6 +69,7 @@ Name[vi]=chỉ mục
 Name[wa]=Indecse
 Name[x-test]=xxIndexxx
 Name[xh]=Isalathiso
+Name[zh_CN]=索引
 Name[zh_TW]=索引
 
 Comment=Index generation
@@ -134,6 +135,7 @@ Comment[vi]=Tạo ra chỉ mục
 Comment[wa]=Fijhaedje d' indecse
 Comment[x-test]=xxIndex generationxx
 Comment[xh]=Ulwenziwo Lwesalathiso
+Comment[zh_CN]=索引生成
 Comment[zh_TW]=產生索引
 
 Keywords=Help,HTML,Search,Index,htdig,htsearch,htmerge,Scope,Language
@@ -192,4 +194,5 @@ Keywords[vi]=Trợ giúp,HTML,Tìm kiếm,chỉ mục,htdig,htsearch,htmerge,Ph�
 Keywords[wa]=Aidance,HTML,cweri,cweraedje,indecse,htdig,htsearch,htmerge,såme,lingaedje
 Keywords[x-test]=xxHelp,HTML,Search,Index,htdig,htsearch,htmerge,Scope,Languagexx
 Keywords[xh]=Uncedo,HTML,Phendla,Isalathiso,htdig,htsearch,htmerge,Scope,Ulwimi
+Keywords[zh_CN]=Help,HTML,Search,Index,htdig,htsearch,htmerge,Scope,Language,帮助,查找,索引,范围,语言
 Keywords[zh_TW]=Help,HTML,Search,Index,htdig,htsearch,htmerge,Scope,Language,求助,搜尋,索引,語言

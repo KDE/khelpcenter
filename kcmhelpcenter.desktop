@@ -74,6 +74,7 @@ Name[vi]=Chỉ mục Trợ giúp
 Name[wa]=Indecse di l' aidance
 Name[x-test]=xxHelp Indexxx
 Name[xh]=Uncedo Lwesalathisi
+Name[zh_CN]=帮助索引
 Name[zh_TW]=說明索引
 
 Comment=Help center search index configuration and generation
@@ -136,6 +137,7 @@ Comment[uz]=Ёрдам марказининг қидирув индексини 
 Comment[vi]=Cấu hình và tạo ra chỉ mục tìm kiếm của trung tâm trợ giúp
 Comment[x-test]=xxHelp center search index configuration and generationxx
 Comment[xh]=Uqwalaselo lophendlo loncedo osembindi nolwenziwo
+Comment[zh_CN]=帮助中心搜索索引配置和生成
 Comment[zh_TW]=求助中心搜尋索引的組態與產生
 
 Keywords=khelpcenter,help,index,search
@@ -195,5 +197,6 @@ Keywords[vi]=trung tâm trợ giúp KDE,trợ giúp,chỉ mục,tìm kiếm
 Keywords[wa]=khelpcenter,cinte d' aidance,aidance,indecse,cweri,cweraedje,cachî
 Keywords[x-test]=xxkhelpcenter,help,index,searchxx
 Keywords[xh]=khelpcenter,uncedo,isalathisi,uphendlo
+Keywords[zh_CN]=khelpcenter,help,index,search,帮助中心,帮助,索引,搜索
 Keywords[zh_TW]=khelpcenter,help,index,search,求助,索引,搜尋
 Categories=Qt;KDE;X-KDE-settings-system;
