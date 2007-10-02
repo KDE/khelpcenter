@@ -15,7 +15,7 @@ set(khc_indexbuilder_SRCS khc_indexbuilder.cpp )
 
 kde4_add_executable(khc_indexbuilder ${khc_indexbuilder_SRCS})
 
-target_link_libraries(khc_indexbuilder  ${KDE4_KDECORE_LIBS} )
+target_link_libraries(khc_indexbuilder  ${KDE4_KDE3SUPPORT_LIBS} ${KDE4_KDECORE_LIBS} )
 
 install(TARGETS khc_indexbuilder DESTINATION ${BIN_INSTALL_DIR})
 
