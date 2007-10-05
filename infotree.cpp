@@ -25,6 +25,7 @@
 
 #include <kapplication.h>
 #include <kconfig.h>
+#include <kconfiggroup.h>
 #include <kdebug.h>
 #include <kiconloader.h>
 #include <k3listview.h>
