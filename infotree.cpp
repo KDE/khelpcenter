@@ -136,7 +136,9 @@ void InfoTree::parseInfoDirFile( const QString &infoDirFileName )
 
   QTextStream stream( &infoDirFile );
   // Skip introduction blurb.
-  while ( !stream.atEnd() && !stream.readLine().startsWith( "* Menu:" ) );
+  while ( !stream.atEnd() && !stream.readLine().startsWith( "* Menu:" ) ) {
+      ;
+  }
 
   while ( !stream.atEnd() ) {
     QString s = stream.readLine();
