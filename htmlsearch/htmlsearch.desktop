@@ -1,6 +1,6 @@
 [Desktop Entry]
 Encoding=UTF-8
-Exec=kcmshell htmlsearch
+Exec=kcmshell4 htmlsearch
 Icon=help_index
 Type=Service
 ServiceTypes=KCModule
