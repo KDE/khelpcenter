@@ -117,8 +117,6 @@ Navigator::Navigator( View *view, QWidget *parent, const char *name )
 
     mTabWidget = new QTabWidget( this );
     topLayout->addWidget( mTabWidget );
-    connect( mTabWidget, SIGNAL( currentChanged( QWidget * ) ),
-             SLOT( slotTabChanged( QWidget * ) ) );
 
     setupContentsTab();
     setupGlossaryTab();
@@ -132,6 +130,8 @@ Navigator::Navigator( View *view, QWidget *parent, const char *name )
       mSearchWidget->updateScopeList();
       mSearchWidget->readConfig( KGlobal::config().data() );
     }
+    connect( mTabWidget, SIGNAL( currentChanged( QWidget * ) ),
+             SLOT( slotTabChanged( QWidget * ) ) );
 }
 
 Navigator::~Navigator()
