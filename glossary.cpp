@@ -129,7 +129,7 @@ const GlossaryEntry &Glossary::entry( const QString &id ) const
 Glossary::CacheStatus Glossary::cacheStatus() const
 {
 	if ( !QFile::exists( m_cacheFile ) ||
-	     m_config->group("Glossary").readPathEntry( "CachedGlossary" ) != m_sourceFile ||
+	     m_config->group("Glossary").readPathEntry( "CachedGlossary", QString() ) != m_sourceFile ||
 	     m_config->group("Glossary").readEntry( "CachedGlossaryTimestamp" ).toInt() != glossaryCTime() )
 		return NeedRebuild;
 

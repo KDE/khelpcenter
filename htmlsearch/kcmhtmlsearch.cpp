@@ -282,7 +282,7 @@ void KHTMLSearchConfig::load()
   indexMan->setChecked(config->readEntry("Man", false));
   indexInfo->setChecked(config->readEntry("Info", false));
 
-  QStringList l = config->readPathListEntry("Paths");
+  QStringList l = config->readPathEntry("Paths", QStringList());
   searchPaths->clear();
   QStringList::Iterator it;
   for (it=l.begin(); it != l.end(); ++it)

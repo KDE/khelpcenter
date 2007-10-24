@@ -39,7 +39,7 @@ void HTMLSearch::setupDocEntry( KHC::DocEntry *entry )
 QString HTMLSearch::defaultSearch( KHC::DocEntry *entry )
 {
   QString htsearch = QLatin1String("cgi:");
-  htsearch += mConfig->group("htdig").readPathEntry( "htsearch" );
+  htsearch += mConfig->group("htdig").readPathEntry( "htsearch", QString() );
   htsearch += "?words=%k&method=and&format=-desc&config=";
   htsearch += entry->identifier();
 
@@ -48,7 +48,7 @@ QString HTMLSearch::defaultSearch( KHC::DocEntry *entry )
 
 QString HTMLSearch::defaultIndexer( KHC::DocEntry * )
 {
-  QString indexer = mConfig->group("htdig").readPathEntry( "indexer" );
+  QString indexer = mConfig->group("htdig").readPathEntry( "indexer", QString() );
   indexer += " --indexdir=%i %f";
 
   return indexer;

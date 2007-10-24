@@ -211,7 +211,7 @@ bool DocEntry::readFromFile( const QString &fileName )
   mName = file.readName();
   mSearch = desktopGroup.readEntry( "X-DOC-Search" );
   mIcon = file.readIcon();
-  mUrl = desktopGroup.readPathEntry( "DocPath" );
+  mUrl = desktopGroup.readPathEntry( "DocPath", QString() );
   mInfo = desktopGroup.readEntry( "Info" );
   if ( mInfo.isNull() ) mInfo = desktopGroup.readEntry( "Comment" );
   mLang = desktopGroup.readEntry( "Lang", "en" );

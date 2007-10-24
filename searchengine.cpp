@@ -294,7 +294,7 @@ bool SearchEngine::search( const QString & words, const QString & method, int ma
   else mOperation = And;
 
   KConfigGroup cfg(KGlobal::config(), "Search");
-  QString commonSearchProgram = cfg.readPathEntry( "CommonProgram" );
+  QString commonSearchProgram = cfg.readPathEntry( "CommonProgram", QString() );
   bool useCommon = cfg.readEntry( "UseCommonProgram", false);
   
   if ( commonSearchProgram.isEmpty() || !useCommon ) {

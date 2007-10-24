@@ -201,7 +201,7 @@ void MainWindow::saveProperties( KConfigGroup &config )
 void MainWindow::readProperties( const KConfigGroup &config )
 {
     kDebug()<<"void MainWindow::readProperties( KConfig *config )";
-    mDoc->slotReload( KUrl( config.readPathEntry( "URL" ) ) );
+    mDoc->slotReload( KUrl( config.readPathEntry( "URL", QString() ) ) );
 }
 
 void MainWindow::readConfig()

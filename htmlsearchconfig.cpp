@@ -129,7 +129,7 @@ void HtmlSearchConfig::makeReadOnly()
 void HtmlSearchConfig::load( KConfig *config )
 {
   mHtsearchUrl->lineEdit()->setText(config->group("htdig").readPathEntry("htsearch", KGlobal::mainComponent().dirs()->findExe("htsearch")));
-  mIndexerBin->lineEdit()->setText(config->group("htdig").readPathEntry("indexer"));
+  mIndexerBin->lineEdit()->setText(config->group("htdig").readPathEntry("indexer", QString()));
   mDbDir->lineEdit()->setText(config->group("htdig").readPathEntry("dbdir", "/opt/www/htdig/db/" ) );
 }
 
