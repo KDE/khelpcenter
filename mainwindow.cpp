@@ -195,7 +195,7 @@ void MainWindow::enableCopyTextAction()
 void MainWindow::saveProperties( KConfigGroup &config )
 {
     kDebug()<<"void MainWindow::saveProperties( KConfig *config )";
-    config.writePathEntry( "URL" , mDoc->baseURL().url() );
+    config.writePathEntry( "URL" , mDoc->url().url() );
 }
 
 void MainWindow::readProperties( const KConfigGroup &config )
