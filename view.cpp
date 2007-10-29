@@ -300,7 +300,7 @@ bool View::nextPage(bool checkOnly)
   KUrl nextURL;
 
   // If we're on the first page, the "Next" link is the last link
-  if ( url().path().endsWith( "/index.html" ) )
+  if ( baseURL().path().endsWith( "/index.html" ) )
     nextURL = urlFromLinkNode( links.item( links.length() - 1 ) );
   else
     nextURL = urlFromLinkNode( links.item( links.length() - 2 ) );
@@ -330,7 +330,7 @@ bool View::eventFilter( QObject *o, QEvent *e )
   QKeyEvent *ke = static_cast<QKeyEvent *>( e );
   if ( ke->modifiers() & Qt::ShiftModifier && ke->key() == Qt::Key_Space ) {
     // If we're on the first page, it does not make sense to go back.
-    if ( url().path().endsWith( "/index.html" ) )
+    if ( baseURL().path().endsWith( "/index.html" ) )
       return KHTMLPart::eventFilter( o, e );
 
     const QScrollBar * const scrollBar = view()->verticalScrollBar();
@@ -359,11 +359,11 @@ KUrl View::urlFromLinkNode( const DOM::Node &n ) const
   if ( !href.protocol().isNull() )
     return href;
 
-  QString path = this->url().path();
+  QString path = baseURL().path();
   path.truncate( path.lastIndexOf( '/' ) + 1 );
   path += href.url();
 
-  KUrl url = this->url();
+  KUrl url = baseURL();
   url.setRef( QString() );
   url.setEncodedPathAndQuery( path );
 
@@ -377,7 +377,7 @@ void View::slotReload( const KUrl &url )
   args.setReload( true );
   setArguments( args );
   if ( url.isEmpty() )
-    openUrl( this->url() );
+    openUrl( baseURL() );
   else
     openUrl( url );
 }
