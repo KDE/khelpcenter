@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 Name=(9) Kernel
 Name[ar]=(9) النواة
 Name[be]=(9) Ядро
@@ -54,4 +53,4 @@ Name[x-test]=xx(9) Kernelxx
 Name[zh_CN]=(9) 内核
 Name[zh_TW]=(9) 核心
 
-DocPath=man:/(9)
+X-DocPath=man:/(9)

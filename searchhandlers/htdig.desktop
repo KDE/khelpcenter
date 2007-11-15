@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 DocumentTypes=text/html
 
 SearchCommand=khc_htsearch.pl --indexdir=%d --config=%i --words=%w --method=%o --maxnum=%m --lang=%l

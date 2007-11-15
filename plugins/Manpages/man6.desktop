@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 Name=(6) Games
 Name[af]=(6) Speletjies
 Name[ar]=(6) الألعاب
@@ -67,4 +66,4 @@ Name[xh]=(6) Imidlalo
 Name[zh_CN]=(6) 游戏
 Name[zh_TW]=(6) 遊戲
 
-DocPath=man:/(6)
+X-DocPath=man:/(6)

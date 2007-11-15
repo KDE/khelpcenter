@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 Name=Browse Info Pages
 Name[af]=Blaai deur inligting bladsye (Info pages)
 Name[ar]=تصفح صفحات المعلومات
@@ -67,6 +66,6 @@ Icon=contents2
 
 X-KDE-KHelpcenter-Special=info
 
-DocPath=info:/dir
+X-DocPath=info:/dir
 
 X-DOC-Weight=700

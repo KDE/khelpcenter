@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 Name=(4) Devices
 Name[af]=(4) Toestelle
 Name[ar]=(4) الأجهزة
@@ -67,4 +66,4 @@ Name[xh]=(4) Amacebo
 Name[zh_CN]=(4) 设备
 Name[zh_TW]=(4) 裝置
 
-DocPath=man:/(4)
+X-DocPath=man:/(4)

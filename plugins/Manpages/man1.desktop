@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 Name=(1) User Commands
 Name[af]=(1) Gebruiker Opdragte
 Name[ar]=(1) أوامر المستخدم
@@ -65,4 +64,4 @@ Name[x-test]=xx(1) User Commandsxx
 Name[zh_CN]=(1) 用户命令
 Name[zh_TW]=(1) 使用者命令
 
-DocPath=man:/(1)
+X-DocPath=man:/(1)

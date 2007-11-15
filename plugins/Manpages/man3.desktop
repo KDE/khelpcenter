@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 Name=(3) Subroutines
 Name[af]=(3) Subroetines
 Name[ar]=(3) الأوتار الفرعية
@@ -64,4 +63,4 @@ Name[xh]=(3) Ulwenzeko rhoqo olusezantsi
 Name[zh_CN]=(3) 子例程
 Name[zh_TW]=(3) 子程式
 
-DocPath=man:/(3)
+X-DocPath=man:/(3)

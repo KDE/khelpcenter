@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 Name=(7) Miscellaneous
 Name[af]=(7) Allerlei
 Name[ar]=(7) متنوع
@@ -67,4 +66,4 @@ Name[xh]=(7) Ezixubeneyo
 Name[zh_CN]=(7) 杂项
 Name[zh_TW]=(7) 雜項
 
-DocPath=man:/(7)
+X-DocPath=man:/(7)

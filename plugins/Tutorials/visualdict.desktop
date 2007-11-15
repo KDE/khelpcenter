@@ -1,6 +1,5 @@
 # KDE Config File
 [Desktop Entry]
-Encoding=UTF-8
 Name=A Visual Guide to KDE
 Name[af]='n Visuele Gids tot KDE
 Name[be]=Падручнік KDE па візуальных аб'ектах
@@ -123,4 +122,4 @@ Comment[xh]=Isikhombisi esiya kwi KDE widgets
 Comment[zh_CN]=KDE 窗口部件指南
 Comment[zh_TW]=KDE 視窗元件 (widget) 指南
 Icon=helpdoc
-DocPath=help:/khelpcenter/visualdict/index.html
+X-DocPath=help:/khelpcenter/visualdict/index.html

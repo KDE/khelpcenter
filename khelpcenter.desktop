@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 Name=KHelpCenter
 Name[af]=Khulpsentrum
 Name[ar]=مركز المساعدة لـٍ كدي
@@ -106,10 +105,8 @@ Comment[xh]=Umbindi woncedo lwe KDE
 Comment[zh_CN]=KDE 帮助中心
 Comment[zh_TW]=KDE 求助中心
 Icon=khelpcenter
-DocPath=khelpcenter/index.html
+X-DocPath=khelpcenter/index.html
 Type=Service
 Terminal=false
 Exec=khelpcenter %u
-SwallowExec=
-SwallowTitle=
 X-KDE-StartupNotify=true

@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 Name=(n) New
 Name[af]=(n) Nuwe
 Name[ar]=(n) جديد
@@ -67,4 +66,4 @@ Name[xh]=(n) Entsha
 Name[zh_CN]=(n) 新建
 Name[zh_TW]=(n) 新
 
-DocPath=man:/(n)
+X-DocPath=man:/(n)

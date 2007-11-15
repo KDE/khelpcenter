@@ -1,6 +1,5 @@
 # KDE Config File
 [Desktop Entry]
-Encoding=UTF-8
 Name=Quickstart Guide
 Name[af]=Woerts-warts Gids
 Name[ar]=مرشد البدء السريع
@@ -128,4 +127,4 @@ Comment[x-test]=xxKDE quickstart guide.xx
 Comment[zh_CN]=KDE 速成指南。
 Comment[zh_TW]=KDE 快速入門指南。
 Icon=helpdoc
-DocPath=help:/khelpcenter/quickstart/index.html
+X-DocPath=help:/khelpcenter/quickstart/index.html

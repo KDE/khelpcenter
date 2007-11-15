@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 Name=(2) System Calls
 Name[af]=(2) Stelsel Oproepe
 Name[ar]=(2) استدعاءات النظام
@@ -65,4 +64,4 @@ Name[x-test]=xx(2) System Callsxx
 Name[zh_CN]=(2) 系统调用
 Name[zh_TW]=(2) 系統呼叫
 
-DocPath=man:/(2)
+X-DocPath=man:/(2)
