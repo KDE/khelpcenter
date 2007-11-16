@@ -107,7 +107,7 @@ Comment[lt]=Rodyklės generavimas
 Comment[lv]=Indeksa ģenerēšana
 Comment[mk]=Генерирање на индекс
 Comment[ms]=Penjanaan indeks
-Comment[nb]=Indekslaging
+Comment[nb]=Lag innholdsregister
 Comment[nds]=Index maken
 Comment[ne]=अनुक्रमणिका सिर्जना
 Comment[nl]=Indexgeneratie
@@ -143,7 +143,7 @@ X-KDE-Keywords[bg]=Keywords=помощ, индекс, търсене, обхва
 X-KDE-Keywords[ca]=Ajuda,HTML,Cerca,Índex,htdig,htsearch,htmerge,Scope,Llengua
 X-KDE-Keywords[cs]=Nápověda,HTML,Hledat,Index,htdig,htsearch,htmerge,Rejstřík,Jazyk,Rozsah
 X-KDE-Keywords[csb]=pòmòc,HTML,szëkôj,szëkba,indeks,htdig,htsearch,htmerge,òbjim,jãzëk
-X-KDE-Keywords[cy]=Cymorth,HTML,Chwilio,Mynegai,htdig,htsearch,htmerge,Amrediad,Iaith  
+X-KDE-Keywords[cy]=Cymorth,HTML,Chwilio,Mynegai,htdig,htsearch,htmerge,Amrediad,Iaith
 X-KDE-Keywords[da]=Hjælp,HTML,Søg,Indeks,htdig,htsearch,htmerge,Scope,Sprog
 X-KDE-Keywords[de]=Hilfe,HTML,Suche,Index,Stichwortverzeichnis,htdig,Sprachen
 X-KDE-Keywords[el]=Βοήθεια,HTML,Αναζήτηση,Ευρετήριο,htdig,htsearch,htmerge,Scope,Γλώσσα
