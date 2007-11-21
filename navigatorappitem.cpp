@@ -133,9 +133,13 @@ void NavigatorAppItem::populate( bool recursive )
 
 QString NavigatorAppItem::documentationURL( const KService *s )
 {
-  QString docPath = s->property( QLatin1String("DocPath") ).toString();
-  if ( docPath.isEmpty() )
-    return QString();
+  QString docPath = s->property( QLatin1String("X-DocPath") ).toString();
+  if ( docPath.isEmpty() ) {
+    docPath = s->property( QLatin1String("X-KDE-DocPath") ).toString();
+    if ( docPath.isEmpty() ) {
+      return QString();
+    }
+  }
 
   if ( docPath.startsWith( QLatin1String("file:")) || docPath.startsWith( QLatin1String("http:") ) )
     return docPath;

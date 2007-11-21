@@ -27,7 +27,7 @@ Comment                     string    Short description of document
 Comment[xx]                 string    Translated short description for
                                       Language xx
 Icon                        string    Name of icon for document
-DocPath                     URI       Location of document. In addition to the
+X-DocPath                   URI       Location of document. In addition to the
                                       standard URI schemes like http: and file:
                                       all schemes which are supported through
                                       kioslaves can be used. In particular the
@@ -38,7 +38,7 @@ DocPath                     URI       Location of document. In addition to the
                                       man:   man page
                                       info:  info page
                                       cgi:   output of CGI script
-DocPath[xx]                 URI       Language specific location for
+X-DocPath[xx]               URI       Language specific location for
                                       language xx
 Lang                        langcode  Language of document
 X-DOC-Identifier            string    Unique identifier for document, if this

@@ -38,7 +38,7 @@ Name[x-test]=xxUNIX manual pagesxx
 Name[zh_CN]=UNIX 手册页
 Name[zh_TW]=UNIX 手冊
 
-DocPath=man:/
+X-DocPath=man:/
 
 Icon=document2
 

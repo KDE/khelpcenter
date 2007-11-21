@@ -211,9 +211,14 @@ bool DocEntry::readFromFile( const QString &fileName )
   mName = file.readName();
   mSearch = desktopGroup.readEntry( "X-DOC-Search" );
   mIcon = file.readIcon();
-  mUrl = desktopGroup.readPathEntry( "DocPath", QString() );
+  mUrl = desktopGroup.readPathEntry( "X-DocPath", QString() );
+  if ( mUrl.isEmpty() ) {
+    mUrl = desktopGroup.readPathEntry( "X-KDE-DocPath", QString() );
+  }
   mInfo = desktopGroup.readEntry( "Info" );
-  if ( mInfo.isNull() ) mInfo = desktopGroup.readEntry( "Comment" );
+  if ( mInfo.isNull() ) {
+    mInfo = desktopGroup.readEntry( "Comment" );
+  }
   mLang = desktopGroup.readEntry( "Lang", "en" );
   mIdentifier = desktopGroup.readEntry( "X-DOC-Identifier" );
   if ( mIdentifier.isEmpty() ) {
@@ -271,7 +276,7 @@ void DocEntry::addChild( DocEntry *entry )
     if ( i == 0 ) {
       if ( entry->weight() < mChildren.first()->weight() ) {
         entry->setNextSibling( mChildren.first() );
-        mChildren.prepend( entry );        
+        mChildren.prepend( entry );
         break;
       }
     }
@@ -344,7 +349,7 @@ void DocEntry::dump() const
   kDebug() << "    <indextestfile>" << mIndexTestFile << "</indextestfile>";
   kDebug() << "    <icon>" << mIcon << "</icon>";
   kDebug() << "    <url>" << mUrl << "</url>";
-  kDebug() << "    <documenttype>" << mDocumentType << "</documenttype>"; 
+  kDebug() << "    <documenttype>" << mDocumentType << "</documenttype>";
   kDebug() << "  </docentry>";
 }
 // vim:ts=2:sw=2:et
