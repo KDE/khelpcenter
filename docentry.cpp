@@ -211,10 +211,7 @@ bool DocEntry::readFromFile( const QString &fileName )
   mName = file.readName();
   mSearch = desktopGroup.readEntry( "X-DOC-Search" );
   mIcon = file.readIcon();
-  mUrl = desktopGroup.readPathEntry( "X-DocPath", QString() );
-  if ( mUrl.isEmpty() ) {
-    mUrl = desktopGroup.readPathEntry( "X-KDE-DocPath", QString() );
-  }
+  mUrl = file.readDocPath();
   mInfo = desktopGroup.readEntry( "Info" );
   if ( mInfo.isNull() ) {
     mInfo = desktopGroup.readEntry( "Comment" );

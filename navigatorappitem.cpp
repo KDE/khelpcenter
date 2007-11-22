@@ -133,9 +133,9 @@ void NavigatorAppItem::populate( bool recursive )
 
 QString NavigatorAppItem::documentationURL( const KService *s )
 {
-  QString docPath = s->property( QLatin1String("X-DocPath") ).toString();
+  QString docPath = s->property( QLatin1String("DocPath") ).toString();
   if ( docPath.isEmpty() ) {
-    docPath = s->property( QLatin1String("X-KDE-DocPath") ).toString();
+    docPath = s->property( QLatin1String("X-DocPath") ).toString();
     if ( docPath.isEmpty() ) {
       return QString();
     }
