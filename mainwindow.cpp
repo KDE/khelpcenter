@@ -194,13 +194,13 @@ void MainWindow::enableCopyTextAction()
 
 void MainWindow::saveProperties( KConfigGroup &config )
 {
-    kDebug()<<"void MainWindow::saveProperties( KConfig *config )";
+    kDebug();
     config.writePathEntry( "URL" , mDoc->baseURL().url() );
 }
 
 void MainWindow::readProperties( const KConfigGroup &config )
 {
-    kDebug()<<"void MainWindow::readProperties( KConfig *config )";
+    kDebug();
     mDoc->slotReload( KUrl( config.readPathEntry( "URL", QString() ) ) );
 }
 
@@ -315,7 +315,7 @@ void MainWindow::slotOpenURLRequest( const KUrl &url,
                                      const KParts::OpenUrlArguments &args,
                                      const KParts::BrowserArguments &browserArgs )
 {
-  kDebug( 1400 ) << "MainWindow::slotOpenURLRequest(): " << url.url();
+  kDebug( 1400 ) << url.url();
 
   mNavigator->selectItem( url );
   viewUrl( url, args, browserArgs );
@@ -375,7 +375,7 @@ void MainWindow::viewUrl( const KUrl &url, const KParts::OpenUrlArguments &args,
 
 void MainWindow::documentCompleted()
 {
-    kDebug() << "MainWindow::documentCompleted";
+    kDebug();
 
     History::self().updateCurrentEntry( mDoc );
     History::self().updateActions();
@@ -413,7 +413,7 @@ void MainWindow::openUrl( const KUrl &url )
 
 void MainWindow::slotGlossSelected(const GlossaryEntry &entry)
 {
-    kDebug() << "MainWindow::slotGlossSelected()";
+    kDebug();
 
     stop();
     History::self().createEntry();
@@ -424,7 +424,7 @@ void MainWindow::slotGlossSelected(const GlossaryEntry &entry)
 
 void MainWindow::stop()
 {
-    kDebug() << "MainWindow::stop()";
+    kDebug();
 
     mDoc->closeUrl();
     History::self().updateCurrentEntry( mDoc );
