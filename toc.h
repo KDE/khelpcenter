@@ -22,7 +22,7 @@
 
 #include "navigatoritem.h"
 
-#include <QtXml>
+#include <QtXml/QtXml>
 #include <Qt3Support/Q3CheckListItem>
 #include <QObject>
 

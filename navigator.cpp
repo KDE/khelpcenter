@@ -30,7 +30,7 @@
 
 #include <QLabel>
 #include <Qt3Support/Q3Header>
-#include <QtXml>
+#include <QtXml/QtXml>
 #include <QTextStream>
 #include <QRegExp>
 #include <QLayout>
