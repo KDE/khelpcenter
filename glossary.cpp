@@ -42,229 +42,229 @@ using namespace KHC;
 
 class SectionItem : public K3ListViewItem
 {
-	public:
-		SectionItem( Q3ListViewItem *parent, const QString &text )
-			: K3ListViewItem( parent, text )
-		{
-			setOpen( false );
-		}
+    public:
+        SectionItem( Q3ListViewItem *parent, const QString &text )
+            : K3ListViewItem( parent, text )
+        {
+            setOpen( false );
+        }
 
-		virtual void setOpen( bool open )
-		{
-				K3ListViewItem::setOpen(open);
+        virtual void setOpen( bool open )
+        {
+                K3ListViewItem::setOpen(open);
 
-				setPixmap( 0, SmallIcon( QLatin1String( open ? "help-contents" : "contents2" ) ) );
+                setPixmap( 0, SmallIcon( QLatin1String( open ? "help-contents" : "contents2" ) ) );
 
-		}
+        }
 };
 
 class EntryItem : public K3ListViewItem
 {
-	public:
-		EntryItem( SectionItem *parent, const QString &term, const QString &id )
-			: K3ListViewItem( parent, term ),
-			m_id( id )
-		{
-		}
+    public:
+        EntryItem( SectionItem *parent, const QString &term, const QString &id )
+            : K3ListViewItem( parent, term ),
+            m_id( id )
+        {
+        }
 
-		QString id() const { return m_id; }
+        QString id() const { return m_id; }
 
-	private:
-		QString m_id;
+    private:
+        QString m_id;
 };
 
 Glossary::Glossary( QWidget *parent ) : K3ListView( parent )
 {
-	m_initialized = false;
+    m_initialized = false;
 
     setFrameStyle( QFrame::NoFrame );
 
-	connect( this, SIGNAL( clicked( Q3ListViewItem * ) ),
-	         this, SLOT( treeItemSelected( Q3ListViewItem * ) ) );
-	connect( this, SIGNAL( returnPressed( Q3ListViewItem * ) ),
-	         this, SLOT( treeItemSelected( Q3ListViewItem * ) ) );
+    connect( this, SIGNAL( clicked( Q3ListViewItem * ) ),
+             this, SLOT( treeItemSelected( Q3ListViewItem * ) ) );
+    connect( this, SIGNAL( returnPressed( Q3ListViewItem * ) ),
+             this, SLOT( treeItemSelected( Q3ListViewItem * ) ) );
 
-	addColumn( QString() );
-	header()->hide();
-	setAllColumnsShowFocus( true );
-	setRootIsDecorated( true );
+    addColumn( QString() );
+    header()->hide();
+    setAllColumnsShowFocus( true );
+    setRootIsDecorated( true );
 
-	m_byTopicItem = new K3ListViewItem( this, i18n( "By Topic" ) );
-	m_byTopicItem->setPixmap( 0, SmallIcon( "help-contents" ) );
+    m_byTopicItem = new K3ListViewItem( this, i18n( "By Topic" ) );
+    m_byTopicItem->setPixmap( 0, SmallIcon( "help-contents" ) );
 
-	m_alphabItem = new K3ListViewItem( this, i18n( "Alphabetically" ) );
-	m_alphabItem->setPixmap( 0, SmallIcon( "character-set" ) );
+    m_alphabItem = new K3ListViewItem( this, i18n( "Alphabetically" ) );
+    m_alphabItem->setPixmap( 0, SmallIcon( "character-set" ) );
 
-	m_cacheFile = KStandardDirs::locateLocal( "cache", "help/glossary.xml" );
+    m_cacheFile = KStandardDirs::locateLocal( "cache", "help/glossary.xml" );
 
-	m_sourceFile = View::langLookup( QLatin1String( "khelpcenter/glossary/index.docbook" ) );
+    m_sourceFile = View::langLookup( QLatin1String( "khelpcenter/glossary/index.docbook" ) );
 
-	m_config = KGlobal::config();
-	//m_config->setGroup( "Glossary" );
+    m_config = KGlobal::config();
+    //m_config->setGroup( "Glossary" );
 
 }
 
 void Glossary::showEvent(QShowEvent *event)
 {
-	if ( !m_initialized ) {
-		if ( cacheStatus() == NeedRebuild )
-			rebuildGlossaryCache();
-		else
-			buildGlossaryTree();
-		m_initialized = true;
-	}
-	K3ListView::showEvent(event);
+    if ( !m_initialized ) {
+        if ( cacheStatus() == NeedRebuild )
+            rebuildGlossaryCache();
+        else
+            buildGlossaryTree();
+        m_initialized = true;
+    }
+    K3ListView::showEvent(event);
 }
 
 Glossary::~Glossary()
 {
-	qDeleteAll( m_glossEntries );
+    qDeleteAll( m_glossEntries );
 }
 
 const GlossaryEntry &Glossary::entry( const QString &id ) const
 {
-	return *m_glossEntries[ id ];
+    return *m_glossEntries[ id ];
 }
 
 Glossary::CacheStatus Glossary::cacheStatus() const
 {
-	if ( !QFile::exists( m_cacheFile ) ||
-	     m_config->group("Glossary").readPathEntry( "CachedGlossary", QString() ) != m_sourceFile ||
-	     m_config->group("Glossary").readEntry( "CachedGlossaryTimestamp" ).toInt() != glossaryCTime() )
-		return NeedRebuild;
+    if ( !QFile::exists( m_cacheFile ) ||
+         m_config->group("Glossary").readPathEntry( "CachedGlossary", QString() ) != m_sourceFile ||
+         m_config->group("Glossary").readEntry( "CachedGlossaryTimestamp" ).toInt() != glossaryCTime() )
+        return NeedRebuild;
 
-	return CacheOk;
+    return CacheOk;
 }
 
 int Glossary::glossaryCTime() const
 {
-	struct stat stat_buf;
-	stat( QFile::encodeName( m_sourceFile ).data(), &stat_buf );
+    struct stat stat_buf;
+    stat( QFile::encodeName( m_sourceFile ).data(), &stat_buf );
 
-	return stat_buf.st_ctime;
+    return stat_buf.st_ctime;
 }
 
 void Glossary::rebuildGlossaryCache()
 {
-	KXmlGuiWindow *mainWindow = dynamic_cast<KXmlGuiWindow *>( kapp->activeWindow() );
-	Q_ASSERT( mainWindow );
-	mainWindow->statusBar()->showMessage( i18n( "Rebuilding cache..." ) );
+    KXmlGuiWindow *mainWindow = dynamic_cast<KXmlGuiWindow *>( kapp->activeWindow() );
+    Q_ASSERT( mainWindow );
+    mainWindow->statusBar()->showMessage( i18n( "Rebuilding cache..." ) );
 
-	K3Process *meinproc = new K3Process;
-	connect( meinproc, SIGNAL( processExited( K3Process * ) ),
-	         this, SLOT( meinprocExited( K3Process * ) ) );
+    K3Process *meinproc = new K3Process;
+    connect( meinproc, SIGNAL( processExited( K3Process * ) ),
+             this, SLOT( meinprocExited( K3Process * ) ) );
 
-	*meinproc << KStandardDirs::locate( "exe", QLatin1String( "meinproc4" ) );
-	*meinproc << QLatin1String( "--output" ) << m_cacheFile;
-	*meinproc << QLatin1String( "--stylesheet" )
-	          << KStandardDirs::locate( "data", QLatin1String( "khelpcenter/glossary.xslt" ) );
-	*meinproc << m_sourceFile;
+    *meinproc << KStandardDirs::locate( "exe", QLatin1String( "meinproc4" ) );
+    *meinproc << QLatin1String( "--output" ) << m_cacheFile;
+    *meinproc << QLatin1String( "--stylesheet" )
+              << KStandardDirs::locate( "data", QLatin1String( "khelpcenter/glossary.xslt" ) );
+    *meinproc << m_sourceFile;
 
-	meinproc->start( K3Process::NotifyOnExit );
+    meinproc->start( K3Process::NotifyOnExit );
 }
 
 void Glossary::meinprocExited( K3Process *meinproc )
 {
-	delete meinproc;
+    delete meinproc;
 
-	if ( !QFile::exists( m_cacheFile ) )
-		return;
+    if ( !QFile::exists( m_cacheFile ) )
+        return;
 
-	m_config->group("Glossary").writePathEntry( "CachedGlossary", m_sourceFile );
-	m_config->group("Glossary").writeEntry( "CachedGlossaryTimestamp", glossaryCTime() );
-	m_config->sync();
+    m_config->group("Glossary").writePathEntry( "CachedGlossary", m_sourceFile );
+    m_config->group("Glossary").writeEntry( "CachedGlossaryTimestamp", glossaryCTime() );
+    m_config->sync();
 
-	m_status = CacheOk;
+    m_status = CacheOk;
 
-	KXmlGuiWindow *mainWindow = dynamic_cast<KXmlGuiWindow *>( kapp->activeWindow() );
-	Q_ASSERT( mainWindow );
-	mainWindow->statusBar()->showMessage( i18n( "Rebuilding cache... done." ), 2000 );
+    KXmlGuiWindow *mainWindow = dynamic_cast<KXmlGuiWindow *>( kapp->activeWindow() );
+    Q_ASSERT( mainWindow );
+    mainWindow->statusBar()->showMessage( i18n( "Rebuilding cache... done." ), 2000 );
 
-	buildGlossaryTree();
+    buildGlossaryTree();
 }
 
 void Glossary::buildGlossaryTree()
 {
-	QFile cacheFile(m_cacheFile);
-	if ( !cacheFile.open( QIODevice::ReadOnly ) )
-		return;
+    QFile cacheFile(m_cacheFile);
+    if ( !cacheFile.open( QIODevice::ReadOnly ) )
+        return;
 
-	QDomDocument doc;
-	if ( !doc.setContent( &cacheFile ) )
-		return;
+    QDomDocument doc;
+    if ( !doc.setContent( &cacheFile ) )
+        return;
 
-	QDomNodeList sectionNodes = doc.documentElement().elementsByTagName( QLatin1String( "section" ) );
-	for ( int i = 0; i < sectionNodes.count(); i++ ) {
-		QDomElement sectionElement = sectionNodes.item( i ).toElement();
-		QString title = sectionElement.attribute( QLatin1String( "title" ) );
-		SectionItem *topicSection = new SectionItem( m_byTopicItem, title );
+    QDomNodeList sectionNodes = doc.documentElement().elementsByTagName( QLatin1String( "section" ) );
+    for ( int i = 0; i < sectionNodes.count(); i++ ) {
+        QDomElement sectionElement = sectionNodes.item( i ).toElement();
+        QString title = sectionElement.attribute( QLatin1String( "title" ) );
+        SectionItem *topicSection = new SectionItem( m_byTopicItem, title );
 
-		QDomNodeList entryNodes = sectionElement.elementsByTagName( QLatin1String( "entry" ) );
-		for ( int j = 0; j < entryNodes.count(); j++ ) {
-			QDomElement entryElement = entryNodes.item( j ).toElement();
+        QDomNodeList entryNodes = sectionElement.elementsByTagName( QLatin1String( "entry" ) );
+        for ( int j = 0; j < entryNodes.count(); j++ ) {
+            QDomElement entryElement = entryNodes.item( j ).toElement();
 
-			QString entryId = entryElement.attribute( QLatin1String( "id" ) );
-			if ( entryId.isNull() )
-				continue;
+            QString entryId = entryElement.attribute( QLatin1String( "id" ) );
+            if ( entryId.isNull() )
+                continue;
 
-			QDomElement termElement = childElement( entryElement, QLatin1String( "term" ) );
-			QString term = termElement.text().simplified();
+            QDomElement termElement = childElement( entryElement, QLatin1String( "term" ) );
+            QString term = termElement.text().simplified();
 
-			EntryItem *entry = new EntryItem(topicSection, term, entryId );
+            EntryItem *entry = new EntryItem(topicSection, term, entryId );
             m_idDict.insert( entryId, entry );
 
-			SectionItem *alphabSection = 0L;
-			for ( Q3ListViewItemIterator it( m_alphabItem ); it.current(); it++ )
-				if ( it.current()->text( 0 ) == QString( term[ 0 ].toUpper() ) ) {
-					alphabSection = static_cast<SectionItem *>( it.current() );
-					break;
-				}
+            SectionItem *alphabSection = 0L;
+            for ( Q3ListViewItemIterator it( m_alphabItem ); it.current(); it++ )
+                if ( it.current()->text( 0 ) == QString( term[ 0 ].toUpper() ) ) {
+                    alphabSection = static_cast<SectionItem *>( it.current() );
+                    break;
+                }
 
-			if ( !alphabSection )
-				alphabSection = new SectionItem( m_alphabItem, QString( term[ 0 ].toUpper() ) );
+            if ( !alphabSection )
+                alphabSection = new SectionItem( m_alphabItem, QString( term[ 0 ].toUpper() ) );
 
-			new EntryItem( alphabSection, term, entryId );
+            new EntryItem( alphabSection, term, entryId );
 
-			QDomElement definitionElement = childElement( entryElement, QLatin1String( "definition" ) );
-			QString definition = definitionElement.text().simplified();
+            QDomElement definitionElement = childElement( entryElement, QLatin1String( "definition" ) );
+            QString definition = definitionElement.text().simplified();
 
-			GlossaryEntryXRef::List seeAlso;
+            GlossaryEntryXRef::List seeAlso;
 
-			QDomElement referencesElement = childElement( entryElement, QLatin1String( "references" ) );
-			QDomNodeList referenceNodes = referencesElement.elementsByTagName( QLatin1String( "reference" ) );
-			if ( referenceNodes.count() > 0 )
-				for ( int k = 0; k < referenceNodes.count(); k++ ) {
-					QDomElement referenceElement = referenceNodes.item( k ).toElement();
+            QDomElement referencesElement = childElement( entryElement, QLatin1String( "references" ) );
+            QDomNodeList referenceNodes = referencesElement.elementsByTagName( QLatin1String( "reference" ) );
+            if ( referenceNodes.count() > 0 )
+                for ( int k = 0; k < referenceNodes.count(); k++ ) {
+                    QDomElement referenceElement = referenceNodes.item( k ).toElement();
 
-					QString term = referenceElement.attribute( QLatin1String( "term" ) );
-					QString id = referenceElement.attribute( QLatin1String( "id" ) );
+                    QString term = referenceElement.attribute( QLatin1String( "term" ) );
+                    QString id = referenceElement.attribute( QLatin1String( "id" ) );
 
-					seeAlso += GlossaryEntryXRef( term, id );
-				}
+                    seeAlso += GlossaryEntryXRef( term, id );
+                }
 
-			m_glossEntries.insert( entryId, new GlossaryEntry( term, definition, seeAlso ) );
-		}
-	}
+            m_glossEntries.insert( entryId, new GlossaryEntry( term, definition, seeAlso ) );
+        }
+    }
 }
 
 void Glossary::treeItemSelected( Q3ListViewItem *item )
 {
-	if ( !item )
-		return;
+    if ( !item )
+        return;
 
-	if ( EntryItem *i = dynamic_cast<EntryItem *>( item ) )
-		emit entrySelected( entry( i->id() ) );
+    if ( EntryItem *i = dynamic_cast<EntryItem *>( item ) )
+        emit entrySelected( entry( i->id() ) );
 
-	item->setOpen( !item->isOpen() );
+    item->setOpen( !item->isOpen() );
 }
 
 QDomElement Glossary::childElement( const QDomElement &element, const QString &name )
 {
-	QDomElement e;
-	for ( e = element.firstChild().toElement(); !e.isNull(); e = e.nextSibling().toElement() )
-		if ( e.tagName() == name )
-			break;
-	return e;
+    QDomElement e;
+    for ( e = element.firstChild().toElement(); !e.isNull(); e = e.nextSibling().toElement() )
+        if ( e.tagName() == name )
+            break;
+    return e;
 }
 
 QString Glossary::entryToHtml( const GlossaryEntry &entry )
