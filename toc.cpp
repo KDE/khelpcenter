@@ -153,7 +153,7 @@ void TOC::buildCache()
 
     meinproc->start();
     if (!meinproc->waitForStarted()) {
-        kDebug() << "could not start process" << meinproc->program();
+        kError() << "could not start process" << meinproc->program();
         if (mainWindow && !m_alreadyWarned) {
             ; // add warning message box with don't display again option 
               // http://api.kde.org/4.0-api/kdelibs-apidocs/kdeui/html/classKDialog.html
@@ -169,8 +169,8 @@ void TOC::meinprocExited( int exitCode, QProcess::ExitStatus exitStatus)
     KXmlGuiWindow *mainWindow = dynamic_cast<KXmlGuiWindow *>( kapp->activeWindow() );
 
     if ( exitStatus == QProcess::CrashExit || exitCode != 0 ) {
-        kDebug() << "running" << meinproc->program() << "failed with exitCode" << exitCode;
-        kDebug() << "stderr output:" << meinproc->readAllStandardError(); 
+        kError() << "running" << meinproc->program() << "failed with exitCode" << exitCode;
+        kError() << "stderr output:" << meinproc->readAllStandardError(); 
         if (mainWindow && !m_alreadyWarned) {
             ; // add warning message box with don't display again option 
               // http://api.kde.org/4.0-api/kdelibs-apidocs/kdeui/html/classKDialog.html
