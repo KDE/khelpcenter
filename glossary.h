@@ -137,8 +137,8 @@ class Glossary : public K3ListView
         QString m_cacheFile;
         CacheStatus m_status;
         QHash<QString, GlossaryEntry*> m_glossEntries;
-    QHash<QString, EntryItem*> m_idDict;
-    bool m_initialized;
+        QHash<QString, EntryItem*> m_idDict;
+        bool m_initialized;
 };
 
 }
