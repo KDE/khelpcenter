@@ -22,11 +22,10 @@
 #define KHC_INDEXBUILDER_H
 
 #include <kuniqueapplication.h>
+#include <KProcess>
 
 #include <QObject>
 #include <QTimer>
-
-class K3Process;
 
 namespace KHC {
 
@@ -45,9 +44,7 @@ class IndexBuilder : public QObject
 
   protected Q_SLOTS:
     void buildIndices();
-    void slotProcessExited( K3Process * );
-    void slotReceivedStdout( K3Process *, char *buffer, int buflen );
-    void slotReceivedStderr( K3Process *, char *buffer, int buflen );
+    void slotProcessExited( int, QProcess::ExitStatus );
 
   private:
     QString m_cmdFile;

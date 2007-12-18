@@ -28,8 +28,9 @@
 #include <kcmdlineargs.h>
 #include <kuniqueapplication.h>
 #include <kdebug.h>
-#include <k3process.h>
+#include <kprocess.h>
 #include <kconfig.h>
+#include <kshell.h>
 
 #include <QFile>
 #include <QTextStream>
@@ -82,56 +83,43 @@ void IndexBuilder::processCmdQueue()
 
   kDebug(1402) << "PROCESS: " << cmd;
 
-  K3Process *proc = new K3Process;
-  proc->setRunPrivileged( true );
+  KProcess *proc = new KProcess;
 
-  QStringList args = cmd.split( " ");
-  *proc << args;
+  *proc << KShell::splitArgs(cmd);
 
-  connect( proc, SIGNAL( processExited( K3Process * ) ),
-           SLOT( slotProcessExited( K3Process * ) ) );
-  connect( proc, SIGNAL( receivedStdout(K3Process *, char *, int ) ),
-           SLOT( slotReceivedStdout(K3Process *, char *, int ) ) );
-  connect( proc, SIGNAL( receivedStderr(K3Process *, char *, int ) ),
-           SLOT( slotReceivedStderr(K3Process *, char *, int ) ) );
+  connect( proc, SIGNAL( finished( int, QProcess::ExitStatus) ),
+           SLOT( slotProcessExited( int, QProcess::ExitStatus) ) );
 
   mCmdQueue.erase( it );
 
-  if ( !proc->start( K3Process::NotifyOnExit, K3Process::AllOutput ) ) {
+  proc->start();
+
+  if ( !proc->waitForStarted() )  {
     sendErrorSignal( i18n("Unable to start command '%1'.", cmd ) );
     processCmdQueue();
     delete proc;
   }
 }
 
-void IndexBuilder::slotProcessExited( K3Process *proc )
+void IndexBuilder::slotProcessExited( int exitCode, QProcess::ExitStatus exitStatus )
 {
-  kDebug(1402) << "IndexBuilder::slotIndexFinished()";
+  KProcess *proc = static_cast<KProcess *>(sender());
 
-  if ( !proc->normalExit() ) {
+  if ( exitStatus != QProcess::NormalExit ) {
     kError(1402) << "Process failed" << endl;
-  } else {
-    int status = proc->exitStatus();
-    kDebug(1402) << "Exit status: " << status;
+    kError(1402) << "stdout output:" << proc->readAllStandardOutput(); 
+    kError(1402) << "stderr output:" << proc->readAllStandardError();  
   }
-
+  else if (exitCode != 0 ) {
+    kError(1402) << "running" << proc->program() << "failed with exitCode" << exitCode;
+    kError(1402) << "stdout output:" << proc->readAllStandardOutput(); 
+    kError(1402) << "stderr output:" << proc->readAllStandardError(); 
+  }
   delete proc;
 
   sendProgressSignal();
 
   processCmdQueue();
-}
-
-void IndexBuilder::slotReceivedStdout( K3Process *, char *buffer, int buflen )
-{
-  QString text = QString::fromLocal8Bit( buffer, buflen );
-  std::cout << text.toLocal8Bit().data() << std::flush;
-}
-
-void IndexBuilder::slotReceivedStderr( K3Process *, char *buffer, int buflen )
-{
-  QString text = QString::fromLocal8Bit( buffer, buflen );
-  std::cerr << text.toLocal8Bit().data() << std::flush;
 }
 
 void IndexBuilder::sendErrorSignal( const QString &error )
