@@ -26,8 +26,7 @@
 #include <QList>
 #include <ksharedconfig.h>
 #include <QHash>
-
-class K3Process;
+#include <KProcess>
 
 class EntryItem;
 
@@ -115,7 +114,7 @@ class Glossary : public K3ListView
         void entrySelected( const GlossaryEntry &entry );
         
     private Q_SLOTS:
-        void meinprocExited( K3Process *meinproc );
+        void meinprocFinished(int exitCode, QProcess::ExitStatus exitStatus);
         void treeItemSelected( Q3ListViewItem *item );
 
         protected:
@@ -139,6 +138,7 @@ class Glossary : public K3ListView
         QHash<QString, GlossaryEntry*> m_glossEntries;
         QHash<QString, EntryItem*> m_idDict;
         bool m_initialized;
+        static bool m_alreadyWarned;
 };
 
 }

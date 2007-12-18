@@ -26,7 +26,7 @@
 #include <kiconloader.h>
 #include <klocale.h>
 #include <kxmlguiwindow.h>
-#include <k3process.h>
+#include <kprocess.h>
 #include <kstandarddirs.h>
 #include <kstatusbar.h>
 
@@ -72,6 +72,8 @@ class EntryItem : public K3ListViewItem
     private:
         QString m_id;
 };
+
+bool Glossary::m_alreadyWarned = false;
 
 Glossary::Glossary( QWidget *parent ) : K3ListView( parent )
 {
@@ -147,24 +149,47 @@ int Glossary::glossaryCTime() const
 void Glossary::rebuildGlossaryCache()
 {
     KXmlGuiWindow *mainWindow = dynamic_cast<KXmlGuiWindow *>( kapp->activeWindow() );
-    Q_ASSERT( mainWindow );
-    mainWindow->statusBar()->showMessage( i18n( "Rebuilding cache..." ) );
+    if (mainWindow)
+        mainWindow->statusBar()->showMessage( i18n( "Rebuilding glossary cache..." ) );
 
-    K3Process *meinproc = new K3Process;
-    connect( meinproc, SIGNAL( processExited( K3Process * ) ),
-             this, SLOT( meinprocExited( K3Process * ) ) );
-
+    KProcess *meinproc = new KProcess;
+    connect( meinproc, SIGNAL( finished(int,QProcess::ExitStatus) ),
+             this, SLOT( meinprocFinished(int,QProcess::ExitStatus) ) );
+    
     *meinproc << KStandardDirs::locate( "exe", QLatin1String( "meinproc4" ) );
     *meinproc << QLatin1String( "--output" ) << m_cacheFile;
     *meinproc << QLatin1String( "--stylesheet" )
               << KStandardDirs::locate( "data", QLatin1String( "khelpcenter/glossary.xslt" ) );
     *meinproc << m_sourceFile;
 
-    meinproc->start( K3Process::NotifyOnExit );
+    meinproc->start();
+    if (!meinproc->waitForStarted()) {
+        kError() << "could not start process" << meinproc->program();
+        if (mainWindow && !m_alreadyWarned) {
+            ; // add warning message box with don't display again option 
+              // http://api.kde.org/4.0-api/kdelibs-apidocs/kdeui/html/classKDialog.html
+            m_alreadyWarned = true;
+        }
+        delete meinproc;
+    }
 }
 
-void Glossary::meinprocExited( K3Process *meinproc )
+void Glossary::meinprocFinished( int exitCode, QProcess::ExitStatus exitStatus )
 {
+    KProcess *meinproc = static_cast<KProcess *>(sender());
+    KXmlGuiWindow *mainWindow = dynamic_cast<KXmlGuiWindow *>( kapp->activeWindow() );
+
+    if (exitStatus != QProcess::NormalExit || exitCode != 0) {
+        kError() << "running" << meinproc->program() << "failed with exitCode" << exitCode;
+        kError() << "stderr output:" << meinproc->readAllStandardError(); 
+        if (mainWindow && !m_alreadyWarned) {
+            ; // add warning message box with don't display again option 
+              // http://api.kde.org/4.0-api/kdelibs-apidocs/kdeui/html/classKDialog.html
+            m_alreadyWarned = true;
+        }
+        delete meinproc;
+        return; 
+    }        
     delete meinproc;
 
     if ( !QFile::exists( m_cacheFile ) )
@@ -176,9 +201,8 @@ void Glossary::meinprocExited( K3Process *meinproc )
 
     m_status = CacheOk;
 
-    KXmlGuiWindow *mainWindow = dynamic_cast<KXmlGuiWindow *>( kapp->activeWindow() );
-    Q_ASSERT( mainWindow );
-    mainWindow->statusBar()->showMessage( i18n( "Rebuilding cache... done." ), 2000 );
+    if (mainWindow)
+        mainWindow->statusBar()->showMessage( i18n( "Rebuilding cache... done." ), 2000 );
 
     buildGlossaryTree();
 }
