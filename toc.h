@@ -26,7 +26,7 @@
 #include <Qt3Support/Q3CheckListItem>
 #include <QObject>
 
-class K3Process;
+#include <KProcess>
 
 namespace KHC {
 
@@ -47,7 +47,7 @@ class TOC : public QObject
 
 	private Q_SLOTS:
 		void slotItemSelected( Q3ListViewItem *item );
-		void meinprocExited( K3Process *meinproc );
+		void meinprocExited( int exitCode, QProcess::ExitStatus exitStatus);
 
 	private:
 		enum CacheStatus { NeedRebuild, CacheOk };
@@ -64,6 +64,7 @@ class TOC : public QObject
 		QString m_sourceFile;
 
 		NavigatorItem *m_parentItem;
+		static bool m_alreadyWarned;
 };
 
 }

@@ -23,9 +23,13 @@
 #include "docentry.h"
 
 #include <kiconloader.h>
-#include <k3process.h>
+#include <kprocess.h>
 #include <kstandarddirs.h>
 #include <kdebug.h>
+#include <kxmlguiwindow.h>
+#include <KApplication>
+#include <KStatusBar>
+#include <klocale.h>
 
 #include <QDir>
 #include <QFileInfo>
@@ -71,6 +75,8 @@ class TOCSectionItem : public TOCItem
         QString m_name;
 };
 
+bool TOC::m_alreadyWarned = false;
+
 TOC::TOC( NavigatorItem *parentItem )
 {
     m_parentItem = parentItem;
@@ -90,7 +96,7 @@ void TOC::build( const QString &file )
         }
     }
 
-    QString cacheFile = fileName.replace( QDir::separator(), "__" );
+    QString cacheFile = fileName.replace( '/', "__" );
     m_cacheFile = KStandardDirs::locateLocal( "cache", "help/" + cacheFile );
     m_sourceFile = file;
 
@@ -134,21 +140,42 @@ int TOC::cachedCTime() const
 
 void TOC::buildCache()
 {
-    K3Process *meinproc = new K3Process;
-    connect( meinproc, SIGNAL( processExited( K3Process * ) ),
-             this, SLOT( meinprocExited( K3Process * ) ) );
+    KXmlGuiWindow *mainWindow = dynamic_cast<KXmlGuiWindow *>( kapp->activeWindow() );
 
-    *meinproc << KStandardDirs::locate( "exe", "meinproc4" );
+    KProcess *meinproc = new KProcess;
+    connect( meinproc, SIGNAL( finished( int, QProcess::ExitStatus) ),
+             this, SLOT( meinprocExited( int, QProcess::ExitStatus) ) );
+
+    *meinproc << KStandardDirs::locate("exe", "meinproc4");
     *meinproc << "--stylesheet" << KStandardDirs::locate( "data", "khelpcenter/table-of-contents.xslt" );
     *meinproc << "--output" << m_cacheFile;
     *meinproc << m_sourceFile;
 
-    meinproc->start( K3Process::NotifyOnExit );
+    meinproc->start();
+    if (!meinproc->waitForStarted()) {
+        kDebug() << "could not start process" << meinproc->program();
+        if (mainWindow && !m_alreadyWarned) {
+            ; // add warning message box with don't display again option 
+              // http://api.kde.org/4.0-api/kdelibs-apidocs/kdeui/html/classKDialog.html
+            m_alreadyWarned = true;
+        }
+        delete meinproc;
+    }
 }
 
-void TOC::meinprocExited( K3Process *meinproc )
+void TOC::meinprocExited( int exitCode, QProcess::ExitStatus exitStatus)
 {
-    if ( !meinproc->normalExit() || meinproc->exitStatus() != 0 ) {
+    KProcess *meinproc = static_cast<KProcess *>(sender());
+    KXmlGuiWindow *mainWindow = dynamic_cast<KXmlGuiWindow *>( kapp->activeWindow() );
+
+    if ( exitStatus == QProcess::CrashExit || exitCode != 0 ) {
+        kDebug() << "running" << meinproc->program() << "failed with exitCode" << exitCode;
+        kDebug() << "stderr output:" << meinproc->readAllStandardError(); 
+        if (mainWindow && !m_alreadyWarned) {
+            ; // add warning message box with don't display again option 
+              // http://api.kde.org/4.0-api/kdelibs-apidocs/kdeui/html/classKDialog.html
+            m_alreadyWarned = true;
+        }
         delete meinproc;
         return;
     }
