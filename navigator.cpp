@@ -53,7 +53,6 @@
 #include <KLineEdit>
 #include <kmessagebox.h>
 #include <kiconloader.h>
-#include <k3procio.h>
 #include <kcharsets.h>
 #include <kdialog.h>
 #include <kdesktopfile.h>
