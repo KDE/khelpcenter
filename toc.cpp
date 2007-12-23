@@ -151,6 +151,7 @@ void TOC::buildCache()
     *meinproc << "--output" << m_cacheFile;
     *meinproc << m_sourceFile;
 
+    meinproc->setOutputChannelMode(KProcess::OnlyStderrChannel);
     meinproc->start();
     if (!meinproc->waitForStarted()) {
         kError() << "could not start process" << meinproc->program();
