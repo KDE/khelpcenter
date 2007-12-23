@@ -162,7 +162,7 @@ void Glossary::rebuildGlossaryCache()
               << KStandardDirs::locate( "data", QLatin1String( "khelpcenter/glossary.xslt" ) );
     *meinproc << m_sourceFile;
 
-    meinproc->setOutputChannelMode(OnlyStderrChannel);
+    meinproc->setOutputChannelMode(KProcess::OnlyStderrChannel);
     meinproc->start();
     if (!meinproc->waitForStarted()) {
         kError() << "could not start process" << meinproc->program();
