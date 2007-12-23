@@ -24,8 +24,6 @@
 
 #include "navigatoritem.h"
 
-class K3ProcIO;
-
 class QDomNode;
 
 namespace KHC {
@@ -37,9 +35,6 @@ class ScrollKeeperTreeBuilder : public QObject
     explicit ScrollKeeperTreeBuilder( QObject *parent, const char *name = 0 );
 
     NavigatorItem *build( NavigatorItem *parent, NavigatorItem *after );
-
-  private Q_SLOTS:
-    void getContentsList( K3ProcIO *proc );
 
   private:
     void loadConfig();
