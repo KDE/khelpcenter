@@ -1,5 +1,5 @@
 <!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
-<kpartgui name="khelpcenter" version="14">
+<kpartgui name="khelpcenter" version="15">
 <MenuBar>
  <Menu name="file" noMerge="1">
     <text>&amp;File</text>
@@ -21,7 +21,7 @@
   <Action name="viewDocumentSource" />
   <Action name="setEncoding" />
  </Menu>
- <Menu name="go_web">
+ <Menu name="go">
   <text>&amp;Go</text>
   <Action name="prevPage" />
   <Action name="nextPage" />
