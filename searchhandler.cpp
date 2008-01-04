@@ -25,15 +25,86 @@
 #include "docentry.h"
 
 #include <kdesktopfile.h>
-#include <k3process.h>
+#include <KProcess>
 #include <kdebug.h>
 #include <kmessagebox.h>
 #include <klocale.h>
 #include <kstandarddirs.h>
+#include <KShell>
 
 #include <stdlib.h>
 
 using namespace KHC;
+
+SearchJob::SearchJob(DocEntry *entry) : mEntry( entry ), mProcess( 0 ), mKioJob( 0 )
+{
+}
+
+bool SearchJob::startLocal(const QString &cmdString)
+{
+    mProcess = new KProcess;
+    *mProcess << KShell::splitArgs(cmdString);
+
+    connect( mProcess, SIGNAL( finished(int, QProcess::ExitStatus) ),
+             this, SLOT( searchExited(int, QProcess::ExitStatus) ) );
+
+    mProcess->setOutputChannelMode(KProcess::SeparateChannels);
+    mProcess->start();
+    if (!mProcess->waitForStarted()) {
+        QString txt = i18n("Error executing search command '%1'.", cmdString );
+        emit searchError( this, mEntry, txt );
+        return false;
+    }
+    return true;
+}
+
+bool SearchJob::startRemote(const QString &urlString)
+{
+    KIO::TransferJob *job  = KIO::get( KUrl( urlString ) );
+    connect( job, SIGNAL( result( KJob * ) ),
+             this, SLOT( slotJobResult( KJob * ) ) );
+    connect( job, SIGNAL( data( KIO::Job *, const QByteArray & ) ),
+             this, SLOT( slotJobData( KIO::Job *, const QByteArray & ) ) );
+
+    mKioJob = job;
+    return true;
+}
+ 
+SearchJob::~SearchJob()
+{
+    delete mProcess;
+    delete mKioJob;
+}
+    
+void SearchJob::searchExited( int exitCode, QProcess::ExitStatus exitStatus )
+{
+    if ( exitStatus == QProcess::NormalExit && exitCode == 0 ) {
+        mResult = mProcess->readAllStandardOutput();
+        emit searchFinished( this, mEntry, mResult );
+    } else {
+        mError = mProcess->readAllStandardError();
+        QString error = QLatin1String("<em>") + mCmd + QLatin1String("</em>\n") + mError;
+        emit searchError( this, mEntry, error );
+    }
+}
+
+void SearchJob::slotJobResult( KJob *job )
+{
+    QString result;
+    DocEntry *entry = 0;
+
+    if ( job->error() ) {
+        emit searchError( this, mEntry, i18n("Error: %1", job->errorString() ) );
+    } else {
+        emit searchFinished( this, mEntry, mResult );
+    }
+}
+
+void SearchJob::slotJobData( KIO::Job *job, const QByteArray &data )
+{
+    mResult += data.data();
+}
+
 
 SearchHandler::SearchHandler()
 {
@@ -102,148 +173,42 @@ void SearchHandler::search( DocEntry *entry, const QStringList &words,
 
     kDebug() << "SearchHandler::search() CMD: " << cmdString;
 
-    K3Process *proc = new K3Process();
+    SearchJob *searchJob = new SearchJob(entry);
+    connect(searchJob, SIGNAL(searchFinished( SearchJob *, DocEntry *, const QString & )),
+            this, SLOT(searchFinished( SearchJob *, DocEntry *, const QString & )));
+    connect(searchJob, SIGNAL(searchError( SearchJob *, DocEntry *, const QString & )),
+            this, SLOT(searchError( SearchJob *, DocEntry *, const QString & )));
+    searchJob->startLocal(cmdString);
 
-    QStringList cmd = cmdString.split( " ");
-    QStringList::ConstIterator it;
-    for( it = cmd.begin(); it != cmd.end(); ++it ) {
-      QString arg = *it;
-      if ( arg.left( 1 ) == "\"" && arg.right( 1 ) =="\"" ) {
-        arg = arg.mid( 1, arg.length() - 2 );
-      }
-      *proc << arg.toUtf8();
-    }
-
-    connect( proc, SIGNAL( receivedStdout( K3Process *, char *, int ) ),
-             SLOT( searchStdout( K3Process *, char *, int ) ) );
-    connect( proc, SIGNAL( receivedStderr( K3Process *, char *, int ) ),
-             SLOT( searchStderr( K3Process *, char *, int ) ) );
-    connect( proc, SIGNAL( processExited( K3Process * ) ),
-             SLOT( searchExited( K3Process * ) ) );
-
-    SearchJob *searchJob = new SearchJob;
-    searchJob->mEntry = entry;
-    searchJob->mProcess = proc;
-    searchJob->mCmd = cmdString;
-
-    mProcessJobs.insert( proc, searchJob );
-
-    if ( !proc->start( K3Process::NotifyOnExit, K3Process::All ) ) {
-      QString txt = i18n("Error executing search command '%1'.", cmdString );
-      emit searchFinished( this, entry, txt );
-    }
   } else if ( !mSearchUrl.isEmpty() ) {
     QString urlString = SearchEngine::substituteSearchQuery( mSearchUrl,
       entry->identifier(), words, maxResults, operation, mLang );
 
     kDebug() << "SearchHandler::search() URL: " << urlString;
 
-    KIO::TransferJob *job = KIO::get( KUrl( urlString ) );
-    connect( job, SIGNAL( result( KJob * ) ),
-             SLOT( slotJobResult( KJob * ) ) );
-    connect( job, SIGNAL( data( KIO::Job *, const QByteArray & ) ),
-             SLOT( slotJobData( KIO::Job *, const QByteArray & ) ) );
+    SearchJob *searchJob = new SearchJob(entry);
+    connect(searchJob, SIGNAL(searchFinished( SearchJob *, DocEntry *, const QString & )),
+            this, SLOT(searchFinished( SearchJob *, DocEntry *, const QString & )));
+    connect(searchJob, SIGNAL(searchError( SearchJob *, DocEntry *, const QString & )),
+            this, SLOT(searchError( SearchJob *, DocEntry *, const QString & )));
+    searchJob->startRemote(urlString);
 
-    SearchJob *searchJob = new SearchJob;
-    searchJob->mEntry = entry;
-    searchJob->mKioJob = job;
-    mKioJobs.insert( job, searchJob );
   } else {
     QString txt = i18n("No search command or URL specified.");
     emit searchFinished( this, entry, txt );
-    return;
   }
 }
 
-void SearchHandler::searchStdout( K3Process *proc, char *buffer, int len )
+void SearchHandler::searchFinished( SearchJob *job, DocEntry *entry, const QString &result )
 {
-  if ( !buffer || len == 0 )
-    return;
-
-  QString bufferStr;
-  char *p;
-  p = (char*) malloc( sizeof(char) * ( len + 1 ) );
-  p = strncpy( p, buffer, len );
-  p[len] = '\0';
-
-  QMap<K3Process *, SearchJob *>::ConstIterator it = mProcessJobs.find( proc );
-  if ( it != mProcessJobs.end() ) {
-    (*it)->mResult += bufferStr.fromUtf8( p );
-  }
-
-  free( p );
+    emit searchFinished( this, entry, result);
+    job->deleteLater();
 }
 
-void SearchHandler::searchStderr( K3Process *proc, char *buffer, int len )
+void SearchHandler::searchError( SearchJob *job, DocEntry *entry, const QString &error )
 {
-  if ( !buffer || len == 0 )
-    return;
-
-  QMap<K3Process *, SearchJob *>::ConstIterator it = mProcessJobs.find( proc );
-  if ( it != mProcessJobs.end() ) {
-    (*it)->mError += QString::fromUtf8( buffer, len );
-  }
-}
-
-void SearchHandler::searchExited( K3Process *proc )
-{
-//  kDebug() << "SearchHandler::searchExited()";
-
-  QString result;
-  QString error;
-  DocEntry *entry = 0;
-
-  QMap<K3Process *, SearchJob *>::ConstIterator it = mProcessJobs.find( proc );
-  if ( it != mProcessJobs.end() ) {
-    SearchJob *j = *it;
-    entry = j->mEntry;
-    result = j->mResult;
-    error = QLatin1String("<em>") + j->mCmd + QLatin1String("</em>\n") + j->mError;
-
-    mProcessJobs.remove( proc );
-    delete j;
-  } else {
-    kError() << "No search job for exited process found." << endl;
-  }
-
-  if ( proc->normalExit() && proc->exitStatus() == 0 ) {
-    emit searchFinished( this, entry, result );
-  } else {
-    emit searchError( this, entry, error );
-  }
-}
-
-void SearchHandler::slotJobResult( KJob *job )
-{
-  QString result;
-  DocEntry *entry = 0;
-
-  QMap<KJob *, SearchJob *>::ConstIterator it = mKioJobs.find( job );
-  if ( it != mKioJobs.end() ) {
-    SearchJob *j = *it;
-
-    entry = j->mEntry;
-    result = j->mResult;
-
-    mKioJobs.remove( job );
-    delete j;
-  }
-
-  if ( job->error() ) {
-    emit searchError( this, entry, i18n("Error: %1", job->errorString() ) );
-  } else {
-    emit searchFinished( this, entry, result );
-  }
-}
-
-void SearchHandler::slotJobData( KIO::Job *job, const QByteArray &data )
-{
-//  kDebug() << "SearchHandler::slotJobData()";
-
-  QMap<KJob *, SearchJob *>::ConstIterator it = mKioJobs.find( job );
-  if ( it != mKioJobs.end() ) {
-    (*it)->mResult += data.data();
-  }
+    emit searchError(this, entry, error);
+    job->deleteLater();
 }
 
 #include "searchhandler.moc"

@@ -30,18 +30,29 @@ class Job;
 
 namespace KHC {
 
-class SearchJob
-{
+class SearchJob : public QObject {
+    Q_OBJECT
   public:
-    SearchJob() : mProcess( 0 ), mKioJob( 0 ) {}
+    SearchJob(DocEntry *entry);
+    ~SearchJob();
 
+    bool startLocal(const QString &cmdString);
+    bool startRemote(const QString &url);
+
+  Q_SIGNALS:
+    void searchFinished( SearchJob *, DocEntry *, const QString & );
+    void searchError( SearchJob *, DocEntry *, const QString & );
+
+  protected Q_SLOTS:
+    void searchExited( int exitCode, QProcess::ExitStatus );
+    void slotJobResult( KJob *job );
+    void slotJobData( KIO::Job *, const QByteArray &data );
+
+  protected:
     DocEntry *mEntry;
-
-    K3Process *mProcess;
+    KProcess *mProcess;
     KIO::Job *mKioJob;
-
     QString mCmd;
-
     QString mResult;
     QString mError;
 };
@@ -66,16 +77,13 @@ class SearchHandler : public QObject
     void searchFinished( SearchHandler *, DocEntry *, const QString & );
     void searchError( SearchHandler *, DocEntry *, const QString & );
 
+
   protected:
     bool checkBinary( const QString &cmd ) const;
-
-  protected Q_SLOTS:
-    void searchStdout( K3Process *proc, char *buffer, int buflen );
-    void searchStderr( K3Process *proc, char *buffer, int buflen );
-    void searchExited( K3Process *proc );
-
-    void slotJobResult( KJob *job );
-    void slotJobData( KIO::Job *, const QByteArray &data );
+   
+  private slots: 
+    void searchFinished( SearchJob *, DocEntry *, const QString & );
+    void searchError( SearchJob *, DocEntry *, const QString & );
 
   private:
     SearchHandler();
@@ -86,9 +94,6 @@ class SearchHandler : public QObject
     QString mSearchUrl;
     QString mIndexCommand;
     QStringList mDocumentTypes;
-
-    QMap<K3Process *,SearchJob *> mProcessJobs;
-    QMap<KJob *,SearchJob *> mKioJobs;
 };
 
 }
