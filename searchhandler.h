@@ -23,6 +23,7 @@
 #include "searchengine.h"
 
 #include <QObject>
+#include <KProcess>
 
 namespace KIO {
 class Job;
