@@ -1,5 +1,0 @@
-[Desktop Entry]
-DocumentTypes=application/docbook+xml
-
-SearchCommand=khc_htsearch.pl --docbook --indexdir=%d --config=%i --words=%w --method=%o --maxnum=%m --lang=en
-IndexCommand=khc_docbookdig.pl --indexdir=%d --docpath=%p --identifier=%i

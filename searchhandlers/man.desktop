@@ -1,4 +1,0 @@
-[Desktop Entry]
-DocumentTypes=text/man
-
-SearchCommand=khc_mansearch.pl --words=%w --maxcount=%m

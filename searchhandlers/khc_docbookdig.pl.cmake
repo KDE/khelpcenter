@@ -28,7 +28,7 @@ use Getopt::Long;
 
 my $htdigdata = "/srv/www/htdig/common/";
 my $htdigbin = "/usr/bin";
-my $kdeprefix = "${CMAKE_INSTALL_PREFIX}";
+my $kdeprefix = "@CMAKE_INSTALL_PREFIX@";
 chomp $kdeprefix;
 
 my $dbg = 1;
