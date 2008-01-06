@@ -473,11 +473,11 @@ void KCMHelpCenter::startIndexProcess()
   mProcess = new K3Process;
 
   if ( mRunAsRoot ) {
-    *mProcess << "kdesu" << "--nonewdcop";
+    *mProcess << KStandardDirs::findExe("kdesu"); 
     kDebug() << "Run as root";
   }
 
-  *mProcess << "khc_indexbuilder";
+  *mProcess << KStandardDirs::findExe("khc_indexbuilder");
   *mProcess << mCmdFile->name();
   *mProcess << Prefs::indexDirectory();
 
