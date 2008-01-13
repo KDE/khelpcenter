@@ -291,6 +291,7 @@ void KHTMLSearchConfig::load()
   config->setGroup("Locale");
   QString lang = config->readEntry("Search Language", KGlobal::locale()->language());
   language->setCurrentItem(lang);
+  delete config;
 
   emit changed(false);
 }
