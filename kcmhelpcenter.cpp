@@ -478,7 +478,7 @@ void KCMHelpCenter::startIndexProcess()
   }
 
   *mProcess << KStandardDirs::findExe("khc_indexbuilder");
-  *mProcess << mCmdFile->name();
+  *mProcess << mCmdFile->fileName();
   *mProcess << Prefs::indexDirectory();
 
   connect( mProcess, SIGNAL( processExited( K3Process * ) ),
