@@ -10,7 +10,7 @@ add_definitions (-DQT3_SUPPORT -DQT3_SUPPORT_WARNINGS)
 set(khc_indexbuilder_SRCS khc_indexbuilder.cpp )
 
 
-kde4_add_executable(khc_indexbuilder ${khc_indexbuilder_SRCS})
+kde4_add_executable(khc_indexbuilder NOGUI ${khc_indexbuilder_SRCS})
 
 target_link_libraries(khc_indexbuilder  ${KDE4_KDE3SUPPORT_LIBS} ${KDE4_KDECORE_LIBS} )
 
