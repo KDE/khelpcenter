@@ -37,7 +37,7 @@
 #include <kaboutdata.h>
 #include <kdialog.h>
 #include <kstandarddirs.h>
-#include <k3process.h>
+#include <kprocess.h>
 #include <kapplication.h>
 #include <ktemporaryfile.h>
 #include <kurlrequester.h>
@@ -470,8 +470,7 @@ void KCMHelpCenter::startIndexProcess()
 {
   kDebug() << "KCMHelpCenter::startIndexProcess()";
 
-  mProcess = new K3Process;
-
+  mProcess = new KProcess;
   if ( mRunAsRoot ) {
     *mProcess << KStandardDirs::findExe("kdesu"); 
     kDebug() << "Run as root";
@@ -481,16 +480,20 @@ void KCMHelpCenter::startIndexProcess()
   *mProcess << mCmdFile->fileName();
   *mProcess << Prefs::indexDirectory();
 
-  connect( mProcess, SIGNAL( processExited( K3Process * ) ),
-           SLOT( slotIndexFinished( K3Process * ) ) );
-  connect( mProcess, SIGNAL( receivedStdout( K3Process *, char *, int ) ),
-           SLOT( slotReceivedStdout(K3Process *, char *, int ) ) );
-  connect( mProcess, SIGNAL( receivedStderr( K3Process *, char *, int ) ),
-           SLOT( slotReceivedStderr( K3Process *, char *, int ) ) );
+  mProcess->setOutputChannelMode(KProcess::SeparateChannels);
+  connect( mProcess, SIGNAL( readyReadStandardError() ),
+           SLOT( slotReceivedStdout() ) );
+  connect( mProcess, SIGNAL( readyReadStandardOutput() ),
+           SLOT( slotReceivedStderr() ) );
+  connect( mProcess, SIGNAL( finished(int, QProcess::ExitStatus) ),
+           SLOT( slotIndexFinished(int, QProcess::ExitStatus) ) );
 
-  if ( !mProcess->start( K3Process::NotifyOnExit, K3Process::AllOutput ) ) {
+  mProcess->start();
+  if (!mProcess->waitForStarted()) {
     kError() << "KCMHelpcenter::startIndexProcess(): Failed to start process."
-      << endl;
+        << endl;
+    deleteProcess();
+    deleteCmdFile();
   }
 }
 
@@ -507,21 +510,11 @@ void KCMHelpCenter::cancelBuildIndex()
   }
 }
 
-void KCMHelpCenter::slotIndexFinished( K3Process *proc )
+void KCMHelpCenter::slotIndexFinished(int exitCode, QProcess::ExitStatus exitStatus)
 {
   kDebug() << "KCMHelpCenter::slotIndexFinished()";
 
-  if ( proc == 0 ) {
-    kWarning() << "Process null." ;
-    return;
-  }
-
-  if ( proc != mProcess ) {
-    kError() << "Unexpected Process finished." << endl;
-    return;
-  }
-
-  if ( mProcess->normalExit() && mProcess->exitStatus() == 2 ) {
+  if ( exitStatus == QProcess::NormalExit && exitCode == 2 ) {
     if ( mRunAsRoot ) {
       kError() << "Insufficient permissions." << endl;
     } else {
@@ -531,8 +524,8 @@ void KCMHelpCenter::slotIndexFinished( K3Process *proc )
       startIndexProcess();
       return;
     }
-  } else if ( !mProcess->normalExit() || mProcess->exitStatus() != 0 ) {
-    kDebug() << "K3Process reported an error.";
+  } else if ( exitStatus != QProcess::NormalExit || exitCode != 0 ) {
+    kDebug() << "KProcess reported an error.";
     KMessageBox::error( this, i18n("Failed to build index.") );
   } else {
     mConfig->group( "Search" ).writeEntry( "IndexExists", true );
@@ -610,10 +603,10 @@ void KCMHelpCenter::advanceProgress()
   }
 }
 
-void KCMHelpCenter::slotReceivedStdout( K3Process *, char *buffer, int buflen )
+void KCMHelpCenter::slotReceivedStdout()
 {
-  QString text = QString::fromLocal8Bit( buffer, buflen );
-  int pos = text.lastIndexOf( QLatin1Char('\n') );
+  QByteArray text= mProcess->readAllStandardOutput();
+  int pos = text.lastIndexOf( '\n' );
   if ( pos < 0 ) {
     mStdOut.append( text );
   } else {
@@ -624,10 +617,10 @@ void KCMHelpCenter::slotReceivedStdout( K3Process *, char *buffer, int buflen )
   }
 }
 
-void KCMHelpCenter::slotReceivedStderr( K3Process *, char *buffer, int buflen )
+void KCMHelpCenter::slotReceivedStderr( )
 {
-  QString text = QString::fromLocal8Bit( buffer, buflen );
-  int pos = text.lastIndexOf( QLatin1Char('\n') );
+  QByteArray text = mProcess->readAllStandardError();
+  int pos = text.lastIndexOf( '\n' );
   if ( pos < 0 ) {
     mStdErr.append( text );
   } else {

@@ -23,6 +23,7 @@
 
 #include <kdialog.h>
 #include <ksharedconfig.h>
+#include <KProcess>
 
 #include "scopeitem.h"
 
@@ -31,7 +32,6 @@ class QProgressBar;
 class QTextEdit;
 class QLabel;
 
-class K3Process;
 class KAboutData;
 class KTemporaryFile;
 class KUrlRequester;
@@ -113,9 +113,9 @@ class KCMHelpCenter : public KDialog
   protected Q_SLOTS:
     bool buildIndex();
     void cancelBuildIndex();
-    void slotIndexFinished( K3Process * );
-    void slotReceivedStdout(K3Process *proc, char *buffer, int buflen);
-    void slotReceivedStderr(K3Process *proc, char *buffer, int buflen);
+    void slotIndexFinished( int exitCode, QProcess::ExitStatus exitStatus );
+    void slotReceivedStdout();
+    void slotReceivedStderr();
     void slotProgressClosed();
 
     void slotOk();
@@ -154,12 +154,12 @@ class KCMHelpCenter : public KDialog
 
     KTemporaryFile *mCmdFile;
 
-    K3Process *mProcess;
+    KProcess *mProcess;
 
     bool mIsClosing;
 
-    QString mStdOut;
-    QString mStdErr;
+    QByteArray mStdOut;
+    QByteArray mStdErr;
 
     bool mRunAsRoot;
 };
