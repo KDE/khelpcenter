@@ -91,7 +91,7 @@ void SearchJob::searchExited( int exitCode, QProcess::ExitStatus exitStatus )
 void SearchJob::slotJobResult( KJob *job )
 {
     QString result;
-    DocEntry *entry = 0;
+    //DocEntry *entry = 0;
 
     if ( job->error() ) {
         emit searchError( this, mEntry, i18n("Error: %1", job->errorString() ) );
@@ -102,6 +102,7 @@ void SearchJob::slotJobResult( KJob *job )
 
 void SearchJob::slotJobData( KIO::Job *job, const QByteArray &data )
 {
+    Q_UNUSED(job);
     mResult += data.data();
 }
 
