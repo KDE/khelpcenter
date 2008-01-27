@@ -4,11 +4,11 @@
 #include <QObject>
 
 
+#include <KProcess>
 #include <kio/job.h>
 
 #include "docentrytraverser.h"
 
-class K3Process;
 
 namespace KHC {
 
@@ -109,15 +109,13 @@ class SearchEngine : public QObject
     void searchFinished();
 
   protected Q_SLOTS:
-    void searchStdout(K3Process *proc, char *buffer, int buflen);
-    void searchStderr(K3Process *proc, char *buffer, int buflen);
-    void searchExited(K3Process *proc);
+    void searchExited(int, QProcess::ExitStatus);
 
   protected:
     void processSearchQueue();
     
   private:
-    K3Process *mProc;
+    KProcess *mProc;
     bool mSearchRunning;
     QString mSearchResult;
 

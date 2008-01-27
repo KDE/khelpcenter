@@ -7,7 +7,8 @@
 #include <KConfig>
 #include <KDebug>
 #include <KStandardDirs>
-#include <K3Process>
+#include <KProcess>
+#include <KShell>
 #include <KLocale>
 #include <KMessageBox>
 
@@ -246,31 +247,7 @@ bool SearchEngine::initSearchHandlers()
   return true;
 }
 
-void SearchEngine::searchStdout(K3Process *, char *buffer, int len)
-{
-  if ( !buffer || len == 0 )
-    return;
-
-  QString bufferStr;
-  char *p;
-  p = (char*) malloc( sizeof(char) * (len+1) );
-  p = strncpy( p, buffer, len );
-  p[len] = '\0';
-
-  mSearchResult += bufferStr.fromUtf8(p);
-
-  free(p);
-}
-
-void SearchEngine::searchStderr(K3Process *, char *buffer, int len)
-{
-  if ( !buffer || len == 0 )
-    return;
-
-  mStderr.append( QString::fromUtf8( buffer, len ) );
-}
-
-void SearchEngine::searchExited(K3Process *)
+void SearchEngine::searchExited(int exitCode, QProcess::ExitStatus exitStatus)
 {
   kDebug() << "Search terminated";
   mSearchRunning = false;
@@ -339,36 +316,32 @@ bool SearchEngine::search( const QString & words, const QString & method, int ma
 
     kDebug() << "Common Search: " << commonSearchProgram;
 
-    mProc = new K3Process();
+    mProc = new KProcess();
+    *mProc << KShell::splitArgs(commonSearchProgram);
 
-    QStringList cmd = commonSearchProgram.split( " ");
-    QStringList::ConstIterator it;
-    for( it = cmd.begin(); it != cmd.end(); ++it ) {
-      QString arg = *it;
-      if ( arg.startsWith(QLatin1Char('\"')) && 
-           arg.endsWith(QLatin1Char('\"'))) {
-        arg = arg.mid( 1, arg.length() - 2 );
-      }
-      *mProc << arg.toUtf8();
-    }
-
-    connect( mProc, SIGNAL( receivedStdout( K3Process *, char *, int ) ),
-             SLOT( searchStdout( K3Process *, char *, int ) ) );
-    connect( mProc, SIGNAL( receivedStderr( K3Process *, char *, int ) ),
-             SLOT( searchStderr( K3Process *, char *, int ) ) );
-    connect( mProc, SIGNAL( processExited( K3Process * ) ),
-             SLOT( searchExited( K3Process * ) ) );
+    connect( mProc, SIGNAL( finished(int, QProcess::ExitStatus) ),
+             this, SLOT( searchExited(int, QProcess::ExitStatus) ) );
 
     mSearchRunning = true;
     mSearchResult = "";
     mStderr = "<b>" + commonSearchProgram + "</b>\n\n";
 
-    mProc->start(K3Process::NotifyOnExit, K3Process::All);
-
-    while (mSearchRunning && mProc->isRunning())
+    mProc->start();
+    if (!mProc->waitForStarted()) {
+      kError() << "could not start search program '" << commonSearchProgram
+                << "'" << endl;
+      delete mProc;
+      return false;
+    }
+    
+    while (mSearchRunning && mProc->state() == QProcess::Running)
       kapp->processEvents();
 
-    if ( !mProc->normalExit() || mProc->exitStatus() != 0 ) {
+    // no need to use signals/slots
+    mStderr += mProc->readAllStandardError();
+    mSearchResult += mProc->readAllStandardOutput();
+
+    if ( mProc->exitStatus() == KProcess::CrashExit || mProc->exitCode() != 0 ) {
       kError() << "Unable to run search program '" << commonSearchProgram
                 << "'" << endl;
       delete mProc;
@@ -379,7 +352,7 @@ bool SearchEngine::search( const QString & words, const QString & method, int ma
     delete mProc;
 
     // modify the search result
-    mSearchResult = mSearchResult.replace(QLatin1String("http://localhost/"), QLatin1String("file:/"));
+    mSearchResult = mSearchResult.replace("http://localhost/", "file:/");
     mSearchResult = mSearchResult.mid( mSearchResult.indexOf( '<' ) );
 
     mView->beginSearchResult();
