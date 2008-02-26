@@ -47,17 +47,22 @@ set(khelpcenter_KDEINIT_SRCS
 
 qt4_add_dbus_adaptor( khelpcenter_KDEINIT_SRCS org.kde.khelpcenter.kcmhelpcenter.xml kcmhelpcenter.h KCMHelpCenter )
 
-
 kde4_add_kcfg_files(khelpcenter_KDEINIT_SRCS prefs.kcfgc )
 
-kde4_add_kdeinit_executable( khelpcenter ${khelpcenter_KDEINIT_SRCS})
+if (WIN32)
+    # there is no kdeinit support on win32
+    add_executable(khelpcenter WIN32 ${khelpcenter_KDEINIT_SRCS})
+    set_target_properties(khelpcenter PROPERTIES COMPILE_FLAGS "-Dkdemain=main")
+    target_link_libraries(khelpcenter  ${KDE4_KDE3SUPPORT_LIBS} ${KDE4_KHTML_LIBS}  ${QT_QTXML_LIBRARY}  )
+    install(TARGETS khelpcenter DESTINATION ${BIN_INSTALL_DIR})
+else (WIN32)
+    kde4_add_kdeinit_executable( khelpcenter ${khelpcenter_KDEINIT_SRCS})
+    target_link_libraries(kdeinit_khelpcenter  ${KDE4_KDE3SUPPORT_LIBS} ${KDE4_KHTML_LIBS}  ${QT_QTXML_LIBRARY}  )
+    install(TARGETS kdeinit_khelpcenter  DESTINATION ${INSTALL_TARGETS_DEFAULT_ARGS} )
+    target_link_libraries( khelpcenter kdeinit_khelpcenter )
+    install(TARGETS khelpcenter DESTINATION ${BIN_INSTALL_DIR})
+endif (WIN32)
 
-target_link_libraries(kdeinit_khelpcenter  ${KDE4_KDE3SUPPORT_LIBS} ${KDE4_KHTML_LIBS}  ${QT_QTXML_LIBRARY}  )
-
-install(TARGETS kdeinit_khelpcenter  DESTINATION ${INSTALL_TARGETS_DEFAULT_ARGS} )
-
-target_link_libraries( khelpcenter kdeinit_khelpcenter )
-install(TARGETS khelpcenter DESTINATION ${BIN_INSTALL_DIR})
 
 ########### install files ###############
 
