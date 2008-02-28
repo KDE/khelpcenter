@@ -52,7 +52,7 @@ kde4_add_kcfg_files(khelpcenter_KDEINIT_SRCS prefs.kcfgc )
 if (WIN32)
     # there is no kdeinit support on win32
     kde4_add_app_icon(khelpcenter_KDEINIT_SRCS "${KDE4_INSTALL_DIR}/share/icons/oxygen/*/apps/help-browser.png")
-    add_executable(khelpcenter WIN32 ${khelpcenter_KDEINIT_SRCS})
+    kde4_add_executable(khelpcenter ${khelpcenter_KDEINIT_SRCS})
     set_target_properties(khelpcenter PROPERTIES COMPILE_FLAGS "-Dkdemain=main")
     target_link_libraries(khelpcenter  ${KDE4_KDE3SUPPORT_LIBS} ${KDE4_KHTML_LIBS}  ${QT_QTXML_LIBRARY}  )
     install(TARGETS khelpcenter DESTINATION ${BIN_INSTALL_DIR})
