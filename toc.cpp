@@ -203,6 +203,9 @@ void TOC::meinprocExited( int exitCode, QProcess::ExitStatus exitStatus)
     stream << doc.toString();
 
     f.close();
+#ifdef Q_WS_WIN
+    kDebug() << "on german systems umlauts are displayed as '?' for unknown (Qt'r related ?) reasons. Please fix.";
+#endif
 
     fillTree();
 }
