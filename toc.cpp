@@ -97,6 +97,9 @@ void TOC::build( const QString &file )
     }
 
     QString cacheFile = fileName.replace( '/', "__" );
+#ifdef Q_WS_WIN
+    cacheFile = cacheFile.replace( ':', "_" );
+#endif
     m_cacheFile = KStandardDirs::locateLocal( "cache", "help/" + cacheFile );
     m_sourceFile = file;
 
