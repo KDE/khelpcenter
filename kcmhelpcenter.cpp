@@ -267,10 +267,10 @@ void KCMHelpCenter::setupMainWidget( QWidget *parent )
   topLayout->setSpacing( KDialog::spacingHint() );
 
   QString helpText =
-    i18n("To be able to search a document, there needs to exist a search\n"
-         "index. The status column of the list below shows, if an index\n"
+    i18n("To be able to search a document, a search\n"
+         "index needs to exist. The status column of the list below shows whether an index\n"
          "for a document exists.\n") +
-    i18n("To create an index check the box in the list and press the\n"
+    i18n("To create an index, check the box in the list and press the\n"
          "\"Build Index\" button.\n");
 
   QLabel *label = new QLabel( helpText, parent );
