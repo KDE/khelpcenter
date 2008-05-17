@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Control Center Modules
-Name[af]=Beheer Sentrum Modules
+Name[af]=Beheersentrum modules
 Name[ar]=وحدات مركز التحكم
 Name[be]=Модулі цэнтра кіравання
 Name[bg]=Контролен център
@@ -63,7 +63,8 @@ Name[tg]=Бахшҳои маркази идоракунӣ
 Name[th]=มอดูลของศูนย์ควบคุม
 Name[tr]=Kontrol Merkezi Modülleri
 Name[uk]=Модулі центру керування
-Name[uz]=Бошқарув марказининг модуллари
+Name[uz]=Boshqaruv markazining modullari
+Name[uz@cyrillic]=Бошқарув марказининг модуллари
 Name[vi]=Mô-đun Trung tâm Điều khiển
 Name[wa]=Modules do cinte di controle di KDE
 Name[x-test]=xxControl Center Modulesxx

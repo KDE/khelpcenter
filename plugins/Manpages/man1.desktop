@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=(1) User Commands
-Name[af]=(1) Gebruiker Opdragte
+Name[af]=(1) Gebruikerbevele
 Name[ar]=(1) أوامر المستخدم
 Name[be]=(1) Каманды карыстальніка
 Name[bg]=(1) Потребителски команди
@@ -64,7 +64,8 @@ Name[tg]=(1) Фармонҳои корбар
 Name[th]=(1) คำสั่งของผู้ใช้
 Name[tr]=(1) Kullanıcı Komutları
 Name[uk]=(1) Команди користувача
-Name[uz]=(1) Фойдаланувчи учун буйруқлар
+Name[uz]=(1) Foydalanuvchi uchun buyruqlar
+Name[uz@cyrillic]=(1) Фойдаланувчи учун буйруқлар
 Name[vi]=(1) Lệnh của người dùng
 Name[wa]=(1) Comandes uzeu
 Name[x-test]=xx(1) User Commandsxx

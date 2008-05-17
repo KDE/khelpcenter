@@ -1,7 +1,7 @@
 [Desktop Entry]
 X-DocPath=help:/khelpcenter/faq/index.html
 Name=The KDE FAQ
-Name[af]=Die Kde Faq
+Name[af]=Die KDE FAQ
 Name[ar]=أسئلة كدي المتكررة
 Name[be]=FAQ KDE
 Name[bg]=Често задавани въпроси
@@ -63,7 +63,8 @@ Name[tg]=KDE: саволҳо ва ҷавобҳо
 Name[th]=คำถามที่ถามบ่อยของ KDE
 Name[tr]=KDE Sıkça Sorulan Sorular
 Name[uk]=ЧАП для KDE
-Name[uz]=KDE ТСС
+Name[uz]=KDE TSS
+Name[uz@cyrillic]=KDE ТСС
 Name[vi]=Các câu hỏi hay gặp của KDE
 Name[wa]=Li FÅK di KDE
 Name[x-test]=xxThe KDE FAQxx

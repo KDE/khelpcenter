@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=KInfoCenter Modules
-Name[af]=K Inligting Sentrum Modules
+Name[af]=K-Inligtingsentrum Modules
 Name[ar]=وحدات مركز المعلومات لـٍ كدي
 Name[be]=Модулі інфармацыйнага цэнтра
 Name[bg]=Информационен център
@@ -63,7 +63,8 @@ Name[tg]=Бахшҳои маркази иттилоот
 Name[th]=มอดูลของศูนย์ข้อมูล
 Name[tr]=KInfoCenter Modülleri
 Name[uk]=Модулі KInfoCenter
-Name[uz]=KInfoCenter модуллари
+Name[uz]=KInfoCenter modullari
+Name[uz@cyrillic]=KInfoCenter модуллари
 Name[vi]=Mô-đun Trung tâm Thông tin của KDE
 Name[wa]=Modules do cinte d' infôrmåcions di KDE
 Name[x-test]=xxKInfoCenter Modulesxx

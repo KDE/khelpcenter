@@ -1,7 +1,7 @@
 [Desktop Entry]
 X-DocPath=help:/khelpcenter/userguide/index.html
 Name=KDE Users' Manual
-Name[af]=KDE gebruiker handleiding
+Name[af]=KDE gebruikershandleiding
 Name[ar]=كتيّب كدي للمستخدمين
 Name[be]=Падручнік карыстальніка KDE
 Name[bg]=Ръководство за употреба
@@ -63,7 +63,8 @@ Name[tg]=Дастурамалҳои KDE
 Name[th]=คู่มือผู้ใช้งาน KDE
 Name[tr]=KDE Kullanıcı Kılavuzu
 Name[uk]=Підручник користувача KDE
-Name[uz]=KDE учун қўлланма
+Name[uz]=KDE uchun qoʻllanma
+Name[uz@cyrillic]=KDE учун қўлланма
 Name[vi]=Sổ tay người dùng KDE
 Name[wa]=Manuel di l' uzeu di KDE
 Name[x-test]=xxKDE Users' Manualxx
