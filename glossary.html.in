@@ -1,8 +1,8 @@
 <HTML>
 
 <HEAD>
-	<title>%1: %1</title> <!-- KDE Glossary: <Term> -->
-	<link rel="stylesheet" href="file:%1" type="text/css" /> <!-- konq.css -->
+	<title>%1: %2</title> <!-- KDE Glossary: <Term> -->
+	<link rel="stylesheet" href="file:%3" type="text/css" /> <!-- konq.css -->
 </HEAD>
 
 <BODY BGCOLOR=#3679AD LEFTMARGIN=0 TOPMARGIN=5>
@@ -15,13 +15,13 @@
 	<COL WIDTH=*>
      </COLGROUP>
 	<TR HEIGHT=24>
-  <TD BGCOLOR=#505050 ALIGN=RIGHT><IMG WIDTH=70 HEIGHT=22  SRC="file:%1"></TD> <!-- pointers.png -->
+  <TD BGCOLOR=#505050 ALIGN=RIGHT><IMG WIDTH=70 HEIGHT=22  SRC="file:%4"></TD> <!-- pointers.png -->
 		<TD BGCOLOR=#505050 COLSPAN=3></TD>
 	</TR>
 	<TR>
 		<TD WIDTH=176 COLSPAN=2 ROWSPAN=2> &nbsp;</TD>
-		<TD BGCOLOR=#DDDDDD><IMG WIDTH=282 HEIGHT=77 SRC="file:%1"></TD> <!-- khelpcenter.png -->
-		<TD BGCOLOR=#DDDDDD BACKGROUND="file:%1">&nbsp;</TD> <!-- lines.png -->
+		<TD BGCOLOR=#DDDDDD><IMG WIDTH=282 HEIGHT=77 SRC="file:%5"></TD> <!-- khelpcenter.png -->
+		<TD BGCOLOR=#DDDDDD BACKGROUND="file:%6">&nbsp;</TD> <!-- lines.png -->
 	</TR>
 
 	<TR>
@@ -61,7 +61,7 @@
 		</TR>
 		<TR>
 			<TD WIDTH=20>&nbsp;</TD>
-			<TD VALIGN=TOP><H2>%1</H2>%1<P>%1</TD>
+			<TD VALIGN=TOP><H2>%7</H2>%8<P>%9</TD>
 		<TD WIDTH=20>&nbsp;</TD>
  	</TR>
 	<TR>
@@ -84,7 +84,7 @@
 <TD class="end" WIDTH=*>&nbsp;</TD>
 <TD WIDTH=204><A HREF="http://www.kde.org"> <IMG WIDTH=204 BORDER=0
 HEIGHT=57
-SRC="file:%1"></A></TD>
+SRC="file:%10"></A></TD>
 </TR>
 <TR>
                 <TD HEIGHT=50 COLSPAN=2>&nbsp;</TD>
