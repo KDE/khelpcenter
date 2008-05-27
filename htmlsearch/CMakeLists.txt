@@ -36,7 +36,7 @@ kde4_add_executable(khtmlindex ${khtmlindex_SRCS})
 
 target_link_libraries(khtmlindex  ${KDE4_KDEUI_LIBS} htmlsearch )
 
-install(PROGRAMS khtmlindex DESTINATION ${BIN_INSTALL_DIR})
+install(PROGRAMS khtmlindex ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 
 ########### install files ###############
