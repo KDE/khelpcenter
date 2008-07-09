@@ -89,7 +89,7 @@ $ENV{ PATH } = '/bin:/usr/bin';
 $ENV{ CDPATH } = '';
 $ENV{ ENV } = '';
 
-my $findpath = "$kdeprefix/share/doc/HTML/$lang/";
+my $findpath = "@HTML_INSTALL_DIR@/$lang/";
 my $findcmd = "find $findpath -name index.docbook";
 
 print STDERR "FINDCMD: $findcmd\n";
@@ -140,7 +140,7 @@ case "\$orig" in
   help:/*)
 	orig=\${orig/help:\\//}
 	orig=\${orig/\/index.docbook/}
-	cd $kdeprefix/share/doc/HTML/en/\$orig
+	cd @HTML_INSTALL_DIR@/en/\$orig
 	file=index.docbook
 	;;
   *)	
@@ -167,7 +167,7 @@ common_dir:		$commondir
 locale:                 $locale
 database_dir:           $htdigdb
 database_base:		\${database_dir}/$identifier
-local_urls:             help://=$kdeprefix/share/doc/HTML/en/ file://=/
+local_urls:             help://=@HTML_INSTALL_DIR@/en/ file://=/
 local_urls_only:        true
 limit_urls_to:          file:// help:/
 ignore_noindex:         true
