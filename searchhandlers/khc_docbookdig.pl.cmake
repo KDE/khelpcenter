@@ -150,7 +150,8 @@ case "\$orig" in
 esac
 
 echo "t	apptitle"
-$kdeprefix/bin/meinproc --htdig "\$file"
+#$kdeprefix/bin/meinproc --htdig "\$file"
+$kdeprefix/bin/meinproc4 --htdig "\$file"
 EOT
 close PARSER;
 chmod 0755, $parserfile;

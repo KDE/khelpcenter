@@ -213,7 +213,9 @@ void IndexProgressDialog::hideDetails()
   mLogLabel->hide();
   mLogView->hide();
   setButtonText( User1, i18n("Details &gt;&gt;") );
-  layout()->activate();
+
+  // causes bug 166343
+  //layout()->activate();
   adjustSize();
 }
 
