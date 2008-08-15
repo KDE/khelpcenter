@@ -242,7 +242,7 @@ void Navigator::insertIOSlaveDocs( const QString &name, NavigatorItem *topItem )
       // First parameter is ignored if second is an absolute path
       KUrl url(KUrl("help:/"), docPath);
       QString icon = KProtocolInfo::icon(*it);
-      if ( icon.isEmpty() ) icon = "document2";
+      if ( icon.isEmpty() ) icon = "text-plain";
       DocEntry *entry = new DocEntry( *it, url.url(), icon );
       NavigatorItem *item = new NavigatorItem( entry, topItem, prevItem );
       prevItem = item;
@@ -272,7 +272,7 @@ void Navigator::createItemFromDesktopFile( NavigatorItem *topItem,
       // First parameter is ignored if second is an absolute path
       KUrl url(KUrl("help:/"), docPath);
       QString icon = desktopFile.readIcon();
-      if ( icon.isEmpty() ) icon = "document2";
+      if ( icon.isEmpty() ) icon = "text-plain";
       DocEntry *entry = new DocEntry( desktopFile.readName(), url.url(), icon );
       NavigatorItem *item = new NavigatorItem( entry, topItem );
       item->setAutoDeleteDocEntry( true );

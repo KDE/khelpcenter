@@ -146,5 +146,5 @@ Comment[wa]=Guide d' enondaedje abeye di KDE.
 Comment[x-test]=xxKDE quickstart guide.xx
 Comment[zh_CN]=KDE 速成指南。
 Comment[zh_TW]=KDE 快速入門指南。
-Icon=helpdoc
+Icon=text-plain
 X-DocPath=help:/khelpcenter/quickstart/index.html

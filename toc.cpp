@@ -292,7 +292,7 @@ TOCSectionItem::TOCSectionItem( TOC *toc, TOCChapterItem *parent, Q3ListViewItem
     : TOCItem( toc, parent, after, title ),
     m_name( name )
 {
-    setPixmap( 0, SmallIcon( "document" ) );
+    setPixmap( 0, SmallIcon( "text-plain" ) );
     entry()->setUrl(url());
 }
 

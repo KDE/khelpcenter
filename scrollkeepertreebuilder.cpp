@@ -114,7 +114,8 @@ int ScrollKeeperTreeBuilder::insertSection( NavigatorItem *parent,
                                             const QDomNode &sectNode,
                                             NavigatorItem *&sectItem )
 {
-  DocEntry *entry = new DocEntry( "", "", "contents2" );
+// TODO: was contents2 -> needs to be changed to help-contents-alternate or similar
+  DocEntry *entry = new DocEntry( "", "", "help-contents" );
   sectItem = new NavigatorItem( entry, parent, after );
   sectItem->setAutoDeleteDocEntry( true );
   mItems.append( sectItem );
@@ -151,7 +152,7 @@ int ScrollKeeperTreeBuilder::insertSection( NavigatorItem *parent,
 void ScrollKeeperTreeBuilder::insertDoc( NavigatorItem *parent,
                                          const QDomNode &docNode )
 {
-  DocEntry *entry = new DocEntry( "", "", "document2" );
+  DocEntry *entry = new DocEntry( "", "", "text-plain" );
   NavigatorItem *docItem = new NavigatorItem( entry, parent );
   docItem->setAutoDeleteDocEntry( true );
   mItems.append( docItem );

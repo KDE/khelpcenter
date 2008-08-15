@@ -70,7 +70,7 @@ void PluginTraverser::process( DocEntry *entry )
 
   if ( entry->khelpcenterSpecial() == QLatin1String("apps") ) {
     NavigatorAppItem *appItem;
-    entry->setIcon( "kmenu" );
+    entry->setIcon( "kde" );
     if ( mListView )
       appItem = new NavigatorAppItem( entry, mListView, mCurrentItem );
     else
@@ -102,7 +102,8 @@ void PluginTraverser::process( DocEntry *entry )
     } else {
       return;
     }
-    mCurrentItem->setPixmap( 0, SmallIcon( QLatin1String("contents2") ) );
+// TODO: was contents2 -> needs to be changed to help-contents-alternate or similar
+    mCurrentItem->setPixmap( 0, SmallIcon( QLatin1String("help-contents") ) );
   }
 }
 

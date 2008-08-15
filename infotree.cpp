@@ -68,7 +68,8 @@ void InfoCategoryItem::setOpen( bool open )
   NavigatorItem::setOpen( open );
 
   if ( open && childCount() > 0 ) setPixmap( 0, SmallIcon( "help-contents" ) );
-  else setPixmap( 0, SmallIcon( "contents2" ) );
+// TODO: was contents2 -> needs to be changed to help-contents-alternate or similar
+  else setPixmap( 0, SmallIcon( "help-contents" ) );
 }
 
 InfoNodeItem::InfoNodeItem( InfoCategoryItem *parent, const QString &text )

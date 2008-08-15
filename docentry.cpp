@@ -69,8 +69,9 @@ QString DocEntry::icon() const
 
   if ( !docExists() ) return QLatin1String("unknown");
 
-  if ( isDirectory() ) return QLatin1String("contents2");
-  else return "document2";
+// TODO: was contents2 -> needs to be changed to help-contents-alternate or similar
+  if ( isDirectory() ) return QLatin1String("help-contents");
+  else return "text-plain";
 }
 
 void DocEntry::setUrl( const QString &url )

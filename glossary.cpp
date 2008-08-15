@@ -53,7 +53,8 @@ class SectionItem : public K3ListViewItem
         {
                 K3ListViewItem::setOpen(open);
 
-                setPixmap( 0, SmallIcon( QLatin1String( open ? "help-contents" : "contents2" ) ) );
+// TODO: 2nd was contents2 -> needs to be changed to help-contents-alternate or similar
+                setPixmap( 0, SmallIcon( QLatin1String( open ? "help-contents" : "help-contents" ) ) );
 
         }
 };

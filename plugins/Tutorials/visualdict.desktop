@@ -142,5 +142,5 @@ Comment[x-test]=xxGuide to KDE widgetsxx
 Comment[xh]=Isikhombisi esiya kwi KDE widgets
 Comment[zh_CN]=KDE 窗口部件指南
 Comment[zh_TW]=KDE 視窗元件 (widget) 指南
-Icon=helpdoc
+Icon=text-plain
 X-DocPath=help:/khelpcenter/visualdict/index.html
