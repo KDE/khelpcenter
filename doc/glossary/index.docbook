@@ -83,48 +83,31 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 		<glossentry id="gloss-kbuildsycoca">
 			<glossterm><application>KBuildSycoca</application></glossterm>
 			<glossdef><para><application>KBuildSycoca4</application> is a command line 
-program and regenerates the
-					so-called <acronym>KSycoca</acronym>. This is useful, for example, if some 
-or all modules in
-				&kcontrol; are missing.</para>
-				<glossseealso 
-otherterm="gloss-ksycoca"><acronym>KSycoca</acronym></glossseealso>
-				<glossseealso otherterm="gloss-kcontrol">&kcontrol;</glossseealso>
+				program and regenerates the
+				so-called <acronym>KSycoca</acronym>. This is useful, for example, if some
+				or all modules in
+				&systemsettings; are missing.</para>
+				<glossseealso otherterm="gloss-ksycoca"><acronym>KSycoca</acronym></glossseealso>
+				<glossseealso otherterm="gloss-systemsettings">&systemsettings;</glossseealso>
 			</glossdef>
 		</glossentry>
-		<glossentry id="gloss-kcontrol">
-			<glossterm>&kcontrol;</glossterm>
+		<glossentry id="gloss-systemsettings">
+			<glossterm>&systemsettings;</glossterm>
 			<glossdef><para>This is the project and filename of the &kde; control
-				center. &kcontrolcenter; allows you to customize virtually
+				center. &systemsettings; allows you to customize virtually
 				every configuration option of &kde;.</para>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 			</glossdef>
 		</glossentry>
-		<glossentry id="gloss-kicker">
-			<glossterm>&kicker;</glossterm>
-			<glossdef><para>&kicker; is the nickname as well as project name of the
-				&kde; panel.</para>
-				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
-				<glossseealso otherterm="gloss-panel">Panel</glossseealso>
-			</glossdef>
-		</glossentry>
 		<glossentry id="gloss-konqueror">
 			<glossterm>&konqueror;</glossterm>
-			<glossdef><para>&konqueror; is a filemanager, web browser, picture viewer
+			<glossdef><para>&konqueror; is a web browser, picture viewer, file manager
 				and more, and a core part of the &kde; project. You can
 				find more information about &konqueror; at <ulink
 				url="http://www.konqueror.org">www.konqueror.org</ulink>.</para>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 			</glossdef>
 		</glossentry>
-		<glossentry id="gloss-ksirc">
-			<glossterm>&ksirc;</glossterm>
-			<glossdef><para>&ksirc; is the default <acronym>IRC</acronym> client,
-				which is shipped with &kde;. You can use &ksirc; to chat with anyone on
-				an <acronym>IRC</acronym> network.</para>
-				<glossseealso otherterm="gloss-irc"><acronym>IRC</acronym></glossseealso>
-			</glossdef>
-		</glossentry>			 	
 	</glossdiv>
 	
 	<glossdiv id="glossdiv-desktop-terminology">
@@ -169,11 +152,9 @@ otherterm="gloss-ksycoca"><acronym>KSycoca</acronym></glossseealso>
 		</glossentry>
 		<glossentry id="gloss-panel">
 			<glossterm>Panel</glossterm>
-			<glossdef><para>Refers to the panel (also known as
-				<quote>&kicker;</quote>) which often resides at the bottom of the
+			<glossdef><para>Refers to the panel which often resides at the bottom of the
 				screen.</para>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
-				<glossseealso otherterm="gloss-kicker">&kicker;</glossseealso>
 			</glossdef>
 		</glossentry>
 		<glossentry id="gloss-ripping">
