@@ -1,6 +1,6 @@
 [Desktop Entry]
 Exec=khelpcenter
-Icon=khelpcenter
+Icon=help-browser
 X-DocPath=khelpcenter/index.html
 Type=Application
 Terminal=false

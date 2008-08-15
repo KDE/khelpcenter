@@ -66,6 +66,7 @@ extern "C" int KDE_EXPORT kdemain( int argc, char **argv )
                        "me@kde.org" );
   aboutData.addAuthor( ki18n("Wojciech Smigaj"), ki18n("Info page support"),
                        "achu@klub.chip.pl" );
+  aboutData.setProgramIconName( "help-browser" );
 
   KCmdLineArgs::init( argc, argv, &aboutData );
 

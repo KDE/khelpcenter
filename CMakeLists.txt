@@ -1,7 +1,6 @@
-add_subdirectory( plugins ) 
-add_subdirectory( pics ) 
-add_subdirectory( searchhandlers ) 
-add_subdirectory( tests ) 
+add_subdirectory( plugins )
+add_subdirectory( searchhandlers )
+add_subdirectory( tests )
 
 add_definitions (-DQT3_SUPPORT -DQT3_SUPPORT_WARNINGS)
 
