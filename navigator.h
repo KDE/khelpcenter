@@ -67,7 +67,6 @@ class Navigator : public QWidget
     const GlossaryEntry &glossEntry(const QString &term) const { return mGlossaryTree->entry( term ); }
 
     void insertParentAppDocs( const QString &name, NavigatorItem *parent );
-    void insertAppletDocs( NavigatorItem *parent );
     NavigatorItem *insertScrollKeeperDocs( NavigatorItem *parentItem,
                                  NavigatorItem *after );
     void insertInfoDocs( NavigatorItem *parentItem );

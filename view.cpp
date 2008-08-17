@@ -72,11 +72,6 @@ void View::copySelectedText()
 
 bool View::openUrl( const KUrl &url )
 {
-    if ( url.protocol().toLower() == "about" )
-    {
-        showAboutPage();
-        return true;
-    }
     mState = Docu;
     return KHTMLPart::openUrl( url );
 }
@@ -93,59 +88,6 @@ void View::restoreState( QDataStream &stream )
     stream >> mState;
     if ( mState == Docu )
         KHTMLPart::restoreState( stream );
-    else if ( mState == About )
-        showAboutPage();
-}
-
-void View::showAboutPage()
-{
-    QString file = KStandardDirs::locate( "data", "khelpcenter/intro.html.in" );
-    if ( file.isEmpty() )
-        return;
-
-    QFile f( file );
-
-    if ( !f.open( QIODevice::ReadOnly ) )
-    return;
-
-    mState = About;
-
-    emit started( 0 );
-
-    QTextStream t( &f );
-
-    QString res = t.readAll();
-
-    res = res.arg( i18n("Conquer your Desktop!") )
-          .arg( langLookup( "khelpcenter/konq.css" ) )
-          .arg( langLookup( "khelpcenter/pointers.png" ) )
-          .arg( langLookup( "khelpcenter/khelpcenter.png" ) )
-          .arg( i18n("Help Center") )
-          .arg( langLookup( "khelpcenter/lines.png" ) )
-          .arg( i18n( "Welcome to the K Desktop Environment" ) )
-          .arg( i18n( "The KDE team welcomes you to user-friendly UNIX computing" ) )
-          .arg( i18n( "KDE is a powerful graphical desktop environment for UNIX workstations. A\n"
-                      "KDE desktop combines ease of use, contemporary functionality and outstanding\n"
-                      "graphical design with the technological superiority of the UNIX operating\n"
-                      "system." ) )
-          .arg( i18n( "What is the K Desktop Environment?" ) )
-          .arg( i18n( "Contacting the KDE Project" ) )
-          .arg( i18n( "Supporting the KDE Project" ) )
-          .arg( i18n( "Useful links" ) )
-          .arg( i18n( "Getting the most out of KDE" ) )
-          .arg( i18n( "General Documentation" ) )
-          .arg( i18n( "A Quick Start Guide to the Desktop" ) )
-          .arg( i18n( "KDE Users' guide" ) )
-          .arg( i18n( "Frequently asked questions" ) )
-          .arg( i18n( "Basic Applications" ) )
-          .arg( i18n( "The Kicker Desktop Panel" ) )
-          .arg( i18n( "The KDE Control Center" ) )
-          .arg( i18n( "The Konqueror File manager and Web Browser" ) )
-          .arg( langLookup( "khelpcenter/kdelogo2.png" ) );
-    begin( KUrl( "about:khelpcenter" ) );
-    write( res );
-    end();
-    emit completed();
 }
 
 QString View::langLookup( const QString &fname )

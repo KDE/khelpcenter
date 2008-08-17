@@ -72,7 +72,6 @@ class View : public KHTMLPart
     void showMenu( const QString& url, const QPoint& pos);
 
   private:
-    void showAboutPage();
     KUrl urlFromLinkNode( const DOM::Node &n ) const;
  
     int mState;
