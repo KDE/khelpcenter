@@ -58,6 +58,9 @@
 #include <kdesktopfile.h>
 #include <kprotocolinfo.h>
 #include <kservicegroup.h>
+#include <kservicetypetrader.h>
+#include <kcmoduleinfo.h>
+#include <kcmodule.h>
 
 #include "navigatoritem.h"
 #include "navigatorappitem.h"
@@ -224,6 +227,28 @@ void Navigator::insertParentAppDocs( const QString &name, NavigatorItem *topItem
         desktopFile = KStandardDirs::locate( "apps", desktopFile );
     createItemFromDesktopFile( topItem, desktopFile );
   }
+}
+
+void Navigator::insertKCMDocs( const QString &name, NavigatorItem *topItem, const QString &type )
+{
+  kDebug(1400) << "Requested IOSlave documents for ID " << name;
+
+  KService::List list;
+
+  if ( type == QString("kcontrol") ) {
+    list = KServiceTypeTrader::self()->query( "KCModule", "[X-KDE-ParentApp] == 'kcontrol'" );
+  } else {
+    list = KServiceTypeTrader::self()->query( "KCModule", "[X-KDE-ParentApp] == 'kinfocenter'" );
+  }
+
+  NavigatorItem *prevItem = 0;
+  for ( KService::List::const_iterator it = list.begin(); it != list.end(); ++it )
+  {
+    KService::Ptr s = (*it);
+    KCModuleInfo m = KCModuleInfo::KCModuleInfo(s);
+    QString desktopFile = KStandardDirs::locate( "services", m.fileName() );
+    createItemFromDesktopFile( topItem, desktopFile );
+    }
 }
 
 void Navigator::insertIOSlaveDocs( const QString &name, NavigatorItem *topItem )

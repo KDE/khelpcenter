@@ -89,10 +89,12 @@ void PluginTraverser::process( DocEntry *entry )
     else
       mCurrentItem = new NavigatorItem( entry, mParentItem, mCurrentItem );
 
-    if ( entry->khelpcenterSpecial() == QLatin1String("kinfocenter") ||
-                entry->khelpcenterSpecial() == QLatin1String("kcontrol" )||
-                entry->khelpcenterSpecial() == QLatin1String("konqueror") ) {
+    if ( entry->khelpcenterSpecial() == QLatin1String("konqueror") ) {
       mNavigator->insertParentAppDocs( entry->khelpcenterSpecial(), mCurrentItem );
+    } else if ( entry->khelpcenterSpecial() == QLatin1String("kcontrol") ) {
+      mNavigator->insertKCMDocs( entry->khelpcenterSpecial(), mCurrentItem, QString("kcontrol") );
+    } else if ( entry->khelpcenterSpecial() == QLatin1String("kinfocenter") ) {
+      mNavigator->insertKCMDocs( entry->khelpcenterSpecial(), mCurrentItem, QString("kinfocenter") );
     } else if ( entry->khelpcenterSpecial() == QLatin1String("kioslave") ) {
       mNavigator->insertIOSlaveDocs( entry->khelpcenterSpecial(), mCurrentItem );
     } else if ( entry->khelpcenterSpecial() == QLatin1String("info") ) {

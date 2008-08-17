@@ -70,6 +70,7 @@ class Navigator : public QWidget
     NavigatorItem *insertScrollKeeperDocs( NavigatorItem *parentItem,
                                  NavigatorItem *after );
     void insertInfoDocs( NavigatorItem *parentItem );
+    void insertKCMDocs(const QString &, NavigatorItem*parent, const QString &);
     void insertIOSlaveDocs(const QString &, NavigatorItem*parent);
     
     void createItemFromDesktopFile( NavigatorItem *item, const QString &name );
