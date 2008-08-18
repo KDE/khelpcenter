@@ -224,9 +224,14 @@ bool View::prevPage(bool checkOnly)
 {
   const DOM::HTMLCollection links = htmlDocument().links();
 
+  KUrl prevURL;
+
   // The first link on a page (top-left corner) would be the Prev link.
-  const DOM::Node prevLinkNode = links.item( 0 );
-  KUrl prevURL = urlFromLinkNode( prevLinkNode );
+  if ( !baseURL().path().endsWith( "/index.html" ) )
+    prevURL = urlFromLinkNode( links.item( 0 ) );
+  else
+    return false;
+
   if (!prevURL.isValid())
     return false;
 
@@ -241,11 +246,11 @@ bool View::nextPage(bool checkOnly)
 
   KUrl nextURL;
 
-  // If we're on the first page, the "Next" link is the last link
+  // If we're on the first page, the "Next" link is the second to the last link
   if ( baseURL().path().endsWith( "/index.html" ) )
-    nextURL = urlFromLinkNode( links.item( links.length() - 1 ) );
-  else
     nextURL = urlFromLinkNode( links.item( links.length() - 2 ) );
+  else
+    nextURL = urlFromLinkNode( links.item( links.length() - 4 ) );
 
   if (!nextURL.isValid())
     return false;

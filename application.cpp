@@ -35,7 +35,7 @@ Application::Application() : KUniqueApplication(), mMainWindow( 0 )
 int Application::newInstance()
 {
   if (restoringSession()) return 0;
-  
+
   KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
 
   KUrl url;
