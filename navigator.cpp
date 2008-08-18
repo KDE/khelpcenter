@@ -241,7 +241,6 @@ void Navigator::insertKCMDocs( const QString &name, NavigatorItem *topItem, cons
     list = KServiceTypeTrader::self()->query( "KCModule", "[X-KDE-ParentApp] == 'kinfocenter'" );
   }
 
-  NavigatorItem *prevItem = 0;
   for ( KService::List::const_iterator it = list.begin(); it != list.end(); ++it )
   {
     KService::Ptr s = (*it);

@@ -269,7 +269,7 @@ void History::fillGoMenu()
     return;
 
   for ( int i = goMenu->actions().count() - 1 ; i >= m_goMenuIndex; i-- )
-    goMenu->removeItemAt( i );
+    goMenu->removeAction( goMenu->actions()[i] );
 
   // TODO perhaps smarter algorithm (rename existing items, create new ones only if not enough) ?
 
@@ -334,10 +334,9 @@ void History::fillHistoryPopup( QMenu *popup, bool onlyBack, bool onlyForward, b
     text.replace( "&", "&&" );
     if ( checkCurrentItem && it.current() == current )
     {
-      int id = popup->insertItem( text ); // no pixmap if checked
-      popup->setItemChecked( id, true );
+      popup->addAction( text )->setChecked( true ); // no pixmap if checked
     } else
-      popup->insertItem( text );
+      popup->addAction( text );
     if ( ++i > 10 )
       break;
     if ( !onlyForward ) --it; else ++it;
