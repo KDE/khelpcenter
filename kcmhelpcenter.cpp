@@ -452,7 +452,7 @@ bool KCMHelpCenter::buildIndex()
   QString name = (*mCurrentEntry)->name();
 
   if ( !mProgressDialog ) {
-    mProgressDialog = new IndexProgressDialog( this );
+    mProgressDialog = new IndexProgressDialog( parentWidget() );
     connect( mProgressDialog, SIGNAL( cancelled() ),
              SLOT( cancelBuildIndex() ) );
     connect( mProgressDialog, SIGNAL( closed() ),
@@ -479,8 +479,11 @@ void KCMHelpCenter::startIndexProcess()
       kError() << "Failed to run index process as root - could not find kdesu";
     } else {
       *mProcess << kdesu;
-      *mProcess << "-attach" <<  QString::number(window()->winId()) << "--";
-      kDebug() << "Run as root";
+      if(parentWidget()) {
+        *mProcess << "--attach" <<  QString::number(parentWidget()->window()->winId());
+        kDebug() << "Run as root, attaching kdesu to winid " << QString::number(parentWidget()->window()->winId());
+      }
+      *mProcess << "--";
     }
   }
 
