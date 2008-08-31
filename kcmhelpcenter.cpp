@@ -474,8 +474,14 @@ void KCMHelpCenter::startIndexProcess()
 
   mProcess = new KProcess;
   if ( mRunAsRoot ) {
-    *mProcess << KStandardDirs::findExe("kdesu"); 
-    kDebug() << "Run as root";
+    QString kdesu = KStandardDirs::findExe("kdesu"); 
+    if(kdesu.isEmpty()) {
+      kError() << "Failed to run index process as root - could not find kdesu";
+    } else {
+      *mProcess << kdesu;
+      *mProcess << "-attach" <<  QString::number(window()->winId()) << "--";
+      kDebug() << "Run as root";
+    }
   }
 
   *mProcess << KStandardDirs::findExe("khc_indexbuilder");
@@ -492,8 +498,7 @@ void KCMHelpCenter::startIndexProcess()
 
   mProcess->start();
   if (!mProcess->waitForStarted()) {
-    kError() << "KCMHelpcenter::startIndexProcess(): Failed to start process."
-        << endl;
+    kError() << "KCMHelpcenter::startIndexProcess(): Failed to start process.";
     deleteProcess();
     deleteCmdFile();
   }
