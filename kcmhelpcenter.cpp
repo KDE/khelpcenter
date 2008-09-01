@@ -473,6 +473,7 @@ void KCMHelpCenter::startIndexProcess()
   kDebug() << "KCMHelpCenter::startIndexProcess()";
 
   mProcess = new KProcess;
+#ifndef Q_WS_WIN
   if ( mRunAsRoot ) {
     QString kdesu = KStandardDirs::findExe("kdesu"); 
     if(kdesu.isEmpty()) {
@@ -486,6 +487,7 @@ void KCMHelpCenter::startIndexProcess()
       *mProcess << "--";
     }
   }
+#endif
 
   *mProcess << KStandardDirs::findExe("khc_indexbuilder");
   *mProcess << mCmdFile->fileName();
