@@ -284,7 +284,7 @@ void KHTMLSearchConfig::load()
 
   QStringList l = config->readPathEntry("Paths", QStringList());
   searchPaths->clear();
-  QStringList::Iterator it;
+  QStringList::const_iterator it;
   for (it=l.begin(); it != l.end(); ++it)
     searchPaths->insertItem(*it);
 
