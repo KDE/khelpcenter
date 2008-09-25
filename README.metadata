@@ -119,7 +119,7 @@ In addition to translation of meta information like title and short description
 of documents which is contained in the meta file, translations of whole
 documents are handled. Each translation of a document has an own desktop file.
 The language of the document is indicated by adding the language code as
-additional suffix to the the filename of the desktop file. The language suffix
+additional suffix to the filename of the desktop file. The language suffix
 is added before the ".desktop" suffix (Example: 'apache.de.desktop' would be the
 file name for the german translation of the apache documentation).
 
