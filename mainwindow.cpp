@@ -230,13 +230,13 @@ void MainWindow::setupActions()
     actionCollection()->addAction( KStandardAction::Quit, this, SLOT( close() ) );
     actionCollection()->addAction( KStandardAction::Print, "printFrame", this, SLOT( print() ) );
 
-    QAction *prevPage  = actionCollection()->addAction( "prevPage" );
+    KAction *prevPage  = actionCollection()->addAction( "prevPage" );
     prevPage->setText( i18n( "Previous Page" ) );
     prevPage->setShortcut( Qt::CTRL+Qt::Key_PageUp );
     prevPage->setWhatsThis( i18n( "Moves to the previous page of the document" ) );
     connect( prevPage, SIGNAL( triggered() ), mDoc, SLOT( prevPage() ) );
 
-    QAction *nextPage  = actionCollection()->addAction( "nextPage" );
+    KAction *nextPage  = actionCollection()->addAction( "nextPage" );
     nextPage->setText( i18n( "Next Page" ) );
     nextPage->setShortcut( Qt::CTRL + Qt::Key_PageDown );
     nextPage->setWhatsThis( i18n( "Moves to the next page of the document" ) );
