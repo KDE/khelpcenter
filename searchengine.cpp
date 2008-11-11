@@ -216,10 +216,10 @@ SearchEngine::~SearchEngine()
 
 bool SearchEngine::initSearchHandlers()
 {
-  QStringList resources = KGlobal::dirs()->findAllResources(
+  const QStringList resources = KGlobal::dirs()->findAllResources(
     "appdata", "searchhandlers/*.desktop" );
   QStringList::ConstIterator it;
-  for( it = resources.begin(); it != resources.end(); ++it ) {
+  for( it = resources.constBegin(); it != resources.constEnd(); ++it ) {
     QString filename = *it;
     kDebug() << "SearchEngine::initSearchHandlers(): " << filename;
     SearchHandler *handler = SearchHandler::initFromFile( filename );
@@ -231,7 +231,7 @@ bool SearchEngine::initSearchHandlers()
     } else {
       QStringList documentTypes = handler->documentTypes();
       QStringList::ConstIterator it;
-      for( it = documentTypes.begin(); it != documentTypes.end(); ++it ) {
+      for( it = documentTypes.constBegin(); it != documentTypes.constEnd(); ++it ) {
         mHandlers.insert( *it, handler );
       }
     }

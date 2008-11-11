@@ -39,7 +39,7 @@ DocMetaInfo::~DocMetaInfo()
   kDebug() << "~DocMetaInfo()";
 
   DocEntry::List::ConstIterator it;
-  for( it = mDocEntries.begin(); it != mDocEntries.end(); ++it ) {
+  for( it = mDocEntries.constBegin(); it != mDocEntries.constEnd(); ++it ) {
     delete *it;
   }
 
@@ -130,7 +130,7 @@ void DocMetaInfo::scanMetaInfo( bool force )
   kDebug( 1400 ) << "LANGS: " << mLanguages.join( QLatin1String(" ") );
 
   QStringList::ConstIterator it;
-  for( it = mLanguages.begin(); it != mLanguages.end(); ++it ) {
+  for( it = mLanguages.constBegin(); it != mLanguages.constEnd(); ++it ) {
     mLanguageNames.insert( *it, languageName( *it ) );
   }
 
@@ -143,7 +143,7 @@ void DocMetaInfo::scanMetaInfo( bool force )
     //kstd->addResourceType( "data", 0, QLatin1String("share/apps/khelpcenter") );
     metaInfos = kstd->findDirs( "appdata", "plugins" );
   }
-  for( it = metaInfos.begin(); it != metaInfos.end(); ++it) {
+  for( it = metaInfos.constBegin(); it != metaInfos.constEnd(); ++it) {
     kDebug() << "DocMetaInfo::scanMetaInfo(): scanning " << *it;
     scanMetaInfoDir( *it, &mRootEntry );
   }
@@ -198,7 +198,7 @@ void DocMetaInfo::traverseEntry( DocEntry *entry, DocEntryTraverser *traverser )
 {
   DocEntry::List children = entry->children();
   DocEntry::List::ConstIterator it;
-  for( it = children.begin(); it != children.end(); ++it ) {
+  for( it = children.constBegin(); it != children.constEnd(); ++it ) {
     if ( (*it)->isDirectory() && !(*it)->hasChildren() &&
          (*it)->khelpcenterSpecial().isEmpty() ) continue;
     traverser->process( *it );

@@ -219,8 +219,8 @@ void Navigator::insertParentAppDocs( const QString &name, NavigatorItem *topItem
     return;
 
   KServiceGroup::List entries = grp->entries();
-  KServiceGroup::List::ConstIterator it = entries.begin();
-  KServiceGroup::List::ConstIterator end = entries.end();
+  KServiceGroup::List::ConstIterator it = entries.constBegin();
+  KServiceGroup::List::ConstIterator end = entries.constEnd();
   for ( ; it != end; ++it ) {
     QString desktopFile = ( *it )->entryPath();
     if ( QDir::isRelativePath( desktopFile ) )
@@ -241,7 +241,7 @@ void Navigator::insertKCMDocs( const QString &name, NavigatorItem *topItem, cons
     list = KServiceTypeTrader::self()->query( "KCModule", "[X-KDE-ParentApp] == 'kinfocenter'" );
   }
 
-  for ( KService::List::const_iterator it = list.begin(); it != list.end(); ++it )
+  for ( KService::List::const_iterator it = list.constBegin(); it != list.constEnd(); ++it )
   {
     KService::Ptr s = (*it);
     KCModuleInfo m = KCModuleInfo::KCModuleInfo(s);
@@ -258,7 +258,7 @@ void Navigator::insertIOSlaveDocs( const QString &name, NavigatorItem *topItem )
   list.sort();
 
   NavigatorItem *prevItem = 0;
-  for ( QStringList::ConstIterator it = list.begin(); it != list.end(); ++it )
+  for ( QStringList::ConstIterator it = list.constBegin(); it != list.constEnd(); ++it )
   {
     QString docPath = KProtocolInfo::docPath(*it);
     if ( !docPath.isNull() )

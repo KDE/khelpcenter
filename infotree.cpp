@@ -116,8 +116,8 @@ void InfoTree::build( NavigatorItem *parent )
   if ( !infoPath.isEmpty() )
     infoDirFiles += infoPath.split( ':');
 
-  QStringList::ConstIterator it = infoDirFiles.begin();
-  QStringList::ConstIterator end = infoDirFiles.end();
+  QStringList::ConstIterator it = infoDirFiles.constBegin();
+  QStringList::ConstIterator end = infoDirFiles.constEnd();
   for ( ; it != end; ++it ) {
     QString infoDirFileName = *it + "/dir";
     if ( QFile::exists( infoDirFileName ) )

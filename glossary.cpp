@@ -306,8 +306,8 @@ QString Glossary::entryToHtml( const GlossaryEntry &entry )
     if (!entry.seeAlso().isEmpty()) {
         seeAlso = i18n("See also: ");
         GlossaryEntryXRef::List seeAlsos = entry.seeAlso();
-        GlossaryEntryXRef::List::ConstIterator it = seeAlsos.begin();
-        GlossaryEntryXRef::List::ConstIterator end = seeAlsos.end();
+        GlossaryEntryXRef::List::ConstIterator it = seeAlsos.constBegin();
+        GlossaryEntryXRef::List::ConstIterator end = seeAlsos.constEnd();
         for (; it != end; ++it) {
             seeAlso += QLatin1String("<a href=\"glossentry:");
             seeAlso += (*it).id();

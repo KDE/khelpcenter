@@ -104,7 +104,7 @@ QString View::langLookup( const QString &fname )
         langs.append( "en" );
         langs.removeAll( "C" );
         QStringList::ConstIterator lang;
-        for (lang = langs.begin(); lang != langs.end(); ++lang)
+        for (lang = langs.constBegin(); lang != langs.constEnd(); ++lang)
             search.append(QString("%1%2/%3").arg(localDoc[id]).arg(*lang).arg(fname));
     }
 

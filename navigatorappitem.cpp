@@ -92,8 +92,8 @@ void NavigatorAppItem::populate( bool recursive )
   KServiceGroup::List list = root->entries();
 
 
-  for ( KServiceGroup::List::ConstIterator it = list.begin();
-        it != list.end(); ++it )
+  for ( KServiceGroup::List::ConstIterator it = list.constBegin();
+        it != list.constEnd(); ++it )
   {
     const KSycocaEntry::Ptr e = *it;
     NavigatorItem *item;

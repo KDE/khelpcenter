@@ -448,7 +448,7 @@ bool KCMHelpCenter::buildIndex()
     return !hasError;
   }
 
-  mCurrentEntry = mIndexQueue.begin();
+  mCurrentEntry = mIndexQueue.constBegin();
   QString name = (*mCurrentEntry)->name();
 
   if ( !mProgressDialog ) {
@@ -608,7 +608,7 @@ void KCMHelpCenter::advanceProgress()
   if ( mProgressDialog && mProgressDialog->isVisible() ) {
     mProgressDialog->advanceProgress();
     mCurrentEntry++;
-    if ( mCurrentEntry != mIndexQueue.end() ) {
+    if ( mCurrentEntry != mIndexQueue.constEnd() ) {
       QString name = (*mCurrentEntry)->name();
       mProgressDialog->setLabelText( name );
     }

@@ -119,7 +119,7 @@ bool Formatter::readTemplates()
 
   bool success = true;
   QStringList::ConstIterator it2;
-  for( it2 = requiredSymbols.begin(); it2 != requiredSymbols.end(); ++it2 ) {
+  for( it2 = requiredSymbols.constBegin(); it2 != requiredSymbols.constEnd(); ++it2 ) {
     if ( !mSymbols.contains( *it2 ) ) {
       success = false;
       kError() << "Symbol '" << *it2 << "' is missing from main template file."
