@@ -244,7 +244,7 @@ void Navigator::insertKCMDocs( const QString &name, NavigatorItem *topItem, cons
   for ( KService::List::const_iterator it = list.constBegin(); it != list.constEnd(); ++it )
   {
     KService::Ptr s = (*it);
-    KCModuleInfo m = KCModuleInfo::KCModuleInfo(s);
+    KCModuleInfo m = KCModuleInfo(s);
     QString desktopFile = KStandardDirs::locate( "services", m.fileName() );
     createItemFromDesktopFile( topItem, desktopFile );
     }
