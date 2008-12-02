@@ -495,9 +495,9 @@ void KCMHelpCenter::startIndexProcess()
 
   mProcess->setOutputChannelMode(KProcess::SeparateChannels);
   connect( mProcess, SIGNAL( readyReadStandardError() ),
-           SLOT( slotReceivedStdout() ) );
-  connect( mProcess, SIGNAL( readyReadStandardOutput() ),
            SLOT( slotReceivedStderr() ) );
+  connect( mProcess, SIGNAL( readyReadStandardOutput() ),
+           SLOT( slotReceivedStdout() ) );
   connect( mProcess, SIGNAL( finished(int, QProcess::ExitStatus) ),
            SLOT( slotIndexFinished(int, QProcess::ExitStatus) ) );
 
