@@ -71,14 +71,14 @@ void FontDialog::setupFontSizesBox()
 	layout->setSpacing( KDialog::spacingHint() );
 	layout->setMargin( KDialog::marginHint() * 2 );
 
-	QLabel *lMinFontSize = new QLabel( i18n( "M&inimum font size:" ), gb );
+	QLabel *lMinFontSize = new QLabel( i18nc( "The smallest size a will have", "M&inimum font size:" ), gb );
 	layout->addWidget( lMinFontSize, 0, 0 );
 	m_minFontSize = new KIntNumInput( gb );
 	layout->addWidget( m_minFontSize, 0, 1 );
 	m_minFontSize->setRange( 1, 20 );
 	lMinFontSize->setBuddy( m_minFontSize );
 
-	QLabel *lMedFontSize = new QLabel( i18n( "M&edium font size:" ), gb );
+	QLabel *lMedFontSize = new QLabel( i18nc( "The normal size a font will have", "M&edium font size:" ), gb );
 	layout->addWidget( lMedFontSize, 1, 0 );
 	m_medFontSize = new KIntNumInput( gb );
 	layout->addWidget( m_medFontSize, 1, 1 );
