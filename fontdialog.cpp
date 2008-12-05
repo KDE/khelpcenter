@@ -183,7 +183,9 @@ void FontDialog::load()
 		m_italicFontCombo->setCurrentFont( fonts[ 4 ] );
 		m_fantasyFontCombo->setCurrentFont( fonts[ 5 ] );
 
-		m_defaultEncoding->setCurrentItem( configGroup.readEntry( "DefaultEncoding" ) );
+		QString encoding = configGroup.readEntry( "DefaultEncoding" );
+		if (encoding.isEmpty()) m_defaultEncoding->setCurrentIndex( 0 );
+		else m_defaultEncoding->setCurrentItem( encoding );
 		m_fontSizeAdjustement->setValue( fonts[ 6 ].toInt() );
 	}
 }
