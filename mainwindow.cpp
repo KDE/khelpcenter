@@ -495,7 +495,14 @@ void MainWindow::slotConfigureFonts()
 {
   FontDialog dlg( this );
   if ( dlg.exec() == QDialog::Accepted )
-    mDoc->slotReload();
+  {
+    if (mDoc->baseURL().isEmpty())
+    {
+        const_cast<KHTMLSettings *>( mDoc->settings() )->init( KGlobal::config().data() );
+        slotShowHome();
+    }
+    else mDoc->slotReload();
+  }
 }
 
 #include "mainwindow.moc"
