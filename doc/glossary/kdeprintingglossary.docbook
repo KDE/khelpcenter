@@ -73,8 +73,8 @@
                 <glossentry id="gloss-authentication">
                         <glossterm>Authentication</glossterm>
                         <glossdef><para>Proving the identity of a certain person (maybe via username/password
-				or by means of a certificate) is often called authentication. Once you are
-				authenticated, you may or may not get access to a requested ressource,
+    				or by means of a certificate) is often called authentication. Once you are
+				authenticated, you may or may not get access to a requested resource,
 				possibly based on ACLs.</para>
                                 <glossseealso otherterm="gloss-acl">ACLs</glossseealso>
                         </glossdef>
@@ -133,10 +133,6 @@
 				that it made "Line Printing" reliably work even under these modern
 				conditions. But time has finally come now to go for something new
 				-- the IPP.
-																
-				It is strong proof of the flexibility of &UNIX;; that "Line Printing" works
-				reliably, even under these modern conditions. But time has finally come now
-				to go for something new -- the IPP.
 				
 				</para>
 				<glossseealso otherterm="gloss-ipp">IPP</glossseealso>
