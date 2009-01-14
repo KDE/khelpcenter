@@ -107,21 +107,28 @@ void SearchJob::slotJobData( KIO::Job *job, const QByteArray &data )
 }
 
 
-SearchHandler::SearchHandler()
+SearchHandler::SearchHandler( const KConfigGroup &cg )
 {
   mLang = KGlobal::locale()->language().left( 2 );
+  mDocumentTypes = cg.readEntry( "DocumentTypes" , QStringList() );
+}
+
+SearchHandler::~SearchHandler()
+{
 }
 
 SearchHandler *SearchHandler::initFromFile( const QString &filename )
 {
-  SearchHandler *handler = new SearchHandler;
-
   KDesktopFile file( filename );
+  KConfigGroup dg = file.desktopGroup();
 
-  handler->mSearchCommand = file.desktopGroup().readEntry( "SearchCommand" );
-  handler->mSearchUrl = file.desktopGroup().readEntry( "SearchUrl" );
-  handler->mIndexCommand = file.desktopGroup().readEntry( "IndexCommand" );
-  handler->mDocumentTypes = file.desktopGroup().readEntry( "DocumentTypes" , QStringList() );
+  SearchHandler *handler = 0;
+
+  const QString type = dg.readEntry( "Type" );
+  if ( false ) {
+  } else {
+    handler = new ExternalProcessSearchHandler( dg );
+  }
 
   return handler;
 }
@@ -131,7 +138,16 @@ QStringList SearchHandler::documentTypes() const
   return mDocumentTypes;
 }
 
-QString SearchHandler::indexCommand( const QString &identifier )
+
+ExternalProcessSearchHandler::ExternalProcessSearchHandler( const KConfigGroup &cg )
+  : SearchHandler( cg )
+{
+  mSearchCommand = cg.readEntry( "SearchCommand" );
+  mSearchUrl = cg.readEntry( "SearchUrl" );
+  mIndexCommand = cg.readEntry( "IndexCommand" );
+}
+
+QString ExternalProcessSearchHandler::indexCommand( const QString &identifier )
 {
   QString cmd = mIndexCommand;
   cmd.replace( "%i", identifier );
@@ -140,7 +156,7 @@ QString SearchHandler::indexCommand( const QString &identifier )
   return cmd;
 }
 
-bool SearchHandler::checkPaths() const
+bool ExternalProcessSearchHandler::checkPaths() const
 {
   if ( !mSearchCommand.isEmpty() && !checkBinary( mSearchCommand ) )
     return false;
@@ -151,7 +167,7 @@ bool SearchHandler::checkPaths() const
   return true;
 }
 
-bool SearchHandler::checkBinary( const QString &cmd ) const
+bool ExternalProcessSearchHandler::checkBinary( const QString &cmd ) const
 {
   QString binary;
 
@@ -162,36 +178,36 @@ bool SearchHandler::checkBinary( const QString &cmd ) const
   return !KStandardDirs::findExe( binary ).isEmpty();
 }
 
-void SearchHandler::search( DocEntry *entry, const QStringList &words,
+void ExternalProcessSearchHandler::search( DocEntry *entry, const QStringList &words,
   int maxResults,
   SearchEngine::Operation operation )
 {
-  kDebug() << "SearchHandler::search(): " << entry->identifier();
+  kDebug() << entry->identifier();
 
   if ( !mSearchCommand.isEmpty() ) {
     QString cmdString = SearchEngine::substituteSearchQuery( mSearchCommand,
       entry->identifier(), words, maxResults, operation, mLang );
 
-    kDebug() << "SearchHandler::search() CMD: " << cmdString;
+    kDebug() << "CMD:" << cmdString;
 
     SearchJob *searchJob = new SearchJob(entry);
     connect(searchJob, SIGNAL(searchFinished( SearchJob *, DocEntry *, const QString & )),
-            this, SLOT(searchFinished( SearchJob *, DocEntry *, const QString & )));
+            this, SLOT(slotSearchFinished( SearchJob *, DocEntry *, const QString & )));
     connect(searchJob, SIGNAL(searchError( SearchJob *, DocEntry *, const QString & )),
-            this, SLOT(searchError( SearchJob *, DocEntry *, const QString & )));
+            this, SLOT(slotSearchError( SearchJob *, DocEntry *, const QString & )));
     searchJob->startLocal(cmdString);
 
   } else if ( !mSearchUrl.isEmpty() ) {
     QString urlString = SearchEngine::substituteSearchQuery( mSearchUrl,
       entry->identifier(), words, maxResults, operation, mLang );
 
-    kDebug() << "SearchHandler::search() URL: " << urlString;
+    kDebug() << "URL:" << urlString;
 
     SearchJob *searchJob = new SearchJob(entry);
     connect(searchJob, SIGNAL(searchFinished( SearchJob *, DocEntry *, const QString & )),
-            this, SLOT(searchFinished( SearchJob *, DocEntry *, const QString & )));
+            this, SLOT(slotSearchFinished( SearchJob *, DocEntry *, const QString & )));
     connect(searchJob, SIGNAL(searchError( SearchJob *, DocEntry *, const QString & )),
-            this, SLOT(searchError( SearchJob *, DocEntry *, const QString & )));
+            this, SLOT(slotSearchError( SearchJob *, DocEntry *, const QString & )));
     searchJob->startRemote(urlString);
 
   } else {
@@ -200,13 +216,13 @@ void SearchHandler::search( DocEntry *entry, const QStringList &words,
   }
 }
 
-void SearchHandler::searchFinished( SearchJob *job, DocEntry *entry, const QString &result )
+void ExternalProcessSearchHandler::slotSearchFinished( SearchJob *job, DocEntry *entry, const QString &result )
 {
     emit searchFinished( this, entry, result);
     job->deleteLater();
 }
 
-void SearchHandler::searchError( SearchJob *job, DocEntry *entry, const QString &error )
+void ExternalProcessSearchHandler::slotSearchError( SearchJob *job, DocEntry *entry, const QString &error )
 {
     emit searchError(this, entry, error);
     job->deleteLater();

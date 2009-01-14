@@ -25,6 +25,7 @@
 #include <QObject>
 #include <KProcess>
 
+class KConfigGroup;
 namespace KIO {
 class Job;
 }
@@ -64,37 +65,54 @@ class SearchHandler : public QObject
   public:
     static SearchHandler *initFromFile( const QString &filename );
 
+    virtual ~SearchHandler();
+
+    virtual void search( DocEntry *, const QStringList &words,
+      int maxResults = 10,
+      SearchEngine::Operation operation = SearchEngine::And ) = 0;
+
+    virtual QString indexCommand( const QString &identifier ) = 0;
+
+    QStringList documentTypes() const;
+
+    virtual bool checkPaths() const = 0;
+
+  Q_SIGNALS:
+    void searchFinished( SearchHandler *, DocEntry *, const QString & );
+    void searchError( SearchHandler *, DocEntry *, const QString & );
+
+  protected:
+    SearchHandler( const KConfigGroup &cg );
+
+    QString mLang;
+    QStringList mDocumentTypes;
+};
+
+class ExternalProcessSearchHandler : public SearchHandler
+{
+    Q_OBJECT
+  public:
+    ExternalProcessSearchHandler( const KConfigGroup &cg );
+
     void search( DocEntry *, const QStringList &words,
       int maxResults = 10,
       SearchEngine::Operation operation = SearchEngine::And );
 
     QString indexCommand( const QString &identifier );
 
-    QStringList documentTypes() const;
-
     bool checkPaths() const;
 
-  Q_SIGNALS:
-    void searchFinished( SearchHandler *, DocEntry *, const QString & );
-    void searchError( SearchHandler *, DocEntry *, const QString & );
-
-
-  protected:
+  private:
     bool checkBinary( const QString &cmd ) const;
    
   private slots: 
-    void searchFinished( SearchJob *, DocEntry *, const QString & );
-    void searchError( SearchJob *, DocEntry *, const QString & );
+    void slotSearchFinished( SearchJob *, DocEntry *, const QString & );
+    void slotSearchError( SearchJob *, DocEntry *, const QString & );
 
   private:
-    SearchHandler();
-
-    QString mLang;
-
     QString mSearchCommand;
     QString mSearchUrl;
     QString mIndexCommand;
-    QStringList mDocumentTypes;
 };
 
 }
