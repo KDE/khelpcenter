@@ -175,7 +175,7 @@ ignore_noindex:         true
 max_hop_count:          4
 robotstxt_name:         kdedig
 compression_level:      6
-template_map:           Long long $kdeprefix/share/apps/khelpcenter/searchhandlers/htdig/htdig_long.html
+template_map:           Long long @DATA_INSTALL_DIR@/khelpcenter/searchhandlers/htdig/htdig_long.html
 search_algorithm:       exact:1 prefix:0.8
 maximum_pages:          1
 matches_per_page:       10
