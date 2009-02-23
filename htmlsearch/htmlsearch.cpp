@@ -460,7 +460,7 @@ QString HTMLSearch::search( const QString & _lang, const QString & words, const 
 
   // modify the search result
   _searchResult = _searchResult.replace("http://localhost/", "file:/");
-  _searchResult = _searchResult.replace("Content-type: text/html", QString());
+  _searchResult = _searchResult.remove("Content-type: text/html");
 
   // dump the search result
   QFile f(result);
