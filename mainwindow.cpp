@@ -349,7 +349,7 @@ void MainWindow::viewUrl( const KUrl &url, const KParts::OpenUrlArguments &args,
         || proto == QLatin1String("ghelp"))
         own = true;
     else if ( url.isLocalFile() ) {
-        KMimeType::Ptr mime = KMimeType::findByPath( url.path() );
+        KMimeType::Ptr mime = KMimeType::findByPath( url.toLocalFile() );
         if ( mime->is("text/html") )
             own = true;
     }
