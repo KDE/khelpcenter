@@ -72,6 +72,19 @@ educational, graphics and software development.
 &contact;
 &support;
 
+<appendix id="appendix-credits">
+<title>Credits and Licenses</title>
+
+<sect1 id="license">
+<title>License</title>
+
+<!-- TRANS:CREDIT_FOR_TRANSLATORS -->
+
+&underFDL;
+</sect1>
+
+</appendix>
+
 </book>
 
 <!-- Keep this comment at the end of the file
