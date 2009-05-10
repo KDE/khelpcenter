@@ -40,14 +40,19 @@ a way round it. (FF) -->
 <corpauthor>The &kde; Team</corpauthor>
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
-<date>2002-01-18</date>
-<releaseinfo>3.00.00</releaseinfo>
+<date>2009-05-09</date>
+<releaseinfo>4.00.00</releaseinfo>
 
 <abstract>
-<para>&kde; is a powerful graphical desktop environment for &UNIX;
-workstations.  A &kde; desktop combines ease of use, contemporary
-functionality and outstanding graphical design with the technological
-superiority of the &UNIX; operating system.</para>
+<para>
+&kde; is an international technology team that creates
+<ulink url="http://www.gnu.org/philosophy/free-sw.html">Free Software</ulink>
+for desktop and portable computing. Among &kde;&apos;s products are a modern
+desktop system for &Linux; and &UNIX; platforms, comprehensive office
+productivity and groupware suites and hundreds of software titles in many
+categories including Internet and web applications, multimedia, entertainment,
+educational, graphics and software development.
+</para>
 </abstract>
 
 <keywordset>
