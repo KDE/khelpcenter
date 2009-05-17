@@ -60,7 +60,7 @@ void History::setupActions( KActionCollection *coll )
 
   m_backAction = new KToolBarPopupAction( KIcon( backForward.first.iconName() ), backForward.first.text(), this );
   coll->addAction( "back", m_backAction );
-  m_backAction->setShortcut( Qt::ALT+Qt::Key_Left );
+  m_backAction->setShortcut(KStandardShortcut::back());
   connect( m_backAction, SIGNAL( triggered() ), this, SLOT( back() ) );
 
   connect( m_backAction->menu(), SIGNAL( activated( int ) ),
@@ -71,7 +71,7 @@ void History::setupActions( KActionCollection *coll )
 
   m_forwardAction = new KToolBarPopupAction( KIcon( backForward.second.iconName() ), backForward.second.text(), this );
   coll->addAction( QLatin1String("forward"), m_forwardAction );
-  m_forwardAction->setShortcut( Qt::ALT+Qt::Key_Right );
+  m_forwardAction->setShortcut(KStandardShortcut::forward());
   connect( m_forwardAction, SIGNAL( triggered() ), this, SLOT( forward() ) );
 
   connect( m_forwardAction->menu(), SIGNAL( activated( int ) ),
