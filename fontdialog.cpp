@@ -33,7 +33,6 @@
 #include <QGroupBox>
 #include <QLabel>
 #include <QLayout>
-#include <QSpinBox>
 #include <kconfiggroup.h>
 
 using namespace KHC;
@@ -150,7 +149,7 @@ void FontDialog::setupFontEncodingBox()
 
 	QLabel *lFontSizeAdjustement = new QLabel( i18n( "&Font size adjustment:" ), gb );
 	layout->addWidget( lFontSizeAdjustement, 1, 0 );
-	m_fontSizeAdjustement = new QSpinBox( gb );
+	m_fontSizeAdjustement = new KIntSpinBox( gb );
 	m_fontSizeAdjustement->setRange( -5, 5 );
 	m_fontSizeAdjustement->setSingleStep( 1 );
 	layout->addWidget( m_fontSizeAdjustement, 1, 1 );

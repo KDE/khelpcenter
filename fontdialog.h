@@ -22,7 +22,7 @@
 
 #include <kdialog.h>
 
-class QSpinBox;
+class KIntSpinBox;
 
 class KComboBox;
 class KFontComboBox;
@@ -57,7 +57,7 @@ class FontDialog : public KDialog
 		KFontComboBox *m_italicFontCombo;
 		KFontComboBox *m_fantasyFontCombo;
 		KComboBox *m_defaultEncoding;
-		QSpinBox *m_fontSizeAdjustement;
+		KIntSpinBox *m_fontSizeAdjustement;
     KVBox *m_mainWidget;
 };
 
