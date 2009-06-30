@@ -101,8 +101,8 @@ QString View::langLookup( const QString &fname )
     for (int id=localDoc.count()-1; id >= 0; --id)
     {
         QStringList langs = KGlobal::locale()->languageList();
-        langs.append( "en" );
-        langs.removeAll( "C" );
+        langs.replaceInStrings("en_US", "en");
+        langs.append("en");
         QStringList::ConstIterator lang;
         for (lang = langs.constBegin(); lang != langs.constEnd(); ++lang)
             search.append(QString("%1%2/%3").arg(localDoc[id]).arg(*lang).arg(fname));
