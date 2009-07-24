@@ -1,8 +1,10 @@
 
 add_subdirectory( Applications ) 
+if (NOT WIN32)
 add_subdirectory( Manpages ) 
-add_subdirectory( Tutorials ) 
 add_subdirectory( Scrollkeeper ) 
+endif (NOT WIN32)
+add_subdirectory( Tutorials ) 
 
 
 
