@@ -47,7 +47,7 @@ set(khelpcenter_KDEINIT_SRCS
 qt4_add_dbus_adaptor( khelpcenter_KDEINIT_SRCS org.kde.khelpcenter.kcmhelpcenter.xml kcmhelpcenter.h KCMHelpCenter )
 
 kde4_add_kcfg_files(khelpcenter_KDEINIT_SRCS prefs.kcfgc )
-kde4_add_app_icon(khelpcenter_KDEINIT_SRCS "${CMAKE_SOURCE_DIR}/pics/oxygen/*/apps/help-browser.png")
+kde4_add_app_icon(khelpcenter_KDEINIT_SRCS "${KDE4_INSTALL_DIR}/share/icons/oxygen/*/apps/help-browser.png")
 
 kde4_add_kdeinit_executable( khelpcenter ${khelpcenter_KDEINIT_SRCS})
 target_link_libraries(kdeinit_khelpcenter  ${KDE4_KDE3SUPPORT_LIBS} ${KDE4_KHTML_LIBS}  ${QT_QTXML_LIBRARY} ${KDE4_KUTILS_LIBS} )
