@@ -153,6 +153,13 @@ void TOC::buildCache()
     *meinproc << "--stylesheet" << KStandardDirs::locate( "data", "khelpcenter/table-of-contents.xslt" );
     *meinproc << "--output" << m_cacheFile;
     *meinproc << m_sourceFile;
+#ifdef Q_WS_WIN
+    kDebug() 
+		<< KStandardDirs::locate("exe", "meinproc4")
+		<< "--stylesheet" << KStandardDirs::locate( "data", "khelpcenter/table-of-contents.xslt" )
+		<< "--output" << m_cacheFile
+		<< m_sourceFile;
+#endif
 
     meinproc->setOutputChannelMode(KProcess::OnlyStderrChannel);
     meinproc->start();
@@ -194,19 +201,29 @@ void TOC::meinprocExited( int exitCode, QProcess::ExitStatus exitStatus)
     if ( !doc.setContent( &f ) )
         return;
 
+    /* RH would it not be better to let meinproc4 create the timestamp too ? 
+       This would avoid the need to recreate the xml file here 
+    */
     QDomComment timestamp = doc.createComment( QString::number( sourceFileCTime() ) );
     doc.documentElement().appendChild( timestamp );
 
-    f.seek( 0 );
+	// write back updated xml content 
+	f.seek( 0 );
     QTextStream stream( &f );
     stream.setCodec( "UTF-8" );
-    stream << doc.toString();
-
-    f.close();
 #ifdef Q_WS_WIN
-    kDebug() << "on german systems umlauts are displayed as '?' for unknown (Qt'r related ?) reasons. Please fix.";
+    /*
+	  the problem that on german systems umlauts are displayed as '?' for unknown (Qt'r related ?) reasons
+      has been fixed in kdelibs/kdoctools/xslt.cpp:replaceCharsetHeader()
+	  To have propper encoding tags in the xml file, QXmlDocument::save() is used. 
+	*/
+	doc.save(stream, 1, QDomNode::EncodingFromTextStream);
+
+#else
+	stream << doc.toString();
 #endif
 
+	f.close();
     fillTree();
 }
 
