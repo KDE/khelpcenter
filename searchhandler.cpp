@@ -69,13 +69,13 @@ bool SearchJob::startRemote(const QString &urlString)
     mKioJob = job;
     return true;
 }
- 
+
 SearchJob::~SearchJob()
 {
     delete mProcess;
     delete mKioJob;
 }
-    
+
 void SearchJob::searchExited( int exitCode, QProcess::ExitStatus exitStatus )
 {
     if ( exitStatus == QProcess::NormalExit && exitCode == 0 ) {
@@ -145,6 +145,7 @@ ExternalProcessSearchHandler::ExternalProcessSearchHandler( const KConfigGroup &
   mSearchCommand = cg.readEntry( "SearchCommand" );
   mSearchUrl = cg.readEntry( "SearchUrl" );
   mIndexCommand = cg.readEntry( "IndexCommand" );
+  mTryExec = cg.readEntry( "TryExec" );
 }
 
 QString ExternalProcessSearchHandler::indexCommand( const QString &identifier )
@@ -156,13 +157,22 @@ QString ExternalProcessSearchHandler::indexCommand( const QString &identifier )
   return cmd;
 }
 
-bool ExternalProcessSearchHandler::checkPaths() const
+bool ExternalProcessSearchHandler::checkPaths(QString* error) const
 {
-  if ( !mSearchCommand.isEmpty() && !checkBinary( mSearchCommand ) )
+  if ( !mSearchCommand.isEmpty() && !checkBinary( mSearchCommand ) ) {
+    *error = i18n("'%1' not found, check your installation", mSearchCommand);
     return false;
+  }
 
-  if ( !mIndexCommand.isEmpty() && !checkBinary( mIndexCommand ) )
+  if ( !mIndexCommand.isEmpty() && !checkBinary( mIndexCommand ) ) {
+    *error = i18n("'%1' not found, check your installation", mIndexCommand);
     return false;
+  }
+
+  if ( !mTryExec.isEmpty() && !checkBinary( mTryExec ) ) {
+    *error = i18n("'%1' not found, install the package containing it", mTryExec);
+    return false;
+  }
 
   return true;
 }

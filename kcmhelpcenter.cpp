@@ -410,11 +410,15 @@ bool KCMHelpCenter::buildIndex()
           i18n("No document type.") );
         hasError = true;
       } else {
+        QString error;
         SearchHandler *handler = mEngine->handler( entry->documentType() );
         if ( !handler ) {
           KMessageBox::sorry( this, docText +
             i18n("No search handler available for document type '%1'.",
               entry->documentType() ) );
+          hasError = true;
+        } else if ( !handler->checkPaths( &error ) ) {
+          KMessageBox::sorry( this, docText + error );
           hasError = true;
         } else {
           QString indexer = handler->indexCommand( entry->identifier() );
@@ -475,7 +479,7 @@ void KCMHelpCenter::startIndexProcess()
   mProcess = new KProcess;
 #ifndef Q_WS_WIN
   if ( mRunAsRoot ) {
-    QString kdesu = KStandardDirs::findExe("kdesu"); 
+    QString kdesu = KStandardDirs::findExe("kdesu");
     if(kdesu.isEmpty()) {
       kError() << "Failed to run index process as root - could not find kdesu";
     } else {

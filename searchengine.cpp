@@ -75,14 +75,14 @@ void SearchTraverser::startProcess( DocEntry *entry )
     QString txt;
     if ( entry->documentType().isEmpty() ) {
       txt = i18n("Error: No document type specified.");
-    } else { 
+    } else {
       txt = i18n("Error: No search handler for document type '%1'.",
           entry->documentType() );
     }
     showSearchError( handler, entry, txt );
     return;
   }
-  
+
   connectHandler( handler );
 
   handler->search( entry, mEngine->words(), mEngine->maxResults(),
@@ -223,11 +223,11 @@ bool SearchEngine::initSearchHandlers()
     QString filename = *it;
     kDebug() << "SearchEngine::initSearchHandlers(): " << filename;
     SearchHandler *handler = SearchHandler::initFromFile( filename );
-    if ( !handler || !handler->checkPaths() ) {
+    if ( !handler ) {
       QString txt = i18n("Unable to initialize SearchHandler from file '%1'.",
           filename );
       kWarning() << txt ;
-//      KMessageBox::sorry( mView->widget(), txt );        
+//      KMessageBox::sorry( mView->widget(), txt );
     } else {
       QStringList documentTypes = handler->documentTypes();
       QStringList::ConstIterator it;
@@ -236,7 +236,7 @@ bool SearchEngine::initSearchHandlers()
       }
     }
   }
-  
+
   if ( mHandlers.isEmpty() ) {
     QString txt = i18n("No valid search handler found.");
     kWarning() << txt ;
@@ -273,7 +273,7 @@ bool SearchEngine::search( const QString & words, const QString & method, int ma
   KConfigGroup cfg(KGlobal::config(), "Search");
   QString commonSearchProgram = cfg.readPathEntry( "CommonProgram", QString() );
   bool useCommon = cfg.readEntry( "UseCommonProgram", false);
-  
+
   if ( commonSearchProgram.isEmpty() || !useCommon ) {
     if ( !mView ) {
       return false;
@@ -306,12 +306,12 @@ bool SearchEngine::search( const QString & words, const QString & method, int ma
       mWords.replace("&", " ");
       mMethod = "and";
     }
- 
+
     // replace whitespace with a '+'
     mWords = mWords.trimmed();
     mWords = mWords.simplified();
     mWords.replace(QRegExp("\\s"), "+");
-    
+
     commonSearchProgram = substituteSearchQuery( commonSearchProgram );
 
     kDebug() << "Common Search: " << commonSearchProgram;
@@ -333,7 +333,7 @@ bool SearchEngine::search( const QString & words, const QString & method, int ma
       delete mProc;
       return false;
     }
-    
+
     while (mSearchRunning && mProc->state() == QProcess::Running)
       kapp->processEvents();
 
@@ -345,7 +345,7 @@ bool SearchEngine::search( const QString & words, const QString & method, int ma
       kError() << "Unable to run search program '" << commonSearchProgram
                 << "'" << endl;
       delete mProc;
-      
+
       return false;
     }
 
@@ -408,7 +408,7 @@ void SearchEngine::finishSearch()
   delete mRootTraverser;
   mRootTraverser = 0;
 
-  emit searchFinished();  
+  emit searchFinished();
 }
 
 QString SearchEngine::errorLog() const
@@ -458,7 +458,7 @@ bool SearchEngine::needsIndex( DocEntry *entry )
 
   SearchHandler *h = handler( entry->documentType() );
   if ( !h || h->indexCommand( entry->identifier() ).isEmpty() ) return false;
-  
+
   return true;
 }
 

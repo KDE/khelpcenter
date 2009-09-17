@@ -75,7 +75,7 @@ class SearchHandler : public QObject
 
     QStringList documentTypes() const;
 
-    virtual bool checkPaths() const = 0;
+    virtual bool checkPaths(QString* error) const = 0;
 
   Q_SIGNALS:
     void searchFinished( SearchHandler *, DocEntry *, const QString & );
@@ -100,12 +100,12 @@ class ExternalProcessSearchHandler : public SearchHandler
 
     QString indexCommand( const QString &identifier );
 
-    bool checkPaths() const;
+    bool checkPaths(QString* error) const;
 
   private:
     bool checkBinary( const QString &cmd ) const;
-   
-  private slots: 
+
+  private slots:
     void slotSearchFinished( SearchJob *, DocEntry *, const QString & );
     void slotSearchError( SearchJob *, DocEntry *, const QString & );
 
@@ -113,6 +113,7 @@ class ExternalProcessSearchHandler : public SearchHandler
     QString mSearchCommand;
     QString mSearchUrl;
     QString mIndexCommand;
+    QString mTryExec;
 };
 
 }
