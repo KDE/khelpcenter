@@ -26,8 +26,9 @@
 
 #include "docmetainfo.h"
 
-class Q3ListView;
-class Q3ListViewItem;
+class QTreeWidgetItem;
+class QTreeWidget;
+class QTreeWidgetItem;
 class QComboBox;
 
 class KConfig;
@@ -53,7 +54,7 @@ public Q_SLOTS:
     int pages();
     QString scope();
 
-    Q3ListView *listView() { return mScopeListView; }
+    QTreeWidget *listView() { return mScopeListView; }
 
     enum { ScopeDefault, ScopeAll, ScopeNone, ScopeCustom, ScopeNum };
 
@@ -80,8 +81,8 @@ public Q_SLOTS:
     void checkScope();
 
   protected Q_SLOTS:
-    void scopeDoubleClicked( Q3ListViewItem * );
-    void scopeClicked( Q3ListViewItem * );
+    void scopeDoubleClicked( QTreeWidgetItem* );
+    void scopeClicked( QTreeWidgetItem* );
 
   private:
     void loadLanguages();
@@ -91,7 +92,7 @@ public Q_SLOTS:
     QComboBox *mMethodCombo;
     QComboBox *mPagesCombo;
     QComboBox *mScopeCombo;
-    Q3ListView *mScopeListView;
+    QTreeWidget *mScopeListView;
 
     int mScopeCount;
 };

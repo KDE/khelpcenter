@@ -35,7 +35,7 @@ class QLabel;
 class KAboutData;
 class KTemporaryFile;
 class KUrlRequester;
-class K3ListView;
+class QTreeWidget;
 
 namespace KHC {
 class HtmlSearchConfig;
@@ -51,7 +51,7 @@ class IndexDirDialog : public KDialog
 
   protected Q_SLOTS:
     void slotOk();
-    void slotUrlChanged( const QString &_url);    
+    void slotUrlChanged( const QString &_url);
   private:
     KUrlRequester *mIndexUrlRequester;
 };
@@ -98,7 +98,7 @@ class KCMHelpCenter : public KDialog
     explicit KCMHelpCenter( KHC::SearchEngine *, QWidget *parent = 0,
       const char *name = 0 );
     ~KCMHelpCenter();
-    
+
     void load();
     bool save();
     void defaults();
@@ -136,17 +136,17 @@ class KCMHelpCenter : public KDialog
 
   private:
     KHC::SearchEngine *mEngine;
-  
-    K3ListView *mListView;
+
+    QTreeWidget *mListView;
     QLabel *mIndexDirLabel;
     QPushButton *mBuildButton;
     IndexProgressDialog *mProgressDialog;
-    
+
     QList<KHC::DocEntry *> mIndexQueue;
     QList<KHC::DocEntry *>::ConstIterator mCurrentEntry;
-    
+
     KSharedConfigPtr mConfig;
-    
+
     KAboutData *mAboutData;
 
     KHC::HtmlSearchConfig *mHtmlSearchTab;

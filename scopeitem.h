@@ -20,22 +20,22 @@
 #ifndef SCOPEITEM_H
 #define SCOPEITEM_H
 
-#include <Qt3Support/Q3CheckListItem>
+#include <QTreeWidgetItem>
 
 #include "docmetainfo.h"
 
 namespace KHC {
 
-class ScopeItem : public Q3CheckListItem
+class ScopeItem : public QTreeWidgetItem
 {
   public:
-    ScopeItem( Q3ListView *parent, DocEntry *entry )
-      : Q3CheckListItem( parent, entry->name(), Q3CheckListItem::CheckBox ),
-        mEntry( entry ), mObserver( 0 ) {}
+    ScopeItem( QTreeWidget *parent, DocEntry *entry )
+        : QTreeWidgetItem( parent, QStringList() << entry->name() ),
+          mEntry( entry ), mObserver( 0 ) { init(); }
 
-    ScopeItem( Q3ListViewItem *parent, DocEntry *entry )
-      : Q3CheckListItem( parent, entry->name(), Q3CheckListItem::CheckBox ),
-        mEntry( entry ), mObserver( 0 ) {}
+    ScopeItem( QTreeWidgetItem *parent, DocEntry *entry )
+      : QTreeWidgetItem( parent, QStringList() << entry->name() ),
+        mEntry( entry ), mObserver( 0 ) { init(); }
 
     DocEntry *entry()const { return mEntry; }
 
@@ -52,6 +52,9 @@ class ScopeItem : public Q3CheckListItem
 
     void setObserver( Observer *o ) { mObserver = o; }
 
+    void setOn( bool on ) { setCheckState( 0, on ? Qt::Checked : Qt::Unchecked ); }
+    bool isOn() const { return checkState( 0 ) == Qt::Checked; }
+
   protected:
     void stateChange ( bool )
     {
@@ -59,6 +62,8 @@ class ScopeItem : public Q3CheckListItem
     }
 
   private:
+    void init() { setCheckState(0, Qt::Checked); }
+
     DocEntry *mEntry;
 
     Observer *mObserver;

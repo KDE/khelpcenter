@@ -42,12 +42,13 @@
 #include <ktemporaryfile.h>
 #include <kurlrequester.h>
 #include <kmessagebox.h>
-#include <k3listview.h>
+#include <qtreewidget.h>
 #include <klineedit.h>
 
 #include <QtDBus/QtDBus>
 #include <QLabel>
 #include <QLayout>
+#include <QHeaderView>
 #include <QProgressBar>
 #include <QTextEdit>
 
@@ -278,14 +279,14 @@ void KCMHelpCenter::setupMainWidget( QWidget *parent )
   QLabel *label = new QLabel( helpText, parent );
   topLayout->addWidget( label );
 
-  mListView = new K3ListView( parent );
-  mListView->setFullWidth( true );
-  mListView->addColumn( i18n("Search Scope") );
-  mListView->addColumn( i18n("Status") );
-  mListView->setColumnAlignment( 1, Qt::AlignCenter );
+  mListView = new QTreeWidget( parent );
+  //mListView->setFullWidth( true );
+  mListView->setColumnCount(2);
+  mListView->setHeaderLabels( QStringList() << i18n("Search Scope") << i18n("Status") );
   topLayout->addWidget( mListView );
-  connect( mListView, SIGNAL( clicked( Q3ListViewItem * ) ),
-    SLOT( checkSelection() ) );
+  // not just itemClicked, so that Key_Space also triggers it (#123954)
+  connect( mListView, SIGNAL(itemChanged(QTreeWidgetItem*,int)),
+           SLOT(checkSelection()) );
 
   QBoxLayout *urlLayout = new QHBoxLayout();
   topLayout->addLayout( urlLayout );
@@ -345,14 +346,16 @@ void KCMHelpCenter::load()
     }
   }
 
+  mListView->header()->setResizeMode( QHeaderView::ResizeToContents );
+
   updateStatus();
 }
 
 void KCMHelpCenter::updateStatus()
 {
-  Q3ListViewItemIterator it( mListView );
-  while ( it.current() != 0 ) {
-    ScopeItem *item = static_cast<ScopeItem *>( it.current() );
+  QTreeWidgetItemIterator it( mListView );
+  while ( (*it) != 0 ) {
+    ScopeItem *item = static_cast<ScopeItem *>( (*it) );
     QString status;
     if ( item->entry()->indexExists( Prefs::indexDirectory() ) ) {
       status = i18nc("Describes the status of a documentation index that is present", "OK");
@@ -396,9 +399,9 @@ bool KCMHelpCenter::buildIndex()
 
   bool hasError = false;
 
-  Q3ListViewItemIterator it( mListView );
-  while ( it.current() != 0 ) {
-    ScopeItem *item = static_cast<ScopeItem *>( it.current() );
+  QTreeWidgetItemIterator it( mListView );
+  while ( (*it) != 0 ) {
+    ScopeItem *item = static_cast<ScopeItem *>( (*it) );
     if ( item->isOn() ) {
       DocEntry *entry = item->entry();
 
@@ -675,9 +678,9 @@ void KCMHelpCenter::checkSelection()
 {
   int count = 0;
 
-  Q3ListViewItemIterator it( mListView );
-  while ( it.current() != 0 ) {
-    ScopeItem *item = static_cast<ScopeItem *>( it.current() );
+  QTreeWidgetItemIterator it( mListView );
+  while ( (*it) != 0 ) {
+    ScopeItem *item = static_cast<ScopeItem *>( (*it) );
     if ( item->isOn() ) {
       ++count;
     }

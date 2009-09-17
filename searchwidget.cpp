@@ -104,9 +104,10 @@ SearchWidget::SearchWidget( SearchEngine *engine, QWidget *parent )
   hLayout->addWidget( l );
   hLayout->addWidget( mScopeCombo );
 
-  mScopeListView = new Q3ListView( this );
-  mScopeListView->setRootIsDecorated( true );
-  mScopeListView->addColumn( i18n("Scope") );
+  mScopeListView = new QTreeWidget( this );
+  //mScopeListView->setRootIsDecorated( true );
+  mScopeListView->setColumnCount( 1 );
+  mScopeListView->setHeaderLabels( QStringList() << i18n("Scope") );
   topLayout->addWidget( mScopeListView, 1 );
 
   QPushButton *indexButton = new QPushButton( i18n("Build Search &Index..."),
@@ -116,11 +117,11 @@ SearchWidget::SearchWidget( SearchEngine *engine, QWidget *parent )
 
 // FIXME: Use SearchHandler on double-clicked document
 #if 0
-  connect( mScopeListView, SIGNAL( doubleClicked( Q3ListViewItem * ) ),
-           SLOT( scopeDoubleClicked( Q3ListViewItem * ) ) );
+  connect( mScopeListView, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int) ),
+           SLOT(scopeDoubleClicked(QTreeWidgetItem*)) );
 #endif
-  connect( mScopeListView, SIGNAL( clicked( Q3ListViewItem * ) ),
-           SLOT( scopeClicked( Q3ListViewItem * ) ) );
+  connect( mScopeListView, SIGNAL(itemClicked(QTreeWidgetItem*,int)),
+           SLOT(scopeClicked(QTreeWidgetItem*)) );
 }
 
 
@@ -142,11 +143,11 @@ void SearchWidget::readConfig( KConfig *cfg )
 
   if ( scopeSelection == ScopeCustom ) {
     KConfigGroup searchScopeGroup(cfg, "Custom Search Scope" );
-    Q3ListViewItemIterator it( mScopeListView );
-    while( it.current() ) {
-      if ( it.current()->rtti() == ScopeItem::rttiId() ) {
-        ScopeItem *item = static_cast<ScopeItem *>( it.current() );
-        item->setOn( searchScopeGroup.readEntry( 
+    QTreeWidgetItemIterator it( mScopeListView );
+    while( *it ) {
+      if ( (*it)->type() == ScopeItem::rttiId() ) {
+        ScopeItem *item = static_cast<ScopeItem *>(*it);
+        item->setOn( searchScopeGroup.readEntry(
                          item->entry()->identifier(),
                          item->isOn() ) );
       }
@@ -167,10 +168,10 @@ void SearchWidget::writeConfig( KConfig *cfg )
 
   if ( mScopeCombo->currentIndex() == ScopeCustom ) {
     KConfigGroup cg2 (cfg, "Custom Search Scope");
-    Q3ListViewItemIterator it( mScopeListView );
-    while( it.current() ) {
-      if ( it.current()->rtti() == ScopeItem::rttiId() ) {
-        ScopeItem *item = static_cast<ScopeItem *>( it.current() );
+    QTreeWidgetItemIterator it( mScopeListView );
+    while( (*it) ) {
+      if ( (*it)->type() == ScopeItem::rttiId() ) {
+        ScopeItem *item = static_cast<ScopeItem *>( (*it) );
         cg2.writeEntry( item->entry()->identifier(), item->isOn() );
       }
       ++it;
@@ -180,10 +181,10 @@ void SearchWidget::writeConfig( KConfig *cfg )
 
 void SearchWidget::slotSwitchBoxes()
 {
-  Q3ListViewItemIterator it( mScopeListView );
-  while( it.current() ) {
-    if ( it.current()->rtti() == ScopeItem::rttiId() ) {
-      ScopeItem *item = static_cast<ScopeItem *>( it.current() );
+  QTreeWidgetItemIterator it( mScopeListView );
+  while( (*it) ) {
+    if ( (*it)->type() == ScopeItem::rttiId() ) {
+      ScopeItem *item = static_cast<ScopeItem *>( (*it) );
       item->setOn( !item->isOn() );
     }
     ++it;
@@ -194,10 +195,10 @@ void SearchWidget::slotSwitchBoxes()
 
 void SearchWidget::scopeSelectionChanged( int id )
 {
-  Q3ListViewItemIterator it( mScopeListView );
-  while( it.current() ) {
-    if ( it.current()->rtti() == ScopeItem::rttiId() ) {
-      ScopeItem *item = static_cast<ScopeItem *>( it.current() );
+  QTreeWidgetItemIterator it( mScopeListView );
+  while( (*it) ) {
+    if ( (*it)->type() == ScopeItem::rttiId() ) {
+      ScopeItem *item = static_cast<ScopeItem *>( (*it) );
       bool state = item->isOn();
       switch( id ) {
         case ScopeDefault:
@@ -242,10 +243,10 @@ QString SearchWidget::scope()
 {
   QString scope;
 
-  Q3ListViewItemIterator it( mScopeListView );
-  while( it.current() ) {
-    if ( it.current()->rtti() == ScopeItem::rttiId() ) {
-      ScopeItem *item = static_cast<ScopeItem *>( it.current() );
+  QTreeWidgetItemIterator it( mScopeListView );
+  while( (*it) ) {
+    if ( (*it)->type() == ScopeItem::rttiId() ) {
+      ScopeItem *item = static_cast<ScopeItem *>( (*it) );
       if ( item->isOn() ) {
         if ( !scope.isEmpty() ) scope += '&';
         scope += QLatin1String("scope=") + item->entry()->identifier();
@@ -290,13 +291,13 @@ class ScopeTraverser : public DocEntryTraverser
         return this;
       } else {
         ScopeTraverser *t = new ScopeTraverser( mWidget, mLevel + 1 );
-        Q3ListViewItem *item = 0;
+        QTreeWidgetItem *item = 0;
         if ( mParentItem ) {
-          item = new Q3ListViewItem( mParentItem, entry->name() );
+          item = new QTreeWidgetItem( mParentItem, QStringList() << entry->name() );
         } else {
-          item = new Q3ListViewItem( mWidget->listView(), entry->name() );
+          item = new QTreeWidgetItem( mWidget->listView(), QStringList() << entry->name() );
         }
-        item->setOpen( true );
+        item->setExpanded( true );
         t->mParentItem = item;
         return t;
       }
@@ -317,7 +318,7 @@ class ScopeTraverser : public DocEntryTraverser
   private:
     SearchWidget *mWidget;
     int mLevel;
-    Q3ListViewItem *mParentItem;
+    QTreeWidgetItem *mParentItem;
 
     static int mNestingLevel;
 };
@@ -341,9 +342,9 @@ void SearchWidget::updateScopeList()
   checkScope();
 }
 
-void SearchWidget::scopeDoubleClicked( Q3ListViewItem *item )
+void SearchWidget::scopeDoubleClicked( QTreeWidgetItem* item )
 {
-  if ( !item || item->rtti() != ScopeItem::rttiId() ) return;
+  if ( !item || item->type() != ScopeItem::rttiId() ) return;
   ScopeItem *scopeItem = static_cast<ScopeItem *>( item );
 
   QString searchUrl = scopeItem->entry()->search();
@@ -353,7 +354,7 @@ void SearchWidget::scopeDoubleClicked( Q3ListViewItem *item )
   emit searchResult( searchUrl );
 }
 
-void SearchWidget::scopeClicked( Q3ListViewItem * )
+void SearchWidget::scopeClicked( QTreeWidgetItem* )
 {
   checkScope();
 
@@ -380,10 +381,10 @@ void SearchWidget::checkScope()
 {
   mScopeCount = 0;
 
-  Q3ListViewItemIterator it( mScopeListView );
-  while( it.current() ) {
-    if ( it.current()->rtti() == ScopeItem::rttiId() ) {
-      ScopeItem *item = static_cast<ScopeItem *>( it.current() );
+  QTreeWidgetItemIterator it( mScopeListView );
+  while( (*it) ) {
+    if ( (*it)->type() == ScopeItem::rttiId() ) {
+      ScopeItem *item = static_cast<ScopeItem *>( (*it) );
       if ( item->isOn() ) {
         ++mScopeCount;
       }
