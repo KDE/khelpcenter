@@ -124,7 +124,7 @@ if ( !open( PARSER, ">$parserfile" ) ) {
   exit 1;
 }
 print PARSER << "EOT";
-#! /bin/sh
+#! /bin/bash
 
 file=\$1
 shift
