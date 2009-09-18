@@ -379,7 +379,7 @@ QString SearchEngine::substituteSearchQuery( const QString &query )
 
 QString SearchEngine::substituteSearchQuery( const QString &query,
   const QString &identifier, const QStringList &words, int maxResults,
-  Operation operation, const QString &lang )
+  Operation operation, const QString &lang, const QString& binary )
 {
   QString result = query;
   result.replace( QLatin1String("%i"), identifier );
@@ -389,6 +389,7 @@ QString SearchEngine::substituteSearchQuery( const QString &query,
   result.replace( QLatin1String("%o"), o );
   result.replace( QLatin1String("%d"), Prefs::indexDirectory() );
   result.replace( QLatin1String("%l"), lang );
+  result.replace( QLatin1String("%b"), binary );
 
   return result;
 }

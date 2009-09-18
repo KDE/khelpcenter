@@ -112,6 +112,7 @@ class ExternalProcessSearchHandler : public SearchHandler
   private:
     QString mSearchCommand;
     QString mSearchUrl;
+    QString mSearchBinary;
     QString mIndexCommand;
     QString mTryExec;
 };

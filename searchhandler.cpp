@@ -146,6 +146,10 @@ ExternalProcessSearchHandler::ExternalProcessSearchHandler( const KConfigGroup &
   mSearchUrl = cg.readEntry( "SearchUrl" );
   mIndexCommand = cg.readEntry( "IndexCommand" );
   mTryExec = cg.readEntry( "TryExec" );
+  mSearchBinary = cg.readEntry( "SearchBinary" );
+  const QStringList searchBinaryPaths = cg.readEntry( "SearchBinaryPaths", QStringList() );
+  mSearchBinary = KStandardDirs::findExe(mSearchBinary, searchBinaryPaths.join(":"));
+  kDebug() << mSearchBinary << searchBinaryPaths;
 }
 
 QString ExternalProcessSearchHandler::indexCommand( const QString &identifier )
@@ -196,7 +200,7 @@ void ExternalProcessSearchHandler::search( DocEntry *entry, const QStringList &w
 
   if ( !mSearchCommand.isEmpty() ) {
     QString cmdString = SearchEngine::substituteSearchQuery( mSearchCommand,
-      entry->identifier(), words, maxResults, operation, mLang );
+      entry->identifier(), words, maxResults, operation, mLang, mSearchBinary );
 
     kDebug() << "CMD:" << cmdString;
 
@@ -209,7 +213,7 @@ void ExternalProcessSearchHandler::search( DocEntry *entry, const QStringList &w
 
   } else if ( !mSearchUrl.isEmpty() ) {
     QString urlString = SearchEngine::substituteSearchQuery( mSearchUrl,
-      entry->identifier(), words, maxResults, operation, mLang );
+      entry->identifier(), words, maxResults, operation, mLang, mSearchBinary );
 
     kDebug() << "URL:" << urlString;
 

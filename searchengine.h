@@ -25,7 +25,7 @@ class SearchTraverser : public QObject, public DocEntryTraverser
     ~SearchTraverser();
 
     void process( DocEntry * );
-    
+
     void startProcess( DocEntry * );
 
     DocEntryTraverser *createChild( DocEntry * );
@@ -46,15 +46,15 @@ class SearchTraverser : public QObject, public DocEntryTraverser
 
   private:
     const int mMaxLevel;
-  
+
     SearchEngine *mEngine;
     int mLevel;
 
     DocEntry *mEntry;
     QString mJobData;
-    
+
     QString mResult;
-    
+
     QMap<SearchHandler *, int> mConnectCount;
 };
 
@@ -73,14 +73,14 @@ class SearchEngine : public QObject
     bool search( const QString & words, const QString & method = "and", int matches = 5,
                  const QString & scope = "" );
 
-    Formatter *formatter() const; 
+    Formatter *formatter() const;
     View *view() const;
 
     QString substituteSearchQuery( const QString &query );
 
     static QString substituteSearchQuery( const QString &query,
       const QString &identifier, const QStringList &words, int maxResults,
-      Operation operation, const QString &lang );
+      Operation operation, const QString &lang, const QString& binary );
 
     void finishSearch();
 
@@ -113,7 +113,7 @@ class SearchEngine : public QObject
 
   protected:
     void processSearchQueue();
-    
+
   private:
     KProcess *mProc;
     bool mSearchRunning;
@@ -122,7 +122,7 @@ class SearchEngine : public QObject
     QString mStderr;
 
     View *mView;
-    
+
     QString mWords;
     int mMatches;
     QString mMethod;
@@ -132,7 +132,7 @@ class SearchEngine : public QObject
     QStringList mWordList;
     int mMaxResults;
     Operation mOperation;
-    
+
     DocEntryTraverser *mRootTraverser;
 
     QMap<QString, SearchHandler *> mHandlers;
