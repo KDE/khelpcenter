@@ -30,16 +30,14 @@ class ScopeItem : public QTreeWidgetItem
 {
   public:
     ScopeItem( QTreeWidget *parent, DocEntry *entry )
-        : QTreeWidgetItem( parent, QStringList() << entry->name() ),
+        : QTreeWidgetItem( parent, QStringList() << entry->name(), rttiId() ),
           mEntry( entry ), mObserver( 0 ) { init(); }
 
     ScopeItem( QTreeWidgetItem *parent, DocEntry *entry )
-      : QTreeWidgetItem( parent, QStringList() << entry->name() ),
+      : QTreeWidgetItem( parent, QStringList() << entry->name(), rttiId() ),
         mEntry( entry ), mObserver( 0 ) { init(); }
 
     DocEntry *entry()const { return mEntry; }
-
-    int rtti() const { return rttiId(); }
 
     static int rttiId() { return 734678; }
 
