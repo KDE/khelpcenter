@@ -149,7 +149,6 @@ ExternalProcessSearchHandler::ExternalProcessSearchHandler( const KConfigGroup &
   mSearchBinary = cg.readEntry( "SearchBinary" );
   const QStringList searchBinaryPaths = cg.readEntry( "SearchBinaryPaths", QStringList() );
   mSearchBinary = KStandardDirs::findExe(mSearchBinary, searchBinaryPaths.join(":"));
-  kDebug() << mSearchBinary << searchBinaryPaths;
 }
 
 QString ExternalProcessSearchHandler::indexCommand( const QString &identifier )
