@@ -249,6 +249,8 @@ bool SearchEngine::initSearchHandlers()
 
 void SearchEngine::searchExited(int exitCode, QProcess::ExitStatus exitStatus)
 {
+  Q_UNUSED(exitCode);
+  Q_UNUSED(exitStatus);
   kDebug() << "Search terminated";
   mSearchRunning = false;
 }
