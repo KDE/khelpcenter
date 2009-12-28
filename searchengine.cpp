@@ -267,7 +267,7 @@ bool SearchEngine::search( const QString & words, const QString & method, int ma
   mScope = scope;
 
   // Saner variables to store search parameters:
-  mWordList = words.split( " ");
+  mWordList = words.split(' ');
   mMaxResults = matches;
   if ( method == "or" ) mOperation = Or;
   else mOperation = And;
@@ -305,7 +305,7 @@ bool SearchEngine::search( const QString & words, const QString & method, int ma
 
     // if the string contains '&' replace with a '+' and set search method to and
     if (mWords.indexOf("&") != -1) {
-      mWords.replace("&", " ");
+      mWords.replace('&', ' ');
       mMethod = "and";
     }
 

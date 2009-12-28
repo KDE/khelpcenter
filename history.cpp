@@ -331,7 +331,7 @@ void History::fillHistoryPopup( QMenu *popup, bool onlyBack, bool onlyForward, b
   {
     QString text = it.current()->title;
     text = KStringHandler::csqueeze(text, 50); //CT: squeeze
-    text.replace( "&", "&&" );
+    text.replace( '&', "&&" );
     if ( checkCurrentItem && it.current() == current )
     {
       popup->addAction( text )->setChecked( true ); // no pixmap if checked

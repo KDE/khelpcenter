@@ -227,7 +227,7 @@ bool View::prevPage(bool checkOnly)
   KUrl prevURL;
 
   // The first link on a page (top-left corner) would be the Prev link.
-  if ( !baseURL().path().endsWith( "/index.html" ) )
+  if ( !baseURL().path().endsWith( QLatin1String("/index.html") ) )
     prevURL = urlFromLinkNode( links.item( 0 ) );
   else
     return false;
@@ -247,7 +247,7 @@ bool View::nextPage(bool checkOnly)
   KUrl nextURL;
 
   // If we're on the first page, the "Next" link is the second to the last link
-  if ( baseURL().path().endsWith( "/index.html" ) )
+  if ( baseURL().path().endsWith( QLatin1String("/index.html") ) )
     nextURL = urlFromLinkNode( links.item( links.length() - 2 ) );
   else
     nextURL = urlFromLinkNode( links.item( links.length() - 4 ) );
@@ -260,7 +260,7 @@ bool View::nextPage(bool checkOnly)
   // there can't be a Next link pointing to it!) there's probably nowhere
   // to go. Next link at all.
   if ( nextURL.protocol() == "mailto" ||
-       nextURL.path().endsWith( "/index.html" ) )
+       nextURL.path().endsWith( QLatin1String("/index.html") ) )
     return false;
 
   if (!checkOnly)
@@ -277,7 +277,7 @@ bool View::eventFilter( QObject *o, QEvent *e )
   QKeyEvent *ke = static_cast<QKeyEvent *>( e );
   if ( ke->modifiers() & Qt::ShiftModifier && ke->key() == Qt::Key_Space ) {
     // If we're on the first page, it does not make sense to go back.
-    if ( baseURL().path().endsWith( "/index.html" ) )
+    if ( baseURL().path().endsWith( QLatin1String("/index.html") ) )
       return KHTMLPart::eventFilter( o, e );
 
     const QScrollBar * const scrollBar = view()->verticalScrollBar();
