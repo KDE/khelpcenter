@@ -244,7 +244,7 @@ bool View::prevPage(bool checkOnly)
     return false;
 
   if (!checkOnly)
-    openUrl( prevURL );
+    emit browserExtension()->openUrlRequest(prevURL);
   return true;
 }
 
@@ -258,7 +258,7 @@ bool View::nextPage(bool checkOnly)
     return false;
 
   if (!checkOnly)
-    openUrl( nextURL );
+    emit browserExtension()->openUrlRequest(nextURL);
   return true;
 }
 
