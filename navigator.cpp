@@ -379,8 +379,7 @@ void Navigator::slotItemSelected( Q3ListViewItem *currentItem )
 
   NavigatorItem *item = static_cast<NavigatorItem *>( currentItem );
 
-  kDebug(1400) << "Navigator::slotItemSelected(): " << item->entry()->name()
-                << endl;
+  kDebug(1400) << item->entry()->name() << endl;
 
   if ( item->childCount() > 0 || item->isExpandable() )
     item->setOpen( !item->isOpen() );
@@ -393,28 +392,6 @@ void Navigator::slotItemSelected( Q3ListViewItem *currentItem )
       History::self().createEntry();
       showOverview( item, url );
   } else {
-    if ( url.protocol() == "help" ) {
-      kDebug( 1400 ) << "slotItemSelected(): Got help URL " << url.url()
-                      << endl;
-      if ( !item->toc() ) {
-        TOC *tocTree = item->createTOC();
-        kDebug( 1400 ) << "slotItemSelected(): Trying to build TOC for "
-                        << item->entry()->name() << endl;
-        tocTree->setApplication( url.directory() );
-        QString doc = View::langLookup( url.path() );
-        // Enforce the original .docbook version, in case langLookup returns a
-        // cached version
-        if ( !doc.isNull() ) {
-          int pos = doc.indexOf( ".html" );
-          if ( pos >= 0 ) {
-            doc.replace( pos, 5, ".docbook" );
-          }
-          kDebug( 1400 ) << "slotItemSelected(): doc = " << doc;
-
-          tocTree->build( doc );
-        }
-      }
-    }
     emit itemSelected( url.url() );
   }
 
