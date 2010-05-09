@@ -22,6 +22,7 @@
 
 #include "toc.h"
 #include "docentry.h"
+#include "view.h"
 
 #include <kdebug.h>
 #include <kiconloader.h>
@@ -86,14 +87,32 @@ void NavigatorItem::updateItem()
   setPixmap( 0, SmallIcon( entry()->icon() ) );
 }
 
-TOC *NavigatorItem::createTOC()
+void NavigatorItem::scheduleTOCBuild()
 {
+  KUrl url ( entry()->url() );
+  if ( !mToc && url.protocol() == "help") {
     mToc = new TOC( this );
-    return mToc;
+
+    kDebug( 1400 ) << "Trying to build TOC for " << entry()->name() << endl;
+    mToc->setApplication( url.directory() );
+    QString doc = View::langLookup( url.path() );
+    // Enforce the original .docbook version, in case langLookup returns a
+    // cached version
+    if ( !doc.isNull() ) {
+      int pos = doc.indexOf( ".html" );
+      if ( pos >= 0 ) {
+        doc.replace( pos, 5, ".docbook" );
+      }
+      kDebug( 1400 ) << "doc = " << doc;
+
+      mToc->build( doc );
+    }
+  }
 }
 
 void NavigatorItem::setOpen( bool open )
 {
+  scheduleTOCBuild();
   Q3ListViewItem::setOpen( open );
 
 // TODO: was contents2 -> needs to be changed to help-contents-alternate or similar
