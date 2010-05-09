@@ -4,6 +4,7 @@
 #include "history.h"
 
 #include <dom/html_document.h>
+#include <dom/html_head.h>
 #include <dom/html_misc.h>
 #include <kaction.h>
 #include <kactioncollection.h>
@@ -220,17 +221,24 @@ void View::slotCopyLink()
   QApplication::clipboard()->setText(mCopyURL);
 }
 
+static DOM::HTMLLinkElement findLink(const DOM::NodeList& links, const char *rel)
+{ 
+  for (unsigned i = 0; i <= links.length(); i++) {
+    DOM::HTMLLinkElement link(links.item(i));
+    if (link.isNull())
+      continue;
+
+    if (link.rel() == rel)
+      return link;
+  }
+  return DOM::HTMLLinkElement();
+}
+
 bool View::prevPage(bool checkOnly)
 {
-  const DOM::HTMLCollection links = htmlDocument().links();
+  const DOM::NodeList links = document().getElementsByTagName("link");
 
-  KUrl prevURL;
-
-  // The first link on a page (top-left corner) would be the Prev link.
-  if ( !baseURL().path().endsWith( QLatin1String("/index.html") ) )
-    prevURL = urlFromLinkNode( links.item( 0 ) );
-  else
-    return false;
+  KUrl prevURL = urlFromLinkNode( findLink(links, "prev") );
 
   if (!prevURL.isValid())
     return false;
@@ -242,25 +250,11 @@ bool View::prevPage(bool checkOnly)
 
 bool View::nextPage(bool checkOnly)
 {
-  const DOM::HTMLCollection links = htmlDocument().links();
+  const DOM::NodeList links = document().getElementsByTagName("link");
 
-  KUrl nextURL;
-
-  // If we're on the first page, the "Next" link is the second to the last link
-  if ( baseURL().path().endsWith( QLatin1String("/index.html") ) )
-    nextURL = urlFromLinkNode( links.item( links.length() - 2 ) );
-  else
-    nextURL = urlFromLinkNode( links.item( links.length() - 4 ) );
+  KUrl nextURL = urlFromLinkNode( findLink(links, "next") );
 
   if (!nextURL.isValid())
-    return false;
-
-  // If we get a mail link instead of a http URL, or the next link points
-  // to an index.html page (a index.html page is always the first page
-  // there can't be a Next link pointing to it!) there's probably nowhere
-  // to go. Next link at all.
-  if ( nextURL.protocol() == "mailto" ||
-       nextURL.path().endsWith( QLatin1String("/index.html") ) )
     return false;
 
   if (!checkOnly)
@@ -295,26 +289,16 @@ bool View::eventFilter( QObject *o, QEvent *e )
   return KHTMLPart::eventFilter( o, e );
 }
 
-KUrl View::urlFromLinkNode( const DOM::Node &n ) const
+KUrl View::urlFromLinkNode( const DOM::HTMLLinkElement &link ) const
 {
-  if ( n.isNull() || n.nodeType() != DOM::Node::ELEMENT_NODE )
+  if ( link.isNull() )
     return KUrl();
 
-  DOM::Element elem = static_cast<DOM::Element>( n );
+  DOM::DOMString domHref = link.href();
+  if (domHref.isNull())
+    return KUrl();
 
-  KUrl href ( elem.getAttribute( "href" ).string() );
-  if ( !href.protocol().isNull() )
-    return href;
-
-  QString path = baseURL().path();
-  path.truncate( path.lastIndexOf( '/' ) + 1 );
-  path += href.url();
-
-  KUrl url = baseURL();
-  url.setRef( QString() );
-  url.setEncodedPathAndQuery( path );
-
-  return url;
+  return KUrl(baseURL(), domHref.string());
 }
 
 void View::slotReload( const KUrl &url )

@@ -12,6 +12,7 @@ class KActionCollection;
 
 namespace DOM {
   class Node;
+  class HTMLLinkElement;
 }
 
 namespace KHC {
@@ -72,7 +73,7 @@ class View : public KHTMLPart
     void showMenu( const QString& url, const QPoint& pos);
 
   private:
-    KUrl urlFromLinkNode( const DOM::Node &n ) const;
+    KUrl urlFromLinkNode( const DOM::HTMLLinkElement &link ) const;
  
     int mState;
     QString mTitle;
