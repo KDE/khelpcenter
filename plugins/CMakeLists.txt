@@ -4,11 +4,9 @@ if (NOT WIN32)
 add_subdirectory( Manpages ) 
 add_subdirectory( Scrollkeeper ) 
 endif (NOT WIN32)
-add_subdirectory( Tutorials ) 
-
 
 
 ########### install files ###############
 
-install( FILES plasma.desktop contact.desktop faq.desktop info.desktop    links.desktop support.desktop userguide.desktop welcome.desktop    kicmodules.desktop kcontrolmodules.desktop    kioslaves.desktop  DESTINATION  ${DATA_INSTALL_DIR}/khelpcenter/plugins )
+install( FILES plasma.desktop onlinehelp.desktop info.desktop kicmodules.desktop kcontrolmodules.desktop  kioslaves.desktop  DESTINATION  ${DATA_INSTALL_DIR}/khelpcenter/plugins )
 

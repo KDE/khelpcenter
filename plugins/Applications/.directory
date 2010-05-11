@@ -84,7 +84,7 @@ Name[x-test]=xxApplication Manualsxx
 Name[zh_CN]=应用程序手册
 Name[zh_TW]=應用程式手冊
 
-X-DOC-Weight=-500
+X-DOC-Weight=200
 
 X-KDE-KHelpcenter-Special=apps
 

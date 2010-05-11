@@ -88,6 +88,6 @@ Name[zh_CN]=Kioslaves
 Name[zh_TW]=Kioslaves
 Icon=help-contents
 
-X-DOC-Weight=-400
+X-DOC-Weight=500
 
 X-KDE-KHelpcenter-Special=kioslave

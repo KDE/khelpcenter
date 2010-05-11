@@ -90,6 +90,6 @@ Name[zh_TW]=控制中心模組
 
 Icon=preferences-system
 
-X-DOC-Weight=-400
+X-DOC-Weight=300
 
 X-KDE-KHelpcenter-Special=kcontrol
