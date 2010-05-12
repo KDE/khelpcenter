@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Online Help
+Name[x-test]=xxOnline Helpxx
 Icon=help-contents
 X-DocPath=help:/khelpcenter/onlinehelp/index.html
 X-DOC-Weight=100
