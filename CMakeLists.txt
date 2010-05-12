@@ -50,7 +50,7 @@ kde4_add_kcfg_files(khelpcenter_KDEINIT_SRCS prefs.kcfgc )
 kde4_add_app_icon(khelpcenter_KDEINIT_SRCS "${KDE4_INSTALL_DIR}/share/icons/oxygen/*/apps/help-browser.png")
 
 kde4_add_kdeinit_executable( khelpcenter ${khelpcenter_KDEINIT_SRCS})
-target_link_libraries(kdeinit_khelpcenter  ${KDE4_KDE3SUPPORT_LIBS} ${KDE4_KHTML_LIBS}  ${QT_QTXML_LIBRARY} ${KDE4_KUTILS_LIBS} )
+target_link_libraries(kdeinit_khelpcenter  ${KDE4_KDE3SUPPORT_LIBS} ${KDE4_KHTML_LIBS}  ${QT_QTXML_LIBRARY} ${KDE4_KCMUTILS_LIBS} )
 install(TARGETS kdeinit_khelpcenter  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 install(TARGETS khelpcenter ${INSTALL_TARGETS_DEFAULT_ARGS})
 
