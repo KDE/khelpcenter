@@ -8,8 +8,8 @@
 <title>Online Help</title>
 <articleinfo>
 
-<date>2010-03-10</date>
-<releaseinfo>&kde; 4.4</releaseinfo>
+<date>2010-05-13</date>
+<releaseinfo>&kde; 4.5</releaseinfo>
 
 </articleinfo>
 
@@ -20,7 +20,7 @@ help and additional information provided by the KDE community.</para>
 <title>KDE UserBase</title>
 <varlistentry><term>
 <ulink url="http://userbase.kde.org/An_introduction_to_KDE">An 
-Introduction to KDE</ulink></term>
+Introduction to KDE</ulink>&nbsp;</term>
 <listitem>
 <para>Learn more about the <ulink url="http://userbase.kde.org/What_is_KDE">
 KDE community and its software</ulink> and find information to help you get 
@@ -31,7 +31,7 @@ UserBase</ulink> is and how it can help you.
 </varlistentry>
 
 <varlistentry><term>
-<ulink url="http://userbase.kde.org/Getting_Help">Getting Help</ulink></term>
+<ulink url="http://userbase.kde.org/Getting_Help">Getting Help</ulink>&nbsp;</term>
 <listitem>
 <para>Need some help? Here are some suggested places where you can get help 
 with  problems, as well some hints on how to improve the quality of answers you receive.
@@ -40,7 +40,7 @@ with  problems, as well some hints on how to improve the quality of answers you 
 </varlistentry>
 
 <varlistentry><term>
-<ulink url="http://userbase.kde.org/Applications">Applications</ulink></term>
+<ulink url="http://userbase.kde.org/Applications">Applications</ulink>&nbsp;</term>
 <listitem>
 <para>Discover the wide variety of applications from the KDE Community, 
 and find out what program suits your needs and preferences.
@@ -49,7 +49,7 @@ and find out what program suits your needs and preferences.
 </varlistentry>
 
 <varlistentry><term>
-<ulink url="http://userbase.kde.org/Tutorials">Tutorials</ulink></term>
+<ulink url="http://userbase.kde.org/Tutorials">Tutorials</ulink>&nbsp;</term>
 <listitem>
 <para>How-To's, Tips &amp; Tricks that can help make your KDE software 
 experience more enjoyable and productive.
@@ -62,7 +62,7 @@ experience more enjoyable and productive.
 <variablelist>
 <title>KDE Forum</title>
 <varlistentry><term>
-<ulink url="http://forum.kde.org/">KDE Community Forums</ulink></term>
+<ulink url="http://forum.kde.org/">KDE Community Forums</ulink>&nbsp;</term>
 <listitem>
 <para>The KDE Forums offer users, developers and people interested in KDE 
 a place to help each other, discuss KDE-related topics and exchange ideas.
@@ -75,7 +75,7 @@ Tips</ulink> in the forum.</para>
 <variablelist>
 <title>KDE Techbase</title>
 <varlistentry><term>
-<ulink url="http://techbase.kde.org/">KDE Techbase</ulink></term>
+<ulink url="http://techbase.kde.org/">KDE Techbase</ulink>&nbsp;</term>
 <listitem>
 <para>Information for developers and help to set up a KDE development environment.</para>
 </listitem>
@@ -85,7 +85,7 @@ Tips</ulink> in the forum.</para>
 <variablelist>
 <title>KDE Documentation</title>
 <varlistentry><term>
-<ulink url="http://docs.kde.org/">KDE Documentation site</ulink></term>
+<ulink url="http://docs.kde.org/">KDE Documentation site</ulink>&nbsp;</term>
 <listitem>
 <para>This page holds the complete KDE User Documentation in over 25 languages
 for the released and the development version of KDE SC.</para>
