@@ -1,5 +1,9 @@
 [Desktop Entry]
 Name=Online Help
+Name[ia]=Adjuta in linea
+Name[pt]=Ajuda 'Online'
+Name[sv]=Direkthjälp
+Name[uk]=Довідка у інтернеті
 Name[x-test]=xxOnline Helpxx
 Icon=help-contents
 X-DocPath=help:/khelpcenter/onlinehelp/index.html
