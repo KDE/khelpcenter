@@ -232,7 +232,6 @@ KCMHelpCenter::KCMHelpCenter( KHC::SearchEngine *engine, QWidget *parent,
   setObjectName( name );
   setCaption( i18n("Build Search Index") );
   setButtons( Ok | Cancel );
-  showButtonSeparator( true );
 
   QWidget *widget = new QWidget( this );
   setMainWidget( widget );
