@@ -13,8 +13,8 @@
 <corpauthor>The &kde; Team</corpauthor>
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
-<date>2010-03-10</date>
-<releaseinfo>&kde; 4.4</releaseinfo>
+<date>2010-07-18</date>
+<releaseinfo>&kde; 4.5</releaseinfo>
 
 <abstract>
 <para>
@@ -244,43 +244,6 @@ entries:
 <variablelist>
 
 <varlistentry>
-<term><guilabel>Quickstart Guide</guilabel></term>
-<listitem>
-<para>
-A short introduction to the &kde; desktop and some key applications running on it.
-</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><guilabel>&kde; User's manual</guilabel></term>
-<listitem>
-<para>
-The &kde; User's manual is an in-depth exploration of &kde;, including
-installation, configuration and customization, and use.
-</para>
-</listitem> 
-</varlistentry>
-
-<varlistentry>
-<term><guilabel>Application manuals</guilabel></term>
-<listitem>
-<para>
-Native &kde; application documentation. All &kde; applications have
-documentation in &XML; format, which are converted to
-<acronym>HTML</acronym> when you view them. This section lists all the
-&kde; applications with a brief description and a link to the full
-application documentation. 
-</para>
-<para>
-The applications are displayed in a tree structure that echoes the default
-structure of the <guimenu>K</guimenu> menu, making it easy to find the
-application you are looking for.
-</para>
-</listitem> 
-</varlistentry>
-
-<varlistentry>
 <term><guilabel>Plasma Manual</guilabel></term>
 <listitem>
 <para>
@@ -299,6 +262,24 @@ the core interface to the desktop.
 </varlistentry>
 
 <varlistentry>
+<term><guilabel>Application Manuals</guilabel></term>
+<listitem>
+<para>
+Native &kde; application documentation. All &kde; applications have
+documentation in &XML; format, which are converted to
+<acronym>HTML</acronym> when you view them. This section lists all the
+&kde; applications with a brief description and a link to the full
+application documentation. 
+</para>
+<para>
+The applications are displayed in a tree structure that echoes the default
+structure of the <guimenu>K</guimenu> menu, making it easy to find the
+application you are looking for.
+</para>
+</listitem> 
+</varlistentry>
+
+<varlistentry>
 <term><guilabel>Control Center Modules</guilabel></term>
 <listitem>
 <para>
@@ -309,7 +290,7 @@ Provides a list of links to various modules that are located in the &kde;
 </varlistentry>
 
 <varlistentry>
-<term><guilabel>KInfocenter Modules</guilabel></term>
+<term><guilabel>KInfoCenter Modules</guilabel></term>
 <listitem>
 <para>
 Contains a list of links to various KInfocenter modules documentation.
@@ -347,7 +328,7 @@ formats.
 </varlistentry>
 
 <varlistentry>
-<term><guilabel>Browse info pages</guilabel></term>
+<term><guilabel>Browse Iinfo Pages</guilabel></term>
 <listitem>
 <para>
 TeXinfo documentation is used by many &GNU; applications,
