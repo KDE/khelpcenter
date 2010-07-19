@@ -328,7 +328,7 @@ formats.
 </varlistentry>
 
 <varlistentry>
-<term><guilabel>Browse Iinfo Pages</guilabel></term>
+<term><guilabel>Browse Info Pages</guilabel></term>
 <listitem>
 <para>
 TeXinfo documentation is used by many &GNU; applications,
