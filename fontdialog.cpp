@@ -1,3 +1,4 @@
+
 /*
  *  This file is part of the KDE Help Center
  *
@@ -17,23 +18,25 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
+
 #include "fontdialog.h"
 
-#include <kapplication.h>
-#include <kcharsets.h>
-#include <kcombobox.h>
-#include <kconfig.h>
-#include <kglobal.h>
+#include <KApplication>
+#include <KCharsets>
+#include <KComboBox>
+#include <KConfig>
+#include <KGlobal>
+#include <KLocale>
+#include <KNumInput>
+#include <KVBox>
+#include <KFontComboBox>
+#include <KConfigGroup>
+
 #include <khtmldefaults.h>
-#include <klocale.h>
-#include <knuminput.h>
-#include <kvbox.h>
-#include <kfontcombobox.h>
 
 #include <QGroupBox>
 #include <QLabel>
 #include <QLayout>
-#include <kconfiggroup.h>
 
 using namespace KHC;
 

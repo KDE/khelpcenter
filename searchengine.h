@@ -1,14 +1,13 @@
-#ifndef SEARCHENGINE_H
-#define SEARCHENGINE_H
+
+#ifndef KHC_SEARCHENGINE_H
+#define KHC_SEARCHENGINE_H
 
 #include <QObject>
-
 
 #include <KProcess>
 #include <kio/job.h>
 
 #include "docentrytraverser.h"
-
 
 namespace KHC {
 
@@ -140,5 +139,5 @@ class SearchEngine : public QObject
 
 }
 
-#endif
+#endif //KHC_SEARCHENGINE_H
 // vim:ts=2:sw=2:et

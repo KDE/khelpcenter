@@ -1,6 +1,6 @@
-#ifndef DOCENTRY_H
-#define DOCENTRY_H
 
+#ifndef KHC_DOCENTRY_H
+#define KHC_DOCENTRY_H
 
 #include <QString>
 #include <QList>
@@ -114,5 +114,5 @@ class DocEntry
 
 }
 
-#endif
+#endif //KHC_DOCENTRY_H
 // vim:ts=2:sw=2:et

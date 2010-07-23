@@ -27,24 +27,23 @@
 #include "searchhandler.h"
 #include "searchengine.h"
 
-
 #include "kcmhelpcenteradaptor.h"
 
-#include <kconfig.h>
-#include <kdebug.h>
-#include <klocale.h>
-#include <kglobal.h>
-#include <kaboutdata.h>
-#include <kdialog.h>
-#include <kstandarddirs.h>
-#include <kprocess.h>
-#include <kapplication.h>
-#include <ktemporaryfile.h>
-#include <kurlrequester.h>
-#include <kmessagebox.h>
-#include <qtreewidget.h>
-#include <klineedit.h>
+#include <KConfig>
+#include <KDebug>
+#include <KLocale>
+#include <KGlobal>
+#include <KAboutData>
+#include <KDialog>
+#include <KStandardDirs>
+#include <KProcess>
+#include <KApplication>
+#include <KTemporaryFile>
+#include <KUrlRequester>
+#include <KMessageBox>
+#include <KLineEdit>
 
+#include <QTreeWidget>
 #include <QtDBus/QtDBus>
 #include <QLabel>
 #include <QLayout>
@@ -119,7 +118,7 @@ IndexProgressDialog::IndexProgressDialog( QWidget *parent )
 
   mLogView = new QTextEdit( mainWidget() );
   mLogView->setReadOnly( true );
-  mLogView->setTextFormat( Qt::LogText );
+  mLogView->setWordWrapMode( QTextOption::NoWrap );
   mLogView->setMinimumHeight( 200 );
   topLayout->addWidget( mLogView );
 

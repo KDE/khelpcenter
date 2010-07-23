@@ -20,10 +20,6 @@
 
 #include "navigator.h"
 
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <unistd.h>
-
 #include <QDir>
 #include <QFile>
 #include <QPixmap>
@@ -35,32 +31,37 @@
 #include <QRegExp>
 #include <QLayout>
 #include <QPushButton>
-
-//Added by qt3to4:
 #include <QFrame>
 #include <QHBoxLayout>
 #include <QBoxLayout>
 #include <QVBoxLayout>
 
-#include <kaction.h>
-#include <kapplication.h>
-#include <kconfig.h>
-#include <kstandarddirs.h>
-#include <kglobal.h>
-#include <klocale.h>
-#include <kdebug.h>
+#include <KAction>
+#include <KApplication>
+#include <KConfig>
+#include <KStandardDirs>
+#include <KGlobal>
+#include <KLocale>
+#include <KDebug>
+
+//FIXME
 #include <k3listview.h>
+
 #include <KLineEdit>
-#include <kmessagebox.h>
-#include <kiconloader.h>
-#include <kcharsets.h>
-#include <kdialog.h>
-#include <kdesktopfile.h>
-#include <kprotocolinfo.h>
-#include <kservicegroup.h>
-#include <kservicetypetrader.h>
-#include <kcmoduleinfo.h>
-#include <kcmodule.h>
+#include <KMessageBox>
+#include <KIconLoader>
+#include <KCharsets>
+#include <KDialog>
+#include <KDesktopFile>
+#include <KProtocolInfo>
+#include <KServiceGroup>
+#include <KServiceTypeTrader>
+#include <KCModuleInfo>
+#include <KCModule>
+
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
 
 #include "navigatoritem.h"
 #include "navigatorappitem.h"

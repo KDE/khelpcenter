@@ -1,3 +1,4 @@
+
 /*
  *  toc.h - part of the KDE Help Center
  *
@@ -17,13 +18,17 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
+
 #ifndef KHC_TOC_H
 #define KHC_TOC_H
 
 #include "navigatoritem.h"
 
 #include <QtXml/QtXml>
+
+//FIXME
 #include <Qt3Support/Q3CheckListItem>
+
 #include <QObject>
 
 #include <KProcess>

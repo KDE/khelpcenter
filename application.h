@@ -1,3 +1,4 @@
+
 /*
  *  This file is part of the KDE Help Center
  *
@@ -17,10 +18,11 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
-#ifndef APPLICATION_H
-#define APPLICATION_H
 
-#include <kuniqueapplication.h>
+#ifndef KHC_APPLICATION_H
+#define KHC_APPLICATION_H
+
+#include <KUniqueApplication>
 
 namespace KHC {
 
@@ -41,5 +43,5 @@ class Application : public KUniqueApplication
 
 extern "C" { int KDE_EXPORT kdemain(int argc, char **argv); }
 
-#endif // APPLICATION_H
+#endif // KHC_APPLICATION_H
 // vim:ts=2:sw=2:et

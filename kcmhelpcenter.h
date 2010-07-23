@@ -18,11 +18,11 @@
   the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
   Boston, MA 02110-1301, USA.
 */
-#ifndef KCMHELPCENTER_H
-#define KCMHELPCENTER_H
+#ifndef KHC_KCMHELPCENTER_H
+#define KHC_KCMHELPCENTER_H
 
-#include <kdialog.h>
-#include <ksharedconfig.h>
+#include <KDialog>
+#include <KSharedConfig>
 #include <KProcess>
 
 #include "scopeitem.h"
@@ -164,5 +164,5 @@ class KCMHelpCenter : public KDialog
     bool mRunAsRoot;
 };
 
-#endif
+#endif //KHC_KCMHELPCENTER_H
 // vim:ts=2:sw=2:et

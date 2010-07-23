@@ -20,11 +20,12 @@
 #ifndef KHC_GLOSSARY_H
 #define KHC_GLOSSARY_H
 
+//FIXME
 #include <k3listview.h>
 
 #include <QDomElement>
 #include <QList>
-#include <ksharedconfig.h>
+#include <KSharedConfig>
 #include <QHash>
 #include <KProcess>
 

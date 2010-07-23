@@ -20,6 +20,7 @@
 #ifndef KHC_NAVIGATORITEM_H
 #define KHC_NAVIGATORITEM_H
 
+//FIXME
 #include <Qt3Support/Q3CheckListItem>
 
 namespace KHC {
@@ -62,6 +63,6 @@ class NavigatorItem : public Q3ListViewItem
 
 }
 
-#endif
+#endif // KHC_NAVIGATORITEM_H
 
 // vim:ts=2:sw=2:et

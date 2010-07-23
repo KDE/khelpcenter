@@ -1,3 +1,4 @@
+
 /* This file is part of the KDE project
    Copyright 2002 Cornelius Schumacher <schumacher@kde.org>
 
@@ -17,8 +18,8 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef DOCENTRYTRAVERSER_H
-#define DOCENTRYTRAVERSER_H
+#ifndef KHC_DOCENTRYTRAVERSER_H
+#define KHC_DOCENTRYTRAVERSER_H
 
 namespace KHC {
 
@@ -59,5 +60,5 @@ class DocEntryTraverser
 
 }
 
-#endif
+#endif //KHC_DOCENTRYTRAVERSER_H
 // vim:ts=2:sw=2:et

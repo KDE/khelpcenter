@@ -23,14 +23,14 @@
 
 #include "version.h"
 
-#include <kaboutdata.h>
-#include <klocale.h>
-#include <kcmdlineargs.h>
-#include <kuniqueapplication.h>
-#include <kdebug.h>
-#include <kprocess.h>
-#include <kconfig.h>
-#include <kshell.h>
+#include <KAboutData>
+#include <KLocale>
+#include <KCmdLineArgs>
+#include <KUniqueApplication>
+#include <KDebug>
+#include <KProcess>
+#include <KConfig>
+#include <KShell>
 
 #include <QFile>
 #include <QTextStream>

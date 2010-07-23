@@ -18,8 +18,8 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef __navigatorappitem_h___
-#define __navigatorappitem_h___
+#ifndef KHC_NAVIGATORAPPITEM_H
+#define KHC_NAVIGATORAPPITEM_H
 
 #include "navigatoritem.h"
 
@@ -55,5 +55,5 @@ class NavigatorAppItem : public NavigatorItem
 
 }
 
-#endif
+#endif //KHC_NAVIGATORAPPITEM_H
 // vim:ts=2:sw=2:et

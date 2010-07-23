@@ -21,20 +21,20 @@
 #include "htmlsearchconfig.h"
 
 #include <QLayout>
-//Added by qt3to4:
+
 #include <QLabel>
 #include <QVBoxLayout>
 #include <QGridLayout>
 
-#include <kdebug.h>
-#include <kstandarddirs.h>
-#include <klocale.h>
-#include <kurllabel.h>
-#include <kapplication.h>
-#include <kfiledialog.h>
-#include <kurlrequester.h>
-#include <klineedit.h>
-#include <ktoolinvocation.h>
+#include <KDebug>
+#include <KStandardDirs>
+#include <KLocale>
+#include <KUrlLabel>
+#include <KApplication>
+#include <KFileDialog>
+#include <KUrlRequester>
+#include <KLineEdit>
+#include <KToolInvocation>
 
 namespace KHC {
 

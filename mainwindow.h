@@ -1,9 +1,11 @@
-#ifndef __mainwindow_h__
-#define __mainwindow_h__
 
-#include <kxmlguiwindow.h>
+#ifndef KHC_MAINWINDOW_H
+#define KHC_MAINWINDOW_H
+
+#include <KXmlGuiWindow>
+#include <KUrl>
+
 #include <kio/job.h>
-#include <kurl.h>
 #include <kparts/browserextension.h>
 
 #include "navigator.h"
@@ -101,5 +103,5 @@ private:
 
 }
 
-#endif
+#endif //KHC_MAINWINDOW_H
 // vim:ts=2:sw=2:et

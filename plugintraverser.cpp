@@ -23,14 +23,15 @@
 #include "navigatorappitem.h"
 #include "navigatoritem.h"
 
-#include <kapplication.h>
-#include <kconfig.h>
-#include <kconfiggroup.h>
-#include <kdebug.h>
-#include <kiconloader.h>
+#include <KApplication>
+#include <KConfig>
+#include <KConfigGroup>
+#include <KDebug>
+#include <KIconLoader>
+#include <KGlobal>
 
+//FIXME
 #include <Qt3Support/Q3CheckListItem>
-#include <kglobal.h>
 
 using namespace KHC;
 

@@ -21,7 +21,7 @@
 #ifndef KHC_INDEXBUILDER_H
 #define KHC_INDEXBUILDER_H
 
-#include <kuniqueapplication.h>
+#include <KUniqueApplication>
 #include <KProcess>
 
 #include <QObject>
@@ -54,6 +54,6 @@ class IndexBuilder : public QObject
 
 }
 
-#endif
+#endif //KHC_INDEXBUILDER_H
 
 // vim:ts=2:sw=2:et

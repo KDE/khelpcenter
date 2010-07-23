@@ -1,4 +1,5 @@
- /*
+
+/*
  *  This file is part of the KDE Help Center
  *
  *  Copyright (c) 2002 Frerich Raabe <raabe@kde.org>
@@ -22,9 +23,9 @@
 #include "mainwindow.h"
 #include "version.h"
 
-#include <kcmdlineargs.h>
-#include <kaboutdata.h>
-#include <klocale.h>
+#include <KCmdLineArgs>
+#include <KAboutData>
+#include <KLocale>
 
 using namespace KHC;
 

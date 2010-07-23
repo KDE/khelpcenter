@@ -23,21 +23,25 @@
 #include "navigatoritem.h"
 #include "docentry.h"
 
-#include <kapplication.h>
-#include <kconfig.h>
-#include <kconfiggroup.h>
-#include <kdebug.h>
-#include <kiconloader.h>
+#include <KApplication>
+#include <KConfig>
+#include <KConfigGroup>
+#include <KDebug>
+#include <KIconLoader>
+#include <KGlobal>
+
+//FIXME
 #include <k3listview.h>
-#include <klocale.h>
-#include <kstandarddirs.h>
-#include <kurl.h>
+
+#include <KLocale>
+#include <KStandardDirs>
+#include <KUrl>
 
 #include <QFile>
 #include <QTextStream>
 #include <QPixmap>
+
 #include <stdlib.h>  // for getenv()
-#include <kglobal.h>
 
 using namespace KHC;
 

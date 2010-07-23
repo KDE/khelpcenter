@@ -22,7 +22,6 @@
 
 #include <QObject>
 
-
 class KConfig;
 
 namespace KHC {
@@ -48,5 +47,5 @@ class HTMLSearch : public QObject
 
 }
 
-#endif
+#endif //KHC_HTMLSEARCH_H
 // vim:ts=2:sw=2:et

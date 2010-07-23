@@ -19,12 +19,11 @@
  */
 
 #include "navigatorappitem.h"
-
 #include "docentry.h"
 
-#include <kdebug.h>
-#include <kservice.h>
-#include <kservicegroup.h>
+#include <KDebug>
+#include <KService>
+#include <KServiceGroup>
 
 using namespace KHC;
 

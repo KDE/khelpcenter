@@ -1,9 +1,11 @@
 [Desktop Entry]
+
 Exec=khelpcenter
 Icon=help-browser
 X-DocPath=khelpcenter/index.html
 Type=Application
 Terminal=false
+
 Name=Help
 Name[af]=Hulp
 Name[ar]=مساعدة
@@ -94,5 +96,6 @@ Name[xh]=Uncedo
 Name[x-test]=xxHelpxx
 Name[zh_CN]=帮助
 Name[zh_TW]=求助
+
 Categories=Qt;KDE;Core;
 OnlyShowIn=KDE;

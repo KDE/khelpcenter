@@ -17,10 +17,10 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
-#ifndef FONTDIALOG_H
-#define FONTDIALOG_H
+#ifndef KHC_FONTDIALOG_H
+#define KHC_FONTDIALOG_H
 
-#include <kdialog.h>
+#include <KDialog>
 
 class KIntSpinBox;
 
@@ -33,35 +33,36 @@ namespace KHC {
 
 class FontDialog : public KDialog
 {
-	Q_OBJECT
-	public:
-		FontDialog( QWidget *parent );
+  Q_OBJECT
+  
+  public:
+    FontDialog( QWidget *parent );
 
-	protected Q_SLOTS:
-		virtual void slotOk();
+  protected Q_SLOTS:
+    virtual void slotOk();
 
-	private:
-		void setupFontSizesBox();
-		void setupFontTypesBox();
-		void setupFontEncodingBox();
+  private:
+    void setupFontSizesBox();
+    void setupFontTypesBox();
+    void setupFontEncodingBox();
 
-		void load();
-		void save();
+    void load();
+    void save();
 
-		KIntNumInput *m_minFontSize;
-		KIntNumInput *m_medFontSize;
-		KFontComboBox *m_standardFontCombo;
-		KFontComboBox *m_fixedFontCombo;
-		KFontComboBox *m_serifFontCombo;
-		KFontComboBox *m_sansSerifFontCombo;
-		KFontComboBox *m_italicFontCombo;
-		KFontComboBox *m_fantasyFontCombo;
-		KComboBox *m_defaultEncoding;
-		KIntSpinBox *m_fontSizeAdjustement;
+    KIntNumInput *m_minFontSize;
+    KIntNumInput *m_medFontSize;
+    KFontComboBox *m_standardFontCombo;
+    KFontComboBox *m_fixedFontCombo;
+    KFontComboBox *m_serifFontCombo;
+    KFontComboBox *m_sansSerifFontCombo;
+    KFontComboBox *m_italicFontCombo;
+    KFontComboBox *m_fantasyFontCombo;
+    KComboBox *m_defaultEncoding;
+    KIntSpinBox *m_fontSizeAdjustement;
     KVBox *m_mainWidget;
 };
 
 }
 
-#endif // FONTDIALOG_H
+#endif // KHC_FONTDIALOG_H
 // vim:ts=4:sw=4:noet

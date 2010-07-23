@@ -1,3 +1,4 @@
+
 #include "view.h"
 
 #include "formatter.h"
@@ -6,24 +7,24 @@
 #include <dom/html_document.h>
 #include <dom/html_head.h>
 #include <dom/html_misc.h>
-#include <kaction.h>
-#include <kactioncollection.h>
-#include <kapplication.h>
-#include <kdebug.h>
-#include <khtml_settings.h>
-#include <khtmlview.h>
-#include <klocale.h>
-#include <kmenu.h>
-#include <kstandarddirs.h>
-#include <ktoolbarpopupaction.h>
+
+#include <KAction>
+#include <KActionCollection>
+#include <KApplication>
+#include <KDebug>
+#include <KHTMLSettings>
+#include <KHTMLView>
+#include <KLocale>
+#include <KMenu>
+#include <KStandardDirs>
+#include <KToolBarPopupAction>
+#include <KGlobal>
 
 #include <QFileInfo>
 #include <QClipboard>
-//Added by qt3to4:
 #include <QTextStream>
 #include <QKeyEvent>
 #include <QEvent>
-#include <kglobal.h>
 
 using namespace KHC;
 

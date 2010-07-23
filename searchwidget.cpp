@@ -1,3 +1,4 @@
+
 /*
  *  searchwidget.cpp - part of the KDE Help Center
  *
@@ -32,6 +33,7 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QBoxLayout>
+#include <QtDBus/QDBusConnection>
 
 #include <KConfig>
 #include <KApplication>
@@ -44,8 +46,6 @@
 #include "kcmhelpcenter.h"
 #include "prefs.h"
 #include "searchengine.h"
-
-#include <QtDBus/QDBusConnection>
 
 namespace KHC {
 

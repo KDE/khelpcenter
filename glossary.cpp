@@ -1,3 +1,4 @@
+
 /*
  *  This file is part of the KDE Help Center
  *
@@ -17,26 +18,28 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
+
 #include "glossary.h"
 #include "view.h"
 
-#include <kapplication.h>
-#include <kconfig.h>
-#include <kdebug.h>
-#include <kiconloader.h>
-#include <klocale.h>
-#include <kxmlguiwindow.h>
-#include <kprocess.h>
-#include <kstandarddirs.h>
-#include <kstatusbar.h>
+#include <KApplication>
+#include <KConfig>
+#include <KDebug>
+#include <KIconLoader>
+#include <KLocale>
+#include <KXmlGuiWindow>
+#include <KProcess>
+#include <KStandardDirs>
+#include <KStatusBar>
+#include <KGlobal>
 
+//FIXME
 #include <Qt3Support/Q3Header>
-//Added by qt3to4:
+
 #include <QFrame>
 #include <QTextStream>
 
 #include <sys/stat.h>
-#include <kglobal.h>
 
 using namespace KHC;
 

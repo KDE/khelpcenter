@@ -20,12 +20,12 @@
 
 #include "formatter.h"
 
-#include <klocale.h>
-#include <kglobal.h>
-#include <kdebug.h>
-#include <kconfig.h>
-#include <kconfiggroup.h>
-#include <kstandarddirs.h>
+#include <KLocale>
+#include <KGlobal>
+#include <KDebug>
+#include <KConfig>
+#include <KConfigGroup>
+#include <KStandardDirs>
 
 #include <QFile>
 #include <QTextStream>

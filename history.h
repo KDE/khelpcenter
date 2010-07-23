@@ -17,13 +17,16 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
-#ifndef HISTORY_H
-#define HISTORY_H
+#ifndef KHC_HISTORY_H
+#define KHC_HISTORY_H
 
-#include <kurl.h>
+#include <KUrl>
 
 #include <QObject>
+
+//FIXME
 #include <Qt3Support/Q3PtrList>
+
 #include <QMenu>
 
 class KActionCollection;
@@ -104,5 +107,5 @@ class History : public QObject
 
 }
 
-#endif // HISTORY_H
+#endif // KHC_HISTORY_H
 // vim:ts=2:sw=2:et

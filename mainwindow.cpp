@@ -26,31 +26,32 @@
 #include "searchengine.h"
 #include "fontdialog.h"
 #include "prefs.h"
-#include <QtDBus/QDBusConnection>
-#include <kaction.h>
-#include <kactioncollection.h>
-#include <kapplication.h>
-#include <kconfig.h>
-#include <kicon.h>
-#include <kiconloader.h>
-#include <kmimetype.h>
-#include <krun.h>
-#include <kaboutdata.h>
-#include <kdebug.h>
-#include <khtmlview.h>
-#include <khtml_settings.h>
-#include <kstatusbar.h>
-#include <kstandardshortcut.h>
-#include <kdialog.h>
-#include <klocale.h>
-#include <kstandardaction.h>
-#include <kxmlguifactory.h>
-#include <kstartupinfo.h>
 
+#include <KAction>
+#include <KActionCollection>
+#include <KApplication>
+#include <KConfig>
+#include <KIcon>
+#include <KIconLoader>
+#include <KMimeType>
+#include <KRun>
+#include <KAboutData>
+#include <KDebug>
+#include <KHTMLView>
+#include <KHTMLSettings>
+#include <KStatusBar>
+#include <KStandardShortcut>
+#include <KDialog>
+#include <KLocale>
+#include <KStandardAction>
+#include <KXmlGuiWindow>
+#include <KStartupInfo>
+#include <KConfigGroup>
+
+#include <QtDBus/QDBusConnection>
 #include <QSplitter>
 #include <QTextEdit>
 #include <QLayout>
-//Added by qt3to4:
 #include <QVBoxLayout>
 #include <QFrame>
 #include <QList>
@@ -59,7 +60,6 @@
 #include <stdlib.h>
 #include <assert.h>
 #include <kglobal.h>
-#include <kconfiggroup.h>
 
 using namespace KHC;
 
@@ -78,7 +78,8 @@ class LogDialog : public KDialog
       QBoxLayout *topLayout = new QVBoxLayout( topFrame );
 
       mTextView = new QTextEdit( topFrame );
-      mTextView->setTextFormat( Qt::LogText );
+      mTextView->setReadOnly ( true );
+      mTextView->setWordWrapMode( QTextOption::NoWrap );
       topLayout->addWidget( mTextView );
 
       KConfigGroup cg = KGlobal::config()->group( "logdialog" );
@@ -259,8 +260,6 @@ void MainWindow::setupActions()
     QAction *action = actionCollection()->addAction( QLatin1String("build_index") );
     action->setText( i18n("Build Search Index...") );
     connect( action, SIGNAL( triggered() ), mNavigator, SLOT( showIndexDialog() ) );
-
-    actionCollection()->addAction( KStandardAction::KeyBindings, guiFactory(), SLOT( configureShortcuts() ) );
 
     KConfigGroup debugGroup( KGlobal::config(), "Debug" );
     if ( debugGroup.readEntry( "SearchErrorLog", false) ) {

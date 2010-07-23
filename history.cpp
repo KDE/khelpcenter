@@ -19,21 +19,25 @@
  */
 #include "history.h"
 #include "view.h"
+
 #include <QMenu>
-#include <kaction.h>
-#include <kactioncollection.h>
-#include <kapplication.h>
-#include <kdebug.h>
-#include <kicon.h>
-#include <kxmlguiwindow.h>
-#include <kmenu.h>
-#include <kstandardguiitem.h>
-#include <kstringhandler.h>
-#include <ktoolbarpopupaction.h>
+
+#include <KAction>
+#include <KActionCollection>
+#include <KApplication>
+#include <KDebug>
+#include <KIcon>
+#include <KXmlGuiWindow>
+#include <KMenu>
+#include <KStandardGuiItem>
+#include <KStringHandler>
+#include <KToolBarPopupAction>
+
 #include <kxmlguifactory.h>
 
-
 using namespace KHC;
+
+// TODO: Needs complete redo!
 
 History *History::m_instance = 0;
 

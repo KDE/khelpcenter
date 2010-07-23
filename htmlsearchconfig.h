@@ -54,5 +54,5 @@ class HtmlSearchConfig : public QWidget
 
 }
 
-#endif
+#endif //KHC_HTMLSEARCHCONFIG_H
 // vim:ts=2:sw=2:et

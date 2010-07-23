@@ -1,3 +1,4 @@
+
 /*
     This file is part of KHelpCenter.
 
@@ -24,12 +25,12 @@
 #include "prefs.h"
 #include "docentry.h"
 
-#include <kdesktopfile.h>
+#include <KDesktopFile>
 #include <KProcess>
-#include <kdebug.h>
-#include <kmessagebox.h>
-#include <klocale.h>
-#include <kstandarddirs.h>
+#include <KDebug>
+#include <KMessageBox>
+#include <KLocale>
+#include <KStandardDirs>
 #include <KShell>
 
 #include <stdlib.h>

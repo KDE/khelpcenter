@@ -1,3 +1,4 @@
+
 /*
     This file is part of KHelpCenter.
 
@@ -17,12 +18,14 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
+
 #ifndef KHC_SEARCHHANDLER_H
 #define KHC_SEARCHHANDLER_H
 
 #include "searchengine.h"
 
 #include <QObject>
+
 #include <KProcess>
 
 class KConfigGroup;
@@ -119,4 +122,4 @@ class ExternalProcessSearchHandler : public SearchHandler
 
 }
 
-#endif
+#endif //KHC_SEARCHHANDLER_H

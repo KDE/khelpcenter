@@ -1,3 +1,4 @@
+
 /*
  *  This file is part of the KDE Help Center
  *
@@ -17,12 +18,13 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
-#ifndef TREEBUILDER_H
-#define TREEBUILDER_H
+
+#ifndef KHC_TREEBUILDER_H
+#define KHC_TREEBUILDER_H
 
 #include "QtCore/QObject"
 
-#include <kurl.h>
+#include <KUrl>
 
 namespace KHC
 {

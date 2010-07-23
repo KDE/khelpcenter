@@ -23,17 +23,17 @@
 #include "navigatoritem.h"
 #include "docentry.h"
 
-#include <kapplication.h>
-#include <kconfig.h>
-#include <kdebug.h>
-#include <kglobal.h>
-#include <klocale.h>
-#include <kprocess.h>
+#include <KApplication>
+#include <KConfig>
+#include <KDebug>
+#include <KGlobal>
+#include <KLocale>
+#include <KProcess>
+#include <KConfigGroup>
 
 #include <QtXml/QtXml>
 #include <QFile>
 #include <QRegExp>
-#include <kconfiggroup.h>
 
 using namespace KHC;
 

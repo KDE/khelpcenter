@@ -1,3 +1,4 @@
+
 /* This file is part of the KDE project
    Copyright 2002 Cornelius Schumacher <schumacher@kde.org>
 
@@ -17,9 +18,8 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef DOCMETAINFO_H
-#define DOCMETAINFO_H
-
+#ifndef KHC_DOCMETAINFO_H
+#define KHC_DOCMETAINFO_H
 
 #include <QDir>
 #include <QMap>
@@ -93,5 +93,5 @@ class DocMetaInfo
 
 }
 
-#endif
+#endif //KHC_DOCMETAINFO_H
 // vim:ts=2:sw=2:et

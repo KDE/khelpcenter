@@ -17,8 +17,8 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SCOPEITEM_H
-#define SCOPEITEM_H
+#ifndef KHC_SCOPEITEM_H
+#define KHC_SCOPEITEM_H
 
 #include <QTreeWidgetItem>
 
@@ -69,5 +69,5 @@ class ScopeItem : public QTreeWidgetItem
 
 }
 
-#endif
+#endif //KHC_SCOPEITEM_H
 // vim:ts=2:sw=2:et

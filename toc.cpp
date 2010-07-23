@@ -22,20 +22,20 @@
 
 #include "docentry.h"
 
-#include <kiconloader.h>
-#include <kprocess.h>
-#include <kstandarddirs.h>
-#include <kdebug.h>
-#include <kxmlguiwindow.h>
+#include <KIconLoader>
+#include <KProcess>
+#include <KStandardDirs>
+#include <KDebug>
+#include <KXmlGuiWindow>
 #include <KApplication>
 #include <KStatusBar>
-#include <klocale.h>
+#include <KLocale>
 
 #include <QDir>
 #include <QFileInfo>
-//Added by qt3to4:
 #include <QTextStream>
 #include <QPixmap>
+
 #include <sys/stat.h>
 
 using namespace KHC;

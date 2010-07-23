@@ -1,7 +1,8 @@
-#ifndef __version_h__
-#define __version_h__
+
+#ifndef KHC_VERSION_H
+#define KHC_VERSION_H
 
 #define HELPCENTER_VERSION KDE_VERSION_STRING
 
-#endif
+#endif // KHC_VERSION_H
 // vim:ts=2:sw=2:et

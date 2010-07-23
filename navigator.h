@@ -18,22 +18,26 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef __navigator_h__
-#define __navigator_h__
+#ifndef KHC_NAVIGATOR_H
+#define KHC_NAVIGATOR_H
 
 #include "glossary.h"
 
+//FIXME
 #include <k3listview.h>
-#include <kurl.h>
+
+#include <KUrl>
 
 #include <QFile>
 #include <QTextStream>
 #include <QTimer>
-#include <Qt3Support/Q3PtrList>
 #include <QTabWidget>
+
+//FIXME
+#include <Qt3Support/Q3PtrList>
 #include <Qt3Support/Q3CheckListItem>
 #include <Qt3Support/Q3Dict>
-//Added by qt3to4:
+
 #include <QFrame>
 
 class QPushButton;
@@ -147,5 +151,5 @@ class Navigator : public QWidget
 
 }
 
-#endif
+#endif //KHC_NAVIGATOR_H
 // vim:ts=2:sw=2:et

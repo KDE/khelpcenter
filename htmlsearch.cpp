@@ -1,8 +1,8 @@
 #include "htmlsearch.h"
 
-#include <kdebug.h>
-#include <kconfig.h>
-#include <kconfiggroup.h>
+#include <KDebug>
+#include <KConfig>
+#include <KConfigGroup>
 
 #include "docentry.h"
 

@@ -1,11 +1,12 @@
-#ifndef __view_h__
-#define __view_h__
+
+#ifndef KHC_VIEW_H
+#define KHC_VIEW_H
 
 #include <khtml_part.h>
 
 #include "glossary.h"
 #include "navigator.h"
-//Added by qt3to4:
+
 #include <QEvent>
 
 class KActionCollection;
@@ -90,6 +91,6 @@ class View : public KHTMLPart
 
 }
 
-#endif
+#endif //KHC_VIEW_H
 
 // vim:ts=2:sw=2:et

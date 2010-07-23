@@ -1,3 +1,4 @@
+
 /*
     This file is part of KHelpcenter.
 
@@ -17,9 +18,9 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
+
 #ifndef KHC_FORMATTER_H
 #define KHC_FORMATTER_H
-
 
 #include <QMap>
 
@@ -50,6 +51,6 @@ class Formatter
 
 }
 
-#endif
+#endif //KHC_FORMATTER_H
 
 // vim:ts=2:sw=2:et

@@ -18,8 +18,8 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef __searchwidget_h__
-#define __searchwidget_h__
+#ifndef KHC_SEARCHWIDGET_H
+#define KHC_SEARCHWIDGET_H
 
 #include <QWidget>
 #include <QtDBus/QtDBus>
@@ -99,5 +99,5 @@ public Q_SLOTS:
 
 }
 
-#endif
+#endif //KHC_SEARCHWIDGET_H
 // vim:ts=2:sw=2:et
