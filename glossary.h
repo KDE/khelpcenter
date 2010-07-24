@@ -20,9 +20,7 @@
 #ifndef KHC_GLOSSARY_H
 #define KHC_GLOSSARY_H
 
-//FIXME
-#include <k3listview.h>
-
+#include <QTreeWidget>
 #include <QDomElement>
 #include <QList>
 #include <KSharedConfig>
@@ -97,7 +95,7 @@ inline QDataStream &operator>>( QDataStream &stream, GlossaryEntry &e )
     return stream >> e.m_term >> e.m_definition >> e.m_seeAlso;
 }
 
-class Glossary : public K3ListView
+class Glossary : public QTreeWidget
 {
     Q_OBJECT
     public:
@@ -116,7 +114,7 @@ class Glossary : public K3ListView
         
     private Q_SLOTS:
         void meinprocFinished(int exitCode, QProcess::ExitStatus exitStatus);
-        void treeItemSelected( Q3ListViewItem *item );
+        void treeItemSelected( QTreeWidgetItem *item );
 
         protected:
                 virtual void showEvent(QShowEvent *event);
@@ -131,8 +129,8 @@ class Glossary : public K3ListView
         QDomElement childElement( const QDomElement &e, const QString &name );
 
         KSharedConfigPtr m_config;
-        Q3ListViewItem *m_byTopicItem;
-        Q3ListViewItem *m_alphabItem;
+        QTreeWidgetItem *m_byTopicItem;
+        QTreeWidgetItem *m_alphabItem;
         QString m_sourceFile;
         QString m_cacheFile;
         CacheStatus m_status;

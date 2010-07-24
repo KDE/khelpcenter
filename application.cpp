@@ -43,7 +43,8 @@ int Application::newInstance()
   if ( args->count() )
     url = args->url( 0 );
 
-  if( !mMainWindow ) {
+  if( !mMainWindow ) 
+  {
     mMainWindow = new MainWindow;
     mMainWindow->show();
   }
@@ -78,7 +79,8 @@ extern "C" int KDE_EXPORT kdemain( int argc, char **argv )
 
   KHC::Application app;
 
-  if ( app.isSessionRestored() ) {
+  if ( app.isSessionRestored() )
+  {
      RESTORE( MainWindow );
   }
 

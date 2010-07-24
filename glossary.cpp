@@ -33,42 +33,35 @@
 #include <KStatusBar>
 #include <KGlobal>
 
-//FIXME
-#include <Qt3Support/Q3Header>
+#include <QTreeWidgetItemIterator>
+#include <QTreeWidgetItem>
 
 #include <QFrame>
+#include <QListView>
 #include <QTextStream>
 
 #include <sys/stat.h>
 
 using namespace KHC;
 
-class SectionItem : public K3ListViewItem
+class SectionItem : public QTreeWidgetItem
 {
     public:
-        SectionItem( Q3ListViewItem *parent, const QString &text )
-            : K3ListViewItem( parent, text )
+        SectionItem( QTreeWidgetItem *parent, const QString &text )
+	: QTreeWidgetItem( parent )
         {
-            setOpen( false );
-        }
-
-        virtual void setOpen( bool open )
-        {
-                K3ListViewItem::setOpen(open);
-
-// TODO: 2nd was contents2 -> needs to be changed to help-contents-alternate or similar
-                setPixmap( 0, SmallIcon( QLatin1String( open ? "help-contents" : "help-contents" ) ) );
-
+	  setText(0,text);
+	  setIcon(0,SmallIcon( "help-contents" ));
         }
 };
 
-class EntryItem : public K3ListViewItem
+class EntryItem : public QTreeWidgetItem
 {
     public:
         EntryItem( SectionItem *parent, const QString &term, const QString &id )
-            : K3ListViewItem( parent, term ),
-            m_id( id )
+	: QTreeWidgetItem( parent ), m_id( id )
         {
+	  setText(0,term);
         }
 
         QString id() const { return m_id; }
@@ -79,34 +72,30 @@ class EntryItem : public K3ListViewItem
 
 bool Glossary::m_alreadyWarned = false;
 
-Glossary::Glossary( QWidget *parent ) : K3ListView( parent )
+Glossary::Glossary( QWidget *parent ) : QTreeWidget( parent )
 {
     m_initialized = false;
-
     setFrameStyle( QFrame::NoFrame );
 
-    connect( this, SIGNAL( clicked( Q3ListViewItem * ) ),
-             this, SLOT( treeItemSelected( Q3ListViewItem * ) ) );
-    connect( this, SIGNAL( returnPressed( Q3ListViewItem * ) ),
-             this, SLOT( treeItemSelected( Q3ListViewItem * ) ) );
+    connect( this, SIGNAL( itemActivated(QTreeWidgetItem *, int) ),
+	     this, SLOT( treeItemSelected( QTreeWidgetItem * ) ) );
 
-    addColumn( QString() );
-    header()->hide();
+    setHeaderHidden(true);
     setAllColumnsShowFocus( true );
     setRootIsDecorated( true );
 
-    m_byTopicItem = new K3ListViewItem( this, i18n( "By Topic" ) );
-    m_byTopicItem->setPixmap( 0, SmallIcon( "help-contents" ) );
+    m_byTopicItem = new QTreeWidgetItem( this );//, i18n( "By Topic" ) );
+    m_byTopicItem->setText( 0, i18n( "By Topic" ) );
+    m_byTopicItem->setIcon( 0, SmallIcon( "help-contents" ) );
 
-    m_alphabItem = new K3ListViewItem( this, i18n( "Alphabetically" ) );
-    m_alphabItem->setPixmap( 0, SmallIcon( "character-set" ) );
+    m_alphabItem = new QTreeWidgetItem( this );//, i18n( "Alphabetically" ) );
+    m_alphabItem->setText( 0, i18n( "Alphabetically" ) );
+    m_alphabItem->setIcon( 0, SmallIcon( "character-set" ) );
 
     m_cacheFile = KStandardDirs::locateLocal( "cache", "help/glossary.xml" );
 
     m_sourceFile = View::langLookup( QLatin1String( "khelpcenter/glossary/index.docbook" ) );
-
     m_config = KGlobal::config();
-    //m_config->setGroup( "Glossary" );
 
 }
 
@@ -119,7 +108,7 @@ void Glossary::showEvent(QShowEvent *event)
             buildGlossaryTree();
         m_initialized = true;
     }
-    K3ListView::showEvent(event);
+    QTreeWidget::showEvent(event);
 }
 
 Glossary::~Glossary()
@@ -243,11 +232,17 @@ void Glossary::buildGlossaryTree()
             m_idDict.insert( entryId, entry );
 
             SectionItem *alphabSection = 0L;
-            for ( Q3ListViewItemIterator it( m_alphabItem ); it.current(); it++ )
-                if ( it.current()->text( 0 ) == QString( term[ 0 ].toUpper() ) ) {
-                    alphabSection = static_cast<SectionItem *>( it.current() );
-                    break;
-                }
+	    
+	    QTreeWidgetItemIterator it(m_alphabItem);
+	    while(*it)
+	    {
+	      if ( (*it)->text( 0 ) == QString( term[ 0 ].toUpper() ) )
+	      {
+		alphabSection = static_cast<SectionItem *>( (*it) );
+		break;
+	      }
+	      ++it;
+	    }
 
             if ( !alphabSection )
                 alphabSection = new SectionItem( m_alphabItem, QString( term[ 0 ].toUpper() ) );
@@ -276,7 +271,7 @@ void Glossary::buildGlossaryTree()
     }
 }
 
-void Glossary::treeItemSelected( Q3ListViewItem *item )
+void Glossary::treeItemSelected( QTreeWidgetItem *item )
 {
     if ( !item )
         return;
@@ -284,7 +279,7 @@ void Glossary::treeItemSelected( Q3ListViewItem *item )
     if ( EntryItem *i = dynamic_cast<EntryItem *>( item ) )
         emit entrySelected( entry( i->id() ) );
 
-    item->setOpen( !item->isOpen() );
+    item->setExpanded( !item->isExpanded() );
 }
 
 QDomElement Glossary::childElement( const QDomElement &element, const QString &name )
@@ -339,11 +334,10 @@ void Glossary::slotSelectGlossEntry( const QString &id )
     if ( curItem != 0 ) {
         if ( curItem->id() == id )
             return;
-        curItem->parent()->setOpen( false );
+        curItem->parent()->setExpanded( false );
     }
 
     setCurrentItem( newItem );
-    ensureItemVisible( newItem );
 }
 
 #include "glossary.moc"
