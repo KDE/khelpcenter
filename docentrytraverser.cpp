@@ -39,7 +39,8 @@ DocEntryTraverser *DocEntryTraverser::childTraverser( DocEntry *parentEntry )
   DocEntryTraverser *child = createChild( parentEntry );
   if (!child)
     return 0;
-  if ( child != this ) {
+  if ( child != this )
+  {
     child->mParent = this;
     child->mNotifyee = mNotifyee;
   }

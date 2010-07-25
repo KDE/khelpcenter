@@ -57,7 +57,8 @@ DocMetaInfo::~DocMetaInfo()
   kDebug() << "~DocMetaInfo()";
 
   DocEntry::List::ConstIterator it;
-  for( it = mDocEntries.constBegin(); it != mDocEntries.constEnd(); ++it ) {
+  for( it = mDocEntries.constBegin(); it != mDocEntries.constEnd(); ++it )
+  {
     delete *it;
   }
 
@@ -76,24 +77,29 @@ DocEntry *DocMetaInfo::addDocEntry( const QString &fileName )
   QString extension = fi.completeSuffix();
   QStringList extensions = extension.split( '.');
   QString lang;
-  if ( extensions.count() >= 2 ) {
+  if ( extensions.count() >= 2 )
+  {
     lang = extensions[ extensions.count() - 2 ];
   }
 
-  if ( !lang.isEmpty() && !mLanguages.contains( lang ) ) {
+  if ( !lang.isEmpty() && !mLanguages.contains( lang ) ) 
+  {
     return 0;
   }
 
   DocEntry *entry = new DocEntry();
 
-  if ( entry->readFromFile( fileName ) ) {
-    if ( !lang.isEmpty() && lang != mLanguages.first() ) {
+  if ( entry->readFromFile( fileName ) ) 
+  {
+    if ( !lang.isEmpty() && lang != mLanguages.first() )
+    {
       entry->setLang( lang );
       entry->setName( i18nc("doctitle (language)","%1 (%2)",
                              entry->name() ,
                              mLanguageNames[ lang ] ) );
     }
-    if ( entry->searchMethod().toLower() == "htdig" ) {
+    if ( entry->searchMethod().toLower() == "htdig" ) 
+    {
       mHtmlSearch->setupDocEntry( entry );
     }
     QString indexer = entry->indexer();
@@ -101,7 +107,9 @@ DocEntry *DocMetaInfo::addDocEntry( const QString &fileName )
     entry->setIndexer( indexer );
     addDocEntry( entry );
     return entry;
-  } else {
+  } 
+  else 
+  {
     delete entry;
     return 0;
   }
@@ -148,7 +156,8 @@ void DocMetaInfo::scanMetaInfo( bool force )
   kDebug( 1400 ) << "LANGS: " << mLanguages.join( QLatin1String(" ") );
 
   QStringList::ConstIterator it;
-  for( it = mLanguages.constBegin(); it != mLanguages.constEnd(); ++it ) {
+  for( it = mLanguages.constBegin(); it != mLanguages.constEnd(); ++it )
+  {
     mLanguageNames.insert( *it, languageName( *it ) );
   }
 
@@ -156,11 +165,13 @@ void DocMetaInfo::scanMetaInfo( bool force )
   KConfigGroup cg(&config, "General");
   QStringList metaInfos = cg.readEntry( "MetaInfoDirs" , QStringList() );
 
-  if ( metaInfos.isEmpty() ) {
+  if ( metaInfos.isEmpty() ) 
+  {
     KStandardDirs* kstd = KGlobal::dirs();
     metaInfos = kstd->findDirs( "appdata", "plugins" );
   }
-  for( it = metaInfos.constBegin(); it != metaInfos.constEnd(); ++it) {
+  for( it = metaInfos.constBegin(); it != metaInfos.constEnd(); ++it)
+  {
     kDebug() << "DocMetaInfo::scanMetaInfo(): scanning " << *it;
     scanMetaInfoDir( *it, &mRootEntry );
   }
@@ -174,12 +185,16 @@ DocEntry *DocMetaInfo::scanMetaInfoDir( const QString &dirName,
   QDir dir( dirName );
   if ( !dir.exists() ) return 0;
 
-  foreach( const QFileInfo &fi, dir.entryInfoList(QDir::Dirs | QDir::Files | QDir::NoDotAndDotDot) ) {
+  foreach( const QFileInfo &fi, dir.entryInfoList(QDir::Dirs | QDir::Files | QDir::NoDotAndDotDot) ) 
+  {
     DocEntry *entry = 0;
-    if ( fi.isDir() ) {
+    if ( fi.isDir() ) 
+    {
       DocEntry *dirEntry = addDirEntry( QDir( fi.absoluteFilePath() ), parent );
       entry = scanMetaInfoDir( fi.absoluteFilePath(), dirEntry );
-    } else if ( fi.suffix() == QLatin1String("desktop") ) {
+    } 
+    else if ( fi.suffix() == QLatin1String("desktop") )
+    {
       entry = addDocEntry( fi.absoluteFilePath() );
       if ( parent && entry ) parent->addChild( entry );
     }
@@ -192,14 +207,14 @@ DocEntry *DocMetaInfo::addDirEntry( const QDir &dir, DocEntry *parent )
 {
   DocEntry *dirEntry = addDocEntry( dir.absolutePath() + QLatin1String("/.directory") );
 
-  if ( !dirEntry ) {
+  if ( !dirEntry ) 
+  {
     dirEntry = new DocEntry;
     dirEntry->setName( dir.dirName() );
     addDocEntry( dirEntry );
   }
 
   dirEntry->setDirectory( true );
-
   if ( parent ) parent->addChild( dirEntry );
 
   return dirEntry;
@@ -215,13 +230,16 @@ void DocMetaInfo::traverseEntry( DocEntry *entry, DocEntryTraverser *traverser )
 {
   DocEntry::List children = entry->children();
   DocEntry::List::ConstIterator it;
-  for( it = children.constBegin(); it != children.constEnd(); ++it ) {
+  for( it = children.constBegin(); it != children.constEnd(); ++it )
+  {
     if ( (*it)->isDirectory() && !(*it)->hasChildren() &&
          (*it)->khelpcenterSpecial().isEmpty() ) continue;
     traverser->process( *it );
-    if ( (*it)->hasChildren() ) {
+    if ( (*it)->hasChildren() ) 
+    {
       DocEntryTraverser *t = traverser->childTraverser( *it );
-      if (t) {
+      if (t)
+      {
         traverseEntry( *it, t );
         t->deleteTraverser();
       }
@@ -239,13 +257,15 @@ void DocMetaInfo::startTraverseEntries( DocEntryTraverser *traverser )
 void DocMetaInfo::startTraverseEntry( DocEntry *entry,
                                       DocEntryTraverser *traverser )
 {
-  if ( !traverser ) {
+  if ( !traverser ) 
+  {
     kDebug() << "DocMetaInfo::startTraverseEntry(): ERROR. No Traverser."
               << endl;
     return;
   }
 
-  if ( !entry ) {
+  if ( !entry ) 
+  {
     kDebug() << "DocMetaInfo::startTraverseEntry(): no entry.";
     endTraverseEntries( traverser );
     return;
@@ -262,11 +282,14 @@ void DocMetaInfo::endProcess( DocEntry *entry, DocEntryTraverser *traverser )
     return;
   }
 
-  if ( entry->hasChildren() ) {
+  if ( entry->hasChildren() ) 
+  {
     startTraverseEntry( entry->firstChild(), traverser->childTraverser( entry ) );
-  } else if ( entry->nextSibling() ) {
+  } else if ( entry->nextSibling() ) 
+  {
     startTraverseEntry( entry->nextSibling(), traverser );
-  } else {
+  } else 
+  {
     DocEntry *parent = entry->parent();
     DocEntryTraverser *parentTraverser = 0;
     while ( parent ) {
@@ -275,12 +298,15 @@ void DocMetaInfo::endProcess( DocEntry *entry, DocEntryTraverser *traverser )
       if ( parent->nextSibling() ) {
         startTraverseEntry( parent->nextSibling(), parentTraverser );
         break;
-      } else {
+      } 
+      else 
+      {
         parent = parent->parent();
         traverser = parentTraverser;
       }
     }
-    if ( !parent ) {
+    if ( !parent )
+    {
       endTraverseEntries( traverser );
     }
   }
@@ -290,7 +316,8 @@ void DocMetaInfo::endTraverseEntries( DocEntryTraverser *traverser )
 {
   kDebug() << "DocMetaInfo::endTraverseEntries()";
 
-  if ( !traverser ) {
+  if ( !traverser ) 
+  {
     kDebug() << " no more traversers.";
     return;
   }

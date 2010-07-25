@@ -26,28 +26,28 @@
 
 namespace KHC {
 
-class Formatter
-{
-  public:
-    Formatter();
-    virtual ~Formatter();
+  class Formatter
+  {
+    public:
+      Formatter();
+      virtual ~Formatter();
 
-    bool readTemplates();
+      bool readTemplates();
 
-    virtual QString header( const QString &title );
-    virtual QString footer();
-    virtual QString separator();
-    virtual QString docTitle( const QString & );
-    virtual QString sectionHeader( const QString & );
-    virtual QString paragraph( const QString & );
-    virtual QString title( const QString & );
-    
-    virtual QString processResult( const QString & );
+      virtual QString header( const QString &title );
+      virtual QString footer();
+      virtual QString separator();
+      virtual QString docTitle( const QString & );
+      virtual QString sectionHeader( const QString & );
+      virtual QString paragraph( const QString & );
+      virtual QString title( const QString & );
+      
+      virtual QString processResult( const QString & );
 
-  private:
-    bool mHasTemplate;
-    QMap<QString,QString> mSymbols;
-};
+    private:
+      bool mHasTemplate;
+      QMap<QString,QString> mSymbols;
+  };
 
 }
 

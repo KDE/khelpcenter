@@ -84,16 +84,16 @@ Glossary::Glossary( QWidget *parent ) : QTreeWidget( parent )
     setAllColumnsShowFocus( true );
     setRootIsDecorated( true );
 
-    m_byTopicItem = new QTreeWidgetItem( this );//, i18n( "By Topic" ) );
+    m_byTopicItem = new QTreeWidgetItem( this );
     m_byTopicItem->setText( 0, i18n( "By Topic" ) );
     m_byTopicItem->setIcon( 0, SmallIcon( "help-contents" ) );
 
-    m_alphabItem = new QTreeWidgetItem( this );//, i18n( "Alphabetically" ) );
+    m_alphabItem = new QTreeWidgetItem( this );
     m_alphabItem->setText( 0, i18n( "Alphabetically" ) );
     m_alphabItem->setIcon( 0, SmallIcon( "character-set" ) );
 
     m_cacheFile = KStandardDirs::locateLocal( "cache", "help/glossary.xml" );
-
+    
     m_sourceFile = View::langLookup( QLatin1String( "khelpcenter/glossary/index.docbook" ) );
     m_config = KGlobal::config();
 
@@ -101,12 +101,13 @@ Glossary::Glossary( QWidget *parent ) : QTreeWidget( parent )
 
 void Glossary::showEvent(QShowEvent *event)
 {
-    if ( !m_initialized ) {
+    if ( !m_initialized )
+    {
         if ( cacheStatus() == NeedRebuild )
-            rebuildGlossaryCache();
+	  rebuildGlossaryCache();
         else
-            buildGlossaryTree();
-        m_initialized = true;
+	  buildGlossaryTree();
+	  m_initialized = true;
     }
     QTreeWidget::showEvent(event);
 }
@@ -124,8 +125,8 @@ const GlossaryEntry &Glossary::entry( const QString &id ) const
 Glossary::CacheStatus Glossary::cacheStatus() const
 {
     if ( !QFile::exists( m_cacheFile ) ||
-         m_config->group("Glossary").readPathEntry( "CachedGlossary", QString() ) != m_sourceFile ||
-         m_config->group("Glossary").readEntry( "CachedGlossaryTimestamp" ).toInt() != glossaryCTime() )
+	m_config->group("Glossary").readPathEntry( "CachedGlossary", QString() ) != m_sourceFile ||
+	m_config->group("Glossary").readEntry( "CachedGlossaryTimestamp" ).toInt() != glossaryCTime() )
         return NeedRebuild;
 
     return CacheOk;
@@ -157,9 +158,11 @@ void Glossary::rebuildGlossaryCache()
 
     meinproc->setOutputChannelMode(KProcess::OnlyStderrChannel);
     meinproc->start();
-    if (!meinproc->waitForStarted()) {
+    if (!meinproc->waitForStarted()) 
+    {
         kError() << "could not start process" << meinproc->program();
-        if (mainWindow && !m_alreadyWarned) {
+        if (mainWindow && !m_alreadyWarned)
+	{
             ; // add warning message box with don't display again option 
               // http://api.kde.org/4.0-api/kdelibs-apidocs/kdeui/html/classKDialog.html
             m_alreadyWarned = true;
@@ -173,10 +176,12 @@ void Glossary::meinprocFinished( int exitCode, QProcess::ExitStatus exitStatus )
     KProcess *meinproc = static_cast<KProcess *>(sender());
     KXmlGuiWindow *mainWindow = dynamic_cast<KXmlGuiWindow *>( kapp->activeWindow() );
 
-    if (exitStatus != QProcess::NormalExit || exitCode != 0) {
+    if (exitStatus != QProcess::NormalExit || exitCode != 0)
+    {
         kError() << "running" << meinproc->program() << "failed with exitCode" << exitCode;
         kError() << "stderr output:" << meinproc->readAllStandardError(); 
-        if (mainWindow && !m_alreadyWarned) {
+        if (mainWindow && !m_alreadyWarned) 
+	{
             ; // add warning message box with don't display again option 
               // http://api.kde.org/4.0-api/kdelibs-apidocs/kdeui/html/classKDialog.html
             m_alreadyWarned = true;
@@ -212,13 +217,15 @@ void Glossary::buildGlossaryTree()
         return;
 
     QDomNodeList sectionNodes = doc.documentElement().elementsByTagName( QLatin1String( "section" ) );
-    for ( int i = 0; i < sectionNodes.count(); i++ ) {
+    for ( int i = 0; i < sectionNodes.count(); i++ ) 
+    {
         QDomElement sectionElement = sectionNodes.item( i ).toElement();
         QString title = sectionElement.attribute( QLatin1String( "title" ) );
         SectionItem *topicSection = new SectionItem( m_byTopicItem, title );
 
         QDomNodeList entryNodes = sectionElement.elementsByTagName( QLatin1String( "entry" ) );
-        for ( int j = 0; j < entryNodes.count(); j++ ) {
+        for ( int j = 0; j < entryNodes.count(); j++ ) 
+	{
             QDomElement entryElement = entryNodes.item( j ).toElement();
 
             QString entryId = entryElement.attribute( QLatin1String( "id" ) );
@@ -257,7 +264,8 @@ void Glossary::buildGlossaryTree()
             QDomElement referencesElement = childElement( entryElement, QLatin1String( "references" ) );
             QDomNodeList referenceNodes = referencesElement.elementsByTagName( QLatin1String( "reference" ) );
             if ( referenceNodes.count() > 0 )
-                for ( int k = 0; k < referenceNodes.count(); k++ ) {
+                for ( int k = 0; k < referenceNodes.count(); k++ ) 
+		{
                     QDomElement referenceElement = referenceNodes.item( k ).toElement();
 
                     QString term = referenceElement.attribute( QLatin1String( "term" ) );
@@ -301,12 +309,14 @@ QString Glossary::entryToHtml( const GlossaryEntry &entry )
                           "file 'glossary.html.in'!" ) );
 
     QString seeAlso;
-    if (!entry.seeAlso().isEmpty()) {
+    if (!entry.seeAlso().isEmpty()) 
+    {
         seeAlso = i18n("See also: ");
         GlossaryEntryXRef::List seeAlsos = entry.seeAlso();
         GlossaryEntryXRef::List::ConstIterator it = seeAlsos.constBegin();
         GlossaryEntryXRef::List::ConstIterator end = seeAlsos.constEnd();
-        for (; it != end; ++it) {
+        for (; it != end; ++it)
+	{
             seeAlso += QLatin1String("<a href=\"glossentry:");
             seeAlso += (*it).id();
             seeAlso += QLatin1String("\">") + (*it).term();
@@ -314,14 +324,13 @@ QString Glossary::entryToHtml( const GlossaryEntry &entry )
         }
         seeAlso = seeAlso.left(seeAlso.length() - 2);
     }
-
+    
     QTextStream htmlStream(&htmlFile);
     return htmlStream.readAll()
            .arg( i18n( "KDE Glossary" ) )
            .arg( entry.term() )
            .arg( entry.definition() )
-           .arg( seeAlso)
-           .arg( View::langLookup( QLatin1String("khelpcenter/kdelogo2.png") ) );
+           .arg( seeAlso );
 }
 
 void Glossary::slotSelectGlossEntry( const QString &id )
@@ -331,10 +340,11 @@ void Glossary::slotSelectGlossEntry( const QString &id )
 
     EntryItem *newItem = m_idDict.value( id );
     EntryItem *curItem = dynamic_cast<EntryItem *>( currentItem() );
-    if ( curItem != 0 ) {
+    if ( curItem != 0 ) 
+    {
         if ( curItem->id() == id )
-            return;
-        curItem->parent()->setExpanded( false );
+	  return;
+	  curItem->parent()->setExpanded( false );
     }
 
     setCurrentItem( newItem );

@@ -46,17 +46,20 @@ bool Formatter::readTemplates()
   KConfigGroup cfg(KGlobal::config(), "Templates");
   QString mainTemplate = cfg.readEntry( "MainTemplate" );
 
-  if ( mainTemplate.isEmpty() ) {
+  if ( mainTemplate.isEmpty() ) 
+  {
     mainTemplate = KStandardDirs::locate( "appdata", "maintemplate" );
   }
 
-  if ( mainTemplate.isEmpty() ) {
+  if ( mainTemplate.isEmpty() ) 
+  {
     kWarning() << "Main template file name is empty." ;
     return false;
   }
 
   QFile f( mainTemplate );
-  if ( !f.open( QIODevice::ReadOnly ) ) {
+  if ( !f.open( QIODevice::ReadOnly ) ) 
+  {
     kWarning() << "Unable to open main template file '" << mainTemplate
                 << "'." << endl;
     return false;
@@ -72,9 +75,11 @@ bool Formatter::readTemplates()
   while( !( line = ts.readLine() ).isNull() ) {
     switch ( state ) {
       case IDLE:
-        if ( !line.isEmpty() && !line.startsWith( '#' ) ) {
+        if ( !line.isEmpty() && !line.startsWith( '#' ) ) 
+	{
           int pos = line.indexOf( "<<" );
-          if ( pos >= 0 ) {
+          if ( pos >= 0 ) 
+	  {
             state = MULTILINE;
             symbol = line.left( pos ).trimmed();
             endMarker = line.mid( pos + 2 ).trimmed();
@@ -89,11 +94,14 @@ bool Formatter::readTemplates()
         state = IDLE;
         break;
       case MULTILINE:
-        if ( line.startsWith( endMarker ) ) {
+        if ( line.startsWith( endMarker ) )
+	{
           mSymbols.insert( symbol, value );
           value = "";
           state = IDLE;
-        } else {
+        } 
+        else 
+	{
           value += line + '\n';
         }
         break;
@@ -106,21 +114,15 @@ bool Formatter::readTemplates()
 
   f.close();
 
-#if 0
-  QMap<QString,QString>::ConstIterator it;
-  for( it = mSymbols.begin(); it != mSymbols.end(); ++it ) {
-    kDebug() << "KEY: " << it.key();
-    kDebug() << "VALUE: " << it.data();
-  }
-#endif
-
   QStringList requiredSymbols;
   requiredSymbols << "HEADER" << "FOOTER";
 
   bool success = true;
   QStringList::ConstIterator it2;
-  for( it2 = requiredSymbols.constBegin(); it2 != requiredSymbols.constEnd(); ++it2 ) {
-    if ( !mSymbols.contains( *it2 ) ) {
+  for( it2 = requiredSymbols.constBegin(); it2 != requiredSymbols.constEnd(); ++it2 )
+  {
+    if ( !mSymbols.contains( *it2 ) ) 
+    {
       success = false;
       kError() << "Symbol '" << *it2 << "' is missing from main template file."
                 << endl;
@@ -128,14 +130,14 @@ bool Formatter::readTemplates()
   }
 
   if ( success ) mHasTemplate = true;
-
   return success;
 }
 
 QString Formatter::header( const QString &title )
 {
   QString s;
-  if ( mHasTemplate ) {
+  if ( mHasTemplate )
+  {
     s = mSymbols[ "HEADER" ];
     s.replace( "--TITLE:--", title );
   } else {
@@ -146,7 +148,8 @@ QString Formatter::header( const QString &title )
 
 QString Formatter::footer()
 {
-  if ( mHasTemplate ) {
+  if ( mHasTemplate )
+  {
     return mSymbols[ "FOOTER" ];
   } else {
     return QLatin1String("</body></html>");
@@ -155,8 +158,6 @@ QString Formatter::footer()
 
 QString Formatter::separator()
 {
-//  return "<table width=100%><tr><td bgcolor=\"#7B8962\">&nbsp;"
-//         "</td></tr></table>";
   return "<hr>";
 }
 
@@ -178,11 +179,14 @@ QString Formatter::processResult( const QString &data )
 
   int state = Header;
 
-  for( int i = 0; i < data.length(); ++i ) {
+  for( int i = 0; i < data.length(); ++i )
+  {
     QChar c = data[i];
-    switch ( state ) {
+    switch ( state ) 
+    {
       case Header:
-        if ( c == QLatin1Char('<') && data.mid( i, 5 ).toLower() == QLatin1String("<body") ) {
+        if ( c == QLatin1Char('<') && data.mid( i, 5 ).toLower() == QLatin1String("<body") ) 
+	{
           state = BodyTag;
           i += 4;
         }
@@ -191,7 +195,8 @@ QString Formatter::processResult( const QString &data )
         if ( c == '>' ) state = Body;
         break;
       case Body:
-        if ( c == QLatin1Char('<') && data.mid( i, 7 ).toLower() == QLatin1String("</body>") ) {
+        if ( c == QLatin1Char('<') && data.mid( i, 7 ).toLower() == QLatin1String("</body>") ) 
+	{
           state = Footer;
         } else {
           result.append( c );

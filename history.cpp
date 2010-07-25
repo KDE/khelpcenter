@@ -65,33 +65,43 @@ void History::setupActions( KActionCollection *coll )
   m_backAction = new KToolBarPopupAction( KIcon( backForward.first.iconName() ), backForward.first.text(), this );
   coll->addAction( "back", m_backAction );
   m_backAction->setShortcut(KStandardShortcut::back());
+  
   connect( m_backAction, SIGNAL( triggered() ), this, SLOT( back() ) );
 
   connect( m_backAction->menu(), SIGNAL( activated( int ) ),
            SLOT( backActivated( int ) ) );
+  
   connect( m_backAction->menu(), SIGNAL( aboutToShow() ),
            SLOT( fillBackMenu() ) );
+  
   m_backAction->setEnabled( false );
 
   m_forwardAction = new KToolBarPopupAction( KIcon( backForward.second.iconName() ), backForward.second.text(), this );
   coll->addAction( QLatin1String("forward"), m_forwardAction );
   m_forwardAction->setShortcut(KStandardShortcut::forward());
+  
   connect( m_forwardAction, SIGNAL( triggered() ), this, SLOT( forward() ) );
 
   connect( m_forwardAction->menu(), SIGNAL( activated( int ) ),
            SLOT( forwardActivated( int ) ) );
+  
   connect( m_forwardAction->menu(), SIGNAL( aboutToShow() ),
            SLOT( fillForwardMenu() ) );
+  
   m_forwardAction->setEnabled( false );
 }
+
 void History::installMenuBarHook( KXmlGuiWindow *mainWindow )
 {
   QMenu *goMenu = dynamic_cast<QMenu *>(
       mainWindow->guiFactory()->container( QLatin1String("go_web"), mainWindow ) );
-  if ( goMenu ) {
+  if ( goMenu ) 
+  {
     connect( goMenu, SIGNAL( aboutToShow() ), SLOT( fillGoMenu() ) );
+    
     connect( goMenu, SIGNAL( activated( int ) ),
              SLOT( goMenuActivated( int ) ) );
+    
     m_goMenuIndex = goMenu->actions().count();
   }
 }
@@ -104,25 +114,29 @@ void History::createEntry()
   Entry * current = m_entries.current();
   if (current)
   {
+  
     m_entries.at( m_entries.count() - 1 ); // go to last one
     for ( ; m_entries.current() != current ; )
     {
-      if ( !m_entries.removeLast() ) { // and remove from the end (faster and easier)
+      if ( !m_entries.removeLast() ) // and remove from the end (faster and easier)
+      { 
         Q_ASSERT(0);
         return;
       }
       else
+      {
         m_entries.at( m_entries.count() - 1 );
+      } // Now current is the current again.
+
+      // If current entry is empty reuse it.
+      if ( !current->view ) return;
     }
-    // Now current is the current again.
-
-    // If current entry is empty reuse it.
-    if ( !current->view ) return;
+    
   }
-
   // Append a new entry
   m_entries.append( new Entry ); // made current
   Q_ASSERT( m_entries.at() == (int) m_entries.count() - 1 );
+  
 }
 
 void History::updateCurrentEntry( View *view )

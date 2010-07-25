@@ -26,18 +26,18 @@
 
 namespace KHC {
 
-class MainWindow;
+  class MainWindow;
 
-class Application : public KUniqueApplication
-{
-  public:
-    Application();
+  class Application : public KUniqueApplication
+  {
+    public:
+      Application();
 
-    virtual int newInstance();
-    
-  private:
-    MainWindow *mMainWindow;
-};
+      virtual int newInstance();
+      
+    private:
+      MainWindow *mMainWindow;
+  };
 
 }
 

@@ -66,11 +66,9 @@ void DocEntry::setIcon( const QString &icon )
 QString DocEntry::icon() const
 {
   if ( !mIcon.isEmpty() ) return mIcon;
-
   if ( !docExists() ) return QLatin1String("unknown");
-
-// TODO: was contents2 -> needs to be changed to help-contents-alternate or similar
   if ( isDirectory() ) return QLatin1String("help-contents");
+  
   else return "text-plain";
 }
 
@@ -82,7 +80,6 @@ void DocEntry::setUrl( const QString &url )
 QString DocEntry::url() const
 {
   if ( !mUrl.isEmpty() ) return mUrl;
-
   if ( identifier().isEmpty() ) return QString();
 
   return "khelpcenter:" + identifier();
@@ -214,12 +211,14 @@ bool DocEntry::readFromFile( const QString &fileName )
   mIcon = file.readIcon();
   mUrl = file.readDocPath();
   mInfo = desktopGroup.readEntry( "Info" );
-  if ( mInfo.isNull() ) {
+  if ( mInfo.isNull() ) 
+  {
     mInfo = desktopGroup.readEntry( "Comment" );
   }
   mLang = desktopGroup.readEntry( "Lang", "en" );
   mIdentifier = desktopGroup.readEntry( "X-DOC-Identifier" );
-  if ( mIdentifier.isEmpty() ) {
+  if ( mIdentifier.isEmpty() ) 
+  {
     QFileInfo fi( fileName );
     mIdentifier = fi.completeBaseName();
   }
@@ -241,22 +240,24 @@ bool DocEntry::readFromFile( const QString &fileName )
 bool DocEntry::indexExists( const QString &indexDir )
 {
   QString testFile;
-  if ( mIndexTestFile.isEmpty() ) {
+  if ( mIndexTestFile.isEmpty() ) 
+  {
     testFile = identifier() + QLatin1String(".exists");
   } else {
     testFile = mIndexTestFile;
   }
 
   if ( !testFile.startsWith( QLatin1Char('/') ) ) testFile = indexDir + QLatin1Char('/') + testFile;
-
   return QFile::exists( testFile );
 }
 
 bool DocEntry::docExists() const
 {
-  if ( !mUrl.isEmpty() ) {
+  if ( !mUrl.isEmpty() ) 
+  {
     KUrl docUrl( mUrl );
-    if ( docUrl.isLocalFile() && !KStandardDirs::exists( docUrl.toLocalFile() ) ) {
+    if ( docUrl.isLocalFile() && !KStandardDirs::exists( docUrl.toLocalFile() ) )
+    {
       return false;
     }
   }
@@ -269,17 +270,21 @@ void DocEntry::addChild( DocEntry *entry )
   entry->setParent( this );
 
   int i;
-  for( i = 0; i < mChildren.count(); ++i ) {
+  for( i = 0; i < mChildren.count(); ++i ) 
+  {
     if ( i == 0 ) {
-      if ( entry->weight() < mChildren.first()->weight() ) {
+      if ( entry->weight() < mChildren.first()->weight() ) 
+      {
         entry->setNextSibling( mChildren.first() );
         mChildren.prepend( entry );
         break;
       }
     }
-    if ( i + 1 < mChildren.count() ) {
+    if ( i + 1 < mChildren.count() ) 
+    {
       if ( entry->weight() >= mChildren[ i ]->weight() &&
-           entry->weight() < mChildren[ i + 1 ]->weight() ) {
+           entry->weight() < mChildren[ i + 1 ]->weight() ) 
+      {
         entry->setNextSibling( mChildren[ i + 1 ] );
         mChildren[ i ]->setNextSibling( entry );
         mChildren.insert( mChildren.indexOf(mChildren.at( i + 1 )), entry );
@@ -287,8 +292,10 @@ void DocEntry::addChild( DocEntry *entry )
       }
     }
   }
-  if ( i == mChildren.count() ) {
-    if ( i > 0 ) {
+  if ( i == mChildren.count() )
+  {
+    if ( i > 0 ) 
+    {
       mChildren.last()->setNextSibling( entry );
     }
     mChildren.append( entry );

@@ -28,68 +28,68 @@
 
 namespace KHC {
 
-class HTMLSearch;
-class DocEntryTraverser;
+  class HTMLSearch;
+  class DocEntryTraverser;
 
-/*!
-  This class provides some meta information about help documents.
-*/
-class DocMetaInfo
-{
-  public:
-    /*!
-      Return instance of DocMetaInfo. There can only be one instance at a time.
-    */
-    static DocMetaInfo *self();
+  /*!
+    This class provides some meta information about help documents.
+  */
+  class DocMetaInfo
+  {
+    public:
+      /*!
+	Return instance of DocMetaInfo. There can only be one instance at a time.
+      */
+      static DocMetaInfo *self();
 
-    ~DocMetaInfo();
+      ~DocMetaInfo();
 
-    void scanMetaInfo( bool force = false );
+      void scanMetaInfo( bool force = false );
 
-    DocEntry *addDocEntry( const QString &fileName );
+      DocEntry *addDocEntry( const QString &fileName );
 
-    void addDocEntry( DocEntry * );
+      void addDocEntry( DocEntry * );
 
-    DocEntry::List docEntries();
+      DocEntry::List docEntries();
+      
+      DocEntry::List searchEntries();
+
+      void traverseEntries( DocEntryTraverser * );
+
+      void startTraverseEntries( DocEntryTraverser *traverser );
+      void startTraverseEntry( DocEntry *entry, DocEntryTraverser *traverser );
+      void endProcess( DocEntry *entry, DocEntryTraverser *traverser );
+      void endTraverseEntries( DocEntryTraverser * );
+
+      static QString languageName( const QString &langcode );
+
+    protected:
+      DocEntry *scanMetaInfoDir( const QString &filename, DocEntry *parent );
+      DocEntry *addDirEntry( const QDir &dir, DocEntry *parent );
+      void traverseEntry( DocEntry *, DocEntryTraverser * );
+
+    private:
+      /*!
+	DocMetaInfo is a singleton. Private constructor prevents direct
+	instantisation.
+      */
+      DocMetaInfo();
     
-    DocEntry::List searchEntries();
+      DocEntry::List mDocEntries;
+      DocEntry::List mSearchEntries;
 
-    void traverseEntries( DocEntryTraverser * );
+      DocEntry mRootEntry;
 
-    void startTraverseEntries( DocEntryTraverser *traverser );
-    void startTraverseEntry( DocEntry *entry, DocEntryTraverser *traverser );
-    void endProcess( DocEntry *entry, DocEntryTraverser *traverser );
-    void endTraverseEntries( DocEntryTraverser * );
+      QStringList mLanguages;
 
-    static QString languageName( const QString &langcode );
+      QMap<QString,QString> mLanguageNames;
 
-  protected:
-    DocEntry *scanMetaInfoDir( const QString &filename, DocEntry *parent );
-    DocEntry *addDirEntry( const QDir &dir, DocEntry *parent );
-    void traverseEntry( DocEntry *, DocEntryTraverser * );
+      HTMLSearch *mHtmlSearch;
 
-  private:
-    /*!
-      DocMetaInfo is a singleton. Private constructor prevents direct
-      instantisation.
-    */
-    DocMetaInfo();
-  
-    DocEntry::List mDocEntries;
-    DocEntry::List mSearchEntries;
+      static bool mLoaded;
 
-    DocEntry mRootEntry;
-
-    QStringList mLanguages;
-
-    QMap<QString,QString> mLanguageNames;
-
-    HTMLSearch *mHtmlSearch;
-
-    static bool mLoaded;
-
-    static DocMetaInfo *mSelf;
-};
+      static DocMetaInfo *mSelf;
+  };
 
 }
 
