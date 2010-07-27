@@ -30,12 +30,9 @@
 #include <KIconLoader>
 #include <KGlobal>
 
-//FIXME
-#include <Qt3Support/Q3CheckListItem>
-
 using namespace KHC;
 
-PluginTraverser::PluginTraverser( Navigator *navigator, Q3ListView *parent )
+PluginTraverser::PluginTraverser( Navigator *navigator, QTreeWidget *parent )
   : DocEntryTraverser(),
   mListView( parent ),
   mParentItem( 0 ),
@@ -62,12 +59,6 @@ void PluginTraverser::process( DocEntry *entry )
 
   if ( !entry->docExists() && !mNavigator->showMissingDocs() )
     return;
-
-#if 0
-  kDebug() << "PluginTraverser::process(): " << entry->name()
-    << " (weight: " << entry->weight() << " parent: "
-    << ( mParentItem ? mParentItem->name() : "0" ) << ")" << endl;
-#endif
 
   if ( entry->khelpcenterSpecial() == QLatin1String("apps") ) {
     NavigatorAppItem *appItem;
@@ -104,7 +95,7 @@ void PluginTraverser::process( DocEntry *entry )
       return;
     }
 // TODO: was contents2 -> needs to be changed to help-contents-alternate or similar
-    mCurrentItem->setPixmap( 0, SmallIcon( QLatin1String("help-contents") ) );
+    mCurrentItem->setIcon( 0, SmallIcon( QLatin1String("help-contents") ) );
   }
 }
 

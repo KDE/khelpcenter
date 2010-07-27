@@ -20,24 +20,24 @@
 #ifndef KHC_NAVIGATORITEM_H
 #define KHC_NAVIGATORITEM_H
 
-//FIXME
-#include <Qt3Support/Q3CheckListItem>
+#include <QTreeWidget>
+#include <QTreeWidgetItem>
 
 namespace KHC {
 
 class TOC;
 class DocEntry;
 
-class NavigatorItem : public Q3ListViewItem
+class NavigatorItem : public QTreeWidgetItem
 {
   public:
-    NavigatorItem( DocEntry *entry, Q3ListView *parent );
-    NavigatorItem( DocEntry *entry, Q3ListViewItem *parent );
+    NavigatorItem( DocEntry *entry, QTreeWidget *parent );
+    NavigatorItem( DocEntry *entry, QTreeWidgetItem *parent );
 
-    NavigatorItem( DocEntry *entry, Q3ListView *parent,
-                   Q3ListViewItem *after );
-    NavigatorItem( DocEntry *entry, Q3ListViewItem *parent,
-                   Q3ListViewItem *after );
+    NavigatorItem( DocEntry *entry, QTreeWidget *parent,
+                   QTreeWidgetItem *after );
+    NavigatorItem( DocEntry *entry, QTreeWidgetItem *parent,
+                   QTreeWidgetItem *after );
 
     ~NavigatorItem();
 
@@ -49,7 +49,7 @@ class NavigatorItem : public Q3ListViewItem
 
     TOC *toc() const { return mToc; }
   
-    void setOpen( bool open );
+    void setExpanded( bool open );
 
   private:
     void init( DocEntry * );

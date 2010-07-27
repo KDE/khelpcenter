@@ -50,7 +50,7 @@ class InfoCategoryItem : public NavigatorItem
   public:
     InfoCategoryItem( NavigatorItem *parent, const QString &text );
 	
-    virtual void setOpen( bool open );
+    virtual void setExpanded( bool open );
 };
 
 class InfoNodeItem : public NavigatorItem
@@ -63,17 +63,17 @@ InfoCategoryItem::InfoCategoryItem( NavigatorItem *parent, const QString &text )
   : NavigatorItem( new DocEntry( text ), parent )
 {
   setAutoDeleteDocEntry( true );
-  setOpen( false );
+  setExpanded( false );
 //  kDebug(1400) << "Got category: " << text;
 }
 
-void InfoCategoryItem::setOpen( bool open )
+void InfoCategoryItem::setExpanded( bool open )
 {
-  NavigatorItem::setOpen( open );
+  NavigatorItem::setExpanded( open );
 
-  if ( open && childCount() > 0 ) setPixmap( 0, SmallIcon( "help-contents" ) );
+  if ( open && childCount() > 0 ) setIcon( 0, SmallIcon( "help-contents" ) );
 // TODO: was contents2 -> needs to be changed to help-contents-alternate or similar
-  else setPixmap( 0, SmallIcon( "help-contents" ) );
+  else setIcon( 0, SmallIcon( "help-contents" ) );
 }
 
 InfoNodeItem::InfoNodeItem( InfoCategoryItem *parent, const QString &text )
@@ -128,7 +128,7 @@ void InfoTree::build( NavigatorItem *parent )
       parseInfoDirFile( infoDirFileName );
   }
 
-  m_alphabItem->sortChildItems( 0, true /* ascending */ );
+  m_alphabItem->sortChildren( 0, Qt::Ascending /* ascending */ );
 }
 
 void InfoTree::parseInfoDirFile( const QString &infoDirFileName )
@@ -170,13 +170,28 @@ void InfoTree::parseInfoDirFile( const QString &infoDirFileName )
         item->entry()->setUrl( url );
 
         InfoCategoryItem *alphabSection = 0;
-        for ( Q3ListViewItem* it=m_alphabItem->firstChild(); it; it=it->nextSibling() ) {
-          if ( it->text( 0 ) == QString( appName[ 0 ].toUpper() ) ) {
+	
+	QTreeWidgetItemIterator it( m_alphabItem );
+	while ( (*it) ) 
+	{
+	  if ( (*it)->text( 0 ) == QString( appName[ 0 ].toUpper() ) ) 
+	  {
+	    alphabSection = static_cast<InfoCategoryItem *>( (*it) );
+	    break;
+	  }
+	  ++it;
+	}
+	
+	/*
+        for ( QTreeWidgetItem* it=m_alphabItem->firstChild(); it; it=it->nextSibling() )
+	{
+          if ( it->text( 0 ) == QString( appName[ 0 ].toUpper() ) ) 
+	  {
             alphabSection = static_cast<InfoCategoryItem *>( it );
             break;
           }
         }
-
+*/
         if ( alphabSection == 0 )
           alphabSection = new InfoCategoryItem( m_alphabItem, QString( appName[ 0 ].toUpper() ) );
 

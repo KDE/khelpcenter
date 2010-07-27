@@ -22,16 +22,19 @@
 
 #include "docentrytraverser.h"
 
-class Q3ListView;
+#include <QTreeWidget>
+
+class QTreeWidget;
 
 namespace KHC {
+  
   class Navigator;
   class NavigatorItem;
 
   class PluginTraverser : public DocEntryTraverser
   {
     public:
-      PluginTraverser( Navigator *navigator, Q3ListView *parent );
+      PluginTraverser( Navigator *navigator, QTreeWidget *parent );
       PluginTraverser( Navigator *navigator, NavigatorItem *parent );
 
       virtual void process( DocEntry *entry );
@@ -39,7 +42,7 @@ namespace KHC {
       virtual DocEntryTraverser *createChild( DocEntry *entry );
 
   private:
-    Q3ListView *mListView;
+    QTreeWidget *mListView;
     NavigatorItem *mParentItem;
     NavigatorItem *mCurrentItem;
 

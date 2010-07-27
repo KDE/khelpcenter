@@ -26,8 +26,8 @@
 
 #include <QtXml/QtXml>
 
-//FIXME
-#include <Qt3Support/Q3CheckListItem>
+#include <QTreeWidget>
+#include <QTreeWidgetItem>
 
 #include <QObject>
 
@@ -51,7 +51,7 @@ class TOC : public QObject
 		void itemSelected( const QString &url );
 
 	private Q_SLOTS:
-		void slotItemSelected( Q3ListViewItem *item );
+		void slotItemSelected( QTreeWidgetItem *item );
 		void meinprocExited( int exitCode, QProcess::ExitStatus exitStatus);
 
 	private:

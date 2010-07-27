@@ -27,38 +27,38 @@
 
 using namespace KHC;
 
-NavigatorAppItem::NavigatorAppItem( DocEntry *entry, Q3ListView *parent,
+NavigatorAppItem::NavigatorAppItem( DocEntry *entry, QTreeWidget *parent,
                   const QString &relPath )
   : NavigatorItem( entry, parent ),
     mRelpath( relPath ),
     mPopulated( false )
-{
-  setExpandable( true );
+{ 
+  populate();
 }
 
-NavigatorAppItem::NavigatorAppItem( DocEntry *entry, Q3ListViewItem *parent,
+NavigatorAppItem::NavigatorAppItem( DocEntry *entry, QTreeWidgetItem *parent,
                   const QString &relPath )
   : NavigatorItem( entry, parent ),
     mRelpath( relPath ),
     mPopulated( false )
-{
-  setExpandable( true );
+{ 
+  populate();
 }
 
-NavigatorAppItem::NavigatorAppItem( DocEntry *entry, Q3ListView *parent,
-                  Q3ListViewItem *after )
+NavigatorAppItem::NavigatorAppItem( DocEntry *entry, QTreeWidget *parent,
+                  QTreeWidgetItem *after )
   : NavigatorItem( entry, parent, after ),
     mPopulated( false )
-{
-  setExpandable( true );
+{ 
+  populate();
 }
 
-NavigatorAppItem::NavigatorAppItem( DocEntry *entry, Q3ListViewItem *parent,
-                  Q3ListViewItem *after )
+NavigatorAppItem::NavigatorAppItem( DocEntry *entry, QTreeWidgetItem *parent,
+		    QTreeWidgetItem *after )
   : NavigatorItem( entry, parent, after ),
     mPopulated( false )
-{
-  setExpandable( true );
+{ 
+  populate();
 }
 
 void NavigatorAppItem::setRelpath( const QString &relpath )
@@ -66,7 +66,7 @@ void NavigatorAppItem::setRelpath( const QString &relpath )
   mRelpath = relpath;
 }
 
-void NavigatorAppItem::setOpen(bool open)
+void NavigatorAppItem::setExpanded(bool open)
 {
   kDebug() << "NavigatorAppItem::setOpen()";
 
@@ -76,7 +76,7 @@ void NavigatorAppItem::setOpen(bool open)
                << mRelpath << ")" << endl;
      populate();
   }
-  Q3ListViewItem::setOpen(open);
+  QTreeWidgetItem::setExpanded(open);
 }
 
 void NavigatorAppItem::populate( bool recursive )
@@ -107,7 +107,6 @@ void NavigatorAppItem::populate( bool recursive )
           DocEntry *entry = new DocEntry( s->name(), url, s->icon() );
           item = new NavigatorItem( entry, this );
           item->setAutoDeleteDocEntry( true );
-          item->setExpandable( true );
         }
         break;
       }
@@ -127,7 +126,7 @@ void NavigatorAppItem::populate( bool recursive )
         break;
     }
   }
-  sortChildItems( 0, true /* ascending */ );
+  sortChildren( 0, Qt::Ascending /* ascending */ );
   mPopulated = true;
 }
 

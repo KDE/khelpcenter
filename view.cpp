@@ -25,6 +25,7 @@
 #include <QTextStream>
 #include <QKeyEvent>
 #include <QEvent>
+#include <QScrollBar>
 
 using namespace KHC;
 

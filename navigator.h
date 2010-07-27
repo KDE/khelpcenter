@@ -23,28 +23,17 @@
 
 #include "glossary.h"
 
-//FIXME
-#include <k3listview.h>
-
 #include <KUrl>
 
 #include <QFile>
 #include <QTextStream>
 #include <QTimer>
 #include <QTabWidget>
-
-//FIXME
-#include <Qt3Support/Q3PtrList>
-#include <Qt3Support/Q3CheckListItem>
-#include <Qt3Support/Q3Dict>
-
+#include <QTreeWidget>
 #include <QFrame>
 
 class QPushButton;
-
-class K3ListView;
 class KLineEdit;
-
 class KCMHelpCenter;
 
 namespace KHC {
@@ -90,7 +79,7 @@ class Navigator : public QWidget
 
   public Q_SLOTS:
     void openInternalUrl( const KUrl &url );
-    void slotItemSelected(Q3ListViewItem* index);
+    void slotItemSelected(QTreeWidgetItem* index);
     void slotSearch();
     void slotShowSearchResult( const QString & );
     void slotSelectGlossEntry( const QString &id );
@@ -111,7 +100,7 @@ class Navigator : public QWidget
     void clearSearch();
 
   protected:
-    QString createChildrenList( Q3ListViewItem *child );
+    QString createChildrenList( QTreeWidgetItem *child );
 
   private:
     void setupContentsTab();
@@ -122,7 +111,7 @@ class Navigator : public QWidget
     void insertPlugins();
     void hideSearch();
 
-    K3ListView *mContentsTree;
+    QTreeWidget *mContentsTree;
     Glossary *mGlossaryTree;
 
     SearchWidget *mSearchWidget;

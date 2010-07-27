@@ -25,7 +25,6 @@
 #include <QPixmap>
 
 #include <QLabel>
-#include <Qt3Support/Q3Header>
 #include <QtXml/QtXml>
 #include <QTextStream>
 #include <QRegExp>
@@ -35,6 +34,7 @@
 #include <QHBoxLayout>
 #include <QBoxLayout>
 #include <QVBoxLayout>
+#include <QTreeWidgetItemIterator>
 
 #include <KAction>
 #include <KApplication>
@@ -43,9 +43,6 @@
 #include <KGlobal>
 #include <KLocale>
 #include <KDebug>
-
-//FIXME
-#include <k3listview.h>
 
 #include <KLineEdit>
 #include <KMessageBox>
@@ -159,18 +156,15 @@ bool Navigator::showMissingDocs() const
 
 void Navigator::setupContentsTab()
 {
-    mContentsTree = new K3ListView( mTabWidget );
+    mContentsTree = new QTreeWidget( mTabWidget );
     mContentsTree->setFrameStyle( QFrame::NoFrame );
-    mContentsTree->addColumn(QString());
     mContentsTree->setAllColumnsShowFocus(true);
-    mContentsTree->header()->hide();
     mContentsTree->setRootIsDecorated(false);
-    mContentsTree->setSorting(-1, false);
+    mContentsTree->headerItem()->setHidden(true);
 
-    connect(mContentsTree, SIGNAL(clicked(Q3ListViewItem*)),
-            SLOT(slotItemSelected(Q3ListViewItem*)));
-    connect(mContentsTree, SIGNAL(returnPressed(Q3ListViewItem*)),
-           SLOT(slotItemSelected(Q3ListViewItem*)));
+    connect(mContentsTree, SIGNAL(itemActivated(QTreeWidgetItem*,int)),
+            SLOT(slotItemSelected(QTreeWidgetItem*)));
+    
     mTabWidget->addTab(mContentsTree, i18n("&Contents"));
 }
 
@@ -199,16 +193,6 @@ void Navigator::insertPlugins()
 {
   PluginTraverser t( this, mContentsTree );
   DocMetaInfo::self()->traverseEntries( &t );
-
-#if 0
-  kDebug( 1400 ) << "<docmetainfo>";
-  DocEntry::List entries = DocMetaInfo::self()->docEntries();
-  DocEntry::List::ConstIterator it;
-  for( it = entries.begin(); it != entries.end(); ++it ) {
-    (*it)->dump();
-  }
-  kDebug( 1400 ) << "</docmetainfo>";
-#endif
 }
 
 void Navigator::insertParentAppDocs( const QString &name, NavigatorItem *topItem )
@@ -326,7 +310,7 @@ void Navigator::selectItem( const KUrl &url )
 
   // If the navigator already has the given URL selected, do nothing.
   NavigatorItem *item;
-  item = static_cast<NavigatorItem *>( mContentsTree->selectedItem() );
+  item = static_cast<NavigatorItem *>( mContentsTree->currentItem() );
   if ( item && mSelected ) {
     KUrl currentURL ( item->entry()->url() );
     if ( (currentURL == url) || (currentURL == alternativeURL) ) {
@@ -337,29 +321,30 @@ void Navigator::selectItem( const KUrl &url )
 
   // First, populate the NavigatorAppItems if we don't want the home page
   if ( url != homeURL() ) {
-    for ( Q3ListViewItem *item = mContentsTree->firstChild(); item;
-          item = item->nextSibling() ) {
-      NavigatorAppItem *appItem = dynamic_cast<NavigatorAppItem *>( item );
-      if ( appItem ) appItem->populate( true /* recursive */ );
+    QTreeWidgetItemIterator it1( mContentsTree );
+    while( (*it1) ) 
+    {
+      NavigatorAppItem *appItem = dynamic_cast<NavigatorAppItem *>( (*it1) );
+      if ( appItem ) appItem->populate( true );
+      ++it1;
     }
   }
-
-  Q3ListViewItemIterator it( mContentsTree );
-  while ( it.current() ) {
-    NavigatorItem *item = static_cast<NavigatorItem *>( it.current() );
+  
+  QTreeWidgetItemIterator it( mContentsTree );
+  while ( (*it) ) {
+    NavigatorItem *item = static_cast<NavigatorItem *>( (*it) );
     KUrl itemUrl( item->entry()->url() );
     if ( (itemUrl == url) || (itemUrl == alternativeURL) ) {
       mContentsTree->setCurrentItem( item );
       // If the current item was not selected and remained unchanged it
       // needs to be explicitly selected
-      mContentsTree->setSelected(item, true);
-      item->setOpen( true );
-      mContentsTree->ensureItemVisible( item );
+      mContentsTree->setCurrentItem(item);
+      item->setExpanded( true );
       break;
     }
     ++it;
   }
-  if ( !it.current() ) {
+  if ( !(*it) ) {
     clearSelection();
   } else {
     mSelected = true;
@@ -372,7 +357,7 @@ void Navigator::clearSelection()
   mSelected = false;
 }
 
-void Navigator::slotItemSelected( Q3ListViewItem *currentItem )
+void Navigator::slotItemSelected( QTreeWidgetItem *currentItem )
 {
   if ( !currentItem ) return;
 
@@ -382,17 +367,20 @@ void Navigator::slotItemSelected( Q3ListViewItem *currentItem )
 
   kDebug(1400) << item->entry()->name() << endl;
 
-  if ( item->childCount() > 0 || item->isExpandable() )
-    item->setOpen( !item->isOpen() );
+  if ( item->childCount() > 0  )
+    item->setExpanded( !item->isExpanded() );
 
   KUrl url ( item->entry()->url() );
 
+  
+  
   if ( url.protocol() == "khelpcenter" ) {
       mView->closeUrl();
       History::self().updateCurrentEntry( mView );
       History::self().createEntry();
       showOverview( item, url );
   } else {
+   
     emit itemSelected( url.url() );
   }
 
@@ -447,13 +435,13 @@ void Navigator::showOverview( NavigatorItem *item, const KUrl &url )
     title = i18n("Start Page");
     name = i18n("KDE Help Center");
 
-    childCount = mContentsTree->childCount();
+    childCount = mContentsTree->topLevelItemCount();
   }
 
   if ( childCount > 0 ) {
-    Q3ListViewItem *child;
-    if ( item ) child = item->firstChild();
-    else child = mContentsTree->firstChild();
+    QTreeWidgetItem *child;
+    if ( item ) child = item;
+    else child = mContentsTree->invisibleRootItem();
 
     mDirLevel = 0;
 
@@ -469,7 +457,7 @@ void Navigator::showOverview( NavigatorItem *item, const KUrl &url )
   mView->end();
 }
 
-QString Navigator::createChildrenList( Q3ListViewItem *child )
+QString Navigator::createChildrenList( QTreeWidgetItem *child )
 {
   ++mDirLevel;
 
@@ -477,8 +465,10 @@ QString Navigator::createChildrenList( Q3ListViewItem *child )
 
   t += QLatin1String("<ul>\n");
 
-  while ( child ) {
-    NavigatorItem *childItem = static_cast<NavigatorItem *>( child );
+  int cc = child->childCount();
+  for (int i=0;i<cc;i++) 
+  {
+    NavigatorItem *childItem = static_cast<NavigatorItem *>( child->child(i) );
 
     DocEntry *e = childItem->entry();
 
@@ -495,10 +485,9 @@ QString Navigator::createChildrenList( Q3ListViewItem *child )
     t += QLatin1String("</li>\n");
 
     if ( childItem->childCount() > 0 && mDirLevel < 2 ) {
-      t += createChildrenList( childItem->firstChild() );
+      t += createChildrenList( childItem );
     }
 
-    child = child->nextSibling();
   }
 
   t += QLatin1String("</ul>\n");

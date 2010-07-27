@@ -31,28 +31,28 @@
 
 using namespace KHC;
 
-NavigatorItem::NavigatorItem( DocEntry *entry, Q3ListView *parent,
-                              Q3ListViewItem *after )
-  : Q3ListViewItem( parent, after )
+NavigatorItem::NavigatorItem( DocEntry *entry, QTreeWidget *parent,
+                              QTreeWidgetItem *after )
+  : QTreeWidgetItem( parent, after )
 {
   init( entry );
 }
 
-NavigatorItem::NavigatorItem( DocEntry *entry, Q3ListViewItem *parent,
-                              Q3ListViewItem *after )
-  : Q3ListViewItem( parent, after )
+NavigatorItem::NavigatorItem( DocEntry *entry, QTreeWidgetItem *parent,
+                              QTreeWidgetItem *after )
+  : QTreeWidgetItem( parent, after )
 {
   init( entry );
 }
 
-NavigatorItem::NavigatorItem( DocEntry *entry, Q3ListView *parent )
-  : Q3ListViewItem( parent )
+NavigatorItem::NavigatorItem( DocEntry *entry, QTreeWidget *parent )
+  : QTreeWidgetItem( parent )
 {
     init( entry );
 }
 
-NavigatorItem::NavigatorItem( DocEntry *entry, Q3ListViewItem *parent )
-  : Q3ListViewItem( parent )
+NavigatorItem::NavigatorItem( DocEntry *entry, QTreeWidgetItem *parent )
+  : QTreeWidgetItem( parent )
 {
   init( entry );
 }
@@ -86,7 +86,7 @@ void NavigatorItem::setAutoDeleteDocEntry( bool enabled )
 void NavigatorItem::updateItem()
 {
   setText( 0, entry()->name() );
-  setPixmap( 0, SmallIcon( entry()->icon() ) );
+  setIcon( 0, SmallIcon( entry()->icon() ) );
 }
 
 void NavigatorItem::scheduleTOCBuild()
@@ -112,17 +112,10 @@ void NavigatorItem::scheduleTOCBuild()
   }
 }
 
-void NavigatorItem::setOpen( bool open )
+void NavigatorItem::setExpanded( bool open )
 {
   scheduleTOCBuild();
-  Q3ListViewItem::setOpen( open );
-
-// TODO: was contents2 -> needs to be changed to help-contents-alternate or similar
-  if ( entry()->icon().isEmpty() || entry()->icon() == "help-contents" ) {
-    if ( open && childCount() > 0 ) setPixmap( 0, SmallIcon( "help-contents" ) );
-// TODO: was contents2 -> needs to be changed to help-contents-alternate or similar
-    else setPixmap( 0, SmallIcon( "help-contents" ) );
-  }
+  QTreeWidgetItem::setExpanded( open );
 }
 
 // vim:ts=2:sw=2:et

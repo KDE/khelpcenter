@@ -43,7 +43,7 @@ using namespace KHC;
 class TOCItem : public NavigatorItem
 {
     public:
-        TOCItem( TOC *parent, Q3ListViewItem *parentItem, Q3ListViewItem *after, const QString &text );
+        TOCItem( TOC *parent, QTreeWidgetItem *parentItem, QTreeWidgetItem *after, const QString &text );
 
         const TOC *toc() const { return m_toc; }
 
@@ -54,7 +54,7 @@ class TOCItem : public NavigatorItem
 class TOCChapterItem : public TOCItem
 {
     public:
-        TOCChapterItem( TOC *toc, NavigatorItem *parent, Q3ListViewItem *after, const QString &title,
+        TOCChapterItem( TOC *toc, NavigatorItem *parent, QTreeWidgetItem *after, const QString &title,
                 const QString &name );
 
         virtual QString url();
@@ -66,7 +66,7 @@ class TOCChapterItem : public TOCItem
 class TOCSectionItem : public TOCItem
 {
     public:
-        TOCSectionItem( TOC *toc, TOCChapterItem *parent, Q3ListViewItem *after, const QString &title,
+        TOCSectionItem( TOC *toc, TOCChapterItem *parent, QTreeWidgetItem *after, const QString &title,
                 const QString &name );
 
         virtual QString url();
@@ -261,28 +261,28 @@ QDomElement TOC::childElement( const QDomElement &element, const QString &name )
     return e;
 }
 
-void TOC::slotItemSelected( Q3ListViewItem *item )
+void TOC::slotItemSelected( QTreeWidgetItem *item )
 {
     TOCItem *tocItem;
     if ( ( tocItem = dynamic_cast<TOCItem *>( item ) ) )
         emit itemSelected( tocItem->entry()->url() );
 
-    item->setOpen( !item->isOpen() );
+    item->setExpanded( !item->isExpanded() );
 }
 
-TOCItem::TOCItem( TOC *toc, Q3ListViewItem *parentItem, Q3ListViewItem *after, const QString &text )
+TOCItem::TOCItem( TOC *toc, QTreeWidgetItem *parentItem, QTreeWidgetItem *after, const QString &text )
     : NavigatorItem( new DocEntry( text ), parentItem, after )
 {
         setAutoDeleteDocEntry( true );
     m_toc = toc;
 }
 
-TOCChapterItem::TOCChapterItem( TOC *toc, NavigatorItem *parent, Q3ListViewItem *after,
+TOCChapterItem::TOCChapterItem( TOC *toc, NavigatorItem *parent, QTreeWidgetItem *after,
                 const QString &title, const QString &name )
     : TOCItem( toc, parent, after, title ),
     m_name( name )
 {
-    setOpen( false );
+    setExpanded( false );
     entry()->setUrl(url());
 }
 
@@ -292,19 +292,19 @@ QString TOCChapterItem::url()
                + QLatin1String(".html");
 }
 
-TOCSectionItem::TOCSectionItem( TOC *toc, TOCChapterItem *parent, Q3ListViewItem *after,
+TOCSectionItem::TOCSectionItem( TOC *toc, TOCChapterItem *parent, QTreeWidgetItem *after,
                 const QString &title, const QString &name )
     : TOCItem( toc, parent, after, title ),
     m_name( name )
 {
-    setPixmap( 0, SmallIcon( "text-plain" ) );
+    setIcon( 0, SmallIcon( "text-plain" ) );
     entry()->setUrl(url());
 }
 
 QString TOCSectionItem::url()
 {
-    if ( static_cast<TOCSectionItem *>( parent()->firstChild() ) == this )
-        return static_cast<TOCChapterItem *>( parent() )->url() + '#' + m_name;
+    //if ( static_cast<TOCSectionItem *>( parent()->firstChild() ) == this )
+ //       return static_cast<TOCChapterItem *>( parent() )->url() + '#' + m_name;
 
     return "help:" + toc()->application() + '/' + m_name + ".html";
 }
