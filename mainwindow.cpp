@@ -229,7 +229,7 @@ void MainWindow::writeConfig()
 void MainWindow::setupActions()
 {
     actionCollection()->addAction( KStandardAction::Quit, this, SLOT( close() ) );
-    actionCollection()->addAction( KStandardAction::Print, "printFrame", this, SLOT( print() ) );
+   // actionCollection()->addAction( KStandardAction::Print, "printFrame", this, SLOT( print() ) );
 
     KAction *prevPage  = actionCollection()->addAction( "prevPage" );
     prevPage->setText( i18n( "Previous Page" ) );
@@ -256,7 +256,7 @@ void MainWindow::setupActions()
     mLastSearchAction->setText( i18n("&Last Search Result") );
     mLastSearchAction->setEnabled( false );
     connect( mLastSearchAction, SIGNAL( triggered() ), this, SLOT( slotLastSearch() ) );
-
+/*
     QAction *action = actionCollection()->addAction( QLatin1String("build_index") );
     action->setText( i18n("Build Search Index...") );
     connect( action, SIGNAL( triggered() ), mNavigator, SLOT( showIndexDialog() ) );
@@ -267,10 +267,10 @@ void MainWindow::setupActions()
         action->setText( i18n("Show Search Error Log") );
         connect( action, SIGNAL( triggered() ), this, SLOT( showSearchStderr() ) );
     }
-
+*/
     History::self().setupActions( actionCollection() );
 
-    action = actionCollection()->addAction(QLatin1String("configure_fonts" ));
+    QAction *action = actionCollection()->addAction(QLatin1String("configure_fonts" ));
     action->setText( i18n( "Configure Fonts..." ) );
     connect( action, SIGNAL( triggered() ), this, SLOT( slotConfigureFonts() ) );
 

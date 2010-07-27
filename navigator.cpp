@@ -123,13 +123,15 @@ Navigator::Navigator( View *view, QWidget *parent, const char *name )
     setupSearchTab();
 
     insertPlugins();
-
+    hideSearch();
+/*
     if ( !mSearchEngine->initSearchHandlers() ) {
       hideSearch();
     } else {
       mSearchWidget->updateScopeList();
       mSearchWidget->readConfig( KGlobal::config().data() );
     }
+    */
     connect( mTabWidget, SIGNAL( currentChanged( QWidget * ) ),
              SLOT( slotTabChanged( QWidget * ) ) );
 }
@@ -170,6 +172,7 @@ void Navigator::setupContentsTab()
 
 void Navigator::setupSearchTab()
 {
+  
     mSearchWidget = new SearchWidget( mSearchEngine, mTabWidget );
     connect( mSearchWidget, SIGNAL( searchResult( const QString & ) ),
              SLOT( slotShowSearchResult( const QString & ) ) );
@@ -179,6 +182,7 @@ void Navigator::setupSearchTab()
       SLOT( showIndexDialog() ) );
 
     mTabWidget->addTab( mSearchWidget, i18n("Search Options"));
+    
 }
 
 void Navigator::setupGlossaryTab()
@@ -499,6 +503,7 @@ QString Navigator::createChildrenList( QTreeWidgetItem *child )
 
 void Navigator::slotSearch()
 {
+  
   kDebug(1400) << "Navigator::slotSearch()";
 
   if ( !checkSearchIndex() ) return;
@@ -523,6 +528,7 @@ void Navigator::slotSearch()
     slotSearchFinished();
     KMessageBox::sorry( this, i18n("Unable to run search program.") );
   }
+  
 }
 
 void Navigator::slotShowSearchResult( const QString &url )
@@ -547,6 +553,7 @@ void Navigator::checkSearchButton()
     mSearchWidget->scopeCount() > 0 );
   mTabWidget->setCurrentIndex( mTabWidget->indexOf( mSearchWidget ) );
 }
+
 
 void Navigator::hideSearch()
 {

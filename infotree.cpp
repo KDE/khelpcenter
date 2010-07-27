@@ -181,17 +181,7 @@ void InfoTree::parseInfoDirFile( const QString &infoDirFileName )
 	  }
 	  ++it;
 	}
-	
-	/*
-        for ( QTreeWidgetItem* it=m_alphabItem->firstChild(); it; it=it->nextSibling() )
-	{
-          if ( it->text( 0 ) == QString( appName[ 0 ].toUpper() ) ) 
-	  {
-            alphabSection = static_cast<InfoCategoryItem *>( it );
-            break;
-          }
-        }
-*/
+
         if ( alphabSection == 0 )
           alphabSection = new InfoCategoryItem( m_alphabItem, QString( appName[ 0 ].toUpper() ) );
 

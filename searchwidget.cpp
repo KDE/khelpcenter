@@ -105,7 +105,6 @@ SearchWidget::SearchWidget( SearchEngine *engine, QWidget *parent )
   hLayout->addWidget( mScopeCombo );
 
   mScopeListView = new QTreeWidget( this );
-  //mScopeListView->setRootIsDecorated( true );
   mScopeListView->setColumnCount( 1 );
   mScopeListView->setHeaderLabels( QStringList() << i18n("Scope") );
   topLayout->addWidget( mScopeListView, 1 );
