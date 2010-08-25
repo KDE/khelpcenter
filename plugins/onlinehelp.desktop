@@ -46,5 +46,5 @@ Name[x-test]=xxOnline Helpxx
 Name[zh_CN]=在线帮助
 Name[zh_TW]=線上說明
 Icon=help-contents
-X-DocPath=help:/khelpcenter/onlinehelp/index.html
+X-DocPath=help:/onlinehelp/index.html
 X-DOC-Weight=100
