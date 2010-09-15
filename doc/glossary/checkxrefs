@@ -1,6 +1,6 @@
 #!/bin/sh
 DEFINED_ENTRIES=`sed -ne "s^.*<glossentry id=\"\(.*\)\">.*^\1^p" *.docbook`
-REFERENCED_ENTRIES=`sed -ne "s^.*<glossseealso otherterm=\"\(.*\)\">.*^\1^p" *.docbook | unique`
+REFERENCED_ENTRIES=`sed -ne "s^.*<glossseealso otherterm=\"\(.*\)\">.*^\1^p" *.docbook | uniq`
 
 # Check for entries which are referenced but not defined.
 for ENTRY in $REFERENCED_ENTRIES; do

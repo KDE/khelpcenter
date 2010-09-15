@@ -16,8 +16,8 @@
 
                 <glossentry id="gloss-acl">
                         <glossterm><acronym>ACLs</acronym></glossterm>
-                        <glossdef><para>Abbreviation for <emphasis>A</emphasis>ccess
-			<emphasis>C</emphasis>ontrol <emphasis>L</emphasis>ists;
+                        <glossdef><para>Abbreviation for &emstart;A&emend;ccess
+			&emstart;C&emend;ontrol &emstart;L&emend;ists;
 				ACLs are used to check for the access by a given
 				(authenticated) user. A first rough support for ACLs
 				for printing is available from &CUPS;; this will be refined
@@ -46,21 +46,13 @@
 				APSfilter calls "real filters" to do the jobs needed. It sends
 				printjobs automatically through these other filters, based on an
 				initial file-type analysis of the printfile.
-				It is written and maintained by Andreas Klemm.
-<!--
-				</para>
-				<para>
--->
+				It is written and maintained by Andreas Klemm.&newpara;
 				It is
 				similar to Magicfilter and mostly uses Ghostscript for file conversions. 
 				Some Linux Distributions (like &SuSE;) use APSfilter, others
 				Magicfilter (like &RedHat;), some have both for preference selection
-				(like *BSD).
-<!--
-				</para>
-				<para>
--->
-				&CUPS; has <emphasis>no</emphasis> need for APSfilter,
+				(like *BSD).&newpara;
+				&CUPS; has &emstart;no&emend; need for APSfilter,
 				as it runs its own file type recognition (based on &MIME; types)
 				and applies its own filtering logic.</para>
                                 <glossseealso otherterm="gloss-ghostscript">Ghostscript</glossseealso>
@@ -100,12 +92,8 @@
                         <glossterm>BSD-style Printing</glossterm>
                         <glossdef><para>Generic term for different variants of the traditional &UNIX;
 				printing method. Its first version appeared in the early 70s on
-				BSD &UNIX; and was formally described in <ulink url="http://www.rfc.net/rfc1179.html">RFC 1179</ulink> only as late
-				as 1990.
-<!--
-				</para>
-				<para>
--->
+				BSD &UNIX; and was formally described in &linkstart;"http://www.rfc.net/rfc1179.html"&linkmid;RFC 1179&linkend; only as late
+				as 1990.&newpara;
 				At the time when BSD "remote" printing was first designed, printers
 				were serially or otherwise directly connected devices to a host
 				(with the Internet hardly consisting of more than 100 nodes!); printers
@@ -114,26 +102,17 @@
 				the medium, drawn from a cardboard box beneath the table. It came out
 				like a zig-zag folded paper "snake". Remote printing consisted of a
 				neighboring host in the next room sending a file
-				asking for printout.
-<!--
-				</para>
-				<para>
--->
+				asking for printout.&newpara;
 				How technology has changed! Printers generally use cut-sheet media, they have
 				built-in intelligence to compute the raster images of pages after pages
 				that are sent to them using one of the powerful page description
 				languages (PDL). Many are network nodes in their own right,
 				with CPU, RAM, a hard disk and their own Operation System, and
-				are hooked to a net with potentially millions of users...
-<!--
-				</para>
-				<para>
--->
+				are hooked to a net with potentially millions of users...&newpara;
                                 It is a vast proof of the flexible &UNIX; concept for doing things,
 				that it made "Line Printing" reliably work even under these modern
 				conditions. But time has finally come now to go for something new
 				-- the IPP.
-				
 				</para>
 				<glossseealso otherterm="gloss-ipp">IPP</glossseealso>
 				<glossseealso otherterm="gloss-cups">&CUPS;</glossseealso>
@@ -143,30 +122,27 @@
  
                 <glossentry id="gloss-cups">
                         <glossterm>&CUPS;</glossterm>
-                        <glossdef><para>Abbreviation for <emphasis>C</emphasis>ommon
-				<emphasis>U</emphasis>NIX <emphasis>P</emphasis>rinting
-				<emphasis>S</emphasis>ystem; &CUPS; is the most modern &UNIX; and Linux
+                        <glossdef><para>Abbreviation for &emstart;C&emend;ommon
+				&emstart;U&emend;NIX &emstart;P&emend;rinting
+				&emstart;S&emend;ystem; &CUPS; is the most modern &UNIX; and Linux
 				printing system, also providing cross-platform print services
 				to &Microsoft; &Windows; and Apple &MacOS; clients. Based on IPP, it does
 				away with all the pitfalls of old-style BSD printing,
 				providing authentication, encryption and ACLs, plus many more
 				features. At the same time it is backward-compatible enough
 				to serve all legacy clients that are not yet up to IPP, via
-				LPR/LPD (BSD-style).
-<!--
-				</para>
-				<para>
--->
+				LPR/LPD (BSD-style).&newpara;
 				&CUPS; is able to control any &PostScript; printer by
 				utilizing the vendor-supplied PPD (PostScript Printer
 				Description file), targeted originally for &Microsoft; Windows NT
 				printing only. &kde; Printing is most powerful if based on
-				&CUPS;.</para>
+				&CUPS;.&newpara;
+				More info:&newpara;
+				&linkstart;"http://www.cups.org"&linkmid;&CUPS; Homepage&linkend;</para>
                                 <glossseealso otherterm="gloss-acl">ACLs</glossseealso>
                                 <glossseealso otherterm="gloss-authentication">Authentication</glossseealso>
                                 <glossseealso otherterm="gloss-bsdstyleprinting">BSD-style printing</glossseealso>
                                 <glossseealso otherterm="gloss-ipp">IPP</glossseealso>
-                                <glossseealso otherterm="gloss-kdeprint">KDEPrint</glossseealso>
                                 <glossseealso otherterm="gloss-lprlpd">LPR/LPD</glossseealso>
                                 <glossseealso otherterm="gloss-ppd">PPD</glossseealso>
                         </glossdef>
@@ -175,75 +151,22 @@
  
                 <glossentry id="gloss-cupsfaq">
                         <glossterm><acronym>&CUPS;-FAQ</acronym></glossterm>
-                        <glossdef><para>Currently only available in German (translation is on the way),
-				the <ulink url="http://www.danka.de/printpro/faq.html">&CUPS;-FAQ</ulink> 
+                        <glossdef><para>&linkstart;"http://www.cups.org/articles.php?L+TFAQ"&linkmid;&CUPS;-FAQ&linkend; 
 				is a valuable resource to answer many questions that anyone new to 
 				&CUPS; printing might have at first.
 				</para>
-                                <glossseealso otherterm="gloss-kdeprinthandbook">KDEPrint Handbook</glossseealso>
-                        </glossdef>
-                </glossentry>
-
-
-                <glossentry id="gloss-cups-o-matic">
-                        <glossterm>&CUPS;-O-Matic</glossterm>
-                        <glossdef><para>&CUPS;-O-Matic was the first "Third Party" plugin for
-				the &CUPS; printing software. It is available on the  <ulink 
-				url="http://www.linuxprinting.org/cups-doc.html">Linuxprinting.org
-				website</ulink> to provide an online PPD-generating service.
-<!--
-				</para>
-				<para>
--->
-
-				Together with the companion <application>cupsomatic</application> Perl-Script,
-				that needs to be installed as an additional &CUPS; backend,
-				it redirects output from the native <application>pstops</application> filter into
-				a chain of suitable Ghostscript filters. Upon completion, it
-				passes the resulting data back to a &CUPS; "backend" for sending
-				to the printer.
-<!--
-				</para>
-				<para>
--->
-				In this way, &CUPS;-O-Matic enables support for any printer known to
-				have worked previously in a "classical" Ghostscript environment.
-				If no native &CUPS; support for that printer is in sight... &CUPS;-O-Matic 
-				is now replaced by the more capable PPD-O-Matic.</para>
-                                <glossseealso otherterm="gloss-cupsomatic">cupsomatic</glossseealso>
-                                <glossseealso otherterm="gloss-PPD-O-Matic">PPD-O-Matic</glossseealso>
-                                <glossseealso otherterm="gloss-foomatic">Foomatic</glossseealso>
-                        </glossdef>
-                </glossentry>
-
-
-                <glossentry id="gloss-cupsomatic">
-                        <glossterm>cupsomatic</glossterm>
-                        <glossdef><para>The Perl script <application>cupsomatic</application> (plus a working Perl installation
-				on your system) is needed to make any &CUPS;-O-Matic (or PPD-O-Matic) 
-				generated PPD work with &CUPS;. It was written by Grant Taylor, author of
-				the Linux Printing HOWTO and Maintainer of the <ulink 
-				url="http://www.linuxprinting.org/printer_list.cgi">printer 
-				database</ulink> at the Linuxprinting.org website.</para>
-                                <glossseealso otherterm="gloss-cups-o-matic">&CUPS;-O-Matic</glossseealso>
-                                <glossseealso otherterm="gloss-foomatic">Foomatic</glossseealso>
-                                <glossseealso otherterm="gloss-cupsomatic">cupsomatic</glossseealso>
                         </glossdef>
                 </glossentry>
 
                 <glossentry id="gloss-daemon">
                         <glossterm><acronym>Daemon</acronym></glossterm>
-                        <glossdef><para>Abbreviation for <emphasis>D</emphasis>isk
-				<emphasis>a</emphasis>nd <emphasis>e</emphasis>xecution
-				<emphasis>mon</emphasis>itor; <acronym>Daemons</acronym> are present
+                        <glossdef><para>Abbreviation for &emstart;D&emend;isk
+				&emstart;a&emend;nd &emstart;e&emend;xecution
+				&emstart;mon&emend;itor; <acronym>Daemons</acronym> are present
 				on all &UNIX; systems to perform tasks independent of user
 				intervention. Readers more familiar with &Microsoft; &Windows; might
 				want to compare daemons and the tasks they are responsible
-				with "services".
-<!--
-				</para>
-				<para>
--->
+				with "services".&newpara;
 				One example of a daemon present on most
 				legacy &UNIX; systems is the LPD (Line Printer Daemon); &CUPS; is
 				widely seen as the successor to LPD in the &UNIX; world and
@@ -258,11 +181,7 @@
 				(only command line printing was known to most Linux users, no device
 				specific print options were available for doing the jobs), Grant Taylor, 
 				author of the "Linux Printing HOWTO", collected most of the available
-				information about printers, drivers and filters in his database.
-<!--
-				</para>
-				<para>
--->
+				information about printers, drivers and filters in his database.&newpara;
 				With the emerging
 				&CUPS; concept, extending the use of PPDs even to non-PostScript printers,
 				he realized the potential of this database: if one puts the different
@@ -270,11 +189,7 @@
 				"Which device prints with which Ghostscript or other
 				filter?", "How well?", and "What command line switches are available?") into
 				PPD-compatible files, he could have all the power of &CUPS; on top of
-				the traditional printer "drivers".
-<!--
-				</para>
-				<para>
--->
+				the traditional printer "drivers".&newpara;
 				This has now developed into a broader
 				concept, known as "Foomatic". Foomatic extends the capabilities
 				of spoolers other than &CUPS; (LPR/LPD, LPRng, PDQ, PPR) to a certain
@@ -323,24 +238,20 @@
                         <glossterm>Easy Software Products</glossterm>
                         <glossdef><para>Mike Sweet's company, which has contributed a few substantial
 				software products towards the Free Software community; amongst
-				them the initial version of <ulink 
-				url="http://gimp-print.sf.net/">Gimp-Print,</ulink> the <ulink 
-				url="http://www.easysw.com/epm/">EPM software packaging</ulink> tool 
-				and <ulink url="http://www.easysw.com/htmldoc/">HTMLDOC</ulink>
+				them the initial version of &linkstart; 
+				"http://gimp-print.sf.net/"&linkmid;Gimp-Print,&linkend; the &linkstart; 
+				"http://www.easysw.com/epm/"&linkmid;EPM software packaging&linkend; tool 
+				and &linkstart;"http://www.easysw.com/htmldoc/"&linkmid;HTMLDOC&linkend;
 				(used by the "Linux Documentation Project" to build the PDF versions
-				of the HOWTOs) -- but most importantly:  <ulink 
-				url="http://www.cups.org/">&CUPS;</ulink> (the 'Common &UNIX; Printing
-				System').
-<!--
-				</para>
-				<para>
--->
-				ESP finance themselves by selling a commercial version
-				of &CUPS;, called <ulink url="http://www.easysw.com/">ESP PrintPro,</ulink> 
+				of the HOWTOs) -- but most importantly:  &linkstart; 
+				"http://www.cups.org/"&linkmid;&CUPS;&linkend; (the 'Common &UNIX; Printing
+				System').&newpara;
+				ESP financed themselves by selling a commercial version
+				of &CUPS;, called ESP PrintPro, 
 				that includes some professional enhancements.
+				ESP Print Pro was purchased by Apple Inc. in February of 2007. ESP Print Pro software and support are no longer available from Easy Software Products. ESP Print Pro users were given non-expiring, floating licenses which may be accessed from the MyESP pages.
 				</para>
                                 <glossseealso otherterm="gloss-cups">&CUPS;</glossseealso>
-                                <glossseealso otherterm="gloss-espprintpro">ESP PrintPro</glossseealso>
                                 <glossseealso otherterm="gloss-esp">ESP</glossseealso>
                                 <glossseealso otherterm="gloss-gimpprint">Gimp-Print</glossseealso>
                         </glossdef>
@@ -349,19 +260,11 @@
                 <glossentry id="gloss-encryption">
                         <glossterm>Encryption</glossterm>
                         <glossdef><para>Encryption of confidential data is an all-important issue if
-				you transfer it over the Internet or even within intranets.
-<!--
-				</para>
-				<para>
--->
+				you transfer it over the Internet or even within intranets.&newpara;
 				Printing
 				via traditional protocols is not encrypted at all -- it is very easy
-				to tap and eavesdrop &eg; into &PostScript; or PCL data transfered
-				over the wire.
-<!--
-				</para>
-				<para>
--->
+				to tap and eavesdrop &eg; into &PostScript; or PCL data transferred
+				over the wire.&newpara;
 				Therefore, in the design of IPP, provision was made for the easy
 				plugin of encryption mechanisms (which can be provided by the same
 				means as the encryption standards for HTTP traffic: SSL and TLS).</para>
@@ -381,16 +284,7 @@
 				devices and handed technical specification documents to developers.
 				The excellent print quality achieved by Gimp-Print on the Stylus
 				series of printers can be attributed to this openness.
-<!--
 				</para>
-				<para>
--->
-				They have also
-				contracted Easy Software Products to maintain an enhanced version
-				of Ghostscript ("ESP GhostScript") for improved support of their
-				printer portfolio.
-				</para>
-                                <glossseealso otherterm="gloss-ghostscript">ESP Ghostscript</glossseealso>
                         </glossdef>
                 </glossentry>
 
@@ -411,9 +305,9 @@
 
                 <glossentry id="gloss-escp">
                         <glossterm><acronym>ESC/P</acronym></glossterm>
-                        <glossdef><para>Abbreviation for <emphasis>E</emphasis>pson
-				<emphasis>S</emphasis>tandard <emphasis>C</emphasis>odes for
-				<emphasis>P</emphasis>rinters. Besides &PostScript; and PCL, Epson's ESC/P
+                        <glossdef><para>Abbreviation for &emstart;E&emend;pson
+				&emstart;S&emend;tandard &emstart;C&emend;odes for
+				&emstart;P&emend;rinters. Besides &PostScript; and PCL, Epson's ESC/P
 				printer language is one of the best known.</para>
                                 <glossseealso otherterm="gloss-pcl">PCL</glossseealso>
                                 <glossseealso otherterm="gloss-postscript">&PostScript;</glossseealso>
@@ -423,55 +317,21 @@
 
                 <glossentry id="gloss-esp">
                         <glossterm><acronym>ESP</acronym></glossterm>
-                        <glossdef><para>Abbreviation for <emphasis>E</emphasis>asy
-				<emphasis>S</emphasis>oftware <emphasis>P</emphasis>roducts;
+                        <glossdef><para>Abbreviation for &emstart;E&emend;asy
+				&emstart;S&emend;oftware &emstart;P&emend;roducts;
 				the company that developed &CUPS; (the "Common &UNIX; Printing System").
 				</para>
                                 <glossseealso otherterm="gloss-easysoftwareproducts">Easy Software Products</glossseealso>
                                 <glossseealso otherterm="gloss-cups">&CUPS;</glossseealso>
-                                <glossseealso otherterm="gloss-espprintpro">ESP PrintPro</glossseealso>
                         </glossdef>
                 </glossentry>
 
 
-                <glossentry id="gloss-espghostscript">
-                        <glossterm><acronym>ESP</acronym> Ghostscript</glossterm>
-                        <glossdef><para>A Ghostscript version that is maintained by Easy Software
-				Products. It includes pre-compiled Gimp-Print drivers for
-				many inkjets (plus some other goodies). ESP Ghostscript
-				will produce photographic quality prints in many cases, especially
-				with the Epson Stylus model series. ESP Ghostscript is GPL-software.
-				</para>
-                                <glossseealso otherterm="gloss-easysoftwareproducts">Easy Software Products</glossseealso>
-                                <glossseealso otherterm="gloss-cups">&CUPS;</glossseealso>
-                                <glossseealso otherterm="gloss-espprintpro">ESP PrintPro</glossseealso>
-                        </glossdef>
-                </glossentry>
-
-                <glossentry id="gloss-espprintpro">
-                        <glossterm><acronym>ESP</acronym> PrintPro</glossterm>
-                        <glossdef><para> This professional enhancement to &CUPS; (the "Common &UNIX; 
-				Printing System") is sold by the developers 
-				of &CUPS; complete with more than 2,300 printer drivers for several commercial
-				&UNIX; platforms. <ulink url="http://www.easysw.com/printpro/">ESP PrintPro</ulink>
-				is supposed to work "out of the box" with little or no configuration
-				for users or admins. ESP also sell support contracts for
-				&CUPS; and PrintPro. These sales help to feed the programmers who
-				develop the Free version of &CUPS;.
-			</para>
-                                <glossseealso otherterm="gloss-cups">&CUPS;</glossseealso>
-                        </glossdef>
-                </glossentry>
-
-               <glossentry id="gloss-filter">
+                <glossentry id="gloss-filter">
                         <glossterm>Filter</glossterm>
                         <glossdef><para>Filters, in general, are programs that take some input
 				data, work on it and pass it on as their output data. Filters
-				may or may not change the data.
-<!--
-				</para>
-				<para>
--->
+				may or may not change the data.&newpara;
 				Filters in the context of printing, are programs that convert
 				a given file (destined for printing, but not suitable in the
 				format it is presently) into a printable format. Sometimes
@@ -486,51 +346,28 @@
                 <glossentry id="gloss-foomatic">
                         <glossterm>Foomatic</glossterm>
                         <glossdef><para>Foomatic started out as the wrapper name for a set of
-				different tools available from <ulink
-				url="http://www.linuxprinting.org/">Linuxprinting.org</ulink>
+				different tools available from &linkstart; "http://www.linuxfoundation.org/collaborate/workgroups/openprinting/database/foomatic">Linuxprinting.org&linkend;
 				These tools aimed to make the usage of traditional
 				Ghostscript and other print filters easier for users and
 				extend the filters' capabilities by adding more command line
-				switches or explain the driver's execution data.
-<!--
-				</para>
-				<para>
--->
-				Foomatic's different incarnations are &CUPS;-O-Matic, PPD-O-Matic,
-				PDQ-O-Matic, LPD-O-Matic, PPR-O-Matic, MF-O-Matic and 
-				Direct-O-Matic. All of these allow the generation
-				of appropriate printer configuration files online, by simply
-				selection the suitable model and suggested (or alternate) driver
-				for that machine.
-<!--
-				</para>
-				<para>
--->
+				switches or explain the driver's execution data.&newpara;
 				More recently, Foomatic gravitated towards becoming a "meta-spooling"
 				system, that allows configuration of the underlying print subsystem
 				through a unified set of commands (however, this is much more
-				complicated than KDEPrint's &GUI; interface, which performs a similar
+				complicated than &kde; printing &GUI; interface, which performs a similar
 				task with regards to different print subsystems). </para>
-                                <glossseealso otherterm="gloss-cups-o-matic">&CUPS;-O-Matic</glossseealso>
-                                <glossseealso otherterm="gloss-PPD-O-Matic">PPD-O-Matic</glossseealso>
-                                <glossseealso otherterm="gloss-cupsomatic">cupsomatic</glossseealso>
                         </glossdef>
                 </glossentry>
 
                <glossentry id="gloss-ghostscript">
                         <glossterm>Ghostscript</glossterm>
-                        <glossdef><para>Ghostscript is a &PostScript; Raster Image Processor (RIP) in software, originally
-				developed by L. Peter Deutsch. There is always a <acronym>GPL</acronym> version
-				of Ghostscript available for free usage and distribution
-				(mostly 1 year old) while
-				the current version is commercially sold under another license.
-<!--
-				</para>
-				<para>
--->
+                        <glossdef><para>Ghostscript is a an interpreter for the &PostScript; language and for PDF or Raster Image Processor (RIP) in software, originally developed by L. Peter Deutsch. There is always a <acronym>GPL</acronym> version
+				of Ghostscript available for free usage and distribution.
 				Ghostscript is widely used inside the Linux and &UNIX; world
 				for transforming &PostScript; into raster data suitable
-				for sending to non-&PostScript; devices.</para>
+				for sending to non-&PostScript; devices.
+				More info:
+				&linkstart;"http://www.ghostscript.com/"&linkmid;Ghostscript Homepage&linkend;</para>
                                 <glossseealso otherterm="gloss-postscript">&PostScript;</glossseealso>
                                 <glossseealso otherterm="gloss-rip">RIP</glossseealso>
                         </glossdef>
@@ -541,49 +378,14 @@
                         <glossdef><para>Contrary to its name, Gimp-Print is no longer
 				just the plugin to be used for printing from the popular
 				Gimp program -- its codebase can also serve to be compiled
-				into...
-				<!--
-				</para>
-				<para>
--->
-				*...a set of PPDs and associated filters that integrate seamlessly
+				into...&newpara;
+				...a set of PPDs and associated filters that integrate seamlessly
 				into &CUPS;, supporting around 130 different printer models, providing
-				photographic output quality in many cases;
-<!--
-				</para>
-				<para>
--->
-
-				*...a Ghostscript filter that can be used with any other
-				program that needs a software-RIP;
-<!--
-				</para>
-				<para>
--->
-
-				*...a library that can be used by other software applications
-				in need of rasterization functions.
-
-
-<!--
-after 4 hours fiddling, I
-could not get those s!@*#?
-<itemizedlist> to pass
-through the meinproc checks.
-For the time being I gave up
-on it and handle it differently
-now.
-				<itemizedlist>
-				<listitem>...a set of PPDs and associated filters that integrate seamlessly
-				into &CUPS;, supporting around 130 different printer models, providing
-				photografic output quality in many cases;</listitem>
-				<listitem>...a Ghostscript filter that can be used with any other
-				program that needs a software-RIP;</listitem>
-				<listitem>...a library that can be used by other software applications
-				in need of rasterization functions.</listitem>
-				</itemizedlist>
--->
-				</para>
+				photographic output quality in many cases;&newpara;
+				...a Ghostscript filter that can be used with any other
+				program that needs a software-RIP;&newpara;
+				...a library that can be used by other software applications
+				in need of rasterization functions.</para>
                                 <glossseealso otherterm="gloss-lexmark">Lexmark Drivers</glossseealso>
                                 <glossseealso otherterm="gloss-rip">RIP</glossseealso>
                                 <glossseealso otherterm="gloss-ghostscript">Ghostscript</glossseealso>
@@ -592,7 +394,7 @@ now.
 
                 <glossentry id="gloss-hp">
                         <glossterm><acronym>&HP;</acronym></glossterm>
-                        <glossdef><para>Abbreviation for <emphasis>H</emphasis>ewlett-<emphasis>Packard</emphasis>;
+                        <glossdef><para>Abbreviation for &emstart;H&emend;ewlett-&emstart;Packard&emend;;
 				one of the first companies to distribute their own Linux printer
 				drivers. -- More recently, the Company has released their
 				"HPIJS" package of drivers, including source code and a Free license. 
@@ -605,8 +407,8 @@ now.
 
                 <glossentry id="gloss-hpgl">
                         <glossterm><acronym>&HP;/GL</acronym></glossterm>
-                        <glossdef><para>Abbreviation for <emphasis>&HP;</emphasis>
-				<emphasis>G</emphasis>raphical <emphasis>L</emphasis>anguage;
+                        <glossdef><para>Abbreviation for &emstart;&HP;&emend;
+				&emstart;G&emend;raphical &emstart;L&emend;anguage;
 				a &HP; printer language mainly used for plotters; many CAD
 				(Computer Aided Design) software programs output &HP;/GL files for
 				printing.</para>
@@ -628,18 +430,13 @@ now.
 
 		<glossentry id="gloss-ietf">
                         <glossterm><acronym>IETF</acronym></glossterm>
-                        <glossdef><para>Abbreviation for <emphasis>I</emphasis>nternet
-				<emphasis>E</emphasis>ngineering <emphasis>T</emphasis>ask
-				<emphasis>F</emphasis>orce; an assembly of Internet, software
+                        <glossdef><para>Abbreviation for &emstart;I&emend;nternet
+				&emstart;E&emend;ngineering &emstart;T&emend;ask
+				&emstart;F&emend;orce; an assembly of Internet, software
 				and hardware experts that discuss
 				new networking technologies and very often arrive at
 				conclusions that are regarded by many as standards. "TCP/IP"
-				is the most famous example.
-<!--
-				</para>
-				<para>
--->
-
+				is the most famous example.&newpara;
 				IETF standards, as well as
 				drafts, discussions, ideas and useful tutorials, are
 				put in writing in the famous series of "RFCs", which
@@ -653,8 +450,8 @@ now.
 
                 <glossentry id="gloss-ipp">
                         <glossterm><acronym>IPP</acronym></glossterm>
-                        <glossdef><para>Abbreviation for <emphasis>I</emphasis>nternet
-				<emphasis>P</emphasis>rinting <emphasis>P</emphasis>rotocol;
+                        <glossdef><para>Abbreviation for &emstart;I&emend;nternet
+				&emstart;P&emend;rinting &emstart;P&emend;rotocol;
 				defined in a series of RFCs accepted by the IETF with
 				status "proposed standard"; was designed
 				by the PWG. -- IPP is a completely new design for network printing,
@@ -662,45 +459,14 @@ now.
 				actual data transfer: HTTP 1.1! By not "re-inventing the wheel",
 				and basing itself on an existing and robust Internet standard,
 				IPP is able to relatively easily bolt other HTTP-compatible standard
-				mechanisms into its framework:
-<!--
-				</para>
-				<para>
--->
-					* Basic, Digest or Certificate authentication
-					mechanisms;
-<!--
-				</para>
-				<para>
--->
-					* SSL or TLS for encryption of transferred
-					data;
-<!--
-				</para>
-				<para>
--->
-					* LDAP for directory services (to publish
+				mechanisms into its framework:&newpara;
+
+				Basic, Digest or Certificate authentication mechanisms&newpara;
+				SSL or TLS for encryption of transferred data&newpara;
+				LDAP for directory services (to publish
 					data on printers, device-options, drivers, costs or
 					also to the network; or to check for passwords while
-					performing authentication).
-<!--
-				</para>
-				<para>
--->
-
-<!--
-				</para>
-				<itemizedlist>
-					<listitem>Basic, Digest or Certificate authentication
-					mechanisms</listitem>
-					<listitem>SSL or TLS for encryption of transferred
-					data</listitem>
-					<listitem>LDAP for directory services (to publish
-					data on printers, device-options, drivers, costs or
-					elso to the network; or to check for passwords while
-					conducting authentication)</listitem>
-				</itemizedlist>
--->
+					conducting authentication)
 				</para>
 
                                 <glossseealso otherterm="gloss-cups">&CUPS;</glossseealso>
@@ -711,92 +477,6 @@ now.
                         </glossdef>
                 </glossentry>
 
-                <glossentry id="gloss-kdeprint">
-                        <glossterm><acronym>KDEPrint</acronym></glossterm>
-                        <glossdef><para>The new printing functionality of &kde; since version 2.2
-				consists of several modules that translate the features and settings
-				of different available print subsystems (&CUPS;, BSD-style LPR/LPD, RLPR...)
-				into nice &kde; desktop &GUI; windows and dialogs to ease their
-				usage.
-<!--
-				</para>
-				<para>
--->
-				Most important for day-to-day usage is "kprinter", the new
-				&GUI; print command. -- Note: KDEPrint does <emphasis>not</emphasis> implement its own
-				spooling mechanism or its own &PostScript; processing; for this it
-				relies on the selected <emphasis>print subsystem</emphasis>
-				-- however it does add some functionality of its own on top of this
-				foundation...
-				</para>
-                                <glossseealso otherterm="gloss-bsdstyleprinting">BSD-style printing</glossseealso>
-                                <glossseealso otherterm="gloss-cups">&CUPS;</glossseealso>
-                                <glossseealso otherterm="gloss-kprinter">kprinter</glossseealso>
-                                <glossseealso otherterm="gloss-kdeprinthandbook">KDEPrint Handbook</glossseealso>
-                        </glossdef>
-                </glossentry>
-
-
-                <glossentry id="gloss-kdeprinthandbook">
-                        <glossterm><acronym>KDEPrint Handbook...</acronym></glossterm>
-                        <glossdef><para>...is the name of the reference document that describes KDEPrint
-				functions to users and administrators. You can load it into Konqueror by
-				typing "help:/kdeprint" into the address field. The <ulink
-				url="http://printing.kde.org/">KDEPrint website</ulink>
-				is the resource for updates to this documentation, as well as PDF
-				versions suitable for printing it. It is authored and maintained by Kurt 
-				Pfeifle.
-				</para>
-                                <glossseealso otherterm="gloss-cupsfaq">&CUPS;-FAQ</glossseealso>
-                        </glossdef>
-                </glossentry>
-
-                <glossentry id="gloss-kprinter">
-                        <glossterm>kprinter</glossterm>
-                        <glossdef><para><emphasis>kprinter</emphasis> is the new powerful
-				print utility that is natively used by all &kde; applications.
-<!--
-				</para>
-				<para>
--->
-				Contrary to some common misconceptions,
-				<emphasis>kprinter</emphasis> is <emphasis>not</emphasis> a &CUPS;-only tool,
-				but supports different print subsystems. You can even switch
-				to a different print subsystem "on the fly", in between two jobs,
-				without re-configuration. Of course, due to the powerful
-				features of &CUPS;, <emphasis>kprinter</emphasis> is
-				best suited for use with a &CUPS; frontend.
-<!--
-				</para>
-				<para>
--->
-				<emphasis>kprinter</emphasis> is the successor
-				to "qtcups", which is no longer being actively maintained. It has
-				inherited all the best features of qtcups and added several new ones.
-<!--
-				</para>
-				<para>
--->
-
-				MOST IMPORTANT: you can use <emphasis>kprinter</emphasis>
-				with all its features in all non-&kde; applications that allow
-				a customized print command, like gv, Acrobat Reader, Netscape,
-				Mozilla, Galeon, StarOffice, OpenOffice and all GNOME programs.
-<!--
-				</para>
-				<para>
--->
-				<emphasis>kprinter</emphasis> can act as a "standalone"
-				utility, started from an X-Terminal or a "Mini-CLI" to
-				print many different files, from different folders, with different 
-				formats, in one job and simultaneously, without the need to first open the
-				files in the applications! (File formats supported this way are &PostScript;,
-				PDF, International and ASCII Text, as well as many different popular graphic
-				formats, such as PNG, TIFF, JPEG, PNM, Sun RASTER, &etc;)
-				 </para>
-                                <glossseealso otherterm="gloss-qtcups">QtCUPS</glossseealso>
-                        </glossdef>
-                </glossentry>
 
                 <glossentry id="gloss-lexmark">
                         <glossterm><acronym>Lexmark</acronym></glossterm>
@@ -831,24 +511,19 @@ now.
 
                 <glossentry id="gloss-linuxprintingdatabase">
                         <glossterm><acronym>Linuxprinting.org Database</acronym></glossterm>
-                        <glossdef><para>....Database containing printers and drivers that are suitable
-				for them... ...a lot of information and documentation to be found... ...it 
-				is now also providing some tools and utilities for easing the integration 
-				of those drivers into a given system... ...the "Foomatic" family 
-				of utilities; being the toolset to make use of the database 
-				for most of the commonly used print subsystems, for generating "on the fly" 
-				working configurations for your printer model.
-				</para>
+                        <glossdef><para>&linkstart;"http://www.openprinting.org/printers"&linkmid;Database&linkend; containing printers and drivers that are suitable for them.
+				More info:
+				&linkstart;"http://www.linuxfoundation.org/collaborate/workgroups/openprinting/database/indexfaq"&linkmid;Linuxprinting.org FAQ&linkend;</para>
                                 <glossseealso otherterm="gloss-foomatic">Foomatic</glossseealso>
                         </glossdef>
                 </glossentry>
 
                 <glossentry id="gloss-lprlpd">
                         <glossterm><acronym>LPR/LPD</acronym> printing</glossterm>
-                        <glossdef><para>LPR == some people translate <emphasis>L</emphasis>ine
-				<emphasis>P</emphasis>rinting <emphasis>R</emphasis>equest, others:
-				<emphasis>L</emphasis>ine <emphasis>P</emphasis>rinter
-				<emphasis>R</emphasis>emote.</para>
+                        <glossdef><para>LPR == some people translate &emstart;L&emend;ine
+				&emstart;P&emend;rinting &emstart;R&emend;equest, others:
+				&emstart;L&emend;ine &emstart;P&emend;rinter
+				&emstart;R&emend;emote.</para>
                                 <glossseealso otherterm="gloss-bsdstyleprinting">BSD-style printing</glossseealso>
                         </glossdef>
                 </glossentry>
@@ -865,52 +540,38 @@ now.
 
                 <glossentry id="gloss-mimetypes">
                         <glossterm>&MIME;-Types</glossterm>
-                        <glossdef><para>Abbreviation for <emphasis>M</emphasis>ultipurpose (or
-				Multimedia) <emphasis>I</emphasis>nternet <emphasis>M</emphasis>ail
-				<emphasis>E</emphasis>xtensions; &MIME;-Types were first used to allow
+                        <glossdef><para>Abbreviation for &emstart;M&emend;ultipurpose (or
+				Multimedia) &emstart;I&emend;nternet &emstart;M&emend;ail
+				&emstart;E&emend;xtensions; &MIME;-Types were first used to allow
 				the transport of binary data (like mail attachments containing
 				graphics) over mail connections that were normally only transmitting
-				ASCII characters: the data had to be encoded into an ASCII representation.
-<!--
-				</para>
-				<para>
--->
+				ASCII characters: the data had to be encoded into an ASCII representation.&newpara;
 				Later this concept was extended to describe a data format in
 				a platform independent, but at the same time non-ambiguous, way.
 				From &Windows; everybody knows the .doc extensions for &Microsoft; Word files.
 				This is handled ambiguously on the &Windows; platform: .doc extensions are also
 				used for simple text files or for Adobe Framemaker files. And if a real
 				Word file is renamed with a different extension, it can no longer be
-				opened by the program.
-<!--
-				</para>
-				<para>
--->
+				opened by the program.&newpara;
 				&MIME; typed files carry a recognition string with them, describing
-				their file format based on <emphasis>main_category/sub_category</emphasis>.
+				their file format based on &emstart;main_category/sub_category&emend;.
 				Inside IPP, print files are also described using the &MIME; type scheme.
 				&MIME; types are registered with the IANA (Internet Assigning Numbers
-				<emphasis>Association</emphasis>) to keep them unambiguous.
-<!--
-				</para>
-				<para>
--->
+				&emstart;Association&emend;) to keep them unambiguous.&newpara;
 				&CUPS; has some &MIME; types of its own registered, like
-				<emphasis>application/vnd.cups-raster</emphasis> (for the &CUPS;-internal
+				&emstart;application/vnd.cups-raster&emend; (for the &CUPS;-internal
 				raster image format).
-
 				</para>
                                 <glossseealso otherterm="gloss-cups">&CUPS;</glossseealso>
                                 <glossseealso otherterm="gloss-easysoftwareproducts">Easy Software Products</glossseealso>
-                                <glossseealso otherterm="gloss-espprintpro">ESP PrintPro</glossseealso>
                                 <glossseealso otherterm="gloss-gimpprint">Gimp-Print</glossseealso>
                         </glossdef>
                 </glossentry>
 
                 <glossentry id="gloss-pcl">
                         <glossterm><acronym>PCL</acronym></glossterm>
-                        <glossdef><para>Abbreviation for <emphasis>P</emphasis>rinter
-				<emphasis>C</emphasis>ontrol <emphasis>L</emphasis>anguage;
+                        <glossdef><para>Abbreviation for &emstart;P&emend;rinter
+				&emstart;C&emend;ontrol &emstart;L&emend;anguage;
 				developed by &HP;. PCL started off in version 1 as a simple
 				command set for ASCII printing; now,
 				in its versions PCL6 and PCL-X, it is capable of printing graphics
@@ -925,8 +586,8 @@ now.
 
                 <glossentry id="gloss-pdl">
                         <glossterm><acronym>PDL</acronym></glossterm>
-                        <glossdef><para>Abbreviation for <emphasis>P</emphasis>age
-				<emphasis>D</emphasis>escription <emphasis>L</emphasis>anguage;
+                        <glossdef><para>Abbreviation for &emstart;P&emend;age
+				&emstart;D&emend;escription &emstart;L&emend;anguage;
 				PDLs describe, in an abstract way, the graphical representation
 				of a page. - Before it is actually transferred into
 				toner or ink laid down on to paper, a PDL needs to be
@@ -942,8 +603,8 @@ now.
 
                 <glossentry id="gloss-pixel">
                         <glossterm>Pixel</glossterm>
-                        <glossdef><para>Abbreviation for <emphasis>Pic</emphasis>ture
-				<emphasis>El</emphasis>ement; this term describes the smallest
+                        <glossdef><para>Abbreviation for &emstart;Pic&emend;ture
+				&emstart;El&emend;ement; this term describes the smallest
 				part of a raster picture (either as printed on paper
 				or as displayed on a monitor by cathode rays or LCD elements). As
 				any graphical or image representation on those types of output
@@ -959,8 +620,8 @@ now.
 
                 <glossentry id="gloss-pjl">
                         <glossterm><acronym>PJL</acronym></glossterm>
-                        <glossdef><para>Abbreviation for <emphasis>P</emphasis>rint
-				<emphasis>J</emphasis>ob <emphasis>L</emphasis>anguage;
+                        <glossdef><para>Abbreviation for &emstart;P&emend;rint
+				&emstart;J&emend;ob &emstart;L&emend;anguage;
 				developed by &HP; to control and influence default and per-job
 				settings of a printer. It may not only be used
 				for &HP;'s own (PCL-)printers; also many &PostScript;
@@ -975,11 +636,7 @@ now.
                         <glossdef><para>&PostScript; (often shortened to "PS") is the de-facto
 				standard in the &UNIX; world for printing files. It was
 				developed by Adobe and licensed to printer manufacturers 
-				and software companies.
-<!--
-				</para>
-				<para>
--->
+				and software companies.&newpara;
 				As the &PostScript; specifications were
 				published by Adobe, there are also "Third Party" implementations
 				of &PostScript; generating and &PostScript; interpreting software
@@ -995,36 +652,21 @@ now.
 
                 <glossentry id="gloss-ppd">
                         <glossterm><acronym>PPD</acronym></glossterm>
-                        <glossdef><para>Abbreviation for <emphasis>P</emphasis>ostScript
-				<emphasis>P</emphasis>rinter <emphasis>D</emphasis>escription;
+                        <glossdef><para>Abbreviation for &emstart;P&emend;ostScript
+				&emstart;P&emend;rinter &emstart;D&emend;escription;
 				PPDs are ASCII files storing all information about the special
 				capabilities of a printer, plus definitions of the (PostScript-
 				or PJL-) commands to call on a certain capability (like print
-				duplexing).
-<!--
-				</para>
-				<para>
--->
-
+				duplexing).&newpara;
 				As the explanation of the acronym reveals, PPDs were originally
 				only used for &PostScript; printers. &CUPS; has extended the
-				PPD concept to all types of printers.
-<!--
-				</para>
-				<para>
--->
-
+				PPD concept to all types of printers.&newpara;
 				PPDs for &PostScript; printers are provided by the printer
-				vendors. They can be used with &CUPS; and KDEPrint to have access
-				to the full features of any &PostScript; printer. The KDEPrint Team
+				vendors. They can be used with &CUPS; and &kde; printing subsystem to have access
+				to the full features of any &PostScript; printer. The &kde; Team
 				recommends using a PPD originally intended for use with
-				&Microsoft; Windows NT.
-<!--
-				</para>
-				<para>
--->
-
-				PPDs for non-PostScript printers <emphasis>need</emphasis> a
+				&Microsoft; Windows NT.&newpara;
+				PPDs for non-PostScript printers &emstart;need&emend; a
 				companion "filter" to process the &PostScript; print files into
 				a format digestible for the non-PostScript target device. Those
 				PPD/filter combos are not (yet) available from the vendors. After
@@ -1040,41 +682,6 @@ now.
                                 <glossseealso otherterm="gloss-cups">&CUPS;</glossseealso>
                                 <glossseealso otherterm="gloss-linuxprintingorg">Linuxprinting.org</glossseealso>
                                 <glossseealso otherterm="gloss-postscript">&PostScript;</glossseealso>
-                        </glossdef>
-                </glossentry>
-
-                <glossentry id="gloss-PPD-O-Matic">
-                        <glossterm>PPD-O-Matic</glossterm>
-                        <glossdef><para>PPD-O-Matic is a set of Perl scripts that run on the Linuxprinting.org
-				web server and can be used online to generate PPDs for any printer that is known
-				to print with Ghostscript.
-<!--
-				</para>
-				<para>
--->
-
-				These PPDs can be hooked up to &CUPS;/KDEPrint, as well as
-				used inside PPD-aware applications like StarOffice to determine all different 
-				parameters of your printjobs. It is now recommended, in most cases, to 
-				use "PPD-O-Matic" instead of the older &CUPS;-O-Matic.
-<!--
-				</para>
-				<para>
--->
-
-				To generate a PPD, go to the <ulink
-				url="http://www.linuxprinting.org/printer_list.cgi">printer 
-				database</ulink>, select your printer model, follow
-				the link to show the available Ghostscript filters for that printer, select
-				one, click "generate" and finally save the file to your local system.
-				Be sure to read the instructions. Make sure that your local system
-				does indeed have Ghostscript and the filter, which you chose
-				before generating the PPD, installed.
-				</para>
-				<glossseealso otherterm="gloss-postscript">&PostScript;</glossseealso>
-                                <glossseealso otherterm="gloss-cups-o-matic">&CUPS;-O-Matic</glossseealso>
-                                <glossseealso otherterm="gloss-linuxprintingorg">Linuxprinting.org</glossseealso>
-                                <glossseealso otherterm="gloss-foomatic">Foomatic</glossseealso>
                         </glossdef>
                 </glossentry>
 
@@ -1095,8 +702,8 @@ now.
                 <glossentry id="gloss-printermib">
                         <glossterm>Printer-<acronym>MIB</acronym></glossterm>
                         <glossdef><para>Abbreviation for
-				<emphasis>Printer</emphasis>-<emphasis>M</emphasis>anagement
-				<emphasis>I</emphasis>nformation <emphasis>B</emphasis>ase; the
+				&emstart;Printer&emend;-&emstart;M&emend;anagement
+				&emstart;I&emend;nformation &emstart;B&emend;ase; the
 				Printer-MIB defines a set of parameters that are to be
 				stored inside the printer for access
 				through the network. This is useful if many (in some cases, literally 
@@ -1110,8 +717,8 @@ now.
                 <glossentry id="gloss-pwg">
                         <glossterm><acronym>PWG</acronym></glossterm>
                         <glossdef><para>Abbreviation for
-				<emphasis>P</emphasis>rinter <emphasis>W</emphasis>orking
-				<emphasis>G</emphasis>roup; the PWG is a loose grouping of
+				&emstart;P&emend;rinter &emstart;W&emend;orking
+				&emstart;G&emend;roup; the PWG is a loose grouping of
 				representatives of the printer industry that has, in the past
 				years, developed different standards
 				in relation to network printing. These were later accepted by the
@@ -1123,36 +730,23 @@ now.
                         </glossdef>
                 </glossentry>
 
+<!--
                 <glossentry id="gloss-printkioslave">
                         <glossterm>print:/ KIO Slave</glossterm>
                         <glossdef><para>You can use a syntax of "print:/..." to get quick access
-				to KDEPrint resources. Typing "print:/manager" as a Konqueror URL
+				to &kde; printing subsystem resources. Typing "print:/manager" as a Konqueror URL
 				address gives administrative access to KDEPrint. Konqueror uses &kde;'s
 				famous "KParts" technology to achieve that. </para>
                                 <glossseealso otherterm="gloss-ioslave">IO Slave</glossseealso>
                                 <glossseealso otherterm="gloss-kparts">KParts</glossseealso>
                         </glossdef>
                 </glossentry>
-
+-->
 
                 <glossentry id="gloss-printerdatabase">
                         <glossterm>Printer Database</glossterm>
-                        <glossdef><para>.</para>
+                        <glossdef><para>Good database of printer drivers can be found at &linkstart;"http://www.openprinting.org/printers"&linkmid;http://www.openprinting.org/printers&linkend;.</para>
                                 <glossseealso otherterm="gloss-linuxprintingdatabase">Linuxprinting Database</glossseealso>
-                        </glossdef>
-                </glossentry>
-
-                <glossentry id="gloss-qtcups">
-                        <glossterm><acronym>Qt&CUPS;</acronym></glossterm>
-                        <glossdef><para>Qt&CUPS; and KUPS were the predecessors of KDEPrint; they are now 
-				deprecated and no longer maintained. What was good in qtcups is all inherited
-				by "kprinter", the new KDE print dialog (which is much improved over qtcups);
-				what you liked about kups is now all in the KDEPrint Manager (accessible 
-				via the KDE Control Center or via the URL "print:/manager" from Konqueror) --
-				with more functionality and less bugs... Its former developer, Michael Goffioul, is now
-				the developer of KDEPrint -- a very nice and productive guy and quick bug fixer...
-				 </para>
-                                <glossseealso otherterm="gloss-kprinter">kprinter</glossseealso>
                         </glossdef>
                 </glossentry>
 
@@ -1160,25 +754,14 @@ now.
                         <glossterm>Raster Image</glossterm>
                         <glossdef><para>Every picture on a physical medium
 				is composed of a pattern of discrete dots in different colors and (maybe)
-				sizes. This is called a "raster image".
-<!--
-				</para>
-				<para>
--->
-
+				sizes. This is called a "raster image".&newpara;
 				This is as opposed to a "vector image"
 				where the graphic is described in terms of continuous curves, shades,
 				forms and filled areas, represented by mathematical formula. Vector images
 				normally have a smaller file size and may be scaled in size 
 				without any loss of information and quality --- but they cannot be
 				output directly, but always have to be "rendered" or "rasterized"
-				first to the given resolution that the output device is capable of...
-<!--
-				</para>
-				<para>
--->
-
-
+				first to the given resolution that the output device is capable of...&newpara;
 				The rasterization is done by a Raster Image Processor (RIP,
 				often the Ghostscript software) or some other filtering
 				instance.</para>
@@ -1193,26 +776,16 @@ now.
                 <glossentry id="gloss-rip">
                         <glossterm><acronym>RIP</acronym></glossterm>
                         <glossdef><para>Abbreviation for
-				<emphasis>R</emphasis>aster <emphasis>I</emphasis>mage
-				<emphasis>P</emphasis>rocess(or); if used in the context of
+				&emstart;R&emend;aster &emstart;I&emend;mage
+				&emstart;P&emend;rocess(or); if used in the context of
 				printing, "RIP" means a hardware or software
 				instance that converts &PostScript; (or other print formats
 				that are represented in one of the non-Raster PDLs) into a
 				raster image format in such a way that it is acceptable
-				for the "marking engine" of the printer.
-<!--
-				</para>
-				<para>
--->
-
+				for the "marking engine" of the printer.&newpara;
 				&PostScript; printers
 				contain their own PostScript-RIPs. A RIP may or may not be located 
-				inside a printer.
-<!--
-				</para>
-				<para>
--->
-
+				inside a printer.&newpara;
 				For many &UNIX; systems, Ghostscript is the package that provides
 				a "RIP in software", running on the host computer, and pre-digesting
 				the &PostScript; or other data to become ready to be sent to the
@@ -1231,33 +804,18 @@ now.
 
                 <glossentry id="gloss-rlpr">
                         <glossterm><acronym>RLPR</acronym> (Remote LPR)</glossterm>
-                        <glossdef><para>Abbreviation for <emphasis>R</emphasis>emote
-				<emphasis>L</emphasis>ine <emphasis>P</emphasis>rinting
-				<emphasis>R</emphasis>equest; this is a BSD-style printing system,
+                        <glossdef><para>Abbreviation for &emstart;R&emend;emote
+				&emstart;L&emend;ine &emstart;P&emend;rinting
+				&emstart;R&emend;equest; this is a BSD-style printing system,
 				that needs no root privileges to be installed, and no "printcap" to
 				work: all parameters may be specified on the command
-				line.
-<!--
-				</para>
-				<para>
--->
-
+				line.&newpara;
 				RLPR comes in handy for many laptop users who are
 				working in frequently changing environments. This is because it
 				may be installed concurrently with every other printing
 				sub system, and allows a very flexible and quick
 				way to install a printer for direct access via LPR/LPD.
-<!--
 				</para>
-				<para>
--->
-
-				KDEPrint
-				has an "Add Printer Wizard" to make RLPR usage even easier.
-				The kprinter command allows switching to RLPR "on
-				the fly" at any time.</para>
-                                <glossseealso otherterm="gloss-kdeprint">KDEPrint</glossseealso>
-                                <glossseealso otherterm="gloss-kprinter">kprinter</glossseealso>
                                 <glossseealso otherterm="gloss-printcap">printcap</glossseealso>
                         </glossdef>
                 </glossentry>
@@ -1265,9 +823,9 @@ now.
  
                 <glossentry id="gloss-snmp">
                         <glossterm><acronym>SNMP</acronym></glossterm>
-                        <glossdef><para>Abbreviation for <emphasis>S</emphasis>imple
-				<emphasis>N</emphasis>etwork <emphasis>M</emphasis>anagement
-				<emphasis>P</emphasis>rotocol; SNMP is widely used to control
+                        <glossdef><para>Abbreviation for &emstart;S&emend;imple
+				&emstart;N&emend;etwork &emstart;M&emend;anagement
+				&emstart;P&emend;rotocol; SNMP is widely used to control
 				all types of network node (Hosts, Routers, Switches, Gateways,
 				Printers...) remotely.</para>
                                 <glossseealso otherterm="gloss-pwg">PWG</glossseealso>
@@ -1277,8 +835,8 @@ now.
 
 	        <glossentry id="gloss-ssl">
                         <glossterm><acronym>SSL(3)</acronym> encryption</glossterm>
-                        <glossdef><para>Abbreviation for <emphasis>S</emphasis>ecure
-				<emphasis>S</emphasis>ocket <emphasis>L</emphasis>ayer;
+                        <glossdef><para>Abbreviation for &emstart;S&emend;ecure
+				&emstart;S&emend;ocket &emstart;L&emend;ayer;
 				<acronym>SSL</acronym> is a proprietary encryption method for data
 				transfer over HTTP that was developed by Netscape. It is now being 
 				replaced by an IETF standard named TLS.
@@ -1290,9 +848,9 @@ now.
 
 	        <glossentry id="gloss-spooling">
                         <glossterm><acronym>SPOOL</acronym>ing</glossterm>
-                        <glossdef><para>Abbreviation for <emphasis>S</emphasis>ynchronous
-				<emphasis>P</emphasis>eripheral <emphasis>O</emphasis>perations
-				<emphasis>O</emphasis>n<emphasis>L</emphasis>ine;
+                        <glossdef><para>Abbreviation for &emstart;S&emend;ynchronous
+				&emstart;P&emend;eripheral &emstart;O&emend;perations
+				&emstart;O&emend;n&emstart;L&emend;ine;
 				<acronym>SPOOL</acronym>ing enables printing applications
 				(and users) to continue their work
                                 as the job is being taken care of by a system <acronym>daemon</acronym>,
@@ -1305,10 +863,10 @@ now.
 
 	        <glossentry id="gloss-tls">
                         <glossterm><acronym>TLS</acronym> encryption</glossterm>
-                        <glossdef><para>Abbreviation for <emphasis>T</emphasis>ransport
-				<emphasis>L</emphasis>ayer <emphasis>S</emphasis>ecurity;
+                        <glossdef><para>Abbreviation for &emstart;T&emend;ransport
+				&emstart;L&emend;ayer &emstart;S&emend;ecurity;
 				<acronym>TLS</acronym> is an encryption standard for
-				data transfered over HTTP 1.1; it is defined in RFC 2246;
+				data transferred over HTTP 1.1; it is defined in RFC 2246;
 				although based on the former SSL development
 				(from Netscape) it is not fully compatible with it.
 				</para>
@@ -1346,11 +904,11 @@ now.
 
                 <glossentry id="gloss-xpp">
                         <glossterm><acronym>XPP</acronym></glossterm>
-                        <glossdef><para>Abbreviation for <emphasis>X</emphasis>
-				<emphasis>P</emphasis>rinting <emphasis>P</emphasis>anel;
+                        <glossdef><para>Abbreviation for &emstart;X&emend;
+				&emstart;P&emend;rinting &emstart;P&emend;anel;
 				<acronym>XPP</acronym> was the first Free
 				graphical print command for &CUPS;, written by Till Kamppeter,
-				and in some ways a model for the "kprinter" utility in &kde;.</para>
+				and in some ways a model for the "kprinter" utility in &kde; 3.</para>
                         </glossdef>
                 </glossentry>
 <!--
