@@ -461,8 +461,7 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 		</glossentry>
 		<glossentry id="gloss-zui">
 			<glossterm><acronym>ZUI</acronym></glossterm>
-			<glossdef><para>The Zooming User Interface.&newpara;By zooming out, users can get an overview of all the object groupings that they have made. These groupings may reflect the projects they are working on, be ways to keep different sets of files organized, etc. By hovering or clicking on one of these groups when zoomed out, users can either get a preview/snapshot of what is in the grouping, or zoom in on that grouping so that it is displayed full size on the physical screen.&newpara;
-			--Aaron Seigo&newpara;
+			<glossdef><para>The Zooming User Interface. &emstart;By zooming out, users can get an overview of all the object groupings that they have made. These groupings may reflect the projects they are working on, be ways to keep different sets of files organized, etc. By hovering or clicking on one of these groups when zoomed out, users can either get a preview/snapshot of what is in the grouping, or zoom in on that grouping so that it is displayed full size on the physical screen.&emend; --Aaron Seigo&newpara;
 				More info:&newpara;
 				&linkstart;"http://userbase.kde.org/Plasma"&linkmid;Plasma FAQ&linkend;</para>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
