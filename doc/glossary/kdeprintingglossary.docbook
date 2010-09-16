@@ -346,7 +346,7 @@
                 <glossentry id="gloss-foomatic">
                         <glossterm>Foomatic</glossterm>
                         <glossdef><para>Foomatic started out as the wrapper name for a set of
-				different tools available from &linkstart; "http://www.linuxfoundation.org/collaborate/workgroups/openprinting/database/foomatic">Linuxprinting.org&linkend;
+				different tools available from &linkstart;"http://www.linuxfoundation.org/collaborate/workgroups/openprinting/database/foomatic"&linkmid;Linuxprinting.org&linkend;
 				These tools aimed to make the usage of traditional
 				Ghostscript and other print filters easier for users and
 				extend the filters' capabilities by adding more command line

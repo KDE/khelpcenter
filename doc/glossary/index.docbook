@@ -123,7 +123,7 @@ Slave</glossseealso>
 		</glossentry>
 		<glossentry id="gloss-kiosk">
 			<glossterm>Kiosk</glossterm>
-			<glossdef><para>Kiosk is a framework for restricting user capabilities on a &kde; platform system, ideal for use in locked-down environments such as Internet cafés. It is present in &kde; 3 and &kde; 4, but the adminisration tool, <application>Kiosktool</application> is &kde; 3 only. It can be used to configure &kde; 4 applicationss, or kiosk configurations can be maintained by editing config files manually.</para>
+			<glossdef><para>Kiosk is a framework for restricting user capabilities on a &kde; platform system, ideal for use in locked-down environments such as Internet cafés. It is present in &kde; 3 and &kde; 4, but the administration tool, <application>Kiosktool</application> is &kde; 3 only. It can be used to configure &kde; 4 applications, or kiosk configurations can be maintained by editing config files manually.</para>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 			</glossdef>
 		</glossentry>
@@ -224,7 +224,7 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 		<title>Applications</title>
 		<glossentry id="gloss-dolphin">
 			<glossterm>Dolphin</glossterm>
-			<glossdef><para>The default file manager in &kde; SC 4. It has a side panel (Places), but navigation is mainly by the 'breadcrumb' trail above the main window. Split windows are possible, and views can be applied to individual windows. Mounting and umounting <acronym>USB</acronym> devices can be done in the side panel. Other directories can be added to the Places panel. A Tree view is also possible.&newpara;
+			<glossdef><para>The default file manager in &kde; SC 4. It has a side panel (Places), but navigation is mainly by the 'breadcrumb' trail above the main window. Split windows are possible, and views can be applied to individual windows. Mounting and unmounting <acronym>USB</acronym> devices can be done in the side panel. Other directories can be added to the Places panel. A Tree view is also possible.&newpara;
 				More info:&newpara;
 				&linkstart;"http://en.wikipedia.org/wiki/Dolphin_(software)"&linkmid;Wikipedia: Dolphin&linkend;&newpara;
 				&linkstart;"http://introducingkde4.blogspot.com/2007/12/dolphin.html"&linkmid;Introducing KDE 4 Blog - Dolphin&linkend;&newpara;
@@ -486,7 +486,7 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 			</glossdef>
 		</glossentry>
 		<glossentry id="gloss-git">
-			 <glossterm><acronym>Git</acronym></glossterm>
+			 <glossterm>Git</glossterm>
 			  <glossdef><para>Git is a free and open source, distributed version control system designed to handle everything from small to very large projects with speed and efficiency.&newpara;
 			  Every Git clone is a full-fledged repository with complete history and full revision tracking capabilities, not dependent on network access or a central server. Branching and merging are fast and easy to do.&newpara;
 			  Git is used for version control of files, much like tools such as Mercurial, Bazaar, Subversion, CVS, Perforce, and Visual SourceSafe.&newpara;
