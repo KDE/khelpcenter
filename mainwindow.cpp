@@ -106,7 +106,7 @@ MainWindow::MainWindow()
     : KXmlGuiWindow(0),
       mLogDialog( 0 )
 {
-    setObjectName( "MainWindow" );
+    setObjectName( QLatin1String( "MainWindow" ) );
 
     QDBusConnection::sessionBus().registerObject("/KHelpCenter", this, QDBusConnection::ExportScriptableSlots);
     mSplitter = new QSplitter( this );
