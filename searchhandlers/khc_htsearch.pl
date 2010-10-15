@@ -42,7 +42,7 @@ my $charset = langCharset( $lang );
 $words = encode( $charset, $words );
 
 if ( !open( HTSEARCH, "-|", "$htsearchpath", "-c", "$indexdir/$config.conf",
-            "format=$format&method=$method&words=$words" ) )
+            "format=$format&method=$method&words=$words&matchesperpage=$maxnum&exclude=[index.html]" ) )
 {
   print "Can't execute htsearch at '$htsearchpath'.\n";
   exit 1;
