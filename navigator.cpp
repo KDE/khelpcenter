@@ -220,7 +220,7 @@ void Navigator::insertParentAppDocs( const QString &name, NavigatorItem *topItem
 
 void Navigator::insertKCMDocs( const QString &name, NavigatorItem *topItem, const QString &type )
 {
-  kDebug(1400) << "Requested IOSlave documents for ID " << name;
+  kDebug(1400) << "Requested KCM documents for ID" << name;
 
   KService::List list;
 
@@ -241,7 +241,7 @@ void Navigator::insertKCMDocs( const QString &name, NavigatorItem *topItem, cons
 
 void Navigator::insertIOSlaveDocs( const QString &name, NavigatorItem *topItem )
 {
-  kDebug(1400) << "Requested IOSlave documents for ID " << name;
+  kDebug(1400) << "Requested IOSlave documents for ID" << name;
 
   QStringList list = KProtocolInfo::protocols();
   list.sort();
