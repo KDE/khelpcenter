@@ -25,6 +25,7 @@
 #define KDE3_SUPPORT
 #include <kcmodule.h>
 #undef KDE3_SUPPORT
+#include <QVariantList>
 
 
 class QCheckBox;
@@ -41,7 +42,7 @@ class KHTMLSearchConfig : public KCModule
 
 public:
 
-  KHTMLSearchConfig(QWidget *parent, const QStringList &args);
+  KHTMLSearchConfig(QWidget *parent, const QVariantList &args);
   virtual ~KHTMLSearchConfig();
   
   void load();

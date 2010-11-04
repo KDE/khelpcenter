@@ -31,14 +31,14 @@
 #include <kurlrequester.h>
 #include <klineedit.h>
 #include <ktoolinvocation.h>
-#include <kgenericfactory.h>
+#include <kpluginfactory.h>
 
 #include "kcmhtmlsearch.moc"
 
-typedef KGenericFactory<KHTMLSearchConfig> KHTMLSearchConfigFactory;
-K_EXPORT_COMPONENT_FACTORY(htmlsearch, KHTMLSearchConfigFactory("kcmhtmlsearch"))
+K_PLUGIN_FACTORY(KHTMLSearchConfigFactory, registerPlugin<KHTMLSearchConfig>();)
+K_EXPORT_PLUGIN(KHTMLSearchConfigFactory("kcmhtmlsearch"))
 
-KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const QStringList &)
+KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const QVariantList &)
   : KCModule(KHTMLSearchConfigFactory::componentData(), parent), indexProc(0)
 {
   QVBoxLayout *vbox = new QVBoxLayout(this);
