@@ -68,8 +68,8 @@ void History::setupActions( KActionCollection *coll )
   
   connect( m_backAction, SIGNAL( triggered() ), this, SLOT( back() ) );
 
-  connect( m_backAction->menu(), SIGNAL( activated( int ) ),
-           SLOT( backActivated( int ) ) );
+  connect( m_backAction->menu(), SIGNAL( triggered( QAction* ) ),
+           SLOT( backActivated( QAction* ) ) );
   
   connect( m_backAction->menu(), SIGNAL( aboutToShow() ),
            SLOT( fillBackMenu() ) );
@@ -82,8 +82,8 @@ void History::setupActions( KActionCollection *coll )
   
   connect( m_forwardAction, SIGNAL( triggered() ), this, SLOT( forward() ) );
 
-  connect( m_forwardAction->menu(), SIGNAL( activated( int ) ),
-           SLOT( forwardActivated( int ) ) );
+  connect( m_forwardAction->menu(), SIGNAL( triggered( QAction* ) ),
+           SLOT( forwardActivated( QAction* ) ) );
   
   connect( m_forwardAction->menu(), SIGNAL( aboutToShow() ),
            SLOT( fillForwardMenu() ) );
@@ -179,10 +179,11 @@ void History::back()
   goHistoryActivated( -1 );
 }
 
-void History::backActivated( int id )
+void History::backActivated( QAction *action )
 {
+  int id = action->data().toInt();
   kDebug( 1400 ) << "History::backActivated(): id = " << id;
-  goHistoryActivated( -( m_backAction->menu()->indexOf( id ) + 1 ) );
+  goHistoryActivated( -( id + 1 ) );
 }
 
 void History::forward()
@@ -191,10 +192,11 @@ void History::forward()
   goHistoryActivated( 1 );
 }
 
-void History::forwardActivated( int id )
+void History::forwardActivated( QAction *action )
 {
+  int id = action->data().toInt();
   kDebug( 1400 ) << "History::forwardActivated(): id = " << id;
-  goHistoryActivated( m_forwardAction->menu()->indexOf( id ) + 1 );
+  goHistoryActivated( id + 1 );
 }
 
 void History::goHistoryActivated( int steps )
@@ -304,7 +306,7 @@ void History::fillGoMenu()
     m_goMenuHistoryStartPos = m_entries.at() + 4;
 
     // Forward not big enough ?
-    if ( m_entries.at() > (int)m_entries.count() - 4 )
+    if ( m_entries.at() > (int) m_entries.count() - 4 )
       m_goMenuHistoryStartPos = m_entries.count() - 1;
   }
   Q_ASSERT( m_goMenuHistoryStartPos >= 0 && (uint)m_goMenuHistoryStartPos < m_entries.count() );
@@ -350,11 +352,12 @@ void History::fillHistoryPopup( QMenu *popup, bool onlyBack, bool onlyForward, b
     QString text = it.current()->title;
     text = KStringHandler::csqueeze(text, 50); //CT: squeeze
     text.replace( '&', "&&" );
+    QAction *action = popup->addAction( text );
+    action->setData( i );
     if ( checkCurrentItem && it.current() == current )
     {
-      popup->addAction( text )->setChecked( true ); // no pixmap if checked
-    } else
-      popup->addAction( text );
+      action->setChecked( true ); // no pixmap if checked
+    }
     if ( ++i > 10 )
       break;
     if ( !onlyForward ) --it; else ++it;

@@ -69,9 +69,9 @@ class History : public QObject
     void goUrl( const KUrl & );
 
   private Q_SLOTS:
-    void backActivated( int id );
+    void backActivated( QAction *action );
     void fillBackMenu();
-    void forwardActivated( int id );
+    void forwardActivated( QAction *action );
     void fillForwardMenu();
     void goMenuActivated( int id );
     void fillGoMenu();

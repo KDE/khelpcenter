@@ -126,7 +126,7 @@ void NavigatorAppItem::populate( bool recursive )
         break;
     }
   }
-  sortChildren( 0, Qt::Ascending /* ascending */ );
+  sortChildren( 0, Qt::AscendingOrder /* ascending */ );
   mPopulated = true;
 }
 
