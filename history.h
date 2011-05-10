@@ -24,10 +24,8 @@
 
 #include <QObject>
 
-//FIXME
-#include <Qt3Support/Q3PtrList>
-
 #include <QMenu>
+#include <QList>
 
 class KActionCollection;
 class KXmlGuiWindow;
@@ -73,7 +71,7 @@ class History : public QObject
     void fillBackMenu();
     void forwardActivated( QAction *action );
     void fillForwardMenu();
-    void goMenuActivated( int id );
+    void goMenuActivated( QAction* action );
     void fillGoMenu();
     void back();
     void forward();
@@ -86,14 +84,23 @@ class History : public QObject
     History( const History &rhs );
     History &operator=( const History &rhs );
     ~History();
+    
+    typedef QList<Entry*> EntryList;
 
     bool canGoBack() const;
     bool canGoForward() const;
     void fillHistoryPopup( QMenu *, bool, bool, bool, uint = 0 );
+    
+    /**
+     *  dumps the history with a kDebug and mark wihch one is the current one
+     *  This is a debugging function.
+     */
+    void dumpHistory() const;
 
     static History *m_instance;
 
-    Q3PtrList<Entry> m_entries;
+    EntryList m_entries;
+    EntryList::Iterator m_entries_current;
 
 
     int m_goBuffer;

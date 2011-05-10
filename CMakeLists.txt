@@ -2,8 +2,6 @@ add_subdirectory( plugins )
 add_subdirectory( searchhandlers )
 add_subdirectory( tests )
 
-add_definitions (-DQT3_SUPPORT -DQT3_SUPPORT_WARNINGS)
-
 ########### next target ###############
 
 set(khc_indexbuilder_SRCS khc_indexbuilder.cpp )
@@ -11,7 +9,7 @@ set(khc_indexbuilder_SRCS khc_indexbuilder.cpp )
 
 kde4_add_executable(khc_indexbuilder NOGUI ${khc_indexbuilder_SRCS})
 
-target_link_libraries(khc_indexbuilder  ${KDE4_KDE3SUPPORT_LIBS} ${KDE4_KDECORE_LIBS} )
+target_link_libraries(khc_indexbuilder ${KDE4_KDECORE_LIBS} )
 
 install(TARGETS khc_indexbuilder DESTINATION ${LIBEXEC_INSTALL_DIR})
 
@@ -50,7 +48,7 @@ kde4_add_kcfg_files(khelpcenter_KDEINIT_SRCS prefs.kcfgc )
 kde4_add_app_icon(khelpcenter_KDEINIT_SRCS "${KDE4_INSTALL_DIR}/share/icons/oxygen/*/apps/help-browser.png")
 
 kde4_add_kdeinit_executable( khelpcenter ${khelpcenter_KDEINIT_SRCS})
-target_link_libraries(kdeinit_khelpcenter  ${KDE4_KDE3SUPPORT_LIBS} ${KDE4_KHTML_LIBS}  ${QT_QTXML_LIBRARY} ${KDE4_KCMUTILS_LIBS} )
+target_link_libraries(kdeinit_khelpcenter  ${KDE4_KHTML_LIBS}  ${QT_QTXML_LIBRARY} ${KDE4_KCMUTILS_LIBS} )
 install(TARGETS kdeinit_khelpcenter  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 install(TARGETS khelpcenter ${INSTALL_TARGETS_DEFAULT_ARGS})
 

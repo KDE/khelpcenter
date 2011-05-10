@@ -30,9 +30,6 @@
 #include <KIconLoader>
 #include <KGlobal>
 
-//FIXME
-#include <k3listview.h>
-
 #include <KLocale>
 #include <KStandardDirs>
 #include <KUrl>
@@ -128,7 +125,7 @@ void InfoTree::build( NavigatorItem *parent )
       parseInfoDirFile( infoDirFileName );
   }
 
-  m_alphabItem->sortChildren( 0, Qt::Ascending /* ascending */ );
+  m_alphabItem->sortChildren( 0, Qt::AscendingOrder /* ascending */ );
 }
 
 void InfoTree::parseInfoDirFile( const QString &infoDirFileName )

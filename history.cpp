@@ -38,6 +38,7 @@
 using namespace KHC;
 
 // TODO: Needs complete redo!
+// TODO: oh yeah
 
 History *History::m_instance = 0;
 
@@ -51,11 +52,12 @@ History &History::self()
 History::History() : QObject(),
   m_goBuffer( 0 )
 {
-  m_entries.setAutoDelete( true );
+  m_entries_current = m_entries.end();
 }
 
 History::~History()
 {
+  qDeleteAll(m_entries);
 }
 
 void History::setupActions( KActionCollection *coll )
@@ -99,8 +101,8 @@ void History::installMenuBarHook( KXmlGuiWindow *mainWindow )
   {
     connect( goMenu, SIGNAL( aboutToShow() ), SLOT( fillGoMenu() ) );
     
-    connect( goMenu, SIGNAL( activated( int ) ),
-             SLOT( goMenuActivated( int ) ) );
+    connect( goMenu, SIGNAL( triggered( QAction* ) ),
+             SLOT( goMenuActivated( QAction* ) ) );
     
     m_goMenuIndex = goMenu->actions().count();
   }
@@ -111,32 +113,18 @@ void History::createEntry()
   kDebug() << "History::createEntry()";
 
   // First, remove any forward history
-  Entry * current = m_entries.current();
-  if (current)
+  if (m_entries_current!=m_entries.end())
   {
   
-    m_entries.at( m_entries.count() - 1 ); // go to last one
-    for ( ; m_entries.current() != current ; )
-    {
-      if ( !m_entries.removeLast() ) // and remove from the end (faster and easier)
-      { 
-        Q_ASSERT(0);
-        return;
-      }
-      else
-      {
-        m_entries.at( m_entries.count() - 1 );
-      } // Now current is the current again.
-
-      // If current entry is empty reuse it.
-      if ( !current->view ) return;
-    }
+    m_entries.erase(m_entries.begin(),m_entries_current);
     
+    // If current entry is empty reuse it.
+    if ( !(*m_entries_current)->view ) { 
+      return;
+    }
   }
   // Append a new entry
-  m_entries.append( new Entry ); // made current
-  Q_ASSERT( m_entries.at() == (int) m_entries.count() - 1 );
-  
+  m_entries_current = m_entries.insert(m_entries_current, new Entry ); // made current
 }
 
 void History::updateCurrentEntry( View *view )
@@ -146,7 +134,7 @@ void History::updateCurrentEntry( View *view )
 
   KUrl url = view->url();
 
-  Entry *current = m_entries.current();
+  Entry *current = *m_entries_current;
 
   QDataStream stream( &current->buffer, QIODevice::WriteOnly );
   view->browserExtension()->saveState( stream );
@@ -223,14 +211,14 @@ void History::goHistory( int steps )
   kDebug() << "History::goHistory(): " << steps;
 
   // If current entry is empty remove it.
-  Entry *current = m_entries.current();
-  if ( current && !current->view ) m_entries.remove();
+  Entry *current = *m_entries_current;
+  if ( current && !current->view ) m_entries_current = m_entries.erase(m_entries_current);
 
-  int newPos = m_entries.at() + steps;
-
-  current = m_entries.at( newPos );
+  EntryList::iterator newPos = m_entries_current - steps;
+  
+  current = *newPos;
   if ( !current ) {
-    kError() << "No History entry at position " << newPos << endl;
+    kError() << "No History entry at position " << newPos - m_entries.begin() << endl;
     return;
   }
 
@@ -238,6 +226,8 @@ void History::goHistory( int steps )
     kWarning() << "Empty history entry." ;
     return;
   }
+  
+  m_entries_current = newPos;
 
   if ( current->search ) {
     kDebug() << "History::goHistory(): search";
@@ -263,6 +253,7 @@ void History::goHistory( int steps )
   h.view->closeUrl();
   updateCurrentEntry( h.view );
   h.view->browserExtension()->restoreState( stream );
+  
 
   updateActions();
 }
@@ -303,18 +294,18 @@ void History::fillGoMenu()
     // Second case: big history, in one or both directions
   {
     // Assume both directions first (in this case we place the current URL in the middle)
-    m_goMenuHistoryStartPos = m_entries.at() + 4;
+    m_goMenuHistoryStartPos = (m_entries_current - m_entries.begin()) + 4;
 
     // Forward not big enough ?
-    if ( m_entries.at() > (int) m_entries.count() - 4 )
+    if ( m_goMenuHistoryStartPos > (int) m_entries.count() - 4 )
       m_goMenuHistoryStartPos = m_entries.count() - 1;
   }
   Q_ASSERT( m_goMenuHistoryStartPos >= 0 && (uint)m_goMenuHistoryStartPos < m_entries.count() );
-  m_goMenuHistoryCurrentPos = m_entries.at(); // for slotActivated
+  m_goMenuHistoryCurrentPos = m_entries_current - m_entries.begin(); // for slotActivated
   fillHistoryPopup( goMenu, false, false, true, m_goMenuHistoryStartPos );
 }
 
-void History::goMenuActivated( int id )
+void History::goMenuActivated( QAction* action )
 {
   KXmlGuiWindow *mainWindow = static_cast<KXmlGuiWindow *>( kapp->activeWindow() );
   QMenu *goMenu = dynamic_cast<QMenu *>( mainWindow->guiFactory()->container( QLatin1String( "go" ), mainWindow ) );
@@ -322,7 +313,7 @@ void History::goMenuActivated( int id )
     return;
 
   // 1 for first item in the list, etc.
-  int index = goMenu->indexOf(id) - m_goMenuIndex + 1;
+  int index = goMenu->actions().indexOf(action) - m_goMenuIndex + 1;
   if ( index > 0 )
   {
     kDebug(1400) << "Item clicked has index " << index;
@@ -337,41 +328,48 @@ void History::fillHistoryPopup( QMenu *popup, bool onlyBack, bool onlyForward, b
 {
   Q_ASSERT ( popup ); // kill me if this 0... :/
 
-  Entry * current = m_entries.current();
-  Q3PtrListIterator<Entry> it( m_entries );
+  Entry * current = *m_entries_current;
+  QList<Entry*>::iterator it = m_entries.begin();
   if (onlyBack || onlyForward)
   {
-    it += m_entries.at(); // Jump to current item
-    if ( !onlyForward ) --it; else ++it; // And move off it
+    it = m_entries_current; // Jump to current item
+    if ( !onlyForward ) ++it; else --it; // And move off it
   } else if ( startPos )
     it += startPos; // Jump to specified start pos
 
   uint i = 0;
-  while ( it.current() )
+  while ( it != m_entries.end() )
   {
-    QString text = it.current()->title;
+    QString text = (*it)->title;
     text = KStringHandler::csqueeze(text, 50); //CT: squeeze
     text.replace( '&', "&&" );
     QAction *action = popup->addAction( text );
     action->setData( i );
-    if ( checkCurrentItem && it.current() == current )
+    if ( checkCurrentItem && *it == current )
     {
       action->setChecked( true ); // no pixmap if checked
     }
     if ( ++i > 10 )
       break;
-    if ( !onlyForward ) --it; else ++it;
+    if ( !onlyForward ) ++it; else --it;
   }
 }
 
 bool History::canGoBack() const
 {
-  return m_entries.at() > 0;
+  return m_entries.size()>1 && m_entries_current != (m_entries.begin()+(m_entries.size()-1));
 }
 
 bool History::canGoForward() const
 {
-  return m_entries.at() != static_cast<int>( m_entries.count() ) - 1;
+  return EntryList::const_iterator(m_entries_current) != m_entries.begin() && m_entries.size() > 1;
+}
+
+void History::dumpHistory() const {
+  for(EntryList::const_iterator it = m_entries.begin() ; it!=m_entries.end() ; ++it) {
+    kDebug() << (*it)->title << (*it)->url << (it==m_entries_current ? "current" : "" ) ;
+  }
+
 }
 
 #include "history.moc"
