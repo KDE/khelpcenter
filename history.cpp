@@ -357,17 +357,17 @@ void History::fillHistoryPopup( QMenu *popup, bool onlyBack, bool onlyForward, b
 
 bool History::canGoBack() const
 {
-  return m_entries.size()>1 && m_entries_current != (m_entries.begin()+(m_entries.size()-1));
+  return m_entries.size()>1 && EntryList::const_iterator(m_entries_current) != (m_entries.begin()+(m_entries.size()-1));
 }
 
 bool History::canGoForward() const
 {
-  return EntryList::const_iterator(m_entries_current) != m_entries.begin() && m_entries.size() > 1;
+  return EntryList::const_iterator(m_entries_current) != m_entries.constBegin() && m_entries.size() > 1;
 }
 
 void History::dumpHistory() const {
-  for(EntryList::const_iterator it = m_entries.begin() ; it!=m_entries.end() ; ++it) {
-    kDebug() << (*it)->title << (*it)->url << (it==m_entries_current ? "current" : "" ) ;
+  for(EntryList::const_iterator it = m_entries.constBegin() ; it!=m_entries.constEnd() ; ++it) {
+    kDebug() << (*it)->title << (*it)->url << (it==EntryList::const_iterator(m_entries_current) ? "current" : "" ) ;
   }
 
 }
