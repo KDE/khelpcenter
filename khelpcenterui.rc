@@ -26,8 +26,10 @@
   <Separator />
   <Action name="back" />
   <Action name="forward" />
+<!--
   <Separator />
   <Action name="lastsearch" />
+-->
  </Menu>
  <Menu name="settings">
   <Action name="configure_fonts" append="save_merge"/>
