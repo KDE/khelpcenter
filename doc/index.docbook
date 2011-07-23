@@ -14,8 +14,8 @@
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 <legalnotice>&FDLNotice;</legalnotice>
-<date>2010-07-18</date>
-<releaseinfo>&kde; 4.5</releaseinfo>
+<date>2011-07-23</date>
+<releaseinfo>&kde; 4.7</releaseinfo>
 
 <abstract>
 <para>
@@ -565,7 +565,7 @@ already used the <guiicon>Back</guiicon> icon.
 </para>
 </listitem>
 </varlistentry>
-
+<!--
 <varlistentry>
 <term><guiicon>Print Frame</guiicon></term>
 <listitem>
@@ -574,7 +574,7 @@ Print the contents of the currently visible page.
 </para>
 </listitem>
 </varlistentry>
-
+-->
 <varlistentry>
 <term><guiicon>Copy</guiicon></term>
 <listitem>
@@ -624,6 +624,7 @@ The menus contain the following entries:
 <listitem>
 
 <variablelist>
+<!--
 <varlistentry>
 <term>
 <menuchoice>
@@ -637,7 +638,7 @@ Print the contents of the currently visible page.
 </para>
 </listitem>
 </varlistentry>
-
+-->
 <varlistentry>
 <term>
 <menuchoice>
@@ -857,7 +858,7 @@ Allows you to configure the font family and size used by &khelpcenter;.
 </para>
 </listitem>
 </varlistentry>
-
+<!--
 <varlistentry>
 <term>
 <menuchoice>
@@ -871,7 +872,7 @@ If your distribution support this, you can build an index of search terms.
 </para>
 </listitem>
 </varlistentry>
-
+-->
 <varlistentry>
 <term>
 <menuchoice>
