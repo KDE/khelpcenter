@@ -96,7 +96,7 @@ itemizedlist+listitem changed to simple para -->
 			<glossterm><acronym>IO</acronym> Slave</glossterm>
 			<glossdef><para><acronym>IO</acronym> Slaves enable &kde; applications to
 				access remote resources as easily as local resources (making them
-				<quote>network transparent</quote>). Remote resources (&eg; files) might
+				"network transparent"). Remote resources (&eg; files) might
 				be stored on <acronym>SMB</acronym> shares or similar.</para>
 				<glossseealso otherterm="gloss-smb"><acronym>SMB</acronym></glossseealso>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
@@ -115,7 +115,7 @@ itemizedlist+listitem changed to simple para -->
 		<glossentry id="gloss-kio">
 			<glossterm><acronym>KIO</acronym></glossterm>
 			<glossdef><para>The &kde; Input/Output system which makes use of so-called
-				<quote><acronym>IO</acronym> Slaves</quote>.</para>
+				"<acronym>IO</acronym> Slaves".</para>
 				<glossseealso otherterm="gloss-ioslave"><acronym>IO</acronym> 
 Slave</glossseealso>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
@@ -338,7 +338,7 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 				files from one place to another by a certain mouse movement, &eg;
 				clicking on an icon in a &konqueror; window, moving the mouse to another
 				window while keeping the mouse button pressed, and releasing the mouse
-				button (<quote>dropping</quote> the object) copies files.</para>
+				button ("dropping" the object) copies files.</para>
 				<glossseealso otherterm="gloss-konqueror">&konqueror;</glossseealso>
 			</glossdef>
 		</glossentry>
@@ -380,7 +380,7 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 		</glossentry>
 		<glossentry id="gloss-kde">
 			<glossterm>&kde;</glossterm>
-			<glossdef><para>Abbreviation for <quote>K Desktop Environment</quote>, a
+			<glossdef><para>Abbreviation for "K Desktop Environment", a
 				leading &GUI; for &UNIX;-based systems. You can find more
 				detailed information at &linkstart;
 				"http://www.kde.org"&linkmid;www.kde.org&linkend;.&newpara;
@@ -477,7 +477,7 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 			<glossterm>&Qt;</glossterm>
 			<glossdef><para>The &GUI; of &kde; is built on top of
 				the &Qt; toolkit, which provides many graphical elements (so-called
-				<quote>Widgets</quote>) which are used to construct the desktop. You
+				"Widgets") which are used to construct the desktop. You
 				can find more information about &Qt; at &linkstart;
 				"http://qt.nokia.com/"&linkmid;http://qt.nokia.com/&linkend;.</para>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
@@ -499,7 +499,7 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 		</glossentry>
 		<glossentry id="gloss-i18n">
 			<glossterm>i18n</glossterm>
-			<glossdef><para>Abbreviation for <quote>internationalization</quote>. &kde;
+			<glossdef><para>Abbreviation for "internationalization". &kde;
 				supports many different languages, and several i18n techniques make it
 				easy to translate the &GUI; as well as the accompanying
 				documents of &kde; into all these languages. More information about the
@@ -542,7 +542,7 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 		</glossentry>
 		<glossentry id="gloss-l10n">
 			<glossterm>l10n</glossterm>
-			<glossdef><para>Abbreviation for <quote>localization</quote>, the process
+			<glossdef><para>Abbreviation for "localization", the process
 				of adapting a program to the local environment. This includes &eg; the
 				currency used for monetary values or the time format.</para>
 				<glossseealso otherterm="gloss-i18n">i18n</glossseealso>
