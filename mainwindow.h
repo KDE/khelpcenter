@@ -90,7 +90,7 @@ class MainWindow : public KXmlGuiWindow
     void slotCopySelectedText();
 
 private:
-    void updateZoomActions();
+    void updateFontScaleActions();
 
     QSplitter *mSplitter;
     View *mDoc;

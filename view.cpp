@@ -41,7 +41,7 @@ View::View( QWidget *parentWidget, QObject *parent, KHTMLPart::GUIProfile prof, 
       kDebug() << "Unable to read Formatter templates.";
     }
 
-    m_zoomStepping = 10;
+    m_fontScaleStepping = 10;
 
     connect( this, SIGNAL( setWindowCaption( const QString & ) ),
              this, SLOT( setTitle( const QString & ) ) );
@@ -177,12 +177,12 @@ void View::lastSearch()
 
 void View::slotIncFontSizes()
 {
-  setZoomFactor( zoomFactor() + m_zoomStepping );
+  setFontScaleFactor( fontScaleFactor() + m_fontScaleStepping );
 }
 
 void View::slotDecFontSizes()
 {
-  setZoomFactor( zoomFactor() - m_zoomStepping );
+  setFontScaleFactor( fontScaleFactor() - m_fontScaleStepping );
 }
 
 void View::showMenu( const QString& url, const QPoint& pos)

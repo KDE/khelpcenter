@@ -48,7 +48,7 @@ class View : public KHTMLPart
     void beginInternal( const KUrl & );
     KUrl internalUrl() const;
 
-    int zoomStepping() const { return m_zoomStepping; }
+    int fontScaleStepping() const { return m_fontScaleStepping; }
 
     Formatter *formatter() const { return mFormatter; }
 
@@ -82,7 +82,7 @@ class View : public KHTMLPart
     QString mSearchResult;
     KUrl mInternalUrl;
 
-    int m_zoomStepping;
+    int m_fontScaleStepping;
 
     Formatter *mFormatter;
     KActionCollection *mActionCollection;

@@ -158,8 +158,8 @@ MainWindow::MainWindow()
         KConfig konqCfg( "konquerorrc" );
         const_cast<KHTMLSettings *>( mDoc->settings() )->init( &konqCfg );
       }
-      const int zoomFactor = configGroup.readEntry( "Font zoom factor", 100 );
-      mDoc->setZoomFactor( zoomFactor );
+      const int fontScaleFactor = configGroup.readEntry( "Font zoom factor", 100 );
+      mDoc->setFontScaleFactor( fontScaleFactor );
     }
 
     setupActions();
@@ -471,22 +471,22 @@ void MainWindow::showSearchStderr()
 void MainWindow::slotIncFontSizes()
 {
   mDoc->slotIncFontSizes();
-  updateZoomActions();
+  updateFontScaleActions();
 }
 
 void MainWindow::slotDecFontSizes()
 {
   mDoc->slotDecFontSizes();
-  updateZoomActions();
+  updateFontScaleActions();
 }
 
-void MainWindow::updateZoomActions()
+void MainWindow::updateFontScaleActions()
 {
-  actionCollection()->action( QLatin1String("incFontSizes") )->setEnabled( mDoc->zoomFactor() + mDoc->zoomStepping() <= 300 );
-  actionCollection()->action( QLatin1String("decFontSizes") )->setEnabled( mDoc->zoomFactor() - mDoc->zoomStepping() >= 20 );
+  actionCollection()->action( QLatin1String("incFontSizes") )->setEnabled( mDoc->fontScaleFactor() + mDoc->fontScaleStepping() <= 300 );
+  actionCollection()->action( QLatin1String("decFontSizes") )->setEnabled( mDoc->fontScaleFactor() - mDoc->fontScaleStepping() >= 20 );
 
   KConfigGroup configGroup( KGlobal::config(), QLatin1String("General") );
-  configGroup.writeEntry( QLatin1String("Font zoom factor"), mDoc->zoomFactor() );
+  configGroup.writeEntry( QLatin1String("Font zoom factor"), mDoc->fontScaleFactor() );
   configGroup.sync();
 }
 
