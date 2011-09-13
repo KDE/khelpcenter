@@ -23,8 +23,6 @@
 
 #include "klangcombo.h"
 
-#include <Qt3Support/qiconset.h>
-
 #include <kstandarddirs.h>
 
 KLanguageCombo::~KLanguageCombo ()
