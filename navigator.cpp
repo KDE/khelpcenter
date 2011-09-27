@@ -371,8 +371,7 @@ void Navigator::slotItemSelected( QTreeWidgetItem *currentItem )
 
   kDebug(1400) << item->entry()->name() << endl;
 
-  if ( item->childCount() > 0  )
-    item->setExpanded( !item->isExpanded() );
+  item->setExpanded( !item->isExpanded() );
 
   KUrl url ( item->entry()->url() );
 
