@@ -303,8 +303,8 @@ TOCSectionItem::TOCSectionItem( TOC *toc, TOCChapterItem *parent, QTreeWidgetIte
 
 QString TOCSectionItem::url()
 {
-    //if ( static_cast<TOCSectionItem *>( parent()->firstChild() ) == this )
- //       return static_cast<TOCChapterItem *>( parent() )->url() + '#' + m_name;
+    if ( static_cast<TOCSectionItem *>( parent()->child(0) ) == this )
+        return static_cast<TOCChapterItem *>( parent() )->url() + '#' + m_name;
 
     return "help:" + toc()->application() + '/' + m_name + ".html";
 }
