@@ -192,6 +192,7 @@ Comment[zh_CN]=帮助中心搜索索引配置和生成
 Comment[zh_TW]=求助中心搜尋索引的組態與產生
 
 X-KDE-Keywords=khelpcenter,help,index,search
+X-KDE-Keywords[ca]=khelpcenter,ajuda,índex,cerca
 X-KDE-Keywords[kk]=khelpcenter,help,index,search
 X-KDE-Keywords[nl]=khelpcenter,help,index,zoeken
 X-KDE-Keywords[pt]=khelpcenter,ajuda,índice,pesquisa
