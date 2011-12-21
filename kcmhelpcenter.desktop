@@ -96,8 +96,8 @@ Name[uz]=Yordam indeksi
 Name[uz@cyrillic]=Ёрдам индекси
 Name[vi]=Chỉ mục Trợ giúp
 Name[wa]=Indecse di l' aidance
-Name[xh]=Uncedo Lwesalathisi
 Name[x-test]=xxHelp Indexxx
+Name[xh]=Uncedo Lwesalathisi
 Name[zh_CN]=帮助索引
 Name[zh_TW]=說明索引
 
@@ -186,8 +186,8 @@ Comment[uz]=Yordam markazining qidiruv indeksini yaratish va moslash
 Comment[uz@cyrillic]=Ёрдам марказининг қидирув индексини яратиш ва мослаш
 Comment[vi]=Cấu hình và tạo ra chỉ mục tìm kiếm của trung tâm trợ giúp
 Comment[wa]=Fijhaedje eyet apontiaedje di l' indecse di cweraedje do cinte d' aidance
-Comment[xh]=Uqwalaselo lophendlo loncedo osembindi nolwenziwo
 Comment[x-test]=xxHelp center search index configuration and generationxx
+Comment[xh]=Uqwalaselo lophendlo loncedo osembindi nolwenziwo
 Comment[zh_CN]=帮助中心搜索索引配置和生成
 Comment[zh_TW]=求助中心搜尋索引的組態與產生
 
@@ -195,6 +195,7 @@ X-KDE-Keywords=khelpcenter,help,index,search
 X-KDE-Keywords[bg]=khelpcenter,help,index,search,помощ,индекс,търсене
 X-KDE-Keywords[ca]=khelpcenter,ajuda,índex,cerca
 X-KDE-Keywords[da]=khelpcenter,hjælp,indeks,søg
+X-KDE-Keywords[et]=khelpcenter,abi,indeks,otsing,KDE abikeskus,abikeskus
 X-KDE-Keywords[fa]=khelpcenter,help,index,search
 X-KDE-Keywords[fi]=khelpcenter,ohje,opaste,indeksi,hakemisto,haku
 X-KDE-Keywords[hu]=khelpcenter,súgó,index,keresés
