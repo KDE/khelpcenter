@@ -97,8 +97,8 @@ Name[uz]=Indeks
 Name[uz@cyrillic]=Индекс
 Name[vi]=chỉ mục
 Name[wa]=Indecse
-Name[x-test]=xxIndexxx
 Name[xh]=Isalathiso
+Name[x-test]=xxIndexxx
 Name[zh_CN]=索引
 Name[zh_TW]=索引
 
@@ -189,8 +189,8 @@ Comment[uz]=Indeksni yaratish
 Comment[uz@cyrillic]=Индексни яратиш
 Comment[vi]=Tạo ra chỉ mục
 Comment[wa]=Fijhaedje d' indecse
-Comment[x-test]=xxIndex generationxx
 Comment[xh]=Ulwenziwo Lwesalathiso
+Comment[x-test]=xxIndex generationxx
 Comment[zh_CN]=索引生成
 Comment[zh_TW]=產生索引
 
