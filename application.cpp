@@ -60,7 +60,7 @@ extern "C" int KDE_EXPORT kdemain( int argc, char **argv )
                         HELPCENTER_VERSION,
                         ki18n("The KDE Help Center"),
                         KAboutData::License_GPL,
-                        ki18n("(c) 1999-2003, The KHelpCenter developers") );
+                        ki18n("(c) 1999-2011, The KHelpCenter developers") );
 
   aboutData.addAuthor( ki18n("Cornelius Schumacher"), KLocalizedString(), "schumacher@kde.org" );
   aboutData.addAuthor( ki18n("Frerich Raabe"), KLocalizedString(), "raabe@kde.org" );
