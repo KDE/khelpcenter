@@ -1,11 +1,6 @@
 <!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
-<kpartgui name="khelpcenter" version="16">
+<kpartgui name="khelpcenter" version="17">
 <MenuBar>
- <Menu name="file" noMerge="1">
-    <text>&amp;File</text>
-    <Separator />
-    <Action name="file_quit"/> 
- </Menu>
  <Menu name="edit" noMerge="1">
   <text>&amp;Edit</text>
   <Action name="copy_text" />

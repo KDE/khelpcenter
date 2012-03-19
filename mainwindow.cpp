@@ -229,7 +229,7 @@ void MainWindow::writeConfig()
 void MainWindow::setupActions()
 {
     actionCollection()->addAction( KStandardAction::Quit, this, SLOT( close() ) );
-   // actionCollection()->addAction( KStandardAction::Print, "printFrame", this, SLOT( print() ) );
+    actionCollection()->addAction( KStandardAction::Print, this, SLOT( print() ) );
 
     KAction *prevPage  = actionCollection()->addAction( "prevPage" );
     prevPage->setText( i18n( "Previous Page" ) );
