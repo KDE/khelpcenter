@@ -251,7 +251,7 @@ search for the shortcut you want.</para>
 <mediaobject>
 <imageobject><imagedata fileref="shortcuts-search.png" format="PNG"/></imageobject>
 <textobject><phrase>The Customize Shortcuts window.</phrase></textobject>
-<caption><para>Searching for shortcuts with <userinput>find</userinput> in
+<caption><para>Searching for shortcuts with <userinput>file</userinput> in
 <ulink url="http://kde.org/applications/system/dolphin/">&dolphin;</ulink>.
 </para></caption>
 </mediaobject>
@@ -365,7 +365,7 @@ a name for your new scheme.</para></listitem>
 <title>Thanks and Acknowledgments</title>
 
 <para>Special thanks to Google Code-In 2011 participant Alexey Subach for
-writing much of this sect1.</para>
+writing much of this section.</para>
 
 </sect2>
 
