@@ -1,0 +1,124 @@
+<chapter id="install">
+<title>Installing &kde;</title>
+
+<para>You can install &kde; on a variety of different platforms, ranging from
+smartphones and tablets to computers running &Microsoft; &Windows;, &MacOS;,
+&UNIX;, &BSD; or &Linux;.  Binary packages are available for many different
+platforms and distributions, or advanced users may build the source code.</para>
+
+<sect1 id="install-packages">
+<title>Installing Packages</title>
+
+<para>Hundreds of developers worldwide have done a lot of work to make it easy
+to install &kde; on a variety of different devices and platforms.</para>
+
+<sect2 id="install-linux">
+<title>&Linux;</title>
+
+<para>Nearly every &Linux; distribution provides binary packages for individual
+&kappname; applications and the &plasma-workspaces; as a whole.</para>
+
+<para>To install an invididual application, look for its name in your
+distribution's package collection.  To install one of the &plasma-workspaces;,
+like &plasma-desktop;, look for a metapackage or package
+group, typically <literal>kde-desktop</literal>.</para>
+
+<note>
+<para>Some core applications may be installed together with other core
+applications in a combined package named after the &kde; package they are
+provided in. For instance, &dolphin; might be found in the
+<literal>kde-baseapps</literal> package.</para>
+</note>
+
+<para>If you have trouble locating &kde; packages for your distribution, please
+contact their support resources.  Many distributions also have a team dedicated
+to packaging &kde; that can provide assistance specific to &kde;</para>
+
+<!--FIXME: provide steps for common distributions?-->
+
+</sect2>
+
+<sect2 id="install-windows">
+<title>&Microsoft; &Windows;</title>
+
+<para>The &kde; on Windows Initiative provides binary packages of &kappname;
+applications for &Microsoft; &Windows;.  They also provide a special installer
+application that permits you to install individual applications or groups and
+all necessary dependencies easily.</para>
+
+<para>For more information on the initiative and to download the installer,
+visit <ulink url="http://windows.kde.org/">the KDE on Windows Initiative</ulink>.
+</para>
+
+<!--FIXME: describe how to use the installer?-->
+
+</sect2>
+
+<sect2 id="install-mac">
+<title>&MacOS;</title>
+
+<para>Individual &kappname; applications can be installed through several
+different <quote>ports</quote> systems available for &MacOS;.  Several different
+&kde; applications also provide their own binary builds for &MacOS;.</para>
+
+<para>For more information, visit
+<ulink url="http://mac.kde.org/">&kde; on &MacOS;X</ulink>.</para>
+
+</sect2>
+
+<sect2 id="install-bsd">
+<title>&BSD;</title>
+
+<para>Most &BSD; distributions allows you to install &kappname; applications
+and the &plasma-workspaces; as a whole through their <quote>ports</quote>
+system.</para>
+
+<para>For more information on installing ports, see your &BSD; distribution's
+documentation.</para>
+
+<!--FIXME: provide steps/links for common BSDs?-->
+
+</sect2>
+
+<sect2 id="install-mobile">
+<title>Mobile Devices</title>
+
+<para>&plasma-active; is an exciting initiative to bring a new &kde;
+experience to mobile devices like smartphones or tablets.  Binary releases are
+provided for several different devices.</para>
+
+<para>For more information, visit
+<ulink url="http://plasma-active.org/">&plasma-active;</ulink>.</para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="install-live">
+<title>Live Media</title>
+
+<para>Several &Linux; and &BSD; distributions offer live media.  This permits you
+to try out the &plasma-workspaces; without installing anything to your system.
+All you have to do insert a CD or connect a USB drive and boot from it.  If you
+like what you see, most offer an option to install it to your hard drive.</para>
+
+<para>There is <ulink url="http://www.kde.org/download/distributions.php">a list
+of distributions that offer &kde; on live media</ulink> on the &kde; website.</para>
+
+</sect1>
+
+<sect1 id="install-source">
+<title>Building from Source Code</title>
+
+<para>For detailed information on how to compile and install &kde;
+applications see
+<ulink url="http://techbase.kde.org/Getting_Started#Building_and_Running_KDE_Software_From_Source">
+Building and Running KDE Software From Source</ulink></para>
+
+<para>Since &kde; uses <command>cmake</command> you should have no
+trouble compiling it. Should you run into problems please report them to the
+&kde; mailing lists.</para>
+
+</sect1>
+
+</chapter>

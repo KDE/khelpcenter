@@ -1,0 +1,491 @@
+<!--FIXME:
+        -visual dictionary
+        -general toolbar info
+        -basic keyboard shortcuts?
+-->
+
+<chapter id="ui">
+<title>Finding Your Way Around</title>
+
+<!--FIXME: visual dictionary goes here-->
+
+<sect1 id="menus">
+<sect1info>
+<authorgroup>
+<author>&TC.Hollingsworth; &TC.Hollingsworth.mail;</author>
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
+</authorgroup>
+</sect1info>
+
+<title>Common Menus</title>
+
+<para>Many &kappname; applications contain these menus.  However, most
+applications will have more menu entries than those listed here, and others may
+be missing some of the entries listed here.</para>
+
+<screenshot id="screenshot-menus">
+<screeninfo>A Menu Bar</screeninfo>
+<mediaobject>
+<imageobject><imagedata fileref="menus.png" format="PNG"/></imageobject>
+<textobject><phrase>A menubar</phrase></textobject>
+<caption><para>The menubar in
+<ulink url="http://kde.org/applications/graphics/gwenview/">&gwenview;</ulink>.
+</para></caption>
+</mediaobject>
+</screenshot>
+
+<para>Some applications, like &dolphin;, do not show a menubar by default.  You
+can show it by pressing <keycombo>&Ctrl;<keycap>M</keycap></keycombo>.  You can
+also use this to hide the menubar in applications that support doing so.</para>
+
+<sect2 id="menus-file">
+<title>The File Menu</title>
+<para>The <guimenu>File</guimenu> menu allows you to perform operations on the
+currently open file and access common tasks in applications.</para>
+
+<para>Common menu items include:</para>
+
+<variablelist>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut><keycombo action="simul">&Ctrl;<keycap>N</keycap></keycombo></shortcut>
+<guimenu>File</guimenu><guimenuitem>New</guimenuitem>
+</menuchoice></term>
+<listitem><para>
+Creates a new file.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>File</guimenu><guimenuitem>New Window</guimenuitem>
+</menuchoice></term>
+<listitem><para>
+Opens a new window.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut><keycombo action="simul">&Ctrl;<keycap>O</keycap></keycombo></shortcut>
+<guimenu>File</guimenu><guimenuitem>Open</guimenuitem>
+</menuchoice></term>
+<listitem><para>
+Opens an already existing file.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut><keycombo action="simul">&Ctrl;<keycap>S</keycap></keycombo></shortcut>
+<guimenu>File</guimenu><guimenuitem>Save</guimenuitem>
+</menuchoice></term>
+<listitem><para>
+Saves the file. If the file already exists it will be overwritten.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>File</guimenu><guimenuitem>Save As</guimenuitem>
+</menuchoice></term>
+<listitem><para>
+Saves the file with a new filename.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>File</guimenu><guimenuitem>Save All</guimenuitem>
+</menuchoice></term>
+<listitem><para>
+Saves all open files.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut><keycap>F5</keycap></shortcut>
+<guimenu>File</guimenu><guimenuitem>Reload</guimenuitem>
+</menuchoice></term>
+<listitem><para>
+Reloads the current file.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>File</guimenu><guimenuitem>Reload All</guimenuitem>
+</menuchoice></term>
+<listitem><para>
+Reloads all open files.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut><keycombo action="simul">&Ctrl;<keycap>L</keycap></keycombo></shortcut>
+<guimenu>File</guimenu><guimenuitem>Print</guimenuitem>
+</menuchoice></term>
+<listitem><para>
+Prints the file.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut><keycombo action="simul">&Ctrl;<keycap>W</keycap></keycombo></shortcut>
+<guimenu>File</guimenu><guimenuitem>Close</guimenuitem>
+</menuchoice></term>
+<listitem><para>
+Closes the current file.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>File</guimenu><guimenuitem>Close All</guimenuitem>
+</menuchoice></term>
+<listitem><para>
+Closes all open files.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut><keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo></shortcut>
+<guimenu>File</guimenu><guimenuitem>Quit</guimenuitem>
+</menuchoice></term>
+<listitem><para>
+Exits the program.
+</para></listitem>
+</varlistentry>
+
+</variablelist>
+</sect2>
+
+<sect2 id="menus-edit">
+<title>The Edit Menu</title>
+<para>The <guimenu>Edit</guimenu> menu allows you to modify the currently
+open file.</para>
+
+<variablelist>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut><keycombo action="simul">&Ctrl;<keycap>Z</keycap></keycombo></shortcut>
+<guimenu>Edit</guimenu><guimenuitem>Undo</guimenuitem>
+</menuchoice></term>
+<listitem><para>
+Undo the last action you performed in the file.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut><keycombo action="simul">&Ctrl;&Shift;<keycap>N</keycap></keycombo></shortcut>
+<guimenu>Edit</guimenu><guimenuitem>Redo</guimenuitem>
+</menuchoice></term>
+<listitem><para>
+Redo the last action you performed in the file.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut><keycombo action="simul">&Ctrl;<keycap>X</keycap></keycombo></shortcut>
+<guimenu>Edit</guimenu><guimenuitem>Cut</guimenuitem>
+</menuchoice></term>
+<listitem><para>
+Removes the currently selected portion of the file, if any, and places a copy of
+it in the clipboard buffer.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut><keycombo action="simul">&Ctrl;<keycap>C</keycap></keycombo></shortcut>
+<guimenu>Edit</guimenu><guimenuitem>Copy</guimenuitem>
+</menuchoice></term>
+<listitem><para>
+Places a copy of the currently selected portion of the file, if any, in the
+clipboard buffer.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut><keycombo action="simul">&Ctrl;<keycap>V</keycap></keycombo></shortcut>
+<guimenu>Edit</guimenu><guimenuitem>Paste</guimenuitem>
+</menuchoice></term>
+<listitem><para>
+Copies the first item in the clipboard buffer to the current location in the
+file, if any.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut><keycombo action="simul">&Ctrl;<keycap>A</keycap></keycombo></shortcut>
+<guimenu>Edit</guimenu><guimenuitem>Select All</guimenuitem>
+</menuchoice></term>
+<listitem><para>
+Selects the entire contents of the currently open file.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut><keycombo action="simul">&Ctrl;<keycap>F</keycap></keycombo></shortcut>
+<guimenu>Edit</guimenu><guimenuitem>Find...</guimenuitem>
+</menuchoice></term>
+<listitem><para>
+Allows you to search for text in the currently open file.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut><keycombo action="simul">&Ctrl;<keycap>R</keycap></keycombo></shortcut>
+<guimenu>Edit</guimenu><guimenuitem>Replace...</guimenuitem>
+</menuchoice></term>
+<listitem><para>
+Allows you to search for text in the currently open file and replace it with
+something else.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut><keycap>F3</keycap></shortcut>
+<guimenu>Edit</guimenu><guimenuitem>Find Next</guimenuitem>
+</menuchoice></term>
+<listitem><para>
+Go to the next match of the last Find operation.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut><keycombo action="simul">&Shift;<keycap>F3</keycap></keycombo></shortcut>
+<guimenu>Edit</guimenu><guimenuitem>Find Previous</guimenuitem>
+</menuchoice></term>
+<listitem><para>
+Go to the previous match of the last Find operation.
+</para></listitem>
+</varlistentry>
+
+</variablelist>
+</sect2>
+
+<sect2 id="menus-view">
+<title>The View Menu</title>
+<para>The <guimenu>View</guimenu> menu allows you to change the layout of the
+currently open file and/or the running application.</para>
+
+<para>This menu has different options depending on the application you are
+using.</para>
+</sect2>
+
+<sect2 id="menus-tools">
+<title>The Tools Menu</title>
+<para>The <guimenu>Tools</guimenu> menu allows you to perform certain actions
+on the currently open file.</para>
+
+<variablelist>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut><keycombo action="simul">&Ctrl;&Shift;<keycap>O</keycap></keycombo></shortcut>
+<guimenu>Tools</guimenu><guimenuitem>Automatic Spell Checking</guimenuitem>
+</menuchoice></term>
+<listitem><para>
+Check for spelling errors as you type.  For more information, see
+<xref linkend="spellcheck-auto"/>.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Tools</guimenu><guimenuitem>Spelling...</guimenuitem>
+</menuchoice></term>
+<listitem><para>
+This initiates the spellchecking program - a program designed to help the user
+catch and correct any spelling errors.  For more information, see
+<xref linkend="spellcheck-check"/>.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Tools</guimenu><guimenuitem>Spelling (from cursor)...</guimenuitem>
+</menuchoice></term>
+<listitem><para>
+This initiates the spellchecking program, but only checks the portion of the
+document from the current location of the cursor to the end.  For more information,
+see <xref linkend="spellcheck-check"/>.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Tools</guimenu><guimenuitem>Spellcheck Selection...</guimenuitem>
+</menuchoice></term>
+<listitem><para>
+This initiates the spellchecking program, but only checks the currently selected
+text in the document.  For more information, see <xref linkend="spellcheck-check"/>.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Tools</guimenu><guimenuitem>Change Dictionary</guimenuitem>
+</menuchoice></term>
+<listitem><para>
+This allows you to change the dictionary used to check spellings.  For more
+information, see <xref linkend="spellcheck-config"/>.
+</para></listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect2>
+
+<sect2 id="menus-settings">
+<title>The Settings Menu</title>
+<para>The <guimenu>Settings</guimenu> allows you to customize the application.</para>
+
+<para>This menu typically contains the following items:</para>
+<variablelist>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Settings</guimenu><guisubmenu>Toolbars Shown</guisubmenu>
+</menuchoice></term>
+<listitem><para>
+Allows you to show and hide the various toolbars supported by the application.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Settings</guimenu><guimenuitem>Configure Shortcuts...</guimenuitem>
+</menuchoice></term>
+<listitem><para>
+Allows you to enable, disable, and modify keyboard shortcuts.  For more
+information, see <xref linkend="shortcuts"/>.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Settings</guimenu><guimenuitem>Configure Toolbars...</guimenuitem>
+</menuchoice></term>
+<listitem><para>
+Allows you to customize the contents, layout, text, and icons of toolbars.  For
+more information, see <xref linkend="toolbars"/>.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Settings</guimenu><guimenuitem>Configure <replaceable>Application</replaceable>...</guimenuitem>
+</menuchoice></term>
+<listitem><para>
+Opens the configuration panel for the currently running application.
+</para></listitem>
+</varlistentry>
+
+</variablelist>
+</sect2>
+
+<sect2 id="menus-help">
+<title>The Help Menu</title>
+<para>The <guimenu>Help</guimenu> menu gives you access to the application's
+documentation and other useful resources.</para>
+
+<!--taken from kdelibs.git/kdoctools/customization/en/entities/help-menu.docbook
+    and edited slightly to fit into buildingblocks-->
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>F1</keycap></keycombo>
+</shortcut>
+<guimenu>Help</guimenu>
+<guimenuitem><replaceable>Application</replaceable> Handbook</guimenuitem>
+</menuchoice>
+</term>
+<listitem><para><action>Invokes the KDE Help system</action> starting at the
+running application's handbook.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul">&Shift;<keycap>F1</keycap></keycombo>
+</shortcut>
+<guimenu>Help</guimenu>
+<guimenuitem>What's This?</guimenuitem>
+</menuchoice>
+</term>
+<listitem><para><action>Changes the mouse cursor to a combination arrow and
+question mark.</action>  Clicking on items within the application; will open a help
+window (if one exists for the particular item) explaining the item's
+function.</para></listitem>
+</varlistentry>
+
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Help</guimenu>
+<guimenuitem>Report Bug...</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Opens the Bug report dialog</action> where you can
+report a bug or request a <quote>wishlist</quote> feature.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Help</guimenu>
+<guimenuitem>Switch Application Language...</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Opens a dialog</action> where you can
+edit the <guilabel>Primary language</guilabel> and <guilabel>Fallback language</guilabel>
+for this application.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Help</guimenu>
+<guimenuitem>About <replaceable>Application</replaceable></guimenuitem>
+</menuchoice></term>
+<listitem><para><action>This will display version and author
+information for the running application.</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Help</guimenu>
+<guimenuitem>About KDE</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>This displays the KDE version and other basic
+information.</action></para></listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+<sect2 id="menus-ack">
+<title>Thanks and Acknowledgments</title>
+
+<para>Special thanks to an anonymous Google Code-In 2011 participant for writing
+much of this documentation.</para>
+
+</sect2>
+
+</sect1>
+
+</chapter>
