@@ -184,7 +184,7 @@ Undo the last action you performed in the file.
 
 <varlistentry>
 <term><menuchoice>
-<shortcut><keycombo action="simul">&Ctrl;&Shift;<keycap>N</keycap></keycombo></shortcut>
+<shortcut><keycombo action="simul">&Ctrl;&Shift;<keycap>Z</keycap></keycombo></shortcut>
 <guimenu>Edit</guimenu><guimenuitem>Redo</guimenuitem>
 </menuchoice></term>
 <listitem><para>
