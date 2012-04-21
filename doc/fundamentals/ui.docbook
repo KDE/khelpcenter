@@ -125,7 +125,7 @@ Reloads all open files.
 
 <varlistentry>
 <term><menuchoice>
-<shortcut><keycombo action="simul">&Ctrl;<keycap>L</keycap></keycombo></shortcut>
+<shortcut><keycombo action="simul">&Ctrl;<keycap>P</keycap></keycombo></shortcut>
 <guimenu>File</guimenu><guimenuitem>Print</guimenuitem>
 </menuchoice></term>
 <listitem><para>
