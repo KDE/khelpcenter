@@ -141,7 +141,7 @@ the text label will appear underneath each toolbar item's icon
 </itemizedlist>
 
 <para>You can also show or hide text for individual toolbar items by
-right-clicking on an time and checking or unchecking the item under
+right-clicking on an item and checking or unchecking the item under
 <guilabel>Show Text</guilabel>.</para>
 
 </sect3>
