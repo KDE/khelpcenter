@@ -18,7 +18,7 @@ to install &kde; on a variety of different devices and platforms.</para>
 <para>Nearly every &Linux; distribution provides binary packages for individual
 &kappname; applications and the &plasma-workspaces; as a whole.</para>
 
-<para>To install an invididual application, look for its name in your
+<para>To install an individual application, look for its name in your
 distribution's package collection.  To install one of the &plasma-workspaces;,
 like &plasma-desktop;, look for a metapackage or package
 group, typically <literal>kde-desktop</literal>.</para>
