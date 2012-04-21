@@ -139,7 +139,7 @@ made since it was first loaded or last reloaded.</para></listitem>
 
 <varlistentry id="files-ui-toolbar-zoom">
 <term>Zoom Slider</term>
-<listitem><para>This allows to to change the size of the icon or preview
+<listitem><para>This allows to change the size of the icon or preview
 shown in the folder view.</para></listitem>
 </varlistentry>
 
@@ -668,7 +668,7 @@ appear at the bottom of the current document that will allow you to change your
 dictionary.</para>
 
 <!--FIXME: maybe move kcm handbook here too?-->
-<para>For more information on configuring &sonnet;. see the
+<para>For more information on configuring &sonnet;, see the
 <ulink url="help:kcontrol/spellchecking">Spell Checker &systemsettings; module
 documentation</ulink></para>
 
