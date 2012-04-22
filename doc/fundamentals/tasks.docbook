@@ -616,22 +616,22 @@ replace the misspelled word with that selected word. With the help of the
 <guibutton>Suggest</guibutton> button, you can add more suggestions from the
 dictionary to the suggestions list.</para>
 
-<para>Click on <guibutton>Ignore</guibutton>, to keep your original spelling.</para>
+<para>Click on <guibutton>Ignore</guibutton> to keep your original spelling.</para>
 
-<para>Click on <guibutton>Finished</guibutton>, to stop spellchecking and
+<para>Click on <guibutton>Finished</guibutton> to stop spellchecking and
 <emphasis>keep</emphasis> the changes made.</para>
 
-<para>Click on <guibutton>Cancel</guibutton>, to stop spellchecking and
+<para>Click on <guibutton>Cancel</guibutton> to stop spellchecking and
 <emphasis>cancel</emphasis> the changes already made.</para>
 
-<para>Clicking on <guibutton>Replace All</guibutton> will automatically replace
+<para>Click on <guibutton>Replace All</guibutton> to automatically replace
 the misspelled word(s) with the chosen replacement word, if they appear again in
 your document later.</para>
 
-<para>Clicking on <guibutton>Ignore All</guibutton> will ignore the spelling at
+<para>Click on <guibutton>Ignore All</guibutton> to ignore the spelling at
 that point and all the future occurrences of the word misspelled.</para>
 
-<para>Clicking on <guibutton>Add to Dictionary</guibutton> will add the misspelled
+<para>Click on <guibutton>Add to Dictionary</guibutton> to add the misspelled
 word to your personal dictionary.</para>
 
 <para>The <guilabel>Personal Dictionary</guilabel> is a distinct dictionary from the
