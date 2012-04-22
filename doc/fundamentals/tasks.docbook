@@ -540,7 +540,8 @@ that will be used is listed in parenthesis at the end of the check box label.
 <mediaobject>
 <imageobject><imagedata fileref="files-save.png" format="PNG"/></imageobject>
 <textobject><phrase>The File Save window.</phrase></textobject>
-<caption><para>Saving a file in <ulink url="help:/konqueror">&konqueror;</ulink>.
+<caption><para>Saving a file in
+<ulink url="http://kde.org/applications/internet/konqueror/">&konqueror;</ulink>.
 </para></caption>
 </mediaobject>
 </screenshot>
