@@ -139,7 +139,7 @@ made since it was first loaded or last reloaded.</para></listitem>
 
 <varlistentry id="files-ui-toolbar-zoom">
 <term>Zoom Slider</term>
-<listitem><para>This allows to change the size of the icon or preview
+<listitem><para>This allows you to change the size of the icon or preview
 shown in the folder view.</para></listitem>
 </varlistentry>
 
