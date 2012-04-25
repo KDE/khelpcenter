@@ -51,7 +51,7 @@ of the application.</para>
 <para>You can also zoom using the keyboard by pressing
 <keycombo action="simul">&Ctrl;<keycap>+</keycap></keycombo> to zoom in, or
 <keycombo action="simul">&Ctrl;<keycap>-</keycap></keycombo> to zoom out.  If you
-can scoll with the mouse wheel or touchpad as described in
+can scroll with the mouse wheel or touchpad as described in
 <xref linkend="nav-scroll"/>, you can also zoom by pressing &Ctrl; and scrolling
 that way.</para>
 
@@ -281,7 +281,7 @@ The alternate shortcut for this action is <keycap>F8</keycap>.
 <varlistentry id="files-ui-toolbar-options-show-places">
 <term><menuchoice>
 <shortcut><keycap>F9</keycap></shortcut>
-<guimenu>Options</guimenu><guimenuitem>Show Places Navigational Panel</guimenuitem>
+<guimenu>Options</guimenu><guimenuitem>Show Places Navigation Panel</guimenuitem>
 </menuchoice></term>
 <listitem><para>Displays the places panel which provides quick access
 to bookmarked locations and disks or other media.</para></listitem>
