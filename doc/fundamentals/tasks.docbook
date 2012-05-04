@@ -13,6 +13,10 @@
 <sect2 id="nav-scroll">
 <title>Scrolling</title>
 
+<!-- FIXME
+Add Scrollbar context menu items:
+Scroll here, Top, Bottom, Page up, Page down, Scroll up, Scroll down
+-->
 <para>You're probably familiar with the scrollbar that appears on the right side
 (and sometimes the bottom) of documents, allowing you to move within documents.
 However, there are several other ways you can navigate documents, some of which
