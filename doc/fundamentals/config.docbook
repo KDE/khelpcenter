@@ -309,7 +309,7 @@ easily.</para>
 <screenshot id="screenshot-shortcuts-schemes">
 <screeninfo>Working with Schemes</screeninfo>
 <mediaobject>
-<imageobject><imagedata fileref="shortcuts-search.png" format="PNG"/></imageobject>
+<imageobject><imagedata fileref="shortcuts-schemes.png" format="PNG"/></imageobject>
 <textobject><phrase>The Customize Shortcuts window displaying the scheme
 editing tools.</phrase></textobject>
 <caption><para>Editing a scheme called <userinput>work</userinput>.</para></caption>
