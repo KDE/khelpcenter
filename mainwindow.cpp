@@ -149,7 +149,6 @@ MainWindow::MainWindow()
     QList<int> sizes;
     sizes << 220 << 580;
     mSplitter->setSizes(sizes);
-    setGeometry(366, 0, 800, 600);
 
     KSharedConfig::Ptr cfg = KGlobal::config();
     {
@@ -167,7 +166,7 @@ MainWindow::MainWindow()
     foreach (QAction *act, mDoc->actionCollection()->actions())
         actionCollection()->addAction(act->objectName(), act);
 
-    setupGUI(ToolBar | Keys | StatusBar | Create);
+    setupGUI(QSize(800, 600), ToolBar | Keys | StatusBar | Create);
     setAutoSaveSettings();
 
     History::self().installMenuBarHook( this );
