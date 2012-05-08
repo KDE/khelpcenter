@@ -84,7 +84,7 @@ printed document, or one screen up in other types of documents.</para></listitem
 <shortcut><keycap>PgDown</keycap></shortcut>
 <guimenuitem>Page down</guimenuitem>
 </menuchoice></term>
-<listitem><para>Navigate to the previous page in a document that represents a
+<listitem><para>Navigate to the next page in a document that represents a
 printed document, or one screen down in other types of documents.
 </para></listitem>
 </varlistentry>
