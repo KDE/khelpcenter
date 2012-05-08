@@ -665,7 +665,18 @@ dictionaries for the languages that you wish to use.</para>
 <sect2 id="spellcheck-check">
 <title>Check Spelling</title>
 
-<!--FIXME: screenshot-->
+<screenshot id="screenshot-spellcheck-check">
+<screeninfo>The Check Spelling Window</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="spellcheck-check.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase>The Check spelling window.</phrase>
+</textobject>
+<caption><para>Correcting a mispelling.</para></caption>
+</mediaobject>
+</screenshot>
 
 <para>To check spelling, go to <menuchoice><guimenu>Tools</guimenu>
 <guimenuitem>Spelling</guimenuitem></menuchoice>.</para>
