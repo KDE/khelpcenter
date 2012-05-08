@@ -43,7 +43,7 @@ system or desktop environment.</para>
 
 <para>Additionally, the scrollbar has several options in its context menu.  You
 can access these by right-clicking anywhere on the scrollbar.  The following
-options ar available:</para>
+options are available:</para>
 
 <variablelist>
 
@@ -677,7 +677,7 @@ dictionaries for the languages that you wish to use.</para>
 <textobject>
 <phrase>The Check spelling window.</phrase>
 </textobject>
-<caption><para>Correcting a mispelling.</para></caption>
+<caption><para>Correcting a misspelling.</para></caption>
 </mediaobject>
 </screenshot>
 
