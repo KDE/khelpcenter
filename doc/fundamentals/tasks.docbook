@@ -13,10 +13,6 @@
 <sect2 id="nav-scroll">
 <title>Scrolling</title>
 
-<!-- FIXME
-Add Scrollbar context menu items:
-Scroll here, Top, Bottom, Page up, Page down, Scroll up, Scroll down
--->
 <para>You're probably familiar with the scrollbar that appears on the right side
 (and sometimes the bottom) of documents, allowing you to move within documents.
 However, there are several other ways you can navigate documents, some of which
@@ -41,6 +37,70 @@ in the <ulink url="help:/kcontrol/mouse/">Mouse module in &systemsettings;</ulin
 and you can control touchpad scrolling behavior in the Touchpad module in
 &systemsettings;.  Otherwise, look in the configuration area of your operating
 system or desktop environment.</para>
+
+<para>Additionally, the scrollbar has several options in its context menu.  You
+can access these by right-clicking anywhere on the scrollbar.  The following
+options ar available:</para>
+
+<variablelist>
+
+<varlistentry id="nav-scroll-here">
+<term><guimenuitem>Scroll here</guimenuitem></term>
+<listitem><para>Scroll directly to the location represented by where you
+right-clicked on the scrollbar.  This is the equivalent of simply clicking on
+that location on the scrollbar.</para></listitem>
+</varlistentry>
+
+<varlistentry id="nav-scroll-top">
+<term><menuchoice>
+<shortcut><keycombo action="simul">&Ctrl;<keycap>Home</keycap></keycombo></shortcut>
+<guimenuitem>Top</guimenuitem>
+</menuchoice></term>
+<listitem><para>Go to the beginning of the document.</para></listitem>
+</varlistentry>
+
+<varlistentry id="nav-scroll-bottom">
+<term><menuchoice>
+<shortcut><keycombo action="simul">&Ctrl;<keycap>End</keycap></keycombo></shortcut>
+<guimenuitem>Bottom</guimenuitem>
+</menuchoice></term>
+<listitem><para>Go to the end of the document.</para></listitem>
+</varlistentry>
+
+<varlistentry id="nav-scroll-page-up">
+<term><menuchoice>
+<shortcut><keycap>PgUp</keycap></shortcut>
+<guimenuitem>Page up</guimenuitem>
+</menuchoice></term>
+<listitem><para>Navigate to the previous page in a document that represents a
+printed document, or one screen up in other types of documents.</para></listitem>
+</varlistentry>
+
+<varlistentry id="nav-scroll-page-down">
+<term><menuchoice>
+<shortcut><keycap>PgDown</keycap></shortcut>
+<guimenuitem>Page down</guimenuitem>
+</menuchoice></term>
+<listitem><para>Navigate to the previous pag in a document that represents a
+printed document, or one screen down in other types of documents.
+</para></listitem>
+</varlistentry>
+
+<varlistentry id="nav-scroll-up">
+<term><guilabel>Scroll up</guilabel></term>
+<listitem><para>Scroll up one unit (usually a line) in the document.  This is
+the equivalent of clicking the up arrow at the top of the scrollbar.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="nav-scroll-down">
+<term><guilabel>Scroll down</guilabel></term>
+<listitem><para>Scroll down one unit (usually a line) in the document.  This is
+the equivalent of clicking the down arrow at the bottom of the scrollbar.</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
 
 </sect2>
 
