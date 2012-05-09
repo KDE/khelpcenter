@@ -242,7 +242,7 @@ the standard keyboard shortcuts configuration panel, go to
 <menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure
 Shortcuts...</guimenuitem></menuchoice>.</para>
 
-<para>In the Configure Shortcuts window, you will see a list of all the hotkeys
+<para>In the Configure Shortcuts window, you will see a list of all the shortcuts
 available in the current application. You can use the search box at the top to
 search for the shortcut you want.</para>
 
@@ -260,40 +260,40 @@ search for the shortcut you want.</para>
 </sect2>
 
 <sect2 id="shortcuts-change">
-<title>Changing a Hotkey</title>
+<title>Changing a Shortcut</title>
 
-<para>To change a hotkey, first click on the name of a shortcut you want to change.
-You will see a radio group where you can choose whether to set the hotkey to its
-default value, or select a new hotkey for the selected action. To set a new hotkey,
+<para>To change a shortcut, first click on the name of a shortcut you want to change.
+You will see a radio group where you can choose whether to set the shortcut to its
+default value, or select a new shortcut for the selected action. To set a new shortcut,
 choose <guilabel>Custom</guilabel> and click on the button next to it. Then just
-type the hotkey you would like to use, and your changes will be saved.</para>
+type the shortcut you would like to use, and your changes will be saved.</para>
 
 <screenshot id="screenshot-shortcuts-set">
-<screeninfo>Setting a Hotkey</screeninfo>
+<screeninfo>Setting a Shortcut</screeninfo>
 <mediaobject>
 <imageobject><imagedata fileref="shortcuts-set.png" format="PNG"/></imageobject>
 <textobject><phrase>The Customize Shortcuts window demonstrating how to
-set a hotkey.</phrase></textobject>
+set a shortcut.</phrase></textobject>
 </mediaobject>
 </screenshot>
 
 </sect2>
 
 <sect2 id="shortcuts-reset">
-<title>Resetting Hotkeys</title>
+<title>Resetting Shortcuts</title>
 <para>There is a button at the bottom of the window, called <guibutton>Reset to
 Defaults</guibutton>. Clicking on this button will reset all your custom shortcuts
 to their default values.</para>
 
-<para>You can also reset an individual hotkey to its default value by selecting
+<para>You can also reset an individual shortcut to its default value by selecting
 it, and choosing the <guilabel>Default</guilabel> radio button.</para>
 
 </sect2>
 
 <sect2 id="shortcuts-delete">
-<title>Removing a Hotkey</title>
+<title>Removing a Shortcut</title>
 
-<para>To remove a hotkey, select it from the list, then click the remove icon (a
+<para>To remove a shortcut, select it from the list, then click the remove icon (a
 black arrow with a cross) to the right of the button that allows you to select
 a shortcut.</para>
 
@@ -303,8 +303,12 @@ a shortcut.</para>
 <title>Working with Schemes</title>
 
 <para>Schemes are keyboard shortcuts configuration profiles, so you can create
-several profiles with different hotkeys and switch between these profiles
+several profiles with different shortcuts and switch between these profiles
 easily.</para>
+
+<warning><para>This feature is under development.  It is not possible to import
+schemes at this time, and you may experience difficulty exporting them under
+certain circumstances.</para></warning>
 
 <screenshot id="screenshot-shortcuts-schemes">
 <screeninfo>Working with Schemes</screeninfo>
@@ -358,6 +362,14 @@ a name for your new scheme.</para></listitem>
 </listitem>
 </varlistentry>
 </variablelist>
+
+</sect2>
+
+<sect2 id="shortcuts-print">
+<title>Printing Shortcuts</title>
+
+<para>You can print out a list of shortcuts for easy reference by clicking the
+<guibutton>Print</guibutton> button at the bottom of the window.</para>
 
 </sect2>
 
