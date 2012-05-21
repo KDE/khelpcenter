@@ -8,5 +8,5 @@ endif (NOT WIN32)
 
 ########### install files ###############
 
-install( FILES plasma.desktop onlinehelp.desktop info.desktop kicmodules.desktop kcontrolmodules.desktop  kioslaves.desktop  DESTINATION  ${DATA_INSTALL_DIR}/khelpcenter/plugins )
+install( FILES fundamentals.desktop plasma.desktop onlinehelp.desktop info.desktop kicmodules.desktop kcontrolmodules.desktop  kioslaves.desktop  DESTINATION  ${DATA_INSTALL_DIR}/khelpcenter/plugins )
 
