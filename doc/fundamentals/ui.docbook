@@ -361,6 +361,17 @@ information, see <xref linkend="spellcheck-config"/>.
 
 <varlistentry>
 <term><menuchoice>
+<shortcut>
+<keycombo action="simul">&Ctrl;<keycap>M</keycap></keycombo>
+</shortcut>
+<guimenu>Settings</guimenu>
+<guimenuitem>Show Menubar</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Hides and shows the menubar.</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
 <guimenu>Settings</guimenu><guisubmenu>Toolbars Shown</guisubmenu>
 </menuchoice></term>
 <listitem><para>
@@ -456,7 +467,8 @@ report a bug or request a <quote>wishlist</quote> feature.</para></listitem>
 edit the <guilabel>Primary language</guilabel> and <guilabel>Fallback language</guilabel>
 for this application.</para></listitem>
 </varlistentry>
-
+<!--FIXME: which languages are available here? how is that determined?
+-->
 <varlistentry>
 <term><menuchoice>
 <guimenu>Help</guimenu>
