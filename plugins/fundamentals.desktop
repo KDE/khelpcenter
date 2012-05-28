@@ -2,11 +2,15 @@
 X-DocPath=help:/fundamentals/index.html
 Icon=system-help
 Name=KDE Fundamentals
+Name[ca]=KDE Fundamentals
 Name[gl]=Esenciais de KDE
+Name[hu]=KDE Fundamentals
 Name[ia]=Fundamentales de KDE
 Name[nl]=KDE-fundamentals
+Name[pa]=KDE ਮੂਲ
 Name[pt]=Fundamentos do KDE
 Name[pt_BR]=Fundamentos do KDE
+Name[ro]=Noțiuni de bază KDE
 Name[sv]=KDE:s grunder
 Name[uk]=Основи KDE
 Name[x-test]=xxKDE Fundamentalsxx
