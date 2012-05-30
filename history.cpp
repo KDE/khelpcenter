@@ -300,7 +300,7 @@ void History::fillGoMenu()
     if ( m_goMenuHistoryStartPos > (int) m_entries.count() - 4 )
       m_goMenuHistoryStartPos = m_entries.count() - 1;
   }
-  Q_ASSERT( m_goMenuHistoryStartPos >= 0 && (uint)m_goMenuHistoryStartPos < m_entries.count() );
+  Q_ASSERT( m_goMenuHistoryStartPos >= 0 && (int) m_goMenuHistoryStartPos < m_entries.count() );
   m_goMenuHistoryCurrentPos = m_entries_current - m_entries.begin(); // for slotActivated
   fillHistoryPopup( goMenu, false, false, true, m_goMenuHistoryStartPos );
 }
