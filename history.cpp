@@ -333,7 +333,12 @@ void History::fillHistoryPopup( QMenu *popup, bool onlyBack, bool onlyForward, b
   if (onlyBack || onlyForward)
   {
     it = m_entries_current; // Jump to current item
-    if ( !onlyForward ) ++it; else --it; // And move off it
+    // And move off it
+    if ( !onlyForward ) {
+        if ( it != m_entries.end() ) ++it;
+    } else {
+        if ( it != m_entries.begin() ) --it;
+    }
   } else if ( startPos )
     it += startPos; // Jump to specified start pos
 
@@ -351,7 +356,15 @@ void History::fillHistoryPopup( QMenu *popup, bool onlyBack, bool onlyForward, b
     }
     if ( ++i > 10 )
       break;
-    if ( !onlyForward ) ++it; else --it;
+    if ( !onlyForward ) {
+        ++it;
+    } else {
+        if ( it == m_entries.begin() ) {
+            it = m_entries.end();
+        } else {
+            --it;
+        }
+    }
   }
 }
 
