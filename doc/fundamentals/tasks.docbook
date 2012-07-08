@@ -799,7 +799,7 @@ many &kde; applications. For more information on this menu, see
 <imageobject><imagedata fileref="find-find.png" format="PNG"/></imageobject>
 <textobject><phrase>The Find window.</phrase></textobject>
 <caption><para>Searching for <userinput>software</userinput> in
-<ulink url="http://kde.org/applications/internet/kmail/">&kmail;</ulink>.
+<ulink url="http://kde.org/applications/internet/kmail/">&kmail;'s composer window</ulink>.
 </para></caption>
 </mediaobject>
 </screenshot>
@@ -878,6 +878,17 @@ or by pressing <keycap>F3</keycap>.</para>
 </mediaobject>
 </screenshot>
 
+<!--FIXME explain different appearance in kate etc - no seperate window, but a find bar-->
+<screenshot id="screenshot-find-find-inline">
+<screeninfo>The Find bar &kate;.</screeninfo>
+<mediaobject>
+<imageobject><imagedata fileref="find-find-inline.png" format="PNG"/></imageobject>
+<textobject><phrase>The Find bar in kate;.</phrase></textobject>
+<caption><para>Searching for <userinput>software</userinput> in &kate;'s Find bar.
+</para></caption>
+</mediaobject>
+</screenshot>
+
 </sect2>
 
 <sect2 id="find-replace">
@@ -942,6 +953,19 @@ to replace the found text.</para></listitem>
 </varlistentry>
 
 </variablelist>
+
+<!--FIXME explain different appearance in kate etc - no separate window, but a find + replace bar-->
+
+<screenshot id="screenshot-find-replace-inline">
+<screeninfo>The Find and Replace bar.</screeninfo>
+<mediaobject>
+<imageobject><imagedata fileref="find-replace-inline.png" format="PNG"/></imageobject>
+<textobject><phrase>The Find and Replace bar.</phrase></textobject>
+<caption><para>Replacing <userinput>kmail</userinput> with
+<userinput>kate</userinput> in &kate;'s Find and Replace bar</para></caption>
+</mediaobject>
+</screenshot>
+
 </sect2>
 
 <sect2 id="find-ack">
