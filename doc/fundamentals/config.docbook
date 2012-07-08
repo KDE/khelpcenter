@@ -361,7 +361,7 @@ a name for your new scheme.</para></listitem>
 <listitem><para>Exports the current scheme to a file named <filename><replaceable>applicationname</replaceable><replaceable>schemename</replaceable>shortcuts.rc</filename>.</para>
 <para>
 Move this file to the folder <filename class="directory">$KDEDIR/apps/applicationname/</filename> 
-and it will be available in the drop down box labelled <guilabel>Current Scheme</guilabel>
+and the exported scheme will be available in the drop down box labelled <guilabel>Current Scheme</guilabel>
 </para></listitem>
 </varlistentry>
 
