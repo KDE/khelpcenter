@@ -311,8 +311,7 @@ several profiles with different shortcuts and switch between these profiles
 easily.</para>
 
 <warning><para>This feature is under development.  It is not possible to import
-schemes at this time, and you may experience difficulty exporting them under
-certain circumstances.</para></warning>
+schemes using a &GUI; at this time.</para></warning>
 
 <screenshot id="screenshot-shortcuts-schemes">
 <screeninfo>Working with Schemes</screeninfo>
@@ -359,7 +358,11 @@ a name for your new scheme.</para></listitem>
 
 <varlistentry>
 <term><guimenuitem>Export Scheme</guimenuitem></term>
-<listitem><para>Exports the current scheme to a file.</para></listitem>
+<listitem><para>Exports the current scheme to a file named <filename><replaceable>applicationname</replaceable><replaceable>schemename</replaceable>shortcuts.rc</filename>.</para>
+<para>
+Move this file to the folder <filename class="directory">$KDEDIR/apps/applicationname/</filename> 
+and it will be available in the drop down box labelled <guilabel>Current Scheme</guilabel>
+</para></listitem>
 </varlistentry>
 
 </variablelist>

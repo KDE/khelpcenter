@@ -1,6 +1,7 @@
 <chapter id="tasks">
 <title>Common Tasks</title>
 
+<!--FIXME add Scanning here?-->
 <sect1 id="nav">
 <sect1info>
 <authorgroup>
@@ -442,7 +443,7 @@ crumb mode, click the check mark at the right of the location bar with the &LMB;
 </listitem>
 </varlistentry>
 
-<!--currently in dolphin only, should be added to 4.9 file dialog
+<!--currently in dolphin only, should be added to the file dialog when  this is implemented there 4.9/10?
 <varlistentry id="files-ui-location-context">
 <term>Places</term>
 
@@ -504,7 +505,7 @@ the path starting with the current places entry.
 items in the current directory.  To select a file, you can double-click on it,
 or choose one and hit <guibutton>Open</guibutton> or
 <guibutton>Save</guibutton>.</para>
-
+<!-- FIXME select a file by typing the first letters of its name-->
 <para>You can also select multiple files at once.  To select specific files, or
 to unselect specific files that are already selected, press and hold &Ctrl;,
 click on each file, then release &Ctrl;.  To select a

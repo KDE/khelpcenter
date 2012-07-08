@@ -128,7 +128,11 @@ Style issues:
 Task oriented
 Avoid variablelist for obvious terms like e. g. Left/Right
 
- -->
+FIXME missing stuff:
+
+add a11y docbooks from koffice 1.6?
+
+-->
 <!--
 Local Variables:
 mode: sgml
