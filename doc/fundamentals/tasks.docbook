@@ -864,8 +864,7 @@ selected, not the entire document.  It is disabled when no text is selected.
 </variablelist>
 
 <para>The Find function only selects the first match that it finds. You can
-continue searching by selecting
-<menuchoice><guimenu>Edit</guimenu><guimenuitem>Find Next</guimenuitem></menuchoice>
+continue searching by selecting <menuchoice><guimenu>Edit</guimenu><guimenuitem>Find Next</guimenuitem></menuchoice>
 or by pressing <keycap>F3</keycap>.</para>
 
 <screenshot id="screenshot-find-found">
@@ -878,13 +877,17 @@ or by pressing <keycap>F3</keycap>.</para>
 </mediaobject>
 </screenshot>
 
-<!--FIXME explain different appearance in kate etc - no seperate window, but a find bar-->
+<!--FIXME
+Copy documentation from Kate/KWrite here.
+  -->
+<para>Applications which use &kde; text editor component show search bar instead of Find window. See <ulink url="help:/kwrite/edit.html#find">&kwrite; documentation</ulink> for additional information on search bar.</para>
+
 <screenshot id="screenshot-find-find-inline">
-<screeninfo>The Find bar &kate;.</screeninfo>
+<screeninfo>The search bar &kate;.</screeninfo>
 <mediaobject>
 <imageobject><imagedata fileref="find-find-inline.png" format="PNG"/></imageobject>
-<textobject><phrase>The Find bar in kate;.</phrase></textobject>
-<caption><para>Searching for <userinput>software</userinput> in &kate;'s Find bar.
+<textobject><phrase>The search bar in kate;.</phrase></textobject>
+<caption><para>Searching for <userinput>software</userinput> in &kate;'s search bar.
 </para></caption>
 </mediaobject>
 </screenshot>
@@ -954,15 +957,18 @@ to replace the found text.</para></listitem>
 
 </variablelist>
 
-<!--FIXME explain different appearance in kate etc - no separate window, but a find + replace bar-->
+<!--FIXME
+Copy documentation from Kate/KWrite here.
+  -->
+<para>Applications which use &kde; text editor component show search and replace bar instead of Replace window. See <ulink url="help:/kwrite/edit.html#replace">&kwrite; documentation</ulink> for additional information on search and replace bar.</para>
 
 <screenshot id="screenshot-find-replace-inline">
-<screeninfo>The Find and Replace bar.</screeninfo>
+<screeninfo>The search and replace bar.</screeninfo>
 <mediaobject>
 <imageobject><imagedata fileref="find-replace-inline.png" format="PNG"/></imageobject>
-<textobject><phrase>The Find and Replace bar.</phrase></textobject>
+<textobject><phrase>The search and replace bar.</phrase></textobject>
 <caption><para>Replacing <userinput>kmail</userinput> with
-<userinput>kate</userinput> in &kate;'s Find and Replace bar</para></caption>
+<userinput>kate</userinput> in &kate;'s search and replace bar</para></caption>
 </mediaobject>
 </screenshot>
 
