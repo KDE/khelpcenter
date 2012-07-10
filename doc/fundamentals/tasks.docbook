@@ -886,7 +886,7 @@ Copy documentation from Kate/KWrite here.
 <screeninfo>The search bar &kate;.</screeninfo>
 <mediaobject>
 <imageobject><imagedata fileref="find-find-inline.png" format="PNG"/></imageobject>
-<textobject><phrase>The search bar in kate;.</phrase></textobject>
+<textobject><phrase>The search bar in &kate;.</phrase></textobject>
 <caption><para>Searching for <userinput>software</userinput> in &kate;'s search bar.
 </para></caption>
 </mediaobject>
