@@ -13,7 +13,6 @@
 <!--FIXME link from korganizer config-toolbars section-->
 <!--FIXME link from <sect2 id="configtoolbars"> in tables/config.docbook> -->
 <!--FIXME link from <sect2 id="configuration-toolbars"> in extragear/multimedia-git/kplayer/doc/en_US/configuration.docbook -->
-<!--FIXME link from lokalize -->
 <screenshot id="screenshot-toolbars-toolbar">
 <screeninfo>The &gwenview; Toolbar</screeninfo>
 <mediaobject>
@@ -232,7 +231,6 @@ of this section.</para>
  <!--FIXME link from
  <sect2 id="configshort"> in tables/config.docbook>
  <sect2 id="configuration-shortcuts"> in extragear/multimedia-git/kplayer/doc/en_US/configuration.docbook
- lokalize 
  -->
 <!--FIXME explain Alternate + Global shortcuts in Screenshot and 
 another place to change Global Shortcuts (Systemsettings)-->
