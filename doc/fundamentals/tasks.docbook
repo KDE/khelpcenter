@@ -836,7 +836,7 @@ return results even in the middle of other text.  For instance, if you search
 for <quote>is</quote> it will stop on every word that contains that,
 like <quote>th<emphasis>is</emphasis></quote> or
 <quote>h<emphasis>is</emphasis>tory</quote>. If you check this option, the
-application will only return results when the search text a word by itself,
+application will only return results when the search text is a word by itself,
 that is, surrounded by whitespace.</para></listitem>
 </varlistentry>
 
@@ -856,7 +856,7 @@ option, it will instead start at the end and work its way to the beginning.
 
 <varlistentry>
 <term><guilabel>Selected text</guilabel></term>
-<listitem><para>Select this option to search only the text that is currently
+<listitem><para>Select this option to search only in the text that is currently
 selected, not the entire document.  It is disabled when no text is selected.
 </para></listitem>
 </varlistentry>
