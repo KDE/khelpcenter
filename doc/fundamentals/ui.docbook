@@ -457,7 +457,9 @@ function.</para></listitem>
 <listitem><para><action>Opens the Bug report dialog</action> where you can
 report a bug or request a <quote>wishlist</quote> feature.</para></listitem>
 </varlistentry>
-
+<!--two different dialogs, either via web (default if aboutData->bugAddress() == "" or == "submit@bugs.kde.org" ) 
+or via email (see krecipes doc rev 1306076)
+-->
 <varlistentry>
 <term><menuchoice>
 <guimenu>Help</guimenu>
@@ -487,7 +489,7 @@ information for the running application.</action></para></listitem>
 information.</action></para></listitem>
 </varlistentry>
 </variablelist>
-
+<!-- Tip of the Day missing-->
 </sect2>
 
 <sect2 id="menus-ack">

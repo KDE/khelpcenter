@@ -11,7 +11,7 @@
 <title>Customizing Toolbars</title>
 
 <!--FIXME link from korganizer config-toolbars section-->
-<!--FIXME link from <sect2 id="configtoolbars"> in tables/config.docbook> -->
+<!--FIXME link from <sect2 id="configtoolbars"> in sheets/config.docbook> -->
 <!--FIXME link from <sect2 id="configuration-toolbars"> in extragear/multimedia-git/kplayer/doc/en_US/configuration.docbook -->
 <screenshot id="screenshot-toolbars-toolbar">
 <screeninfo>The &gwenview; Toolbar</screeninfo>

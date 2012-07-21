@@ -657,7 +657,7 @@ writing parts of this section.</para>
 </sect1info>
 <title>Check Spelling</title>
 
-<para>&sonnet;; is the spelling checker used by &kde; applications such as &kate;,
+<para>&sonnet; is the spelling checker used by &kde; applications such as &kate;,
 &kmail;, and &kword;. It is a &GUI; frontend to various free spell checkers.</para>
 
 <para>To use &sonnet; you need to install a spell checker like
