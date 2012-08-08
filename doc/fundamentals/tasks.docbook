@@ -497,7 +497,9 @@ the path starting with the current places entry.
 <listitem><para>This provides the standard &kde; list of Places, shared with
 &dolphin; and other file management tools.</para></listitem>
 </varlistentry>
-
+<!-- add options for places here 
+e.g "Show only in" to have kind a bookmarks special for an application etc.
+  -->
 <varlistentry id="files-ui-folder-view">
 <term>The Folder View</term>
 <listitem>

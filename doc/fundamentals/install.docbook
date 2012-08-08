@@ -92,9 +92,7 @@ provided for several different devices.</para>
 
 </sect2>
 
-</sect1>
-
-<sect1 id="install-live">
+<sect2 id="install-live">
 <title>Live Media</title>
 
 <para>Several &Linux; and &BSD; distributions offer live media.  This permits you
@@ -105,9 +103,9 @@ like what you see, most offer an option to install it to your hard drive.</para>
 <para>There is <ulink url="http://www.kde.org/download/distributions.php">a list
 of distributions that offer &kde; on live media</ulink> on the &kde; website.</para>
 
-</sect1>
+</sect2>
 
-<sect1 id="install-source">
+<sect2 id="install-source">
 <title>Building from Source Code</title>
 
 <para>For detailed information on how to compile and install &kde;
@@ -118,6 +116,7 @@ Building and Running &kde; Software From Source on &kde; TechBase</ulink>.</para
 <para>Since &kde; uses <command>cmake</command> you should have no
 trouble compiling it. Should you run into problems please report them to the
 &kde; mailing lists.</para>
+</sect2>
 
 </sect1>
 

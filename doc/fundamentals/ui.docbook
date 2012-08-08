@@ -398,7 +398,15 @@ Allows you to customize the contents, layout, text, and icons of toolbars.  For
 more information, see <xref linkend="toolbars"/>.
 </para></listitem>
 </varlistentry>
-
+<!-- missing
+<varlistentry>
+<term><menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure
+Notifications...</guimenuitem></menuchoice></term>
+<listitem><para>This item displays a standard &kde; notifications configuration
+dialog, where you can change the notifications (sounds, visible messages,
+&etc;) used by the application.</para></listitem>
+</varlistentry>
+-->
 <varlistentry>
 <term><menuchoice>
 <guimenu>Settings</guimenu><guimenuitem>Configure <replaceable>Application</replaceable>...</guimenuitem>
