@@ -277,6 +277,7 @@ void Glossary::buildGlossaryTree()
             m_glossEntries.insert( entryId, new GlossaryEntry( term, definition, seeAlso ) );
         }
     }
+    sortItems(0, Qt::AscendingOrder);
 }
 
 void Glossary::treeItemSelected( QTreeWidgetItem *item )
