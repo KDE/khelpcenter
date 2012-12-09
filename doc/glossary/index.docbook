@@ -69,9 +69,9 @@ itemizedlist+listitem changed to simple para -->
 		</glossentry>
 		<glossentry id="gloss-flake">
 			<glossterm>Flake</glossterm>
-			<glossdef><para>Flake is a programming library to be used in &koffice; 2. Functionally, it provides Shapes to display content and Tools to manipulate content. Shapes can be zoomed or rotated and can be grouped to work as a single Shape, around which text flow is possible.&newpara;
+			<glossdef><para>Flake is a programming library to be used in &koffice;/Calligra. Functionally, it provides Shapes to display content and Tools to manipulate content. Shapes can be zoomed or rotated and can be grouped to work as a single Shape, around which text flow is possible.&newpara;
 				More info:&newpara;
-				&linkstart;"http://wiki.koffice.org/index.php?title=Flake"&linkmid;KOffice Wiki: Flake&linkend;</para>
+				&linkstart;"http://community.kde.org/Calligra/Libs/Flake"&linkmid;&kde; Community Wiki: Flake&linkend;</para>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 				<glossseealso otherterm="gloss-kparts">KParts</glossseealso>
 			</glossdef>
