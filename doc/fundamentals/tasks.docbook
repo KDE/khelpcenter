@@ -685,7 +685,7 @@ dictionaries for the languages that you wish to use.</para>
 </screenshot>
 
 <para>To check spelling, go to <menuchoice><guimenu>Tools</guimenu>
-<guimenuitem>Spelling</guimenuitem></menuchoice>.</para>
+<guimenuitem>Spelling...</guimenuitem></menuchoice>.</para>
 
 <para>If a word is possibly misspelled in your document, it is displayed in the
 top line in the dialog. &sonnet; tries to appropriate word(s) for replacement.
@@ -745,7 +745,7 @@ personal dictionary.</para>
 <title>Configuring &sonnet;</title>
 
 <para>To change your dictionary, go to <menuchoice><guimenu>Tools</guimenu>
-<guimenuitem>Change Dictionary</guimenuitem></menuchoice>. A small window will
+<guimenuitem>Change Dictionary...</guimenuitem></menuchoice>. A small window will
 appear at the bottom of the current document that will allow you to change your
 dictionary.</para>
 
@@ -807,7 +807,7 @@ many &kde; applications. For more information on this menu, see
 </screenshot>
 
 <para>To use Find in many applications, go to <menuchoice><guimenu>Edit</guimenu>
-<guimenuitem>Find</guimenuitem></menuchoice> or press
+<guimenuitem>Find...</guimenuitem></menuchoice> or press
 <keycombo action="simul">&Ctrl;<keycap>F</keycap></keycombo>. Then, in the
 <guilabel>Text to find:</guilabel> text box, enter the text that you want to
 find.</para>
@@ -901,7 +901,7 @@ Copy documentation from Kate/KWrite here.
 
 <para>The Replace function searches for text in a document and replaces it with
 other text. You can find it in many application at
-<menuchoice><guimenu>Edit</guimenu><guisubmenu>Replace</guisubmenu></menuchoice>
+<menuchoice><guimenu>Edit</guimenu><guisubmenu>Replace...</guisubmenu></menuchoice>
 or by pressing <keycombo action="simul">&Ctrl;<keycap>R</keycap></keycombo>.</para>
 
 <screenshot id="screenshot-find-replace">

@@ -69,7 +69,7 @@ Opens a new window.
 <varlistentry>
 <term><menuchoice>
 <shortcut><keycombo action="simul">&Ctrl;<keycap>O</keycap></keycombo></shortcut>
-<guimenu>File</guimenu><guimenuitem>Open</guimenuitem>
+<guimenu>File</guimenu><guimenuitem>Open...</guimenuitem>
 </menuchoice></term>
 <listitem><para>
 Opens an already existing file.
@@ -88,7 +88,7 @@ Saves the file. If the file already exists it will be overwritten.
 
 <varlistentry>
 <term><menuchoice>
-<guimenu>File</guimenu><guimenuitem>Save As</guimenuitem>
+<guimenu>File</guimenu><guimenuitem>Save As...</guimenuitem>
 </menuchoice></term>
 <listitem><para>
 Saves the file with a new filename.
@@ -126,7 +126,7 @@ Reloads all open files.
 <varlistentry>
 <term><menuchoice>
 <shortcut><keycombo action="simul">&Ctrl;<keycap>P</keycap></keycombo></shortcut>
-<guimenu>File</guimenu><guimenuitem>Print</guimenuitem>
+<guimenu>File</guimenu><guimenuitem>Print...</guimenuitem>
 </menuchoice></term>
 <listitem><para>
 Prints the file.
@@ -340,7 +340,7 @@ text in the document.  For more information, see <xref linkend="spellcheck-check
 
 <varlistentry>
 <term><menuchoice>
-<guimenu>Tools</guimenu><guimenuitem>Change Dictionary</guimenuitem>
+<guimenu>Tools</guimenu><guimenuitem>Change Dictionary...</guimenuitem>
 </menuchoice></term>
 <listitem><para>
 This allows you to change the dictionary used to check spellings.  For more
