@@ -33,7 +33,7 @@ Toolbars...</guimenuitem></menuchoice> or right-click on a toolbar and select
 <guimenuitem>Configure Toolbars...</guimenuitem>.</para>
 
 <para>On the left side of the toolbar configuration panel, the available items
-that you can put in you toolbar are shown. On the right, the ones that already
+that you can put in your toolbar are shown. On the right, the ones that already
 appear on the toolbar are shown.  At the top, you can select the toolbar
 you wish to modify or view.</para>
 
@@ -79,7 +79,7 @@ On vertical toolbars, items are arranged as they appear in the toolbar.</para>
 <sect3 id="toolbars-items-separator">
 <title>Adding a Separator</title>
 <para>You can add separator lines between items by adding a
-<guilabel>--separator--</guilabel> item to the toolbar.</para>
+<guilabel>--- separator ---</guilabel> item to the toolbar.</para>
 </sect3>
 
 <sect3 id="toolbars-items-defaults">
@@ -350,7 +350,7 @@ a name for your new scheme.</para></listitem>
 <variablelist>
 
 <varlistentry>
-<term><guimenuitem>Save as Scheme Default</guimenuitem></term>
+<term><guimenuitem>Save as Scheme Defaults</guimenuitem></term>
 <listitem><para>Sets the current scheme as the default for all new schemes.</para></listitem>
 </varlistentry>
 
