@@ -140,11 +140,11 @@ that way.</para>
 <sect2 id="files-intro">
 <title>Introduction</title>
 
-<para>Many &kappname; applications work with files.  Most applications have a
+<para>Many &kde; applications work with files.  Most applications have a
 <guimenu>File</guimenu> menu with options that allow you to open and save files.
 For more information on that, see <xref linkend="menus-file"/>.  However,
 there are lots of different operations that require selecting a file. Regardless
-of the method, all &kappname; applications generally use the same file selection
+of the method, all &kde; applications generally use the same file selection
 window.</para>
 
 <screenshot id="screenshot-files-open">

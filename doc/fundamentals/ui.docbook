@@ -19,7 +19,7 @@
 
 <title>Common Menus</title>
 
-<para>Many &kappname; applications contain these menus.  However, most
+<para>Many &kde; applications contain these menus.  However, most
 applications will have more menu entries than those listed here, and others may
 be missing some of the entries listed here.</para>
 
@@ -493,8 +493,8 @@ information for the running application.</action></para></listitem>
 <guimenu>Help</guimenu>
 <guimenuitem>About KDE</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>This displays the KDE version and other basic
-information.</action></para></listitem>
+<listitem><para><action>This displays the &kde; Development Platform version
+and other basic information.</action></para></listitem>
 </varlistentry>
 </variablelist>
 <!-- Tip of the Day missing-->

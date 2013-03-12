@@ -1,7 +1,7 @@
 <chapter id="install">
-<title>Installing &kde;</title>
+<title>Installing the &kappname;</title>
 
-<para>You can install &kde; on a variety of different platforms, ranging from
+<para>You can install the &kappname; on a variety of different platforms, ranging from
 smartphones and tablets to computers running &Microsoft; &Windows;, &MacOS;,
 &UNIX;, &BSD; or &Linux;.  Binary packages are available for many different
 platforms and distributions, or advanced users may build the source code.</para>
@@ -101,8 +101,7 @@ All you have to do insert a CD or connect a USB drive and boot from it.  If you
 like what you see, most offer an option to install it to your hard drive.</para>
 
 <para>There is <ulink url="http://www.kde.org/download/distributions.php">a list
-of distributions that offer &kde; on live media</ulink> on the &kde; website.</para>
-
+of distributions that offer the &kappname; on live media</ulink> on the &kde; website.</para>
 </sect2>
 
 <sect2 id="install-source">
@@ -113,8 +112,8 @@ applications see
 <ulink url="http://techbase.kde.org/Getting_Started#Building_and_Running_KDE_Software_From_Source">
 Building and Running &kde; Software From Source on &kde; TechBase</ulink>.</para>
 
-<para>Since &kde; uses <command>cmake</command> you should have no
-trouble compiling it. Should you run into problems please report them to the
+<para>Since &kde; software uses <command>cmake</command> you should
+have no trouble compiling it. Should you run into problems please report them to the
 &kde; mailing lists.</para>
 </sect2>
 
