@@ -372,6 +372,18 @@ information, see <xref linkend="spellcheck-config"/>.
 
 <varlistentry>
 <term><menuchoice>
+<guimenu>Settings</guimenu>
+<guimenuitem>Show Statusbar</guimenuitem>
+</menuchoice></term>
+<listitem>
+<para>
+Toggles the display of the statusbar on and off. Some &kde; applications use statusbar at the bottom of their screen to display useful information. 
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
 <guimenu>Settings</guimenu><guisubmenu>Toolbars Shown</guisubmenu>
 </menuchoice></term>
 <listitem><para>
