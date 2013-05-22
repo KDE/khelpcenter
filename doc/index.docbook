@@ -14,8 +14,8 @@
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 <legalnotice>&FDLNotice;</legalnotice>
-<date>2011-07-23</date>
-<releaseinfo>&kde; 4.7</releaseinfo>
+<date>2013-05-22</date>
+<releaseinfo>&kde; 4.11</releaseinfo>
 
 <abstract>
 <para>
@@ -42,8 +42,8 @@ educational, graphics and software development.
 
 <!-- ui-catalogs: khelpcenter desktop_kdebase kdelibs4 -->
 
-<chapter id="help-system-user-manual">
-<title>&kde; Help System User Manual</title>
+<chapter id="help-system-handbook">
+<title>&kde; Help System Handbook</title>
 <anchor id="help"/>
 
 <sect1 id="help-introduction">
@@ -101,7 +101,7 @@ The most common will probably be from within an application.  Choose
 <keycombo action="simul"><keycap>F1</keycap></keycombo>
 </shortcut>
 <guimenu>Help</guimenu>
-<guimenuitem>Application&apos;s Handbook</guimenuitem></menuchoice> to open that
+<guimenuitem><replaceable>Application</replaceable> Handbook</guimenuitem></menuchoice> to open that
 application's handbook.  
 </para>
 </listitem>
@@ -217,32 +217,41 @@ files themselves, on the left and right respectively.
 </para>
 
 <sect2 id="contents-pane">
-<title>The <guilabel>Contents</guilabel> pane</title>
+<title>The Contents Pane</title>
 
 <para>
-The <guilabel>Contents</guilabel> pane in &khelpcenter; is
+The contents pane in &khelpcenter; is
 displayed on the left hand side of the window.  As you might expect, you
 can move the splitter bar, to make sure you can comfortably read the
 contents of either pane.
 </para> 
 
 <para>
-The <guilabel>Contents</guilabel> pane is further divided into two
-tabs, one containing a <link linkend="contents-menu">menu</link>
+The contents pane is further divided into two
+tabs, one containing a <link linkend="contents-tab">tree view</link>
 showing all the help information &khelpcenter; is aware of, and the
 other contains the &kde; <link linkend="kde-glossary">glossary</link>
 of terms.
 </para>
 
-<sect3 id="contents-menu">
-<title>The <guilabel>Contents</guilabel> Menu</title>
+<sect3 id="contents-tab">
+<title>The Contents Tab</title>
 
 <para>
-The <guilabel>Contents</guilabel> contains the following default
-entries:
+The <guilabel>Contents</guilabel> tab contains the following default
+top level entries in the tree view:
 </para> 
 
 <variablelist>
+
+<varlistentry>
+<term><guilabel>&kde; Fundamentals</guilabel></term>
+<listitem>
+<para>The Fundamentals introduce you to the many features of the &kde; Software Collection and 
+describe many common tasks you can perform in all &kde; applications.
+</para>
+</listitem>
+</varlistentry>
 
 <varlistentry>
 <term><guilabel>Plasma Manual</guilabel></term>
@@ -624,12 +633,15 @@ The menus contain the following entries:
 <listitem>
 
 <variablelist>
-<!--
+
 <varlistentry>
 <term>
 <menuchoice>
+<shortcut>
+<keycombo action="simul">&Ctrl;<keycap>P</keycap></keycombo>
+</shortcut>
 <guimenu>File</guimenu>
-<guimenuitem>Print Frame...</guimenuitem>
+<guimenuitem>Print</guimenuitem>
 </menuchoice>
 </term>
 <listitem>
@@ -638,7 +650,7 @@ Print the contents of the currently visible page.
 </para>
 </listitem>
 </varlistentry>
--->
+
 <varlistentry>
 <term>
 <menuchoice>
@@ -821,34 +833,6 @@ Last Search Result
 <term>
 <menuchoice>
 <guimenu>Settings</guimenu>
-<guimenuitem>Show Toolbar</guimenuitem>
-</menuchoice>
-</term>
-<listitem>
-<para>
-Hides the toolbar that contains the icons at the top of the application.
-</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term>
-<menuchoice>
-<guimenu>Settings</guimenu>
-<guimenuitem>Show Statusbar</guimenuitem>
-</menuchoice>
-</term>
-<listitem>
-<para>
-Shows or hides the statusbar which is located at the bottom of the application.
-</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term>
-<menuchoice>
-<guimenu>Settings</guimenu>
 <guimenuitem>Configure Fonts...</guimenuitem>
 </menuchoice>
 </term>
@@ -873,37 +857,17 @@ If your distribution support this, you can build an index of search terms.
 </listitem>
 </varlistentry>
 -->
-<varlistentry>
-<term>
-<menuchoice>
-<guimenu>Settings</guimenu>
-<guimenuitem>Configure Shortcuts...</guimenuitem>
-</menuchoice>
-</term>
-<listitem>
-<para>
-Configure the shortcuts available to &khelpcenter;.
-</para>
+</variablelist>
 </listitem>
 </varlistentry>
+</variablelist>
 
-<varlistentry>
-<term>
-<menuchoice>
-<guimenu>Settings</guimenu>
-<guimenuitem>Configure Toolbars...</guimenuitem>
-</menuchoice>
-</term>
-<listitem>
 <para>
-Configure the toolbars available to &khelpcenter;.
+Additionally &khelpcenter; has the common &kde; <guimenu>Settings</guimenu> and <guimenu>Help</guimenu>
+menu items, for more information read the sections about the <ulink url="help:/fundamentals/ui.html#menus-settings"
+>Settings Menu</ulink> and <ulink url="help:/fundamentals/ui.html#menus-help">Help Menu</ulink>
+of the &kde; Fundamentals.
 </para>
-</listitem>
-</varlistentry>
-</variablelist>
-</listitem>
-</varlistentry>
-</variablelist>
 
 </sect2>
 
