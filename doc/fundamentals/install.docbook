@@ -116,6 +116,11 @@ Building and Running &kde; Software From Source on &kde; TechBase</ulink>.</para
 have no trouble compiling it. Should you run into problems please report them to the
 &kde; mailing lists.</para>
 </sect2>
+<!--Fixme more info:
+  Where to get sources (git split) 
+  where to get help building from souces
+  kdesrc-build
+  -->
 
 </sect1>
 

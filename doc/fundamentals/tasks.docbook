@@ -127,7 +127,7 @@ that way.</para>
 
 </sect1>
 
-
+ <!--FIXME  Ctrl+Left Mouse Button or Shift+Left Mouse Button to select multiple files-->
 <sect1 id="files">
 <sect1info>
 <authorgroup>
@@ -304,8 +304,8 @@ files.</para></listitem>
 <guimenu>Options</guimenu><guisubmenu>View</guisubmenu>
 <guimenuitem>Detailed View</guimenuitem>
 </menuchoice></term>
-<listitem><para>Displays <guilabel>Name</guilabel>, <guilabel>Date</guilabel> and
-<guilabel>Size</guilabel> of the files.</para></listitem>
+<listitem><para>Displays <guilabel>Name</guilabel>, <guilabel>Date</guilabel>,
+<guilabel>Size</guilabel> and <guilabel>Type</guilabel> of the files.</para></listitem>
 </varlistentry>
 
 <varlistentry id="files-ui-toolbar-options-view-tree">
@@ -499,6 +499,10 @@ the path starting with the current places entry.
 </varlistentry>
 <!-- add options for places here 
 e.g "Show only in" to have kind a bookmarks special for an application etc.
+how to add/edit entries, 
+mount/unmount devices 
+show/hide entries
+size changes via splitter moving, different in dolhin (context menu with 4 predefined icon sizes)
   -->
 <varlistentry id="files-ui-folder-view">
 <term>The Folder View</term>
