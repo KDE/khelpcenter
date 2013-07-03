@@ -1,5 +1,4 @@
 <!--FIXME:
-        -visual dictionary
         -general toolbar info
         -basic keyboard shortcuts?
 -->
@@ -7,7 +6,752 @@
 <chapter id="ui">
 <title>Finding Your Way Around</title>
 
-<!--FIXME: visual dictionary goes here-->
+<sect1 id="visualdict">
+<sect1info>
+<authorgroup>
+<author><firstname>Claus</firstname> <surname>Christensen</surname></author>
+<author>&TC.Hollingsworth; &TC.Hollingsworth.mail;</author>
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
+</authorgroup>
+</sect1info>
+
+<title>A Visual Dictionary</title>
+
+<para>The &plasma-workspaces; feature many different graphical user interface
+elements, commonly known as <quote>widgets</quote>.  This guide will introduce
+you to their names and functions.</para>
+
+<sect2 id="visualdict-screens">
+<title>The Big Picture</title>
+
+<sect3 id="visualdict-windows">
+<title>Windows</title>
+
+<screenshot>
+<screeninfo>A Window</screeninfo>
+<mediaobjectco>
+<imageobjectco>
+<areaspec units="other" otherunits="imagemap">
+    <!--these ids are used only internally by DocBook so we keep them short-->
+    <area id="im-win1a1" linkends="visualdict-statusbar" coords="47,522,752,566" />
+    <area id="im-win1a2" linkends="visualdict-scrollbar" coords="720,127,760,513" />
+    <area id="im-win1a3" linkends="visualdict-central-widget" coords="48,127,719,515" />
+    <area id="im-win1a4" linkends="visualdict-toolbar" coords="51,95,570,128" />
+    <area id="im-win1a5" linkends="visualdict-menubar" coords="4,67,46,109" />
+    <area id="im-win1a6" linkends="visualdict-menubar" coords="49,75,311,93" />
+    <area id="im-win1a7" linkends="visualdict-menu" coords="50,51,72,70" />
+    <area id="im-win1a8" linkends="visualdict-button" coords="74,52,93,69" />
+    <area id="im-win1a9" linkends="visualdict-button" coords="678,51,747,70" />
+    <area id="im-win1a10" linkends="visualdict-titlebar" coords="106,40,676,74" />
+    <area id="im-win1a11" linkends="visualdict-button" coords="691,6,740,49" />
+    <area id="im-win1a12" linkends="visualdict-titlebar" coords="346,0,388,37" />
+    <area id="im-win1a13" linkends="visualdict-button" coords="61,1,103,43" />
+    <area id="im-win1a14" linkends="visualdict-menu" coords="14,2,57,45" />
+</areaspec>
+<imageobject><imagedata fileref="visualdict-window.png" format="PNG"/></imageobject>
+</imageobjectco>
+</mediaobjectco>
+</screenshot>
+<para>This is the window of the &kwrite;, a text editor.  Click on
+part of the window to learn more about it.</para>
+
+<orderedlist>
+
+<listitem><para>
+The <emphasis role="bold">Window Menu</emphasis>
+</para></listitem>
+
+<listitem><para>
+A <link linkend="visualdict-button">Button</link> to place this window on all
+desktops
+</para></listitem>
+
+<listitem><para>
+The <emphasis role="bold"><link linkend="visualdict-titlebar">Titlebar</link></emphasis>
+</para></listitem>
+
+<listitem><para>
+Buttons to <emphasis>minimize</emphasis>, <emphasis>maximize</emphasis>, or
+<emphasis>close</emphasis> the window
+</para></listitem>
+
+<listitem><para>
+The <emphasis role="bold"><link linkend="visualdict-menubar">Menubar</link></emphasis>
+</para></listitem>
+
+<listitem><para>
+The <emphasis role="bold"><link linkend="visualdict-toolbar">Toolbar</link></emphasis>
+</para></listitem>
+
+<listitem><para>
+A very large 
+<emphasis role="bold"><link linkend="visualdict-text-area">Text Area</link></emphasis>
+that acts as this program's 
+<emphasis role="bold"><link linkend="visualdict-central-widget">Central Widget</link></emphasis>
+</para></listitem>
+
+<listitem><para>
+A vertical <emphasis role="bold"><link linkend="visualdict-scrollbar">Scrollbar</link></emphasis>
+(there is also a horizontal scrollbar below the text box)
+</para></listitem>
+
+<listitem><para>
+The <emphasis role="bold"><link linkend="visualdict-statusbar">Statusbar</link></emphasis>
+</para></listitem>
+
+</orderedlist>
+
+<screenshot>
+<screeninfo>Another Window</screeninfo>
+<mediaobjectco>
+<imageobjectco>
+<areaspec units="other" otherunits="imagemap">
+    <area id="im-win2a1" linkends="visualdict-panel" coords="580,80,763,529" />
+    <area id="im-win2a2" linkends="visualdict-slider" coords="383,490,573,536" />
+    <area id="im-win2a3" linkends="visualdict-context-menu" coords="199,225,451,462" />
+    <area id="im-win2a4" linkends="visualdict-icon" coords="198,187,224,225" />
+    <area id="im-win2a5" linkends="visualdict-icon" coords="121,187,197,276" />
+    <area id="im-win2a6" linkends="visualdict-icon" coords="282,110,515,165" />
+    <area id="im-win2a7" linkends="visualdict-icon" coords="124,111,211,163" />
+    <area id="im-win2a8" linkends="visualdict-breadcrumb" coords="108,76,415,109" />
+    <area id="im-win2a9" linkends="visualdict-panel" coords="1,73,107,544" />
+</areaspec>
+<imageobject><imagedata fileref="visualdict-window2.png" format="PNG"/></imageobject>
+</imageobjectco>
+</mediaobjectco>
+</screenshot>
+
+<para>This is the another window, that of the &dolphin; file manager.  Click on
+part of the window to learn more about it.</para>
+
+<orderedlist>
+
+<listitem><para>
+A <emphasis role="bold"><link linkend="visualdict-panel">panel</link></emphasis>
+that contains a list of Places on the computer system
+</para></listitem>
+
+<listitem><para>
+A <emphasis role="bold"><link linkend="visualdict-breadcrumb">Breadcrumb</link></emphasis>
+of the path of the displayed folder
+</para></listitem>
+
+<listitem><para>
+A folder <emphasis role="bold"><link linkend="visualdict-icon">Icon</link></emphasis>
+</para></listitem>
+
+<listitem><para>
+A file <emphasis role="bold"><link linkend="visualdict-icon">Icon</link></emphasis>
+</para></listitem>
+
+<listitem><para>
+A highlighted <emphasis role="bold"><link linkend="visualdict-icon">Icon</link></emphasis>
+</para></listitem>
+
+<listitem><para>
+A <emphasis role="bold"><link linkend="visualdict-context-menu">Context Menu</link></emphasis>
+listing actions that can be performed on a file
+</para></listitem>
+
+<listitem><para>
+A <emphasis role="bold"><link linkend="visualdict-slider">Slider</link></emphasis>
+that changes the size of the <link linkend="visualdict-icon">Icons</link> 
+displayed
+</para></listitem>
+
+<listitem><para>
+More <emphasis role="bold"><link linkend="visualdict-panel">Panels</link></emphasis>
+</para></listitem>
+
+</orderedlist>
+
+</sect3>
+
+<sect3 id="visualdict-gui">
+<title>&GUI; Elements</title>
+
+<screenshot>
+<screeninfo>Some &GUI; Elements</screeninfo>
+<mediaobjectco>
+<imageobjectco>
+<areaspec units="other" otherunits="imagemap">
+    <area id="im-g1a1" linkends="visualdict-button" coords="15,505,690,549" />
+    <area id="im-g1a2" linkends="visualdict-button" coords="683,129,722,170" />
+    <area id="im-g1a3" linkends="visualdict-button" coords="636,140,681,161" />
+    <area id="im-g1a4" linkends="visualdict-drop-down-box" coords="225,137,631,327" />
+    <area id="im-g1a5" linkends="visualdict-tab" coords="581,28,625,71" />
+    <area id="im-g1a6" linkends="visualdict-tab" coords="172,112,632,135" />
+    <area id="im-g1a7" linkends="visualdict-icon-list" coords="5,58,171,495" />
+</areaspec>
+<imageobject><imagedata fileref="visualdict-gui1.png" format="PNG"/></imageobject>
+</imageobjectco>
+</mediaobjectco>
+</screenshot>
+
+<para>This screenshot, from the &systemsettings; Country/Region &amp; Language panel,
+shows some &GUI; elements.  Click on part of the window to learn more about it.</para>
+
+<orderedlist>
+
+<listitem><para>
+An <emphasis role="bold"><link linkend="visualdict-icon-list">Icon List</link></emphasis>
+(the first item is selected)
+</para></listitem>
+
+<listitem><para>
+Some <emphasis role="bold"><link linkend="visualdict-tab">Tabs</link></emphasis>
+</para></listitem>
+
+<listitem><para>
+An open 
+<emphasis role="bold"><link linkend="visualdict-drop-down-box">Drop Down Box</link></emphasis>
+</para></listitem>
+
+<listitem><para>
+A <emphasis role="bold"><link linkend="visualdict-button">Button</link></emphasis>
+that resets the <link linkend="visualdict-drop-down-box">Drop Down Box</link> to
+its default value
+</para></listitem>
+
+<listitem><para>
+An item in the <link linkend="visualdict-drop-down-box">Drop Down Box</link> that
+has been selected
+</para>
+</listitem>
+
+<listitem><para>
+Some more <emphasis role="bold"><link linkend="visualdict-button">Buttons</link></emphasis>
+</para></listitem>
+
+</orderedlist>
+
+<screenshot>
+<screeninfo>Some More &GUI; Elements</screeninfo>
+<mediaobjectco>
+<imageobjectco>
+<areaspec units="other" otherunits="imagemap">
+    <area id="im-gui2a1" linkends="visualdict-menu-button" coords="306,451,349,493" />
+    <area id="im-gui2a2" linkends="visualdict-menu-button" coords="172,405,298,538" />
+    <area id="im-gui2a3" linkends="visualdict-spin-box" coords="522,204,638,253" />
+    <area id="im-gui2a4" linkends="visualdict-check-box" coords="425,98,467,162" />
+    <area id="im-gui2a5" linkends="visualdict-tree-view" coords="368,63,411,100" />
+    <area id="im-gui2a6" linkends="visualdict-tree-view" coords="164,101,424,403" />
+</areaspec>
+<imageobject><imagedata fileref="visualdict-gui2.png" format="PNG"/></imageobject>
+</imageobjectco>
+</mediaobjectco>
+</screenshot>
+
+<para>This screenshot, from the &systemsettings; Custom Shortcuts panel,
+shows some more &GUI; elements.</para>
+
+<orderedlist>
+
+<listitem><para>
+A <emphasis role="bold"><link linkend="visualdict-tree-view">Tree View</link></emphasis>
+</para></listitem>
+
+<listitem><para>
+A <emphasis role="bold"><link linkend="visualdict-check-box">Check Box</link></emphasis>
+that has been selected
+</para></listitem>
+
+<listitem><para>
+A pair of <emphasis role="bold"><link linkend="visualdict-spin-box">Spin Boxes</link></emphasis>
+</para></listitem>
+
+<listitem><para>
+A <emphasis role="bold"><link linkend="visualdict-menu-button">Menu Button</link></emphasis>
+</para></listitem>
+
+</orderedlist>
+
+<screenshot>
+<screeninfo>Even More &GUI; Elements</screeninfo>
+<mediaobjectco>
+<imageobjectco>
+<areaspec units="other" otherunits="imagemap">
+    <area id="im-gui3a1" linkends="visualdict-text-box" coords="562,235,603,252" />
+    <area id="im-gui3a2" linkends="visualdict-text-box" coords="214,253,767,280" />
+    <area id="im-gui3a3" linkends="visualdict-radio-button" coords="187,193,468,252" />
+    <area id="im-gui3a4" linkends="visualdict-list-box" coords="8,101,185,547" />
+</areaspec>
+<imageobject><imagedata fileref="visualdict-gui3.png" format="PNG"/></imageobject>
+</imageobjectco>
+</mediaobjectco>
+</screenshot>
+
+<para>This screenshot, from the &systemsettings; Default Applications panel,
+shows even more &GUI; elements.  Click onpart of the window to learn more about 
+it.</para>
+
+<orderedlist>
+
+<listitem><para>
+A <emphasis role="bold"><link linkend="visualdict-list-box">List Box</link></emphasis>
+</para></listitem>
+
+<listitem><para>
+A pair of <emphasis role="bold"><link linkend="visualdict-text-box">text box</link></emphasis>
+</para></listitem>
+
+<listitem><para>
+A <emphasis role="bold"><link linkend="visualdict-text-box">Text Box</link></emphasis>
+</para></listitem>
+
+</orderedlist>
+
+<screenshot>
+<screeninfo>Some Combo Boxes</screeninfo>
+<mediaobjectco>
+<imageobjectco>
+<areaspec units="other" otherunits="imagemap">
+    <area id="im-gui4a1" linkends="visualdict-combo-box" coords="268,128,722,288" />
+</areaspec>
+<imageobject><imagedata fileref="visualdict-gui4.png" format="PNG"/></imageobject>
+</imageobjectco>
+</mediaobjectco>
+</screenshot>
+
+<para>Finally, this screenshot, from another <link linkend="visualdict-tab">tab</link>
+of the &systemsettings; Country/Region &amp; Language  panel, shows five
+<emphasis role="bold"><link linkend="visualdict-combo-box">Combo Boxes</link></emphasis>
+</para>
+
+</sect3>
+
+</sect2>
+
+<sect2 id="visualdict-widgets">
+<title>The Widgets</title>
+
+<informaltable>
+<tgroup cols="3">
+<colspec colnum="1" align="left"/>
+<colspec colnum="3" align="center"/>
+
+<thead>
+<row>
+<entry align="center">Name</entry>
+<entry>Description</entry>
+<entry>Screenshot</entry>
+</row>
+</thead>
+
+<tbody valign="top">
+
+<!--I'm using the name QMainWindow uses for these, but perhaps there's a more
+    regular-user friendly term?-->
+<row id="visualdict-central-widget">
+<entry>Central Widget</entry>
+<entry>The main area of the running application.  This might be the document
+you are editing in a word processor or the board of a game like Chess.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-central-widget.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-button">
+<entry>Button</entry>
+<entry>These can be clicked with the &LMB; to perform an action.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-button.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-breadcrumb">
+<entry>Breadcrumb</entry>
+<entry>Shows the path in a hierarchical system, such as a filesystem.  Click on
+any part of the path to go up in the tree to that location.  Click on the arrow
+to the right of part of the path to go to another child element of that path.
+</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-breadcrumb.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-check-box">
+<entry>Check Box</entry>
+<entry>These can be clicked to select and unselect items.  They are typically
+used in a list of several selections.  Selected items typically display a check
+mark, whereas unselected items will have an empty box.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-check-box.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-color-selector">
+<entry>Color Selector</entry>
+<entry>This allows a color to be selected for various purposes, such as changing
+the color of text.  For more information, see <xref linkend="colors"/></entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-color-selector.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-combo-box">
+<entry>Combo Box</entry>
+<entry>A combination of a 
+<link linkend="visualdict-drop-down-box">Drop Down Box</link> and a
+<link linkend="visualdict-text-box">Text Box</link>.  You can select an option
+from the list, or type in the text box.  Some combo boxes may automatically
+complete entries for you, or open the list with a list of choices that match
+what you have typed.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-combo-box.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-context-menu">
+<entry>Context Menu</entry>
+<entry>Many user interface elements in the &kde-sc; contain a context menu,
+which can be opened by clicking on something with the &RMB;.  This menu contains
+options and actions that usually affect the user interface element that was
+right-clicked.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-context-menu.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-dialog-box">
+<entry>Dialog Box</entry>
+<entry>A small window that appears above a larger application window.  It may
+contain a message, warning, or configuration panel, among others.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-dialog-box.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-drop-down-box">
+<entry>Drop Down Box</entry>
+<entry>This provides a list of items, from which you may select one.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-drop-down-box.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-icon">
+<entry>Icon</entry>
+<entry>A graphical representation of something, such as a file or action.  They
+typically, but not always, also contain a text description, either beneath or
+to the right of the icon.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-icon.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-icon-list">
+<entry>Icon List</entry>
+<entry>This provides a list of items represented by an 
+<link linkend="visualdict-icon">Icon</link> and a description. It is typically 
+used in the left panel of configuration panels to allow selection from various 
+types of configuration categories.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-icon-list.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-list-box">
+<entry>List Box</entry>
+<entry>This is a list of items that typically allows multiple items to be
+selected.  To select a group of contiguous items, press the &Shift; key and
+click the first and last items.  To select multiple items that are not
+contiguous, press the &Ctrl; key and select the desired items.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-list-box.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-menu">
+<entry>Menu</entry>
+<entry>A list of selections, that usually perform an action, set an option, or
+opens a window.  These can be opened from 
+<link linkend="visualdict-menubar">menubars</link> or 
+<link linkend="visualdict-menu-button">menu buttons</link>.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-menu.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-menubar">
+<entry>Menubar</entry>
+<entry>These are located at the top of nearly every window and provide access
+to all the functions of the running application.  For more information, see
+<xref linkend="menus"/>.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-menubar.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-menu-button">
+<entry>Menu Button</entry>
+<entry>A special type of <link linkend="visualdict-button">button</link> that
+opens a <link linkend="visualdict-menu">menu</link>.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-menu-button.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-panel">
+<entry>Panel <emphasis>or</emphasis> Sidebar <emphasis>or</emphasis> Tool View</entry>
+<entry>These are located on the sides or bottom of the
+<link linkend="visualdict-central-widget">central widget</link> and allow
+you to perform many different tasks in an application.  A text editor might
+provide a list of open documents in one, while a word processor might allow you
+to select a clip art image.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-panel.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-progress-bar">
+<entry>Progress Bar</entry>
+<entry>A small bar that indicates that a long-running operation is being
+performed.  The bar may indicate how much of the operation has completed, or it
+may simply bounce back and forth to indicate that the operation is in progress.
+</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-progress-bar.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-radio-button">
+<entry>Radio Button</entry>
+<entry>These are used in a list of options, and only permit one of the options in
+the list to be selected.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-radio-button.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-scrollbar">
+<entry>Scrollbar</entry>
+<entry>Allows you to navigate a document.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-scrollbar.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-slider">
+<entry>Slider</entry>
+<entry>Allows a numeric value to be selected by moving a small bar either
+horizontally or vertically across a line.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-slider.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-spin-box">
+<entry>Spin Box</entry>
+<entry>This permits a numerical value to be selected, either by using the up and
+down arrows to the right of the box to raise or lower the value, respectively,
+or by typing the value into the 
+<link linkend="visualdict-text-box">text box</link>.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-spin-box.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-statusbar">
+<entry>Status Bar</entry>
+<entry>These are located at the bottom of many applications and display
+information about what the application is currently doing.  For instance, a web
+browser might indicate the progress of loading a web page, while a
+word processor might display the current word count.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-statusbar.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-tab">
+<entry>Tab</entry>
+<entry>These appear at the top of an area of a window, and permit that area of
+the window to be changed to a variety of different selections.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-tab.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-text-area">
+<entry>Text Area</entry>
+<entry>Allows a large amount of text to be typed in, typically multiple lines or
+paragraphs.  Unlike a <link linkend="visualdict-text-box">Text Box</link>, 
+pressing &Enter; will usually result in a line break.
+</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-text-area.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-text-box">
+<entry>Text Box</entry>
+<entry>A single-line text entry that allows a small amount of text to be typed 
+in.  Typically, pressing &Enter; will perform the same action as clicking the 
+<guibutton>OK</guibutton> button.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-text-box.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-titlebar">
+<entry>Titlebar</entry>
+<entry>This is located at the top of every window.  It contains the name of the
+application and usually information about what the application is doing, like
+the title of the web page being viewed in a web browser or the filename of a
+document open in a word processor.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-titlebar.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-toolbar">
+<entry>Toolbar</entry>
+<entry>These are located near the top of many applications, typically directly
+underneath the <link linkend="visualdict-menubar">menu bar</link>.  They
+provide access to many common functions of the running application, like
+<emphasis>Save</emphasis> or <emphasis>Print</emphasis>.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-toolbar.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-tree-view">
+<entry>Tree View</entry>
+<entry>A Tree View allows you to select from a hierarchical list of options. A
+section, or category, of the Tree View may be unexpanded, in which case no
+options will appear beneath it and the arrow to the left of the title will be
+pointing right, toward the title.  It may also be expanded, in which case several
+options will be listed below it, and the arrow to the left of the title will be
+pointing down, toward the options.  To expand a portion of the tree view, click
+the arrow to the left of the title of the section you wish to expand, 
+double-click on the title, or select the title using your keyboard's arrow keys
+and press the &Enter; or <keycap>+</keycap> key.  To minimize a portion of the
+tree view, you may also click the arrow, double-click on the title, or press the
+&Enter; or <keycap>-</keycap> key.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-tree-view.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+</tbody>
+</tgroup>
+</informaltable>
+
+</sect2>
+
+</sect1>
 
 <sect1 id="menus">
 <sect1info>
