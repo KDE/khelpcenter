@@ -304,8 +304,8 @@ files.</para></listitem>
 <guimenu>Options</guimenu><guisubmenu>View</guisubmenu>
 <guimenuitem>Detailed View</guimenuitem>
 </menuchoice></term>
-<listitem><para>Displays <guilabel>Name</guilabel>, <guilabel>Date</guilabel>,
-<guilabel>Size</guilabel> and <guilabel>Type</guilabel> of the files.</para></listitem>
+<listitem><para>Displays <guilabel>Name</guilabel>, <guilabel>Date</guilabel> 
+and <guilabel>Size</guilabel> of the files.</para></listitem>
 </varlistentry>
 
 <varlistentry id="files-ui-toolbar-options-view-tree">
