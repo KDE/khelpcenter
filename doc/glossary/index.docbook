@@ -469,7 +469,7 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 				the &Qt; toolkit, which provides many graphical elements (so-called
 				"Widgets") which are used to construct the desktop. You
 				can find more information about &Qt; at &linkstart;
-				"http://qt.nokia.com/"&linkmid;http://qt.nokia.com/&linkend;.</para>
+				"http://qt-project.org/"&linkmid;http://qt-project.org/&linkend;.</para>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 				<glossseealso otherterm="gloss-gui">&GUI;</glossseealso>
 				<glossseealso otherterm="gloss-widget">Widget</glossseealso>
