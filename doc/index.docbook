@@ -646,7 +646,8 @@ The menus contain the following entries:
 </term>
 <listitem>
 <para>
-Print the contents of the currently visible page.
+Print the contents of the currently visible page. Handbooks in <acronym>PDF</acronym> format you find 
+on the <ulink url="http://docs.kde.org/index.php?language=en"> &kde; Documentation Server</ulink>.
 </para>
 </listitem>
 </varlistentry>
