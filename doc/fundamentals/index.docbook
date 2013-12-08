@@ -9,12 +9,14 @@
   <!ENTITY plasma-desktop "&i18n-plasma-desktop;">
   <!ENTITY plasma-active "&i18n-plasma-active;">
   <!ENTITY gwenview '<application>Gwenview</application>'>
+  <!ENTITY Meta "&i18n-Meta;">
   <!--/end entities that need to be added to kdoctools-->
   <!--make some of the above entities translatable in the interim-->
   <!ENTITY i18n-kde-sc "&kde; Software Collection">
   <!ENTITY i18n-plasma-workspaces "&kde; &plasma; Workspaces">
   <!ENTITY i18n-plasma-desktop "<application>&kde; &plasma; Desktop</application>">
   <!ENTITY i18n-plasma-active "<application>&plasma; Active</application>">
+  <!ENTITY i18n-Meta "<keysym>Meta</keysym>">
   <!--/end temporary translatable entities-->
   <!ENTITY ui-chapter SYSTEM "ui.docbook">
   <!ENTITY tasks-chapter SYSTEM "tasks.docbook">
@@ -34,7 +36,7 @@
 </authorgroup>
 
 <copyright>
-<year>2011-2012</year>
+<year>2011</year><year>2012</year><year>2013</year>
 <holder>&TC.Hollingsworth;</holder>
 </copyright>
 <copyright>
@@ -47,8 +49,8 @@
 </copyright>
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2013-07-03</date>
-<releaseinfo>&kde; 4.11</releaseinfo>
+<date>2013-12-08</date>
+<releaseinfo>&kde; 4.12</releaseinfo>
 
 <abstract>
 <para>This guide provides an introduction to the &kde-sc; and describes many
