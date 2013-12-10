@@ -1667,7 +1667,7 @@ and <ulink url="help:/kcontrol/desktop/">virtual desktops</ulink>.</para>
 </row>
 
 <row>
-<entry><keycombo action="simul">&Alt;&Shift;<keycap>F12</keycap></keycombo>
+<entry><keycombo action="simul">&Alt;&Shift;<keycap>F12</keycap></keycombo></entry>
 <entry>Enable/Disable Desktop Effects</entry>
 </row>
 
