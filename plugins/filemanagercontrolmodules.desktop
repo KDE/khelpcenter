@@ -1,5 +1,11 @@
 [Desktop Entry]
 Name=Filemanager Settings Modules
+Name[de]=Dateiverwaltungs-Einstellungsmodule
+Name[pt]=Módulos de Configuração do Gestor de Ficheiros
+Name[pt_BR]=Módulos de configuração do Gerenciador de Arquivos
+Name[sk]=Moduly nastavení správcu súborov
+Name[uk]=Модулі параметрів керування файлами
+Name[x-test]=xxFilemanager Settings Modulesxx
 
 Icon=preferences-system
 

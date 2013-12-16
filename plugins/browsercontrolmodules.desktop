@@ -1,5 +1,11 @@
 [Desktop Entry]
 Name=Browser Settings Modules
+Name[de]=Browser-Einstellungsmodule
+Name[pt]=Módulos de Configuração do Navegador
+Name[pt_BR]=Módulos de configuração do Navegador
+Name[sk]=Moduly nastavení prehliadača
+Name[uk]=Модулі параметрів перегляду інтернету
+Name[x-test]=xxBrowser Settings Modulesxx
 
 Icon=preferences-system
 

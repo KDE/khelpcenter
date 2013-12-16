@@ -1,5 +1,11 @@
 [Desktop Entry]
 Name=System Settings Modules
+Name[de]=Systemeinstellungen-Module
+Name[pt]=Módulos de Configuração do Sistema
+Name[pt_BR]=Módulos das Configurações do Sistema
+Name[sk]=Moduly nastavení systému
+Name[uk]=Модулі системних параметрів
+Name[x-test]=xxSystem Settings Modulesxx
 
 Icon=preferences-system
 

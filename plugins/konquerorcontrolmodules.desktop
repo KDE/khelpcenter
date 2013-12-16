@@ -1,5 +1,11 @@
 [Desktop Entry]
 Name=Konqueror Settings Modules
+Name[de]=Konqueror-Einstellungsmodule
+Name[pt]=Módulos de Configuração do Konqueror
+Name[pt_BR]=Módulos de configuração do Konqueror
+Name[sk]=Moduly nastavení Konquerora
+Name[uk]=Модулі параметрів Konqueror
+Name[x-test]=xxKonqueror Settings Modulesxx
 
 Icon=preferences-system
 
