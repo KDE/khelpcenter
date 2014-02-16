@@ -67,7 +67,7 @@ void PluginTraverser::process( DocEntry *entry )
       appItem = new NavigatorAppItem( entry, mListView, mCurrentItem );
     else
       appItem = new NavigatorAppItem( entry, mParentItem, mCurrentItem );
-    KConfigGroup cfg(KGlobal::config(), "General");
+    KConfigGroup cfg(KSharedConfig::openConfig(), "General");
     appItem->setRelpath( cfg.readPathEntry( "AppsRoot", QString() ) );
     mCurrentItem = appItem;
   } else if ( entry->khelpcenterSpecial() == QLatin1String("scrollkeeper" )) {

@@ -305,7 +305,7 @@ KUrl View::urlFromLinkNode( const DOM::HTMLLinkElement &link ) const
 
 void View::slotReload( const KUrl &url )
 {
-  const_cast<KHTMLSettings *>( settings() )->init( KGlobal::config().data() );
+  const_cast<KHTMLSettings *>( settings() )->init( KSharedConfig::openConfig().data() );
   KParts::OpenUrlArguments args = arguments();
   args.setReload( true );
   setArguments( args );

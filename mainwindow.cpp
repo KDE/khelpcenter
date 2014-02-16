@@ -82,13 +82,13 @@ class LogDialog : public KDialog
       mTextView->setWordWrapMode( QTextOption::NoWrap );
       topLayout->addWidget( mTextView );
 
-      KConfigGroup cg = KGlobal::config()->group( "logdialog" );
+      KConfigGroup cg = KSharedConfig::openConfig()->group( "logdialog" );
       restoreDialogSize( cg );
     }
 
     ~LogDialog()
     {
-      KConfigGroup cg = KGlobal::config()->group( "logdialog" );
+      KConfigGroup cg = KSharedConfig::openConfig()->group( "logdialog" );
       KDialog::saveDialogSize( cg );
     }
 
@@ -150,7 +150,7 @@ MainWindow::MainWindow()
     sizes << 220 << 580;
     mSplitter->setSizes(sizes);
 
-    KSharedConfig::Ptr cfg = KGlobal::config();
+    KSharedConfig::Ptr cfg = KSharedConfig::openConfig();
     {
       KConfigGroup configGroup( cfg, "General" );
       if ( configGroup.readEntry( "UseKonqSettings", true) ) {
@@ -206,7 +206,7 @@ void MainWindow::readProperties( const KConfigGroup &config )
 
 void MainWindow::readConfig()
 {
-    KConfigGroup config(KGlobal::config(), "MainWindowState");
+    KConfigGroup config(KSharedConfig::openConfig(), "MainWindowState");
     QList<int> sizes = config.readEntry( "Splitter", QList<int>() );
     if ( sizes.count() == 2 ) {
         mSplitter->setSizes( sizes );
@@ -217,7 +217,7 @@ void MainWindow::readConfig()
 
 void MainWindow::writeConfig()
 {
-    KConfigGroup config(KGlobal::config(), "MainWindowState");
+    KConfigGroup config(KSharedConfig::openConfig(), "MainWindowState");
     config.writeEntry( "Splitter", mSplitter->sizes() );
 
     mNavigator->writeConfig();
@@ -260,7 +260,7 @@ void MainWindow::setupActions()
     action->setText( i18n("Build Search Index...") );
     connect( action, SIGNAL( triggered() ), mNavigator, SLOT( showIndexDialog() ) );
 
-    KConfigGroup debugGroup( KGlobal::config(), "Debug" );
+    KConfigGroup debugGroup( KSharedConfig::openConfig(), "Debug" );
     if ( debugGroup.readEntry( "SearchErrorLog", false) ) {
         action = actionCollection()->addAction(QLatin1String("show_search_stderr"));
         action->setText( i18n("Show Search Error Log") );
@@ -484,7 +484,7 @@ void MainWindow::updateFontScaleActions()
   actionCollection()->action( QLatin1String("incFontSizes") )->setEnabled( mDoc->fontScaleFactor() + mDoc->fontScaleStepping() <= 300 );
   actionCollection()->action( QLatin1String("decFontSizes") )->setEnabled( mDoc->fontScaleFactor() - mDoc->fontScaleStepping() >= 20 );
 
-  KConfigGroup configGroup( KGlobal::config(), QLatin1String("General") );
+  KConfigGroup configGroup( KSharedConfig::openConfig(), QLatin1String("General") );
   configGroup.writeEntry( QLatin1String("Font zoom factor"), mDoc->fontScaleFactor() );
   configGroup.sync();
 }
@@ -496,7 +496,7 @@ void MainWindow::slotConfigureFonts()
   {
     if (mDoc->baseURL().isEmpty())
     {
-        const_cast<KHTMLSettings *>( mDoc->settings() )->init( KGlobal::config().data() );
+        const_cast<KHTMLSettings *>( mDoc->settings() )->init( KSharedConfig::openConfig().data() );
         slotShowHome();
     }
     else mDoc->slotReload();

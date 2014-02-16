@@ -53,6 +53,8 @@
 
 #include <unistd.h>
 #include <sys/types.h>
+#include <config-prefix.h>
+#include <QStandardPaths>
 
 using namespace KHC;
 
@@ -134,7 +136,7 @@ IndexProgressDialog::IndexProgressDialog( QWidget *parent )
 IndexProgressDialog::~IndexProgressDialog()
 {
   if ( !mLogView->isHidden() ) {
-    KConfigGroup cfg(KGlobal::config(), "indexprogressdialog");
+    KConfigGroup cfg(KSharedConfig::openConfig(), "indexprogressdialog");
     cfg.writeEntry( "size", size() );
   }
 }
@@ -195,7 +197,7 @@ void IndexProgressDialog::slotEnd()
 
 void IndexProgressDialog::toggleDetails()
 {
-  KConfigGroup cfg(KGlobal::config(), "indexprogressdialog");
+  KConfigGroup cfg(KSharedConfig::openConfig(), "indexprogressdialog");
   if ( mLogView->isHidden() ) {
     mLogLabel->show();
     mLogView->show();
@@ -239,7 +241,7 @@ KCMHelpCenter::KCMHelpCenter( KHC::SearchEngine *engine, QWidget *parent,
 
   setButtonGuiItem( KDialog::Ok, KGuiItem(i18n("Build Index")) );
 
-  mConfig = KGlobal::config();
+  mConfig = KSharedConfig::openConfig();
 
   DocMetaInfo::self()->scanMetaInfo();
 
@@ -258,7 +260,7 @@ KCMHelpCenter::KCMHelpCenter( KHC::SearchEngine *engine, QWidget *parent,
 
 KCMHelpCenter::~KCMHelpCenter()
 {
-  KConfigGroup cg( KGlobal::config(), "IndexDialog" );
+  KConfigGroup cg( KSharedConfig::openConfig(), "IndexDialog" );
   KDialog::saveDialogSize( cg );
 }
 
@@ -480,7 +482,7 @@ void KCMHelpCenter::startIndexProcess()
   mProcess = new KProcess;
 #ifndef Q_WS_WIN
   if ( mRunAsRoot ) {
-    QString kdesu = KStandardDirs::findExe("kdesu");
+    QString kdesu = QStandardPaths::findExecutable("kdesu");
     if(kdesu.isEmpty()) {
       kError() << "Failed to run index process as root - could not find kdesu";
     } else {
@@ -494,7 +496,7 @@ void KCMHelpCenter::startIndexProcess()
   }
 #endif
 
-  *mProcess << KStandardDirs::findExe("khc_indexbuilder");
+  *mProcess << CMAKE_INSTALL_PREFIX "/" LIBEXEC_INSTALL_DIR "/khc_indexbuilder";
   *mProcess << mCmdFile->fileName();
   *mProcess << Prefs::indexDirectory();
 

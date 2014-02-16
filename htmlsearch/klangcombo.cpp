@@ -23,7 +23,7 @@
 
 #include "klangcombo.h"
 
-#include <kstandarddirs.h>
+
 
 KLanguageCombo::~KLanguageCombo ()
 {

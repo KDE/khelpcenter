@@ -126,7 +126,7 @@ SearchWidget::SearchWidget( SearchEngine *engine, QWidget *parent )
 
 SearchWidget::~SearchWidget()
 {
-  writeConfig( KGlobal::config().data() );
+  writeConfig( KSharedConfig::openConfig().data() );
 }
 
 
@@ -326,7 +326,7 @@ int ScopeTraverser::mNestingLevel = 2;
 
 void SearchWidget::searchIndexUpdated()
 {
-  KGlobal::config()->reparseConfiguration();
+  KSharedConfig::openConfig()->reparseConfiguration();
   updateScopeList();
   update();
 }

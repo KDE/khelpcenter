@@ -37,6 +37,7 @@
 #include <QPixmap>
 
 #include <sys/stat.h>
+#include <QStandardPaths>
 
 using namespace KHC;
 
@@ -100,7 +101,7 @@ void TOC::build( const QString &file )
 #ifdef Q_WS_WIN
     cacheFile = cacheFile.replace( ':', "_" );
 #endif
-    m_cacheFile = KStandardDirs::locateLocal( "cache", "help/" + cacheFile );
+    m_cacheFile = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1Char('/') + "help/" + cacheFile ;
     m_sourceFile = file;
 
     if ( cacheStatus() == NeedRebuild )
@@ -149,8 +150,8 @@ void TOC::buildCache()
     connect( meinproc, SIGNAL( finished( int, QProcess::ExitStatus) ),
              this, SLOT( meinprocExited( int, QProcess::ExitStatus) ) );
 
-    *meinproc << KStandardDirs::locate("exe", "meinproc4");
-    *meinproc << "--stylesheet" << KStandardDirs::locate( "data", "khelpcenter/table-of-contents.xslt" );
+    *meinproc << QStandardPaths::findExecutable("meinproc4");
+    *meinproc << "--stylesheet" << QStandardPaths::locate(QStandardPaths::GenericDataLocation, "khelpcenter/table-of-contents.xslt" );
     *meinproc << "--output" << m_cacheFile;
     *meinproc << m_sourceFile;
 

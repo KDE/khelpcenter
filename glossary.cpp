@@ -41,6 +41,7 @@
 #include <QTextStream>
 
 #include <sys/stat.h>
+#include <QStandardPaths>
 
 using namespace KHC;
 
@@ -92,10 +93,10 @@ Glossary::Glossary( QWidget *parent ) : QTreeWidget( parent )
     m_alphabItem->setText( 0, i18n( "Alphabetically" ) );
     m_alphabItem->setIcon( 0, SmallIcon( "character-set" ) );
 
-    m_cacheFile = KStandardDirs::locateLocal( "cache", "help/glossary.xml" );
+    m_cacheFile = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1Char('/') + "help/glossary.xml" ;
     
     m_sourceFile = View::langLookup( QLatin1String( "khelpcenter/glossary/index.docbook" ) );
-    m_config = KGlobal::config();
+    m_config = KSharedConfig::openConfig();
 
 }
 
@@ -153,7 +154,7 @@ void Glossary::rebuildGlossaryCache()
     *meinproc << KStandardDirs::locate( "exe", QLatin1String( "meinproc4" ) );
     *meinproc << QLatin1String( "--output" ) << m_cacheFile;
     *meinproc << QLatin1String( "--stylesheet" )
-              << KStandardDirs::locate( "data", QLatin1String( "khelpcenter/glossary.xslt" ) );
+              << QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String( "khelpcenter/glossary.xslt" ) );
     *meinproc << m_sourceFile;
 
     meinproc->setOutputChannelMode(KProcess::OnlyStderrChannel);
@@ -302,7 +303,7 @@ QDomElement Glossary::childElement( const QDomElement &element, const QString &n
 
 QString Glossary::entryToHtml( const GlossaryEntry &entry )
 {
-    QFile htmlFile( KStandardDirs::locate("data", "khelpcenter/glossary.html.in" ) );
+    QFile htmlFile( QStandardPaths::locate(QStandardPaths::GenericDataLocation, "khelpcenter/glossary.html.in" ) );
     if (!htmlFile.open(QIODevice::ReadOnly))
       return QString( "<html><head></head><body><h3>%1</h3>%2</body></html>" )
              .arg( i18n( "Error" ) )

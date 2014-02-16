@@ -12,6 +12,7 @@
 
 #include "progressdialog.h"
 #include <QTextStream>
+#include <QStandardPaths>
 #include "htmlsearch.moc"
 
 
@@ -241,7 +242,7 @@ bool HTMLSearch::generateIndex( const QString & _lang, QWidget *parent)
     // run htdig ------------------------------------------------------
     KConfig config("khelpcenterrc", true);
     KConfigGroup group(&config, "htdig");
-    QString exe = group.readPathEntry("htdig", KGlobal::dirs()->findExe("htdig"));
+    QString exe = group.readPathEntry("htdig", QStandardPaths::findExecutable("htdig"));
 
     if (exe.isEmpty())
     {

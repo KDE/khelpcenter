@@ -59,6 +59,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
+#include <QStandardPaths>
 
 #include "navigatoritem.h"
 #include "navigatorappitem.h"
@@ -86,7 +87,7 @@ Navigator::Navigator( View *view, QWidget *parent, const char *name )
 {
     setObjectName( name );
 
-    KConfigGroup config(KGlobal::config(), "General");
+    KConfigGroup config(KSharedConfig::openConfig(), "General");
     mShowMissingDocs = config.readEntry("ShowMissingDocs", false);
 
     mSearchEngine = new SearchEngine( view );
@@ -129,7 +130,7 @@ Navigator::Navigator( View *view, QWidget *parent, const char *name )
       hideSearch();
     } else {
       mSearchWidget->updateScopeList();
-      mSearchWidget->readConfig( KGlobal::config().data() );
+      mSearchWidget->readConfig( KSharedConfig::openConfig().data() );
     }
     */
     connect( mTabWidget, SIGNAL( currentChanged( QWidget * ) ),
@@ -234,7 +235,7 @@ void Navigator::insertKCMDocs( const QString &name, NavigatorItem *topItem, cons
   {
     KService::Ptr s = (*it);
     KCModuleInfo m = KCModuleInfo(s);
-    QString desktopFile = KStandardDirs::locate( "services", m.fileName() );
+    QString desktopFile = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kde5/services/") + m.fileName() );
     createItemFromDesktopFile( topItem, desktopFile );
     }
 }
@@ -411,7 +412,7 @@ void Navigator::showOverview( NavigatorItem *item, const KUrl &url )
 {
   mView->beginInternal( url );
 
-  QString fileName = KStandardDirs::locate( "data", "khelpcenter/index.html.in" );
+  QString fileName = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "khelpcenter/index.html.in" );
   if ( fileName.isEmpty() )
     return;
 
@@ -562,7 +563,7 @@ void Navigator::hideSearch()
 
 bool Navigator::checkSearchIndex()
 {
-  KConfigGroup cfg(KGlobal::config(), "Search" );
+  KConfigGroup cfg(KSharedConfig::openConfig(), "Search" );
   if ( cfg.readEntry( "IndexExists", false) ) return true;
 
   if ( mIndexDialog && !mIndexDialog->isHidden() ) return true;
@@ -596,7 +597,7 @@ KUrl Navigator::homeURL()
 {
   if ( !mHomeUrl.isEmpty() ) return mHomeUrl;
 
-  KSharedConfig::Ptr cfg = KGlobal::config();
+  KSharedConfig::Ptr cfg = KSharedConfig::openConfig();
   // We have to reparse the configuration here in order to get a
   // language-specific StartUrl, e.g. "StartUrl[de]".
   cfg->reparseConfiguration();

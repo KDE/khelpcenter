@@ -3,7 +3,7 @@
 #include <QProgressBar>
 
 #include <klocale.h>
-#include <kstandarddirs.h>
+
 
 
 #include "progressdialog.moc"

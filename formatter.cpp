@@ -29,6 +29,7 @@
 
 #include <QFile>
 #include <QTextStream>
+#include <QStandardPaths>
 
 using namespace KHC;
 
@@ -43,12 +44,12 @@ Formatter:: ~Formatter()
 
 bool Formatter::readTemplates()
 {
-  KConfigGroup cfg(KGlobal::config(), "Templates");
+  KConfigGroup cfg(KSharedConfig::openConfig(), "Templates");
   QString mainTemplate = cfg.readEntry( "MainTemplate" );
 
   if ( mainTemplate.isEmpty() ) 
   {
-    mainTemplate = KStandardDirs::locate( "appdata", "maintemplate" );
+    mainTemplate = QStandardPaths::locate(QStandardPaths::DataLocation, "maintemplate" );
   }
 
   if ( mainTemplate.isEmpty() ) 

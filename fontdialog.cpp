@@ -161,7 +161,7 @@ void FontDialog::setupFontEncodingBox()
 
 void FontDialog::load()
 {
-  KSharedConfig::Ptr cfg = KGlobal::config();
+  KSharedConfig::Ptr cfg = KSharedConfig::openConfig();
   {
     KConfigGroup configGroup( cfg, "HTML Settings" );
 
@@ -194,7 +194,7 @@ void FontDialog::load()
 
 void FontDialog::save()
 {
-  KSharedConfig::Ptr cfg = KGlobal::config();
+  KSharedConfig::Ptr cfg = KSharedConfig::openConfig();
   {
     KConfigGroup configGroup( cfg, "General" );
     configGroup.writeEntry( "UseKonqSettings", false );
