@@ -27,6 +27,7 @@
 #include <KVBox>
 #include <KFontComboBox>
 #include <KConfigGroup>
+#include <KSharedConfig>
 #include <KLocalizedString>
 #include <KNumInput>
 

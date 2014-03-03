@@ -28,7 +28,6 @@
 
 #include <KAboutData>
 #include <KProcess>
-#include <KConfig>
 #include <KShell>
 
 #include <QFile>

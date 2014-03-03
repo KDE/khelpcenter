@@ -1,6 +1,5 @@
 #include "htmlsearch.h"
 
-#include <KDebug>
 #include <KConfig>
 #include <KConfigGroup>
 

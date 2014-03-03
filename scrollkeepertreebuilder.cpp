@@ -26,6 +26,7 @@
 #include <KConfig>
 #include <KProcess>
 #include <KConfigGroup>
+#include <KSharedConfig>
 
 #include <QtXml/QtXml>
 #include <QFile>
