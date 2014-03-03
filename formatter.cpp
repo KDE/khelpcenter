@@ -22,11 +22,11 @@
 
 #include <KLocale>
 #include <KGlobal>
-#include <KDebug>
 #include <KConfig>
 #include <KConfigGroup>
 #include <KStandardDirs>
 
+#include <QDebug>
 #include <QFile>
 #include <QTextStream>
 #include <QStandardPaths>
@@ -54,14 +54,14 @@ bool Formatter::readTemplates()
 
   if ( mainTemplate.isEmpty() ) 
   {
-    kWarning() << "Main template file name is empty." ;
+    qWarning() << "Main template file name is empty." ;
     return false;
   }
 
   QFile f( mainTemplate );
   if ( !f.open( QIODevice::ReadOnly ) ) 
   {
-    kWarning() << "Unable to open main template file '" << mainTemplate
+    qWarning() << "Unable to open main template file '" << mainTemplate
                 << "'." << endl;
     return false;
   }
@@ -107,7 +107,7 @@ bool Formatter::readTemplates()
         }
         break;
       default:
-        kError() << "Formatter::readTemplates(): Illegal state: "
+        qWarning() << "Formatter::readTemplates(): Illegal state: "
                   << static_cast<int>(state) << endl;
         break;
     }
@@ -125,7 +125,7 @@ bool Formatter::readTemplates()
     if ( !mSymbols.contains( *it2 ) ) 
     {
       success = false;
-      kError() << "Symbol '" << *it2 << "' is missing from main template file."
+      qWarning() << "Symbol '" << *it2 << "' is missing from main template file."
                 << endl;
     }
   }

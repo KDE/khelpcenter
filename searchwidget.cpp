@@ -38,7 +38,6 @@
 #include <KConfig>
 #include <KApplication>
 #include <KLocale>
-#include <KDebug>
 #include <KIconLoader>
 
 #include "scopeitem.h"
@@ -348,7 +347,7 @@ void SearchWidget::scopeDoubleClicked( QTreeWidgetItem* item )
 
   QString searchUrl = scopeItem->entry()->search();
 
-  kDebug() << "DoubleClick: " << searchUrl;
+  qDebug() << "DoubleClick: " << searchUrl;
 
   emit searchResult( searchUrl );
 }

@@ -1,9 +1,8 @@
 #include <QCoreApplication>
+#include <QDebug>
 
-#include <kaboutdata.h>
-#include <kdebug.h>
-#include <klocale.h>
 #include <kcmdlineargs.h>
+#include <KAboutData>
 
 #include "docmetainfo.h"
 #include "docentrytraverser.h"
@@ -17,12 +16,11 @@ class MyTraverser : public DocEntryTraverser
 
     void process( DocEntry *entry )
     {
-      kDebug() << mIndent << entry->name() << " - WEIGHT: " << entry->weight()
-                << endl;
+      qDebug() << mIndent << entry->name() << " - WEIGHT: " << entry->weight();
 #if 0
-      if ( entry->parent() ) kDebug() << mIndent << "  PARENT: "
+      if ( entry->parent() ) qDebug() << mIndent << "  PARENT: "
                                        << entry->parent()->name() << endl;
-      if ( entry->nextSibling() ) kDebug() << mIndent << "  NEXT: "
+      if ( entry->nextSibling() ) qDebug() << mIndent << "  NEXT: "
                                        << entry->nextSibling()->name() << endl;
 #endif
     }
@@ -41,7 +39,7 @@ class LinearTraverser : public DocEntryTraverser
   public:
     void process( DocEntry *entry )
     {
-      kDebug() << "PROCESS: " << entry->name();
+      qDebug() << "PROCESS: " << entry->name();
     }
     
     DocEntryTraverser *createChild( DocEntry * )
@@ -62,22 +60,22 @@ class AsyncTraverser : public DocEntryTraverser
   public:
     AsyncTraverser( const QString &indent = "" ) : mIndent( indent )
     {
-//      kDebug() << "AsyncTraverser()";
+//      qDebug() << "AsyncTraverser()";
     }
     
     ~AsyncTraverser()
     {
-//      kDebug() << "~AsyncTraverser()";
+//      qDebug() << "~AsyncTraverser()";
     }
     
     void process( DocEntry *entry )
     {
-      kDebug() << mIndent << entry->name();
+      qDebug() << mIndent << entry->name();
     }
     
     DocEntryTraverser *createChild( DocEntry * )
     {
-//      kDebug() << "AsyncTraverser::childTraverser()";
+//      qDebug() << "AsyncTraverser::childTraverser()";
       return new AsyncTraverser( mIndent + "  " );
     }
 
@@ -91,24 +89,24 @@ int main(int argc,char **argv)
   // KComponentData componentData(&aboutData); doesn't seem to be necessary
   QCoreApplication app(argc,argv);
 
-  kDebug() << "Scanning Meta Info";
+  qDebug() << "Scanning Meta Info";
 
   DocMetaInfo::self()->scanMetaInfo( );
 
-  kDebug() << "My TRAVERSE start";
+  qDebug() << "My TRAVERSE start";
   MyTraverser t;
   DocMetaInfo::self()->startTraverseEntries( &t );
-  kDebug() << "My TRAVERSE end";
+  qDebug() << "My TRAVERSE end";
 
-  kDebug() << "Linear TRAVERSE start";
+  qDebug() << "Linear TRAVERSE start";
   LinearTraverser l;
   DocMetaInfo::self()->startTraverseEntries( &l );
-  kDebug() << "Linear TRAVERSE end";
+  qDebug() << "Linear TRAVERSE end";
 
-  kDebug() << "Async TRAVERSE start";
+  qDebug() << "Async TRAVERSE start";
   AsyncTraverser a;
   DocMetaInfo::self()->startTraverseEntries( &a );
-  kDebug() << "Async TRAVERSE end";
+  qDebug() << "Async TRAVERSE end";
 
   return 0;
 }

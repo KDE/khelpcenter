@@ -24,7 +24,6 @@
 
 #include <KApplication>
 #include <KConfig>
-#include <KDebug>
 #include <KIconLoader>
 #include <KLocale>
 #include <KXmlGuiWindow>
@@ -161,7 +160,7 @@ void Glossary::rebuildGlossaryCache()
     meinproc->start();
     if (!meinproc->waitForStarted()) 
     {
-        kError() << "could not start process" << meinproc->program();
+        qWarning() << "could not start process" << meinproc->program();
         if (mainWindow && !m_alreadyWarned)
 	{
             ; // add warning message box with don't display again option 
@@ -179,8 +178,8 @@ void Glossary::meinprocFinished( int exitCode, QProcess::ExitStatus exitStatus )
 
     if (exitStatus != QProcess::NormalExit || exitCode != 0)
     {
-        kError() << "running" << meinproc->program() << "failed with exitCode" << exitCode;
-        kError() << "stderr output:" << meinproc->readAllStandardError(); 
+        qWarning() << "running" << meinproc->program() << "failed with exitCode" << exitCode;
+        qWarning() << "stderr output:" << meinproc->readAllStandardError();
         if (mainWindow && !m_alreadyWarned) 
 	{
             ; // add warning message box with don't display again option 

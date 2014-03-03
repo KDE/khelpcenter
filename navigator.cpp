@@ -81,6 +81,8 @@
 
 using namespace KHC;
 
+QLoggingCategory category("org.kde.khelpcenter.Navigator");
+
 Navigator::Navigator( View *view, QWidget *parent, const char *name )
    : QWidget( parent ), mIndexDialog( 0 ),
      mView( view ), mSelected( false )
@@ -202,7 +204,7 @@ void Navigator::insertPlugins()
 
 void Navigator::insertParentAppDocs( const QString &name, NavigatorItem *topItem )
 {
-  kDebug(1400) << "Requested plugin documents for ID " << name;
+  qCDebug(category) << "Requested plugin documents for ID " << name;
 
   KServiceGroup::Ptr grp = KServiceGroup::childGroup( name );
   if ( !grp )
@@ -221,7 +223,7 @@ void Navigator::insertParentAppDocs( const QString &name, NavigatorItem *topItem
 
 void Navigator::insertKCMDocs( const QString &name, NavigatorItem *topItem, const QString &type )
 {
-  kDebug(1400) << "Requested KCM documents for ID" << name;
+  qCDebug(category) << "Requested KCM documents for ID" << name;
 
   KService::List list;
 
@@ -242,7 +244,7 @@ void Navigator::insertKCMDocs( const QString &name, NavigatorItem *topItem, cons
 
 void Navigator::insertIOSlaveDocs( const QString &name, NavigatorItem *topItem )
 {
-  kDebug(1400) << "Requested IOSlave documents for ID" << name;
+  qCDebug(category) << "Requested IOSlave documents for ID" << name;
 
   QStringList list = KProtocolInfo::protocols();
   list.sort();
@@ -296,7 +298,7 @@ NavigatorItem *Navigator::insertScrollKeeperDocs( NavigatorItem *topItem,
 
 void Navigator::selectItem( const KUrl &url )
 {
-  kDebug() << "Navigator::selectItem(): " << url.url();
+  qDebug() << "Navigator::selectItem(): " << url.url();
 
   if ( url.url() == "khelpcenter:home" ) {
     clearSelection();
@@ -319,7 +321,7 @@ void Navigator::selectItem( const KUrl &url )
   if ( item && mSelected ) {
     KUrl currentURL ( item->entry()->url() );
     if ( (currentURL == url) || (currentURL == alternativeURL) ) {
-      kDebug() << "URL already shown.";
+      qCDebug(category) << "URL already shown.";
       return;
     }
   }
@@ -370,7 +372,7 @@ void Navigator::slotItemSelected( QTreeWidgetItem *currentItem )
 
   NavigatorItem *item = static_cast<NavigatorItem *>( currentItem );
 
-  kDebug(1400) << item->entry()->name() << endl;
+  qCDebug(category) << item->entry()->name() << endl;
 
   item->setExpanded( !item->isExpanded() );
 
@@ -504,7 +506,7 @@ QString Navigator::createChildrenList( QTreeWidgetItem *child )
 void Navigator::slotSearch()
 {
   
-  kDebug(1400) << "Navigator::slotSearch()";
+  qCDebug(category) << "Navigator::slotSearch()";
 
   if ( !checkSearchIndex() ) return;
 
@@ -515,8 +517,8 @@ void Navigator::slotSearch()
   int pages = mSearchWidget->pages();
   QString scope = mSearchWidget->scope();
 
-  kDebug(1400) << "Navigator::slotSearch() words: " << words;
-  kDebug(1400) << "Navigator::slotSearch() scope: " << scope;
+  qCDebug(category) << "Navigator::slotSearch() words: " << words;
+  qCDebug(category) << "Navigator::slotSearch() scope: " << scope;
 
   if ( words.isEmpty() || scope.isEmpty() ) return;
 
@@ -544,7 +546,7 @@ void Navigator::slotSearchFinished()
   mSearchButton->setEnabled(true);
   QApplication::restoreOverrideCursor();
 
-  kDebug( 1400 ) << "Search finished.";
+  qCDebug(category) << "Search finished.";
 }
 
 void Navigator::checkSearchButton()

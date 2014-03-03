@@ -196,13 +196,13 @@ void ExternalProcessSearchHandler::search( DocEntry *entry, const QStringList &w
   int maxResults,
   SearchEngine::Operation operation )
 {
-  kDebug() << entry->identifier();
+  qDebug() << entry->identifier();
 
   if ( !mSearchCommand.isEmpty() ) {
     QString cmdString = SearchEngine::substituteSearchQuery( mSearchCommand,
       entry->identifier(), words, maxResults, operation, mLang, mSearchBinary );
 
-    kDebug() << "CMD:" << cmdString;
+    qDebug() << "CMD:" << cmdString;
 
     SearchJob *searchJob = new SearchJob(entry);
     connect(searchJob, SIGNAL(searchFinished( SearchJob *, DocEntry *, const QString & )),
@@ -215,7 +215,7 @@ void ExternalProcessSearchHandler::search( DocEntry *entry, const QStringList &w
     QString urlString = SearchEngine::substituteSearchQuery( mSearchUrl,
       entry->identifier(), words, maxResults, operation, mLang, mSearchBinary );
 
-    kDebug() << "URL:" << urlString;
+    qDebug() << "URL:" << urlString;
 
     SearchJob *searchJob = new SearchJob(entry);
     connect(searchJob, SIGNAL(searchFinished( SearchJob *, DocEntry *, const QString & )),

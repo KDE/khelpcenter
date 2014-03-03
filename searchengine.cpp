@@ -54,7 +54,7 @@ SearchTraverser::~SearchTraverser()
 
 void SearchTraverser::process( DocEntry * )
 {
-  kDebug() << "SearchTraverser::process()";
+  qDebug() << "SearchTraverser::process()";
 }
 
 void SearchTraverser::startProcess( DocEntry *entry )
@@ -112,7 +112,7 @@ void SearchTraverser::disconnectHandler( SearchHandler *handler )
   QMap<SearchHandler *,int>::Iterator it;
   it = mConnectCount.find( handler );
   if ( it == mConnectCount.end() ) {
-    kError() << "SearchTraverser::disconnectHandler() handler not connected."
+    qWarning() << "SearchTraverser::disconnectHandler() handler not connected."
       << endl;
   } else {
     int count = *it;
@@ -222,12 +222,11 @@ bool SearchEngine::initSearchHandlers()
   QStringList::ConstIterator it;
   for( it = resources.constBegin(); it != resources.constEnd(); ++it ) {
     QString filename = *it;
-    kDebug() << "SearchEngine::initSearchHandlers(): " << filename;
+    qDebug() << "SearchEngine::initSearchHandlers(): " << filename;
     SearchHandler *handler = SearchHandler::initFromFile( filename );
     if ( !handler ) {
       QString txt = i18n("Unable to initialize SearchHandler from file '%1'.",
           filename );
-      kWarning() << txt ;
 //      KMessageBox::sorry( mView->widget(), txt );
     } else {
       QStringList documentTypes = handler->documentTypes();
@@ -240,7 +239,7 @@ bool SearchEngine::initSearchHandlers()
 
   if ( mHandlers.isEmpty() ) {
     QString txt = i18n("No valid search handler found.");
-    kWarning() << txt ;
+    qWarning() << txt;
 //    KMessageBox::sorry( mView->widget(), txt );
     return false;
   }
@@ -252,7 +251,7 @@ void SearchEngine::searchExited(int exitCode, QProcess::ExitStatus exitStatus)
 {
   Q_UNUSED(exitCode);
   Q_UNUSED(exitStatus);
-  kDebug() << "Search terminated";
+  qDebug() << "Search terminated";
   mSearchRunning = false;
 }
 
@@ -291,7 +290,7 @@ bool SearchEngine::search( const QString & words, const QString & method, int ma
     mView->writeSearchResult( formatter()->title( txt ) );
 
     if ( mRootTraverser ) {
-      kDebug() << "SearchEngine::search(): mRootTraverser not null.";
+      qDebug() << "SearchEngine::search(): mRootTraverser not null.";
       return false;
     }
     mRootTraverser = new SearchTraverser( this, 0 );
@@ -317,7 +316,7 @@ bool SearchEngine::search( const QString & words, const QString & method, int ma
 
     commonSearchProgram = substituteSearchQuery( commonSearchProgram );
 
-    kDebug() << "Common Search: " << commonSearchProgram;
+    qDebug() << "Common Search: " << commonSearchProgram;
 
     mProc = new KProcess();
     *mProc << KShell::splitArgs(commonSearchProgram);
@@ -331,8 +330,7 @@ bool SearchEngine::search( const QString & words, const QString & method, int ma
 
     mProc->start();
     if (!mProc->waitForStarted()) {
-      kError() << "could not start search program '" << commonSearchProgram
-                << "'" << endl;
+      qWarning() << "could not start search program '" << commonSearchProgram << "'";
       delete mProc;
       return false;
     }
@@ -345,8 +343,7 @@ bool SearchEngine::search( const QString & words, const QString & method, int ma
     mSearchResult += mProc->readAllStandardOutput();
 
     if ( mProc->exitStatus() == KProcess::CrashExit || mProc->exitCode() != 0 ) {
-      kError() << "Unable to run search program '" << commonSearchProgram
-                << "'" << endl;
+      qWarning() << "Unable to run search program '" << commonSearchProgram << "'" << endl;
       delete mProc;
 
       return false;

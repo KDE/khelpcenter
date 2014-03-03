@@ -36,9 +36,12 @@
 
 #include <QFile>
 #include <QTextStream>
+#include <QLoggingCategory>
 #include <QPixmap>
 
 #include <stdlib.h>  // for getenv()
+
+QLoggingCategory category("org.kde.khelpcenter");
 
 using namespace KHC;
 
@@ -61,7 +64,7 @@ InfoCategoryItem::InfoCategoryItem( NavigatorItem *parent, const QString &text )
 {
   setAutoDeleteDocEntry( true );
   setExpanded( false );
-//  kDebug(1400) << "Got category: " << text;
+//  qCDebug(category) << "Got category: " << text;
 }
 
 void InfoCategoryItem::setExpanded( bool open )
@@ -77,7 +80,7 @@ InfoNodeItem::InfoNodeItem( InfoCategoryItem *parent, const QString &text )
   : NavigatorItem( new DocEntry( text ), parent )
 {
   setAutoDeleteDocEntry( true );
-//  kDebug( 1400 ) << "Created info node item: " << text;
+//  qCDebug(category) << "Created info node item: " << text;
 }
 
 InfoTree::InfoTree( QObject *parent )
@@ -88,7 +91,7 @@ InfoTree::InfoTree( QObject *parent )
 
 void InfoTree::build( NavigatorItem *parent )
 {
-  kDebug( 1400 ) << "Populating info tree.";
+  qCDebug(category) << "Populating info tree.";
 
   m_parentItem = parent;
 
@@ -130,7 +133,7 @@ void InfoTree::build( NavigatorItem *parent )
 
 void InfoTree::parseInfoDirFile( const QString &infoDirFileName )
 {
-  kDebug( 1400 ) << "Parsing info dir file " << infoDirFileName;
+  qCDebug(category) << "Parsing info dir file " << infoDirFileName;
 
   QFile infoDirFile( infoDirFileName );
   if ( !infoDirFile.open( QIODevice::ReadOnly ) )

@@ -38,7 +38,7 @@ View::View( QWidget *parentWidget, QObject *parent, KHTMLPart::GUIProfile prof, 
 
     mFormatter = new Formatter;
     if ( !mFormatter->readTemplates() ) {
-      kDebug() << "Unable to read Formatter templates.";
+      qDebug() << "Unable to read Formatter templates.";
     }
 
     m_fontScaleStepping = 10;

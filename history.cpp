@@ -142,11 +142,11 @@ void History::updateCurrentEntry( View *view )
   current->view = view;
 
   if ( url.isEmpty() ) {
-    kDebug() << "History::updateCurrentEntry(): internal url";
+    qDebug() << "History::updateCurrentEntry(): internal url";
     url = view->internalUrl();
   }
 
-  kDebug() << "History::updateCurrentEntry(): " << view->title()
+  qDebug() << "History::updateCurrentEntry(): " << view->title()
             << " (URL: " << url.url() << ")" << endl;
 
   current->url = url;
@@ -218,30 +218,29 @@ void History::goHistory( int steps )
   
   current = *newPos;
   if ( !current ) {
-    kError() << "No History entry at position " << newPos - m_entries.begin() << endl;
+    qWarning() << "No History entry at position " << newPos - m_entries.begin() << endl;
     return;
   }
 
   if ( !current->view ) {
-    kWarning() << "Empty history entry." ;
+    qWarning() << "Empty history entry." ;
     return;
   }
   
   m_entries_current = newPos;
 
   if ( current->search ) {
-    kDebug() << "History::goHistory(): search";
+    qDebug() << "History::goHistory(): search";
     current->view->lastSearch();
     return;
   }
 
-  if ( current->url.protocol() == QLatin1String("khelpcenter") ) {
-    kDebug() << "History::goHistory(): internal";
+  if ( current->url.scheme() == QLatin1String("khelpcenter") ) {
+    qDebug() << "History::goHistory(): internal";
     emit goInternalUrl( current->url );
     return;
   }
 
-  kDebug() << "History::goHistory(): restore state";
 
   emit goUrl( current->url );
 

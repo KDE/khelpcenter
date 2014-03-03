@@ -2,8 +2,8 @@
 
 #include <QRegExp>
 #include <QFileInfo>
+#include <QDebug>
 
-#include <KDebug>
 #include <KDesktopFile>
 #include <KUrl>
 #include <KStandardDirs>
@@ -345,15 +345,15 @@ bool DocEntry::isSearchable()
 
 void DocEntry::dump() const
 {
-  kDebug() << "  <docentry>";
-  kDebug() << "    <name>" << mName << "</name>";
-  kDebug() << "    <searchmethod>" << mSearchMethod << "</searchmethod>";
-  kDebug() << "    <search>" << mSearch << "</search>";
-  kDebug() << "    <indexer>" << mIndexer << "</indexer>";
-  kDebug() << "    <indextestfile>" << mIndexTestFile << "</indextestfile>";
-  kDebug() << "    <icon>" << mIcon << "</icon>";
-  kDebug() << "    <url>" << mUrl << "</url>";
-  kDebug() << "    <documenttype>" << mDocumentType << "</documenttype>";
-  kDebug() << "  </docentry>";
+  qDebug() << "  <docentry>";
+  qDebug() << "    <name>" << mName << "</name>";
+  qDebug() << "    <searchmethod>" << mSearchMethod << "</searchmethod>";
+  qDebug() << "    <search>" << mSearch << "</search>";
+  qDebug() << "    <indexer>" << mIndexer << "</indexer>";
+  qDebug() << "    <indextestfile>" << mIndexTestFile << "</indextestfile>";
+  qDebug() << "    <icon>" << mIcon << "</icon>";
+  qDebug() << "    <url>" << mUrl << "</url>";
+  qDebug() << "    <documenttype>" << mDocumentType << "</documenttype>";
+  qDebug() << "  </docentry>";
 }
 // vim:ts=2:sw=2:et

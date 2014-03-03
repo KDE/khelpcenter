@@ -25,7 +25,6 @@
 
 #include <KApplication>
 #include <KConfig>
-#include <KDebug>
 #include <KGlobal>
 #include <KLocale>
 #include <KProcess>
@@ -56,7 +55,7 @@ NavigatorItem *ScrollKeeperTreeBuilder::build( NavigatorItem *parent,
 {
   QString lang = KGlobal::locale()->language();
 
-  kDebug(1400) << "ScrollKeeper language: " << lang;
+  qCDebug(category) << "ScrollKeeper language: " << lang;
 
   KProcess proc;
   proc << "scrollkeeper-get-content-list";
@@ -65,13 +64,13 @@ NavigatorItem *ScrollKeeperTreeBuilder::build( NavigatorItem *parent,
   proc.setOutputChannelMode(KProcess::OnlyStdoutChannel);
   proc.start();
   if ( !proc.waitForFinished() ) {
-    kDebug(1400) << "Could not execute scrollkeeper-get-content-list";
+    qCDebug(category) << "Could not execute scrollkeeper-get-content-list";
     return 0;
   }
   mContentsList = proc.readAllStandardOutput().trimmed();
 
   if (!QFile::exists(mContentsList)) {
-    kDebug(1400) << "Scrollkeeper contents file '" << mContentsList
+    qCDebug(category) << "Scrollkeeper contents file '" << mContentsList
       << "' does not exist." << endl;
     return 0;
   }

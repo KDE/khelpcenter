@@ -21,7 +21,7 @@
 #include "navigatorappitem.h"
 #include "docentry.h"
 
-#include <KDebug>
+#include <QDebug>
 #include <KService>
 #include <KServiceGroup>
 
@@ -68,11 +68,11 @@ void NavigatorAppItem::setRelpath( const QString &relpath )
 
 void NavigatorAppItem::setExpanded(bool open)
 {
-  kDebug() << "NavigatorAppItem::setOpen()";
+  qDebug() << "NavigatorAppItem::setOpen()";
 
   if ( open && (childCount() == 0) && !mPopulated )
   {
-     kDebug() << "NavigatorAppItem::setOpen(" << this << ", "
+     qDebug() << "NavigatorAppItem::setOpen(" << this << ", "
                << mRelpath << ")" << endl;
      populate();
   }
@@ -85,7 +85,7 @@ void NavigatorAppItem::populate( bool recursive )
 
   KServiceGroup::Ptr root = KServiceGroup::group(mRelpath);
   if ( !root ) {
-    kWarning() << "No Service groups\n";
+    qWarning() << "No Service groups\n";
     return;
   }
   KServiceGroup::List list = root->entries();

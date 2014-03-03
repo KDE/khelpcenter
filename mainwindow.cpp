@@ -36,7 +36,6 @@
 #include <KMimeType>
 #include <KRun>
 #include <KAboutData>
-#include <KDebug>
 #include <KHTMLView>
 #include <KHTMLSettings>
 #include <KStatusBar>
@@ -60,6 +59,7 @@
 #include <stdlib.h>
 #include <assert.h>
 #include <kglobal.h>
+QLoggingCategory category("org.kde.khelpcenter");
 
 using namespace KHC;
 
@@ -194,13 +194,11 @@ void MainWindow::enableCopyTextAction()
 
 void MainWindow::saveProperties( KConfigGroup &config )
 {
-    kDebug();
     config.writePathEntry( "URL" , mDoc->baseURL().url() );
 }
 
 void MainWindow::readProperties( const KConfigGroup &config )
 {
-    kDebug();
     mDoc->slotReload( KUrl( config.readPathEntry( "URL", QString() ) ) );
 }
 
@@ -373,8 +371,6 @@ void MainWindow::viewUrl( const KUrl &url, const KParts::OpenUrlArguments &args,
 
 void MainWindow::documentCompleted()
 {
-    kDebug();
-
     History::self().updateCurrentEntry( mDoc );
     History::self().updateActions();
 }
@@ -411,8 +407,6 @@ void MainWindow::openUrl( const KUrl &url )
 
 void MainWindow::slotGlossSelected(const GlossaryEntry &entry)
 {
-    kDebug();
-
     stop();
     History::self().createEntry();
     mDoc->begin( KUrl( "help:/khelpcenter/glossary" ) );
@@ -422,8 +416,6 @@ void MainWindow::slotGlossSelected(const GlossaryEntry &entry)
 
 void MainWindow::stop()
 {
-    kDebug();
-
     mDoc->closeUrl();
     History::self().updateCurrentEntry( mDoc );
 }

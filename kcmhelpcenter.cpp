@@ -30,7 +30,6 @@
 #include "kcmhelpcenteradaptor.h"
 
 #include <KConfig>
-#include <KDebug>
 #include <KLocale>
 #include <KGlobal>
 #include <KAboutData>
@@ -57,6 +56,8 @@
 #include <QStandardPaths>
 
 using namespace KHC;
+
+QLoggingCategory category("org.kde.khelpcenter");
 
 IndexDirDialog::IndexDirDialog( QWidget *parent )
   : KDialog( parent )
@@ -250,10 +251,10 @@ KCMHelpCenter::KCMHelpCenter( KHC::SearchEngine *engine, QWidget *parent,
   QDBusConnection dbus = QDBusConnection::sessionBus();
   bool success = dbus.connect(QString(), "/kcmhelpcenter", dbusInterface, "buildIndexProgress", this, SLOT(slotIndexProgress()));
   if ( !success )
-    kError() << "connect D-Bus signal failed" << endl;
+    qWarning() << "connect D-Bus signal failed";
   success = dbus.connect(QString(), "/kcmhelpcenter", dbusInterface, "buildIndexError", this, SLOT(slotIndexError(const QString&)));
   if ( !success )
-    kError() << "connect D-Bus signal failed" << endl;
+    qWarning() << "connect D-Bus signal failed";
   KConfigGroup id( mConfig, "IndexDialog" );
   restoreDialogSize( id );
 }
@@ -315,7 +316,7 @@ void KCMHelpCenter::defaults()
 
 bool KCMHelpCenter::save()
 {
-  kDebug(1401) << "KCMHelpCenter::save()";
+  qCDebug(category) << "KCMHelpCenter::save()";
 
   if ( !QFile::exists( Prefs::indexDirectory() ) ) {
     KMessageBox::sorry( this,
@@ -338,8 +339,8 @@ void KCMHelpCenter::load()
   const DocEntry::List &entries = DocMetaInfo::self()->docEntries();
   DocEntry::List::ConstIterator it;
   for( it = entries.begin(); it != entries.end(); ++it ) {
-//    kDebug(1401) << "Entry: " << (*it)->name() << " Indexer: '"
-//              << (*it)->indexer() << "'" << endl;
+//    qCDebug(category) << "Entry: " << (*it)->name() << " Indexer: '"
+//              << (*it)->indexer() << "'";
     if ( mEngine->needsIndex( *it ) ) {
       ScopeItem *item = new ScopeItem( mListView, *it );
       item->setOn( (*it)->searchEnabled() );
@@ -373,12 +374,12 @@ void KCMHelpCenter::updateStatus()
 
 bool KCMHelpCenter::buildIndex()
 {
-  kDebug(1401) << "Build Index";
+  qCDebug(category) << "Build Index";
 
-  kDebug() << "IndexPath: '" << Prefs::indexDirectory() << "'";
+  qDebug() << "IndexPath: '" << Prefs::indexDirectory() << "'";
 
   if ( mProcess ) {
-    kError() << "Error: Index Process still running." << endl;
+    qWarning() << "Error: Index Process still running.";
     return false;
   }
 
@@ -389,13 +390,13 @@ bool KCMHelpCenter::buildIndex()
 
   mCmdFile = new KTemporaryFile;
   if ( !mCmdFile->open() ) {
-    kError() << "Error opening command file." << endl;
+    qWarning() << "Error opening command file.";
     deleteCmdFile();
     return false;
   }
 
   QTextStream ts ( mCmdFile );
-  kDebug() << "Writing to file '" << mCmdFile->fileName() << "'";
+  qDebug() << "Writing to file '" << mCmdFile->fileName() << "'";
 
   bool hasError = false;
 
@@ -434,7 +435,7 @@ bool KCMHelpCenter::buildIndex()
             indexer.replace( QLatin1String("%i" ), entry->identifier() );
             indexer.replace( QLatin1String( "%d" ), Prefs::indexDirectory() );
             indexer.replace( QLatin1String( "%p" ), entry->url() );
-            kDebug() << "INDEXER: " << indexer;
+            qDebug() << "INDEXER: " << indexer;
             ts << indexer << endl;
 
             int width = fm.width( entry->name() );
@@ -477,19 +478,19 @@ bool KCMHelpCenter::buildIndex()
 
 void KCMHelpCenter::startIndexProcess()
 {
-  kDebug() << "KCMHelpCenter::startIndexProcess()";
+  qDebug() << "KCMHelpCenter::startIndexProcess()";
 
   mProcess = new KProcess;
 #ifndef Q_WS_WIN
   if ( mRunAsRoot ) {
     QString kdesu = QStandardPaths::findExecutable("kdesu");
     if(kdesu.isEmpty()) {
-      kError() << "Failed to run index process as root - could not find kdesu";
+      qWarning() << "Failed to run index process as root - could not find kdesu";
     } else {
       *mProcess << kdesu;
       if(parentWidget()) {
         *mProcess << "--attach" <<  QString::number(parentWidget()->window()->winId());
-        kDebug() << "Run as root, attaching kdesu to winid " << QString::number(parentWidget()->window()->winId());
+        qDebug() << "Run as root, attaching kdesu to winid " << QString::number(parentWidget()->window()->winId());
       }
       *mProcess << "--";
     }
@@ -510,7 +511,7 @@ void KCMHelpCenter::startIndexProcess()
 
   mProcess->start();
   if (!mProcess->waitForStarted()) {
-    kError() << "KCMHelpcenter::startIndexProcess(): Failed to start process.";
+    qWarning() << "KCMHelpcenter::startIndexProcess(): Failed to start process.";
     deleteProcess();
     deleteCmdFile();
   }
@@ -518,7 +519,7 @@ void KCMHelpCenter::startIndexProcess()
 
 void KCMHelpCenter::cancelBuildIndex()
 {
-  kDebug() << "cancelBuildIndex()";
+  qDebug() << "cancelBuildIndex()";
 
   deleteProcess();
   deleteCmdFile();
@@ -531,20 +532,20 @@ void KCMHelpCenter::cancelBuildIndex()
 
 void KCMHelpCenter::slotIndexFinished(int exitCode, QProcess::ExitStatus exitStatus)
 {
-  kDebug() << "KCMHelpCenter::slotIndexFinished()";
+  qDebug() << "KCMHelpCenter::slotIndexFinished()";
 
   if ( exitStatus == QProcess::NormalExit && exitCode == 2 ) {
     if ( mRunAsRoot ) {
-      kError() << "Insufficient permissions." << endl;
+      qWarning() << "Insufficient permissions.";
     } else {
-      kDebug() << "Insufficient permissions. Trying again as root.";
+      qDebug() << "Insufficient permissions. Trying again as root.";
       mRunAsRoot = true;
       deleteProcess();
       startIndexProcess();
       return;
     }
   } else if ( exitStatus != QProcess::NormalExit || exitCode != 0 ) {
-    kDebug() << "KProcess reported an error.";
+    qDebug() << "KProcess reported an error.";
     KMessageBox::error( this, i18n("Failed to build index.") );
   } else {
     mConfig->group( "Search" ).writeEntry( "IndexExists", true );
@@ -586,7 +587,7 @@ void KCMHelpCenter::slotIndexProgress()
   if( !mProcess )
     return;
 
-  kDebug() << "KCMHelpCenter::slotIndexProgress()";
+  qDebug() << "KCMHelpCenter::slotIndexProgress()";
 
   updateStatus();
 
@@ -598,7 +599,7 @@ void KCMHelpCenter::slotIndexError( const QString &str )
   if( !mProcess )
     return;
 
-  kDebug() << "KCMHelpCenter::slotIndexError()";
+  qDebug() << "KCMHelpCenter::slotIndexError()";
 
   KMessageBox::sorry( this, i18n("Error executing indexing build command:\n%1",
       str ) );
@@ -661,7 +662,7 @@ void KCMHelpCenter::slotOk()
 
 void KCMHelpCenter::slotProgressClosed()
 {
-  kDebug() << "KCMHelpCenter::slotProgressClosed()";
+  qDebug() << "KCMHelpCenter::slotProgressClosed()";
 
   if ( mIsClosing ) accept();
 }

@@ -116,7 +116,7 @@ HtmlSearchConfig::HtmlSearchConfig(QWidget *parent, const char *name)
 
 HtmlSearchConfig::~HtmlSearchConfig()
 {
-  kDebug() << "~HtmlSearchConfig()";
+  qDebug() << "~HtmlSearchConfig()";
 }
 
 void HtmlSearchConfig::makeReadOnly()
