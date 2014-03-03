@@ -24,7 +24,6 @@
 
 #include <KIconLoader>
 #include <KProcess>
-#include <KStandardDirs>
 #include <KXmlGuiWindow>
 #include <KApplication>
 #include <KStatusBar>
@@ -86,7 +85,7 @@ void TOC::build( const QString &file )
 {
     QFileInfo fileInfo( file );
     QString fileName = fileInfo.absoluteFilePath();
-    const QStringList resourceDirs = KGlobal::dirs()->resourceDirs( "html" );
+    const QStringList resourceDirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, "doc/HTML");
     QStringList::ConstIterator it = resourceDirs.begin();
     QStringList::ConstIterator end = resourceDirs.end();
     for ( ; it != end; ++it ) {
@@ -100,7 +99,7 @@ void TOC::build( const QString &file )
 #ifdef Q_WS_WIN
     cacheFile = cacheFile.replace( ':', "_" );
 #endif
-    m_cacheFile = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1Char('/') + "help/" + cacheFile ;
+    m_cacheFile = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + "/help/" + cacheFile ;
     m_sourceFile = file;
 
     if ( cacheStatus() == NeedRebuild )

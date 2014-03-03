@@ -3,14 +3,14 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
       http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
-  <include>kstandarddirs.h</include>
+  <include>QStandardPaths</include>
   <kcfgfile name="khelpcenterrc"/>
 
   <group name="Search">
     <entry type="Path" key="IndexDirectory">
       <label>Path to index directory.</label>
       <whatsthis>Path to directory containing search indices.</whatsthis>
-      <default code="true">KGlobal::dirs()->saveLocation("data", "khelpcenter/index/")</default>
+      <default code="true">QStandardPaths::writableLocation(QStandardPaths::DataLocation) + QStringLiteral("/khelpcenter/index/")</default>
     </entry>
 
     <entry type="Int" key="Method">

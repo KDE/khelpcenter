@@ -34,7 +34,6 @@
 #include <KGlobal>
 #include <KAboutData>
 #include <KDialog>
-#include <KStandardDirs>
 #include <KProcess>
 #include <KApplication>
 #include <KTemporaryFile>
@@ -497,7 +496,7 @@ void KCMHelpCenter::startIndexProcess()
   }
 #endif
 
-  *mProcess << CMAKE_INSTALL_PREFIX "/" LIBEXEC_INSTALL_DIR "/khc_indexbuilder";
+  *mProcess << QStandardPaths::findExecutable("khc_indexbuilder"); //Note this is in libexec
   *mProcess << mCmdFile->fileName();
   *mProcess << Prefs::indexDirectory();
 

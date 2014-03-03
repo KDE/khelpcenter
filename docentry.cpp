@@ -6,7 +6,6 @@
 
 #include <KDesktopFile>
 #include <KUrl>
-#include <KStandardDirs>
 #include <KApplication>
 #include <KRandom>
 
@@ -255,8 +254,8 @@ bool DocEntry::docExists() const
 {
   if ( !mUrl.isEmpty() ) 
   {
-    KUrl docUrl( mUrl );
-    if ( docUrl.isLocalFile() && !KStandardDirs::exists( docUrl.toLocalFile() ) )
+    QUrl docUrl( mUrl );
+    if ( docUrl.isLocalFile() && !QFile::exists( docUrl.toLocalFile() ) )
     {
       return false;
     }

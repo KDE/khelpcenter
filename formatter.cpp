@@ -24,7 +24,6 @@
 #include <KGlobal>
 #include <KConfig>
 #include <KConfigGroup>
-#include <KStandardDirs>
 
 #include <QDebug>
 #include <QFile>

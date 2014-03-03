@@ -19,7 +19,6 @@
  */
 
 #include <QLayout>
-#include <kstandarddirs.h>
 #include <klocale.h>
 #include <kurllabel.h>
 #include <kapplication.h>

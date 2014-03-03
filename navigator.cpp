@@ -39,7 +39,6 @@
 #include <KAction>
 #include <KApplication>
 #include <KConfig>
-#include <KStandardDirs>
 #include <KGlobal>
 #include <KLocale>
 #include <KDebug>
@@ -216,7 +215,7 @@ void Navigator::insertParentAppDocs( const QString &name, NavigatorItem *topItem
   for ( ; it != end; ++it ) {
     QString desktopFile = ( *it )->entryPath();
     if ( QDir::isRelativePath( desktopFile ) )
-        desktopFile = KStandardDirs::locate( "apps", desktopFile );
+        desktopFile = QStandardPaths::locate(QStandardPaths::ApplicationsLocation, desktopFile );
     createItemFromDesktopFile( topItem, desktopFile );
   }
 }

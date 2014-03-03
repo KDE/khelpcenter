@@ -28,7 +28,6 @@
 #include <KLocale>
 #include <KXmlGuiWindow>
 #include <KProcess>
-#include <KStandardDirs>
 #include <KStatusBar>
 #include <KGlobal>
 
@@ -150,7 +149,7 @@ void Glossary::rebuildGlossaryCache()
     connect( meinproc, SIGNAL( finished(int,QProcess::ExitStatus) ),
              this, SLOT( meinprocFinished(int,QProcess::ExitStatus) ) );
     
-    *meinproc << KStandardDirs::locate( "exe", QLatin1String( "meinproc4" ) );
+    *meinproc << QStandardPaths::findExecutable(QStringLiteral( "meinproc5" ) );
     *meinproc << QLatin1String( "--output" ) << m_cacheFile;
     *meinproc << QLatin1String( "--stylesheet" )
               << QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String( "khelpcenter/glossary.xslt" ) );

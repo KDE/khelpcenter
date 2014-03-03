@@ -31,7 +31,6 @@
 #include <KGlobal>
 
 #include <KLocale>
-#include <KStandardDirs>
 #include <KUrl>
 
 #include <QFile>

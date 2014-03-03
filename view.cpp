@@ -16,7 +16,6 @@
 #include <KHTMLView>
 #include <KLocale>
 #include <KMenu>
-#include <KStandardDirs>
 #include <KToolBarPopupAction>
 #include <KGlobal>
 
@@ -98,17 +97,16 @@ QString View::langLookup( const QString &fname )
     QStringList search;
 
     // assemble the local search paths
-    const QStringList localDoc = KGlobal::dirs()->resourceDirs("html");
+    const QStringList localDoc = QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation);
 
     // look up the different languages
     for (int id=localDoc.count()-1; id >= 0; --id)
     {
-        QStringList langs = KGlobal::locale()->languageList();
-        langs.replaceInStrings("en_US", "en");
-        langs.append("en");
-        QStringList::ConstIterator lang;
-        for (lang = langs.constBegin(); lang != langs.constEnd(); ++lang)
-            search.append(QString("%1%2/%3").arg(localDoc[id]).arg(*lang).arg(fname));
+        QDir d(QStringLiteral("%1/doc/HTML/").arg(localDoc[id]));
+
+        foreach(const QString& entry, d.entryList(QDir::Dirs | QDir::NoDotAndDotDot)) {
+            search.append(d.absoluteFilePath(entry+'/'+fname));
+        }
     }
 
     // try to locate the file
@@ -119,7 +117,7 @@ QString View::langLookup( const QString &fname )
         if (info.exists() && info.isFile() && info.isReadable())
             return *it;
 
-		QString file = (*it).left((*it).lastIndexOf('/')) + "/index.docbook";
+		QString file = it->left(it->lastIndexOf('/')) + "/index.docbook";
 		info.setFile(file);
 		if (info.exists() && info.isFile() && info.isReadable())
 			return *it;

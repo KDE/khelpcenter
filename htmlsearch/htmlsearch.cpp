@@ -4,7 +4,6 @@
 
 #include <kapplication.h>
 #include <kdebug.h>
-#include <kstandarddirs.h>
 #include <k3process.h>
 #include <klocale.h>
 #include <kconfig.h>

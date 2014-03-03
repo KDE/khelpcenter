@@ -28,7 +28,6 @@
 #include <QGridLayout>
 
 #include <KDebug>
-#include <KStandardDirs>
 #include <KLocale>
 #include <KUrlLabel>
 #include <KApplication>
@@ -128,7 +127,7 @@ void HtmlSearchConfig::makeReadOnly()
 
 void HtmlSearchConfig::load( KConfig *config )
 {
-  mHtsearchUrl->lineEdit()->setText(config->group("htdig").readPathEntry("htsearch", KGlobal::mainComponent().dirs()->findExe("htsearch")));
+  mHtsearchUrl->lineEdit()->setText(config->group("htdig").readPathEntry("htsearch", QStandardPaths::findExecutable("htsearch")));
   mIndexerBin->lineEdit()->setText(config->group("htdig").readPathEntry("indexer", QString()));
   mDbDir->lineEdit()->setText(config->group("htdig").readPathEntry("dbdir", "/opt/www/htdig/db/" ) );
 }
@@ -142,7 +141,7 @@ void HtmlSearchConfig::save( KConfig *config )
 
 void HtmlSearchConfig::defaults()
 {
-    mHtsearchUrl->lineEdit()->setText(KGlobal::mainComponent().dirs()->findExe("htsearch"));
+    mHtsearchUrl->lineEdit()->setText(QStandardPaths::findExecutable("htsearch"));
     mIndexerBin->lineEdit()->setText("");
     mDbDir->lineEdit()->setText(QLatin1String("/opt/www/htdig/db/") );
 }

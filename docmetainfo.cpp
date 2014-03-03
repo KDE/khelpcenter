@@ -23,7 +23,6 @@
 #include <QRegExp>
 #include <QDebug>
 
-#include <KStandardDirs>
 #include <KLocale>
 #include <KConfig>
 #include <KConfigGroup>
@@ -135,8 +134,7 @@ QString DocMetaInfo::languageName( const QString &langcode )
 {
   if ( langcode == "en" ) return i18nc("Describes documentation entries that are in English","English");
 
-  QString cfgfile = KStandardDirs::locate( "locale",
-      QString::fromLatin1( "%1/entry.desktop" ).arg( langcode ) );
+  QString cfgfile = QStandardPaths::locate( QStandardPaths::GenericDataLocation, QStringLiteral( "locale/%1/entry.desktop" ).arg( langcode ) );
 
   qDebug() << "-- langcode: " << langcode << " cfgfile: " << cfgfile;
 
@@ -166,8 +164,7 @@ void DocMetaInfo::scanMetaInfo( bool force )
 
   if ( metaInfos.isEmpty() ) 
   {
-    KStandardDirs* kstd = KGlobal::dirs();
-    metaInfos = kstd->findDirs( "appdata", "plugins" );
+    metaInfos = QStandardPaths::locateAll(QStandardPaths::DataLocation, "plugins" );
   }
   for( it = metaInfos.constBegin(); it != metaInfos.constEnd(); ++it)
   {

@@ -30,7 +30,6 @@
 #include <KDebug>
 #include <KMessageBox>
 #include <KLocale>
-#include <KStandardDirs>
 #include <KShell>
 
 #include <stdlib.h>
@@ -149,7 +148,7 @@ ExternalProcessSearchHandler::ExternalProcessSearchHandler( const KConfigGroup &
   mTryExec = cg.readEntry( "TryExec" );
   mSearchBinary = cg.readEntry( "SearchBinary" );
   const QStringList searchBinaryPaths = cg.readEntry( "SearchBinaryPaths", QStringList() );
-  mSearchBinary = KStandardDirs::findExe(mSearchBinary, searchBinaryPaths.join(":"));
+  mSearchBinary = QStandardPaths::findExecutable(mSearchBinary, searchBinaryPaths);
 }
 
 QString ExternalProcessSearchHandler::indexCommand( const QString &identifier )
@@ -189,7 +188,7 @@ bool ExternalProcessSearchHandler::checkBinary( const QString &cmd ) const
   if ( pos < 0 ) binary = cmd;
   else binary = cmd.left( pos );
 
-  return !KStandardDirs::findExe( binary ).isEmpty();
+  return !QStandardPaths::findExecutable( binary ).isEmpty();
 }
 
 void ExternalProcessSearchHandler::search( DocEntry *entry, const QStringList &words,

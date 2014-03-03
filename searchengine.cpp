@@ -7,7 +7,6 @@
 #include <KApplication>
 #include <KConfig>
 #include <KDebug>
-#include <KStandardDirs>
 #include <KProcess>
 #include <KShell>
 #include <KLocale>
@@ -217,8 +216,13 @@ SearchEngine::~SearchEngine()
 
 bool SearchEngine::initSearchHandlers()
 {
-  const QStringList resources = KGlobal::dirs()->findAllResources(
-    "appdata", "searchhandlers/*.desktop" );
+  const QStringList resourceDirs = QStandardPaths::locateAll(QStandardPaths::DataLocation, "searchhandlers" );
+  QStringList resources;
+  foreach(const QString& dir, resourceDirs) {
+      QDir d(dir);
+      resources += d.entryList(QStringList("*.desktop"), QDir::Files);
+  }
+
   QStringList::ConstIterator it;
   for( it = resources.constBegin(); it != resources.constEnd(); ++it ) {
     QString filename = *it;
