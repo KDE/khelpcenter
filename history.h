@@ -20,7 +20,7 @@
 #ifndef KHC_HISTORY_H
 #define KHC_HISTORY_H
 
-#include <KUrl>
+#include <QUrl>
 
 #include <QObject>
 
@@ -46,7 +46,7 @@ class History : public QObject
       Entry() : view( 0 ), search( false ) {}
 
       View *view;
-      KUrl url;
+      QUrl url;
       QString title;
       QByteArray buffer;
       bool search;
@@ -63,8 +63,8 @@ class History : public QObject
     void updateCurrentEntry( KHC::View *view );
 
   Q_SIGNALS:
-    void goInternalUrl( const KUrl & );
-    void goUrl( const KUrl & );
+    void goInternalUrl( const QUrl & );
+    void goUrl( const QUrl & );
 
   private Q_SLOTS:
     void backActivated( QAction *action );

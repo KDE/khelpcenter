@@ -43,7 +43,8 @@ set(testmetainfo_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/../htmlsearch.cpp )
 
 
-kde4_add_executable(testmetainfo TEST ${testmetainfo_SRCS})
+add_executable(testmetainfo ${testmetainfo_SRCS})
+ecm_mark_as_test(testmetainfo)
 
 target_link_libraries(testmetainfo  ${KDE4_KDEUI_LIBS} )
 

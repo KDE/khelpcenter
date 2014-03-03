@@ -3,7 +3,6 @@
 #define KHC_MAINWINDOW_H
 
 #include <KXmlGuiWindow>
-#include <KUrl>
 
 #include <kio/job.h>
 #include <kparts/browserextension.h>
@@ -48,14 +47,14 @@ class MainWindow : public KXmlGuiWindow
       Open document corresponding to given URL, i.e. show it in the viewer part
       and select the corresponding entry in the navigator widget.
     */
-    void openUrl( const KUrl &url );
+    void openUrl( const QUrl &url );
 
   protected:
     void setupActions();
     /**
       Show document corresponding to given URL in viewer part.
     */
-    void viewUrl( const KUrl &url,
+    void viewUrl( const QUrl &url,
                   const KParts::OpenUrlArguments &args = KParts::OpenUrlArguments(),
                   const KParts::BrowserArguments &browserArgs = KParts::BrowserArguments() );
 
@@ -76,11 +75,11 @@ class MainWindow : public KXmlGuiWindow
     void slotGlossSelected(const GlossaryEntry &entry);
     void slotStarted(KIO::Job *job);
     void slotInfoMessage(KJob *, const QString &);
-    void goInternalUrl( const KUrl & );
+    void goInternalUrl( const QUrl & );
     /**
       This function is called when the user clicks on a link in the viewer part.
     */
-    void slotOpenURLRequest( const KUrl &url,
+    void slotOpenURLRequest( const QUrl &url,
                              const KParts::OpenUrlArguments &args = KParts::OpenUrlArguments(),
                              const KParts::BrowserArguments &browserArgs = KParts::BrowserArguments());
     void documentCompleted();

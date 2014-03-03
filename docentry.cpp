@@ -2,11 +2,10 @@
 
 #include <QRegExp>
 #include <QFileInfo>
+#include <QUrl>
 #include <QDebug>
 
 #include <KDesktopFile>
-#include <KUrl>
-#include <KApplication>
 #include <KRandom>
 
 #include "prefs.h"

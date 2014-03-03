@@ -30,12 +30,8 @@
 #include "kcmhelpcenteradaptor.h"
 
 #include <KConfig>
-#include <KLocale>
-#include <KGlobal>
 #include <KAboutData>
 #include <KDialog>
-#include <KProcess>
-#include <KApplication>
 #include <KTemporaryFile>
 #include <KUrlRequester>
 #include <KMessageBox>
@@ -51,12 +47,13 @@
 
 #include <unistd.h>
 #include <sys/types.h>
-#include <config-prefix.h>
 #include <QStandardPaths>
 
 using namespace KHC;
 
+namespace {
 QLoggingCategory category("org.kde.khelpcenter");
+}
 
 IndexDirDialog::IndexDirDialog( QWidget *parent )
   : KDialog( parent )

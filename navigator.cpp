@@ -35,13 +35,9 @@
 #include <QBoxLayout>
 #include <QVBoxLayout>
 #include <QTreeWidgetItemIterator>
+#include <qapplication.h>
 
-#include <KAction>
-#include <KApplication>
 #include <KConfig>
-#include <KGlobal>
-#include <KLocale>
-#include <KDebug>
 
 #include <KLineEdit>
 #include <KMessageBox>
@@ -53,7 +49,6 @@
 #include <KServiceGroup>
 #include <KServiceTypeTrader>
 #include <KCModuleInfo>
-#include <KCModule>
 
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -80,7 +75,9 @@
 
 using namespace KHC;
 
-QLoggingCategory category("org.kde.khelpcenter.Navigator");
+namespace {
+QLoggingCategory category("org.kde.khelpcenter");
+}
 
 Navigator::Navigator( View *view, QWidget *parent, const char *name )
    : QWidget( parent ), mIndexDialog( 0 ),
@@ -134,8 +131,7 @@ Navigator::Navigator( View *view, QWidget *parent, const char *name )
       mSearchWidget->readConfig( KSharedConfig::openConfig().data() );
     }
     */
-    connect( mTabWidget, SIGNAL( currentChanged( QWidget * ) ),
-             SLOT( slotTabChanged( QWidget * ) ) );
+    connect( mTabWidget, SIGNAL(currentChanged(int)), SLOT(slotTabChanged(int)) );
 }
 
 Navigator::~Navigator()
@@ -234,8 +230,8 @@ void Navigator::insertKCMDocs( const QString &name, NavigatorItem *topItem, cons
 
   for ( KService::List::const_iterator it = list.constBegin(); it != list.constEnd(); ++it )
   {
-    KService::Ptr s = (*it);
-    KCModuleInfo m = KCModuleInfo(s);
+    KService::Ptr s(*it);
+    KCModuleInfo m(s);
     QString desktopFile = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kde5/services/") + m.fileName() );
     createItemFromDesktopFile( topItem, desktopFile );
     }
@@ -255,7 +251,7 @@ void Navigator::insertIOSlaveDocs( const QString &name, NavigatorItem *topItem )
     if ( !docPath.isNull() )
     {
       // First parameter is ignored if second is an absolute path
-      KUrl url(KUrl("help:/"), docPath);
+      QUrl url(QStringLiteral("help:/") + docPath);
       QString icon = KProtocolInfo::icon(*it);
       if ( icon.isEmpty() ) icon = "text-plain";
       DocEntry *entry = new DocEntry( *it, url.url(), icon );
@@ -273,7 +269,7 @@ void Navigator::createItemFromDesktopFile( NavigatorItem *topItem,
     QString docPath = desktopFile.readDocPath();
     if ( !docPath.isNull() ) {
       // First parameter is ignored if second is an absolute path
-      KUrl url(KUrl("help:/"), docPath);
+      QUrl url(QStringLiteral("help:/") + docPath);
       QString icon = desktopFile.readIcon();
       if ( icon.isEmpty() ) icon = "text-plain";
       DocEntry *entry = new DocEntry( desktopFile.readName(), url.url(), icon );
@@ -295,7 +291,7 @@ NavigatorItem *Navigator::insertScrollKeeperDocs( NavigatorItem *topItem,
   return builder->build( topItem, after );
 }
 
-void Navigator::selectItem( const KUrl &url )
+void Navigator::selectItem( const QUrl &url )
 {
   qDebug() << "Navigator::selectItem(): " << url.url();
 
@@ -307,18 +303,18 @@ void Navigator::selectItem( const KUrl &url )
   // help:/foo&anchor=bar gets redirected to help:/foo#bar
   // Make sure that we match both the original URL as well as
   // its counterpart.
-  KUrl alternativeURL = url;
-  if (url.hasRef())
+  QUrl alternativeURL = url;
+  if (url.hasFragment())
   {
-     alternativeURL.setQuery("anchor="+url.ref());
-     alternativeURL.setRef(QString());
+     alternativeURL.setQuery("anchor="+url.fragment());
+     alternativeURL.setFragment(QString());
   }
 
   // If the navigator already has the given URL selected, do nothing.
   NavigatorItem *item;
   item = static_cast<NavigatorItem *>( mContentsTree->currentItem() );
   if ( item && mSelected ) {
-    KUrl currentURL ( item->entry()->url() );
+    QUrl currentURL ( item->entry()->url() );
     if ( (currentURL == url) || (currentURL == alternativeURL) ) {
       qCDebug(category) << "URL already shown.";
       return;
@@ -339,7 +335,7 @@ void Navigator::selectItem( const KUrl &url )
   QTreeWidgetItemIterator it( mContentsTree );
   while ( (*it) ) {
     NavigatorItem *item = static_cast<NavigatorItem *>( (*it) );
-    KUrl itemUrl( item->entry()->url() );
+    QUrl itemUrl( item->entry()->url() );
     if ( (itemUrl == url) || (itemUrl == alternativeURL) ) {
       mContentsTree->setCurrentItem( item );
       // If the current item was not selected and remained unchanged it
@@ -375,11 +371,11 @@ void Navigator::slotItemSelected( QTreeWidgetItem *currentItem )
 
   item->setExpanded( !item->isExpanded() );
 
-  KUrl url ( item->entry()->url() );
+  QUrl url ( item->entry()->url() );
 
   
   
-  if ( url.protocol() == "khelpcenter" ) {
+  if ( url.scheme() == "khelpcenter" ) {
       mView->closeUrl();
       History::self().updateCurrentEntry( mView );
       History::self().createEntry();
@@ -392,7 +388,7 @@ void Navigator::slotItemSelected( QTreeWidgetItem *currentItem )
   mLastUrl = url;
 }
 
-void Navigator::openInternalUrl( const KUrl &url )
+void Navigator::openInternalUrl( const QUrl &url )
 {
   if ( url.url() == "khelpcenter:home" ) {
     clearSelection();
@@ -409,7 +405,7 @@ void Navigator::openInternalUrl( const KUrl &url )
   if ( item ) showOverview( item, url );
 }
 
-void Navigator::showOverview( NavigatorItem *item, const KUrl &url )
+void Navigator::showOverview( NavigatorItem *item, const QUrl &url )
 {
   mView->beginInternal( url );
 
@@ -584,9 +580,9 @@ bool Navigator::checkSearchIndex()
   return true;
 }
 
-void Navigator::slotTabChanged( QWidget *wid )
+void Navigator::slotTabChanged( int id )
 {
-  if ( wid == mSearchWidget ) checkSearchIndex();
+  if ( mTabWidget->widget(id) == mSearchWidget ) checkSearchIndex();
 }
 
 void Navigator::slotSelectGlossEntry( const QString &id )
@@ -594,7 +590,7 @@ void Navigator::slotSelectGlossEntry( const QString &id )
   mGlossaryTree->slotSelectGlossEntry( id );
 }
 
-KUrl Navigator::homeURL()
+QUrl Navigator::homeURL()
 {
   if ( !mHomeUrl.isEmpty() ) return mHomeUrl;
 

@@ -23,12 +23,12 @@
 #include <QRegExp>
 #include <QDebug>
 
-#include <KLocale>
 #include <KConfig>
 #include <KConfigGroup>
 
 #include "htmlsearch.h"
 #include "docentrytraverser.h"
+#include <KLocalizedString>
 
 using namespace KHC;
 
@@ -81,7 +81,7 @@ DocEntry *DocMetaInfo::addDocEntry( const QString &fileName )
     lang = extensions[ extensions.count() - 2 ];
   }
 
-  if ( !lang.isEmpty() && !mLanguages.contains( lang ) ) 
+  if ( !lang.isEmpty() && !mLanguageNames.contains( lang ) )
   {
     return 0;
   }
@@ -90,7 +90,7 @@ DocEntry *DocMetaInfo::addDocEntry( const QString &fileName )
 
   if ( entry->readFromFile( fileName ) ) 
   {
-    if ( !lang.isEmpty() && lang != mLanguages.first() )
+    if ( !lang.isEmpty() && lang != mDefaultLanguage )
     {
       entry->setLang( lang );
       entry->setName( i18nc("doctitle (language)","%1 (%2)",
@@ -132,7 +132,8 @@ DocEntry::List DocMetaInfo::searchEntries()
 
 QString DocMetaInfo::languageName( const QString &langcode )
 {
-  if ( langcode == "en" ) return i18nc("Describes documentation entries that are in English","English");
+  if ( langcode == "en" )
+      return i18nc("Describes documentation entries that are in English", "English");
 
   QString cfgfile = QStandardPaths::locate( QStandardPaths::GenericDataLocation, QStringLiteral( "locale/%1/entry.desktop" ).arg( langcode ) );
 
@@ -149,11 +150,11 @@ void DocMetaInfo::scanMetaInfo( bool force )
 {
   if ( mLoaded && !force ) return;
 
-  mLanguages = KGlobal::locale()->languageList();
-
+  QStringList langs = QLocale().uiLanguages();
+  mDefaultLanguage = langs.first();
 
   QStringList::ConstIterator it;
-  for( it = mLanguages.constBegin(); it != mLanguages.constEnd(); ++it )
+  for( it = langs.constBegin(); it != langs.constEnd(); ++it )
   {
     mLanguageNames.insert( *it, languageName( *it ) );
   }

@@ -101,7 +101,7 @@ void NavigatorAppItem::populate( bool recursive )
     switch ( e->sycocaType() ) {
       case KST_KService:
       {
-        const KService::Ptr s = KService::Ptr::staticCast(e);
+        const KService::Ptr s(e);
         url = documentationURL( s.data() );
         if ( !url.isEmpty() ) {
           DocEntry *entry = new DocEntry( s->name(), url, s->icon() );
@@ -112,7 +112,7 @@ void NavigatorAppItem::populate( bool recursive )
       }
       case KST_KServiceGroup:
       {
-        KServiceGroup::Ptr g = KServiceGroup::Ptr::staticCast(e);
+        const KServiceGroup::Ptr g(e);
         if ( ( g->childCount() == 0 ) || g->name().startsWith( '.' ) )
           continue;
         DocEntry *entry = new DocEntry( g->caption(), "", g->icon() );
@@ -132,18 +132,18 @@ void NavigatorAppItem::populate( bool recursive )
 
 QString NavigatorAppItem::documentationURL( const KService *s )
 {
-  QString docPath = s->property( QLatin1String("DocPath") ).toString();
+  QString docPath = s->property( QStringLiteral("DocPath") ).toString();
   if ( docPath.isEmpty() ) {
-    docPath = s->property( QLatin1String("X-DocPath") ).toString();
+    docPath = s->property( QStringLiteral("X-DocPath") ).toString();
     if ( docPath.isEmpty() ) {
       return QString();
     }
   }
 
-  if ( docPath.startsWith( QLatin1String("file:")) || docPath.startsWith( QLatin1String("http:") ) )
+  if ( docPath.startsWith( QStringLiteral("file:")) || docPath.startsWith( QStringLiteral("http:") ) )
     return docPath;
 
-  return QLatin1String( "help:/" ) + docPath;
+  return QStringLiteral( "help:/" ) + docPath;
 }
 
 // vim:ts=2:sw=2:et

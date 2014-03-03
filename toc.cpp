@@ -25,9 +25,7 @@
 #include <KIconLoader>
 #include <KProcess>
 #include <KXmlGuiWindow>
-#include <KApplication>
 #include <KStatusBar>
-#include <KLocale>
 
 #include <QDir>
 #include <QFileInfo>
@@ -36,6 +34,7 @@
 
 #include <sys/stat.h>
 #include <QStandardPaths>
+#include <QApplication>
 
 using namespace KHC;
 
@@ -142,13 +141,13 @@ int TOC::cachedCTime() const
 
 void TOC::buildCache()
 {
-    KXmlGuiWindow *mainWindow = dynamic_cast<KXmlGuiWindow *>( kapp->activeWindow() );
+    KXmlGuiWindow *mainWindow = dynamic_cast<KXmlGuiWindow *>( qobject_cast<QApplication*>(qApp)->activeWindow() );
 
     KProcess *meinproc = new KProcess;
     connect( meinproc, SIGNAL( finished( int, QProcess::ExitStatus) ),
              this, SLOT( meinprocExited( int, QProcess::ExitStatus) ) );
 
-    *meinproc << QStandardPaths::findExecutable("meinproc4");
+    *meinproc << QStandardPaths::findExecutable("meinproc5");
     *meinproc << "--stylesheet" << QStandardPaths::locate(QStandardPaths::GenericDataLocation, "khelpcenter/table-of-contents.xslt" );
     *meinproc << "--output" << m_cacheFile;
     *meinproc << m_sourceFile;
@@ -169,7 +168,7 @@ void TOC::buildCache()
 void TOC::meinprocExited( int exitCode, QProcess::ExitStatus exitStatus)
 {
     KProcess *meinproc = static_cast<KProcess *>(sender());
-    KXmlGuiWindow *mainWindow = dynamic_cast<KXmlGuiWindow *>( kapp->activeWindow() );
+    KXmlGuiWindow *mainWindow = dynamic_cast<KXmlGuiWindow *>( qobject_cast<QApplication*>(qApp)->activeWindow() );
 
     if ( exitStatus == QProcess::CrashExit || exitCode != 0 ) {
         qWarning() << "running" << meinproc->program() << "failed with exitCode" << exitCode;

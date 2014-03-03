@@ -23,61 +23,60 @@
 #include "mainwindow.h"
 #include "version.h"
 
-#include <KCmdLineArgs>
 #include <KAboutData>
-#include <KLocale>
+#include <KLocalizedString>
+#include <KDBusAddons/kdbusservice.h>
+#include <QCommandLineParser>
+#include <QDebug>
 
 using namespace KHC;
 
-Application::Application() : KUniqueApplication(), mMainWindow( 0 )
+Application::Application(int& argc, char** argv)
+    : QApplication(argc, argv), mMainWindow( 0 )
 {
+    KDBusService* s = new KDBusService(KDBusService::Unique);
+    connect(this, SIGNAL(aboutToQuit()), s, SLOT(deleteLater()));
+    connect(s, SIGNAL(activateRequested(QStringList)), this, SLOT(activate(QStringList)));
 }
 
-int Application::newInstance()
+void Application::activate(const QStringList& args)
 {
-  if (restoringSession()) return 0;
-
-  KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
-
-  KUrl url;
-  if ( args->count() )
-    url = args->url( 0 );
+  QCommandLineParser cmd;
+  cmd.addPositionalArgument("url", i18n("Documentation to open"));
+  KAboutData::applicationData().setupCommandLine(&cmd);
+  cmd.process(args);
+  KAboutData::applicationData().processCommandLine(&cmd);
+  QStringList urls = cmd.positionalArguments();
 
   if( !mMainWindow ) 
   {
     mMainWindow = new MainWindow;
-    mMainWindow->show();
   }
 
-  mMainWindow->openUrl( url );
+  foreach(const QString& arg, urls) {
+    QUrl url(arg);
+    mMainWindow->openUrl( url );
+  }
 
-  return KUniqueApplication::newInstance();
+  mMainWindow->show();
 }
 
-extern "C" int KDE_EXPORT kdemain( int argc, char **argv )
+extern "C" int Q_DECL_EXPORT kdemain( int argc, char **argv )
 {
-  KAboutData aboutData( "khelpcenter", 0, ki18n("KDE Help Center"),
+  KHC::Application app(argc, argv);
+  KAboutData aboutData( "khelpcenter", 0, i18n("KDE Help Center"),
                         HELPCENTER_VERSION,
-                        ki18n("The KDE Help Center"),
+                        i18n("The KDE Help Center"),
                         KAboutData::License_GPL,
-                        ki18n("(c) 1999-2011, The KHelpCenter developers") );
+                        i18n("(c) 1999-2011, The KHelpCenter developers") );
 
-  aboutData.addAuthor( ki18n("Cornelius Schumacher"), KLocalizedString(), "schumacher@kde.org" );
-  aboutData.addAuthor( ki18n("Frerich Raabe"), KLocalizedString(), "raabe@kde.org" );
-  aboutData.addAuthor( ki18n("Matthias Elter"), ki18n("Original Author"),
-                       "me@kde.org" );
-  aboutData.addAuthor( ki18n("Wojciech Smigaj"), ki18n("Info page support"),
-                       "achu@klub.chip.pl" );
+  aboutData.addAuthor( "Cornelius Schumacher", QString(), "schumacher@kde.org" );
+  aboutData.addAuthor( "Frerich Raabe", QString(), "raabe@kde.org" );
+  aboutData.addAuthor( "Matthias Elter", i18n("Original Author"), "me@kde.org" );
+  aboutData.addAuthor( "Wojciech Smigaj", i18n("Info page support"), "achu@klub.chip.pl" );
   aboutData.setProgramIconName( "help-browser" );
 
-  KCmdLineArgs::init( argc, argv, &aboutData );
-
-  KCmdLineOptions options;
-  options.add("+[url]", ki18n("URL to display"));
-  KCmdLineArgs::addCmdLineOptions( options );
-  KCmdLineArgs::addStdCmdLineOptions();
-
-  KHC::Application app;
+  app.activate(app.arguments());
 
   if ( app.isSessionRestored() )
   {

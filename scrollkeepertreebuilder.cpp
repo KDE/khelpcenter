@@ -23,16 +23,17 @@
 #include "navigatoritem.h"
 #include "docentry.h"
 
-#include <KApplication>
 #include <KConfig>
-#include <KGlobal>
-#include <KLocale>
 #include <KProcess>
 #include <KConfigGroup>
 
 #include <QtXml/QtXml>
 #include <QFile>
 #include <QRegExp>
+
+namespace {
+QLoggingCategory category("org.kde.khelpcenter");
+}
 
 using namespace KHC;
 
@@ -53,7 +54,7 @@ void ScrollKeeperTreeBuilder::loadConfig()
 NavigatorItem *ScrollKeeperTreeBuilder::build( NavigatorItem *parent,
                                                NavigatorItem *after )
 {
-  QString lang = KGlobal::locale()->language();
+  QString lang = QLocale().bcp47Name();
 
   qCDebug(category) << "ScrollKeeper language: " << lang;
 

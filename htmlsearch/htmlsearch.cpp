@@ -2,12 +2,7 @@
 #include <QDir>
 #include <assert.h>
 
-#include <kapplication.h>
-#include <kdebug.h>
-#include <k3process.h>
-#include <klocale.h>
 #include <kconfig.h>
-
 
 #include "progressdialog.h"
 #include <QTextStream>

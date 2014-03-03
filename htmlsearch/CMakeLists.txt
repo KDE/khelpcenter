@@ -28,10 +28,7 @@ install(TARGETS kcm_htmlsearch ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### next target ###############
 
-set(khtmlindex_SRCS index.cpp )
-
-
-kde4_add_executable(khtmlindex ${khtmlindex_SRCS})
+add_executable(khtmlindex index.cpp)
 
 target_link_libraries(khtmlindex  ${KDE4_KDEUI_LIBS} htmlsearch )
 

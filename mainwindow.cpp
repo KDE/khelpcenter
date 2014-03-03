@@ -27,21 +27,17 @@
 #include "fontdialog.h"
 #include "prefs.h"
 
-#include <KAction>
+#include <QAction>
 #include <KActionCollection>
-#include <KApplication>
 #include <KConfig>
 #include <KIcon>
 #include <KIconLoader>
-#include <KMimeType>
 #include <KRun>
 #include <KAboutData>
 #include <KHTMLView>
 #include <KHTMLSettings>
-#include <KStatusBar>
 #include <KStandardShortcut>
 #include <KDialog>
-#include <KLocale>
 #include <KStandardAction>
 #include <KXmlGuiWindow>
 #include <KStartupInfo>
@@ -54,11 +50,13 @@
 #include <QVBoxLayout>
 #include <QFrame>
 #include <QList>
+#include <QMimeDatabase>
+#include <QLoggingCategory>
 #include <QBoxLayout>
+#include <QStatusBar>
 
 #include <stdlib.h>
-#include <assert.h>
-#include <kglobal.h>
+
 QLoggingCategory category("org.kde.khelpcenter");
 
 using namespace KHC;
@@ -128,13 +126,12 @@ MainWindow::MainWindow()
     connect( mDoc, SIGNAL( selectionChanged() ),
              SLOT( enableCopyTextAction() ) );
 
-    statusBar()->insertItem(i18n("Preparing Index"), 0, 1);
-    statusBar()->setItemAlignment(0, Qt::AlignLeft | Qt::AlignVCenter);
+    statusBar()->showMessage(i18n("Preparing Index"));
 
     connect( mDoc->browserExtension(),
-             SIGNAL( openUrlRequest( const KUrl &,
+             SIGNAL( openUrlRequest( const QUrl &,
                                      const KParts::OpenUrlArguments &, const KParts::BrowserArguments & ) ),
-             SLOT( slotOpenURLRequest( const KUrl &,
+             SLOT( slotOpenURLRequest( const QUrl &,
                                        const KParts::OpenUrlArguments &, const KParts::BrowserArguments & ) ) );
 
     mNavigator = new Navigator( mDoc, mSplitter, "nav" );
@@ -171,10 +168,10 @@ MainWindow::MainWindow()
 
     History::self().installMenuBarHook( this );
 
-    connect( &History::self(), SIGNAL( goInternalUrl( const KUrl & ) ),
-             mNavigator, SLOT( openInternalUrl( const KUrl & ) ) );
-    connect( &History::self(), SIGNAL( goUrl( const KUrl & ) ),
-             mNavigator, SLOT( selectItem( const KUrl & ) ) );
+    connect( &History::self(), SIGNAL( goInternalUrl( const QUrl & ) ),
+             mNavigator, SLOT( openInternalUrl( const QUrl & ) ) );
+    connect( &History::self(), SIGNAL( goUrl( const QUrl & ) ),
+             mNavigator, SLOT( selectItem( const QUrl & ) ) );
 
     statusBarMessage(i18n("Ready"));
     enableCopyTextAction();
@@ -199,7 +196,7 @@ void MainWindow::saveProperties( KConfigGroup &config )
 
 void MainWindow::readProperties( const KConfigGroup &config )
 {
-    mDoc->slotReload( KUrl( config.readPathEntry( "URL", QString() ) ) );
+    mDoc->slotReload( QUrl( config.readPathEntry( "URL", QString() ) ) );
 }
 
 void MainWindow::readConfig()
@@ -228,13 +225,13 @@ void MainWindow::setupActions()
     actionCollection()->addAction( KStandardAction::Quit, this, SLOT( close() ) );
     actionCollection()->addAction( KStandardAction::Print, this, SLOT( print() ) );
 
-    KAction *prevPage  = actionCollection()->addAction( "prevPage" );
+    QAction *prevPage  = actionCollection()->addAction( "prevPage" );
     prevPage->setText( i18n( "Previous Page" ) );
     prevPage->setShortcut( Qt::CTRL+Qt::Key_PageUp );
     prevPage->setWhatsThis( i18n( "Moves to the previous page of the document" ) );
     connect( prevPage, SIGNAL( triggered() ), mDoc, SLOT( prevPage() ) );
 
-    KAction *nextPage  = actionCollection()->addAction( "nextPage" );
+    QAction *nextPage  = actionCollection()->addAction( "nextPage" );
     nextPage->setText( i18n( "Next Page" ) );
     nextPage->setShortcut( Qt::CTRL + Qt::Key_PageDown );
     nextPage->setWhatsThis( i18n( "Moves to the next page of the document" ) );
@@ -301,17 +298,17 @@ void MainWindow::slotStarted(KIO::Job *job)
     History::self().updateActions();
 }
 
-void MainWindow::goInternalUrl( const KUrl &url )
+void MainWindow::goInternalUrl( const QUrl &url )
 {
   mDoc->closeUrl();
   slotOpenURLRequest( url );
 }
 
-void MainWindow::slotOpenURLRequest( const KUrl &url,
+void MainWindow::slotOpenURLRequest( const QUrl &url,
                                      const KParts::OpenUrlArguments &args,
                                      const KParts::BrowserArguments &browserArgs )
 {
-  kDebug( 1400 ) << url.url();
+  qCDebug(category) << url.url();
 
   mNavigator->selectItem( url );
   viewUrl( url, args, browserArgs );
@@ -319,14 +316,14 @@ void MainWindow::slotOpenURLRequest( const KUrl &url,
 
 void MainWindow::viewUrl( const QString &url )
 {
-  viewUrl( KUrl( url ) );
+  viewUrl( QUrl( url ) );
 }
 
-void MainWindow::viewUrl( const KUrl &url, const KParts::OpenUrlArguments &args, const KParts::BrowserArguments &browserArgs )
+void MainWindow::viewUrl( const QUrl &url, const KParts::OpenUrlArguments &args, const KParts::BrowserArguments &browserArgs )
 {
     stop();
 
-    QString proto = url.protocol().toLower();
+    QString proto = url.scheme().toLower();
 
     if ( proto == "khelpcenter" ) {
       History::self().createEntry();
@@ -345,8 +342,9 @@ void MainWindow::viewUrl( const KUrl &url, const KParts::OpenUrlArguments &args,
         || proto == QLatin1String("ghelp"))
         own = true;
     else if ( url.isLocalFile() ) {
-        KMimeType::Ptr mime = KMimeType::findByPath( url.toLocalFile() );
-        if ( mime->is("text/html") )
+        QMimeDatabase db;
+        QMimeType mime = db.mimeTypeForUrl( url );
+        if ( mime.inherits("text/html") )
             own = true;
     }
 
@@ -361,7 +359,7 @@ void MainWindow::viewUrl( const KUrl &url, const KParts::OpenUrlArguments &args,
     mDoc->browserExtension()->setBrowserArguments( browserArgs );
 
     if ( proto == QLatin1String("glossentry") ) {
-        QString decodedEntryId = QUrl::fromPercentEncoding( url.encodedPathAndQuery().toAscii() );
+        QString decodedEntryId = QUrl::fromPercentEncoding( QUrl::toPercentEncoding(url.toString()) );
         slotGlossSelected( mNavigator->glossEntry( decodedEntryId ) );
         mNavigator->slotSelectGlossEntry( decodedEntryId );
     } else {
@@ -382,21 +380,21 @@ void MainWindow::slotInfoMessage(KJob *, const QString &m)
 
 void MainWindow::statusBarMessage(const QString &m)
 {
-    statusBar()->changeItem(m, 0);
+    statusBar()->showMessage(m);
 }
 
 void MainWindow::openUrl( const QString &url )
 {
-    openUrl( KUrl( url ) );
+    openUrl( QUrl( url ) );
 }
 
 void MainWindow::openUrl( const QString &url, const QByteArray& startup_id )
 {
     KStartupInfo::setNewStartupId( this, startup_id );
-    openUrl( KUrl( url ) );
+    openUrl( QUrl( url ) );
 }
 
-void MainWindow::openUrl( const KUrl &url )
+void MainWindow::openUrl( const QUrl &url )
 {
     if ( url.isEmpty() ) slotShowHome();
     else {
@@ -409,7 +407,7 @@ void MainWindow::slotGlossSelected(const GlossaryEntry &entry)
 {
     stop();
     History::self().createEntry();
-    mDoc->begin( KUrl( "help:/khelpcenter/glossary" ) );
+    mDoc->begin( QUrl( "help:/khelpcenter/glossary" ) );
     mDoc->write( Glossary::entryToHtml( entry ) );
     mDoc->end();
 }

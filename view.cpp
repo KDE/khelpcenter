@@ -8,22 +8,18 @@
 #include <dom/html_head.h>
 #include <dom/html_misc.h>
 
-#include <KAction>
 #include <KActionCollection>
-#include <KApplication>
-#include <KDebug>
 #include <KHTMLSettings>
 #include <KHTMLView>
-#include <KLocale>
-#include <KMenu>
 #include <KToolBarPopupAction>
-#include <KGlobal>
 
 #include <QFileInfo>
 #include <QClipboard>
 #include <QTextStream>
 #include <QKeyEvent>
+#include <qguiapplication.h>
 #include <QEvent>
+#include <QDir>
 #include <QScrollBar>
 
 using namespace KHC;
@@ -69,10 +65,10 @@ View::~View()
 
 void View::copySelectedText()
 {
-  kapp->clipboard()->setText( selectedText() );
+    qobject_cast<QGuiApplication*>(qApp)->clipboard()->setText( selectedText() );
 }
 
-bool View::openUrl( const KUrl &url )
+bool View::openUrl( const QUrl &url )
 {
     mState = Docu;
     return KHTMLPart::openUrl( url );
@@ -151,13 +147,13 @@ void View::endSearchResult()
   if ( !mSearchResult.isEmpty() ) emit searchResultCacheAvailable();
 }
 
-void View::beginInternal( const KUrl &url )
+void View::beginInternal( const QUrl &url )
 {
   mInternalUrl = url;
   begin();
 }
 
-KUrl View::internalUrl() const
+QUrl View::internalUrl() const
 {
   return mInternalUrl;
 }
@@ -185,7 +181,7 @@ void View::slotDecFontSizes()
 
 void View::showMenu( const QString& url, const QPoint& pos)
 {
-  KMenu pop(view());
+  QMenu pop(view());
 
   if (url.isEmpty())
   {
@@ -218,7 +214,7 @@ void View::showMenu( const QString& url, const QPoint& pos)
 
 void View::slotCopyLink()
 {
-  QApplication::clipboard()->setText(mCopyURL);
+  QGuiApplication::clipboard()->setText(mCopyURL);
 }
 
 static DOM::HTMLLinkElement findLink(const DOM::NodeList& links, const char *rel)
@@ -238,7 +234,7 @@ bool View::prevPage(bool checkOnly)
 {
   const DOM::NodeList links = document().getElementsByTagName("link");
 
-  KUrl prevURL = urlFromLinkNode( findLink(links, "prev") );
+  QUrl prevURL = urlFromLinkNode( findLink(links, "prev") );
 
   if (!prevURL.isValid())
     return false;
@@ -252,7 +248,7 @@ bool View::nextPage(bool checkOnly)
 {
   const DOM::NodeList links = document().getElementsByTagName("link");
 
-  KUrl nextURL = urlFromLinkNode( findLink(links, "next") );
+  QUrl nextURL = urlFromLinkNode( findLink(links, "next") );
 
   if (!nextURL.isValid())
     return false;
@@ -289,19 +285,19 @@ bool View::eventFilter( QObject *o, QEvent *e )
   return KHTMLPart::eventFilter( o, e );
 }
 
-KUrl View::urlFromLinkNode( const DOM::HTMLLinkElement &link ) const
+QUrl View::urlFromLinkNode( const DOM::HTMLLinkElement &link ) const
 {
   if ( link.isNull() )
-    return KUrl();
+    return QUrl();
 
   DOM::DOMString domHref = link.href();
   if (domHref.isNull())
-    return KUrl();
+    return QUrl();
 
-  return KUrl(baseURL(), domHref.string());
+  return QUrl(baseURL().toString() +'/'+ domHref.string());
 }
 
-void View::slotReload( const KUrl &url )
+void View::slotReload( const QUrl &url )
 {
   const_cast<KHTMLSettings *>( settings() )->init( KSharedConfig::openConfig().data() );
   KParts::OpenUrlArguments args = arguments();

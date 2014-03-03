@@ -23,7 +23,7 @@
 
 #include "glossary.h"
 
-#include <KUrl>
+#include <QUrl>
 
 #include <QFile>
 #include <QTextStream>
@@ -52,7 +52,7 @@ class Navigator : public QWidget
     explicit Navigator(View *, QWidget *parent=0, const char *name=0);
     virtual ~Navigator();
 
-    KUrl homeURL();
+    QUrl homeURL();
 
     SearchEngine *searchEngine() const;
     Formatter *formatter() const;
@@ -72,18 +72,18 @@ class Navigator : public QWidget
 
     void clearSelection();
 
-    void showOverview( NavigatorItem *item, const KUrl &url );
+    void showOverview( NavigatorItem *item, const QUrl &url );
 
     void readConfig();
     void writeConfig();
 
   public Q_SLOTS:
-    void openInternalUrl( const KUrl &url );
+    void openInternalUrl( const QUrl &url );
     void slotItemSelected(QTreeWidgetItem* index);
     void slotSearch();
     void slotShowSearchResult( const QString & );
     void slotSelectGlossEntry( const QString &id );
-    void selectItem( const KUrl &url );
+    void selectItem( const QUrl &url );
     void showIndexDialog();
 
   Q_SIGNALS:
@@ -92,7 +92,7 @@ class Navigator : public QWidget
 
   protected Q_SLOTS:
     void slotSearchFinished();
-    void slotTabChanged( QWidget * );
+    void slotTabChanged( int );
     void checkSearchButton();
 
     bool checkSearchIndex();
@@ -129,11 +129,11 @@ class Navigator : public QWidget
 
     View *mView;
 
-    KUrl mHomeUrl;
+    QUrl mHomeUrl;
     
     bool mSelected;
 
-    KUrl mLastUrl;
+    QUrl mLastUrl;
 
     int mDirLevel;
 };

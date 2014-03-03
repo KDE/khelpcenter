@@ -27,10 +27,9 @@
 
 #include <KDesktopFile>
 #include <KProcess>
-#include <KDebug>
 #include <KMessageBox>
-#include <KLocale>
 #include <KShell>
+#include <KLocalizedString>
 
 #include <stdlib.h>
 
@@ -60,7 +59,7 @@ bool SearchJob::startLocal(const QString &cmdString)
 
 bool SearchJob::startRemote(const QString &urlString)
 {
-    KIO::TransferJob *job  = KIO::get( KUrl( urlString ) );
+    KIO::TransferJob *job  = KIO::get( QUrl( urlString ) );
     connect( job, SIGNAL( result( KJob * ) ),
              this, SLOT( slotJobResult( KJob * ) ) );
     connect( job, SIGNAL( data( KIO::Job *, const QByteArray & ) ),
@@ -109,7 +108,7 @@ void SearchJob::slotJobData( KIO::Job *job, const QByteArray &data )
 
 SearchHandler::SearchHandler( const KConfigGroup &cg )
 {
-  mLang = KGlobal::locale()->language().left( 2 );
+  mLang = QLocale().bcp47Name().left( 2 );
   mDocumentTypes = cg.readEntry( "DocumentTypes" , QStringList() );
 }
 

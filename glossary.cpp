@@ -22,20 +22,19 @@
 #include "glossary.h"
 #include "view.h"
 
-#include <KApplication>
 #include <KConfig>
 #include <KIconLoader>
-#include <KLocale>
+#include <KConfigGroup>
 #include <KXmlGuiWindow>
 #include <KProcess>
 #include <KStatusBar>
-#include <KGlobal>
 
 #include <QTreeWidgetItemIterator>
 #include <QTreeWidgetItem>
 
 #include <QFrame>
 #include <QListView>
+#include <qapplication.h>
 #include <QTextStream>
 
 #include <sys/stat.h>
@@ -141,7 +140,7 @@ int Glossary::glossaryCTime() const
 
 void Glossary::rebuildGlossaryCache()
 {
-    KXmlGuiWindow *mainWindow = dynamic_cast<KXmlGuiWindow *>( kapp->activeWindow() );
+    KXmlGuiWindow *mainWindow = dynamic_cast<KXmlGuiWindow *>( qobject_cast<QApplication*>(qApp)->activeWindow() );
     if (mainWindow)
         mainWindow->statusBar()->showMessage( i18n( "Rebuilding glossary cache..." ) );
 
@@ -173,7 +172,7 @@ void Glossary::rebuildGlossaryCache()
 void Glossary::meinprocFinished( int exitCode, QProcess::ExitStatus exitStatus )
 {
     KProcess *meinproc = static_cast<KProcess *>(sender());
-    KXmlGuiWindow *mainWindow = dynamic_cast<KXmlGuiWindow *>( kapp->activeWindow() );
+    KXmlGuiWindow *mainWindow = dynamic_cast<KXmlGuiWindow *>( qobject_cast<QApplication*>(qApp)->activeWindow() );
 
     if (exitStatus != QProcess::NormalExit || exitCode != 0)
     {

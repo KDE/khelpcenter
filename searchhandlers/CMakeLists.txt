@@ -11,7 +11,7 @@ ${CMAKE_CURRENT_BINARY_DIR}/man.desktop )
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/htdig.desktop.cmake
 ${CMAKE_CURRENT_BINARY_DIR}/htdig.desktop )
 
-macro_additional_clean_files( ${CMAKE_CURRENT_BINARY_DIR}/khc_htdig.pl {CMAKE_CURRENT_BINARY_DIR}/khc_docbookdig.pl @ONLY)
+# macro_additional_clean_files( ${CMAKE_CURRENT_BINARY_DIR}/khc_htdig.pl {CMAKE_CURRENT_BINARY_DIR}/khc_docbookdig.pl @ONLY)
 
 ########### install files ###############
 

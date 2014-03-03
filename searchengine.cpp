@@ -4,13 +4,11 @@
 #include "stdlib.h"
 
 #include <QTextDocument>
-#include <KApplication>
+#include <QLocale>
 #include <KConfig>
-#include <KDebug>
 #include <KProcess>
 #include <KShell>
-#include <KLocale>
-#include <KMessageBox>
+#include <QMessageBox>
 
 #include "docmetainfo.h"
 #include "formatter.h"
@@ -206,7 +204,7 @@ SearchEngine::SearchEngine( View *destination )
     mProc( 0 ), mSearchRunning( false ), mView( destination ),
     mRootTraverser( 0 )
 {
-  mLang = KGlobal::locale()->language().left( 2 );
+  mLang = QLocale().bcp47Name().left( 2 );
 }
 
 SearchEngine::~SearchEngine()
@@ -229,9 +227,7 @@ bool SearchEngine::initSearchHandlers()
     qDebug() << "SearchEngine::initSearchHandlers(): " << filename;
     SearchHandler *handler = SearchHandler::initFromFile( filename );
     if ( !handler ) {
-      QString txt = i18n("Unable to initialize SearchHandler from file '%1'.",
-          filename );
-//      KMessageBox::sorry( mView->widget(), txt );
+     QMessageBox::warning( mView->widget(), i18n("Handler"), i18n("Unable to initialize SearchHandler from file '%1'.", filename ) );
     } else {
       QStringList documentTypes = handler->documentTypes();
       QStringList::ConstIterator it;
@@ -302,7 +298,7 @@ bool SearchEngine::search( const QString & words, const QString & method, int ma
 
     return true;
   } else {
-    QString lang = KGlobal::locale()->language().left(2);
+    QString lang = QLocale().bcp47Name().left( 2 );
 
     if ( lang.toLower() == "c" || lang.toLower() == "posix" )
 	  lang = "en";
@@ -329,8 +325,8 @@ bool SearchEngine::search( const QString & words, const QString & method, int ma
              this, SLOT( searchExited(int, QProcess::ExitStatus) ) );
 
     mSearchRunning = true;
-    mSearchResult = "";
-    mStderr = "<b>" + commonSearchProgram + "</b>\n\n";
+    mSearchResult.clear();
+    mStderr = QStringLiteral("<b>") + commonSearchProgram + QStringLiteral("</b>\n\n");
 
     mProc->start();
     if (!mProc->waitForStarted()) {
@@ -340,7 +336,7 @@ bool SearchEngine::search( const QString & words, const QString & method, int ma
     }
 
     while (mSearchRunning && mProc->state() == QProcess::Running)
-      kapp->processEvents();
+      qApp->processEvents();
 
     // no need to use signals/slots
     mStderr += mProc->readAllStandardError();

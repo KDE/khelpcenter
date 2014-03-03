@@ -36,9 +36,8 @@
 #include <QtDBus/QDBusConnection>
 
 #include <KConfig>
-#include <KApplication>
-#include <KLocale>
 #include <KIconLoader>
+#include <KLocalizedString>
 
 #include "scopeitem.h"
 #include "docentrytraverser.h"

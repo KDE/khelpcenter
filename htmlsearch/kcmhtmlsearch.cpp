@@ -19,13 +19,10 @@
  */
 
 #include <QLayout>
-#include <klocale.h>
 #include <kurllabel.h>
-#include <kapplication.h>
 #include <QCheckBox>
 #include <QWhatsThis>
 #include <kfiledialog.h>
-#include <k3process.h>
 #include "klangcombo.h"
 #include <kurlrequester.h>
 #include <klineedit.h>

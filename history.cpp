@@ -66,7 +66,7 @@ void History::setupActions( KActionCollection *coll )
 
   m_backAction = new KToolBarPopupAction( KIcon( backForward.first.iconName() ), backForward.first.text(), this );
   coll->addAction( "back", m_backAction );
-  m_backAction->setShortcut(KStandardShortcut::back());
+  m_backAction->setShortcuts(KStandardShortcut::back());
   
   connect( m_backAction, SIGNAL( triggered() ), this, SLOT( back() ) );
 
@@ -80,7 +80,7 @@ void History::setupActions( KActionCollection *coll )
 
   m_forwardAction = new KToolBarPopupAction( KIcon( backForward.second.iconName() ), backForward.second.text(), this );
   coll->addAction( QLatin1String("forward"), m_forwardAction );
-  m_forwardAction->setShortcut(KStandardShortcut::forward());
+  m_forwardAction->setShortcuts(KStandardShortcut::forward());
   
   connect( m_forwardAction, SIGNAL( triggered() ), this, SLOT( forward() ) );
 
@@ -132,7 +132,7 @@ void History::updateCurrentEntry( View *view )
   if ( m_entries.isEmpty() )
     return;
 
-  KUrl url = view->url();
+  QUrl url = view->url();
 
   Entry *current = *m_entries_current;
 

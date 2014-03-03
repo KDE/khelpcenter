@@ -21,22 +21,21 @@
 
 #include "fontdialog.h"
 
-#include <KApplication>
 #include <KCharsets>
 #include <KComboBox>
 #include <KConfig>
-#include <KGlobal>
-#include <KLocale>
-#include <KNumInput>
 #include <KVBox>
 #include <KFontComboBox>
 #include <KConfigGroup>
+#include <KLocalizedString>
+#include <KNumInput>
 
 #include <khtmldefaults.h>
 
 #include <QGroupBox>
 #include <QLabel>
 #include <QLayout>
+#include <qfontdatabase.h>
 
 using namespace KHC;
 
@@ -145,7 +144,7 @@ void FontDialog::setupFontEncodingBox()
   layout->addWidget( lDefaultEncoding, 0, 0 );
   m_defaultEncoding = new KComboBox( false, gb );
   layout->addWidget( m_defaultEncoding, 0, 1 );
-  QStringList encodings = KGlobal::charsets()->availableEncodingNames();
+  QStringList encodings = KCharsets::charsets()->availableEncodingNames();
   encodings.prepend( i18n( "Use Language Encoding" ) );
   m_defaultEncoding->addItems( encodings );
   lDefaultEncoding->setBuddy( m_defaultEncoding );
@@ -169,14 +168,15 @@ void FontDialog::load()
     m_medFontSize->setValue( configGroup.readEntry( "MediumFontSize", 10 ) );
 
     QStringList fonts = configGroup.readEntry( "Fonts" , QStringList() );
-      if ( fonts.isEmpty() )
-	    fonts << KGlobalSettings::generalFont().family()
-		  << KGlobalSettings::fixedFont().family()
+      if ( fonts.isEmpty() ) {
+          fonts << QFontDatabase::systemFont(QFontDatabase::GeneralFont).family()
+          << QFontDatabase::systemFont(QFontDatabase::FixedFont).family()
 		  << QLatin1String(HTML_DEFAULT_VIEW_SERIF_FONT)
 		  << QLatin1String(HTML_DEFAULT_VIEW_SANSSERIF_FONT)
 		  << QLatin1String(HTML_DEFAULT_VIEW_CURSIVE_FONT)
 		  << QLatin1String(HTML_DEFAULT_VIEW_FANTASY_FONT)
 		  << QString();
+      }
 
     m_standardFontCombo->setCurrentFont( fonts[ 0 ] );
     m_fixedFontCombo->setCurrentFont( fonts[ 1 ] );

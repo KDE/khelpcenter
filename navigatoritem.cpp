@@ -30,7 +30,9 @@
 
 using namespace KHC;
 
+namespace {
 QLoggingCategory category("org.kde.khelpcenter");
+}
 
 NavigatorItem::NavigatorItem( DocEntry *entry, QTreeWidget *parent,
                               QTreeWidgetItem *after )
@@ -92,12 +94,12 @@ void NavigatorItem::updateItem()
 
 void NavigatorItem::scheduleTOCBuild()
 {
-  KUrl url ( entry()->url() );
-  if ( !mToc && url.protocol() == "help") {
+  QUrl url ( entry()->url() );
+  if ( !mToc && url.scheme() == "help") {
     mToc = new TOC( this );
 
     qCDebug(category) << "Trying to build TOC for " << entry()->name();
-    mToc->setApplication( url.directory() );
+    mToc->setApplication( url.path() );
     QString doc = View::langLookup( url.path() );
     // Enforce the original .docbook version, in case langLookup returns a
     // cached version

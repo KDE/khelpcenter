@@ -26,15 +26,16 @@
 #include <QLabel>
 #include <QVBoxLayout>
 #include <QGridLayout>
+#include <QDebug>
 
-#include <KDebug>
-#include <KLocale>
 #include <KUrlLabel>
-#include <KApplication>
 #include <KFileDialog>
 #include <KUrlRequester>
 #include <KLineEdit>
 #include <KToolInvocation>
+#include <KLocalizedString>
+#include <KConfig>
+#include <KConfigGroup>
 
 namespace KHC {
 
@@ -142,7 +143,7 @@ void HtmlSearchConfig::save( KConfig *config )
 void HtmlSearchConfig::defaults()
 {
     mHtsearchUrl->lineEdit()->setText(QStandardPaths::findExecutable("htsearch"));
-    mIndexerBin->lineEdit()->setText("");
+    mIndexerBin->lineEdit()->clear();
     mDbDir->lineEdit()->setText(QLatin1String("/opt/www/htdig/db/") );
 }
 

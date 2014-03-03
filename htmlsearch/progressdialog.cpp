@@ -2,10 +2,6 @@
 #include <QLabel>
 #include <QProgressBar>
 
-#include <klocale.h>
-
-
-
 #include "progressdialog.moc"
 
 

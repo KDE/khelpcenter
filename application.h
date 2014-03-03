@@ -22,26 +22,30 @@
 #ifndef KHC_APPLICATION_H
 #define KHC_APPLICATION_H
 
-#include <KUniqueApplication>
+#include <QApplication>
+#include <QUrl>
 
 namespace KHC {
 
   class MainWindow;
 
-  class Application : public KUniqueApplication
+  class Application : public QApplication
   {
+    Q_OBJECT
     public:
-      Application();
+      Application(int& argc, char** argv);
 
-      virtual int newInstance();
-      
+    public slots:
+        void activate(const QStringList& args);
+
     private:
       MainWindow *mMainWindow;
+      QUrl mOpen;
   };
 
 }
 
-extern "C" { int KDE_EXPORT kdemain(int argc, char **argv); }
+extern "C" { int Q_DECL_EXPORT kdemain(int argc, char **argv); }
 
 #endif // KHC_APPLICATION_H
 // vim:ts=2:sw=2:et

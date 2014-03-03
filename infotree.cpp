@@ -23,15 +23,10 @@
 #include "navigatoritem.h"
 #include "docentry.h"
 
-#include <KApplication>
 #include <KConfig>
 #include <KConfigGroup>
-#include <KDebug>
 #include <KIconLoader>
-#include <KGlobal>
-
-#include <KLocale>
-#include <KUrl>
+#include <KLocalizedString>
 
 #include <QFile>
 #include <QTextStream>
@@ -40,7 +35,9 @@
 
 #include <stdlib.h>  // for getenv()
 
+namespace {
 QLoggingCategory category("org.kde.khelpcenter");
+}
 
 using namespace KHC;
 

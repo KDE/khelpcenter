@@ -24,7 +24,7 @@
 
 #include "QtCore/QObject"
 
-#include <KUrl>
+#include <QUrl>
 
 namespace KHC
 {
@@ -42,7 +42,7 @@ class TreeBuilder : public QObject
     virtual void selectURL( const QString &url );
 
   Q_SIGNALS:
-    void urlSelected( const KUrl &url );
+    void urlSelected( const QUrl &url );
 };
 
 }

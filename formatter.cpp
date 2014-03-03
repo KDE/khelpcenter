@@ -20,8 +20,6 @@
 
 #include "formatter.h"
 
-#include <KLocale>
-#include <KGlobal>
 #include <KConfig>
 #include <KConfigGroup>
 
