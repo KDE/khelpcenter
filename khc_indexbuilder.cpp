@@ -22,12 +22,11 @@
 #include "khc_indexbuilder.h"
 
 #include "version.h"
+#include <QCoreApplication>
+#include <KLocalizedString>
+#include <qloggingcategory.h>
 
 #include <KAboutData>
-#include <KLocale>
-#include <KCmdLineArgs>
-#include <KUniqueApplication>
-#include <KDebug>
 #include <KProcess>
 #include <KConfig>
 #include <KShell>
@@ -36,6 +35,8 @@
 #include <QTextStream>
 #include <QDBusMessage>
 #include <QDBusConnection>
+#include <QDebug>
+#include <QCommandLineParser>
 
 #include <unistd.h>
 #include <stdlib.h>
@@ -43,24 +44,26 @@
 
 using namespace KHC;
 
+static QLoggingCategory category("org.kde.KHelpCenter.IndexBuilder");
+
 IndexBuilder::IndexBuilder(const QString& cmdFile)
 {
   m_cmdFile = cmdFile;
-  kDebug(1402) << "IndexBuilder()";
+  qCDebug(category) << "IndexBuilder()";
 }
 
 void IndexBuilder::buildIndices()
 {
   QFile f( m_cmdFile );
   if ( !f.open( QIODevice::ReadOnly ) ) {
-    kError() << "Unable to open file '" << m_cmdFile << "'" << endl;
+    qWarning() << "Unable to open file '" << m_cmdFile << "'";
     exit( 1 );
   }
-  kDebug(1402) << "Opened file '" << m_cmdFile << "'";
+  qCDebug(category) << "Opened file '" << m_cmdFile << "'";
   QTextStream ts( &f );
   QString line = ts.readLine();
   while ( !line.isNull() ) {
-    kDebug(1402) << "LINE: " << line;
+    qCDebug(category) << "LINE: " << line;
     mCmdQueue.append( line );
     line = ts.readLine();
   }
@@ -70,7 +73,7 @@ void IndexBuilder::buildIndices()
 
 void IndexBuilder::processCmdQueue()
 {
-  kDebug(1402) << "IndexBuilder::processCmdQueue()";
+  qCDebug(category) << "IndexBuilder::processCmdQueue()";
 
   QStringList::Iterator it = mCmdQueue.begin();
 
@@ -81,7 +84,7 @@ void IndexBuilder::processCmdQueue()
 
   QString cmd = *it;
 
-  kDebug(1402) << "PROCESS: " << cmd;
+  qCDebug(category) << "PROCESS: " << cmd;
 
   KProcess *proc = new KProcess;
 
@@ -106,14 +109,14 @@ void IndexBuilder::slotProcessExited( int exitCode, QProcess::ExitStatus exitSta
   KProcess *proc = static_cast<KProcess *>(sender());
 
   if ( exitStatus != QProcess::NormalExit ) {
-    kError(1402) << "Process failed" << endl;
-    kError(1402) << "stdout output:" << proc->readAllStandardOutput(); 
-    kError(1402) << "stderr output:" << proc->readAllStandardError();  
+    qCWarning(category) << "Process failed" << endl;
+    qCWarning(category) << "stdout output:" << proc->readAllStandardOutput();
+    qCWarning(category) << "stderr output:" << proc->readAllStandardError();
   }
   else if (exitCode != 0 ) {
-    kError(1402) << "running" << proc->program() << "failed with exitCode" << exitCode;
-    kError(1402) << "stdout output:" << proc->readAllStandardOutput(); 
-    kError(1402) << "stderr output:" << proc->readAllStandardError(); 
+    qCWarning(category) << "running" << proc->program() << "failed with exitCode" << exitCode;
+    qCWarning(category) << "stdout output:" << proc->readAllStandardOutput();
+    qCWarning(category) << "stderr output:" << proc->readAllStandardError();
   }
   delete proc;
 
@@ -124,7 +127,7 @@ void IndexBuilder::slotProcessExited( int exitCode, QProcess::ExitStatus exitSta
 
 void IndexBuilder::sendErrorSignal( const QString &error )
 {
-  kDebug(1402) << "IndexBuilder::sendErrorSignal()";
+  qCDebug(category) << "IndexBuilder::sendErrorSignal()";
   QDBusMessage message =
      QDBusMessage::createSignal("/kcmhelpcenter", "org.kde.kcmhelpcenter", "buildIndexError");
   message <<error;
@@ -134,7 +137,7 @@ void IndexBuilder::sendErrorSignal( const QString &error )
 
 void IndexBuilder::sendProgressSignal()
 {
-  kDebug(1402) << "IndexBuilder::sendProgressSignal()";
+  qCDebug(category) << "IndexBuilder::sendProgressSignal()";
   QDBusMessage message =
         QDBusMessage::createSignal("/kcmhelpcenter", "org.kde.kcmhelpcenter", "buildIndexProgress");
   QDBusConnection::sessionBus().send(message);
@@ -142,52 +145,50 @@ void IndexBuilder::sendProgressSignal()
 
 void IndexBuilder::quit()
 {
-  kDebug(1402) << "IndexBuilder::quit()";
+  qCDebug(category) << "IndexBuilder::quit()";
 
-  qApp->quit();
+  QCoreApplication::instance()->quit();
 }
 
 
 int main( int argc, char **argv )
 {
+  QCoreApplication app( argc, argv );
   KAboutData aboutData( "khc_indexbuilder", 0,
-                        ki18n("KHelpCenter Index Builder"),
+                        i18n("KHelpCenter Index Builder"),
                         HELPCENTER_VERSION,
-                        ki18n("The KDE Help Center"),
+                        i18n("The KDE Help Center"),
                         KAboutData::License_GPL,
-                        ki18n("(c) 2003, The KHelpCenter developers") );
+                        i18n("(c) 2003, The KHelpCenter developers") );
 
-  aboutData.addAuthor( ki18n("Cornelius Schumacher"), KLocalizedString(), "schumacher@kde.org" );
+  aboutData.addAuthor( i18n("Cornelius Schumacher"), QString(), "schumacher@kde.org" );
+  KAboutData::setApplicationData(aboutData);
 
-  KCmdLineArgs::init( argc, argv, &aboutData );
+  QCommandLineParser options;
+  options.addPositionalArgument("cmdfile", i18n("Document to be indexed"));
+  options.addPositionalArgument("indexdir", i18n("Index directory"));
 
-  KCmdLineOptions options;
-  options.add("+cmdfile", ki18n("Document to be indexed"));
-  options.add("+indexdir", ki18n("Index directory"));
-  KCmdLineArgs::addCmdLineOptions( options );
+  aboutData.setupCommandLine(&options);
+  options.process(app);
+  aboutData.processCommandLine(&options);
 
-  // Note: no KComponentData seems necessary
-  QCoreApplication app( KCmdLineArgs::qtArgc(), KCmdLineArgs::qtArgv() );
-
-  KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
-
-  if ( args->count() != 2 ) {
-    kDebug(1402) << "Wrong number of arguments.";
-    return 1;
+  if ( options.positionalArguments().count() != 2 ) {
+    qCDebug(category) << "Wrong number of arguments.";
+    options.showHelp(1);
   }
 
-  QString cmdFile = args->arg( 0 );
-  QString indexDir = args->arg( 1 );
+  QString cmdFile = options.positionalArguments().first();
+  QString indexDir = options.positionalArguments().last();
 
-  kDebug(1402) << "cmdFile: " << cmdFile;
-  kDebug(1402) << "indexDir: " << indexDir;
+  qCDebug(category) << "cmdFile: " << cmdFile;
+  qCDebug(category) << "indexDir: " << indexDir;
 
   QFile file( indexDir + "/testaccess" );
   if ( !file.open( QIODevice::WriteOnly ) || !file.putChar( ' ' ) ) {
-    kDebug(1402) << "access denied";
+    qCDebug(category) << "access denied";
     return 2;
   } else {
-    kDebug(1402) << "can access";
+    qCDebug(category) << "can access";
     file.remove();
   }
 
