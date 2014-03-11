@@ -32,7 +32,7 @@ set(khelpcenter_KDEINIT_SRCS
 
 ########### next target ###############
 
-kde4_add_kcfg_files(khelpcenter_SRCS ../prefs.kcfgc )
+kconfig_add_kcfg_files(khelpcenter_SRCS ../prefs.kcfgc )
 
 set(testmetainfo_SRCS
     testmetainfo.cpp 
@@ -46,5 +46,5 @@ set(testmetainfo_SRCS
 add_executable(testmetainfo ${testmetainfo_SRCS})
 ecm_mark_as_test(testmetainfo)
 
-target_link_libraries(testmetainfo  ${KDE4_KDEUI_LIBS} )
+target_link_libraries(testmetainfo  KF5::KDE4Support )
 

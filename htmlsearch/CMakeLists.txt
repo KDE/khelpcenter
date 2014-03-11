@@ -5,9 +5,9 @@
 set(htmlsearch_LIB_SRCS htmlsearch.cpp progressdialog.cpp)
 
 
-kde4_add_library(htmlsearch SHARED ${htmlsearch_LIB_SRCS})
+add_library(htmlsearch SHARED ${htmlsearch_LIB_SRCS})
 
-target_link_libraries(htmlsearch  ${KDE4_KIO_LIBS})
+target_link_libraries(htmlsearch  KF5::KIOWidgets)
 
 set_target_properties(htmlsearch PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION})
 install(TARGETS htmlsearch ${INSTALL_TARGETS_DEFAULT_ARGS})
@@ -18,9 +18,9 @@ install(TARGETS htmlsearch ${INSTALL_TARGETS_DEFAULT_ARGS})
 set(kcm_htmlsearch_LIB_SRCS kcmhtmlsearch.cpp klangcombo.cpp ktagcombobox.cpp)
 
 
-kde4_add_library(kcm_htmlsearch SHARED ${kcm_htmlsearch_LIB_SRCS})
+add_library(kcm_htmlsearch SHARED ${kcm_htmlsearch_LIB_SRCS})
 
-target_link_libraries(kcm_htmlsearch  ${KDE4_KIO_LIBS})
+target_link_libraries(kcm_htmlsearch  KF5::KIOWidgets)
 
 set_target_properties(kcm_htmlsearch PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION})
 install(TARGETS kcm_htmlsearch ${INSTALL_TARGETS_DEFAULT_ARGS})
@@ -30,7 +30,7 @@ install(TARGETS kcm_htmlsearch ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 add_executable(khtmlindex index.cpp)
 
-target_link_libraries(khtmlindex  ${KDE4_KDEUI_LIBS} htmlsearch )
+target_link_libraries(khtmlindex  KF5::KDE4Support htmlsearch )
 
 install(PROGRAMS khtmlindex ${INSTALL_TARGETS_DEFAULT_ARGS})
 
@@ -44,4 +44,4 @@ install( FILES unchecked.xpm checked.xpm  DESTINATION  ${DATA_INSTALL_DIR}/khelp
 
 install( PROGRAMS meinproc_wrapper  DESTINATION  ${DATA_INSTALL_DIR}/khelpcenter/ )
 
-kde4_install_icons( ${DATA_INSTALL_DIR}/khelpcenter/  )
+ecm_install_icons( ${DATA_INSTALL_DIR}/khelpcenter/  )
