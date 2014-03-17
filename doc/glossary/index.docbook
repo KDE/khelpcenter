@@ -145,18 +145,6 @@ Slave</glossseealso>
 otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glossseealso>
 			</glossdef>
 		</glossentry>
-		<glossentry id="gloss-nepomuk">
-			<glossterm>Nepomuk</glossterm>
-			<glossdef><para>Nepomuk is the acronym of &emstart;N&emend;etworked &emstart;E&emend;nvironment for &emstart;P&emend;ersonalized, &emstart;O&emend;ntology-based &emstart;M&emend;anagement of &emstart;U&emend;nified &emstart;K&emend;nowledge. Nepomuk aims to remove artificial barriers between information to allow dynamic classification, organization and presentation of data to the user. Whether downloaded from the Internet, received in an email or scribbled in a note, information is globally searchable and tagged with intelligent data.&newpara;
-				More info:&newpara;
-				&linkstart;"http://en.wikipedia.org/wiki/Semantic_desktop"&linkmid;Wikipedia: Semantic Desktop&linkend;&newpara;
-				&linkstart;"http://en.wikipedia.org/wiki/NEPOMUK_(framework)"&linkmid;Wikipedia: NEPOMUK framework&linkend;&newpara;
-				&linkstart;"http://nepomuk.semanticdesktop.org/xwiki/bin/view/Main1/"&linkmid;NEPOMUK website&linkend;&newpara;
-				&linkstart;"http://nepomuk.kde.org/discover/user"&linkmid;NEPOMUK KDE&linkend;&newpara;
-				&linkstart;"http://userbase.kde.org/Nepomuk"&linkmid;Userbase Nepomuk page&linkend;</para>
-				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
-			</glossdef>
-		</glossentry>
 		<glossentry id="gloss-phonon">
 			<glossterm>Phonon</glossterm>
 			<glossdef><para>A cross-platform multimedia API, interfacing with existing frameworks, such as gstreamer and xine engines. &kde; 2 and 3 depended on aRts for sound. Phonon replaces it.&newpara;
@@ -538,24 +526,12 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 				<glossseealso otherterm="gloss-i18n">i18n</glossseealso>
                         </glossdef>
 		</glossentry>
-		<glossentry id="gloss-soprano">
-			<glossterm>Soprano</glossterm>
-			<glossdef><para>Soprano is a sub-project of Nepomuk, providing a repository for gathered information such as tags, ratings, &etc; This makes the information available to Strigi.&newpara;
-				More info:&newpara;
-				&linkstart;"http://en.wikipedia.org/wiki/Soprano_(KDE)"&linkmid;Wikipedia: Soprano&linkend;</para>
-				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
-				<glossseealso otherterm="gloss-nepomuk">Nepomuk</glossseealso>
-				<glossseealso otherterm="gloss-strigi">Strigi</glossseealso>
-			</glossdef>
-		</glossentry>	
 		<glossentry id="gloss-strigi">
 			<glossterm>Strigi</glossterm>
 			<glossdef><para>A deep-indexed search daemon, Strigi aims to be fast and light-weight. It also uses SHA-1 hash which will help in the identification of duplicate files.&newpara;
 				More info:&newpara;
 				&linkstart;"http://en.wikipedia.org/wiki/Strigi"&linkmid;Wikipedia: Strigi&linkend;</para>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
-				<glossseealso otherterm="gloss-nepomuk">Nepomuk</glossseealso>
-				<glossseealso otherterm="gloss-soprano">Soprano</glossseealso>
 			</glossdef>
 		</glossentry>
 		<glossentry id="gloss-widget">
