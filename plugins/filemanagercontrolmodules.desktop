@@ -1,0 +1,28 @@
+[Desktop Entry]
+Name=Filemanager Settings Modules
+Name[ca]=Mòduls de configuració del gestor de fitxers
+Name[cs]=Moduly nastavení správce souborů
+Name[de]=Dateiverwaltungs-Einstellungsmodule
+Name[el]=Αρθρώματα ρυθμίσεων του διαχειριστή αρχείων
+Name[es]=Módulos de preferencias del gestor de archivos
+Name[fi]=Tiedostonhallinnan asetusosiot
+Name[ia]=Modulos de Preferentias de gerente de file
+Name[nl]=Modules voor instellingen van de bestandsbeheerder
+Name[pt]=Módulos de Configuração do Gestor de Ficheiros
+Name[pt_BR]=Módulos de configuração do Gerenciador de Arquivos
+Name[sk]=Moduly nastavení správcu súborov
+Name[sl]=Moduli nastavitev upravljalnika datotek
+Name[sr]=Модули поставки менаџера фајлова
+Name[sr@ijekavian]=Модули поставки менаџера фајлова
+Name[sr@ijekavianlatin]=Moduli postavki menadžera fajlova
+Name[sr@latin]=Moduli postavki menadžera fajlova
+Name[sv]=Inställningsmoduler för filhanterare
+Name[uk]=Модулі параметрів керування файлами
+Name[x-test]=xxFilemanager Settings Modulesxx
+Name[zh_TW]=檔案管理員設定模組
+
+Icon=preferences-system
+
+X-DOC-Weight=350
+
+X-KDE-KHelpcenter-Special=filemanagercontrol

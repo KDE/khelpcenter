@@ -219,12 +219,43 @@ void Navigator::insertParentAppDocs( const QString &name, NavigatorItem *topItem
 void Navigator::insertKCMDocs( const QString &name, NavigatorItem *topItem, const QString &type )
 {
   qCDebug(category) << "Requested KCM documents for ID" << name;
+  QString systemsettingskontrolconstraint = "[X-KDE-System-Settings-Parent-Category] != ''";
+  QString konquerorcontrolconstraint = "[X-KDE-PluginKeyword] == 'khtml_general'\
+                                     or [X-KDE-PluginKeyword] == 'performance'\
+                                     or [X-KDE-PluginKeyword] == 'bookmarks'";
+  QString filemanagercontrolconstraint = "[X-KDE-PluginKeyword] == 'behavior'\
+                                       or [X-KDE-PluginKeyword] == 'dolphinviewmodes'\
+                                       or [X-KDE-PluginKeyword] == 'dolphinnavigation'\
+                                       or [X-KDE-PluginKeyword] == 'dolphinservices'\
+                                       or [X-KDE-PluginKeyword] == 'dolphingeneral'\
+                                       or [X-KDE-PluginKeyword] == 'trash'";
+  QString browsercontrolconstraint = "[X-KDE-PluginKeyword] == 'khtml_behavior'\
+                                   or [X-KDE-PluginKeyword] == 'proxy'\
+                                   or [X-KDE-PluginKeyword] == 'khtml_appearance'\
+                                   or [X-KDE-PluginKeyword] == 'khtml_filter'\
+                                   or [X-KDE-PluginKeyword] == 'cache'\
+                                   or [X-KDE-PluginKeyword] == 'cookie'\
+                                   or [X-KDE-PluginKeyword] == 'useragent'\
+                                   or [X-KDE-PluginKeyword] == 'khtml_java_js'\
+                                   or [X-KDE-PluginKeyword] == 'khtml_plugins'";
+/* missing in browsercontrolconstraint
+History                 no X-KDE-PluginKeyword in kcmhistory.desktop
+*/
+  QString othercontrolconstraint = "[X-KDE-PluginKeyword] == 'cgi'";
 
   KService::List list;
 
   if ( type == QString("kcontrol") ) {
-    list = KServiceTypeTrader::self()->query( "KCModule", "[X-KDE-ParentApp] == 'kcontrol'" );
-  } else {
+    list = KServiceTypeTrader::self()->query( "KCModule", systemsettingskontrolconstraint );
+  } else if ( type == QString("konquerorcontrol") ) {
+    list = KServiceTypeTrader::self()->query( "KCModule", konquerorcontrolconstraint );
+  } else if ( type == QString("browsercontrol") ) {
+    list = KServiceTypeTrader::self()->query( "KCModule", browsercontrolconstraint );
+  } else if ( type == QString("filemanagercontrol") ) {
+    list = KServiceTypeTrader::self()->query( "KCModule", filemanagercontrolconstraint );
+  } else if ( type == QString("othercontrol") ) {
+    list = KServiceTypeTrader::self()->query( "KCModule", othercontrolconstraint );
+  } else if ( type == QString("kinfocenter") ) {
     list = KServiceTypeTrader::self()->query( "KCModule", "[X-KDE-ParentApp] == 'kinfocenter'" );
   }
 
@@ -235,6 +266,7 @@ void Navigator::insertKCMDocs( const QString &name, NavigatorItem *topItem, cons
     QString desktopFile = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kde5/services/") + m.fileName() );
     createItemFromDesktopFile( topItem, desktopFile );
     }
+    topItem->sortChildren( 0, Qt::AscendingOrder /* ascending */ );
 }
 
 void Navigator::insertIOSlaveDocs( const QString &name, NavigatorItem *topItem )
