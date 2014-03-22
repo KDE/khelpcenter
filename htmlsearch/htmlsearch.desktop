@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=kcmshell4 htmlsearch
+Exec=kcmshell5 htmlsearch
 Icon=help_index
 Type=Service
 X-KDE-ServiceTypes=KCModule
