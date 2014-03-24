@@ -20,4 +20,4 @@ install( FILES ${CMAKE_CURRENT_BINARY_DIR}/htdig.desktop ${CMAKE_CURRENT_BINARY_
 
 install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/khc_htdig.pl khc_htsearch.pl khc_mansearch.pl ${CMAKE_CURRENT_BINARY_DIR}/khc_docbookdig.pl DESTINATION ${LIBEXEC_INSTALL_DIR})
 
-endif (NOT WIN32)
+endif ()
