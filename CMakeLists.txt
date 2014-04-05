@@ -1,3 +1,33 @@
+project(KHelpCenter)
+
+cmake_minimum_required(VERSION 2.8.12 FATAL_ERROR)
+set(QT_MIN_VERSION "5.2.0")
+
+find_package(ECM 0.0.11 REQUIRED NO_MODULE)
+set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
+
+include(KDEInstallDirs)
+include(KDECMakeSettings)
+include(KDECompilerSettings)
+include(ECMInstallIcons)
+include(ECMMarkAsTest)
+include(ECMMarkNonGuiExecutable)
+include(FeatureSummary)
+include(CheckIncludeFiles)
+
+find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
+    Widgets
+    DBus
+)
+
+find_package(KF5 CONFIG REQUIRED COMPONENTS
+    Config
+    Init
+    KCMUtils
+    KHtml
+    KDE4Support
+)
+
 add_subdirectory( plugins )
 add_subdirectory( searchhandlers )
 add_subdirectory( tests )
@@ -57,3 +87,5 @@ install( FILES khelpcenter.kcfg  DESTINATION  ${KCFG_INSTALL_DIR} )
 install( FILES khelpcenter.desktop  DESTINATION  ${SERVICES_INSTALL_DIR} )
 install( FILES khelpcenterui.rc glossary.html.in table-of-contents.xslt     glossary.xslt index.html.in  DESTINATION  ${DATA_INSTALL_DIR}/khelpcenter )
 install( FILES org.kde.khelpcenter.kcmhelpcenter.xml DESTINATION ${DBUS_INTERFACES_INSTALL_DIR})
+
+feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
