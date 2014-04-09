@@ -31,6 +31,7 @@ find_package(KF5 CONFIG REQUIRED COMPONENTS
 add_subdirectory( plugins )
 add_subdirectory( searchhandlers )
 add_subdirectory( tests )
+add_subdirectory( doc )
 
 ########### next target ###############
 
