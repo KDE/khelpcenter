@@ -99,7 +99,7 @@ void NavigatorItem::scheduleTOCBuild()
     mToc = new TOC( this );
 
     qCDebug(category) << "Trying to build TOC for " << entry()->name();
-    mToc->setApplication( url.path() );
+    mToc->setApplication( url.toString(QUrl::RemoveScheme|QUrl::RemoveFilename|QUrl::StripTrailingSlash) );
     QString doc = View::langLookup( url.path() );
     // Enforce the original .docbook version, in case langLookup returns a
     // cached version
