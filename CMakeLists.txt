@@ -42,6 +42,7 @@ target_link_libraries(khc_indexbuilder KF5::CoreAddons KF5::I18n Qt5::DBus)
 
 install(TARGETS khc_indexbuilder DESTINATION ${LIBEXEC_INSTALL_DIR})
 
+configure_file(config-khelpcenter.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-khelpcenter.h )
 
 ########### next target ###############
 

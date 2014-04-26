@@ -26,6 +26,7 @@
 #include "prefs.h"
 #include "searchhandler.h"
 #include "searchengine.h"
+#include "config-khelpcenter.h"
 
 #include "kcmhelpcenteradaptor.h"
 
@@ -493,7 +494,7 @@ void KCMHelpCenter::startIndexProcess()
   }
 #endif
 
-  *mProcess << QStandardPaths::findExecutable("khc_indexbuilder"); //Note this is in libexec
+  *mProcess << KHC_INDEXBUILDER;
   *mProcess << mCmdFile->fileName();
   *mProcess << Prefs::indexDirectory();
 
