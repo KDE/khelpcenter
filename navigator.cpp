@@ -263,7 +263,7 @@ History                 no X-KDE-PluginKeyword in kcmhistory.desktop
   {
     KService::Ptr s(*it);
     KCModuleInfo m(s);
-    QString desktopFile = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kde5/services/") + m.fileName() );
+    QString desktopFile = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kservices5/") + m.fileName() );
     createItemFromDesktopFile( topItem, desktopFile );
     }
     topItem->sortChildren( 0, Qt::AscendingOrder /* ascending */ );
