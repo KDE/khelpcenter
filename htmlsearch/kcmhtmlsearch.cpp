@@ -192,7 +192,7 @@ void KHTMLSearchConfig::loadLanguages()
 
   // add all languages to the list
   QStringList langs = KGlobal::dirs()->findAllResources("locale",
-							QLatin1String("*/entry.desktop"));
+							QLatin1String("*/kf5_entry.desktop"));
   langs.sort();
 
   for (QStringList::ConstIterator it = langs.begin(); it != langs.end(); ++it)

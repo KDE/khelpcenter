@@ -135,7 +135,7 @@ QString DocMetaInfo::languageName( const QString &langcode )
   if ( langcode == "en" )
       return i18nc("Describes documentation entries that are in English", "English");
 
-  QString cfgfile = QStandardPaths::locate( QStandardPaths::GenericDataLocation, QStringLiteral( "locale/%1/entry.desktop" ).arg( langcode ) );
+  QString cfgfile = QStandardPaths::locate( QStandardPaths::GenericDataLocation, QStringLiteral( "locale/%1/kf5_entry.desktop" ).arg( langcode ) );
 
   qDebug() << "-- langcode: " << langcode << " cfgfile: " << cfgfile;
 
