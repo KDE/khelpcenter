@@ -43,7 +43,7 @@ View::View( QWidget *parentWidget, QObject *parent, KHTMLPart::GUIProfile prof, 
     connect( this, SIGNAL( popupMenu( const QString &, const QPoint& ) ),
              this, SLOT( showMenu( const QString &, const QPoint& ) ) );
 
-    QString css = langLookup("common/kde-default.css");
+    QString css = langLookup("kdoctools5-common/kde-default.css");
     if (!css.isEmpty())
     {
        QFile css_file(css);
@@ -51,7 +51,7 @@ View::View( QWidget *parentWidget, QObject *parent, KHTMLPart::GUIProfile prof, 
        {
           QTextStream s(&css_file);
           QString stylesheet = s.readAll();
-          preloadStyleSheet("help:/common/kde-default.css", stylesheet);
+          preloadStyleSheet("help:/kdoctools5-common/kde-default.css", stylesheet);
        }
     }
 

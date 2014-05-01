@@ -2,16 +2,16 @@
 
     <head>
         <title>%1</title> 
-        <link rel="stylesheet" href="help:/common/kde-default.css" type="text/css" />
+        <link rel="stylesheet" href="help:/kdoctools5-common/kde-default.css" type="text/css" />
     </head>
 
     <body>
-        <div style="background-image: url(help:/common/top-middle.png); width: 100%; height: 131px;">
+        <div style="background-image: url(help:/kdoctools5-common/top-middle.png); width: 100%; height: 131px;">
             <div style="position: absolute; right: 0px;">
-                <img src="help:/common/top-right.png" style="margin: 0px" alt="">
+                <img src="help:/kdoctools5-common/top-right.png" style="margin: 0px" alt="">
             </div>
             <div style="position: absolute; left: 0px;">
-                <img src="help:/common/top-left.png" style="margin: 0px" alt="">
+                <img src="help:/kdoctools5-common/top-left.png" style="margin: 0px" alt="">
             </div>
             <div style="position: absolute;
                         top: 25px;
@@ -25,16 +25,16 @@
             </div>
         </div>
         %3
-        <div class="bannerBottom" style="background-image: url(help:/common/bottom-middle.png);
+        <div class="bannerBottom" style="background-image: url(help:/kdoctools5-common/bottom-middle.png);
                                            background-repeat: x-repeat;
                                            width: 100%;
                                            height: 100px;
                                            bottom:0px;">
             <div class="bannerBottomRight">
-                <img src="help:/common/bottom-right.png" style="margin: 0px" alt="">
+                <img src="help:/kdoctools5-common/bottom-right.png" style="margin: 0px" alt="">
             </div>
             <div class="bannerBottomLeft">
-                <img src="help:/common/bottom-left.png" style="margin: 0px;" alt="">
+                <img src="help:/kdoctools5-common/bottom-left.png" style="margin: 0px;" alt="">
             </div>
         </div>
     </body>
