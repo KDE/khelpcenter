@@ -1,6 +1,7 @@
 # KDE Config File
 [Desktop Entry]
 Name=Quickstart Guide
+Name[nl]=Snelstartgids
 Name[uk]=Настанови з перших кроків
 Name[x-test]=xxQuickstart Guidexx
 Icon=text-plain

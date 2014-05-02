@@ -1,8 +1,10 @@
 [Desktop Entry]
 Name=KHelpCenter
+Name[nl]=KHelpCenter
 Name[uk]=KHelpCenter
 Name[x-test]=xxKHelpCenterxx
 Comment=The KDE Help Center
+Comment[nl]=Het KDE-documentatiecentrum
 Comment[uk]=Центр довідки KDE
 Comment[x-test]=xxThe KDE Help Centerxx
 Icon=help-browser

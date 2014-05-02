@@ -10,13 +10,16 @@ X-KDE-FactoryName=htmlsearch
 X-KDE-ParentApp=kcontrol
 
 Name=Index
+Name[nl]=Index
 Name[uk]=Індекс
 Name[x-test]=xxIndexxx
 
 Comment=Index generation
+Comment[nl]=Indexgeneratie
 Comment[uk]=Створення індексу
 Comment[x-test]=xxIndex generationxx
 
 X-KDE-Keywords=Help,HTML,Search,Index,htdig,htsearch,htmerge,Scope,Language
+X-KDE-Keywords[nl]=Help,HTML,zoeken,index,htdig,htsearch,htmerge,scope,taal
 X-KDE-Keywords[uk]=Help,HTML,Search,Index,htdig,htsearch,htmerge,Scope,Language,довідка,допомога,пошук,індекс,покажчик,область,мова
 X-KDE-Keywords[x-test]=xxHelp,HTML,Search,Index,htdig,htsearch,htmerge,Scope,Languagexx
