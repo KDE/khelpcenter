@@ -1,8 +1,41 @@
 [Desktop Entry]
 Name=Browser Settings Modules
+Name[ca]=Mòduls de configuració del navegador
+Name[ca@valencia]=Mòduls de configuració del navegador
+Name[cs]=Moduly nastavení prohlížeče
+Name[da]=Moduler til browserindstillinger
+Name[de]=Browser-Einstellungsmodule
+Name[el]=Αρθρώματα ρυθμίσεων του περιηγητή
+Name[es]=Módulos de preferencias del navegador
+Name[eu]=Arakatzaile-ezarpenen moduluak
+Name[fi]=Selaimen asetusosiot
+Name[fr]=Modules des paramètres du navigateur
+Name[gl]=Módulos de configuración do navegador
+Name[hu]=Böngésző beállítási modulok
+Name[ia]=Modulos pro navigar inter preferentias
+Name[id]=Modul Pengaturan Peramban
+Name[is]=Stillingaeiningar vafra
+Name[ko]=브라우저 설정 모듈
+Name[nb]=Moduler for nettleser-innstillinger
+Name[nds]=Nettkieker-Instellenmodulen
 Name[nl]=Modules voor instellingen van de browser
+Name[pa]=ਬਰਾਊਜ਼ਰ ਸੈਟਿੰਗ ਮੋਡੀਊਲ
+Name[pl]=Moduły ustawień przeglądarki
+Name[pt]=Módulos de Configuração do Navegador
+Name[pt_BR]=Módulos de configuração do Navegador
+Name[ru]=Модули настроек браузера
+Name[sk]=Moduly nastavení prehliadača
+Name[sl]=Moduli nastavitev brskalnika
+Name[sr]=Модули поставки прегледача
+Name[sr@ijekavian]=Модули поставки прегледача
+Name[sr@ijekavianlatin]=Moduli postavki pregledača
+Name[sr@latin]=Moduli postavki pregledača
+Name[sv]=Inställningsmoduler för webbläsare
+Name[tr]=Tarayıcı Ayar Modülleri
 Name[uk]=Модулі параметрів перегляду інтернету
 Name[x-test]=xxBrowser Settings Modulesxx
+Name[zh_CN]=浏览器设置模块
+Name[zh_TW]=瀏覽器設定模組
 
 Icon=preferences-system
 

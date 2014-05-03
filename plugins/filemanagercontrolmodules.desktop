@@ -1,8 +1,41 @@
 [Desktop Entry]
 Name=Filemanager Settings Modules
+Name[ca]=Mòduls de configuració del gestor de fitxers
+Name[ca@valencia]=Mòduls de configuració del gestor de fitxers
+Name[cs]=Moduly nastavení správce souborů
+Name[da]=Moduler til filhåndteringindstillinger
+Name[de]=Dateiverwaltungs-Einstellungsmodule
+Name[el]=Αρθρώματα ρυθμίσεων του διαχειριστή αρχείων
+Name[es]=Módulos de preferencias del gestor de archivos
+Name[eu]=Fitxategi-kudeatzaile-ezarpenen moduluak
+Name[fi]=Tiedostonhallinnan asetusosiot
+Name[fr]=Modules des paramètres du gestionnaire de fichiers
+Name[gl]=Módulos de configuración do xestor de ficheiros
+Name[hu]=Fájlkezelő beállítási modulok
+Name[ia]=Modulos de Preferentias de gerente de file
+Name[id]=Modul Pengaturan Manajer Berkas
+Name[is]=Stillingaeiningar skráastjóra
+Name[ko]=파일 관리자 설정 모듈
+Name[nb]=Moduler for filbehandler-innstillinger
+Name[nds]=Dateipleger-Instellenmodulen
 Name[nl]=Modules voor instellingen van de bestandsbeheerder
+Name[pa]=ਫਾਇਲ-ਮੈਨੇਜਰ ਸੈਟਿੰਗ ਮੋਡੀਊਲ
+Name[pl]=Moduły ustawień zarządcy plików
+Name[pt]=Módulos de Configuração do Gestor de Ficheiros
+Name[pt_BR]=Módulos de configuração do Gerenciador de Arquivos
+Name[ru]=Модули настроек диспетчера файлов
+Name[sk]=Moduly nastavení správcu súborov
+Name[sl]=Moduli nastavitev upravljalnika datotek
+Name[sr]=Модули поставки менаџера фајлова
+Name[sr@ijekavian]=Модули поставки менаџера фајлова
+Name[sr@ijekavianlatin]=Moduli postavki menadžera fajlova
+Name[sr@latin]=Moduli postavki menadžera fajlova
+Name[sv]=Inställningsmoduler för filhanterare
+Name[tr]=Dosya Yönetici Ayar Modülleri
 Name[uk]=Модулі параметрів керування файлами
 Name[x-test]=xxFilemanager Settings Modulesxx
+Name[zh_CN]=文件管理器设置模块
+Name[zh_TW]=檔案管理員設定模組
 
 Icon=preferences-system
 
