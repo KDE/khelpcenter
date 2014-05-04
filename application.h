@@ -36,7 +36,7 @@ namespace KHC {
       Application(int& argc, char** argv);
 
     public slots:
-        void activate(const QStringList& args);
+        void activate(const QStringList& args, const QString &workingDirectory);
 
     private:
       MainWindow *mMainWindow;

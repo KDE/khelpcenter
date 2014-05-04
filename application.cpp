@@ -25,9 +25,10 @@
 
 #include <KAboutData>
 #include <KLocalizedString>
-#include <KDBusAddons/kdbusservice.h>
+#include <KDBusService>
 #include <QCommandLineParser>
 #include <QDebug>
+#include <QDir>
 
 using namespace KHC;
 
@@ -36,10 +37,10 @@ Application::Application(int& argc, char** argv)
 {
     KDBusService* s = new KDBusService(KDBusService::Unique);
     connect(this, SIGNAL(aboutToQuit()), s, SLOT(deleteLater()));
-    connect(s, SIGNAL(activateRequested(QStringList)), this, SLOT(activate(QStringList)));
+    connect(s, SIGNAL(activateRequested(QStringList, QString)), this, SLOT(activate(QStringList, QString)));
 }
 
-void Application::activate(const QStringList& args)
+void Application::activate(const QStringList& args, const QString &workingDirectory)
 {
   QCommandLineParser cmd;
   cmd.addPositionalArgument("url", i18n("Documentation to open"));
@@ -54,7 +55,12 @@ void Application::activate(const QStringList& args)
   }
 
   foreach(const QString& arg, urls) {
+#if QT_VERSION > QT_VERSION_CHECK(5, 4, 0)
+    QUrl url = QUrl::fromUserInput(arg, workingDirectory);
+#else
+    Q_UNUSED(workingDirectory);
     QUrl url(arg);
+#endif
     mMainWindow->openUrl( url );
   }
 
@@ -76,7 +82,7 @@ extern "C" int Q_DECL_EXPORT kdemain( int argc, char **argv )
   aboutData.addAuthor( "Wojciech Smigaj", i18n("Info page support"), "achu@klub.chip.pl" );
   aboutData.setProgramIconName( "help-browser" );
 
-  app.activate(app.arguments());
+  app.activate(app.arguments(), QDir::currentPath());
 
   if ( app.isSessionRestored() )
   {
