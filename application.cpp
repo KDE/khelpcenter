@@ -49,8 +49,12 @@ void Application::activate(const QStringList& args, const QString &workingDirect
   KAboutData::applicationData().processCommandLine(&cmd);
   QStringList urls = cmd.positionalArguments();
 
-  if( !mMainWindow ) 
+  if( !mMainWindow )
   {
+    if (qApp->isSessionRestored()) {
+        // The kRestoreMainWindows call will do the rest.
+        return;
+    }
     mMainWindow = new MainWindow;
   }
 
@@ -86,7 +90,7 @@ extern "C" int Q_DECL_EXPORT kdemain( int argc, char **argv )
 
   if ( app.isSessionRestored() )
   {
-     RESTORE( MainWindow );
+     kRestoreMainWindows<MainWindow>();
   }
 
   return app.exec();
