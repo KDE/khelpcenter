@@ -74,10 +74,10 @@ void Application::activate(const QStringList& args, const QString &workingDirect
 extern "C" int Q_DECL_EXPORT kdemain( int argc, char **argv )
 {
   KHC::Application app(argc, argv);
-  KAboutData aboutData( "khelpcenter", 0, i18n("KDE Help Center"),
+  KAboutData aboutData( "khelpcenter", i18n("KDE Help Center"),
                         HELPCENTER_VERSION,
                         i18n("The KDE Help Center"),
-                        KAboutData::License_GPL,
+                        KAboutLicense::GPL,
                         i18n("(c) 1999-2011, The KHelpCenter developers") );
 
   aboutData.addAuthor( "Cornelius Schumacher", QString(), "schumacher@kde.org" );

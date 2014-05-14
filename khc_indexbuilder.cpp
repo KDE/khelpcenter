@@ -153,11 +153,11 @@ void IndexBuilder::quit()
 int main( int argc, char **argv )
 {
   QCoreApplication app( argc, argv );
-  KAboutData aboutData( "khc_indexbuilder", 0,
+  KAboutData aboutData( "khc_indexbuilder",
                         i18n("KHelpCenter Index Builder"),
                         HELPCENTER_VERSION,
                         i18n("The KDE Help Center"),
-                        KAboutData::License_GPL,
+                        KAboutLicense::GPL,
                         i18n("(c) 2003, The KHelpCenter developers") );
 
   aboutData.addAuthor( i18n("Cornelius Schumacher"), QString(), "schumacher@kde.org" );
