@@ -199,7 +199,7 @@ void IndexProgressDialog::toggleDetails()
   if ( mLogView->isHidden() ) {
     mLogLabel->show();
     mLogView->show();
-    setButtonText( User1, i18n("Details &lt;&lt;") );
+    setButtonText( User1, i18n("Details <<") );
     QSize size = cfg.readEntry( "size", QSize() );
     if ( !size.isEmpty() ) resize( size );
   } else {
@@ -212,7 +212,7 @@ void IndexProgressDialog::hideDetails()
 {
   mLogLabel->hide();
   mLogView->hide();
-  setButtonText( User1, i18n("Details &gt;&gt;") );
+  setButtonText( User1, i18n("Details >>") );
 
   // causes bug 166343
   //layout()->activate();
