@@ -101,7 +101,7 @@ void NavigatorAppItem::populate( bool recursive )
     switch ( e->sycocaType() ) {
       case KST_KService:
       {
-        const KService::Ptr s(e);
+        const KService::Ptr s(static_cast<KService*>(e.data()));
         url = documentationURL( s.data() );
         if ( !url.isEmpty() ) {
           DocEntry *entry = new DocEntry( s->name(), url, s->icon() );
@@ -112,7 +112,7 @@ void NavigatorAppItem::populate( bool recursive )
       }
       case KST_KServiceGroup:
       {
-        const KServiceGroup::Ptr g(e);
+        const KServiceGroup::Ptr g(static_cast<KServiceGroup*>(e.data()));
         if ( ( g->childCount() == 0 ) || g->name().startsWith( '.' ) )
           continue;
         DocEntry *entry = new DocEntry( g->caption(), "", g->icon() );
