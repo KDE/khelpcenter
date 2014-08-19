@@ -44,9 +44,12 @@ void Application::activate(const QStringList& args, const QString &workingDirect
 {
   QCommandLineParser cmd;
   cmd.addPositionalArgument("url", i18n("Documentation to open"));
+  cmd.addHelpOption();
+  cmd.addVersionOption();
   KAboutData::applicationData().setupCommandLine(&cmd);
   cmd.process(args);
   KAboutData::applicationData().processCommandLine(&cmd);
+
   QStringList urls = cmd.positionalArguments();
 
   if( !mMainWindow )
@@ -75,7 +78,7 @@ extern "C" int Q_DECL_EXPORT kdemain( int argc, char **argv )
 {
   KHC::Application app(argc, argv);
   KAboutData aboutData( "khelpcenter", i18n("KDE Help Center"),
-                        HELPCENTER_VERSION,
+                        PROJECT_VERSION,
                         i18n("The KDE Help Center"),
                         KAboutLicense::GPL,
                         i18n("(c) 1999-2011, The KHelpCenter developers") );

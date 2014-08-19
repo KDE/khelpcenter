@@ -1,4 +1,5 @@
 project(KHelpCenter)
+SET(PROJECT_VERSION "5.0.95")
 
 cmake_minimum_required(VERSION 2.8.12 FATAL_ERROR)
 set(QT_MIN_VERSION "5.3.0")
@@ -36,6 +37,7 @@ add_subdirectory( doc )
 ########### next target ###############
 
 add_executable(khc_indexbuilder khc_indexbuilder.cpp)
+target_compile_definitions(khc_indexbuilder PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 ecm_mark_nongui_executable(khc_indexbuilder)
 
 target_link_libraries(khc_indexbuilder KF5::CoreAddons KF5::I18n Qt5::DBus)
@@ -80,6 +82,7 @@ kconfig_add_kcfg_files(khelpcenter_KDEINIT_SRCS prefs.kcfgc )
 # kf5_add_app_icon(khelpcenter_KDEINIT_SRCS "${KDE4_INSTALL_DIR}/share/icons/oxygen/*/apps/help-browser.png")
 
 kf5_add_kdeinit_executable( khelpcenter ${khelpcenter_KDEINIT_SRCS})
+target_compile_definitions(kdeinit_khelpcenter PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 target_link_libraries(kdeinit_khelpcenter KF5::KHtml KF5::KCMUtils KF5::Service KF5::DBusAddons KF5::KDE4Support Qt5::Xml)
 install(TARGETS kdeinit_khelpcenter  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 install(TARGETS khelpcenter ${INSTALL_TARGETS_DEFAULT_ARGS})

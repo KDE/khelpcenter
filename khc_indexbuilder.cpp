@@ -155,7 +155,7 @@ int main( int argc, char **argv )
   QCoreApplication app( argc, argv );
   KAboutData aboutData( "khc_indexbuilder",
                         i18n("KHelpCenter Index Builder"),
-                        HELPCENTER_VERSION,
+                        PROJECT_VERSION,
                         i18n("The KDE Help Center"),
                         KAboutLicense::GPL,
                         i18n("(c) 2003, The KHelpCenter developers") );
