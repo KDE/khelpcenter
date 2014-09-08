@@ -87,7 +87,7 @@ extern "C" int Q_DECL_EXPORT kdemain( int argc, char **argv )
   aboutData.addAuthor( "Frerich Raabe", QString(), "raabe@kde.org" );
   aboutData.addAuthor( "Matthias Elter", i18n("Original Author"), "me@kde.org" );
   aboutData.addAuthor( "Wojciech Smigaj", i18n("Info page support"), "achu@klub.chip.pl" );
-  aboutData.setProgramIconName( "help-browser" );
+  app.setWindowIcon( QIcon::fromTheme("help-browser") );
   KAboutData::setApplicationData(aboutData);
 
   app.activate(app.arguments(), QDir::currentPath());
