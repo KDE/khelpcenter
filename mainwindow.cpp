@@ -217,7 +217,7 @@ void MainWindow::writeConfig()
 
     mNavigator->writeConfig();
 
-    Prefs::self()->writeConfig();
+    Prefs::self()->save();
 }
 
 void MainWindow::setupActions()
@@ -227,13 +227,13 @@ void MainWindow::setupActions()
 
     QAction *prevPage  = actionCollection()->addAction( "prevPage" );
     prevPage->setText( i18n( "Previous Page" ) );
-    prevPage->setShortcut( Qt::CTRL+Qt::Key_PageUp );
+    actionCollection()->setDefaultShortcut(prevPage, Qt::CTRL+Qt::Key_PageUp );
     prevPage->setWhatsThis( i18n( "Moves to the previous page of the document" ) );
     connect( prevPage, SIGNAL( triggered() ), mDoc, SLOT( prevPage() ) );
 
     QAction *nextPage  = actionCollection()->addAction( "nextPage" );
     nextPage->setText( i18n( "Next Page" ) );
-    nextPage->setShortcut( Qt::CTRL + Qt::Key_PageDown );
+    actionCollection()->setDefaultShortcut(nextPage, Qt::CTRL + Qt::Key_PageDown );
     nextPage->setWhatsThis( i18n( "Moves to the next page of the document" ) );
     connect( nextPage, SIGNAL( triggered() ), mDoc, SLOT( nextPage() ) );
 
@@ -493,6 +493,5 @@ void MainWindow::slotConfigureFonts()
   }
 }
 
-#include "mainwindow.moc"
 
 // vim:ts=2:sw=2:et
