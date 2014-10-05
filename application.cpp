@@ -36,8 +36,8 @@ Application::Application(int& argc, char** argv)
     : QApplication(argc, argv), mMainWindow( 0 )
 {
     KDBusService* s = new KDBusService(KDBusService::Unique);
-    connect(this, SIGNAL(aboutToQuit()), s, SLOT(deleteLater()));
-    connect(s, SIGNAL(activateRequested(QStringList, QString)), this, SLOT(activate(QStringList, QString)));
+    connect(this, &Application::aboutToQuit, s, &KDBusService::deleteLater);
+    connect(s, &KDBusService::activateRequested, this, &Application::activate);
 }
 
 void Application::activate(const QStringList& args, const QString &workingDirectory)

@@ -68,7 +68,7 @@ void History::setupActions( KActionCollection *coll )
   coll->addAction( "back", m_backAction );
   m_backAction->setShortcuts(KStandardShortcut::back());
   
-  connect( m_backAction, SIGNAL( triggered() ), this, SLOT( back() ) );
+  connect(m_backAction, &KToolBarPopupAction::triggered, this, &History::back);
 
   connect( m_backAction->menu(), SIGNAL( triggered( QAction* ) ),
            SLOT( backActivated( QAction* ) ) );
@@ -82,7 +82,7 @@ void History::setupActions( KActionCollection *coll )
   coll->addAction( QLatin1String("forward"), m_forwardAction );
   m_forwardAction->setShortcuts(KStandardShortcut::forward());
   
-  connect( m_forwardAction, SIGNAL( triggered() ), this, SLOT( forward() ) );
+  connect(m_forwardAction, &KToolBarPopupAction::triggered, this, &History::forward);
 
   connect( m_forwardAction->menu(), SIGNAL( triggered( QAction* ) ),
            SLOT( forwardActivated( QAction* ) ) );
@@ -99,10 +99,9 @@ void History::installMenuBarHook( KXmlGuiWindow *mainWindow )
       mainWindow->guiFactory()->container( QLatin1String("go_web"), mainWindow ) );
   if ( goMenu ) 
   {
-    connect( goMenu, SIGNAL( aboutToShow() ), SLOT( fillGoMenu() ) );
+    connect(goMenu, &QMenu::aboutToShow, this, &History::fillGoMenu);
     
-    connect( goMenu, SIGNAL( triggered( QAction* ) ),
-             SLOT( goMenuActivated( QAction* ) ) );
+    connect(goMenu, &QMenu::triggered, this, &History::goMenuActivated);
     
     m_goMenuIndex = goMenu->actions().count();
   }

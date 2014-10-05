@@ -268,11 +268,9 @@ bool HTMLSearch::generateIndex( const QString & _lang, QWidget *parent)
 
         kDebug() << "Running htdig";
 
-        connect(_proc, SIGNAL(receivedStdout(K3Process *,char*,int)),
-                this, SLOT(htdigStdout(K3Process *,char*,int)));
+        connect(_proc, &K3Process::receivedStdout, this, &HTMLSearch::htdigStdout);
 
-        connect(_proc, SIGNAL(processExited(K3Process *)),
-                this, SLOT(htdigExited(K3Process *)));
+        connect(_proc, &K3Process::processExited, this, &HTMLSearch::htdigExited);
 
         _htdigRunning = true;
 
@@ -329,8 +327,7 @@ bool HTMLSearch::generateIndex( const QString & _lang, QWidget *parent)
 
     kDebug() << "Running htmerge";
 
-    connect(_proc, SIGNAL(processExited(K3Process *)),
-            this, SLOT(htmergeExited(K3Process *)));
+    connect(_proc, &K3Process::processExited, this, &HTMLSearch::htmergeExited);
 
     _htmergeRunning = true;
 
@@ -431,10 +428,8 @@ QString HTMLSearch::search( const QString & _lang, const QString & words, const 
 
   kDebug() << "Running htsearch";
 
-  connect(_proc, SIGNAL(receivedStdout(K3Process *,char*,int)),
-	  this, SLOT(htsearchStdout(K3Process *,char*,int)));
-  connect(_proc, SIGNAL(processExited(K3Process *)),
-	  this, SLOT(htsearchExited(K3Process *)));
+  connect(_proc, &K3Process::receivedStdout, this, &HTMLSearch::htsearchStdout);
+  connect(_proc, &K3Process::processExited, this, &HTMLSearch::htsearchExited);
 
   _htsearchRunning = true;
   _searchResult = "";

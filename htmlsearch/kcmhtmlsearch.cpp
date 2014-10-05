@@ -63,8 +63,7 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const QVariantList &)
   url->setText(i18n("ht://dig home page"));
   url->setAlignment(QLabel::AlignHCenter);
   grid->addWidget(url, 2, 0, 1, 2 );
-  connect(url, SIGNAL(leftClickedUrl(const QString&)),
-      this, SLOT(urlClicked(const QString&)));
+  connect(url, static_cast<void (KUrlLabel::*)(const QString &)>(&KUrlLabel::leftClickedUrl), this, &KHTMLSearchConfig::urlClicked);
 
   gb = new QGroupBox(i18n("Program Locations"), this);
 
@@ -117,17 +116,17 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const QVariantList &)
 
   indexKDE = new QCheckBox(i18n("&KDE help"), gb);
   vvbox->addWidget(indexKDE);
-  connect(indexKDE, SIGNAL(clicked()), this, SLOT(configChanged()));
+  connect(indexKDE, &QCheckBox::clicked, this, &KHTMLSearchConfig::configChanged);
 
   indexMan = new QCheckBox(i18n("&Man pages"), gb);
   vvbox->addWidget(indexMan);
   indexMan->setEnabled(false),
-  connect(indexMan, SIGNAL(clicked()), this, SLOT(configChanged()));
+  connect(indexMan, &QCheckBox::clicked, this, &KHTMLSearchConfig::configChanged);
 
   indexInfo = new QCheckBox(i18n("&Info pages"), gb);
   vvbox->addWidget(indexInfo);
   indexInfo->setEnabled(false);
-  connect(indexInfo, SIGNAL(clicked()), this, SLOT(configChanged()));
+  connect(indexInfo, &QCheckBox::clicked, this, &KHTMLSearchConfig::configChanged);
 
   gb = new QGroupBox(i18n("Additional Search Paths"), this);
   hbox->addWidget(gb);
@@ -172,12 +171,11 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const QVariantList &)
   QWhatsThis::add( runButton, i18n( "Click this button to generate the index for the fulltext search." ) );
   runButton->setFixedSize(runButton->sizeHint());
   vbox->addWidget(runButton, AlignRight);
-  connect(runButton, SIGNAL(clicked()), this, SLOT(generateIndex()));
+  connect(runButton, &QPushButton::clicked, this, &KHTMLSearchConfig::generateIndex);
 
-  connect(addButton, SIGNAL(clicked()), this, SLOT(addClicked()));
-  connect(delButton, SIGNAL(clicked()), this, SLOT(delClicked()));
-  connect(searchPaths, SIGNAL(highlighted(const QString &)),
-      this, SLOT(pathSelected(const QString &)));
+  connect(addButton, &QPushButton::clicked, this, &KHTMLSearchConfig::addClicked);
+  connect(delButton, &QPushButton::clicked, this, &KHTMLSearchConfig::delClicked);
+  connect(searchPaths, &KListWidget::highlighted, this, &KHTMLSearchConfig::pathSelected);
 
   checkButtons();
 
@@ -359,8 +357,7 @@ void KHTMLSearchConfig::generateIndex()
   indexProc = new K3Process;
   *indexProc << exe << "--lang" << language->currentTag();
 
-  connect(indexProc, SIGNAL(processExited(K3Process *)),
-      this, SLOT(indexTerminated(K3Process *)));
+  connect(indexProc, &K3Process::processExited, this, &KHTMLSearchConfig::indexTerminated);
 
   runButton->setEnabled(false);
 

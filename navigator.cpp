@@ -89,8 +89,7 @@ Navigator::Navigator( View *view, QWidget *parent, const char *name )
     mShowMissingDocs = config.readEntry("ShowMissingDocs", false);
 
     mSearchEngine = new SearchEngine( view );
-    connect( mSearchEngine, SIGNAL( searchFinished() ),
-             SLOT( slotSearchFinished() ) );
+    connect(mSearchEngine, &SearchEngine::searchFinished, this, &Navigator::slotSearchFinished);
 
     DocMetaInfo::self()->scanMetaInfo();
 
@@ -106,13 +105,12 @@ Navigator::Navigator( View *view, QWidget *parent, const char *name )
     mSearchEdit = new KLineEdit( mSearchFrame );
     mSearchEdit->setClearButtonShown(true);
     searchLayout->addWidget( mSearchEdit );
-    connect( mSearchEdit, SIGNAL( returnPressed() ), SLOT( slotSearch() ) );
-    connect( mSearchEdit, SIGNAL( textChanged( const QString & ) ),
-             SLOT( checkSearchButton() ) );
+    connect(mSearchEdit, &KLineEdit::returnPressed, this, &Navigator::slotSearch);
+    connect(mSearchEdit, &KLineEdit::textChanged, this, &Navigator::checkSearchButton);
 
     mSearchButton = new QPushButton( i18n("&Search"), mSearchFrame );
     searchLayout->addWidget( mSearchButton );
-    connect( mSearchButton, SIGNAL( clicked() ), SLOT( slotSearch() ) );
+    connect(mSearchButton, &QPushButton::clicked, this, &Navigator::slotSearch);
 
     mTabWidget = new QTabWidget( this );
     topLayout->addWidget( mTabWidget );
@@ -131,7 +129,7 @@ Navigator::Navigator( View *view, QWidget *parent, const char *name )
       mSearchWidget->readConfig( KSharedConfig::openConfig().data() );
     }
     */
-    connect( mTabWidget, SIGNAL(currentChanged(int)), SLOT(slotTabChanged(int)) );
+    connect(mTabWidget, &QTabWidget::currentChanged, this, &Navigator::slotTabChanged);
 }
 
 Navigator::~Navigator()
@@ -162,8 +160,7 @@ void Navigator::setupContentsTab()
     mContentsTree->setRootIsDecorated(false);
     mContentsTree->headerItem()->setHidden(true);
 
-    connect(mContentsTree, SIGNAL(itemActivated(QTreeWidgetItem*,int)),
-            SLOT(slotItemSelected(QTreeWidgetItem*)));
+    connect(mContentsTree, &QTreeWidget::itemActivated, this, &Navigator::slotItemSelected);
     
     mTabWidget->addTab(mContentsTree, i18n("&Contents"));
 }
@@ -172,12 +169,9 @@ void Navigator::setupSearchTab()
 {
   
     mSearchWidget = new SearchWidget( mSearchEngine, mTabWidget );
-    connect( mSearchWidget, SIGNAL( searchResult( const QString & ) ),
-             SLOT( slotShowSearchResult( const QString & ) ) );
-    connect( mSearchWidget, SIGNAL( scopeCountChanged( int ) ),
-             SLOT( checkSearchButton() ) );
-    connect( mSearchWidget, SIGNAL( showIndexDialog() ),
-      SLOT( showIndexDialog() ) );
+    connect(mSearchWidget, &SearchWidget::searchResult, this, &Navigator::slotShowSearchResult);
+    connect(mSearchWidget, &SearchWidget::scopeCountChanged, this, &Navigator::checkSearchButton);
+    connect(mSearchWidget, &SearchWidget::showIndexDialog, this, &Navigator::showIndexDialog);
 
     mTabWidget->addTab( mSearchWidget, i18n("Search Options"));
     
@@ -186,8 +180,7 @@ void Navigator::setupSearchTab()
 void Navigator::setupGlossaryTab()
 {
     mGlossaryTree = new Glossary( mTabWidget );
-    connect( mGlossaryTree, SIGNAL( entrySelected( const GlossaryEntry & ) ),
-             this, SIGNAL( glossSelected( const GlossaryEntry & ) ) );
+    connect(mGlossaryTree, &Glossary::entrySelected, this, &Navigator::glossSelected);
     mTabWidget->addTab( mGlossaryTree, i18n( "G&lossary" ) );
 }
 
@@ -638,8 +631,7 @@ void Navigator::showIndexDialog()
 {
   if ( !mIndexDialog ) {
     mIndexDialog = new KCMHelpCenter( mSearchEngine, this );
-    connect( mIndexDialog, SIGNAL( searchIndexUpdated() ), mSearchWidget,
-             SLOT( updateScopeList() ) );
+    connect(mIndexDialog, &KCMHelpCenter::searchIndexUpdated, mSearchWidget, &SearchWidget::updateScopeList);
   }
   mIndexDialog->show();
   mIndexDialog->raise();

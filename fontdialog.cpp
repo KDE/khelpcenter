@@ -56,7 +56,7 @@ FontDialog::FontDialog( QWidget *parent )
 
   load();
 
-  connect( this, SIGNAL( okClicked() ), SLOT( slotOk() ) );
+  connect(this, &FontDialog::okClicked, this, &FontDialog::slotOk);
 }
 
 void FontDialog::slotOk()
