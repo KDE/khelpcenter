@@ -285,7 +285,7 @@ void KHTMLSearchConfig::load()
     searchPaths->insertItem(*it);
 
   config->setGroup("Locale");
-  QString lang = config->readEntry("Search Language", KGlobal::locale()->language());
+  QString lang = config->readEntry("Search Language", KLocale::global()->language());
   language->setCurrentItem(lang);
   delete config;
 
@@ -334,7 +334,7 @@ void KHTMLSearchConfig::defaults()
 
   searchPaths->clear();
 
-  language->setCurrentItem(KGlobal::locale()->language());
+  language->setCurrentItem(KLocale::global()->language());
 
   emit changed(true);
 }
