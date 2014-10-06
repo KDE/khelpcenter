@@ -30,7 +30,7 @@ install(TARGETS kcm_htmlsearch ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 add_executable(khtmlindex index.cpp)
 
-target_link_libraries(khtmlindex  KF5::KDE4Support htmlsearch )
+target_link_libraries(khtmlindex  KF5::KDELibs4Support htmlsearch )
 
 install(PROGRAMS khtmlindex ${INSTALL_TARGETS_DEFAULT_ARGS})
 

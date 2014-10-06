@@ -46,5 +46,5 @@ set(testmetainfo_SRCS
 add_executable(testmetainfo ${testmetainfo_SRCS})
 ecm_mark_as_test(testmetainfo)
 
-target_link_libraries(testmetainfo  KF5::KDE4Support )
+target_link_libraries(testmetainfo  KF5::KDELibs4Support )
 
