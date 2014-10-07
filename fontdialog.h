@@ -25,7 +25,7 @@
 class KIntSpinBox;
 
 class KComboBox;
-class KFontComboBox;
+class QFontComboBox;
 class KIntNumInput;
 class KVBox;
 
@@ -51,12 +51,12 @@ namespace KHC {
 
       KIntNumInput *m_minFontSize;
       KIntNumInput *m_medFontSize;
-      KFontComboBox *m_standardFontCombo;
-      KFontComboBox *m_fixedFontCombo;
-      KFontComboBox *m_serifFontCombo;
-      KFontComboBox *m_sansSerifFontCombo;
-      KFontComboBox *m_italicFontCombo;
-      KFontComboBox *m_fantasyFontCombo;
+      QFontComboBox *m_standardFontCombo;
+      QFontComboBox *m_fixedFontCombo;
+      QFontComboBox *m_serifFontCombo;
+      QFontComboBox *m_sansSerifFontCombo;
+      QFontComboBox *m_italicFontCombo;
+      QFontComboBox *m_fantasyFontCombo;
       KComboBox *m_defaultEncoding;
       KIntSpinBox *m_fontSizeAdjustement;
       KVBox *m_mainWidget;

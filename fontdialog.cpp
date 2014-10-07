@@ -25,7 +25,7 @@
 #include <KComboBox>
 #include <KConfig>
 #include <KVBox>
-#include <KFontComboBox>
+#include <QFontComboBox>
 #include <KConfigGroup>
 #include <KSharedConfig>
 #include <KLocalizedString>
@@ -98,37 +98,37 @@ void FontDialog::setupFontTypesBox()
 
   QLabel *lStandardFont = new QLabel( i18n( "S&tandard font:" ), gb );
   layout->addWidget( lStandardFont, 0, 0 );
-  m_standardFontCombo = new KFontComboBox( gb );
+  m_standardFontCombo = new QFontComboBox( gb );
   layout->addWidget( m_standardFontCombo, 0, 1 );
   lStandardFont->setBuddy( m_standardFontCombo );
 
   QLabel *lFixedFont = new QLabel( i18n( "F&ixed font:" ), gb );
   layout->addWidget( lFixedFont, 1, 0 );
-  m_fixedFontCombo = new KFontComboBox( gb );
+  m_fixedFontCombo = new QFontComboBox( gb );
   layout->addWidget( m_fixedFontCombo, 1, 1 );
   lFixedFont->setBuddy( m_fixedFontCombo );
 
   QLabel *lSerifFont = new QLabel( i18n( "S&erif font:" ), gb );
   layout->addWidget( lSerifFont, 2, 0 );
-  m_serifFontCombo = new KFontComboBox( gb );
+  m_serifFontCombo = new QFontComboBox( gb );
   layout->addWidget( m_serifFontCombo, 2, 1 );
   lSerifFont->setBuddy( m_serifFontCombo );
 
   QLabel *lSansSerifFont = new QLabel( i18n( "S&ans serif font:" ), gb );
   layout->addWidget( lSansSerifFont, 3, 0 );
-  m_sansSerifFontCombo = new KFontComboBox( gb );
+  m_sansSerifFontCombo = new QFontComboBox( gb );
   layout->addWidget( m_sansSerifFontCombo, 3, 1 );
   lSansSerifFont->setBuddy( m_sansSerifFontCombo );
 
   QLabel *lItalicFont = new QLabel( i18n( "&Italic font:" ), gb );
   layout->addWidget( lItalicFont, 4, 0 );
-  m_italicFontCombo = new KFontComboBox( gb );
+  m_italicFontCombo = new QFontComboBox( gb );
   layout->addWidget( m_italicFontCombo, 4, 1 );
   lItalicFont->setBuddy( m_italicFontCombo );
 
   QLabel *lFantasyFont = new QLabel( i18n( "&Fantasy font:" ), gb );
   layout->addWidget( lFantasyFont, 5, 0 );
-  m_fantasyFontCombo = new KFontComboBox( gb );
+  m_fantasyFontCombo = new QFontComboBox( gb );
   layout->addWidget( m_fantasyFontCombo, 5, 1 );
   lFantasyFont->setBuddy( m_fantasyFontCombo );
 }
@@ -225,5 +225,4 @@ void FontDialog::save()
   cfg->sync();
 }
 
-#include "fontdialog.moc"
 // vim:ts=4:sw=4:noet
