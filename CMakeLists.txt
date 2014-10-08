@@ -89,7 +89,7 @@ install(TARGETS khelpcenter ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### install files ###############
 
-install( PROGRAMS Help.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
+install( PROGRAMS org.kde.Help.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
 install( FILES khelpcenter.kcfg  DESTINATION  ${KCFG_INSTALL_DIR} )
 install( FILES khelpcenter.desktop  DESTINATION  ${SERVICES_INSTALL_DIR} )
 install( FILES glossary.html.in table-of-contents.xslt glossary.xslt index.html.in DESTINATION ${DATA_INSTALL_DIR}/khelpcenter )

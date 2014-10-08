@@ -102,3 +102,4 @@ Name[zh_TW]=求助
 
 Categories=Qt;KDE;Core;
 OnlyShowIn=KDE;
+X-DBUS-ServiceName=org.kde.Help
