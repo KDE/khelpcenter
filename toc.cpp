@@ -307,5 +307,5 @@ QString TOCSectionItem::url()
     return "help:" + toc()->application() + '/' + m_name + ".html";
 }
 
-#include "toc.moc"
+
 // vim:ts=2:sw=2:et

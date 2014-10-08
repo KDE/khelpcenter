@@ -7,7 +7,7 @@
 #include "progressdialog.h"
 #include <QTextStream>
 #include <QStandardPaths>
-#include "htmlsearch.moc"
+
 
 
 HTMLSearch::HTMLSearch()

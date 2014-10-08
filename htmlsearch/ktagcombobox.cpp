@@ -242,5 +242,5 @@ void KTagComboBox::setFont( const QFont &font )
   popup->setFont( font );
 }
 
-#include "ktagcombobox.moc"
+
 

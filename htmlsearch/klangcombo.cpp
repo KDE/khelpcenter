@@ -48,5 +48,5 @@ void KLanguageCombo::changeLanguage(const QString& name, int i)
   changeItem(output, i);
 }
 
-#include "klangcombo.moc"
+
 

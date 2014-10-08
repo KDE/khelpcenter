@@ -198,6 +198,6 @@ int main( int argc, char **argv )
   return app.exec();
 }
 
-#include "khc_indexbuilder.moc"
+
 
 // vim:ts=2:sw=2:et

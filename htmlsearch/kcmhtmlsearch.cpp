@@ -29,7 +29,7 @@
 #include <ktoolinvocation.h>
 #include <kpluginfactory.h>
 
-#include "kcmhtmlsearch.moc"
+
 
 K_PLUGIN_FACTORY(KHTMLSearchConfigFactory, registerPlugin<KHTMLSearchConfig>();)
 K_EXPORT_PLUGIN(KHTMLSearchConfigFactory("kcmhtmlsearch"))

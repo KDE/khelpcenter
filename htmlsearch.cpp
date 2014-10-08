@@ -5,7 +5,7 @@
 
 #include "docentry.h"
 
-#include "htmlsearch.moc"
+
 
 using namespace KHC;
 

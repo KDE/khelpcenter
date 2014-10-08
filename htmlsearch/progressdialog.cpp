@@ -2,7 +2,7 @@
 #include <QLabel>
 #include <QProgressBar>
 
-#include "progressdialog.moc"
+
 
 
 ProgressDialog::ProgressDialog(QWidget *parent, const char *name)

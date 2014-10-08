@@ -190,5 +190,5 @@ void InfoTree::parseInfoDirFile( const QString &infoDirFileName )
   infoDirFile.close();
 }
 
-#include "infotree.moc"
+
 // vim:ts=2:sw=2:et
