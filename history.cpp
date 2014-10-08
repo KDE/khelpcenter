@@ -26,7 +26,7 @@
 #include <KActionCollection>
 #include <KApplication>
 #include <KDebug>
-#include <KIcon>
+#include <QIcon>
 #include <KXmlGuiWindow>
 #include <KMenu>
 #include <KStandardGuiItem>
@@ -64,7 +64,7 @@ void History::setupActions( KActionCollection *coll )
 {
   QPair<KGuiItem, KGuiItem> backForward = KStandardGuiItem::backAndForward();
 
-  m_backAction = new KToolBarPopupAction( KIcon( backForward.first.iconName() ), backForward.first.text(), this );
+  m_backAction = new KToolBarPopupAction( QIcon::fromTheme( backForward.first.iconName() ), backForward.first.text(), this );
   coll->addAction( "back", m_backAction );
   m_backAction->setShortcuts(KStandardShortcut::back());
   
@@ -78,7 +78,7 @@ void History::setupActions( KActionCollection *coll )
   
   m_backAction->setEnabled( false );
 
-  m_forwardAction = new KToolBarPopupAction( KIcon( backForward.second.iconName() ), backForward.second.text(), this );
+  m_forwardAction = new KToolBarPopupAction( QIcon::fromTheme( backForward.second.iconName() ), backForward.second.text(), this );
   coll->addAction( QLatin1String("forward"), m_forwardAction );
   m_forwardAction->setShortcuts(KStandardShortcut::forward());
   
@@ -383,5 +383,4 @@ void History::dumpHistory() const {
 
 }
 
-#include "history.moc"
 // vim:ts=2:sw=2:et

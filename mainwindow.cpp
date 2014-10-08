@@ -30,7 +30,7 @@
 #include <QAction>
 #include <KActionCollection>
 #include <KConfig>
-#include <KIcon>
+#include <QIcon>
 #include <KIconLoader>
 #include <KRun>
 #include <KAboutData>
@@ -270,12 +270,12 @@ void MainWindow::setupActions()
 
     action = actionCollection()->addAction(QLatin1String("incFontSizes"));
     action->setText( i18n( "Increase Font Sizes" ) );
-    action->setIcon( KIcon( QLatin1String("zoom-in") ) );
+    action->setIcon( QIcon::fromTheme( QLatin1String("zoom-in") ) );
     connect( action, SIGNAL( triggered() ), this, SLOT( slotIncFontSizes() ) );
 
     action = actionCollection()->addAction(QLatin1String("decFontSizes"));
     action->setText( i18n( "Decrease Font Sizes" ) );
-    action->setIcon( KIcon( QLatin1String("zoom-out") ) );
+    action->setIcon( QIcon::fromTheme( QLatin1String("zoom-out") ) );
     connect( action, SIGNAL( triggered() ), this, SLOT( slotDecFontSizes() ) );
 }
 
