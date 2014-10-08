@@ -29,7 +29,7 @@
 #include <QDebug>
 
 #include <KUrlLabel>
-#include <KFileDialog>
+#include <KFile>
 #include <KUrlRequester>
 #include <KLineEdit>
 #include <KToolInvocation>
@@ -153,6 +153,4 @@ void HtmlSearchConfig::urlClicked(const QString &url)
 
 } // End namespace KHC
 // vim:ts=2:sw=2:et
-
-#include "htmlsearchconfig.moc"
 

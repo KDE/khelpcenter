@@ -143,7 +143,7 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const QVariantList &)
   delButton = new QPushButton(i18n("Delete"), gb);
   grid->addWidget(delButton, 2,0);
 
-  searchPaths = new KListWidget(gb);
+  searchPaths = new QListWidget(gb);
   grid->addWidget(searchPaths, 1, 1,3, 1);
   grid->setRowStretch(2,2);
 
@@ -175,7 +175,7 @@ KHTMLSearchConfig::KHTMLSearchConfig(QWidget *parent, const QVariantList &)
 
   connect(addButton, &QPushButton::clicked, this, &KHTMLSearchConfig::addClicked);
   connect(delButton, &QPushButton::clicked, this, &KHTMLSearchConfig::delClicked);
-  connect(searchPaths, &KListWidget::highlighted, this, &KHTMLSearchConfig::pathSelected);
+  connect(searchPaths, &QListWidget::highlighted, this, &KHTMLSearchConfig::pathSelected);
 
   checkButtons();
 

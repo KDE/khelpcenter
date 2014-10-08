@@ -30,7 +30,7 @@
 
 class QCheckBox;
 class QPushButton;
-class KListWidget;
+class QListWidget;
 class K3Process;
 class KLanguageCombo;
 class KUrlRequester;
@@ -74,7 +74,7 @@ private:
   KUrlRequester *htdigBin, *htsearchBin, *htmergeBin;
   QCheckBox *indexKDE, *indexMan, *indexInfo;
   QPushButton *addButton, *delButton, *runButton;
-  KListWidget *searchPaths;
+  QListWidget *searchPaths;
   KLanguageCombo *language;
 
   K3Process *indexProc;
