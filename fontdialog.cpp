@@ -37,26 +37,35 @@
 #include <QLabel>
 #include <QLayout>
 #include <qfontdatabase.h>
+#include <QDialogButtonBox>
+#include <QPushButton>
+#include <QVBoxLayout>
 
 using namespace KHC;
 
 FontDialog::FontDialog( QWidget *parent )
-	: KDialog( parent )
+	: QDialog( parent )
 {
   setModal( true );
-  setCaption( i18n( "Font Configuration" ) );
-  setButtons( Ok | Cancel );
+  setWindowTitle( i18n( "Font Configuration" ) );
+  QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+  QVBoxLayout *mainLayout = new QVBoxLayout;
+  setLayout(mainLayout);
+  QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+  okButton->setDefault(true);
+  okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+  connect(buttonBox, SIGNAL(accepted()), this, SLOT(slotOk()));
+  connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
 
   m_mainWidget = new KVBox( this );
-  setMainWidget( m_mainWidget );
+  mainLayout->addWidget(m_mainWidget);
+  mainLayout->addWidget(buttonBox);
 
   setupFontSizesBox();
   setupFontTypesBox();
   setupFontEncodingBox();
 
   load();
-
-  connect(this, &FontDialog::okClicked, this, &FontDialog::slotOk);
 }
 
 void FontDialog::slotOk()
@@ -70,8 +79,8 @@ void FontDialog::setupFontSizesBox()
   QGroupBox *gb = new QGroupBox( i18n( "Sizes" ), m_mainWidget );
 
   QGridLayout *layout = new QGridLayout( gb );
-  layout->setSpacing( KDialog::spacingHint() );
-  layout->setMargin( KDialog::marginHint() * 2 );
+//TODO PORT QT5   layout->setSpacing( QDialog::spacingHint() );
+//TODO PORT QT5   layout->setMargin( QDialog::marginHint() * 2 );
 
   QLabel *lMinFontSize = new QLabel( i18nc( "The smallest size a will have", "M&inimum font size:" ), gb );
   layout->addWidget( lMinFontSize, 0, 0 );
@@ -93,8 +102,8 @@ void FontDialog::setupFontTypesBox()
   QGroupBox *gb = new QGroupBox( i18n( "Fonts" ), m_mainWidget );
 
   QGridLayout *layout = new QGridLayout( gb );
-  layout->setSpacing( KDialog::spacingHint() );
-  layout->setMargin( KDialog::marginHint() * 2 );
+//TODO PORT QT5   layout->setSpacing( QDialog::spacingHint() );
+//TODO PORT QT5   layout->setMargin( QDialog::marginHint() * 2 );
 
   QLabel *lStandardFont = new QLabel( i18n( "S&tandard font:" ), gb );
   layout->addWidget( lStandardFont, 0, 0 );
@@ -138,8 +147,8 @@ void FontDialog::setupFontEncodingBox()
   QGroupBox *gb = new QGroupBox( i18n( "Encoding" ), m_mainWidget );
 
   QGridLayout *layout = new QGridLayout( gb );
-  layout->setSpacing( KDialog::spacingHint() );
-  layout->setMargin( KDialog::marginHint() * 2 );
+//TODO PORT QT5   layout->setSpacing( QDialog::spacingHint() );
+//TODO PORT QT5   layout->setMargin( QDialog::marginHint() * 2 );
 
   QLabel *lDefaultEncoding = new QLabel( i18n( "&Default encoding:" ), gb );
   layout->addWidget( lDefaultEncoding, 0, 0 );

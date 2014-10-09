@@ -25,7 +25,7 @@
 #include <KIconLoader>
 #include <KProcess>
 #include <KXmlGuiWindow>
-#include <KStatusBar>
+#include <QStatusBar>
 
 #include <QDir>
 #include <QFileInfo>

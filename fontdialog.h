@@ -20,7 +20,7 @@
 #ifndef KHC_FONTDIALOG_H
 #define KHC_FONTDIALOG_H
 
-#include <KDialog>
+#include <QDialog>
 
 class KIntSpinBox;
 
@@ -31,7 +31,7 @@ class KVBox;
 
 namespace KHC {
 
-  class FontDialog : public KDialog
+  class FontDialog : public QDialog
   {
     Q_OBJECT
     

@@ -27,7 +27,7 @@
 #include <KConfigGroup>
 #include <KXmlGuiWindow>
 #include <KProcess>
-#include <KStatusBar>
+#include <QStatusBar>
 
 #include <QTreeWidgetItemIterator>
 #include <QTreeWidgetItem>

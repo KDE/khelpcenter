@@ -28,7 +28,7 @@
 #include <KDebug>
 #include <QIcon>
 #include <KXmlGuiWindow>
-#include <KMenu>
+#include <QMenu>
 #include <KStandardGuiItem>
 #include <KStringHandler>
 #include <KToolBarPopupAction>
