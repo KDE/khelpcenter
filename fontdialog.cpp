@@ -29,7 +29,7 @@
 #include <KConfigGroup>
 #include <KSharedConfig>
 #include <KLocalizedString>
-#include <KNumInput>
+#include <QSpinBox>
 
 #include <khtmldefaults.h>
 
@@ -84,14 +84,14 @@ void FontDialog::setupFontSizesBox()
 
   QLabel *lMinFontSize = new QLabel( i18nc( "The smallest size a will have", "M&inimum font size:" ), gb );
   layout->addWidget( lMinFontSize, 0, 0 );
-  m_minFontSize = new KIntNumInput( gb );
+  m_minFontSize = new QSpinBox( gb );
   layout->addWidget( m_minFontSize, 0, 1 );
   m_minFontSize->setRange( 1, 20 );
   lMinFontSize->setBuddy( m_minFontSize );
 
   QLabel *lMedFontSize = new QLabel( i18nc( "The normal size a font will have", "M&edium font size:" ), gb );
   layout->addWidget( lMedFontSize, 1, 0 );
-  m_medFontSize = new KIntNumInput( gb );
+  m_medFontSize = new QSpinBox( gb );
   layout->addWidget( m_medFontSize, 1, 1 );
   m_medFontSize->setRange( 4, 28 );
   lMedFontSize->setBuddy( m_medFontSize );
@@ -161,7 +161,7 @@ void FontDialog::setupFontEncodingBox()
 
   QLabel *lFontSizeAdjustement = new QLabel( i18n( "&Font size adjustment:" ), gb );
   layout->addWidget( lFontSizeAdjustement, 1, 0 );
-  m_fontSizeAdjustement = new KIntSpinBox( gb );
+  m_fontSizeAdjustement = new QSpinBox( gb );
   m_fontSizeAdjustement->setRange( -5, 5 );
   m_fontSizeAdjustement->setSingleStep( 1 );
   layout->addWidget( m_fontSizeAdjustement, 1, 1 );

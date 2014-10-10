@@ -37,11 +37,12 @@
 #include <KHTMLView>
 #include <KHTMLSettings>
 #include <KStandardShortcut>
-#include <KDialog>
+#include <QDialog>
 #include <KStandardAction>
 #include <KXmlGuiWindow>
 #include <KStartupInfo>
 #include <KConfigGroup>
+#include <KWindowConfig>
 
 #include <QtDBus/QDBusConnection>
 #include <QSplitter>
@@ -56,22 +57,32 @@
 #include <QStatusBar>
 
 #include <stdlib.h>
+#include <QDialogButtonBox>
+#include <QPushButton>
 
 QLoggingCategory category("org.kde.khelpcenter");
 
 using namespace KHC;
 
-class LogDialog : public KDialog
+class LogDialog : public QDialog
 {
   public:
     LogDialog( QWidget *parent = 0 )
-      : KDialog( parent )
+      : QDialog( parent )
     {
-      setCaption( i18n("Search Error Log") );
-      setButtons( Ok );
+      setWindowTitle( i18n("Search Error Log") );
+      QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok);
+      QVBoxLayout *mainLayout = new QVBoxLayout;
+      setLayout(mainLayout);
+      QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+      okButton->setDefault(true);
+      okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+      connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+      connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
 
       QFrame *topFrame = new QFrame( this );
-      setMainWidget( topFrame );
+      mainLayout->addWidget(topFrame);
+      mainLayout->addWidget(buttonBox);
 
       QBoxLayout *topLayout = new QVBoxLayout( topFrame );
 
@@ -79,15 +90,16 @@ class LogDialog : public KDialog
       mTextView->setReadOnly ( true );
       mTextView->setWordWrapMode( QTextOption::NoWrap );
       topLayout->addWidget( mTextView );
+      
 
       KConfigGroup cg = KSharedConfig::openConfig()->group( "logdialog" );
-      restoreDialogSize( cg );
+      KWindowConfig::restoreWindowSize( windowHandle(), cg );
     }
 
     ~LogDialog()
     {
       KConfigGroup cg = KSharedConfig::openConfig()->group( "logdialog" );
-      KDialog::saveDialogSize( cg );
+      KWindowConfig::saveWindowSize(windowHandle(), cg);
     }
 
     void setLog( const QString &log )
@@ -111,7 +123,7 @@ MainWindow::MainWindow()
 
     mDoc = new View( mSplitter, this, KHTMLPart::DefaultGUI, actionCollection() );
     connect( mDoc, SIGNAL( setWindowCaption( const QString & ) ),
-             SLOT( setCaption( const QString & ) ) );
+             SLOT( setWindowTitle( const QString & ) ) );
     connect( mDoc, SIGNAL( setStatusBarText( const QString & ) ),
              SLOT( statusBarMessage( const QString & ) ) );
     connect( mDoc, SIGNAL( onURL( const QString & ) ),

@@ -688,6 +688,5 @@ void KCMHelpCenter::checkSelection()
   enableButtonOk( count != 0 );
 }
 
-#include "kcmhelpcenter.moc"
 
 // vim:ts=2:sw=2:et

@@ -22,11 +22,10 @@
 
 #include <QDialog>
 
-class KIntSpinBox;
+class QSpinBox;
 
 class KComboBox;
 class QFontComboBox;
-class KIntNumInput;
 class KVBox;
 
 namespace KHC {
@@ -49,8 +48,8 @@ namespace KHC {
       void load();
       void save();
 
-      KIntNumInput *m_minFontSize;
-      KIntNumInput *m_medFontSize;
+      QSpinBox *m_minFontSize;
+      QSpinBox *m_medFontSize;
       QFontComboBox *m_standardFontCombo;
       QFontComboBox *m_fixedFontCombo;
       QFontComboBox *m_serifFontCombo;
@@ -58,7 +57,7 @@ namespace KHC {
       QFontComboBox *m_italicFontCombo;
       QFontComboBox *m_fantasyFontCombo;
       KComboBox *m_defaultEncoding;
-      KIntSpinBox *m_fontSizeAdjustement;
+      QSpinBox *m_fontSizeAdjustement;
       KVBox *m_mainWidget;
   };
 
