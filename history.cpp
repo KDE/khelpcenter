@@ -66,7 +66,7 @@ void History::setupActions( KActionCollection *coll )
 
   m_backAction = new KToolBarPopupAction( QIcon::fromTheme( backForward.first.iconName() ), backForward.first.text(), this );
   coll->addAction( "back", m_backAction );
-  m_backAction->setShortcuts(KStandardShortcut::back());
+  coll->setDefaultShortcuts(m_backAction, KStandardShortcut::back());
   
   connect(m_backAction, &KToolBarPopupAction::triggered, this, &History::back);
 
@@ -80,7 +80,7 @@ void History::setupActions( KActionCollection *coll )
 
   m_forwardAction = new KToolBarPopupAction( QIcon::fromTheme( backForward.second.iconName() ), backForward.second.text(), this );
   coll->addAction( QLatin1String("forward"), m_forwardAction );
-  m_forwardAction->setShortcuts(KStandardShortcut::forward());
+  coll->setDefaultShortcuts(m_forwardAction, KStandardShortcut::forward());
   
   connect(m_forwardAction, &KToolBarPopupAction::triggered, this, &History::forward);
 
