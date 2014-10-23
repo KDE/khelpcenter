@@ -22,7 +22,7 @@
 
 #include <QMenu>
 
-#include <KAction>
+#include <QAction>
 #include <KActionCollection>
 #include <KApplication>
 #include <KDebug>
