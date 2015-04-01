@@ -1343,7 +1343,7 @@ whether it be opening, closing, moving, or switching between them.</para>
 </row>
 
 <row>
-<entry><keycombo action="simul">&Alt;<keycap>F2</keycap></keycombo></entry>
+<entry><keycombo action="simul">&Alt;<keycap>F2</keycap></keycombo> / <keycombo action="simul">&Alt;<keycap>Space</keycap></keycombo></entry>
 <entry><ulink url="help:/plasma-desktop/krunner.html">Run Command Interface</ulink></entry>
 </row>
 
