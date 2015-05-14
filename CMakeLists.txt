@@ -18,16 +18,21 @@ include(FeatureSummary)
 include(CheckIncludeFiles)
 
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
-    Widgets
     DBus
+    Widgets
+    Xml
 )
 
 find_package(KF5 REQUIRED COMPONENTS
     Config
+    CoreAddons
+    DBusAddons
+    I18n
     Init
     KCMUtils
-    KHtml
     KDELibs4Support
+    KHtml
+    Service
 )
 
 add_subdirectory( plugins )
