@@ -14,8 +14,8 @@
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 <legalnotice>&FDLNotice;</legalnotice>
-<date>2013-05-22</date>
-<releaseinfo>&kde; 4.11</releaseinfo>
+<date>2015-07-24</date>
+<releaseinfo>Plasma 5.4</releaseinfo>
 
 <abstract>
 <para>
@@ -47,16 +47,16 @@ educational, graphics and software development.
 <anchor id="help"/>
 
 <sect1 id="help-introduction">
-<title>&kde; Help System</title>
+<title>&plasma; Help System</title>
 	
-<para>The &kde; help system is designed to make accessing the common
+<para>The &plasma; help system is designed to make accessing the common
 &UNIX; help systems (<application>man</application> and
-<application>info</application>) simple, as well as the native &kde;
+<application>info</application>) simple, as well as the native &plasma; and applications 
 documentation (&XML;). 
 </para>
 
 <para>
-All base &kde; applications come fully documented, thanks to the efforts of the
+All &plasma; workspace and base &kde; applications come fully documented, thanks to the efforts of the
 Documentation team. If you are interested in helping with the documentation
 efforts, join the
 <ulink url="https://mail.kde.org/mailman/listinfo/kde-doc-english">mailing
@@ -74,10 +74,10 @@ on the <ulink url="http://l10n.kde.org">Localization web site</ulink>.
 <title>Installation</title>
 
 <para>
-&khelpcenter; is an integral part of the &kde; Base installation, and
-is installed with every copy of &kde;.  It can be found in the kdebase-runtime
-package, and is available from the &kde-ftp;, or will be found in your
-operating system's kdebase-runtime package.
+&khelpcenter; is a part of the &plasma; workspace.
+It can be found on the <ulink url="http://download.kde.org/">
+download site</ulink> of the &kde; project, or will be found in your
+operating system's &khelpcenter; package.
 </para>
 
 </sect2>
