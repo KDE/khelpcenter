@@ -786,7 +786,7 @@ Find window used in KMail Composer, where else?
 Search bar used e.g. in Konsole/Konqueror Views (readonly)
 Search+Replace bar in Kate/KWrite
   -->
-<para>The Find function of many &kde-sc; applications lets you find specific
+<para>The Find function of many &kde; applications lets you find specific
 text in a document, while the Replace function allows you to replace text that
 is found with different text you provide.</para>
 

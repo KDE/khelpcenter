@@ -1,7 +1,7 @@
 <chapter id="install">
-<title>Installing the &kde-sc;</title>
+<title>Installing the &kde; Workspace and Applications</title>
 
-<para>You can install the &kde-sc; on a variety of different platforms, ranging from
+<para>You can install the &kde; workspace and applications on a variety of different platforms, ranging from
 smartphones and tablets to computers running &Microsoft; &Windows;, &MacOS;,
 &UNIX;, &BSD; or &Linux;.  Binary packages are available for many different
 platforms and distributions, or advanced users may build the source code.</para>
@@ -16,7 +16,7 @@ to install &kde; on a variety of different devices and platforms.</para>
 <title>&Linux;</title>
 
 <para>Nearly every &Linux; distribution provides binary packages for individual
-&kde-sc; applications and the &plasma-workspaces; as a whole.</para>
+applications and the &plasma-workspaces; as a whole.</para>
 
 <para>To install an individual application, look for its name in your
 distribution's package collection.  To install one of the &plasma-workspaces;,
@@ -41,7 +41,7 @@ to packaging &kde; that can provide assistance specific to &kde;</para>
 <sect2 id="install-windows">
 <title>&Microsoft; &Windows;</title>
 
-<para>The &kde; on Windows Initiative provides binary packages of &kde-sc;
+<para>The &kde; on Windows Initiative provides binary packages of &kde;
 applications for &Microsoft; &Windows;.  They also provide a special installer
 application that permits you to install individual applications or groups and
 all necessary dependencies easily.</para>
@@ -57,7 +57,7 @@ visit <ulink url="http://windows.kde.org/">the KDE on Windows Initiative</ulink>
 <sect2 id="install-mac">
 <title>&MacOS;</title>
 
-<para>Individual &kde-sc; applications can be installed through several
+<para>Individual &kde; applications can be installed through several
 different <quote>ports</quote> systems available for &MacOS;.  Several different
 &kde; applications also provide their own binary builds for &MacOS;.</para>
 
@@ -69,7 +69,7 @@ different <quote>ports</quote> systems available for &MacOS;.  Several different
 <sect2 id="install-bsd">
 <title>&BSD;</title>
 
-<para>Most &BSD; distributions allows you to install &kde-sc; applications
+<para>Most &BSD; distributions allows you to install &kde; applications
 and the &plasma-workspaces; as a whole through their <quote>ports</quote>
 system.</para>
 
@@ -101,22 +101,24 @@ All you have to do insert a CD or connect a USB drive and boot from it.  If you
 like what you see, most offer an option to install it to your hard drive.</para>
 
 <para>There is <ulink url="http://www.kde.org/download/distributions.php">a list
-of distributions that offer the &kde-sc; on live media</ulink> on the &kde; website.</para>
+of distributions that offer the &kde; workspace and applications on live media</ulink> on the &kde; website.</para>
 </sect2>
 
 <sect2 id="install-source">
 <title>Building from Source Code</title>
 
-<para>For detailed information on how to compile and install &kde;
-applications see
-<ulink url="http://techbase.kde.org/Getting_Started#Building_and_Running_KDE_Software_From_Source">
-Building and Running &kde; Software From Source on &kde; TechBase</ulink>.</para>
+<para>For detailed information on how to compile and install &kde; workspace and
+applications see <ulink url="http://techbase.kde.org/">&kde; TechBase</ulink>.</para>
 
 <para>Since &kde; software uses <command>cmake</command> you should
 have no trouble compiling it. Should you run into problems please report them to the
 &kde; mailing lists.</para>
+
+<para>The recommended tool to build Framworks and &plasma; Workspace 5 and Applications is 
+<ulink url="https://projects.kde.org/projects/extragear/utils/kdesrc-build">kdesrc-build</ulink>
+</para>
 </sect2>
-<!--Fixme more info:
+<!--FIXME more info:
   Where to get sources (git split) 
   where to get help building from souces
   kdesrc-build

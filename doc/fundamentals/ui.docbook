@@ -61,10 +61,10 @@ part of the window to learn more about it.</para>
 The <emphasis role="bold">Window Menu</emphasis>
 </para></listitem>
 
-<listitem><para>
+<!--FIXME no longer in kf5 listitem><para>
 A <link linkend="visualdict-button">Button</link> to place this window on all
 desktops
-</para></listitem>
+</para></listitem-->
 
 <listitem><para>
 The <emphasis role="bold"><link linkend="visualdict-titlebar">Titlebar</link></emphasis>
@@ -188,29 +188,19 @@ More <emphasis role="bold"><link linkend="visualdict-panel">Panels</link></empha
 </mediaobjectco>
 </screenshot>
 
-<para>This screenshot, from the &systemsettings; Country/Region &amp; Language panel,
+<para>This screenshot, from the &systemsettings; Formats panel,
 shows some &GUI; elements.  Click on part of the window to learn more about it.</para>
 
 <orderedlist>
 
 <listitem><para>
 An <emphasis role="bold"><link linkend="visualdict-icon-list">Icon List</link></emphasis>
-(the first item is selected)
-</para></listitem>
-
-<listitem><para>
-Some <emphasis role="bold"><link linkend="visualdict-tab">Tabs</link></emphasis>
+(the second item is selected)
 </para></listitem>
 
 <listitem><para>
 An open 
 <emphasis role="bold"><link linkend="visualdict-drop-down-box">Drop Down Box</link></emphasis>
-</para></listitem>
-
-<listitem><para>
-A <emphasis role="bold"><link linkend="visualdict-button">Button</link></emphasis>
-that resets the <link linkend="visualdict-drop-down-box">Drop Down Box</link> to
-its default value
 </para></listitem>
 
 <listitem><para>
@@ -313,9 +303,8 @@ A <emphasis role="bold"><link linkend="visualdict-text-box">Text Box</link></emp
 </mediaobjectco>
 </screenshot>
 
-<para>Finally, this screenshot, from another <link linkend="visualdict-tab">tab</link>
-of the &systemsettings; Country/Region &amp; Language  panel, shows five
-<emphasis role="bold"><link linkend="visualdict-combo-box">Combo Boxes</link></emphasis>
+<para>Finally, this screenshot, from the &systemsettings; Colors panel, shows five
+<emphasis role="bold"><link linkend="visualdict-tab">Tabs</link></emphasis>
 </para>
 
 </sect3>
@@ -428,7 +417,7 @@ what you have typed.</entry>
 
 <row id="visualdict-context-menu">
 <entry>Context Menu</entry>
-<entry>Many user interface elements in the &kde-sc; contain a context menu,
+<entry>Many user interface elements in the &plasma; Workspace and in Applications contain a context menu,
 which can be opened by clicking on something with the &RMB;.  This menu contains
 options and actions that usually affect the user interface element that was
 right-clicked.</entry>
@@ -1343,7 +1332,7 @@ whether it be opening, closing, moving, or switching between them.</para>
 </row>
 
 <row>
-<entry><keycombo action="simul">&Alt;<keycap>F2</keycap></keycombo> / <keycombo action="simul">&Alt;<keycap>Space</keycap></keycombo></entry>
+<entry><keycombo action="simul">&Alt;<keycap>Space</keycap></keycombo></entry>
 <entry><ulink url="help:/plasma-desktop/krunner.html">Run Command Interface</ulink></entry>
 </row>
 
