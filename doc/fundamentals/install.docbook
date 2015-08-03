@@ -114,7 +114,7 @@ applications see <ulink url="http://techbase.kde.org/">&kde; TechBase</ulink>.</
 have no trouble compiling it. Should you run into problems please report them to the
 &kde; mailing lists.</para>
 
-<para>The recommended tool to build Framworks and &plasma; Workspace 5 and Applications is 
+<para>The recommended tool to build Frameworks and &plasma; Workspace 5 and Applications is 
 <ulink url="https://projects.kde.org/projects/extragear/utils/kdesrc-build">kdesrc-build</ulink>
 </para>
 </sect2>
