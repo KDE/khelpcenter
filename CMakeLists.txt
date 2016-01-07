@@ -54,8 +54,6 @@ configure_file(config-khelpcenter.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-khe
 
 ########### next target ###############
 
-add_definitions(-DTRANSLATION_DOMAIN="khelpcenter")
-
 set(khelpcenter_KDEINIT_SRCS
    navigator.cpp
    navigatoritem.cpp
