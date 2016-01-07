@@ -77,6 +77,7 @@ void Application::activate(const QStringList& args, const QString &workingDirect
 extern "C" int Q_DECL_EXPORT kdemain( int argc, char **argv )
 {
   KHC::Application app(argc, argv);
+  KLocalizedString::setApplicationDomain("khelpcenter");
   KAboutData aboutData( "khelpcenter", i18n("KDE Help Center"),
                         PROJECT_VERSION,
                         i18n("The KDE Help Center"),
