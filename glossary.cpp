@@ -39,6 +39,8 @@
 
 #include <sys/stat.h>
 #include <QStandardPaths>
+#include <QDir>
+#include <QFileInfo>
 
 using namespace KHC;
 
@@ -91,6 +93,7 @@ Glossary::Glossary( QWidget *parent ) : QTreeWidget( parent )
     m_alphabItem->setIcon( 0, SmallIcon( "character-set" ) );
 
     m_cacheFile = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1Char('/') + "help/glossary.xml" ;
+    QDir().mkpath( QFileInfo( m_cacheFile ).absolutePath() );
     
     m_sourceFile = View::langLookup( QLatin1String( "khelpcenter/glossary/index.docbook" ) );
     m_config = KSharedConfig::openConfig();
