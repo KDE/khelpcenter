@@ -371,7 +371,7 @@ void MainWindow::viewUrl( const QUrl &url, const KParts::OpenUrlArguments &args,
     mDoc->browserExtension()->setBrowserArguments( browserArgs );
 
     if ( proto == QLatin1String("glossentry") ) {
-        QString decodedEntryId = QUrl::fromPercentEncoding( QUrl::toPercentEncoding(url.toString()) );
+        QString decodedEntryId = QUrl::fromPercentEncoding( QUrl::toPercentEncoding(url.path()) );
         slotGlossSelected( mNavigator->glossEntry( decodedEntryId ) );
         mNavigator->slotSelectGlossEntry( decodedEntryId );
     } else {
