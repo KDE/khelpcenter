@@ -24,6 +24,7 @@
 
 #include <QApplication>
 #include <QUrl>
+#include <QCommandLineParser>
 
 namespace KHC {
 
@@ -35,12 +36,15 @@ namespace KHC {
     public:
       Application(int& argc, char** argv);
 
+      QCommandLineParser *cmdParser();
+
     public slots:
         void activate(const QStringList& args, const QString &workingDirectory);
 
     private:
       MainWindow *mMainWindow;
       QUrl mOpen;
+      QCommandLineParser mCmdParser;
   };
 
 }
