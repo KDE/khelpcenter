@@ -36,6 +36,7 @@
 #include <QDBusConnection>
 #include <QDebug>
 #include <QCommandLineParser>
+#include <QDir>
 
 #include <unistd.h>
 #include <stdlib.h>
@@ -181,6 +182,11 @@ int main( int argc, char **argv )
 
   qCDebug(category) << "cmdFile: " << cmdFile;
   qCDebug(category) << "indexDir: " << indexDir;
+
+  if ( !QDir().mkpath( indexDir ) ) {
+    qCCritical(category) << "cannot create the directory:" << indexDir;
+    return 1;
+  }
 
   QFile file( indexDir + "/testaccess" );
   if ( !file.open( QIODevice::WriteOnly ) || !file.putChar( ' ' ) ) {
