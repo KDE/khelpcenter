@@ -35,22 +35,21 @@ using namespace KHC;
 Application::Application(int& argc, char** argv)
     : QApplication(argc, argv), mMainWindow( 0 )
 {
-    KDBusService* s = new KDBusService(KDBusService::Unique);
-    connect(this, &Application::aboutToQuit, s, &KDBusService::deleteLater);
-    connect(s, &KDBusService::activateRequested, this, &Application::activate);
+  mCmdParser.addPositionalArgument( "url", i18n( "Documentation to open" ) );
+  mCmdParser.addHelpOption();
+  mCmdParser.addVersionOption();
+}
+
+QCommandLineParser *Application::cmdParser()
+{
+  return &mCmdParser;
 }
 
 void Application::activate(const QStringList& args, const QString &workingDirectory)
 {
-  QCommandLineParser cmd;
-  cmd.addPositionalArgument("url", i18n("Documentation to open"));
-  cmd.addHelpOption();
-  cmd.addVersionOption();
-  KAboutData::applicationData().setupCommandLine(&cmd);
-  cmd.process(args);
-  KAboutData::applicationData().processCommandLine(&cmd);
+  mCmdParser.process( args );
 
-  QStringList urls = cmd.positionalArguments();
+  QStringList urls = mCmdParser.positionalArguments();
 
   if( !mMainWindow )
   {
@@ -91,7 +90,17 @@ extern "C" int Q_DECL_EXPORT kdemain( int argc, char **argv )
   app.setWindowIcon( QIcon::fromTheme("help-browser") );
   KAboutData::setApplicationData(aboutData);
 
+  QCommandLineParser *cmd = app.cmdParser();
+  KAboutData::applicationData().setupCommandLine( cmd );
+  cmd->process( app );
+
+  KDBusService service( KDBusService::Unique );
+
+  KAboutData::applicationData().processCommandLine( cmd );
+
   app.activate(app.arguments(), QDir::currentPath());
+
+  QObject::connect( &service, &KDBusService::activateRequested, &app, &Application::activate );
 
   if ( app.isSessionRestored() )
   {
