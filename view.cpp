@@ -294,6 +294,10 @@ QUrl View::urlFromLinkNode( const DOM::HTMLLinkElement &link ) const
   if (domHref.isNull())
     return QUrl();
 
+  const QUrl domHrefUrl( domHref.string() );
+  if ( !domHrefUrl.isRelative() )
+    return domHrefUrl;
+
   return QUrl(baseURL().toString() +'/'+ domHref.string());
 }
 
