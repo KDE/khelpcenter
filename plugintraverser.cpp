@@ -23,12 +23,10 @@
 #include "navigatorappitem.h"
 #include "navigatoritem.h"
 
-#include <KApplication>
 #include <KConfig>
 #include <KConfigGroup>
 #include <KDebug>
 #include <KIconLoader>
-#include <KGlobal>
 
 using namespace KHC;
 

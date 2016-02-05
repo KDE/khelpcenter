@@ -1,8 +1,8 @@
 #include <QCoreApplication>
 #include <QDebug>
 
-#include <kcmdlineargs.h>
 #include <KAboutData>
+#include <KLocalizedString>
 
 #include "docmetainfo.h"
 #include "docentrytraverser.h"
