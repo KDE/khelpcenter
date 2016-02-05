@@ -26,7 +26,6 @@ class QSpinBox;
 
 class KComboBox;
 class QFontComboBox;
-class KVBox;
 
 namespace KHC {
 
@@ -58,7 +57,6 @@ namespace KHC {
       QFontComboBox *m_fantasyFontCombo;
       KComboBox *m_defaultEncoding;
       QSpinBox *m_fontSizeAdjustement;
-      KVBox *m_mainWidget;
   };
 
 }

@@ -24,7 +24,6 @@
 #include <KCharsets>
 #include <KComboBox>
 #include <KConfig>
-#include <KVBox>
 #include <QFontComboBox>
 #include <KConfigGroup>
 #include <KSharedConfig>
@@ -48,22 +47,20 @@ FontDialog::FontDialog( QWidget *parent )
 {
   setModal( true );
   setWindowTitle( i18n( "Font Configuration" ) );
-  QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
   QVBoxLayout *mainLayout = new QVBoxLayout;
   setLayout(mainLayout);
+
+  setupFontSizesBox();
+  setupFontTypesBox();
+  setupFontEncodingBox();
+
+  QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
   QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
   okButton->setDefault(true);
   okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
   connect(buttonBox, SIGNAL(accepted()), this, SLOT(slotOk()));
   connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
-
-  m_mainWidget = new KVBox( this );
-  mainLayout->addWidget(m_mainWidget);
   mainLayout->addWidget(buttonBox);
-
-  setupFontSizesBox();
-  setupFontTypesBox();
-  setupFontEncodingBox();
 
   load();
 }
@@ -76,7 +73,8 @@ void FontDialog::slotOk()
 
 void FontDialog::setupFontSizesBox()
 {
-  QGroupBox *gb = new QGroupBox( i18n( "Sizes" ), m_mainWidget );
+  QGroupBox *gb = new QGroupBox( i18n( "Sizes" ), this );
+  layout()->addWidget( gb );
 
   QGridLayout *layout = new QGridLayout( gb );
 //TODO PORT QT5   layout->setSpacing( QDialog::spacingHint() );
@@ -99,7 +97,8 @@ void FontDialog::setupFontSizesBox()
 
 void FontDialog::setupFontTypesBox()
 {
-  QGroupBox *gb = new QGroupBox( i18n( "Fonts" ), m_mainWidget );
+  QGroupBox *gb = new QGroupBox( i18n( "Fonts" ), this );
+  layout()->addWidget( gb );
 
   QGridLayout *layout = new QGridLayout( gb );
 //TODO PORT QT5   layout->setSpacing( QDialog::spacingHint() );
@@ -144,7 +143,8 @@ void FontDialog::setupFontTypesBox()
 
 void FontDialog::setupFontEncodingBox()
 {
-  QGroupBox *gb = new QGroupBox( i18n( "Encoding" ), m_mainWidget );
+  QGroupBox *gb = new QGroupBox( i18n( "Encoding" ), this );
+  layout()->addWidget( gb );
 
   QGridLayout *layout = new QGridLayout( gb );
 //TODO PORT QT5   layout->setSpacing( QDialog::spacingHint() );
