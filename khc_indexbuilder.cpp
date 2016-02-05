@@ -75,14 +75,12 @@ void IndexBuilder::processCmdQueue()
 {
   qCDebug(category) << "IndexBuilder::processCmdQueue()";
 
-  QStringList::Iterator it = mCmdQueue.begin();
-
-  if ( it == mCmdQueue.end() ) {
+  if ( mCmdQueue.isEmpty() ) {
     quit();
     return;
   }
 
-  QString cmd = *it;
+  const QString cmd = mCmdQueue.takeFirst();
 
   qCDebug(category) << "PROCESS: " << cmd;
 
@@ -92,8 +90,6 @@ void IndexBuilder::processCmdQueue()
 
   connect( proc, SIGNAL( finished( int, QProcess::ExitStatus) ),
            SLOT( slotProcessExited( int, QProcess::ExitStatus) ) );
-
-  mCmdQueue.erase( it );
 
   proc->start();
 
