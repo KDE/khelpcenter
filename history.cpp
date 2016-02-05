@@ -20,11 +20,11 @@
 #include "history.h"
 #include "view.h"
 
+#include <QApplication>
 #include <QMenu>
 
 #include <QAction>
 #include <KActionCollection>
-#include <KApplication>
 #include <KDebug>
 #include <QIcon>
 #include <KXmlGuiWindow>
@@ -272,7 +272,7 @@ void History::fillForwardMenu()
 
 void History::fillGoMenu()
 {
-  KXmlGuiWindow *mainWindow = static_cast<KXmlGuiWindow *>( kapp->activeWindow() );
+  KXmlGuiWindow *mainWindow = static_cast<KXmlGuiWindow *>( qApp->activeWindow() );
   QMenu *goMenu = dynamic_cast<QMenu *>( mainWindow->guiFactory()->container( QLatin1String( "go" ), mainWindow ) );
   if ( !goMenu || m_goMenuIndex == -1 )
     return;
@@ -305,7 +305,7 @@ void History::fillGoMenu()
 
 void History::goMenuActivated( QAction* action )
 {
-  KXmlGuiWindow *mainWindow = static_cast<KXmlGuiWindow *>( kapp->activeWindow() );
+  KXmlGuiWindow *mainWindow = static_cast<KXmlGuiWindow *>( qApp->activeWindow() );
   QMenu *goMenu = dynamic_cast<QMenu *>( mainWindow->guiFactory()->container( QLatin1String( "go" ), mainWindow ) );
   if ( !goMenu )
     return;
