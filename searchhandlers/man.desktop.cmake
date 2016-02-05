@@ -1,4 +1,4 @@
 [Desktop Entry]
 DocumentTypes=text/man
 
-SearchCommand=${LIBEXEC_INSTALL_DIR}/khc_mansearch.pl --words=%w --maxcount=%m
+SearchCommand=${KDE_INSTALL_FULL_LIBEXECDIR}/khc_mansearch.pl --words=%w --maxcount=%m
