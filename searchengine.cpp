@@ -210,6 +210,7 @@ SearchEngine::SearchEngine( View *destination )
 SearchEngine::~SearchEngine()
 {
   delete mRootTraverser;
+  qDeleteAll( mHandlers );
 }
 
 bool SearchEngine::initSearchHandlers()
