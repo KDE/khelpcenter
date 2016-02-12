@@ -24,6 +24,7 @@ find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
 )
 
 find_package(KF5 REQUIRED COMPONENTS
+    Archive
     Config
     CoreAddons
     DBusAddons
@@ -37,6 +38,18 @@ find_package(KF5 REQUIRED COMPONENTS
     Service
     WindowSystem
 )
+
+find_package(Xapian REQUIRED)
+set_package_properties(Xapian PROPERTIES
+    DESCRIPTION "Support for text indexing and searching"
+    URL "https://xapian.org/"
+    TYPE REQUIRED)
+
+find_package(LibXml2 REQUIRED)
+set_package_properties(LibXml2 PROPERTIES
+    DESCRIPTION "Support for extracting text from HTML documents"
+    URL "http://www.xmlsoft.org/"
+    TYPE REQUIRED)
 
 add_subdirectory( plugins )
 add_subdirectory( searchhandlers )
