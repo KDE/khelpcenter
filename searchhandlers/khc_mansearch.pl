@@ -72,9 +72,9 @@ if ( $nummatches > 0 ) {
   my $count = 0;
   for my $result ( @results ) {
     my ( $page, $section, $description ) = @$result;
-    my $url = "man:" . $page;
+    my $url = "man:" . $page . "(" . $section . ")";
     print "<li><a href=\"$url\">";
-    print "$page - $description</a></li>\n";
+    print "$page($section) - $description</a></li>\n";
     if ( ++$count == $maxcount ) { last; }
   }
 
