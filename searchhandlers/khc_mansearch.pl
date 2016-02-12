@@ -29,7 +29,7 @@ use Getopt::Long;
 my ( $words, $maxcount, $lang, $help );
 
 GetOptions (
-  'maxcount=s' => \$maxcount,
+  'maxcount=i' => \$maxcount,
   'words=s' => \$words,
   'lang=s' => \$lang,
   'help' => \$help
