@@ -84,13 +84,11 @@ set(khelpcenter_KDEINIT_SRCS
    toc.cpp
    mainwindow.cpp
    docentry.cpp
-   htmlsearch.cpp
    history.cpp
    application.cpp
    treebuilder.cpp
    infotree.cpp
    kcmhelpcenter.cpp
-   htmlsearchconfig.cpp
    fontdialog.cpp
    plugintraverser.cpp
    scrollkeepertreebuilder.cpp

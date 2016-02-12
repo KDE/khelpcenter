@@ -38,7 +38,6 @@ class KUrlRequester;
 class QTreeWidget;
 
 namespace KHC {
-class HtmlSearchConfig;
 class DocEntry;
 class SearchEngine;
 }
@@ -149,7 +148,6 @@ class KCMHelpCenter : public KDialog
 
     KAboutData *mAboutData;
 
-    KHC::HtmlSearchConfig *mHtmlSearchTab;
     QWidget *mScopeTab;
 
     KTemporaryFile *mCmdFile;

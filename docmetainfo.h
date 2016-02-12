@@ -28,7 +28,6 @@
 
 namespace KHC {
 
-  class HTMLSearch;
   class DocEntryTraverser;
 
   /*!
@@ -83,8 +82,6 @@ namespace KHC {
       QString mDefaultLanguage;
 
       QMap<QString,QString> mLanguageNames;
-
-      HTMLSearch *mHtmlSearch;
 
       static bool mLoaded;
 

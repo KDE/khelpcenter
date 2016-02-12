@@ -26,7 +26,6 @@
 #include <KConfig>
 #include <KConfigGroup>
 
-#include "htmlsearch.h"
 #include "docentrytraverser.h"
 #include <KLocalizedString>
 
@@ -46,8 +45,6 @@ DocMetaInfo::DocMetaInfo()
 {
   qDebug() << "DocMetaInfo()";
 
-  mHtmlSearch = new HTMLSearch;
-
   mRootEntry.setName( i18n("Top-Level Documentation") );
 }
 
@@ -60,8 +57,6 @@ DocMetaInfo::~DocMetaInfo()
   {
     delete *it;
   }
-
-  delete mHtmlSearch;
 
   mLoaded = false;
 
@@ -96,10 +91,6 @@ DocEntry *DocMetaInfo::addDocEntry( const QString &fileName )
       entry->setName( i18nc("doctitle (language)","%1 (%2)",
                              entry->name() ,
                              mLanguageNames[ lang ] ) );
-    }
-    if ( entry->searchMethod().toLower() == "htdig" ) 
-    {
-      mHtmlSearch->setupDocEntry( entry );
     }
     QString indexer = entry->indexer();
     indexer.replace( "%f", fileName );

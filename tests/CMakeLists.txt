@@ -8,8 +8,7 @@ set(testmetainfo_SRCS
     testmetainfo.cpp 
     ${CMAKE_CURRENT_SOURCE_DIR}/../docmetainfo.cpp 
     ${CMAKE_CURRENT_SOURCE_DIR}/../docentry.cpp 
-    ${CMAKE_CURRENT_SOURCE_DIR}/../docentrytraverser.cpp 
-    ${CMAKE_CURRENT_SOURCE_DIR}/../htmlsearch.cpp )
+    ${CMAKE_CURRENT_SOURCE_DIR}/../docentrytraverser.cpp )
 
 kconfig_add_kcfg_files(testmetainfo_SRCS ../prefs.kcfgc)
 

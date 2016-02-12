@@ -356,20 +356,6 @@ including <command>gcc</command> (the C/C++ compiler),
 <title>The <guilabel>Search</guilabel> tab</title>
 
 <para>
-Searching requires you have the <application>ht://Dig</application>
-application installed.  Information on installing and configuring the
-search index is available in the document.  Configuration of the search
-index is performed in the &kcontrol;, by choosing
-<menuchoice><guisubmenu>Help</guisubmenu><guimenuitem>Index</guimenuitem></menuchoice>,
-and detailed help is available from this module.
-</para>
-
-<para>
-For the purposes of this document, we'll assume you already have this set
-up and configured.
-</para>
-
-<para>
 Searching the help files is fairly intuitive, enter the word(s) you wish
 to search for in the text box, choose your options (if any), and press
 <guibutton>Search</guibutton>.  The results display in the viewer pane

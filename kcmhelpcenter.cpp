@@ -21,7 +21,6 @@
 
 #include "kcmhelpcenter.h"
 
-#include "htmlsearchconfig.h"
 #include "docmetainfo.h"
 #include "prefs.h"
 #include "searchhandler.h"
