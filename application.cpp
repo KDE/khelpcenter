@@ -27,7 +27,6 @@
 #include <KDBusService>
 #include <KUrlAuthorized>
 #include <QCommandLineParser>
-#include <QDebug>
 #include <QDir>
 
 using namespace KHC;

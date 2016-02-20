@@ -21,6 +21,7 @@
 #include "toc.h"
 
 #include "docentry.h"
+#include "khc_debug.h"
 
 #include <KIconLoader>
 #include <KProcess>
@@ -155,7 +156,7 @@ void TOC::buildCache()
     meinproc->setOutputChannelMode(KProcess::OnlyStderrChannel);
     meinproc->start();
     if (!meinproc->waitForStarted()) {
-        qWarning() << "could not start process" << meinproc->program();
+        khcWarning() << "could not start process" << meinproc->program();
         if (mainWindow && !m_alreadyWarned) {
             ; // add warning message box with don't display again option 
               // http://api.kde.org/4.0-api/kdelibs-apidocs/kdeui/html/classKDialog.html
@@ -171,8 +172,8 @@ void TOC::meinprocExited( int exitCode, QProcess::ExitStatus exitStatus)
     KXmlGuiWindow *mainWindow = dynamic_cast<KXmlGuiWindow *>( qobject_cast<QApplication*>(qApp)->activeWindow() );
 
     if ( exitStatus == QProcess::CrashExit || exitCode != 0 ) {
-        qWarning() << "running" << meinproc->program() << "failed with exitCode" << exitCode;
-        qWarning() << "stderr output:" << meinproc->readAllStandardError();
+        khcWarning() << "running" << meinproc->program() << "failed with exitCode" << exitCode;
+        khcWarning() << "stderr output:" << meinproc->readAllStandardError();
         if (mainWindow && !m_alreadyWarned) {
             ; // add warning message box with don't display again option 
               // http://api.kde.org/4.0-api/kdelibs-apidocs/kdeui/html/classKDialog.html

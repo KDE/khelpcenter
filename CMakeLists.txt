@@ -59,6 +59,7 @@ add_subdirectory( doc )
 ########### next target ###############
 
 set(khelpcenter_KDEINIT_SRCS
+   khc_debug.cpp
    navigator.cpp
    navigatoritem.cpp
    navigatorappitem.cpp

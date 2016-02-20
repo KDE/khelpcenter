@@ -22,10 +22,10 @@
 #include "navigator.h"
 #include "navigatorappitem.h"
 #include "navigatoritem.h"
+#include "khc_debug.h"
 
 #include <KConfig>
 #include <KConfigGroup>
-#include <KDebug>
 #include <KIconLoader>
 
 using namespace KHC;
@@ -51,7 +51,7 @@ PluginTraverser::PluginTraverser( Navigator *navigator, NavigatorItem *parent )
 void PluginTraverser::process( DocEntry *entry )
 {
   if ( !mListView && !mParentItem ) {
-    kDebug( 1400 ) << "ERROR! Neither mListView nor mParentItem is set.";
+    khcDebug() << "ERROR! Neither mListView nor mParentItem is set.";
     return;
   }
 
@@ -110,7 +110,7 @@ DocEntryTraverser *PluginTraverser::createChild( DocEntry * /*entry*/ )
   if ( mCurrentItem ) {
     return new PluginTraverser( mNavigator, mCurrentItem );
   }
-  kDebug( 1400 ) << "ERROR! mCurrentItem is not set.";
+  khcDebug() << "ERROR! mCurrentItem is not set.";
   return 0;
 }
 

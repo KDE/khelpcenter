@@ -25,6 +25,7 @@
 #include "view.h"
 #include "searchengine.h"
 #include "fontdialog.h"
+#include "khc_debug.h"
 #include "prefs.h"
 
 #include <QAction>
@@ -52,15 +53,12 @@
 #include <QFrame>
 #include <QList>
 #include <QMimeDatabase>
-#include <QLoggingCategory>
 #include <QBoxLayout>
 #include <QStatusBar>
 
 #include <stdlib.h>
 #include <QDialogButtonBox>
 #include <QPushButton>
-
-QLoggingCategory category("org.kde.khelpcenter");
 
 using namespace KHC;
 
@@ -322,7 +320,7 @@ void MainWindow::slotOpenURLRequest( const QUrl &url,
                                      const KParts::OpenUrlArguments &args,
                                      const KParts::BrowserArguments &browserArgs )
 {
-  qCDebug(category) << url.url();
+  khcDebug() << url.url();
 
   mNavigator->selectItem( url );
   viewUrl( url, args, browserArgs );

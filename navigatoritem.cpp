@@ -23,16 +23,13 @@
 #include "toc.h"
 #include "docentry.h"
 #include "view.h"
+#include "khc_debug.h"
 
 #include <KIconLoader>
 
 #include <QPixmap>
 
 using namespace KHC;
-
-namespace {
-QLoggingCategory category("org.kde.khelpcenter");
-}
 
 NavigatorItem::NavigatorItem( DocEntry *entry, QTreeWidget *parent,
                               QTreeWidgetItem *after )
@@ -98,7 +95,7 @@ void NavigatorItem::scheduleTOCBuild()
   if ( !mToc && url.scheme() == "help") {
     mToc = new TOC( this );
 
-    qCDebug(category) << "Trying to build TOC for " << entry()->name();
+    khcDebug() << "Trying to build TOC for " << entry()->name();
     mToc->setApplication( url.toString(QUrl::RemoveScheme|QUrl::RemoveFilename|QUrl::StripTrailingSlash) );
     QString doc = View::langLookup( url.path() );
     // Enforce the original .docbook version, in case langLookup returns a
@@ -108,7 +105,7 @@ void NavigatorItem::scheduleTOCBuild()
       if ( pos >= 0 ) {
         doc.replace( pos, 5, ".docbook" );
       }
-      qCDebug(category) << "doc = " << doc;
+      khcDebug() << "doc = " << doc;
 
       mToc->build( doc );
     }

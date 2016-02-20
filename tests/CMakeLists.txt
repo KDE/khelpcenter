@@ -6,6 +6,7 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/.. )
 
 set(testmetainfo_SRCS
     testmetainfo.cpp 
+    ${CMAKE_CURRENT_SOURCE_DIR}/../khc_debug.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../docmetainfo.cpp 
     ${CMAKE_CURRENT_SOURCE_DIR}/../docentry.cpp 
     ${CMAKE_CURRENT_SOURCE_DIR}/../docentrytraverser.cpp )

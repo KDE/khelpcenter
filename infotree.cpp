@@ -22,6 +22,7 @@
 
 #include "navigatoritem.h"
 #include "docentry.h"
+#include "khc_debug.h"
 
 #include <KConfig>
 #include <KConfigGroup>
@@ -31,14 +32,9 @@
 
 #include <QFile>
 #include <QTextStream>
-#include <QLoggingCategory>
 #include <QPixmap>
 
 #include <stdlib.h>  // for getenv()
-
-namespace {
-QLoggingCategory category("org.kde.khelpcenter");
-}
 
 using namespace KHC;
 
@@ -61,7 +57,7 @@ InfoCategoryItem::InfoCategoryItem( NavigatorItem *parent, const QString &text )
 {
   setAutoDeleteDocEntry( true );
   setExpanded( false );
-//  qCDebug(category) << "Got category: " << text;
+//  khcDebug() << "Got category: " << text;
 }
 
 void InfoCategoryItem::setExpanded( bool open )
@@ -77,7 +73,7 @@ InfoNodeItem::InfoNodeItem( InfoCategoryItem *parent, const QString &text )
   : NavigatorItem( new DocEntry( text ), parent )
 {
   setAutoDeleteDocEntry( true );
-//  qCDebug(category) << "Created info node item: " << text;
+//  khcDebug() << "Created info node item: " << text;
 }
 
 InfoTree::InfoTree( QObject *parent )
@@ -88,7 +84,7 @@ InfoTree::InfoTree( QObject *parent )
 
 void InfoTree::build( NavigatorItem *parent )
 {
-  qCDebug(category) << "Populating info tree.";
+  khcDebug() << "Populating info tree.";
 
   m_parentItem = parent;
 
@@ -130,7 +126,7 @@ void InfoTree::build( NavigatorItem *parent )
 
 void InfoTree::parseInfoDirFile( const QString &infoDirFileName )
 {
-  qCDebug(category) << "Parsing info dir file " << infoDirFileName;
+  khcDebug() << "Parsing info dir file " << infoDirFileName;
 
   QFile infoDirFile( infoDirFileName );
   if ( !infoDirFile.open( QIODevice::ReadOnly ) )

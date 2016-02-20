@@ -22,6 +22,7 @@
 
 #include "navigatoritem.h"
 #include "docentry.h"
+#include "khc_debug.h"
 
 #include <KConfig>
 #include <KProcess>
@@ -31,10 +32,6 @@
 #include <QtXml/QtXml>
 #include <QFile>
 #include <QRegExp>
-
-namespace {
-QLoggingCategory category("org.kde.khelpcenter");
-}
 
 using namespace KHC;
 
@@ -57,7 +54,7 @@ NavigatorItem *ScrollKeeperTreeBuilder::build( NavigatorItem *parent,
 {
   QString lang = QLocale().bcp47Name();
 
-  qCDebug(category) << "ScrollKeeper language: " << lang;
+  khcDebug() << "ScrollKeeper language: " << lang;
 
   KProcess proc;
   proc << "scrollkeeper-get-content-list";
@@ -66,13 +63,13 @@ NavigatorItem *ScrollKeeperTreeBuilder::build( NavigatorItem *parent,
   proc.setOutputChannelMode(KProcess::OnlyStdoutChannel);
   proc.start();
   if ( !proc.waitForFinished() ) {
-    qCDebug(category) << "Could not execute scrollkeeper-get-content-list";
+    khcDebug() << "Could not execute scrollkeeper-get-content-list";
     return 0;
   }
   mContentsList = proc.readAllStandardOutput().trimmed();
 
   if (!QFile::exists(mContentsList)) {
-    qCDebug(category) << "Scrollkeeper contents file '" << mContentsList
+    khcDebug() << "Scrollkeeper contents file '" << mContentsList
       << "' does not exist." << endl;
     return 0;
   }

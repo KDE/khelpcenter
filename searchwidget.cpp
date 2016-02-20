@@ -42,6 +42,7 @@
 #include "docentrytraverser.h"
 #include "prefs.h"
 #include "searchengine.h"
+#include "khc_debug.h"
 
 namespace KHC {
 
@@ -337,7 +338,7 @@ void SearchWidget::scopeDoubleClicked( QTreeWidgetItem* item )
 
   QString searchUrl = scopeItem->entry()->search();
 
-  qDebug() << "DoubleClick: " << searchUrl;
+  khcDebug() << "DoubleClick: " << searchUrl;
 
   emit searchResult( searchUrl );
 }

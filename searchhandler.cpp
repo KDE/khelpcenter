@@ -24,6 +24,7 @@
 #include "searchengine.h"
 #include "prefs.h"
 #include "docentry.h"
+#include "khc_debug.h"
 
 #include <KDesktopFile>
 #include <KProcess>
@@ -194,13 +195,13 @@ void ExternalProcessSearchHandler::search( DocEntry *entry, const QStringList &w
   int maxResults,
   SearchEngine::Operation operation )
 {
-  qDebug() << entry->identifier();
+  khcDebug() << entry->identifier();
 
   if ( !mSearchCommand.isEmpty() ) {
     QString cmdString = SearchEngine::substituteSearchQuery( mSearchCommand,
       entry->identifier(), words, maxResults, operation, mLang, mSearchBinary );
 
-    qDebug() << "CMD:" << cmdString;
+    khcDebug() << "CMD:" << cmdString;
 
     SearchJob *searchJob = new SearchJob(entry);
     connect(searchJob, SIGNAL(searchFinished( SearchJob *, DocEntry *, const QString & )),
@@ -213,7 +214,7 @@ void ExternalProcessSearchHandler::search( DocEntry *entry, const QStringList &w
     QString urlString = SearchEngine::substituteSearchQuery( mSearchUrl,
       entry->identifier(), words, maxResults, operation, mLang, mSearchBinary );
 
-    qDebug() << "URL:" << urlString;
+    khcDebug() << "URL:" << urlString;
 
     SearchJob *searchJob = new SearchJob(entry);
     connect(searchJob, SIGNAL(searchFinished( SearchJob *, DocEntry *, const QString & )),

@@ -1,9 +1,10 @@
 #include "docentry.h"
 
+#include "khc_debug.h"
+
 #include <QRegExp>
 #include <QFileInfo>
 #include <QUrl>
-#include <QDebug>
 
 #include <KDesktopFile>
 #include <KRandom>
@@ -328,15 +329,15 @@ bool DocEntry::isSearchable()
 
 void DocEntry::dump() const
 {
-  qDebug() << "  <docentry>";
-  qDebug() << "    <name>" << mName << "</name>";
-  qDebug() << "    <searchmethod>" << mSearchMethod << "</searchmethod>";
-  qDebug() << "    <search>" << mSearch << "</search>";
-  qDebug() << "    <indexer>" << mIndexer << "</indexer>";
-  qDebug() << "    <indextestfile>" << mIndexTestFile << "</indextestfile>";
-  qDebug() << "    <icon>" << mIcon << "</icon>";
-  qDebug() << "    <url>" << mUrl << "</url>";
-  qDebug() << "    <documenttype>" << mDocumentType << "</documenttype>";
-  qDebug() << "  </docentry>";
+  khcDebug() << "  <docentry>";
+  khcDebug() << "    <name>" << mName << "</name>";
+  khcDebug() << "    <searchmethod>" << mSearchMethod << "</searchmethod>";
+  khcDebug() << "    <search>" << mSearch << "</search>";
+  khcDebug() << "    <indexer>" << mIndexer << "</indexer>";
+  khcDebug() << "    <indextestfile>" << mIndexTestFile << "</indextestfile>";
+  khcDebug() << "    <icon>" << mIcon << "</icon>";
+  khcDebug() << "    <url>" << mUrl << "</url>";
+  khcDebug() << "    <documenttype>" << mDocumentType << "</documenttype>";
+  khcDebug() << "  </docentry>";
 }
 // vim:ts=2:sw=2:et

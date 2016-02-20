@@ -20,11 +20,12 @@
 
 #include "formatter.h"
 
+#include "khc_debug.h"
+
 #include <KConfig>
 #include <KConfigGroup>
 #include <KSharedConfig>
 
-#include <QDebug>
 #include <QFile>
 #include <QTextStream>
 #include <QStandardPaths>
@@ -52,14 +53,14 @@ bool Formatter::readTemplates()
 
   if ( mainTemplate.isEmpty() ) 
   {
-    qWarning() << "Main template file name is empty." ;
+    khcWarning() << "Main template file name is empty." ;
     return false;
   }
 
   QFile f( mainTemplate );
   if ( !f.open( QIODevice::ReadOnly ) ) 
   {
-    qWarning() << "Unable to open main template file '" << mainTemplate
+    khcWarning() << "Unable to open main template file '" << mainTemplate
                 << "'." << endl;
     return false;
   }
@@ -105,7 +106,7 @@ bool Formatter::readTemplates()
         }
         break;
       default:
-        qWarning() << "Formatter::readTemplates(): Illegal state: "
+        khcWarning() << "Formatter::readTemplates(): Illegal state: "
                   << static_cast<int>(state) << endl;
         break;
     }
@@ -123,7 +124,7 @@ bool Formatter::readTemplates()
     if ( !mSymbols.contains( *it2 ) ) 
     {
       success = false;
-      qWarning() << "Symbol '" << *it2 << "' is missing from main template file."
+      khcWarning() << "Symbol '" << *it2 << "' is missing from main template file."
                 << endl;
     }
   }

@@ -3,6 +3,7 @@
 
 #include "formatter.h"
 #include "history.h"
+#include "khc_debug.h"
 
 #include <dom/html_document.h>
 #include <dom/html_head.h>
@@ -33,7 +34,7 @@ View::View( QWidget *parentWidget, QObject *parent, KHTMLPart::GUIProfile prof, 
 
     mFormatter = new Formatter;
     if ( !mFormatter->readTemplates() ) {
-      qDebug() << "Unable to read Formatter templates.";
+      khcDebug() << "Unable to read Formatter templates.";
     }
 
     m_fontScaleStepping = 10;
