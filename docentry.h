@@ -64,8 +64,6 @@ namespace KHC {
 
       bool readFromFile( const QString &fileName );
 
-      bool indexExists( const QString &indexDir );
-
       bool docExists() const;
 
       void addChild( DocEntry * );

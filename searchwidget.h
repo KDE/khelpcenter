@@ -22,7 +22,6 @@
 #define KHC_SEARCHWIDGET_H
 
 #include <QWidget>
-#include <QtDBus/QtDBus>
 
 #include "docmetainfo.h"
 
@@ -41,10 +40,6 @@ class SearchEngine;
 class SearchWidget : public QWidget
 {
     Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "org.kde.khelpcenter.searchwidget")
-
-public Q_SLOTS:
-    Q_SCRIPTABLE Q_NOREPLY void searchIndexUpdated(); // called from kcmhelpcenter
 
   public:
     explicit SearchWidget ( SearchEngine *, QWidget *parent = 0 );
@@ -67,10 +62,11 @@ public Q_SLOTS:
 
     SearchEngine *engine() const { return mEngine; }
 
+    void searchIndexUpdated();
+
   Q_SIGNALS:
     void searchResult( const QString &url );
     void scopeCountChanged( int );
-    void showIndexDialog();
 
   public Q_SLOTS:
     void slotSwitchBoxes();

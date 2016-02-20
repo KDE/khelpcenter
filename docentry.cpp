@@ -235,20 +235,6 @@ bool DocEntry::readFromFile( const QString &fileName )
   return true;
 }
 
-bool DocEntry::indexExists( const QString &indexDir )
-{
-  QString testFile;
-  if ( mIndexTestFile.isEmpty() ) 
-  {
-    testFile = identifier() + QLatin1String(".exists");
-  } else {
-    testFile = mIndexTestFile;
-  }
-
-  if ( !testFile.startsWith( QLatin1Char('/') ) ) testFile = indexDir + QLatin1Char('/') + testFile;
-  return QFile::exists( testFile );
-}
-
 bool DocEntry::docExists() const
 {
   if ( !mUrl.isEmpty() ) 
@@ -337,8 +323,7 @@ DocEntry *DocEntry::nextSibling()
 
 bool DocEntry::isSearchable()
 {
-  return !search().isEmpty() && docExists() &&
-    indexExists( Prefs::indexDirectory() );
+  return !search().isEmpty() && docExists();
 }
 
 void DocEntry::dump() const

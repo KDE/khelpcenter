@@ -151,6 +151,8 @@ MainWindow::MainWindow()
              SLOT( viewUrl( const QString & ) ) );
     connect( mNavigator, SIGNAL( glossSelected( const GlossaryEntry & ) ),
              SLOT( slotGlossSelected( const GlossaryEntry & ) ) );
+    connect( mNavigator, SIGNAL( setStatusBarText( const QString & ) ),
+             SLOT( statusBarMessage( const QString & ) ) );
 
     mSplitter->insertWidget(0, mNavigator);
     mSplitter->setStretchFactor(mSplitter->indexOf(mNavigator), 0);

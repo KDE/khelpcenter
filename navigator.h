@@ -22,6 +22,7 @@
 #define KHC_NAVIGATOR_H
 
 #include "glossary.h"
+#include "docentry.h"
 
 #include <QUrl>
 
@@ -31,10 +32,12 @@
 #include <QTabWidget>
 #include <QTreeWidget>
 #include <QFrame>
+#include <QProcess>
 
+class QProgressBar;
 class QPushButton;
 class KLineEdit;
-class KCMHelpCenter;
+class KProcess;
 
 namespace KHC {
 
@@ -84,20 +87,22 @@ class Navigator : public QWidget
     void slotShowSearchResult( const QString & );
     void slotSelectGlossEntry( const QString &id );
     void selectItem( const QUrl &url );
-    void showIndexDialog();
 
   Q_SIGNALS:
     void itemSelected(const QString& itemURL);
     void glossSelected(const GlossaryEntry &entry);
+    void setStatusBarText(const QString &text);
 
   protected Q_SLOTS:
     void slotSearchFinished();
-    void slotTabChanged( int );
     void checkSearchButton();
 
-    bool checkSearchIndex();
-
     void clearSearch();
+
+    void slotDelayedIndexingStart();
+    void slotDoIndexWork();
+    void slotProcessExited( int exitCode, QProcess::ExitStatus exitStatus );
+    void slotShowIndexingProgressBar();
 
   protected:
     QString createChildrenList( QTreeWidgetItem *child );
@@ -115,7 +120,6 @@ class Navigator : public QWidget
     Glossary *mGlossaryTree;
 
     SearchWidget *mSearchWidget;
-    KCMHelpCenter *mIndexDialog;
 
     QTabWidget *mTabWidget;
 
@@ -136,6 +140,11 @@ class Navigator : public QWidget
     QUrl mLastUrl;
 
     int mDirLevel;
+
+    DocEntry::List mIndexingQueue;
+    KProcess *mIndexingProc;
+    QProgressBar *mIndexingBar;
+    QTimer mIndexingTimer;
 };
 
 }

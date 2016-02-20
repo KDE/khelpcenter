@@ -58,18 +58,6 @@ add_subdirectory( doc )
 
 ########### next target ###############
 
-add_executable(khc_indexbuilder khc_indexbuilder.cpp)
-target_compile_definitions(khc_indexbuilder PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
-ecm_mark_nongui_executable(khc_indexbuilder)
-
-target_link_libraries(khc_indexbuilder KF5::CoreAddons KF5::I18n Qt5::DBus)
-
-install(TARGETS khc_indexbuilder DESTINATION ${LIBEXEC_INSTALL_DIR})
-
-configure_file(config-khelpcenter.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-khelpcenter.h )
-
-########### next target ###############
-
 set(khelpcenter_KDEINIT_SRCS
    navigator.cpp
    navigatoritem.cpp
@@ -88,13 +76,10 @@ set(khelpcenter_KDEINIT_SRCS
    application.cpp
    treebuilder.cpp
    infotree.cpp
-   kcmhelpcenter.cpp
    fontdialog.cpp
    plugintraverser.cpp
    scrollkeepertreebuilder.cpp
    searchhandler.cpp )
-
-qt5_add_dbus_adaptor( khelpcenter_KDEINIT_SRCS org.kde.khelpcenter.kcmhelpcenter.xml kcmhelpcenter.h KCMHelpCenter )
 
 kconfig_add_kcfg_files(khelpcenter_KDEINIT_SRCS prefs.kcfgc )
 # kf5_add_app_icon(khelpcenter_KDEINIT_SRCS "${KDE4_INSTALL_DIR}/share/icons/oxygen/*/apps/help-browser.png")
@@ -113,6 +98,5 @@ install( FILES khelpcenter.desktop  DESTINATION  ${SERVICES_INSTALL_DIR} )
 install( FILES khelpcenter.desktop  DESTINATION  ${SHARE_INSTALL_PREFIX}/kde4/services )
 install( FILES glossary.html.in table-of-contents.xslt glossary.xslt index.html.in DESTINATION ${DATA_INSTALL_DIR}/khelpcenter )
 install( FILES khelpcenterui.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/khelpcenter )
-install( FILES org.kde.khelpcenter.kcmhelpcenter.xml DESTINATION ${DBUS_INTERFACES_INSTALL_DIR})
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)

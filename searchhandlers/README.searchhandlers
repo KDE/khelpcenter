@@ -55,7 +55,4 @@ Index Creation Result
 ---------------------
 
 As result of the indexing command an index is created in the directory specified
-by KHelpcenter. The format and structure of the index is handler-specific. When
-index creation is finished the indexing command has to create a special file
-with the name "<identifier>.exists", where <identifier> has to have the value
-passed by the %i symbol. This file indicates the existance of the index.
+by KHelpcenter. The format and structure of the index is handler-specific.

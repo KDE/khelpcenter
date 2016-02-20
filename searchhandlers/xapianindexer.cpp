@@ -28,7 +28,6 @@
 #include <QDebug>
 #include <QDateTime>
 #include <QDirIterator>
-#include <QFile>
 #include <QLoggingCategory>
 #include <QStandardPaths>
 
@@ -256,14 +255,6 @@ int main( int argc, char *argv[] )
   }
 
   db.commit();
-
-  QFile existsfile( indexdir + "/" + identifier + ".exists" );
-  if ( !existsfile.open( QIODevice::WriteOnly ) ) {
-    qCCritical(LOG) << "Unable to open" << existsfile.fileName() << "for writing:" << existsfile.errorString();
-    return 1;
-  }
-  existsfile.write( identifier.toLatin1() + "\n" );
-  existsfile.close();
 
   return 0;
 }

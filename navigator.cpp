@@ -36,6 +36,7 @@
 #include <QVBoxLayout>
 #include <QTreeWidgetItemIterator>
 #include <qapplication.h>
+#include <QProgressBar>
 
 #include <KConfig>
 
@@ -49,6 +50,8 @@
 #include <KServiceGroup>
 #include <KServiceTypeTrader>
 #include <KCModuleInfo>
+#include <KProcess>
+#include <KShell>
 
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -59,6 +62,7 @@
 #include "navigatorappitem.h"
 #include "searchwidget.h"
 #include "searchengine.h"
+#include "searchhandler.h"
 #include "docmetainfo.h"
 #include "docentrytraverser.h"
 #include "glossary.h"
@@ -68,7 +72,6 @@
 #include "mainwindow.h"
 #include "plugintraverser.h"
 #include "scrollkeepertreebuilder.h"
-#include "kcmhelpcenter.h"
 #include "formatter.h"
 #include "history.h"
 #include "prefs.h"
@@ -80,8 +83,8 @@ QLoggingCategory category("org.kde.khelpcenter");
 }
 
 Navigator::Navigator( View *view, QWidget *parent, const char *name )
-   : QWidget( parent ), mIndexDialog( 0 ),
-     mView( view ), mSelected( false )
+   : QWidget( parent ),
+     mView( view ), mSelected( false ), mIndexingProc( 0 )
 {
     setObjectName( name );
 
@@ -115,6 +118,14 @@ Navigator::Navigator( View *view, QWidget *parent, const char *name )
     mTabWidget = new QTabWidget( this );
     topLayout->addWidget( mTabWidget );
 
+    mIndexingBar = new QProgressBar( this );
+    mIndexingBar->hide();
+    topLayout->addWidget( mIndexingBar );
+
+    mIndexingTimer.setSingleShot( true );
+    mIndexingTimer.setInterval( 1000 );
+    connect( &mIndexingTimer, &QTimer::timeout, this, &Navigator::slotShowIndexingProgressBar );
+
     setupContentsTab();
     setupGlossaryTab();
     setupSearchTab();
@@ -127,9 +138,9 @@ Navigator::Navigator( View *view, QWidget *parent, const char *name )
     } else {
       mSearchWidget->updateScopeList();
       mSearchWidget->readConfig( KSharedConfig::openConfig().data() );
+      QTimer::singleShot( 0, this, &Navigator::slotDelayedIndexingStart );
     }
     */
-    connect(mTabWidget, &QTabWidget::currentChanged, this, &Navigator::slotTabChanged);
 }
 
 Navigator::~Navigator()
@@ -171,7 +182,6 @@ void Navigator::setupSearchTab()
     mSearchWidget = new SearchWidget( mSearchEngine, mTabWidget );
     connect(mSearchWidget, &SearchWidget::searchResult, this, &Navigator::slotShowSearchResult);
     connect(mSearchWidget, &SearchWidget::scopeCountChanged, this, &Navigator::checkSearchButton);
-    connect(mSearchWidget, &SearchWidget::showIndexDialog, this, &Navigator::showIndexDialog);
 
     mTabWidget->addTab( mSearchWidget, i18n("Search Options"));
     
@@ -528,7 +538,7 @@ void Navigator::slotSearch()
   
   qCDebug(category) << "Navigator::slotSearch()";
 
-  if ( !checkSearchIndex() ) return;
+  if ( mIndexingProc ) return;
 
   if ( mSearchEngine->isRunning() ) return;
 
@@ -572,7 +582,7 @@ void Navigator::slotSearchFinished()
 void Navigator::checkSearchButton()
 {
   mSearchButton->setEnabled( !mSearchEdit->text().isEmpty() &&
-    mSearchWidget->scopeCount() > 0 );
+    mSearchWidget->scopeCount() > 0 && !mIndexingProc );
   mTabWidget->setCurrentIndex( mTabWidget->indexOf( mSearchWidget ) );
 }
 
@@ -581,33 +591,6 @@ void Navigator::hideSearch()
 {
   mSearchFrame->hide();
   mTabWidget->removeTab( mTabWidget->indexOf( mSearchWidget ) );
-}
-
-bool Navigator::checkSearchIndex()
-{
-  KConfigGroup cfg(KSharedConfig::openConfig(), "Search" );
-  if ( cfg.readEntry( "IndexExists", false) ) return true;
-
-  if ( mIndexDialog && !mIndexDialog->isHidden() ) return true;
-
-  QString text = i18n( "A search index does not yet exist. Do you want "
-                       "to create the index now?" );
-
-  int result = KMessageBox::questionYesNo( this, text, QString(),
-                                           KGuiItem(i18n("Create")),
-                                           KGuiItem(i18n("Do Not Create")),
-                                           QLatin1String("indexcreation") );
-  if ( result == KMessageBox::Yes ) {
-    showIndexDialog();
-    return false;
-  }
-
-  return true;
-}
-
-void Navigator::slotTabChanged( int id )
-{
-  if ( mTabWidget->widget(id) == mSearchWidget ) checkSearchIndex();
 }
 
 void Navigator::slotSelectGlossEntry( const QString &id )
@@ -625,16 +608,6 @@ QUrl Navigator::homeURL()
   cfg->reparseConfiguration();
   mHomeUrl = cfg->group("General").readPathEntry( "StartUrl", QLatin1String("khelpcenter:home") );
   return mHomeUrl;
-}
-
-void Navigator::showIndexDialog()
-{
-  if ( !mIndexDialog ) {
-    mIndexDialog = new KCMHelpCenter( mSearchEngine, this );
-    connect(mIndexDialog, &KCMHelpCenter::searchIndexUpdated, mSearchWidget, &SearchWidget::updateScopeList);
-  }
-  mIndexDialog->show();
-  mIndexDialog->raise();
 }
 
 void Navigator::readConfig()
@@ -664,6 +637,110 @@ void Navigator::clearSearch()
   mSearchEdit->setText( QString() );
 }
 
+void Navigator::slotDelayedIndexingStart()
+{
+  mIndexingQueue.clear();
+
+  const DocEntry::List &entries = DocMetaInfo::self()->docEntries();
+  foreach ( DocEntry *entry, entries ) {
+    if ( mSearchEngine->needsIndex( entry ) ) {
+      mIndexingQueue.append( entry );
+    }
+  }
+
+  if ( mIndexingQueue.isEmpty() ) {
+    return;
+  }
+
+  emit setStatusBarText( i18n( "Updating search index..." ) );
+
+  mIndexingTimer.start();
+
+  slotDoIndexWork();
+}
+
+void Navigator::slotDoIndexWork()
+{
+  if ( mIndexingQueue.isEmpty() ) {
+    mIndexingTimer.stop();
+    emit setStatusBarText( i18n( "Updating search index... done." ) );
+    mIndexingBar->hide();
+    mSearchWidget->searchIndexUpdated();
+    return;
+  }
+
+  const DocEntry *entry = mIndexingQueue.takeFirst();
+
+  QString error;
+  SearchHandler *handler = mSearchEngine->handler( entry->documentType() );
+  if ( !handler ) {
+    return slotDoIndexWork();
+  }
+  if ( !handler->checkPaths( &error ) ) {
+    qCWarning(category) << "Indexing path error for" << entry->name() << ":" << error;
+    return slotDoIndexWork();
+  }
+  QString indexer = handler->indexCommand( entry->identifier() );
+  if ( indexer.isEmpty() ) {
+    qCWarning(category) << "Empty indexer for" << entry->identifier() << entry->documentType();
+    return slotDoIndexWork();
+  }
+
+  const QString indexDir = Prefs::indexDirectory();
+
+  indexer.replace( QLatin1String( "%i" ), entry->identifier() );
+  indexer.replace( QLatin1String( "%d" ), indexDir );
+  indexer.replace( QLatin1String( "%p" ), entry->url() );
+  qCDebug(category) << "Indexer:" << indexer;
+
+  if ( !QDir().mkpath( indexDir ) ) {
+    qCWarning(category) << "cannot create the directory:" << indexDir;
+    return slotDoIndexWork();
+  }
+
+  mIndexingProc = new KProcess;
+
+  *mIndexingProc << KShell::splitArgs( indexer );
+
+  connect( mIndexingProc, SIGNAL( finished( int, QProcess::ExitStatus) ),
+           SLOT( slotProcessExited( int, QProcess::ExitStatus) ) );
+
+  mIndexingProc->start();
+
+  if ( !mIndexingProc->waitForStarted() )  {
+    qWarning() << "Unable to start command" << indexer;
+    delete mIndexingProc;
+    mIndexingProc = 0;
+    return slotDoIndexWork();
+  }
+}
+
+void Navigator::slotProcessExited( int exitCode, QProcess::ExitStatus exitStatus )
+{
+  if ( exitStatus != QProcess::NormalExit ) {
+    qCWarning(category) << "Process failed";
+    qCWarning(category) << "stdout output:" << mIndexingProc->readAllStandardOutput();
+    qCWarning(category) << "stderr output:" << mIndexingProc->readAllStandardError();
+  } else if ( exitCode != 0 ) {
+    qCWarning(category) << "running" << mIndexingProc->program() << "failed with exitCode" << exitCode;
+    qCWarning(category) << "stdout output:" << mIndexingProc->readAllStandardOutput();
+    qCWarning(category) << "stderr output:" << mIndexingProc->readAllStandardError();
+  }
+  delete mIndexingProc;
+  mIndexingProc = 0;
+
+  slotDoIndexWork();
+}
+
+void Navigator::slotShowIndexingProgressBar()
+{
+  if ( !mIndexingProc ) {
+    return;
+  }
+
+  mIndexingBar->setRange( 0, 0 );
+  mIndexingBar->show();
+}
 
 
 // vim:ts=2:sw=2:et

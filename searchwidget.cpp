@@ -27,7 +27,6 @@
 #include <errno.h>
 
 #include <QLabel>
-#include <QPushButton>
 #include <QComboBox>
 #include <QLayout>
 #include <QVBoxLayout>
@@ -41,7 +40,6 @@
 
 #include "scopeitem.h"
 #include "docentrytraverser.h"
-#include "kcmhelpcenter.h"
 #include "prefs.h"
 #include "searchengine.h"
 
@@ -106,11 +104,6 @@ SearchWidget::SearchWidget( SearchEngine *engine, QWidget *parent )
   mScopeListView->setColumnCount( 1 );
   mScopeListView->setHeaderLabels( QStringList() << i18n("Scope") );
   topLayout->addWidget( mScopeListView, 1 );
-
-  QPushButton *indexButton = new QPushButton( i18n("Build Search &Index..."),
-                                              this );
-  connect( indexButton, SIGNAL( clicked() ), SIGNAL( showIndexDialog() ) );
-  topLayout->addWidget( indexButton );
 
 // FIXME: Use SearchHandler on double-clicked document
 #if 0
@@ -268,9 +261,7 @@ class ScopeTraverser : public DocEntryTraverser
 
     void process( DocEntry *entry )
     {
-      if ( mWidget->engine()->canSearch( entry ) &&
-           ( !mWidget->engine()->needsIndex( entry ) ||
-           entry->indexExists( Prefs::indexDirectory() ) ) ) {
+      if ( mWidget->engine()->canSearch( entry ) ) {
         ScopeItem *item = 0;
         if ( mParentItem ) {
           item = new ScopeItem( mParentItem, entry );
