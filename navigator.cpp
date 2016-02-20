@@ -44,7 +44,6 @@
 #include <KMessageBox>
 #include <KIconLoader>
 #include <KCharsets>
-#include <KDialog>
 #include <KDesktopFile>
 #include <KProtocolInfo>
 #include <KServiceGroup>
@@ -99,7 +98,6 @@ Navigator::Navigator( View *view, QWidget *parent, const char *name )
     topLayout->addWidget( mSearchFrame );
 
     QBoxLayout *searchLayout = new QHBoxLayout( mSearchFrame );
-    searchLayout->setSpacing( KDialog::spacingHint() );
     searchLayout->setMargin( 6 );
 
     mSearchEdit = new KLineEdit( mSearchFrame );
