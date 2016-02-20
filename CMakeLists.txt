@@ -33,7 +33,6 @@ find_package(KF5 REQUIRED COMPONENTS
     IconThemes
     Init
     KCMUtils
-    KDELibs4Support
     KHtml
     Service
     WindowSystem
@@ -87,7 +86,7 @@ kconfig_add_kcfg_files(khelpcenter_KDEINIT_SRCS prefs.kcfgc )
 
 kf5_add_kdeinit_executable( khelpcenter ${khelpcenter_KDEINIT_SRCS})
 target_compile_definitions(kdeinit_khelpcenter PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
-target_link_libraries(kdeinit_khelpcenter KF5::KHtml KF5::KCMUtils KF5::Service KF5::DBusAddons KF5::IconThemes KF5::ConfigGui KF5::WindowSystem KF5::KDELibs4Support Qt5::Xml)
+target_link_libraries(kdeinit_khelpcenter KF5::KHtml KF5::KCMUtils KF5::Service KF5::DBusAddons KF5::IconThemes KF5::ConfigGui KF5::WindowSystem Qt5::Xml)
 install(TARGETS kdeinit_khelpcenter  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 install(TARGETS khelpcenter ${INSTALL_TARGETS_DEFAULT_ARGS})
 
