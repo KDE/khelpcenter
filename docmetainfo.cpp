@@ -22,8 +22,6 @@
 
 #include "khc_debug.h"
 
-#include <QRegExp>
-
 #include <KConfig>
 #include <KConfigGroup>
 

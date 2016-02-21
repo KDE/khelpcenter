@@ -3,11 +3,12 @@
 #define KHC_SEARCHENGINE_H
 
 #include <QObject>
-
-#include <KProcess>
-#include <kio/job.h>
+#include <QProcess>
+#include <QMap>
 
 #include "docentrytraverser.h"
+
+class KProcess;
 
 namespace KHC {
 

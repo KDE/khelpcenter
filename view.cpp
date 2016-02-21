@@ -13,15 +13,17 @@
 #include <KHTMLSettings>
 #include <KHTMLView>
 #include <KToolBarPopupAction>
+#include <KSharedConfig>
 
 #include <QFileInfo>
 #include <QClipboard>
 #include <QTextStream>
 #include <QKeyEvent>
 #include <qguiapplication.h>
-#include <QEvent>
 #include <QDir>
 #include <QScrollBar>
+#include <QMenu>
+#include <QStandardPaths>
 
 using namespace KHC;
 

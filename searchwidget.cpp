@@ -22,20 +22,13 @@
 
 #include "searchwidget.h"
 
-#include <stdlib.h>
-#include <unistd.h>
-#include <errno.h>
-
 #include <QLabel>
 #include <QComboBox>
-#include <QLayout>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
-#include <QBoxLayout>
 #include <QtDBus/QDBusConnection>
 
 #include <KConfig>
-#include <KIconLoader>
 #include <KLocalizedString>
 
 #include "scopeitem.h"

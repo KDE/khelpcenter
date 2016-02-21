@@ -23,12 +23,12 @@
 
 #include <QApplication>
 #include <QMenu>
-
 #include <QAction>
 #include <KActionCollection>
 #include <QIcon>
+#include <QTimer>
+
 #include <KXmlGuiWindow>
-#include <QMenu>
 #include <KStandardGuiItem>
 #include <KStringHandler>
 #include <KToolBarPopupAction>

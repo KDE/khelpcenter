@@ -26,9 +26,11 @@
 
 #include <QObject>
 
-#include <KProcess>
+#include <QProcess>
 
 class KConfigGroup;
+class KJob;
+class KProcess;
 namespace KIO {
   class Job;
 }

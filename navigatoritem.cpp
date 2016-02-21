@@ -25,7 +25,6 @@
 #include "view.h"
 #include "khc_debug.h"
 
-#include <QPixmap>
 #include <QIcon>
 
 using namespace KHC;

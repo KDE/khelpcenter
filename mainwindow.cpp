@@ -26,21 +26,18 @@
 #include "searchengine.h"
 #include "fontdialog.h"
 #include "khc_debug.h"
+#include "navigator.h"
 #include "prefs.h"
 
 #include <QAction>
 #include <KActionCollection>
 #include <KConfig>
 #include <QIcon>
-#include <KIconLoader>
 #include <KRun>
-#include <KAboutData>
 #include <KHTMLView>
 #include <KHTMLSettings>
-#include <KStandardShortcut>
 #include <QDialog>
 #include <KStandardAction>
-#include <KXmlGuiWindow>
 #include <KStartupInfo>
 #include <KConfigGroup>
 #include <KWindowConfig>
@@ -48,17 +45,16 @@
 #include <QtDBus/QDBusConnection>
 #include <QSplitter>
 #include <QTextEdit>
-#include <QLayout>
 #include <QVBoxLayout>
 #include <QFrame>
 #include <QList>
 #include <QMimeDatabase>
-#include <QBoxLayout>
 #include <QStatusBar>
 
-#include <stdlib.h>
 #include <QDialogButtonBox>
 #include <QPushButton>
+
+#include <kio/job.h>
 
 using namespace KHC;
 

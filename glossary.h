@@ -25,7 +25,7 @@
 #include <QList>
 #include <KSharedConfig>
 #include <QHash>
-#include <KProcess>
+#include <QProcess>
 
 class EntryItem;
 

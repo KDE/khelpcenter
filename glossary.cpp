@@ -23,7 +23,6 @@
 #include "view.h"
 #include "khc_debug.h"
 
-#include <KConfig>
 #include <KConfigGroup>
 #include <KXmlGuiWindow>
 #include <KProcess>
@@ -32,7 +31,6 @@
 #include <QTreeWidgetItem>
 
 #include <QFrame>
-#include <QListView>
 #include <qapplication.h>
 #include <QTextStream>
 

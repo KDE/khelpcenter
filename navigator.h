@@ -25,17 +25,15 @@
 #include "docentry.h"
 
 #include <QUrl>
-
-#include <QFile>
-#include <QTextStream>
 #include <QTimer>
-#include <QTabWidget>
-#include <QTreeWidget>
-#include <QFrame>
 #include <QProcess>
 
+class QFrame;
 class QProgressBar;
 class QPushButton;
+class QTabWidget;
+class QTreeWidget;
+class QTreeWidgetItem;
 class KLineEdit;
 class KProcess;
 

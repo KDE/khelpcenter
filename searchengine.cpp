@@ -1,9 +1,6 @@
 
 #include "searchengine.h"
 
-#include "stdlib.h"
-
-#include <QTextDocument>
 #include <QLocale>
 #include <KConfig>
 #include <KProcess>

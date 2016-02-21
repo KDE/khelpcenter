@@ -24,14 +24,12 @@
 #include "docentry.h"
 #include "khc_debug.h"
 
-#include <KConfig>
 #include <KProcess>
 #include <KConfigGroup>
 #include <KSharedConfig>
 
-#include <QtXml/QtXml>
+#include <QDomDocument>
 #include <QFile>
-#include <QRegExp>
 
 using namespace KHC;
 

@@ -27,10 +27,8 @@
 #include <KXmlGuiWindow>
 #include <QStatusBar>
 
-#include <QDir>
 #include <QFileInfo>
 #include <QTextStream>
-#include <QPixmap>
 
 #include <sys/stat.h>
 #include <QStandardPaths>

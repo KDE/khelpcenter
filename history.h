@@ -21,16 +21,14 @@
 #define KHC_HISTORY_H
 
 #include <QUrl>
-
 #include <QObject>
-
-#include <QMenu>
 #include <QList>
 
 class KActionCollection;
 class KXmlGuiWindow;
 class KToolBarPopupAction;
 class QMenu;
+class QAction;
 
 namespace KHC {
 

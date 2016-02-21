@@ -4,11 +4,6 @@
 
 #include <khtml_part.h>
 
-#include "glossary.h"
-#include "navigator.h"
-
-#include <QEvent>
-
 class KActionCollection;
 
 namespace DOM {

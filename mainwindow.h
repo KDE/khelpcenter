@@ -4,18 +4,23 @@
 
 #include <KXmlGuiWindow>
 
-#include <kio/job.h>
 #include <kparts/browserextension.h>
 
-#include "navigator.h"
 #include "glossary.h"
 
 class QSplitter;
 
 class LogDialog;
 
+namespace KIO {
+
+class Job;
+
+}
+
 namespace KHC {
 
+class Navigator;
 class View;
 
 class MainWindow : public KXmlGuiWindow

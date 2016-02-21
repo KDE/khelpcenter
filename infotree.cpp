@@ -24,14 +24,12 @@
 #include "docentry.h"
 #include "khc_debug.h"
 
-#include <KConfig>
 #include <KConfigGroup>
 #include <KSharedConfig>
 #include <KLocalizedString>
 
 #include <QFile>
 #include <QTextStream>
-#include <QPixmap>
 #include <QIcon>
 
 #include <stdlib.h>  // for getenv()

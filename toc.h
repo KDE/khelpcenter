@@ -24,14 +24,11 @@
 
 #include "navigatoritem.h"
 
-#include <QtXml/QtXml>
-
-#include <QTreeWidget>
-#include <QTreeWidgetItem>
-
+#include <QDomElement>
 #include <QObject>
+#include <QProcess>
 
-#include <KProcess>
+class QTreeWidgetItem;
 
 namespace KHC {
 

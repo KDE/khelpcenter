@@ -22,28 +22,19 @@
 
 #include <QDir>
 #include <QFile>
-#include <QPixmap>
-
-#include <QLabel>
-#include <QtXml/QtXml>
 #include <QTextStream>
-#include <QRegExp>
-#include <QLayout>
 #include <QPushButton>
 #include <QFrame>
 #include <QHBoxLayout>
-#include <QBoxLayout>
 #include <QVBoxLayout>
 #include <QTreeWidgetItemIterator>
 #include <qapplication.h>
 #include <QProgressBar>
-
-#include <KConfig>
+#include <QTabWidget>
+#include <QTreeWidget>
 
 #include <KLineEdit>
 #include <KMessageBox>
-#include <KIconLoader>
-#include <KCharsets>
 #include <KDesktopFile>
 #include <KProtocolInfo>
 #include <KServiceGroup>
@@ -52,9 +43,6 @@
 #include <KProcess>
 #include <KShell>
 
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <unistd.h>
 #include <QStandardPaths>
 
 #include "navigatoritem.h"
@@ -68,7 +56,6 @@
 #include "toc.h"
 #include "view.h"
 #include "infotree.h"
-#include "mainwindow.h"
 #include "plugintraverser.h"
 #include "scrollkeepertreebuilder.h"
 #include "formatter.h"

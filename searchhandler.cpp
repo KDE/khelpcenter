@@ -21,18 +21,15 @@
 
 #include "searchhandler.h"
 
-#include "searchengine.h"
 #include "prefs.h"
 #include "docentry.h"
 #include "khc_debug.h"
 
 #include <KDesktopFile>
 #include <KProcess>
-#include <KMessageBox>
 #include <KShell>
 #include <KLocalizedString>
-
-#include <stdlib.h>
+#include <kio/job.h>
 
 using namespace KHC;
 

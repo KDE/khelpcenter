@@ -20,7 +20,6 @@
 #ifndef KHC_NAVIGATORITEM_H
 #define KHC_NAVIGATORITEM_H
 
-#include <QTreeWidget>
 #include <QTreeWidgetItem>
 
 namespace KHC {

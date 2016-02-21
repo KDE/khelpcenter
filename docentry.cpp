@@ -2,7 +2,6 @@
 
 #include "khc_debug.h"
 
-#include <QRegExp>
 #include <QFileInfo>
 #include <QUrl>
 
