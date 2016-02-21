@@ -126,8 +126,7 @@ Navigator::Navigator( View *view, QWidget *parent, const char *name )
     setupSearchTab();
 
     insertPlugins();
-    hideSearch();
-/*
+
     if ( !mSearchEngine->initSearchHandlers() ) {
       hideSearch();
     } else {
@@ -135,7 +134,6 @@ Navigator::Navigator( View *view, QWidget *parent, const char *name )
       mSearchWidget->readConfig( KSharedConfig::openConfig().data() );
       QTimer::singleShot( 0, this, &Navigator::slotDelayedIndexingStart );
     }
-    */
 }
 
 Navigator::~Navigator()
