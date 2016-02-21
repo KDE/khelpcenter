@@ -27,12 +27,12 @@
 #include <KConfig>
 #include <KConfigGroup>
 #include <KSharedConfig>
-#include <KIconLoader>
 #include <KLocalizedString>
 
 #include <QFile>
 #include <QTextStream>
 #include <QPixmap>
+#include <QIcon>
 
 #include <stdlib.h>  // for getenv()
 
@@ -64,9 +64,9 @@ void InfoCategoryItem::setExpanded( bool open )
 {
   NavigatorItem::setExpanded( open );
 
-  if ( open && childCount() > 0 ) setIcon( 0, SmallIcon( "help-contents" ) );
+  if ( open && childCount() > 0 ) setIcon( 0, QIcon::fromTheme( "help-contents" ) );
 // TODO: was contents2 -> needs to be changed to help-contents-alternate or similar
-  else setIcon( 0, SmallIcon( "help-contents" ) );
+  else setIcon( 0, QIcon::fromTheme( "help-contents" ) );
 }
 
 InfoNodeItem::InfoNodeItem( InfoCategoryItem *parent, const QString &text )

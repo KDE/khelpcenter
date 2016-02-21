@@ -25,9 +25,8 @@
 #include "view.h"
 #include "khc_debug.h"
 
-#include <KIconLoader>
-
 #include <QPixmap>
+#include <QIcon>
 
 using namespace KHC;
 
@@ -86,7 +85,7 @@ void NavigatorItem::setAutoDeleteDocEntry( bool enabled )
 void NavigatorItem::updateItem()
 {
   setText( 0, entry()->name() );
-  setIcon( 0, SmallIcon( entry()->icon() ) );
+  setIcon( 0, QIcon::fromTheme( entry()->icon() ) );
 }
 
 void NavigatorItem::scheduleTOCBuild()

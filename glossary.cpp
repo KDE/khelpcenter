@@ -24,7 +24,6 @@
 #include "khc_debug.h"
 
 #include <KConfig>
-#include <KIconLoader>
 #include <KConfigGroup>
 #include <KXmlGuiWindow>
 #include <KProcess>
@@ -41,6 +40,7 @@
 #include <QStandardPaths>
 #include <QDir>
 #include <QFileInfo>
+#include <QIcon>
 
 using namespace KHC;
 
@@ -51,7 +51,7 @@ class SectionItem : public QTreeWidgetItem
 	: QTreeWidgetItem( parent )
         {
 	  setText(0,text);
-	  setIcon(0,SmallIcon( "help-contents" ));
+	  setIcon(0,QIcon::fromTheme( "help-contents" ));
         }
 };
 
@@ -86,11 +86,11 @@ Glossary::Glossary( QWidget *parent ) : QTreeWidget( parent )
 
     m_byTopicItem = new QTreeWidgetItem( this );
     m_byTopicItem->setText( 0, i18n( "By Topic" ) );
-    m_byTopicItem->setIcon( 0, SmallIcon( "help-contents" ) );
+    m_byTopicItem->setIcon( 0, QIcon::fromTheme( "help-contents" ) );
 
     m_alphabItem = new QTreeWidgetItem( this );
     m_alphabItem->setText( 0, i18n( "Alphabetically" ) );
-    m_alphabItem->setIcon( 0, SmallIcon( "character-set" ) );
+    m_alphabItem->setIcon( 0, QIcon::fromTheme( "character-set" ) );
 
     m_cacheFile = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1Char('/') + "help/glossary.xml" ;
     QDir().mkpath( QFileInfo( m_cacheFile ).absolutePath() );

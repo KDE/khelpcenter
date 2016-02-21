@@ -23,7 +23,6 @@
 #include "docentry.h"
 #include "khc_debug.h"
 
-#include <KIconLoader>
 #include <KProcess>
 #include <KXmlGuiWindow>
 #include <QStatusBar>
@@ -36,6 +35,7 @@
 #include <sys/stat.h>
 #include <QStandardPaths>
 #include <QApplication>
+#include <QIcon>
 
 using namespace KHC;
 
@@ -296,7 +296,7 @@ TOCSectionItem::TOCSectionItem( TOC *toc, TOCChapterItem *parent, QTreeWidgetIte
     : TOCItem( toc, parent, after, title ),
     m_name( name )
 {
-    setIcon( 0, SmallIcon( "text-plain" ) );
+    setIcon( 0, QIcon::fromTheme( "text-plain" ) );
     entry()->setUrl(url());
 }
 
