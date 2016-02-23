@@ -150,13 +150,15 @@ void InfoTree::parseInfoDirFile( const QString &infoDirFileName )
       continue;
 
     InfoCategoryItem *catItem = new InfoCategoryItem( m_categoryItem, s );
-    while ( !stream.atEnd() && !s.trimmed().isEmpty() ) {
+    while ( !stream.atEnd() ) {
       s = stream.readLine();
-      if ( s[ 0 ] == '*' ) {
-        const int colon = s.indexOf( ":" );
-        const int openBrace = s.indexOf( "(", colon );
-        const int closeBrace = s.indexOf( ")", openBrace );
-        const int dot = s.indexOf( ".", closeBrace );
+      if ( s.isEmpty() )
+        break;
+      if ( s.at( 0 ) == QLatin1Char( '*' ) ) {
+        const int colon = s.indexOf( QLatin1Char( ':' ) );
+        const int openBrace = s.indexOf( QLatin1Char( '(' ), colon );
+        const int closeBrace = s.indexOf( QLatin1Char( ')' ), openBrace );
+        const int dot = s.indexOf( QLatin1Char( '.' ), closeBrace );
 
         QString appName = s.mid( 2, colon - 2 );
         QString url = "info:/" + s.mid( openBrace + 1, closeBrace - openBrace - 1 );
