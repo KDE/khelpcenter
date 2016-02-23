@@ -26,7 +26,6 @@
 #include <QComboBox>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
-#include <QtDBus/QDBusConnection>
 
 #include <KConfig>
 #include <KLocalizedString>
@@ -43,8 +42,6 @@ SearchWidget::SearchWidget( SearchEngine *engine, QWidget *parent )
   : QWidget( parent ), mEngine( engine ),
   mScopeCount( 0 )
 {
-    QDBusConnection::sessionBus().registerObject("/SearchWidget", this, QDBusConnection::ExportScriptableSlots);
-
   QBoxLayout *topLayout = new QVBoxLayout( this );
   topLayout->setMargin( 2 );
   topLayout->setSpacing( 2 );
