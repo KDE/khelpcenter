@@ -29,7 +29,6 @@
 #include <KProcess>
 #include <QStatusBar>
 
-#include <QTreeWidgetItemIterator>
 #include <QTreeWidgetItem>
 
 #include <QFrame>
@@ -217,6 +216,8 @@ void Glossary::buildGlossaryTree()
     if ( !doc.setContent( &cacheFile ) )
         return;
 
+    QHash< QChar, SectionItem * > alphabSections;
+
     QDomNodeList sectionNodes = doc.documentElement().elementsByTagName( QLatin1String( "section" ) );
     for ( int i = 0; i < sectionNodes.count(); i++ ) 
     {
@@ -239,21 +240,14 @@ void Glossary::buildGlossaryTree()
             EntryItem *entry = new EntryItem(topicSection, term, entryId );
             m_idDict.insert( entryId, entry );
 
-            SectionItem *alphabSection = 0L;
-	    
-	    QTreeWidgetItemIterator it(m_alphabItem);
-	    while(*it)
-	    {
-	      if ( (*it)->text( 0 ) == QString( term[ 0 ].toUpper() ) )
-	      {
-		alphabSection = static_cast<SectionItem *>( (*it) );
-		break;
-	      }
-	      ++it;
-	    }
+            const QChar first = term.at( 0 ).toUpper();
+            SectionItem *alphabSection = alphabSections.value( first );
 
             if ( !alphabSection )
-                alphabSection = new SectionItem( m_alphabItem, QString( term[ 0 ].toUpper() ) );
+            {
+                alphabSection = new SectionItem( m_alphabItem, QString( first ) );
+                alphabSections.insert( first, alphabSection );
+            }
 
             new EntryItem( alphabSection, term, entryId );
 

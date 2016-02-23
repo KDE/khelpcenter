@@ -142,6 +142,8 @@ void InfoTree::parseInfoDirFile( const QString &infoDirFileName )
       ;
   }
 
+  QHash< QChar, InfoCategoryItem * > alphabSections;
+
   while ( !stream.atEnd() ) {
     QString s = stream.readLine();
     if ( s.trimmed().isEmpty() )
@@ -166,21 +168,13 @@ void InfoTree::parseInfoDirFile( const QString &infoDirFileName )
         InfoNodeItem *item = new InfoNodeItem( catItem, appName );
         item->entry()->setUrl( url );
 
-        InfoCategoryItem *alphabSection = 0;
-	
-	QTreeWidgetItemIterator it( m_alphabItem );
-	while ( (*it) ) 
-	{
-	  if ( (*it)->text( 0 ) == QString( appName[ 0 ].toUpper() ) ) 
-	  {
-	    alphabSection = static_cast<InfoCategoryItem *>( (*it) );
-	    break;
-	  }
-	  ++it;
-	}
+        const QChar first = appName.at( 0 ).toUpper();
+        InfoCategoryItem *alphabSection = alphabSections.value( first );
 
-        if ( alphabSection == 0 )
-          alphabSection = new InfoCategoryItem( m_alphabItem, QString( appName[ 0 ].toUpper() ) );
+        if ( alphabSection == 0 ) {
+          alphabSection = new InfoCategoryItem( m_alphabItem, QString( first ) );
+          alphabSections.insert( first, alphabSection );
+        }
 
         item = new InfoNodeItem( alphabSection, appName );
         item->entry()->setUrl( url );
