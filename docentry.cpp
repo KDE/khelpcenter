@@ -5,10 +5,9 @@
 #include <QFileInfo>
 #include <QUrl>
 
+#include <KConfigGroup>
 #include <KDesktopFile>
 #include <KRandom>
-
-#include "prefs.h"
 
 using namespace KHC;
 
