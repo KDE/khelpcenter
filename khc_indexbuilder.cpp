@@ -21,7 +21,6 @@
 
 #include "khc_indexbuilder.h"
 
-#include "version.h"
 #include <QCoreApplication>
 #include <KLocalizedString>
 #include <qloggingcategory.h>
