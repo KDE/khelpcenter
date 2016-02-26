@@ -85,8 +85,6 @@ public Q_SLOTS:
     void scopeClicked( QTreeWidgetItem* );
 
   private:
-    void loadLanguages();
-
     SearchEngine *mEngine;
 
     QComboBox *mMethodCombo;
