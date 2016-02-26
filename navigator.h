@@ -50,7 +50,7 @@ class Navigator : public QWidget
 {
     Q_OBJECT
   public:
-    explicit Navigator(View *, QWidget *parent=0, const char *name=0);
+    explicit Navigator(View *, QWidget *parent=0);
     virtual ~Navigator();
 
     QUrl homeURL();

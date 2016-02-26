@@ -65,12 +65,10 @@
 
 using namespace KHC;
 
-Navigator::Navigator( View *view, QWidget *parent, const char *name )
+Navigator::Navigator( View *view, QWidget *parent )
    : QWidget( parent ),
      mView( view ), mSelected( false ), mIndexingProc( 0 )
 {
-    setObjectName( name );
-
     KConfigGroup config(KSharedConfig::openConfig(), "General");
     mShowMissingDocs = config.readEntry("ShowMissingDocs", false);
 

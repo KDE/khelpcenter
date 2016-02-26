@@ -140,7 +140,8 @@ MainWindow::MainWindow()
              SLOT( slotOpenURLRequest( const QUrl &,
                                        const KParts::OpenUrlArguments &, const KParts::BrowserArguments & ) ) );
 
-    mNavigator = new Navigator( mDoc, mSplitter, "nav" );
+    mNavigator = new Navigator( mDoc, mSplitter );
+    mNavigator->setObjectName( "nav" );
     connect( mNavigator, SIGNAL( itemSelected( const QString & ) ),
              SLOT( viewUrl( const QString & ) ) );
     connect( mNavigator, SIGNAL( glossSelected( const GlossaryEntry & ) ),

@@ -33,11 +33,9 @@
 
 using namespace KHC;
 
-ScrollKeeperTreeBuilder::ScrollKeeperTreeBuilder( QObject *parent, const char *name )
+ScrollKeeperTreeBuilder::ScrollKeeperTreeBuilder( QObject *parent )
 	: QObject( parent )
 {
-  setObjectName( name );
-
 	loadConfig();
 }
 
