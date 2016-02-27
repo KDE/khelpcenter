@@ -39,7 +39,6 @@
 #include <KProtocolInfo>
 #include <KServiceGroup>
 #include <KServiceTypeTrader>
-#include <KCModuleInfo>
 #include <KProcess>
 #include <KShell>
 
@@ -243,8 +242,7 @@ History                 no X-KDE-PluginKeyword in kcmhistory.desktop
   for ( KService::List::const_iterator it = list.constBegin(); it != list.constEnd(); ++it )
   {
     KService::Ptr s(*it);
-    KCModuleInfo m(s);
-    QString desktopFile = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kservices5/") + m.fileName() );
+    QString desktopFile = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kservices5/") + s->entryPath() );
     createItemFromDesktopFile( topItem, desktopFile );
     }
     topItem->sortChildren( 0, Qt::AscendingOrder /* ascending */ );
