@@ -30,6 +30,7 @@
 
 #include <QDomDocument>
 #include <QFile>
+#include <QStandardPaths>
 
 using namespace KHC;
 
@@ -52,8 +53,14 @@ NavigatorItem *ScrollKeeperTreeBuilder::build( NavigatorItem *parent,
 
   khcDebug() << "ScrollKeeper language: " << lang;
 
+  const QString exePath = QStandardPaths::findExecutable( QLatin1Literal( "scrollkeeper-get-content-list" ) );
+  if ( exePath.isEmpty() ) {
+    khcDebug() << "scrollkeeper-get-content-list is not available, skipping";
+    return 0;
+  }
+
   KProcess proc;
-  proc << "scrollkeeper-get-content-list";
+  proc << exePath;
   proc << lang;
   
   proc.setOutputChannelMode(KProcess::OnlyStdoutChannel);
