@@ -131,7 +131,7 @@ void View::beginSearchResult()
 {
   mState = Search;
 
-  begin();
+  begin( QUrl( QLatin1Literal( "khelpcenter:search/result" ) ) );
   mSearchResult = "";
 }
 
@@ -150,7 +150,7 @@ void View::endSearchResult()
 void View::beginInternal( const QUrl &url )
 {
   mInternalUrl = url;
-  begin();
+  begin( mInternalUrl );
 }
 
 QUrl View::internalUrl() const
@@ -164,7 +164,7 @@ void View::lastSearch()
 
   mState = Search;
 
-  begin();
+  begin( QUrl( QLatin1Literal( "khelpcenter:search/last" ) ) );
   write( mSearchResult );
   end();
 }

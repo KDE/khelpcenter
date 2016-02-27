@@ -25,6 +25,7 @@
 #include <KAboutData>
 #include <KLocalizedString>
 #include <KDBusService>
+#include <KUrlAuthorized>
 #include <QCommandLineParser>
 #include <QDebug>
 #include <QDir>
@@ -37,6 +38,12 @@ Application::Application(int& argc, char** argv)
   mCmdParser.addPositionalArgument( "url", i18n( "Documentation to open" ) );
   mCmdParser.addHelpOption();
   mCmdParser.addVersionOption();
+
+  // allow redirecting from internal pages to known protocols
+  KUrlAuthorized::allowUrlAction( QLatin1Literal( "redirect" ), QUrl( QLatin1Literal( "khelpcenter:" ) ), QUrl( QLatin1Literal( "ghelp:" ) ) );
+  KUrlAuthorized::allowUrlAction( QLatin1Literal( "redirect" ), QUrl( QLatin1Literal( "khelpcenter:" ) ), QUrl( QLatin1Literal( "help:" ) ) );
+  KUrlAuthorized::allowUrlAction( QLatin1Literal( "redirect" ), QUrl( QLatin1Literal( "khelpcenter:" ) ), QUrl( QLatin1Literal( "info:" ) ) );
+  KUrlAuthorized::allowUrlAction( QLatin1Literal( "redirect" ), QUrl( QLatin1Literal( "khelpcenter:" ) ), QUrl( QLatin1Literal( "man:" ) ) );
 }
 
 QCommandLineParser *Application::cmdParser()
