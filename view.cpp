@@ -93,30 +93,41 @@ QString View::langLookup( const QString &fname )
     QStringList search;
 
     // assemble the local search paths
-    const QStringList localDoc = QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation);
+    const QStringList localDoc = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("doc/HTML"), QStandardPaths::LocateDirectory);
+
+    QStringList langs = QLocale().uiLanguages();
+    langs.append(QStringLiteral("en"));
+    langs.removeAll(QStringLiteral("C"));
+
+    // this is kind of compat hack as we install our docs in en/ but the
+    // default language is en_US
+    for (QStringList::Iterator it = langs.begin(); it != langs.end(); ++it)
+        if (*it == QLatin1String("en_US")) {
+            *it = QStringLiteral("en");
+        }
 
     // look up the different languages
-    for (int id=localDoc.count()-1; id >= 0; --id)
-    {
-        QDir d(QStringLiteral("%1/doc/HTML/").arg(localDoc[id]));
-
-        foreach(const QString& entry, d.entryList(QDir::Dirs | QDir::NoDotAndDotDot)) {
-            search.append(d.absoluteFilePath(entry+'/'+fname));
+    int ldCount = localDoc.count();
+    for (int id = 0; id < ldCount; id++) {
+        QStringList::ConstIterator lang;
+        for (lang = langs.constBegin(); lang != langs.constEnd(); ++lang) {
+            search.append(QStringLiteral("%1/%2/%3").arg(localDoc[id], *lang, fname));
         }
     }
 
     // try to locate the file
-    QStringList::Iterator it;
-    for (it = search.begin(); it != search.end(); ++it)
-    {
-        QFileInfo info(*it);
-        if (info.exists() && info.isFile() && info.isReadable())
-            return *it;
+    for (QStringList::ConstIterator it = search.constBegin(); it != search.constEnd(); ++it) {
 
-		QString file = it->left(it->lastIndexOf('/')) + "/index.docbook";
-		info.setFile(file);
-		if (info.exists() && info.isFile() && info.isReadable())
-			return *it;
+        QFileInfo info(*it);
+        if (info.exists() && info.isFile() && info.isReadable()) {
+            return *it;
+        }
+
+            QString file = (*it).left((*it).lastIndexOf('/')) + "/index.docbook";
+            info.setFile(file);
+            if (info.exists() && info.isFile() && info.isReadable()) {
+                return *it;
+            }
     }
 
     return QString();
