@@ -508,11 +508,11 @@ QString Navigator::createChildrenList( QTreeWidgetItem *child )
       t += QLatin1String("<br>") + e->info();
     }
 
-    t += QLatin1String("</li>\n");
-
     if ( childItem->childCount() > 0 && mDirLevel < 2 ) {
       t += createChildrenList( childItem );
     }
+
+    t += QLatin1String("</li>\n");
 
   }
 
