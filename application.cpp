@@ -66,15 +66,12 @@ void Application::activate(const QStringList& args, const QString &workingDirect
     mMainWindow = new MainWindow;
   }
 
-  foreach(const QString& arg, urls) {
-#if QT_VERSION > QT_VERSION_CHECK(5, 4, 0)
-    QUrl url = QUrl::fromUserInput(arg, workingDirectory);
-#else
-    Q_UNUSED(workingDirectory);
-    QUrl url(arg);
-#endif
-    mMainWindow->openUrl( url );
+  QUrl url;
+  if ( !urls.isEmpty() ) {
+    url = QUrl::fromUserInput( urls.at( 0 ), workingDirectory );
   }
+
+  mMainWindow->openUrl( url );
 
   mMainWindow->show();
 }
