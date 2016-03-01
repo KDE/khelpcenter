@@ -62,9 +62,8 @@ DocMetaInfo::~DocMetaInfo()
   mSelf = 0;
 }
 
-DocEntry *DocMetaInfo::addDocEntry( const QString &fileName )
+DocEntry *DocMetaInfo::addDocEntry( const QFileInfo &fi )
 {
-  QFileInfo fi( fileName );
   if ( !fi.exists() ) return 0;
 
   QString extension = fi.completeSuffix();
@@ -82,7 +81,7 @@ DocEntry *DocMetaInfo::addDocEntry( const QString &fileName )
 
   DocEntry *entry = new DocEntry();
 
-  if ( entry->readFromFile( fileName ) ) 
+  if ( entry->readFromFile( fi ) )
   {
     if ( !lang.isEmpty() && lang != mDefaultLanguage )
     {
@@ -92,7 +91,7 @@ DocEntry *DocMetaInfo::addDocEntry( const QString &fileName )
                              mLanguageNames[ lang ] ) );
     }
     QString indexer = entry->indexer();
-    indexer.replace( "%f", fileName );
+    indexer.replace( "%f", fi.absoluteFilePath() );
     entry->setIndexer( indexer );
     addDocEntry( entry );
     return entry;
@@ -182,7 +181,7 @@ DocEntry *DocMetaInfo::scanMetaInfoDir( const QString &dirName,
     } 
     else if ( fi.suffix() == QLatin1String("desktop") )
     {
-      entry = addDocEntry( fi.absoluteFilePath() );
+      entry = addDocEntry( fi );
       if ( parent && entry ) parent->addChild( entry );
     }
   }
@@ -192,7 +191,7 @@ DocEntry *DocMetaInfo::scanMetaInfoDir( const QString &dirName,
 
 DocEntry *DocMetaInfo::addDirEntry( const QDir &dir, DocEntry *parent )
 {
-  DocEntry *dirEntry = addDocEntry( dir.absolutePath() + QLatin1String("/.directory") );
+  DocEntry *dirEntry = addDocEntry( dir.absoluteFilePath( QLatin1String(".directory") ) );
 
   if ( !dirEntry ) 
   {

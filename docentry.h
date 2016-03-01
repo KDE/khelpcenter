@@ -4,6 +4,7 @@
 
 #include <QString>
 #include <QList>
+#include <QFileInfo>
 
 namespace KHC {
 
@@ -62,7 +63,7 @@ namespace KHC {
       void setDirectory( bool );
       bool isDirectory() const;
 
-      bool readFromFile( const QString &fileName );
+      bool readFromFile( const QFileInfo &fileInfo );
 
       bool docExists() const;
 

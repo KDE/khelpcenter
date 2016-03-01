@@ -45,7 +45,7 @@ namespace KHC {
 
       void scanMetaInfo( bool force = false );
 
-      DocEntry *addDocEntry( const QString &fileName );
+      DocEntry *addDocEntry( const QFileInfo &fileInfo );
 
       void addDocEntry( DocEntry * );
 

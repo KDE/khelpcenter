@@ -198,9 +198,9 @@ bool DocEntry::isDirectory() const
   return mDirectory;
 }
 
-bool DocEntry::readFromFile( const QString &fileName )
+bool DocEntry::readFromFile( const QFileInfo &fileInfo )
 {
-  KDesktopFile file( fileName );
+  KDesktopFile file( fileInfo.absoluteFilePath() );
   KConfigGroup desktopGroup = file.desktopGroup();
 
   mName = file.readName();
@@ -216,11 +216,10 @@ bool DocEntry::readFromFile( const QString &fileName )
   mIdentifier = desktopGroup.readEntry( "X-DOC-Identifier" );
   if ( mIdentifier.isEmpty() ) 
   {
-    QFileInfo fi( fileName );
-    mIdentifier = fi.completeBaseName();
+    mIdentifier = fileInfo.completeBaseName();
   }
   mIndexer = desktopGroup.readEntry( "X-DOC-Indexer" );
-  mIndexer.replace( "%f", fileName );
+  mIndexer.replace( "%f", fileInfo.absoluteFilePath() );
   mIndexTestFile = desktopGroup.readEntry( "X-DOC-IndexTestFile" );
   mSearchEnabledDefault = desktopGroup.readEntry( "X-DOC-SearchEnabledDefault",
                                               false );
