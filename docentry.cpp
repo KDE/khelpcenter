@@ -210,7 +210,7 @@ bool DocEntry::readFromFile( const QFileInfo &fileInfo )
   mInfo = desktopGroup.readEntry( "Info" );
   if ( mInfo.isNull() ) 
   {
-    mInfo = desktopGroup.readEntry( "Comment" );
+    mInfo = file.readComment();
   }
   mLang = desktopGroup.readEntry( "Lang", "en" );
   mIdentifier = desktopGroup.readEntry( "X-DOC-Identifier" );
