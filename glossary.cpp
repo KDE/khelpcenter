@@ -294,40 +294,6 @@ QDomElement Glossary::childElement( const QDomElement &element, const QString &n
     return e;
 }
 
-QString Glossary::entryToHtml( const GlossaryEntry &entry )
-{
-    QFile htmlFile( QStandardPaths::locate(QStandardPaths::GenericDataLocation, "khelpcenter/glossary.html.in" ) );
-    if (!htmlFile.open(QIODevice::ReadOnly))
-      return QString( "<html><head></head><body><h3>%1</h3>%2</body></html>" )
-             .arg( i18n( "Error" ) )
-             .arg( i18n( "Unable to show selected glossary entry: unable to open "
-                          "file 'glossary.html.in'!" ) );
-
-    QString seeAlso;
-    if (!entry.seeAlso().isEmpty()) 
-    {
-        seeAlso = i18n("See also: ");
-        GlossaryEntryXRef::List seeAlsos = entry.seeAlso();
-        GlossaryEntryXRef::List::ConstIterator it = seeAlsos.constBegin();
-        GlossaryEntryXRef::List::ConstIterator end = seeAlsos.constEnd();
-        for (; it != end; ++it)
-	{
-            seeAlso += QLatin1String("<a href=\"glossentry:");
-            seeAlso += (*it).id();
-            seeAlso += QLatin1String("\">") + (*it).term();
-            seeAlso += QLatin1String("</a>, ");
-        }
-        seeAlso = seeAlso.left(seeAlso.length() - 2);
-    }
-    
-    QTextStream htmlStream(&htmlFile);
-    return htmlStream.readAll()
-           .arg( i18n( "KDE Glossary" ) )
-           .arg( entry.term() )
-           .arg( entry.definition() )
-           .arg( seeAlso );
-}
-
 void Glossary::slotSelectGlossEntry( const QString &id )
 {
     if ( !m_idDict.contains( id ) )

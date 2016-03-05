@@ -2,7 +2,7 @@
 <html>
 
     <head>
-        <title>%1: %2</title>
+        <title>{{ htmltitle }}</title>
         <link rel="stylesheet" href="help:/kdoctools5-common/kde-default.css" type="text/css" />
         <link rel="stylesheet" href="help:/kdoctools5-common/kde-docs.css" type="text/css" />
         <link rel="stylesheet" href="help:/kdoctools5-common/kde-localised.css" type="text/css" />
@@ -12,22 +12,24 @@
     <body>
         <div id="content">
         <div id="header"><div id="header_content"><div id="header_left"><div id="header_right">
-        <img src="help:/kdoctools5-common/top-kde.jpg" width="36" height="34" alt="K logo" /> %1</div></div></div></div>
+        <img src="help:/kdoctools5-common/top-kde.jpg" width="36" height="34" alt="K logo" /> {{ title }}</div></div></div></div>
         <div id="contentBody"><div lang="en" class="book">
         <div class="titlepage">
         <div>
-        <div><h1 class="title">%2</h1></div>
+        <div><h1 class="title">{{ term }}</h1></div>
         </div>
         <hr />
         </div>
 
         <div class="gloss-article">
         <p>
-        %3
+        {{ definition }}
         </p>
+{% if seeAlsoCount %}
         <br />
         <br />
-        %4
+        {{ seeAlso }}
+{% endif %}
         </div>
 
         </div>

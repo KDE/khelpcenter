@@ -22,11 +22,14 @@
 #include "grantleeformatter.h"
 
 #include "khc_debug.h"
+#include "glossary.h"
 
 #include <grantlee/context.h>
 #include <grantlee/engine.h>
 #include <grantlee/template.h>
 #include <grantlee/templateloader.h>
+
+#include <KLocalizedString>
 
 #include <QStandardPaths>
 
@@ -93,6 +96,29 @@ QString GrantleeFormatter::formatOverview( const QString& title, const QString& 
   ctx.insert( "title", title );
   ctx.insert( "name", name );
   ctx.insert( "content", content );
+
+  return d->format( t, &ctx );
+}
+
+QString GrantleeFormatter::formatGlossaryEntry( const GlossaryEntry& entry )
+{
+  Grantlee::Template t = d->engine.loadByName( "glossary.html" );
+
+  const GlossaryEntryXRef::List entrySeeAlso = entry.seeAlso();
+  QStringList seeAlso;
+  seeAlso.reserve( entrySeeAlso.count() );
+  foreach ( const GlossaryEntryXRef &xref, entrySeeAlso )
+  {
+    seeAlso += QString::fromLatin1( "<a href=\"glossentry:%1\">%2</a>" ).arg( xref.id(), xref.term() );
+  }
+
+  Grantlee::Context ctx;
+  ctx.insert( "htmltitle", i18nc( "%1 is a glossary term", "KDE Glossary: %1", entry.term() ) );
+  ctx.insert( "title", i18n( "KDE Glossary" ) );
+  ctx.insert( "term", entry.term() );
+  ctx.insert( "definition", entry.definition() );
+  ctx.insert( "seeAlsoCount", seeAlso.count() );
+  ctx.insert( "seeAlso", i18n( "See also: %1", seeAlso.join( ", " ) ) );
 
   return d->format( t, &ctx );
 }

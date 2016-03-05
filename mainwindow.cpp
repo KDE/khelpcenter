@@ -27,6 +27,7 @@
 #include "fontdialog.h"
 #include "khc_debug.h"
 #include "navigator.h"
+#include "grantleeformatter.h"
 #include "prefs.h"
 
 #include <QAction>
@@ -417,7 +418,7 @@ void MainWindow::slotGlossSelected(const GlossaryEntry &entry)
     stop();
     History::self().createEntry();
     mDoc->begin( QUrl( "help:/khelpcenter/glossary" ) );
-    mDoc->write( Glossary::entryToHtml( entry ) );
+    mDoc->write( mDoc->grantleeFormatter()->formatGlossaryEntry( entry ) );
     mDoc->end();
 }
 

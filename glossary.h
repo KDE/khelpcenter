@@ -103,8 +103,6 @@ namespace KHC {
 
       const GlossaryEntry &entry( const QString &id ) const;
 
-      static QString entryToHtml( const GlossaryEntry &entry );
-
     public Q_SLOTS:
       void slotSelectGlossEntry( const QString &id );
 

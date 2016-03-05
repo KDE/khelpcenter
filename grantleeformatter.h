@@ -26,6 +26,8 @@
 
 namespace KHC {
 
+class GlossaryEntry;
+
   class GrantleeFormatter
   {
     public:
@@ -33,6 +35,7 @@ namespace KHC {
       ~GrantleeFormatter();
 
       QString formatOverview( const QString& title, const QString& name, const QString& content );
+      QString formatGlossaryEntry( const GlossaryEntry& entry );
 
     private:
       struct Private;
