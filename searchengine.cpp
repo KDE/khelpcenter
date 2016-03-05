@@ -12,13 +12,14 @@
 #include "view.h"
 #include "searchhandler.h"
 #include "khc_debug.h"
+#include "grantleeformatter.h"
 #include "prefs.h"
 
 namespace KHC
 {
 
 SearchTraverser::SearchTraverser( SearchEngine *engine, int level ) :
-  mMaxLevel( 999 ), mEngine( engine), mLevel( level )
+  mMaxLevel( 999 ), mEngine( engine), mLevel( level ), mResultsPtr( &mResults )
 {
 #if 0
   khcDebug() << "SearchTraverser(): " << mLevel
@@ -32,19 +33,6 @@ SearchTraverser::~SearchTraverser()
     khcDebug() << "~SearchTraverser(): " << mLevel
       << "  0x" << QString::number( int( this ), 16 ) << endl;
 #endif
-
-  QString section;
-  if ( parentEntry() ) {
-    section = parentEntry()->name();
-  } else {
-    section = ("Unknown Section");
-  }
-
-  if ( !mResult.isEmpty() ) {
-    mEngine->view()->writeSearchResult(
-      mEngine->formatter()->sectionHeader( section ) );
-    mEngine->view()->writeSearchResult( mResult );
-  }
 }
 
 void SearchTraverser::process( DocEntry * )
@@ -130,7 +118,8 @@ DocEntryTraverser *SearchTraverser::createChild( DocEntry *parentEntry )
     ++mLevel;
     return this;
   } else {
-    DocEntryTraverser *t = new SearchTraverser( mEngine, mLevel + 1 );
+    SearchTraverser *t = new SearchTraverser( mEngine, mLevel + 1 );
+    t->mResultsPtr = mResultsPtr;
     t->setParentEntry( parentEntry );
     return t;
   }
@@ -163,8 +152,7 @@ void SearchTraverser::showSearchError( SearchHandler *handler, DocEntry *entry, 
 //  khcDebug() << "SearchTraverser::showSearchError(): " << entry->name()
 //    << endl;
 
-  mResult += mEngine->formatter()->docTitle( entry->name() );
-  mResult += mEngine->formatter()->paragraph( error );
+  mResultsPtr->append( qMakePair( entry, error ) );
 
   mEngine->logError( entry, error );
 
@@ -178,8 +166,7 @@ void SearchTraverser::showSearchResult( SearchHandler *handler, DocEntry *entry,
 //  khcDebug() << "SearchTraverser::showSearchResult(): " << entry->name()
 //    << endl;
 
-  mResult += mEngine->formatter()->docTitle( entry->name() );
-  mResult += mEngine->formatter()->processResult( result );
+  mResultsPtr->append( qMakePair( entry, result ) );
 
   disconnectHandler( handler );
 
@@ -190,10 +177,16 @@ void SearchTraverser::finishTraversal()
 {
 //  khcDebug() << "SearchTraverser::finishTraversal()";
 
-  mEngine->view()->writeSearchResult( mEngine->formatter()->footer() );
+  mEngine->view()->beginSearchResult();
+  mEngine->view()->writeSearchResult( mEngine->grantleeFormatter()->formatSearchResults( mWords, mResults ) );
   mEngine->view()->endSearchResult();
 
   mEngine->finishSearch();
+}
+
+void SearchTraverser::setWords( const QString &words )
+{
+  mWords = words;
 }
 
 
@@ -286,15 +279,12 @@ bool SearchEngine::search( const QString & words, const QString & method, int ma
 
     mStderr = "<b>" + txt + "</b>\n";
 
-    mView->beginSearchResult();
-    mView->writeSearchResult( formatter()->header( i18n("Search Results") ) );
-    mView->writeSearchResult( formatter()->title( txt ) );
-
     if ( mRootTraverser ) {
       khcDebug() << "SearchEngine::search(): mRootTraverser not null.";
       return false;
     }
     mRootTraverser = new SearchTraverser( this, 0 );
+    mRootTraverser->setWords( words );
     DocMetaInfo::self()->startTraverseEntries( mRootTraverser );
 
     return true;
@@ -398,6 +388,11 @@ QString SearchEngine::substituteSearchQuery( const QString &query,
 Formatter *SearchEngine::formatter() const
 {
   return mView->formatter();
+}
+
+GrantleeFormatter *SearchEngine::grantleeFormatter() const
+{
+  return mView->grantleeFormatter();
 }
 
 View *SearchEngine::view() const

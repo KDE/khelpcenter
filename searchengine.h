@@ -5,6 +5,7 @@
 #include <QObject>
 #include <QProcess>
 #include <QMap>
+#include <QPair>
 
 #include "docentrytraverser.h"
 
@@ -16,6 +17,7 @@ class Formatter;
 class SearchEngine;
 class View;
 class SearchHandler;
+class GrantleeFormatter;
 
 class SearchTraverser : public QObject, public DocEntryTraverser
 {
@@ -36,6 +38,8 @@ class SearchTraverser : public QObject, public DocEntryTraverser
 
     void finishTraversal();
 
+    void setWords( const QString &words );
+
   protected:
     void connectHandler( SearchHandler *handler );
     void disconnectHandler( SearchHandler *handler );
@@ -53,7 +57,9 @@ class SearchTraverser : public QObject, public DocEntryTraverser
     DocEntry *mEntry;
     QString mJobData;
 
-    QString mResult;
+    QList<QPair<DocEntry *, QString> > mResults;
+    QList<QPair<DocEntry *, QString> > *mResultsPtr;
+    QString mWords;
 
     QMap<SearchHandler *, int> mConnectCount;
 };
@@ -74,6 +80,7 @@ class SearchEngine : public QObject
                  const QString & scope = "" );
 
     Formatter *formatter() const;
+    GrantleeFormatter *grantleeFormatter() const;
     View *view() const;
 
     QString substituteSearchQuery( const QString &query );
@@ -133,7 +140,7 @@ class SearchEngine : public QObject
     int mMaxResults;
     Operation mOperation;
 
-    DocEntryTraverser *mRootTraverser;
+    SearchTraverser *mRootTraverser;
 
     QMap<QString, SearchHandler *> mHandlers;
 };

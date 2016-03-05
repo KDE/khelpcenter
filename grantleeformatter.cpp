@@ -23,6 +23,7 @@
 
 #include "khc_debug.h"
 #include "glossary.h"
+#include "docentry.h"
 
 #include <grantlee/context.h>
 #include <grantlee/engine.h>
@@ -119,6 +120,29 @@ QString GrantleeFormatter::formatGlossaryEntry( const GlossaryEntry& entry )
   ctx.insert( "definition", entry.definition() );
   ctx.insert( "seeAlsoCount", seeAlso.count() );
   ctx.insert( "seeAlso", i18n( "See also: %1", seeAlso.join( ", " ) ) );
+
+  return d->format( t, &ctx );
+}
+
+QString GrantleeFormatter::formatSearchResults( const QString& words, const QList<QPair<DocEntry *, QString> >& results )
+{
+  Grantlee::Template t = d->engine.loadByName( "search.html" );
+
+  typedef QPair<DocEntry *, QString> Iter;
+  QVariantList list;
+  list.reserve( results.count() );
+  foreach ( const Iter& it, results )
+  {
+    QVariantHash h;
+    h.insert( "title", it.first->name() );
+    h.insert( "content", it.second );
+    list += h;
+  }
+
+  Grantlee::Context ctx;
+  ctx.insert( "htmltitle", i18n( "Search Results" ) );
+  ctx.insert( "title", i18n( "Search Results for '%1':", words.toHtmlEscaped() ) );
+  ctx.insert( "results", list );
 
   return d->format( t, &ctx );
 }

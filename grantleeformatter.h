@@ -23,9 +23,12 @@
 #define KHC_GRANTLEEFORMATTER_H
 
 #include <QString>
+#include <QList>
+#include <QPair>
 
 namespace KHC {
 
+class DocEntry;
 class GlossaryEntry;
 
   class GrantleeFormatter
@@ -36,6 +39,7 @@ class GlossaryEntry;
 
       QString formatOverview( const QString& title, const QString& name, const QString& content );
       QString formatGlossaryEntry( const GlossaryEntry& entry );
+      QString formatSearchResults( const QString& words, const QList<QPair<DocEntry *, QString> >& results );
 
     private:
       struct Private;
