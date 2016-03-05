@@ -72,7 +72,6 @@ set(khelpcenter_KDEINIT_SRCS
    searchengine.cpp
    docmetainfo.cpp
    docentrytraverser.cpp
-   formatter.cpp
    grantleeformatter.cpp
    glossary.cpp
    toc.cpp

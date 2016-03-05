@@ -57,7 +57,6 @@
 #include "infotree.h"
 #include "plugintraverser.h"
 #include "scrollkeepertreebuilder.h"
-#include "formatter.h"
 #include "history.h"
 #include "khc_debug.h"
 #include "grantleeformatter.h"
@@ -129,11 +128,6 @@ Navigator::~Navigator()
 SearchEngine *Navigator::searchEngine() const
 {
   return mSearchEngine;
-}
-
-Formatter *Navigator::formatter() const
-{
-  return mView->formatter();
 }
 
 bool Navigator::showMissingDocs() const

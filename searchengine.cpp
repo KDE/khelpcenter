@@ -8,7 +8,6 @@
 #include <QMessageBox>
 
 #include "docmetainfo.h"
-#include "formatter.h"
 #include "view.h"
 #include "searchhandler.h"
 #include "khc_debug.h"
@@ -383,11 +382,6 @@ QString SearchEngine::substituteSearchQuery( const QString &query,
   result.replace( QLatin1String("%b"), binary );
 
   return result;
-}
-
-Formatter *SearchEngine::formatter() const
-{
-  return mView->formatter();
 }
 
 GrantleeFormatter *SearchEngine::grantleeFormatter() const

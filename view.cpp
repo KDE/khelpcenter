@@ -1,7 +1,6 @@
 
 #include "view.h"
 
-#include "formatter.h"
 #include "grantleeformatter.h"
 #include "history.h"
 #include "khc_debug.h"
@@ -35,10 +34,6 @@ View::View( QWidget *parentWidget, QObject *parent, KHTMLPart::GUIProfile prof, 
     setJavaEnabled(false);
     setPluginsEnabled(false);
 
-    mFormatter = new Formatter;
-    if ( !mFormatter->readTemplates() ) {
-      khcDebug() << "Unable to read Formatter templates.";
-    }
     mGrantleeFormatter = new GrantleeFormatter;
 
     m_fontScaleStepping = 10;
@@ -65,7 +60,6 @@ View::View( QWidget *parentWidget, QObject *parent, KHTMLPart::GUIProfile prof, 
 
 View::~View()
 {
-  delete mFormatter;
   delete mGrantleeFormatter;
 }
 

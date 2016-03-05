@@ -13,7 +13,6 @@ namespace DOM {
 
 namespace KHC {
 
-class Formatter;
 class GrantleeFormatter;
 
 class View : public KHTMLPart
@@ -46,7 +45,6 @@ class View : public KHTMLPart
 
     int fontScaleStepping() const { return m_fontScaleStepping; }
 
-    Formatter *formatter() const { return mFormatter; }
     GrantleeFormatter *grantleeFormatter() const { return mGrantleeFormatter; }
 
     void copySelectedText();
@@ -81,7 +79,6 @@ class View : public KHTMLPart
 
     int m_fontScaleStepping;
 
-    Formatter *mFormatter;
     GrantleeFormatter *mGrantleeFormatter;
     KActionCollection *mActionCollection;
     QString mCopyURL;

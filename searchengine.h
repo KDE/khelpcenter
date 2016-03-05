@@ -13,7 +13,6 @@ class KProcess;
 
 namespace KHC {
 
-class Formatter;
 class SearchEngine;
 class View;
 class SearchHandler;
@@ -79,7 +78,6 @@ class SearchEngine : public QObject
     bool search( const QString & words, const QString & method = "and", int matches = 5,
                  const QString & scope = "" );
 
-    Formatter *formatter() const;
     GrantleeFormatter *grantleeFormatter() const;
     View *view() const;
 

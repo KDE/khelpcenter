@@ -44,7 +44,6 @@ class Navigator;
 class View;
 class SearchEngine;
 class SearchWidget;
-class Formatter;
 
 class Navigator : public QWidget
 {
@@ -56,7 +55,6 @@ class Navigator : public QWidget
     QUrl homeURL();
 
     SearchEngine *searchEngine() const;
-    Formatter *formatter() const;
 
     const GlossaryEntry &glossEntry(const QString &term) const { return mGlossaryTree->entry( term ); }
 
