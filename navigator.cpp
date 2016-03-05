@@ -60,6 +60,7 @@
 #include "formatter.h"
 #include "history.h"
 #include "khc_debug.h"
+#include "grantleeformatter.h"
 #include "prefs.h"
 
 using namespace KHC;
@@ -420,18 +421,6 @@ void Navigator::showOverview( NavigatorItem *item, const QUrl &url )
 {
   mView->beginInternal( url );
 
-  QString fileName = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "khelpcenter/index.html.in" );
-  if ( fileName.isEmpty() )
-    return;
-
-  QFile file( fileName );
-
-  if ( !file.open( QIODevice::ReadOnly ) )
-    return;
-
-  QTextStream stream( &file );
-  QString res = stream.readAll();
-
   QString title,name,content;
   uint childCount;
 
@@ -462,9 +451,7 @@ void Navigator::showOverview( NavigatorItem *item, const QUrl &url )
   else
     content += QLatin1String("<p></p>");
 
-  res = res.arg(title).arg(name).arg(content);
-
-  mView->write( res );
+  mView->write( mView->grantleeFormatter()->formatOverview( title, name, content ) );
 
   mView->end();
 }

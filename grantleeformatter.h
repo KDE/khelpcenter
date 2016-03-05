@@ -32,6 +32,8 @@ namespace KHC {
       GrantleeFormatter();
       ~GrantleeFormatter();
 
+      QString formatOverview( const QString& title, const QString& name, const QString& content );
+
     private:
       struct Private;
       Private *d;

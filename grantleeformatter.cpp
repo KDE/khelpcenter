@@ -84,3 +84,15 @@ GrantleeFormatter::~GrantleeFormatter()
 {
   delete d;
 }
+
+QString GrantleeFormatter::formatOverview( const QString& title, const QString& name, const QString& content )
+{
+  Grantlee::Template t = d->engine.loadByName( "index.html" );
+
+  Grantlee::Context ctx;
+  ctx.insert( "title", title );
+  ctx.insert( "name", name );
+  ctx.insert( "content", content );
+
+  return d->format( t, &ctx );
+}
