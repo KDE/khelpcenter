@@ -36,6 +36,12 @@ find_package(KF5 REQUIRED COMPONENTS
     WindowSystem
 )
 
+find_package(Grantlee5 REQUIRED)
+set_package_properties(Grantlee5 PROPERTIES
+    DESCRIPTION "Support for HTML templates"
+    URL "http://grantlee.org/"
+    TYPE REQUIRED)
+
 find_package(Xapian REQUIRED)
 set_package_properties(Xapian PROPERTIES
     DESCRIPTION "Support for text indexing and searching"
@@ -66,6 +72,7 @@ set(khelpcenter_KDEINIT_SRCS
    docmetainfo.cpp
    docentrytraverser.cpp
    formatter.cpp
+   grantleeformatter.cpp
    glossary.cpp
    toc.cpp
    mainwindow.cpp
@@ -84,7 +91,7 @@ kconfig_add_kcfg_files(khelpcenter_KDEINIT_SRCS prefs.kcfgc )
 
 kf5_add_kdeinit_executable( khelpcenter ${khelpcenter_KDEINIT_SRCS})
 target_compile_definitions(kdeinit_khelpcenter PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
-target_link_libraries(kdeinit_khelpcenter KF5::KHtml KF5::Service KF5::DBusAddons KF5::ConfigGui KF5::WindowSystem Qt5::Xml)
+target_link_libraries(kdeinit_khelpcenter KF5::KHtml KF5::Service KF5::DBusAddons KF5::ConfigGui KF5::WindowSystem Qt5::Xml Grantlee5::Templates)
 install(TARGETS kdeinit_khelpcenter  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 install(TARGETS khelpcenter ${INSTALL_TARGETS_DEFAULT_ARGS})
 
