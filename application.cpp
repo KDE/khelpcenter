@@ -80,9 +80,9 @@ extern "C" int Q_DECL_EXPORT kdemain( int argc, char **argv )
 {
   KHC::Application app(argc, argv);
   KLocalizedString::setApplicationDomain("khelpcenter");
-  KAboutData aboutData( "khelpcenter", i18n("KDE Help Center"),
+  KAboutData aboutData( "khelpcenter", i18n("Help Center"),
                         PROJECT_VERSION,
-                        i18n("The KDE Help Center"),
+                        i18n("Help Center"),
                         KAboutLicense::GPL,
                         i18n("(c) 1999-2011, The KHelpCenter developers") );
 

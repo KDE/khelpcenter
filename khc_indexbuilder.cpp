@@ -152,9 +152,9 @@ int main( int argc, char **argv )
   KAboutData aboutData( "khc_indexbuilder",
                         i18n("KHelpCenter Index Builder"),
                         PROJECT_VERSION,
-                        i18n("The KDE Help Center"),
+                        i18n("Help Center"),
                         KAboutLicense::GPL,
-                        i18n("(c) 2003, The KHelpCenter developers") );
+                        i18n("2003 KDE") );
 
   aboutData.addAuthor( i18n("Cornelius Schumacher"), QString(), "schumacher@kde.org" );
   KAboutData::setApplicationData(aboutData);
