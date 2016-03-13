@@ -24,6 +24,7 @@
 #include <QScrollBar>
 #include <QMenu>
 #include <QStandardPaths>
+#include <QWhatsThis>
 
 using namespace KHC;
 
@@ -296,6 +297,17 @@ bool View::eventFilter( QObject *o, QEvent *e )
       }
       break;
     }
+    case QEvent::WhatsThis: {
+      QHelpEvent *he = static_cast<QHelpEvent *>( e );
+      const QString text = i18n( "<p>Read the topic documentation in this window.<br /><br />Press <b>Space</b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, <b>Tab</b>/<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>",
+                                 actionCollection()->action( "find" )->shortcut().toString( QKeySequence::NativeText ) );
+      QWhatsThis::showText( he->globalPos(), text, qobject_cast<QWidget *>( o ) );
+      e->accept();
+      return true;
+    }
+    case QEvent::QueryWhatsThis:
+      e->accept();
+      return true;
     default:
       break;
   }
