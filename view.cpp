@@ -271,27 +271,33 @@ bool View::nextPage(bool checkOnly)
 
 bool View::eventFilter( QObject *o, QEvent *e )
 {
-  if ( e->type() != QEvent::KeyPress ||
-       htmlDocument().links().length() == 0 )
+  if ( htmlDocument().links().length() == 0 )
     return KHTMLPart::eventFilter( o, e );
 
-  QKeyEvent *ke = static_cast<QKeyEvent *>( e );
-  if ( ke->modifiers() & Qt::ShiftModifier && ke->key() == Qt::Key_Space ) {
-    // If we're on the first page, it does not make sense to go back.
-    if ( baseURL().path().endsWith( QLatin1String("/index.html") ) )
-      return KHTMLPart::eventFilter( o, e );
+  switch ( e->type() ) {
+    case QEvent::KeyPress: {
+      QKeyEvent *ke = static_cast<QKeyEvent *>( e );
+      if ( ke->modifiers() & Qt::ShiftModifier && ke->key() == Qt::Key_Space ) {
+        // If we're on the first page, it does not make sense to go back.
+        if ( baseURL().path().endsWith( QLatin1String("/index.html") ) )
+          return KHTMLPart::eventFilter( o, e );
 
-    const QScrollBar * const scrollBar = view()->verticalScrollBar();
-    if ( scrollBar->value() == scrollBar->minimum() ) {
-      if (prevPage())
-         return true;
+        const QScrollBar * const scrollBar = view()->verticalScrollBar();
+        if ( scrollBar->value() == scrollBar->minimum() ) {
+          if (prevPage())
+            return true;
+        }
+      } else if ( ke->key() == Qt::Key_Space ) {
+        const QScrollBar * const scrollBar = view()->verticalScrollBar();
+        if ( scrollBar->value() == scrollBar->maximum() ) {
+          if (nextPage())
+            return true;
+        }
+      }
+      break;
     }
-  } else if ( ke->key() == Qt::Key_Space ) {
-    const QScrollBar * const scrollBar = view()->verticalScrollBar();
-    if ( scrollBar->value() == scrollBar->maximum() ) {
-      if (nextPage())
-        return true;
-    }
+    default:
+      break;
   }
   return KHTMLPart::eventFilter( o, e );
 }
