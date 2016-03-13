@@ -103,5 +103,6 @@ install( FILES khelpcenter.desktop  DESTINATION  ${SERVICES_INSTALL_DIR} )
 install( FILES khelpcenter.desktop  DESTINATION  ${SHARE_INSTALL_PREFIX}/kde4/services )
 install( FILES table-of-contents.xslt glossary.xslt DESTINATION ${DATA_INSTALL_DIR}/khelpcenter )
 install( FILES khelpcenterui.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/khelpcenter )
+install( FILES khelpcenter.categories DESTINATION ${KDE_INSTALL_CONFDIR} )
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
