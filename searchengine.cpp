@@ -225,7 +225,16 @@ bool SearchEngine::initSearchHandlers()
       QStringList documentTypes = handler->documentTypes();
       QStringList::ConstIterator it;
       for( it = documentTypes.constBegin(); it != documentTypes.constEnd(); ++it ) {
-        mHandlers.insert( *it, handler );
+        // only register "handler" for this content type if there is no
+        // handler set already; since we read more specific directories
+        // first, then those will override whatever is in more global
+        // ones
+        if ( !mHandlers.contains( *it ) ) {
+          mHandlers.insert( *it, handler );
+        } else {
+          // not keeping "handler", delete it
+          delete handler;
+        }
       }
     }
   }
