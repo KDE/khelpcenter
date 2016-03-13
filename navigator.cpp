@@ -68,8 +68,7 @@ Navigator::Navigator( View *view, QWidget *parent )
    : QWidget( parent ),
      mView( view ), mSelected( false ), mIndexingProc( 0 )
 {
-    KConfigGroup config(KSharedConfig::openConfig(), "General");
-    mShowMissingDocs = config.readEntry("ShowMissingDocs", false);
+    mShowMissingDocs = Prefs::showMissingDocs();
 
     mSearchEngine = new SearchEngine( view );
     connect(mSearchEngine, &SearchEngine::searchFinished, this, &Navigator::slotSearchFinished);

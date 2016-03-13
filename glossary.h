@@ -23,7 +23,6 @@
 #include <QTreeWidget>
 #include <QDomElement>
 #include <QList>
-#include <KSharedConfig>
 #include <QHash>
 #include <QProcess>
 
@@ -125,7 +124,6 @@ namespace KHC {
       void buildGlossaryTree();
       QDomElement childElement( const QDomElement &e, const QString &name );
 
-      KSharedConfigPtr m_config;
       QTreeWidgetItem *m_byTopicItem;
       QTreeWidgetItem *m_alphabItem;
       QString m_sourceFile;

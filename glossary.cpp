@@ -22,8 +22,8 @@
 #include "glossary.h"
 #include "view.h"
 #include "khc_debug.h"
+#include "prefs.h"
 
-#include <KConfigGroup>
 #include <KXmlGuiWindow>
 #include <KProcess>
 #include <QStatusBar>
@@ -94,7 +94,6 @@ Glossary::Glossary( QWidget *parent ) : QTreeWidget( parent )
     QDir().mkpath( QFileInfo( m_cacheFile ).absolutePath() );
     
     m_sourceFile = View::langLookup( QLatin1String( "khelpcenter/glossary/index.docbook" ) );
-    m_config = KSharedConfig::openConfig();
 
 }
 
@@ -124,8 +123,8 @@ const GlossaryEntry &Glossary::entry( const QString &id ) const
 Glossary::CacheStatus Glossary::cacheStatus() const
 {
     if ( !QFile::exists( m_cacheFile ) ||
-	m_config->group("Glossary").readPathEntry( "CachedGlossary", QString() ) != m_sourceFile ||
-	m_config->group("Glossary").readEntry( "CachedGlossaryTimestamp" ).toInt() != glossaryCTime() )
+         Prefs::cachedGlossary() != m_sourceFile ||
+         Prefs::cachedGlossaryTimestamp() != glossaryCTime() )
         return NeedRebuild;
 
     return CacheOk;
@@ -193,9 +192,9 @@ void Glossary::meinprocFinished( int exitCode, QProcess::ExitStatus exitStatus )
     if ( !QFile::exists( m_cacheFile ) )
         return;
 
-    m_config->group("Glossary").writePathEntry( "CachedGlossary", m_sourceFile );
-    m_config->group("Glossary").writeEntry( "CachedGlossaryTimestamp", glossaryCTime() );
-    m_config->sync();
+    Prefs::setCachedGlossary( m_sourceFile );
+    Prefs::setCachedGlossaryTimestamp( glossaryCTime() );
+    Prefs::self()->save();
 
     m_status = CacheOk;
 

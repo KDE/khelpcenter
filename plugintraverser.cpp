@@ -23,6 +23,7 @@
 #include "navigatorappitem.h"
 #include "navigatoritem.h"
 #include "khc_debug.h"
+#include "prefs.h"
 
 #include <KConfig>
 #include <KConfigGroup>
@@ -66,8 +67,7 @@ void PluginTraverser::process( DocEntry *entry )
       appItem = new NavigatorAppItem( entry, mListView, mCurrentItem );
     else
       appItem = new NavigatorAppItem( entry, mParentItem, mCurrentItem );
-    KConfigGroup cfg(KSharedConfig::openConfig(), "General");
-    appItem->setRelpath( cfg.readPathEntry( "AppsRoot", QString() ) );
+    appItem->setRelpath( Prefs::appsRoot() );
     mCurrentItem = appItem;
   } else if ( entry->khelpcenterSpecial() == QLatin1String("scrollkeeper" )) {
     if ( mParentItem ) {

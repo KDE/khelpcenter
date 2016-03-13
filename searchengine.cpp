@@ -274,9 +274,8 @@ bool SearchEngine::search( const QString & words, const QString & method, int ma
   if ( method == "or" ) mOperation = Or;
   else mOperation = And;
 
-  KConfigGroup cfg(KSharedConfig::openConfig(), "Search");
-  QString commonSearchProgram = cfg.readPathEntry( "CommonProgram", QString() );
-  bool useCommon = cfg.readEntry( "UseCommonProgram", false);
+  QString commonSearchProgram = Prefs::commonProgram();
+  bool useCommon = Prefs::useCommonProgram();
 
   if ( commonSearchProgram.isEmpty() || !useCommon ) {
     if ( !mView ) {

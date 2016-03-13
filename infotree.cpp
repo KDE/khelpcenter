@@ -23,9 +23,8 @@
 #include "navigatoritem.h"
 #include "docentry.h"
 #include "khc_debug.h"
+#include "prefs.h"
 
-#include <KConfigGroup>
-#include <KSharedConfig>
 #include <KLocalizedString>
 
 #include <QFile>
@@ -93,19 +92,7 @@ void InfoTree::build( NavigatorItem *parent )
   m_categoryItem = new NavigatorItem( entry, parent );
   m_categoryItem->setAutoDeleteDocEntry( true );
 
-  KConfigGroup cfg(KSharedConfig::openConfig(), "Info pages");
-  QStringList infoDirFiles = cfg.readEntry( "Search paths" , QStringList() );
-  // Default paths taken fron kdebase/kioslave/info/kde-info2html.conf
-  if ( infoDirFiles.isEmpty() ) { 
-    infoDirFiles << "/usr/share/info";
-    infoDirFiles << "/usr/info";
-    infoDirFiles << "/usr/lib/info";
-    infoDirFiles << "/usr/local/info";
-    infoDirFiles << "/usr/local/lib/info";
-    infoDirFiles << "/usr/X11R6/info";
-    infoDirFiles << "/usr/X11R6/lib/info";
-    infoDirFiles << "/usr/X11R6/lib/xemacs/info";
-  }
+  QStringList infoDirFiles = Prefs::searchpaths();
 
   QString infoPath = ::getenv( "INFOPATH" );
   if ( !infoPath.isEmpty() )

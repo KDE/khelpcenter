@@ -20,6 +20,7 @@
  */
 
 #include "fontdialog.h"
+#include "prefs.h"
 
 #include <KCharsets>
 #include <KComboBox>
@@ -205,10 +206,7 @@ void FontDialog::load()
 void FontDialog::save()
 {
   KSharedConfig::Ptr cfg = KSharedConfig::openConfig();
-  {
-    KConfigGroup configGroup( cfg, "General" );
-    configGroup.writeEntry( "UseKonqSettings", false );
-  }
+  Prefs::setUseKonqSettings( false );
   {
     KConfigGroup configGroup( cfg, "HTML Settings" );
 

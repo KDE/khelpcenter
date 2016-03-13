@@ -157,14 +157,12 @@ MainWindow::MainWindow()
     sizes << 220 << 580;
     mSplitter->setSizes(sizes);
 
-    KSharedConfig::Ptr cfg = KSharedConfig::openConfig();
     {
-      KConfigGroup configGroup( cfg, "General" );
-      if ( configGroup.readEntry( "UseKonqSettings", true) ) {
+      if ( Prefs::useKonqSettings() ) {
         KConfig konqCfg( "konquerorrc" );
         const_cast<KHTMLSettings *>( mDoc->settings() )->init( &konqCfg );
       }
-      const int fontScaleFactor = configGroup.readEntry( "Font zoom factor", 100 );
+      const int fontScaleFactor = Prefs::fontzoomfactor();
       mDoc->setFontScaleFactor( fontScaleFactor );
     }
 
@@ -484,9 +482,8 @@ void MainWindow::updateFontScaleActions()
   actionCollection()->action( QLatin1String("incFontSizes") )->setEnabled( mDoc->fontScaleFactor() + mDoc->fontScaleStepping() <= 300 );
   actionCollection()->action( QLatin1String("decFontSizes") )->setEnabled( mDoc->fontScaleFactor() - mDoc->fontScaleStepping() >= 20 );
 
-  KConfigGroup configGroup( KSharedConfig::openConfig(), QLatin1String("General") );
-  configGroup.writeEntry( QLatin1String("Font zoom factor"), mDoc->fontScaleFactor() );
-  configGroup.sync();
+  Prefs::setFontzoomfactor( mDoc->fontScaleFactor() );
+  Prefs::self()->save();
 }
 
 void MainWindow::slotConfigureFonts()

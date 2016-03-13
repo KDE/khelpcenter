@@ -23,10 +23,9 @@
 #include "navigatoritem.h"
 #include "docentry.h"
 #include "khc_debug.h"
+#include "prefs.h"
 
 #include <KProcess>
-#include <KConfigGroup>
-#include <KSharedConfig>
 
 #include <QDomDocument>
 #include <QFile>
@@ -42,8 +41,7 @@ ScrollKeeperTreeBuilder::ScrollKeeperTreeBuilder( QObject *parent )
 
 void ScrollKeeperTreeBuilder::loadConfig()
 {
-  KConfigGroup configGroup( KSharedConfig::openConfig(), "ScrollKeeper" );
-  mShowEmptyDirs = configGroup.readEntry( "ShowEmptyDirs", false);
+  mShowEmptyDirs = Prefs::showEmptyDirs();
 }
 
 NavigatorItem *ScrollKeeperTreeBuilder::build( NavigatorItem *parent,
