@@ -54,18 +54,22 @@ namespace KHC {
   {
     public:
       GlossaryEntry() {}
-      GlossaryEntry( const QString &term, const QString &definition,
+      GlossaryEntry( const QString &id, const QString &term,
+	      const QString &definition,
 	      const GlossaryEntryXRef::List &seeAlso ) :
+	  m_id( id ),
 	  m_term( term ),
 	  m_definition( definition ),
 	  m_seeAlso( seeAlso )
 	  { }
 
+	QString id() const { return m_id; }
 	QString term() const { return m_term; }
 	QString definition() const { return m_definition; }
 	GlossaryEntryXRef::List seeAlso() const { return m_seeAlso; }
     
     private:
+	QString m_id;
 	QString m_term;
 	QString m_definition;
 	GlossaryEntryXRef::List m_seeAlso;

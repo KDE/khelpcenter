@@ -267,7 +267,7 @@ void Glossary::buildGlossaryTree()
                     seeAlso += GlossaryEntryXRef( term, id );
                 }
 
-            m_glossEntries.insert( entryId, new GlossaryEntry( term, definition, seeAlso ) );
+            m_glossEntries.insert( entryId, new GlossaryEntry( entryId, term, definition, seeAlso ) );
         }
     }
     sortItems(0, Qt::AscendingOrder);
