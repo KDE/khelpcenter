@@ -1,5 +1,5 @@
 <!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
-<kpartgui name="khelpcenter" version="17">
+<kpartgui name="khelpcenter" version="18">
 <MenuBar>
  <Menu name="edit" noMerge="1">
   <text>&amp;Edit</text>
@@ -26,6 +26,7 @@
   <Action name="lastsearch" />
 -->
  </Menu>
+ <Action name="bookmarks"/>
  <Menu name="settings">
   <Action name="configure_fonts" append="save_merge"/>
  </Menu>

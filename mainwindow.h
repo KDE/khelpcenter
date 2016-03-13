@@ -56,6 +56,7 @@ class MainWindow : public KXmlGuiWindow
 
   protected:
     void setupActions();
+    void setupBookmarks();
     /**
       Show document corresponding to given URL in viewer part.
     */

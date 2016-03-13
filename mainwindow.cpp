@@ -28,6 +28,7 @@
 #include "khc_debug.h"
 #include "navigator.h"
 #include "grantleeformatter.h"
+#include "bookmarkowner.h"
 #include "prefs.h"
 
 #include <QAction>
@@ -42,6 +43,9 @@
 #include <KStartupInfo>
 #include <KConfigGroup>
 #include <KWindowConfig>
+#include <KBookmarkManager>
+#include <KBookmarkMenu>
+#include <KActionMenu>
 
 #include <QtDBus/QDBusConnection>
 #include <QSplitter>
@@ -51,6 +55,7 @@
 #include <QList>
 #include <QMimeDatabase>
 #include <QStatusBar>
+#include <QDir>
 
 #include <QDialogButtonBox>
 #include <QPushButton>
@@ -171,6 +176,8 @@ MainWindow::MainWindow()
     foreach (QAction *act, mDoc->actionCollection()->actions())
         actionCollection()->addAction(act->objectName(), act);
 
+    setupBookmarks();
+
     setupGUI(QSize(800, 600), ToolBar | Keys | StatusBar | Create);
     setAutoSaveSettings();
 
@@ -285,6 +292,22 @@ void MainWindow::setupActions()
     action->setText( i18n( "Decrease Font Sizes" ) );
     action->setIcon( QIcon::fromTheme( QLatin1String("zoom-out") ) );
     connect( action, SIGNAL( triggered() ), this, SLOT( slotDecFontSizes() ) );
+}
+
+void MainWindow::setupBookmarks()
+{
+    const QString location = QStandardPaths::writableLocation( QStandardPaths::DataLocation );
+    QDir().mkpath( location );
+    const QString file = location + QStringLiteral( "/bookmarks.xml" );
+
+    KBookmarkManager *manager = KBookmarkManager::managerForFile( file, QStringLiteral( "khelpcenter" ) );
+    manager->setParent( this );
+    BookmarkOwner *owner = new BookmarkOwner( mDoc, manager );
+    connect( owner, SIGNAL( openUrl( const QUrl & ) ), this, SLOT( openUrl( const QUrl & ) ) );
+    KActionMenu *actmenu = actionCollection()->add<KActionMenu>( QStringLiteral( "bookmarks" ) );
+    actmenu->setText( i18nc( "@title:menu", "&Bookmarks" ) );
+    KBookmarkMenu *bookmenu = new KBookmarkMenu( manager, owner, actmenu->menu(), actionCollection() );
+    bookmenu->setParent( owner );
 }
 
 void MainWindow::slotCopySelectedText()
