@@ -26,18 +26,24 @@ use strict;
 
 use Getopt::Long;
 
-my ( $words, $maxcount, $lang, $help );
+my ( $words, $maxcount, $lang, $method, $help );
 
 GetOptions (
   'maxcount=i' => \$maxcount,
   'words=s' => \$words,
   'lang=s' => \$lang,
+  'method=s' => \$method,
   'help' => \$help
 );
 
 if ( $help ) {
   print STDERR "Usage: khc_mansearch.pl --maxcount=n --words=<string> " .
-    "--lang=<languagecode>\n";
+    "--lang=<languagecode> --method=and|or\n";
+  exit 1;
+}
+
+if ( $method ne 'and' and $method ne 'or' ) {
+  print STDERR "Unrecognized method: $method.\n";
   exit 1;
 }
 
@@ -46,8 +52,21 @@ if ( !$words ) {
   exit;
 }
 
+if ( !$lang or $lang eq 'C' ) {
+  $lang = 'en';
+}
+
+# Build the apropos command line
+my @apropos;
+push @apropos, 'apropos';
+push @apropos, '-L', $lang;
+if ( $method eq 'and' ) {
+  push @apropos, '--and';
+}
+push @apropos, split( '\+', $words );
+
 # Perform search
-if ( !open( MAN, "-|", "apropos", $words ) ) {
+if ( !open( MAN, "-|", @apropos ) ) {
   print "Can't open apropos.\n";
   exit 1;
 }
