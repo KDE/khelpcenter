@@ -32,7 +32,6 @@ namespace KHC {
 
   class GlossaryEntryXRef
   {
-      friend QDataStream &operator>>( QDataStream &, GlossaryEntryXRef & );
       public:
 	  typedef QList<GlossaryEntryXRef> List;
 
@@ -51,19 +50,8 @@ namespace KHC {
 	  QString m_id;
   };
 
-  inline QDataStream &operator<<( QDataStream &stream, const GlossaryEntryXRef &e )
-  {
-      return stream << e.term() << e.id();
-  }
-
-  inline QDataStream &operator>>( QDataStream &stream, GlossaryEntryXRef &e )
-  {
-      return stream >> e.m_term >> e.m_id;
-  }
-
   class GlossaryEntry
   {
-    friend QDataStream &operator>>( QDataStream &, GlossaryEntry & );
     public:
       GlossaryEntry() {}
       GlossaryEntry( const QString &term, const QString &definition,
@@ -82,16 +70,6 @@ namespace KHC {
 	QString m_definition;
 	GlossaryEntryXRef::List m_seeAlso;
   };
-
-  inline QDataStream &operator<<( QDataStream &stream, const GlossaryEntry &e )
-  {
-    return stream << e.term() << e.definition() << e.seeAlso();
-  }
-
-  inline QDataStream &operator>>( QDataStream &stream, GlossaryEntry &e )
-  {
-    return stream >> e.m_term >> e.m_definition >> e.m_seeAlso;
-  }
 
   class Glossary : public QTreeWidget
   {
