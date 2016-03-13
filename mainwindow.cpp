@@ -438,7 +438,7 @@ void MainWindow::slotGlossSelected(const GlossaryEntry &entry)
 {
     stop();
     History::self().createEntry();
-    mDoc->begin( QUrl( "help:/khelpcenter/glossary" ) );
+    mDoc->begin( QUrl( "glossentry:" + entry.id() ) );
     mDoc->write( mDoc->grantleeFormatter()->formatGlossaryEntry( entry ) );
     mDoc->end();
 }

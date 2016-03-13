@@ -43,6 +43,7 @@ Application::Application(int& argc, char** argv)
   KUrlAuthorized::allowUrlAction( QLatin1Literal( "redirect" ), QUrl( QLatin1Literal( "khelpcenter:" ) ), QUrl( QLatin1Literal( "help:" ) ) );
   KUrlAuthorized::allowUrlAction( QLatin1Literal( "redirect" ), QUrl( QLatin1Literal( "khelpcenter:" ) ), QUrl( QLatin1Literal( "info:" ) ) );
   KUrlAuthorized::allowUrlAction( QLatin1Literal( "redirect" ), QUrl( QLatin1Literal( "khelpcenter:" ) ), QUrl( QLatin1Literal( "man:" ) ) );
+  KUrlAuthorized::allowUrlAction( QLatin1Literal( "redirect" ), QUrl( QLatin1Literal( "glossentry:" ) ), QUrl( QLatin1Literal( "help:" ) ) );
 }
 
 QCommandLineParser *Application::cmdParser()
