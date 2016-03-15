@@ -76,7 +76,7 @@ namespace KHC {
 	int maxResults = 10,
 	SearchEngine::Operation operation = SearchEngine::And ) = 0;
 
-      virtual QString indexCommand( const QString &identifier ) = 0;
+      virtual QString indexCommand( const QString &identifier ) const = 0;
 
       QStringList documentTypes() const;
 
@@ -103,7 +103,7 @@ namespace KHC {
 	int maxResults = 10,
 	SearchEngine::Operation operation = SearchEngine::And );
 
-      QString indexCommand( const QString &identifier );
+      QString indexCommand( const QString &identifier ) const;
 
       bool checkPaths(QString* error) const;
 

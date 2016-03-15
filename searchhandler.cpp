@@ -148,7 +148,7 @@ ExternalProcessSearchHandler::ExternalProcessSearchHandler( const KConfigGroup &
   mSearchBinary = QStandardPaths::findExecutable(mSearchBinary, searchBinaryPaths);
 }
 
-QString ExternalProcessSearchHandler::indexCommand( const QString &identifier )
+QString ExternalProcessSearchHandler::indexCommand( const QString &identifier ) const
 {
   QString cmd = mIndexCommand;
   cmd.replace( "%i", identifier );

@@ -109,12 +109,12 @@ void DocMetaInfo::addDocEntry( DocEntry *entry )
   if ( !entry->search().isEmpty() ) mSearchEntries.append( entry );
 }
 
-DocEntry::List DocMetaInfo::docEntries()
+DocEntry::List DocMetaInfo::docEntries() const
 {
   return mDocEntries;
 }
 
-DocEntry::List DocMetaInfo::searchEntries()
+DocEntry::List DocMetaInfo::searchEntries() const
 {
   return mSearchEntries;
 }

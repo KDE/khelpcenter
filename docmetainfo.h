@@ -49,9 +49,9 @@ namespace KHC {
 
       void addDocEntry( DocEntry * );
 
-      DocEntry::List docEntries();
+      DocEntry::List docEntries() const;
       
-      DocEntry::List searchEntries();
+      DocEntry::List searchEntries() const;
 
       void traverseEntries( DocEntryTraverser * );
 

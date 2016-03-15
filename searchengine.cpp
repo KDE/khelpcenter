@@ -363,7 +363,7 @@ bool SearchEngine::search( const QString & words, const QString & method, int ma
   return true;
 }
 
-QString SearchEngine::substituteSearchQuery( const QString &query )
+QString SearchEngine::substituteSearchQuery( const QString &query ) const
 {
   QString result = query;
   result.replace( QLatin1String("%k"), mWords );

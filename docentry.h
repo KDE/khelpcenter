@@ -68,19 +68,19 @@ namespace KHC {
       bool docExists() const;
 
       void addChild( DocEntry * );
-      bool hasChildren();
-      DocEntry *firstChild();
-      List children();
+      bool hasChildren() const;
+      DocEntry *firstChild() const;
+      List children() const;
 
       void setParent( DocEntry * );
-      DocEntry *parent();
+      DocEntry *parent() const;
 
       void setNextSibling( DocEntry * );
-      DocEntry *nextSibling();
+      DocEntry *nextSibling() const;
 
       QString khelpcenterSpecial() const;
 
-      bool isSearchable();
+      bool isSearchable() const;
 
       void dump() const;
 

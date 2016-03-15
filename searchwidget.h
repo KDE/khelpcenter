@@ -45,11 +45,11 @@ class SearchWidget : public QWidget
     explicit SearchWidget ( SearchEngine *, QWidget *parent = 0 );
     ~SearchWidget();
 
-    QString method();
-    int pages();
-    QString scope();
+    QString method() const;
+    int pages() const;
+    QString scope() const;
 
-    QTreeWidget *listView() { return mScopeListView; }
+    QTreeWidget *listView() const { return mScopeListView; }
 
     enum { ScopeDefault, ScopeAll, ScopeNone, ScopeCustom, ScopeNum };
 

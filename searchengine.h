@@ -81,7 +81,7 @@ class SearchEngine : public QObject
     GrantleeFormatter *grantleeFormatter() const;
     View *view() const;
 
-    QString substituteSearchQuery( const QString &query );
+    QString substituteSearchQuery( const QString &query ) const;
 
     static QString substituteSearchQuery( const QString &query,
       const QString &identifier, const QStringList &words, int maxResults,

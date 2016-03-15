@@ -204,7 +204,7 @@ void SearchWidget::scopeSelectionChanged( int id )
   checkScope();
 }
 
-QString SearchWidget::method()
+QString SearchWidget::method() const
 {
   QString m = "and";
   if ( mMethodCombo->currentIndex() == 1)
@@ -213,14 +213,14 @@ QString SearchWidget::method()
   return m;
 }
 
-int SearchWidget::pages()
+int SearchWidget::pages() const
 {
   int p = mPagesCombo->currentText().toInt();
 
   return p;
 }
 
-QString SearchWidget::scope()
+QString SearchWidget::scope() const
 {
   QString scope;
 

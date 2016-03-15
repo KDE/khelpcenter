@@ -284,17 +284,17 @@ void DocEntry::addChild( DocEntry *entry )
   }
 }
 
-bool DocEntry::hasChildren()
+bool DocEntry::hasChildren() const
 {
   return mChildren.count();
 }
 
-DocEntry *DocEntry::firstChild()
+DocEntry *DocEntry::firstChild() const
 {
   return mChildren.first();
 }
 
-DocEntry::List DocEntry::children()
+DocEntry::List DocEntry::children() const
 {
   return mChildren;
 }
@@ -304,7 +304,7 @@ void DocEntry::setParent( DocEntry *parent )
   mParent = parent;
 }
 
-DocEntry *DocEntry::parent()
+DocEntry *DocEntry::parent() const
 {
   return mParent;
 }
@@ -314,12 +314,12 @@ void DocEntry::setNextSibling( DocEntry *next )
   mNextSibling = next;
 }
 
-DocEntry *DocEntry::nextSibling()
+DocEntry *DocEntry::nextSibling() const
 {
   return mNextSibling;
 }
 
-bool DocEntry::isSearchable()
+bool DocEntry::isSearchable() const
 {
   return !search().isEmpty() && docExists();
 }
