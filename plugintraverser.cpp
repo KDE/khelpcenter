@@ -20,7 +20,7 @@
 #include "plugintraverser.h"
 #include "docmetainfo.h"
 #include "navigator.h"
-#include "navigatorappitem.h"
+#include "navigatorappgroupitem.h"
 #include "navigatoritem.h"
 #include "khc_debug.h"
 #include "prefs.h"
@@ -61,12 +61,12 @@ void PluginTraverser::process( DocEntry *entry )
     return;
 
   if ( entry->khelpcenterSpecial() == QLatin1String("apps") ) {
-    NavigatorAppItem *appItem;
+    NavigatorAppGroupItem *appItem;
     entry->setIcon( "kde" );
     if ( mListView )
-      appItem = new NavigatorAppItem( entry, mListView, mCurrentItem );
+      appItem = new NavigatorAppGroupItem( entry, mListView, mCurrentItem );
     else
-      appItem = new NavigatorAppItem( entry, mParentItem, mCurrentItem );
+      appItem = new NavigatorAppGroupItem( entry, mParentItem, mCurrentItem );
     appItem->setRelpath( Prefs::appsRoot() );
     mCurrentItem = appItem;
   } else if ( entry->khelpcenterSpecial() == QLatin1String("scrollkeeper" )) {

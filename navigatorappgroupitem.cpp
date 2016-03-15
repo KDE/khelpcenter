@@ -18,7 +18,7 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#include "navigatorappitem.h"
+#include "navigatorappgroupitem.h"
 #include "docentry.h"
 #include "khc_debug.h"
 
@@ -27,8 +27,8 @@
 
 using namespace KHC;
 
-NavigatorAppItem::NavigatorAppItem( DocEntry *entry, QTreeWidget *parent,
-                  const QString &relPath )
+NavigatorAppGroupItem::NavigatorAppGroupItem( DocEntry *entry, QTreeWidget *parent,
+                       const QString &relPath )
   : NavigatorItem( entry, parent ),
     mRelpath( relPath ),
     mPopulated( false )
@@ -36,8 +36,8 @@ NavigatorAppItem::NavigatorAppItem( DocEntry *entry, QTreeWidget *parent,
   populate();
 }
 
-NavigatorAppItem::NavigatorAppItem( DocEntry *entry, QTreeWidgetItem *parent,
-                  const QString &relPath )
+NavigatorAppGroupItem::NavigatorAppGroupItem( DocEntry *entry, QTreeWidgetItem *parent,
+                       const QString &relPath )
   : NavigatorItem( entry, parent ),
     mRelpath( relPath ),
     mPopulated( false )
@@ -45,41 +45,41 @@ NavigatorAppItem::NavigatorAppItem( DocEntry *entry, QTreeWidgetItem *parent,
   populate();
 }
 
-NavigatorAppItem::NavigatorAppItem( DocEntry *entry, QTreeWidget *parent,
-                  QTreeWidgetItem *after )
+NavigatorAppGroupItem::NavigatorAppGroupItem( DocEntry *entry, QTreeWidget *parent,
+                       QTreeWidgetItem *after )
   : NavigatorItem( entry, parent, after ),
     mPopulated( false )
 { 
   populate();
 }
 
-NavigatorAppItem::NavigatorAppItem( DocEntry *entry, QTreeWidgetItem *parent,
-		    QTreeWidgetItem *after )
+NavigatorAppGroupItem::NavigatorAppGroupItem( DocEntry *entry, QTreeWidgetItem *parent,
+                       QTreeWidgetItem *after )
   : NavigatorItem( entry, parent, after ),
     mPopulated( false )
 { 
   populate();
 }
 
-void NavigatorAppItem::setRelpath( const QString &relpath )
+void NavigatorAppGroupItem::setRelpath( const QString &relpath )
 {
   mRelpath = relpath;
 }
 
-void NavigatorAppItem::itemExpanded(bool open)
+void NavigatorAppGroupItem::itemExpanded(bool open)
 {
-  khcDebug() << "NavigatorAppItem::itemExpanded()";
+  khcDebug() << "NavigatorAppGroupItem::itemExpanded()";
 
   if ( open && (childCount() == 0) && !mPopulated )
   {
-     khcDebug() << "NavigatorAppItem::itemExpanded(" << this << ", "
+     khcDebug() << "NavigatorAppGroupItem::itemExpanded(" << this << ", "
                << mRelpath << ")" << endl;
      populate();
   }
   NavigatorItem::itemExpanded(open);
 }
 
-void NavigatorAppItem::populate( bool recursive )
+void NavigatorAppGroupItem::populate( bool recursive )
 {
   if ( mPopulated ) return;
 
@@ -116,8 +116,8 @@ void NavigatorAppItem::populate( bool recursive )
         if ( ( g->childCount() == 0 ) || g->name().startsWith( '.' ) )
           continue;
         DocEntry *entry = new DocEntry( g->caption(), "", g->icon() );
-        NavigatorAppItem *appItem;
-        appItem = new NavigatorAppItem( entry, this, g->relPath() );
+        NavigatorAppGroupItem *appItem;
+        appItem = new NavigatorAppGroupItem( entry, this, g->relPath() );
         appItem->setAutoDeleteDocEntry( true );
         if ( recursive ) appItem->populate( recursive );
         break;
@@ -130,7 +130,7 @@ void NavigatorAppItem::populate( bool recursive )
   mPopulated = true;
 }
 
-QString NavigatorAppItem::documentationURL( const KService *s )
+QString NavigatorAppGroupItem::documentationURL( const KService *s )
 {
   QString docPath = s->property( QStringLiteral("DocPath") ).toString();
   if ( docPath.isEmpty() ) {

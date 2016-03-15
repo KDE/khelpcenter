@@ -1,5 +1,5 @@
 /*
- *  navigatorappitem.h - part of the KDE Help Center
+ *  navigatorappgroupitem.h - part of the KDE Help Center
  *
  *  Copyright (C) 2001 Waldo Bastian <bastian@kde.org>
  *
@@ -18,8 +18,8 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef KHC_NAVIGATORAPPITEM_H
-#define KHC_NAVIGATORAPPITEM_H
+#ifndef KHC_NAVIGATORAPPGROUPITEM_H
+#define KHC_NAVIGATORAPPGROUPITEM_H
 
 #include "navigatoritem.h"
 
@@ -27,18 +27,18 @@ class KService;
 
 namespace KHC {
 
-class NavigatorAppItem : public NavigatorItem
+class NavigatorAppGroupItem : public NavigatorItem
 {
   public:
-    NavigatorAppItem( DocEntry *entry, QTreeWidget *parent,
-                      const QString &relPath );
-    NavigatorAppItem( DocEntry *entry, QTreeWidgetItem *parent,
-                      const QString &relPath );
+    NavigatorAppGroupItem( DocEntry *entry, QTreeWidget *parent,
+                           const QString &relPath );
+    NavigatorAppGroupItem( DocEntry *entry, QTreeWidgetItem *parent,
+                           const QString &relPath );
 
-    NavigatorAppItem( DocEntry *entry, QTreeWidget *parent,
-                      QTreeWidgetItem *after );
-    NavigatorAppItem( DocEntry *entry, QTreeWidgetItem *parent,
-                      QTreeWidgetItem *after );
+    NavigatorAppGroupItem( DocEntry *entry, QTreeWidget *parent,
+                           QTreeWidgetItem *after );
+    NavigatorAppGroupItem( DocEntry *entry, QTreeWidgetItem *parent,
+                           QTreeWidgetItem *after );
 
     void setRelpath( const QString & );
 
@@ -55,5 +55,5 @@ class NavigatorAppItem : public NavigatorItem
 
 }
 
-#endif //KHC_NAVIGATORAPPITEM_H
+#endif //KHC_NAVIGATORAPPGROUPITEM_H
 // vim:ts=2:sw=2:et

@@ -45,7 +45,7 @@
 #include <QStandardPaths>
 
 #include "navigatoritem.h"
-#include "navigatorappitem.h"
+#include "navigatorappgroupitem.h"
 #include "searchwidget.h"
 #include "searchengine.h"
 #include "searchhandler.h"
@@ -328,12 +328,12 @@ void Navigator::selectItem( const QUrl &url )
     }
   }
 
-  // First, populate the NavigatorAppItems if we don't want the home page
+  // First, populate the NavigatorAppGroupItems if we don't want the home page
   if ( url != homeURL() ) {
     QTreeWidgetItemIterator it1( mContentsTree );
     while( (*it1) ) 
     {
-      NavigatorAppItem *appItem = dynamic_cast<NavigatorAppItem *>( (*it1) );
+      NavigatorAppGroupItem *appItem = dynamic_cast<NavigatorAppGroupItem *>( (*it1) );
       if ( appItem ) appItem->populate( true );
       ++it1;
     }
