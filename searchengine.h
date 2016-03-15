@@ -76,7 +76,7 @@ class SearchEngine : public QObject
     bool initSearchHandlers();
 
     bool search( const QString & words, const QString & method = "and", int matches = 5,
-                 const QString & scope = "" );
+                 const QStringList & scope = QStringList() );
 
     GrantleeFormatter *grantleeFormatter() const;
     View *view() const;
@@ -132,7 +132,7 @@ class SearchEngine : public QObject
     int mMatches;
     QString mMethod;
     QString mLang;
-    QString mScope;
+    QStringList mScope;
 
     QStringList mWordList;
     int mMaxResults;

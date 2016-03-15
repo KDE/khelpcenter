@@ -258,7 +258,7 @@ void SearchEngine::searchExited(int exitCode, QProcess::ExitStatus exitStatus)
 }
 
 bool SearchEngine::search( const QString & words, const QString & method, int matches,
-                           const QString & scope )
+                           const QStringList & scope )
 {
   if ( mSearchRunning ) return false;
 
@@ -370,7 +370,12 @@ QString SearchEngine::substituteSearchQuery( const QString &query ) const
   result.replace( QLatin1String("%n"), QString::number( mMatches ) );
   result.replace( QLatin1String("%m"), mMethod );
   result.replace( QLatin1String("%l"), mLang );
-  result.replace( QLatin1String("%s"), mScope );
+  QStringList scopeList;
+  scopeList.reserve( mScope.size() );
+  foreach ( const QString& scope, mScope ) {
+    scopeList += QLatin1String("scope=") + scope;
+  }
+  result.replace( QLatin1String("%s"), scopeList.join( QLatin1Char( '&' ) ) );
 
   return result;
 }

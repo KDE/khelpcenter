@@ -47,7 +47,7 @@ class SearchWidget : public QWidget
 
     QString method() const;
     int pages() const;
-    QString scope() const;
+    QStringList scope() const;
 
     QTreeWidget *listView() const { return mScopeListView; }
 

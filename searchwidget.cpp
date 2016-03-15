@@ -220,17 +220,16 @@ int SearchWidget::pages() const
   return p;
 }
 
-QString SearchWidget::scope() const
+QStringList SearchWidget::scope() const
 {
-  QString scope;
+  QStringList scope;
 
   QTreeWidgetItemIterator it( mScopeListView );
   while( (*it) ) {
     if ( (*it)->type() == ScopeItem::rttiId() ) {
       ScopeItem *item = static_cast<ScopeItem *>( (*it) );
       if ( item->isOn() ) {
-        if ( !scope.isEmpty() ) scope += '&';
-        scope += QLatin1String("scope=") + item->entry()->identifier();
+        scope += item->entry()->identifier();
       }
     }
     ++it;

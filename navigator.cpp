@@ -515,7 +515,7 @@ void Navigator::slotSearch()
   QString words = mSearchEdit->text();
   QString method = mSearchWidget->method();
   int pages = mSearchWidget->pages();
-  QString scope = mSearchWidget->scope();
+  QStringList scope = mSearchWidget->scope();
 
   khcDebug() << "Navigator::slotSearch() words: " << words;
   khcDebug() << "Navigator::slotSearch() scope: " << scope;
