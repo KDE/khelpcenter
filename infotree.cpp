@@ -164,8 +164,15 @@ void InfoTree::parseInfoDirFile( const QString &infoDirFileName )
         item->entry()->setUrl( url );
       }
     }
+    catItem->sortChildren( 0, Qt::AscendingOrder );
   }
   infoDirFile.close();
+
+  foreach ( InfoCategoryItem *item, alphabSections ) {
+    item->sortChildren( 0, Qt::AscendingOrder );
+  }
+  m_alphabItem->sortChildren( 0, Qt::AscendingOrder );
+  m_categoryItem->sortChildren( 0, Qt::AscendingOrder );
 }
 
 
