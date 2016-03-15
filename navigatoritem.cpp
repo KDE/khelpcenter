@@ -20,13 +20,10 @@
 
 #include "navigatoritem.h"
 
-#include "toc.h"
 #include "docentry.h"
-#include "view.h"
 #include "khc_debug.h"
 
 #include <QIcon>
-#include <QMetaObject>
 
 using namespace KHC;
 
@@ -58,8 +55,6 @@ NavigatorItem::NavigatorItem( DocEntry *entry, QTreeWidgetItem *parent )
 
 NavigatorItem::~NavigatorItem()
 {
-  delete mToc;
-
   if ( mAutoDeleteDocEntry ) delete mEntry;
 }
 
@@ -67,7 +62,6 @@ void NavigatorItem::init( DocEntry *entry )
 {
   mEntry = entry;
   mAutoDeleteDocEntry = false;
-  mToc = 0;
 
   updateItem();
 }
@@ -88,36 +82,9 @@ void NavigatorItem::updateItem()
   setIcon( 0, QIcon::fromTheme( entry()->icon() ) );
 }
 
-void NavigatorItem::scheduleTOCBuild()
-{
-  QUrl url ( entry()->url() );
-  if ( !mToc && url.scheme() == "help") {
-    mToc = new TOC( this );
-
-    khcDebug() << "Trying to build TOC for " << entry()->name();
-    mToc->setApplication( url.toString(QUrl::RemoveScheme|QUrl::RemoveFilename|QUrl::StripTrailingSlash) );
-    QString doc = View::langLookup( url.path() );
-    // Enforce the original .docbook version, in case langLookup returns a
-    // cached version
-    if ( !doc.isNull() ) {
-      int pos = doc.indexOf( ".html" );
-      if ( pos >= 0 ) {
-        doc.replace( pos, 5, ".docbook" );
-      }
-      khcDebug() << "doc = " << doc;
-
-      mToc->build( doc );
-      // ensure the newly populated item is expanded
-      QMetaObject::invokeMethod( treeWidget(), "expandItem", Qt::QueuedConnection, Q_ARG( const QTreeWidgetItem*, this ) );
-    }
-  }
-}
-
 void NavigatorItem::itemExpanded( bool open )
 {
-  if ( open ) {
-    scheduleTOCBuild();
-  }
+  Q_UNUSED( open );
 }
 
 // vim:ts=2:sw=2:et

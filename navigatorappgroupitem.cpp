@@ -19,6 +19,7 @@
  */
 
 #include "navigatorappgroupitem.h"
+#include "navigatorappitem.h"
 #include "docentry.h"
 #include "khc_debug.h"
 
@@ -95,7 +96,6 @@ void NavigatorAppGroupItem::populate( bool recursive )
         it != list.constEnd(); ++it )
   {
     const KSycocaEntry::Ptr e = *it;
-    NavigatorItem *item;
     QString url;
 
     switch ( e->sycocaType() ) {
@@ -105,7 +105,7 @@ void NavigatorAppGroupItem::populate( bool recursive )
         url = documentationURL( s.data() );
         if ( !url.isEmpty() ) {
           DocEntry *entry = new DocEntry( s->name(), url, s->icon() );
-          item = new NavigatorItem( entry, this );
+          NavigatorAppItem *item = new NavigatorAppItem( entry, this );
           item->setAutoDeleteDocEntry( true );
         }
         break;

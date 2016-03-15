@@ -24,7 +24,6 @@
 
 namespace KHC {
 
-class TOC;
 class DocEntry;
 
 class NavigatorItem : public QTreeWidgetItem
@@ -46,15 +45,10 @@ class NavigatorItem : public QTreeWidgetItem
 
     void updateItem();
 
-    TOC *toc() const { return mToc; }
-  
     virtual void itemExpanded( bool open );
 
   private:
     void init( DocEntry * );
-    void scheduleTOCBuild();
-    
-    TOC *mToc;
 
     DocEntry *mEntry;
     bool mAutoDeleteDocEntry;
