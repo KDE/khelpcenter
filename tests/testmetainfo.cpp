@@ -1,9 +1,6 @@
 #include <QCoreApplication>
 #include <QDebug>
 
-#include <KAboutData>
-#include <KLocalizedString>
-
 #include "docmetainfo.h"
 #include "docentrytraverser.h"
 
@@ -12,11 +9,11 @@ using namespace KHC;
 class MyTraverser : public DocEntryTraverser
 {
   public:
-    MyTraverser( const QString &indent = "" ) : mIndent( indent ) {}
+    MyTraverser( const QByteArray &indent = "" ) : mIndent( indent ) {}
 
     void process( DocEntry *entry )
     {
-      qDebug() << mIndent << entry->name() << " - WEIGHT: " << entry->weight();
+      qDebug() << mIndent.constData() << entry->name() << " - WEIGHT: " << entry->weight();
 #if 0
       if ( entry->parent() ) qDebug() << mIndent << "  PARENT: "
                                        << entry->parent()->name() << endl;
@@ -31,7 +28,7 @@ class MyTraverser : public DocEntryTraverser
     }
 
   private:
-    QString mIndent;
+    QByteArray mIndent;
 };
 
 class LinearTraverser : public DocEntryTraverser
@@ -58,7 +55,7 @@ class LinearTraverser : public DocEntryTraverser
 class AsyncTraverser : public DocEntryTraverser
 {
   public:
-    AsyncTraverser( const QString &indent = "" ) : mIndent( indent )
+    AsyncTraverser( const QByteArray &indent = "" ) : mIndent( indent )
     {
 //      qDebug() << "AsyncTraverser()";
     }
@@ -70,7 +67,7 @@ class AsyncTraverser : public DocEntryTraverser
     
     void process( DocEntry *entry )
     {
-      qDebug() << mIndent << entry->name();
+      qDebug() << mIndent.constData() << entry->name();
     }
     
     DocEntryTraverser *createChild( DocEntry * )
@@ -80,14 +77,13 @@ class AsyncTraverser : public DocEntryTraverser
     }
 
   private:
-    QString mIndent;
+    QByteArray mIndent;
 };
 
 int main(int argc,char **argv)
 {
-  KAboutData aboutData("testmetainfo", i18n("TestDocMetaInfo"), "0.1");
-  // KComponentData componentData(&aboutData); doesn't seem to be necessary
   QCoreApplication app(argc,argv);
+  QCoreApplication::setApplicationName( "khelpcenter" );
 
   qDebug() << "Scanning Meta Info";
 
