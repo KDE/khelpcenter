@@ -28,6 +28,10 @@
 #include <KUrlAuthorized>
 #include <QCommandLineParser>
 #include <QDir>
+#include <QTreeWidgetItem>
+#include <QMetaType>
+
+Q_DECLARE_METATYPE(const QTreeWidgetItem *)
 
 using namespace KHC;
 
@@ -44,6 +48,9 @@ Application::Application(int& argc, char** argv)
   KUrlAuthorized::allowUrlAction( QLatin1Literal( "redirect" ), QUrl( QLatin1Literal( "khelpcenter:" ) ), QUrl( QLatin1Literal( "info:" ) ) );
   KUrlAuthorized::allowUrlAction( QLatin1Literal( "redirect" ), QUrl( QLatin1Literal( "khelpcenter:" ) ), QUrl( QLatin1Literal( "man:" ) ) );
   KUrlAuthorized::allowUrlAction( QLatin1Literal( "redirect" ), QUrl( QLatin1Literal( "glossentry:" ) ), QUrl( QLatin1Literal( "help:" ) ) );
+
+  // registration of meta types
+  qRegisterMetaType<const QTreeWidgetItem *>();
 }
 
 QCommandLineParser *Application::cmdParser()

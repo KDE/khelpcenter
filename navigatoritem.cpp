@@ -26,6 +26,7 @@
 #include "khc_debug.h"
 
 #include <QIcon>
+#include <QMetaObject>
 
 using namespace KHC;
 
@@ -106,6 +107,8 @@ void NavigatorItem::scheduleTOCBuild()
       khcDebug() << "doc = " << doc;
 
       mToc->build( doc );
+      // ensure the newly populated item is expanded
+      QMetaObject::invokeMethod( treeWidget(), "expandItem", Qt::QueuedConnection, Q_ARG( const QTreeWidgetItem*, this ) );
     }
   }
 }
