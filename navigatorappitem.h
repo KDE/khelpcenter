@@ -42,7 +42,7 @@ class NavigatorAppItem : public NavigatorItem
 
     void setRelpath( const QString & );
 
-    virtual void setExpanded(bool);
+    virtual void itemExpanded(bool);
     void populate( bool recursive = false );
 
   protected:

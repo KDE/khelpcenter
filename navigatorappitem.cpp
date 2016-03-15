@@ -66,17 +66,17 @@ void NavigatorAppItem::setRelpath( const QString &relpath )
   mRelpath = relpath;
 }
 
-void NavigatorAppItem::setExpanded(bool open)
+void NavigatorAppItem::itemExpanded(bool open)
 {
-  khcDebug() << "NavigatorAppItem::setOpen()";
+  khcDebug() << "NavigatorAppItem::itemExpanded()";
 
   if ( open && (childCount() == 0) && !mPopulated )
   {
-     khcDebug() << "NavigatorAppItem::setOpen(" << this << ", "
+     khcDebug() << "NavigatorAppItem::itemExpanded(" << this << ", "
                << mRelpath << ")" << endl;
      populate();
   }
-  QTreeWidgetItem::setExpanded(open);
+  NavigatorItem::itemExpanded(open);
 }
 
 void NavigatorAppItem::populate( bool recursive )

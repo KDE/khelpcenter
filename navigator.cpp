@@ -143,6 +143,8 @@ void Navigator::setupContentsTab()
     mContentsTree->headerItem()->setHidden(true);
 
     connect(mContentsTree, &QTreeWidget::itemActivated, this, &Navigator::slotItemSelected);
+    connect(mContentsTree, &QTreeWidget::itemExpanded, this, &Navigator::slotItemExpanded);
+    connect(mContentsTree, &QTreeWidget::itemCollapsed, this, &Navigator::slotItemCollapsed);
     
     mTabWidget->addTab(mContentsTree, i18n("&Contents"));
 }
@@ -391,6 +393,18 @@ void Navigator::slotItemSelected( QTreeWidgetItem *currentItem )
   }
 
   mLastUrl = url;
+}
+
+void Navigator::slotItemExpanded( QTreeWidgetItem *item )
+{
+  NavigatorItem *ni = static_cast<NavigatorItem *>( item );
+  ni->itemExpanded( true );
+}
+
+void Navigator::slotItemCollapsed( QTreeWidgetItem *item )
+{
+  NavigatorItem *ni = static_cast<NavigatorItem *>( item );
+  ni->itemExpanded( false );
 }
 
 void Navigator::openInternalUrl( const QUrl &url )

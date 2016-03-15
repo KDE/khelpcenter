@@ -110,10 +110,11 @@ void NavigatorItem::scheduleTOCBuild()
   }
 }
 
-void NavigatorItem::setExpanded( bool open )
+void NavigatorItem::itemExpanded( bool open )
 {
-  scheduleTOCBuild();
-  QTreeWidgetItem::setExpanded( open );
+  if ( open ) {
+    scheduleTOCBuild();
+  }
 }
 
 // vim:ts=2:sw=2:et

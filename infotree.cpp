@@ -40,7 +40,7 @@ class InfoCategoryItem : public NavigatorItem
   public:
     InfoCategoryItem( NavigatorItem *parent, const QString &text );
 	
-    virtual void setExpanded( bool open );
+    virtual void itemExpanded( bool open );
 };
 
 class InfoNodeItem : public NavigatorItem
@@ -54,12 +54,13 @@ InfoCategoryItem::InfoCategoryItem( NavigatorItem *parent, const QString &text )
 {
   setAutoDeleteDocEntry( true );
   setExpanded( false );
+  setIcon( 0, QIcon::fromTheme( "help-contents" ) );
 //  khcDebug() << "Got category: " << text;
 }
 
-void InfoCategoryItem::setExpanded( bool open )
+void InfoCategoryItem::itemExpanded( bool open )
 {
-  NavigatorItem::setExpanded( open );
+  NavigatorItem::itemExpanded( open );
 
   if ( open && childCount() > 0 ) setIcon( 0, QIcon::fromTheme( "help-contents" ) );
 // TODO: was contents2 -> needs to be changed to help-contents-alternate or similar

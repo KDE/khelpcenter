@@ -79,6 +79,8 @@ class Navigator : public QWidget
   public Q_SLOTS:
     void openInternalUrl( const QUrl &url );
     void slotItemSelected(QTreeWidgetItem* index);
+    void slotItemExpanded( QTreeWidgetItem *item );
+    void slotItemCollapsed( QTreeWidgetItem *item );
     void slotSearch();
     void slotShowSearchResult( const QString & );
     void slotSelectGlossEntry( const QString &id );

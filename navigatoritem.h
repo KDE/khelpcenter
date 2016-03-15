@@ -48,7 +48,7 @@ class NavigatorItem : public QTreeWidgetItem
 
     TOC *toc() const { return mToc; }
   
-    void setExpanded( bool open );
+    virtual void itemExpanded( bool open );
 
   private:
     void init( DocEntry * );
