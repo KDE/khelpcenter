@@ -35,6 +35,20 @@ NavigatorAppItem::NavigatorAppItem( DocEntry *entry, QTreeWidgetItem *parent )
 {
 }
 
+NavigatorAppItem::NavigatorAppItem( DocEntry *entry, QTreeWidget *parent,
+                  QTreeWidgetItem *after )
+  : NavigatorItem( entry, parent, after ),
+    mToc( 0 )
+{
+}
+
+NavigatorAppItem::NavigatorAppItem( DocEntry *entry, QTreeWidgetItem *parent,
+                  QTreeWidgetItem *after )
+  : NavigatorItem( entry, parent, after ),
+    mToc( 0 )
+{
+}
+
 NavigatorAppItem::~NavigatorAppItem()
 {
   delete mToc;

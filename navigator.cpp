@@ -45,6 +45,7 @@
 #include <QStandardPaths>
 
 #include "navigatoritem.h"
+#include "navigatorappitem.h"
 #include "navigatorappgroupitem.h"
 #include "searchwidget.h"
 #include "searchengine.h"
@@ -262,7 +263,7 @@ void Navigator::insertIOSlaveDocs( const QString &name, NavigatorItem *topItem )
       QString icon = KProtocolInfo::icon(*it);
       if ( icon.isEmpty() ) icon = "text-plain";
       DocEntry *entry = new DocEntry( *it, url.url(), icon );
-      NavigatorItem *item = new NavigatorItem( entry, topItem, prevItem );
+      NavigatorItem *item = new NavigatorAppItem( entry, topItem, prevItem );
       prevItem = item;
       item->setAutoDeleteDocEntry( true );
     }
@@ -280,7 +281,7 @@ void Navigator::createItemFromDesktopFile( NavigatorItem *topItem,
       QString icon = desktopFile.readIcon();
       if ( icon.isEmpty() ) icon = "text-plain";
       DocEntry *entry = new DocEntry( desktopFile.readName(), url.url(), icon );
-      NavigatorItem *item = new NavigatorItem( entry, topItem );
+      NavigatorItem *item = new NavigatorAppItem( entry, topItem );
       item->setAutoDeleteDocEntry( true );
     }
 }

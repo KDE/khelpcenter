@@ -32,6 +32,11 @@ class NavigatorAppItem : public NavigatorItem
   public:
     NavigatorAppItem( DocEntry *entry, QTreeWidgetItem *parent );
 
+    NavigatorAppItem( DocEntry *entry, QTreeWidget *parent,
+                      QTreeWidgetItem *after );
+    NavigatorAppItem( DocEntry *entry, QTreeWidgetItem *parent,
+                      QTreeWidgetItem *after );
+
     ~NavigatorAppItem();
 
     virtual void itemExpanded( bool open );

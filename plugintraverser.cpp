@@ -20,6 +20,7 @@
 #include "plugintraverser.h"
 #include "docmetainfo.h"
 #include "navigator.h"
+#include "navigatorappitem.h"
 #include "navigatorappgroupitem.h"
 #include "navigatoritem.h"
 #include "khc_debug.h"
@@ -76,9 +77,9 @@ void PluginTraverser::process( DocEntry *entry )
     return;
   } else {
     if ( mListView )
-      mCurrentItem = new NavigatorItem( entry, mListView, mCurrentItem );
+      mCurrentItem = new NavigatorAppItem( entry, mListView, mCurrentItem );
     else
-      mCurrentItem = new NavigatorItem( entry, mParentItem, mCurrentItem );
+      mCurrentItem = new NavigatorAppItem( entry, mParentItem, mCurrentItem );
 
     if ( entry->khelpcenterSpecial() == QLatin1String("konqueror") ) {
       mNavigator->insertParentAppDocs( entry->khelpcenterSpecial(), mCurrentItem );
