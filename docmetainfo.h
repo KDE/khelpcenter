@@ -79,7 +79,7 @@ namespace KHC {
 
       DocEntry mRootEntry;
 
-      QString mDefaultLanguage;
+      QStringList mLanguages;
 
       QMap<QString,QString> mLanguageNames;
 

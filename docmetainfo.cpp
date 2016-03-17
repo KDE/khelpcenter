@@ -74,7 +74,7 @@ DocEntry *DocMetaInfo::addDocEntry( const QFileInfo &fi )
     lang = extensions[ extensions.count() - 2 ];
   }
 
-  if ( !lang.isEmpty() && !mLanguageNames.contains( lang ) )
+  if ( !lang.isEmpty() && !mLanguages.contains( lang ) )
   {
     return 0;
   }
@@ -83,12 +83,18 @@ DocEntry *DocMetaInfo::addDocEntry( const QFileInfo &fi )
 
   if ( entry->readFromFile( fi ) )
   {
-    if ( !lang.isEmpty() && lang != mDefaultLanguage )
+    if ( !lang.isEmpty() && lang != mLanguages.first() )
     {
+      QMap<QString,QString>::Iterator it = mLanguageNames.find( lang );
+      if ( it == mLanguageNames.end() )
+      {
+        it = mLanguageNames.insert( lang, languageName( lang ) );
+      }
+
       entry->setLang( lang );
       entry->setName( i18nc("doctitle (language)","%1 (%2)",
                              entry->name() ,
-                             mLanguageNames[ lang ] ) );
+                             *it ) );
     }
     QString indexer = entry->indexer();
     indexer.replace( "%f", fi.absoluteFilePath() );
@@ -139,14 +145,9 @@ void DocMetaInfo::scanMetaInfo( bool force )
 {
   if ( mLoaded && !force ) return;
 
-  QStringList langs = QLocale().uiLanguages();
-  mDefaultLanguage = langs.first();
+  mLanguages = QLocale().uiLanguages();
 
   QStringList::ConstIterator it;
-  for( it = langs.constBegin(); it != langs.constEnd(); ++it )
-  {
-    mLanguageNames.insert( *it, languageName( *it ) );
-  }
 
   KConfig config( QLatin1String("khelpcenterrc") );
   KConfigGroup cg(&config, "General");
