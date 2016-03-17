@@ -44,8 +44,7 @@ void ScrollKeeperTreeBuilder::loadConfig()
   mShowEmptyDirs = Prefs::showEmptyDirs();
 }
 
-NavigatorItem *ScrollKeeperTreeBuilder::build( NavigatorItem *parent,
-                                               NavigatorItem *after )
+void ScrollKeeperTreeBuilder::build( NavigatorItem *parent )
 {
   QString lang = QLocale().bcp47Name();
 
@@ -54,7 +53,7 @@ NavigatorItem *ScrollKeeperTreeBuilder::build( NavigatorItem *parent,
   const QString exePath = QStandardPaths::findExecutable( QLatin1Literal( "scrollkeeper-get-content-list" ) );
   if ( exePath.isEmpty() ) {
     khcDebug() << "scrollkeeper-get-content-list is not available, skipping";
-    return 0;
+    return;
   }
 
   KProcess proc;
@@ -65,23 +64,23 @@ NavigatorItem *ScrollKeeperTreeBuilder::build( NavigatorItem *parent,
   proc.start();
   if ( !proc.waitForFinished() ) {
     khcDebug() << "Could not execute scrollkeeper-get-content-list";
-    return 0;
+    return;
   }
   mContentsList = proc.readAllStandardOutput().trimmed();
 
   if (!QFile::exists(mContentsList)) {
     khcDebug() << "Scrollkeeper contents file '" << mContentsList
       << "' does not exist." << endl;
-    return 0;
+    return;
   }
 
   QDomDocument doc("ScrollKeeperContentsList");
   QFile f(mContentsList);
   if ( !f.open( QIODevice::ReadOnly ) )
-    return 0;
+    return;
   if ( !doc.setContent( &f ) ) {
     f.close();
-    return 0;
+    return;
   }
   f.close();
 
@@ -90,32 +89,26 @@ NavigatorItem *ScrollKeeperTreeBuilder::build( NavigatorItem *parent,
 
   QDomElement docElem = doc.documentElement();
 
-  NavigatorItem *result = 0;
-
   QDomNode n = docElem.firstChild();
   while( !n.isNull() ) {
     QDomElement e = n.toElement();
     if( !e.isNull() ) {
       if (e.tagName() == "sect") {
         NavigatorItem *createdItem;
-        insertSection( parent, after, e, createdItem );
-        if ( createdItem ) result = createdItem;
+        insertSection( parent, e, createdItem );
       }
     }
     n = n.nextSibling();
   }
-
-  return result;
 }
 
 int ScrollKeeperTreeBuilder::insertSection( NavigatorItem *parent,
-                                            NavigatorItem *after,
                                             const QDomNode &sectNode,
                                             NavigatorItem *&sectItem )
 {
 // TODO: was contents2 -> needs to be changed to help-contents-alternate or similar
   DocEntry *entry = new DocEntry( "", "", "help-contents" );
-  sectItem = new NavigatorItem( entry, parent, after );
+  sectItem = new NavigatorItem( entry, parent );
   sectItem->setAutoDeleteDocEntry( true );
   mItems.append( sectItem );
 
@@ -130,7 +123,7 @@ int ScrollKeeperTreeBuilder::insertSection( NavigatorItem *parent,
         sectItem->updateItem();
       } else if (e.tagName() == "sect") {
         NavigatorItem *created;
-        numDocs += insertSection( sectItem, 0, e, created );
+        numDocs += insertSection( sectItem, e, created );
       } else if (e.tagName() == "doc") {
         insertDoc(sectItem,e);
         ++numDocs;

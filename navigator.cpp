@@ -292,11 +292,10 @@ void Navigator::insertInfoDocs( NavigatorItem *topItem )
   infoTree->build( topItem );
 }
 
-NavigatorItem *Navigator::insertScrollKeeperDocs( NavigatorItem *topItem,
-                                                  NavigatorItem *after )
+void Navigator::insertScrollKeeperDocs( NavigatorItem *topItem )
 {
   ScrollKeeperTreeBuilder *builder = new ScrollKeeperTreeBuilder( this );
-  return builder->build( topItem, after );
+  builder->build( topItem );
 }
 
 void Navigator::selectItem( const QUrl &url )

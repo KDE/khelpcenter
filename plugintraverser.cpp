@@ -70,11 +70,6 @@ void PluginTraverser::process( DocEntry *entry )
       appItem = new NavigatorAppGroupItem( entry, mParentItem, mCurrentItem );
     appItem->setRelpath( Prefs::appsRoot() );
     mCurrentItem = appItem;
-  } else if ( entry->khelpcenterSpecial() == QLatin1String("scrollkeeper" )) {
-    if ( mParentItem ) {
-      mCurrentItem = mNavigator->insertScrollKeeperDocs( mParentItem, mCurrentItem );
-    }
-    return;
   } else {
     if ( mListView )
       mCurrentItem = new NavigatorAppItem( entry, mListView, mCurrentItem );
@@ -99,6 +94,8 @@ void PluginTraverser::process( DocEntry *entry )
       mNavigator->insertIOSlaveDocs( entry->khelpcenterSpecial(), mCurrentItem );
     } else if ( entry->khelpcenterSpecial() == QLatin1String("info") ) {
       mNavigator->insertInfoDocs( mCurrentItem );
+    } else if ( entry->khelpcenterSpecial() == QLatin1String("scrollkeeper") ) {
+      mNavigator->insertScrollKeeperDocs( mCurrentItem );
     } else {
       return;
     }

@@ -34,11 +34,11 @@ class ScrollKeeperTreeBuilder : public QObject
   public:
     explicit ScrollKeeperTreeBuilder( QObject *parent );
 
-    NavigatorItem *build( NavigatorItem *parent, NavigatorItem *after );
+    void build( NavigatorItem *parent );
 
   private:
     void loadConfig();
-    int insertSection( NavigatorItem *parent, NavigatorItem *after,
+    int insertSection( NavigatorItem *parent,
                        const QDomNode &sectNode, NavigatorItem *&created );
     void insertDoc( NavigatorItem *parent, const QDomNode &docNode );
 
