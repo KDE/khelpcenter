@@ -61,7 +61,12 @@ void PluginTraverser::process( DocEntry *entry )
   if ( !entry->docExists() && !mNavigator->showMissingDocs() )
     return;
 
-  if ( entry->khelpcenterSpecial() == QLatin1String("apps") ) {
+  if ( entry->khelpcenterSpecial().isEmpty() ) {
+    if ( mListView )
+      mCurrentItem = new NavigatorAppItem( entry, mListView, mCurrentItem );
+    else
+      mCurrentItem = new NavigatorAppItem( entry, mParentItem, mCurrentItem );
+  } else if ( entry->khelpcenterSpecial() == QLatin1String("apps") ) {
     NavigatorAppGroupItem *appItem;
     entry->setIcon( "kde" );
     if ( mListView )
@@ -72,9 +77,9 @@ void PluginTraverser::process( DocEntry *entry )
     mCurrentItem = appItem;
   } else {
     if ( mListView )
-      mCurrentItem = new NavigatorAppItem( entry, mListView, mCurrentItem );
+      mCurrentItem = new NavigatorItem( entry, mListView, mCurrentItem );
     else
-      mCurrentItem = new NavigatorAppItem( entry, mParentItem, mCurrentItem );
+      mCurrentItem = new NavigatorItem( entry, mParentItem, mCurrentItem );
 
     if ( entry->khelpcenterSpecial() == QLatin1String("konqueror") ) {
       mNavigator->insertParentAppDocs( entry->khelpcenterSpecial(), mCurrentItem );
