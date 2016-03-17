@@ -216,8 +216,7 @@ void MainWindow::readProperties( const KConfigGroup &config )
 
 void MainWindow::readConfig()
 {
-    KConfigGroup config(KSharedConfig::openConfig(), "MainWindowState");
-    QList<int> sizes = config.readEntry( "Splitter", QList<int>() );
+    QList<int> sizes = Prefs::splitter();
     if ( sizes.count() == 2 ) {
         mSplitter->setSizes( sizes );
     }
@@ -227,8 +226,7 @@ void MainWindow::readConfig()
 
 void MainWindow::writeConfig()
 {
-    KConfigGroup config(KSharedConfig::openConfig(), "MainWindowState");
-    config.writeEntry( "Splitter", mSplitter->sizes() );
+    Prefs::setSplitter( mSplitter->sizes() );
 
     mNavigator->writeConfig();
 

@@ -11,8 +11,10 @@ set(testmetainfo_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/../docentry.cpp 
     ${CMAKE_CURRENT_SOURCE_DIR}/../docentrytraverser.cpp )
 
+kconfig_add_kcfg_files(testmetainfo_SRCS ../prefs.kcfgc)
+
 add_executable(testmetainfo ${testmetainfo_SRCS})
 ecm_mark_as_test(testmetainfo)
 
-target_link_libraries(testmetainfo KF5::ConfigCore KF5::CoreAddons KF5::I18n)
+target_link_libraries(testmetainfo KF5::ConfigGui KF5::CoreAddons KF5::I18n)
 

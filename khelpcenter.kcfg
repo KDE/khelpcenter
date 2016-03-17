@@ -21,6 +21,9 @@
     <entry type="Int" key="Font zoom factor">
       <default>100</default>
     </entry>
+
+    <entry type="PathList" key="MetaInfoDirs">
+    </entry>
   </group>
 
   <group name="Search">
@@ -79,4 +82,8 @@
     </entry>
   </group>
 
+  <group name="MainWindowState">
+    <entry type="IntList" key="Splitter">
+    </entry>
+  </group>
 </kcfg>

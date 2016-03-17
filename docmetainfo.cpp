@@ -20,6 +20,7 @@
 
 #include "docmetainfo.h"
 
+#include "prefs.h"
 #include "khc_debug.h"
 
 #include <KConfig>
@@ -149,9 +150,7 @@ void DocMetaInfo::scanMetaInfo( bool force )
 
   QStringList::ConstIterator it;
 
-  KConfig config( QLatin1String("khelpcenterrc") );
-  KConfigGroup cg(&config, "General");
-  QStringList metaInfos = cg.readEntry( "MetaInfoDirs" , QStringList() );
+  QStringList metaInfos = Prefs::metaInfoDirs();
 
   if ( metaInfos.isEmpty() ) 
   {
