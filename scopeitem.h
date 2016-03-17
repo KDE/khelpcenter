@@ -30,41 +30,24 @@ class ScopeItem : public QTreeWidgetItem
 {
   public:
     ScopeItem( QTreeWidget *parent, DocEntry *entry )
-        : QTreeWidgetItem( parent, QStringList() << entry->name(), rttiId() ),
-          mEntry( entry ), mObserver( 0 ) { init(); }
+        : QTreeWidgetItem( parent, QStringList() << entry->name(), ScopeItemType ),
+          mEntry( entry ) { init(); }
 
     ScopeItem( QTreeWidgetItem *parent, DocEntry *entry )
-      : QTreeWidgetItem( parent, QStringList() << entry->name(), rttiId() ),
-        mEntry( entry ), mObserver( 0 ) { init(); }
+      : QTreeWidgetItem( parent, QStringList() << entry->name(), ScopeItemType ),
+        mEntry( entry ) { init(); }
 
     DocEntry *entry()const { return mEntry; }
 
-    static int rttiId() { return 734678; }
-
-    class Observer
-    {
-      public:
-        virtual ~Observer() {}
-        virtual void scopeItemChanged( ScopeItem * ) = 0;
-    };
-
-    void setObserver( Observer *o ) { mObserver = o; }
+    enum { ScopeItemType = 734678 };
 
     void setOn( bool on ) { setCheckState( 0, on ? Qt::Checked : Qt::Unchecked ); }
     bool isOn() const { return checkState( 0 ) == Qt::Checked; }
-
-  protected:
-    void stateChange ( bool )
-    {
-      if ( mObserver ) mObserver->scopeItemChanged( this );
-    }
 
   private:
     void init() { setCheckState(0, Qt::Checked); }
 
     DocEntry *mEntry;
-
-    Observer *mObserver;
 };
 
 }

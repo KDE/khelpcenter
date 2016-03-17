@@ -126,7 +126,7 @@ void SearchWidget::readConfig( KConfig *cfg )
     KConfigGroup searchScopeGroup(cfg, "Custom Search Scope" );
     QTreeWidgetItemIterator it( mScopeListView );
     while( *it ) {
-      if ( (*it)->type() == ScopeItem::rttiId() ) {
+      if ( (*it)->type() == ScopeItem::ScopeItemType ) {
         ScopeItem *item = static_cast<ScopeItem *>(*it);
         item->setOn( searchScopeGroup.readEntry(
                          item->entry()->identifier(),
@@ -151,7 +151,7 @@ void SearchWidget::writeConfig( KConfig *cfg )
     KConfigGroup cg2 (cfg, "Custom Search Scope");
     QTreeWidgetItemIterator it( mScopeListView );
     while( (*it) ) {
-      if ( (*it)->type() == ScopeItem::rttiId() ) {
+      if ( (*it)->type() == ScopeItem::ScopeItemType ) {
         ScopeItem *item = static_cast<ScopeItem *>( (*it) );
         cg2.writeEntry( item->entry()->identifier(), item->isOn() );
       }
@@ -164,7 +164,7 @@ void SearchWidget::slotSwitchBoxes()
 {
   QTreeWidgetItemIterator it( mScopeListView );
   while( (*it) ) {
-    if ( (*it)->type() == ScopeItem::rttiId() ) {
+    if ( (*it)->type() == ScopeItem::ScopeItemType ) {
       ScopeItem *item = static_cast<ScopeItem *>( (*it) );
       item->setOn( !item->isOn() );
     }
@@ -178,7 +178,7 @@ void SearchWidget::scopeSelectionChanged( int id )
 {
   QTreeWidgetItemIterator it( mScopeListView );
   while( (*it) ) {
-    if ( (*it)->type() == ScopeItem::rttiId() ) {
+    if ( (*it)->type() == ScopeItem::ScopeItemType ) {
       ScopeItem *item = static_cast<ScopeItem *>( (*it) );
       bool state = item->isOn();
       switch( id ) {
@@ -226,7 +226,7 @@ QStringList SearchWidget::scope() const
 
   QTreeWidgetItemIterator it( mScopeListView );
   while( (*it) ) {
-    if ( (*it)->type() == ScopeItem::rttiId() ) {
+    if ( (*it)->type() == ScopeItem::ScopeItemType ) {
       ScopeItem *item = static_cast<ScopeItem *>( (*it) );
       if ( item->isOn() ) {
         scope += item->entry()->identifier();
@@ -322,7 +322,7 @@ void SearchWidget::updateScopeList()
 
 void SearchWidget::scopeDoubleClicked( QTreeWidgetItem* item )
 {
-  if ( !item || item->type() != ScopeItem::rttiId() ) return;
+  if ( !item || item->type() != ScopeItem::ScopeItemType ) return;
   ScopeItem *scopeItem = static_cast<ScopeItem *>( item );
 
   QString searchUrl = scopeItem->entry()->search();
@@ -361,7 +361,7 @@ void SearchWidget::checkScope()
 
   QTreeWidgetItemIterator it( mScopeListView );
   while( (*it) ) {
-    if ( (*it)->type() == ScopeItem::rttiId() ) {
+    if ( (*it)->type() == ScopeItem::ScopeItemType ) {
       ScopeItem *item = static_cast<ScopeItem *>( (*it) );
       if ( item->isOn() ) {
         ++mScopeCount;
