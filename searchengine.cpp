@@ -311,6 +311,7 @@ void SearchEngine::finishSearch()
 {
   delete mRootTraverser;
   mRootTraverser = 0;
+  mSearchRunning = false;
 
   emit searchFinished();
 }
