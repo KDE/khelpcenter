@@ -39,13 +39,6 @@
     <entry type="Int" key="MaxCount">
       <default>0</default>
     </entry>
-
-    <entry type="Path" key="CommonProgram">
-    </entry>
-
-    <entry type="Bool" key="UseCommonProgram">
-      <default>false</default>
-    </entry>
   </group>
   
   <group name="Layout">

@@ -1,10 +1,6 @@
 
 #include "searchengine.h"
 
-#include <QLocale>
-#include <KConfig>
-#include <KProcess>
-#include <KShell>
 #include <QMessageBox>
 
 #include "docmetainfo.h"
@@ -191,10 +187,9 @@ void SearchTraverser::setWords( const QString &words )
 
 SearchEngine::SearchEngine( View *destination )
   : QObject(),
-    mProc( 0 ), mSearchRunning( false ), mView( destination ),
+    mSearchRunning( false ), mView( destination ),
     mRootTraverser( 0 )
 {
-  mLang = QLocale().bcp47Name().left( 2 );
 }
 
 SearchEngine::~SearchEngine()
@@ -249,14 +244,6 @@ bool SearchEngine::initSearchHandlers()
   return true;
 }
 
-void SearchEngine::searchExited(int exitCode, QProcess::ExitStatus exitStatus)
-{
-  Q_UNUSED(exitCode);
-  Q_UNUSED(exitStatus);
-  khcDebug() << "Search terminated";
-  mSearchRunning = false;
-}
-
 bool SearchEngine::search( const QString & words, const QString & method, int matches,
                            const QStringList & scope )
 {
@@ -274,110 +261,23 @@ bool SearchEngine::search( const QString & words, const QString & method, int ma
   if ( method == "or" ) mOperation = Or;
   else mOperation = And;
 
-  QString commonSearchProgram = Prefs::commonProgram();
-  bool useCommon = Prefs::useCommonProgram();
-
-  if ( commonSearchProgram.isEmpty() || !useCommon ) {
-    if ( !mView ) {
-      return false;
-    }
-
-    QString txt = i18n("Search Results for '%1':", words.toHtmlEscaped() );
-
-    mStderr = "<b>" + txt + "</b>\n";
-
-    if ( mRootTraverser ) {
-      khcDebug() << "SearchEngine::search(): mRootTraverser not null.";
-      return false;
-    }
-    mRootTraverser = new SearchTraverser( this, 0 );
-    mRootTraverser->setWords( words );
-    DocMetaInfo::self()->startTraverseEntries( mRootTraverser );
-
-    return true;
-  } else {
-    QString lang = QLocale().bcp47Name().left( 2 );
-
-    if ( lang.toLower() == "c" || lang.toLower() == "posix" )
-	  lang = "en";
-
-    // if the string contains '&' replace with a '+' and set search method to and
-    if (mWords.indexOf("&") != -1) {
-      mWords.replace('&', ' ');
-      mMethod = "and";
-    }
-
-    // replace whitespace with a '+'
-    mWords = mWords.trimmed();
-    mWords = mWords.simplified();
-    mWords.replace(QRegExp("\\s"), "+");
-
-    commonSearchProgram = substituteSearchQuery( commonSearchProgram );
-
-    khcDebug() << "Common Search: " << commonSearchProgram;
-
-    mProc = new KProcess();
-    *mProc << KShell::splitArgs(commonSearchProgram);
-
-    connect( mProc, SIGNAL( finished(int, QProcess::ExitStatus) ),
-             this, SLOT( searchExited(int, QProcess::ExitStatus) ) );
-
-    mSearchRunning = true;
-    mSearchResult.clear();
-    mStderr = QStringLiteral("<b>") + commonSearchProgram + QStringLiteral("</b>\n\n");
-
-    mProc->start();
-    if (!mProc->waitForStarted()) {
-      khcWarning() << "could not start search program '" << commonSearchProgram << "'";
-      delete mProc;
-      return false;
-    }
-
-    while (mSearchRunning && mProc->state() == QProcess::Running)
-      qApp->processEvents();
-
-    // no need to use signals/slots
-    mStderr += mProc->readAllStandardError();
-    mSearchResult += mProc->readAllStandardOutput();
-
-    if ( mProc->exitStatus() == KProcess::CrashExit || mProc->exitCode() != 0 ) {
-      khcWarning() << "Unable to run search program '" << commonSearchProgram << "'" << endl;
-      delete mProc;
-
-      return false;
-    }
-
-    delete mProc;
-
-    // modify the search result
-    mSearchResult = mSearchResult.replace("http://localhost/", "file:/");
-    mSearchResult = mSearchResult.mid( mSearchResult.indexOf( '<' ) );
-
-    mView->beginSearchResult();
-    mView->writeSearchResult( mSearchResult );
-    mView->endSearchResult();
-
-    emit searchFinished();
+  if ( !mView ) {
+    return false;
   }
+
+  QString txt = i18n("Search Results for '%1':", words.toHtmlEscaped() );
+
+  mStderr = "<b>" + txt + "</b>\n";
+
+  if ( mRootTraverser ) {
+    khcDebug() << "SearchEngine::search(): mRootTraverser not null.";
+    return false;
+  }
+  mRootTraverser = new SearchTraverser( this, 0 );
+  mRootTraverser->setWords( words );
+  DocMetaInfo::self()->startTraverseEntries( mRootTraverser );
 
   return true;
-}
-
-QString SearchEngine::substituteSearchQuery( const QString &query ) const
-{
-  QString result = query;
-  result.replace( QLatin1String("%k"), mWords );
-  result.replace( QLatin1String("%n"), QString::number( mMatches ) );
-  result.replace( QLatin1String("%m"), mMethod );
-  result.replace( QLatin1String("%l"), mLang );
-  QStringList scopeList;
-  scopeList.reserve( mScope.size() );
-  foreach ( const QString& scope, mScope ) {
-    scopeList += QLatin1String("scope=") + scope;
-  }
-  result.replace( QLatin1String("%s"), scopeList.join( QLatin1Char( '&' ) ) );
-
-  return result;
 }
 
 QString SearchEngine::substituteSearchQuery( const QString &query,

@@ -3,13 +3,10 @@
 #define KHC_SEARCHENGINE_H
 
 #include <QObject>
-#include <QProcess>
 #include <QMap>
 #include <QPair>
 
 #include "docentrytraverser.h"
-
-class KProcess;
 
 namespace KHC {
 
@@ -81,8 +78,6 @@ class SearchEngine : public QObject
     GrantleeFormatter *grantleeFormatter() const;
     View *view() const;
 
-    QString substituteSearchQuery( const QString &query ) const;
-
     static QString substituteSearchQuery( const QString &query,
       const QString &identifier, const QStringList &words, int maxResults,
       Operation operation, const QString &lang, const QString& binary );
@@ -113,14 +108,10 @@ class SearchEngine : public QObject
   Q_SIGNALS:
     void searchFinished();
 
-  protected Q_SLOTS:
-    void searchExited(int, QProcess::ExitStatus);
-
   protected:
     void processSearchQueue();
 
   private:
-    KProcess *mProc;
     bool mSearchRunning;
     QString mSearchResult;
 
@@ -131,7 +122,6 @@ class SearchEngine : public QObject
     QString mWords;
     int mMatches;
     QString mMethod;
-    QString mLang;
     QStringList mScope;
 
     QStringList mWordList;
