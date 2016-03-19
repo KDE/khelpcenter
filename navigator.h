@@ -66,8 +66,6 @@ class Navigator : public QWidget
     
     void createItemFromDesktopFile( NavigatorItem *item, const QString &name );
 
-    bool showMissingDocs() const;
-
     void clearSelection();
 
     void showOverview( NavigatorItem *item, const QUrl &url );
@@ -124,8 +122,6 @@ class Navigator : public QWidget
     KLineEdit *mSearchEdit;
     QPushButton *mSearchButton;
 
-    bool mShowMissingDocs;
-    
     SearchEngine *mSearchEngine;
 
     View *mView;

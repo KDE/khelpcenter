@@ -58,7 +58,7 @@ void PluginTraverser::process( DocEntry *entry )
     return;
   }
 
-  if ( !entry->docExists() && !mNavigator->showMissingDocs() )
+  if ( !entry->docExists() && !Prefs::showMissingDocs() )
     return;
 
   if ( entry->khelpcenterSpecial().isEmpty() ) {

@@ -69,8 +69,6 @@ Navigator::Navigator( View *view, QWidget *parent )
    : QWidget( parent ),
      mView( view ), mSelected( false ), mIndexingProc( 0 )
 {
-    mShowMissingDocs = Prefs::showMissingDocs();
-
     mSearchEngine = new SearchEngine( view );
     connect(mSearchEngine, &SearchEngine::searchFinished, this, &Navigator::slotSearchFinished);
 
@@ -128,11 +126,6 @@ Navigator::~Navigator()
 SearchEngine *Navigator::searchEngine() const
 {
   return mSearchEngine;
-}
-
-bool Navigator::showMissingDocs() const
-{
-  return mShowMissingDocs;
 }
 
 void Navigator::setupContentsTab()
