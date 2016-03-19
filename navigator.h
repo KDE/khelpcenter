@@ -102,7 +102,7 @@ class Navigator : public QWidget
     void slotShowIndexingProgressBar();
 
   protected:
-    QString createChildrenList( QTreeWidgetItem *child );
+    static QString createChildrenList( QTreeWidgetItem *child, int level );
 
   private:
     void setupContentsTab();
@@ -135,8 +135,6 @@ class Navigator : public QWidget
     bool mSelected;
 
     QUrl mLastUrl;
-
-    int mDirLevel;
 
     DocEntry::List mIndexingQueue;
     KProcess *mIndexingProc;

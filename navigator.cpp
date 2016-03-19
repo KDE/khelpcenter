@@ -451,9 +451,7 @@ void Navigator::showOverview( NavigatorItem *item, const QUrl &url )
     if ( item ) child = item;
     else child = mContentsTree->invisibleRootItem();
 
-    mDirLevel = 0;
-
-    content += createChildrenList( child );
+    content += createChildrenList( child, 0 );
   }
   else
     content += QLatin1String("<p></p>");
@@ -463,10 +461,8 @@ void Navigator::showOverview( NavigatorItem *item, const QUrl &url )
   mView->end();
 }
 
-QString Navigator::createChildrenList( QTreeWidgetItem *child )
+QString Navigator::createChildrenList( QTreeWidgetItem *child, int level )
 {
-  ++mDirLevel;
-
   QString t;
 
   t += QLatin1String("<ul>\n");
@@ -488,8 +484,8 @@ QString Navigator::createChildrenList( QTreeWidgetItem *child )
       t += QLatin1String("<br>") + e->info();
     }
 
-    if ( childItem->childCount() > 0 && mDirLevel < 2 ) {
-      t += createChildrenList( childItem );
+    if ( childItem->childCount() > 0 && level < 1 ) {
+      t += createChildrenList( childItem, level + 1 );
     }
 
     t += QLatin1String("</li>\n");
@@ -497,8 +493,6 @@ QString Navigator::createChildrenList( QTreeWidgetItem *child )
   }
 
   t += QLatin1String("</ul>\n");
-
-  --mDirLevel;
 
   return t;
 }
