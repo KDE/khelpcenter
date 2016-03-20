@@ -29,6 +29,7 @@
 #include "htmlsearch.h"
 #include "docentrytraverser.h"
 #include <KLocalizedString>
+#include <ki18n_version.h>
 
 using namespace KHC;
 
@@ -150,7 +151,11 @@ void DocMetaInfo::scanMetaInfo( bool force )
 {
   if ( mLoaded && !force ) return;
 
+#if KI18N_VERSION >= QT_VERSION_CHECK(5, 20, 0)
+  QStringList langs = KLocalizedString::languages();
+#else
   QStringList langs = QLocale().uiLanguages();
+#endif
   mDefaultLanguage = langs.first();
 
   QStringList::ConstIterator it;
