@@ -333,7 +333,7 @@ void SearchWidget::scopeClicked( QTreeWidgetItem* )
   mScopeCombo->setCurrentIndex( ScopeCustom );
 }
 
-QString SearchWidget::scopeSelectionLabel( int id ) const
+QString SearchWidget::scopeSelectionLabel( int id )
 {
   switch( id ) {
     case ScopeCustom:

@@ -51,8 +51,6 @@ class SearchWidget : public QWidget
 
     enum { ScopeDefault, ScopeAll, ScopeNone, ScopeCustom, ScopeNum };
 
-    QString scopeSelectionLabel( int ) const;
-
     void readConfig( KConfig * );
     void writeConfig( KConfig * );
 
@@ -71,6 +69,7 @@ class SearchWidget : public QWidget
 
   protected:
     void checkScope();
+    static QString scopeSelectionLabel( int );
 
   protected Q_SLOTS:
     void scopeDoubleClicked( QTreeWidgetItem* );

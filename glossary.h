@@ -104,7 +104,7 @@ namespace KHC {
       int glossaryCTime() const;
       void rebuildGlossaryCache();
       void buildGlossaryTree();
-      QDomElement childElement( const QDomElement &e, const QString &name );
+      static QDomElement childElement( const QDomElement &e, const QString &name );
 
       QTreeWidgetItem *m_byTopicItem;
       QTreeWidgetItem *m_alphabItem;
