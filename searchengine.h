@@ -108,9 +108,6 @@ class SearchEngine : public QObject
   Q_SIGNALS:
     void searchFinished();
 
-  protected:
-    void processSearchQueue();
-
   private:
     bool mSearchRunning;
     QString mSearchResult;
