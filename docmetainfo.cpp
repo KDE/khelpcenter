@@ -28,6 +28,7 @@
 
 #include "docentrytraverser.h"
 #include <KLocalizedString>
+#include <ki18n_version.h>
 
 using namespace KHC;
 
@@ -146,7 +147,11 @@ void DocMetaInfo::scanMetaInfo( bool force )
 {
   if ( mLoaded && !force ) return;
 
+#if KI18N_VERSION >= QT_VERSION_CHECK(5, 20, 0)
+  mLanguages = KLocalizedString::languages();
+#else
   mLanguages = QLocale().uiLanguages();
+#endif
 
   QStringList::ConstIterator it;
 
