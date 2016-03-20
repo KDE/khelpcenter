@@ -31,8 +31,6 @@
 #include <QTextStream>
 #include <QIcon>
 
-#include <stdlib.h>  // for getenv()
-
 using namespace KHC;
 
 class InfoCategoryItem : public NavigatorItem
@@ -95,7 +93,7 @@ void InfoTree::build( NavigatorItem *parent )
 
   QStringList infoDirFiles = Prefs::searchpaths();
 
-  QString infoPath = ::getenv( "INFOPATH" );
+  const QString infoPath = QFile::decodeName( qgetenv( "INFOPATH" ) );
   if ( !infoPath.isEmpty() )
     infoDirFiles += infoPath.split( ':');
 
