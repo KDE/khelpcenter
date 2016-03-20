@@ -130,8 +130,6 @@ class Navigator : public QWidget
     
     bool mSelected;
 
-    QUrl mLastUrl;
-
     DocEntry::List mIndexingQueue;
     KProcess *mIndexingProc;
     QProgressBar *mIndexingBar;

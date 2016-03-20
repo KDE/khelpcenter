@@ -384,8 +384,6 @@ void Navigator::slotItemSelected( QTreeWidgetItem *currentItem )
    
     emit itemSelected( url.url() );
   }
-
-  mLastUrl = url;
 }
 
 void Navigator::slotItemExpanded( QTreeWidgetItem *item )
