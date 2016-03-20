@@ -73,8 +73,7 @@ void NavigatorAppGroupItem::itemExpanded(bool open)
 
   if ( open && (childCount() == 0) && !mPopulated )
   {
-     khcDebug() << "NavigatorAppGroupItem::itemExpanded(" << this << ", "
-               << mRelpath << ")" << endl;
+     khcDebug() << "  -> populate:" << this << "-" << mRelpath;
      populate();
   }
   NavigatorItem::itemExpanded(open);
@@ -86,7 +85,7 @@ void NavigatorAppGroupItem::populate( bool recursive )
 
   KServiceGroup::Ptr root = KServiceGroup::group(mRelpath);
   if ( !root ) {
-    khcWarning() << "No Service groups\n";
+    khcWarning() << "No Service groups for" << mRelpath;
     return;
   }
   KServiceGroup::List list = root->entries();

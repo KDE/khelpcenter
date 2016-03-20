@@ -17,16 +17,14 @@ SearchTraverser::SearchTraverser( SearchEngine *engine, int level ) :
   mMaxLevel( 999 ), mEngine( engine), mLevel( level ), mResultsPtr( &mResults )
 {
 #if 0
-  khcDebug() << "SearchTraverser(): " << mLevel
-    << "  0x" << QString::number( int( this ), 16 ) << endl;
+  khcDebug() << "SearchTraverser():" << mLevel << this;
 #endif
 }
 
 SearchTraverser::~SearchTraverser()
 {
 #if 0
-    khcDebug() << "~SearchTraverser(): " << mLevel
-      << "  0x" << QString::number( int( this ), 16 ) << endl;
+    khcDebug() << "~SearchTraverser():" << mLevel << this;
 #endif
 }
 
@@ -37,16 +35,15 @@ void SearchTraverser::process( DocEntry * )
 
 void SearchTraverser::startProcess( DocEntry *entry )
 {
-//  khcDebug() << "SearchTraverser::startProcess(): " << entry->name() << "  "
-//    << "SEARCH: '" << entry->search() << "'" << endl;
+//  khcDebug() << "SearchTraverser::startProcess():" << entry->name()
+//    << "SEARCH:" << entry->search();
 
   if ( !mEngine->canSearch( entry ) || !entry->searchEnabled() ) {
     mNotifyee->endProcess( entry, this );
     return;
   }
 
-//  khcDebug() << "SearchTraverser::startProcess(): " << entry->identifier()
-//    << endl;
+//  khcDebug() << "SearchTraverser::startProcess():" << entry->identifier();
 
   SearchHandler *handler = mEngine->handler( entry->documentType() );
 
@@ -90,8 +87,7 @@ void SearchTraverser::disconnectHandler( SearchHandler *handler )
   QMap<SearchHandler *,int>::Iterator it;
   it = mConnectCount.find( handler );
   if ( it == mConnectCount.end() ) {
-    khcWarning() << "SearchTraverser::disconnectHandler() handler not connected."
-      << endl;
+    khcWarning() << "SearchTraverser::disconnectHandler() handler not connected.";
   } else {
     int count = *it;
     --count;
@@ -144,8 +140,7 @@ void SearchTraverser::deleteTraverser()
 
 void SearchTraverser::showSearchError( SearchHandler *handler, DocEntry *entry, const QString &error )
 {
-//  khcDebug() << "SearchTraverser::showSearchError(): " << entry->name()
-//    << endl;
+//  khcDebug() << "SearchTraverser::showSearchError():" << entry->name();
 
   mResultsPtr->append( qMakePair( entry, error ) );
 
@@ -158,8 +153,7 @@ void SearchTraverser::showSearchError( SearchHandler *handler, DocEntry *entry, 
 
 void SearchTraverser::showSearchResult( SearchHandler *handler, DocEntry *entry, const QString &result )
 {
-//  khcDebug() << "SearchTraverser::showSearchResult(): " << entry->name()
-//    << endl;
+//  khcDebug() << "SearchTraverser::showSearchResult():" << entry->name();
 
   mResultsPtr->append( qMakePair( entry, result ) );
 

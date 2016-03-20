@@ -146,7 +146,7 @@ void History::updateCurrentEntry( View *view )
   }
 
   khcDebug() << "History::updateCurrentEntry(): " << view->title()
-            << " (URL: " << url.url() << ")" << endl;
+            << " (URL: " << url.url() << ")";
 
   current->url = url;
   current->title = view->title();
@@ -217,7 +217,7 @@ void History::goHistory( int steps )
   
   current = *newPos;
   if ( !current ) {
-    khcWarning() << "No History entry at position " << newPos - m_entries.begin() << endl;
+    khcWarning() << "No History entry at position " << newPos - m_entries.begin();
     return;
   }
 

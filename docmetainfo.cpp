@@ -245,14 +245,13 @@ void DocMetaInfo::startTraverseEntry( DocEntry *entry,
 {
   if ( !traverser ) 
   {
-    khcDebug() << "DocMetaInfo::startTraverseEntry(): ERROR. No Traverser."
-              << endl;
+    khcWarning() << "DocMetaInfo::startTraverseEntry(): ERROR. No Traverser.";
     return;
   }
 
   if ( !entry ) 
   {
-    khcDebug() << "DocMetaInfo::startTraverseEntry(): no entry.";
+    khcWarning() << "DocMetaInfo::startTraverseEntry(): no entry.";
     endTraverseEntries( traverser );
     return;
   }

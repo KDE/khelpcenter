@@ -16,9 +16,9 @@ class MyTraverser : public DocEntryTraverser
       qDebug() << mIndent.constData() << entry->name() << " - WEIGHT: " << entry->weight();
 #if 0
       if ( entry->parent() ) qDebug() << mIndent << "  PARENT: "
-                                       << entry->parent()->name() << endl;
+                                       << entry->parent()->name();
       if ( entry->nextSibling() ) qDebug() << mIndent << "  NEXT: "
-                                       << entry->nextSibling()->name() << endl;
+                                       << entry->nextSibling()->name();
 #endif
     }
   

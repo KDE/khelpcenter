@@ -367,7 +367,7 @@ void Navigator::slotItemSelected( QTreeWidgetItem *currentItem )
 
   NavigatorItem *item = static_cast<NavigatorItem *>( currentItem );
 
-  khcDebug() << item->entry()->name() << endl;
+  khcDebug() << item->entry()->name();
 
   item->setExpanded( !item->isExpanded() );
 

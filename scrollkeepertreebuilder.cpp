@@ -63,14 +63,14 @@ void ScrollKeeperTreeBuilder::build( NavigatorItem *parent )
   proc.setOutputChannelMode(KProcess::OnlyStdoutChannel);
   proc.start();
   if ( !proc.waitForFinished() ) {
-    khcDebug() << "Could not execute scrollkeeper-get-content-list";
+    khcWarning() << "Could not execute scrollkeeper-get-content-list";
     return;
   }
   mContentsList = proc.readAllStandardOutput().trimmed();
 
   if (!QFile::exists(mContentsList)) {
-    khcDebug() << "Scrollkeeper contents file '" << mContentsList
-      << "' does not exist." << endl;
+    khcWarning() << "Scrollkeeper contents file" << mContentsList
+      << "does not exist.";
     return;
   }
 
