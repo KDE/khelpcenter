@@ -261,7 +261,7 @@ class ScopeTraverser : public DocEntryTraverser
 
     DocEntryTraverser *createChild( DocEntry *entry )
     {
-      if ( mLevel >= mNestingLevel ) {
+      if ( mLevel >= MaxNestingLevel ) {
         ++mLevel;
         return this;
       } else {
@@ -277,13 +277,13 @@ class ScopeTraverser : public DocEntryTraverser
 
     DocEntryTraverser *parentTraverser()
     {
-      if ( mLevel > mNestingLevel ) return this;
+      if ( mLevel > MaxNestingLevel ) return this;
       else return mParent;
     }
 
     void deleteTraverser()
     {
-      if ( mLevel > mNestingLevel ) --mLevel;
+      if ( mLevel > MaxNestingLevel ) --mLevel;
       else delete this;
     }
 
@@ -293,11 +293,9 @@ class ScopeTraverser : public DocEntryTraverser
     QTreeWidgetItem *mParentItem;
     QHash<DocEntry *, QTreeWidgetItem *> mItems;
 
-    static int mNestingLevel;
+    enum { MaxNestingLevel = 2 };
     enum { TemporaryItem = QTreeWidgetItem::UserType + 100 };
 };
-
-int ScopeTraverser::mNestingLevel = 2;
 
 void SearchWidget::searchIndexUpdated()
 {
