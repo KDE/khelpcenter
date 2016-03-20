@@ -20,7 +20,6 @@
 
 #include "docmetainfo.h"
 
-#include "prefs.h"
 #include "khc_debug.h"
 
 #include <KConfig>
@@ -29,6 +28,8 @@
 #include "docentrytraverser.h"
 #include <KLocalizedString>
 #include <ki18n_version.h>
+
+#include <prefs.h>
 
 using namespace KHC;
 

@@ -24,12 +24,13 @@
 #include "navigatorappgroupitem.h"
 #include "navigatoritem.h"
 #include "khc_debug.h"
-#include "prefs.h"
 
 #include <KConfig>
 #include <KConfigGroup>
 
 #include <QIcon>
+
+#include <prefs.h>
 
 using namespace KHC;
 

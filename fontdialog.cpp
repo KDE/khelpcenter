@@ -20,7 +20,6 @@
  */
 
 #include "fontdialog.h"
-#include "prefs.h"
 
 #include <KCharsets>
 #include <KComboBox>
@@ -40,6 +39,8 @@
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
+
+#include <prefs.h>
 
 using namespace KHC;
 

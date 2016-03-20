@@ -23,13 +23,14 @@
 #include "navigatoritem.h"
 #include "docentry.h"
 #include "khc_debug.h"
-#include "prefs.h"
 
 #include <KProcess>
 
 #include <QDomDocument>
 #include <QFile>
 #include <QStandardPaths>
+
+#include <prefs.h>
 
 using namespace KHC;
 

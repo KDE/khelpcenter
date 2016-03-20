@@ -33,9 +33,10 @@
 
 #include "scopeitem.h"
 #include "docentrytraverser.h"
-#include "prefs.h"
 #include "searchengine.h"
 #include "khc_debug.h"
+
+#include <prefs.h>
 
 namespace KHC {
 

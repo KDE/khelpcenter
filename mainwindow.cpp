@@ -29,7 +29,6 @@
 #include "navigator.h"
 #include "grantleeformatter.h"
 #include "bookmarkowner.h"
-#include "prefs.h"
 
 #include <QAction>
 #include <KActionCollection>
@@ -61,6 +60,8 @@
 #include <QPushButton>
 
 #include <kio/job.h>
+
+#include <prefs.h>
 
 using namespace KHC;
 

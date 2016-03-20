@@ -8,7 +8,8 @@
 #include "searchhandler.h"
 #include "khc_debug.h"
 #include "grantleeformatter.h"
-#include "prefs.h"
+
+#include <prefs.h>
 
 namespace KHC
 {

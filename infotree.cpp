@@ -23,13 +23,14 @@
 #include "navigatoritem.h"
 #include "docentry.h"
 #include "khc_debug.h"
-#include "prefs.h"
 
 #include <KLocalizedString>
 
 #include <QFile>
 #include <QTextStream>
 #include <QIcon>
+
+#include <prefs.h>
 
 using namespace KHC;
 

@@ -22,7 +22,6 @@
 #include "glossary.h"
 #include "view.h"
 #include "khc_debug.h"
-#include "prefs.h"
 
 #include <KXmlGuiWindow>
 #include <KProcess>
@@ -39,6 +38,8 @@
 #include <QDir>
 #include <QFileInfo>
 #include <QIcon>
+
+#include <prefs.h>
 
 using namespace KHC;
 

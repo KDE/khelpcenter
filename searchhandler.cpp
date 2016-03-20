@@ -21,7 +21,6 @@
 
 #include "searchhandler.h"
 
-#include "prefs.h"
 #include "docentry.h"
 #include "khc_debug.h"
 
@@ -30,6 +29,8 @@
 #include <KShell>
 #include <KLocalizedString>
 #include <kio/job.h>
+
+#include <prefs.h>
 
 using namespace KHC;
 

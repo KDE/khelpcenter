@@ -22,8 +22,7 @@
 #ifndef KHC_TREEBUILDER_H
 #define KHC_TREEBUILDER_H
 
-#include "QtCore/QObject"
-
+#include <QObject>
 #include <QUrl>
 
 namespace KHC
