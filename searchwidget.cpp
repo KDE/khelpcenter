@@ -26,6 +26,7 @@
 #include <QComboBox>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
+#include <QHash>
 
 #include <KConfig>
 #include <KLocalizedString>
@@ -241,24 +242,20 @@ QStringList SearchWidget::scope() const
 class ScopeTraverser : public DocEntryTraverser
 {
   public:
-    ScopeTraverser( SearchWidget *widget, int level ) :
-      mWidget( widget ), mLevel( level ), mParentItem( 0 ) {}
+    ScopeTraverser( SearchEngine *engine, QTreeWidgetItem *parentItem, int level ) :
+      mEngine( engine ), mLevel( level ), mParentItem( parentItem ) {}
 
     ~ScopeTraverser()
     {
-      if( mParentItem && !mParentItem->childCount() ) delete mParentItem;
+      if( mParentItem->type() == TemporaryItem && !mParentItem->childCount() ) delete mParentItem;
     }
 
     void process( DocEntry *entry )
     {
-      if ( mWidget->engine()->canSearch( entry ) ) {
-        ScopeItem *item = 0;
-        if ( mParentItem ) {
-          item = new ScopeItem( mParentItem, entry );
-        } else {
-          item = new ScopeItem( mWidget->listView(), entry );
-        }
+      if ( mEngine->canSearch( entry ) ) {
+        ScopeItem *item = new ScopeItem( mParentItem, entry );
         item->setOn( entry->searchEnabled() );
+        mItems.insert( entry, item );
       }
     }
 
@@ -268,15 +265,12 @@ class ScopeTraverser : public DocEntryTraverser
         ++mLevel;
         return this;
       } else {
-        ScopeTraverser *t = new ScopeTraverser( mWidget, mLevel + 1 );
-        QTreeWidgetItem *item = 0;
-        if ( mParentItem ) {
-          item = new QTreeWidgetItem( mParentItem, QStringList() << entry->name() );
-        } else {
-          item = new QTreeWidgetItem( mWidget->listView(), QStringList() << entry->name() );
+        QTreeWidgetItem *item = mItems.value( entry );
+        if ( !item ) {
+          item = new QTreeWidgetItem( mParentItem, QStringList() << entry->name(), TemporaryItem );
         }
         item->setExpanded( true );
-        t->mParentItem = item;
+        ScopeTraverser *t = new ScopeTraverser( mEngine, item, mLevel + 1 );
         return t;
       }
     }
@@ -294,11 +288,13 @@ class ScopeTraverser : public DocEntryTraverser
     }
 
   private:
-    SearchWidget *mWidget;
+    SearchEngine *mEngine;
     int mLevel;
     QTreeWidgetItem *mParentItem;
+    QHash<DocEntry *, QTreeWidgetItem *> mItems;
 
     static int mNestingLevel;
+    enum { TemporaryItem = QTreeWidgetItem::UserType + 100 };
 };
 
 int ScopeTraverser::mNestingLevel = 2;
@@ -314,7 +310,7 @@ void SearchWidget::updateScopeList()
 {
   mScopeListView->clear();
 
-  ScopeTraverser t( this, 0 );
+  ScopeTraverser t( mEngine, mScopeListView->invisibleRootItem(), 0 );
   DocMetaInfo::self()->traverseEntries( &t );
 
   checkScope();

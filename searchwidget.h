@@ -49,8 +49,6 @@ class SearchWidget : public QWidget
     int pages() const;
     QStringList scope() const;
 
-    QTreeWidget *listView() const { return mScopeListView; }
-
     enum { ScopeDefault, ScopeAll, ScopeNone, ScopeCustom, ScopeNum };
 
     QString scopeSelectionLabel( int ) const;
@@ -59,8 +57,6 @@ class SearchWidget : public QWidget
     void writeConfig( KConfig * );
 
     int scopeCount() const;
-
-    SearchEngine *engine() const { return mEngine; }
 
     void searchIndexUpdated();
 

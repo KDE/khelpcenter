@@ -29,10 +29,6 @@ namespace KHC {
 class ScopeItem : public QTreeWidgetItem
 {
   public:
-    ScopeItem( QTreeWidget *parent, DocEntry *entry )
-        : QTreeWidgetItem( parent, QStringList() << entry->name(), ScopeItemType ),
-          mEntry( entry ) { init(); }
-
     ScopeItem( QTreeWidgetItem *parent, DocEntry *entry )
       : QTreeWidgetItem( parent, QStringList() << entry->name(), ScopeItemType ),
         mEntry( entry ) { init(); }
