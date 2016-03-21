@@ -118,7 +118,7 @@ class Navigator : public QWidget
 
     QTabWidget *mTabWidget;
 
-    QFrame *mSearchFrame;
+    QWidget *mSearchLineEditWidget;
     KLineEdit *mSearchEdit;
     QPushButton *mSearchButton;
 

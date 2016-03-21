@@ -77,19 +77,19 @@ Navigator::Navigator( View *view, QWidget *parent )
 
     QBoxLayout *topLayout = new QVBoxLayout( this );
 
-    mSearchFrame = new QFrame( this );
-    topLayout->addWidget( mSearchFrame );
+    mSearchLineEditWidget = new QWidget( this );
+    topLayout->addWidget( mSearchLineEditWidget );
 
-    QBoxLayout *searchLayout = new QHBoxLayout( mSearchFrame );
+    QBoxLayout *searchLayout = new QHBoxLayout( mSearchLineEditWidget );
     searchLayout->setMargin( 6 );
 
-    mSearchEdit = new KLineEdit( mSearchFrame );
+    mSearchEdit = new KLineEdit( mSearchLineEditWidget );
     mSearchEdit->setClearButtonShown(true);
     searchLayout->addWidget( mSearchEdit );
     connect(mSearchEdit, &KLineEdit::returnPressed, this, &Navigator::slotSearch);
     connect(mSearchEdit, &KLineEdit::textChanged, this, &Navigator::checkSearchButton);
 
-    mSearchButton = new QPushButton( i18n("&Search"), mSearchFrame );
+    mSearchButton = new QPushButton( i18n("&Search"), mSearchLineEditWidget );
     searchLayout->addWidget( mSearchButton );
     connect(mSearchButton, &QPushButton::clicked, this, &Navigator::slotSearch);
 
@@ -545,7 +545,7 @@ void Navigator::checkSearchButton()
 
 void Navigator::hideSearch()
 {
-  mSearchFrame->hide();
+  mSearchLineEditWidget->hide();
   mTabWidget->removeTab( mTabWidget->indexOf( mSearchWidget ) );
 }
 
