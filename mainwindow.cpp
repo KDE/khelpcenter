@@ -72,26 +72,18 @@ class LogDialog : public QDialog
       : QDialog( parent )
     {
       setWindowTitle( i18n("Search Error Log") );
-      QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok);
-      QVBoxLayout *mainLayout = new QVBoxLayout;
-      setLayout(mainLayout);
-      QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
-      okButton->setDefault(true);
-      okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-      connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
-      connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
 
-      QFrame *topFrame = new QFrame( this );
-      mainLayout->addWidget(topFrame);
-      mainLayout->addWidget(buttonBox);
+      QVBoxLayout *mainLayout = new QVBoxLayout( this );
 
-      QBoxLayout *topLayout = new QVBoxLayout( topFrame );
-
-      mTextView = new QTextEdit( topFrame );
-      mTextView->setReadOnly ( true );
+      mTextView = new QTextEdit( this );
+      mTextView->setReadOnly( true );
       mTextView->setWordWrapMode( QTextOption::NoWrap );
-      topLayout->addWidget( mTextView );
-      
+      mainLayout->addWidget( mTextView );
+
+      QDialogButtonBox *buttonBox = new QDialogButtonBox( QDialogButtonBox::Close );
+      connect( buttonBox, SIGNAL( accepted() ), this, SLOT( accept() ) );
+      connect( buttonBox, SIGNAL( rejected() ), this, SLOT( reject() ) );
+      mainLayout->addWidget( buttonBox );
 
       KConfigGroup cg = KSharedConfig::openConfig()->group( "logdialog" );
       KWindowConfig::restoreWindowSize( windowHandle(), cg );
