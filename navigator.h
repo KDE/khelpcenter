@@ -28,7 +28,6 @@
 #include <QTimer>
 #include <QProcess>
 
-class QFrame;
 class QProgressBar;
 class QPushButton;
 class QTabWidget;

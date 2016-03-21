@@ -50,7 +50,6 @@
 #include <QSplitter>
 #include <QTextEdit>
 #include <QVBoxLayout>
-#include <QFrame>
 #include <QList>
 #include <QMimeDatabase>
 #include <QStatusBar>

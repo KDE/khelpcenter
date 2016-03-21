@@ -24,7 +24,6 @@
 #include <QFile>
 #include <QTextStream>
 #include <QPushButton>
-#include <QFrame>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QTreeWidgetItemIterator>

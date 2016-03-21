@@ -29,7 +29,6 @@
 
 #include <QTreeWidgetItem>
 
-#include <QFrame>
 #include <qapplication.h>
 #include <QTextStream>
 
