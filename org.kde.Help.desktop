@@ -99,6 +99,8 @@ Name[xh]=Uncedo
 Name[x-test]=xxHelpxx
 Name[zh_CN]=帮助
 Name[zh_TW]=求助
+GenericName=Help Center
+Comment=Browse and search documentation
 
 Categories=Qt;KDE;Core;
 OnlyShowIn=KDE;
