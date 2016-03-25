@@ -1,8 +1,6 @@
 
 #include "searchengine.h"
 
-#include <QMessageBox>
-
 #include "docmetainfo.h"
 #include "view.h"
 #include "searchhandler.h"
@@ -210,7 +208,7 @@ bool SearchEngine::initSearchHandlers()
     khcDebug() << "SearchEngine::initSearchHandlers(): " << filename;
     SearchHandler *handler = SearchHandler::initFromFile( filename );
     if ( !handler ) {
-     QMessageBox::warning( mView->widget(), i18n("Handler"), i18n("Unable to initialize SearchHandler from file '%1'.", filename ) );
+      khcWarning() << "Unable to initialize SearchHandler from" << filename;
     } else {
       QStringList documentTypes = handler->documentTypes();
       QStringList::ConstIterator it;
