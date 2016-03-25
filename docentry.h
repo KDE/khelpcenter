@@ -97,18 +97,19 @@ namespace KHC {
       mutable QString mIdentifier;
       QString mIndexer;
       QString mIndexTestFile;
-      int mWeight;
       QString mSearchMethod;
-      bool mSearchEnabled;
-      bool mSearchEnabledDefault;
       QString mDocumentType;
-      bool mDirectory;
 
       QString mKhelpcenterSpecial;
 
       List mChildren;
       DocEntry *mParent;
       DocEntry *mNextSibling;
+
+      int mWeight;
+      bool mSearchEnabled : 1;
+      bool mSearchEnabledDefault : 1;
+      bool mDirectory : 1;
   };
 
 }
