@@ -5,6 +5,7 @@
 #include <QObject>
 #include <QMap>
 #include <QPair>
+#include <QSharedPointer>
 
 #include "docentrytraverser.h"
 
@@ -127,7 +128,7 @@ class SearchEngine : public QObject
 
     SearchTraverser *mRootTraverser;
 
-    QMap<QString, SearchHandler *> mHandlers;
+    QMap<QString, QSharedPointer<SearchHandler> > mHandlers;
 };
 
 }
