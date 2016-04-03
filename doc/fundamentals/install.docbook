@@ -115,7 +115,7 @@ have no trouble compiling it. Should you run into problems please report them to
 &kde; mailing lists.</para>
 
 <para>The recommended tool to build Frameworks and &plasma; Workspace 5 and Applications is 
-<ulink url="https://projects.kde.org/projects/extragear/utils/kdesrc-build">kdesrc-build</ulink>
+<ulink url="https://quickgit.kde.org/?p=kdesrc-build.git">kdesrc-build</ulink>
 </para>
 </sect2>
 <!--FIXME more info:
