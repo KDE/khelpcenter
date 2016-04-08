@@ -188,7 +188,6 @@ SearchEngine::SearchEngine( View *destination )
 SearchEngine::~SearchEngine()
 {
   delete mRootTraverser;
-  qDeleteAll( mHandlers );
 }
 
 bool SearchEngine::initSearchHandlers()
@@ -206,7 +205,7 @@ bool SearchEngine::initSearchHandlers()
   for( it = resources.constBegin(); it != resources.constEnd(); ++it ) {
     QString filename = *it;
     khcDebug() << "SearchEngine::initSearchHandlers(): " << filename;
-    SearchHandler *handler = SearchHandler::initFromFile( filename );
+    QSharedPointer<SearchHandler> handler( SearchHandler::initFromFile( filename ) );
     if ( !handler ) {
       khcWarning() << "Unable to initialize SearchHandler from" << filename;
     } else {
@@ -219,9 +218,6 @@ bool SearchEngine::initSearchHandlers()
         // ones
         if ( !mHandlers.contains( *it ) ) {
           mHandlers.insert( *it, handler );
-        } else {
-          // not keeping "handler", delete it
-          delete handler;
         }
       }
     }
@@ -326,7 +322,8 @@ bool SearchEngine::isRunning() const
 
 SearchHandler *SearchEngine::handler( const QString &documentType ) const
 {
-  return mHandlers.value( documentType, 0 );
+  QSharedPointer<SearchHandler> ptr = mHandlers.value( documentType );
+  return ptr ? ptr.data() : 0;
 }
 
 QStringList SearchEngine::words() const

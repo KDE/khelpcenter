@@ -46,6 +46,6 @@ for my $file (@docbook_files) {
 
 # Check for entries which are referenced but not defined.
 foreach my $entry (keys %referenced_entries) {
-  die "'$entry' referenced by not defined"
+  die "'$entry' referenced but not defined"
     unless defined($defined_entries{$entry});
 }
