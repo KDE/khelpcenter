@@ -8,8 +8,8 @@
 <title>Online Help</title>
 <articleinfo>
 
-<date>2010-05-13</date>
-<releaseinfo>&kde; 4.5</releaseinfo>
+<date>2016-04-17</date>
+<releaseinfo>Application 16.04</releaseinfo>
 
 </articleinfo>
 
@@ -88,7 +88,8 @@ Tips</ulink> in the forum.</para>
 <ulink url="http://docs.kde.org/">KDE Documentation site</ulink>&nbsp;</term>
 <listitem>
 <para>This page holds the complete KDE User Documentation in over 25 languages
-for the released and the development version of KDE SC.</para>
+for the released and the development version of &kde-frameworks;, &plasma-workspaces;
+and &applications;.</para>
 </listitem>
 </varlistentry>
 </variablelist>
