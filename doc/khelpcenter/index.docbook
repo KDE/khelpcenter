@@ -14,8 +14,8 @@
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 <legalnotice>&FDLNotice;</legalnotice>
-<date>2015-07-24</date>
-<releaseinfo>Plasma 5.4</releaseinfo>
+<date>2016-04-17</date>
+<releaseinfo>Applications 16.04</releaseinfo>
 
 <abstract>
 <para>
@@ -40,23 +40,21 @@ educational, graphics and software development.
 </keywordset>
 </bookinfo>
 
-<!-- ui-catalogs: khelpcenter desktop_kdebase kdelibs4 -->
-
 <chapter id="help-system-handbook">
 <title>&kde; Help System Handbook</title>
 <anchor id="help"/>
 
 <sect1 id="help-introduction">
-<title>&plasma; Help System</title>
+<title>Help System</title>
 	
-<para>The &plasma; help system is designed to make accessing the common
+<para>The help system is designed to make accessing the common
 &UNIX; help systems (<application>man</application> and
-<application>info</application>) simple, as well as the native &plasma; and applications 
-documentation (&XML;). 
+<application>info</application>) simple, as well as the user documentation of 
+applications including &plasma-workspaces; from the &kde; community (&XML;). 
 </para>
 
 <para>
-All &plasma; workspace and base &kde; applications come fully documented, thanks to the efforts of the
+All applications (including &plasma-workspaces;) from the &kde; community come fully documented, thanks to the efforts of the
 Documentation team. If you are interested in helping with the documentation
 efforts, join the
 <ulink url="https://mail.kde.org/mailman/listinfo/kde-doc-english">mailing
@@ -74,7 +72,7 @@ on the <ulink url="http://l10n.kde.org">Localization web site</ulink>.
 <title>Installation</title>
 
 <para>
-&khelpcenter; is a part of the &plasma; workspace.
+&khelpcenter; is a part of the &applications;.
 It can be found on the <ulink url="http://download.kde.org/">
 download site</ulink> of the &kde; project, or will be found in your
 operating system's &khelpcenter; package.
@@ -108,12 +106,13 @@ application's handbook.
 </varlistentry>
 
 <varlistentry>
-<term>From the Kickoff Application Launcher</term>
+<term>From the Application Launcher</term>
 <listitem>
 <para>
-Choose the big <guiicon>K</guiicon> in your panel, and select the
-<guimenuitem>Applications</guimenuitem> tab followed by selecting
-<guimenuitem>Help</guimenuitem> to open &khelpcenter;, which will open up to the
+Choose the big <guiicon>K</guiicon> in your panel, and select 
+<guimenuitem>Help</guimenuitem> from the <guimenuitem>Applications</guimenuitem> tab 
+or type <userinput>help</userinput> followed by selecting
+<guimenuitem>Help</guimenuitem>. This will open &khelpcenter; with the
 default start page.
 </para>
 </listitem> 
@@ -227,11 +226,12 @@ contents of either pane.
 </para> 
 
 <para>
-The contents pane is further divided into two
+The contents pane is further divided into three
 tabs, one containing a <link linkend="contents-tab">tree view</link>
 showing all the help information &khelpcenter; is aware of, and the
 other contains the &kde; <link linkend="kde-glossary">glossary</link>
 of terms.
+On the third tab you can configure the <guilabel>Search Options</guilabel>.
 </para>
 
 <sect3 id="contents-tab">
@@ -245,10 +245,10 @@ top level entries in the tree view:
 <variablelist>
 
 <varlistentry>
-<term><guilabel>&kde; Fundamentals</guilabel></term>
+<term><guilabel>Fundamentals</guilabel></term>
 <listitem>
-<para>The Fundamentals introduce you to the many features of the &kde; Software Collection and 
-describe many common tasks you can perform in all &kde; applications.
+<para>The Fundamentals introduce you to the many features of the &plasma-workspaces; and &applications; and 
+describe many common tasks you can perform in all &applications;.
 </para>
 </listitem>
 </varlistentry>
@@ -257,8 +257,7 @@ describe many common tasks you can perform in all &kde; applications.
 <term><guilabel>Plasma Manual</guilabel></term>
 <listitem>
 <para>
-The &plasma; Manual is the documentation for the most visible pillar of &kde;,
-the core interface to the desktop.
+The &plasma; Manual is the documentation for the &plasma-workspaces;.
 </para>
 </listitem>
 </varlistentry>
@@ -290,11 +289,11 @@ application you are looking for.
 </varlistentry>
 
 <varlistentry>
-<term><guilabel>Control Center Modules</guilabel></term>
+<term><guilabel>Settings Modules</guilabel> entities</term>
 <listitem>
 <para>
-Provides a list of links to various modules that are located in the &kde;
-&systemsettings; application.
+Provide a list of links to various modules in the &systemsettings; application or 
+to modules for &konqueror;, Filemanager or Browser.
 </para>
 </listitem>
 </varlistentry>
@@ -351,9 +350,9 @@ including <command>gcc</command> (the C/C++ compiler),
 </variablelist>
 
 </sect3>
-<!-- 
+
 <sect3 id="search">
-<title>The <guilabel>Search</guilabel> tab</title>
+<title>The <guilabel>Search Options</guilabel> tab</title>
 
 <para>
 Searching the help files is fairly intuitive, enter the word(s) you wish
@@ -361,6 +360,10 @@ to search for in the text box, choose your options (if any), and press
 <guibutton>Search</guibutton>.  The results display in the viewer pane
 to the right.
 </para>
+<note><para>Search is not case sensitive, &ie; uppercase and lowercase characters are considered the same. For
+example, if you search for <quote>Shortcut</quote>, results that contain
+<quote>shortcut</quote> will be returned as well.</para></note>
+<!--no wildcards? -->
 
 <para>The options available are:</para>
 
@@ -411,28 +414,17 @@ carefully you haven't excluded the wrong search term with an errand
 search.</para></listitem>
 </varlistentry>
 <varlistentry>
-<term><guilabel>Format</guilabel></term>
-<listitem><para>Decide if you want just a short link to the page
-containing your search terms, or do you want a longer
-summary.</para></listitem> 
+<term><guilabel>Scope selection</guilabel></term>
+<listitem><para>This is used to select the sections where the search will be done.
+The available options quickly select the most common option, while 
+<guimenuitem>Custom</guimenuitem> allows one to select single sections.
+</para></listitem>
 </varlistentry>
-<varlistentry>
-<term><guilabel>Sort</guilabel></term>
-<listitem><para>Sort the results in order of <guilabel>Score</guilabel> (how
-closely your search terms were matched,) alphabetically by
-<guilabel>Title</guilabel> or by <guilabel>Date</guilabel>.  Selecting the
-<guilabel>Reverse order</guilabel> check box, naturally enough, reverses the
-sort order of the results.</para></listitem>
-</varlistentry>
-<varlistentry>
-<term><guilabel>Update index</guilabel></term>
-<listitem><para>Update the search index, to incorporate new documents,
-or if you think your database is incomplete or damaged.  This may take
-some time.</para></listitem>
-</varlistentry>
+
 </variablelist>
+
 </sect3>
--->
+
 
 </sect2>
 
@@ -801,9 +793,6 @@ entry, you can work your way forward again with this menu
 entry.</para>
 </listitem>
 </varlistentry>
-<!--
-Last Search Result
--->
 </variablelist>
 </listitem>
 </varlistentry>
@@ -829,21 +818,6 @@ Allows you to configure the font family and size used by &khelpcenter;.
 </para>
 </listitem>
 </varlistentry>
-<!--
-<varlistentry>
-<term>
-<menuchoice>
-<guimenu>Settings</guimenu>
-<guimenuitem>Build Search Index...</guimenuitem>
-</menuchoice>
-</term>
-<listitem>
-<para>
-If your distribution support this, you can build an index of search terms.
-</para>
-</listitem>
-</varlistentry>
--->
 </variablelist>
 </listitem>
 </varlistentry>
