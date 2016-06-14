@@ -1959,7 +1959,7 @@ window you have open on your screen.  These can be modified in the
 &systemsettings;</ulink>, where they are separated by &kde; component.</para>
 
 <para>The shortcuts described <link linkend="kbd-desktop">Working
-with the Desktop</link> are immutable and can be modified.</para>
+with the Desktop</link> are immutable and cannot be modified.</para>
 
 <para>The shortcuts described in <link linkend="kbd-docs">Working with
 Documents</link> and <link linkend="kbd-help">Getting Help</link> are set by
