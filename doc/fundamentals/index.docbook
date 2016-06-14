@@ -1,21 +1,9 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
 "dtd/kdedbx45.dtd" [
-  <!ENTITY kappname "&kde-sc;">
   <!ENTITY % addindex "IGNORE">
-  <!--FIXME: these entities should be added to kdoctools-->
-  <!ENTITY plasma-workspaces "&i18n-plasma-workspaces;">
-  <!ENTITY plasma-desktop "&i18n-plasma-desktop;">
-  <!ENTITY plasma-active "&i18n-plasma-active;">
-  <!ENTITY gwenview '<application>Gwenview</application>'>
-  <!ENTITY Meta "&i18n-Meta;">
-  <!--/end entities that need to be added to kdoctools-->
-  <!--make some of the above entities translatable in the interim-->
-  <!ENTITY i18n-plasma-workspaces "&kde; &plasma; Workspaces">
-  <!ENTITY i18n-plasma-desktop "<application>&kde; &plasma; Desktop</application>">
-  <!ENTITY i18n-plasma-active "<application>&plasma; Active</application>">
+  <!ENTITY Meta "&i18n-Meta;">     <!--FIXME should this be in en/user.entities? -->
   <!ENTITY i18n-Meta "<keysym>Meta</keysym>">
-  <!--/end temporary translatable entities-->
   <!ENTITY ui-chapter SYSTEM "ui.docbook">
   <!ENTITY tasks-chapter SYSTEM "tasks.docbook">
   <!ENTITY config-chapter SYSTEM "config.docbook">
@@ -47,8 +35,8 @@
 </copyright>
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2015-07-30</date>
-<releaseinfo>&plasma; 5.4</releaseinfo>
+<date>2016-06-06</date>
+<releaseinfo>&plasma; 5.6</releaseinfo>
 
 <abstract>
 <para>This guide provides an introduction to the &kde; workspace and applications and describes many

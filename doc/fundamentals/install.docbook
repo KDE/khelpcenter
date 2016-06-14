@@ -82,13 +82,12 @@ documentation.</para>
 
 <sect2 id="install-mobile">
 <title>Mobile Devices</title>
-
-<para>&plasma-active; is an exciting initiative to bring a new &kde;
+<para><productname>Plasma Mobile</productname> is an exciting initiative to bring a new &kde;
 experience to mobile devices like smartphones or tablets.  Binary releases are
 provided for several different devices.</para>
 
 <para>For more information, visit
-<ulink url="http://plasma-active.org/">&plasma-active;</ulink>.</para>
+<ulink url="http://plasma-mobile.org/"><productname>Plasma Mobile</productname></ulink>.</para>
 
 </sect2>
 
@@ -108,14 +107,14 @@ of distributions that offer the &kde; workspace and applications on live media</
 <title>Building from Source Code</title>
 
 <para>For detailed information on how to compile and install &kde; workspace and
-applications see <ulink url="http://techbase.kde.org/">&kde; TechBase</ulink>.</para>
+applications see <ulink url="https://community.kde.org/Guidelines_and_HOWTOs/Build_from_source">Build from source</ulink>.</para>
 
 <para>Since &kde; software uses <command>cmake</command> you should
 have no trouble compiling it. Should you run into problems please report them to the
 &kde; mailing lists.</para>
 
 <para>The recommended tool to build Frameworks and &plasma; Workspace 5 and Applications is 
-<ulink url="https://quickgit.kde.org/?p=kdesrc-build.git">kdesrc-build</ulink>
+<ulink url="https://commits.kde.org/kdesrc-build">kdesrc-build</ulink>
 </para>
 </sect2>
 <!--FIXME more info:

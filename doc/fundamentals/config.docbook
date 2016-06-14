@@ -283,8 +283,8 @@ set a shortcut.</phrase></textobject>
 
 <sect2 id="shortcuts-reset">
 <title>Resetting Shortcuts</title>
-<para>There is a button at the bottom of the window, called <guibutton>Reset to
-Defaults</guibutton>. Clicking on this button will reset all your custom shortcuts
+<para>There is a button at the bottom of the window, called <guibutton>Defaults</guibutton>.
+Clicking on this button will reset all your custom shortcuts
 to their default values.</para>
 
 <para>You can also reset an individual shortcut to its default value by selecting
@@ -308,9 +308,6 @@ a shortcut.</para>
 several profiles with different shortcuts and switch between these profiles
 easily.</para>
 
-<warning><para>This feature is under development.  It is not possible to import
-schemes using a &GUI; at this time.</para></warning>
-
 <screenshot id="screenshot-shortcuts-schemes">
 <screeninfo>Working with Schemes</screeninfo>
 <mediaobject>
@@ -322,7 +319,7 @@ editing tools.</phrase></textobject>
 </screenshot>
 
 <para>To see a menu allowing you to edit schemes, click on the
-<guibutton>Details</guibutton> button at the bottom of the form. The following
+<guibutton>Manage Schemes</guibutton> button at the bottom of the form. The following
 options will appear:</para>
 
 <variablelist>
@@ -350,17 +347,23 @@ a name for your new scheme.</para></listitem>
 <variablelist>
 
 <varlistentry>
-<term><guimenuitem>Save as Scheme Defaults</guimenuitem></term>
-<listitem><para>Sets the current scheme as the default for all new schemes.</para></listitem>
+<term><guimenuitem>Save Shortcuts to scheme</guimenuitem></term>
+<listitem><para>Save the current shortcuts to the current scheme.</para></listitem>
 </varlistentry>
 
 <varlistentry>
 <term><guimenuitem>Export Scheme...</guimenuitem></term>
-<listitem><para>Exports the current scheme to a file named <filename><replaceable>applicationname</replaceable><replaceable>schemename</replaceable>shortcuts.rc</filename>.</para>
+<listitem><para>Exports the current scheme to a file named WRONG <filename><replaceable>applicationname</replaceable><replaceable>schemename</replaceable>shortcuts.rc</filename>.</para>
 <para>
 Move this file to the folder <filename class="directory">$KDEDIR/apps/applicationname/</filename> 
 and the exported scheme will be available in the drop down box labelled <guilabel>Current Scheme</guilabel>
 </para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guimenuitem>Import Scheme...</guimenuitem></term>
+<listitem><para>Imports a scheme from a file named ?????? <filename><replaceable>applicationname</replaceable><replaceable>schemename</replaceable>shortcuts.rc</filename>.</para>
+</listitem>
 </varlistentry>
 
 </variablelist>

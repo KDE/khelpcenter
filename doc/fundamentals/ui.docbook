@@ -1127,6 +1127,17 @@ Allows you to show and hide the various toolbars supported by the application.
 
 <varlistentry>
 <term><menuchoice>
+<guimenu>Settings</guimenu><guimenuitem>Show
+Statusbar</guimenuitem></menuchoice></term>
+<listitem>
+<para>When checked, this displays a small bar at the bottom of the application
+containing information about the status. When unchecked
+the status bar is hidden.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
 <guimenu>Settings</guimenu><guimenuitem>Configure Shortcuts...</guimenuitem>
 </menuchoice></term>
 <listitem><para>
@@ -1332,7 +1343,7 @@ whether it be opening, closing, moving, or switching between them.</para>
 </row>
 
 <row>
-<entry><keycombo action="simul">&Alt;<keycap>Space</keycap></keycombo></entry>
+<entry><keycombo action="simul">&Alt;<keycap>Space</keycap></keycombo> / <keycombo action="simul">&Alt;<keycap>F2</keycap></keycombo></entry>
 <entry><ulink url="help:/plasma-desktop/krunner.html">Run Command Interface</ulink></entry>
 </row>
 
@@ -1365,67 +1376,67 @@ desktops efficiently.</para>
 <tbody>
 
 <row>
-<entry><keycombo action="simul">&Ctrl;<keycap>F10</keycap></keycombo></entry>
+<entry><keycombo action="simul">&Ctrl;<keycap>F10</keycap></keycombo></entry><!--[kwin][Global Shortcuts] ExposeAll=Ctrl+F10; Launch (C) -->
 <entry>Present Windows</entry>
 </row>
 
 <row>
-<entry><keycombo action="simul">&Ctrl;<keycap>F9</keycap></keycombo></entry>
+<entry><keycombo action="simul">&Ctrl;<keycap>F9</keycap></keycombo></entry><!--[kwin][Global Shortcuts] Expose=Ctrl+F9 -->
 <entry>Present Windows on current desktop</entry>
 </row>
 
 <row>
-<entry><keycombo action="simul">&Ctrl;<keycap>F7</keycap></keycombo></entry>
+<entry><keycombo action="simul">&Ctrl;<keycap>F7</keycap></keycombo></entry><!--[kwin][Global Shortcuts] ExposeClass=Ctrl+F7 -->
 <entry>Present Windows of current application only</entry>
 </row>
-
+<!--FIXME not in 5.6.4
 <row>
 <entry><keycombo action="simul">&Ctrl;<keycap>F11</keycap></keycombo></entry>
 <entry>Desktop Cube</entry>
 </row>
-
+-->
 <row>
-<entry><keycombo action="simul">&Ctrl;<keycap>F12</keycap></keycombo></entry>
-<entry>Show Dashboard</entry>
+<entry><keycombo action="simul">&Ctrl;<keycap>F12</keycap></keycombo></entry><!--[plasmashell][Global Shortcuts] show dashboard=Ctrl+F12-->
+<entry>Show Desktop</entry>
 </row>
 
 <row>
-<entry><keycombo action="simul">&Ctrl;&Alt;<keycap>A</keycap></keycombo></entry>
+<entry><keycombo action="simul">&Ctrl;&Alt;<keycap>A</keycap></keycombo></entry><!--[kwin][Global Shortcuts] Activate Window Demanding Attention=Ctrl+Alt+A -->
 <entry>Activate Window Demanding Attention</entry>
 </row>
 
 <row>
-<entry><keycombo action="simul">&Alt;&Tab;</keycombo></entry>
+<entry><keycombo action="simul">&Alt;&Tab;</keycombo></entry><!--[kwin][Global Shortcuts] Walk Through Windows=Alt+Tab-->
 <entry>Walk through windows</entry>
 </row>
 
 <row>
-<entry><keycombo action="simul">&Alt;<keycap>`</keycap></keycombo></entry>
-<entry>Walk through windows of the current application</entry>
+<entry><keycombo action="simul">&Alt;&Shift;&Tab;</keycombo></entry><!--[kwin][Global Shortcuts] Walk Through Windows (Reverse)=Alt+Shift+Backtab-->
+<entry>Walk through windows (Reverse)</entry>
 </row>
 
 <row>
-<entry><keycombo action="simul">&Alt;<keycap>F3</keycap></keycombo></entry>
+<entry><keycombo action="simul">&Alt;<keycap>F3</keycap></keycombo></entry><!--FIXME source ?-->
 <entry>Open the Window Operations menu</entry>
 </row>
 
 <row>
-<entry><keycombo action="simul">&Meta;&Alt;<keysym>Up</keysym></keycombo></entry>
+<entry><keycombo action="simul">&Meta;&Alt;<keysym>Up</keysym></keycombo></entry><!--[kwin][Global Shortcuts] Switch Window Up=Meta+Alt+Up-->
 <entry>Switch to Window Above</entry>
 </row>
 
 <row>
-<entry><keycombo action="simul">&Meta;&Alt;<keysym>Down</keysym></keycombo></entry>
+<entry><keycombo action="simul">&Meta;&Alt;<keysym>Down</keysym></keycombo></entry><!--[kwin][Global Shortcuts] Switch Window Down=Meta+Alt+Down-->
 <entry>Switch to Window Below</entry>
 </row>
 
 <row>
-<entry><keycombo action="simul">&Meta;&Alt;<keysym>Left</keysym></keycombo></entry>
+<entry><keycombo action="simul">&Meta;&Alt;<keysym>Left</keysym></keycombo></entry><!--[kwin][Global Shortcuts] Switch Window Left=Meta+Alt+Left-->
 <entry>Switch to Window to the Left</entry>
 </row>
 
 <row>
-<entry><keycombo action="simul">&Meta;&Alt;<keysym>Right</keysym></keycombo></entry>
+<entry><keycombo action="simul">&Meta;&Alt;<keysym>Right</keysym></keycombo></entry><!--[kwin][Global Shortcuts] Switch Window Right=Meta+Alt+Right-->
 <entry>Switch to Window to the Right</entry>
 </row>
 
@@ -1435,7 +1446,7 @@ desktops efficiently.</para>
 </sect3>
 
 <sect3 id="kbd-activity-pan-zoom">
-<title>Panning and Zooming</title>
+<title>Panning and Zooming</title><!--FIXME nothing works for me-->
 
 <para>Need to get a closer look?  The &plasma-workspaces; allow you to zoom in
 and out and move your entire desktop around, so you can zoom in even when the
@@ -1461,37 +1472,37 @@ application you are using doesn't support it.</para>
 -->
 
 <row>
-<entry><keycombo action="simul">&Meta;<keycap>=</keycap></keycombo></entry>
+<entry><keycombo action="simul">&Meta;<keycap>=</keycap></keycombo></entry><!--[kwin][Global Shortcuts] view_zoom_in=Meta+= -->
 <entry>Zoom In</entry>
 </row>
 
 <row>
-<entry><keycombo action="simul">&Meta;<keycap>-</keycap></keycombo></entry>
+<entry><keycombo action="simul">&Meta;<keycap>-</keycap></keycombo></entry><!--[kwin][Global Shortcuts] view_zoom_out=Meta+- -->
 <entry>Zoom Out</entry>
 </row>
 
 <row>
-<entry><keycombo action="simul">&Meta;<keycap>0</keycap></keycombo></entry>
+<entry><keycombo action="simul">&Meta;<keycap>0</keycap></keycombo></entry><!--[kwin][Global Shortcuts] view_actual_size=Meta+0 -->
 <entry>Zoom Normal</entry>
 </row>
 
 <row>
-<entry><keycombo action="simul">&Meta;<keysym>Up</keysym></keycombo></entry>
+<entry><keycombo action="simul">&Meta;<keysym>Up</keysym></keycombo></entry><!--[kwin][Global Shortcuts] MoveZoomUp=Meta+Up -->
 <entry>Pan Up</entry>
 </row>
 
 <row>
-<entry><keycombo action="simul">&Meta;<keysym>Down</keysym></keycombo></entry>
+<entry><keycombo action="simul">&Meta;<keysym>Down</keysym></keycombo></entry><!--[kwin][Global Shortcuts] MoveZoomDown=Meta+Down -->
 <entry>Pan Down</entry>
 </row>
 
 <row>
-<entry><keycombo action="simul">&Meta;<keysym>Left</keysym></keycombo></entry>
+<entry><keycombo action="simul">&Meta;<keysym>Left</keysym></keycombo></entry><!--[kwin][Global Shortcuts] MoveZoomLeft=Meta+Left -->
 <entry>Pan left</entry>
 </row>
 
 <row>
-<entry><keycombo action="simul">&Meta;<keysym>Right</keysym></keycombo></entry>
+<entry><keycombo action="simul">&Meta;<keysym>Right</keysym></keycombo></entry><!--[kwin][Global Shortcuts] MoveZoomRight=Meta+Right -->
 <entry>Pan Right</entry>
 </row>
 
@@ -1505,7 +1516,7 @@ application you are using doesn't support it.</para>
 <title>Working with Activities and Virtual Desktops</title>
 
 <para>These shortcuts allow you to switch between and manage
-<ulink url="help:/plasma-desktop/zooming-user-interface.html">Activities</ulink>
+<ulink url="help:/plasma-desktop/activities.html">Activities</ulink>
 and <ulink url="help:/kcontrol/desktop/">virtual desktops</ulink>.</para>
 
 <informaltable>
@@ -1521,53 +1532,39 @@ and <ulink url="help:/kcontrol/desktop/">virtual desktops</ulink>.</para>
 <tbody>
 
 <row>
-<entry><keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo></entry>
-<entry>View all your Activities</entry>
+<entry><keycombo action="simul">&Meta;<keycap>Q</keycap></keycombo> /<!-- [plasmashell][Global Shortcuts] manage activities=Meta+Q -->
+<keycombo action="simul">&Alt;<keycap>D</keycap></keycombo>,<keycombo action="simul">&Alt;<keycap>A</keycap></keycombo><!--FIXME source ?-->
+</entry>
+<entry>Manage Activities</entry>
 </row>
 
 <row>
-<entry><keycombo action="simul">&Meta;&Tab;</keycombo></entry>
+<entry><keycombo action="simul">&Meta;&Tab;</keycombo></entry><!-- [plasmashell][Global Shortcuts] next activity=Meta+Tab -->
 <entry>Next Activity</entry>
 </row>
 
 <row>
-<entry><keycombo action="simul">&Meta;&Shift;&Tab;</keycombo></entry>
+<entry><keycombo action="simul">&Meta;&Shift;&Tab;</keycombo></entry><!-- [plasmashell][Global Shortcuts] previous activity=Meta+Shift+Tab -->
 <entry>Previous Activity</entry>
 </row>
 
 <row>
-<entry><keycombo action="seq">
-    <keycombo action="simul">&Alt;<keycap>D</keycap></keycombo>
-    <keycap>R</keycap>
-</keycombo></entry>
-<entry>Remove this Activity</entry>
-</row>
-
-<row>
-<entry><keycombo action="seq">
-    <keycombo action="simul">&Alt;<keycap>D</keycap></keycombo>
-    <keycap>S</keycap>
-</keycombo></entry>
-<entry>Activities Settings</entry>
-</row>
-
-<row>
-<entry><keycombo action="simul">&Ctrl;<keycap>F1</keycap></keycombo></entry>
+<entry><keycombo action="simul">&Ctrl;<keycap>F1</keycap></keycombo></entry><!--[kwin][Global Shortcuts] Switch to Desktop 1=Ctrl+F1 -->
 <entry>Switch to Desktop 1</entry>
 </row>
 
 <row>
-<entry><keycombo action="simul">&Ctrl;<keycap>F2</keycap></keycombo></entry>
+<entry><keycombo action="simul">&Ctrl;<keycap>F2</keycap></keycombo></entry><!--[kwin][Global Shortcuts] Switch to Desktop 2=Ctrl+F2 -->
 <entry>Switch to Desktop 2</entry>
 </row>
 
 <row>
-<entry><keycombo action="simul">&Ctrl;<keycap>F3</keycap></keycombo></entry>
+<entry><keycombo action="simul">&Ctrl;<keycap>F3</keycap></keycombo></entry><!--[kwin][Global Shortcuts] Switch to Desktop 2=Ctrl+F3 -->
 <entry>Switch to Desktop 3</entry>
 </row>
 
 <row>
-<entry><keycombo action="simul">&Ctrl;<keycap>F4</keycap></keycombo></entry>
+<entry><keycombo action="simul">&Ctrl;<keycap>F4</keycap></keycombo></entry><!--[kwin][Global Shortcuts] Switch to Desktop 2=Ctrl+F4 -->
 <entry>Switch to Desktop 4</entry>
 </row>
 
@@ -1596,73 +1593,81 @@ and <ulink url="help:/kcontrol/desktop/">virtual desktops</ulink>.</para>
 
 <row>
 <entry><keycombo action="seq">
-    <keycombo action="simul">&Alt;<keycap>D</keycap></keycombo>
-    <keycap>A</keycap>
+<keycombo action="simul">&Alt;<keycap>D</keycap></keycombo><!--plasma-framework/src/plasma/private/containment_p.cpp-->
+<keycap>A</keycap>
 </keycombo></entry>
 <entry>Add Widgets</entry>
 </row>
 
 <row>
 <entry><keycombo action="seq">
-    <keycombo action="simul">&Alt;<keycap>D</keycap></keycombo>
-    <keycap>R</keycap>
+<keycombo action="simul">&Alt;<keycap>D</keycap></keycombo><!--FIXME source ?-->
+<keycap>R</keycap>
 </keycombo></entry>
-<entry>Remove Widgets</entry>
+<entry>Remove this <replaceable>Widget</replaceable></entry>
 </row>
 
 <row>
 <entry><keycombo action="seq">
-    <keycombo action="simul">&Alt;<keycap>D</keycap></keycombo>
-    <keycap>L</keycap>
+<keycombo action="simul">&Alt;<keycap>D</keycap></keycombo><!--FIXME source ?-->
+<keycap>L</keycap>
 </keycombo></entry>
 <entry>Lock/Unlock Widgets</entry>
 </row>
-
+<!--FIXME source ? No >Next Widget< nor >Previous Widget< in kde-workspace or frameworks code
 <row>
 <entry><keycombo action="seq">
-    <keycombo action="simul">&Alt;<keycap>D</keycap></keycombo>
-    <keycap>N</keycap>
+<keycombo action="simul">&Alt;<keycap>D</keycap></keycombo>
+<keycap>N</keycap>
 </keycombo></entry>
 <entry>Next Widget</entry>
 </row>
 
 <row>
 <entry><keycombo action="seq">
-    <keycombo action="simul">&Alt;<keycap>D</keycap></keycombo>
-    <keycap>P</keycap>
+<keycombo action="simul">&Alt;<keycap>D</keycap></keycombo>
+<keycap>P</keycap>
 </keycombo></entry>
 <entry>Previous Widget</entry>
 </row>
-
+-->
 <row>
 <entry><keycombo action="seq">
-    <keycombo action="simul">&Alt;<keycap>D</keycap></keycombo>
-    <keycap>S</keycap>
+<keycombo action="simul">&Alt;<keycap>D</keycap></keycombo><!--FIXME source ?-->
+<keycap>S</keycap>
 </keycombo></entry>
-<entry>Widget Settings</entry>
+<entry><replaceable>Widget</replaceable> Settings</entry>
 </row>
 
 <row>
-<entry><keycombo action="simul">&Ctrl;<keycap>F12</keycap></keycombo></entry>
-<entry>Show Dashboard</entry>
+<entry><keycombo action="simul">&Ctrl;<keycap>F12</keycap></keycombo></entry><!--[plasmashell][Global Shortcuts] show dashboard=Ctrl+F12-->
+<entry>Show Desktop</entry>
 </row>
 
 <row>
 <entry><keycombo action="seq">
-    <keycombo action="simul">&Alt;<keycap>D</keycap></keycombo>
-    <keycap>T</keycap>
+<keycombo action="simul">&Alt;<keycap>D</keycap></keycombo>
+<keycap>T</keycap>
 </keycombo></entry>
 <entry>Run the Associated Application</entry>
 </row>
-
+<!--FIXME obsolete?
 <row>
 <entry><keycombo action="simul">&Alt;&Shift;<keycap>F12</keycap></keycombo></entry>
 <entry>Enable/Disable Desktop Effects</entry>
+</row>
+-->
+
+<row>
+<entry><keycombo action="simul">&Alt;<keycap>D</keycap></keycombo>,<keycombo action="simul">&Alt;<keycap>S</keycap></keycombo><!--FIXME source ?-->
+</entry>
+<entry>Desktop Settings</entry>
 </row>
 
 </tbody>
 </tgroup>
 </informaltable>
+
 </sect2>
 
 <sect2 id="kbd-help">
@@ -1904,34 +1909,34 @@ information on how to assign keys for these tasks.</para>
 </thead>
 
 <tbody>
-
+<!--FIXME obsolete?
 <row>
 <entry><keycombo action="simul">&Ctrl;&Alt;<keycap>Insert</keycap></keycombo></entry>
 <entry>Switch User</entry>
 </row>
-
+-->
 <row>
-<entry><keycombo action="simul">&Ctrl;&Alt;<keycap>L</keycap></keycombo></entry>
-<entry>Lock Session</entry>
+<entry><keycombo action="simul">&Ctrl;&Alt;<keycap>L</keycap></keycombo></entry><!--workspace/kscreenlocker/ksmserver/server.cpp-->
+<entry>Lock Screen</entry>
 </row>
 
 <row>
-<entry><keycombo action="simul">&Ctrl;&Alt;<keycap>Delete</keycap></keycombo></entry>
-<entry>Logout</entry>
+<entry><keycombo action="simul">&Ctrl;&Alt;<keycap>Del</keycap></keycombo></entry><!--plasma-workspace/ksmserver/server.cpp-->
+<entry>Leave</entry>
 </row>
 
 <row>
-<entry><keycombo action="simul">&Ctrl;&Alt;&Shift;<keycap>Delete</keycap></keycombo></entry>
+<entry><keycombo action="simul">&Ctrl;&Alt;&Shift;<keycap>Del</keycap></keycombo></entry><!--plasma-workspace/ksmserver/server.cpp-->
 <entry>Logout without confirmation</entry>
 </row>
 
 <row>
-<entry><keycombo action="simul">&Ctrl;&Alt;&Shift;<keycap>Page Down</keycap></keycombo></entry>
+<entry><keycombo action="simul">&Ctrl;&Alt;&Shift;<keycap>Page Down</keycap></keycombo></entry><!--plasma-workspace/ksmserver/server.cpp-->
 <entry>Shut Down without confirmation</entry>
 </row>
 
 <row>
-<entry><keycombo action="simul">&Ctrl;&Alt;&Shift;<keycap>Page Up</keycap></keycombo></entry>
+<entry><keycombo action="simul">&Ctrl;&Alt;&Shift;<keycap>Page Up</keycap></keycombo></entry><!--plasma-workspace/ksmserver/server.cpp-->
 <entry>Reboot without confirmation</entry>
 </row>
 
@@ -1944,18 +1949,17 @@ information on how to assign keys for these tasks.</para>
 <title>Modifying Shortcuts</title>
 
 <para>The shortcuts described in <link linkend="kbd-windows">Working With
-Windows</link>, <link linkend="kbd-leaving">Leaving Your Computer</link>, and
-<link linkend="kbd-vol-bright">Changing Volume and Brightness</link> are called
+Windows</link>, <link linkend="kbd-leaving">Leaving Your Computer</link>,
+<link linkend="kbd-vol-bright">Changing Volume and Brightness</link> and
+<link linkend="kbd-activities">Working with
+Activities and Virtual Desktops</link> are called
 <emphasis>global shortcuts</emphasis>, since they work regardless of which
 window you have open on your screen.  These can be modified in the
 <ulink url="help:/kcontrol/keys/">Global Shortcuts panel of
 &systemsettings;</ulink>, where they are separated by &kde; component.</para>
 
-<para>The shortcuts described in <link linkend="kbd-activities">Working with
-Activities and Virtual Desktops</link> and <link linkend="kbd-desktop">Working
-with the Desktop</link> can be modified by clicking on the
-<ulink url="help:/plasma-desktop/using-kapp.html">Desktop Toolbox</ulink> and
-selecting <guimenuitem>Shortcut Settings</guimenuitem>.</para>
+<para>The shortcuts described <link linkend="kbd-desktop">Working
+with the Desktop</link> are immutable and can be modified.</para>
 
 <para>The shortcuts described in <link linkend="kbd-docs">Working with
 Documents</link> and <link linkend="kbd-help">Getting Help</link> are set by
