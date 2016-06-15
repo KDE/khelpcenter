@@ -93,7 +93,9 @@ extern "C" int Q_DECL_EXPORT kdemain( int argc, char **argv )
                         KAboutLicense::GPL,
                         i18n("(c) 1999-2011, The KHelpCenter developers") );
 
-  aboutData.addAuthor( "Cornelius Schumacher", QString(), "schumacher@kde.org" );
+  aboutData.addAuthor( "Luigi Toscano", QString("Current maintainer"), "luigi.toscano@tiscali.it" );
+  aboutData.addAuthor( "Pino Toscano", QString("Xapian-based search, lot of bugfixes"), "pino@kde.org" );
+  aboutData.addAuthor( "Cornelius Schumacher", QString("Former maintainer"), "schumacher@kde.org" );
   aboutData.addAuthor( "Frerich Raabe", QString(), "raabe@kde.org" );
   aboutData.addAuthor( "Matthias Elter", i18n("Original Author"), "me@kde.org" );
   aboutData.addAuthor( "Wojciech Smigaj", i18n("Info page support"), "achu@klub.chip.pl" );
