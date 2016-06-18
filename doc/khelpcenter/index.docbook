@@ -799,6 +799,41 @@ entry.</para>
 
 </variablelist>
 
+<variablelist id="bookmarks-menu">
+
+<varlistentry>
+<term><guimenu>Bookmarks</guimenu></term>
+<listitem>
+<variablelist>
+<varlistentry>
+<term><menuchoice>
+<shortcut><keycombo action="simul">&Ctrl;<keycap>B</keycap></keycombo></shortcut>
+<guimenu>Bookmarks</guimenu>
+<guimenuitem>Add Bookmark</guimenuitem></menuchoice></term>
+<listitem>
+<para>
+Add a bookmark for the current page, the title of the pages is appended to the bookmarks menu.
+Use the action <guimenuitem>Delete Bookmark</guimenuitem> in the context menu of an item to remove it from the menu.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Bookmarks</guimenu>
+<guimenuitem>New Bookmarks Folder</guimenuitem></menuchoice></term>
+<listitem>
+<para>
+Open the <guilabel>New Folder</guilabel> dialog where you can add new submenuitems to the bookmarks menu.
+</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+</listitem>
+</varlistentry>
+</variablelist>
+
 <variablelist>
 <varlistentry>
 <term><guimenu>Settings</guimenu></term>
