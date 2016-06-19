@@ -353,16 +353,13 @@ a name for your new scheme.</para></listitem>
 
 <varlistentry>
 <term><guimenuitem>Export Scheme...</guimenuitem></term>
-<listitem><para>Exports the current scheme to a file named WRONG <filename><replaceable>applicationname</replaceable><replaceable>schemename</replaceable>shortcuts.rc</filename>.</para>
-<para>
-Move this file to the folder <filename class="directory">$KDEDIR/apps/applicationname/</filename> 
-and the exported scheme will be available in the drop down box labelled <guilabel>Current Scheme</guilabel>
-</para></listitem>
+<listitem><para>Exports the current scheme to a file <!--FIXME named <filename><replaceable>applicationname</replaceable><replaceable>schemename</replaceable>shortcuts.rc</filename>-->.</para>
+</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><guimenuitem>Import Scheme...</guimenuitem></term>
-<listitem><para>Imports a scheme from a file named ?????? <filename><replaceable>applicationname</replaceable><replaceable>schemename</replaceable>shortcuts.rc</filename>.</para>
+<listitem><para>Imports a scheme from a file <!--FIXME named <filename><replaceable>applicationname</replaceable><replaceable>schemename</replaceable>shortcuts.rc</filename>-->.</para>
 </listitem>
 </varlistentry>
 
