@@ -55,6 +55,8 @@ set_package_properties(LibXml2 PROPERTIES
     URL "http://www.xmlsoft.org/"
     TYPE REQUIRED)
 
+add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
+
 add_subdirectory( plugins )
 add_subdirectory( searchhandlers )
 add_subdirectory( tests )

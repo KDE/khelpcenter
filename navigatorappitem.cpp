@@ -67,7 +67,7 @@ void NavigatorAppItem::scheduleTOCBuild()
     return;
   }
 
-  const QUrl url = entry()->url();
+  const QUrl url(entry()->url());
   if ( url.scheme() == QLatin1String( "help" ) ) {
     mToc = new TOC( this );
 
