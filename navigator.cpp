@@ -507,6 +507,8 @@ void Navigator::slotSearch()
 
   if ( words.isEmpty() || scope.isEmpty() ) return;
 
+  mTabWidget->setCurrentIndex( mTabWidget->indexOf( mSearchWidget ) );
+
   // disable search Button during searches
   mSearchButton->setEnabled(false);
   QApplication::setOverrideCursor(Qt::WaitCursor);
@@ -538,7 +540,6 @@ void Navigator::checkSearchButton()
 {
   mSearchButton->setEnabled( !mSearchEdit->text().isEmpty() &&
     mSearchWidget->scopeCount() > 0 && !mIndexingProc );
-  mTabWidget->setCurrentIndex( mTabWidget->indexOf( mSearchWidget ) );
 }
 
 
