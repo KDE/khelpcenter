@@ -92,3 +92,4 @@ X-KDE-KHelpcenter-Special=apps
 
 X-DOC-DocumentType=application/docbook+xml
 X-DOC-Identifier=kde_application_manuals
+X-DOC-SearchEnabledDefault=true

@@ -89,3 +89,4 @@ Icon=application-x-troff-man
 X-DOC-Weight=500
 X-DOC-DocumentType=text/man
 X-DOC-Identifier=manpages
+X-DOC-SearchEnabledDefault=true
