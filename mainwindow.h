@@ -39,6 +39,7 @@ class MainWindow : public KXmlGuiWindow
 
   public Q_SLOTS:
     void print();
+    void statusBarRichTextMessage(const QString &m);
     void statusBarMessage(const QString &m);
     void slotShowHome();
     void slotLastSearch();

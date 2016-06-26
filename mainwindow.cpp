@@ -54,6 +54,7 @@
 #include <QMimeDatabase>
 #include <QStatusBar>
 #include <QDir>
+#include <QTextDocument>
 
 #include <QDialogButtonBox>
 #include <QPushButton>
@@ -117,7 +118,7 @@ MainWindow::MainWindow()
     connect( mDoc, SIGNAL( setWindowCaption( const QString & ) ),
              SLOT( setWindowTitle( const QString & ) ) );
     connect( mDoc, SIGNAL( setStatusBarText( const QString & ) ),
-             SLOT( statusBarMessage( const QString & ) ) );
+             SLOT( statusBarRichTextMessage( const QString & ) ) );
     connect( mDoc, SIGNAL( onURL( const QString & ) ),
              SLOT( statusBarMessage( const QString & ) ) );
     connect( mDoc, SIGNAL( started( KIO::Job * ) ),
@@ -397,6 +398,13 @@ void MainWindow::documentCompleted()
 void MainWindow::slotInfoMessage(KJob *, const QString &m)
 {
     statusBarMessage(m);
+}
+
+void MainWindow::statusBarRichTextMessage(const QString &m)
+{
+    QTextDocument richTextHolder;
+    richTextHolder.setHtml(m);
+    statusBar()->showMessage(richTextHolder.toPlainText());
 }
 
 void MainWindow::statusBarMessage(const QString &m)
