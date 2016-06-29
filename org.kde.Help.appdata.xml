@@ -5,6 +5,7 @@
   <project_license>GPL-2.0+</project_license>
   <name>KHelpCenter</name>
   <name xml:lang="ca">KHelpCenter</name>
+  <name xml:lang="es">KHelpCenter</name>
   <name xml:lang="it">KHelpCenter</name>
   <name xml:lang="nl">KHelpCenter</name>
   <name xml:lang="pt">KHelpCenter</name>
@@ -14,6 +15,7 @@
   <name xml:lang="x-test">xxKHelpCenterxx</name>
   <summary>Help Center</summary>
   <summary xml:lang="ca">Centre d'ajuda</summary>
+  <summary xml:lang="es">Centro de ayuda</summary>
   <summary xml:lang="it">Centro documentazione</summary>
   <summary xml:lang="nl">Hulpcentrum</summary>
   <summary xml:lang="pt">Centro de Ajuda</summary>
@@ -26,6 +28,7 @@
       Documentation viewer
     </p>
     <p xml:lang="ca">Visualitzador de documentació</p>
+    <p xml:lang="es">Visor de documentación</p>
     <p xml:lang="it">Visualizzatore della documentazione</p>
     <p xml:lang="nl">Documentatieviewer</p>
     <p xml:lang="pt">Visualizador de documentação</p>
@@ -35,6 +38,7 @@
     <p xml:lang="x-test">xxDocumentation viewerxx</p>
     <p>Features:</p>
     <p xml:lang="ca">Característiques:</p>
+    <p xml:lang="es">Funciones:</p>
     <p xml:lang="it">Funzionalità:</p>
     <p xml:lang="nl">Mogelijkheden:</p>
     <p xml:lang="pt">Funcionalidades:</p>
@@ -45,6 +49,7 @@
     <ul>
       <li>Show documentation from various sources (applications from KDE community, man pages, etc)</li>
       <li xml:lang="ca">Mostra la documentació de diverses fonts (aplicacions de la comunitat KDE, pàgines «man», etc.)</li>
+      <li xml:lang="es">Mostrar documentación de diversas fuentes (aplicaciones de la comunidad KDE, páginas man, etc.)</li>
       <li xml:lang="it">Mostra la documentazione da varie fonti (applicazioni dalla comunità KDE, pagine di manuale, ecc)</li>
       <li xml:lang="nl">Toon documentatie uit verschillende bronnen (toepassingen uit de KDE gemeenschap, manpagina's, etc)</li>
       <li xml:lang="pt">Mostra a documentação de várias fontes (aplicações das comunidades do KDE, páginas de manual do 'man', etc.)</li>
@@ -54,6 +59,7 @@
       <li xml:lang="x-test">xxShow documentation from various sources (applications from KDE community, man pages, etc)xx</li>
       <li>Search through the available documentation</li>
       <li xml:lang="ca">Cerca a la documentació disponible</li>
+      <li xml:lang="es">Buscar en la documentación disponible</li>
       <li xml:lang="it">Cerca nella documentazione disponibile</li>
       <li xml:lang="nl">Zoeken in de beschikbare documentatie</li>
       <li xml:lang="pt">Pesquisa pela documentação disponível</li>
