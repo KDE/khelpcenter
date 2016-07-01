@@ -1075,7 +1075,7 @@ wish.</para></listitem>
 <title>Choosing Colors</title>
 
 <para>The color chooser appears in many &kde; applications, whenever you need
-  to select a color.  It lets you pick from a <quote>palette</quote> consisting of many
+to select a color. It lets you pick from a <guilabel>Basic colors</guilabel> consisting of many
 predefined colors or mix your own when you want a specific color.</para>
 
 <screenshot id="screenshot-colors">
@@ -1088,24 +1088,14 @@ predefined colors or mix your own when you want a specific color.</para>
 </mediaobject>
 </screenshot>
 
-<sect2 id="colors-palette">
-<title>Using Palettes</title>
+<sect2 id="basic-colors">
+<title>Using Basic Colors</title>
 
-<para>A palette is a set of predefined colors.  You can find it on the right
+<para>The basic colors group is a set of predefined colors.  You can find it on the top
 side of the color chooser window.</para>
 
-<para>To select a color from a palette, simply click on it.  The color will be
-displayed below the palette, along with its &HTML; hexadecimal code and name, if
-any.</para>
-
-<para>To switch between them, use the drop down box above the color palette.
-Most palettes will display a grid consisting of the colors, except for the
-<guilabel>Named Colors</guilabel>, which lets you select from a list of names.
-Other special palettes include <guilabel>* Recent Colors *</guilabel>, which
-will display colors that you have recently selected, and
-<guilabel>* Custom Colors *</guilabel>, which will display custom colors that
-you have saved.  For more information on setting custom colors, see
-<xref linkend="colors-custom"/></para>
+<para>To select a color from the basic colors, simply click on it.  The color will be
+displayed at the right of the palette, along with its &HTML; hexadecimal code</para>
 
 </sect2>
 
@@ -1118,11 +1108,11 @@ ways to do this:</para>
 <sect3 id="colors-mixing-select">
 <title>Using the Grid</title>
 
-<para>The left side of the color chooser contains a large box, and a thinner box
+<para>The right side of the color chooser contains a large box, and a thinner box
 immediately to its right.  You can use the left box to select the Hue and
 Saturation of the desired color based on the visual guide provided in the box.
 The right bar adjusts the Value.  Adjust these to select the desired color,
-which is displayed in the lower-right corner of the window.</para>
+which is displayed in the middle of the window.</para>
 
 <para>For more information on Hue, Saturation, and Value, see
 <xref linkend="colors-mixing-hsv"/></para>
@@ -1130,11 +1120,11 @@ which is displayed in the lower-right corner of the window.</para>
 </sect3>
 
 <sect3 id="colors-mixing-eyedropper">
-<title>Using the Eyedropper</title>
+<title>Using the Screen Colors</title>
 
 <para>The eyedropper tool allows you to select a color from your screen.  To use
-it, select the <guibutton>eyedropper</guibutton> button to the right of the
-<guibutton>Add to Custom Colors</guibutton> button, and then click anywhere on
+it, select the <guibutton>Pick Screen Color</guibutton> button below the
+basic colors, and then click anywhere on
 your screen to select that color.</para>
 
 </sect3>
@@ -1142,7 +1132,7 @@ your screen to select that color.</para>
 <sect3 id="colors-mixing-hsv">
 <title>Hue/Saturation/Value</title>
 
-<para>The lower-left corner of the screen allows you to manually enter the
+<para>The lower-right corner of the screen allows you to manually enter the
 coordinates of the desired color in the Hue/Saturation/Value
 (<acronym>HSV</acronym>) color space.  For more information on this, see
 <ulink url="https://en.wikipedia.org/wiki/HSL_and_HSV">the <quote>HSL and
@@ -1156,7 +1146,7 @@ so they always accurately represent the currently selected color.</para>
 <sect3 id="colors-mixing-rgb">
 <title>Red/Green/Blue</title>
 
-<para>The lower-left corner of the screen also allows you to manually enter the
+<para>The lower-right corner of the screen also allows you to manually enter the
 coordinates of the desired color in the Red/Green/Blue (<acronym>RGB</acronym>)
 color model.  For more information on this, see
 <ulink url="https://en.wikipedia.org/wiki/RGB_color_model">the <quote>RGB color
@@ -1182,14 +1172,11 @@ so it always accurately represents the currently selected color.</para>
 </sect2>
 
 <sect2 id="colors-custom">
-<title>Saving Custom Colors</title>
+<title>Custom Colors</title>
 
-<para>After selecting a color, you may save it to the Custom Colors palette so
-you can find it later.  To do so, click the
-<guibutton>Add to Custom Colors</guibutton> button.  You can then find it by
-selecting the <guilabel>* Custom Colors *</guilabel> palette from the drop
-down box in the upper-right corner of the screen.  For more information on using
-palettes, see <xref linkend="colors-palette"/>.</para>
+<para>After selecting a color, you may add it to the Custom Colors group so
+you can use it later.  To do so, click the
+<guibutton>Add to Custom Colors</guibutton> button.</para>
 
 </sect2>
 
