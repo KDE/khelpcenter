@@ -755,7 +755,7 @@ dictionary.</para>
 
 <!--FIXME: maybe move kcm handbook here too?-->
 <para>For more information on configuring &sonnet;, see the
-<ulink url="help:kcontrol/spellchecking">Spell Checker &systemsettings; module
+<ulink url="help:/kcontrol/spellchecking">Spell Checker &systemsettings; module
 documentation</ulink></para>
 
 </sect2>
