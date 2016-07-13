@@ -14,6 +14,7 @@
   <name xml:lang="pl">KOśrodekPomocy</name>
   <name xml:lang="pt">KHelpCenter</name>
   <name xml:lang="sk">KHelpCenter</name>
+  <name xml:lang="sl">KHelpCenter</name>
   <name xml:lang="sv">Hjälpcentralen</name>
   <name xml:lang="uk">KHelpCenter</name>
   <name xml:lang="x-test">xxKHelpCenterxx</name>
@@ -28,6 +29,7 @@
   <summary xml:lang="pl">Ośrodek Pomocy</summary>
   <summary xml:lang="pt">Centro de Ajuda</summary>
   <summary xml:lang="sk">Pomocník KDE</summary>
+  <summary xml:lang="sl">Središče za pomoč</summary>
   <summary xml:lang="sv">Hjälpcentral</summary>
   <summary xml:lang="uk">Центр довідки</summary>
   <summary xml:lang="x-test">xxHelp Centerxx</summary>
@@ -45,6 +47,7 @@
     <p xml:lang="pl">Przeglądarka dokumentacji</p>
     <p xml:lang="pt">Visualizador de documentação</p>
     <p xml:lang="sk">Prehliadač dokumentácie</p>
+    <p xml:lang="sl">Pregledovalnik dokumentacije</p>
     <p xml:lang="sv">Dokumentationsvisning</p>
     <p xml:lang="uk">Програма для перегляду довідки</p>
     <p xml:lang="x-test">xxDocumentation viewerxx</p>
@@ -59,6 +62,7 @@
     <p xml:lang="pl">Możliwości:</p>
     <p xml:lang="pt">Funcionalidades:</p>
     <p xml:lang="sk">Funkcie:</p>
+    <p xml:lang="sl">Zmožnosti:</p>
     <p xml:lang="sv">Funktioner:</p>
     <p xml:lang="uk">Можливості:</p>
     <p xml:lang="x-test">xxFeatures:xx</p>
@@ -74,6 +78,7 @@
       <li xml:lang="pl">Wyświetlanie dokumentacji z różnych źródeł (aplikacje ze społeczności KDE, strony instrukcji, itp.)</li>
       <li xml:lang="pt">Mostra a documentação de várias fontes (aplicações das comunidades do KDE, páginas de manual do 'man', etc.)</li>
       <li xml:lang="sk">Zobraziť dokumentáciu z rôznych zdrojov (aplikácie z KDE komunity, man stránky atď.)</li>
+      <li xml:lang="sl">Pokaže dokumentacijo iz različnih virov (programov skupnosti KDE, strani man, itd.)</li>
       <li xml:lang="sv">Visa dokumentation från olika källor (program från KDE-gemenskapen, manualsidor, etc.)</li>
       <li xml:lang="uk">Показ документації з різних джерел (програми спільноти KDE, сторінки man тощо)</li>
       <li xml:lang="x-test">xxShow documentation from various sources (applications from KDE community, man pages, etc)xx</li>
@@ -88,6 +93,7 @@
       <li xml:lang="pl">Wyszukiwanie w dostępnej dokumentacji</li>
       <li xml:lang="pt">Pesquisa pela documentação disponível</li>
       <li xml:lang="sk">Prehľadávať v dostupnej dokumentácii</li>
+      <li xml:lang="sl">Iščite po razpoložljivi dokumentaciji</li>
       <li xml:lang="sv">Sök igenom tillgänglig dokumentation</li>
       <li xml:lang="uk">Пошук у доступній документації</li>
       <li xml:lang="x-test">xxSearch through the available documentationxx</li>
