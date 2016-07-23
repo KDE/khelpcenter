@@ -10,6 +10,7 @@
   <name xml:lang="de">KHelpCenter</name>
   <name xml:lang="es">KHelpCenter</name>
   <name xml:lang="fi">KHelpCenter</name>
+  <name xml:lang="hi">KHelpCenter</name>
   <name xml:lang="it">KHelpCenter</name>
   <name xml:lang="nl">KHelpCenter</name>
   <name xml:lang="nn">KHelpCenter</name>
@@ -27,6 +28,7 @@
   <summary xml:lang="de">Hilfezentrum</summary>
   <summary xml:lang="es">Centro de ayuda</summary>
   <summary xml:lang="fi">Ohjekeskus</summary>
+  <summary xml:lang="hi">मदद केंद्र</summary>
   <summary xml:lang="it">Centro documentazione</summary>
   <summary xml:lang="nl">Hulpcentrum</summary>
   <summary xml:lang="nn">Hjelpesenter</summary>
@@ -47,6 +49,7 @@
     <p xml:lang="de">Dokumentationsbetrachter</p>
     <p xml:lang="es">Visor de documentación</p>
     <p xml:lang="fi">Ohjeiden katseluohjelma</p>
+    <p xml:lang="hi">दस्तावेज़ प्रदर्शक</p>
     <p xml:lang="it">Visualizzatore della documentazione</p>
     <p xml:lang="nl">Documentatieviewer</p>
     <p xml:lang="nn">Hjelpetekstvising</p>
@@ -64,6 +67,7 @@
     <p xml:lang="de">Funktionen:</p>
     <p xml:lang="es">Funciones:</p>
     <p xml:lang="fi">Ominaisuuksia:</p>
+    <p xml:lang="hi">विशेषताएँ:</p>
     <p xml:lang="it">Funzionalità:</p>
     <p xml:lang="nl">Mogelijkheden:</p>
     <p xml:lang="nn">Funksjonar:</p>
@@ -81,6 +85,7 @@
       <li xml:lang="de">Dokumentation aus unterschiedlichen Quellen anzeigen (KDE-Anwendungen, Man-Pages usw.)</li>
       <li xml:lang="es">Mostrar documentación de diversas fuentes (aplicaciones de la comunidad KDE, páginas man, etc.)</li>
       <li xml:lang="fi">Katsele ohjeita useista lähteistä (KDE-yhteisön sovelluksista, man-sivuista jne.)</li>
+      <li xml:lang="hi">विभिन्न स्रोतों से दस्तावेज दिखाएँ ( केडीई समूह के अनुप्रयोग, मेन पेज आदि )</li>
       <li xml:lang="it">Mostra la documentazione da varie fonti (applicazioni dalla comunità KDE, pagine di manuale, ecc)</li>
       <li xml:lang="nl">Toon documentatie uit verschillende bronnen (toepassingen uit de KDE gemeenschap, manpagina's, etc)</li>
       <li xml:lang="nn">Vis hjelpetekstar frå ulike kjelder (KDE-program, man-sider o.l.)</li>
@@ -97,6 +102,7 @@
       <li xml:lang="de">Die verfügbare Dokumentation durchsuchen</li>
       <li xml:lang="es">Buscar en la documentación disponible</li>
       <li xml:lang="fi">Etsi saatavilla olevista ohjeista</li>
+      <li xml:lang="hi">उपलब्ध दस्तावेजों में खोजें</li>
       <li xml:lang="it">Cerca nella documentazione disponibile</li>
       <li xml:lang="nl">Zoeken in de beschikbare documentatie</li>
       <li xml:lang="nn">Søk gjennom tilgjengelege hjelpetekstar</li>
