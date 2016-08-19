@@ -10,6 +10,7 @@
   <name xml:lang="de">KHelpCenter</name>
   <name xml:lang="en-GB">KHelpCenter</name>
   <name xml:lang="es">KHelpCenter</name>
+  <name xml:lang="et">KDE abikeskus</name>
   <name xml:lang="fi">KHelpCenter</name>
   <name xml:lang="hi">KHelpCenter</name>
   <name xml:lang="it">KHelpCenter</name>
@@ -33,6 +34,7 @@
   <summary xml:lang="de">Hilfezentrum</summary>
   <summary xml:lang="en-GB">Help Center</summary>
   <summary xml:lang="es">Centro de ayuda</summary>
+  <summary xml:lang="et">Abikeskus</summary>
   <summary xml:lang="fi">Ohjekeskus</summary>
   <summary xml:lang="hi">मदद केंद्र</summary>
   <summary xml:lang="it">Centro documentazione</summary>
@@ -59,6 +61,7 @@
     <p xml:lang="de">Dokumentationsbetrachter</p>
     <p xml:lang="en-GB">Documentation viewer</p>
     <p xml:lang="es">Visor de documentación</p>
+    <p xml:lang="et">Dokumentatsiooni näitaja</p>
     <p xml:lang="fi">Ohjeiden katseluohjelma</p>
     <p xml:lang="hi">दस्तावेज़ प्रदर्शक</p>
     <p xml:lang="it">Visualizzatore della documentazione</p>
@@ -82,6 +85,7 @@
     <p xml:lang="de">Funktionen:</p>
     <p xml:lang="en-GB">Features:</p>
     <p xml:lang="es">Funciones:</p>
+    <p xml:lang="et">Omadused:</p>
     <p xml:lang="fi">Ominaisuuksia:</p>
     <p xml:lang="hi">विशेषताएँ:</p>
     <p xml:lang="it">Funzionalità:</p>
@@ -105,6 +109,7 @@
       <li xml:lang="de">Dokumentation aus unterschiedlichen Quellen anzeigen (KDE-Anwendungen, Man-Pages usw.)</li>
       <li xml:lang="en-GB">Show documentation from various sources (applications from KDE community, man pages, etc)</li>
       <li xml:lang="es">Mostrar documentación de diversas fuentes (aplicaciones de la comunidad KDE, páginas man, etc.)</li>
+      <li xml:lang="et">Paljudest allikatest pärit (KDE kogukonna rakendused, manuaalileheküljed jne.) dokumentatsiooni näitamine</li>
       <li xml:lang="fi">Katsele ohjeita useista lähteistä (KDE-yhteisön sovelluksista, man-sivuista jne.)</li>
       <li xml:lang="hi">विभिन्न स्रोतों से दस्तावेज दिखाएँ ( केडीई समूह के अनुप्रयोग, मेन पेज आदि )</li>
       <li xml:lang="it">Mostra la documentazione da varie fonti (applicazioni dalla comunità KDE, pagine di manuale, ecc)</li>
@@ -127,6 +132,7 @@
       <li xml:lang="de">Die verfügbare Dokumentation durchsuchen</li>
       <li xml:lang="en-GB">Search through the available documentation</li>
       <li xml:lang="es">Buscar en la documentación disponible</li>
+      <li xml:lang="et">Võimalus otsida saadaolevas dokumentatsioonis</li>
       <li xml:lang="fi">Etsi saatavilla olevista ohjeista</li>
       <li xml:lang="hi">उपलब्ध दस्तावेजों में खोजें</li>
       <li xml:lang="it">Cerca nella documentazione disponibile</li>
