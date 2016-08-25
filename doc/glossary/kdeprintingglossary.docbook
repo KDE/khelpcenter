@@ -38,30 +38,6 @@
                         </glossdef>
                 </glossentry>
  
-                <glossentry id="gloss-apsfilter">
-                        <glossterm>APSfilter</glossterm>
-                        <glossdef><para>APSfilter is used mainly in the context of  "classical"
-				&UNIX; printing (BSD-style LPD). It is a sophisticated shell script,
-				disguised as an "all-in-one" filtering program. In reality,
-				APSfilter calls "real filters" to do the jobs needed. It sends
-				printjobs automatically through these other filters, based on an
-				initial file-type analysis of the printfile.
-				It is written and maintained by Andreas Klemm.&newpara;
-				It is
-				similar to Magicfilter and mostly uses Ghostscript for file conversions. 
-				Some Linux Distributions (like &SuSE;) use APSfilter, others
-				Magicfilter (like &RedHat;), some have both for preference selection
-				(like *BSD).&newpara;
-				&CUPS; has &emstart;no&emend; need for APSfilter,
-				as it runs its own file type recognition (based on &MIME; types)
-				and applies its own filtering logic.</para>
-                                <glossseealso otherterm="gloss-ghostscript">Ghostscript</glossseealso>
-				<glossseealso otherterm="gloss-magicfilter">Magicfilter</glossseealso>
-				<glossseealso otherterm="gloss-mimetypes">&MIME;-Types</glossseealso>
-				<glossseealso otherterm="gloss-printcap">printcap</glossseealso>
-                        </glossdef>
-                </glossentry>
-
                 <glossentry id="gloss-authentication">
                         <glossterm>Authentication</glossterm>
                         <glossdef><para>Proving the identity of a certain person (maybe via username/password
@@ -234,29 +210,6 @@
                         </glossdef>
                 </glossentry>
 
-                <glossentry id="gloss-easysoftwareproducts">
-                        <glossterm>Easy Software Products</glossterm>
-                        <glossdef><para>Mike Sweet's company, which has contributed a few substantial
-				software products towards the Free Software community; amongst
-				them the initial version of &linkstart; 
-				"http://gimp-print.sf.net/"&linkmid;Gimp-Print,&linkend; the &linkstart; 
-				"http://www.easysw.com/epm/"&linkmid;EPM software packaging&linkend; tool 
-				and &linkstart;"http://www.easysw.com/htmldoc/"&linkmid;HTMLDOC&linkend;
-				(used by the "Linux Documentation Project" to build the PDF versions
-				of the HOWTOs) -- but most importantly:  &linkstart; 
-				"http://www.cups.org/"&linkmid;&CUPS;&linkend; (the 'Common &UNIX; Printing
-				System').&newpara;
-				ESP financed themselves by selling a commercial version
-				of &CUPS;, called ESP PrintPro, 
-				that includes some professional enhancements.
-				ESP Print Pro was purchased by Apple Inc. in February of 2007. ESP Print Pro software and support are no longer available from Easy Software Products. ESP Print Pro users were given non-expiring, floating licenses which may be accessed from the MyESP pages.
-				</para>
-                                <glossseealso otherterm="gloss-cups">&CUPS;</glossseealso>
-                                <glossseealso otherterm="gloss-esp">ESP</glossseealso>
-                                <glossseealso otherterm="gloss-gimpprint">Gimp-Print</glossseealso>
-                        </glossdef>
-                </glossentry>
- 
                 <glossentry id="gloss-encryption">
                         <glossterm>Encryption</glossterm>
                         <glossdef><para>Encryption of confidential data is an all-important issue if
@@ -314,18 +267,6 @@
                                 <glossseealso otherterm="gloss-hpgl">hpgl</glossseealso>
                         </glossdef>
                 </glossentry>
-
-                <glossentry id="gloss-esp">
-                        <glossterm><acronym>ESP</acronym></glossterm>
-                        <glossdef><para>Abbreviation for &emstart;E&emend;asy
-				&emstart;S&emend;oftware &emstart;P&emend;roducts;
-				the company that developed &CUPS; (the "Common &UNIX; Printing System").
-				</para>
-                                <glossseealso otherterm="gloss-easysoftwareproducts">Easy Software Products</glossseealso>
-                                <glossseealso otherterm="gloss-cups">&CUPS;</glossseealso>
-                        </glossdef>
-                </glossentry>
-
 
                 <glossentry id="gloss-filter">
                         <glossterm>Filter</glossterm>
@@ -528,16 +469,6 @@
                         </glossdef>
                 </glossentry>
 
-                <glossentry id="gloss-magicfilter">
-                        <glossterm>Magicfilter</glossterm>
-                        <glossdef><para>Similarly to the APSfilter program, Magicfilter
-				provides automatic file type recognition functions and, base
-				on that, automatic file conversion to a printable format,
-				depending on the target printer.</para>
-                                <glossseealso otherterm="gloss-apsfilter">APSfilter</glossseealso>
-                        </glossdef>
-                </glossentry>
-
                 <glossentry id="gloss-mimetypes">
                         <glossterm>&MIME;-Types</glossterm>
                         <glossdef><para>Abbreviation for &emstart;M&emend;ultipurpose (or
@@ -563,7 +494,6 @@
 				raster image format).
 				</para>
                                 <glossseealso otherterm="gloss-cups">&CUPS;</glossseealso>
-                                <glossseealso otherterm="gloss-easysoftwareproducts">Easy Software Products</glossseealso>
                                 <glossseealso otherterm="gloss-gimpprint">Gimp-Print</glossseealso>
                         </glossdef>
                 </glossentry>
@@ -729,20 +659,6 @@
                                 <glossseealso otherterm="gloss-snmp">SNMP</glossseealso>
                         </glossdef>
                 </glossentry>
-
-<!--
-                <glossentry id="gloss-printkioslave">
-                        <glossterm>print:/ KIO Slave</glossterm>
-                        <glossdef><para>You can use a syntax of "print:/..." to get quick access
-				to &kde; printing subsystem resources. Typing "print:/manager" as a Konqueror URL
-				address gives administrative access to KDEPrint. Konqueror uses &kde;'s
-				famous "KParts" technology to achieve that. </para>
-                                <glossseealso otherterm="gloss-ioslave">IO Slave</glossseealso>
-                                <glossseealso otherterm="gloss-kparts">KParts</glossseealso>
-                        </glossdef>
-                </glossentry>
--->
-
                 <glossentry id="gloss-printerdatabase">
                         <glossterm>Printer Database</glossterm>
                         <glossdef><para>Good database of printer drivers can be found at &linkstart;"http://www.openprinting.org/printers"&linkmid;http://www.openprinting.org/printers&linkend;.</para>

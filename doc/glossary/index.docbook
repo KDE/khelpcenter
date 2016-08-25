@@ -13,7 +13,12 @@
 <!-- acronym, systemitem unchanged
 itemizedlist+listitem changed to simple para -->
 ]>
-
+<!--FIXME
+Documentation local docbook / online userbase
+kde wikis community techbase userbase
+Nepomuk / Baloo / Desktop search
+Project Neon
+-->
 
 <glossary lang="&language;" id="glossary">
 
@@ -28,19 +33,28 @@ itemizedlist+listitem changed to simple para -->
 				The main reasons for design and development of Akonadi are of technical nature, &eg; having a unique way to access PIM-data (contacts, calendars, emails..) from different applications (&eg; &kmail;, &kword; &etc;), thus eliminating the need to write similar code here and there.&newpara;
 				Another goal is to de-couple GUI applications like &kmail; from the direct access to external resources like mail-servers - which was a major reason for bug-reports/wishes with regard to performance/responsiveness in the past.&newpara;
 				More info:&newpara;
-				&linkstart;"http://pim.kde.org/akonadi/"&linkmid;Akonadi for KDE's PIM&linkend;&newpara;
+				&linkstart;"https://community.kde.org/KDE_PIM/Akonadi"&linkmid;Akonadi for KDE's PIM&linkend;&newpara;
 				&linkstart;"http://en.wikipedia.org/wiki/Akonadi"&linkmid;Wikipedia: Akonadi&linkend;&newpara;
 				&linkstart;"http://techbase.kde.org/Projects/PIM/Akonadi"&linkmid;Techbase - Akonadi&linkend;</para>
 				<glossseealso otherterm="gloss-gui">&GUI;</glossseealso>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 			</glossdef>
 		</glossentry>
-		<glossentry id="gloss-arts">
+		<glossentry id="gloss-applications">
+			<glossterm>Applications</glossterm>
+			<glossdef><para>Applications are based on the core libraries projects by the KDE community, currently &kde; Frameworks and previously &kde; Platform.&newpara;
+				More info:&newpara;
+				&linkstart;"https://community.kde.org/Promo/Guidance/Branding/Quick_Guide/"&linkmid;KDE Branding&linkend;</para>
+				<glossseealso otherterm="gloss-plasma">&plasma;</glossseealso>
+				<glossseealso otherterm="gloss-frameworks">Frameworks</glossseealso>
+				<glossseealso otherterm="gloss-platform">Platform</glossseealso>
+			</glossdef>
+		</glossentry>
+		<glossentry id="gloss-arts"><!--remove it?-->
 			<glossterm>ARts</glossterm>
 			<glossdef><para>The sound framework in &kde; 2 and 3. Its single-tasking nature caused problems when two sources of sound were encountered. In the &plasma; desktop it is replaced by Phonon.&newpara;
 				More info:&newpara;
-				&linkstart;"http://en.wikipedia.org/wiki/ARts"&linkmid; Wikipedia: ARts&linkend;&newpara;
-				&linkstart;"http://www.arts-project.org"&linkmid;ARts home page&linkend;</para>
+				&linkstart;"http://en.wikipedia.org/wiki/ARts"&linkmid; Wikipedia: ARts&linkend;</para>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 				<glossseealso otherterm="gloss-phonon">Phonon</glossseealso>
 				<glossseealso otherterm="gloss-plasma">&plasma;</glossseealso>
@@ -76,12 +90,21 @@ itemizedlist+listitem changed to simple para -->
 				<glossseealso otherterm="gloss-kparts">KParts</glossseealso>
 			</glossdef>
 		</glossentry>
+		<glossentry id="gloss-frameworks">
+			<glossterm>Frameworks</glossterm>
+			<glossdef><para>&kde; Frameworks 5 is the next generation of &kde; libraries, modularized and optimized for easy integration in &Qt; applications. The Frameworks offer a wide variety of commonly needed functionality in mature, peer reviewed and well tested libraries with friendly licensing terms. There are over 70 different Frameworks providing solutions including hardware integration, file format support, additional widgets, plotting functions, spell checking and more. Many of the Frameworks are cross platform and have minimal or no extra dependencies making them easy to build and add to any &Qt; application..&newpara;
+				<!-- https://www.kde.org/announcements/kde-frameworks-5.0.php-->
+				More info:&newpara;
+				&linkstart;"https://community.kde.org/Frameworks"&linkmid;&kde; Community Wiki: Frameworks&linkend;</para>
+				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
+				<glossseealso otherterm="gloss-plasma">&plasma;</glossseealso>
+				<glossseealso otherterm="gloss-applications">Applications</glossseealso>
+				<glossseealso otherterm="gloss-platform">Platform</glossseealso>
+			</glossdef>
+		</glossentry>
 		<glossentry id="gloss-ghns">
 			<glossterm>Get Hot New Stuff</glossterm>
-			<glossdef><para>&emstart;G&emend;et &emstart;H&emend;ot &emstart;N&emend;ew &emstart;S&emend;tuff (GHNS) is an open standard that makes it easy for users to download and install various extensions for their applications. Our implementation of GHNS is used by &plasma; (for example to get new desktop themes), and by many applications and widgets.&newpara;
-				More info:&newpara;
-				&linkstart;"http://ghns.freedesktop.org"&linkmid;Home of GHNS&linkend;&newpara;
-				&linkstart;"http://lwn.net/Articles/227855/"&linkmid;An article on GHNS in &kde; SC 4&linkend;</para>
+			<glossdef><para>&emstart;G&emend;et &emstart;H&emend;ot &emstart;N&emend;ew &emstart;S&emend;tuff (GHNS) is an open standard that makes it easy for users to download and install various extensions for their applications. Our implementation of GHNS is used by &plasma; (for example to get new desktop themes), and by many applications and widgets.</para>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 				<glossseealso otherterm="gloss-plasma">&plasma;</glossseealso>
 			</glossdef>
@@ -145,6 +168,19 @@ Slave</glossseealso>
 otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glossseealso>
 			</glossdef>
 		</glossentry>
+		<glossentry id="gloss-platform">
+                    <glossterm>Platform</glossterm>
+			<glossdef><para>Previously the base of libraries and services needed to run &kde; applications. It is used by core and third-party developers to create &kde; software. Especially when including development frameworks and tools it may be referred to as &kde; Development Platform. &kde; Platform is built on a number of Pillars, for example Akonadi, Solid, <!--FIXME Nepomuk?-->, Phonon.</para>
+				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
+				<glossseealso otherterm="gloss-plasma">&plasma;</glossseealso>
+				<glossseealso otherterm="gloss-applications">Applications</glossseealso>
+				<glossseealso otherterm="gloss-frameworks">Frameworks</glossseealso>
+				<glossseealso otherterm="gloss-akonadi">Akonadi</glossseealso>
+				<glossseealso otherterm="gloss-solid">Solid</glossseealso>
+				<!--FIXME <glossseealso otherterm="gloss-kde">Nepomuk</glossseealso> Baloo? -->
+				<glossseealso otherterm="gloss-phonon">Phonon</glossseealso>
+			</glossdef>
+		</glossentry>
 		<glossentry id="gloss-phonon">
 			<glossterm>Phonon</glossterm>
 			<glossdef><para>A cross-platform multimedia API, interfacing with existing frameworks, such as gstreamer and xine engines. &kde; 2 and 3 depended on aRts for sound. Phonon replaces it.&newpara;
@@ -167,7 +203,7 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 			<glossterm>Threadweaver</glossterm>
 			<glossdef><para>This thread programming library spreads work among multiple-core processors where available, prioritizing them before queuing them for execution. ThreadWeaver provides a high-level job interface for multithreaded programming.&newpara;
 				More info:&newpara;
-				&linkstart;"http://www.englishbreakfastnetwork.org/apidocs/apidox-kde-4.0/kdelibs-apidocs/threadweaver/html/Why.html"&linkmid;Why Multithreading?&linkend;</para>
+				&linkstart;"https://api.kde.org/frameworks/threadweaver/html/index.html"&linkmid;API Documentation – ThreadWeaver&linkend;</para>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 			</glossdef>
 		</glossentry>
@@ -178,7 +214,7 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 				&linkstart;"http://webkit.org/"&linkmid;WebKit home page&linkend;&newpara;
 				&linkstart;"http://en.wikipedia.org/wiki/Webkit"&linkmid;Wikipedia: WebKit&linkend;</para>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
-				<glossseealso otherterm="gloss-kde">KHTML</glossseealso>
+				<glossseealso otherterm="gloss-khtml">KHTML</glossseealso>
 			</glossdef>
 		</glossentry>
 	</glossdiv>
@@ -207,15 +243,15 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 			</glossdef>
 		</glossentry>
 	</glossdiv>
-
+        <!--wayland missing?-->
 	<glossdiv id="glossdiv-applications">
 		<title>Applications</title>
 		<glossentry id="gloss-dolphin">
 			<glossterm>Dolphin</glossterm>
-			<glossdef><para>The default file manager in &kde; SC 4. It has a side panel (Places), but navigation is mainly by the 'breadcrumb' trail above the main window. Split windows are possible, and views can be applied to individual windows. Mounting and unmounting <acronym>USB</acronym> devices can be done in the side panel. Other directories can be added to the Places panel. A Tree view is also possible.&newpara;
+			<glossdef><para>The default file manager in &kde; Applications. It has a side panel (Places), but navigation is mainly by the 'breadcrumb' trail above the main window. Split windows are possible, and views can be applied to individual windows. Mounting and unmounting <acronym>USB</acronym> devices can be done in the side panel. Other directories can be added to the Places panel. A Tree view is also possible.&newpara;
 				More info:&newpara;
+				&linkstart;"https://www.kde.org/applications/system/dolphin/"&linkmid;Dolphin&linkend;&newpara;
 				&linkstart;"http://en.wikipedia.org/wiki/Dolphin_(software)"&linkmid;Wikipedia: Dolphin&linkend;&newpara;
-				&linkstart;"http://introducingkde4.blogspot.com/2007/12/dolphin.html"&linkmid;Introducing KDE 4 Blog - Dolphin&linkend;&newpara;
 				&linkstart;"http://userbase.kde.org/Tutorials/File_Management"&linkmid;Userbase: File Management Tutorial&linkend;</para>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 				<glossseealso otherterm="gloss-konqueror">&konqueror;</glossseealso>
@@ -234,8 +270,9 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 		</glossentry>
 		<glossentry id="gloss-kinfocenter">
 			<glossterm>KInfoCenter</glossterm>
-			<glossdef><para>Kinfocenter originated as part of Kcontrol standing alone from KDE 3.1. In KDE SC 4 it is replaced by modules configured in System Settings, notably Solid, and is being reintroduced as an application in &kde; SC 4.5.&newpara;
+			<glossdef><para>Kinfocenter originated as part of Kcontrol standing alone from KDE 3.1. In &kde; SC 4 it was replaced by modules configured in &systemsettings;, notably Solid, and is being reintroduced as an application in &plasma;.&newpara;
 				More info:&newpara;
+				&linkstart;"https://www.kde.org/applications/system/dkinfocenter/"&linkmid;KInfoCenter&linkend;&newpara;
 				&linkstart;"http://en.wikipedia.org/wiki/Kinfocenter"&linkmid;Wikipedia: KInfoCenter&linkend;</para>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 				<glossseealso otherterm="gloss-solid">Solid</glossseealso>
@@ -278,7 +315,7 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 			<glossterm>Pager</glossterm>
 			<glossdef><para>A pager is a small program or panel applet which shows the position of windows on your desktop and usually if you have several Virtual Desktops gives an overview over all.</para>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
-				<glossseealso otherterm="gloss-kickoff">Kickoff</glossseealso>
+				<glossseealso otherterm="gloss-application-starter">Application Starter</glossseealso>
 				<glossseealso otherterm="gloss-kicker">Kicker</glossseealso>
 				<glossseealso otherterm="gloss-panel">Panel</glossseealso>
 				<glossseealso otherterm="gloss-plasma">&plasma;</glossseealso>
@@ -310,6 +347,15 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 				<glossseealso otherterm="gloss-virtualdesktops">Virtual Desktops</glossseealso>
 			</glossdef>
 		</glossentry>
+		<glossentry id="gloss-breeze">
+			<glossterm><acronym>Breeze</acronym></glossterm>
+			<glossdef><para>Breeze is the default theme for &plasma;. The new theme is a high-contrast, flat theme for the workspace. It is available in light and dark variants. Simpler and more monochromatic graphics assets and typography-centered layouts offer a clean and visually clear user experience.</para>
+				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
+				<glossseealso otherterm="gloss-ksvg">KSVG</glossseealso>
+				<glossseealso otherterm="gloss-plasma">&plasma;</glossseealso>
+				<glossseealso otherterm="gloss-oxygen">Oxygen</glossseealso>
+			</glossdef>
+		</glossentry>
 		<glossentry id="gloss-containment">
 			<glossterm>Containment</glossterm>
 			<glossdef><para>A Containment is a top level grouping of widgets. Each Containment manages the layout and configuration data of its set of widgets independently from other Containments.&newpara;
@@ -328,15 +374,6 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 				window while keeping the mouse button pressed, and releasing the mouse
 				button ("dropping" the object) copies files.</para>
 				<glossseealso otherterm="gloss-konqueror">&konqueror;</glossseealso>
-			</glossdef>
-		</glossentry>
-		<glossentry id="gloss-extender">
-			<glossterm>Extender</glossterm>
-			<glossdef><para>Extenders are a special kind of popup that can grow out of a &plasma; panel for example. Extenders have detachable parts. Extenders are a new concept that arrived in &plasma; for &kde; 4.2. The Kuiserver (the interface that collects all long running jobs and puts them into one window) will make use of extenders so you can detach various jobs and monitor their progress separately.&newpara;
-				More info:&newpara;
-				&linkstart;"http://userbase.kde.org/Plasma"&linkmid;Plasma FAQ&linkend;</para>
-				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
-				<glossseealso otherterm="gloss-plasma">&plasma;</glossseealso>
 			</glossdef>
 		</glossentry>
 		<glossentry id="gloss-gnome">
@@ -384,28 +421,27 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 				<glossseealso otherterm="gloss-plasma">&plasma;</glossseealso>
 			</glossdef>
 		</glossentry>
-		<glossentry id="gloss-kickoff">
-			<glossterm><acronym>&kickoff;</acronym></glossterm>
+		<glossentry id="gloss-application-starter">
+			<glossterm><acronym>Application Starter</acronym></glossterm>
 			<glossdef>
-				<para>In &kde; SC 4 (and some late versions of &kde; 3), a launch menu in which apps are sorted by functional group. 'Favorites' replaces the 'Most used applications' in Classic Menu, and applications can be added to it. Right-click also offers the possibility of adding applications to the desktop or panel. Rapid access to a less-used application can be by the search box. Other menus are being worked on, since &kde; SC 4 can be used with more than one launcher, should that be required.&newpara;
-				More info:&newpara;
-				&linkstart;"http://home.kde.org/~binner/kickoff/sneak_preview.html"&linkmid;Kickoff Sneak Preview&linkend;</para>
+				<para>In &plasma; an application launcher in which apps are sorted by functional group. 'Favorites' replaces the 'Most used applications' in Classic Menu, and applications can be added to it. Right-click also offers the possibility of adding applications to the desktop or panel. Rapid access to a less-used application can be by the search box. Alternatives like the classic Application Menu with cascading popup menus and the Application Dashboard, a fullscreen launcher are available. &plasma; can be used with more than one launcher, should that be required.&newpara;
+				</para>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 				<glossseealso otherterm="gloss-pager">Pager</glossseealso>
 				<glossseealso otherterm="gloss-panel">Panel</glossseealso>
 				<glossseealso otherterm="gloss-plasma">&plasma;</glossseealso>
 			</glossdef>
 		</glossentry>
-		<glossentry id="gloss-oxygen">
+                <glossentry id="gloss-oxygen">
 			<glossterm><acronym>Oxygen</acronym></glossterm>
 			<glossdef>
-				<para>Oxygen is the default theme of &kde; SC 4. Designed to bring 'a breath of fresh air' to the desktop by removing the simplistic, cartoonish icons, and replacing them with a clean theme and photo-realistic icons. Oxygen uses a desaturated palette to avoid the icons becoming a distraction and uses detailed scalable graphics (SVG).&newpara;
+				<para>Oxygen was the default theme of &kde; SC 4. Designed to bring 'a breath of fresh air' to the desktop by removing the simplistic, cartoonish icons, and replacing them with a clean theme and photo-realistic icons. Oxygen uses a desaturated palette to avoid the icons becoming a distraction and uses detailed scalable graphics (SVG).&newpara;
 				More info:&newpara;
-				&linkstart;"http://en.wikipedia.org/wiki/Oxygen_Project"&linkmid;Wikipedia: Oxygen Project&linkend;&newpara;
-				&linkstart;"http://www.oxygen-icons.org/?cat=3"&linkmid;Oxygen Icons&linkend;</para>
+				&linkstart;"http://en.wikipedia.org/wiki/Oxygen_Project"&linkmid;Wikipedia: Oxygen Project&linkend;</para>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 				<glossseealso otherterm="gloss-ksvg">KSVG</glossseealso>
 				<glossseealso otherterm="gloss-plasma">&plasma;</glossseealso>
+				<glossseealso otherterm="gloss-breeze">Breeze</glossseealso>
 			</glossdef>
 		</glossentry>
 		<glossentry id="gloss-panel">
@@ -414,18 +450,17 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 				screen.</para>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 				<glossseealso otherterm="gloss-kicker">&kicker;</glossseealso>
-				<glossseealso otherterm="gloss-kickoff">&kickoff;</glossseealso>
+				<glossseealso otherterm="gloss-application-starter">Application Starter</glossseealso>
 				<glossseealso otherterm="gloss-plasma">&plasma;</glossseealso>
 			</glossdef>
 		</glossentry>
 		<glossentry id="gloss-plasma">
 			<glossterm>Plasma</glossterm>
-			<glossdef><para>In &kde; SC 4 the &plasma; Desktop replaces KDesktop, &kicker; and the SuperKaramba widget engine. The applets are called Plasmoids, and range from informational widgets to mini-apps such as a calculator or dictionary. Widgets from other sources, such as SuperKaramba widgets or <trademark>Google</trademark> Gadgets are also supported.&newpara;
+			<glossdef><para>&plasma; replaces KDesktop, &kicker; and the SuperKaramba widget engine. The applets are called Widgets, and range from informational widgets to mini-apps such as a calculator or dictionary.&newpara;
 				More info:&newpara;
-				&linkstart;"http://en.wikipedia.org/wiki/Plasma_(KDE)"&linkmid;Wikipedia: Plasma&linkend;&newpara;
-				&linkstart;"http://plasma.kde.org/cms/1107/"&linkmid;Plasma website&linkend;&newpara;
-				&linkstart;"http://userbase.kde.org/Plasma"&linkmid;Plasma FAQ&linkend;&newpara;
-				&linkstart;"http://userbase.kde.org/Tutorials/TweakingPlasma"&linkmid;Tweaking Plasma&linkend;</para>
+				&linkstart;"http://en.wikipedia.org/wiki/KDE_Plasma_5"&linkmid;Wikipedia: KDE Plasma 5&linkend;&newpara;
+				&linkstart;"https://www.kde.org/workspaces/"&linkmid;Plasma Workspaces&linkend;&newpara;
+				&linkstart;"http://userbase.kde.org/Plasma"&linkmid;Plasma&linkend;</para>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 				<glossseealso otherterm="gloss-kicker">&kicker;</glossseealso>
 				<glossseealso otherterm="gloss-widget">Widget</glossseealso>
@@ -433,7 +468,7 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 		</glossentry>
 		<glossentry id="gloss-ripping">
 			<glossterm>Ripping</glossterm>
-			<glossdef><para>The process of reading audio data from a &cdrom; and
+			<glossdef><para>The process of reading audio and video data from a &cdrom; or DVD and
 				storing it on the hard disk.</para>
 			</glossdef>
 		</glossentry>
@@ -443,7 +478,7 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 				More info:&newpara;
 				&linkstart;"http://userbase.kde.org/Plasma"&linkmid;Plasma FAQ&linkend;</para>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
-				<glossseealso otherterm="gloss-kickoff">&kickoff;</glossseealso>
+				<glossseealso otherterm="gloss-application-starter">Application Starter</glossseealso>
 				<glossseealso otherterm="gloss-pager">Pager</glossseealso>
 			</glossdef>
 		</glossentry>
@@ -457,7 +492,7 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 				the &Qt; toolkit, which provides many graphical elements (so-called
 				"Widgets") which are used to construct the desktop. You
 				can find more information about &Qt; at &linkstart;
-				"http://qt-project.org/"&linkmid;http://qt-project.org/&linkend;.</para>
+				"https://www.qt.io/developers/"&linkmid;https://www.qt.io/developers/&linkend;.</para>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 				<glossseealso otherterm="gloss-gui">&GUI;</glossseealso>
 				<glossseealso otherterm="gloss-widget">Widget</glossseealso>
@@ -485,6 +520,7 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 				"http://l10n.kde.org"&linkmid;l10n.kde.org&linkend;.</para>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 				<glossseealso otherterm="gloss-gui">&GUI;</glossseealso>
+				<glossseealso otherterm="gloss-l10n">l10n</glossseealso>
 			</glossdef>
 		</glossentry>
 		<glossentry id="gloss-kross">
@@ -522,23 +558,19 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 			<glossterm>l10n</glossterm>
 			<glossdef><para>Abbreviation for "localization", the process
 				of adapting a program to the local environment. This includes &eg; the
-				currency used for monetary values or the time format.</para>
+				currency used for monetary values or the time format and translating text.&newpara;
+				More info:&newpara;
+				&linkstart;"http://l10n.kde.org"&linkmid;l10n.kde.org&linkend;</para>
 				<glossseealso otherterm="gloss-i18n">i18n</glossseealso>
                         </glossdef>
 		</glossentry>
-		<glossentry id="gloss-strigi">
-			<glossterm>Strigi</glossterm>
-			<glossdef><para>A deep-indexed search daemon, Strigi aims to be fast and light-weight. It also uses SHA-1 hash which will help in the identification of duplicate files.&newpara;
-				More info:&newpara;
-				&linkstart;"http://en.wikipedia.org/wiki/Strigi"&linkmid;Wikipedia: Strigi&linkend;</para>
-				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
-			</glossdef>
-		</glossentry>
 		<glossentry id="gloss-widget">
-			<glossterm>Widget</glossterm>
-			<glossdef><para>Graphical elements like scrollbars, buttons or input
-				fields which are used by &kde; to construct the &GUI;.
+                    <glossterm>Widget</glossterm>
+			<glossdef><para>In general Widgets are graphical elements like scrollbars, buttons or input fields which are used to construct the &GUI;.&newpara;
+				In &plasma; Widgets are the main components and take on a variety of functions, ranging from displaying the desktop and associated wallpaper, showing the laptop's battery level, displaying the plugged in devices, and drawing the taskbar: basically, they are small applications that live on the desktop. Additionally, widgets can be grouped together in "Containers", like the panel and even the desktop itself.
 				</para>
+				<glossseealso otherterm="gloss-plasma">&plasma;</glossseealso>
+				<glossseealso otherterm="gloss-containment">Contaiment</glossseealso>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 				<glossseealso otherterm="gloss-gui">&GUI;</glossseealso>
 			</glossdef>
