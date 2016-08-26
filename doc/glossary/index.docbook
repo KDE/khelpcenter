@@ -92,7 +92,7 @@ Project Neon
 		</glossentry>
 		<glossentry id="gloss-frameworks">
 			<glossterm>Frameworks</glossterm>
-			<glossdef><para>&kde; Frameworks 5 is the next generation of &kde; libraries, modularized and optimized for easy integration in &Qt; applications. The Frameworks offer a wide variety of commonly needed functionality in mature, peer reviewed and well tested libraries with friendly licensing terms. There are over 70 different Frameworks providing solutions including hardware integration, file format support, additional widgets, plotting functions, spell checking and more. Many of the Frameworks are cross platform and have minimal or no extra dependencies making them easy to build and add to any &Qt; application..&newpara;
+			<glossdef><para>&kde; Frameworks 5 is the next generation of &kde; libraries, modularized and optimized for easy integration in &Qt; applications. The Frameworks offer a wide variety of commonly needed functionality in mature, peer reviewed and well tested libraries with friendly licensing terms. There are over 70 different Frameworks providing solutions including hardware integration, file format support, additional widgets, plotting functions, spell checking and more. Many of the Frameworks are cross platform and have minimal or no extra dependencies making them easy to build and add to any &Qt; application.&newpara;
 				<!-- https://www.kde.org/announcements/kde-frameworks-5.0.php-->
 				More info:&newpara;
 				&linkstart;"https://community.kde.org/Frameworks"&linkmid;&kde; Community Wiki: Frameworks&linkend;</para>
@@ -170,7 +170,7 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 		</glossentry>
 		<glossentry id="gloss-platform">
                     <glossterm>Platform</glossterm>
-			<glossdef><para>Previously the base of libraries and services needed to run &kde; applications. It is used by core and third-party developers to create &kde; software. Especially when including development frameworks and tools it may be referred to as &kde; Development Platform. &kde; Platform is built on a number of Pillars, for example Akonadi, Solid, <!--FIXME Nepomuk?-->, Phonon.</para>
+			<glossdef><para>Previously the base of libraries and services needed to run &kde; applications. It is used by core and third-party developers to create &kde; software. Especially when including development frameworks and tools it may be referred to as &kde; Development Platform. &kde; Platform is built on a number of Pillars, for example Akonadi, Solid, <!--FIXME Nepomuk?-->Phonon.</para>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 				<glossseealso otherterm="gloss-plasma">&plasma;</glossseealso>
 				<glossseealso otherterm="gloss-applications">Applications</glossseealso>
@@ -272,7 +272,7 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 			<glossterm>KInfoCenter</glossterm>
 			<glossdef><para>Kinfocenter originated as part of Kcontrol standing alone from KDE 3.1. In &kde; SC 4 it was replaced by modules configured in &systemsettings;, notably Solid, and is being reintroduced as an application in &plasma;.&newpara;
 				More info:&newpara;
-				&linkstart;"https://www.kde.org/applications/system/dkinfocenter/"&linkmid;KInfoCenter&linkend;&newpara;
+				&linkstart;"https://www.kde.org/applications/system/kinfocenter/"&linkmid;KInfoCenter&linkend;&newpara;
 				&linkstart;"http://en.wikipedia.org/wiki/Kinfocenter"&linkmid;Wikipedia: KInfoCenter&linkend;</para>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 				<glossseealso otherterm="gloss-solid">Solid</glossseealso>
@@ -570,7 +570,7 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 				In &plasma; Widgets are the main components and take on a variety of functions, ranging from displaying the desktop and associated wallpaper, showing the laptop's battery level, displaying the plugged in devices, and drawing the taskbar: basically, they are small applications that live on the desktop. Additionally, widgets can be grouped together in "Containers", like the panel and even the desktop itself.
 				</para>
 				<glossseealso otherterm="gloss-plasma">&plasma;</glossseealso>
-				<glossseealso otherterm="gloss-containment">Contaiment</glossseealso>
+				<glossseealso otherterm="gloss-containment">Containment</glossseealso>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 				<glossseealso otherterm="gloss-gui">&GUI;</glossseealso>
 			</glossdef>
