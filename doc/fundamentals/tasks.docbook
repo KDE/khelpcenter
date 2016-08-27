@@ -821,7 +821,7 @@ search using regular expressions. Click on <guibutton>Edit</guibutton> to select
 from and enter commonly used regular expression characters, like
 <guilabel>White Space</guilabel> or <guilabel>Start of Line</guilabel>.  If
 &kate; is installed, you can find
-<ulink url="help:/kate/regular-expressions.html">more information on writing
+<ulink url="help:/katepart/regular-expressions.html">more information on writing
 regular expressions in its documentation</ulink>.</para>
 
 
@@ -947,7 +947,7 @@ placeholder and add an <quote>s</quote>. The replace field will then
 contain <quote>\0s</quote>.</para>
 
 <para>If &kate; is installed, you can learn more about placeholders in the
-<ulink url="help:/kate/regular-expressions.html">Regular Expressions appendix
+<ulink url="help:/katepart/regular-expressions.html">Regular Expressions appendix
 of its documentation</ulink>.</para>
 </listitem>
 </varlistentry>
