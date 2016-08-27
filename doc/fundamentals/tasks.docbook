@@ -559,7 +559,7 @@ application.</para></listitem>
 <listitem><para>Open the Properties window that allows you to view and modify
 various types of metadata related to the currently selected file.</para></listitem>
 </varlistentry>
-
+<!-- FIXME http://www.aelog.org/checksums-made-easy -->
 </variablelist>
 </listitem>
 </varlistentry>
@@ -886,7 +886,7 @@ or by pressing <keycap>F3</keycap>.</para>
 <!--FIXME
 Copy documentation from Kate/KWrite here.
   -->
-<para>Applications which use the &kde; text editor component show a search bar instead of the Find window. See <ulink url="help:/kwrite/edit.html#find">&kwrite; documentation</ulink> for additional information on the search bar.</para>
+<para>Applications which use the &kde; text editor component show a search bar instead of the Find window. See <ulink url="help:/katepart/kate-part-find-replace.html#finding-text">&katepart; documentation</ulink> for additional information on the search bar.</para>
 
 <screenshot id="screenshot-find-find-inline">
 <screeninfo>The search bar in &kate;.</screeninfo>
