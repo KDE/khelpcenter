@@ -374,38 +374,11 @@ example, if you search for <quote>Shortcut</quote>, results that contain
 Choose how to search for multiple words.  If you choose
 <guilabel>and</guilabel>, results are returned only if all your search
 terms are included in the page. <guilabel>or</guilabel> returns results
-if <emphasis>any</emphasis> of the search terms are found, and
-<guilabel>boolean</guilabel> lets you search using a combination.
+if <emphasis>any</emphasis> of the search terms are found.
 </para> 
-<para>
-Boolean syntax lets you use the operators <literal>AND</literal>,
-<literal>OR</literal> and <literal>NOT</literal> to create complex
-searches. Some examples:</para>
-<variablelist>
-<varlistentry>
-<term><userinput>cat and dog</userinput></term>
-<listitem><para>Searches for pages which have both the words
-<userinput>cat</userinput> and <userinput>dog</userinput> in them.  Pages with
-only one or the other will not be returned.</para></listitem>
-</varlistentry>
-<varlistentry>
-<term><userinput>cat not dog</userinput></term>
-<listitem><para>Searches for pages with <userinput>cat</userinput> in them, but
-only returns the ones that don't have the word <userinput>dog</userinput> in
-them.</para></listitem>
-</varlistentry>
-<varlistentry>
-<term><userinput>cat or (dog not nose)</userinput></term>
-<listitem><para>Searches for pages which contain <userinput>cat</userinput>, and
-for pages which contain <userinput>dog</userinput> but don't contain
-<userinput>nose</userinput>.  Pages which contain both
-<userinput>cat</userinput> and <userinput>nose</userinput> would be returned,
-pages containing all three words would not.</para></listitem> 
-</varlistentry>
-</variablelist>
 <para>If your searches are not returning the results you expect, check
-carefully you haven't excluded the wrong search term with an errand
-<literal>NOT</literal> or a stray brace.</para></listitem>
+carefully you haven't excluded the wrong search term with an erroneous setting.
+</para></listitem>
 </varlistentry>
 <varlistentry>
 <term><guilabel>Max. results</guilabel></term>
