@@ -56,6 +56,7 @@
   <summary xml:lang="sv">Hjälpcentral</summary>
   <summary xml:lang="uk">Центр довідки</summary>
   <summary xml:lang="x-test">xxHelp Centerxx</summary>
+  <summary xml:lang="zh-CN">帮助中心</summary>
   <description>
     <p>
       Documentation viewer
@@ -85,6 +86,7 @@
     <p xml:lang="sv">Dokumentationsvisning</p>
     <p xml:lang="uk">Програма для перегляду довідки</p>
     <p xml:lang="x-test">xxDocumentation viewerxx</p>
+    <p xml:lang="zh-CN">帮助文档浏览器</p>
     <p>Features:</p>
     <p xml:lang="ca">Característiques:</p>
     <p xml:lang="ca-valencia">Característiques:</p>
@@ -111,6 +113,7 @@
     <p xml:lang="sv">Funktioner:</p>
     <p xml:lang="uk">Можливості:</p>
     <p xml:lang="x-test">xxFeatures:xx</p>
+    <p xml:lang="zh-CN">功能：</p>
     <ul>
       <li>Show documentation from various sources (applications from KDE community, man pages, etc)</li>
       <li xml:lang="ca">Mostra la documentació de diverses fonts (aplicacions de la comunitat KDE, pàgines «man», etc.)</li>
@@ -137,6 +140,7 @@
       <li xml:lang="sv">Visa dokumentation från olika källor (program från KDE-gemenskapen, manualsidor, etc.)</li>
       <li xml:lang="uk">Показ документації з різних джерел (програми спільноти KDE, сторінки man тощо)</li>
       <li xml:lang="x-test">xxShow documentation from various sources (applications from KDE community, man pages, etc)xx</li>
+      <li xml:lang="zh-CN">显示来自从多种来源的文档（KDE 社区应用，man 页面，等）</li>
       <li>Search through the available documentation</li>
       <li xml:lang="ca">Cerca a la documentació disponible</li>
       <li xml:lang="ca-valencia">Cerca a la documentació disponible</li>
@@ -162,6 +166,7 @@
       <li xml:lang="sv">Sök igenom tillgänglig dokumentation</li>
       <li xml:lang="uk">Пошук у доступній документації</li>
       <li xml:lang="x-test">xxSearch through the available documentationxx</li>
+      <li xml:lang="zh-CN">在可用的文档中搜索</li>
     </ul>
   </description>
   <screenshots>
