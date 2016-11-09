@@ -136,8 +136,10 @@ int main( int argc, char *argv[] )
       const std::string html_id = slash != std::string::npos
                                 ? uid.substr( 0, slash + 1 ) + html
                                 : html;
+      const std::string partial_id = html_id.substr(0, html_id.rfind("/"));
 
-      std::cout << "<li><a href=\"help:/" << html_id << "\">" << title << "</a></li>" << std::endl;
+      std::cout << "<li><a href=\"help:/" << html_id << "\">" << partial_id
+                << " - " << title << "</a></li>" << std::endl;
     }
 
     std::cout << "</ul>" << std::endl;
