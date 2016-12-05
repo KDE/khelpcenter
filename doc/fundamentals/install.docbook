@@ -103,7 +103,7 @@ like what you see, most offer an option to install it to your hard drive.</para>
 <para>There is <ulink url="http://www.kde.org/download/distributions.php">a list
 of distributions that offer the &kde; workspace and applications on live media</ulink> on the &kde; website.</para>
 </sect2>
-
+<!--Neon?-->
 <sect2 id="install-source">
 <title>Building from Source Code</title>
 

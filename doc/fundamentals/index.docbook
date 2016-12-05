@@ -35,11 +35,11 @@
 </copyright>
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2016-06-06</date>
-<releaseinfo>&plasma; 5.6</releaseinfo>
+<date>2016-11-28</date>
+<releaseinfo>Frameworks 5.28 / Applications 16.12</releaseinfo>
 
 <abstract>
-<para>This guide provides an introduction to the &kde; workspace and applications and describes many
+<para>This guide provides an introduction to the &plasma; workspace and applications and describes many
 common tasks that can be performed.</para>
 </abstract>
 
@@ -69,7 +69,7 @@ common tasks that can be performed.</para>
 <title>Introduction</title>
 <para>Welcome to &kde;!</para>
 
-<para>This guide will introduce you to the many features of the &kde; workspace and applications and
+<para>This guide will introduce you to the many features of the &plasma; workspace and applications and
 describe many common tasks you can perform.</para>
 
 <para>For more information on &kde;, visit the
