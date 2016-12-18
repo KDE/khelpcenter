@@ -971,7 +971,8 @@ to replace the found text.</para></listitem>
 Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook + katepart/part.docbook
   -->
 <para>Many Applications show a search and replace bar instead of the Replace window.
-See <ulink url="help:/kwrite/edit.html#replace">&kwrite; documentation</ulink> for
+See <ulink url="help:/katepart/kate-part-find-replace.html#replacing-text">&katepart;
+documentation</ulink> for
 additional information on the search and replace bar.</para>
 
 <screenshot id="screenshot-find-replace-inline"><!--FIXME update !!!-->
