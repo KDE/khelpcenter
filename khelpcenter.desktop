@@ -2,7 +2,7 @@
 Name=KHelpCenter
 Name[af]=Khulpsentrum
 Name[ar]=مركز المساعدة في كدي
-Name[ast]=KHelpcenter
+Name[ast]=KHelpCenter
 Name[be]=Цэнтр дапамогі KDE
 Name[be@latin]=KHelpCenter
 Name[bg]=Помощен център
@@ -92,7 +92,6 @@ Name[x-test]=xxKHelpCenterxx
 Name[zh_CN]=KHelpcenter
 Name[zh_TW]=KHelpCenter
 Comment=Help for applications
-Comment[ast]=Ayuda p'aplicaciones
 Comment[ca]=Ajuda per les aplicacions
 Comment[ca@valencia]=Ajuda per les aplicacions
 Comment[cs]=Nápověda pro aplikace
