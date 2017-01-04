@@ -1823,7 +1823,7 @@ make performing many kinds of tasks with them easy.</para>
 <sect2 id="kbd-files">
 <title>Working with Files</title>
 
-<para>Whether your in an Open/Save dialog or the &dolphin; file manager, these
+<para>Whether you are in an Open/Save dialog or the &dolphin; file manager, these
 shortcuts save you time when performing operations on files.  Note that some of
 the concepts used with files are the same as with documents, so several of the
 shortcuts are identical to their counterparts listed above.</para>
