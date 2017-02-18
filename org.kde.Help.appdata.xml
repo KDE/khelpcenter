@@ -15,6 +15,7 @@
   <name xml:lang="et">KDE abikeskus</name>
   <name xml:lang="fi">KHelpCenter</name>
   <name xml:lang="hi">KHelpCenter</name>
+  <name xml:lang="hu">KHelpCenter</name>
   <name xml:lang="ia">KHelpCenter</name>
   <name xml:lang="it">KHelpCenter</name>
   <name xml:lang="ko">KHelpCenter</name>
@@ -47,6 +48,7 @@
   <summary xml:lang="et">Abikeskus</summary>
   <summary xml:lang="fi">Ohjekeskus</summary>
   <summary xml:lang="hi">मदद केंद्र</summary>
+  <summary xml:lang="hu">Súgóközpont</summary>
   <summary xml:lang="ia">Centro de Adjuta </summary>
   <summary xml:lang="it">Centro documentazione</summary>
   <summary xml:lang="ko">도움말 센터</summary>
@@ -82,6 +84,7 @@
     <p xml:lang="et">Dokumentatsiooni näitaja</p>
     <p xml:lang="fi">Ohjeiden katseluohjelma</p>
     <p xml:lang="hi">दस्तावेज़ प्रदर्शक</p>
+    <p xml:lang="hu">Dokumentáció-megjelenítő</p>
     <p xml:lang="ia">Monstrator de documento</p>
     <p xml:lang="it">Visualizzatore della documentazione</p>
     <p xml:lang="ko">문서 뷰어</p>
@@ -114,6 +117,7 @@
     <p xml:lang="et">Omadused:</p>
     <p xml:lang="fi">Ominaisuuksia:</p>
     <p xml:lang="hi">विशेषताएँ:</p>
+    <p xml:lang="hu">Szolgáltatások:</p>
     <p xml:lang="ia">Characteristicas:</p>
     <p xml:lang="it">Funzionalità:</p>
     <p xml:lang="ko">기능:</p>
@@ -146,6 +150,7 @@
       <li xml:lang="et">Paljudest allikatest pärit (KDE kogukonna rakendused, manuaalileheküljed jne.) dokumentatsiooni näitamine</li>
       <li xml:lang="fi">Katsele ohjeita useista lähteistä (KDE-yhteisön sovelluksista, man-sivuista jne.)</li>
       <li xml:lang="hi">विभिन्न स्रोतों से दस्तावेज दिखाएँ ( केडीई समूह के अनुप्रयोग, मेन पेज आदि )</li>
+      <li xml:lang="hu">Megjeleníti a különböző forrásokból származó dokumentációkat (a KDE közösség alkalmazásai, man oldalak, stb)</li>
       <li xml:lang="ia">Monstra documentationes varie fontes (applicationes ex communutate de KDE, paginas man, etc)</li>
       <li xml:lang="it">Mostra la documentazione da varie fonti (applicazioni dalla comunità KDE, pagine di manuale, ecc)</li>
       <li xml:lang="ko">KDE 커뮤니티 프로그램, man 페이지 등 여러 곳의 문서 표시</li>
@@ -177,6 +182,7 @@
       <li xml:lang="et">Võimalus otsida saadaolevas dokumentatsioonis</li>
       <li xml:lang="fi">Etsi saatavilla olevista ohjeista</li>
       <li xml:lang="hi">उपलब्ध दस्तावेजों में खोजें</li>
+      <li xml:lang="hu">Keresés az elérhető dokumentációkban</li>
       <li xml:lang="ia">Cerca a transverso del documentation disponibile</li>
       <li xml:lang="it">Cerca nella documentazione disponibile</li>
       <li xml:lang="ko">사용 가능한 문서 내에서 검색</li>
