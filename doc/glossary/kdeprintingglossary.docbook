@@ -405,8 +405,8 @@
 				Basic, Digest or Certificate authentication mechanisms&newpara;
 				SSL or TLS for encryption of transferred data&newpara;
 				LDAP for directory services (to publish
-					data on printers, device-options, drivers, costs or
-					also to the network; or to check for passwords while
+					data on printers, device-options, drivers, costs
+					to the network; or to check for passwords while
 					conducting authentication)
 				</para>
 
