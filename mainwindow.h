@@ -65,8 +65,8 @@ class MainWindow : public KXmlGuiWindow
                   const KParts::OpenUrlArguments &args = KParts::OpenUrlArguments(),
                   const KParts::BrowserArguments &browserArgs = KParts::BrowserArguments() );
 
-    virtual void saveProperties( KConfigGroup &config );
-    virtual void readProperties( const KConfigGroup &config );
+    void saveProperties( KConfigGroup &config ) Q_DECL_OVERRIDE;
+    void readProperties( const KConfigGroup &config ) Q_DECL_OVERRIDE;
 
     void readConfig();
     void writeConfig();

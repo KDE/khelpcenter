@@ -21,7 +21,7 @@
 #define KHC_PLUGINTRAVERSER_H
 
 #include "docentrytraverser.h"
-
+#include <QtGlobal>
 class QTreeWidget;
 
 namespace KHC {
@@ -35,9 +35,9 @@ namespace KHC {
       PluginTraverser( Navigator *navigator, QTreeWidget *parent );
       PluginTraverser( Navigator *navigator, NavigatorItem *parent );
 
-      virtual void process( DocEntry *entry );
+      void process( DocEntry *entry ) Q_DECL_OVERRIDE;
 
-      virtual DocEntryTraverser *createChild( DocEntry *entry );
+      DocEntryTraverser *createChild( DocEntry *entry ) Q_DECL_OVERRIDE;
 
   private:
     QTreeWidget *mListView;

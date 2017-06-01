@@ -251,7 +251,7 @@ class ScopeTraverser : public DocEntryTraverser
       if( mParentItem->type() == TemporaryItem && !mParentItem->childCount() ) delete mParentItem;
     }
 
-    void process( DocEntry *entry )
+    void process( DocEntry *entry ) Q_DECL_OVERRIDE
     {
       if ( mEngine->canSearch( entry ) ) {
         ScopeItem *item = new ScopeItem( mParentItem, entry );
@@ -260,7 +260,7 @@ class ScopeTraverser : public DocEntryTraverser
       }
     }
 
-    DocEntryTraverser *createChild( DocEntry *entry )
+    DocEntryTraverser *createChild( DocEntry *entry ) Q_DECL_OVERRIDE
     {
       if ( mLevel >= MaxNestingLevel ) {
         ++mLevel;
@@ -276,13 +276,13 @@ class ScopeTraverser : public DocEntryTraverser
       }
     }
 
-    DocEntryTraverser *parentTraverser()
+    DocEntryTraverser *parentTraverser() Q_DECL_OVERRIDE
     {
       if ( mLevel > MaxNestingLevel ) return this;
       else return mParent;
     }
 
-    void deleteTraverser()
+    void deleteTraverser() Q_DECL_OVERRIDE
     {
       if ( mLevel > MaxNestingLevel ) --mLevel;
       else delete this;

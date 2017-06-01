@@ -31,7 +31,7 @@ namespace KHC
     public:
       InfoTree( QObject *parent );
 
-      virtual void build( NavigatorItem  *parentItem );
+      void build( NavigatorItem  *parentItem ) Q_DECL_OVERRIDE;
 
     private:
       void parseInfoDirFile( const QString &fileName );

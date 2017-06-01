@@ -39,7 +39,7 @@ class InfoCategoryItem : public NavigatorItem
   public:
     InfoCategoryItem( NavigatorItem *parent, const QString &text );
 	
-    virtual void itemExpanded( bool open );
+    void itemExpanded( bool open ) Q_DECL_OVERRIDE;
 };
 
 class InfoNodeItem : public NavigatorItem

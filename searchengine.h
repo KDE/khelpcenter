@@ -23,17 +23,17 @@ class SearchTraverser : public QObject, public DocEntryTraverser
     SearchTraverser( SearchEngine *engine, int level );
     ~SearchTraverser();
 
-    void process( DocEntry * );
+    void process( DocEntry * ) Q_DECL_OVERRIDE;
 
-    void startProcess( DocEntry * );
+    void startProcess( DocEntry * ) Q_DECL_OVERRIDE;
 
-    DocEntryTraverser *createChild( DocEntry * );
+    DocEntryTraverser *createChild( DocEntry * ) Q_DECL_OVERRIDE;
 
-    DocEntryTraverser *parentTraverser();
+    DocEntryTraverser *parentTraverser() Q_DECL_OVERRIDE;
 
-    void deleteTraverser();
+    void deleteTraverser() Q_DECL_OVERRIDE;
 
-    void finishTraversal();
+    void finishTraversal() Q_DECL_OVERRIDE;
 
     void setWords( const QString &words );
 
