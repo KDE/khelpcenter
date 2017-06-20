@@ -33,6 +33,7 @@
   <name xml:lang="sr-ijekavian">К‑центар-помоћи</name>
   <name xml:lang="sr-ijekavianlatin">K‑centar-pomoći</name>
   <name xml:lang="sv">Hjälpcentralen</name>
+  <name xml:lang="tr">KHelpCenter</name>
   <name xml:lang="uk">KHelpCenter</name>
   <name xml:lang="x-test">xxKHelpCenterxx</name>
   <name xml:lang="zh-CN">KHelpcenter</name>
@@ -67,6 +68,7 @@
   <summary xml:lang="sr-ijekavian">Центар помоћи</summary>
   <summary xml:lang="sr-ijekavianlatin">Centar pomoći</summary>
   <summary xml:lang="sv">Hjälpcentral</summary>
+  <summary xml:lang="tr">Yardım Merkezi</summary>
   <summary xml:lang="uk">Центр довідки</summary>
   <summary xml:lang="x-test">xxHelp Centerxx</summary>
   <summary xml:lang="zh-CN">帮助中心</summary>
@@ -104,6 +106,7 @@
     <p xml:lang="sr-ijekavian">Приказивач документације</p>
     <p xml:lang="sr-ijekavianlatin">Prikazivač dokumentacije</p>
     <p xml:lang="sv">Dokumentationsvisning</p>
+    <p xml:lang="tr">Belgelendirme Görüntüleyici</p>
     <p xml:lang="uk">Програма для перегляду довідки</p>
     <p xml:lang="x-test">xxDocumentation viewerxx</p>
     <p xml:lang="zh-CN">帮助文档浏览器</p>
@@ -138,6 +141,7 @@
     <p xml:lang="sr-ijekavian">Могућности:</p>
     <p xml:lang="sr-ijekavianlatin">Mogućnosti:</p>
     <p xml:lang="sv">Funktioner:</p>
+    <p xml:lang="tr">Özellikler:</p>
     <p xml:lang="uk">Можливості:</p>
     <p xml:lang="x-test">xxFeatures:xx</p>
     <p xml:lang="zh-CN">功能：</p>
@@ -172,6 +176,7 @@
       <li xml:lang="sr-ijekavian">приказ документације из различитих извора (програми заједнице КДЕ, упутне странице, итд.)</li>
       <li xml:lang="sr-ijekavianlatin">prikaz dokumentacije iz različitih izvora (programi zajednice KDE, uputne stranice, itd.)</li>
       <li xml:lang="sv">Visa dokumentation från olika källor (program från KDE-gemenskapen, manualsidor, etc.)</li>
+      <li xml:lang="tr">Farklı kaynaklardan belgelendirmeleri göster (KDE topluluğu, kılavuz sayfaları, vs)</li>
       <li xml:lang="uk">Показ документації з різних джерел (програми спільноти KDE, сторінки man тощо)</li>
       <li xml:lang="x-test">xxShow documentation from various sources (applications from KDE community, man pages, etc)xx</li>
       <li xml:lang="zh-CN">显示来自从多种来源的文档（KDE 社区应用，man 页面，等）</li>
@@ -205,6 +210,7 @@
       <li xml:lang="sr-ijekavian">тражење кроз доступну документацију</li>
       <li xml:lang="sr-ijekavianlatin">traženje kroz dostupnu dokumentaciju</li>
       <li xml:lang="sv">Sök igenom tillgänglig dokumentation</li>
+      <li xml:lang="tr">Mevcut belgelendirmede arama yapın</li>
       <li xml:lang="uk">Пошук у доступній документації</li>
       <li xml:lang="x-test">xxSearch through the available documentationxx</li>
       <li xml:lang="zh-CN">在可用的文档中搜索</li>
