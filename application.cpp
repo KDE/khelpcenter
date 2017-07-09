@@ -60,7 +60,7 @@ QCommandLineParser *Application::cmdParser()
 
 void Application::activate(const QStringList& args, const QString &workingDirectory)
 {
-  mCmdParser.process( args );
+  mCmdParser.parse( args );
 
   QStringList urls = mCmdParser.positionalArguments();
 
