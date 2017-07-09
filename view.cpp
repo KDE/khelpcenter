@@ -97,11 +97,7 @@ QString View::langLookup( const QString &fname )
     // assemble the local search paths
     const QStringList localDoc = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("doc/HTML"), QStandardPaths::LocateDirectory);
 
-#if KI18N_VERSION >= QT_VERSION_CHECK(5, 20, 0)
     QStringList langs = KLocalizedString::languages();
-#else
-    QStringList langs = QLocale().uiLanguages();
-#endif
     langs.append(QStringLiteral("en"));
     langs.removeAll(QStringLiteral("C"));
 

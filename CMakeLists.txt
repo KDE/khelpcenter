@@ -1,10 +1,11 @@
 project(KHelpCenter)
-set(PROJECT_VERSION "5.7.2")
+set(PROJECT_VERSION "5.7.3")
 
 cmake_minimum_required(VERSION 2.8.12 FATAL_ERROR)
 set(QT_MIN_VERSION "5.4.0")
 
-find_package(ECM 1.3.0 REQUIRED NO_MODULE)
+set(KF5_MIN_VERSION "5.20.0")
+find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
 include(KDEInstallDirs)
@@ -23,7 +24,7 @@ find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Xml
 )
 
-find_package(KF5 REQUIRED COMPONENTS
+find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     Archive
     Bookmarks
     Config
