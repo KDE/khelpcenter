@@ -405,11 +405,13 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 		</glossentry>
 		<glossentry id="gloss-kde">
 			<glossterm>&kde;</glossterm>
-			<glossdef><para>Abbreviation for "K Desktop Environment", a
-				leading &GUI; for &UNIX;-based systems. You can find more
-				detailed information at &linkstart;
-				"http://www.kde.org"&linkmid;www.kde.org&linkend;.&newpara;
-				&kde; is more than just software. It is a community made up of programmers, translators, contributors, artists, writers, distributors, and users from all over the world. Our international technology team is committed to creating the best free software for the desktop. And not only contributors, but users and fans of &kde; software can be found throughout the entire globe, giving help to other users, spreading the news, or just simply enjoying the experience.</para>
+			<glossdef><para>&kde; is more than just software. It is a community made up of programmers, translators, contributors, artists, writers, distributors,
+                                and users from all over the world. Our international technology team is committed to creating the best free software for the desktop.
+                                And not only contributors, but users and fans of &kde; software can be found throughout the entire globe, giving help to other users,
+                                spreading the news, or just simply enjoying the experience.
+                                You can find more detailed information at &linkstart;"http://www.kde.org"&linkmid;www.kde.org&linkend;.&newpara;
+                                The name changed its meaning over the time. You can discover more about its history over &linkstart;"https://www.kde.org/community/history/"&linkmid;the KDE history webpageg&linkend;.
+                                </para>
 				<glossseealso otherterm="gloss-gui">&GUI;</glossseealso>
 			</glossdef>
 		</glossentry>
