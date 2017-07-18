@@ -83,7 +83,7 @@ void TOC::build( const QString &file )
 {
     QFileInfo fileInfo( file );
     QString fileName = fileInfo.absoluteFilePath();
-    const QStringList resourceDirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, "doc/HTML");
+    const QStringList resourceDirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, "doc/HTML", QStandardPaths::LocateDirectory);
     QStringList::ConstIterator it = resourceDirs.begin();
     QStringList::ConstIterator end = resourceDirs.end();
     for ( ; it != end; ++it ) {
