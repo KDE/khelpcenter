@@ -17,6 +17,9 @@ add_executable(khc_xapianindexer ${khc_xapianindexer_SOURCES})
 kde_target_enable_exceptions(khc_xapianindexer PRIVATE)
 ecm_mark_nongui_executable(khc_xapianindexer)
 target_link_libraries(khc_xapianindexer Qt5::Core KF5::Archive ${XAPIAN_LIBRARIES} ${LIBXML2_LIBRARIES})
+if (${KF5_VERSION} VERSION_GREATER 5.36.0)
+    target_link_libraries(khc_xapianindexer KF5::DocTools)
+endif()
 install(TARGETS khc_xapianindexer DESTINATION ${LIBEXEC_INSTALL_DIR})
 
 # Xapian search

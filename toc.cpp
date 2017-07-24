@@ -25,6 +25,11 @@
 
 #include <KProcess>
 #include <KXmlGuiWindow>
+#include <kcoreaddons_version.h>
+#if KCOREADDONS_VERSION >= QT_VERSION_CHECK(5, 36, 0)
+#include <docbookxslt.h>
+#endif
+
 #include <QStatusBar>
 
 #include <QFileInfo>
@@ -83,7 +88,11 @@ void TOC::build( const QString &file )
 {
     QFileInfo fileInfo( file );
     QString fileName = fileInfo.absoluteFilePath();
+#if KCOREADDONS_VERSION >= QT_VERSION_CHECK(5, 36, 0)
+    const QStringList resourceDirs = KDocTools::documentationDirs();
+#else
     const QStringList resourceDirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, "doc/HTML", QStandardPaths::LocateDirectory);
+#endif
     QStringList::ConstIterator it = resourceDirs.begin();
     QStringList::ConstIterator end = resourceDirs.end();
     for ( ; it != end; ++it ) {

@@ -23,6 +23,11 @@
 #include "htmltextdump.h"
 #include "xapiancommon.h"
 
+#include <kcoreaddons_version.h>
+#if KCOREADDONS_VERSION >= QT_VERSION_CHECK(5, 36, 0)
+#include <docbookxslt.h>
+#endif
+
 #include <QCoreApplication>
 #include <QCommandLineParser>
 #include <QDebug>
@@ -30,6 +35,7 @@
 #include <QDirIterator>
 #include <QLoggingCategory>
 #include <QStandardPaths>
+#include <QStringBuilder>
 
 namespace {
 
@@ -222,7 +228,22 @@ int main( int argc, char *argv[] )
   QSet<Xapian::docid> handledDocuments;
   const std::string std_lang = lang.toStdString();
 
+#if KCOREADDONS_VERSION >= QT_VERSION_CHECK(5, 36, 0)
+  const QStringList docDirs = KDocTools::documentationDirs();
+
+  QStringList localDoc;
+
+  QStringList::ConstIterator it = docDirs.constBegin();
+  for ( ; it != docDirs.constEnd(); ++it ) {
+    const QString docDirLangName = QString( ( *it ) % "/" % lang % "/" );
+    QFileInfo docDirLang = QFileInfo( docDirLangName );
+    if ( docDirLang.exists() && docDirLang.isDir() ) {
+      localDoc << docDirLangName;
+    }
+  }
+#else
   const QStringList localDoc = QStandardPaths::locateAll( QStandardPaths::GenericDataLocation, QStringLiteral("doc/HTML/") + lang + "/", QStandardPaths::LocateDirectory );
+#endif
   qCDebug(LOG) << "documentation directories:" << localDoc;
   Q_FOREACH ( const QString &path, localDoc ) {
     walkFiles( path, std_lang, db, xgen, &handledDocuments );
