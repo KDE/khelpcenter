@@ -49,16 +49,6 @@ QUrl BookmarkOwner::currentUrl() const
   return url.scheme() == QLatin1String( "khelpcenter" ) ? QUrl() : url;
 }
 
-bool BookmarkOwner::enableOption( BookmarkOption option ) const
-{
-  switch ( option ) {
-    case ShowAddBookmark:
-      return true;
-    default:
-      return false;
-  }
-}
-
 void BookmarkOwner::openBookmark( const KBookmark& bm, Qt::MouseButtons /*mb*/, Qt::KeyboardModifiers /*km*/ )
 {
   if ( !bm.url().isValid() ) {
