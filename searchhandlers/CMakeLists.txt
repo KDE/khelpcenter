@@ -16,7 +16,7 @@ set(khc_xapianindexer_SOURCES
 add_executable(khc_xapianindexer ${khc_xapianindexer_SOURCES})
 kde_target_enable_exceptions(khc_xapianindexer PRIVATE)
 ecm_mark_nongui_executable(khc_xapianindexer)
-target_link_libraries(khc_xapianindexer Qt5::Core KF5::Archive ${XAPIAN_LIBRARIES} ${LIBXML2_LIBRARIES})
+target_link_libraries(khc_xapianindexer Qt5::Core KF5::Archive KF5::CoreAddons ${XAPIAN_LIBRARIES} ${LIBXML2_LIBRARIES})
 if (${KF5_VERSION} VERSION_GREATER 5.35.0)
     # practically means >=5.36
     target_link_libraries(khc_xapianindexer KF5::DocTools)
