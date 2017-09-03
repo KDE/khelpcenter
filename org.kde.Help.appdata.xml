@@ -4,6 +4,7 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>KHelpCenter</name>
+  <name xml:lang="ar">مركز مساعدتك</name>
   <name xml:lang="ast">KHelpCenter</name>
   <name xml:lang="ca">KHelpCenter</name>
   <name xml:lang="ca-valencia">KHelpCenter</name>
@@ -40,6 +41,7 @@
   <name xml:lang="zh-CN">KHelpcenter</name>
   <name xml:lang="zh-TW">KHelpCenter</name>
   <summary>Help Center</summary>
+  <summary xml:lang="ar">مركز مساعدة</summary>
   <summary xml:lang="ast">Centru d'ayuda</summary>
   <summary xml:lang="ca">Centre d'ajuda</summary>
   <summary xml:lang="ca-valencia">Centre d'ajuda</summary>
@@ -79,6 +81,7 @@
     <p>
       Documentation viewer
     </p>
+    <p xml:lang="ar">عارض للتّوثيق</p>
     <p xml:lang="ast">Visor de documentación</p>
     <p xml:lang="ca">Visualitzador de documentació</p>
     <p xml:lang="ca-valencia">Visualitzador de documentació</p>
@@ -115,6 +118,7 @@
     <p xml:lang="zh-CN">帮助文档浏览器</p>
     <p xml:lang="zh-TW">文件檢視器</p>
     <p>Features:</p>
+    <p xml:lang="ar">الميزات:</p>
     <p xml:lang="ast">Carauterístiques:</p>
     <p xml:lang="ca">Característiques:</p>
     <p xml:lang="ca-valencia">Característiques:</p>
@@ -152,6 +156,7 @@
     <p xml:lang="zh-TW">功能：</p>
     <ul>
       <li>Show documentation from various sources (applications from KDE community, man pages, etc)</li>
+      <li xml:lang="ar">عرض التّوثيقات من مختلف المصادر (التّطبيقات من مجتمع كدي، صفحات man وغيرها)</li>
       <li xml:lang="ast">Amuesa la documentación de delles fonte (aplicaciones de la comunidá KDE, páxines man, etc...</li>
       <li xml:lang="ca">Mostra la documentació de diverses fonts (aplicacions de la comunitat KDE, pàgines «man», etc.)</li>
       <li xml:lang="ca-valencia">Mostra la documentació de diverses fonts (aplicacions de la comunitat KDE, pàgines «man», etc.)</li>
@@ -187,6 +192,7 @@
       <li xml:lang="zh-CN">显示来自从多种来源的文档（KDE 社区应用，man 页面，等）</li>
       <li xml:lang="zh-TW">顯示不同來源的文件（自 KDE 社群而來的應用程式、man 手冊頁等）</li>
       <li>Search through the available documentation</li>
+      <li xml:lang="ar">البحث داخل التّوثيقات المتوفّرة</li>
       <li xml:lang="ast">Gueta pente la documentación disponible</li>
       <li xml:lang="ca">Cerca a la documentació disponible</li>
       <li xml:lang="ca-valencia">Busca a la documentació disponible</li>
