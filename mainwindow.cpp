@@ -46,7 +46,7 @@
 #include <KBookmarkMenu>
 #include <KActionMenu>
 
-#include <QtDBus/QDBusConnection>
+#include <QDBusConnection>
 #include <QSplitter>
 #include <QTextEdit>
 #include <QVBoxLayout>
