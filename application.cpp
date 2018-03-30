@@ -100,6 +100,7 @@ extern "C" int Q_DECL_EXPORT kdemain( int argc, char **argv )
   aboutData.addAuthor( "Matthias Elter", i18n("Original Author"), "me@kde.org" );
   aboutData.addAuthor( "Wojciech Smigaj", i18n("Info page support"), "achu@klub.chip.pl" );
   app.setWindowIcon( QIcon::fromTheme("help-browser") );
+  aboutData.setDesktopFileName ( "org.kde.Help" );
   KAboutData::setApplicationData(aboutData);
 
   QCommandLineParser *cmd = app.cmdParser();
