@@ -21,6 +21,7 @@
   <name xml:lang="hi">KHelpCenter</name>
   <name xml:lang="hu">KHelpCenter</name>
   <name xml:lang="ia">KHelpCenter</name>
+  <name xml:lang="id">KHelpCenter</name>
   <name xml:lang="it">KHelpCenter</name>
   <name xml:lang="ko">KHelpCenter</name>
   <name xml:lang="nl">KHelpCenter</name>
@@ -59,6 +60,7 @@
   <summary xml:lang="hi">मदद केंद्र</summary>
   <summary xml:lang="hu">Súgóközpont</summary>
   <summary xml:lang="ia">Centro de Adjuta </summary>
+  <summary xml:lang="id">Pusat Bantuan</summary>
   <summary xml:lang="it">Centro documentazione</summary>
   <summary xml:lang="ko">도움말 센터</summary>
   <summary xml:lang="nl">Hulpcentrum</summary>
@@ -100,6 +102,7 @@
     <p xml:lang="hi">दस्तावेज़ प्रदर्शक</p>
     <p xml:lang="hu">Dokumentáció-megjelenítő</p>
     <p xml:lang="ia">Monstrator de documento</p>
+    <p xml:lang="id">Penampil dokumentasi</p>
     <p xml:lang="it">Visualizzatore della documentazione</p>
     <p xml:lang="ko">문서 뷰어</p>
     <p xml:lang="nl">Documentatieviewer</p>
@@ -138,6 +141,7 @@
     <p xml:lang="hi">विशेषताएँ:</p>
     <p xml:lang="hu">Szolgáltatások:</p>
     <p xml:lang="ia">Characteristicas:</p>
+    <p xml:lang="id">Fitur:</p>
     <p xml:lang="it">Funzionalità:</p>
     <p xml:lang="ko">기능:</p>
     <p xml:lang="nl">Mogelijkheden:</p>
@@ -176,6 +180,7 @@
       <li xml:lang="hi">विभिन्न स्रोतों से दस्तावेज दिखाएँ ( केडीई समूह के अनुप्रयोग, मेन पेज आदि )</li>
       <li xml:lang="hu">Megjeleníti a különböző forrásokból származó dokumentációkat (a KDE közösség alkalmazásai, man oldalak, stb)</li>
       <li xml:lang="ia">Monstra documentationes varie fontes (applicationes ex communutate de KDE, paginas man, etc)</li>
+      <li xml:lang="id">Menampilkan dokumentasi dari berbagai sumberdaya (aplikasi dari komunitas KDE, halaman manual, dll)</li>
       <li xml:lang="it">Mostra la documentazione da varie fonti (applicazioni dalla comunità KDE, pagine di manuale, ecc)</li>
       <li xml:lang="ko">KDE 커뮤니티 프로그램, man 페이지 등 여러 곳의 문서 표시</li>
       <li xml:lang="nl">Toon documentatie uit verschillende bronnen (toepassingen uit de KDE gemeenschap, manpagina's, etc)</li>
@@ -213,6 +218,7 @@
       <li xml:lang="hi">उपलब्ध दस्तावेजों में खोजें</li>
       <li xml:lang="hu">Keresés az elérhető dokumentációkban</li>
       <li xml:lang="ia">Cerca a transverso del documentation disponibile</li>
+      <li xml:lang="id">Pencarian melalui dokumentasi yang tersedia</li>
       <li xml:lang="it">Cerca nella documentazione disponibile</li>
       <li xml:lang="ko">사용 가능한 문서 내에서 검색</li>
       <li xml:lang="nl">Zoeken in de beschikbare documentatie</li>
