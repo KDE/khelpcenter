@@ -38,6 +38,8 @@ using namespace KHC;
 Application::Application(int& argc, char** argv)
     : QApplication(argc, argv), mMainWindow( 0 )
 {
+  setAttribute(Qt::AA_UseHighDpiPixmaps);
+
   mCmdParser.addPositionalArgument( "url", i18n( "Documentation to open" ) );
   mCmdParser.addHelpOption();
   mCmdParser.addVersionOption();
