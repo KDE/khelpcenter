@@ -86,7 +86,7 @@
       Documentation viewer
     </p>
     <p xml:lang="ar">عارض للتّوثيق</p>
-    <p xml:lang="ast">Visor de documentación</p>
+    <p xml:lang="ast">Visor de la documentación</p>
     <p xml:lang="ca">Visualitzador de documentació</p>
     <p xml:lang="ca-valencia">Visualitzador de documentació</p>
     <p xml:lang="cs">Prohlížeč dokumentace</p>
@@ -165,7 +165,7 @@
     <ul>
       <li>Show documentation from various sources (applications from KDE community, man pages, etc)</li>
       <li xml:lang="ar">عرض التّوثيقات من مختلف المصادر (التّطبيقات من مجتمع كدي، صفحات man وغيرها)</li>
-      <li xml:lang="ast">Amuesa la documentación de delles fonte (aplicaciones de la comunidá KDE, páxines man, etc...</li>
+      <li xml:lang="ast">Amuesa la documentación de delles fontes (aplicaciones de la comunidá KDE, páxines man, etc...)</li>
       <li xml:lang="ca">Mostra la documentació de diverses fonts (aplicacions de la comunitat KDE, pàgines «man», etc.)</li>
       <li xml:lang="ca-valencia">Mostra la documentació de diverses fonts (aplicacions de la comunitat KDE, pàgines «man», etc.)</li>
       <li xml:lang="da">Vis dokumentation fra diverse kilder (programmer fra KDE-fællesskabet, man-sider, osv.)</li>
