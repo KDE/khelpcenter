@@ -30,11 +30,12 @@
 #include <KLocalizedString>
 #include <kio/job.h>
 
+#include <KConfigGroup>
 #include <prefs.h>
 
 using namespace KHC;
 
-SearchJob::SearchJob(DocEntry *entry) : mEntry( entry ), mProcess( 0 ), mKioJob( 0 )
+SearchJob::SearchJob(DocEntry *entry) : mEntry( entry ), mProcess( nullptr ), mKioJob( nullptr )
 {
 }
 
@@ -120,13 +121,9 @@ SearchHandler *SearchHandler::initFromFile( const QString &filename )
   KDesktopFile file( filename );
   KConfigGroup dg = file.desktopGroup();
 
-  SearchHandler *handler = 0;
+  SearchHandler *handler = nullptr;
 
-  const QString type = dg.readEntry( "Type" );
-  if ( false ) {
-  } else {
-    handler = new ExternalProcessSearchHandler( dg );
-  }
+  handler = new ExternalProcessSearchHandler( dg );
 
   return handler;
 }
@@ -222,7 +219,7 @@ void ExternalProcessSearchHandler::search( DocEntry *entry, const QStringList &w
     searchJob->startRemote(urlString);
 
   } else {
-    QString txt = i18n("No search command or URL specified.");
+    const QString txt = i18n("No search command or URL specified.");
     emit searchFinished( this, entry, txt );
   }
 }

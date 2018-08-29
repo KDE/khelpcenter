@@ -29,9 +29,9 @@ namespace KHC
   {
     Q_OBJECT
     public:
-      InfoTree( QObject *parent );
+      explicit InfoTree( QObject *parent );
 
-      void build( NavigatorItem  *parentItem ) Q_DECL_OVERRIDE;
+      void build( NavigatorItem  *parentItem ) override;
 
     private:
       void parseInfoDirFile( const QString &fileName );

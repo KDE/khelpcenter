@@ -31,21 +31,21 @@ using namespace KHC;
 
 NavigatorAppItem::NavigatorAppItem( DocEntry *entry, QTreeWidgetItem *parent )
   : NavigatorItem( entry, parent ),
-    mToc( 0 )
+    mToc( nullptr )
 {
 }
 
 NavigatorAppItem::NavigatorAppItem( DocEntry *entry, QTreeWidget *parent,
                   QTreeWidgetItem *after )
   : NavigatorItem( entry, parent, after ),
-    mToc( 0 )
+    mToc( nullptr )
 {
 }
 
 NavigatorAppItem::NavigatorAppItem( DocEntry *entry, QTreeWidgetItem *parent,
                   QTreeWidgetItem *after )
   : NavigatorItem( entry, parent, after ),
-    mToc( 0 )
+    mToc( nullptr )
 {
 }
 

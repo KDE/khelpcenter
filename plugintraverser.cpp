@@ -37,17 +37,17 @@ using namespace KHC;
 PluginTraverser::PluginTraverser( Navigator *navigator, QTreeWidget *parent )
   : DocEntryTraverser(),
   mListView( parent ),
-  mParentItem( 0 ),
-  mCurrentItem( 0 ),
+  mParentItem( nullptr ),
+  mCurrentItem( nullptr ),
   mNavigator( navigator )
 {
 }
 
 PluginTraverser::PluginTraverser( Navigator *navigator, NavigatorItem *parent )
   : DocEntryTraverser(),
-  mListView( 0 ),
+  mListView( nullptr ),
   mParentItem( parent ),
-  mCurrentItem( 0 ),
+  mCurrentItem( nullptr ),
   mNavigator( navigator )
 {
 }
@@ -116,7 +116,7 @@ DocEntryTraverser *PluginTraverser::createChild( DocEntry * /*entry*/ )
     return new PluginTraverser( mNavigator, mCurrentItem );
   }
   khcWarning() << "ERROR! mCurrentItem is not set.";
-  return 0;
+  return nullptr;
 }
 
 // vim:ts=2:sw=2:et

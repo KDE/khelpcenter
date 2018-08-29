@@ -42,7 +42,7 @@ class SearchWidget : public QWidget
     Q_OBJECT
 
   public:
-    explicit SearchWidget ( SearchEngine *, QWidget *parent = 0 );
+    explicit SearchWidget ( SearchEngine *, QWidget *parent = nullptr );
     ~SearchWidget();
 
     QString method() const;

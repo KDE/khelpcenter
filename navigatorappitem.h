@@ -39,7 +39,7 @@ class NavigatorAppItem : public NavigatorItem
 
     ~NavigatorAppItem();
 
-    void itemExpanded( bool open ) Q_DECL_OVERRIDE;
+    void itemExpanded( bool open ) override;
 
   private:
     void scheduleTOCBuild();

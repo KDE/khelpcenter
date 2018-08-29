@@ -40,7 +40,7 @@ using namespace KHC;
 // TODO: Needs complete redo!
 // TODO: oh yeah
 
-History *History::m_instance = 0;
+History *History::m_instance = nullptr;
 
 History &History::self()
 {

@@ -101,11 +101,11 @@ namespace KHC {
 
       void search( DocEntry *, const QStringList &words,
 	int maxResults = 10,
-	SearchEngine::Operation operation = SearchEngine::And ) Q_DECL_OVERRIDE;
+	SearchEngine::Operation operation = SearchEngine::And ) override;
 
-      QString indexCommand( const QString &identifier ) const Q_DECL_OVERRIDE;
+      QString indexCommand( const QString &identifier ) const override;
 
-      bool checkPaths(QString* error) const Q_DECL_OVERRIDE;
+      bool checkPaths(QString* error) const override;
 
     private:
       bool checkBinary( const QString &cmd ) const;

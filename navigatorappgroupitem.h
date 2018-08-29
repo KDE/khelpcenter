@@ -42,7 +42,7 @@ class NavigatorAppGroupItem : public NavigatorItem
 
     void setRelpath( const QString & );
 
-    void itemExpanded(bool) Q_DECL_OVERRIDE;
+    void itemExpanded(bool) override;
     void populate( bool recursive = false );
 
   protected:

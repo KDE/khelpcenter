@@ -34,7 +34,7 @@ namespace KHC {
     Q_OBJECT
     
     public:
-      FontDialog( QWidget *parent );
+      explicit FontDialog( QWidget *parent );
 
     protected Q_SLOTS:
       virtual void slotOk();

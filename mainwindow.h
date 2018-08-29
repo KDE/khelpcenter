@@ -29,7 +29,7 @@ class MainWindow : public KXmlGuiWindow
 	Q_CLASSINFO("D-Bus Interface", "org.kde.khelpcenter.khelpcenter")
   public:
     MainWindow();
-    ~MainWindow();
+    ~MainWindow() override;
 
   public Q_SLOTS:
     Q_SCRIPTABLE void openUrl( const QString &url );
@@ -65,8 +65,8 @@ class MainWindow : public KXmlGuiWindow
                   const KParts::OpenUrlArguments &args = KParts::OpenUrlArguments(),
                   const KParts::BrowserArguments &browserArgs = KParts::BrowserArguments() );
 
-    void saveProperties( KConfigGroup &config ) Q_DECL_OVERRIDE;
-    void readProperties( const KConfigGroup &config ) Q_DECL_OVERRIDE;
+    void saveProperties( KConfigGroup &config ) override;
+    void readProperties( const KConfigGroup &config ) override;
 
     void readConfig();
     void writeConfig();

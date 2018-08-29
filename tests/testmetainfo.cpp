@@ -11,7 +11,7 @@ class MyTraverser : public DocEntryTraverser
   public:
     MyTraverser( const QByteArray &indent = "" ) : mIndent( indent ) {}
 
-    void process( DocEntry *entry ) Q_DECL_OVERRIDE
+    void process( DocEntry *entry ) override
     {
       qDebug() << mIndent.constData() << entry->name() << " - WEIGHT: " << entry->weight();
 #if 0
@@ -22,7 +22,7 @@ class MyTraverser : public DocEntryTraverser
 #endif
     }
   
-    DocEntryTraverser *createChild( DocEntry * ) Q_DECL_OVERRIDE
+    DocEntryTraverser *createChild( DocEntry * ) override
     {
       return new MyTraverser( mIndent + "  " );
     }
@@ -34,22 +34,22 @@ class MyTraverser : public DocEntryTraverser
 class LinearTraverser : public DocEntryTraverser
 {
   public:
-    void process( DocEntry *entry ) Q_DECL_OVERRIDE
+    void process( DocEntry *entry ) override
     {
       qDebug() << "PROCESS: " << entry->name();
     }
     
-    DocEntryTraverser *createChild( DocEntry * ) Q_DECL_OVERRIDE
+    DocEntryTraverser *createChild( DocEntry * ) override
     {
       return this;
     }
     
-    DocEntryTraverser *parentTraverser() Q_DECL_OVERRIDE
+    DocEntryTraverser *parentTraverser() override
     {
       return this;
     }
     
-    void deleteTraverser() Q_DECL_OVERRIDE {}
+    void deleteTraverser() override {}
 };
 
 class AsyncTraverser : public DocEntryTraverser
@@ -65,12 +65,12 @@ class AsyncTraverser : public DocEntryTraverser
 //      qDebug() << "~AsyncTraverser()";
     }
     
-    void process( DocEntry *entry ) Q_DECL_OVERRIDE
+    void process( DocEntry *entry ) override
     {
       qDebug() << mIndent.constData() << entry->name();
     }
     
-    DocEntryTraverser *createChild( DocEntry * ) Q_DECL_OVERRIDE
+    DocEntryTraverser *createChild( DocEntry * ) override
     {
 //      qDebug() << "AsyncTraverser::childTraverser()";
       return new AsyncTraverser( mIndent + "  " );

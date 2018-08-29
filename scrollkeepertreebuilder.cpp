@@ -136,7 +136,7 @@ int ScrollKeeperTreeBuilder::insertSection( NavigatorItem *parent,
   // Remove empty sections
   if (!mShowEmptyDirs && numDocs == 0) {
     delete sectItem;
-    sectItem = 0;
+    sectItem = nullptr;
   }
 
   return numDocs;

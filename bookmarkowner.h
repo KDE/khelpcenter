@@ -33,12 +33,12 @@ class BookmarkOwner : public QObject, public KBookmarkOwner
 {
   Q_OBJECT
   public:
-    BookmarkOwner( View *view, QObject *parent = 0 );
-    virtual ~BookmarkOwner();
+    explicit BookmarkOwner( View *view, QObject *parent = nullptr );
+    ~BookmarkOwner() override;
 
-    QString currentTitle() const Q_DECL_OVERRIDE;
-    QUrl currentUrl() const Q_DECL_OVERRIDE;
-    void openBookmark( const KBookmark& bm, Qt::MouseButtons mb, Qt::KeyboardModifiers km ) Q_DECL_OVERRIDE;
+    QString currentTitle() const override;
+    QUrl currentUrl() const override;
+    void openBookmark( const KBookmark& bm, Qt::MouseButtons mb, Qt::KeyboardModifiers km ) override;
 
   Q_SIGNALS:
     void openUrl( const QUrl& url );

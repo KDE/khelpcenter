@@ -44,12 +44,12 @@ class PlainOutputStream : public Grantlee::OutputStream
     {
     }
 
-    QString escape( const QString& input ) const Q_DECL_OVERRIDE
+    QString escape( const QString& input ) const override
     {
       return input;
     }
 
-    QSharedPointer<OutputStream> clone( QTextStream *stream ) const Q_DECL_OVERRIDE
+    QSharedPointer<OutputStream> clone( QTextStream *stream ) const override
     {
       return QSharedPointer<OutputStream>( new PlainOutputStream( stream ) );
     }

@@ -35,9 +35,9 @@ namespace KHC {
       PluginTraverser( Navigator *navigator, QTreeWidget *parent );
       PluginTraverser( Navigator *navigator, NavigatorItem *parent );
 
-      void process( DocEntry *entry ) Q_DECL_OVERRIDE;
+      void process( DocEntry *entry ) override;
 
-      DocEntryTraverser *createChild( DocEntry *entry ) Q_DECL_OVERRIDE;
+      DocEntryTraverser *createChild( DocEntry *entry ) override;
 
   private:
     QTreeWidget *mListView;

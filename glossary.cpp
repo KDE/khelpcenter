@@ -301,7 +301,7 @@ void Glossary::slotSelectGlossEntry( const QString &id )
 
     EntryItem *newItem = m_idDict.value( id );
     EntryItem *curItem = dynamic_cast<EntryItem *>( currentItem() );
-    if ( curItem != 0 )
+    if ( curItem != nullptr )
     {
         if ( curItem->id() == id ) {
           return;

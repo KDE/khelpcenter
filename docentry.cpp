@@ -31,8 +31,8 @@ void DocEntry::init()
   mWeight = 0;
   mSearchEnabled = false;
   mDirectory = false;
-  mParent = 0;
-  mNextSibling = 0;
+  mParent = nullptr;
+  mNextSibling = nullptr;
 }
 
 void DocEntry::setName( const QString &name )

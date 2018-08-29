@@ -67,7 +67,7 @@ using namespace KHC;
 
 Navigator::Navigator( View *view, QWidget *parent )
    : QWidget( parent ),
-     mView( view ), mSelected( false ), mIndexingProc( 0 )
+     mView( view ), mSelected( false ), mIndexingProc( nullptr )
 {
     mSearchEngine = new SearchEngine( view );
     connect(mSearchEngine, &SearchEngine::searchFinished, this, &Navigator::slotSearchFinished);
@@ -245,7 +245,7 @@ void Navigator::insertIOSlaveDocs( const QString &name, NavigatorItem *topItem )
   QStringList list = KProtocolInfo::protocols();
   list.sort();
 
-  NavigatorItem *prevItem = 0;
+  NavigatorItem *prevItem = nullptr;
   for ( QStringList::ConstIterator it = list.constBegin(); it != list.constEnd(); ++it )
   {
     QString docPath = KProtocolInfo::docPath(*it);
@@ -402,7 +402,7 @@ void Navigator::openInternalUrl( const QUrl &url )
 {
   if ( url.url() == "khelpcenter:home" ) {
     clearSelection();
-    showOverview( 0, url );
+    showOverview( nullptr, url );
     return;
   }
 
@@ -666,7 +666,7 @@ void Navigator::slotDoIndexWork()
   if ( !mIndexingProc->waitForStarted() )  {
     khcWarning() << "Unable to start command" << indexer;
     delete mIndexingProc;
-    mIndexingProc = 0;
+    mIndexingProc = nullptr;
     return slotDoIndexWork();
   }
 }
@@ -683,7 +683,7 @@ void Navigator::slotProcessExited( int exitCode, QProcess::ExitStatus exitStatus
     khcWarning() << "stderr output:" << mIndexingProc->readAllStandardError();
   }
   delete mIndexingProc;
-  mIndexingProc = 0;
+  mIndexingProc = nullptr;
 
   slotDoIndexWork();
 }

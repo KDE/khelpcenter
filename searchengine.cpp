@@ -181,7 +181,7 @@ void SearchTraverser::setWords( const QString &words )
 SearchEngine::SearchEngine( View *destination )
   : QObject(),
     mSearchRunning( false ), mView( destination ),
-    mRootTraverser( 0 )
+    mRootTraverser( nullptr )
 {
 }
 
@@ -299,7 +299,7 @@ View *SearchEngine::view() const
 void SearchEngine::finishSearch()
 {
   delete mRootTraverser;
-  mRootTraverser = 0;
+  mRootTraverser = nullptr;
   mSearchRunning = false;
 
   emit searchFinished();
@@ -323,7 +323,7 @@ bool SearchEngine::isRunning() const
 SearchHandler *SearchEngine::handler( const QString &documentType ) const
 {
   QSharedPointer<SearchHandler> ptr = mHandlers.value( documentType );
-  return ptr ? ptr.data() : 0;
+  return ptr ? ptr.data() : nullptr;
 }
 
 QStringList SearchEngine::words() const

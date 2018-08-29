@@ -15,9 +15,7 @@
 #include <KToolBarPopupAction>
 #include <KSharedConfig>
 #include <kcoreaddons_version.h>
-#if KCOREADDONS_VERSION >= QT_VERSION_CHECK(5, 36, 0)
 #include <docbookxslt.h>
-#endif
 
 #include <QFileInfo>
 #include <QClipboard>
@@ -97,13 +95,8 @@ QString View::langLookup( const QString &fname )
 {
     QStringList search;
 
-#if KCOREADDONS_VERSION >= QT_VERSION_CHECK(5, 36, 0)
     // retrieve the local search path
     const QStringList localDoc = KDocTools::documentationDirs();
-#else
-    // assemble the local search paths
-    const QStringList localDoc = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("doc/HTML"), QStandardPaths::LocateDirectory);
-#endif
 
     QStringList langs = KLocalizedString::languages();
     langs.append(QStringLiteral("en"));

@@ -48,7 +48,7 @@ class Navigator : public QWidget
 {
     Q_OBJECT
   public:
-    explicit Navigator(View *, QWidget *parent=0);
+    explicit Navigator(View *, QWidget *parent= nullptr);
     virtual ~Navigator();
 
     QUrl homeURL();

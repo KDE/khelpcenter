@@ -39,7 +39,7 @@ class InfoCategoryItem : public NavigatorItem
   public:
     InfoCategoryItem( NavigatorItem *parent, const QString &text );
 	
-    void itemExpanded( bool open ) Q_DECL_OVERRIDE;
+    void itemExpanded( bool open ) override;
 };
 
 class InfoNodeItem : public NavigatorItem
@@ -75,7 +75,7 @@ InfoNodeItem::InfoNodeItem( InfoCategoryItem *parent, const QString &text )
 
 InfoTree::InfoTree( QObject *parent )
   : TreeBuilder( parent ),
-    m_parentItem( 0 )
+    m_parentItem( nullptr )
 {
 }
 
@@ -154,7 +154,7 @@ void InfoTree::parseInfoDirFile( const QString &infoDirFileName )
         const QChar first = appName.at( 0 ).toUpper();
         InfoCategoryItem *alphabSection = alphabSections.value( first );
 
-        if ( alphabSection == 0 ) {
+        if ( alphabSection == nullptr ) {
           alphabSection = new InfoCategoryItem( m_alphabItem, QString( first ) );
           alphabSections.insert( first, alphabSection );
         }

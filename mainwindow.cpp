@@ -106,8 +106,8 @@ class LogDialog : public QDialog
 
 
 MainWindow::MainWindow()
-    : KXmlGuiWindow(0),
-      mLogDialog( 0 )
+    : KXmlGuiWindow(nullptr),
+      mLogDialog( nullptr )
 {
     setObjectName( QLatin1String( "MainWindow" ) );
 

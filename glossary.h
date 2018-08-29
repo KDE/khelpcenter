@@ -95,7 +95,7 @@ namespace KHC {
       void treeItemSelected( QTreeWidgetItem *item );
 
     protected:
-      void showEvent(QShowEvent *event) Q_DECL_OVERRIDE;
+      void showEvent(QShowEvent *event) override;
 		
     private:
       enum CacheStatus { NeedRebuild, CacheOk };

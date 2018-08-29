@@ -24,10 +24,10 @@ class View : public KHTMLPart
 
     ~View();
 
-    bool openUrl( const QUrl &url ) Q_DECL_OVERRIDE;
+    bool openUrl( const QUrl &url ) override;
 
-    void saveState( QDataStream &stream ) Q_DECL_OVERRIDE;
-    void restoreState( QDataStream &stream ) Q_DECL_OVERRIDE;
+    void saveState( QDataStream &stream ) override;
+    void restoreState( QDataStream &stream ) override;
 
     enum State { Docu, About, Search };
 
@@ -62,7 +62,7 @@ class View : public KHTMLPart
     void searchResultCacheAvailable();
 
   protected:
-    bool eventFilter( QObject *o, QEvent *e ) Q_DECL_OVERRIDE;
+    bool eventFilter( QObject *o, QEvent *e ) override;
 
   private Q_SLOTS:
     void setTitle( const QString &title );

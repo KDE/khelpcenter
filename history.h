@@ -41,13 +41,13 @@ class History : public QObject
     friend class foo; // to make gcc shut up
     struct Entry
     {
-      Entry() : view( 0 ), search( false ) {}
+      Entry() {}
 
-      View *view;
+      View *view = nullptr;
       QUrl url;
       QString title;
       QByteArray buffer;
-      bool search;
+      bool search = false;
     };
 
     static History &self();

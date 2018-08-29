@@ -36,7 +36,7 @@ Q_DECLARE_METATYPE(const QTreeWidgetItem *)
 using namespace KHC;
 
 Application::Application(int& argc, char** argv)
-    : QApplication(argc, argv), mMainWindow( 0 )
+    : QApplication(argc, argv), mMainWindow( nullptr )
 {
   setAttribute(Qt::AA_UseHighDpiPixmaps);
 

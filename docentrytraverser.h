@@ -29,7 +29,7 @@ namespace KHC {
   class DocEntryTraverser
   {
     public:
-      DocEntryTraverser() : mNotifyee( 0 ), mParent( 0 ), mParentEntry( 0 ) {}
+      DocEntryTraverser(){}
       virtual ~DocEntryTraverser() {}
       
       void setNotifyee( DocMetaInfo * );
@@ -51,11 +51,11 @@ namespace KHC {
       DocEntry *parentEntry();
 
     protected:
-      DocMetaInfo *mNotifyee;
-      DocEntryTraverser *mParent;
+      DocMetaInfo *mNotifyee = nullptr;
+      DocEntryTraverser *mParent = nullptr;
 
     private:
-      DocEntry *mParentEntry;    
+      DocEntry *mParentEntry = nullptr;
   };
 
 }

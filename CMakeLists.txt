@@ -98,10 +98,7 @@ kconfig_add_kcfg_files(khelpcenter_KDEINIT_SRCS prefs.kcfgc )
 kf5_add_kdeinit_executable( khelpcenter ${khelpcenter_KDEINIT_SRCS})
 target_compile_definitions(kdeinit_khelpcenter PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 target_link_libraries(kdeinit_khelpcenter KF5::KHtml KF5::Service KF5::DBusAddons KF5::ConfigGui KF5::WindowSystem KF5::Bookmarks Qt5::Xml Grantlee5::Templates)
-if (${KF5_VERSION} VERSION_GREATER 5.35.0)
-    # practically means >=5.36
-    target_link_libraries(kdeinit_khelpcenter KF5::DocTools)
-endif()
+target_link_libraries(kdeinit_khelpcenter KF5::DocTools)
 install(TARGETS kdeinit_khelpcenter  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 install(TARGETS khelpcenter ${INSTALL_TARGETS_DEFAULT_ARGS})
 

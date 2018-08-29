@@ -35,7 +35,7 @@ using namespace KHC;
 
 bool DocMetaInfo::mLoaded = false;
 
-DocMetaInfo *DocMetaInfo::mSelf = 0;
+DocMetaInfo *DocMetaInfo::mSelf = nullptr;
 
 DocMetaInfo *DocMetaInfo::self()
 {
@@ -62,12 +62,12 @@ DocMetaInfo::~DocMetaInfo()
 
   mLoaded = false;
 
-  mSelf = 0;
+  mSelf = nullptr;
 }
 
 DocEntry *DocMetaInfo::addDocEntry( const QFileInfo &fi )
 {
-  if ( !fi.exists() ) return 0;
+  if ( !fi.exists() ) return nullptr;
 
   QString extension = fi.completeSuffix();
   QStringList extensions = extension.split( '.');
@@ -79,7 +79,7 @@ DocEntry *DocMetaInfo::addDocEntry( const QFileInfo &fi )
 
   if ( !lang.isEmpty() && !mLanguages.contains( lang ) )
   {
-    return 0;
+    return nullptr;
   }
 
   DocEntry *entry = new DocEntry();
@@ -108,7 +108,7 @@ DocEntry *DocMetaInfo::addDocEntry( const QFileInfo &fi )
   else 
   {
     delete entry;
-    return 0;
+    return nullptr;
   }
 }
 
@@ -171,11 +171,11 @@ DocEntry *DocMetaInfo::scanMetaInfoDir( const QString &dirName,
                                         DocEntry *parent )
 {
   QDir dir( dirName );
-  if ( !dir.exists() ) return 0;
+  if ( !dir.exists() ) return nullptr;
 
   foreach( const QFileInfo &fi, dir.entryInfoList(QDir::Dirs | QDir::Files | QDir::NoDotAndDotDot) ) 
   {
-    DocEntry *entry = 0;
+    DocEntry *entry = nullptr;
     if ( fi.isDir() ) 
     {
       DocEntry *dirEntry = addDirEntry( QDir( fi.absoluteFilePath() ), parent );
@@ -188,7 +188,7 @@ DocEntry *DocMetaInfo::scanMetaInfoDir( const QString &dirName,
     }
   }
 
-  return 0;
+  return nullptr;
 }
 
 DocEntry *DocMetaInfo::addDirEntry( const QDir &dir, DocEntry *parent )
@@ -278,7 +278,7 @@ void DocMetaInfo::endProcess( DocEntry *entry, DocEntryTraverser *traverser )
   } else 
   {
     DocEntry *parent = entry->parent();
-    DocEntryTraverser *parentTraverser = 0;
+    DocEntryTraverser *parentTraverser = nullptr;
     while ( parent ) {
       parentTraverser = traverser->parentTraverser();
       traverser->deleteTraverser();

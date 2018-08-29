@@ -176,7 +176,7 @@ void FontDialog::load()
   {
     KConfigGroup configGroup( cfg, "HTML Settings" );
 
-    m_minFontSize->setValue( configGroup.readEntry( "MinimumFontSize", (int)HTML_DEFAULT_MIN_FONT_SIZE ) );
+    m_minFontSize->setValue( configGroup.readEntry( "MinimumFontSize", static_cast<int>(HTML_DEFAULT_MIN_FONT_SIZE) ) );
     m_medFontSize->setValue( configGroup.readEntry( "MediumFontSize", 10 ) );
 
     QStringList fonts = configGroup.readEntry( "Fonts" , QStringList() );
