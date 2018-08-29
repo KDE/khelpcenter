@@ -78,7 +78,7 @@ bool CacheReader::parse( const QString& file )
 
     if ( start >= 0 && start < end ) {
       // new document
-      const int quote = mText.indexOf( '"', start + patternStart.length() );
+      const int quote = mText.indexOf( QLatin1Char('"'), start + patternStart.length() );
       const QString name = mText.mid( start + patternStart.length(), quote - ( start + patternStart.length() ) );
       if ( stack.isEmpty() ) {
       } else {

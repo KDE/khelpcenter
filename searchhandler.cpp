@@ -78,10 +78,10 @@ SearchJob::~SearchJob()
 void SearchJob::searchExited( int exitCode, QProcess::ExitStatus exitStatus )
 {
     if ( exitStatus == QProcess::NormalExit && exitCode == 0 ) {
-        mResult = mProcess->readAllStandardOutput();
+        mResult = QString::fromUtf8(mProcess->readAllStandardOutput());
         emit searchFinished( this, mEntry, mResult );
     } else {
-        mError = mProcess->readAllStandardError();
+        mError = QString::fromUtf8(mProcess->readAllStandardError());
         QString error = QLatin1String("<em>") + mCmd + QLatin1String("</em>\n") + mError;
         emit searchError( this, mEntry, error );
     }
@@ -102,7 +102,7 @@ void SearchJob::slotJobResult( KJob *job )
 void SearchJob::slotJobData( KIO::Job *job, const QByteArray &data )
 {
     Q_UNUSED(job);
-    mResult += data.data();
+    mResult += QString::fromUtf8(data.data());
 }
 
 

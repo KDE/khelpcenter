@@ -83,7 +83,7 @@ class AsyncTraverser : public DocEntryTraverser
 int main(int argc,char **argv)
 {
   QCoreApplication app(argc,argv);
-  QCoreApplication::setApplicationName( "khelpcenter" );
+  QCoreApplication::setApplicationName( QStringLiteral("khelpcenter") );
 
   qDebug() << "Scanning Meta Info";
 

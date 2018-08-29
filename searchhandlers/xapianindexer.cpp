@@ -156,7 +156,7 @@ static QString relativePath( const QString& base, const QString& full )
 
 static void walkFiles( const QString& directory, const std::string& lang, Xapian::WritableDatabase& db, Xapian::TermGenerator& xgen, QSet<Xapian::docid>* handledDocuments )
 {
-  QDirIterator it( directory, QStringList() << "*.cache.bz2", QDir::NoDotAndDotDot | QDir::Files, QDirIterator::Subdirectories );
+  QDirIterator it( directory, QStringList() << QStringLiteral("*.cache.bz2"), QDir::NoDotAndDotDot | QDir::Files, QDirIterator::Subdirectories );
   while ( it.hasNext() ) {
     const QString f = it.next();
     analyzeFile( it.fileInfo(), relativePath( directory, f ), lang, db, xgen, handledDocuments );
@@ -184,7 +184,7 @@ static Xapian::Stem stemmerForLanguage( const QString& lang )
     { QStringLiteral( "sv" ), QStringLiteral( "swedish" ) },
     { QStringLiteral( "tr" ), QStringLiteral( "turkish" ) }
   } );
-  return Xapian::Stem( stemmers.value( lang, "none" ).toStdString() );
+  return Xapian::Stem( stemmers.value( lang, QStringLiteral("none") ).toStdString() );
 }
 
 int main( int argc, char *argv[] )
@@ -192,11 +192,11 @@ int main( int argc, char *argv[] )
   QCoreApplication app( argc, argv );
 
   QCommandLineParser parser;
-  const QCommandLineOption indexdirOption( "indexdir", "Index directory", "dir" );
+  const QCommandLineOption indexdirOption( QStringLiteral("indexdir"), QStringLiteral("Index directory"), QStringLiteral("dir") );
   parser.addOption( indexdirOption );
-  const QCommandLineOption identifierOption( "identifier", "Index identifier", "identifier" );
+  const QCommandLineOption identifierOption( QStringLiteral("identifier"), QStringLiteral("Index identifier"), QStringLiteral("identifier") );
   parser.addOption( identifierOption );
-  const QCommandLineOption langOption( "lang", "Language", "lang" );
+  const QCommandLineOption langOption( QStringLiteral("lang"), QStringLiteral("Language"), QStringLiteral("lang") );
   parser.addOption( langOption );
 
   parser.process( app );
@@ -210,13 +210,13 @@ int main( int argc, char *argv[] )
 
   QString lang = parser.value( langOption );
   if ( lang.isEmpty() || lang == QLatin1String( "C" ) ) {
-    lang = "en";
+    lang = QStringLiteral("en");
   }
 
   Xapian::WritableDatabase db;
 
   try {
-    db = openWritableDb( indexdir + "/" + identifier );
+    db = openWritableDb( indexdir + QLatin1Char('/') + identifier );
   } catch ( const Xapian::Error& e ) {
     qCCritical(LOG) << "Xapian error: " << e.get_description();
     return 1;
@@ -228,22 +228,18 @@ int main( int argc, char *argv[] )
   QSet<Xapian::docid> handledDocuments;
   const std::string std_lang = lang.toStdString();
 
-#if KCOREADDONS_VERSION >= QT_VERSION_CHECK(5, 36, 0)
   const QStringList docDirs = KDocTools::documentationDirs();
 
   QStringList localDoc;
 
   QStringList::ConstIterator it = docDirs.constBegin();
   for ( ; it != docDirs.constEnd(); ++it ) {
-    const QString docDirLangName = QString( ( *it ) % "/" % lang % "/" );
+    const QString docDirLangName = QString( ( *it ) % QStringLiteral("/") % lang % QStringLiteral("/") );
     QFileInfo docDirLang = QFileInfo( docDirLangName );
     if ( docDirLang.exists() && docDirLang.isDir() ) {
       localDoc << docDirLangName;
     }
   }
-#else
-  const QStringList localDoc = QStandardPaths::locateAll( QStandardPaths::GenericDataLocation, QStringLiteral("doc/HTML/") + lang + "/", QStandardPaths::LocateDirectory );
-#endif
   qCDebug(LOG) << "documentation directories:" << localDoc;
   Q_FOREACH ( const QString &path, localDoc ) {
     walkFiles( path, std_lang, db, xgen, &handledDocuments );

@@ -53,17 +53,17 @@ int main( int argc, char *argv[] )
   QCoreApplication app( argc, argv );
 
   QCommandLineParser parser;
-  const QCommandLineOption indexdirOption( "indexdir", "Index directory", "dir" );
+  const QCommandLineOption indexdirOption( QStringLiteral("indexdir"), QStringLiteral("Index directory"), QStringLiteral("dir") );
   parser.addOption( indexdirOption );
-  const QCommandLineOption identifierOption( "identifier", "Index identifier", "identifier" );
+  const QCommandLineOption identifierOption( QStringLiteral("identifier"), QStringLiteral("Index identifier"), QStringLiteral("identifier") );
   parser.addOption( identifierOption );
-  const QCommandLineOption wordsOption( "words", "Words to search", "words" );
+  const QCommandLineOption wordsOption( QStringLiteral("words"), QStringLiteral("Words to search"), QStringLiteral("words") );
   parser.addOption( wordsOption );
-  const QCommandLineOption methodOption( "method", "Method", "and|or" );
+  const QCommandLineOption methodOption( QStringLiteral("method"), QStringLiteral("Method"), QStringLiteral("and|or") );
   parser.addOption( methodOption );
-  const QCommandLineOption maxnumOption( "maxnum", "Maximum number of results", "maxnum" );
+  const QCommandLineOption maxnumOption( QStringLiteral("maxnum"), QStringLiteral("Maximum number of results"), QStringLiteral("maxnum") );
   parser.addOption( maxnumOption );
-  const QCommandLineOption langOption( "lang", "Language", "lang" );
+  const QCommandLineOption langOption( QStringLiteral("lang"), QStringLiteral("Language"), QStringLiteral("lang") );
   parser.addOption( langOption );
 
   parser.process( app );
@@ -97,13 +97,13 @@ int main( int argc, char *argv[] )
 
   QString lang = parser.value( langOption );
   if ( lang.isEmpty() || lang == QLatin1String( "C" ) ) {
-    lang = "en";
+    lang = QStringLiteral("en");
   }
 
   Xapian::Database db;
 
   try {
-    db = openDb( indexdir + "/" + identifier );
+    db = openDb( indexdir + QLatin1Char('/') + identifier );
   } catch ( const DatabaseVersionMismatch& e ) {
     qCWarning(LOG) << "Own version mismatch in Xapian DB: found" << e.version << "vs wanted" << e.refVersion;
     return 1;
@@ -129,7 +129,7 @@ int main( int argc, char *argv[] )
 
       std::string uid;
       std::string html;
-      getDocInfo( doc, 0, &uid, &html );
+      getDocInfo( doc, nullptr, &uid, &html );
       const std::string title = doc.get_value( VALUE_TITLE );
 
       const std::string::size_type slash = uid.find_last_of( '/' );
