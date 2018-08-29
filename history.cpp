@@ -109,7 +109,7 @@ void History::installMenuBarHook( KXmlGuiWindow *mainWindow )
 
 void History::createEntry()
 {
-  khcDebug() << "History::createEntry()";
+  qCDebug(KHC_LOG) << "History::createEntry()";
 
   // First, remove any forward history
   if (m_entries_current!=m_entries.end())
@@ -141,11 +141,11 @@ void History::updateCurrentEntry( View *view )
   current->view = view;
 
   if ( url.isEmpty() ) {
-    khcDebug() << "History::updateCurrentEntry(): internal url";
+    qCDebug(KHC_LOG) << "History::updateCurrentEntry(): internal url";
     url = view->internalUrl();
   }
 
-  khcDebug() << "History::updateCurrentEntry(): " << view->title()
+  qCDebug(KHC_LOG) << "History::updateCurrentEntry(): " << view->title()
             << " (URL: " << url.url() << ")";
 
   current->url = url;
@@ -162,33 +162,33 @@ void History::updateActions()
 
 void History::back()
 {
-  khcDebug() << "History::back()";
+  qCDebug(KHC_LOG) << "History::back()";
   goHistoryActivated( -1 );
 }
 
 void History::backActivated( QAction *action )
 {
   int id = action->data().toInt();
-  khcDebug() << "History::backActivated(): id = " << id;
+  qCDebug(KHC_LOG) << "History::backActivated(): id = " << id;
   goHistoryActivated( -( id + 1 ) );
 }
 
 void History::forward()
 {
-  khcDebug() << "History::forward()";
+  qCDebug(KHC_LOG) << "History::forward()";
   goHistoryActivated( 1 );
 }
 
 void History::forwardActivated( QAction *action )
 {
   int id = action->data().toInt();
-  khcDebug() << "History::forwardActivated(): id = " << id;
+  qCDebug(KHC_LOG) << "History::forwardActivated(): id = " << id;
   goHistoryActivated( id + 1 );
 }
 
 void History::goHistoryActivated( int steps )
 {
-  khcDebug() << "History::goHistoryActivated(): m_goBuffer = " << m_goBuffer;
+  qCDebug(KHC_LOG) << "History::goHistoryActivated(): m_goBuffer = " << m_goBuffer;
   if ( m_goBuffer )
     return;
   m_goBuffer = steps;
@@ -197,7 +197,7 @@ void History::goHistoryActivated( int steps )
 
 void History::goHistoryDelayed()
 {
-  khcDebug() << "History::goHistoryDelayed(): m_goBuffer = " << m_goBuffer;
+  qCDebug(KHC_LOG) << "History::goHistoryDelayed(): m_goBuffer = " << m_goBuffer;
   if ( !m_goBuffer )
     return;
   int steps = m_goBuffer;
@@ -207,7 +207,7 @@ void History::goHistoryDelayed()
 
 void History::goHistory( int steps )
 {
-  khcDebug() << "History::goHistory(): " << steps;
+  qCDebug(KHC_LOG) << "History::goHistory(): " << steps;
 
   // If current entry is empty remove it.
   Entry *current = *m_entries_current;
@@ -217,25 +217,25 @@ void History::goHistory( int steps )
   
   current = *newPos;
   if ( !current ) {
-    khcWarning() << "No History entry at position " << newPos - m_entries.begin();
+    qCWarning(KHC_LOG) << "No History entry at position " << newPos - m_entries.begin();
     return;
   }
 
   if ( !current->view ) {
-    khcWarning() << "Empty history entry." ;
+    qCWarning(KHC_LOG) << "Empty history entry." ;
     return;
   }
   
   m_entries_current = newPos;
 
   if ( current->search ) {
-    khcDebug() << "History::goHistory(): search";
+    qCDebug(KHC_LOG) << "History::goHistory(): search";
     current->view->lastSearch();
     return;
   }
 
   if ( current->url.scheme() == QLatin1String("khelpcenter") ) {
-    khcDebug() << "History::goHistory(): internal";
+    qCDebug(KHC_LOG) << "History::goHistory(): internal";
     emit goInternalUrl( current->url );
     return;
   }
@@ -314,10 +314,10 @@ void History::goMenuActivated( QAction* action )
   int index = goMenu->actions().indexOf(action) - m_goMenuIndex + 1;
   if ( index > 0 )
   {
-    khcDebug() << "Item clicked has index " << index;
+    qCDebug(KHC_LOG) << "Item clicked has index " << index;
     // -1 for one step back, 0 for don't move, +1 for one step forward, etc.
     int steps = ( m_goMenuHistoryStartPos+1 ) - index - m_goMenuHistoryCurrentPos; // make a drawing to understand this :-)
-    khcDebug() << "Emit activated with steps = " << steps;
+    qCDebug(KHC_LOG) << "Emit activated with steps = " << steps;
     goHistory( steps );
   }
 }
@@ -378,7 +378,7 @@ bool History::canGoForward() const
 
 void History::dumpHistory() const {
   for(EntryList::const_iterator it = m_entries.constBegin() ; it!=m_entries.constEnd() ; ++it) {
-    khcDebug() << (*it)->title << (*it)->url << (it==EntryList::const_iterator(m_entries_current) ? "current" : "" ) ;
+    qCDebug(KHC_LOG) << (*it)->title << (*it)->url << (it==EntryList::const_iterator(m_entries_current) ? "current" : "" ) ;
   }
 
 }

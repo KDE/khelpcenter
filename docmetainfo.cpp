@@ -45,14 +45,14 @@ DocMetaInfo *DocMetaInfo::self()
 
 DocMetaInfo::DocMetaInfo()
 {
-  khcDebug() << "DocMetaInfo()";
+  qCDebug(KHC_LOG) << "DocMetaInfo()";
 
   mRootEntry.setName( i18n("Top-Level Documentation") );
 }
 
 DocMetaInfo::~DocMetaInfo()
 {
-  khcDebug() << "~DocMetaInfo()";
+  qCDebug(KHC_LOG) << "~DocMetaInfo()";
 
   DocEntry::List::ConstIterator it;
   for( it = mDocEntries.constBegin(); it != mDocEntries.constEnd(); ++it )
@@ -135,7 +135,7 @@ QString DocMetaInfo::languageName( const QString &langcode )
 
   QString cfgfile = QStandardPaths::locate( QStandardPaths::GenericDataLocation, QStringLiteral( "locale/%1/kf5_entry.desktop" ).arg( langcode ) );
 
-  khcDebug() << "-- langcode: " << langcode << " cfgfile: " << cfgfile;
+  qCDebug(KHC_LOG) << "-- langcode: " << langcode << " cfgfile: " << cfgfile;
 
   KConfig _cfg( cfgfile, KConfig::SimpleConfig );
   KConfigGroup cfg(&_cfg, "KCM Locale" );
@@ -160,7 +160,7 @@ void DocMetaInfo::scanMetaInfo( bool force )
   }
   for( it = metaInfos.constBegin(); it != metaInfos.constEnd(); ++it)
   {
-    khcDebug() << "DocMetaInfo::scanMetaInfo(): scanning " << *it;
+    qCDebug(KHC_LOG) << "DocMetaInfo::scanMetaInfo(): scanning " << *it;
     scanMetaInfoDir( *it, &mRootEntry );
   }
 
@@ -237,7 +237,7 @@ void DocMetaInfo::traverseEntry( DocEntry *entry, DocEntryTraverser *traverser )
 
 void DocMetaInfo::startTraverseEntries( DocEntryTraverser *traverser )
 {
-  khcDebug() << "DocMetaInfo::startTraverseEntries()";
+  qCDebug(KHC_LOG) << "DocMetaInfo::startTraverseEntries()";
   traverser->setNotifyee( this );
   startTraverseEntry( &mRootEntry, traverser );
 }
@@ -247,13 +247,13 @@ void DocMetaInfo::startTraverseEntry( DocEntry *entry,
 {
   if ( !traverser ) 
   {
-    khcWarning() << "DocMetaInfo::startTraverseEntry(): ERROR. No Traverser.";
+    qCWarning(KHC_LOG) << "DocMetaInfo::startTraverseEntry(): ERROR. No Traverser.";
     return;
   }
 
   if ( !entry ) 
   {
-    khcWarning() << "DocMetaInfo::startTraverseEntry(): no entry.";
+    qCWarning(KHC_LOG) << "DocMetaInfo::startTraverseEntry(): no entry.";
     endTraverseEntries( traverser );
     return;
   }
@@ -301,11 +301,11 @@ void DocMetaInfo::endProcess( DocEntry *entry, DocEntryTraverser *traverser )
 
 void DocMetaInfo::endTraverseEntries( DocEntryTraverser *traverser )
 {
-  khcDebug() << "DocMetaInfo::endTraverseEntries()";
+  qCDebug(KHC_LOG) << "DocMetaInfo::endTraverseEntries()";
 
   if ( !traverser ) 
   {
-    khcDebug() << " no more traversers.";
+    qCDebug(KHC_LOG) << " no more traversers.";
     return;
   }
 

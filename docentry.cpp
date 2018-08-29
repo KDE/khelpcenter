@@ -326,15 +326,15 @@ bool DocEntry::isSearchable() const
 
 void DocEntry::dump() const
 {
-  khcDebug() << "  <docentry>";
-  khcDebug() << "    <name>" << mName << "</name>";
-  khcDebug() << "    <searchmethod>" << mSearchMethod << "</searchmethod>";
-  khcDebug() << "    <search>" << mSearch << "</search>";
-  khcDebug() << "    <indexer>" << mIndexer << "</indexer>";
-  khcDebug() << "    <indextestfile>" << mIndexTestFile << "</indextestfile>";
-  khcDebug() << "    <icon>" << mIcon << "</icon>";
-  khcDebug() << "    <url>" << mUrl << "</url>";
-  khcDebug() << "    <documenttype>" << mDocumentType << "</documenttype>";
-  khcDebug() << "  </docentry>";
+  qCDebug(KHC_LOG) << "  <docentry>";
+  qCDebug(KHC_LOG) << "    <name>" << mName << "</name>";
+  qCDebug(KHC_LOG) << "    <searchmethod>" << mSearchMethod << "</searchmethod>";
+  qCDebug(KHC_LOG) << "    <search>" << mSearch << "</search>";
+  qCDebug(KHC_LOG) << "    <indexer>" << mIndexer << "</indexer>";
+  qCDebug(KHC_LOG) << "    <indextestfile>" << mIndexTestFile << "</indextestfile>";
+  qCDebug(KHC_LOG) << "    <icon>" << mIcon << "</icon>";
+  qCDebug(KHC_LOG) << "    <url>" << mUrl << "</url>";
+  qCDebug(KHC_LOG) << "    <documenttype>" << mDocumentType << "</documenttype>";
+  qCDebug(KHC_LOG) << "  </docentry>";
 }
 // vim:ts=2:sw=2:et

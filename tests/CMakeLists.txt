@@ -6,10 +6,10 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/.. )
 
 set(testmetainfo_SRCS
     testmetainfo.cpp 
-    ${CMAKE_CURRENT_SOURCE_DIR}/../khc_debug.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../docmetainfo.cpp 
     ${CMAKE_CURRENT_SOURCE_DIR}/../docentry.cpp 
     ${CMAKE_CURRENT_SOURCE_DIR}/../docentrytraverser.cpp )
+ecm_qt_declare_logging_category(testmetainfo_SRCS HEADER khc_debug.h IDENTIFIER KHC_LOG CATEGORY_NAME org.kde.khelpcenter)
 
 kconfig_add_kcfg_files(testmetainfo_SRCS ../prefs.kcfgc)
 

@@ -17,6 +17,7 @@ include(ECMMarkNonGuiExecutable)
 include(ECMOptionalAddSubdirectory)
 include(FeatureSummary)
 include(CheckIncludeFiles)
+include(ECMQtDeclareLoggingCategory)
 
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     DBus
@@ -67,7 +68,6 @@ add_subdirectory( templates )
 ########### next target ###############
 
 set(khelpcenter_KDEINIT_SRCS
-   khc_debug.cpp
    navigator.cpp
    navigatoritem.cpp
    navigatorappitem.cpp
@@ -91,6 +91,7 @@ set(khelpcenter_KDEINIT_SRCS
    scrollkeepertreebuilder.cpp
    bookmarkowner.cpp
    searchhandler.cpp )
+ecm_qt_declare_logging_category(khelpcenter_KDEINIT_SRCS HEADER khc_debug.h IDENTIFIER KHC_LOG CATEGORY_NAME org.kde.khelpcenter)
 
 kconfig_add_kcfg_files(khelpcenter_KDEINIT_SRCS prefs.kcfgc )
 # kf5_add_app_icon(khelpcenter_KDEINIT_SRCS "${KDE4_INSTALL_DIR}/share/icons/oxygen/*/apps/help-browser.png")
@@ -112,5 +113,6 @@ install( FILES table-of-contents.xslt glossary.xslt DESTINATION ${DATA_INSTALL_D
 install( FILES khelpcenterui.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/khelpcenter )
 install( FILES khelpcenter.categories DESTINATION ${KDE_INSTALL_CONFDIR} )
 install( FILES org.kde.Help.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR} )
+install( FILES khelpcenter.categories DESTINATION ${KDE_INSTALL_CONFDIR} )
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)

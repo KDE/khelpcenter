@@ -70,7 +70,7 @@ QString GrantleeFormatter::Private::format( Grantlee::Template t, Grantlee::Cont
   t->render( &stream, ctx );
   if ( t->error() )
   {
-    khcWarning() << "GrantleeFormatter rendering error:" << t->errorString();
+    qCWarning(KHC_LOG) << "GrantleeFormatter rendering error:" << t->errorString();
   }
 
   return result;

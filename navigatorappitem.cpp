@@ -71,7 +71,7 @@ void NavigatorAppItem::scheduleTOCBuild()
   if ( url.scheme() == QLatin1String( "help" ) ) {
     mToc = new TOC( this );
 
-    khcDebug() << "Trying to build TOC for" << entry()->name();
+    qCDebug(KHC_LOG) << "Trying to build TOC for" << entry()->name();
     mToc->setApplication( url.toString( QUrl::RemoveScheme | QUrl::RemoveFilename | QUrl::StripTrailingSlash ) );
     QString doc = View::langLookup( url.path() );
     // Enforce the original .docbook version, in case langLookup returns a
@@ -81,7 +81,7 @@ void NavigatorAppItem::scheduleTOCBuild()
       if ( pos >= 0 ) {
         doc.replace( pos, 5, QLatin1String( ".docbook" ) );
       }
-      khcDebug() << "doc =" << doc;
+      qCDebug(KHC_LOG) << "doc =" << doc;
 
       mToc->build( doc );
       // ensure the newly populated item is expanded

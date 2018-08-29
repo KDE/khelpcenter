@@ -322,7 +322,7 @@ void SearchWidget::scopeDoubleClicked( QTreeWidgetItem* item )
 
   QString searchUrl = scopeItem->entry()->search();
 
-  khcDebug() << "DoubleClick: " << searchUrl;
+  qCDebug(KHC_LOG) << "DoubleClick: " << searchUrl;
 
   emit searchResult( searchUrl );
 }

@@ -330,7 +330,7 @@ void MainWindow::slotOpenURLRequest( const QUrl &url,
                                      const KParts::OpenUrlArguments &args,
                                      const KParts::BrowserArguments &browserArgs )
 {
-  khcDebug() << url.url();
+  qCDebug(KHC_LOG) << url.url();
 
   mNavigator->selectItem( url );
   viewUrl( url, args, browserArgs );

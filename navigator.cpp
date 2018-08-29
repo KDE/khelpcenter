@@ -169,7 +169,7 @@ void Navigator::insertPlugins()
 
 void Navigator::insertParentAppDocs( const QString &name, NavigatorItem *topItem )
 {
-  khcDebug() << "Requested plugin documents for ID " << name;
+  qCDebug(KHC_LOG) << "Requested plugin documents for ID " << name;
 
   KServiceGroup::Ptr grp = KServiceGroup::childGroup( name );
   if ( !grp )
@@ -188,7 +188,7 @@ void Navigator::insertParentAppDocs( const QString &name, NavigatorItem *topItem
 
 void Navigator::insertKCMDocs( const QString &name, NavigatorItem *topItem, const QString &type )
 {
-  khcDebug() << "Requested KCM documents for ID" << name;
+  qCDebug(KHC_LOG) << "Requested KCM documents for ID" << name;
   QString systemsettingskontrolconstraint = "[X-KDE-System-Settings-Parent-Category] != ''";
   QString konquerorcontrolconstraint = "[X-KDE-PluginKeyword] == 'khtml_general'\
                                      or [X-KDE-PluginKeyword] == 'performance'\
@@ -240,7 +240,7 @@ History                 no X-KDE-PluginKeyword in kcmhistory.desktop
 
 void Navigator::insertIOSlaveDocs( const QString &name, NavigatorItem *topItem )
 {
-  khcDebug() << "Requested IOSlave documents for ID" << name;
+  qCDebug(KHC_LOG) << "Requested IOSlave documents for ID" << name;
 
   QStringList list = KProtocolInfo::protocols();
   list.sort();
@@ -293,7 +293,7 @@ void Navigator::insertScrollKeeperDocs( NavigatorItem *topItem )
 
 void Navigator::selectItem( const QUrl &url )
 {
-  khcDebug() << "Navigator::selectItem(): " << url.url();
+  qCDebug(KHC_LOG) << "Navigator::selectItem(): " << url.url();
 
   if ( url.url() == "khelpcenter:home" ) {
     clearSelection();
@@ -316,7 +316,7 @@ void Navigator::selectItem( const QUrl &url )
   if ( item && mSelected ) {
     QUrl currentURL ( item->entry()->url() );
     if ( (currentURL == url) || (currentURL == alternativeURL) ) {
-      khcDebug() << "URL already shown.";
+      qCDebug(KHC_LOG) << "URL already shown.";
       return;
     }
   }
@@ -367,7 +367,7 @@ void Navigator::slotItemSelected( QTreeWidgetItem *currentItem )
 
   NavigatorItem *item = static_cast<NavigatorItem *>( currentItem );
 
-  khcDebug() << item->entry()->name();
+  qCDebug(KHC_LOG) << item->entry()->name();
 
   item->setExpanded( !item->isExpanded() );
 
@@ -491,7 +491,7 @@ QString Navigator::createChildrenList( QTreeWidgetItem *child, int level )
 void Navigator::slotSearch()
 {
   
-  khcDebug() << "Navigator::slotSearch()";
+  qCDebug(KHC_LOG) << "Navigator::slotSearch()";
 
   if ( mIndexingProc ) return;
 
@@ -502,8 +502,8 @@ void Navigator::slotSearch()
   int pages = mSearchWidget->pages();
   QStringList scope = mSearchWidget->scope();
 
-  khcDebug() << "Navigator::slotSearch() words: " << words;
-  khcDebug() << "Navigator::slotSearch() scope: " << scope;
+  qCDebug(KHC_LOG) << "Navigator::slotSearch() words: " << words;
+  qCDebug(KHC_LOG) << "Navigator::slotSearch() scope: " << scope;
 
   if ( words.isEmpty() || scope.isEmpty() ) return;
 
@@ -533,7 +533,7 @@ void Navigator::slotSearchFinished()
   mSearchButton->setEnabled(true);
   QApplication::restoreOverrideCursor();
 
-  khcDebug() << "Search finished.";
+  qCDebug(KHC_LOG) << "Search finished.";
 }
 
 void Navigator::checkSearchButton()
@@ -633,12 +633,12 @@ void Navigator::slotDoIndexWork()
     return slotDoIndexWork();
   }
   if ( !handler->checkPaths( &error ) ) {
-    khcWarning() << "Indexing path error for" << entry->name() << ":" << error;
+    qCWarning(KHC_LOG) << "Indexing path error for" << entry->name() << ":" << error;
     return slotDoIndexWork();
   }
   QString indexer = handler->indexCommand( entry->identifier() );
   if ( indexer.isEmpty() ) {
-    khcWarning() << "Empty indexer for" << entry->identifier() << entry->documentType();
+    qCWarning(KHC_LOG) << "Empty indexer for" << entry->identifier() << entry->documentType();
     return slotDoIndexWork();
   }
 
@@ -647,10 +647,10 @@ void Navigator::slotDoIndexWork()
   indexer.replace( QLatin1String( "%i" ), entry->identifier() );
   indexer.replace( QLatin1String( "%d" ), indexDir );
   indexer.replace( QLatin1String( "%p" ), entry->url() );
-  khcDebug() << "Indexer:" << indexer;
+  qCDebug(KHC_LOG) << "Indexer:" << indexer;
 
   if ( !QDir().mkpath( indexDir ) ) {
-    khcWarning() << "cannot create the directory:" << indexDir;
+    qCWarning(KHC_LOG) << "cannot create the directory:" << indexDir;
     return slotDoIndexWork();
   }
 
@@ -664,7 +664,7 @@ void Navigator::slotDoIndexWork()
   mIndexingProc->start();
 
   if ( !mIndexingProc->waitForStarted() )  {
-    khcWarning() << "Unable to start command" << indexer;
+    qCWarning(KHC_LOG) << "Unable to start command" << indexer;
     delete mIndexingProc;
     mIndexingProc = nullptr;
     return slotDoIndexWork();
@@ -674,13 +674,13 @@ void Navigator::slotDoIndexWork()
 void Navigator::slotProcessExited( int exitCode, QProcess::ExitStatus exitStatus )
 {
   if ( exitStatus != QProcess::NormalExit ) {
-    khcWarning() << "Process failed";
-    khcWarning() << "stdout output:" << mIndexingProc->readAllStandardOutput();
-    khcWarning() << "stderr output:" << mIndexingProc->readAllStandardError();
+    qCWarning(KHC_LOG) << "Process failed";
+    qCWarning(KHC_LOG) << "stdout output:" << mIndexingProc->readAllStandardOutput();
+    qCWarning(KHC_LOG) << "stderr output:" << mIndexingProc->readAllStandardError();
   } else if ( exitCode != 0 ) {
-    khcWarning() << "running" << mIndexingProc->program() << "failed with exitCode" << exitCode;
-    khcWarning() << "stdout output:" << mIndexingProc->readAllStandardOutput();
-    khcWarning() << "stderr output:" << mIndexingProc->readAllStandardError();
+    qCWarning(KHC_LOG) << "running" << mIndexingProc->program() << "failed with exitCode" << exitCode;
+    qCWarning(KHC_LOG) << "stdout output:" << mIndexingProc->readAllStandardOutput();
+    qCWarning(KHC_LOG) << "stderr output:" << mIndexingProc->readAllStandardError();
   }
   delete mIndexingProc;
   mIndexingProc = nullptr;

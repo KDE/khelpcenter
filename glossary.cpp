@@ -159,7 +159,7 @@ void Glossary::rebuildGlossaryCache()
     meinproc->start();
     if (!meinproc->waitForStarted())
     {
-        khcWarning() << "could not start process" << meinproc->program();
+        qCWarning(KHC_LOG) << "could not start process" << meinproc->program();
         if (mainWindow && !m_alreadyWarned)
         {
             ; // add warning message box with don't display again option
@@ -177,8 +177,8 @@ void Glossary::meinprocFinished( int exitCode, QProcess::ExitStatus exitStatus )
 
     if (exitStatus != QProcess::NormalExit || exitCode != 0)
     {
-        khcWarning() << "running" << meinproc->program() << "failed with exitCode" << exitCode;
-        khcWarning() << "stderr output:" << meinproc->readAllStandardError();
+        qCWarning(KHC_LOG) << "running" << meinproc->program() << "failed with exitCode" << exitCode;
+        qCWarning(KHC_LOG) << "stderr output:" << meinproc->readAllStandardError();
         if (mainWindow && !m_alreadyWarned)
         {
             ; // add warning message box with don't display again option

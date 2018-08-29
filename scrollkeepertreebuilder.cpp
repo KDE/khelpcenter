@@ -49,11 +49,11 @@ void ScrollKeeperTreeBuilder::build( NavigatorItem *parent )
 {
   QString lang = QLocale().bcp47Name();
 
-  khcDebug() << "ScrollKeeper language: " << lang;
+  qCDebug(KHC_LOG) << "ScrollKeeper language: " << lang;
 
   const QString exePath = QStandardPaths::findExecutable( QLatin1Literal( "scrollkeeper-get-content-list" ) );
   if ( exePath.isEmpty() ) {
-    khcDebug() << "scrollkeeper-get-content-list is not available, skipping";
+    qCDebug(KHC_LOG) << "scrollkeeper-get-content-list is not available, skipping";
     return;
   }
 
@@ -64,13 +64,13 @@ void ScrollKeeperTreeBuilder::build( NavigatorItem *parent )
   proc.setOutputChannelMode(KProcess::OnlyStdoutChannel);
   proc.start();
   if ( !proc.waitForFinished() ) {
-    khcWarning() << "Could not execute scrollkeeper-get-content-list";
+    qCWarning(KHC_LOG) << "Could not execute scrollkeeper-get-content-list";
     return;
   }
   mContentsList = proc.readAllStandardOutput().trimmed();
 
   if (!QFile::exists(mContentsList)) {
-    khcWarning() << "Scrollkeeper contents file" << mContentsList
+    qCWarning(KHC_LOG) << "Scrollkeeper contents file" << mContentsList
       << "does not exist.";
     return;
   }
