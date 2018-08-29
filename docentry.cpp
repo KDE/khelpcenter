@@ -66,7 +66,7 @@ QString DocEntry::icon() const
   if ( !docExists() ) return QLatin1String("unknown");
   if ( isDirectory() ) return QLatin1String("help-contents");
   
-  else return "text-plain";
+  else return QStringLiteral("text-plain");
 }
 
 void DocEntry::setUrl( const QString &url )
@@ -79,7 +79,7 @@ QString DocEntry::url() const
   if ( !mUrl.isEmpty() ) return mUrl;
   if ( identifier().isEmpty() ) return QString();
 
-  return "khelpcenter:" + identifier();
+  return QStringLiteral("khelpcenter:") + identifier();
 }
 
 void DocEntry::setInfo( const QString &info )
@@ -219,7 +219,7 @@ bool DocEntry::readFromFile( const QFileInfo &fileInfo )
     mIdentifier = fileInfo.completeBaseName();
   }
   mIndexer = desktopGroup.readEntry( "X-DOC-Indexer" );
-  mIndexer.replace( "%f", fileInfo.absoluteFilePath() );
+  mIndexer.replace( QStringLiteral("%f"), fileInfo.absoluteFilePath() );
   mIndexTestFile = desktopGroup.readEntry( "X-DOC-IndexTestFile" );
   mSearchEnabledDefault = desktopGroup.readEntry( "X-DOC-SearchEnabledDefault",
                                               false );

@@ -149,9 +149,9 @@ ExternalProcessSearchHandler::ExternalProcessSearchHandler( const KConfigGroup &
 QString ExternalProcessSearchHandler::indexCommand( const QString &identifier ) const
 {
   QString cmd = mIndexCommand;
-  cmd.replace( "%i", identifier );
-  cmd.replace( "%d", Prefs::indexDirectory() );
-  cmd.replace( "%l", mLang );
+  cmd.replace( QStringLiteral("%i"), identifier );
+  cmd.replace( QStringLiteral("%d"), Prefs::indexDirectory() );
+  cmd.replace( QStringLiteral("%l"), mLang );
   return cmd;
 }
 
@@ -179,7 +179,7 @@ bool ExternalProcessSearchHandler::checkBinary( const QString &cmd ) const
 {
   QString binary;
 
-  int pos = cmd.indexOf( ' ' );
+  int pos = cmd.indexOf( QLatin1Char(' ') );
   if ( pos < 0 ) binary = cmd;
   else binary = cmd.left( pos );
 

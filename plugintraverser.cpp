@@ -69,7 +69,7 @@ void PluginTraverser::process( DocEntry *entry )
       mCurrentItem = new NavigatorAppItem( entry, mParentItem, mCurrentItem );
   } else if ( entry->khelpcenterSpecial() == QLatin1String("apps") ) {
     NavigatorAppGroupItem *appItem;
-    entry->setIcon( "kde" );
+    entry->setIcon( QStringLiteral("kde") );
     if ( mListView )
       appItem = new NavigatorAppGroupItem( entry, mListView, mCurrentItem );
     else
@@ -85,17 +85,17 @@ void PluginTraverser::process( DocEntry *entry )
     if ( entry->khelpcenterSpecial() == QLatin1String("konqueror") ) {
       mNavigator->insertParentAppDocs( entry->khelpcenterSpecial(), mCurrentItem );
     } else if ( entry->khelpcenterSpecial() == QLatin1String("kcontrol") ) {
-      mNavigator->insertKCMDocs( entry->khelpcenterSpecial(), mCurrentItem, QString("kcontrol") );
+      mNavigator->insertKCMDocs( entry->khelpcenterSpecial(), mCurrentItem, QStringLiteral("kcontrol") );
     } else if ( entry->khelpcenterSpecial() == QLatin1String("konquerorcontrol") ) {
-      mNavigator->insertKCMDocs( entry->khelpcenterSpecial(), mCurrentItem, QString("konquerorcontrol") );
+      mNavigator->insertKCMDocs( entry->khelpcenterSpecial(), mCurrentItem, QStringLiteral("konquerorcontrol") );
     } else if ( entry->khelpcenterSpecial() == QLatin1String("filemanagercontrol") ) {
-      mNavigator->insertKCMDocs( entry->khelpcenterSpecial(), mCurrentItem, QString("filemanagercontrol") );
+      mNavigator->insertKCMDocs( entry->khelpcenterSpecial(), mCurrentItem, QStringLiteral("filemanagercontrol") );
     } else if ( entry->khelpcenterSpecial() == QLatin1String("browsercontrol") ) {
-      mNavigator->insertKCMDocs( entry->khelpcenterSpecial(), mCurrentItem, QString("browsercontrol") );
+      mNavigator->insertKCMDocs( entry->khelpcenterSpecial(), mCurrentItem, QStringLiteral("browsercontrol") );
     } else if ( entry->khelpcenterSpecial() == QLatin1String("othercontrol") ) {
-      mNavigator->insertKCMDocs( entry->khelpcenterSpecial(), mCurrentItem, QString("othercontrol") );
+      mNavigator->insertKCMDocs( entry->khelpcenterSpecial(), mCurrentItem, QStringLiteral("othercontrol") );
     } else if ( entry->khelpcenterSpecial() == QLatin1String("kinfocenter") ) {
-      mNavigator->insertKCMDocs( entry->khelpcenterSpecial(), mCurrentItem, QString("kinfocenter") );
+      mNavigator->insertKCMDocs( entry->khelpcenterSpecial(), mCurrentItem, QStringLiteral("kinfocenter") );
     } else if ( entry->khelpcenterSpecial() == QLatin1String("kioslave") ) {
       mNavigator->insertIOSlaveDocs( entry->khelpcenterSpecial(), mCurrentItem );
     } else if ( entry->khelpcenterSpecial() == QLatin1String("info") ) {

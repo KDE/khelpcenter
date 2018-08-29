@@ -49,7 +49,7 @@ class SectionItem : public QTreeWidgetItem
         : QTreeWidgetItem( parent )
         {
           setText(0,text);
-          setIcon(0,QIcon::fromTheme( "help-contents" ));
+          setIcon(0,QIcon::fromTheme( QStringLiteral("help-contents") ));
         }
 };
 
@@ -84,16 +84,16 @@ Glossary::Glossary( QWidget *parent ) : QTreeWidget( parent )
 
     m_byTopicItem = new QTreeWidgetItem( this );
     m_byTopicItem->setText( 0, i18n( "By Topic" ) );
-    m_byTopicItem->setIcon( 0, QIcon::fromTheme( "help-contents" ) );
+    m_byTopicItem->setIcon( 0, QIcon::fromTheme( QStringLiteral("help-contents") ) );
 
     m_alphabItem = new QTreeWidgetItem( this );
     m_alphabItem->setText( 0, i18n( "Alphabetically" ) );
-    m_alphabItem->setIcon( 0, QIcon::fromTheme( "character-set" ) );
+    m_alphabItem->setIcon( 0, QIcon::fromTheme( QStringLiteral("character-set") ) );
 
-    m_cacheFile = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1Char('/') + "help/glossary.xml" ;
+    m_cacheFile = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1Char('/') + QStringLiteral("help/glossary.xml");
     QDir().mkpath( QFileInfo( m_cacheFile ).absolutePath() );
 
-    m_sourceFile = View::langLookup( QLatin1String( "khelpcenter/glossary/index.docbook" ) );
+    m_sourceFile = View::langLookup( QStringLiteral( "khelpcenter/glossary/index.docbook" ) );
 
 }
 

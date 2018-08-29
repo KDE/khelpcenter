@@ -53,7 +53,7 @@ InfoCategoryItem::InfoCategoryItem( NavigatorItem *parent, const QString &text )
 {
   setAutoDeleteDocEntry( true );
   setExpanded( false );
-  setIcon( 0, QIcon::fromTheme( "help-contents" ) );
+  setIcon( 0, QIcon::fromTheme( QStringLiteral("help-contents") ) );
 //  qCDebug(KHC_LOG) << "Got category: " << text;
 }
 
@@ -61,9 +61,9 @@ void InfoCategoryItem::itemExpanded( bool open )
 {
   NavigatorItem::itemExpanded( open );
 
-  if ( open && childCount() > 0 ) setIcon( 0, QIcon::fromTheme( "help-contents" ) );
+  if ( open && childCount() > 0 ) setIcon( 0, QIcon::fromTheme( QStringLiteral("help-contents") ) );
 // TODO: was contents2 -> needs to be changed to help-contents-alternate or similar
-  else setIcon( 0, QIcon::fromTheme( "help-contents" ) );
+  else setIcon( 0, QIcon::fromTheme( QStringLiteral("help-contents") ) );
 }
 
 InfoNodeItem::InfoNodeItem( InfoCategoryItem *parent, const QString &text )
@@ -96,12 +96,12 @@ void InfoTree::build( NavigatorItem *parent )
 
   const QString infoPath = QFile::decodeName( qgetenv( "INFOPATH" ) );
   if ( !infoPath.isEmpty() )
-    infoDirFiles += infoPath.split( ':');
+    infoDirFiles += infoPath.split( QLatin1Char(':'));
 
   QStringList::ConstIterator it = infoDirFiles.constBegin();
   QStringList::ConstIterator end = infoDirFiles.constEnd();
   for ( ; it != end; ++it ) {
-    QString infoDirFileName = *it + "/dir";
+    QString infoDirFileName = *it + QStringLiteral("/dir");
     if ( QFile::exists( infoDirFileName ) )
       parseInfoDirFile( infoDirFileName );
   }
@@ -142,7 +142,7 @@ void InfoTree::parseInfoDirFile( const QString &infoDirFileName )
         const int dot = s.indexOf( QLatin1Char( '.' ), closeBrace );
 
         QString appName = s.mid( 2, colon - 2 );
-        QString url = "info:/" + s.mid( openBrace + 1, closeBrace - openBrace - 1 );
+        QString url = QStringLiteral("info:/") + s.mid( openBrace + 1, closeBrace - openBrace - 1 );
         if ( dot - closeBrace > 1 )
           url += QLatin1Char('/') + s.mid( closeBrace + 1, dot - closeBrace - 1 );
         else

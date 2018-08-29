@@ -40,7 +40,7 @@ Application::Application(int& argc, char** argv)
 {
   setAttribute(Qt::AA_UseHighDpiPixmaps);
 
-  mCmdParser.addPositionalArgument( "url", i18n( "Documentation to open" ) );
+  mCmdParser.addPositionalArgument( QStringLiteral("url"), i18n( "Documentation to open" ) );
   mCmdParser.addHelpOption();
   mCmdParser.addVersionOption();
 
@@ -89,20 +89,20 @@ extern "C" int Q_DECL_EXPORT kdemain( int argc, char **argv )
 {
   KHC::Application app(argc, argv);
   KLocalizedString::setApplicationDomain("khelpcenter5");
-  KAboutData aboutData( "khelpcenter", i18n("Help Center"),
-                        PROJECT_VERSION,
+  KAboutData aboutData( QStringLiteral("khelpcenter"), i18n("Help Center"),
+                        QLatin1String(PROJECT_VERSION),
                         i18n("Help Center"),
                         KAboutLicense::GPL,
                         i18n("(c) 1999-2018, The KHelpCenter developers") );
 
-  aboutData.addAuthor( "Luigi Toscano", QString("Current maintainer"), "luigi.toscano@tiscali.it" );
-  aboutData.addAuthor( "Pino Toscano", QString("Xapian-based search, lot of bugfixes"), "pino@kde.org" );
-  aboutData.addAuthor( "Cornelius Schumacher", QString("Former maintainer"), "schumacher@kde.org" );
-  aboutData.addAuthor( "Frerich Raabe", QString(), "raabe@kde.org" );
-  aboutData.addAuthor( "Matthias Elter", i18n("Original Author"), "me@kde.org" );
-  aboutData.addAuthor( "Wojciech Smigaj", i18n("Info page support"), "achu@klub.chip.pl" );
-  app.setWindowIcon( QIcon::fromTheme("help-browser") );
-  aboutData.setDesktopFileName ( "org.kde.Help" );
+  aboutData.addAuthor( QStringLiteral("Luigi Toscano"), i18n("Current maintainer"), QStringLiteral("luigi.toscano@tiscali.it") );
+  aboutData.addAuthor( QStringLiteral("Pino Toscano"), i18n("Xapian-based search, lot of bugfixes"), QStringLiteral("pino@kde.org") );
+  aboutData.addAuthor( QStringLiteral("Cornelius Schumacher"), i18n("Former maintainer"), QStringLiteral("schumacher@kde.org") );
+  aboutData.addAuthor( QStringLiteral("Frerich Raabe"), QString(), QStringLiteral("raabe@kde.org") );
+  aboutData.addAuthor( QStringLiteral("Matthias Elter"), i18n("Original Author"), QStringLiteral("me@kde.org") );
+  aboutData.addAuthor( QStringLiteral("Wojciech Smigaj"), i18n("Info page support"), QStringLiteral("achu@klub.chip.pl") );
+  app.setWindowIcon( QIcon::fromTheme(QStringLiteral("help-browser")) );
+  aboutData.setDesktopFileName ( QStringLiteral("org.kde.Help") );
   KAboutData::setApplicationData(aboutData);
 
   QCommandLineParser *cmd = app.cmdParser();

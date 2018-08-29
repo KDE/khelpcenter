@@ -70,7 +70,7 @@ DocEntry *DocMetaInfo::addDocEntry( const QFileInfo &fi )
   if ( !fi.exists() ) return nullptr;
 
   QString extension = fi.completeSuffix();
-  QStringList extensions = extension.split( '.');
+  QStringList extensions = extension.split( QLatin1Char('.'));
   QString lang;
   if ( extensions.count() >= 2 )
   {
@@ -100,7 +100,7 @@ DocEntry *DocMetaInfo::addDocEntry( const QFileInfo &fi )
                              *it ) );
     }
     QString indexer = entry->indexer();
-    indexer.replace( "%f", fi.absoluteFilePath() );
+    indexer.replace( QStringLiteral("%f"), fi.absoluteFilePath() );
     entry->setIndexer( indexer );
     addDocEntry( entry );
     return entry;
@@ -130,7 +130,7 @@ DocEntry::List DocMetaInfo::searchEntries() const
 
 QString DocMetaInfo::languageName( const QString &langcode )
 {
-  if ( langcode == "en" )
+  if ( langcode == QLatin1String("en") )
       return i18nc("Describes documentation entries that are in English", "English");
 
   QString cfgfile = QStandardPaths::locate( QStandardPaths::GenericDataLocation, QStringLiteral( "locale/%1/kf5_entry.desktop" ).arg( langcode ) );
@@ -156,7 +156,7 @@ void DocMetaInfo::scanMetaInfo( bool force )
 
   if ( metaInfos.isEmpty() ) 
   {
-    metaInfos = QStandardPaths::locateAll(QStandardPaths::DataLocation, "plugins", QStandardPaths::LocateDirectory);
+    metaInfos = QStandardPaths::locateAll(QStandardPaths::DataLocation, QStringLiteral("plugins"), QStandardPaths::LocateDirectory);
   }
   for( it = metaInfos.constBegin(); it != metaInfos.constEnd(); ++it)
   {

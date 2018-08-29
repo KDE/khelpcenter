@@ -189,17 +189,17 @@ void Navigator::insertParentAppDocs( const QString &name, NavigatorItem *topItem
 void Navigator::insertKCMDocs( const QString &name, NavigatorItem *topItem, const QString &type )
 {
   qCDebug(KHC_LOG) << "Requested KCM documents for ID" << name;
-  QString systemsettingskontrolconstraint = "[X-KDE-System-Settings-Parent-Category] != ''";
-  QString konquerorcontrolconstraint = "[X-KDE-PluginKeyword] == 'khtml_general'\
+  QString systemsettingskontrolconstraint = QStringLiteral("[X-KDE-System-Settings-Parent-Category] != ''");
+  QString konquerorcontrolconstraint = QStringLiteral("[X-KDE-PluginKeyword] == 'khtml_general'\
                                      or [X-KDE-PluginKeyword] == 'performance'\
-                                     or [X-KDE-PluginKeyword] == 'bookmarks'";
-  QString filemanagercontrolconstraint = "[X-KDE-PluginKeyword] == 'behavior'\
+                                     or [X-KDE-PluginKeyword] == 'bookmarks'");
+  QString filemanagercontrolconstraint = QStringLiteral("[X-KDE-PluginKeyword] == 'behavior'\
                                        or [X-KDE-PluginKeyword] == 'dolphinviewmodes'\
                                        or [X-KDE-PluginKeyword] == 'dolphinnavigation'\
                                        or [X-KDE-PluginKeyword] == 'dolphinservices'\
                                        or [X-KDE-PluginKeyword] == 'dolphingeneral'\
-                                       or [X-KDE-PluginKeyword] == 'trash'";
-  QString browsercontrolconstraint = "[X-KDE-PluginKeyword] == 'khtml_behavior'\
+                                       or [X-KDE-PluginKeyword] == 'trash'");
+  QString browsercontrolconstraint = QStringLiteral("[X-KDE-PluginKeyword] == 'khtml_behavior'\
                                    or [X-KDE-PluginKeyword] == 'proxy'\
                                    or [X-KDE-PluginKeyword] == 'khtml_appearance'\
                                    or [X-KDE-PluginKeyword] == 'khtml_filter'\
@@ -207,26 +207,26 @@ void Navigator::insertKCMDocs( const QString &name, NavigatorItem *topItem, cons
                                    or [X-KDE-PluginKeyword] == 'cookie'\
                                    or [X-KDE-PluginKeyword] == 'useragent'\
                                    or [X-KDE-PluginKeyword] == 'khtml_java_js'\
-                                   or [X-KDE-PluginKeyword] == 'khtml_plugins'";
+                                   or [X-KDE-PluginKeyword] == 'khtml_plugins'");
 /* missing in browsercontrolconstraint
 History                 no X-KDE-PluginKeyword in kcmhistory.desktop
 */
-  QString othercontrolconstraint = "[X-KDE-PluginKeyword] == 'cgi'";
+  QString othercontrolconstraint = QStringLiteral("[X-KDE-PluginKeyword] == 'cgi'");
 
   KService::List list;
 
-  if ( type == QString("kcontrol") ) {
-    list = KServiceTypeTrader::self()->query( "KCModule", systemsettingskontrolconstraint );
-  } else if ( type == QString("konquerorcontrol") ) {
-    list = KServiceTypeTrader::self()->query( "KCModule", konquerorcontrolconstraint );
-  } else if ( type == QString("browsercontrol") ) {
-    list = KServiceTypeTrader::self()->query( "KCModule", browsercontrolconstraint );
-  } else if ( type == QString("filemanagercontrol") ) {
-    list = KServiceTypeTrader::self()->query( "KCModule", filemanagercontrolconstraint );
-  } else if ( type == QString("othercontrol") ) {
-    list = KServiceTypeTrader::self()->query( "KCModule", othercontrolconstraint );
-  } else if ( type == QString("kinfocenter") ) {
-    list = KServiceTypeTrader::self()->query( "KCModule", "[X-KDE-ParentApp] == 'kinfocenter'" );
+  if ( type == QLatin1String("kcontrol") ) {
+    list = KServiceTypeTrader::self()->query( QStringLiteral("KCModule"), systemsettingskontrolconstraint );
+  } else if ( type == QLatin1String("konquerorcontrol") ) {
+    list = KServiceTypeTrader::self()->query( QStringLiteral("KCModule"), konquerorcontrolconstraint );
+  } else if ( type == QLatin1String("browsercontrol") ) {
+    list = KServiceTypeTrader::self()->query( QStringLiteral("KCModule"), browsercontrolconstraint );
+  } else if ( type == QLatin1String("filemanagercontrol") ) {
+    list = KServiceTypeTrader::self()->query( QStringLiteral("KCModule"), filemanagercontrolconstraint );
+  } else if ( type == QLatin1String("othercontrol") ) {
+    list = KServiceTypeTrader::self()->query( QStringLiteral("KCModule"), othercontrolconstraint );
+  } else if ( type == QLatin1String("kinfocenter") ) {
+    list = KServiceTypeTrader::self()->query( QStringLiteral("KCModule"), QStringLiteral("[X-KDE-ParentApp] == 'kinfocenter'") );
   }
 
   for ( KService::List::const_iterator it = list.constBegin(); it != list.constEnd(); ++it )
@@ -254,7 +254,7 @@ void Navigator::insertIOSlaveDocs( const QString &name, NavigatorItem *topItem )
       // First parameter is ignored if second is an absolute path
       QUrl url(QStringLiteral("help:/") + docPath);
       QString icon = KProtocolInfo::icon(*it);
-      if ( icon.isEmpty() ) icon = "text-plain";
+      if ( icon.isEmpty() ) icon = QStringLiteral("text-plain");
       DocEntry *entry = new DocEntry( *it, url.url(), icon );
       NavigatorItem *item = new NavigatorAppItem( entry, topItem, prevItem );
       prevItem = item;
@@ -272,7 +272,7 @@ void Navigator::createItemFromDesktopFile( NavigatorItem *topItem,
       // First parameter is ignored if second is an absolute path
       QUrl url(QStringLiteral("help:/") + docPath);
       QString icon = desktopFile.readIcon();
-      if ( icon.isEmpty() ) icon = "text-plain";
+      if ( icon.isEmpty() ) icon = QStringLiteral("text-plain");
       DocEntry *entry = new DocEntry( desktopFile.readName(), url.url(), icon );
       NavigatorItem *item = new NavigatorAppItem( entry, topItem );
       item->setAutoDeleteDocEntry( true );
@@ -295,7 +295,7 @@ void Navigator::selectItem( const QUrl &url )
 {
   qCDebug(KHC_LOG) << "Navigator::selectItem(): " << url.url();
 
-  if ( url.url() == "khelpcenter:home" ) {
+  if ( url.url() == QLatin1String("khelpcenter:home") ) {
     clearSelection();
     return;
   }
@@ -306,7 +306,7 @@ void Navigator::selectItem( const QUrl &url )
   QUrl alternativeURL = url;
   if (url.hasFragment())
   {
-     alternativeURL.setQuery("anchor="+url.fragment());
+     alternativeURL.setQuery(QStringLiteral("anchor=")+url.fragment());
      alternativeURL.setFragment(QString());
   }
 
@@ -375,7 +375,7 @@ void Navigator::slotItemSelected( QTreeWidgetItem *currentItem )
 
   
   
-  if ( url.scheme() == "khelpcenter" ) {
+  if ( url.scheme() == QLatin1String("khelpcenter") ) {
       mView->closeUrl();
       History::self().updateCurrentEntry( mView );
       History::self().createEntry();
@@ -400,7 +400,7 @@ void Navigator::slotItemCollapsed( QTreeWidgetItem *item )
 
 void Navigator::openInternalUrl( const QUrl &url )
 {
-  if ( url.url() == "khelpcenter:home" ) {
+  if ( url.url() == QLatin1String("khelpcenter:home") ) {
     clearSelection();
     showOverview( nullptr, url );
     return;
@@ -523,7 +523,7 @@ void Navigator::slotSearch()
 void Navigator::slotShowSearchResult( const QString &url )
 {
   QString u = url;
-  u.replace( "%k", mSearchEdit->text() );
+  u.replace( QStringLiteral("%k"), mSearchEdit->text() );
 
   emit itemSelected( u );
 }

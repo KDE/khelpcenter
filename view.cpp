@@ -46,7 +46,7 @@ View::View( QWidget *parentWidget, QObject *parent, KHTMLPart::GUIProfile prof, 
     connect( this, SIGNAL( popupMenu( const QString &, const QPoint& ) ),
              this, SLOT( showMenu( const QString &, const QPoint& ) ) );
 
-    QString css = langLookup("kdoctools5-common/kde-default.css");
+    QString css = langLookup(QStringLiteral("kdoctools5-common/kde-default.css"));
     if (!css.isEmpty())
     {
        QFile css_file(css);
@@ -54,7 +54,7 @@ View::View( QWidget *parentWidget, QObject *parent, KHTMLPart::GUIProfile prof, 
        {
           QTextStream s(&css_file);
           QString stylesheet = s.readAll();
-          preloadStyleSheet("help:/kdoctools5-common/kde-default.css", stylesheet);
+          preloadStyleSheet(QStringLiteral("help:/kdoctools5-common/kde-default.css"), stylesheet);
        }
     }
 
@@ -126,7 +126,7 @@ QString View::langLookup( const QString &fname )
             return *it;
         }
 
-            QString file = (*it).left((*it).lastIndexOf('/')) + "/index.docbook";
+            QString file = (*it).left((*it).lastIndexOf(QLatin1Char('/'))) + QStringLiteral("/index.docbook");
             info.setFile(file);
             if (info.exists() && info.isFile() && info.isReadable()) {
                 return *it;
@@ -146,7 +146,7 @@ void View::beginSearchResult()
   mState = Search;
 
   begin( QUrl( QLatin1Literal( "khelpcenter:search/result" ) ) );
-  mSearchResult = "";
+  mSearchResult = QString();
 }
 
 void View::writeSearchResult( const QString &str )
@@ -200,14 +200,14 @@ void View::showMenu( const QString& url, const QPoint& pos)
   if (url.isEmpty())
   {
     QAction *action;
-    action = mActionCollection->action("go_home");
+    action = mActionCollection->action(QStringLiteral("go_home"));
     if (action) pop.addAction( action );
 
     pop.addSeparator();
 
-    action = mActionCollection->action("prevPage");
+    action = mActionCollection->action(QStringLiteral("prevPage"));
     if (action) pop.addAction( action );
-    action = mActionCollection->action("nextPage");
+    action = mActionCollection->action(QStringLiteral("nextPage"));
     if (action) pop.addAction( action);
 
     pop.addSeparator();
@@ -302,7 +302,7 @@ bool View::eventFilter( QObject *o, QEvent *e )
     case QEvent::WhatsThis: {
       QHelpEvent *he = static_cast<QHelpEvent *>( e );
       const QString text = i18n( "<p>Read the topic documentation in this window.<br /><br />Press <b>Space</b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, <b>Tab</b>/<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>",
-                                 actionCollection()->action( "find" )->shortcut().toString( QKeySequence::NativeText ) );
+                                 actionCollection()->action( QStringLiteral("find") )->shortcut().toString( QKeySequence::NativeText ) );
       QWhatsThis::showText( he->globalPos(), text, qobject_cast<QWidget *>( o ) );
       e->accept();
       return true;
@@ -329,7 +329,7 @@ QUrl View::urlFromLinkNode( const DOM::HTMLLinkElement &link ) const
   if ( !domHrefUrl.isRelative() )
     return domHrefUrl;
 
-  return QUrl(baseURL().toString() +'/'+ domHref.string());
+  return QUrl(baseURL().toString() +QLatin1Char('/')+ domHref.string());
 }
 
 void View::slotReload( const QUrl &url )

@@ -192,11 +192,11 @@ SearchEngine::~SearchEngine()
 
 bool SearchEngine::initSearchHandlers()
 {
-  const QStringList resourceDirs = QStandardPaths::locateAll(QStandardPaths::DataLocation, "searchhandlers/", QStandardPaths::LocateDirectory );
+  const QStringList resourceDirs = QStandardPaths::locateAll(QStandardPaths::DataLocation, QStringLiteral("searchhandlers/"), QStandardPaths::LocateDirectory );
   QStringList resources;
   foreach(const QString& dir, resourceDirs) {
       QDir d(dir);
-    foreach ( const QString& entry, d.entryList( QStringList( "*.desktop" ), QDir::Files ) ) {
+    foreach ( const QString& entry, d.entryList( QStringList( QStringLiteral("*.desktop") ), QDir::Files ) ) {
       resources += dir + entry;
     }
   }
@@ -245,9 +245,9 @@ bool SearchEngine::search( const QString & words, const QString & method, int ma
   mScope = scope;
 
   // Saner variables to store search parameters:
-  mWordList = words.split(' ');
+  mWordList = words.split(QLatin1Char(' '));
   mMaxResults = matches;
-  if ( method == "or" ) mOperation = Or;
+  if ( method == QLatin1String("or") ) mOperation = Or;
   else mOperation = And;
 
   if ( !mView ) {
@@ -256,7 +256,7 @@ bool SearchEngine::search( const QString & words, const QString & method, int ma
 
   QString txt = i18n("Search Results for '%1':", words.toHtmlEscaped() );
 
-  mStderr = "<b>" + txt + "</b>\n";
+  mStderr = QStringLiteral("<b>") + txt + QStringLiteral("</b>\n");
 
   if ( mRootTraverser ) {
     qCDebug(KHC_LOG) << "SearchEngine::search(): mRootTraverser not null.";
@@ -275,7 +275,7 @@ QString SearchEngine::substituteSearchQuery( const QString &query,
 {
   QString result = query;
   result.replace( QLatin1String("%i"), identifier );
-  result.replace( QLatin1String("%w"), words.join( "+" ) );
+  result.replace( QLatin1String("%w"), words.join( QLatin1Char('+') ) );
   result.replace( QLatin1String("%m"), QString::number( maxResults ) );
   QString o = QLatin1String(operation == Or ? "or" : "and");
   result.replace( QLatin1String("%o"), o );

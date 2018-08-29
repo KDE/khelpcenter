@@ -208,9 +208,9 @@ void SearchWidget::scopeSelectionChanged( int id )
 
 QString SearchWidget::method() const
 {
-  QString m = "and";
+  QString m = QStringLiteral("and");
   if ( mMethodCombo->currentIndex() == 1)
-    m = "or";
+    m = QStringLiteral("or");
 
   return m;
 }

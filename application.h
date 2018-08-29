@@ -38,7 +38,7 @@ namespace KHC {
 
       QCommandLineParser *cmdParser();
 
-    public slots:
+    public Q_SLOTS:
         void activate(const QStringList& args, const QString &workingDirectory);
 
     private:

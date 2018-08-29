@@ -26,9 +26,7 @@
 #include <KProcess>
 #include <KXmlGuiWindow>
 #include <kcoreaddons_version.h>
-#if KCOREADDONS_VERSION >= QT_VERSION_CHECK(5, 36, 0)
 #include <docbookxslt.h>
-#endif
 
 #include <QStatusBar>
 
@@ -88,11 +86,7 @@ void TOC::build( const QString &file )
 {
     QFileInfo fileInfo( file );
     QString fileName = fileInfo.absoluteFilePath();
-#if KCOREADDONS_VERSION >= QT_VERSION_CHECK(5, 36, 0)
     const QStringList resourceDirs = KDocTools::documentationDirs();
-#else
-    const QStringList resourceDirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, "doc/HTML", QStandardPaths::LocateDirectory);
-#endif
     QStringList::ConstIterator it = resourceDirs.begin();
     QStringList::ConstIterator end = resourceDirs.end();
     for ( ; it != end; ++it ) {
@@ -102,11 +96,11 @@ void TOC::build( const QString &file )
         }
     }
 
-    QString cacheFile = fileName.replace( '/', "__" );
+    QString cacheFile = fileName.replace( QLatin1Char('/'), QStringLiteral("__") );
 #ifdef Q_WS_WIN
-    cacheFile = cacheFile.replace( ':', "_" );
+    cacheFile = cacheFile.replace( QLatin1Char(':'), QStringLiteral("_") );
 #endif
-    m_cacheFile = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + "/help/" + cacheFile ;
+    m_cacheFile = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QStringLiteral("/help/") + cacheFile ;
     m_sourceFile = file;
 
     if ( cacheStatus() == NeedRebuild )
@@ -155,9 +149,9 @@ void TOC::buildCache()
     connect( meinproc, SIGNAL( finished( int, QProcess::ExitStatus) ),
              this, SLOT( meinprocExited( int, QProcess::ExitStatus) ) );
 
-    *meinproc << QStandardPaths::findExecutable("meinproc5");
-    *meinproc << "--stylesheet" << QStandardPaths::locate(QStandardPaths::GenericDataLocation, "khelpcenter/table-of-contents.xslt" );
-    *meinproc << "--output" << m_cacheFile;
+    *meinproc << QStandardPaths::findExecutable(QStringLiteral("meinproc5"));
+    *meinproc << QStringLiteral("--stylesheet") << QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("khelpcenter/table-of-contents.xslt") );
+    *meinproc << QStringLiteral("--output") << m_cacheFile;
     *meinproc << m_sourceFile;
 
     meinproc->setOutputChannelMode(KProcess::OnlyStderrChannel);
@@ -233,8 +227,8 @@ void TOC::fillTree()
     if ( !doc.setContent( &f ) )
         return;
 
-    TOCChapterItem *chapItem = 0;
-    QDomNodeList chapters = doc.documentElement().elementsByTagName( "chapter" );
+    TOCChapterItem *chapItem = nullptr;
+    QDomNodeList chapters = doc.documentElement().elementsByTagName( QStringLiteral("chapter") );
     for ( int chapterCount = 0; chapterCount < chapters.count(); chapterCount++ ) {
         QDomElement chapElem = chapters.item( chapterCount ).toElement();
         QDomElement chapTitleElem = childElement( chapElem, QLatin1String( "title" ) );
@@ -244,8 +238,8 @@ void TOC::fillTree()
 
         chapItem = new TOCChapterItem( this, m_parentItem, chapItem, chapTitle, chapRef );
 
-        TOCSectionItem *sectItem = 0;
-        QDomNodeList sections = chapElem.elementsByTagName( "section" );
+        TOCSectionItem *sectItem = nullptr;
+        QDomNodeList sections = chapElem.elementsByTagName( QStringLiteral("section") );
         for ( int sectCount = 0; sectCount < sections.count(); sectCount++ ) {
             QDomElement sectElem = sections.item( sectCount ).toElement();
             QDomElement sectTitleElem = childElement( sectElem, QLatin1String( "title" ) );
@@ -303,16 +297,16 @@ TOCSectionItem::TOCSectionItem( TOC *toc, TOCChapterItem *parent, QTreeWidgetIte
     : TOCItem( toc, parent, after, title ),
     m_name( name )
 {
-    setIcon( 0, QIcon::fromTheme( "text-plain" ) );
+    setIcon( 0, QIcon::fromTheme( QStringLiteral("text-plain") ) );
     entry()->setUrl(url());
 }
 
 QString TOCSectionItem::url()
 {
     if ( static_cast<TOCSectionItem *>( parent()->child(0) ) == this )
-        return static_cast<TOCChapterItem *>( parent() )->url() + '#' + m_name;
+        return static_cast<TOCChapterItem *>( parent() )->url() + QLatin1Char('#') + m_name;
 
-    return "help:" + toc()->application() + '/' + m_name + ".html";
+    return QStringLiteral("help:") + toc()->application() + QLatin1Char('/') + m_name + QStringLiteral(".html");
 }
 
 

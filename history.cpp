@@ -65,7 +65,7 @@ void History::setupActions( KActionCollection *coll )
   QPair<KGuiItem, KGuiItem> backForward = KStandardGuiItem::backAndForward();
 
   m_backAction = new KToolBarPopupAction( QIcon::fromTheme( backForward.first.iconName() ), backForward.first.text(), this );
-  coll->addAction( "back", m_backAction );
+  coll->addAction( QStringLiteral("back"), m_backAction );
   coll->setDefaultShortcuts(m_backAction, KStandardShortcut::back());
   
   connect(m_backAction, &KToolBarPopupAction::triggered, this, &History::back);
@@ -345,7 +345,7 @@ void History::fillHistoryPopup( QMenu *popup, bool onlyBack, bool onlyForward, b
   {
     QString text = (*it)->title;
     text = KStringHandler::csqueeze(text, 50); //CT: squeeze
-    text.replace( '&', "&&" );
+    text.replace( QLatin1Char('&'), QStringLiteral("&&") );
     QAction *action = popup->addAction( text );
     action->setData( i );
     if ( checkCurrentItem && *it == current )

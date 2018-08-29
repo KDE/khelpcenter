@@ -110,7 +110,7 @@ namespace KHC {
     private:
       bool checkBinary( const QString &cmd ) const;
 
-    private slots:
+    private Q_SLOTS:
       void slotSearchFinished( SearchJob *, DocEntry *, const QString & );
       void slotSearchError( SearchJob *, DocEntry *, const QString & );
 

@@ -68,7 +68,7 @@ using namespace KHC;
 class LogDialog : public QDialog
 {
   public:
-    LogDialog( QWidget *parent = 0 )
+    explicit LogDialog( QWidget *parent = nullptr )
       : QDialog( parent )
     {
       setWindowTitle( i18n("Search Error Log") );
@@ -111,7 +111,7 @@ MainWindow::MainWindow()
 {
     setObjectName( QLatin1String( "MainWindow" ) );
 
-    QDBusConnection::sessionBus().registerObject("/KHelpCenter", this, QDBusConnection::ExportScriptableSlots);
+    QDBusConnection::sessionBus().registerObject(QStringLiteral("/KHelpCenter"), this, QDBusConnection::ExportScriptableSlots);
     mSplitter = new QSplitter( this );
 
     mDoc = new View( mSplitter, this, KHTMLPart::DefaultGUI, actionCollection() );
@@ -140,7 +140,7 @@ MainWindow::MainWindow()
                                        const KParts::OpenUrlArguments &, const KParts::BrowserArguments & ) ) );
 
     mNavigator = new Navigator( mDoc, mSplitter );
-    mNavigator->setObjectName( "nav" );
+    mNavigator->setObjectName( QStringLiteral("nav") );
     connect( mNavigator, SIGNAL( itemSelected( const QString & ) ),
              SLOT( viewUrl( const QString & ) ) );
     connect( mNavigator, SIGNAL( glossSelected( const GlossaryEntry & ) ),
@@ -157,7 +157,7 @@ MainWindow::MainWindow()
 
     {
       if ( Prefs::useKonqSettings() ) {
-        KConfig konqCfg( "konquerorrc" );
+        KConfig konqCfg( QStringLiteral("konquerorrc") );
         const_cast<KHTMLSettings *>( mDoc->settings() )->init( &konqCfg );
       }
       const int fontScaleFactor = Prefs::fontzoomfactor();
@@ -231,13 +231,13 @@ void MainWindow::setupActions()
     actionCollection()->addAction( KStandardAction::Quit, this, SLOT( close() ) );
     actionCollection()->addAction( KStandardAction::Print, this, SLOT( print() ) );
 
-    QAction *prevPage  = actionCollection()->addAction( "prevPage" );
+    QAction *prevPage  = actionCollection()->addAction( QStringLiteral("prevPage") );
     prevPage->setText( i18n( "Previous Page" ) );
     actionCollection()->setDefaultShortcut(prevPage, Qt::CTRL+Qt::Key_PageUp );
     prevPage->setWhatsThis( i18n( "Moves to the previous page of the document" ) );
     connect( prevPage, SIGNAL( triggered() ), mDoc, SLOT( prevPage() ) );
 
-    QAction *nextPage  = actionCollection()->addAction( "nextPage" );
+    QAction *nextPage  = actionCollection()->addAction( QStringLiteral("nextPage") );
     nextPage->setText( i18n( "Next Page" ) );
     actionCollection()->setDefaultShortcut(nextPage, Qt::CTRL + Qt::Key_PageDown );
     nextPage->setWhatsThis( i18n( "Moves to the next page of the document" ) );
@@ -250,7 +250,7 @@ void MainWindow::setupActions()
     home->setWhatsThis(i18n("Go back to the table of contents"));
 
     mCopyText = KStandardAction::copy( this, SLOT(slotCopySelectedText()), this );
-    actionCollection()->addAction( "copy_text", mCopyText );
+    actionCollection()->addAction( QStringLiteral("copy_text"), mCopyText );
 
     mLastSearchAction = actionCollection()->addAction( QLatin1String("lastsearch") );
     mLastSearchAction->setText( i18n("&Last Search Result") );
@@ -347,7 +347,7 @@ void MainWindow::viewUrl( const QUrl &url, const KParts::OpenUrlArguments &args,
 
     QString proto = url.scheme().toLower();
 
-    if ( proto == "khelpcenter" ) {
+    if ( proto == QLatin1String("khelpcenter") ) {
       History::self().createEntry();
       mNavigator->openInternalUrl( url );
       return;
@@ -366,7 +366,7 @@ void MainWindow::viewUrl( const QUrl &url, const KParts::OpenUrlArguments &args,
     else if ( url.isLocalFile() ) {
         QMimeDatabase db;
         QMimeType mime = db.mimeTypeForUrl( url );
-        if ( mime.inherits("text/html") )
+        if ( mime.inherits(QStringLiteral("text/html")) )
             own = true;
     }
 
@@ -436,7 +436,7 @@ void MainWindow::slotGlossSelected(const GlossaryEntry &entry)
 {
     stop();
     History::self().createEntry();
-    mDoc->begin( QUrl( "glossentry:" + entry.id() ) );
+    mDoc->begin( QUrl( QStringLiteral("glossentry:") + entry.id() ) );
     mDoc->write( mDoc->grantleeFormatter()->formatGlossaryEntry( entry ) );
     mDoc->end();
 }

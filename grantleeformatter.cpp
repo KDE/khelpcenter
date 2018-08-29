@@ -80,7 +80,7 @@ GrantleeFormatter::GrantleeFormatter()
   : d( new Private )
 {
   QSharedPointer< Grantlee::FileSystemTemplateLoader > loader( new Grantlee::FileSystemTemplateLoader );
-  loader->setTemplateDirs( QStandardPaths::locateAll( QStandardPaths::DataLocation, "templates", QStandardPaths::LocateDirectory ) );
+  loader->setTemplateDirs( QStandardPaths::locateAll( QStandardPaths::DataLocation, QStringLiteral("templates"), QStandardPaths::LocateDirectory ) );
   d->engine.addTemplateLoader( loader );
 }
 
@@ -91,19 +91,19 @@ GrantleeFormatter::~GrantleeFormatter()
 
 QString GrantleeFormatter::formatOverview( const QString& title, const QString& name, const QString& content )
 {
-  Grantlee::Template t = d->engine.loadByName( "index.html" );
+  Grantlee::Template t = d->engine.loadByName( QStringLiteral("index.html") );
 
   Grantlee::Context ctx;
-  ctx.insert( "title", title );
-  ctx.insert( "name", name );
-  ctx.insert( "content", content );
+  ctx.insert( QStringLiteral("title"), title );
+  ctx.insert( QStringLiteral("name"), name );
+  ctx.insert( QStringLiteral("content"), content );
 
   return d->format( t, &ctx );
 }
 
 QString GrantleeFormatter::formatGlossaryEntry( const GlossaryEntry& entry )
 {
-  Grantlee::Template t = d->engine.loadByName( "glossary.html" );
+  Grantlee::Template t = d->engine.loadByName( QStringLiteral("glossary.html") );
 
   const GlossaryEntryXRef::List entrySeeAlso = entry.seeAlso();
   QStringList seeAlso;
@@ -114,19 +114,19 @@ QString GrantleeFormatter::formatGlossaryEntry( const GlossaryEntry& entry )
   }
 
   Grantlee::Context ctx;
-  ctx.insert( "htmltitle", i18nc( "%1 is a glossary term", "KDE Glossary: %1", entry.term() ) );
-  ctx.insert( "title", i18n( "KDE Glossary" ) );
-  ctx.insert( "term", entry.term() );
-  ctx.insert( "definition", entry.definition() );
-  ctx.insert( "seeAlsoCount", seeAlso.count() );
-  ctx.insert( "seeAlso", i18n( "See also: %1", seeAlso.join( ", " ) ) );
+  ctx.insert( QStringLiteral("htmltitle"), i18nc( "%1 is a glossary term", "KDE Glossary: %1", entry.term() ) );
+  ctx.insert( QStringLiteral("title"), i18n( "KDE Glossary" ) );
+  ctx.insert( QStringLiteral("term"), entry.term() );
+  ctx.insert( QStringLiteral("definition"), entry.definition() );
+  ctx.insert( QStringLiteral("seeAlsoCount"), seeAlso.count() );
+  ctx.insert( QStringLiteral("seeAlso"), i18n( "See also: %1", seeAlso.join( QStringLiteral(", ") ) ) );
 
   return d->format( t, &ctx );
 }
 
 QString GrantleeFormatter::formatSearchResults( const QString& words, const QList<QPair<DocEntry *, QString> >& results )
 {
-  Grantlee::Template t = d->engine.loadByName( "search.html" );
+  Grantlee::Template t = d->engine.loadByName( QStringLiteral("search.html") );
 
   typedef QPair<DocEntry *, QString> Iter;
   QVariantList list;
@@ -134,15 +134,15 @@ QString GrantleeFormatter::formatSearchResults( const QString& words, const QLis
   foreach ( const Iter& it, results )
   {
     QVariantHash h;
-    h.insert( "title", it.first->name() );
-    h.insert( "content", it.second );
+    h.insert( QStringLiteral("title"), it.first->name() );
+    h.insert( QStringLiteral("content"), it.second );
     list += h;
   }
 
   Grantlee::Context ctx;
-  ctx.insert( "htmltitle", i18n( "Search Results" ) );
-  ctx.insert( "title", i18n( "Search Results for '%1':", words.toHtmlEscaped() ) );
-  ctx.insert( "results", list );
+  ctx.insert( QStringLiteral("htmltitle"), i18n( "Search Results" ) );
+  ctx.insert( QStringLiteral("title"), i18n( "Search Results for '%1':", words.toHtmlEscaped() ) );
+  ctx.insert( QStringLiteral("results"), list );
 
   return d->format( t, &ctx );
 }

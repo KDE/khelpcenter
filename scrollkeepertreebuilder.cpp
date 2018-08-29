@@ -67,7 +67,7 @@ void ScrollKeeperTreeBuilder::build( NavigatorItem *parent )
     qCWarning(KHC_LOG) << "Could not execute scrollkeeper-get-content-list";
     return;
   }
-  mContentsList = proc.readAllStandardOutput().trimmed();
+  mContentsList =QString::fromUtf8( proc.readAllStandardOutput().trimmed());
 
   if (!QFile::exists(mContentsList)) {
     qCWarning(KHC_LOG) << "Scrollkeeper contents file" << mContentsList
@@ -75,7 +75,7 @@ void ScrollKeeperTreeBuilder::build( NavigatorItem *parent )
     return;
   }
 
-  QDomDocument doc("ScrollKeeperContentsList");
+  QDomDocument doc(QStringLiteral("ScrollKeeperContentsList"));
   QFile f(mContentsList);
   if ( !f.open( QIODevice::ReadOnly ) )
     return;
@@ -94,7 +94,7 @@ void ScrollKeeperTreeBuilder::build( NavigatorItem *parent )
   while( !n.isNull() ) {
     QDomElement e = n.toElement();
     if( !e.isNull() ) {
-      if (e.tagName() == "sect") {
+      if (e.tagName() == QLatin1String("sect")) {
         NavigatorItem *createdItem;
         insertSection( parent, e, createdItem );
       }
@@ -108,7 +108,7 @@ int ScrollKeeperTreeBuilder::insertSection( NavigatorItem *parent,
                                             NavigatorItem *&sectItem )
 {
 // TODO: was contents2 -> needs to be changed to help-contents-alternate or similar
-  DocEntry *entry = new DocEntry( "", "", "help-contents" );
+  DocEntry *entry = new DocEntry( QString(), QString(), QLatin1String("help-contents") );
   sectItem = new NavigatorItem( entry, parent );
   sectItem->setAutoDeleteDocEntry( true );
   mItems.append( sectItem );
@@ -119,13 +119,13 @@ int ScrollKeeperTreeBuilder::insertSection( NavigatorItem *parent,
   while( !n.isNull() ) {
     QDomElement e = n.toElement();
     if( !e.isNull() ) {
-      if ( e.tagName() == "title" ) {
+      if ( e.tagName() == QLatin1String("title") ) {
         entry->setName( e.text() );
         sectItem->updateItem();
-      } else if (e.tagName() == "sect") {
+      } else if (e.tagName() == QLatin1String("sect")) {
         NavigatorItem *created;
         numDocs += insertSection( sectItem, e, created );
-      } else if (e.tagName() == "doc") {
+      } else if (e.tagName() == QLatin1String("doc")) {
         insertDoc(sectItem,e);
         ++numDocs;
       }
@@ -145,7 +145,7 @@ int ScrollKeeperTreeBuilder::insertSection( NavigatorItem *parent,
 void ScrollKeeperTreeBuilder::insertDoc( NavigatorItem *parent,
                                          const QDomNode &docNode )
 {
-  DocEntry *entry = new DocEntry( "", "", "text-plain" );
+  DocEntry *entry = new DocEntry( QString(), QString(), QLatin1String("text-plain") );
   NavigatorItem *docItem = new NavigatorItem( entry, parent );
   docItem->setAutoDeleteDocEntry( true );
   mItems.append( docItem );
@@ -156,27 +156,27 @@ void ScrollKeeperTreeBuilder::insertDoc( NavigatorItem *parent,
   while( !n.isNull() ) {
     QDomElement e = n.toElement();
     if( !e.isNull() ) {
-      if ( e.tagName() == "doctitle" ) {
+      if ( e.tagName() == QLatin1String("doctitle") ) {
         entry->setName( e.text() );
         docItem->updateItem();
-      } else if ( e.tagName() == "docsource" ) {
+      } else if ( e.tagName() == QLatin1String("docsource") ) {
         url.append( e.text() );
-      } else if ( e.tagName() == "docformat" ) {
+      } else if ( e.tagName() == QLatin1String("docformat") ) {
         QString mimeType = e.text();
-        if ( mimeType == "text/html") {
+        if ( mimeType == QLatin1String("text/html")) {
           // Let the HTML part figure out how to get the doc
-        } else if ( mimeType == "application/xml"
-                   || mimeType == "text/xml" /*deprecated name*/ ) {
-          if ( url.left( 5 ) == "file:" ) url = url.mid( 5 );
-          url.prepend( "ghelp:" );
+        } else if ( mimeType == QLatin1String("application/xml")
+                   || mimeType == QLatin1String("text/xml") /*deprecated name*/ ) {
+          if ( url.left( 5 ) == QLatin1String("file:") ) url = url.mid( 5 );
+          url.prepend( QLatin1String("ghelp:") );
 #if 0
           url.replace( QRegExp( ".xml$" ), ".html" );
 #endif
-        } else if ( mimeType == "text/sgml" ) {
+        } else if ( mimeType == QLatin1String("text/sgml") ) {
           // GNOME docs use this type. We don't have a real viewer for this.
-          url.prepend( "file:" );
-        } else if ( mimeType.left(5) == "text/" ) {
-          url.prepend( "file:" );
+          url.prepend( QStringLiteral("file:") );
+        } else if ( mimeType.left(5) == QLatin1String("text/") ) {
+          url.prepend( QStringLiteral("file:") );
         }
       }
     }

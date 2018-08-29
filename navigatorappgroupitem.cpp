@@ -112,9 +112,9 @@ void NavigatorAppGroupItem::populate( bool recursive )
       case KST_KServiceGroup:
       {
         const KServiceGroup::Ptr g(static_cast<KServiceGroup*>(e.data()));
-        if ( ( g->childCount() == 0 ) || g->name().startsWith( '.' ) )
+        if ( ( g->childCount() == 0 ) || g->name().startsWith( QLatin1Char('.') ) )
           continue;
-        DocEntry *entry = new DocEntry( g->caption(), "", g->icon() );
+        DocEntry *entry = new DocEntry( g->caption(), QString(), g->icon() );
         NavigatorAppGroupItem *appItem;
         appItem = new NavigatorAppGroupItem( entry, this, g->relPath() );
         appItem->setAutoDeleteDocEntry( true );
