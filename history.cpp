@@ -70,11 +70,11 @@ void History::setupActions( KActionCollection *coll )
   
   connect(m_backAction, &KToolBarPopupAction::triggered, this, &History::back);
 
-  connect( m_backAction->menu(), SIGNAL( triggered( QAction* ) ),
-           SLOT( backActivated( QAction* ) ) );
+  connect( m_backAction->menu(), SIGNAL(triggered(QAction*)),
+           SLOT(backActivated(QAction*)) );
   
-  connect( m_backAction->menu(), SIGNAL( aboutToShow() ),
-           SLOT( fillBackMenu() ) );
+  connect( m_backAction->menu(), SIGNAL(aboutToShow()),
+           SLOT(fillBackMenu()) );
   
   m_backAction->setEnabled( false );
 
@@ -84,11 +84,11 @@ void History::setupActions( KActionCollection *coll )
   
   connect(m_forwardAction, &KToolBarPopupAction::triggered, this, &History::forward);
 
-  connect( m_forwardAction->menu(), SIGNAL( triggered( QAction* ) ),
-           SLOT( forwardActivated( QAction* ) ) );
+  connect( m_forwardAction->menu(), SIGNAL(triggered(QAction*)),
+           SLOT(forwardActivated(QAction*)) );
   
-  connect( m_forwardAction->menu(), SIGNAL( aboutToShow() ),
-           SLOT( fillForwardMenu() ) );
+  connect( m_forwardAction->menu(), SIGNAL(aboutToShow()),
+           SLOT(fillForwardMenu()) );
   
   m_forwardAction->setEnabled( false );
 }
@@ -192,7 +192,7 @@ void History::goHistoryActivated( int steps )
   if ( m_goBuffer )
     return;
   m_goBuffer = steps;
-  QTimer::singleShot( 0, this, SLOT( goHistoryDelayed() ) );
+  QTimer::singleShot( 0, this, SLOT(goHistoryDelayed()) );
 }
 
 void History::goHistoryDelayed()

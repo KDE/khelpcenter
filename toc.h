@@ -36,7 +36,7 @@ class TOC : public QObject
 {
 	Q_OBJECT
 	public:
-		TOC( NavigatorItem *parentItem );
+		explicit TOC( NavigatorItem *parentItem );
 
 		QString application() const { return m_application; }
 		void setApplication( const QString &application ) { m_application = application; }

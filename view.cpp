@@ -1,4 +1,24 @@
 
+/*
+    This file is part of KHelpCenter.
+
+    Copyright (c) 2002 Cornelius Schumacher <schumacher@kde.org>
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+*/
+
 #include "view.h"
 
 #include "grantleeformatter.h"
@@ -41,10 +61,10 @@ View::View( QWidget *parentWidget, QObject *parent, KHTMLPart::GUIProfile prof, 
 
     m_fontScaleStepping = 10;
 
-    connect( this, SIGNAL( setWindowCaption( const QString & ) ),
-             this, SLOT( setTitle( const QString & ) ) );
-    connect( this, SIGNAL( popupMenu( const QString &, const QPoint& ) ),
-             this, SLOT( showMenu( const QString &, const QPoint& ) ) );
+    connect( this, SIGNAL(setWindowCaption(QString)),
+             this, SLOT(setTitle(QString)) );
+    connect( this, SIGNAL(popupMenu(QString,QPoint)),
+             this, SLOT(showMenu(QString,QPoint)) );
 
     QString css = langLookup(QStringLiteral("kdoctools5-common/kde-default.css"));
     if (!css.isEmpty())
@@ -218,7 +238,7 @@ void View::showMenu( const QString& url, const QPoint& pos)
   else
   {
     QAction *action = pop.addAction(i18n("Copy Link Address"));
-    connect( action, SIGNAL( triggered() ), this, SLOT( slotCopyLink() ) );
+    connect( action, SIGNAL(triggered()), this, SLOT(slotCopyLink()) );
 
     mCopyURL = completeURL(url).url();
   }
@@ -233,7 +253,7 @@ void View::slotCopyLink()
 
 static DOM::HTMLLinkElement findLink(const DOM::NodeList& links, const char *rel)
 { 
-  for (unsigned i = 0; i <= links.length(); i++) {
+  for (unsigned i = 0; i <= links.length(); ++i) {
     DOM::HTMLLinkElement link(links.item(i));
     if (link.isNull())
       continue;

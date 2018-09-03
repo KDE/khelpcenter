@@ -146,8 +146,8 @@ void TOC::buildCache()
     KXmlGuiWindow *mainWindow = dynamic_cast<KXmlGuiWindow *>( qobject_cast<QApplication*>(qApp)->activeWindow() );
 
     KProcess *meinproc = new KProcess;
-    connect( meinproc, SIGNAL( finished( int, QProcess::ExitStatus) ),
-             this, SLOT( meinprocExited( int, QProcess::ExitStatus) ) );
+    connect( meinproc, SIGNAL(finished(int,QProcess::ExitStatus)),
+             this, SLOT(meinprocExited(int,QProcess::ExitStatus)) );
 
     *meinproc << QStandardPaths::findExecutable(QStringLiteral("meinproc5"));
     *meinproc << QStringLiteral("--stylesheet") << QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("khelpcenter/table-of-contents.xslt") );

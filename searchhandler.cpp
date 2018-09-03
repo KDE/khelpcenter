@@ -44,8 +44,8 @@ bool SearchJob::startLocal(const QString &cmdString)
     mProcess = new KProcess;
     *mProcess << KShell::splitArgs(cmdString);
 
-    connect( mProcess, SIGNAL( finished(int, QProcess::ExitStatus) ),
-             this, SLOT( searchExited(int, QProcess::ExitStatus) ) );
+    connect( mProcess, SIGNAL(finished(int,QProcess::ExitStatus)),
+             this, SLOT(searchExited(int,QProcess::ExitStatus)) );
 
     mProcess->setOutputChannelMode(KProcess::SeparateChannels);
     mProcess->start();
@@ -60,10 +60,10 @@ bool SearchJob::startLocal(const QString &cmdString)
 bool SearchJob::startRemote(const QString &urlString)
 {
     KIO::TransferJob *job  = KIO::get( QUrl( urlString ) );
-    connect( job, SIGNAL( result( KJob * ) ),
-             this, SLOT( slotJobResult( KJob * ) ) );
-    connect( job, SIGNAL( data( KIO::Job *, const QByteArray & ) ),
-             this, SLOT( slotJobData( KIO::Job *, const QByteArray & ) ) );
+    connect( job, SIGNAL(result(KJob*)),
+             this, SLOT(slotJobResult(KJob*)) );
+    connect( job, SIGNAL(data(KIO::Job*,QByteArray)),
+             this, SLOT(slotJobData(KIO::Job*,QByteArray)) );
 
     mKioJob = job;
     return true;
@@ -199,10 +199,10 @@ void ExternalProcessSearchHandler::search( DocEntry *entry, const QStringList &w
     qCDebug(KHC_LOG) << "CMD:" << cmdString;
 
     SearchJob *searchJob = new SearchJob(entry);
-    connect(searchJob, SIGNAL(searchFinished( SearchJob *, DocEntry *, const QString & )),
-            this, SLOT(slotSearchFinished( SearchJob *, DocEntry *, const QString & )));
-    connect(searchJob, SIGNAL(searchError( SearchJob *, DocEntry *, const QString & )),
-            this, SLOT(slotSearchError( SearchJob *, DocEntry *, const QString & )));
+    connect(searchJob, SIGNAL(searchFinished(SearchJob*,DocEntry*,QString)),
+            this, SLOT(slotSearchFinished(SearchJob*,DocEntry*,QString)));
+    connect(searchJob, SIGNAL(searchError(SearchJob*,DocEntry*,QString)),
+            this, SLOT(slotSearchError(SearchJob*,DocEntry*,QString)));
     searchJob->startLocal(cmdString);
 
   } else if ( !mSearchUrl.isEmpty() ) {
@@ -212,10 +212,10 @@ void ExternalProcessSearchHandler::search( DocEntry *entry, const QStringList &w
     qCDebug(KHC_LOG) << "URL:" << urlString;
 
     SearchJob *searchJob = new SearchJob(entry);
-    connect(searchJob, SIGNAL(searchFinished( SearchJob *, DocEntry *, const QString & )),
-            this, SLOT(slotSearchFinished( SearchJob *, DocEntry *, const QString & )));
-    connect(searchJob, SIGNAL(searchError( SearchJob *, DocEntry *, const QString & )),
-            this, SLOT(slotSearchError( SearchJob *, DocEntry *, const QString & )));
+    connect(searchJob, SIGNAL(searchFinished(SearchJob*,DocEntry*,QString)),
+            this, SLOT(slotSearchFinished(SearchJob*,DocEntry*,QString)));
+    connect(searchJob, SIGNAL(searchError(SearchJob*,DocEntry*,QString)),
+            this, SLOT(slotSearchError(SearchJob*,DocEntry*,QString)));
     searchJob->startRemote(urlString);
 
   } else {

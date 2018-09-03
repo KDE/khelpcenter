@@ -79,7 +79,7 @@ namespace KHC {
   {
     Q_OBJECT
     public:
-      Glossary( QWidget *parent );
+      explicit Glossary( QWidget *parent );
       virtual ~Glossary();
 
       const GlossaryEntry &entry( const QString &id ) const;

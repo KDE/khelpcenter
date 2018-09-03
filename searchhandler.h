@@ -40,7 +40,7 @@ namespace KHC {
   class SearchJob : public QObject {
       Q_OBJECT
     public:
-      SearchJob(DocEntry *entry);
+      explicit SearchJob(DocEntry *entry);
       ~SearchJob();
 
       bool startLocal(const QString &cmdString);
@@ -97,7 +97,7 @@ namespace KHC {
   {
       Q_OBJECT
     public:
-      ExternalProcessSearchHandler( const KConfigGroup &cg );
+      explicit ExternalProcessSearchHandler( const KConfigGroup &cg );
 
       void search( DocEntry *, const QStringList &words,
 	int maxResults = 10,

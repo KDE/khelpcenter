@@ -658,8 +658,8 @@ void Navigator::slotDoIndexWork()
 
   *mIndexingProc << KShell::splitArgs( indexer );
 
-  connect( mIndexingProc, SIGNAL( finished( int, QProcess::ExitStatus) ),
-           SLOT( slotProcessExited( int, QProcess::ExitStatus) ) );
+  connect( mIndexingProc, SIGNAL(finished(int,QProcess::ExitStatus)),
+           SLOT(slotProcessExited(int,QProcess::ExitStatus)) );
 
   mIndexingProc->start();
 

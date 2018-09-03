@@ -1,4 +1,24 @@
 
+/*
+    This file is part of KHelpCenter.
+
+    Copyright (c) 2002 Cornelius Schumacher <schumacher@kde.org>
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+*/
+
 #include "searchengine.h"
 
 #include "docmetainfo.h"
@@ -73,10 +93,10 @@ void SearchTraverser::connectHandler( SearchHandler *handler )
   int count = 0;
   if ( it != mConnectCount.end() ) count = *it;
   if ( count == 0 ) {
-    connect( handler, SIGNAL( searchError( SearchHandler *, DocEntry *, const QString & ) ),
-      SLOT( showSearchError( SearchHandler *, DocEntry *, const QString & ) ) );
-    connect( handler, SIGNAL( searchFinished( SearchHandler *, DocEntry *, const QString & ) ),
-      SLOT( showSearchResult( SearchHandler *, DocEntry *, const QString & ) ) );
+    connect( handler, SIGNAL(searchError(SearchHandler*,DocEntry*,QString)),
+      SLOT(showSearchError(SearchHandler*,DocEntry*,QString)) );
+    connect( handler, SIGNAL(searchFinished(SearchHandler*,DocEntry*,QString)),
+      SLOT(showSearchResult(SearchHandler*,DocEntry*,QString)) );
   }
   mConnectCount[ handler ] = ++count;
 }
@@ -91,10 +111,10 @@ void SearchTraverser::disconnectHandler( SearchHandler *handler )
     int count = *it;
     --count;
     if ( count == 0 ) {
-      disconnect( handler, SIGNAL( searchError( SearchHandler *, DocEntry *, const QString & ) ),
-        this, SLOT( showSearchError( SearchHandler *, DocEntry *, const QString & ) ) );
-      disconnect( handler, SIGNAL( searchFinished( SearchHandler *, DocEntry *, const QString & ) ),
-        this, SLOT( showSearchResult( SearchHandler *, DocEntry *, const QString & ) ) );
+      disconnect( handler, SIGNAL(searchError(SearchHandler*,DocEntry*,QString)),
+        this, SLOT(showSearchError(SearchHandler*,DocEntry*,QString)) );
+      disconnect( handler, SIGNAL(searchFinished(SearchHandler*,DocEntry*,QString)),
+        this, SLOT(showSearchResult(SearchHandler*,DocEntry*,QString)) );
     }
     mConnectCount[ handler ] = count;
   }

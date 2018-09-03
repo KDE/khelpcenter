@@ -33,7 +33,7 @@ class TreeBuilder : public QObject
 {
 	Q_OBJECT
 	public:
-		TreeBuilder( QObject *parent );
+		explicit TreeBuilder( QObject *parent );
 
 		virtual void build( NavigatorItem *item ) = 0;
 
