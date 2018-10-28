@@ -85,7 +85,7 @@
   <summary xml:lang="zh-TW">輔助中心</summary>
   <description>
     <p>
-      Documentation viewer
+      An application to search and read the documentation for all your KDE applications and system utilities
     </p>
     <p xml:lang="ar">عارض للتّوثيق</p>
     <p xml:lang="ast">Visor de la documentación</p>
@@ -249,6 +249,7 @@
   </description>
   <screenshots>
     <screenshot type="default">
+      <caption>KHelpCenter main window</caption>
       <image width="1920" height="1044">http://kde.org/images/screenshots/khelpcenter.png</image>
     </screenshot>
   </screenshots>
