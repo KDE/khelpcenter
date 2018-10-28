@@ -31,35 +31,34 @@
 #include "bookmarkowner.h"
 
 #include <QAction>
-#include <KActionCollection>
-#include <KConfig>
-#include <QIcon>
-#include <KRun>
-#include <KHTMLView>
-#include <KHTMLSettings>
-#include <QDialog>
-#include <KStandardAction>
-#include <KStartupInfo>
-#include <KConfigGroup>
-#include <KWindowConfig>
-#include <KBookmarkManager>
-#include <KBookmarkMenu>
-#include <KActionMenu>
-
 #include <QDBusConnection>
-#include <QSplitter>
-#include <QTextEdit>
-#include <QVBoxLayout>
+#include <QDialog>
+#include <QDialogButtonBox>
+#include <QDir>
+#include <QIcon>
 #include <QList>
 #include <QMimeDatabase>
-#include <QStatusBar>
-#include <QDir>
-#include <QTextDocument>
-
-#include <QDialogButtonBox>
 #include <QPushButton>
+#include <QSplitter>
+#include <QStatusBar>
+#include <QTextDocument>
+#include <QTextEdit>
+#include <QVBoxLayout>
 
-#include <kio/job.h>
+#include <KActionCollection>
+#include <KActionMenu>
+#include <KBookmarkManager>
+#include <KBookmarkMenu>
+#include <KConfig>
+#include <KConfigGroup>
+#include <KHTMLSettings>
+#include <KHTMLView>
+#include <KRun>
+#include <KStandardAction>
+#include <KStartupInfo>
+#include <KWindowConfig>
+
+#include <KIO/Job>
 
 #include <prefs.h>
 
@@ -81,8 +80,8 @@ class LogDialog : public QDialog
       mainLayout->addWidget( mTextView );
 
       QDialogButtonBox *buttonBox = new QDialogButtonBox( QDialogButtonBox::Close );
-      connect( buttonBox, SIGNAL(accepted()), this, SLOT(accept()) );
-      connect( buttonBox, SIGNAL(rejected()), this, SLOT(reject()) );
+      connect( buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept );
+      connect( buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject );
       mainLayout->addWidget( buttonBox );
 
       KConfigGroup cg = KSharedConfig::openConfig()->group( "logdialog" );
@@ -115,38 +114,27 @@ MainWindow::MainWindow()
     mSplitter = new QSplitter( this );
 
     mDoc = new View( mSplitter, this, KHTMLPart::DefaultGUI, actionCollection() );
-    connect( mDoc, SIGNAL(setWindowCaption(QString)),
-             SLOT(setWindowTitle(QString)) );
-    connect( mDoc, SIGNAL(setStatusBarText(QString)),
-             SLOT(statusBarRichTextMessage(QString)) );
-    connect( mDoc, SIGNAL(onURL(QString)),
-             SLOT(statusBarMessage(QString)) );
-    connect( mDoc, SIGNAL(started(KIO::Job*)),
-             SLOT(slotStarted(KIO::Job*)) );
-    connect( mDoc, SIGNAL(completed()),
-             SLOT(documentCompleted()) );
-    connect( mDoc, SIGNAL(searchResultCacheAvailable()),
-             SLOT(enableLastSearchAction()) );
+    connect( mDoc, &View::setWindowCaption, this, &MainWindow::setWindowTitle );
+    connect( mDoc, &KParts::Part::setStatusBarText, this, &MainWindow::statusBarRichTextMessage );
+    connect( mDoc, &View::onURL, this, &MainWindow::statusBarMessage );
+    connect( mDoc, &View::started, this, &MainWindow::slotStarted );
+    connect( mDoc, QOverload<>::of(&View::completed), this, &MainWindow::documentCompleted );
+    connect( mDoc, &View::searchResultCacheAvailable, this, &MainWindow::enableLastSearchAction );
 
-    connect( mDoc, SIGNAL(selectionChanged()),
-             SLOT(enableCopyTextAction()) );
+    connect( mDoc, &View::selectionChanged, this, &MainWindow::enableCopyTextAction );
 
     statusBar()->showMessage(i18n("Preparing Index"));
 
     connect( mDoc->browserExtension(),
-             SIGNAL( openUrlRequest( const QUrl &,
-                                     const KParts::OpenUrlArguments &, const KParts::BrowserArguments & ) ),
-             SLOT( slotOpenURLRequest( const QUrl &,
-                                       const KParts::OpenUrlArguments &, const KParts::BrowserArguments & ) ) );
+             &KParts::BrowserExtension::openUrlRequest,
+             this,
+             &MainWindow::slotOpenURLRequest );
 
     mNavigator = new Navigator( mDoc, mSplitter );
     mNavigator->setObjectName( QStringLiteral("nav") );
-    connect( mNavigator, SIGNAL(itemSelected(QString)),
-             SLOT(viewUrl(QString)) );
-    connect( mNavigator, SIGNAL(glossSelected(GlossaryEntry)),
-             SLOT(slotGlossSelected(GlossaryEntry)) );
-    connect( mNavigator, SIGNAL(setStatusBarText(QString)),
-             SLOT(statusBarMessage(QString)) );
+    connect( mNavigator, &Navigator::itemSelected, this, QOverload<const QString &>::of(&MainWindow::viewUrl) );
+    connect( mNavigator, &Navigator::glossSelected, this, &MainWindow::slotGlossSelected );
+    connect( mNavigator, &Navigator::setStatusBarText, this, &MainWindow::statusBarMessage );
 
     mSplitter->insertWidget(0, mNavigator);
     mSplitter->setStretchFactor(mSplitter->indexOf(mNavigator), 0);
@@ -176,10 +164,8 @@ MainWindow::MainWindow()
 
     History::self().installMenuBarHook( this );
 
-    connect( &History::self(), SIGNAL(goInternalUrl(QUrl)),
-             mNavigator, SLOT(openInternalUrl(QUrl)) );
-    connect( &History::self(), SIGNAL(goUrl(QUrl)),
-             mNavigator, SLOT(selectItem(QUrl)) );
+    connect( &History::self(), &History::goInternalUrl, mNavigator, &Navigator::openInternalUrl );
+    connect( &History::self(), &History::goUrl, mNavigator, &Navigator::selectItem );
 
     statusBarMessage(i18n("Ready"));
     enableCopyTextAction();
@@ -235,13 +221,13 @@ void MainWindow::setupActions()
     prevPage->setText( i18n( "Previous Page" ) );
     actionCollection()->setDefaultShortcut(prevPage, Qt::CTRL+Qt::Key_PageUp );
     prevPage->setWhatsThis( i18n( "Moves to the previous page of the document" ) );
-    connect( prevPage, SIGNAL(triggered()), mDoc, SLOT(prevPage()) );
+    connect( prevPage, &QAction::triggered, mDoc, &View::prevPage );
 
     QAction *nextPage  = actionCollection()->addAction( QStringLiteral("nextPage") );
     nextPage->setText( i18n( "Next Page" ) );
     actionCollection()->setDefaultShortcut(nextPage, Qt::CTRL + Qt::Key_PageDown );
     nextPage->setWhatsThis( i18n( "Moves to the next page of the document" ) );
-    connect( nextPage, SIGNAL(triggered()), mDoc, SLOT(nextPage()) );
+    connect( nextPage, &QAction::triggered, mDoc, &View::nextPage );
 
     QAction *home = KStandardAction::home( this, SLOT(slotShowHome()), this );
     actionCollection()->addAction( home->objectName(), home );
@@ -255,34 +241,34 @@ void MainWindow::setupActions()
     mLastSearchAction = actionCollection()->addAction( QLatin1String("lastsearch") );
     mLastSearchAction->setText( i18n("&Last Search Result") );
     mLastSearchAction->setEnabled( false );
-    connect( mLastSearchAction, SIGNAL(triggered()), this, SLOT(slotLastSearch()) );
+    connect( mLastSearchAction, &QAction::triggered, this, &MainWindow::slotLastSearch );
 /*
     QAction *action = actionCollection()->addAction( QLatin1String("build_index") );
     action->setText( i18n("Build Search Index...") );
-    connect( action, SIGNAL(triggered()), mNavigator, SLOT(showIndexDialog()) );
+    connect( action, &QAction::triggered, mNavigator, &Navigator::showIndexDialog );
 
     KConfigGroup debugGroup( KSharedConfig::openConfig(), "Debug" );
     if ( debugGroup.readEntry( "SearchErrorLog", false) ) {
         action = actionCollection()->addAction(QLatin1String("show_search_stderr"));
         action->setText( i18n("Show Search Error Log") );
-        connect( action, SIGNAL(triggered()), this, SLOT(showSearchStderr()) );
+        connect( action, &QAction::triggered, this, &View::showSearchStderr );
     }
 */
     History::self().setupActions( actionCollection() );
 
     QAction *action = actionCollection()->addAction(QLatin1String("configure_fonts" ));
     action->setText( i18n( "Configure Fonts..." ) );
-    connect( action, SIGNAL(triggered()), this, SLOT(slotConfigureFonts()) );
+    connect( action, &QAction::triggered, this, &MainWindow::slotConfigureFonts );
 
     action = actionCollection()->addAction(QLatin1String("incFontSizes"));
     action->setText( i18n( "Increase Font Sizes" ) );
     action->setIcon( QIcon::fromTheme( QLatin1String("zoom-in") ) );
-    connect( action, SIGNAL(triggered()), this, SLOT(slotIncFontSizes()) );
+    connect( action, &QAction::triggered, this, &MainWindow::slotIncFontSizes );
 
     action = actionCollection()->addAction(QLatin1String("decFontSizes"));
     action->setText( i18n( "Decrease Font Sizes" ) );
     action->setIcon( QIcon::fromTheme( QLatin1String("zoom-out") ) );
-    connect( action, SIGNAL(triggered()), this, SLOT(slotDecFontSizes()) );
+    connect( action, &QAction::triggered, this, &MainWindow::slotDecFontSizes );
 }
 
 void MainWindow::setupBookmarks()
@@ -294,7 +280,7 @@ void MainWindow::setupBookmarks()
     KBookmarkManager *manager = KBookmarkManager::managerForFile( file, QStringLiteral( "khelpcenter" ) );
     manager->setParent( this );
     BookmarkOwner *owner = new BookmarkOwner( mDoc, manager );
-    connect( owner, SIGNAL(openUrl(QUrl)), this, SLOT(openUrl(QUrl)) );
+    connect( owner, &BookmarkOwner::openUrl, this, QOverload<const QUrl &>::of(&MainWindow::openUrl) );
     KActionMenu *actmenu = actionCollection()->add<KActionMenu>( QStringLiteral( "bookmarks" ) );
     actmenu->setText( i18nc( "@title:menu", "&Bookmarks" ) );
     KBookmarkMenu *bookmenu = new KBookmarkMenu( manager, owner, actmenu->menu(), actionCollection() );
@@ -314,8 +300,7 @@ void MainWindow::print()
 void MainWindow::slotStarted(KIO::Job *job)
 {
     if (job)
-       connect(job, SIGNAL(infoMessage(KJob*,QString,QString)),
-               SLOT(slotInfoMessage(KJob*,QString)));
+       connect(job, &KIO::Job::infoMessage, this, &MainWindow::slotInfoMessage);
 
     History::self().updateActions();
 }
