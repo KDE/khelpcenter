@@ -83,7 +83,7 @@ Navigator::Navigator( View *view, QWidget *parent )
     searchLayout->setMargin( 6 );
 
     mSearchEdit = new KLineEdit( mSearchLineEditWidget );
-    mSearchEdit->setClearButtonShown(true);
+    mSearchEdit->setClearButtonEnabled(true);
     searchLayout->addWidget( mSearchEdit );
     connect(mSearchEdit, &KLineEdit::returnPressed, this, &Navigator::slotSearch);
     connect(mSearchEdit, &KLineEdit::textChanged, this, &Navigator::checkSearchButton);
