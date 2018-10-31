@@ -89,7 +89,7 @@ static void analyzeFile( const QFileInfo& cacheFile, const QString& relPath, con
       Xapian::Document doc = db.get_document( *it );
       std::string doc_lang;
       std::string html;
-      getDocInfo( doc, &doc_lang, 0, &html );
+      getDocInfo( doc, &doc_lang, nullptr, &html );
       // skip versions of this cache in different languages
       if ( doc_lang.empty() || doc_lang != lang ) {
         continue;

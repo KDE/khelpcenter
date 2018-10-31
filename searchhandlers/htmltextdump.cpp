@@ -50,7 +50,7 @@ static xmlNode* findChildElement( xmlNode *node, const char *name )
       return n->children;
     }
   }
-  return 0;
+  return nullptr;
 }
 
 static void collectText( xmlNode *node, QByteArray *text )
@@ -67,7 +67,7 @@ static void collectText( xmlNode *node, QByteArray *text )
 
 bool htmlTextDump( const QByteArray& data, QByteArray *title, QByteArray *text )
 {
-  HtmlDocPtr doc( htmlReadMemory( data.constData(), data.length(), NULL, "UTF-8", HTML_PARSE_RECOVER | HTML_PARSE_NOERROR | HTML_PARSE_NOWARNING | HTML_PARSE_NONET ) );
+  HtmlDocPtr doc( htmlReadMemory( data.constData(), data.length(), nullptr, "UTF-8", HTML_PARSE_RECOVER | HTML_PARSE_NOERROR | HTML_PARSE_NOWARNING | HTML_PARSE_NONET ) );
   if ( !doc ) {
     qCWarning(LOG) << "cannot parse html";
     return false;
