@@ -23,10 +23,7 @@
 #include "htmltextdump.h"
 #include "xapiancommon.h"
 
-#include <kcoreaddons_version.h>
-#if KCOREADDONS_VERSION >= QT_VERSION_CHECK(5, 36, 0)
 #include <docbookxslt.h>
-#endif
 
 #include <QCoreApplication>
 #include <QCommandLineParser>
