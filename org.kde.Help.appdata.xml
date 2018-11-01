@@ -95,6 +95,7 @@
     <p xml:lang="sv">Ett program för att söka i och läsa dokumentationen om alla KDE-program och systemverktyg</p>
     <p xml:lang="uk">Програма для пошуку і читання документації до усіх програм KDE та засобів системи</p>
     <p xml:lang="x-test">xxAn application to search and read the documentation for all your KDE applications and system utilitiesxx</p>
+    <p xml:lang="zh-TW">用來搜尋和閱讀所有 KDE 應用程式與系統工具文件的應用程式</p>
     <p>Features:</p>
     <p xml:lang="ar">الميزات:</p>
     <p xml:lang="ast">Carauterístiques:</p>
@@ -227,6 +228,7 @@
       <caption xml:lang="sv">Huvudfönstret i Hjälpcentralen</caption>
       <caption xml:lang="uk">Головне вікно KHelpCenter</caption>
       <caption xml:lang="x-test">xxKHelpCenter main windowxx</caption>
+      <caption xml:lang="zh-TW">KHelpCenter 主視窗</caption>
       <image width="1920" height="1044">http://kde.org/images/screenshots/khelpcenter.png</image>
     </screenshot>
   </screenshots>
