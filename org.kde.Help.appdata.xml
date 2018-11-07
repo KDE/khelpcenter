@@ -241,6 +241,7 @@
   </screenshots>
   <url type="homepage">http://kde.org/applications/utilities/khelpcenter/</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=khelpcenter</url>
+  <url type="donation">https://www.kde.org/community/donations/?app=khelpcenter&amp;source=appdata</url>
   <project_group>KDE</project_group>
   <provides>
     <binary>khelpcenter</binary>
