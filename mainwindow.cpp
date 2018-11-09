@@ -125,10 +125,7 @@ MainWindow::MainWindow()
 
     statusBar()->showMessage(i18n("Preparing Index"));
 
-    connect( mDoc->browserExtension(),
-             &KParts::BrowserExtension::openUrlRequest,
-             this,
-             &MainWindow::slotOpenURLRequest );
+    connect( mDoc->browserExtension(), &KParts::BrowserExtension::openUrlRequest, this, &MainWindow::slotOpenURLRequest );
 
     mNavigator = new Navigator( mDoc, mSplitter );
     mNavigator->setObjectName( QStringLiteral("nav") );

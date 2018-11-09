@@ -61,8 +61,7 @@ View::View( QWidget *parentWidget, QObject *parent, KHTMLPart::GUIProfile prof, 
 
     m_fontScaleStepping = 10;
 
-    connect( this, SIGNAL(setWindowCaption(QString)),
-             this, SLOT(setTitle(QString)) );
+    connect(this, &View::setWindowCaption, this, &View::setTitle);
     connect( this, SIGNAL(popupMenu(QString,QPoint)),
              this, SLOT(showMenu(QString,QPoint)) );
 
@@ -238,7 +237,7 @@ void View::showMenu( const QString& url, const QPoint& pos)
   else
   {
     QAction *action = pop.addAction(i18n("Copy Link Address"));
-    connect( action, SIGNAL(triggered()), this, SLOT(slotCopyLink()) );
+    connect(action, &QAction::triggered, this, &View::slotCopyLink);
 
     mCopyURL = completeURL(url).url();
   }

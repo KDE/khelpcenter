@@ -75,8 +75,7 @@ Glossary::Glossary( QWidget *parent ) : QTreeWidget( parent )
     m_initialized = false;
     setFrameStyle( QFrame::NoFrame );
 
-    connect( this, SIGNAL(itemActivated(QTreeWidgetItem*,int)),
-             this, SLOT(treeItemSelected(QTreeWidgetItem*)) );
+    connect(this, &Glossary::itemActivated, this, &Glossary::treeItemSelected);
 
     setHeaderHidden(true);
     setAllColumnsShowFocus( true );
@@ -146,8 +145,7 @@ void Glossary::rebuildGlossaryCache()
         mainWindow->statusBar()->showMessage( i18n( "Rebuilding glossary cache..." ) );
 
     KProcess *meinproc = new KProcess;
-    connect( meinproc, SIGNAL(finished(int,QProcess::ExitStatus)),
-             this, SLOT(meinprocFinished(int,QProcess::ExitStatus)) );
+    connect(meinproc, static_cast<void (KProcess::*)(int, QProcess::ExitStatus)>(&KProcess::finished), this, &Glossary::meinprocFinished);
 
     *meinproc << QStandardPaths::findExecutable(QStringLiteral( "meinproc5" ) );
     *meinproc << QLatin1String( "--output" ) << m_cacheFile;

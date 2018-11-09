@@ -93,10 +93,8 @@ void SearchTraverser::connectHandler( SearchHandler *handler )
   int count = 0;
   if ( it != mConnectCount.end() ) count = *it;
   if ( count == 0 ) {
-    connect( handler, SIGNAL(searchError(SearchHandler*,DocEntry*,QString)),
-      SLOT(showSearchError(SearchHandler*,DocEntry*,QString)) );
-    connect( handler, SIGNAL(searchFinished(SearchHandler*,DocEntry*,QString)),
-      SLOT(showSearchResult(SearchHandler*,DocEntry*,QString)) );
+    connect(handler, &SearchHandler::searchError, this, &SearchTraverser::showSearchError);
+    connect(handler, &SearchHandler::searchFinished, this, &SearchTraverser::showSearchResult);
   }
   mConnectCount[ handler ] = ++count;
 }

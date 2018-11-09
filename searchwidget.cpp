@@ -84,8 +84,7 @@ SearchWidget::SearchWidget( SearchEngine *engine, QWidget *parent )
   for (int i=0; i < ScopeNum; ++i ) {
     mScopeCombo->addItem( scopeSelectionLabel( i ) );
   }
-  connect( mScopeCombo, SIGNAL(activated(int)),
-           SLOT(scopeSelectionChanged(int)) );
+  connect(mScopeCombo, static_cast<void (QComboBox::*)(int)>(&QComboBox::activated), this, &SearchWidget::scopeSelectionChanged);
 
   l = new QLabel( i18n("&Scope selection:"), this );
   l->setBuddy( mScopeCombo );
@@ -100,11 +99,9 @@ SearchWidget::SearchWidget( SearchEngine *engine, QWidget *parent )
 
 // FIXME: Use SearchHandler on double-clicked document
 #if 0
-  connect( mScopeListView, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)),
-           SLOT(scopeDoubleClicked(QTreeWidgetItem*)) );
+  connect(mScopeListView, &QTreeWidget::itemDoubleClicked, this, &SearchWidget::scopeDoubleClicked);
 #endif
-  connect( mScopeListView, SIGNAL(itemClicked(QTreeWidgetItem*,int)),
-           SLOT(scopeClicked(QTreeWidgetItem*)) );
+  connect(mScopeListView, &QTreeWidget::itemClicked, this, &SearchWidget::scopeClicked);
 }
 
 
