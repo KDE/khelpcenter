@@ -109,10 +109,8 @@ void SearchTraverser::disconnectHandler( SearchHandler *handler )
     int count = *it;
     --count;
     if ( count == 0 ) {
-      disconnect( handler, SIGNAL(searchError(SearchHandler*,DocEntry*,QString)),
-        this, SLOT(showSearchError(SearchHandler*,DocEntry*,QString)) );
-      disconnect( handler, SIGNAL(searchFinished(SearchHandler*,DocEntry*,QString)),
-        this, SLOT(showSearchResult(SearchHandler*,DocEntry*,QString)) );
+      disconnect( handler, &SearchHandler::searchError, this, &SearchTraverser::showSearchError );
+      disconnect( handler, &SearchHandler::searchFinished, this, &SearchTraverser::showSearchResult );
     }
     mConnectCount[ handler ] = count;
   }

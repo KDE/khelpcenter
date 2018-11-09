@@ -70,11 +70,9 @@ void History::setupActions( KActionCollection *coll )
   
   connect(m_backAction, &KToolBarPopupAction::triggered, this, &History::back);
 
-  connect( m_backAction->menu(), SIGNAL(triggered(QAction*)),
-           SLOT(backActivated(QAction*)) );
+  connect( m_backAction->menu(), &QMenu::triggered, this, &History::backActivated );
   
-  connect( m_backAction->menu(), SIGNAL(aboutToShow()),
-           SLOT(fillBackMenu()) );
+  connect( m_backAction->menu(), &QMenu::aboutToShow, this, &History::fillBackMenu );
   
   m_backAction->setEnabled( false );
 
@@ -84,11 +82,9 @@ void History::setupActions( KActionCollection *coll )
   
   connect(m_forwardAction, &KToolBarPopupAction::triggered, this, &History::forward);
 
-  connect( m_forwardAction->menu(), SIGNAL(triggered(QAction*)),
-           SLOT(forwardActivated(QAction*)) );
+  connect( m_forwardAction->menu(), &QMenu::triggered, this, &History::forwardActivated );
   
-  connect( m_forwardAction->menu(), SIGNAL(aboutToShow()),
-           SLOT(fillForwardMenu()) );
+  connect( m_forwardAction->menu(), &QMenu::aboutToShow, this, &History::fillForwardMenu );
   
   m_forwardAction->setEnabled( false );
 }

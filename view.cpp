@@ -37,15 +37,15 @@
 #include <kcoreaddons_version.h>
 #include <docbookxslt.h>
 
-#include <QFileInfo>
 #include <QClipboard>
-#include <QTextStream>
-#include <QKeyEvent>
-#include <qguiapplication.h>
 #include <QDir>
-#include <QScrollBar>
+#include <QFileInfo>
+#include <QGuiApplication>
+#include <QKeyEvent>
 #include <QMenu>
+#include <QScrollBar>
 #include <QStandardPaths>
+#include <QTextStream>
 #include <QWhatsThis>
 
 using namespace KHC;
@@ -62,8 +62,7 @@ View::View( QWidget *parentWidget, QObject *parent, KHTMLPart::GUIProfile prof, 
     m_fontScaleStepping = 10;
 
     connect(this, &View::setWindowCaption, this, &View::setTitle);
-    connect( this, SIGNAL(popupMenu(QString,QPoint)),
-             this, SLOT(showMenu(QString,QPoint)) );
+    connect( this, QOverload<const QString &, const QPoint &>::of(&View::popupMenu), this, &View::showMenu );
 
     QString css = langLookup(QStringLiteral("kdoctools5-common/kde-default.css"));
     if (!css.isEmpty())
