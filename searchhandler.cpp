@@ -44,7 +44,7 @@ bool SearchJob::startLocal(const QString &cmdString)
     mProcess = new KProcess;
     *mProcess << KShell::splitArgs(cmdString);
 
-    connect(mProcess, static_cast<void (KProcess::*)(int, QProcess::ExitStatus)>(&KProcess::finished), this, &SearchJob::searchExited);
+    connect(mProcess, QOverload<int, QProcess::ExitStatus>::of(&KProcess::finished), this, &SearchJob::searchExited);
 
     mProcess->setOutputChannelMode(KProcess::SeparateChannels);
     mProcess->start();

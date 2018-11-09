@@ -145,7 +145,7 @@ void Glossary::rebuildGlossaryCache()
         mainWindow->statusBar()->showMessage( i18n( "Rebuilding glossary cache..." ) );
 
     KProcess *meinproc = new KProcess;
-    connect(meinproc, static_cast<void (KProcess::*)(int, QProcess::ExitStatus)>(&KProcess::finished), this, &Glossary::meinprocFinished);
+    connect(meinproc, QOverload<int, QProcess::ExitStatus>::of(&KProcess::finished), this, &Glossary::meinprocFinished);
 
     *meinproc << QStandardPaths::findExecutable(QStringLiteral( "meinproc5" ) );
     *meinproc << QLatin1String( "--output" ) << m_cacheFile;

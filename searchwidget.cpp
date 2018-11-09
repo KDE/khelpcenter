@@ -84,7 +84,7 @@ SearchWidget::SearchWidget( SearchEngine *engine, QWidget *parent )
   for (int i=0; i < ScopeNum; ++i ) {
     mScopeCombo->addItem( scopeSelectionLabel( i ) );
   }
-  connect(mScopeCombo, static_cast<void (QComboBox::*)(int)>(&QComboBox::activated), this, &SearchWidget::scopeSelectionChanged);
+  connect(mScopeCombo, QOverload<int>::of(&QComboBox::activated), this, &SearchWidget::scopeSelectionChanged);
 
   l = new QLabel( i18n("&Scope selection:"), this );
   l->setBuddy( mScopeCombo );
