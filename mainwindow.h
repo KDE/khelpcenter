@@ -24,7 +24,7 @@
 
 #include <KXmlGuiWindow>
 
-#include <kparts/browserextension.h>
+#include <KParts/BrowserExtension>
 
 #include "glossary.h"
 

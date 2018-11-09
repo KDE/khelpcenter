@@ -23,8 +23,8 @@
 #define KHC_APPLICATION_H
 
 #include <QApplication>
-#include <QUrl>
 #include <QCommandLineParser>
+#include <QUrl>
 
 namespace KHC {
 

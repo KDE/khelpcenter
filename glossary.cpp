@@ -23,20 +23,19 @@
 #include "view.h"
 #include "khc_debug.h"
 
-#include <KXmlGuiWindow>
 #include <KProcess>
-#include <QStatusBar>
+#include <KXmlGuiWindow>
 
-#include <QTreeWidgetItem>
-
-#include <qapplication.h>
-#include <QTextStream>
-
-#include <sys/stat.h>
-#include <QStandardPaths>
+#include <QApplication>
 #include <QDir>
 #include <QFileInfo>
 #include <QIcon>
+#include <QStandardPaths>
+#include <QStatusBar>
+#include <QTextStream>
+#include <QTreeWidgetItem>
+
+#include <sys/stat.h>
 
 #include <prefs.h>
 

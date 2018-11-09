@@ -24,9 +24,9 @@
 
 #include <KConfig>
 #include <KConfigGroup>
+#include <KLocalizedString>
 
 #include "docentrytraverser.h"
-#include <KLocalizedString>
 #include <ki18n_version.h>
 
 #include <prefs.h>

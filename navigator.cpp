@@ -20,28 +20,27 @@
 
 #include "navigator.h"
 
+#include <QApplication>
 #include <QDir>
 #include <QFile>
-#include <QTextStream>
-#include <QPushButton>
 #include <QHBoxLayout>
-#include <QVBoxLayout>
-#include <QTreeWidgetItemIterator>
-#include <qapplication.h>
 #include <QProgressBar>
+#include <QPushButton>
+#include <QStandardPaths>
 #include <QTabWidget>
+#include <QTextStream>
 #include <QTreeWidget>
+#include <QTreeWidgetItemIterator>
+#include <QVBoxLayout>
 
+#include <KDesktopFile>
 #include <KLineEdit>
 #include <KMessageBox>
-#include <KDesktopFile>
+#include <KProcess>
 #include <KProtocolInfo>
 #include <KServiceGroup>
 #include <KServiceTypeTrader>
-#include <KProcess>
 #include <KShell>
-
-#include <QStandardPaths>
 
 #include "navigatoritem.h"
 #include "navigatorappitem.h"

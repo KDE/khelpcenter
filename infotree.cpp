@@ -27,8 +27,8 @@
 #include <KLocalizedString>
 
 #include <QFile>
-#include <QTextStream>
 #include <QIcon>
+#include <QTextStream>
 
 #include <prefs.h>
 

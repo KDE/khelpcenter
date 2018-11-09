@@ -22,9 +22,9 @@
 #ifndef KHC_DOCENTRY_H
 #define KHC_DOCENTRY_H
 
-#include <QString>
-#include <QList>
 #include <QFileInfo>
+#include <QList>
+#include <QString>
 
 namespace KHC {
 

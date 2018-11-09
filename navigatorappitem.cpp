@@ -24,8 +24,8 @@
 #include "view.h"
 #include "khc_debug.h"
 
-#include <QUrl>
 #include <QMetaObject>
+#include <QUrl>
 
 using namespace KHC;
 

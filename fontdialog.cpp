@@ -24,20 +24,20 @@
 #include <KCharsets>
 #include <KComboBox>
 #include <KConfig>
-#include <QFontComboBox>
 #include <KConfigGroup>
-#include <KSharedConfig>
 #include <KLocalizedString>
-#include <QSpinBox>
+#include <KSharedConfig>
 
 #include <khtmldefaults.h>
 
+#include <QDialogButtonBox>
+#include <QFontComboBox>
+#include <QFontDatabase>
 #include <QGroupBox>
 #include <QLabel>
 #include <QLayout>
-#include <qfontdatabase.h>
-#include <QDialogButtonBox>
 #include <QPushButton>
+#include <QSpinBox>
 #include <QVBoxLayout>
 
 #include <prefs.h>

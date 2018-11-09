@@ -20,11 +20,11 @@
 #ifndef KHC_GLOSSARY_H
 #define KHC_GLOSSARY_H
 
-#include <QTreeWidget>
 #include <QDomElement>
-#include <QList>
 #include <QHash>
+#include <QList>
 #include <QProcess>
+#include <QTreeWidget>
 
 class EntryItem;
 

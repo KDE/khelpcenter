@@ -21,19 +21,18 @@
 #include "view.h"
 #include "khc_debug.h"
 
-#include <QApplication>
-#include <QMenu>
 #include <QAction>
-#include <KActionCollection>
+#include <QApplication>
 #include <QIcon>
+#include <QMenu>
 #include <QTimer>
 
-#include <KXmlGuiWindow>
+#include <KActionCollection>
 #include <KStandardGuiItem>
 #include <KStringHandler>
 #include <KToolBarPopupAction>
-
-#include <kxmlguifactory.h>
+#include <KXMLGUIFactory>
+#include <KXmlGuiWindow>
 
 using namespace KHC;
 

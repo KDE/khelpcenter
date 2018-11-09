@@ -22,7 +22,7 @@
 #ifndef KHC_VIEW_H
 #define KHC_VIEW_H
 
-#include <khtml_part.h>
+#include <KHTMLPart>
 
 class KActionCollection;
 

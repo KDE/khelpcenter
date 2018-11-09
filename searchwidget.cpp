@@ -22,11 +22,11 @@
 
 #include "searchwidget.h"
 
-#include <QLabel>
 #include <QComboBox>
-#include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QHash>
+#include <QLabel>
+#include <QVBoxLayout>
 
 #include <KConfig>
 #include <KLocalizedString>

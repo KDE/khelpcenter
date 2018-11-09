@@ -23,20 +23,19 @@
 #include "docentry.h"
 #include "khc_debug.h"
 
+#include <QApplication>
+#include <QFileInfo>
+#include <QIcon>
+#include <QStandardPaths>
+#include <QStatusBar>
+#include <QTextStream>
+
 #include <KProcess>
 #include <KXmlGuiWindow>
 #include <kcoreaddons_version.h>
 #include <docbookxslt.h>
 
-#include <QStatusBar>
-
-#include <QFileInfo>
-#include <QTextStream>
-
 #include <sys/stat.h>
-#include <QStandardPaths>
-#include <QApplication>
-#include <QIcon>
 
 using namespace KHC;
 

@@ -24,13 +24,13 @@
 #include "docentry.h"
 #include "khc_debug.h"
 
+#include <KConfigGroup>
 #include <KDesktopFile>
+#include <KIO/Job>
+#include <KLocalizedString>
 #include <KProcess>
 #include <KShell>
-#include <KLocalizedString>
-#include <kio/job.h>
 
-#include <KConfigGroup>
 #include <prefs.h>
 
 using namespace KHC;

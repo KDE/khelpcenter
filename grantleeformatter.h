@@ -22,9 +22,9 @@
 #ifndef KHC_GRANTLEEFORMATTER_H
 #define KHC_GRANTLEEFORMATTER_H
 
-#include <QString>
 #include <QList>
 #include <QPair>
+#include <QString>
 
 namespace KHC {
 

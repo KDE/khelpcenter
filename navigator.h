@@ -24,9 +24,9 @@
 #include "glossary.h"
 #include "docentry.h"
 
-#include <QUrl>
-#include <QTimer>
 #include <QProcess>
+#include <QTimer>
+#include <QUrl>
 
 class QProgressBar;
 class QPushButton;

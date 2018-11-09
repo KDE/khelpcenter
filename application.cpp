@@ -23,13 +23,14 @@
 #include "mainwindow.h"
 
 #include <KAboutData>
-#include <KLocalizedString>
 #include <KDBusService>
+#include <KLocalizedString>
 #include <KUrlAuthorized>
+
 #include <QCommandLineParser>
 #include <QDir>
-#include <QTreeWidgetItem>
 #include <QMetaType>
+#include <QTreeWidgetItem>
 
 Q_DECLARE_METATYPE(const QTreeWidgetItem *)
 

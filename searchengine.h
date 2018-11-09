@@ -22,8 +22,8 @@
 #ifndef KHC_SEARCHENGINE_H
 #define KHC_SEARCHENGINE_H
 
-#include <QObject>
 #include <QMap>
+#include <QObject>
 #include <QPair>
 #include <QSharedPointer>
 

@@ -21,7 +21,8 @@
 #define KHC_PLUGINTRAVERSER_H
 
 #include "docentrytraverser.h"
-#include <QtGlobal>
+#include <QTreeWidget>
+
 class QTreeWidget;
 
 namespace KHC {

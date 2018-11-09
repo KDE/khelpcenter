@@ -25,7 +25,6 @@
 #include "searchengine.h"
 
 #include <QObject>
-
 #include <QProcess>
 
 class KConfigGroup;
