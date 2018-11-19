@@ -134,6 +134,7 @@ void Navigator::setupContentsTab()
     mContentsTree->setAllColumnsShowFocus(true);
     mContentsTree->setRootIsDecorated(false);
     mContentsTree->headerItem()->setHidden(true);
+    mContentsTree->setExpandsOnDoubleClick(false);
 
     connect(mContentsTree, &QTreeWidget::itemActivated, this, &Navigator::slotItemSelected);
     connect(mContentsTree, &QTreeWidget::itemExpanded, this, &Navigator::slotItemExpanded);
