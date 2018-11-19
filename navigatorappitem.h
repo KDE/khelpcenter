@@ -45,6 +45,9 @@ class NavigatorAppItem : public NavigatorItem
     void scheduleTOCBuild();
 
     TOC *mToc;
+    
+    static QMap< QString,NavigatorAppItem* > s_menuItemsMap;
+    
 };
 
 }

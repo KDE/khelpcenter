@@ -29,10 +29,17 @@
 
 using namespace KHC;
 
+QMap< QString,NavigatorAppItem* > NavigatorAppItem::s_menuItemsMap;
+
 NavigatorAppItem::NavigatorAppItem( DocEntry *entry, QTreeWidgetItem *parent )
   : NavigatorItem( entry, parent ),
     mToc( nullptr )
 {
+  auto iter = s_menuItemsMap.find(entry->url());
+  if (iter == s_menuItemsMap.end())
+  {
+    s_menuItemsMap.insert(entry->url(), this);
+  }
 }
 
 NavigatorAppItem::NavigatorAppItem( DocEntry *entry, QTreeWidget *parent,
@@ -40,6 +47,11 @@ NavigatorAppItem::NavigatorAppItem( DocEntry *entry, QTreeWidget *parent,
   : NavigatorItem( entry, parent, after ),
     mToc( nullptr )
 {
+  auto iter = s_menuItemsMap.find(entry->url());
+  if (iter == s_menuItemsMap.end())
+  {
+    s_menuItemsMap.insert(entry->url(), this);
+  }
 }
 
 NavigatorAppItem::NavigatorAppItem( DocEntry *entry, QTreeWidgetItem *parent,
@@ -47,17 +59,39 @@ NavigatorAppItem::NavigatorAppItem( DocEntry *entry, QTreeWidgetItem *parent,
   : NavigatorItem( entry, parent, after ),
     mToc( nullptr )
 {
+  auto iter = s_menuItemsMap.find(entry->url());
+  if (iter == s_menuItemsMap.end())
+  {
+    s_menuItemsMap.insert(entry->url(), this);
+  }
 }
 
 NavigatorAppItem::~NavigatorAppItem()
 {
+  auto iter = s_menuItemsMap.find(entry()->url());
+  if ((iter != s_menuItemsMap.end()) && (iter.value() == this))
+  {
+    s_menuItemsMap.erase(iter);
+  }
+
   delete mToc;
 }
 
 void NavigatorAppItem::itemExpanded( bool open )
 {
   if ( open ) {
-    scheduleTOCBuild();
+    QUrl expanded_url(entry()->url());
+    expanded_url.setFragment(QString());
+
+    auto iter = s_menuItemsMap.find(expanded_url.toString());
+    if (iter != s_menuItemsMap.end())
+    {
+      iter.value()->scheduleTOCBuild();
+    }
+    else
+    {
+      scheduleTOCBuild();
+    }
   }
 }
 
