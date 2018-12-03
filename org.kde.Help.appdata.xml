@@ -90,6 +90,7 @@
     <p xml:lang="ca">Una aplicació per cercar i llegir la documentació per a totes les aplicacions i utilitats del sistema del KDE</p>
     <p xml:lang="ca-valencia">Una aplicació per cercar i llegir la documentació per a totes les aplicacions i utilitats del sistema del KDE</p>
     <p xml:lang="de">Eine Anwendung zum Suchen und Lesen der Dokumentation für alle Ihre KDE-Anwendungen und Systemprogramme</p>
+    <p xml:lang="en-GB">An application to search and read the documentation for all your KDE applications and system utilities</p>
     <p xml:lang="es">Aplicación para buscar y leer la documentación de todas las aplicaciones y utilidades del sistema de KDE</p>
     <p xml:lang="fi">Sovellus kaikkien KDE-sovellustesi ja järjestelmätyökalujen ohjeiden etsimiseksi ja lukemiseksi</p>
     <p xml:lang="gl">Un aplicativo para buscar na documentación e lela para todos os seus aplicativos de KDE e utilidades do sistema</p>
@@ -230,6 +231,7 @@
       <caption xml:lang="ca">Finestra principal del KHelpCenter</caption>
       <caption xml:lang="ca-valencia">Finestra principal del KHelpCenter</caption>
       <caption xml:lang="de">Hauptfenster von KHelpCenter</caption>
+      <caption xml:lang="en-GB">KHelpCenter main window</caption>
       <caption xml:lang="es">Ventana principal de KHelpCenter</caption>
       <caption xml:lang="fi">KHelpCenterin pääikkuna</caption>
       <caption xml:lang="gl">Xanela principal de KHelpCenter</caption>
