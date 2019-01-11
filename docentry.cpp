@@ -84,8 +84,8 @@ void DocEntry::setIcon( const QString &icon )
 QString DocEntry::icon() const
 {
   if ( !mIcon.isEmpty() ) return mIcon;
-  if ( !docExists() ) return QLatin1String("unknown");
-  if ( isDirectory() ) return QLatin1String("help-contents");
+  if ( !docExists() ) return QStringLiteral("unknown");
+  if ( isDirectory() ) return QStringLiteral("help-contents");
   
   else return QStringLiteral("text-plain");
 }

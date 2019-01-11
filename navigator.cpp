@@ -562,7 +562,7 @@ QUrl Navigator::homeURL()
   // We have to reparse the configuration here in order to get a
   // language-specific StartUrl, e.g. "StartUrl[de]".
   cfg->reparseConfiguration();
-  mHomeUrl = QUrl(cfg->group("General").readPathEntry( "StartUrl", QLatin1String("khelpcenter:home") ));
+  mHomeUrl = QUrl(cfg->group("General").readPathEntry( "StartUrl", QStringLiteral("khelpcenter:home") ));
   return mHomeUrl;
 }
 

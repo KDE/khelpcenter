@@ -76,7 +76,7 @@ void History::setupActions( KActionCollection *coll )
   m_backAction->setEnabled( false );
 
   m_forwardAction = new KToolBarPopupAction( QIcon::fromTheme( backForward.second.iconName() ), backForward.second.text(), this );
-  coll->addAction( QLatin1String("forward"), m_forwardAction );
+  coll->addAction( QStringLiteral("forward"), m_forwardAction );
   coll->setDefaultShortcuts(m_forwardAction, KStandardShortcut::forward());
   
   connect(m_forwardAction, &KToolBarPopupAction::triggered, this, &History::forward);
@@ -91,7 +91,7 @@ void History::setupActions( KActionCollection *coll )
 void History::installMenuBarHook( KXmlGuiWindow *mainWindow )
 {
   QMenu *goMenu = dynamic_cast<QMenu *>(
-      mainWindow->guiFactory()->container( QLatin1String("go_web"), mainWindow ) );
+      mainWindow->guiFactory()->container( QStringLiteral("go_web"), mainWindow ) );
   if ( goMenu ) 
   {
     connect(goMenu, &QMenu::aboutToShow, this, &History::fillGoMenu);
@@ -187,7 +187,7 @@ void History::goHistoryActivated( int steps )
   if ( m_goBuffer )
     return;
   m_goBuffer = steps;
-  QTimer::singleShot( 0, this, SLOT(goHistoryDelayed()) );
+  QTimer::singleShot( 0, this, &History::goHistoryDelayed );
 }
 
 void History::goHistoryDelayed()
@@ -268,7 +268,7 @@ void History::fillForwardMenu()
 void History::fillGoMenu()
 {
   KXmlGuiWindow *mainWindow = static_cast<KXmlGuiWindow *>( qApp->activeWindow() );
-  QMenu *goMenu = dynamic_cast<QMenu *>( mainWindow->guiFactory()->container( QLatin1String( "go" ), mainWindow ) );
+  QMenu *goMenu = dynamic_cast<QMenu *>( mainWindow->guiFactory()->container( QStringLiteral( "go" ), mainWindow ) );
   if ( !goMenu || m_goMenuIndex == -1 )
     return;
 
@@ -301,7 +301,7 @@ void History::fillGoMenu()
 void History::goMenuActivated( QAction* action )
 {
   KXmlGuiWindow *mainWindow = static_cast<KXmlGuiWindow *>( qApp->activeWindow() );
-  QMenu *goMenu = dynamic_cast<QMenu *>( mainWindow->guiFactory()->container( QLatin1String( "go" ), mainWindow ) );
+  QMenu *goMenu = dynamic_cast<QMenu *>( mainWindow->guiFactory()->container( QStringLiteral( "go" ), mainWindow ) );
   if ( !goMenu )
     return;
 

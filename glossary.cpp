@@ -147,9 +147,9 @@ void Glossary::rebuildGlossaryCache()
     connect(meinproc, QOverload<int, QProcess::ExitStatus>::of(&KProcess::finished), this, &Glossary::meinprocFinished);
 
     *meinproc << QStandardPaths::findExecutable(QStringLiteral( "meinproc5" ) );
-    *meinproc << QLatin1String( "--output" ) << m_cacheFile;
-    *meinproc << QLatin1String( "--stylesheet" )
-              << QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String( "khelpcenter/glossary.xslt" ) );
+    *meinproc << QStringLiteral( "--output" ) << m_cacheFile;
+    *meinproc << QStringLiteral( "--stylesheet" )
+              << QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral( "khelpcenter/glossary.xslt" ) );
     *meinproc << m_sourceFile;
 
     meinproc->setOutputChannelMode(KProcess::OnlyStderrChannel);
@@ -214,23 +214,23 @@ void Glossary::buildGlossaryTree()
 
     QHash< QChar, SectionItem * > alphabSections;
 
-    QDomNodeList sectionNodes = doc.documentElement().elementsByTagName( QLatin1String( "section" ) );
+    QDomNodeList sectionNodes = doc.documentElement().elementsByTagName( QStringLiteral( "section" ) );
     for ( int i = 0; i < sectionNodes.count(); i++ )
     {
         QDomElement sectionElement = sectionNodes.item( i ).toElement();
-        QString title = sectionElement.attribute( QLatin1String( "title" ) );
+        QString title = sectionElement.attribute( QStringLiteral( "title" ) );
         SectionItem *topicSection = new SectionItem( m_byTopicItem, title );
 
-        QDomNodeList entryNodes = sectionElement.elementsByTagName( QLatin1String( "entry" ) );
+        QDomNodeList entryNodes = sectionElement.elementsByTagName( QStringLiteral( "entry" ) );
         for ( int j = 0; j < entryNodes.count(); j++ )
         {
             QDomElement entryElement = entryNodes.item( j ).toElement();
 
-            QString entryId = entryElement.attribute( QLatin1String( "id" ) );
+            QString entryId = entryElement.attribute( QStringLiteral( "id" ) );
             if ( entryId.isNull() )
                 continue;
 
-            QDomElement termElement = childElement( entryElement, QLatin1String( "term" ) );
+            QDomElement termElement = childElement( entryElement, QStringLiteral( "term" ) );
             QString term = termElement.text().simplified();
 
             EntryItem *entry = new EntryItem(topicSection, term, entryId );
@@ -247,20 +247,20 @@ void Glossary::buildGlossaryTree()
 
             new EntryItem( alphabSection, term, entryId );
 
-            QDomElement definitionElement = childElement( entryElement, QLatin1String( "definition" ) );
+            QDomElement definitionElement = childElement( entryElement, QStringLiteral( "definition" ) );
             QString definition = definitionElement.text().simplified();
 
             GlossaryEntryXRef::List seeAlso;
 
-            QDomElement referencesElement = childElement( entryElement, QLatin1String( "references" ) );
-            QDomNodeList referenceNodes = referencesElement.elementsByTagName( QLatin1String( "reference" ) );
+            QDomElement referencesElement = childElement( entryElement, QStringLiteral( "references" ) );
+            QDomNodeList referenceNodes = referencesElement.elementsByTagName( QStringLiteral( "reference" ) );
             if ( referenceNodes.count() > 0 )
                 for ( int k = 0; k < referenceNodes.count(); k++ )
                 {
                     QDomElement referenceElement = referenceNodes.item( k ).toElement();
 
-                    QString term = referenceElement.attribute( QLatin1String( "term" ) );
-                    QString id = referenceElement.attribute( QLatin1String( "id" ) );
+                    QString term = referenceElement.attribute( QStringLiteral( "term" ) );
+                    QString id = referenceElement.attribute( QStringLiteral( "id" ) );
 
                     seeAlso += GlossaryEntryXRef( term, id );
                 }

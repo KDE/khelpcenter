@@ -110,7 +110,7 @@ QString GrantleeFormatter::formatGlossaryEntry( const GlossaryEntry& entry )
   seeAlso.reserve( entrySeeAlso.count() );
   foreach ( const GlossaryEntryXRef &xref, entrySeeAlso )
   {
-    seeAlso += QString::fromLatin1( "<a href=\"glossentry:%1\">%2</a>" ).arg( xref.id(), xref.term() );
+    seeAlso += QStringLiteral( "<a href=\"glossentry:%1\">%2</a>" ).arg( xref.id(), xref.term() );
   }
 
   Grantlee::Context ctx;

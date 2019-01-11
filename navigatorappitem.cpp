@@ -113,7 +113,7 @@ void NavigatorAppItem::scheduleTOCBuild()
     if ( !doc.isNull() ) {
       int pos = doc.indexOf( QLatin1String( ".html" ) );
       if ( pos >= 0 ) {
-        doc.replace( pos, 5, QLatin1String( ".docbook" ) );
+        doc.replace( pos, 5, QStringLiteral( ".docbook" ) );
       }
       qCDebug(KHC_LOG) << "doc =" << doc;
 

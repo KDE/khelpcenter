@@ -108,7 +108,7 @@ MainWindow::MainWindow()
     : KXmlGuiWindow(nullptr),
       mLogDialog( nullptr )
 {
-    setObjectName( QLatin1String( "MainWindow" ) );
+    setObjectName( QStringLiteral( "MainWindow" ) );
 
     QDBusConnection::sessionBus().registerObject(QStringLiteral("/KHelpCenter"), this, QDBusConnection::ExportScriptableSlots);
     mSplitter = new QSplitter( this );
@@ -235,7 +235,7 @@ void MainWindow::setupActions()
     mCopyText = KStandardAction::copy( this, SLOT(slotCopySelectedText()), this );
     actionCollection()->addAction( QStringLiteral("copy_text"), mCopyText );
 
-    mLastSearchAction = actionCollection()->addAction( QLatin1String("lastsearch") );
+    mLastSearchAction = actionCollection()->addAction( QStringLiteral("lastsearch") );
     mLastSearchAction->setText( i18n("&Last Search Result") );
     mLastSearchAction->setEnabled( false );
     connect( mLastSearchAction, &QAction::triggered, this, &MainWindow::slotLastSearch );
@@ -253,18 +253,18 @@ void MainWindow::setupActions()
 */
     History::self().setupActions( actionCollection() );
 
-    QAction *action = actionCollection()->addAction(QLatin1String("configure_fonts" ));
+    QAction *action = actionCollection()->addAction(QStringLiteral("configure_fonts" ));
     action->setText( i18n( "Configure Fonts..." ) );
     connect( action, &QAction::triggered, this, &MainWindow::slotConfigureFonts );
 
-    action = actionCollection()->addAction(QLatin1String("incFontSizes"));
+    action = actionCollection()->addAction(QStringLiteral("incFontSizes"));
     action->setText( i18n( "Increase Font Sizes" ) );
-    action->setIcon( QIcon::fromTheme( QLatin1String("zoom-in") ) );
+    action->setIcon( QIcon::fromTheme( QStringLiteral("zoom-in") ) );
     connect( action, &QAction::triggered, this, &MainWindow::slotIncFontSizes );
 
-    action = actionCollection()->addAction(QLatin1String("decFontSizes"));
+    action = actionCollection()->addAction(QStringLiteral("decFontSizes"));
     action->setText( i18n( "Decrease Font Sizes" ) );
-    action->setIcon( QIcon::fromTheme( QLatin1String("zoom-out") ) );
+    action->setIcon( QIcon::fromTheme( QStringLiteral("zoom-out") ) );
     connect( action, &QAction::triggered, this, &MainWindow::slotDecFontSizes );
 }
 
@@ -482,8 +482,8 @@ void MainWindow::slotDecFontSizes()
 
 void MainWindow::updateFontScaleActions()
 {
-  actionCollection()->action( QLatin1String("incFontSizes") )->setEnabled( mDoc->fontScaleFactor() + mDoc->fontScaleStepping() <= 300 );
-  actionCollection()->action( QLatin1String("decFontSizes") )->setEnabled( mDoc->fontScaleFactor() - mDoc->fontScaleStepping() >= 20 );
+  actionCollection()->action( QStringLiteral("incFontSizes") )->setEnabled( mDoc->fontScaleFactor() + mDoc->fontScaleStepping() <= 300 );
+  actionCollection()->action( QStringLiteral("decFontSizes") )->setEnabled( mDoc->fontScaleFactor() - mDoc->fontScaleStepping() >= 20 );
 
   Prefs::setFontzoomfactor( mDoc->fontScaleFactor() );
   Prefs::self()->save();

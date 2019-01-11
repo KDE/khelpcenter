@@ -65,11 +65,11 @@ SearchWidget::SearchWidget( SearchEngine *engine, QWidget *parent )
   topLayout->addLayout( hLayout );
 
   mPagesCombo = new QComboBox( this );
-  mPagesCombo->addItem( QLatin1String("5") );
-  mPagesCombo->addItem( QLatin1String("10") );
-  mPagesCombo->addItem( QLatin1String("25") );
-  mPagesCombo->addItem( QLatin1String("50") );
-  mPagesCombo->addItem( QLatin1String("1000") );
+  mPagesCombo->addItem( QStringLiteral("5") );
+  mPagesCombo->addItem( QStringLiteral("10") );
+  mPagesCombo->addItem( QStringLiteral("25") );
+  mPagesCombo->addItem( QStringLiteral("50") );
+  mPagesCombo->addItem( QStringLiteral("1000") );
 
   l = new QLabel( i18n("Max. &results:"), this );
   l->setBuddy( mPagesCombo );

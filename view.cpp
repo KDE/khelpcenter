@@ -163,7 +163,7 @@ void View::beginSearchResult()
 {
   mState = Search;
 
-  begin( QUrl( QLatin1Literal( "khelpcenter:search/result" ) ) );
+  begin( QUrl( QStringLiteral( "khelpcenter:search/result" ) ) );
   mSearchResult = QString();
 }
 
@@ -196,7 +196,7 @@ void View::lastSearch()
 
   mState = Search;
 
-  begin( QUrl( QLatin1Literal( "khelpcenter:search/last" ) ) );
+  begin( QUrl( QStringLiteral( "khelpcenter:search/last" ) ) );
   write( mSearchResult );
   end();
 }

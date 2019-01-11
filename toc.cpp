@@ -229,9 +229,9 @@ void TOC::fillTree()
     QDomNodeList chapters = doc.documentElement().elementsByTagName( QStringLiteral("chapter") );
     for ( int chapterCount = 0; chapterCount < chapters.count(); chapterCount++ ) {
         QDomElement chapElem = chapters.item( chapterCount ).toElement();
-        QDomElement chapTitleElem = childElement( chapElem, QLatin1String( "title" ) );
+        QDomElement chapTitleElem = childElement( chapElem, QStringLiteral( "title" ) );
         QString chapTitle = chapTitleElem.text().simplified();
-        QDomElement chapRefElem = childElement( chapElem, QLatin1String( "anchor" ) );
+        QDomElement chapRefElem = childElement( chapElem, QStringLiteral( "anchor" ) );
         QString chapRef = chapRefElem.text().trimmed();
 
         chapItem = new TOCChapterItem( this, m_parentItem, chapItem, chapTitle, chapRef );
@@ -240,9 +240,9 @@ void TOC::fillTree()
         QDomNodeList sections = chapElem.elementsByTagName( QStringLiteral("section") );
         for ( int sectCount = 0; sectCount < sections.count(); sectCount++ ) {
             QDomElement sectElem = sections.item( sectCount ).toElement();
-            QDomElement sectTitleElem = childElement( sectElem, QLatin1String( "title" ) );
+            QDomElement sectTitleElem = childElement( sectElem, QStringLiteral( "title" ) );
             QString sectTitle = sectTitleElem.text().simplified();
-            QDomElement sectRefElem = childElement( sectElem, QLatin1String( "anchor" ) );
+            QDomElement sectRefElem = childElement( sectElem, QStringLiteral( "anchor" ) );
             QString sectRef = sectRefElem.text().trimmed();
 
             sectItem = new TOCSectionItem( this, chapItem, sectItem, sectTitle, sectRef );

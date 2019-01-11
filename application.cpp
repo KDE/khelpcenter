@@ -46,11 +46,11 @@ Application::Application(int& argc, char** argv)
   mCmdParser.addVersionOption();
 
   // allow redirecting from internal pages to known protocols
-  KUrlAuthorized::allowUrlAction( QLatin1Literal( "redirect" ), QUrl( QLatin1Literal( "khelpcenter:" ) ), QUrl( QLatin1Literal( "ghelp:" ) ) );
-  KUrlAuthorized::allowUrlAction( QLatin1Literal( "redirect" ), QUrl( QLatin1Literal( "khelpcenter:" ) ), QUrl( QLatin1Literal( "help:" ) ) );
-  KUrlAuthorized::allowUrlAction( QLatin1Literal( "redirect" ), QUrl( QLatin1Literal( "khelpcenter:" ) ), QUrl( QLatin1Literal( "info:" ) ) );
-  KUrlAuthorized::allowUrlAction( QLatin1Literal( "redirect" ), QUrl( QLatin1Literal( "khelpcenter:" ) ), QUrl( QLatin1Literal( "man:" ) ) );
-  KUrlAuthorized::allowUrlAction( QLatin1Literal( "redirect" ), QUrl( QLatin1Literal( "glossentry:" ) ), QUrl( QLatin1Literal( "help:" ) ) );
+  KUrlAuthorized::allowUrlAction( QStringLiteral( "redirect" ), QUrl( QStringLiteral( "khelpcenter:" ) ), QUrl( QStringLiteral( "ghelp:" ) ) );
+  KUrlAuthorized::allowUrlAction( QStringLiteral( "redirect" ), QUrl( QStringLiteral( "khelpcenter:" ) ), QUrl( QStringLiteral( "help:" ) ) );
+  KUrlAuthorized::allowUrlAction( QStringLiteral( "redirect" ), QUrl( QStringLiteral( "khelpcenter:" ) ), QUrl( QStringLiteral( "info:" ) ) );
+  KUrlAuthorized::allowUrlAction( QStringLiteral( "redirect" ), QUrl( QStringLiteral( "khelpcenter:" ) ), QUrl( QStringLiteral( "man:" ) ) );
+  KUrlAuthorized::allowUrlAction( QStringLiteral( "redirect" ), QUrl( QStringLiteral( "glossentry:" ) ), QUrl( QStringLiteral( "help:" ) ) );
 
   // registration of meta types
   qRegisterMetaType<const QTreeWidgetItem *>();
@@ -91,7 +91,7 @@ extern "C" int Q_DECL_EXPORT kdemain( int argc, char **argv )
   KHC::Application app(argc, argv);
   KLocalizedString::setApplicationDomain("khelpcenter5");
   KAboutData aboutData( QStringLiteral("khelpcenter"), i18n("Help Center"),
-                        QLatin1String(PROJECT_VERSION),
+                        QStringLiteral(PROJECT_VERSION),
                         i18n("Help Center"),
                         KAboutLicense::GPL,
                         i18n("(c) 1999-2018, The KHelpCenter developers") );

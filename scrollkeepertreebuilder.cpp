@@ -51,7 +51,7 @@ void ScrollKeeperTreeBuilder::build( NavigatorItem *parent )
 
   qCDebug(KHC_LOG) << "ScrollKeeper language: " << lang;
 
-  const QString exePath = QStandardPaths::findExecutable( QLatin1Literal( "scrollkeeper-get-content-list" ) );
+  const QString exePath = QStandardPaths::findExecutable( QStringLiteral( "scrollkeeper-get-content-list" ) );
   if ( exePath.isEmpty() ) {
     qCDebug(KHC_LOG) << "scrollkeeper-get-content-list is not available, skipping";
     return;
@@ -108,7 +108,7 @@ int ScrollKeeperTreeBuilder::insertSection( NavigatorItem *parent,
                                             NavigatorItem *&sectItem )
 {
 // TODO: was contents2 -> needs to be changed to help-contents-alternate or similar
-  DocEntry *entry = new DocEntry( QString(), QString(), QLatin1String("help-contents") );
+  DocEntry *entry = new DocEntry( QString(), QString(), QStringLiteral("help-contents") );
   sectItem = new NavigatorItem( entry, parent );
   sectItem->setAutoDeleteDocEntry( true );
   mItems.append( sectItem );
@@ -145,7 +145,7 @@ int ScrollKeeperTreeBuilder::insertSection( NavigatorItem *parent,
 void ScrollKeeperTreeBuilder::insertDoc( NavigatorItem *parent,
                                          const QDomNode &docNode )
 {
-  DocEntry *entry = new DocEntry( QString(), QString(), QLatin1String("text-plain") );
+  DocEntry *entry = new DocEntry( QString(), QString(), QStringLiteral("text-plain") );
   NavigatorItem *docItem = new NavigatorItem( entry, parent );
   docItem->setAutoDeleteDocEntry( true );
   mItems.append( docItem );

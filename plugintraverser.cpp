@@ -106,7 +106,7 @@ void PluginTraverser::process( DocEntry *entry )
       return;
     }
 // TODO: was contents2 -> needs to be changed to help-contents-alternate or similar
-    mCurrentItem->setIcon( 0, QIcon::fromTheme( QLatin1String("help-contents") ) );
+    mCurrentItem->setIcon( 0, QIcon::fromTheme( QStringLiteral("help-contents") ) );
   }
 }
 

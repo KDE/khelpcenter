@@ -183,10 +183,10 @@ void FontDialog::load()
       if ( fonts.isEmpty() ) {
           fonts << QFontDatabase::systemFont(QFontDatabase::GeneralFont).family()
           << QFontDatabase::systemFont(QFontDatabase::FixedFont).family()
-		  << QLatin1String(HTML_DEFAULT_VIEW_SERIF_FONT)
-		  << QLatin1String(HTML_DEFAULT_VIEW_SANSSERIF_FONT)
-		  << QLatin1String(HTML_DEFAULT_VIEW_CURSIVE_FONT)
-		  << QLatin1String(HTML_DEFAULT_VIEW_FANTASY_FONT)
+		  << QStringLiteral(HTML_DEFAULT_VIEW_SERIF_FONT)
+		  << QStringLiteral(HTML_DEFAULT_VIEW_SANSSERIF_FONT)
+		  << QStringLiteral(HTML_DEFAULT_VIEW_CURSIVE_FONT)
+		  << QStringLiteral(HTML_DEFAULT_VIEW_FANTASY_FONT)
 		  << QString();
       }
 
