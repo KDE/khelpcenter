@@ -181,7 +181,7 @@ Comment[sv]=Bläddra och sök i dokumentation
 Comment[tr]=Belgelendirmede gezin veya arama yap
 Comment[uk]=Перегляд документації та пошук у ній
 Comment[x-test]=xxBrowse and search documentationxx
-Comment[zh_CN]=浏览搜索文档
+Comment[zh_CN]=浏览和搜索文档
 Comment[zh_TW]=瀏覽並搜尋文件
 
 Categories=Qt;KDE;Core;
