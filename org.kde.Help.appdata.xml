@@ -102,6 +102,7 @@
     <p xml:lang="pt">Uma aplicação para pesquisar e ler a documentação de todas as suas aplicações do KDE e utilitários do sistema</p>
     <p xml:lang="pt-BR">Um aplicativo para pesquisar e ler a documentação de todos os aplicativos do KDE e utilitários do sistema</p>
     <p xml:lang="ru">Приложение для поиска и чтения документации к приложениям KDE и программам системы</p>
+    <p xml:lang="sk">Aplikácia na vyhľadávanie a čítanie dokumentácie pre vaše KDE aplikácie a systémové nástroje</p>
     <p xml:lang="sv">Ett program för att söka i och läsa dokumentationen om alla KDE-program och systemverktyg</p>
     <p xml:lang="uk">Програма для пошуку і читання документації до усіх програм KDE та засобів системи</p>
     <p xml:lang="x-test">xxAn application to search and read the documentation for all your KDE applications and system utilitiesxx</p>
@@ -246,6 +247,7 @@
       <caption xml:lang="pt">Janela principal do KHelpCenter</caption>
       <caption xml:lang="pt-BR">Janela principal do KHelpCenter</caption>
       <caption xml:lang="ru">Главное окно KHelpCenter</caption>
+      <caption xml:lang="sk">Hlavné okno KHelpCenter</caption>
       <caption xml:lang="sv">Huvudfönstret i Hjälpcentralen</caption>
       <caption xml:lang="uk">Головне вікно KHelpCenter</caption>
       <caption xml:lang="x-test">xxKHelpCenter main windowxx</caption>
