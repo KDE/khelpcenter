@@ -34,7 +34,6 @@
 #include <KHTMLView>
 #include <KToolBarPopupAction>
 #include <KSharedConfig>
-#include <kcoreaddons_version.h>
 #include <docbookxslt.h>
 
 #include <QClipboard>

@@ -27,7 +27,6 @@
 #include <KLocalizedString>
 
 #include "docentrytraverser.h"
-#include <ki18n_version.h>
 
 #include <prefs.h>
 

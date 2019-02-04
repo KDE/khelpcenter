@@ -32,7 +32,6 @@
 
 #include <KProcess>
 #include <KXmlGuiWindow>
-#include <kcoreaddons_version.h>
 #include <docbookxslt.h>
 
 #include <sys/stat.h>
