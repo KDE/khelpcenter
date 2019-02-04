@@ -269,4 +269,5 @@
   <provides>
     <binary>khelpcenter</binary>
   </provides>
+  <launchable type="desktop-id">org.kde.Help.desktop</launchable>
 </component>
