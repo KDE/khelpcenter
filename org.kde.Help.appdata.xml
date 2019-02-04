@@ -259,10 +259,10 @@
       <caption xml:lang="x-test">xxKHelpCenter main windowxx</caption>
       <caption xml:lang="zh-CN">KHelpCenter 主窗口</caption>
       <caption xml:lang="zh-TW">KHelpCenter 主視窗</caption>
-      <image width="1920" height="1044">http://kde.org/images/screenshots/khelpcenter.png</image>
+      <image width="1920" height="1044">https://kde.org/images/screenshots/khelpcenter.png</image>
     </screenshot>
   </screenshots>
-  <url type="homepage">http://kde.org/applications/utilities/khelpcenter/</url>
+  <url type="homepage">https://www.kde.org/applications/system/khelpcenter</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=khelpcenter</url>
   <url type="donation">https://www.kde.org/community/donations/?app=khelpcenter&amp;source=appdata</url>
   <project_group>KDE</project_group>

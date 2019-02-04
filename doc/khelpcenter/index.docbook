@@ -19,7 +19,7 @@
 <abstract>
 <para>
 &kde; is an international technology team that creates
-<ulink url="http://www.gnu.org/philosophy/free-sw.html">Free Software</ulink>
+<ulink url="https://www.gnu.org/philosophy/free-sw.html">Free Software</ulink>
 for desktop and portable computing. Among &kde;&apos;s products are a modern
 desktop system for &Linux; and &UNIX; platforms, comprehensive office
 productivity and groupware suites and hundreds of software titles in many
@@ -64,7 +64,7 @@ experience is required, just enthusiasm and patience.
 <para>
 If you would like to help translating &kde; documentation to your native
 language, review the information, including coordinators for each language team,
-on the <ulink url="http://l10n.kde.org">Localization web site</ulink>.
+on the <ulink url="https://l10n.kde.org/">Localization web site</ulink>.
 </para>
 
 <sect2 id="installation">
@@ -72,7 +72,7 @@ on the <ulink url="http://l10n.kde.org">Localization web site</ulink>.
 
 <para>
 &khelpcenter; is a part of the &applications;.
-It can be found on the <ulink url="http://download.kde.org/">
+It can be found on the <ulink url="https://download.kde.org/">
 download site</ulink> of the &kde; project, or will be found in your
 operating system's &khelpcenter; package.
 </para>
@@ -597,7 +597,7 @@ The menus contain the following entries:
 <listitem>
 <para>
 Print the contents of the currently visible page. Handbooks in <acronym>PDF</acronym> format you find 
-on the <ulink url="http://docs.kde.org/index.php?language=en"> &kde; Documentation Server</ulink>.
+on the <ulink url="https://docs.kde.org/index.php?language=en"> &kde; Documentation Server</ulink>.
 </para>
 </listitem>
 </varlistentry>

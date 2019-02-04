@@ -762,7 +762,7 @@ be missing some of the entries listed here.</para>
 <imageobject><imagedata fileref="menus.png" format="PNG"/></imageobject>
 <textobject><phrase>A menubar</phrase></textobject>
 <caption><para>The menubar in
-<ulink url="http://kde.org/applications/graphics/gwenview/">&gwenview;</ulink>.
+<ulink url="https://www.kde.org/applications/graphics/gwenview/">&gwenview;</ulink>.
 </para></caption>
 </mediaobject>
 </screenshot>

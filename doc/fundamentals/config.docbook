@@ -19,7 +19,7 @@
 <imageobject><imagedata fileref="toolbars-toolbar.png" format="PNG"/></imageobject>
 <textobject><phrase>The &gwenview; toolbar.</phrase></textobject>
 <caption><para>The toolbar in
-<ulink url="http://kde.org/applications/graphics/gwenview/">&gwenview;</ulink>.
+<ulink url="https://kde.org/applications/graphics/gwenview/">&gwenview;</ulink>.
 </para></caption>
 </mediaobject>
 </screenshot>
@@ -254,7 +254,7 @@ search for the shortcut you want.</para>
 <imageobject><imagedata fileref="shortcuts-search.png" format="PNG"/></imageobject>
 <textobject><phrase>The Customize Shortcuts window.</phrase></textobject>
 <caption><para>Searching for shortcuts with <userinput>file</userinput> in
-<ulink url="http://kde.org/applications/system/dolphin/">&dolphin;</ulink>.
+<ulink url="https://kde.org/applications/system/dolphin/">&dolphin;</ulink>.
 </para></caption>
 </mediaobject>
 </screenshot>

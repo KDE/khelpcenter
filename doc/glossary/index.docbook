@@ -34,8 +34,8 @@ Project Neon
 				Another goal is to de-couple GUI applications like &kmail; from the direct access to external resources like mail-servers - which was a major reason for bug-reports/wishes with regard to performance/responsiveness in the past.&newpara;
 				More info:&newpara;
 				&linkstart;"https://community.kde.org/KDE_PIM/Akonadi"&linkmid;Akonadi for KDE's PIM&linkend;&newpara;
-				&linkstart;"http://en.wikipedia.org/wiki/Akonadi"&linkmid;Wikipedia: Akonadi&linkend;&newpara;
-				&linkstart;"http://techbase.kde.org/Projects/PIM/Akonadi"&linkmid;Techbase - Akonadi&linkend;</para>
+				&linkstart;"https://en.wikipedia.org/wiki/Akonadi"&linkmid;Wikipedia: Akonadi&linkend;&newpara;
+				&linkstart;"https://techbase.kde.org/KDE_PIM/Akonadi"&linkmid;Techbase - Akonadi&linkend;</para>
 				<glossseealso otherterm="gloss-gui">&GUI;</glossseealso>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 			</glossdef>
@@ -54,7 +54,7 @@ Project Neon
 			<glossterm>ARts</glossterm>
 			<glossdef><para>The sound framework in &kde; 2 and 3. Its single-tasking nature caused problems when two sources of sound were encountered. In the &plasma; desktop it is replaced by Phonon.&newpara;
 				More info:&newpara;
-				&linkstart;"http://en.wikipedia.org/wiki/ARts"&linkmid; Wikipedia: ARts&linkend;</para>
+				&linkstart;"https://en.wikipedia.org/wiki/ARts"&linkmid; Wikipedia: ARts&linkend;</para>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 				<glossseealso otherterm="gloss-phonon">Phonon</glossseealso>
 				<glossseealso otherterm="gloss-plasma">&plasma;</glossseealso>
@@ -64,8 +64,8 @@ Project Neon
 			<glossterm>D-Bus</glossterm>
 			<glossdef><para>D-Bus or Desktop Bus is an inter-service messaging system. Developed by &RedHat;, it was heavily influenced by &kde; 3 DCOP, which it supersedes. Most POSIX operating systems support D-Bus, and a port for Windows exists. It is used by Qt 4 and GNOME.&newpara;
 				More info:&newpara;
-				&linkstart;"http://freedesktop.org/wiki/Software/dbus/"&linkmid;FreeDesktop.org: What is D-Bus?&linkend;&newpara;
-				&linkstart;"http://en.wikipedia.org/wiki/D-Bus"&linkmid;Wikipedia: D-Bus&linkend;</para>
+				&linkstart;"https://freedesktop.org/wiki/Software/dbus/"&linkmid;FreeDesktop.org: What is D-Bus?&linkend;&newpara;
+				&linkstart;"https://en.wikipedia.org/wiki/D-Bus"&linkmid;Wikipedia: D-Bus&linkend;</para>
 				<glossseealso otherterm="gloss-dcop">&DCOP;</glossseealso>
 				<glossseealso otherterm="gloss-gnome">GNOME</glossseealso>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
@@ -76,7 +76,7 @@ Project Neon
 			<glossterm>DCOP</glossterm>
 			<glossdef><para><acronym>DCOP</acronym>, which stands for Desktop COmmunication Protocol, is a light-weight interprocess and software componentry communication system used in &kde; 3. Replaced with &DBus; in &kde; SC 4.&newpara;
 				More info:&newpara;
-				&linkstart;"http://en.wikipedia.org/wiki/DCOP"&linkmid;Wikipedia: DCOP&linkend;</para>
+				&linkstart;"https://en.wikipedia.org/wiki/DCOP"&linkmid;Wikipedia: DCOP&linkend;</para>
 				<glossseealso otherterm="gloss-dbus">D-Bus</glossseealso>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 			</glossdef>
@@ -85,7 +85,7 @@ Project Neon
 			<glossterm>Flake</glossterm>
 			<glossdef><para>Flake is a programming library to be used in &koffice;/Calligra. Functionally, it provides Shapes to display content and Tools to manipulate content. Shapes can be zoomed or rotated and can be grouped to work as a single Shape, around which text flow is possible.&newpara;
 				More info:&newpara;
-				&linkstart;"http://community.kde.org/Calligra/Libs/Flake"&linkmid;&kde; Community Wiki: Flake&linkend;</para>
+				&linkstart;"https://community.kde.org/Calligra/Libs/Flake"&linkmid;&kde; Community Wiki: Flake&linkend;</para>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 				<glossseealso otherterm="gloss-kparts">KParts</glossseealso>
 			</glossdef>
@@ -185,8 +185,8 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 			<glossterm>Phonon</glossterm>
 			<glossdef><para>A cross-platform multimedia API, interfacing with existing frameworks, such as gstreamer and xine engines. &kde; 2 and 3 depended on aRts for sound. Phonon replaces it.&newpara;
 				More info:&newpara;
-				&linkstart;"http://en.wikipedia.org/wiki/Phonon_(KDE)"&linkmid; Wikipedia: Phonon (KDE)&linkend;&newpara;
-				&linkstart;"http://phonon.kde.org"&linkmid;Phonon website&linkend;</para>
+				&linkstart;"https://en.wikipedia.org/wiki/Phonon_(software)"&linkmid; Wikipedia: Phonon (software)&linkend;&newpara;
+				&linkstart;"https://phonon.kde.org/"&linkmid;Phonon website&linkend;</para>
 				<glossseealso otherterm="gloss-arts">&arts;</glossseealso>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 			</glossdef>
@@ -195,7 +195,7 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 			<glossterm>Solid</glossterm>
 			<glossdef><para>Solid provides a single API for hardware management. Hardware is grouped into 'domains'. Since the backends for Solid are pluggable, Solid helps application developers write less code, and have it platform independent.&newpara;
 				More info:&newpara;
-				&linkstart;"http://solid.kde.org"&linkmid;Discover Solid&linkend;</para>
+				&linkstart;"https://solid.kde.org/"&linkmid;Discover Solid&linkend;</para>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 			</glossdef>
 		</glossentry>
@@ -211,8 +211,8 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 			<glossterm>WebKit</glossterm>
 			<glossdef><para>HTML rendering engine, originating from a fork of KHTML. Adopted by <trademark>Apple</trademark> and developed for <trademark>Safari</trademark>. Webkit brings the whole functionality back to &kde; SC 4, where it is available through &Qt;.&newpara;
 				More info:&newpara;
-				&linkstart;"http://webkit.org/"&linkmid;WebKit home page&linkend;&newpara;
-				&linkstart;"http://en.wikipedia.org/wiki/Webkit"&linkmid;Wikipedia: WebKit&linkend;</para>
+				&linkstart;"https://webkit.org/"&linkmid;WebKit home page&linkend;&newpara;
+				&linkstart;"https://en.wikipedia.org/wiki/WebKit"&linkmid;Wikipedia: WebKit&linkend;</para>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 				<glossseealso otherterm="gloss-khtml">KHTML</glossseealso>
 			</glossdef>
@@ -251,8 +251,8 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 			<glossdef><para>The default file manager in &kde; Applications. It has a side panel (Places), but navigation is mainly by the 'breadcrumb' trail above the main window. Split windows are possible, and views can be applied to individual windows. Mounting and unmounting <acronym>USB</acronym> devices can be done in the side panel. Other directories can be added to the Places panel. A Tree view is also possible.&newpara;
 				More info:&newpara;
 				&linkstart;"https://www.kde.org/applications/system/dolphin/"&linkmid;Dolphin&linkend;&newpara;
-				&linkstart;"http://en.wikipedia.org/wiki/Dolphin_(software)"&linkmid;Wikipedia: Dolphin&linkend;&newpara;
-				&linkstart;"http://userbase.kde.org/Tutorials/File_Management"&linkmid;Userbase: File Management Tutorial&linkend;</para>
+				&linkstart;"https://en.wikipedia.org/wiki/Dolphin_(file_manager)"&linkmid;Wikipedia: Dolphin&linkend;&newpara;
+				&linkstart;"https://userbase.kde.org/Dolphin/File_Management"&linkmid;Userbase: File Management Tutorial&linkend;</para>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 				<glossseealso otherterm="gloss-konqueror">&konqueror;</glossseealso>
 			</glossdef>
@@ -273,7 +273,7 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 			<glossdef><para>Kinfocenter originated as part of Kcontrol standing alone from KDE 3.1. In &kde; SC 4 it was replaced by modules configured in &systemsettings;, notably Solid, and is being reintroduced as an application in &plasma;.&newpara;
 				More info:&newpara;
 				&linkstart;"https://www.kde.org/applications/system/kinfocenter/"&linkmid;KInfoCenter&linkend;&newpara;
-				&linkstart;"http://en.wikipedia.org/wiki/Kinfocenter"&linkmid;Wikipedia: KInfoCenter&linkend;</para>
+				&linkstart;"https://en.wikipedia.org/wiki/Kinfocenter"&linkmid;Wikipedia: KInfoCenter&linkend;</para>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 				<glossseealso otherterm="gloss-solid">Solid</glossseealso>
 				<glossseealso otherterm="gloss-systemsettings">&systemsettings;</glossseealso>
@@ -283,7 +283,7 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 			<glossterm>&konqueror;</glossterm>
 			<glossdef><para>&konqueror; is a web browser, picture viewer, file manager
 				and more, and a core part of the &kde; project. You can
-				find more information about &konqueror; at &linkstart;"http://www.konqueror.org"&linkmid;www.konqueror.org&linkend;.</para>
+				find more information about &konqueror; at &linkstart;"https://konqueror.org/"&linkmid;www.konqueror.org&linkend;.</para>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 			</glossdef>
 		</glossentry>
@@ -291,7 +291,7 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 			<glossterm>KRunner</glossterm>
 			<glossdef><para>The mini-command-line that is accessed from the Classic menu, the keyboard shortcut &Alt;+<keycap>F2</keycap>, or a right-click on the desktop. In &kde; SC 4 a partial name will display all possible matches.&newpara;
 				More info:&newpara;
-				&linkstart;"http://userbase.kde.org/Tutorials/Krunner"&linkmid;UserBase: KRunner Usage&linkend;</para>
+				&linkstart;"https://userbase.kde.org/Plasma/Krunner"&linkmid;UserBase: KRunner Usage&linkend;</para>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 				<glossseealso otherterm="gloss-plasma">&plasma;</glossseealso>
 			</glossdef>
@@ -300,7 +300,7 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 			<glossterm>KWin</glossterm>
 			<glossdef><para>KWin is the window manager. This is where window decorations can be changed and themes applied. &kde; SC 4 extends KWin to provide support for 3D Compositing effects on the desktop.&newpara;
 				More info:&newpara;
-				&linkstart;"http://userbase.kde.org/KWin"&linkmid;UserBase: KWin&linkend;</para>
+				&linkstart;"https://userbase.kde.org/KWin"&linkmid;UserBase: KWin&linkend;</para>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 				<glossseealso otherterm="gloss-xserver">&X-Server;</glossseealso>
 			</glossdef>
@@ -342,7 +342,7 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 			Next to it, you have your freetime activity, with previews of family photos and dogs, rss feeds from your favorite blogs, a Folder View showing your movie collection, a twitter applet and of course that Iron Maiden wallpaper you have been loving since the early 80s.&newpara;
 			At 17:00 hours sharp you switch from the work activity to your freetime activity.&newpara;
 				More info:&newpara;
-				&linkstart;"http://userbase.kde.org/Plasma"&linkmid;Plasma FAQ&linkend;</para>
+				&linkstart;"https://userbase.kde.org/Plasma"&linkmid;Plasma FAQ&linkend;</para>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 				<glossseealso otherterm="gloss-virtualdesktops">Virtual Desktops</glossseealso>
 			</glossdef>
@@ -361,7 +361,7 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 			<glossdef><para>A Containment is a top level grouping of widgets. Each Containment manages the layout and configuration data of its set of widgets independently from other Containments.&newpara;
 			The end result is that you can group widgets within a Containment according to the significance to your working pattern, rather than by directory grouping.&newpara;
 				More info:&newpara;
-				  &linkstart;"http://userbase.kde.org/Plasma"&linkmid;Plasma FAQ&linkend;</para>
+				  &linkstart;"https://userbase.kde.org/Plasma"&linkmid;Plasma FAQ&linkend;</para>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 				<glossseealso otherterm="gloss-widget">Widget</glossseealso>
 			</glossdef>
@@ -399,7 +399,7 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 			<glossterm>Home Directory</glossterm>
 			<glossdef><para>That's the place in system, where all your files are kept. You can write your files outside of this folder, but all applications are configured to propose this folder as place to write your files to. And this is easier, when you are keeping your things here.&newpara;
 				More info:&newpara;
-				&linkstart;"http://en.wikipedia.org/wiki/Home_directory"&linkmid;Wikipedia: Home Directory&linkend;</para>
+				&linkstart;"https://en.wikipedia.org/wiki/Home_directory"&linkmid;Wikipedia: Home Directory&linkend;</para>
 				<glossseealso otherterm="gloss-dolphin">&dolphin;</glossseealso>
 			</glossdef>
 		</glossentry>
@@ -409,7 +409,7 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
                                 and users from all over the world. Our international technology team is committed to creating the best free software for the desktop.
                                 And not only contributors, but users and fans of &kde; software can be found throughout the entire globe, giving help to other users,
                                 spreading the news, or just simply enjoying the experience.
-                                You can find more detailed information at &linkstart;"http://www.kde.org"&linkmid;www.kde.org&linkend;.&newpara;
+                                You can find more detailed information at &linkstart;"https://www.kde.org"&linkmid;www.kde.org&linkend;.&newpara;
                                 The name changed its meaning over time. You can discover more about its history over &linkstart;"https://www.kde.org/community/history/"&linkmid;the KDE history webpage&linkend;.
                                 </para>
 				<glossseealso otherterm="gloss-gui">&GUI;</glossseealso>
@@ -439,7 +439,7 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 			<glossdef>
 				<para>Oxygen was the default theme of &kde; SC 4. Designed to bring 'a breath of fresh air' to the desktop by removing the simplistic, cartoonish icons, and replacing them with a clean theme and photo-realistic icons. Oxygen uses a desaturated palette to avoid the icons becoming a distraction and uses detailed scalable graphics (SVG).&newpara;
 				More info:&newpara;
-				&linkstart;"http://en.wikipedia.org/wiki/Oxygen_Project"&linkmid;Wikipedia: Oxygen Project&linkend;</para>
+				&linkstart;"https://en.wikipedia.org/wiki/Oxygen_Project"&linkmid;Wikipedia: Oxygen Project&linkend;</para>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 				<glossseealso otherterm="gloss-ksvg">KSVG</glossseealso>
 				<glossseealso otherterm="gloss-plasma">&plasma;</glossseealso>
@@ -460,9 +460,9 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 			<glossterm>Plasma</glossterm>
 			<glossdef><para>&plasma; replaces KDesktop, &kicker; and the SuperKaramba widget engine. The applets are called Widgets, and range from informational widgets to mini-apps such as a calculator or dictionary.&newpara;
 				More info:&newpara;
-				&linkstart;"http://en.wikipedia.org/wiki/KDE_Plasma_5"&linkmid;Wikipedia: KDE Plasma 5&linkend;&newpara;
+				&linkstart;"https://en.wikipedia.org/wiki/KDE_Plasma_5"&linkmid;Wikipedia: KDE Plasma 5&linkend;&newpara;
 				&linkstart;"https://www.kde.org/workspaces/"&linkmid;Plasma Workspaces&linkend;&newpara;
-				&linkstart;"http://userbase.kde.org/Plasma"&linkmid;Plasma&linkend;</para>
+				&linkstart;"https://userbase.kde.org/Plasma"&linkmid;Plasma&linkend;</para>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 				<glossseealso otherterm="gloss-kicker">&kicker;</glossseealso>
 				<glossseealso otherterm="gloss-widget">Widget</glossseealso>
@@ -478,7 +478,7 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 			<glossterm>Virtual Desktops</glossterm>
 			<glossdef><para>A popular concept of &UNIX; based window managers is the one of virtual desktops. This means you have not only one screen where you can place your windows on but several. When you switch to a different desktop (usually with a pager) you will only see the windows which you started on your new desktop or moved to it. A window can also be made "sticky" which means it appears on all virtual desktops.&newpara;
 				More info:&newpara;
-				&linkstart;"http://userbase.kde.org/Plasma"&linkmid;Plasma FAQ&linkend;</para>
+				&linkstart;"https://userbase.kde.org/Plasma"&linkmid;Plasma FAQ&linkend;</para>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 				<glossseealso otherterm="gloss-application-starter">Application Starter</glossseealso>
 				<glossseealso otherterm="gloss-pager">Pager</glossseealso>
@@ -507,7 +507,7 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 			  Git is used for version control of files, much like tools such as Mercurial, Bazaar, Subversion, CVS, Perforce, and Visual SourceSafe.&newpara;
 			  It was decided that Git will be the main version control system of &kde;, replacement of SVN. It has been already used for some &kde; projects like Konversation and Amarok.&newpara;
 			  More info:&newpara;
-			        &linkstart;"http://git-scm.com/"&linkmid;Git Homepage&linkend;</para>
+			        &linkstart;"https://git-scm.com/"&linkmid;Git Homepage&linkend;</para>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 				<glossseealso otherterm="gloss-svn">SVN</glossseealso>
 			  </glossdef>
@@ -519,7 +519,7 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 				easy to translate the &GUI; as well as the accompanying
 				documents of &kde; into all these languages. More information about the
 				i18n process is available at &linkstart;
-				"http://l10n.kde.org"&linkmid;l10n.kde.org&linkend;.</para>
+				"https://l10n.kde.org/"&linkmid;l10n.kde.org&linkend;.</para>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 				<glossseealso otherterm="gloss-gui">&GUI;</glossseealso>
 				<glossseealso otherterm="gloss-l10n">l10n</glossseealso>
@@ -562,7 +562,7 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 				of adapting a program to the local environment. This includes &eg; the
 				currency used for monetary values or the time format and translating text.&newpara;
 				More info:&newpara;
-				&linkstart;"http://l10n.kde.org"&linkmid;l10n.kde.org&linkend;</para>
+				&linkstart;"https://l10n.kde.org/"&linkmid;l10n.kde.org&linkend;</para>
 				<glossseealso otherterm="gloss-i18n">i18n</glossseealso>
                         </glossdef>
 		</glossentry>
@@ -587,7 +587,7 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 			<glossterm>XMLGUI</glossterm>
 			<glossdef><para>A programmers' framework for designing the user interface. It is extensively used by KParts.&newpara;
 				More info:&newpara;
-				&linkstart;"http://en.wikipedia.org/wiki/XMLGUI"&linkmid;Wikipedia: XMLGUI&linkend;&newpara;
+				&linkstart;"https://en.wikipedia.org/wiki/XMLGUI"&linkmid;Wikipedia: XMLGUI&linkend;&newpara;
 				&linkstart;"http://en.wikipedia.org/wiki/Qt_Style_Sheets"&linkmid;Wikipedia: Qt Style Sheets&linkend;</para>
 				<glossseealso otherterm="gloss-gui">&GUI;</glossseealso>
 				<glossseealso otherterm="gloss-kparts">Kparts</glossseealso>
@@ -606,7 +606,7 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 				<acronym>RFC</acronym>s are not mandatory, many applications try to
 				adhere to them, once they have been approved by the community.&newpara; 
 				More information about <acronym>RFC</acronym>s can be found at the
-				&linkstart;"http://www.rfc-editor.org"&linkmid;RFC Homepage&linkend;.</para>
+				&linkstart;"https://www.rfc-editor.org/"&linkmid;RFC Homepage&linkend;.</para>
 			</glossdef>
 		</glossentry>	
 	</glossdiv>

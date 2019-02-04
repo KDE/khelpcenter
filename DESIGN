@@ -241,7 +241,7 @@ regexp' or 'Search case sensitive'.
 # then transformed into a custom, intermediate, XML dialect, using the XSLT
 # stylesheets define in the .desktop files. Using that intermediate step we
 # can nicely drop duplicate hits, for example, or create a list of hits in the
-# sidebar (much like http://www.copernic.com does). After that, we can use
+# sidebar (much like https://www.copernic.com/ does). After that, we can use
 # another XSLT stylesheet to transform that cleaned XML tree into HTML which
 # we then feed to our KHTMLView. Since we then have one unified output, we don't
 # need to worry about having multiple KHTMLParts, and it's also nice because

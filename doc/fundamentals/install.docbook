@@ -48,7 +48,7 @@ application that permits you to install individual applications or groups and
 all necessary dependencies easily.</para>
 
 <para>For more information on the initiative and to download the installer,
-visit <ulink url="http://windows.kde.org/">the KDE on Windows Initiative</ulink>.
+visit <ulink url="https://windows.kde.org/">the KDE on Windows Initiative</ulink>.
 </para>
 
 <!--FIXME: describe how to use the installer?-->
@@ -63,7 +63,7 @@ different <quote>ports</quote> systems available for &MacOS;.  Several different
 &kde; applications also provide their own binary builds for &MacOS;.</para>
 
 <para>For more information, visit
-<ulink url="http://mac.kde.org/">&kde; on &MacOS;X</ulink>.</para>
+<ulink url="https://mac.kde.org/">&kde; on &MacOS;X</ulink>.</para>
 
 </sect2>
 
@@ -88,7 +88,7 @@ experience to mobile devices like smartphones or tablets.  Binary releases are
 provided for several different devices.</para>
 
 <para>For more information, visit
-<ulink url="http://plasma-mobile.org/"><productname>Plasma Mobile</productname></ulink>.</para>
+<ulink url="https://www.plasma-mobile.org/"><productname>Plasma Mobile</productname></ulink>.</para>
 
 </sect2>
 
@@ -100,7 +100,7 @@ to try out the &plasma-desktop; without installing anything to your system.
 All you have to do insert a CD or connect a USB drive and boot from it.  If you
 like what you see, most offer an option to install it to your hard drive.</para>
 
-<para>There is <ulink url="http://www.kde.org/download/distributions.php">a list
+<para>There is <ulink url="https://www.kde.org/download/distributions.php">a list
 of distributions that offer the &kde; workspace and applications on live media</ulink> on the &kde; website.</para>
 </sect2>
 <!--Neon?-->

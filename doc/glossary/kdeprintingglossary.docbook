@@ -68,7 +68,7 @@
                         <glossterm>BSD-style Printing</glossterm>
                         <glossdef><para>Generic term for different variants of the traditional &UNIX;
 				printing method. Its first version appeared in the early 70s on
-				BSD &UNIX; and was formally described in &linkstart;"http://www.rfc.net/rfc1179.html"&linkmid;RFC 1179&linkend; only as late
+				BSD &UNIX; and was formally described in &linkstart;"https://www.ietf.org/rfc/rfc1179.txt"&linkmid;RFC 1179&linkend; only as late
 				as 1990.&newpara;
 				At the time when BSD "remote" printing was first designed, printers
 				were serially or otherwise directly connected devices to a host
@@ -114,7 +114,7 @@
 				printing only. &kde; Printing is most powerful if based on
 				&CUPS;.&newpara;
 				More info:&newpara;
-				&linkstart;"http://www.cups.org"&linkmid;&CUPS; Homepage&linkend;</para>
+				&linkstart;"https://www.cups.org"&linkmid;&CUPS; Homepage&linkend;</para>
                                 <glossseealso otherterm="gloss-acl">ACLs</glossseealso>
                                 <glossseealso otherterm="gloss-authentication">Authentication</glossseealso>
                                 <glossseealso otherterm="gloss-bsdstyleprinting">BSD-style printing</glossseealso>
@@ -127,7 +127,7 @@
  
                 <glossentry id="gloss-cupsfaq">
                         <glossterm><acronym>&CUPS;-FAQ</acronym></glossterm>
-                        <glossdef><para>&linkstart;"http://www.cups.org/articles.php?L+TFAQ"&linkmid;&CUPS;-FAQ&linkend; 
+                        <glossdef><para>&linkstart;"https://www.cups.org/faq.html"&linkmid;&CUPS;-FAQ&linkend; 
 				is a valuable resource to answer many questions that anyone new to 
 				&CUPS; printing might have at first.
 				</para>
@@ -287,7 +287,7 @@
                 <glossentry id="gloss-foomatic">
                         <glossterm>Foomatic</glossterm>
                         <glossdef><para>Foomatic started out as the wrapper name for a set of
-				different tools available from &linkstart;"http://www.linuxfoundation.org/collaborate/workgroups/openprinting/database/foomatic"&linkmid;Linuxprinting.org&linkend;
+				different tools available from &linkstart;"https://wiki.linuxfoundation.org/openprinting/database/foomatic"&linkmid;Linuxprinting.org&linkend;
 				These tools aimed to make the usage of traditional
 				Ghostscript and other print filters easier for users and
 				extend the filters' capabilities by adding more command line
@@ -308,7 +308,7 @@
 				for transforming &PostScript; into raster data suitable
 				for sending to non-&PostScript; devices.
 				More info:
-				&linkstart;"http://www.ghostscript.com/"&linkmid;Ghostscript Homepage&linkend;</para>
+				&linkstart;"https://www.ghostscript.com/"&linkmid;Ghostscript Homepage&linkend;</para>
                                 <glossseealso otherterm="gloss-postscript">&PostScript;</glossseealso>
                                 <glossseealso otherterm="gloss-rip">RIP</glossseealso>
                         </glossdef>
@@ -452,9 +452,9 @@
 
                 <glossentry id="gloss-linuxprintingdatabase">
                         <glossterm><acronym>Linuxprinting.org Database</acronym></glossterm>
-                        <glossdef><para>&linkstart;"http://www.openprinting.org/printers"&linkmid;Database&linkend; containing printers and drivers that are suitable for them.
+                        <glossdef><para>&linkstart;"https://www.openprinting.org/printers"&linkmid;Database&linkend; containing printers and drivers that are suitable for them.
 				More info:
-				&linkstart;"http://www.linuxfoundation.org/collaborate/workgroups/openprinting/database/indexfaq"&linkmid;Linuxprinting.org FAQ&linkend;</para>
+				&linkstart;"https://wiki.linuxfoundation.org/openprinting/database/indexfaq"&linkmid;Linuxprinting.org FAQ&linkend;</para>
                                 <glossseealso otherterm="gloss-foomatic">Foomatic</glossseealso>
                         </glossdef>
                 </glossentry>
@@ -661,7 +661,7 @@
                 </glossentry>
                 <glossentry id="gloss-printerdatabase">
                         <glossterm>Printer Database</glossterm>
-                        <glossdef><para>Good database of printer drivers can be found at &linkstart;"http://www.openprinting.org/printers"&linkmid;http://www.openprinting.org/printers&linkend;.</para>
+                        <glossdef><para>Good database of printer drivers can be found at &linkstart;"https://www.openprinting.org/printers"&linkmid;https://www.openprinting.org/printers&linkend;.</para>
                                 <glossseealso otherterm="gloss-linuxprintingdatabase">Linuxprinting Database</glossseealso>
                         </glossdef>
                 </glossentry>
