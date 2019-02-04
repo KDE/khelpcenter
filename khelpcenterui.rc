@@ -1,5 +1,5 @@
-<!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
-<kpartgui name="khelpcenter" version="18">
+<!DOCTYPE gui SYSTEM "kpartgui.dtd">
+<gui name="khelpcenter" version="18">
 <MenuBar>
  <Menu name="edit" noMerge="1">
   <text>&amp;Edit</text>
@@ -43,4 +43,4 @@
  <Action name="incFontSizes" />
  <Action name="decFontSizes" />
 </ToolBar>
-</kpartgui>
+</gui>
