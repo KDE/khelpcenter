@@ -42,8 +42,6 @@ Application::Application(int& argc, char** argv)
   setAttribute(Qt::AA_UseHighDpiPixmaps);
 
   mCmdParser.addPositionalArgument( QStringLiteral("url"), i18n( "Documentation to open" ) );
-  mCmdParser.addHelpOption();
-  mCmdParser.addVersionOption();
 
   // allow redirecting from internal pages to known protocols
   KUrlAuthorized::allowUrlAction( QStringLiteral( "redirect" ), QUrl( QStringLiteral( "khelpcenter:" ) ), QUrl( QStringLiteral( "ghelp:" ) ) );
