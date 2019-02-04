@@ -68,7 +68,9 @@ add_definitions(
 
 add_subdirectory( plugins )
 add_subdirectory( searchhandlers )
-add_subdirectory( tests )
+if(BUILD_TESTING)
+    add_subdirectory( tests )
+endif()
 add_subdirectory( doc )
 add_subdirectory( templates )
 
