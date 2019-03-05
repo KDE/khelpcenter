@@ -29,7 +29,6 @@
 #include <QUrl>
 
 class QProgressBar;
-class QPushButton;
 class QTabWidget;
 class QTreeWidget;
 class QTreeWidgetItem;
@@ -89,7 +88,7 @@ class Navigator : public QWidget
 
   protected Q_SLOTS:
     void slotSearchFinished();
-    void checkSearchButton();
+    void checkSearchEdit();
 
     void clearSearch();
 
@@ -117,9 +116,7 @@ class Navigator : public QWidget
 
     QTabWidget *mTabWidget;
 
-    QWidget *mSearchLineEditWidget;
     KLineEdit *mSearchEdit;
-    QPushButton *mSearchButton;
 
     SearchEngine *mSearchEngine;
 

@@ -25,7 +25,6 @@
 #include <QFile>
 #include <QHBoxLayout>
 #include <QProgressBar>
-#include <QPushButton>
 #include <QStandardPaths>
 #include <QTabWidget>
 #include <QTextStream>
@@ -75,21 +74,12 @@ Navigator::Navigator( View *view, QWidget *parent )
 
     QBoxLayout *topLayout = new QVBoxLayout( this );
 
-    mSearchLineEditWidget = new QWidget( this );
-    topLayout->addWidget( mSearchLineEditWidget );
-
-    QBoxLayout *searchLayout = new QHBoxLayout( mSearchLineEditWidget );
-    searchLayout->setMargin( 6 );
-
-    mSearchEdit = new KLineEdit( mSearchLineEditWidget );
+    mSearchEdit = new KLineEdit();
+    mSearchEdit->setPlaceholderText( i18n("Search...") );
     mSearchEdit->setClearButtonEnabled(true);
-    searchLayout->addWidget( mSearchEdit );
+    topLayout->addWidget( mSearchEdit );
     connect(mSearchEdit, &KLineEdit::returnPressed, this, &Navigator::slotSearch);
-    connect(mSearchEdit, &KLineEdit::textChanged, this, &Navigator::checkSearchButton);
-
-    mSearchButton = new QPushButton( i18n("&Search"), mSearchLineEditWidget );
-    searchLayout->addWidget( mSearchButton );
-    connect(mSearchButton, &QPushButton::clicked, this, &Navigator::slotSearch);
+    connect(mSearchEdit, &KLineEdit::textChanged, this, &Navigator::checkSearchEdit);
 
     mTabWidget = new QTabWidget( this );
     topLayout->addWidget( mTabWidget );
@@ -148,7 +138,7 @@ void Navigator::setupSearchTab()
   
     mSearchWidget = new SearchWidget( mSearchEngine, mTabWidget );
     connect(mSearchWidget, &SearchWidget::searchResult, this, &Navigator::slotShowSearchResult);
-    connect(mSearchWidget, &SearchWidget::scopeCountChanged, this, &Navigator::checkSearchButton);
+    connect(mSearchWidget, &SearchWidget::scopeCountChanged, this, &Navigator::checkSearchEdit);
 
     mTabWidget->addTab( mSearchWidget, i18n("Search Options"));
     
@@ -509,8 +499,8 @@ void Navigator::slotSearch()
 
   mTabWidget->setCurrentIndex( mTabWidget->indexOf( mSearchWidget ) );
 
-  // disable search Button during searches
-  mSearchButton->setEnabled(false);
+  // disable search edit during searches
+  mSearchEdit->setEnabled(false);
   QApplication::setOverrideCursor(Qt::WaitCursor);
 
   if ( !mSearchEngine->search( words, method, pages, scope ) ) {
@@ -530,22 +520,22 @@ void Navigator::slotShowSearchResult( const QString &url )
 
 void Navigator::slotSearchFinished()
 {
-  mSearchButton->setEnabled(true);
+  mSearchEdit->setEnabled(true);
+  mSearchEdit->setFocus();
   QApplication::restoreOverrideCursor();
 
   qCDebug(KHC_LOG) << "Search finished.";
 }
 
-void Navigator::checkSearchButton()
+void Navigator::checkSearchEdit()
 {
-  mSearchButton->setEnabled( !mSearchEdit->text().isEmpty() &&
-    mSearchWidget->scopeCount() > 0 && !mIndexingProc );
+  mSearchEdit->setEnabled( mSearchWidget->scopeCount() > 0 && !mIndexingProc );
 }
 
 
 void Navigator::hideSearch()
 {
-  mSearchLineEditWidget->hide();
+  mSearchEdit->hide();
   mTabWidget->removeTab( mTabWidget->indexOf( mSearchWidget ) );
 }
 
