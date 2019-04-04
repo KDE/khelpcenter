@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
 project(KHelpCenter)
-set(PROJECT_VERSION "5.7.3")
+set(PROJECT_VERSION "5.7.4")
 
 set(QT_MIN_VERSION "5.9.0")
 
