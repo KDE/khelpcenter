@@ -21,7 +21,6 @@
 
 #include "cachereader.h"
 
-#include <QDebug>
 #include <QLoggingCategory>
 #include <QStack>
 #include <QTextStream>

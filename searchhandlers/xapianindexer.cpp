@@ -24,15 +24,12 @@
 #include "xapiancommon.h"
 
 #include <docbookxslt.h>
-
+#include <QDateTime>
 #include <QCoreApplication>
 #include <QCommandLineParser>
-#include <QDebug>
-#include <QDateTime>
 #include <QDirIterator>
 #include <QLoggingCategory>
 #include <QStandardPaths>
-#include <QStringBuilder>
 
 namespace {
 

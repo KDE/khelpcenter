@@ -26,7 +26,6 @@
 #include "khc_debug.h"
 
 #include <KConfig>
-#include <KConfigGroup>
 
 #include <QIcon>
 

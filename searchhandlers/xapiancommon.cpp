@@ -23,7 +23,6 @@
 
 #include <QByteArray>
 #include <QDir>
-#include <QFileInfo>
 #include <QLoggingCategory>
 
 namespace {

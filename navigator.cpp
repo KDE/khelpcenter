@@ -22,12 +22,9 @@
 
 #include <QApplication>
 #include <QDir>
-#include <QFile>
-#include <QHBoxLayout>
 #include <QProgressBar>
 #include <QStandardPaths>
 #include <QTabWidget>
-#include <QTextStream>
 #include <QTreeWidget>
 #include <QTreeWidgetItemIterator>
 #include <QVBoxLayout>

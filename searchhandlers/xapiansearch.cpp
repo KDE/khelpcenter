@@ -23,8 +23,6 @@
 
 #include <QCoreApplication>
 #include <QCommandLineParser>
-#include <QDebug>
-#include <QFile>
 #include <QLoggingCategory>
 #include <QVector>
 

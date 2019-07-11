@@ -21,7 +21,6 @@
 
 #include "htmltextdump.h"
 
-#include <QDebug>
 #include <QLoggingCategory>
 
 #include <libxml/HTMLparser.h>

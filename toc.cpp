@@ -27,7 +27,6 @@
 #include <QFileInfo>
 #include <QIcon>
 #include <QStandardPaths>
-#include <QStatusBar>
 #include <QTextStream>
 
 #include <KProcess>

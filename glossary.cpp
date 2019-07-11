@@ -32,7 +32,6 @@
 #include <QIcon>
 #include <QStandardPaths>
 #include <QStatusBar>
-#include <QTextStream>
 #include <QTreeWidgetItem>
 
 #include <sys/stat.h>
