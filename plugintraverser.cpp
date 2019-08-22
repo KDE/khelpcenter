@@ -25,7 +25,6 @@
 #include "navigatoritem.h"
 #include "khc_debug.h"
 
-#include <KConfig>
 
 #include <QIcon>
 
