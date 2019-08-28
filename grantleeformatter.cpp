@@ -119,7 +119,7 @@ QString GrantleeFormatter::formatGlossaryEntry( const GlossaryEntry& entry )
   ctx.insert( QStringLiteral("term"), entry.term() );
   ctx.insert( QStringLiteral("definition"), entry.definition() );
   ctx.insert( QStringLiteral("seeAlsoCount"), seeAlso.count() );
-  ctx.insert( QStringLiteral("seeAlso"), i18n( "See also: %1", seeAlso.join( QStringLiteral(", ") ) ) );
+  ctx.insert( QStringLiteral("seeAlso"), i18n( "See also: %1", seeAlso.join(QLatin1String(", ") ) ) );
 
   return d->format( t, &ctx );
 }

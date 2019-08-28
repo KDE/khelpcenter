@@ -95,7 +95,7 @@ void TOC::build( const QString &file )
 
     QString cacheFile = fileName.replace( QLatin1Char('/'), QStringLiteral("__") );
 #ifdef Q_WS_WIN
-    cacheFile = cacheFile.replace( QLatin1Char(':'), QStringLiteral("_") );
+    cacheFile.replace( QLatin1Char(':'), QStringLiteral("_") );
 #endif
     m_cacheFile = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QStringLiteral("/help/") + cacheFile ;
     m_sourceFile = file;

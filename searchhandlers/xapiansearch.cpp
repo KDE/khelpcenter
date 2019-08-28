@@ -77,9 +77,9 @@ int main( int argc, char *argv[] )
   }
 
   Xapian::Query::op op;
-  if ( method == QStringLiteral( "and" ) ) {
+  if ( method == QLatin1String( "and" ) ) {
     op = Xapian::Query::OP_AND;
-  } else if ( method == QStringLiteral( "or" ) ) {
+  } else if ( method == QLatin1String( "or" ) ) {
     op = Xapian::Query::OP_OR;
   } else {
     qCCritical(LOG) << "Unrecognized method:" << method;
