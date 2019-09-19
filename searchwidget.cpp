@@ -45,7 +45,7 @@ SearchWidget::SearchWidget( SearchEngine *engine, QWidget *parent )
   mScopeCount( 0 )
 {
   QBoxLayout *topLayout = new QVBoxLayout( this );
-  topLayout->setMargin( 2 );
+  topLayout->setContentsMargins( 2, 2, 2, 2 );
   topLayout->setSpacing( 2 );
 
   QBoxLayout *hLayout = new QHBoxLayout();
