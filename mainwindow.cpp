@@ -401,7 +401,8 @@ void MainWindow::openUrl( const QString &url )
 
 void MainWindow::openUrl( const QString &url, const QByteArray& startup_id )
 {
-    KStartupInfo::setNewStartupId( this, startup_id );
+    setAttribute(Qt::WA_NativeWindow, true);
+    KStartupInfo::setNewStartupId(windowHandle(), startup_id);
     openUrl( QUrl( url ) );
 }
 
