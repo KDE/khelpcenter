@@ -139,7 +139,7 @@ QString NavigatorAppGroupItem::documentationURL( const KService *s )
     }
   }
 
-  if ( docPath.startsWith(QLatin1String("file:")) || docPath.startsWith(QLatin1String("http:") ) )
+  if ( docPath.startsWith(QLatin1String("file:")) || docPath.startsWith(QLatin1String("http") ) )
     return docPath;
 
   return QStringLiteral( "help:/" ) + docPath;

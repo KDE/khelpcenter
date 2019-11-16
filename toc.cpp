@@ -156,7 +156,6 @@ void TOC::buildCache()
         qCWarning(KHC_LOG) << "could not start process" << meinproc->program();
         if (mainWindow && !m_alreadyWarned) {
             ; // add warning message box with don't display again option 
-              // http://api.kde.org/4.0-api/kdelibs-apidocs/kdeui/html/classKDialog.html
             m_alreadyWarned = true;
         }
         delete meinproc;
@@ -173,7 +172,6 @@ void TOC::meinprocExited( int exitCode, QProcess::ExitStatus exitStatus)
         qCWarning(KHC_LOG) << "stderr output:" << meinproc->readAllStandardError();
         if (mainWindow && !m_alreadyWarned) {
             ; // add warning message box with don't display again option 
-              // http://api.kde.org/4.0-api/kdelibs-apidocs/kdeui/html/classKDialog.html
             m_alreadyWarned = true;
         }
         delete meinproc;

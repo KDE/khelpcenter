@@ -159,7 +159,6 @@ void Glossary::rebuildGlossaryCache()
         if (mainWindow && !m_alreadyWarned)
         {
             ; // add warning message box with don't display again option
-              // http://api.kde.org/4.0-api/kdelibs-apidocs/kdeui/html/classKDialog.html
             m_alreadyWarned = true;
         }
         delete meinproc;
@@ -178,7 +177,6 @@ void Glossary::meinprocFinished( int exitCode, QProcess::ExitStatus exitStatus )
         if (mainWindow && !m_alreadyWarned)
         {
             ; // add warning message box with don't display again option
-              // http://api.kde.org/4.0-api/kdelibs-apidocs/kdeui/html/classKDialog.html
             m_alreadyWarned = true;
         }
         delete meinproc;
