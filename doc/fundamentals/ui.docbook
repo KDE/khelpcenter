@@ -1358,18 +1358,8 @@ whether it be opening, closing, moving, or switching between them.</para>
 <tbody>
 
 <row>
-<entry><keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo></entry>
-<entry>Quit</entry>
-</row>
-
-<row>
-<entry><keycombo action="simul">&Ctrl;<keycap>Esc</keycap></keycombo></entry>
-<entry>System Activity</entry>
-</row>
-
-<row>
-<entry><keycombo action="simul">&Ctrl;&Alt;&Esc;</keycombo></entry>
-<entry>Force Quit</entry>
+<entry><keysym>Meta</keysym></entry>
+<entry>Open the Application Launcher</entry>
 </row>
 
 <row>
@@ -1378,8 +1368,23 @@ whether it be opening, closing, moving, or switching between them.</para>
 </row>
 
 <row>
+<entry><keycombo action="simul">&Ctrl;<keycap>Esc</keycap></keycombo></entry>
+<entry>System Activity</entry>
+</row>
+
+<row>
 <entry><keycombo action="simul">&Alt;<keycap>F4</keycap></keycombo></entry>
 <entry>Close</entry>
+</row>
+
+<row>
+<entry><keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo></entry>
+<entry>Quit</entry>
+</row>
+
+<row>
+<entry><keycombo action="simul">&Ctrl;&Alt;&Esc;</keycombo></entry>
+<entry>Force Quit</entry>
 </row>
 
 </tbody>
