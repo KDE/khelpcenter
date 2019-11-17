@@ -50,7 +50,7 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
 find_package(Grantlee5 REQUIRED)
 set_package_properties(Grantlee5 PROPERTIES
     DESCRIPTION "Support for HTML templates"
-    URL "http://grantlee.org/"
+    URL "https://github.com/steveire/grantlee"
     TYPE REQUIRED)
 
 find_package(Xapian REQUIRED)
