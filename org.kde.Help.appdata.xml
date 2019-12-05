@@ -277,4 +277,7 @@
     <binary>khelpcenter</binary>
   </provides>
   <launchable type="desktop-id">org.kde.Help.desktop</launchable>
+  <releases>
+    <release version="5.7.5.19120" date="2019-12-12"/>
+  </releases>
 </component>
