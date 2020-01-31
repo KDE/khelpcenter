@@ -203,11 +203,13 @@ void View::lastSearch()
 void View::slotIncFontSizes()
 {
   setFontScaleFactor( fontScaleFactor() + m_fontScaleStepping );
+  slotReload();
 }
 
 void View::slotDecFontSizes()
 {
   setFontScaleFactor( fontScaleFactor() - m_fontScaleStepping );
+  slotReload();
 }
 
 void View::showMenu( const QString& url, const QPoint& pos)
