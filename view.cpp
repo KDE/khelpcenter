@@ -24,6 +24,7 @@
 #include "grantleeformatter.h"
 #include "history.h"
 #include "khc_debug.h"
+#include "mainwindow.h"
 
 #include <dom/html_document.h>
 #include <dom/html_head.h>
@@ -36,6 +37,7 @@
 #include <KSharedConfig>
 #include <docbookxslt.h>
 
+#include <QApplication>
 #include <QClipboard>
 #include <QDir>
 #include <QFileInfo>
@@ -203,13 +205,13 @@ void View::lastSearch()
 void View::slotIncFontSizes()
 {
   setFontScaleFactor( fontScaleFactor() + m_fontScaleStepping );
-  slotReload();
+  reloadPage();
 }
 
 void View::slotDecFontSizes()
 {
   setFontScaleFactor( fontScaleFactor() - m_fontScaleStepping );
-  slotReload();
+  reloadPage();
 }
 
 void View::showMenu( const QString& url, const QPoint& pos)
@@ -251,7 +253,7 @@ void View::slotCopyLink()
 }
 
 static DOM::HTMLLinkElement findLink(const DOM::NodeList& links, const char *rel)
-{ 
+{
   for (unsigned i = 0; i <= links.length(); ++i) {
     DOM::HTMLLinkElement link(links.item(i));
     if (link.isNull())
@@ -363,5 +365,10 @@ void View::slotReload( const QUrl &url )
     openUrl( url );
 }
 
+void View::reloadPage()
+{
+  MainWindow *mainWindow = dynamic_cast<MainWindow *>( qobject_cast<QApplication*>(qApp)->activeWindow() );
+  mainWindow->viewUrl(baseURL().url());
+}
 
 // vim:ts=2:sw=2:et

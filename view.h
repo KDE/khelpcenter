@@ -90,7 +90,7 @@ class View : public KHTMLPart
 
   private:
     QUrl urlFromLinkNode( const DOM::HTMLLinkElement &link ) const;
- 
+
     int mState;
     QString mTitle;
 
@@ -102,6 +102,7 @@ class View : public KHTMLPart
     GrantleeFormatter *mGrantleeFormatter;
     KActionCollection *mActionCollection;
     QString mCopyURL;
+    void reloadPage();
 };
 
 }
