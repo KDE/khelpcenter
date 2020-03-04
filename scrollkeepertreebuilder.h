@@ -36,6 +36,8 @@ class ScrollKeeperTreeBuilder : public QObject
 
     void build( NavigatorItem *parent );
 
+    void buildOrHide( NavigatorItem *parent );
+
   private:
     void loadConfig();
     int insertSection( NavigatorItem *parent,

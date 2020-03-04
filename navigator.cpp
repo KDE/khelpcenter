@@ -275,7 +275,7 @@ void Navigator::insertInfoDocs( NavigatorItem *topItem )
 void Navigator::insertScrollKeeperDocs( NavigatorItem *topItem )
 {
   ScrollKeeperTreeBuilder *builder = new ScrollKeeperTreeBuilder( this );
-  builder->build( topItem );
+  builder->buildOrHide( topItem );
 }
 
 void Navigator::selectItem( const QUrl &url )

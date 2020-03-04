@@ -45,6 +45,13 @@ void ScrollKeeperTreeBuilder::loadConfig()
   mShowEmptyDirs = Prefs::showEmptyDirs();
 }
 
+void ScrollKeeperTreeBuilder::buildOrHide( NavigatorItem *parent )
+{
+  build(parent);
+
+  parent->setHidden(parent->childCount() == 0);
+}
+
 void ScrollKeeperTreeBuilder::build( NavigatorItem *parent )
 {
   QString lang = QLocale().bcp47Name();
