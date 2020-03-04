@@ -216,13 +216,17 @@ History                 no X-KDE-PluginKeyword in kcmhistory.desktop
     list = KServiceTypeTrader::self()->query( QStringLiteral("KCModule"), QStringLiteral("[X-KDE-ParentApp] == 'kinfocenter'") );
   }
 
+  bool no_children_present = true;
+
   for ( KService::List::const_iterator it = list.constBegin(); it != list.constEnd(); ++it )
   {
     KService::Ptr s(*it);
     QString desktopFile = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kservices5/") + s->entryPath() );
     createItemFromDesktopFile( topItem, desktopFile );
+    no_children_present = false;
     }
     topItem->sortChildren( 0, Qt::AscendingOrder /* ascending */ );
+    topItem->setHidden(no_children_present);
 }
 
 void Navigator::insertIOSlaveDocs( const QString &name, NavigatorItem *topItem )
