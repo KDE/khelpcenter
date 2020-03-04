@@ -89,6 +89,7 @@ void NavigatorAppGroupItem::populate( bool recursive )
     return;
   }
   KServiceGroup::List list = root->entries();
+  bool no_children_present = true;
 
 
   for ( KServiceGroup::List::ConstIterator it = list.constBegin();
@@ -106,6 +107,7 @@ void NavigatorAppGroupItem::populate( bool recursive )
           DocEntry *entry = new DocEntry( s->name(), url, s->icon() );
           NavigatorAppItem *item = new NavigatorAppItem( entry, this );
           item->setAutoDeleteDocEntry( true );
+          no_children_present = false;
         }
         break;
       }
@@ -119,6 +121,7 @@ void NavigatorAppGroupItem::populate( bool recursive )
         appItem = new NavigatorAppGroupItem( entry, this, g->relPath() );
         appItem->setAutoDeleteDocEntry( true );
         if ( recursive ) appItem->populate( recursive );
+        no_children_present = false;
         break;
       }
       default:
@@ -127,6 +130,7 @@ void NavigatorAppGroupItem::populate( bool recursive )
   }
   sortChildren( 0, Qt::AscendingOrder /* ascending */ );
   mPopulated = true;
+  setHidden(no_children_present);
 }
 
 QString NavigatorAppGroupItem::documentationURL( const KService *s )
