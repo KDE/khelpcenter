@@ -105,7 +105,12 @@ bool CacheReader::parse( const QString& file )
 
 QSet<QString> CacheReader::documents() const
 {
-  return QSet<QString>::fromList( mRanges.uniqueKeys() );
+  QList<QString> keys = mRanges.uniqueKeys();
+#if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
+  return QSet<QString>::fromList( keys );
+#else
+  return QSet<QString>( keys.begin(), keys.end() );
+#endif
 }
 
 QByteArray CacheReader::document( const QString& id ) const
