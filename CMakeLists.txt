@@ -64,9 +64,6 @@ set_package_properties(LibXml2 PROPERTIES
     DESCRIPTION "Support for extracting text from HTML documents"
     URL "http://www.xmlsoft.org/"
     TYPE REQUIRED)
-if (EXISTS "${CMAKE_SOURCE_DIR}/.git")
-   add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x060000)
-endif()
 
 add_definitions(
   -DQT_USE_QSTRINGBUILDER
