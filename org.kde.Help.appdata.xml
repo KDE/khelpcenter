@@ -282,9 +282,9 @@
   </provides>
   <launchable type="desktop-id">org.kde.Help.desktop</launchable>
   <releases>
+    <release version="5.7.6.20041" date="2020-05-14"/>
     <release version="5.7.6.20040" date="2020-04-23"/>
     <release version="5.7.5.19122" date="2020-02-06"/>
     <release version="5.7.5.19121" date="2020-01-09"/>
-    <release version="5.7.5.19120" date="2019-12-12"/>
   </releases>
 </component>
