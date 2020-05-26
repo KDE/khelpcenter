@@ -295,12 +295,10 @@ void Navigator::selectItem( const QUrl &url )
   // Make sure that we match both the original URL as well as
   // its counterpart.
   QUrl alternativeURL = url;
-  QUrl contentsItemURL = url;
   if (url.hasFragment())
   {
      alternativeURL.setQuery(QStringLiteral("anchor=")+url.fragment());
      alternativeURL.setFragment(QString());
-     contentsItemURL.setFragment(QString());
   }
 
   // If the navigator already has the given URL selected, do nothing.
@@ -325,32 +323,22 @@ void Navigator::selectItem( const QUrl &url )
     }
   }
   
-  NavigatorItem *contentsItem = nullptr;
   QTreeWidgetItemIterator it( mContentsTree );
   while ( (*it) ) {
     NavigatorItem *item = static_cast<NavigatorItem *>( (*it) );
     QUrl itemUrl( item->entry()->url() );
     if ( (itemUrl == url) || (itemUrl == alternativeURL) ) {
+      mContentsTree->setCurrentItem( item );
       // If the current item was not selected and remained unchanged it
       // needs to be explicitly selected
       mContentsTree->setCurrentItem(item);
       item->setExpanded( true );
       break;
     }
-    if ( (contentsItem == nullptr) && (itemUrl == contentsItemURL) ) {
-      contentsItem = item;
-    }
     ++it;
   }
   if ( !(*it) ) {
-    // if search with fragment didn't find anything, but item without fragment was found, use it
-    if ( contentsItem != nullptr ) {
-      mContentsTree->setCurrentItem(contentsItem);
-      item->setExpanded( true );
-      mSelected = true;
-    } else {
       clearSelection();
-    }
   } else {
     mSelected = true;
   }
