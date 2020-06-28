@@ -67,17 +67,6 @@ language, review the information, including coordinators for each language team,
 on the <ulink url="https://l10n.kde.org/">Localization web site</ulink>.
 </para>
 
-<sect2 id="installation">
-<title>Installation</title>
-
-<para>
-&khelpcenter; is a part of the &applications;.
-It can be found on the <ulink url="https://download.kde.org/">
-download site</ulink> of the &kde; project, or will be found in your
-operating system's &khelpcenter; package.
-</para>
-
-</sect2>
 </sect1>
 
 <sect1 id="invoking-help">
