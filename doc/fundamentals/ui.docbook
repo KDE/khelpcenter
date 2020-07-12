@@ -61,11 +61,6 @@ part of the window to learn more about it.</para>
 The <emphasis role="bold">Window Menu</emphasis>
 </para></listitem>
 
-<!--FIXME no longer in kf5 listitem><para>
-A <link linkend="visualdict-button">Button</link> to place this window on all
-desktops
-</para></listitem-->
-
 <listitem><para>
 The <emphasis role="bold"><link linkend="visualdict-titlebar">Titlebar</link></emphasis>
 </para></listitem>
@@ -168,7 +163,7 @@ More <emphasis role="bold"><link linkend="visualdict-panel">Panels</link></empha
 </sect3>
 
 <sect3 id="visualdict-gui">
-<title>&GUI; Elements</title>
+<title>Elements of Graphical User Interface (&GUI;)</title>
 
 <screenshot>
 <screeninfo>Some &GUI; Elements</screeninfo>
