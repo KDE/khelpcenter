@@ -110,6 +110,7 @@
     <p xml:lang="pt-BR">Um aplicativo para pesquisar e ler a documentação de todos os aplicativos do KDE e utilitários do sistema</p>
     <p xml:lang="ru">Приложение для поиска и чтения документации к приложениям KDE и программам системы</p>
     <p xml:lang="sk">Aplikácia na vyhľadávanie a čítanie dokumentácie pre všetky vaše KDE aplikácie a systémové nástroje</p>
+    <p xml:lang="sl">Aplikacija za iskanje in branje dokumentacije za vse aplikacije KDE in sistemska orodja</p>
     <p xml:lang="sv">Ett program för att söka i och läsa dokumentationen om alla KDE-program och systemverktyg</p>
     <p xml:lang="uk">Програма для пошуку і читання документації до усіх програм KDE та засобів системи</p>
     <p xml:lang="x-test">xxAn application to search and read the documentation for all your KDE applications and system utilitiesxx</p>
@@ -223,7 +224,7 @@
       <li xml:lang="pt-BR">Pesquise na documentação disponível</li>
       <li xml:lang="ru">Поиск по доступной документации.</li>
       <li xml:lang="sk">Prehľadávať v dostupnej dokumentácii</li>
-      <li xml:lang="sl">Iščite po razpoložljivi dokumentaciji</li>
+      <li xml:lang="sl">Išči po razpoložljivi dokumentaciji</li>
       <li xml:lang="sr">тражење кроз доступну документацију</li>
       <li xml:lang="sr-Latn">traženje kroz dostupnu dokumentaciju</li>
       <li xml:lang="sr-ijekavian">тражење кроз доступну документацију</li>
@@ -263,6 +264,7 @@
       <caption xml:lang="pt-BR">Janela principal do KHelpCenter</caption>
       <caption xml:lang="ru">Главное окно KHelpCenter</caption>
       <caption xml:lang="sk">KHelpCenter hlavné okno</caption>
+      <caption xml:lang="sl">Glavno okno - KHelpCenter</caption>
       <caption xml:lang="sv">Huvudfönstret i Hjälpcentralen</caption>
       <caption xml:lang="uk">Головне вікно KHelpCenter</caption>
       <caption xml:lang="x-test">xxKHelpCenter main windowxx</caption>
