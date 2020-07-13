@@ -22,7 +22,7 @@
 #ifndef KHC_BOOKMARKOWNER_H
 #define KHC_BOOKMARKOWNER_H
 
-#include <kbookmarkowner.h>
+#include <KBookmarkOwner>
 #include <QObject>
 
 namespace KHC {
