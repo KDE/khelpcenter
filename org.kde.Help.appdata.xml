@@ -30,6 +30,7 @@
   <name xml:lang="pl">KOśrodekPomocy</name>
   <name xml:lang="pt">KHelpCenter</name>
   <name xml:lang="pt-BR">KHelpCenter</name>
+  <name xml:lang="ro">KHelpCenter</name>
   <name xml:lang="ru">KHelpCenter</name>
   <name xml:lang="sk">KHelpCenter</name>
   <name xml:lang="sl">KHelpCenter</name>
@@ -70,6 +71,7 @@
   <summary xml:lang="pl">Ośrodek Pomocy</summary>
   <summary xml:lang="pt">Centro de Ajuda</summary>
   <summary xml:lang="pt-BR">Centro de ajuda</summary>
+  <summary xml:lang="ro">Centrul de ajutor</summary>
   <summary xml:lang="ru">Центр справки</summary>
   <summary xml:lang="sk">Pomocník KDE</summary>
   <summary xml:lang="sl">Središče za pomoč</summary>
@@ -109,6 +111,7 @@
     <p xml:lang="pl">Aplikacja do wyszukiwania i czytania dokumentacji dla wszystkich twoich aplikacji KDE i narzędzi systemowych</p>
     <p xml:lang="pt">Uma aplicação para pesquisar e ler a documentação de todas as suas aplicações do KDE e utilitários do sistema</p>
     <p xml:lang="pt-BR">Um aplicativo para pesquisar e ler a documentação de todos os aplicativos do KDE e utilitários do sistema</p>
+    <p xml:lang="ro">Aplicație pentru căutarea și citirea documentației pentru toate aplicațiile KDE și utilitarele de sistem</p>
     <p xml:lang="ru">Приложение для поиска и чтения документации к приложениям KDE и программам системы</p>
     <p xml:lang="sk">Aplikácia na vyhľadávanie a čítanie dokumentácie pre všetky vaše KDE aplikácie a systémové nástroje</p>
     <p xml:lang="sl">Aplikacija za iskanje in branje dokumentacije za vse aplikacije KDE in sistemska orodja</p>
@@ -144,6 +147,7 @@
     <p xml:lang="pl">Możliwości:</p>
     <p xml:lang="pt">Funcionalidades:</p>
     <p xml:lang="pt-BR">Recursos:</p>
+    <p xml:lang="ro">Caracteristici:</p>
     <p xml:lang="ru">Возможности:</p>
     <p xml:lang="sk">Funkcie:</p>
     <p xml:lang="sl">Zmožnosti:</p>
@@ -184,6 +188,7 @@
       <li xml:lang="pl">Wyświetlanie dokumentacji z różnych źródeł (aplikacje ze społeczności KDE, strony instrukcji, itp.)</li>
       <li xml:lang="pt">Mostra a documentação de várias fontes (aplicações das comunidades do KDE, páginas de manual do 'man', etc.)</li>
       <li xml:lang="pt-BR">Exibe a documentação de várias fontes (aplicativos da comunidade KDE, páginas de manual, etc)</li>
+      <li xml:lang="ro">Arată documentație din diferite surse (aplicații de la comunitatea KDE, pagini de manual, etc.)</li>
       <li xml:lang="ru">Просмотр документации из разных источников: из поставки приложений от сообщества KDE, страниц руководств UNIX и других;</li>
       <li xml:lang="sk">Zobraziť dokumentáciu z rôznych zdrojov (aplikácie z KDE komunity, man stránky atď.)</li>
       <li xml:lang="sl">Pokaže dokumentacijo iz različnih virov (programov skupnosti KDE, strani man, itd.)</li>
@@ -223,6 +228,7 @@
       <li xml:lang="pl">Wyszukiwanie w dostępnej dokumentacji</li>
       <li xml:lang="pt">Pesquisa pela documentação disponível</li>
       <li xml:lang="pt-BR">Pesquise na documentação disponível</li>
+      <li xml:lang="ro">Caută prin documentația disponibilă</li>
       <li xml:lang="ru">Поиск по доступной документации.</li>
       <li xml:lang="sk">Prehľadávať v dostupnej dokumentácii</li>
       <li xml:lang="sl">Išči po razpoložljivi dokumentaciji</li>
@@ -264,6 +270,7 @@
       <caption xml:lang="pl">Główne okno KOśrodkaPomocy</caption>
       <caption xml:lang="pt">Janela principal do KHelpCenter</caption>
       <caption xml:lang="pt-BR">Janela principal do KHelpCenter</caption>
+      <caption xml:lang="ro">Fereastra principală KHelpCenter</caption>
       <caption xml:lang="ru">Главное окно KHelpCenter</caption>
       <caption xml:lang="sk">KHelpCenter hlavné okno</caption>
       <caption xml:lang="sl">Glavno okno - KHelpCenter</caption>
