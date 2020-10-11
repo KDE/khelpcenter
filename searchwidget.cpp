@@ -321,7 +321,7 @@ void SearchWidget::scopeDoubleClicked( QTreeWidgetItem* item )
 
   qCDebug(KHC_LOG) << "DoubleClick: " << searchUrl;
 
-  emit searchResult( searchUrl );
+  Q_EMIT searchResult( searchUrl );
 }
 
 void SearchWidget::scopeClicked( QTreeWidgetItem* )
@@ -363,7 +363,7 @@ void SearchWidget::checkScope()
     ++it;
   }
 
-  emit scopeCountChanged( mScopeCount );
+  Q_EMIT scopeCountChanged( mScopeCount );
 }
 
 int SearchWidget::scopeCount() const

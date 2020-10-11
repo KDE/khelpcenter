@@ -50,7 +50,7 @@ bool SearchJob::startLocal(const QString &cmdString)
     mProcess->start();
     if (!mProcess->waitForStarted()) {
         QString txt = i18n("Error executing search command '%1'.", cmdString );
-        emit searchError( this, mEntry, txt );
+        Q_EMIT searchError( this, mEntry, txt );
         return false;
     }
     return true;
@@ -76,11 +76,11 @@ void SearchJob::searchExited( int exitCode, QProcess::ExitStatus exitStatus )
 {
     if ( exitStatus == QProcess::NormalExit && exitCode == 0 ) {
         mResult = QString::fromUtf8(mProcess->readAllStandardOutput());
-        emit searchFinished( this, mEntry, mResult );
+        Q_EMIT searchFinished( this, mEntry, mResult );
     } else {
         mError = QString::fromUtf8(mProcess->readAllStandardError());
         QString error = QLatin1String("<em>") + mCmd + QLatin1String("</em>\n") + mError;
-        emit searchError( this, mEntry, error );
+        Q_EMIT searchError( this, mEntry, error );
     }
 }
 
@@ -90,9 +90,9 @@ void SearchJob::slotJobResult( KJob *job )
     //DocEntry *entry = 0;
 
     if ( job->error() ) {
-        emit searchError( this, mEntry, i18n("Error: %1", job->errorString() ) );
+        Q_EMIT searchError( this, mEntry, i18n("Error: %1", job->errorString() ) );
     } else {
-        emit searchFinished( this, mEntry, mResult );
+        Q_EMIT searchFinished( this, mEntry, mResult );
     }
 }
 
@@ -213,19 +213,19 @@ void ExternalProcessSearchHandler::search( DocEntry *entry, const QStringList &w
 
   } else {
     const QString txt = i18n("No search command or URL specified.");
-    emit searchFinished( this, entry, txt );
+    Q_EMIT searchFinished( this, entry, txt );
   }
 }
 
 void ExternalProcessSearchHandler::slotSearchFinished( SearchJob *job, DocEntry *entry, const QString &result )
 {
-    emit searchFinished( this, entry, result);
+    Q_EMIT searchFinished( this, entry, result);
     job->deleteLater();
 }
 
 void ExternalProcessSearchHandler::slotSearchError( SearchJob *job, DocEntry *entry, const QString &error )
 {
-    emit searchError(this, entry, error);
+    Q_EMIT searchError(this, entry, error);
     job->deleteLater();
 }
 

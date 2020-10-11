@@ -274,7 +274,7 @@ void Glossary::treeItemSelected( QTreeWidgetItem *item )
         return;
 
     if ( EntryItem *i = dynamic_cast<EntryItem *>( item ) )
-        emit entrySelected( entry( i->id() ) );
+        Q_EMIT entrySelected( entry( i->id() ) );
 
     item->setExpanded( !item->isExpanded() );
 }

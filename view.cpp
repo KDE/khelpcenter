@@ -177,7 +177,7 @@ void View::writeSearchResult( const QString &str )
 void View::endSearchResult()
 {
   end();
-  if ( !mSearchResult.isEmpty() ) emit searchResultCacheAvailable();
+  if ( !mSearchResult.isEmpty() ) Q_EMIT searchResultCacheAvailable();
 }
 
 void View::beginInternal( const QUrl &url )
@@ -275,7 +275,7 @@ bool View::prevPage(bool checkOnly)
     return false;
 
   if (!checkOnly)
-    emit browserExtension()->openUrlRequest(prevURL);
+    Q_EMIT browserExtension()->openUrlRequest(prevURL);
   return true;
 }
 
@@ -289,7 +289,7 @@ bool View::nextPage(bool checkOnly)
     return false;
 
   if (!checkOnly)
-    emit browserExtension()->openUrlRequest(nextURL);
+    Q_EMIT browserExtension()->openUrlRequest(nextURL);
   return true;
 }
 

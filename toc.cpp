@@ -259,7 +259,7 @@ void TOC::slotItemSelected( QTreeWidgetItem *item )
 {
     TOCItem *tocItem;
     if ( ( tocItem = dynamic_cast<TOCItem *>( item ) ) )
-        emit itemSelected( tocItem->entry()->url() );
+        Q_EMIT itemSelected( tocItem->entry()->url() );
 
     item->setExpanded( !item->isExpanded() );
 }

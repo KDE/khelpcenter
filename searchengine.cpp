@@ -318,7 +318,7 @@ void SearchEngine::finishSearch()
   mRootTraverser = nullptr;
   mSearchRunning = false;
 
-  emit searchFinished();
+  Q_EMIT searchFinished();
 }
 
 QString SearchEngine::errorLog() const

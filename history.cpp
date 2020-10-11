@@ -231,12 +231,12 @@ void History::goHistory( int steps )
 
   if ( current->url.scheme() == QLatin1String("khelpcenter") ) {
     qCDebug(KHC_LOG) << "History::goHistory(): internal";
-    emit goInternalUrl( current->url );
+    Q_EMIT goInternalUrl( current->url );
     return;
   }
 
 
-  emit goUrl( current->url );
+  Q_EMIT goUrl( current->url );
 
   Entry h( *current );
   h.buffer.detach();

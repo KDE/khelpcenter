@@ -385,7 +385,7 @@ void Navigator::slotItemSelected( QTreeWidgetItem *currentItem )
       showOverview( item, url );
   } else {
    
-    emit itemSelected( url.url() );
+    Q_EMIT itemSelected( url.url() );
   }
 }
 
@@ -528,7 +528,7 @@ void Navigator::slotShowSearchResult( const QString &url )
   QString u = url;
   u.replace( QStringLiteral("%k"), mSearchEdit->text() );
 
-  emit itemSelected( u );
+  Q_EMIT itemSelected( u );
 }
 
 void Navigator::slotSearchFinished()
@@ -611,7 +611,7 @@ void Navigator::slotDelayedIndexingStart()
     return;
   }
 
-  emit setStatusBarText( i18n( "Updating search index..." ) );
+  Q_EMIT setStatusBarText( i18n( "Updating search index..." ) );
 
   mIndexingTimer.start();
 
@@ -622,7 +622,7 @@ void Navigator::slotDoIndexWork()
 {
   if ( mIndexingQueue.isEmpty() ) {
     mIndexingTimer.stop();
-    emit setStatusBarText( i18n( "Updating search index... done." ) );
+    Q_EMIT setStatusBarText( i18n( "Updating search index... done." ) );
     mIndexingBar->hide();
     mSearchWidget->searchIndexUpdated();
     return;

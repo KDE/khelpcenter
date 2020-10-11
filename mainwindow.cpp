@@ -100,7 +100,7 @@ class LogDialog : public QDialog
     }
 
   private:
-    QTextEdit *mTextView;
+    QTextEdit *mTextView = nullptr;
 };
 
 
