@@ -49,8 +49,7 @@ FontDialog::FontDialog( QWidget *parent )
 {
   setModal( true );
   setWindowTitle( i18n( "Font Configuration" ) );
-  QVBoxLayout *mainLayout = new QVBoxLayout;
-  setLayout(mainLayout);
+  QVBoxLayout *mainLayout = new QVBoxLayout(this);
 
   setupFontSizesBox();
   setupFontTypesBox();
