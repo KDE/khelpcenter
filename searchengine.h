@@ -68,10 +68,10 @@ class SearchTraverser : public QObject, public DocEntryTraverser
   private:
     const int mMaxLevel;
 
-    SearchEngine *mEngine;
+    SearchEngine *mEngine = nullptr;
     int mLevel;
 
-    DocEntry *mEntry;
+    DocEntry *mEntry = nullptr;
     QString mJobData;
 
     QList<QPair<DocEntry *, QString> > mResults;

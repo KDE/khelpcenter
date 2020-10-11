@@ -118,13 +118,13 @@ class MainWindow : public KXmlGuiWindow
 private:
     void updateFontScaleActions();
 
-    QSplitter *mSplitter;
-    View *mDoc;
-    Navigator *mNavigator;
+    QSplitter *mSplitter = nullptr;
+    View *mDoc = nullptr;
+    Navigator *mNavigator = nullptr;
 
-    QAction *mLastSearchAction;
-    QAction *mCopyText;
-    LogDialog *mLogDialog;
+    QAction *mLastSearchAction = nullptr;
+    QAction *mCopyText = nullptr;
+    LogDialog *mLogDialog = nullptr;
 };
 
 }

@@ -41,11 +41,11 @@ namespace KHC {
       DocEntryTraverser *createChild( DocEntry *entry ) override;
 
   private:
-    QTreeWidget *mListView;
-    NavigatorItem *mParentItem;
-    NavigatorItem *mCurrentItem;
+    QTreeWidget *mListView = nullptr;
+    NavigatorItem *mParentItem = nullptr;
+    NavigatorItem *mCurrentItem = nullptr;
 
-    Navigator *mNavigator;
+    Navigator *mNavigator = nullptr;
   };
 }
 

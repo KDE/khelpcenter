@@ -99,8 +99,8 @@ class View : public KHTMLPart
 
     int m_fontScaleStepping;
 
-    GrantleeFormatter *mGrantleeFormatter;
-    KActionCollection *mActionCollection;
+    GrantleeFormatter *mGrantleeFormatter = nullptr;
+    KActionCollection *mActionCollection = nullptr;
     QString mCopyURL;
     void reloadPage();
 };

@@ -123,8 +123,8 @@ namespace KHC {
       QString mKhelpcenterSpecial;
 
       List mChildren;
-      DocEntry *mParent;
-      DocEntry *mNextSibling;
+      DocEntry *mParent = nullptr;
+      DocEntry *mNextSibling = nullptr;
 
       int mWeight;
       bool mSearchEnabled : 1;

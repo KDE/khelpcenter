@@ -65,7 +65,7 @@ class TOC : public QObject
 		QString m_cacheFile;
 		QString m_sourceFile;
 
-		NavigatorItem *m_parentItem;
+        NavigatorItem *m_parentItem = nullptr;
 		static bool m_alreadyWarned;
 };
 

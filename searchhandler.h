@@ -55,9 +55,9 @@ namespace KHC {
       void slotJobData( KIO::Job *, const QByteArray &data );
 
     protected:
-      DocEntry *mEntry;
-      KProcess *mProcess;
-      KIO::Job *mKioJob;
+      DocEntry *mEntry = nullptr;
+      KProcess *mProcess = nullptr;
+      KIO::Job *mKioJob = nullptr;
       QString mCmd;
       QString mResult;
       QString mError;

@@ -43,7 +43,7 @@ class ScopeItem : public QTreeWidgetItem
   private:
     void init() { setCheckState(0, Qt::Checked); }
 
-    DocEntry *mEntry;
+    DocEntry *mEntry = nullptr;
 };
 
 }

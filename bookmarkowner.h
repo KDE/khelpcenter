@@ -44,7 +44,7 @@ class BookmarkOwner : public QObject, public KBookmarkOwner
     void openUrl( const QUrl& url );
 
   private:
-    View *mView;
+    View *const mView;
 };
 
 }

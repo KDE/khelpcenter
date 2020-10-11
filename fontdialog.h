@@ -34,7 +34,7 @@ namespace KHC {
     Q_OBJECT
     
     public:
-      explicit FontDialog( QWidget *parent );
+      explicit FontDialog( QWidget *parent = nullptr);
 
     protected Q_SLOTS:
       virtual void slotOk();
@@ -47,16 +47,16 @@ namespace KHC {
       void load();
       void save();
 
-      QSpinBox *m_minFontSize;
-      QSpinBox *m_medFontSize;
-      QFontComboBox *m_standardFontCombo;
-      QFontComboBox *m_fixedFontCombo;
-      QFontComboBox *m_serifFontCombo;
-      QFontComboBox *m_sansSerifFontCombo;
-      QFontComboBox *m_italicFontCombo;
-      QFontComboBox *m_fantasyFontCombo;
-      KComboBox *m_defaultEncoding;
-      QSpinBox *m_fontSizeAdjustement;
+      QSpinBox *m_minFontSize = nullptr;
+      QSpinBox *m_medFontSize = nullptr;
+      QFontComboBox *m_standardFontCombo = nullptr;
+      QFontComboBox *m_fixedFontCombo = nullptr;
+      QFontComboBox *m_serifFontCombo = nullptr;
+      QFontComboBox *m_sansSerifFontCombo = nullptr;
+      QFontComboBox *m_italicFontCombo = nullptr;
+      QFontComboBox *m_fantasyFontCombo = nullptr;
+      KComboBox *m_defaultEncoding = nullptr;
+      QSpinBox *m_fontSizeAdjustement = nullptr;
   };
 
 }

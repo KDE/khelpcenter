@@ -50,7 +50,7 @@ class NavigatorItem : public QTreeWidgetItem
   private:
     void init( DocEntry * );
 
-    DocEntry *mEntry;
+    DocEntry *mEntry = nullptr;
     bool mAutoDeleteDocEntry;
 };
 

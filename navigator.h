@@ -109,26 +109,26 @@ class Navigator : public QWidget
     void insertPlugins();
     void hideSearch();
 
-    QTreeWidget *mContentsTree;
-    Glossary *mGlossaryTree;
+    QTreeWidget *mContentsTree = nullptr;
+    Glossary *mGlossaryTree = nullptr;
 
-    SearchWidget *mSearchWidget;
+    SearchWidget *mSearchWidget = nullptr;
 
-    QTabWidget *mTabWidget;
+    QTabWidget *mTabWidget = nullptr;
 
-    KLineEdit *mSearchEdit;
+    KLineEdit *mSearchEdit = nullptr;
 
-    SearchEngine *mSearchEngine;
+    SearchEngine *mSearchEngine = nullptr;
 
-    View *mView;
+    View *mView = nullptr;
 
     QUrl mHomeUrl;
     
-    bool mSelected;
+    bool mSelected = false;
 
     DocEntry::List mIndexingQueue;
-    KProcess *mIndexingProc;
-    QProgressBar *mIndexingBar;
+    KProcess *mIndexingProc = nullptr;
+    QProgressBar *mIndexingBar = nullptr;
     QTimer mIndexingTimer;
 };
 

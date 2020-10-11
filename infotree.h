@@ -29,16 +29,16 @@ namespace KHC
   {
     Q_OBJECT
     public:
-      explicit InfoTree( QObject *parent );
+      explicit InfoTree( QObject *parent = nullptr);
 
       void build( NavigatorItem  *parentItem ) override;
 
     private:
       void parseInfoDirFile( const QString &fileName );
 
-      NavigatorItem *m_parentItem;
-      NavigatorItem *m_alphabItem;
-      NavigatorItem *m_categoryItem;
+      NavigatorItem *m_parentItem = nullptr;
+      NavigatorItem *m_alphabItem = nullptr;
+      NavigatorItem *m_categoryItem = nullptr;
   };
 }
 

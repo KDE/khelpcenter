@@ -42,7 +42,7 @@ namespace KHC {
         void activate(const QStringList& args, const QString &workingDirectory);
 
     private:
-      MainWindow *mMainWindow;
+      MainWindow *mMainWindow = nullptr;
       QUrl mOpen;
       QCommandLineParser mCmdParser;
   };

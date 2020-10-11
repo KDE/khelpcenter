@@ -106,8 +106,8 @@ class History : public QObject
     int m_goMenuHistoryStartPos;
     int m_goMenuHistoryCurrentPos;
   public:
-    KToolBarPopupAction *m_backAction;
-    KToolBarPopupAction *m_forwardAction;
+    KToolBarPopupAction *m_backAction = nullptr;
+    KToolBarPopupAction *m_forwardAction = nullptr;
 };
 
 }
