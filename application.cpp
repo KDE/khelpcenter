@@ -92,7 +92,7 @@ extern "C" int Q_DECL_EXPORT kdemain( int argc, char **argv )
                         QStringLiteral(PROJECT_VERSION),
                         i18n("Help Center"),
                         KAboutLicense::GPL,
-                        i18n("(c) 1999-2018, The KHelpCenter developers") );
+                        i18n("(c) 1999-2020, The KHelpCenter developers") );
 
   aboutData.addAuthor( QStringLiteral("Luigi Toscano"), i18n("Current maintainer"), QStringLiteral("luigi.toscano@tiscali.it") );
   aboutData.addAuthor( QStringLiteral("Pino Toscano"), i18n("Xapian-based search, lot of bugfixes"), QStringLiteral("pino@kde.org") );
