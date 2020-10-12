@@ -53,10 +53,17 @@
 #include <KConfigGroup>
 #include <KHTMLSettings>
 #include <KHTMLView>
-#include <KRun>
 #include <KStandardAction>
 #include <KStartupInfo>
 #include <KWindowConfig>
+
+#include <kio_version.h>
+#if KIO_VERSION < QT_VERSION_CHECK(5, 71, 0)
+#include <KRun>
+#else
+#include <KIO/JobUiDelegate>
+#include <KIO/OpenUrlJob>
+#endif
 
 #include <KIO/Job>
 
@@ -352,7 +359,13 @@ void MainWindow::viewUrl( const QUrl &url, const KParts::OpenUrlArguments &args,
     }
 
     if ( !own ) {
+#if KIO_VERSION < QT_VERSION_CHECK(5, 71, 0)
         new KRun( url,this );
+#else
+        auto *job = new KIO::OpenUrlJob(QUrl(url));
+        job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
+        job->start();
+#endif
         return;
     }
 
