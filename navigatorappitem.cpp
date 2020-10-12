@@ -32,8 +32,7 @@ using namespace KHC;
 QMap< QString,NavigatorAppItem* > NavigatorAppItem::s_menuItemsMap;
 
 NavigatorAppItem::NavigatorAppItem( DocEntry *entry, QTreeWidgetItem *parent )
-  : NavigatorItem( entry, parent ),
-    mToc( nullptr )
+  : NavigatorItem( entry, parent )
 {
   auto iter = s_menuItemsMap.find(entry->url());
   if (iter == s_menuItemsMap.end())
@@ -44,8 +43,7 @@ NavigatorAppItem::NavigatorAppItem( DocEntry *entry, QTreeWidgetItem *parent )
 
 NavigatorAppItem::NavigatorAppItem( DocEntry *entry, QTreeWidget *parent,
                   QTreeWidgetItem *after )
-  : NavigatorItem( entry, parent, after ),
-    mToc( nullptr )
+  : NavigatorItem( entry, parent, after )
 {
   auto iter = s_menuItemsMap.find(entry->url());
   if (iter == s_menuItemsMap.end())
@@ -56,8 +54,7 @@ NavigatorAppItem::NavigatorAppItem( DocEntry *entry, QTreeWidget *parent,
 
 NavigatorAppItem::NavigatorAppItem( DocEntry *entry, QTreeWidgetItem *parent,
                   QTreeWidgetItem *after )
-  : NavigatorItem( entry, parent, after ),
-    mToc( nullptr )
+  : NavigatorItem( entry, parent, after )
 {
   auto iter = s_menuItemsMap.find(entry->url());
   if (iter == s_menuItemsMap.end())

@@ -65,7 +65,7 @@ View::View( QWidget *parentWidget, QObject *parent, KHTMLPart::GUIProfile prof, 
     connect(this, &View::setWindowCaption, this, &View::setTitle);
     connect( this, QOverload<const QString &, const QPoint &>::of(&View::popupMenu), this, &View::showMenu );
 
-    QString css = langLookup(QStringLiteral("kdoctools5-common/kde-default.css"));
+    const QString css = langLookup(QStringLiteral("kdoctools5-common/kde-default.css"));
     if (!css.isEmpty())
     {
        QFile css_file(css);
@@ -123,10 +123,11 @@ QString View::langLookup( const QString &fname )
 
     // this is kind of compat hack as we install our docs in en/ but the
     // default language is en_US
-    for (QStringList::Iterator it = langs.begin(); it != langs.end(); ++it)
+    for (QStringList::Iterator it = langs.begin(); it != langs.end(); ++it) {
         if (*it == QLatin1String("en_US")) {
             *it = QStringLiteral("en");
         }
+    }
 
     // look up the different languages
     int ldCount = localDoc.count();
@@ -177,7 +178,8 @@ void View::writeSearchResult( const QString &str )
 void View::endSearchResult()
 {
   end();
-  if ( !mSearchResult.isEmpty() ) Q_EMIT searchResultCacheAvailable();
+  if ( !mSearchResult.isEmpty() )
+      Q_EMIT searchResultCacheAvailable();
 }
 
 void View::beginInternal( const QUrl &url )

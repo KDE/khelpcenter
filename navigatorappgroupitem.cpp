@@ -31,8 +31,7 @@ using namespace KHC;
 NavigatorAppGroupItem::NavigatorAppGroupItem( DocEntry *entry, QTreeWidget *parent,
                        const QString &relPath )
   : NavigatorItem( entry, parent ),
-    mRelpath( relPath ),
-    mPopulated( false )
+    mRelpath( relPath )
 { 
   populate();
 }
@@ -40,24 +39,21 @@ NavigatorAppGroupItem::NavigatorAppGroupItem( DocEntry *entry, QTreeWidget *pare
 NavigatorAppGroupItem::NavigatorAppGroupItem( DocEntry *entry, QTreeWidgetItem *parent,
                        const QString &relPath )
   : NavigatorItem( entry, parent ),
-    mRelpath( relPath ),
-    mPopulated( false )
+    mRelpath( relPath )
 { 
   populate();
 }
 
 NavigatorAppGroupItem::NavigatorAppGroupItem( DocEntry *entry, QTreeWidget *parent,
                        QTreeWidgetItem *after )
-  : NavigatorItem( entry, parent, after ),
-    mPopulated( false )
+  : NavigatorItem( entry, parent, after )
 { 
   populate();
 }
 
 NavigatorAppGroupItem::NavigatorAppGroupItem( DocEntry *entry, QTreeWidgetItem *parent,
                        QTreeWidgetItem *after )
-  : NavigatorItem( entry, parent, after ),
-    mPopulated( false )
+  : NavigatorItem( entry, parent, after )
 { 
   populate();
 }

@@ -71,7 +71,7 @@ Navigator::Navigator( View *view, QWidget *parent )
 
     QBoxLayout *topLayout = new QVBoxLayout( this );
 
-    mSearchEdit = new KLineEdit();
+    mSearchEdit = new KLineEdit(this);
     mSearchEdit->setPlaceholderText( i18n("Search...") );
     mSearchEdit->setClearButtonEnabled(true);
     topLayout->addWidget( mSearchEdit );

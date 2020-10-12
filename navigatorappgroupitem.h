@@ -50,7 +50,7 @@ class NavigatorAppGroupItem : public NavigatorItem
 
   private:
     QString mRelpath;
-    bool mPopulated;
+    bool mPopulated = false;
 };
 
 }

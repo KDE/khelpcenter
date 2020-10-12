@@ -35,7 +35,7 @@
 
 using namespace KHC;
 
-SearchJob::SearchJob(DocEntry *entry) : mEntry( entry ), mProcess( nullptr ), mKioJob( nullptr )
+SearchJob::SearchJob(DocEntry *entry) : mEntry( entry )
 {
 }
 
