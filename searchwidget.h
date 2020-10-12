@@ -76,14 +76,14 @@ class SearchWidget : public QWidget
     void scopeClicked( QTreeWidgetItem* );
 
   private:
-    SearchEngine *mEngine = nullptr;
+    SearchEngine *const mEngine;
 
     QComboBox *mMethodCombo = nullptr;
     QComboBox *mPagesCombo = nullptr;
     QComboBox *mScopeCombo = nullptr;
     QTreeWidget *mScopeListView = nullptr;
 
-    int mScopeCount;
+    int mScopeCount = 0;
 };
 
 }

@@ -221,7 +221,7 @@ History                 no X-KDE-PluginKeyword in kcmhistory.desktop
   for ( KService::List::const_iterator it = list.constBegin(); it != list.constEnd(); ++it )
   {
     KService::Ptr s(*it);
-    QString desktopFile = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kservices5/") + s->entryPath() );
+    const QString desktopFile = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kservices5/") + s->entryPath() );
     createItemFromDesktopFile( topItem, desktopFile );
     no_children_present = false;
     }
@@ -261,7 +261,7 @@ void Navigator::createItemFromDesktopFile( NavigatorItem *topItem,
     QString docPath = desktopFile.readDocPath();
     if ( !docPath.isNull() ) {
       // First parameter is ignored if second is an absolute path
-      QUrl url(QStringLiteral("help:/") + docPath);
+      const QUrl url(QStringLiteral("help:/") + docPath);
       QString icon = desktopFile.readIcon();
       if ( icon.isEmpty() ) icon = QStringLiteral("text-plain");
       DocEntry *entry = new DocEntry( desktopFile.readName(), url.url(), icon );
@@ -307,7 +307,7 @@ void Navigator::selectItem( const QUrl &url )
   NavigatorItem *item;
   item = static_cast<NavigatorItem *>( mContentsTree->currentItem() );
   if ( item && mSelected ) {
-    QUrl currentURL ( item->entry()->url() );
+    const QUrl currentURL ( item->entry()->url() );
     if ( (currentURL == url) || (currentURL == alternativeURL) ) {
       qCDebug(KHC_LOG) << "URL already shown.";
       return;
@@ -329,7 +329,7 @@ void Navigator::selectItem( const QUrl &url )
   QTreeWidgetItemIterator it( mContentsTree );
   while ( (*it) ) {
     NavigatorItem *item = static_cast<NavigatorItem *>( (*it) );
-    QUrl itemUrl( item->entry()->url() );
+    const QUrl itemUrl( item->entry()->url() );
     if ( (itemUrl == url) || (itemUrl == alternativeURL) ) {
       // If the current item was not selected and remained unchanged it
       // needs to be explicitly selected
@@ -374,9 +374,7 @@ void Navigator::slotItemSelected( QTreeWidgetItem *currentItem )
 
   item->setExpanded( !item->isExpanded() );
 
-  QUrl url ( item->entry()->url() );
-
-  
+  const QUrl url ( item->entry()->url() );
   
   if ( url.scheme() == QLatin1String("khelpcenter") ) {
       mView->closeUrl();
@@ -429,7 +427,7 @@ void Navigator::showOverview( NavigatorItem *item, const QUrl &url )
     title = item->entry()->name();
     name = item->entry()->name();
 
-    QString info = item->entry()->info();
+    const QString info = item->entry()->info();
     if ( !info.isEmpty() ) content = QLatin1String("<p>") + info + QLatin1String("</p>\n");
 
     childCount = item->childCount();
@@ -500,10 +498,10 @@ void Navigator::slotSearch()
 
   if ( mSearchEngine->isRunning() ) return;
 
-  QString words = mSearchEdit->text();
-  QString method = mSearchWidget->method();
-  int pages = mSearchWidget->pages();
-  QStringList scope = mSearchWidget->scope();
+  const QString words = mSearchEdit->text();
+  const QString method = mSearchWidget->method();
+  const int pages = mSearchWidget->pages();
+  const QStringList scope = mSearchWidget->scope();
 
   qCDebug(KHC_LOG) << "Navigator::slotSearch() words: " << words;
   qCDebug(KHC_LOG) << "Navigator::slotSearch() scope: " << scope;

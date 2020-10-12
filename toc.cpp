@@ -237,9 +237,9 @@ void TOC::fillTree()
         for ( int sectCount = 0; sectCount < sections.count(); sectCount++ ) {
             QDomElement sectElem = sections.item( sectCount ).toElement();
             QDomElement sectTitleElem = childElement( sectElem, QStringLiteral( "title" ) );
-            QString sectTitle = sectTitleElem.text().simplified();
+            const QString sectTitle = sectTitleElem.text().simplified();
             QDomElement sectRefElem = childElement( sectElem, QStringLiteral( "anchor" ) );
-            QString sectRef = sectRefElem.text().trimmed();
+            const QString sectRef = sectRefElem.text().trimmed();
 
             sectItem = new TOCSectionItem( this, chapItem, sectItem, sectTitle, sectRef );
         }

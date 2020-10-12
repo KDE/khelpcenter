@@ -41,8 +41,7 @@
 namespace KHC {
 
 SearchWidget::SearchWidget( SearchEngine *engine, QWidget *parent )
-  : QWidget( parent ), mEngine( engine ),
-  mScopeCount( 0 )
+  : QWidget( parent ), mEngine( engine )
 {
   QBoxLayout *topLayout = new QVBoxLayout( this );
   topLayout->setContentsMargins( 2, 2, 2, 2 );
@@ -286,9 +285,9 @@ class ScopeTraverser : public DocEntryTraverser
     }
 
   private:
-    SearchEngine *mEngine;
+    SearchEngine *mEngine = nullptr;
     int mLevel;
-    QTreeWidgetItem *mParentItem;
+    QTreeWidgetItem *mParentItem = nullptr;
     QHash<DocEntry *, QTreeWidgetItem *> mItems;
 
     enum { MaxNestingLevel = 2 };
