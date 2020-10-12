@@ -241,7 +241,7 @@ bool SearchEngine::initSearchHandlers()
   }
 
   if ( mHandlers.isEmpty() ) {
-    QString txt = i18n("No valid search handler found.");
+    const QString txt = i18n("No valid search handler found.");
     qCWarning(KHC_LOG) << txt;
 //    KMessageBox::sorry( mView->widget(), txt );
     return false;
@@ -271,7 +271,7 @@ bool SearchEngine::search( const QString & words, const QString & method, int ma
     return false;
   }
 
-  QString txt = i18n("Search Results for '%1':", words.toHtmlEscaped() );
+  const QString txt = i18n("Search Results for '%1':", words.toHtmlEscaped() );
 
   mStderr = QStringLiteral("<b>") + txt + QStringLiteral("</b>\n");
 
@@ -294,7 +294,7 @@ QString SearchEngine::substituteSearchQuery( const QString &query,
   result.replace( QLatin1String("%i"), identifier );
   result.replace( QLatin1String("%w"), words.join( QLatin1Char('+') ) );
   result.replace( QLatin1String("%m"), QString::number( maxResults ) );
-  QString o = QLatin1String(operation == Or ? "or" : "and");
+  const QString o = QLatin1String(operation == Or ? "or" : "and");
   result.replace( QLatin1String("%o"), o );
   result.replace( QLatin1String("%d"), Prefs::indexDirectory() );
   result.replace( QLatin1String("%l"), lang );

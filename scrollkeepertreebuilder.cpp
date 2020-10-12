@@ -54,7 +54,7 @@ void ScrollKeeperTreeBuilder::buildOrHide( NavigatorItem *parent )
 
 void ScrollKeeperTreeBuilder::build( NavigatorItem *parent )
 {
-  QString lang = QLocale().bcp47Name();
+  const QString lang = QLocale().bcp47Name();
 
   qCDebug(KHC_LOG) << "ScrollKeeper language: " << lang;
 

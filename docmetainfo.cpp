@@ -132,13 +132,13 @@ QString DocMetaInfo::languageName( const QString &langcode )
   if ( langcode == QLatin1String("en") )
       return i18nc("Describes documentation entries that are in English", "English");
 
-  QString cfgfile = QStandardPaths::locate( QStandardPaths::GenericDataLocation, QStringLiteral( "locale/%1/kf5_entry.desktop" ).arg( langcode ) );
+  const QString cfgfile = QStandardPaths::locate( QStandardPaths::GenericDataLocation, QStringLiteral( "locale/%1/kf5_entry.desktop" ).arg( langcode ) );
 
   qCDebug(KHC_LOG) << "-- langcode: " << langcode << " cfgfile: " << cfgfile;
 
   KConfig _cfg( cfgfile, KConfig::SimpleConfig );
   KConfigGroup cfg(&_cfg, "KCM Locale" );
-  QString name = cfg.readEntry( "Name", langcode );
+  const QString name = cfg.readEntry( "Name", langcode );
 
   return name;
 }

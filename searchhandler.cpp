@@ -86,9 +86,6 @@ void SearchJob::searchExited( int exitCode, QProcess::ExitStatus exitStatus )
 
 void SearchJob::slotJobResult( KJob *job )
 {
-    QString result;
-    //DocEntry *entry = 0;
-
     if ( job->error() ) {
         Q_EMIT searchError( this, mEntry, i18n("Error: %1", job->errorString() ) );
     } else {
@@ -190,7 +187,7 @@ void ExternalProcessSearchHandler::search( DocEntry *entry, const QStringList &w
   qCDebug(KHC_LOG) << entry->identifier();
 
   if ( !mSearchCommand.isEmpty() ) {
-    QString cmdString = SearchEngine::substituteSearchQuery( mSearchCommand,
+    const QString cmdString = SearchEngine::substituteSearchQuery( mSearchCommand,
       entry->identifier(), words, maxResults, operation, mLang, mSearchBinary );
 
     qCDebug(KHC_LOG) << "CMD:" << cmdString;
@@ -201,7 +198,7 @@ void ExternalProcessSearchHandler::search( DocEntry *entry, const QStringList &w
     searchJob->startLocal(cmdString);
 
   } else if ( !mSearchUrl.isEmpty() ) {
-    QString urlString = SearchEngine::substituteSearchQuery( mSearchUrl,
+    const QString urlString = SearchEngine::substituteSearchQuery( mSearchUrl,
       entry->identifier(), words, maxResults, operation, mLang, mSearchBinary );
 
     qCDebug(KHC_LOG) << "URL:" << urlString;
