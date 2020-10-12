@@ -172,7 +172,8 @@ DocEntry *DocMetaInfo::scanMetaInfoDir( const QString &dirName,
   QDir dir( dirName );
   if ( !dir.exists() ) return nullptr;
 
-  foreach( const QFileInfo &fi, dir.entryInfoList(QDir::Dirs | QDir::Files | QDir::NoDotAndDotDot) ) 
+  const auto entryInfoList = dir.entryInfoList(QDir::Dirs | QDir::Files | QDir::NoDotAndDotDot);
+  for ( const QFileInfo &fi : entryInfoList )
   {
     DocEntry *entry = nullptr;
     if ( fi.isDir() ) 

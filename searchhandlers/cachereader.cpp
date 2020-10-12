@@ -128,7 +128,7 @@ QByteArray CacheReader::document( const QString& id ) const
     std::reverse( docRanges.begin(), docRanges.end() );
     QTextStream stream( &doc );
     stream.setCodec( "UTF-8" );
-    Q_FOREACH ( const Range &range, docRanges ) {
+    for ( const Range &range : qAsConst(docRanges) ) {
       stream << mText.mid( range.first, range.second - range.first + 1 );
     }
   }

@@ -114,7 +114,7 @@ static void analyzeFile( const QFileInfo& cacheFile, const QString& relPath, con
     qCDebug(LOG) << "  docs to add:" << docsToAdd;
     qCDebug(LOG) << "  docs to update:" << docsToUpdate.keys();
 
-    Q_FOREACH ( Xapian::docid id, docsToRemove ) {
+    for ( Xapian::docid id : qAsConst(docsToRemove) ) {
       db.delete_document( id );
     }
 
@@ -126,7 +126,7 @@ static void analyzeFile( const QFileInfo& cacheFile, const QString& relPath, con
       db.replace_document( dtuIt.value(), doc );
     }
 
-    Q_FOREACH ( const QString& name, docsToAdd ) {
+    for ( const QString& name : qAsConst(docsToAdd) ) {
       const Xapian::Document doc = createDocument( xgen, uid, lang, std_modTime, name, cr.document( name ) );
       const Xapian::docid id = db.add_document( doc );
       handledDocuments->insert( id );
@@ -235,7 +235,7 @@ int main( int argc, char *argv[] )
     }
   }
   qCDebug(LOG) << "documentation directories:" << localDoc;
-  Q_FOREACH ( const QString &path, localDoc ) {
+  for ( const QString &path : qAsConst(localDoc) ) {
     walkFiles( path, std_lang, db, xgen, &handledDocuments );
   }
 

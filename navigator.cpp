@@ -599,7 +599,7 @@ void Navigator::slotDelayedIndexingStart()
   mIndexingQueue.clear();
 
   const DocEntry::List &entries = DocMetaInfo::self()->docEntries();
-  foreach ( DocEntry *entry, entries ) {
+  for ( DocEntry *entry : entries ) {
     if ( mSearchEngine->needsIndex( entry ) ) {
       mIndexingQueue.append( entry );
     }

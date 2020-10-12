@@ -108,7 +108,7 @@ QString GrantleeFormatter::formatGlossaryEntry( const GlossaryEntry& entry )
   const GlossaryEntryXRef::List entrySeeAlso = entry.seeAlso();
   QStringList seeAlso;
   seeAlso.reserve( entrySeeAlso.count() );
-  foreach ( const GlossaryEntryXRef &xref, entrySeeAlso )
+  for ( const GlossaryEntryXRef &xref : entrySeeAlso )
   {
     seeAlso += QStringLiteral( "<a href=\"glossentry:%1\">%2</a>" ).arg( xref.id(), xref.term() );
   }
@@ -131,7 +131,7 @@ QString GrantleeFormatter::formatSearchResults( const QString& words, const QLis
   typedef QPair<DocEntry *, QString> Iter;
   QVariantList list;
   list.reserve( results.count() );
-  foreach ( const Iter& it, results )
+  for ( const Iter& it : results )
   {
     QVariantHash h;
     h.insert( QStringLiteral("title"), it.first->name() );

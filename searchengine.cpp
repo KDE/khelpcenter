@@ -210,11 +210,12 @@ bool SearchEngine::initSearchHandlers()
 {
   const QStringList resourceDirs = QStandardPaths::locateAll(QStandardPaths::DataLocation, QStringLiteral("searchhandlers/"), QStandardPaths::LocateDirectory );
   QStringList resources;
-  foreach(const QString& dir, resourceDirs) {
+  for(const QString& dir : resourceDirs) {
       QDir d(dir);
-    foreach ( const QString& entry, d.entryList( QStringList( QStringLiteral("*.desktop") ), QDir::Files ) ) {
-      resources += dir + entry;
-    }
+      const auto entryList = d.entryList( QStringList( QStringLiteral("*.desktop") ), QDir::Files );
+      for ( const QString& entry : entryList  ) {
+          resources += dir + entry;
+      }
   }
 
   QStringList::ConstIterator it;

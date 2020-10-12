@@ -167,7 +167,7 @@ void InfoTree::parseInfoDirFile( const QString &infoDirFileName )
   }
   infoDirFile.close();
 
-  foreach ( InfoCategoryItem *item, alphabSections ) {
+  for ( InfoCategoryItem *item : qAsConst(alphabSections) ) {
     item->sortChildren( 0, Qt::AscendingOrder );
   }
   m_alphabItem->sortChildren( 0, Qt::AscendingOrder );

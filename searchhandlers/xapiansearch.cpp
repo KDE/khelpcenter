@@ -39,7 +39,7 @@ Xapian::Query queryFromWordlist( const QString& words, Xapian::Query::op op )
   QVector<std::string> wordlist;
   const QStringList splitlist = words.split( QLatin1Char( '+' ) );
   wordlist.reserve( splitlist.size() );
-  Q_FOREACH ( const QString& word, splitlist ) {
+  for ( const QString& word : splitlist ) {
     wordlist.append( word.toStdString() );
   }
 

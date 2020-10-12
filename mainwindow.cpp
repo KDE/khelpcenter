@@ -157,8 +157,10 @@ MainWindow::MainWindow()
 
     setupActions();
 
-    foreach (QAction *act, mDoc->actionCollection()->actions())
+    const auto actions = mDoc->actionCollection()->actions();
+    for (QAction *act : actions) {
         actionCollection()->addAction(act->objectName(), act);
+    }
 
     setupBookmarks();
 
