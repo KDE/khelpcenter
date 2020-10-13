@@ -49,7 +49,7 @@ bool SearchJob::startLocal(const QString &cmdString)
     mProcess->setOutputChannelMode(KProcess::SeparateChannels);
     mProcess->start();
     if (!mProcess->waitForStarted()) {
-        QString txt = i18n("Error executing search command '%1'.", cmdString );
+        const QString txt = i18n("Error executing search command '%1'.", cmdString );
         Q_EMIT searchError( this, mEntry, txt );
         return false;
     }

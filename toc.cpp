@@ -45,7 +45,7 @@ class TOCItem : public NavigatorItem
         const TOC *toc() const { return m_toc; }
 
     private:
-        TOC *m_toc;
+        TOC *m_toc = nullptr;
 };
 
 class TOCChapterItem : public TOCItem
@@ -75,8 +75,8 @@ class TOCSectionItem : public TOCItem
 bool TOC::m_alreadyWarned = false;
 
 TOC::TOC( NavigatorItem *parentItem )
+    : m_parentItem(parentItem)
 {
-    m_parentItem = parentItem;
 }
 
 void TOC::build( const QString &file )
