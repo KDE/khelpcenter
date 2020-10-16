@@ -102,7 +102,6 @@ class Navigator : public QWidget
 
   private:
     void setupContentsTab();
-    void setupIndexTab();
     void setupSearchTab();
     void setupGlossaryTab();
 
