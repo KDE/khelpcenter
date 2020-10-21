@@ -22,7 +22,7 @@
 #ifndef HTMLTEXTDUMP_H
 #define HTMLTEXTDUMP_H
 
-#include <QByteArray>
+class QByteArray;
 
 bool htmlTextDump( const QByteArray& data, QByteArray *title, QByteArray *text );
 

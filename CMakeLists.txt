@@ -59,11 +59,8 @@ set_package_properties(Xapian PROPERTIES
     URL "https://xapian.org/"
     TYPE REQUIRED)
 
-find_package(LibXml2 REQUIRED)
-set_package_properties(LibXml2 PROPERTIES
-    DESCRIPTION "Support for extracting text from HTML documents"
-    URL "http://www.xmlsoft.org/"
-    TYPE REQUIRED)
+find_package(PkgConfig REQUIRED)
+pkg_search_module(gumbo REQUIRED IMPORTED_TARGET gumbo)
 
 add_definitions(
   -DQT_USE_QSTRINGBUILDER

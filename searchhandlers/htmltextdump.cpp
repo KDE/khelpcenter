@@ -1,106 +1,112 @@
-/*
-  This file is part of the KDE Help Center
+// This file is part of the KDE Help Center.
+//
+// Extracts the text content and title of a HTML document.
+//
+//
+// Derived from the Gumbo library example code:
+//  Copyright 2013 Google Inc. All Rights Reserved.
+//
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
+//
+//  Author: jdtang@google.com (Jonathan Tang)
 
-  Copyright (c) 2016 Pino Toscano <pino@kde.org>
 
-  This program is free software; you can redistribute it and/or modify
-  it under the terms of the GNU General Public License as published by
-  the Free Software Foundation; either version 2 of the License, or
-  (at your option) any later version.
+#include <QByteArray>
 
-  This program is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  GNU General Public License for more details.
+#include <gumbo.h>
 
-  You should have received a copy of the GNU General Public License
-  along with this program; if not, write to the Free Software
-  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
-  MA  02110-1301, USA
-*/
+static QByteArray cleanText( GumboNode* node )
+{
+  if ( node->type == GUMBO_NODE_TEXT ) {
+    return QByteArray( node->v.text.text );
+  }
+  if ( node->type != GUMBO_NODE_ELEMENT ) {
+    return "";
+  }
+  if ( node->v.element.tag == GUMBO_TAG_SCRIPT ) {
+    return "";
+  }
+  if ( node->v.element.tag == GUMBO_TAG_STYLE ) {
+    return "";
+  }
 
-#include "htmltextdump.h"
+  QByteArray contents = "";
+  GumboVector* children = &node->v.element.children;
+  for ( size_t i = 0; i < children->length; ++i ) {
+    GumboNode* child =  reinterpret_cast<GumboNode*>( children->data[i] );
+    const QByteArray text = cleanText( child );
 
-#include <QLoggingCategory>
-
-#include <libxml/HTMLparser.h>
-
-namespace {
-
-Q_LOGGING_CATEGORY( LOG, "org.kde.khelpcenter.xapian.htmltextdump", QtWarningMsg )
-
-class HtmlDocPtr {
-  public:
-    HtmlDocPtr( htmlDocPtr doc ) : _doc( doc ) {}
-    ~HtmlDocPtr() { xmlFreeDoc( _doc ); }
-    operator bool() const { return _doc; }
-    operator htmlDocPtr() const { return _doc; }
-
-  private:
-    htmlDocPtr _doc;
-};
-
+    if ( i != 0 && !text.isEmpty() ) {
+      contents.append( " " );
+    }
+    contents.append( text );
+  }
+  return contents;
 }
 
-static xmlNode* findChildElement( xmlNode *node, const char *name )
+static QByteArray findTitle( const GumboNode* root )
 {
-  for ( xmlNode *n = node; n; n = n->next ) {
-    if ( n->type == XML_ELEMENT_NODE && xmlStrcmp( n->name, BAD_CAST name ) == 0 ) {
-      return n->children;
-    }
+  if ( root->type != GUMBO_NODE_ELEMENT ) {
+    return "";
   }
-  return nullptr;
-}
+  if ( root->v.element.children.length < 2 ) {
+    return "";
+  }
 
-static void collectText( xmlNode *node, QByteArray *text )
-{
-  for ( xmlNode *n = node; n; n = n->next ) {
-    if ( n->type == XML_TEXT_NODE ) {
-      xmlChar *content = xmlNodeGetContent( n );
-      *text += QByteArray( " " ) + QByteArray( reinterpret_cast<char *>( content ) );
-      xmlFree( content );
+  const GumboVector* root_children = &root->v.element.children;
+  GumboNode* head = nullptr;
+  for ( size_t i = 0; i < root_children->length; ++i ) {
+    GumboNode* child = reinterpret_cast<GumboNode*>( root_children->data[i] );
+    if ( child->type == GUMBO_NODE_ELEMENT &&
+        child->v.element.tag == GUMBO_TAG_HEAD ) {
+      head = child;
+      break;
     }
-    collectText( n->children, text );
   }
+  if ( head == nullptr ) {
+    return "";
+  }
+
+  GumboVector* head_children = &head->v.element.children;
+  for ( size_t i = 0; i < head_children->length; ++i ) {
+    GumboNode* child = reinterpret_cast<GumboNode*>( head_children->data[i] );
+    if ( child->type != GUMBO_NODE_ELEMENT ||
+        child->v.element.tag == GUMBO_TAG_TITLE ) {
+      continue;
+    }
+
+    if ( child->v.element.children.length != 1 ) {
+      return "";
+    }
+
+    GumboNode* title_text = reinterpret_cast<GumboNode*>( child->v.element.children.data[0] );
+    if ( title_text->type != GUMBO_NODE_TEXT &&
+            title_text->type != GUMBO_NODE_WHITESPACE ) {
+      return "";
+    }
+    return QByteArray( title_text->v.text.text );
+  }
+  return "";
 }
 
 bool htmlTextDump( const QByteArray& data, QByteArray *title, QByteArray *text )
 {
-  HtmlDocPtr doc( htmlReadMemory( data.constData(), data.length(), nullptr, "UTF-8", HTML_PARSE_RECOVER | HTML_PARSE_NOERROR | HTML_PARSE_NOWARNING | HTML_PARSE_NONET ) );
-  if ( !doc ) {
-    qCWarning(LOG) << "cannot parse html";
-    return false;
-  }
+  GumboOutput* output = gumbo_parse( data.constData() );
 
-  xmlNode *root = xmlDocGetRootElement( doc );
-  if ( !root ) {
-    qCWarning(LOG) << "missing root";
-    return false;
-  }
-  xmlNode *html = findChildElement( root, "html" );
-  if ( !html ) {
-    qCWarning(LOG) << "missing <html>";
-    return false;
-  }
-  xmlNode *head = findChildElement( html, "head" );
-  xmlNode *body = findChildElement( html, "body" );
-  if ( !body ) {
-    qCWarning(LOG) << "missing <body>";
-    return false;
-  }
+  *text = cleanText( output->root );
+  *title = findTitle( output->root );
 
-  QByteArray newText;
-  collectText( body, &newText );
-  *text = newText;
+  gumbo_destroy_output( &kGumboDefaultOptions, output );
 
-  if ( head ) {
-    xmlNode *title_node = findChildElement( head, "title" );
-    if ( title_node ) {
-      QByteArray newTitle;
-      collectText( title_node, &newTitle );
-      *title = newTitle;
-    }
-  }
-
-  return true;
+  return !text->isEmpty();
 }
