@@ -27,7 +27,6 @@
 #include <KLocalizedString>
 #include <KUrlAuthorized>
 
-#include <QCommandLineParser>
 #include <QDir>
 #include <QMetaType>
 #include <QTreeWidgetItem>

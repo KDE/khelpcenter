@@ -23,7 +23,6 @@
 
 #include "khc_debug.h"
 
-#include <QFileInfo>
 #include <QUrl>
 
 #include <KConfigGroup>

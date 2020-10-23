@@ -46,7 +46,6 @@
 #include "searchhandler.h"
 #include "docmetainfo.h"
 #include "docentrytraverser.h"
-#include "glossary.h"
 #include "toc.h"
 #include "view.h"
 #include "infotree.h"
