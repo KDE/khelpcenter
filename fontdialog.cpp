@@ -78,9 +78,6 @@ void FontDialog::setupFontSizesBox()
   layout()->addWidget( gb );
 
   QGridLayout *layout = new QGridLayout( gb );
-//TODO PORT QT5   layout->setSpacing( QDialog::spacingHint() );
-//TODO PORT QT5   layout->setMargin( QDialog::marginHint() * 2 );
-
   QLabel *lMinFontSize = new QLabel( i18nc( "The smallest size a will have", "M&inimum font size:" ), gb );
   layout->addWidget( lMinFontSize, 0, 0 );
   m_minFontSize = new QSpinBox( gb );
@@ -102,9 +99,6 @@ void FontDialog::setupFontTypesBox()
   layout()->addWidget( gb );
 
   QGridLayout *layout = new QGridLayout( gb );
-//TODO PORT QT5   layout->setSpacing( QDialog::spacingHint() );
-//TODO PORT QT5   layout->setMargin( QDialog::marginHint() * 2 );
-
   QLabel *lStandardFont = new QLabel( i18n( "S&tandard font:" ), gb );
   layout->addWidget( lStandardFont, 0, 0 );
   m_standardFontCombo = new QFontComboBox( gb );
@@ -148,8 +142,6 @@ void FontDialog::setupFontEncodingBox()
   layout()->addWidget( gb );
 
   QGridLayout *layout = new QGridLayout( gb );
-//TODO PORT QT5   layout->setSpacing( QDialog::spacingHint() );
-//TODO PORT QT5   layout->setMargin( QDialog::marginHint() * 2 );
 
   QLabel *lDefaultEncoding = new QLabel( i18n( "&Default encoding:" ), gb );
   layout->addWidget( lDefaultEncoding, 0, 0 );
