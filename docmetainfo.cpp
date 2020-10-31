@@ -155,7 +155,7 @@ void DocMetaInfo::scanMetaInfo( bool force )
 
   if ( metaInfos.isEmpty() ) 
   {
-    metaInfos = QStandardPaths::locateAll(QStandardPaths::DataLocation, QStringLiteral("plugins"), QStandardPaths::LocateDirectory);
+    metaInfos = QStandardPaths::locateAll(QStandardPaths::AppDataLocation, QStringLiteral("plugins"), QStandardPaths::LocateDirectory);
   }
   for( it = metaInfos.constBegin(); it != metaInfos.constEnd(); ++it)
   {

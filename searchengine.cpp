@@ -208,7 +208,7 @@ SearchEngine::~SearchEngine()
 
 bool SearchEngine::initSearchHandlers()
 {
-  const QStringList resourceDirs = QStandardPaths::locateAll(QStandardPaths::DataLocation, QStringLiteral("searchhandlers/"), QStandardPaths::LocateDirectory );
+  const QStringList resourceDirs = QStandardPaths::locateAll(QStandardPaths::AppDataLocation, QStringLiteral("searchhandlers/"), QStandardPaths::LocateDirectory );
   QStringList resources;
   for(const QString& dir : resourceDirs) {
       QDir d(dir);

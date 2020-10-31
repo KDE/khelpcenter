@@ -278,7 +278,7 @@ void MainWindow::setupActions()
 
 void MainWindow::setupBookmarks()
 {
-    const QString location = QStandardPaths::writableLocation( QStandardPaths::DataLocation );
+    const QString location = QStandardPaths::writableLocation( QStandardPaths::AppDataLocation );
     QDir().mkpath( location );
     const QString file = location + QStringLiteral( "/bookmarks.xml" );
 

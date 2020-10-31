@@ -80,7 +80,7 @@ GrantleeFormatter::GrantleeFormatter()
   : d( new Private )
 {
   QSharedPointer< Grantlee::FileSystemTemplateLoader > loader( new Grantlee::FileSystemTemplateLoader );
-  loader->setTemplateDirs( QStandardPaths::locateAll( QStandardPaths::DataLocation, QStringLiteral("templates"), QStandardPaths::LocateDirectory ) );
+  loader->setTemplateDirs( QStandardPaths::locateAll( QStandardPaths::AppDataLocation, QStringLiteral("templates"), QStandardPaths::LocateDirectory ) );
   d->engine.addTemplateLoader( loader );
 }
 
