@@ -89,7 +89,7 @@
     <p>
       An application to search and read the documentation for all your KDE applications and system utilities
     </p>
-    <p xml:lang="ast">Una aplicación pa guetar y lleer la documentación de toles aplicaciones de KDE y utilidaes del sistema</p>
+    <p xml:lang="ast">Una aplicación pa buscar y lleer la documentación de toles aplicaciones de KDE y utilidaes del sistema</p>
     <p xml:lang="ca">Una aplicació per a cercar i llegir la documentació per a totes les aplicacions KDE i utilitats del sistema</p>
     <p xml:lang="ca-valencia">Una aplicació per a cercar i llegir la documentació per a totes les aplicacions KDE i utilitats del sistema</p>
     <p xml:lang="da">Et program til at søge efter og læse dokumentation til alle dine KDE-programmer og -systemværktøjer</p>
@@ -204,7 +204,7 @@
       <li xml:lang="zh-TW">顯示不同來源的文件（自 KDE 社群而來的應用程式、man 手冊頁等）</li>
       <li>Search through the available documentation</li>
       <li xml:lang="ar">البحث داخل التّوثيقات المتوفّرة</li>
-      <li xml:lang="ast">Gueta pente la documentación disponible</li>
+      <li xml:lang="ast">Busca pente la documentación disponible</li>
       <li xml:lang="ca">Cerca a la documentació disponible</li>
       <li xml:lang="ca-valencia">Cerca a la documentació disponible</li>
       <li xml:lang="da">Søg i den tilgængelige dokumentation</li>
