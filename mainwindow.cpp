@@ -230,7 +230,7 @@ void MainWindow::setupActions()
 
     QAction *nextPage  = actionCollection()->addAction( QStringLiteral("nextPage") );
     nextPage->setText( i18n( "Next Page" ) );
-    actionCollection()->setDefaultShortcut(nextPage, Qt::CTRL + Qt::Key_PageDown );
+    actionCollection()->setDefaultShortcut(nextPage, Qt::CTRL | Qt::Key_PageDown );
     nextPage->setWhatsThis( i18n( "Moves to the next page of the document" ) );
     connect( nextPage, &QAction::triggered, mDoc, &View::nextPage );
 
