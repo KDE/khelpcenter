@@ -83,7 +83,7 @@ void Application::activate(const QStringList& args, const QString &workingDirect
   mMainWindow->show();
 }
 
-extern "C" int Q_DECL_EXPORT kdemain( int argc, char **argv )
+int main( int argc, char **argv )
 {
   KHC::Application app(argc, argv);
   KLocalizedString::setApplicationDomain("khelpcenter5");

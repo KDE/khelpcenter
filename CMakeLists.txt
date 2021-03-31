@@ -41,7 +41,6 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     DBusAddons
     DocTools
     I18n
-    Init
     KHtml
     Service
     WindowSystem
@@ -87,7 +86,7 @@ add_subdirectory( templates )
 
 ########### next target ###############
 
-set(khelpcenter_KDEINIT_SRCS
+set(khelpcenter_SRCS
    navigator.cpp
    navigatoritem.cpp
    navigatorappitem.cpp
@@ -111,21 +110,19 @@ set(khelpcenter_KDEINIT_SRCS
    scrollkeepertreebuilder.cpp
    bookmarkowner.cpp
    searchhandler.cpp )
-ecm_qt_declare_logging_category(khelpcenter_KDEINIT_SRCS HEADER khc_debug.h IDENTIFIER KHC_LOG CATEGORY_NAME org.kde.khelpcenter)
+ecm_qt_declare_logging_category(khelpcenter_SRCS HEADER khc_debug.h IDENTIFIER KHC_LOG CATEGORY_NAME org.kde.khelpcenter)
 
-kconfig_add_kcfg_files(khelpcenter_KDEINIT_SRCS prefs.kcfgc )
-# kf5_add_app_icon(khelpcenter_KDEINIT_SRCS "${KDE4_INSTALL_DIR}/share/icons/oxygen/*/apps/help-browser.png")
+kconfig_add_kcfg_files(khelpcenter_SRCS prefs.kcfgc )
+# kf5_add_app_icon(khelpcenter_SRCS "${KDE4_INSTALL_DIR}/share/icons/oxygen/*/apps/help-browser.png")
 
-kf5_add_kdeinit_executable( khelpcenter ${khelpcenter_KDEINIT_SRCS})
-target_compile_definitions(kdeinit_khelpcenter PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
-target_link_libraries(kdeinit_khelpcenter KF5::KHtml KF5::Service KF5::DBusAddons KF5::ConfigGui KF5::WindowSystem KF5::Bookmarks Qt5::Xml Grantlee5::Templates)
-target_link_libraries(kdeinit_khelpcenter KF5::DocTools)
+add_executable(khelpcenter ${khelpcenter_SRCS})
+target_compile_definitions(khelpcenter PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
+target_link_libraries(khelpcenter KF5::KHtml KF5::Service KF5::DBusAddons KF5::ConfigGui KF5::WindowSystem KF5::Bookmarks KF5::DocTools Qt5::Xml Grantlee5::Templates)
 
 # add clang-format target for all our real source files
 file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES *.cpp *.h)
 kde_clang_format(${ALL_CLANG_FORMAT_SOURCE_FILES})
 
-install(TARGETS kdeinit_khelpcenter  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 install(TARGETS khelpcenter ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### install files ###############
