@@ -1955,21 +1955,6 @@ information on how to assign keys for these tasks.</para>
 <entry>Leave</entry>
 </row>
 
-<row>
-<entry><keycombo action="simul">&Ctrl;&Alt;&Shift;<keycap>Del</keycap></keycombo></entry><!--plasma-workspace/ksmserver/server.cpp-->
-<entry>Logout without confirmation</entry>
-</row>
-
-<row>
-<entry><keycombo action="simul">&Ctrl;&Alt;&Shift;<keycap>Page Down</keycap></keycombo></entry><!--plasma-workspace/ksmserver/server.cpp-->
-<entry>Shut Down without confirmation</entry>
-</row>
-
-<row>
-<entry><keycombo action="simul">&Ctrl;&Alt;&Shift;<keycap>Page Up</keycap></keycombo></entry><!--plasma-workspace/ksmserver/server.cpp-->
-<entry>Reboot without confirmation</entry>
-</row>
-
 </tbody>
 </tgroup>
 </informaltable>
