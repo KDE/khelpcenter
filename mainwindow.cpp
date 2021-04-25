@@ -37,6 +37,7 @@
 #include <QDir>
 #include <QIcon>
 #include <QList>
+#include <QMenuBar>
 #include <QMimeDatabase>
 #include <QPushButton>
 #include <QSplitter>
@@ -55,6 +56,7 @@
 #include <KHTMLView>
 #include <KStandardAction>
 #include <KStartupInfo>
+#include <KToolBar>
 #include <KWindowConfig>
 
 #include <kio_version.h>
@@ -233,6 +235,8 @@ void MainWindow::setupActions()
     actionCollection()->setDefaultShortcut(nextPage, Qt::CTRL | Qt::Key_PageDown );
     nextPage->setWhatsThis( i18n( "Moves to the next page of the document" ) );
     connect( nextPage, &QAction::triggered, mDoc, &View::nextPage );
+
+    KStandardAction::fullScreen( this, SLOT( slotFullScreen() ), this, actionCollection() );
 
     QAction *home = KStandardAction::home( this, SLOT(slotShowHome()), this );
     actionCollection()->addAction( home->objectName(), home );
@@ -515,6 +519,17 @@ void MainWindow::slotConfigureFonts()
         slotShowHome();
     }
     else mDoc->slotReload();
+  }
+}
+
+void MainWindow::slotFullScreen()
+{
+  if (!mFullScreen) {
+    KToggleFullScreenAction::setFullScreen(this, true);
+    mFullScreen = true;
+  } else {
+    KToggleFullScreenAction::setFullScreen(this, false);
+    mFullScreen = false;
   }
 }
 

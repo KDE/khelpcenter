@@ -63,6 +63,7 @@ class MainWindow : public KXmlGuiWindow
     void statusBarMessage(const QString &m);
     void slotShowHome();
     void slotLastSearch();
+    void slotFullScreen();
     void showSearchStderr();
     /**
       Show document corresponding to given URL in viewer part.
@@ -125,6 +126,7 @@ private:
     QAction *mLastSearchAction = nullptr;
     QAction *mCopyText = nullptr;
     LogDialog *mLogDialog = nullptr;
+    bool mFullScreen = false;
 };
 
 }

@@ -686,6 +686,20 @@ you may need to choose a specific encoding in this menu.
 </para>
 </listitem>
 </varlistentry>
+<varlistentry>
+<term><menuchoice><guimenu>View</guimenu>
+<guisubmenu>Full Screen Mode</guisubmenu>
+</menuchoice>
+</term>
+<listitem>
+<para>
+Changes &khelpcenter; to full screen mode, in which the &khelpcenter; window
+takes up the whole screen, and does not have the usual window decorations. To
+exit full screen mode, press <keycombo action="simul">&Ctrl;&Shift;
+<keycap>F</keycap></keycombo>.
+</para>
+</listitem>
+</varlistentry>
 </variablelist>
 </listitem>
 </varlistentry>
