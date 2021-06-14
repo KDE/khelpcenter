@@ -74,7 +74,7 @@ Navigator::Navigator( View *view, QWidget *parent )
     mSearchEdit->setPlaceholderText( i18n("Search...") );
     mSearchEdit->setClearButtonEnabled(true);
     topLayout->addWidget( mSearchEdit );
-    connect(mSearchEdit, &KLineEdit::returnPressed, this, &Navigator::slotSearch);
+    connect(mSearchEdit, &KLineEdit::returnKeyPressed, this, &Navigator::slotSearch);
     connect(mSearchEdit, &KLineEdit::textChanged, this, &Navigator::checkSearchEdit);
 
     mTabWidget = new QTabWidget( this );
