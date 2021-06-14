@@ -7,26 +7,29 @@ include_directories(
 add_definitions(-DQT_NO_KEYWORDS)
 
 # Xapian indexer
-set(khc_xapianindexer_SOURCES
+add_executable(khc_xapianindexer)
+kde_target_enable_exceptions(khc_xapianindexer PRIVATE)
+ecm_mark_nongui_executable(khc_xapianindexer)
+
+target_sources(khc_xapianindexer PRIVATE
    cachereader.cpp
    htmltextdump.cpp
    xapiancommon.cpp
    xapianindexer.cpp
 )
-add_executable(khc_xapianindexer ${khc_xapianindexer_SOURCES})
-kde_target_enable_exceptions(khc_xapianindexer PRIVATE)
-ecm_mark_nongui_executable(khc_xapianindexer)
+
 target_link_libraries(khc_xapianindexer KF5::DocTools Qt5::Core KF5::Archive KF5::CoreAddons ${XAPIAN_LIBRARIES} ${LIBXML2_LIBRARIES})
 install(TARGETS khc_xapianindexer DESTINATION ${LIBEXEC_INSTALL_DIR})
 
 # Xapian search
-set(khc_xapiansearch_SOURCES
+add_executable(khc_xapiansearch)
+kde_target_enable_exceptions(khc_xapiansearch PRIVATE)
+ecm_mark_nongui_executable(khc_xapiansearch)
+
+target_sources(khc_xapiansearch PRIVATE
    xapiancommon.cpp
    xapiansearch.cpp
 )
-add_executable(khc_xapiansearch ${khc_xapiansearch_SOURCES})
-kde_target_enable_exceptions(khc_xapiansearch PRIVATE)
-ecm_mark_nongui_executable(khc_xapiansearch)
 target_link_libraries(khc_xapiansearch Qt5::Core ${XAPIAN_LIBRARIES})
 install(TARGETS khc_xapiansearch DESTINATION ${LIBEXEC_INSTALL_DIR})
 

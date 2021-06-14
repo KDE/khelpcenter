@@ -86,7 +86,9 @@ add_subdirectory( templates )
 
 ########### next target ###############
 
-set(khelpcenter_SRCS
+add_executable(khelpcenter)
+
+target_sources(khelpcenter PRIVATE
    navigator.cpp
    navigatoritem.cpp
    navigatorappitem.cpp
@@ -110,12 +112,16 @@ set(khelpcenter_SRCS
    scrollkeepertreebuilder.cpp
    bookmarkowner.cpp
    searchhandler.cpp )
-ecm_qt_declare_logging_category(khelpcenter_SRCS HEADER khc_debug.h IDENTIFIER KHC_LOG CATEGORY_NAME org.kde.khelpcenter)
 
-kconfig_add_kcfg_files(khelpcenter_SRCS prefs.kcfgc )
+ecm_qt_declare_logging_category(khelpcenter
+    HEADER khc_debug.h
+    IDENTIFIER KHC_LOG
+    CATEGORY_NAME org.kde.khelpcenter
+)
+
+kconfig_add_kcfg_files(khelpcenter prefs.kcfgc )
 # kf5_add_app_icon(khelpcenter_SRCS "${KDE4_INSTALL_DIR}/share/icons/oxygen/*/apps/help-browser.png")
 
-add_executable(khelpcenter ${khelpcenter_SRCS})
 target_compile_definitions(khelpcenter PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 target_link_libraries(khelpcenter KF5::KHtml KF5::Service KF5::DBusAddons KF5::ConfigGui KF5::WindowSystem KF5::Bookmarks KF5::DocTools Qt5::Xml Grantlee5::Templates)
 
