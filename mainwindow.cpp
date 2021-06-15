@@ -272,7 +272,8 @@ void MainWindow::setupBookmarks()
     connect( owner, &BookmarkOwner::openUrl, this, QOverload<const QUrl &>::of(&MainWindow::openUrl) );
     KActionMenu *actmenu = actionCollection()->add<KActionMenu>( QStringLiteral( "bookmarks" ) );
     actmenu->setText( i18nc( "@title:menu", "&Bookmarks" ) );
-    KBookmarkMenu *bookmenu = new KBookmarkMenu( manager, owner, actmenu->menu(), actionCollection() );
+    auto *bookmenu = new KBookmarkMenu( manager, owner, actmenu->menu());
+    actionCollection()->addActions(actmenu->menu()->actions());
     bookmenu->setParent( owner );
 }
 
