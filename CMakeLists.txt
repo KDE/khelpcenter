@@ -129,16 +129,16 @@ target_link_libraries(khelpcenter KF5::KHtml KF5::Service KF5::DBusAddons KF5::C
 file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES *.cpp *.h)
 kde_clang_format(${ALL_CLANG_FORMAT_SOURCE_FILES})
 
-install(TARGETS khelpcenter ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS khelpcenter ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### install files ###############
 
-install( PROGRAMS org.kde.Help.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
-install( FILES khelpcenter.kcfg  DESTINATION  ${KCFG_INSTALL_DIR} )
-install( FILES khelpcenter.desktop  DESTINATION  ${SERVICES_INSTALL_DIR} )
-install( FILES khelpcenter.desktop  DESTINATION  ${SHARE_INSTALL_PREFIX}/kde4/services )
-install( FILES table-of-contents.xslt glossary.xslt DESTINATION ${DATA_INSTALL_DIR}/khelpcenter )
-install( FILES khelpcenterui.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/khelpcenter )
+install( PROGRAMS org.kde.Help.desktop  DESTINATION  ${KDE_INSTALL_APPDIR} )
+install( FILES khelpcenter.kcfg  DESTINATION  ${KDE_INSTALL_KCFGDIR} )
+install( FILES khelpcenter.desktop  DESTINATION  ${KDE_INSTALL_KSERVICES5DIR} )
+install( FILES khelpcenter.desktop  DESTINATION  ${KDE_INSTALL_DATAROOTDIR}/kde4/services )
+install( FILES table-of-contents.xslt glossary.xslt DESTINATION ${KDE_INSTALL_DATADIR}/khelpcenter )
+install( FILES khelpcenterui.rc DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/khelpcenter )
 install( FILES khelpcenter.categories  DESTINATION  ${KDE_INSTALL_LOGGINGCATEGORIESDIR} )
 install( FILES org.kde.Help.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR} )
 

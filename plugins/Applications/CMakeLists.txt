@@ -1,1 +1,1 @@
-install( FILES .directory  DESTINATION  ${DATA_INSTALL_DIR}/khelpcenter/plugins/Applications )
+install( FILES .directory  DESTINATION  ${KDE_INSTALL_DATADIR}/khelpcenter/plugins/Applications )

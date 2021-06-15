@@ -16,5 +16,5 @@ install( FILES fundamentals.desktop plasma.desktop
                browsercontrolmodules.desktop 
                filemanagercontrolmodules.desktop
                othercontrolmodules.desktop 
-               kioslaves.desktop  DESTINATION  ${DATA_INSTALL_DIR}/khelpcenter/plugins )
+               kioslaves.desktop  DESTINATION  ${KDE_INSTALL_DATADIR}/khelpcenter/plugins )
 
