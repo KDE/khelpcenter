@@ -117,6 +117,8 @@ ecm_qt_declare_logging_category(khelpcenter
     HEADER khc_debug.h
     IDENTIFIER KHC_LOG
     CATEGORY_NAME org.kde.khelpcenter
+    DESCRIPTION "khelpcenter"
+    EXPORT KHELPCENTER
 )
 
 kconfig_add_kcfg_files(khelpcenter prefs.kcfgc )
@@ -139,7 +141,12 @@ install( FILES khelpcenter.desktop  DESTINATION  ${KDE_INSTALL_KSERVICES5DIR} )
 install( FILES khelpcenter.desktop  DESTINATION  ${KDE_INSTALL_DATAROOTDIR}/kde4/services )
 install( FILES table-of-contents.xslt glossary.xslt DESTINATION ${KDE_INSTALL_DATADIR}/khelpcenter )
 install( FILES khelpcenterui.rc DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/khelpcenter )
-install( FILES khelpcenter.categories  DESTINATION  ${KDE_INSTALL_LOGGINGCATEGORIESDIR} )
 install( FILES org.kde.Help.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR} )
+
+ecm_qt_install_logging_categories(
+    EXPORT KHELPCENTER
+    FILE khelpcenter.categories
+    DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
+)
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
