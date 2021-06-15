@@ -92,9 +92,9 @@ int main( int argc, char **argv )
   aboutData.setupCommandLine( cmd );
   cmd->process( app );
 
-  KDBusService service( KDBusService::Unique );
-
   aboutData.processCommandLine( cmd );
+
+  KDBusService service( KDBusService::Unique );
 
   app.activate(app.arguments(), QDir::currentPath());
 
