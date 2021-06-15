@@ -89,12 +89,12 @@ int main( int argc, char **argv )
   KAboutData::setApplicationData(aboutData);
 
   QCommandLineParser *cmd = app.cmdParser();
-  KAboutData::applicationData().setupCommandLine( cmd );
+  aboutData.setupCommandLine( cmd );
   cmd->process( app );
 
   KDBusService service( KDBusService::Unique );
 
-  KAboutData::applicationData().processCommandLine( cmd );
+  aboutData.processCommandLine( cmd );
 
   app.activate(app.arguments(), QDir::currentPath());
 
