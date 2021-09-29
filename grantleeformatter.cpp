@@ -24,7 +24,7 @@ using namespace KHC;
 class PlainOutputStream : public Grantlee::OutputStream
 {
   public:
-    PlainOutputStream( QTextStream *stream )
+    explicit PlainOutputStream( QTextStream *stream )
       : Grantlee::OutputStream( stream )
     {
     }
