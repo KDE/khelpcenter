@@ -198,4 +198,5 @@ Comment[zh_TW]=瀏覽並搜尋文件
 Categories=Qt;KDE;Core;
 OnlyShowIn=KDE;
 X-DBUS-ServiceName=org.kde.Help
+SingleMainWindow=true
 MimeType=x-scheme-handler/help;x-scheme-handler/man;x-scheme-handler/info;
