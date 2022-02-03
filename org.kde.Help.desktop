@@ -194,6 +194,8 @@ Comment[vi]=Duyệt và tìm kiếm tài liệu
 Comment[x-test]=xxBrowse and search documentationxx
 Comment[zh_CN]=浏览和搜索文档
 Comment[zh_TW]=瀏覽並搜尋文件
+# ctxt: man as in man pages
+Keywords=man;info;documentation;handbook;manual;information;
 
 Categories=Qt;KDE;Core;
 OnlyShowIn=KDE;
