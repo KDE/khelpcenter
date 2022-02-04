@@ -85,7 +85,6 @@ int main( int argc, char **argv )
   aboutData.addAuthor( QStringLiteral("Matthias Elter"), i18n("Original Author"), QStringLiteral("me@kde.org") );
   aboutData.addAuthor( QStringLiteral("Wojciech Smigaj"), i18n("Info page support"), QStringLiteral("achu@klub.chip.pl") );
   app.setWindowIcon( QIcon::fromTheme(QStringLiteral("help-browser")) );
-  aboutData.setDesktopFileName ( QStringLiteral("org.kde.Help") );
   KAboutData::setApplicationData(aboutData);
 
   QCommandLineParser *cmd = app.cmdParser();

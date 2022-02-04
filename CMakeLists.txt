@@ -138,12 +138,12 @@ install(TARGETS khelpcenter ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### install files ###############
 
-install( PROGRAMS org.kde.Help.desktop  DESTINATION  ${KDE_INSTALL_APPDIR} )
+install( PROGRAMS org.kde.khelpcenter.desktop  DESTINATION  ${KDE_INSTALL_APPDIR} )
 install( FILES khelpcenter.kcfg  DESTINATION  ${KDE_INSTALL_KCFGDIR} )
 install( FILES khelpcenter.desktop  DESTINATION  ${KDE_INSTALL_KSERVICES5DIR} )
 install( FILES khelpcenter.desktop  DESTINATION  ${KDE_INSTALL_DATAROOTDIR}/kde4/services )
 install( FILES table-of-contents.xslt glossary.xslt DESTINATION ${KDE_INSTALL_DATADIR}/khelpcenter )
-install( FILES org.kde.Help.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR} )
+install( FILES org.kde.khelpcenter.metainfo.xml DESTINATION ${KDE_INSTALL_METAINFODIR} )
 
 ecm_qt_install_logging_categories(
     EXPORT KHELPCENTER

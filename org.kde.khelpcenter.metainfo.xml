@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component type="desktop">
-  <id>org.kde.Help.desktop</id>
+  <id>org.kde.khelpcenter</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>KHelpCenter</name>
@@ -293,14 +293,14 @@
       <image width="1920" height="1044">https://kde.org/images/screenshots/khelpcenter.png</image>
     </screenshot>
   </screenshots>
-  <url type="homepage">https://apps.kde.org/help/</url>
+  <url type="homepage">https://apps.kde.org/khelpcenter</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=khelpcenter</url>
   <url type="donation">https://www.kde.org/community/donations/?app=khelpcenter&amp;source=appdata</url>
   <project_group>KDE</project_group>
   <provides>
     <binary>khelpcenter</binary>
   </provides>
-  <launchable type="desktop-id">org.kde.Help.desktop</launchable>
+  <launchable type="desktop-id">org.kde.khelpcenter.desktop</launchable>
   <releases>
     <release version="5.7.6.21122" date="2022-02-03"/>
     <release version="5.7.6.21121" date="2022-01-06"/>

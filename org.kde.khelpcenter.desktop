@@ -209,6 +209,5 @@ Keywords[x-test]=xxman;info;documentation;handbook;manual;information;xx
 
 Categories=Qt;KDE;Core;
 OnlyShowIn=KDE;
-X-DBUS-ServiceName=org.kde.Help
 SingleMainWindow=true
 MimeType=x-scheme-handler/help;x-scheme-handler/man;x-scheme-handler/info;
