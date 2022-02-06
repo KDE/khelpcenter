@@ -196,6 +196,11 @@ Comment[zh_CN]=浏览和搜索文档
 Comment[zh_TW]=瀏覽並搜尋文件
 # ctxt: man as in man pages
 Keywords=man;info;documentation;handbook;manual;information;
+Keywords[ar]=مان;توثيق;معلومات;دليل;كتيب;
+Keywords[ca]=man;info;documentació;manual;informació;
+Keywords[sv]=man;info;dokumentation;handbok;manual;information;
+Keywords[uk]=man;info;documentation;handbook;manual;information;ман;підручник;інфо;відомості;інформація;документація;підручник;посібник;мануал;
+Keywords[x-test]=xxman;info;documentation;handbook;manual;information;xx
 
 Categories=Qt;KDE;Core;
 OnlyShowIn=KDE;
