@@ -10,9 +10,9 @@ set (KDE_APPLICATIONS_COMPACT_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}${RELEASE
 project(KHelpCenter VERSION "5.7.6.${KDE_APPLICATIONS_COMPACT_VERSION}")
 
 set(QT_MIN_VERSION "5.15.0")
+set(KF_MIN_VERSION "5.85.0")
 
-set(KF5_MIN_VERSION "5.83.0")
-find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
+find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
 include(KDEInstallDirs)
@@ -33,7 +33,7 @@ find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Xml
 )
 
-find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
+find_package(KF5 ${KF_MIN_VERSION} REQUIRED COMPONENTS
     Archive
     Bookmarks
     Config
@@ -63,18 +63,6 @@ set_package_properties(LibXml2 PROPERTIES
     DESCRIPTION "Support for extracting text from HTML documents"
     URL "http://www.xmlsoft.org/"
     TYPE REQUIRED)
-
-add_definitions(
-  -DQT_USE_QSTRINGBUILDER
-  -DQT_NO_CAST_TO_ASCII
-  -DQT_NO_CAST_FROM_ASCII
-  -DQT_NO_URL_CAST_FROM_STRING
-  -DQT_NO_CAST_FROM_BYTEARRAY
-)
-
-add_definitions(-DQT_NO_FOREACH)
-add_definitions(-DQT_NO_KEYWORDS)
-
 
 add_subdirectory( plugins )
 add_subdirectory( searchhandlers )
