@@ -7,8 +7,10 @@
 #include "application.h"
 #include "mainwindow.h"
 
+#include <kwindowsystem_version.h>
 #include <KAboutData>
 #include <KDBusService>
+#include <KWindowSystem>
 #include <KLocalizedString>
 #include <KUrlAuthorized>
 
@@ -43,29 +45,66 @@ QCommandLineParser *Application::cmdParser()
   return &mCmdParser;
 }
 
-void Application::activate(const QStringList& args, const QString &workingDirectory)
+void Application::activateForStartLikeCall()
 {
-  mCmdParser.parse( args );
-
-  QStringList urls = mCmdParser.positionalArguments();
-
-  if( !mMainWindow )
-  {
-    if (qApp->isSessionRestored()) {
-        // The kRestoreMainWindows call will do the rest.
-        return;
+  mMainWindow->show();
+#if KWINDOWSYSTEM_VERSION >= QT_VERSION_CHECK(5, 91, 0)
+  KWindowSystem::updateStartupId(mMainWindow->windowHandle());
+#else
+  if (KWindowSystem::isPlatformWayland()) {
+    const QString token = qEnvironmentVariable("XDG_ACTIVATION_TOKEN");
+    if (!token.isEmpty()) {
+      KWindowSystem::setCurrentXdgActivationToken(token);
+      // no need to unset XDG_ACTIVATION_TOKEN, because
+      // KDBusService cares for that and we only run in its signals handlers here
     }
-    mMainWindow = new MainWindow;
   }
+#endif
 
-  QUrl url;
-  if ( !urls.isEmpty() ) {
-    url = QUrl::fromUserInput( urls.at( 0 ), workingDirectory );
-  }
+  mMainWindow->raise();
+  KWindowSystem::activateWindow(mMainWindow->winId());
+}
 
-  mMainWindow->openUrl( url );
+void Application::newInstance()
+{
+  mMainWindow = new MainWindow;
 
   mMainWindow->show();
+
+  const QStringList urls = mCmdParser.positionalArguments();
+  if ( !urls.isEmpty() ) {
+    const QUrl url = QUrl::fromUserInput( urls.at( 0 ), QDir::currentPath());
+    mMainWindow->openUrl( url );
+  }
+}
+
+void Application::restoreInstance()
+{
+  mMainWindow = new MainWindow;
+  mMainWindow->restore(1);
+}
+
+void Application::activate(const QStringList& arguments, const QString &workingDirectory)
+{
+  if (!arguments.isEmpty()) {
+    mCmdParser.parse(arguments);
+    const QStringList urls = mCmdParser.positionalArguments();
+    if (!urls.isEmpty() ) {
+      const QUrl url = QUrl::fromUserInput( urls.at( 0 ), workingDirectory );
+      mMainWindow->openUrl( url );
+    }
+  }
+
+  activateForStartLikeCall();
+}
+
+void Application::open(const QList<QUrl>& urls)
+{
+  if (!urls.isEmpty()) {
+    mMainWindow->openUrl( urls.first() );
+  }
+
+  activateForStartLikeCall();
 }
 
 int main( int argc, char **argv )
@@ -95,14 +134,13 @@ int main( int argc, char **argv )
 
   KDBusService service( KDBusService::Unique );
 
-  app.activate(app.arguments(), QDir::currentPath());
+  if (app.isSessionRestored() && KMainWindow::canBeRestored(1))
+    app.restoreInstance();
+  else
+    app.newInstance();
 
   QObject::connect( &service, &KDBusService::activateRequested, &app, &Application::activate );
-
-  if ( app.isSessionRestored() )
-  {
-     kRestoreMainWindows<MainWindow>();
-  }
+  QObject::connect( &service, &KDBusService::openRequested, &app, &Application::open );
 
   return app.exec();
 }

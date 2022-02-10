@@ -9,6 +9,7 @@
 
 #include <QApplication>
 #include <QCommandLineParser>
+#include <QList>
 #include <QUrl>
 
 namespace KHC {
@@ -23,8 +24,15 @@ namespace KHC {
 
       QCommandLineParser *cmdParser();
 
+      void newInstance();
+      void restoreInstance();
+
     public Q_SLOTS:
         void activate(const QStringList& args, const QString &workingDirectory);
+        void open(const QList<QUrl>& urls);
+
+  private:
+        void activateForStartLikeCall();
 
     private:
       MainWindow *mMainWindow = nullptr;

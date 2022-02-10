@@ -26,6 +26,7 @@ include(ECMOptionalAddSubdirectory)
 include(FeatureSummary)
 include(CheckIncludeFiles)
 include(ECMQtDeclareLoggingCategory)
+include(ECMGenerateDBusServiceFile)
 
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     DBus
@@ -125,6 +126,12 @@ kde_clang_format(${ALL_CLANG_FORMAT_SOURCE_FILES})
 install(TARGETS khelpcenter ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### install files ###############
+
+ecm_generate_dbus_service_file(
+    NAME org.kde.khelpcenter
+    EXECUTABLE ${KDE_INSTALL_FULL_BINDIR}/khelpcenter
+    DESTINATION ${KDE_INSTALL_DBUSSERVICEDIR}
+)
 
 install( PROGRAMS org.kde.khelpcenter.desktop  DESTINATION  ${KDE_INSTALL_APPDIR} )
 install( FILES khelpcenter.kcfg  DESTINATION  ${KDE_INSTALL_KCFGDIR} )

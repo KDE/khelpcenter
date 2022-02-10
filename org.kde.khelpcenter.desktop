@@ -214,5 +214,8 @@ Keywords[zh_CN]=man;info;documentation;handbook;manual;information;说明书;信
 
 Categories=Qt;KDE;Core;
 OnlyShowIn=KDE;
+DBusActivatable=true
+X-DBUS-StartupType=Unique
+X-DBUS-ServiceName=org.kde.khelpcenter
 SingleMainWindow=true
 MimeType=x-scheme-handler/help;x-scheme-handler/man;x-scheme-handler/info;
