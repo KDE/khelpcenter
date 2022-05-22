@@ -140,6 +140,9 @@ install( FILES khelpcenter.desktop  DESTINATION  ${KDE_INSTALL_DATAROOTDIR}/kde4
 install( FILES table-of-contents.xslt glossary.xslt DESTINATION ${KDE_INSTALL_DATADIR}/khelpcenter )
 install( FILES org.kde.khelpcenter.metainfo.xml DESTINATION ${KDE_INSTALL_METAINFODIR} )
 
+ki18n_install(po)
+kdoctools_install(po)
+
 ecm_qt_install_logging_categories(
     EXPORT KHELPCENTER
     FILE khelpcenter.categories
