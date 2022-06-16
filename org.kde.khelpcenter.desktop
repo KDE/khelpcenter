@@ -199,6 +199,7 @@ Keywords=man;info;documentation;handbook;manual;information;
 Keywords[ar]=مان;توثيق;معلومات;دليل;كتيب;
 Keywords[ca]=man;info;documentació;manual;informació;
 Keywords[ca@valencia]=man;info;documentació;manual;informació;
+Keywords[de]=handbuch,dokumentation
 Keywords[en_GB]=man;info;documentation;handbook;manual;information;
 Keywords[es]=man;info;documentación;manual;información;
 Keywords[fi]=man;info;ohjeistus;ohje;käsikirja;opas;tietoa;tieto;
