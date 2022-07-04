@@ -214,9 +214,9 @@ History                 no X-KDE-PluginKeyword in kcmhistory.desktop
     topItem->setHidden(no_children_present);
 }
 
-void Navigator::insertIOSlaveDocs( const QString &name, NavigatorItem *topItem )
+void Navigator::insertIOWorkerDocs( const QString &name, NavigatorItem *topItem )
 {
-  qCDebug(KHC_LOG) << "Requested IOSlave documents for ID" << name;
+  qCDebug(KHC_LOG) << "Requested IOWorker documents for ID" << name;
 
   QStringList list = KProtocolInfo::protocols();
   list.sort();

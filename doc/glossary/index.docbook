@@ -115,9 +115,9 @@ Project Neon
 				<glossseealso otherterm="gloss-ghns">Get Hot New Stuff</glossseealso>
 			</glossdef>
 		</glossentry>
-		<glossentry id="gloss-ioslave">
-			<glossterm><acronym>IO</acronym> Slave</glossterm>
-			<glossdef><para><acronym>IO</acronym> Slaves enable &kde; applications to
+		<glossentry id="gloss-ioworker">
+			<glossterm><acronym>IO</acronym> Worker</glossterm>
+			<glossdef><para><acronym>IO</acronym> Workers enable &kde; applications to
 				access remote resources as easily as local resources (making them
 				"network transparent"). Remote resources (&eg; files) might
 				be stored on <acronym>SMB</acronym> shares or similar.</para>
@@ -138,9 +138,9 @@ Project Neon
 		<glossentry id="gloss-kio">
 			<glossterm><acronym>KIO</acronym></glossterm>
 			<glossdef><para>The &kde; Input/Output system which makes use of so-called
-				"<acronym>IO</acronym> Slaves".</para>
-				<glossseealso otherterm="gloss-ioslave"><acronym>IO</acronym> 
-Slave</glossseealso>
+				"<acronym>IO</acronym> Workers".</para>
+				<glossseealso otherterm="gloss-ioworker"><acronym>IO</acronym>
+Worker</glossseealso>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 			</glossdef>
 		</glossentry>
@@ -618,7 +618,7 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 			<glossdef><para>&emstart;S&emend;erver &emstart;M&emend;essage
 				&emstart;B&emend;lock. A network protocol used in &Microsoft; &Windows;
 				networks to access the file systems of other computers.</para>
-				<glossseealso otherterm="gloss-ioslave"><acronym>IO</acronym> Slave</glossseealso>
+				<glossseealso otherterm="gloss-ioworker"><acronym>IO</acronym> Worker</glossseealso>
 			</glossdef>
 		</glossentry>
 		<glossentry id="gloss-irc">

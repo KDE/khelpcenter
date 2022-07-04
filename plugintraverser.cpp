@@ -81,8 +81,8 @@ void PluginTraverser::process( DocEntry *entry )
       mNavigator->insertKCMDocs( entry->khelpcenterSpecial(), mCurrentItem, QStringLiteral("othercontrol") );
     } else if ( entry->khelpcenterSpecial() == QLatin1String("kinfocenter") ) {
       mNavigator->insertKCMDocs( entry->khelpcenterSpecial(), mCurrentItem, QStringLiteral("kinfocenter") );
-    } else if ( entry->khelpcenterSpecial() == QLatin1String("kioslave") ) {
-      mNavigator->insertIOSlaveDocs( entry->khelpcenterSpecial(), mCurrentItem );
+    } else if ( entry->khelpcenterSpecial() == QLatin1String("kioworker") ) {
+      mNavigator->insertIOWorkerDocs( entry->khelpcenterSpecial(), mCurrentItem );
     } else if ( entry->khelpcenterSpecial() == QLatin1String("info") ) {
       mNavigator->insertInfoDocs( mCurrentItem );
     } else if ( entry->khelpcenterSpecial() == QLatin1String("scrollkeeper") ) {

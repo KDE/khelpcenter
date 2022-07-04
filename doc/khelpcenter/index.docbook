@@ -296,7 +296,7 @@ Contains a list of links to various KInfocenter modules documentation.
 </varlistentry>
 
 <varlistentry>
-<term><guilabel>Kioslaves</guilabel></term>
+<term><guilabel>KIO Workers</guilabel></term>
 <listitem>
 <para>
 Contains a list of links to various <acronym>KIO</acronym> modules documentation.

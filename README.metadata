@@ -30,7 +30,7 @@ Icon                        string    Name of icon for document
 X-DocPath                   URI       Location of document. In addition to the
                                       standard URI schemes like http: and file:
                                       all schemes which are supported through
-                                      kioslaves can be used. In particular the
+                                      kioworkers can be used. In particular the
                                       following non-standard URI schemes are
                                       supported:
                                       help:  KDE manual identified by app name
@@ -90,7 +90,7 @@ X-KDE-KHelpcenter           string    If this entry is set to one of the
                                       'kinfocenter'  kinfocenter docs
                                       'kcontrol'     kcontrol module docs
                                       'konqueror'    konqueror plugin docs
-                                      'kioslave'     kioslave docs
+                                      'kioworker'    kioworker docs
                                       'info'         info pages
 X-DOC-DocumentType          string    Type of document. The type is used to look
                                       up corresponding search handlers.

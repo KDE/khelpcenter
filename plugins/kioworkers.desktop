@@ -1,0 +1,9 @@
+# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2022 Harald Sitter <sitter@kde.org>
+[Desktop Entry]
+Name=KIO Workers
+Icon=help-contents
+
+X-DOC-Weight=500
+
+X-KDE-KHelpcenter-Special=kioworker
