@@ -14,3 +14,6 @@ Dependencies:
     'frameworks/kconfig': '@stable'
     'frameworks/kwindowsystem': '@stable'
     'frameworks/karchive': '@stable'
+
+Options:
+    require-passing-tests-on: [ 'Linux', 'FreeBSD' ]
