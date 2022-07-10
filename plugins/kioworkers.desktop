@@ -2,6 +2,11 @@
 # SPDX-FileCopyrightText: 2022 Harald Sitter <sitter@kde.org>
 [Desktop Entry]
 Name=KIO Workers
+Name[ca]=Processos de treball KIO
+Name[nl]=KIO-programma's
+Name[pt]=Módulos do KIO
+Name[uk]=Обробники введення-виведення
+Name[x-test]=xxKIO Workersxx
 Icon=help-contents
 
 X-DOC-Weight=500
