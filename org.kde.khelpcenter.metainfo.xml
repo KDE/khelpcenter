@@ -40,6 +40,7 @@
   <name xml:lang="sr-ijekavian">К‑центар-помоћи</name>
   <name xml:lang="sr-ijekavianlatin">K‑centar-pomoći</name>
   <name xml:lang="sv">Hjälpcentralen</name>
+  <name xml:lang="ta">கேஹெல்புசெண்டர்</name>
   <name xml:lang="tr">KHelpCenter</name>
   <name xml:lang="uk">KHelpCenter</name>
   <name xml:lang="vi">KHelpCenter</name>
@@ -83,6 +84,7 @@
   <summary xml:lang="sr-ijekavian">Центар помоћи</summary>
   <summary xml:lang="sr-ijekavianlatin">Centar pomoći</summary>
   <summary xml:lang="sv">Hjälpcentral</summary>
+  <summary xml:lang="ta">உதவி மையம்</summary>
   <summary xml:lang="tr">Yardım Merkezi</summary>
   <summary xml:lang="uk">Центр довідки</summary>
   <summary xml:lang="vi">Trung tâm trợ giúp</summary>
@@ -123,6 +125,7 @@
     <p xml:lang="sk">Aplikácia na vyhľadávanie a čítanie dokumentácie pre všetky vaše KDE aplikácie a systémové nástroje</p>
     <p xml:lang="sl">Aplikacija za iskanje in branje dokumentacije za vse aplikacije KDE in sistemska orodja</p>
     <p xml:lang="sv">Ett program för att söka i och läsa dokumentationen om alla KDE-program och systemverktyg</p>
+    <p xml:lang="ta">கே.டீ.யீ. செயலிகளுக்கும் இயங்குதள நிரல்களுக்கும் உள்ள கையேடுகளை படிக்கவும் அவற்றுக்குள் தேடவும் உதவும் செயலி</p>
     <p xml:lang="tr">Tüm KDE uygulamalarının ve sistem izlencelerinin belgelendirmesini okumak ve içinde arama yapmak için bir uygulama</p>
     <p xml:lang="uk">Програма для пошуку і читання документації до усіх програм KDE та засобів системи</p>
     <p xml:lang="vi">Một ứng dụng để tìm kiếm và đọc các tài liệu cho tất cả các ứng dụng và tiện ích hệ thống KDE của bạn</p>
@@ -166,6 +169,7 @@
     <p xml:lang="sr-ijekavian">Могућности:</p>
     <p xml:lang="sr-ijekavianlatin">Mogućnosti:</p>
     <p xml:lang="sv">Funktioner:</p>
+    <p xml:lang="ta">அம்சங்கள்:</p>
     <p xml:lang="tr">Özellikler:</p>
     <p xml:lang="uk">Можливості:</p>
     <p xml:lang="vi">Tính năng:</p>
@@ -209,6 +213,7 @@
       <li xml:lang="sr-ijekavian">приказ документације из различитих извора (програми заједнице КДЕ, упутне странице, итд.)</li>
       <li xml:lang="sr-ijekavianlatin">prikaz dokumentacije iz različitih izvora (programi zajednice KDE, uputne stranice, itd.)</li>
       <li xml:lang="sv">Visa dokumentation från olika källor (program från KDE-gemenskapen, manualsidor, etc.)</li>
+      <li xml:lang="ta">பல இடங்களிலிருந்தான கையேடுகளை காட்டும் (கே.டீ.யீ. செயலிகள், இயங்குதள கையேடுகள் இத்தியாதி)</li>
       <li xml:lang="tr">Farklı kaynaklardan belgelendirmeleri göster (KDE topluluğu, kılavuz sayfaları, vs)</li>
       <li xml:lang="uk">Показ документації з різних джерел (програми спільноти KDE, сторінки man тощо)</li>
       <li xml:lang="vi">Hiện tài liệu từ nhiều nguồn khác nhau (các ứng dụng của cộng đồng KDE, các trang sổ tay, v.v.)</li>
@@ -251,6 +256,7 @@
       <li xml:lang="sr-ijekavian">тражење кроз доступну документацију</li>
       <li xml:lang="sr-ijekavianlatin">traženje kroz dostupnu dokumentaciju</li>
       <li xml:lang="sv">Sök igenom tillgänglig dokumentation</li>
+      <li xml:lang="ta">கையேடுகளில் தேடுங்கள்</li>
       <li xml:lang="tr">Mevcut belgelendirmede arama yapın</li>
       <li xml:lang="uk">Пошук у доступній документації</li>
       <li xml:lang="vi">Tìm kiếm các tài liệu hiện có</li>
@@ -293,6 +299,7 @@
       <caption xml:lang="sk">KHelpCenter hlavné okno</caption>
       <caption xml:lang="sl">Glavno okno - KHelpCenter</caption>
       <caption xml:lang="sv">Huvudfönstret i Hjälpcentralen</caption>
+      <caption xml:lang="ta">கேஹெல்புசெண்டரின் பிரதான சாளரம்</caption>
       <caption xml:lang="tr">KHelpCenter ana penceresi</caption>
       <caption xml:lang="uk">Головне вікно KHelpCenter</caption>
       <caption xml:lang="vi">Cửa sổ chính KHelpCenter</caption>
