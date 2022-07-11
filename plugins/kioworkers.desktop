@@ -2,9 +2,15 @@
 # SPDX-FileCopyrightText: 2022 Harald Sitter <sitter@kde.org>
 [Desktop Entry]
 Name=KIO Workers
+Name[bg]=KIO обработване
 Name[ca]=Processos de treball KIO
+Name[es]=Módulos de trabajo de KIO
+Name[fr]=Acteurs du module « kio »
 Name[nl]=KIO-programma's
 Name[pt]=Módulos do KIO
+Name[sl]=KIO Workers
+Name[ta]=KIO உதவிநிரல்கள்
+Name[tr]=KIO Çalışanları
 Name[uk]=Обробники введення-виведення
 Name[x-test]=xxKIO Workersxx
 Icon=help-contents
