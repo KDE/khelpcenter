@@ -12,9 +12,5 @@ install( FILES fundamentals.desktop plasma.desktop
                onlinehelp.desktop 
                info.desktop kicmodules.desktop 
                kcontrolmodules.desktop 
-               konquerorcontrolmodules.desktop
-               browsercontrolmodules.desktop 
-               filemanagercontrolmodules.desktop
-               othercontrolmodules.desktop 
                kioworkers.desktop  DESTINATION  ${KDE_INSTALL_DATADIR}/khelpcenter/plugins )
 

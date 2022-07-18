@@ -71,14 +71,6 @@ void PluginTraverser::process( DocEntry *entry )
       mNavigator->insertParentAppDocs( entry->khelpcenterSpecial(), mCurrentItem );
     } else if ( entry->khelpcenterSpecial() == QLatin1String("kcontrol") ) {
       mNavigator->insertSystemSettingsDocs( entry->khelpcenterSpecial(), mCurrentItem, Navigator::SystemSettings );
-    } else if ( entry->khelpcenterSpecial() == QLatin1String("konquerorcontrol") ) {
-      mNavigator->insertKCMDocs( entry->khelpcenterSpecial(), mCurrentItem, QStringLiteral("konquerorcontrol") );
-    } else if ( entry->khelpcenterSpecial() == QLatin1String("filemanagercontrol") ) {
-      mNavigator->insertKCMDocs( entry->khelpcenterSpecial(), mCurrentItem, QStringLiteral("filemanagercontrol") );
-    } else if ( entry->khelpcenterSpecial() == QLatin1String("browsercontrol") ) {
-      mNavigator->insertKCMDocs( entry->khelpcenterSpecial(), mCurrentItem, QStringLiteral("browsercontrol") );
-    } else if ( entry->khelpcenterSpecial() == QLatin1String("othercontrol") ) {
-      mNavigator->insertKCMDocs( entry->khelpcenterSpecial(), mCurrentItem, QStringLiteral("othercontrol") );
     } else if ( entry->khelpcenterSpecial() == QLatin1String("kinfocenter") ) {
       mNavigator->insertSystemSettingsDocs( entry->khelpcenterSpecial(), mCurrentItem, Navigator::KInfoCenter);
     } else if ( entry->khelpcenterSpecial() == QLatin1String("kioworker") ) {
