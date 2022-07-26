@@ -14,6 +14,8 @@
 #include <QTimer>
 #include <QUrl>
 
+#include <KPluginMetaData>
+
 class QProgressBar;
 class QTabWidget;
 class QTreeWidget;
@@ -36,6 +38,11 @@ class Navigator : public QWidget
     explicit Navigator(View *, QWidget *parent= nullptr);
     virtual ~Navigator();
 
+    enum KCMType {
+      SystemSettings = 1,
+      KInfoCenter = 2,
+    };
+
     QUrl homeURL();
 
     SearchEngine *searchEngine() const;
@@ -46,6 +53,7 @@ class Navigator : public QWidget
     void insertScrollKeeperDocs( NavigatorItem *parent );
     void insertInfoDocs( NavigatorItem *parentItem );
     void insertKCMDocs(const QString &, NavigatorItem*parent, const QString &);
+    void insertSystemSettingsDocs( const QString &name, NavigatorItem *topItem, KCMType type );
     
     void insertIOWorkerDocs(const QString &, NavigatorItem*parent);
     void createItemFromDesktopFile( NavigatorItem *item, const QString &name );
@@ -93,6 +101,8 @@ class Navigator : public QWidget
 
     void insertPlugins();
     void hideSearch();
+
+    QList<KPluginMetaData> findKCMsMetaData(KCMType source);
 
     QTreeWidget *mContentsTree = nullptr;
     Glossary *mGlossaryTree = nullptr;

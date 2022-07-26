@@ -15,6 +15,7 @@
 #include <QTreeWidgetItemIterator>
 #include <QVBoxLayout>
 
+#include <KAuthorized>
 #include <KDesktopFile>
 #include <KLineEdit>
 #include <KMessageBox>
@@ -42,6 +43,8 @@
 #include "grantleeformatter.h"
 
 #include <prefs.h>
+
+#include <set>
 
 using namespace KHC;
 
@@ -156,6 +159,93 @@ void Navigator::insertParentAppDocs( const QString &name, NavigatorItem *topItem
         desktopFile = QStandardPaths::locate(QStandardPaths::ApplicationsLocation, desktopFile );
     createItemFromDesktopFile( topItem, desktopFile );
   }
+}
+
+// copied from systemsettings
+QList<KPluginMetaData> Navigator::findKCMsMetaData(KCMType source)
+{
+    QList<KPluginMetaData> modules;
+    std::set<QString> uniquePluginIds;
+
+    auto filter = [](const KPluginMetaData &data) {
+        const auto supportedPlatforms = data.value(QStringLiteral("X-KDE-OnlyShowOnQtPlatforms"), QStringList());
+        return supportedPlatforms.isEmpty() || supportedPlatforms.contains(qGuiApp->platformName());
+    };
+
+    // We need the exist calls because otherwise the trader language aborts if the property doesn't exist and the second part of the or is not evaluated
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    KService::List services;
+#endif
+    QVector<KPluginMetaData> metaDataList = KPluginMetaData::findPlugins(QStringLiteral("plasma/kcms"), filter);
+    if (source & SystemSettings) {
+        metaDataList << KPluginMetaData::findPlugins(QStringLiteral("plasma/kcms/systemsettings"), filter);
+        metaDataList << KPluginMetaData::findPlugins(QStringLiteral("plasma/kcms/systemsettings_qwidgets"), filter);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+        services +=
+            KServiceTypeTrader::self()->query(QStringLiteral("KCModule"), QStringLiteral("[X-KDE-System-Settings-Parent-Category] != ''"));
+#endif
+    }
+    if (source & KInfoCenter) {
+        metaDataList << KPluginMetaData::findPlugins(QStringLiteral("plasma/kcms/kinfocenter"), filter);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+        services += KServiceTypeTrader::self()->query(QStringLiteral("KCModule"), QStringLiteral("[X-KDE-ParentApp] == 'kinfocenter'"));
+#endif
+    }
+    for (const auto &m : qAsConst(metaDataList)) {
+        // We check both since porting a module to loading view KPluginMetaData drops ".desktop" from the pluginId()
+        if (!KAuthorized::authorizeControlModule(m.pluginId()) || !KAuthorized::authorizeControlModule(m.pluginId().append(QStringLiteral(".desktop")))) {
+            continue;
+        }
+        modules << m;
+        const bool inserted = uniquePluginIds.insert(m.pluginId()).second;
+        if (!inserted) {
+            qWarning() << "the plugin" << m.pluginId() << " was found in multiple namespaces";
+        }
+    }
+
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    for (const auto &s : qAsConst(services)) {
+        if (!s->noDisplay() && !s->exec().isEmpty() && KAuthorized::authorizeControlModule(s->menuId())) {
+            const QString path = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kservices5/") + s->entryPath());
+            const KPluginMetaData data = KPluginMetaData::fromDesktopFile(path);
+            const bool inserted = uniquePluginIds.insert(data.pluginId()).second;
+            if (inserted) {
+                modules << data;
+            }
+        }
+    }
+#endif
+    std::stable_sort(modules.begin(), modules.end(), [](const KPluginMetaData &m1, const KPluginMetaData &m2) {
+        return QString::compare(m1.pluginId(), m2.pluginId(), Qt::CaseInsensitive) < 0;
+    });
+    return modules;
+}
+
+void Navigator::insertSystemSettingsDocs( const QString &name, NavigatorItem *topItem, KCMType type )
+{
+  qCDebug(KHC_LOG) << "Requested KCM documents for ID" << name;
+
+  const QList<KPluginMetaData> list = findKCMsMetaData(type);
+
+  bool no_children_present = true;
+
+  for ( const KPluginMetaData &md : std::as_const(list))
+  {
+    QString docPath = md.value(QStringLiteral("X-DocPath"));
+    if ( !docPath.isNull() ) {
+      // First parameter is ignored if second is an absolute path
+      const QUrl url(QStringLiteral("help:/") + docPath);
+      QString icon = md.iconName();
+      if ( icon.isEmpty() ) icon = QStringLiteral("text-plain");
+      DocEntry *entry = new DocEntry( md.name(), url.url(), icon );
+      NavigatorItem *item = new NavigatorAppItem( entry, topItem );
+      item->setAutoDeleteDocEntry( true );
+    }
+
+    no_children_present = false;
+    }
+    topItem->sortChildren( 0, Qt::AscendingOrder /* ascending */ );
+    topItem->setHidden(no_children_present);
 }
 
 void Navigator::insertKCMDocs( const QString &name, NavigatorItem *topItem, const QString &type )

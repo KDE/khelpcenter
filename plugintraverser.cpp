@@ -70,7 +70,7 @@ void PluginTraverser::process( DocEntry *entry )
     if ( entry->khelpcenterSpecial() == QLatin1String("konqueror") ) {
       mNavigator->insertParentAppDocs( entry->khelpcenterSpecial(), mCurrentItem );
     } else if ( entry->khelpcenterSpecial() == QLatin1String("kcontrol") ) {
-      mNavigator->insertKCMDocs( entry->khelpcenterSpecial(), mCurrentItem, QStringLiteral("kcontrol") );
+      mNavigator->insertSystemSettingsDocs( entry->khelpcenterSpecial(), mCurrentItem, Navigator::SystemSettings );
     } else if ( entry->khelpcenterSpecial() == QLatin1String("konquerorcontrol") ) {
       mNavigator->insertKCMDocs( entry->khelpcenterSpecial(), mCurrentItem, QStringLiteral("konquerorcontrol") );
     } else if ( entry->khelpcenterSpecial() == QLatin1String("filemanagercontrol") ) {
@@ -80,7 +80,7 @@ void PluginTraverser::process( DocEntry *entry )
     } else if ( entry->khelpcenterSpecial() == QLatin1String("othercontrol") ) {
       mNavigator->insertKCMDocs( entry->khelpcenterSpecial(), mCurrentItem, QStringLiteral("othercontrol") );
     } else if ( entry->khelpcenterSpecial() == QLatin1String("kinfocenter") ) {
-      mNavigator->insertKCMDocs( entry->khelpcenterSpecial(), mCurrentItem, QStringLiteral("kinfocenter") );
+      mNavigator->insertSystemSettingsDocs( entry->khelpcenterSpecial(), mCurrentItem, Navigator::KInfoCenter);
     } else if ( entry->khelpcenterSpecial() == QLatin1String("kioworker") ) {
       mNavigator->insertIOWorkerDocs( entry->khelpcenterSpecial(), mCurrentItem );
     } else if ( entry->khelpcenterSpecial() == QLatin1String("info") ) {
