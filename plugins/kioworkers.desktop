@@ -2,9 +2,11 @@
 # SPDX-FileCopyrightText: 2022 Harald Sitter <sitter@kde.org>
 [Desktop Entry]
 Name=KIO Workers
+Name[ar]=عوامل الدخل/الخرج
 Name[bg]=KIO обработване
 Name[ca]=Processos de treball KIO
 Name[ca@valencia]=Processos de treball KIO
+Name[da]=KIO-workers
 Name[de]=KIO-Modul
 Name[en_GB]=KIO Workers
 Name[es]=Módulos de trabajo de KIO
