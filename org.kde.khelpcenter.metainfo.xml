@@ -318,9 +318,9 @@
   </provides>
   <launchable type="desktop-id">org.kde.khelpcenter.desktop</launchable>
   <releases>
+    <release version="5.8.22080" date="2022-08-18"/>
     <release version="5.8.22043" date="2022-07-07"/>
     <release version="5.8.22042" date="2022-06-09"/>
     <release version="5.8.22041" date="2022-05-12"/>
-    <release version="5.8.22040" date="2022-04-21"/>
   </releases>
 </component>
