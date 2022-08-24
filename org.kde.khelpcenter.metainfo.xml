@@ -25,6 +25,7 @@
   <name xml:lang="ia">KHelpCenter</name>
   <name xml:lang="id">KHelpCenter</name>
   <name xml:lang="it">KHelpCenter</name>
+  <name xml:lang="ka">KHelpCenter</name>
   <name xml:lang="ko">KHelpCenter</name>
   <name xml:lang="nl">KHelpCenter</name>
   <name xml:lang="nn">KHelpCenter</name>
@@ -69,6 +70,7 @@
   <summary xml:lang="ia">Centro de Adjuta </summary>
   <summary xml:lang="id">Pusat Bantuan</summary>
   <summary xml:lang="it">Centro documentazione</summary>
+  <summary xml:lang="ka">დახმარების ცენტრი</summary>
   <summary xml:lang="ko">도움말 센터</summary>
   <summary xml:lang="nl">Hulpcentrum</summary>
   <summary xml:lang="nn">Hjelpesenter</summary>
@@ -154,6 +156,7 @@
     <p xml:lang="ia">Characteristicas:</p>
     <p xml:lang="id">Fitur:</p>
     <p xml:lang="it">Funzionalità:</p>
+    <p xml:lang="ka">თვისებები:</p>
     <p xml:lang="ko">기능:</p>
     <p xml:lang="nl">Mogelijkheden:</p>
     <p xml:lang="nn">Funksjonar:</p>
@@ -198,6 +201,7 @@
       <li xml:lang="ia">Monstra documentationes varie fontes (applicationes ex communutate de KDE, paginas man, etc)</li>
       <li xml:lang="id">Menampilkan dokumentasi dari berbagai sumberdaya (aplikasi dari komunitas KDE, halaman manual, dll)</li>
       <li xml:lang="it">Mostra la documentazione da varie fonti (applicazioni dalla comunità KDE, pagine di manuale, ecc)</li>
+      <li xml:lang="ka">დოკუმენტაციის ჩვენება სხვადასხვა წყაროებიდან (პროგრამები KDE თემიდან, დახმარების გვერდებიდან და ა.შ.)</li>
       <li xml:lang="ko">KDE 커뮤니티 프로그램, man 페이지 등 여러 곳의 문서 표시</li>
       <li xml:lang="nl">Toon documentatie uit verschillende bronnen (toepassingen uit de KDE gemeenschap, manpagina's, etc)</li>
       <li xml:lang="nn">Vis hjelpetekstar frå ulike kjelder (KDE-program, man-sider o.l.)</li>
@@ -241,6 +245,7 @@
       <li xml:lang="ia">Cerca a transverso del documentation disponibile</li>
       <li xml:lang="id">Pencarian melalui dokumentasi yang tersedia</li>
       <li xml:lang="it">Cerca nella documentazione disponibile</li>
+      <li xml:lang="ka">ხელმისაწვდომ დოკუმენტაციაში ძებნა</li>
       <li xml:lang="ko">사용 가능한 문서 내에서 검색</li>
       <li xml:lang="nl">Zoeken in de beschikbare documentatie</li>
       <li xml:lang="nn">Søk gjennom tilgjengelege hjelpetekstar</li>
@@ -288,6 +293,7 @@
       <caption xml:lang="ia">fenestra principal de KHelpCenter</caption>
       <caption xml:lang="id">Window utama KHelpCenter</caption>
       <caption xml:lang="it">Finestra principale di KHelpCenter</caption>
+      <caption xml:lang="ka">KHelpCenter -ის მთავარი ფანჯარა</caption>
       <caption xml:lang="ko">KHelpCenter 주 창</caption>
       <caption xml:lang="nl">Hoofdvenster van KHelpCenter</caption>
       <caption xml:lang="nn">Hovudvindauge for hjelpesenteret</caption>
