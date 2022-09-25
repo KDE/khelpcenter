@@ -1528,12 +1528,22 @@ application you are using doesn't support it.</para>
 
 <row>
 <entry><keycombo action="simul">&Meta;<keysym>Left</keysym></keycombo></entry><!--[kwin][Global Shortcuts] MoveZoomLeft=Meta+Left -->
-<entry>Pan left</entry>
+<entry>Pan left, move window to monitor to the left<footnote id='fn1'><para>In a multi-monitor environment</para></footnote></entry>
 </row>
 
 <row>
 <entry><keycombo action="simul">&Meta;<keysym>Right</keysym></keycombo></entry><!--[kwin][Global Shortcuts] MoveZoomRight=Meta+Right -->
-<entry>Pan Right</entry>
+<entry>Pan right, move window to monitor to the right<footnoteref linkend='fn1'/></entry>
+</row>
+
+<row>
+<entry><keycombo action="simul">&Meta;<keysym>PgUp</keysym></keycombo></entry>
+<entry>Maximize/Restore window</entry>
+</row>
+
+<row>
+<entry><keycombo action="simul">&Meta;<keysym>PgDn</keysym></keycombo></entry>
+<entry>Minimize window</entry>
 </row>
 
 </tbody>
