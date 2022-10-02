@@ -1,0 +1,727 @@
+# translation of khelpcenter.po to Latvian
+# Copyright (C) 2007, 2008 Free Software Foundation, Inc.
+#
+# brunais <brunais@gmail.com>, 2007.
+# Maris Nartiss <maris.kde@gmail.com>, 2007, 2008.
+# Viesturs Zarins <viesturs.zarins@mii.lu.lv>, 2008.
+# Viesturs Zariņš <viesturs.zarins@algorego.com>, 2008.
+# Viesturs Zariņš <viesturs.zarins@mii.lu.lv>, 2009.
+# Einars Sprugis <einars8@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: khelpcenter\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-15 00:47+0000\n"
+"PO-Revision-Date: 2012-01-09 05:11+0200\n"
+"Last-Translator: Einars Sprugis <einars8@gmail.com>\n"
+"Language-Team: Latvian <locale@laka.lv>\n"
+"Language: lv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.2\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
+"2);\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Pēteris Brūns, Aleksejs Zosims"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "brunais@gmail.com, locale@aleksejs.id.lv"
+
+#: application.cpp:30
+#, fuzzy, kde-format
+#| msgid "Document to be indexed"
+msgid "Documentation to open"
+msgstr "Indeksējamie dokumenti"
+
+#: application.cpp:114 application.cpp:116
+#, fuzzy, kde-format
+#| msgid "KDE Help Center"
+msgid "Help Center"
+msgstr "KDE Palīdzības centrs"
+
+#: application.cpp:118
+#, fuzzy, kde-format
+#| msgid "(c) 1999-2011, The KHelpCenter developers"
+msgid "(c) 1999-2020, The KHelpCenter developers"
+msgstr "(c) 1999-2011, The KHelpCenter izstrādātāji"
+
+#: application.cpp:120
+#, kde-format
+msgid "Current maintainer"
+msgstr ""
+
+#: application.cpp:121
+#, kde-format
+msgid "Xapian-based search, lot of bugfixes"
+msgstr ""
+
+#: application.cpp:122
+#, kde-format
+msgid "Former maintainer"
+msgstr ""
+
+#: application.cpp:124
+#, kde-format
+msgid "Original Author"
+msgstr "Sākotnējais autors"
+
+#: application.cpp:125
+#, kde-format
+msgid "Info page support"
+msgstr "Info lapu atbalsts"
+
+#: docmetainfo.cpp:35
+#, kde-format
+msgid "Top-Level Documentation"
+msgstr "Augšējā līmeņa dokumentācija"
+
+#: docmetainfo.cpp:83
+#, kde-format
+msgctxt "doctitle (language)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: docmetainfo.cpp:119
+#, kde-format
+msgctxt "Describes documentation entries that are in English"
+msgid "English"
+msgstr "Angļu"
+
+#: fontdialog.cpp:36
+#, kde-format
+msgid "Font Configuration"
+msgstr "Fontu konfigurēšana"
+
+#: fontdialog.cpp:62
+#, kde-format
+msgid "Sizes"
+msgstr "Izmēri"
+
+#: fontdialog.cpp:66
+#, kde-format
+msgctxt "The smallest size a will have"
+msgid "M&inimum font size:"
+msgstr "M&inimālais fonta izmērs:"
+
+#: fontdialog.cpp:73
+#, kde-format
+msgctxt "The normal size a font will have"
+msgid "M&edium font size:"
+msgstr "V&idējs fonta izmers:"
+
+#: fontdialog.cpp:83
+#, kde-format
+msgid "Fonts"
+msgstr "Fonts"
+
+#: fontdialog.cpp:87
+#, kde-format
+msgid "S&tandard font:"
+msgstr "S&tandarta fonts:"
+
+#: fontdialog.cpp:93
+#, kde-format
+msgid "F&ixed font:"
+msgstr "F&iksētais fonts:"
+
+#: fontdialog.cpp:99
+#, kde-format
+msgid "S&erif font:"
+msgstr "S&erifa fonts:"
+
+#: fontdialog.cpp:105
+#, kde-format
+msgid "S&ans serif font:"
+msgstr "Bezserif&a fonts:"
+
+#: fontdialog.cpp:111
+#, kde-format
+msgid "&Italic font:"
+msgstr "&Slīpraksta fonts:"
+
+#: fontdialog.cpp:117
+#, kde-format
+msgid "&Fantasy font:"
+msgstr "&Fantasy fonts:"
+
+#: fontdialog.cpp:126
+#, kde-format
+msgid "Encoding"
+msgstr "Kodējums"
+
+#: fontdialog.cpp:131
+#, kde-format
+msgid "&Default encoding:"
+msgstr "&Noklusētais kodējums:"
+
+#: fontdialog.cpp:136 fontdialog.cpp:204
+#, kde-format
+msgid "Use Language Encoding"
+msgstr "Lietot valodas kodējumu"
+
+#: fontdialog.cpp:140
+#, kde-format
+msgid "&Font size adjustment:"
+msgstr "&Fonta izmēra labojums:"
+
+#: glossary.cpp:68
+#, kde-format
+msgid "By Topic"
+msgstr "Pēc temata"
+
+#: glossary.cpp:72 infotree.cpp:74
+#, kde-format
+msgid "Alphabetically"
+msgstr "Alfabētiski"
+
+#: glossary.cpp:128
+#, kde-format
+msgid "Rebuilding glossary cache..."
+msgstr "Pārbūvējam glosārija kešatmiņu..."
+
+#: glossary.cpp:182
+#, kde-format
+msgid "Rebuilding cache... done."
+msgstr "Kešatmiņas pārbūvēšana pabeigta."
+
+#: grantleeformatter.cpp:102
+#, fuzzy, kde-format
+#| msgid "KDE Glossary"
+msgctxt "%1 is a glossary term"
+msgid "KDE Glossary: %1"
+msgstr "KDE Glosārijs"
+
+#: grantleeformatter.cpp:103
+#, kde-format
+msgid "KDE Glossary"
+msgstr "KDE Glosārijs"
+
+#: grantleeformatter.cpp:107
+#, fuzzy, kde-format
+#| msgid "See also: "
+msgid "See also: %1"
+msgstr "Skatīt arī: "
+
+#: grantleeformatter.cpp:128
+#, kde-format
+msgid "Search Results"
+msgstr "Meklēšanas rezultāti"
+
+#: grantleeformatter.cpp:129 searchengine.cpp:259
+#, kde-format
+msgid "Search Results for '%1':"
+msgstr "Meklēšanas rezultāti '%1':"
+
+#: infotree.cpp:77
+#, kde-format
+msgid "By Category"
+msgstr "Pēc kategorijas"
+
+#. i18n: ectx: label, entry, group (Search)
+#: khelpcenter.kcfg:31
+#, kde-format
+msgid "Path to index directory."
+msgstr "Ceļš uz indeksu mapi."
+
+#. i18n: ectx: whatsthis, entry, group (Search)
+#: khelpcenter.kcfg:32
+#, kde-format
+msgid "Path to directory containing search indices."
+msgstr "Ceļš uz mapi, kur atrodas meklēšanas indeksi."
+
+#. i18n: ectx: label, entry, group (Layout)
+#: khelpcenter.kcfg:46
+#, kde-format
+msgid "Currently visible navigator tab"
+msgstr "Pašlaik redzamā navigācijas cilne"
+
+#. i18n: ectx: Menu (edit)
+#: khelpcenterui.rc:5
+#, kde-format
+msgid "&Edit"
+msgstr "&Rediģēt"
+
+#. i18n: ectx: Menu (view)
+#: khelpcenterui.rc:13
+#, kde-format
+msgid "&View"
+msgstr "&Skats"
+
+#. i18n: ectx: Menu (go)
+#: khelpcenterui.rc:19
+#, kde-format
+msgid "&Go"
+msgstr "&Iet"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: khelpcenterui.rc:36
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Galvenā rīkjosla"
+
+#: mainwindow.cpp:62
+#, kde-format
+msgid "Search Error Log"
+msgstr "Meklēt kļūdu žurnālā"
+
+#: mainwindow.cpp:114
+#, kde-format
+msgid "Preparing Index"
+msgstr "Sagatavo indeksu"
+
+#: mainwindow.cpp:157
+#, kde-format
+msgid "Ready"
+msgstr "Gatavs"
+
+#: mainwindow.cpp:208
+#, kde-format
+msgid "Previous Page"
+msgstr "Iepriekšējā lapa"
+
+#: mainwindow.cpp:210
+#, kde-format
+msgid "Moves to the previous page of the document"
+msgstr "Pārvietosies uz dokumenta iepriekšējo lapu"
+
+#: mainwindow.cpp:214
+#, kde-format
+msgid "Next Page"
+msgstr "Nākamā lapa"
+
+#: mainwindow.cpp:216
+#, kde-format
+msgid "Moves to the next page of the document"
+msgstr "Parvietosies uz dokumenta nākamo lapu"
+
+#: mainwindow.cpp:223
+#, kde-format
+msgid "Table of &Contents"
+msgstr "&Satura rādītājs"
+
+#: mainwindow.cpp:224
+#, kde-format
+msgid "Table of contents"
+msgstr "Satura rādītājs"
+
+#: mainwindow.cpp:225
+#, kde-format
+msgid "Go back to the table of contents"
+msgstr "Atgriezties uz satura rādītāju"
+
+#: mainwindow.cpp:231
+#, kde-format
+msgid "&Last Search Result"
+msgstr "&Pēdējie meklēšanas rezultāti"
+
+#: mainwindow.cpp:249
+#, kde-format
+msgid "Configure Fonts..."
+msgstr "Konfigurēt fontus..."
+
+#: mainwindow.cpp:253
+#, kde-format
+msgid "Increase Font Sizes"
+msgstr "Palielināt fontu izmērus"
+
+#: mainwindow.cpp:258
+#, kde-format
+msgid "Decrease Font Sizes"
+msgstr "Samazināt fontu izmērus"
+
+#: mainwindow.cpp:274
+#, kde-format
+msgctxt "@title:menu"
+msgid "&Bookmarks"
+msgstr ""
+
+#: navigator.cpp:63
+#, fuzzy, kde-format
+#| msgid "&Search"
+msgid "Search..."
+msgstr "&Meklēt"
+
+#: navigator.cpp:118
+#, kde-format
+msgid "&Contents"
+msgstr "&Saturs"
+
+#: navigator.cpp:128
+#, kde-format
+msgid "Search Options"
+msgstr "Meklēšanas nosacījumi"
+
+#: navigator.cpp:136
+#, kde-format
+msgid "G&lossary"
+msgstr "G&losārijs"
+
+#: navigator.cpp:480
+#, kde-format
+msgid "Start Page"
+msgstr "Sākuma lapa"
+
+#: navigator.cpp:481
+#, kde-format
+msgid "KDE Help Center"
+msgstr "KDE Palīdzības centrs"
+
+#: navigator.cpp:564
+#, kde-format
+msgid "Unable to run search program."
+msgstr "Nevar palaist meklēšanas programmu."
+
+#: navigator.cpp:657
+#, fuzzy, kde-format
+#| msgid "Build Search Index..."
+msgid "Updating search index..."
+msgstr "Veido meklēšanas indeksu..."
+
+#: navigator.cpp:668
+#, fuzzy, kde-format
+#| msgid "Rebuilding cache... done."
+msgid "Updating search index... done."
+msgstr "Kešatmiņas pārbūvēšana pabeigta."
+
+#: searchengine.cpp:57
+#, kde-format
+msgid "Error: No document type specified."
+msgstr "Kļūda: Nav norādīts dokumenta tips."
+
+#: searchengine.cpp:59
+#, kde-format
+msgid "Error: No search handler for document type '%1'."
+msgstr "Kļūda: Nav meklēšanas organizators dokumenta tipam:'%1'·"
+
+#: searchengine.cpp:229
+#, kde-format
+msgid "No valid search handler found."
+msgstr "Nav atrasts derīgs meklēšanas organizators."
+
+#: searchhandler.cpp:37
+#, kde-format
+msgid "Error executing search command '%1'."
+msgstr "Kļūda, izpildot meklēšanas komandu '%1'"
+
+#: searchhandler.cpp:75
+#, kde-format
+msgid "Error: %1"
+msgstr "Kļūda: %1"
+
+#: searchhandler.cpp:140 searchhandler.cpp:145
+#, kde-format
+msgid "'%1' not found, check your installation"
+msgstr "'%1' nav atrasts, pārbaudiet savu instalāciju"
+
+#: searchhandler.cpp:150
+#, kde-format
+msgid "'%1' not found, install the package containing it"
+msgstr "'%1' nav atrasts, instalējiet pakotni, kas satur to"
+
+#: searchhandler.cpp:197
+#, kde-format
+msgid "No search command or URL specified."
+msgstr "Nav norādīta meklēšanas komanda vai URL."
+
+#: searchwidget.cpp:39
+#, kde-format
+msgid "and"
+msgstr "un"
+
+#: searchwidget.cpp:40
+#, kde-format
+msgid "or"
+msgstr "vai"
+
+#: searchwidget.cpp:42
+#, kde-format
+msgid "&Method:"
+msgstr "&Metode:"
+
+#: searchwidget.cpp:58
+#, kde-format
+msgid "Max. &results:"
+msgstr "Maks. &rezultāti:"
+
+#: searchwidget.cpp:73
+#, kde-format
+msgid "&Scope selection:"
+msgstr "&Apgabala izvēle:"
+
+#: searchwidget.cpp:81
+#, kde-format
+msgid "Scope"
+msgstr "Apgabals"
+
+#: searchwidget.cpp:322
+#, kde-format
+msgctxt "Label for searching documentation using custom (user defined) scope"
+msgid "Custom"
+msgstr "Pielāgots"
+
+#: searchwidget.cpp:324
+#, kde-format
+msgctxt "Label for searching documentation using default search scope"
+msgid "Default"
+msgstr "Noklusējuma"
+
+#: searchwidget.cpp:326
+#, kde-format
+msgctxt "Label for searching documentation in all subsections"
+msgid "All"
+msgstr "Viss"
+
+#: searchwidget.cpp:328
+#, kde-format
+msgctxt "Label for scope that deselects all search subsections"
+msgid "None"
+msgstr "Neviens"
+
+#: searchwidget.cpp:330
+#, kde-format
+msgctxt "Label for Unknown search scope, that should never appear"
+msgid "unknown"
+msgstr "nezināms"
+
+#: view.cpp:228
+#, kde-format
+msgid "Copy Link Address"
+msgstr "Kopēt saites adresi"
+
+#: view.cpp:312
+#, kde-format
+msgid ""
+"<p>Read the topic documentation in this window.<br /><br />Press <b>Space</"
+"b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, <b>Tab</b>/"
+"<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
+msgstr ""
+
+#~ msgid "Unable to initialize SearchHandler from file '%1'."
+#~ msgstr "Nav iespējams inicializēt meklēšanas organizatoru no faila '%1'·"
+
+#~ msgid "Error"
+#~ msgstr "Kļūda"
+
+#~ msgid ""
+#~ "Unable to show selected glossary entry: unable to open file 'glossary."
+#~ "html.in'!"
+#~ msgstr ""
+#~ "Vardnīcā nevar atrast izvēlēto šķirkli: nevar atvērt failu 'glossary."
+#~ "html'!"
+
+#~ msgid "ht://dig"
+#~ msgstr "ht://dig"
+
+#~ msgid ""
+#~ "The fulltext search feature makes use of the ht://dig HTML search engine."
+#~ msgstr ""
+#~ "Pilna teksta meklēšanas iespēja izmanto ht://dig HTML meklēšanas dzinēju."
+
+#~ msgid "Information about where to get the ht://dig package."
+#~ msgstr "Informācija par to, kur dabūt ht://dig instalācijas paku."
+
+#~ msgid "You can get ht://dig at the ht://dig home page"
+#~ msgstr "ht://dig varat iegūt ht://dig mājas lapā"
+
+#~ msgid "Program Locations"
+#~ msgstr "Programmu atrašanās vietas"
+
+#~ msgid "htsearch:"
+#~ msgstr "htsearch:"
+
+#~ msgid "Enter the URL of the htsearch CGI program."
+#~ msgstr "Ievadiet htsearch CGI programmas URL."
+
+#~ msgid "Indexer:"
+#~ msgstr "Indeksētājs:"
+
+#~ msgid "Enter the path to your htdig indexer program here."
+#~ msgstr "Šeit ievadiet ceļu uz jūsu htdig indeksēšanas programmu."
+
+#~ msgid "htdig database:"
+#~ msgstr "htdig datubāze:"
+
+#~ msgid "Enter the path to the htdig database folder."
+#~ msgstr "Ievadiet ceļu uz htdig datu bāzes mapi."
+
+#~ msgid "Change Index Folder"
+#~ msgstr "Mainīt indeksu mapi"
+
+#~ msgid "Index folder:"
+#~ msgstr "Indeksu mape:"
+
+#~ msgid "Build Search Indices"
+#~ msgstr "Veidot meklēšanas indeksus"
+
+#~ msgid "Index creation log:"
+#~ msgstr "Indeksu izveides žurnāls:"
+
+#~ msgctxt ""
+#~ "Label for button to close search index progress dialog after successful "
+#~ "completion"
+#~ msgid "Close"
+#~ msgstr "Aizvērt"
+
+#~ msgid "Index creation finished."
+#~ msgstr "Indeksa izveide pabeigta."
+
+#~ msgctxt "Label for stopping search index generation before completion"
+#~ msgid "Stop"
+#~ msgstr "Apturēt"
+
+#, fuzzy
+#~| msgid "Details &lt;&lt;"
+#~ msgid "Details <<"
+#~ msgstr "Detaļas &lt;&lt;"
+
+#, fuzzy
+#~| msgid "Details &lt;&lt;"
+#~ msgid "Details >>"
+#~ msgstr "Detaļas &lt;&lt;"
+
+#~ msgid "Build Search Index"
+#~ msgstr "Veidojam meklēšanas indeksu"
+
+#~ msgid "Build Index"
+#~ msgstr "Veidot indeksu"
+
+#~ msgid ""
+#~ "To be able to search a document, a search\n"
+#~ "index needs to exist. The status column of the list below shows whether "
+#~ "an index\n"
+#~ "for a document exists.\n"
+#~ msgstr ""
+#~ "Lai varētu meklēt dokumentā, nepieciešams meklēšanas indekss.\n"
+#~ "Statusa kolonna sarakstā parāda, vai dokumentam ir indekss.\n"
+
+#~ msgid ""
+#~ "To create an index, check the box in the list and press the\n"
+#~ "\"Build Index\" button.\n"
+#~ msgstr ""
+#~ "Lai izveidotu indeksu, ielieciet ķeksīti sarakstā\n"
+#~ "un nospiediet pogu \"Veidot indeksu\".\n"
+
+#~ msgid "Search Scope"
+#~ msgstr "Meklēšanas apgabals"
+
+#~ msgid "Status"
+#~ msgstr "Stāvoklis"
+
+#~ msgid "Change..."
+#~ msgstr "Mainīt..."
+
+#~ msgid ""
+#~ "<qt>The folder <b>%1</b> does not exist; unable to create index.</qt>"
+#~ msgstr "<qt>Mape <b>%1</b> neeksistē; nevar izveidot indeksu.</qt>"
+
+#~ msgctxt "Describes the status of a documentation index that is present"
+#~ msgid "OK"
+#~ msgstr "Derīgs"
+
+#~ msgctxt "Describes the status of a documentation index that is missing"
+#~ msgid "Missing"
+#~ msgstr "Trūkst"
+
+#~ msgctxt ""
+#~ " Generic prefix label for error messages when creating documentation "
+#~ "index, first arg is the document's identifier, second is the document's "
+#~ "name"
+#~ msgid "Document '%1' (%2):\n"
+#~ msgstr "Dokuments '%1' (%2):\n"
+
+#~ msgid "No document type."
+#~ msgstr "Nav dokumenta tipa."
+
+#~ msgid "No search handler available for document type '%1'."
+#~ msgstr "Nav pieejams meklēšanas organizators dokumentu tipam: '%1'."
+
+#~ msgid "No indexing command specified for document type '%1'."
+#~ msgstr "Nav norādīta indeksācijas komanda dokumentu tipam:'%1'."
+
+#~ msgid "Failed to build index."
+#~ msgstr "Indeksa izveide neizdevās."
+
+#~ msgid ""
+#~ "Error executing indexing build command:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Kļūda, izpildot indeksa veidošanas komandu:\n"
+#~ "%1"
+
+#~ msgid "Unable to start command '%1'."
+#~ msgstr "Neiespējami izpildīt komandu: '%1'"
+
+#~ msgid "KHelpCenter Index Builder"
+#~ msgstr "KHelpCenter Indeksu veidotājs"
+
+#~ msgid "Cornelius Schumacher"
+#~ msgstr "Korneliuss Šumahers (Cornelius Schumacher)"
+
+#~ msgid "Document to be indexed"
+#~ msgstr "Indeksējamie dokumenti"
+
+#~ msgid "Index directory"
+#~ msgstr "Indeksu mape"
+
+#~ msgid ""
+#~ "A search index does not yet exist. Do you want to create the index now?"
+#~ msgstr ""
+#~ "Meklēšanas indeks vēl neeksistē. Vai jūs vēlaties izveidot meklēšanas "
+#~ "indeksu tūlīt?"
+
+#~ msgid "Create"
+#~ msgstr "Veidot"
+
+#~ msgid "Do Not Create"
+#~ msgstr "Neveidot"
+
+#~ msgid "Build Search &Index..."
+#~ msgstr "Veidot meklēšanas &indeksu..."
+
+#~ msgid "The KDE Help Center"
+#~ msgstr "KDE Palīdzības centrs"
+
+#~ msgid "(c) 2003, The KHelpCenter developers"
+#~ msgstr "(c) 2003, KHelpCenter izstrādātāji"
+
+#~ msgid "Details &gt;&gt;"
+#~ msgstr "Detaļas &gt;&gt;"
+
+#~ msgid "Frerich Raabe"
+#~ msgstr "Frerihs Rābe (Frerich Raabe)"
+
+#~ msgid "Matthias Elter"
+#~ msgstr "Matiass Elters (Matthias Elter)"
+
+#~ msgid "Wojciech Smigaj"
+#~ msgstr "Vojciehs Smigajs (Wojciech Smigaj)"
+
+#~ msgid "URL to display"
+#~ msgstr "Parādāmais URL"
+
+#~ msgid "&File"
+#~ msgstr "&Fails"
+
+#~ msgid "Show Search Error Log"
+#~ msgstr "Rādīt meklēšanas kļūdu žurnālu"
+
+#, fuzzy
+#~| msgid "ht://dig"
+#~ msgid "ht://dig home page"
+#~ msgstr "ht://dig"
+
+#, fuzzy
+#~| msgid "Top-Level Documentation"
+#~ msgid "General Documentation"
+#~ msgstr "Augšējā līmeņa dokumentācija"
+
+#, fuzzy
+#~| msgid "The KDE Help Center"
+#~ msgid "The KDE Control Center"
+#~ msgstr "KDE Palīdzības centrs"

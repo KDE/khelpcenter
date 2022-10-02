@@ -1,0 +1,746 @@
+# translation of khelpcenter.po to Hindi
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Ravishankar Shrivastava <raviratlami@yahoo.com>, 2007.
+# Ravishankar Shrivastava <raviratlami@aol.in>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: khelpcenter\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-15 00:47+0000\n"
+"PO-Revision-Date: 2009-02-05 17:35+0530\n"
+"Last-Translator: Ravishankar Shrivastava <raviratlami@aol.in>\n"
+"Language-Team: Hindi <kde-i18n-doc@lists.kde.org>\n"
+"Language: hne\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 0.2\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "रविसंकर सिरीवास्तव, जी. करूनाकर"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "raviratlami@aol.in,"
+
+#: application.cpp:30
+#, fuzzy, kde-format
+#| msgid "Document to be indexed"
+msgid "Documentation to open"
+msgstr "कागद जेखर निर्देसिका बनाना हे"
+
+#: application.cpp:114 application.cpp:116
+#, kde-format
+msgid "Help Center"
+msgstr "मदद केंद्र"
+
+#: application.cpp:118
+#, fuzzy, kde-format
+#| msgid "(c) 1999-2003, The KHelpCenter developers"
+msgid "(c) 1999-2020, The KHelpCenter developers"
+msgstr "(c) 1999 - 2003, के-हेल्प-सेंटर बनइया मन"
+
+#: application.cpp:120
+#, kde-format
+msgid "Current maintainer"
+msgstr ""
+
+#: application.cpp:121
+#, kde-format
+msgid "Xapian-based search, lot of bugfixes"
+msgstr ""
+
+#: application.cpp:122
+#, kde-format
+msgid "Former maintainer"
+msgstr ""
+
+#: application.cpp:124
+#, kde-format
+msgid "Original Author"
+msgstr "मूल लेखक"
+
+#: application.cpp:125
+#, kde-format
+msgid "Info page support"
+msgstr "जानकारी पेज समर्थन"
+
+#: docmetainfo.cpp:35
+#, kde-format
+msgid "Top-Level Documentation"
+msgstr "सीर्स स्तर कागद लिखना"
+
+#: docmetainfo.cpp:83
+#, kde-format
+msgctxt "doctitle (language)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: docmetainfo.cpp:119
+#, kde-format
+msgctxt "Describes documentation entries that are in English"
+msgid "English"
+msgstr "अंगरेजी"
+
+#: fontdialog.cpp:36
+#, kde-format
+msgid "Font Configuration"
+msgstr "फोंट कान्फिगरेसन"
+
+#: fontdialog.cpp:62
+#, kde-format
+msgid "Sizes"
+msgstr "आकार"
+
+#: fontdialog.cpp:66
+#, fuzzy, kde-format
+msgctxt "The smallest size a will have"
+msgid "M&inimum font size:"
+msgstr "सबसे कम फोंट आकारः (&i)"
+
+#: fontdialog.cpp:73
+#, fuzzy, kde-format
+msgctxt "The normal size a font will have"
+msgid "M&edium font size:"
+msgstr "मध्यम फोंट आकारः (&e)"
+
+#: fontdialog.cpp:83
+#, kde-format
+msgid "Fonts"
+msgstr "फोंट"
+
+#: fontdialog.cpp:87
+#, kde-format
+msgid "S&tandard font:"
+msgstr "मानक फोंट (&t)"
+
+#: fontdialog.cpp:93
+#, kde-format
+msgid "F&ixed font:"
+msgstr "स्थिर फोंटः (&i)"
+
+#: fontdialog.cpp:99
+#, kde-format
+msgid "S&erif font:"
+msgstr "सेरिफ फोंटः (&e)"
+
+#: fontdialog.cpp:105
+#, kde-format
+msgid "S&ans serif font:"
+msgstr "सा सेरिफ फोंटः (&a)"
+
+#: fontdialog.cpp:111
+#, kde-format
+msgid "&Italic font:"
+msgstr "तिरछा फोंटः (&I)"
+
+#: fontdialog.cpp:117
+#, kde-format
+msgid "&Fantasy font:"
+msgstr "फैन्टेसी फोंटः (&F)"
+
+#: fontdialog.cpp:126
+#, kde-format
+msgid "Encoding"
+msgstr "एनकोडिंग"
+
+#: fontdialog.cpp:131
+#, kde-format
+msgid "&Default encoding:"
+msgstr "डिफाल्ट एनकोडिंगः (&D)"
+
+#: fontdialog.cpp:136 fontdialog.cpp:204
+#, kde-format
+msgid "Use Language Encoding"
+msgstr "भाखा एनकोडिंग उपयोग करव"
+
+#: fontdialog.cpp:140
+#, kde-format
+msgid "&Font size adjustment:"
+msgstr "फोंट आकार बदलवः (&F)"
+
+#: glossary.cpp:68
+#, kde-format
+msgid "By Topic"
+msgstr "विसय वार"
+
+#: glossary.cpp:72 infotree.cpp:74
+#, kde-format
+msgid "Alphabetically"
+msgstr "वर्नमाला के हिसाब से"
+
+#: glossary.cpp:128
+#, kde-format
+msgid "Rebuilding glossary cache..."
+msgstr "सब्द संग्रह कैस फिर से बनावत हे..."
+
+#: glossary.cpp:182
+#, kde-format
+msgid "Rebuilding cache... done."
+msgstr "कैस रि-बिल्ड करत हे...पूरा."
+
+#: grantleeformatter.cpp:102
+#, fuzzy, kde-format
+#| msgid "KDE Glossary"
+msgctxt "%1 is a glossary term"
+msgid "KDE Glossary: %1"
+msgstr "केडीई ग्लासरी"
+
+#: grantleeformatter.cpp:103
+#, kde-format
+msgid "KDE Glossary"
+msgstr "केडीई ग्लासरी"
+
+#: grantleeformatter.cpp:107
+#, fuzzy, kde-format
+#| msgid "See also: "
+msgid "See also: %1"
+msgstr "येला घलोक देखव:"
+
+#: grantleeformatter.cpp:128
+#, kde-format
+msgid "Search Results"
+msgstr "खोज परिनाम"
+
+#: grantleeformatter.cpp:129 searchengine.cpp:259
+#, kde-format
+msgid "Search Results for '%1':"
+msgstr "'%1' बर ढूंढे गे परिनाम:"
+
+#: infotree.cpp:77
+#, kde-format
+msgid "By Category"
+msgstr "वर्ग से"
+
+#. i18n: ectx: label, entry, group (Search)
+#: khelpcenter.kcfg:31
+#, kde-format
+msgid "Path to index directory."
+msgstr "निर्देसिका डिरेक्टरी के पथ."
+
+#. i18n: ectx: whatsthis, entry, group (Search)
+#: khelpcenter.kcfg:32
+#, kde-format
+msgid "Path to directory containing search indices."
+msgstr "सर्च इंडिक्स वाले डिरेक्टरी के पथ."
+
+#. i18n: ectx: label, entry, group (Layout)
+#: khelpcenter.kcfg:46
+#, kde-format
+msgid "Currently visible navigator tab"
+msgstr "अभी हाल के मं दिखाई दे रहे नेविगेटर टैब"
+
+#. i18n: ectx: Menu (edit)
+#: khelpcenterui.rc:5
+#, kde-format
+msgid "&Edit"
+msgstr "संपादन (&E)"
+
+#. i18n: ectx: Menu (view)
+#: khelpcenterui.rc:13
+#, kde-format
+msgid "&View"
+msgstr "देखव (&V)"
+
+#. i18n: ectx: Menu (go)
+#: khelpcenterui.rc:19
+#, kde-format
+msgid "&Go"
+msgstr "जाव (&G)"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: khelpcenterui.rc:36
+#, kde-format
+msgid "Main Toolbar"
+msgstr "मुख्य औजार पट्टी"
+
+#: mainwindow.cpp:62
+#, kde-format
+msgid "Search Error Log"
+msgstr "खोज गलती लाग"
+
+#: mainwindow.cpp:114
+#, kde-format
+msgid "Preparing Index"
+msgstr "निर्देसिका बनाय के तैयारी करत हे"
+
+#: mainwindow.cpp:157
+#, kde-format
+msgid "Ready"
+msgstr "तैयार"
+
+#: mainwindow.cpp:208
+#, kde-format
+msgid "Previous Page"
+msgstr "पिछला पेज"
+
+#: mainwindow.cpp:210
+#, kde-format
+msgid "Moves to the previous page of the document"
+msgstr "कागद के पिछले पेज मं जाथे "
+
+#: mainwindow.cpp:214
+#, kde-format
+msgid "Next Page"
+msgstr "अगला पेज"
+
+#: mainwindow.cpp:216
+#, kde-format
+msgid "Moves to the next page of the document"
+msgstr "कागद के अगले पेज मं जाथे "
+
+#: mainwindow.cpp:223
+#, kde-format
+msgid "Table of &Contents"
+msgstr "विसयसूची टेबल (&C)"
+
+#: mainwindow.cpp:224
+#, kde-format
+msgid "Table of contents"
+msgstr "विसयसूची टेबल"
+
+#: mainwindow.cpp:225
+#, kde-format
+msgid "Go back to the table of contents"
+msgstr "विसयसूची टेबल मं जाव"
+
+#: mainwindow.cpp:231
+#, kde-format
+msgid "&Last Search Result"
+msgstr "पिछला खोज परिनाम (&L)"
+
+#: mainwindow.cpp:249
+#, kde-format
+msgid "Configure Fonts..."
+msgstr "फोंट कान्फिगर करव..."
+
+#: mainwindow.cpp:253
+#, kde-format
+msgid "Increase Font Sizes"
+msgstr "फोंट आकार बढ़ाव"
+
+#: mainwindow.cpp:258
+#, kde-format
+msgid "Decrease Font Sizes"
+msgstr "फोंट आकार घटाव"
+
+#: mainwindow.cpp:274
+#, kde-format
+msgctxt "@title:menu"
+msgid "&Bookmarks"
+msgstr ""
+
+#: navigator.cpp:63
+#, fuzzy, kde-format
+#| msgid "&Search"
+msgid "Search..."
+msgstr "खोजव (&S)"
+
+#: navigator.cpp:118
+#, kde-format
+msgid "&Contents"
+msgstr "विसयसूची (&C)"
+
+#: navigator.cpp:128
+#, kde-format
+msgid "Search Options"
+msgstr "खोज विकल्प"
+
+#: navigator.cpp:136
+#, kde-format
+msgid "G&lossary"
+msgstr "सब्द-संग्रह (&l)"
+
+#: navigator.cpp:480
+#, kde-format
+msgid "Start Page"
+msgstr "सुरू पेज"
+
+#: navigator.cpp:481
+#, kde-format
+msgid "KDE Help Center"
+msgstr "केडीई मदद केंद्र"
+
+#: navigator.cpp:564
+#, kde-format
+msgid "Unable to run search program."
+msgstr "खोज प्रोग्राम चलाय मं अक्छम."
+
+#: navigator.cpp:657
+#, fuzzy, kde-format
+#| msgid "Build Search Index..."
+msgid "Updating search index..."
+msgstr "खोजे के अनुक्रमनिका बनाव..."
+
+#: navigator.cpp:668
+#, fuzzy, kde-format
+#| msgid "Rebuilding cache... done."
+msgid "Updating search index... done."
+msgstr "कैस रि-बिल्ड करत हे...पूरा."
+
+#: searchengine.cpp:57
+#, kde-format
+msgid "Error: No document type specified."
+msgstr "गलती: कोनो कागद किसिम निरधारित नइ हे."
+
+#: searchengine.cpp:59
+#, kde-format
+msgid "Error: No search handler for document type '%1'."
+msgstr "गलती: कागद किसिम '%1' बर कोनो सर्च हेंडलर नइ हे."
+
+#: searchengine.cpp:229
+#, kde-format
+msgid "No valid search handler found."
+msgstr "कोई वैध सर्च हेंडलर नइ मिलिस."
+
+#: searchhandler.cpp:37
+#, kde-format
+msgid "Error executing search command '%1'."
+msgstr "सर्च कमांड '%1' चलाय मं गलती."
+
+#: searchhandler.cpp:75
+#, kde-format
+msgid "Error: %1"
+msgstr "गलती: %1"
+
+#: searchhandler.cpp:140 searchhandler.cpp:145
+#, kde-format
+msgid "'%1' not found, check your installation"
+msgstr ""
+
+#: searchhandler.cpp:150
+#, kde-format
+msgid "'%1' not found, install the package containing it"
+msgstr ""
+
+#: searchhandler.cpp:197
+#, kde-format
+msgid "No search command or URL specified."
+msgstr "कोई सर्च कमांड या यूआरएल निरधारित नइ हे."
+
+#: searchwidget.cpp:39
+#, kde-format
+msgid "and"
+msgstr "और"
+
+#: searchwidget.cpp:40
+#, kde-format
+msgid "or"
+msgstr "या"
+
+#: searchwidget.cpp:42
+#, kde-format
+msgid "&Method:"
+msgstr "विधिः (&M)"
+
+#: searchwidget.cpp:58
+#, kde-format
+msgid "Max. &results:"
+msgstr "सबसे अधिक परिनामः (&r)"
+
+#: searchwidget.cpp:73
+#, kde-format
+msgid "&Scope selection:"
+msgstr "स्कोप चयन: (&S)"
+
+#: searchwidget.cpp:81
+#, kde-format
+msgid "Scope"
+msgstr "स्कोप"
+
+#: searchwidget.cpp:322
+#, kde-format
+msgctxt "Label for searching documentation using custom (user defined) scope"
+msgid "Custom"
+msgstr "मनमाफिक"
+
+#: searchwidget.cpp:324
+#, kde-format
+msgctxt "Label for searching documentation using default search scope"
+msgid "Default"
+msgstr "डिफाल्ट"
+
+#: searchwidget.cpp:326
+#, kde-format
+msgctxt "Label for searching documentation in all subsections"
+msgid "All"
+msgstr "सब्बो"
+
+#: searchwidget.cpp:328
+#, kde-format
+msgctxt "Label for scope that deselects all search subsections"
+msgid "None"
+msgstr "कुछ नइ"
+
+#: searchwidget.cpp:330
+#, kde-format
+msgctxt "Label for Unknown search scope, that should never appear"
+msgid "unknown"
+msgstr "अग्यात"
+
+#: view.cpp:228
+#, kde-format
+msgid "Copy Link Address"
+msgstr "संकली पता नकल करव"
+
+#: view.cpp:312
+#, kde-format
+msgid ""
+"<p>Read the topic documentation in this window.<br /><br />Press <b>Space</"
+"b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, <b>Tab</b>/"
+"<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
+msgstr ""
+
+#~ msgid "Unable to initialize SearchHandler from file '%1'."
+#~ msgstr "फाइल '%1' से सर्च हेंडलर चालू करे मं अक्छम."
+
+#~ msgid "Error"
+#~ msgstr "गलती"
+
+#~ msgid ""
+#~ "Unable to show selected glossary entry: unable to open file 'glossary."
+#~ "html.in'!"
+#~ msgstr ""
+#~ "चुने गे ग्लासरी प्रविस्टि दिखा पाय मं अक्छम: फाइल 'glossary.html.in' ल नइ खोल "
+#~ "सकिस! "
+
+#~ msgid "ht://dig"
+#~ msgstr "ht://dig"
+
+#, fuzzy
+#~ msgid ""
+#~ "The fulltext search feature makes use of the ht://dig HTML search engine."
+#~ msgstr ""
+#~ "पूरा पाठ खोज सके के विसेसता ह ht://dig  ल एचटीएमएल खोज इंजिन बनाथे. आप मन ht://"
+#~ "dig ल पा सकथो इहां-"
+
+#~ msgid "Information about where to get the ht://dig package."
+#~ msgstr "ht://dig पैकेज कहाँ पाव एखर बारे मं जानकारी."
+
+#~ msgid "Program Locations"
+#~ msgstr "प्रोग्राम जगह"
+
+#~ msgid "htsearch:"
+#~ msgstr "एचटी-खोज:"
+
+#~ msgid "Enter the URL of the htsearch CGI program."
+#~ msgstr "एचटी-सर्च सीजीआई प्रोग्राम के यूआरएल भरव."
+
+#~ msgid "Indexer:"
+#~ msgstr "इंडेक्सरः"
+
+#~ msgid "Enter the path to your htdig indexer program here."
+#~ msgstr "अपन एचटी-डिग इंडेक्सर प्रोग्राम के रस्ता इहां भरव."
+
+#~ msgid "htdig database:"
+#~ msgstr "एचटी-डिग डाटाबेस:"
+
+#~ msgid "Enter the path to the htdig database folder."
+#~ msgstr "अपन एचटी-डिग डाटाबेस फोल्डर के रस्ता इहां भरव."
+
+#~ msgid "Change Index Folder"
+#~ msgstr "निर्देसिका फोल्डर बदलव"
+
+#~ msgid "Index folder:"
+#~ msgstr "निर्देसिका फोल्डरः"
+
+#~ msgid "Build Search Indices"
+#~ msgstr "खोज इंडिक्स बनाव"
+
+#~ msgid "Index creation log:"
+#~ msgstr "निर्देसिका बनाए के लागः"
+
+#~ msgctxt ""
+#~ "Label for button to close search index progress dialog after successful "
+#~ "completion"
+#~ msgid "Close"
+#~ msgstr "बंद करव"
+
+#~ msgid "Index creation finished."
+#~ msgstr "निर्देसिका बनाय के काम पूरा."
+
+#~ msgctxt "Label for stopping search index generation before completion"
+#~ msgid "Stop"
+#~ msgstr "रुकव"
+
+#, fuzzy
+#~| msgid "Details &lt;&lt;"
+#~ msgid "Details <<"
+#~ msgstr "विवरन &lt;&lt;"
+
+#, fuzzy
+#~| msgid "Details &lt;&lt;"
+#~ msgid "Details >>"
+#~ msgstr "विवरन &lt;&lt;"
+
+#~ msgid "Build Search Index"
+#~ msgstr "खोज निर्देसिका बनाव"
+
+#~ msgid "Build Index"
+#~ msgstr "निर्देसिका बनाव"
+
+#~ msgid ""
+#~ "To create an index, check the box in the list and press the\n"
+#~ "\"Build Index\" button.\n"
+#~ msgstr ""
+#~ "निर्देसिका बनाए बर सूची मं डब्बा मं सही के निसान लगाव तथा\n"
+#~ "\"निर्देसिका बनाव\" बटन ल किलिक करव.\n"
+
+#~ msgid "Search Scope"
+#~ msgstr "खोज के छेत्र"
+
+#~ msgid "Status"
+#~ msgstr "स्थिति"
+
+#~ msgid "Change..."
+#~ msgstr "बदलव..."
+
+#~ msgid ""
+#~ "<qt>The folder <b>%1</b> does not exist; unable to create index.</qt>"
+#~ msgstr "<qt>फोल्डर <b>%1</b> मौजूद नइ हे. निर्देसिका बनाए मं अक्छम.</qt>"
+
+#~ msgctxt "Describes the status of a documentation index that is present"
+#~ msgid "OK"
+#~ msgstr "ठीक"
+
+#~ msgctxt "Describes the status of a documentation index that is missing"
+#~ msgid "Missing"
+#~ msgstr "गंवाय हे"
+
+#~ msgctxt ""
+#~ " Generic prefix label for error messages when creating documentation "
+#~ "index, first arg is the document's identifier, second is the document's "
+#~ "name"
+#~ msgid "Document '%1' (%2):\n"
+#~ msgstr "कागद '%1' (%2):\n"
+
+#~ msgid "No document type."
+#~ msgstr "कोई कागद किसिम नइ."
+
+#~ msgid "No search handler available for document type '%1'."
+#~ msgstr "कागद किसिम '%1' बर कोनो सर्च हेंडलर नइ हे."
+
+#~ msgid "No indexing command specified for document type '%1'."
+#~ msgstr "कागद किसिम '%1' बर कोनो निर्देसिका कमांड निरधारित नइ हे."
+
+#~ msgid "Failed to build index."
+#~ msgstr "निर्देसिका बनाय मं फेल."
+
+#~ msgid ""
+#~ "Error executing indexing build command:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "अनुक्रमनिका बनाए के कमांड ल चलाय मं गलती होइस:\n"
+#~ "%1"
+
+#~ msgid "Unable to start command '%1'."
+#~ msgstr "कमांड '%1' ल चालू करे मं अक्छम."
+
+#~ msgid "KHelpCenter Index Builder"
+#~ msgstr "के-हेल्पसेंटर निर्देसिका बनइया"
+
+#~ msgid "Cornelius Schumacher"
+#~ msgstr "कार्नेलियस सूमेकर"
+
+#~ msgid "Document to be indexed"
+#~ msgstr "कागद जेखर निर्देसिका बनाना हे"
+
+#~ msgid "Index directory"
+#~ msgstr "निर्देसिका डिरेक्टरी"
+
+#~ msgid ""
+#~ "A search index does not yet exist. Do you want to create the index now?"
+#~ msgstr "खोज निर्देसिका अभी तक नइ मिलत हे. का आप मन निर्देसिका अभी तैयार करना चाहू?"
+
+#~ msgid "Create"
+#~ msgstr "बनाव"
+
+#~ msgid "Do Not Create"
+#~ msgstr "नइ बनाव"
+
+#~ msgid "Build Search &Index..."
+#~ msgstr "खोजे के निर्देसिका बनाव...(&I)"
+
+#~ msgid "The KDE Help Center"
+#~ msgstr "केडीई मदद केंद्र"
+
+#~ msgid "(c) 2003, The KHelpCenter developers"
+#~ msgstr "(c) 2003, के-हेल्प-सेंटर बनइया मन"
+
+#~ msgid "Details &gt;&gt;"
+#~ msgstr "विवरन &gt;&gt;"
+
+#~ msgid "Frerich Raabe"
+#~ msgstr "फ्रेरिक राबे"
+
+#~ msgid "Matthias Elter"
+#~ msgstr "मैथियास एल्टर"
+
+#~ msgid "Wojciech Smigaj"
+#~ msgstr "वोजसेक स्मीगज"
+
+#~ msgid "URL to display"
+#~ msgstr "प्रदर्सन बर यूआरएल"
+
+#~ msgid "&File"
+#~ msgstr "फाइल (&F)"
+
+#~ msgid "Show Search Error Log"
+#~ msgstr "खोज गलती लाग देखाव"
+
+#~ msgid "ht://dig home page"
+#~ msgstr "ht://dig मुख पेज"
+
+#~ msgid "Conquer your Desktop!"
+#~ msgstr "डेस्कटाप कानकर करव!"
+
+#~ msgid "Welcome to the K Desktop Environment"
+#~ msgstr "के डेस्कटाप माहौल मं आप मन के स्वागत हे"
+
+#~ msgid "The KDE team welcomes you to user-friendly UNIX computing"
+#~ msgstr "कमइया बर सहुलियत भरे यूनिक्स कम्प्यूटिंग मं केडीई टीम आप मन के स्वागत करथे "
+
+#~ msgid "What is the K Desktop Environment?"
+#~ msgstr "के डेस्कटाप माहौल के हे?"
+
+#~ msgid "Contacting the KDE Project"
+#~ msgstr "केडीई परियोजना से सम्पर्क"
+
+#~ msgid "Supporting the KDE Project"
+#~ msgstr "केडीई परियोजना ल सहारा"
+
+#~ msgid "Useful links"
+#~ msgstr "उपयोगी संकली"
+
+#~ msgid "Getting the most out of KDE"
+#~ msgstr "केडीई से अधिक से अधिक वसूलें"
+
+#~ msgid "General Documentation"
+#~ msgstr "सामान्य कागद लिखना"
+
+#~ msgid "A Quick Start Guide to the Desktop"
+#~ msgstr "डेस्कटाप बर एक सीघ्र सुरूआत मार्गदर्सिका"
+
+#~ msgid "KDE Users' guide"
+#~ msgstr "केडीई कमइया मार्गदर्सक"
+
+#~ msgid "Frequently asked questions"
+#~ msgstr "बारंबार पूछे जाय वाले प्रस्न"
+
+#~ msgid "Basic Applications"
+#~ msgstr "मूल अनुपरयोग"
+
+#~ msgid "The Kicker Desktop Panel"
+#~ msgstr "किकर डेस्कटाप फलक"
+
+#~ msgid "The KDE Control Center"
+#~ msgstr "केडीई नियंत्रन केंद्र"
+
+#~ msgid "The Konqueror File manager and Web Browser"
+#~ msgstr "कान्करर फाइल प्रबंधक अउ वेब ब्राउजर"

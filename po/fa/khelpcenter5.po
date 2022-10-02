@@ -1,0 +1,787 @@
+# translation of khelpcenter.po to Persian
+# Nazanin Kazemi <kazemi@itland.ir>, 2006, 2007.
+# MaryamSadat Razavi <razavi@itland.ir>, 2006.
+# Tahereh Dadkhahfar <dadkhahfar@itland.ir>, 2006.
+# Nasim Daniarzadeh <daniarzadeh@itland.ir>, 2006, 2007.
+# Mohammad Reza Mirdamadi <mohi@linuxshop.ir>, 2011, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: khelpcenter\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-15 00:47+0000\n"
+"PO-Revision-Date: 2012-06-22 10:12+0430\n"
+"Last-Translator: Mohammad Reza Mirdamadi <mohi@linuxshop.ir>\n"
+"Language-Team: Farsi (Persian) <kde-i18n-fa@kde.org>\n"
+"Language: fa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.4\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "محمدرضا میردامادی , نازنین کاظمی"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "mohi@linuxshop.ir , kazemi@itland.ir"
+
+#: application.cpp:30
+#, fuzzy, kde-format
+#| msgid "Document to be indexed"
+msgid "Documentation to open"
+msgstr "سند برای نمایه‌گذاری"
+
+#: application.cpp:114 application.cpp:116
+#, kde-format
+msgid "Help Center"
+msgstr "مرکز کمک"
+
+#: application.cpp:118
+#, fuzzy, kde-format
+#| msgid "(c) 1999-2011, The KHelpCenter developers"
+msgid "(c) 1999-2020, The KHelpCenter developers"
+msgstr "(c) 1999-2011, The KHelpCenter developers"
+
+#: application.cpp:120
+#, kde-format
+msgid "Current maintainer"
+msgstr ""
+
+#: application.cpp:121
+#, kde-format
+msgid "Xapian-based search, lot of bugfixes"
+msgstr ""
+
+#: application.cpp:122
+#, kde-format
+msgid "Former maintainer"
+msgstr ""
+
+#: application.cpp:124
+#, kde-format
+msgid "Original Author"
+msgstr "نویسنده اصلی"
+
+#: application.cpp:125
+#, kde-format
+msgid "Info page support"
+msgstr "پشتیبانی صفحه اطلاعات"
+
+#: docmetainfo.cpp:35
+#, kde-format
+msgid "Top-Level Documentation"
+msgstr "مستندات سطح بالا"
+
+#: docmetainfo.cpp:83
+#, kde-format
+msgctxt "doctitle (language)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: docmetainfo.cpp:119
+#, kde-format
+msgctxt "Describes documentation entries that are in English"
+msgid "English"
+msgstr "انگلیسی"
+
+#: fontdialog.cpp:36
+#, kde-format
+msgid "Font Configuration"
+msgstr "پیکربندی قلم"
+
+#: fontdialog.cpp:62
+#, kde-format
+msgid "Sizes"
+msgstr "اندازه‌ها"
+
+#: fontdialog.cpp:66
+#, kde-format
+msgctxt "The smallest size a will have"
+msgid "M&inimum font size:"
+msgstr "اندازه &کمینه قلم:‌"
+
+#: fontdialog.cpp:73
+#, kde-format
+msgctxt "The normal size a font will have"
+msgid "M&edium font size:"
+msgstr "اندازه &متوسط قلم:‌"
+
+#: fontdialog.cpp:83
+#, kde-format
+msgid "Fonts"
+msgstr "قلمها"
+
+#: fontdialog.cpp:87
+#, kde-format
+msgid "S&tandard font:"
+msgstr "قلم &استاندارد:‌"
+
+#: fontdialog.cpp:93
+#, kde-format
+msgid "F&ixed font:"
+msgstr "قلم &ثابت:‌"
+
+#: fontdialog.cpp:99
+#, kde-format
+msgid "S&erif font:"
+msgstr "قلم &سریف:‌"
+
+#: fontdialog.cpp:105
+#, kde-format
+msgid "S&ans serif font:"
+msgstr "قلم &سنت سریف‌:‌"
+
+#: fontdialog.cpp:111
+#, kde-format
+msgid "&Italic font:"
+msgstr "قلم &کج:‌"
+
+#: fontdialog.cpp:117
+#, kde-format
+msgid "&Fantasy font:"
+msgstr "قلم &فانتزی:‌"
+
+#: fontdialog.cpp:126
+#, kde-format
+msgid "Encoding"
+msgstr "کدبندی"
+
+#: fontdialog.cpp:131
+#, kde-format
+msgid "&Default encoding:"
+msgstr "کدبندی &پیش‌فرض:‌"
+
+#: fontdialog.cpp:136 fontdialog.cpp:204
+#, kde-format
+msgid "Use Language Encoding"
+msgstr "استفاده از کدبندی زبان"
+
+#: fontdialog.cpp:140
+#, kde-format
+msgid "&Font size adjustment:"
+msgstr "تنظیم اندازه &قلم:‌"
+
+#: glossary.cpp:68
+#, kde-format
+msgid "By Topic"
+msgstr "بر اساس موضوع"
+
+#: glossary.cpp:72 infotree.cpp:74
+#, kde-format
+msgid "Alphabetically"
+msgstr "الفبایی"
+
+#: glossary.cpp:128
+#, kde-format
+msgid "Rebuilding glossary cache..."
+msgstr "بازسازی نهان‌گاه واژه‌نامه..."
+
+#: glossary.cpp:182
+#, kde-format
+msgid "Rebuilding cache... done."
+msgstr "بازسازی نهانگاه... انجام شد."
+
+#: grantleeformatter.cpp:102
+#, fuzzy, kde-format
+#| msgid "KDE Glossary"
+msgctxt "%1 is a glossary term"
+msgid "KDE Glossary: %1"
+msgstr "واژه‌نامه KDE"
+
+#: grantleeformatter.cpp:103
+#, kde-format
+msgid "KDE Glossary"
+msgstr "واژه‌نامه KDE"
+
+#: grantleeformatter.cpp:107
+#, fuzzy, kde-format
+#| msgid "See also: "
+msgid "See also: %1"
+msgstr "همچنین ببینید: "
+
+#: grantleeformatter.cpp:128
+#, kde-format
+msgid "Search Results"
+msgstr "نتایج جستجو"
+
+#: grantleeformatter.cpp:129 searchengine.cpp:259
+#, kde-format
+msgid "Search Results for '%1':"
+msgstr "نتایج جستجو برای «%1»:"
+
+#: infotree.cpp:77
+#, kde-format
+msgid "By Category"
+msgstr "بر اساس دسته"
+
+#. i18n: ectx: label, entry, group (Search)
+#: khelpcenter.kcfg:31
+#, kde-format
+msgid "Path to index directory."
+msgstr "مسیر فهرست راهنمای نمایه."
+
+#. i18n: ectx: whatsthis, entry, group (Search)
+#: khelpcenter.kcfg:32
+#, kde-format
+msgid "Path to directory containing search indices."
+msgstr "مسیر فهرست‌ راهنمای حاوی نمایه‌های جستجو."
+
+#. i18n: ectx: label, entry, group (Layout)
+#: khelpcenter.kcfg:46
+#, kde-format
+msgid "Currently visible navigator tab"
+msgstr "تب ناوشگر مرئی اخیر"
+
+#. i18n: ectx: Menu (edit)
+#: khelpcenterui.rc:5
+#, kde-format
+msgid "&Edit"
+msgstr "&ویرایش‌"
+
+#. i18n: ectx: Menu (view)
+#: khelpcenterui.rc:13
+#, kde-format
+msgid "&View"
+msgstr "&نما‌"
+
+#. i18n: ectx: Menu (go)
+#: khelpcenterui.rc:19
+#, kde-format
+msgid "&Go"
+msgstr "&برو‌"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: khelpcenterui.rc:36
+#, kde-format
+msgid "Main Toolbar"
+msgstr "میله ابزار اصلی"
+
+#: mainwindow.cpp:62
+#, kde-format
+msgid "Search Error Log"
+msgstr "ثبت خطای جستجو"
+
+#: mainwindow.cpp:114
+#, kde-format
+msgid "Preparing Index"
+msgstr "تدارک نمایه"
+
+#: mainwindow.cpp:157
+#, kde-format
+msgid "Ready"
+msgstr "آماده"
+
+#: mainwindow.cpp:208
+#, kde-format
+msgid "Previous Page"
+msgstr "صفحه قبلی"
+
+#: mainwindow.cpp:210
+#, kde-format
+msgid "Moves to the previous page of the document"
+msgstr "به صفحه قبلی سند حرکت می‌کند"
+
+#: mainwindow.cpp:214
+#, kde-format
+msgid "Next Page"
+msgstr "صفحه بعد"
+
+#: mainwindow.cpp:216
+#, kde-format
+msgid "Moves to the next page of the document"
+msgstr "به صفحه بعدی سند حرکت می‌کند"
+
+#: mainwindow.cpp:223
+#, kde-format
+msgid "Table of &Contents"
+msgstr "جدول &محتویات‌"
+
+#: mainwindow.cpp:224
+#, kde-format
+msgid "Table of contents"
+msgstr "جدول محتویات"
+
+#: mainwindow.cpp:225
+#, kde-format
+msgid "Go back to the table of contents"
+msgstr "برگشت به جدول محتویات"
+
+#: mainwindow.cpp:231
+#, kde-format
+msgid "&Last Search Result"
+msgstr "&آخرین نتیجه جستجو‌"
+
+#: mainwindow.cpp:249
+#, kde-format
+msgid "Configure Fonts..."
+msgstr "پیکربندی قلمها..."
+
+#: mainwindow.cpp:253
+#, kde-format
+msgid "Increase Font Sizes"
+msgstr "افزایش اندازه‌های قلم"
+
+#: mainwindow.cpp:258
+#, kde-format
+msgid "Decrease Font Sizes"
+msgstr "کاهش اندازه‌های قلم"
+
+#: mainwindow.cpp:274
+#, kde-format
+msgctxt "@title:menu"
+msgid "&Bookmarks"
+msgstr ""
+
+#: navigator.cpp:63
+#, fuzzy, kde-format
+#| msgid "&Search"
+msgid "Search..."
+msgstr "&جستجو‌"
+
+#: navigator.cpp:118
+#, kde-format
+msgid "&Contents"
+msgstr "&محتویات‌"
+
+#: navigator.cpp:128
+#, kde-format
+msgid "Search Options"
+msgstr "گزینه‌های جستجو"
+
+#: navigator.cpp:136
+#, kde-format
+msgid "G&lossary"
+msgstr "&واژه‌نامه‌"
+
+#: navigator.cpp:480
+#, kde-format
+msgid "Start Page"
+msgstr "صفحه آغاز"
+
+#: navigator.cpp:481
+#, kde-format
+msgid "KDE Help Center"
+msgstr "مرکز کمک KDE"
+
+#: navigator.cpp:564
+#, kde-format
+msgid "Unable to run search program."
+msgstr "قادر به اجرای برنامه جستجو نیست."
+
+#: navigator.cpp:657
+#, fuzzy, kde-format
+#| msgid "Build Search Index..."
+msgid "Updating search index..."
+msgstr "ایجاد نمایه جستجو..."
+
+#: navigator.cpp:668
+#, fuzzy, kde-format
+#| msgid "Rebuilding cache... done."
+msgid "Updating search index... done."
+msgstr "بازسازی نهانگاه... انجام شد."
+
+#: searchengine.cpp:57
+#, kde-format
+msgid "Error: No document type specified."
+msgstr "خطا: نوع سند مشخص نشده است."
+
+#: searchengine.cpp:59
+#, kde-format
+msgid "Error: No search handler for document type '%1'."
+msgstr "خطا: گرداننده جستجو برای نوع سند «%1» نیست."
+
+#: searchengine.cpp:229
+#, kde-format
+msgid "No valid search handler found."
+msgstr "گرداننده جستجوی معتبر یافت نشد."
+
+#: searchhandler.cpp:37
+#, kde-format
+msgid "Error executing search command '%1'."
+msgstr "خطای اجرای فرمان جستجوی «%1»."
+
+#: searchhandler.cpp:75
+#, kde-format
+msgid "Error: %1"
+msgstr "خطا: %1"
+
+#: searchhandler.cpp:140 searchhandler.cpp:145
+#, kde-format
+msgid "'%1' not found, check your installation"
+msgstr "«%1» یافت نشد، نصب خود را بررسی کنید"
+
+#: searchhandler.cpp:150
+#, kde-format
+msgid "'%1' not found, install the package containing it"
+msgstr "«%1» یافت نشد، بسته‌ی حاوی آن را نصب کنید"
+
+#: searchhandler.cpp:197
+#, kde-format
+msgid "No search command or URL specified."
+msgstr "فرمان جستجو یا نشانی وب مشخص نشده است."
+
+#: searchwidget.cpp:39
+#, kde-format
+msgid "and"
+msgstr "و"
+
+#: searchwidget.cpp:40
+#, kde-format
+msgid "or"
+msgstr "یا"
+
+#: searchwidget.cpp:42
+#, kde-format
+msgid "&Method:"
+msgstr "&روش:‌"
+
+#: searchwidget.cpp:58
+#, kde-format
+msgid "Max. &results:"
+msgstr "&نتایج بیشینه:‌"
+
+#: searchwidget.cpp:73
+#, kde-format
+msgid "&Scope selection:"
+msgstr "گزینش &دامنه:‌"
+
+#: searchwidget.cpp:81
+#, kde-format
+msgid "Scope"
+msgstr "دامنه"
+
+#: searchwidget.cpp:322
+#, kde-format
+msgctxt "Label for searching documentation using custom (user defined) scope"
+msgid "Custom"
+msgstr "سفارشی"
+
+#: searchwidget.cpp:324
+#, kde-format
+msgctxt "Label for searching documentation using default search scope"
+msgid "Default"
+msgstr "پیش‌فرض"
+
+#: searchwidget.cpp:326
+#, kde-format
+msgctxt "Label for searching documentation in all subsections"
+msgid "All"
+msgstr "همه"
+
+#: searchwidget.cpp:328
+#, kde-format
+msgctxt "Label for scope that deselects all search subsections"
+msgid "None"
+msgstr "هیچ‌کدام"
+
+#: searchwidget.cpp:330
+#, kde-format
+msgctxt "Label for Unknown search scope, that should never appear"
+msgid "unknown"
+msgstr "ناشناخته"
+
+#: view.cpp:228
+#, kde-format
+msgid "Copy Link Address"
+msgstr "رونوشت نشانی پیوند"
+
+#: view.cpp:312
+#, kde-format
+msgid ""
+"<p>Read the topic documentation in this window.<br /><br />Press <b>Space</"
+"b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, <b>Tab</b>/"
+"<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
+msgstr ""
+
+#~ msgid "Unable to initialize SearchHandler from file '%1'."
+#~ msgstr "قادر به مقداردهی اولیه SearchHandler از پرونده «%1» نیست."
+
+#~ msgid "Error"
+#~ msgstr "خطا"
+
+#~ msgid ""
+#~ "Unable to show selected glossary entry: unable to open file 'glossary."
+#~ "html.in'!"
+#~ msgstr ""
+#~ "قادر به نمایش مدخل واژه‌نامه برگزیده نیست: پرونده »glossary.html.in« را "
+#~ "نمی‌توان باز کرد!"
+
+#~ msgid "ht://dig"
+#~ msgstr "ht://dig"
+
+#~ msgid ""
+#~ "The fulltext search feature makes use of the ht://dig HTML search engine."
+#~ msgstr ""
+#~ "ویژگی جستجوی متن‌ کامل باعث استفاده از موتور جستجوی زنگام ht://digمی‌شود."
+
+#~ msgid "Information about where to get the ht://dig package."
+#~ msgstr "اطلاعات درباره محلی ‌که بسته ht://dig را به ‌دست می‌آورید."
+
+#~ msgid "You can get ht://dig at the ht://dig home page"
+#~ msgstr "میتوانید ht://dig را در صفحه خانگی ht://dig بگیرید"
+
+#~ msgid "Program Locations"
+#~ msgstr "محل برنامه‌ها"
+
+#~ msgid "htsearch:"
+#~ msgstr "htsearch:"
+
+#~ msgid "Enter the URL of the htsearch CGI program."
+#~ msgstr "نشانی وب برنامه htsearch CGI را وارد کنید."
+
+#~ msgid "Indexer:"
+#~ msgstr "نمایه‌گذار:"
+
+#~ msgid "Enter the path to your htdig indexer program here."
+#~ msgstr "مسیر برنامه نمایه‌گذار htdig را در اینجا وارد کنید."
+
+#~ msgid "htdig database:"
+#~ msgstr "دادگان htdig:"
+
+#~ msgid "Enter the path to the htdig database folder."
+#~ msgstr "مسیر پوشه دادگان htdig را وارد کنید."
+
+#~ msgid "Change Index Folder"
+#~ msgstr "تغییر پوشه نمایه"
+
+#~ msgid "Index folder:"
+#~ msgstr "پوشه نمایه:"
+
+#~ msgid "Build Search Indices"
+#~ msgstr "ایجاد نمایه‌های جستجو"
+
+#~ msgid "Index creation log:"
+#~ msgstr "ثبت ایجاد نمایه:"
+
+#~ msgctxt ""
+#~ "Label for button to close search index progress dialog after successful "
+#~ "completion"
+#~ msgid "Close"
+#~ msgstr "بستن"
+
+#~ msgid "Index creation finished."
+#~ msgstr "ایجاد نمایه تمام شد."
+
+#~ msgctxt "Label for stopping search index generation before completion"
+#~ msgid "Stop"
+#~ msgstr "ایست"
+
+#, fuzzy
+#~| msgid "Details &lt;&lt;"
+#~ msgid "Details <<"
+#~ msgstr "جزئیات >>"
+
+#, fuzzy
+#~| msgid "Details &lt;&lt;"
+#~ msgid "Details >>"
+#~ msgstr "جزئیات >>"
+
+#~ msgid "Build Search Index"
+#~ msgstr "ایجاد نمایه جستجو"
+
+#~ msgid "Build Index"
+#~ msgstr "ایجاد نمایه"
+
+#~ msgid ""
+#~ "To be able to search a document, a search\n"
+#~ "index needs to exist. The status column of the list below shows whether "
+#~ "an index\n"
+#~ "for a document exists.\n"
+#~ msgstr ""
+#~ "برای اینکه قادر به جستجوی یک سند باشد، باید نمایه جستجو \n"
+#~ "موجود باشد. در صورتی که برای سند نمایه‌ای وجود داشته باشد،\n"
+#~ "ستون وضعیت فهرست زیر را نمایش می‌دهد.\n"
+
+#~ msgid ""
+#~ "To create an index, check the box in the list and press the\n"
+#~ "\"Build Index\" button.\n"
+#~ msgstr ""
+#~ "برای ایجاد یک نمایه، جعبه درون فهرست را علامت زده و دکمه\n"
+#~ "«ایجاد نمایه» را فشار دهید.\n"
+
+#~ msgid "Search Scope"
+#~ msgstr "دامنه جستجو"
+
+#~ msgid "Status"
+#~ msgstr "وضعیت"
+
+#~ msgid "Change..."
+#~ msgstr "تغییر..."
+
+#~ msgid ""
+#~ "<qt>The folder <b>%1</b> does not exist; unable to create index.</qt>"
+#~ msgstr "<qt>پوشه <b>%1</b> وجود ندارد؛ قادر به ایجاد نمایه نیست.</qt>"
+
+#~ msgctxt "Describes the status of a documentation index that is present"
+#~ msgid "OK"
+#~ msgstr "تأیید"
+
+#~ msgctxt "Describes the status of a documentation index that is missing"
+#~ msgid "Missing"
+#~ msgstr "مفقود"
+
+#~ msgctxt ""
+#~ " Generic prefix label for error messages when creating documentation "
+#~ "index, first arg is the document's identifier, second is the document's "
+#~ "name"
+#~ msgid "Document '%1' (%2):\n"
+#~ msgstr "سند «%1» )%2(:\n"
+
+#~ msgid "No document type."
+#~ msgstr "بدون نوع سند."
+
+#~ msgid "No search handler available for document type '%1'."
+#~ msgstr "برای نوع سند «%1»، گرداننده جستجویی وجود ندارد."
+
+#~ msgid "No indexing command specified for document type '%1'."
+#~ msgstr "برای نوع سند «%1»، فرمان نمایه‌گذاری مشخصی وجود ندارد."
+
+#~ msgid "Failed to build index."
+#~ msgstr "خرابی در ایجاد نمایه."
+
+#~ msgid ""
+#~ "Error executing indexing build command:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "خطای اجرای فرمان ایجاد نمایه‌گذاری:\n"
+#~ "%1"
+
+#~ msgid "Unable to start command '%1'."
+#~ msgstr "قادر به آغاز فرمان «%1» نیست."
+
+#~ msgid "KHelpCenter Index Builder"
+#~ msgstr "سازنده نمایه KHelpCenter"
+
+#~ msgid "Cornelius Schumacher"
+#~ msgstr "Cornelius Schumacher"
+
+#~ msgid "Document to be indexed"
+#~ msgstr "سند برای نمایه‌گذاری"
+
+#~ msgid "Index directory"
+#~ msgstr "فهرست راهنمای نمایه"
+
+#~ msgid ""
+#~ "A search index does not yet exist. Do you want to create the index now?"
+#~ msgstr "نمایه جستجو هنوز وجود ندارد. می‌خواهید نمایه را هم‌ اکنون ایجاد کنید؟"
+
+#~ msgid "Create"
+#~ msgstr "ایجاد"
+
+#~ msgid "Do Not Create"
+#~ msgstr "ایجاد نشود"
+
+#~ msgid "Build Search &Index..."
+#~ msgstr "ایجاد &نمایه جستجو...‌"
+
+#~ msgid "The KDE Help Center"
+#~ msgstr "مرکز کمک KDE"
+
+#~ msgid "(c) 2003, The KHelpCenter developers"
+#~ msgstr "(ح) ۲۰۰۳، توسعه‌دهندگان KHelpCenter"
+
+#~ msgid "Details &gt;&gt;"
+#~ msgstr "جزئیات >>"
+
+#~ msgid "Frerich Raabe"
+#~ msgstr "Frerich Raabe"
+
+#~ msgid "Matthias Elter"
+#~ msgstr "Matthias Elter"
+
+#~ msgid "Wojciech Smigaj"
+#~ msgstr "Wojciech Smigaj"
+
+#~ msgid "URL to display"
+#~ msgstr "نمایش نشانی‌ وب"
+
+#~ msgid "&File"
+#~ msgstr "&پرونده‌"
+
+#~ msgid "Show Search Error Log"
+#~ msgstr "نمایش ثبت خطای جستجو"
+
+#~ msgid "ht://dig home page"
+#~ msgstr "صفحه آغازه ht://dig"
+
+#~ msgid "Conquer your Desktop!"
+#~ msgstr "بر رومیزی خود حکومت کن!"
+
+#~ msgid "Welcome to the K Desktop Environment"
+#~ msgstr "به محیط رومیزی K خوش آمدید"
+
+#~ msgid "The KDE team welcomes you to user-friendly UNIX computing"
+#~ msgstr "گروه KDE ورود شما را به سیستم عامل کاربرپسند یونیکس خوش‌آمد می‌گوید"
+
+#~ msgid ""
+#~ "KDE is a powerful graphical desktop environment for UNIX workstations. A\n"
+#~ "KDE desktop combines ease of use, contemporary functionality and "
+#~ "outstanding\n"
+#~ "graphical design with the technological superiority of the UNIX "
+#~ "operating\n"
+#~ "system."
+#~ msgstr ""
+#~ "KDE یک محیط رومیزی نگاره‌ای قدرتمند برای ایستگاههای کاری یونیکس می‌باشد. "
+#~ "یک\n"
+#~ "رومیزی KDE، سهولت استفاده، عملکرد همزمان و طراحی نگاره‌ای برجسته\n"
+#~ "را با برتری فناوری سیستم عامل یونیکس\n"
+#~ " ترکیب می‌کند."
+
+#~ msgid "What is the K Desktop Environment?"
+#~ msgstr "محیط رومیزی K چیست؟"
+
+#~ msgid "Contacting the KDE Project"
+#~ msgstr "تماس با پروژه KDE"
+
+#~ msgid "Supporting the KDE Project"
+#~ msgstr "پشتیبانی پروژه KDE"
+
+#~ msgid "Useful links"
+#~ msgstr "پیوندهای مفید"
+
+#~ msgid "Getting the most out of KDE"
+#~ msgstr "بیشترین استخراج از KDE"
+
+#~ msgid "General Documentation"
+#~ msgstr "مستندات عمومی"
+
+#~ msgid "A Quick Start Guide to the Desktop"
+#~ msgstr "راهنمای آغاز سریع رومیزی"
+
+#~ msgid "KDE Users' guide"
+#~ msgstr "راهنمای کاربران KDE"
+
+#~ msgid "Frequently asked questions"
+#~ msgstr "پرسشهایی که مکرراً سؤال شده‌اند"
+
+#~ msgid "Basic Applications"
+#~ msgstr "کاربردهای پایه‌ای"
+
+#~ msgid "The Kicker Desktop Panel"
+#~ msgstr "تابلوی رومیزی Kicker"
+
+#~ msgid "The KDE Control Center"
+#~ msgstr "مرکز کنترل KDE"
+
+#~ msgid "The Konqueror File manager and Web Browser"
+#~ msgstr "مدیر پرونده Konqueror و مرورگر وب"
+
+#~ msgid ""
+#~ "To be able to search a document, there needs to exist a search\n"
+#~ "index. The status column of the list below shows, if an index\n"
+#~ "for a document exists.\n"
+#~ msgstr ""
+#~ "برای اینکه قادر به جستجوی یک سند باشد، باید نمایه جستجو موجود باشد.\n"
+#~ "در صورتی که برای سند نمایه‌ای وجود داشته باشد،\n"
+#~ "ستون وضعیت فهرست زیر را نمایش می‌دهد.\n"
+
+#~ msgid ""
+#~ "To create an index check the box in the list and press the\n"
+#~ "\"Build Index\" button.\n"
+#~ msgstr ""
+#~ "برای ایجاد یک نمایه، جعبه درون فهرست را علامت زده و دکمه\n"
+#~ "»ایجاد نمایه« را فشار دهید.\n"

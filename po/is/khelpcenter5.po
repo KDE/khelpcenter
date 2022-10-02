@@ -1,0 +1,700 @@
+# translation of khelpcenter.po to Icelandic
+# Copyright (C) 1998,2003, 2004, 2005, 2006, 2009, 2012 Free Software Foundation, Inc.
+#
+# Logi Ragnarsson <logir@logi.org>, 1998-2000.
+# Richard Allen <ra@ra.is>, 1999-2004.
+# Arnar Leósson <leosson@frisurf.no>, 2003, 2005.
+# Svanur Palsson <svanur@tern.is>, 2004.
+# Arnar Leosson <leosson@frisurf.no>, 2005.
+# Sveinn í Felli <sveinki@nett.is>, 2009, 2012, 2018, 2019, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: khelpcenter\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-15 00:47+0000\n"
+"PO-Revision-Date: 2021-12-07 21:54+0000\n"
+"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
+"Language-Team: Icelandic\n"
+"Language: is\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 19.12.3\n"
+"Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
+"\n"
+"\n"
+"\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Richard Allen, Arnar Leósson, Svanur Pálsson"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "ra@ra.is, leosson@frisurf.no, svanurpalsson@hotmail.com"
+
+#: application.cpp:30
+#, kde-format
+msgid "Documentation to open"
+msgstr "Hjálparskjöl sem á að opna"
+
+#: application.cpp:114 application.cpp:116
+#, kde-format
+msgid "Help Center"
+msgstr "Hjálparmiðstöð"
+
+#: application.cpp:118
+#, kde-format
+msgid "(c) 1999-2020, The KHelpCenter developers"
+msgstr "(c) 1999-2020, Hönnuðir KDE Hjálparmiðstöðvarinnar"
+
+#: application.cpp:120
+#, kde-format
+msgid "Current maintainer"
+msgstr "Núverandi umsjónarmaður"
+
+#: application.cpp:121
+#, kde-format
+msgid "Xapian-based search, lot of bugfixes"
+msgstr "Leit byggð á Xapian, mikil aflúsun"
+
+#: application.cpp:122
+#, kde-format
+msgid "Former maintainer"
+msgstr "Fyrrverandi umsjónarmaður"
+
+#: application.cpp:124
+#, kde-format
+msgid "Original Author"
+msgstr "Upprunalegur höfundur"
+
+#: application.cpp:125
+#, kde-format
+msgid "Info page support"
+msgstr "Upplýsingasíðna stuðningur"
+
+#: docmetainfo.cpp:35
+#, kde-format
+msgid "Top-Level Documentation"
+msgstr "Efsta stigs skjölun"
+
+#: docmetainfo.cpp:83
+#, kde-format
+msgctxt "doctitle (language)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: docmetainfo.cpp:119
+#, kde-format
+msgctxt "Describes documentation entries that are in English"
+msgid "English"
+msgstr "Enska"
+
+#: fontdialog.cpp:36
+#, kde-format
+msgid "Font Configuration"
+msgstr "Leturstillingar"
+
+#: fontdialog.cpp:62
+#, kde-format
+msgid "Sizes"
+msgstr "Stærðir"
+
+#: fontdialog.cpp:66
+#, kde-format
+msgctxt "The smallest size a will have"
+msgid "M&inimum font size:"
+msgstr "Lá&gmarks leturstærð:"
+
+#: fontdialog.cpp:73
+#, kde-format
+msgctxt "The normal size a font will have"
+msgid "M&edium font size:"
+msgstr "M&iðlungs leturstærð:"
+
+#: fontdialog.cpp:83
+#, kde-format
+msgid "Fonts"
+msgstr "Letur"
+
+#: fontdialog.cpp:87
+#, kde-format
+msgid "S&tandard font:"
+msgstr "H&efðbundið letur:"
+
+#: fontdialog.cpp:93
+#, kde-format
+msgid "F&ixed font:"
+msgstr "&Jafnbreitt letur:"
+
+#: fontdialog.cpp:99
+#, kde-format
+msgid "S&erif font:"
+msgstr "&Krókaletur:"
+
+#: fontdialog.cpp:105
+#, kde-format
+msgid "S&ans serif font:"
+msgstr "Stei&nskrift:"
+
+#: fontdialog.cpp:111
+#, kde-format
+msgid "&Italic font:"
+msgstr "&Skáletur:"
+
+#: fontdialog.cpp:117
+#, kde-format
+msgid "&Fantasy font:"
+msgstr "&Táknaletur:"
+
+#: fontdialog.cpp:126
+#, kde-format
+msgid "Encoding"
+msgstr "Stafatafla"
+
+#: fontdialog.cpp:131
+#, kde-format
+msgid "&Default encoding:"
+msgstr "Sjá&lfgefin stafatafla:"
+
+#: fontdialog.cpp:136 fontdialog.cpp:204
+#, kde-format
+msgid "Use Language Encoding"
+msgstr "Nota stafatöflu tungumáls"
+
+#: fontdialog.cpp:140
+#, kde-format
+msgid "&Font size adjustment:"
+msgstr "Stærðarbreyti&ngar leturs:"
+
+#: glossary.cpp:68
+#, kde-format
+msgid "By Topic"
+msgstr "Eftir efni"
+
+#: glossary.cpp:72 infotree.cpp:74
+#, kde-format
+msgid "Alphabetically"
+msgstr "Í stafrófsröð"
+
+#: glossary.cpp:128
+#, kde-format
+msgid "Rebuilding glossary cache..."
+msgstr "Endurbyggi skyndiminni atriðisorða..."
+
+#: glossary.cpp:182
+#, kde-format
+msgid "Rebuilding cache... done."
+msgstr "Endurbyggi skyndiminni... lokið."
+
+#: grantleeformatter.cpp:102
+#, kde-format
+msgctxt "%1 is a glossary term"
+msgid "KDE Glossary: %1"
+msgstr "Atriðisorðaskrá KDE: %1"
+
+#: grantleeformatter.cpp:103
+#, kde-format
+msgid "KDE Glossary"
+msgstr "Atriðisorðaskrá KDE"
+
+#: grantleeformatter.cpp:107
+#, kde-format
+msgid "See also: %1"
+msgstr "Sjá einnig: %1"
+
+#: grantleeformatter.cpp:128
+#, kde-format
+msgid "Search Results"
+msgstr "Leitarniðurstaða"
+
+#: grantleeformatter.cpp:129 searchengine.cpp:259
+#, kde-format
+msgid "Search Results for '%1':"
+msgstr "Leitarniðurstaða fyrir '%1':"
+
+#: infotree.cpp:77
+#, kde-format
+msgid "By Category"
+msgstr "Eftir flokk"
+
+#. i18n: ectx: label, entry, group (Search)
+#: khelpcenter.kcfg:31
+#, kde-format
+msgid "Path to index directory."
+msgstr "Slóð að yfirlitsmöppu."
+
+#. i18n: ectx: whatsthis, entry, group (Search)
+#: khelpcenter.kcfg:32
+#, kde-format
+msgid "Path to directory containing search indices."
+msgstr "Slóð að möppu sem inniheldur leitaryfirlit."
+
+#. i18n: ectx: label, entry, group (Layout)
+#: khelpcenter.kcfg:46
+#, kde-format
+msgid "Currently visible navigator tab"
+msgstr "Flipann sem nú er sýnilegur"
+
+#. i18n: ectx: Menu (edit)
+#: khelpcenterui.rc:5
+#, kde-format
+msgid "&Edit"
+msgstr "Br&eyta"
+
+#. i18n: ectx: Menu (view)
+#: khelpcenterui.rc:13
+#, kde-format
+msgid "&View"
+msgstr "S&koða"
+
+#. i18n: ectx: Menu (go)
+#: khelpcenterui.rc:19
+#, kde-format
+msgid "&Go"
+msgstr "&Fara"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: khelpcenterui.rc:36
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Aðaltækjaslá"
+
+#: mainwindow.cpp:62
+#, kde-format
+msgid "Search Error Log"
+msgstr "Villuannál leitar"
+
+#: mainwindow.cpp:114
+#, kde-format
+msgid "Preparing Index"
+msgstr "Undirbý yfirlit"
+
+#: mainwindow.cpp:157
+#, kde-format
+msgid "Ready"
+msgstr "Tilbúinn"
+
+#: mainwindow.cpp:208
+#, kde-format
+msgid "Previous Page"
+msgstr "Fyrri síða"
+
+#: mainwindow.cpp:210
+#, kde-format
+msgid "Moves to the previous page of the document"
+msgstr "Fer á fyrri síðu skjalsins"
+
+#: mainwindow.cpp:214
+#, kde-format
+msgid "Next Page"
+msgstr "Næsta síða"
+
+#: mainwindow.cpp:216
+#, kde-format
+msgid "Moves to the next page of the document"
+msgstr "Fer á næstu síðu skjalsins"
+
+#: mainwindow.cpp:223
+#, kde-format
+msgid "Table of &Contents"
+msgstr "Efnis&yfirlit"
+
+#: mainwindow.cpp:224
+#, kde-format
+msgid "Table of contents"
+msgstr "Efnisyfirlit"
+
+#: mainwindow.cpp:225
+#, kde-format
+msgid "Go back to the table of contents"
+msgstr "Fara til baka í efnisyfirlit"
+
+#: mainwindow.cpp:231
+#, kde-format
+msgid "&Last Search Result"
+msgstr "Síðasta &leitarniðurstaða"
+
+#: mainwindow.cpp:249
+#, kde-format
+msgid "Configure Fonts..."
+msgstr "Stilla leturgerðir..."
+
+#: mainwindow.cpp:253
+#, kde-format
+msgid "Increase Font Sizes"
+msgstr "Stækka letur"
+
+#: mainwindow.cpp:258
+#, kde-format
+msgid "Decrease Font Sizes"
+msgstr "Minnka letur"
+
+#: mainwindow.cpp:274
+#, kde-format
+msgctxt "@title:menu"
+msgid "&Bookmarks"
+msgstr "&Bókamerki"
+
+#: navigator.cpp:63
+#, kde-format
+msgid "Search..."
+msgstr "Leita..."
+
+#: navigator.cpp:118
+#, kde-format
+msgid "&Contents"
+msgstr "&Innihald"
+
+#: navigator.cpp:128
+#, kde-format
+msgid "Search Options"
+msgstr "Leitarvalmöguleikar"
+
+#: navigator.cpp:136
+#, kde-format
+msgid "G&lossary"
+msgstr "&Atriðisorðaskrá"
+
+#: navigator.cpp:480
+#, kde-format
+msgid "Start Page"
+msgstr "Upphafssíða"
+
+#: navigator.cpp:481
+#, kde-format
+msgid "KDE Help Center"
+msgstr "KDE Hjálparmiðstöð"
+
+#: navigator.cpp:564
+#, kde-format
+msgid "Unable to run search program."
+msgstr "Tókst ekki að keyra leitarforrit."
+
+#: navigator.cpp:657
+#, kde-format
+msgid "Updating search index..."
+msgstr "Uppfæri leitaryfirlit..."
+
+#: navigator.cpp:668
+#, kde-format
+msgid "Updating search index... done."
+msgstr "Uppfæri leitaryfirlit... lokið."
+
+#: searchengine.cpp:57
+#, kde-format
+msgid "Error: No document type specified."
+msgstr "Villa: engin skjalagerð uppgefin."
+
+#: searchengine.cpp:59
+#, kde-format
+msgid "Error: No search handler for document type '%1'."
+msgstr "Villa: Engin leitaraðili fyrir skjalagerðina '%1'."
+
+#: searchengine.cpp:229
+#, kde-format
+msgid "No valid search handler found."
+msgstr "Engin gildur leitaraðili fannst."
+
+#: searchhandler.cpp:37
+#, kde-format
+msgid "Error executing search command '%1'."
+msgstr "Villa við að keyra leitarskipunina '%1'."
+
+#: searchhandler.cpp:75
+#, kde-format
+msgid "Error: %1"
+msgstr "Villa: %1"
+
+#: searchhandler.cpp:140 searchhandler.cpp:145
+#, kde-format
+msgid "'%1' not found, check your installation"
+msgstr "'%1' fannst ekki, athugaðu uppsetninguna þína"
+
+#: searchhandler.cpp:150
+#, kde-format
+msgid "'%1' not found, install the package containing it"
+msgstr "'%1' fannst ekki, settu upp pakkann sem geymir það"
+
+#: searchhandler.cpp:197
+#, kde-format
+msgid "No search command or URL specified."
+msgstr "Engin leitarskipun eða slóð."
+
+#: searchwidget.cpp:39
+#, kde-format
+msgid "and"
+msgstr "og"
+
+#: searchwidget.cpp:40
+#, kde-format
+msgid "or"
+msgstr "eða"
+
+#: searchwidget.cpp:42
+#, kde-format
+msgid "&Method:"
+msgstr "&Aðferð:"
+
+#: searchwidget.cpp:58
+#, kde-format
+msgid "Max. &results:"
+msgstr "Hámarks niðurstöðu&r:"
+
+#: searchwidget.cpp:73
+#, kde-format
+msgid "&Scope selection:"
+msgstr "Val á &umfangi:"
+
+#: searchwidget.cpp:81
+#, kde-format
+msgid "Scope"
+msgstr "Umfang"
+
+#: searchwidget.cpp:322
+#, kde-format
+msgctxt "Label for searching documentation using custom (user defined) scope"
+msgid "Custom"
+msgstr "Sérsniðið"
+
+#: searchwidget.cpp:324
+#, kde-format
+msgctxt "Label for searching documentation using default search scope"
+msgid "Default"
+msgstr "Sjálfgefið"
+
+#: searchwidget.cpp:326
+#, kde-format
+msgctxt "Label for searching documentation in all subsections"
+msgid "All"
+msgstr "Allt"
+
+#: searchwidget.cpp:328
+#, kde-format
+msgctxt "Label for scope that deselects all search subsections"
+msgid "None"
+msgstr "Ekkert"
+
+#: searchwidget.cpp:330
+#, kde-format
+msgctxt "Label for Unknown search scope, that should never appear"
+msgid "unknown"
+msgstr "óþekkt"
+
+#: view.cpp:228
+#, kde-format
+msgid "Copy Link Address"
+msgstr "Afrita vistfang tengils"
+
+#: view.cpp:312
+#, kde-format
+msgid ""
+"<p>Read the topic documentation in this window.<br /><br />Press <b>Space</"
+"b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, <b>Tab</b>/"
+"<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
+msgstr ""
+"<p>Lestu hjalparefnin í þessum glugga.<br /><br />Ýttu á <b>bilslá</b>/"
+"<b>Shift+bilslá</b> til að skruna, <b>%1</b> til að finna eitthvað, <b>Tab</"
+"b>/<b>Shift+Tab</b> til að hoppa og <b>Enter</b> til að fylgja.</p>"
+
+#~ msgid "Unable to initialize SearchHandler from file '%1'."
+#~ msgstr "Get ekki sett upp leitaraðilann úr skránni '%1'."
+
+#~ msgid "Error"
+#~ msgstr "Villa"
+
+#~ msgid ""
+#~ "Unable to show selected glossary entry: unable to open file 'glossary."
+#~ "html.in'!"
+#~ msgstr ""
+#~ "Gat ekki sýnt valið atriðisorð: gat ekki opnað skrána 'glossary.html.in'!"
+
+#~ msgid "ht://dig"
+#~ msgstr "ht://dig"
+
+#~ msgid ""
+#~ "The fulltext search feature makes use of the ht://dig HTML search engine."
+#~ msgstr "Textarleitar fítusinn notast við ht://dig HTML leitarvélina."
+
+#~ msgid "Information about where to get the ht://dig package."
+#~ msgstr "Upplýsingar um hvar er hægt að nálgast ht://dig pakkann."
+
+#~ msgid "You can get ht://dig at the ht://dig home page"
+#~ msgstr "Þú getur fundið ht://dig á ht://dig vefsíðunni"
+
+#~ msgid "Program Locations"
+#~ msgstr "Staðsetning forrita"
+
+#~ msgid "htsearch:"
+#~ msgstr "htsearch:"
+
+#~ msgid "Enter the URL of the htsearch CGI program."
+#~ msgstr "Skrifaðu inn slóðina að htsearch CGI forritinu."
+
+#~ msgid "Indexer:"
+#~ msgstr "Flokkari:"
+
+#~ msgid "Enter the path to your htdig indexer program here."
+#~ msgstr "Skrifaðu inn hér slóðina að htdig flokkunarforritinu."
+
+#~ msgid "htdig database:"
+#~ msgstr "htdig gagnagrunnur:"
+
+#~ msgid "Enter the path to the htdig database folder."
+#~ msgstr "Sláðu inn slóðina að htdig gagnagrunnsmöppunni."
+
+#~ msgid "Change Index Folder"
+#~ msgstr "Breyta yfirlitsmöppu"
+
+#~ msgid "Index folder:"
+#~ msgstr "Yfirlitsmappa:"
+
+#~ msgid "Build Search Indices"
+#~ msgstr "Byggja leitaryfirlit"
+
+#~ msgid "Index creation log:"
+#~ msgstr "Annál yfirlitsgerðar:"
+
+#~ msgctxt ""
+#~ "Label for button to close search index progress dialog after successful "
+#~ "completion"
+#~ msgid "Close"
+#~ msgstr "Loka"
+
+#~ msgid "Index creation finished."
+#~ msgstr "Búið að byggja yfirlit."
+
+#~ msgctxt "Label for stopping search index generation before completion"
+#~ msgid "Stop"
+#~ msgstr "Stöðva"
+
+#, fuzzy
+#~| msgid "Details &lt;&lt;"
+#~ msgid "Details <<"
+#~ msgstr "Smáatriði &lt;&lt;"
+
+#, fuzzy
+#~| msgid "Details &lt;&lt;"
+#~ msgid "Details >>"
+#~ msgstr "Smáatriði &lt;&lt;"
+
+#~ msgid "Build Search Index"
+#~ msgstr "Byggja leitaryfirlit"
+
+#~ msgid "Build Index"
+#~ msgstr "Byggja yfirlit"
+
+#~ msgid ""
+#~ "To be able to search a document, a search\n"
+#~ "index needs to exist. The status column of the list below shows whether "
+#~ "an index\n"
+#~ "for a document exists.\n"
+#~ msgstr ""
+#~ "Svo hægt sé að leita í skjalinu þarf að búa til leitaryfirlit.\n"
+#~ "Stöðudálkurinn að neðan sýnir hvort til sé leitaryfirlit \n"
+#~ "fyrir skjalið.\n"
+
+#~ msgid ""
+#~ "To create an index, check the box in the list and press the\n"
+#~ "\"Build Index\" button.\n"
+#~ msgstr ""
+#~ "Til að búa til yfirlit hakaðu við listann og smelltu á\n"
+#~ "\"Búa til yfirlit\" hnappinn.\n"
+
+#~ msgid "Search Scope"
+#~ msgstr "Leitarsvið"
+
+#~ msgid "Status"
+#~ msgstr "Staða"
+
+#~ msgid "Change..."
+#~ msgstr "Breyta..."
+
+#~ msgid ""
+#~ "<qt>The folder <b>%1</b> does not exist; unable to create index.</qt>"
+#~ msgstr "<qt>Mappan <b>%1</b> er ekki til.  Get ekki búið til yfirlit.</qt>"
+
+#~ msgctxt "Describes the status of a documentation index that is present"
+#~ msgid "OK"
+#~ msgstr "Í lagi"
+
+#~ msgctxt "Describes the status of a documentation index that is missing"
+#~ msgid "Missing"
+#~ msgstr "Vantar"
+
+#~ msgctxt ""
+#~ " Generic prefix label for error messages when creating documentation "
+#~ "index, first arg is the document's identifier, second is the document's "
+#~ "name"
+#~ msgid "Document '%1' (%2):\n"
+#~ msgstr "Skjal '%1' (%2):\n"
+
+#~ msgid "No document type."
+#~ msgstr "iEngin skjalagerð."
+
+#~ msgid "No search handler available for document type '%1'."
+#~ msgstr "Enginn leitaraðili fyrir skjalagerðina '%1'."
+
+#~ msgid "No indexing command specified for document type '%1'."
+#~ msgstr "Engin yfirlistskipun fyrir skjalagerðina '%1'."
+
+#~ msgid "Failed to build index."
+#~ msgstr "Tókst ekki að búa til yfirlit."
+
+#~ msgid ""
+#~ "Error executing indexing build command:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Villa við keyrslu yfirlitsskipunarinnar:\n"
+#~ "%1"
+
+#~ msgid "Unable to start command '%1'."
+#~ msgstr "get ekki ræst skipunina '%1'."
+
+#~ msgid "KHelpCenter Index Builder"
+#~ msgstr "Yfirlitsbyggir hjálparmiðstöðvar"
+
+#~ msgid "Cornelius Schumacher"
+#~ msgstr "Cornelius Schumacher"
+
+#~ msgid "Document to be indexed"
+#~ msgstr "Skjal sem á að setja í yfirlit"
+
+#~ msgid "Index directory"
+#~ msgstr "Yfirlitsmappa"
+
+#~ msgid ""
+#~ "A search index does not yet exist. Do you want to create the index now?"
+#~ msgstr "Leitaryfirlit er ekki til. Viltu búa eitt til núna?"
+
+#~ msgid "Create"
+#~ msgstr "Búa til"
+
+#~ msgid "Do Not Create"
+#~ msgstr "Ekki búa til"
+
+#~ msgid "The KDE Help Center"
+#~ msgstr "KDE Hjálparmiðstöðin"
+
+#~ msgid "(c) 2003, The KHelpCenter developers"
+#~ msgstr "(c) 2003, Hönnuðir KDE Hjálparmiðstöðvarinnar"
+
+#~ msgid "Details &gt;&gt;"
+#~ msgstr "Smáatriði &gt;&gt;"
+
+#~ msgid "Frerich Raabe"
+#~ msgstr "Frerich Raabe"
+
+#~ msgid "Matthias Elter"
+#~ msgstr "Matthias Elter"
+
+#~ msgid "Wojciech Smigaj"
+#~ msgstr "Wojciech Smigaj"
+
+#~ msgid "URL to display"
+#~ msgstr "Slóð til að sýna"
+
+#~ msgid "&File"
+#~ msgstr "&Skrá"

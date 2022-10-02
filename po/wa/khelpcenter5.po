@@ -1,0 +1,791 @@
+# translation of khelpcenter.po to Walon
+# Ratournaedje e walon des messaedjes di KDE.
+# Po ratourner e walon, on-z aroke so li definicion d' on walon comon
+# eyet sol definicion d' ene terminolodjeye walone. Waitîz al pådje
+# http://users.skynet.be/bs302306/linux po des informåcions
+# so ces deus sudjets la.
+#
+# Pa dvant totes les kesses, dj' a scrît xxx
+#
+#
+# Lorint Hendschel <LorintHendschel@skynet.be>, 1999-2002.
+# Pablo Saratxaga <pablo@mandrakesoft.com>, 2003.
+# Pablo Saratxaga <pablo@walon.org>, 2003, 2004.
+# Jean Cayron <jean.cayron@gmail.com>, 2008, 2009, 2010.
+# Jean Cayron et Odile Lambert <jean.cayron@gmail.com>, 2010, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdehelp 0.4\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-15 00:47+0000\n"
+"PO-Revision-Date: 2012-07-04 14:44+0200\n"
+"Last-Translator: Jean Cayron <jean.cayron@base.be>\n"
+"Language-Team: Walloon <linux-wa@walon.org>\n"
+"Language: wa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Lorint Hendschel"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "LorintHendschel@skynet.be"
+
+#: application.cpp:30
+#, fuzzy, kde-format
+#| msgid "Document to be indexed"
+msgid "Documentation to open"
+msgstr "Documint a-z indecser"
+
+#: application.cpp:114 application.cpp:116
+#, kde-format
+msgid "Help Center"
+msgstr "Cinte d' aidance"
+
+#: application.cpp:118
+#, fuzzy, kde-format
+#| msgid "(c) 1999-2011, The KHelpCenter developers"
+msgid "(c) 1999-2020, The KHelpCenter developers"
+msgstr "© 1999-2011, Les programeus do Cinte d' Aidance di KDE"
+
+#: application.cpp:120
+#, kde-format
+msgid "Current maintainer"
+msgstr ""
+
+#: application.cpp:121
+#, kde-format
+msgid "Xapian-based search, lot of bugfixes"
+msgstr ""
+
+#: application.cpp:122
+#, kde-format
+msgid "Former maintainer"
+msgstr ""
+
+#: application.cpp:124
+#, kde-format
+msgid "Original Author"
+msgstr "Prumî oteur"
+
+#: application.cpp:125
+#, kde-format
+msgid "Info page support"
+msgstr "Sopoirt po les pådje info"
+
+#: docmetainfo.cpp:35
+#, kde-format
+msgid "Top-Level Documentation"
+msgstr "Documintåcion di hôt livea"
+
+#: docmetainfo.cpp:83
+#, kde-format
+msgctxt "doctitle (language)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: docmetainfo.cpp:119
+#, kde-format
+msgctxt "Describes documentation entries that are in English"
+msgid "English"
+msgstr "Inglès"
+
+#: fontdialog.cpp:36
+#, kde-format
+msgid "Font Configuration"
+msgstr "Apontiaedje des fontes"
+
+#: fontdialog.cpp:62
+#, kde-format
+msgid "Sizes"
+msgstr "Grandeus"
+
+#: fontdialog.cpp:66
+#, kde-format
+msgctxt "The smallest size a will have"
+msgid "M&inimum font size:"
+msgstr "Grandeu mi&nimom del fonte:"
+
+#: fontdialog.cpp:73
+#, kde-format
+msgctxt "The normal size a font will have"
+msgid "M&edium font size:"
+msgstr "Grandeu &moyene del fonte:"
+
+#: fontdialog.cpp:83
+#, kde-format
+msgid "Fonts"
+msgstr "Fontes"
+
+#: fontdialog.cpp:87
+#, kde-format
+msgid "S&tandard font:"
+msgstr "Fonte &sitandård:"
+
+#: fontdialog.cpp:93
+#, kde-format
+msgid "F&ixed font:"
+msgstr "Fonte f&ixed"
+
+#: fontdialog.cpp:99
+#, kde-format
+msgid "S&erif font:"
+msgstr "Fonte S&erif:"
+
+#: fontdialog.cpp:105
+#, kde-format
+msgid "S&ans serif font:"
+msgstr "Fonte S&ans serif:"
+
+#: fontdialog.cpp:111
+#, kde-format
+msgid "&Italic font:"
+msgstr "Fonte e clin&tcheyès letes:"
+
+#: fontdialog.cpp:117
+#, kde-format
+msgid "&Fantasy font:"
+msgstr "Fonte &Fantasy:"
+
+#: fontdialog.cpp:126
+#, kde-format
+msgid "Encoding"
+msgstr "Ecôdaedje"
+
+#: fontdialog.cpp:131
+#, kde-format
+msgid "&Default encoding:"
+msgstr "&Prémetou ecôdaedje:"
+
+#: fontdialog.cpp:136 fontdialog.cpp:204
+#, kde-format
+msgid "Use Language Encoding"
+msgstr "Eployî l' ecôdaedje do lingaedje"
+
+#: fontdialog.cpp:140
+#, kde-format
+msgid "&Font size adjustment:"
+msgstr "Adjustaedje del grandeu del &fonte:"
+
+#: glossary.cpp:68
+#, kde-format
+msgid "By Topic"
+msgstr "Pa sudjet"
+
+#: glossary.cpp:72 infotree.cpp:74
+#, kde-format
+msgid "Alphabetically"
+msgstr "Alfabeticmint"
+
+#: glossary.cpp:128
+#, kde-format
+msgid "Rebuilding glossary cache..."
+msgstr "Rifjhant l' muchete do motî..."
+
+#: glossary.cpp:182
+#, kde-format
+msgid "Rebuilding cache... done."
+msgstr "Rifjhant l' muchete... fwait."
+
+#: grantleeformatter.cpp:102
+#, fuzzy, kde-format
+#| msgid "KDE Glossary"
+msgctxt "%1 is a glossary term"
+msgid "KDE Glossary: %1"
+msgstr "Motî di KDE"
+
+#: grantleeformatter.cpp:103
+#, kde-format
+msgid "KDE Glossary"
+msgstr "Motî di KDE"
+
+#: grantleeformatter.cpp:107
+#, fuzzy, kde-format
+#| msgid "See also: "
+msgid "See also: %1"
+msgstr "Vey eto: "
+
+#: grantleeformatter.cpp:128
+#, kde-format
+msgid "Search Results"
+msgstr "Rizultats do cweraedje"
+
+#: grantleeformatter.cpp:129 searchengine.cpp:259
+#, kde-format
+msgid "Search Results for '%1':"
+msgstr "Rizultats do cweraedje po «%1»"
+
+#: infotree.cpp:77
+#, kde-format
+msgid "By Category"
+msgstr "Pa categoreye"
+
+#. i18n: ectx: label, entry, group (Search)
+#: khelpcenter.kcfg:31
+#, kde-format
+msgid "Path to index directory."
+msgstr "Tchimint do ridant d' indecse."
+
+#. i18n: ectx: whatsthis, entry, group (Search)
+#: khelpcenter.kcfg:32
+#, kde-format
+msgid "Path to directory containing search indices."
+msgstr "Tchimin viè l' ridant k' a les indecses di cweraedje."
+
+#. i18n: ectx: label, entry, group (Layout)
+#: khelpcenter.kcfg:46
+#, kde-format
+msgid "Currently visible navigator tab"
+msgstr "Linwete do navieu veyåve pol moumint"
+
+#. i18n: ectx: Menu (edit)
+#: khelpcenterui.rc:5
+#, kde-format
+msgid "&Edit"
+msgstr "&Candjî"
+
+#. i18n: ectx: Menu (view)
+#: khelpcenterui.rc:13
+#, kde-format
+msgid "&View"
+msgstr "&Vey"
+
+#. i18n: ectx: Menu (go)
+#: khelpcenterui.rc:19
+#, kde-format
+msgid "&Go"
+msgstr "&Evoye"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: khelpcenterui.rc:36
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Mwaisse bår d' usteye"
+
+#: mainwindow.cpp:62
+#, kde-format
+msgid "Search Error Log"
+msgstr "Djournå des arokes di cweraedje"
+
+#: mainwindow.cpp:114
+#, kde-format
+msgid "Preparing Index"
+msgstr "Preparant l' indecse"
+
+#: mainwindow.cpp:157
+#, kde-format
+msgid "Ready"
+msgstr "Presse"
+
+#: mainwindow.cpp:208
+#, kde-format
+msgid "Previous Page"
+msgstr "Pådje di dvant"
+
+#: mainwindow.cpp:210
+#, kde-format
+msgid "Moves to the previous page of the document"
+msgstr "Potchî al pådje di dvant do documint"
+
+#: mainwindow.cpp:214
+#, kde-format
+msgid "Next Page"
+msgstr "Pådje shuvante"
+
+#: mainwindow.cpp:216
+#, kde-format
+msgid "Moves to the next page of the document"
+msgstr "Potchî al pådje shuvante do documint"
+
+#: mainwindow.cpp:223
+#, kde-format
+msgid "Table of &Contents"
+msgstr "Tåve di l' Å&dvins"
+
+#: mainwindow.cpp:224
+#, kde-format
+msgid "Table of contents"
+msgstr "Tåve di l' Ådvins"
+
+#: mainwindow.cpp:225
+#, kde-format
+msgid "Go back to the table of contents"
+msgstr "Aler en erî al tåve di l' ådvins"
+
+#: mainwindow.cpp:231
+#, kde-format
+msgid "&Last Search Result"
+msgstr "Rizultats do &dierin cweraedje"
+
+#: mainwindow.cpp:249
+#, kde-format
+msgid "Configure Fonts..."
+msgstr "Apontyî les fontes..."
+
+#: mainwindow.cpp:253
+#, kde-format
+msgid "Increase Font Sizes"
+msgstr "Agrandi les fontes"
+
+#: mainwindow.cpp:258
+#, kde-format
+msgid "Decrease Font Sizes"
+msgstr "Raptiti les fontes"
+
+#: mainwindow.cpp:274
+#, kde-format
+msgctxt "@title:menu"
+msgid "&Bookmarks"
+msgstr ""
+
+#: navigator.cpp:63
+#, fuzzy, kde-format
+#| msgid "&Search"
+msgid "Search..."
+msgstr "&Trover"
+
+#: navigator.cpp:118
+#, kde-format
+msgid "&Contents"
+msgstr " Å&dvins"
+
+#: navigator.cpp:128
+#, kde-format
+msgid "Search Options"
+msgstr "Tchuzes do cweraedje"
+
+#: navigator.cpp:136
+#, kde-format
+msgid "G&lossary"
+msgstr "&Motî"
+
+#: navigator.cpp:480
+#, kde-format
+msgid "Start Page"
+msgstr "Pådje d' enondaedje"
+
+#: navigator.cpp:481
+#, kde-format
+msgid "KDE Help Center"
+msgstr "Cinte d' aidance di KDE"
+
+#: navigator.cpp:564
+#, kde-format
+msgid "Unable to run search program."
+msgstr "Dji n' sai nén enonder li programe di cweraedje."
+
+#: navigator.cpp:657
+#, fuzzy, kde-format
+#| msgid "Build Search Index..."
+msgid "Updating search index..."
+msgstr "Fé l' indecse di cweraedje..."
+
+#: navigator.cpp:668
+#, fuzzy, kde-format
+#| msgid "Rebuilding cache... done."
+msgid "Updating search index... done."
+msgstr "Rifjhant l' muchete... fwait."
+
+#: searchengine.cpp:57
+#, kde-format
+msgid "Error: No document type specified."
+msgstr "Aroke: pont d' sôre di documint d' sipecifieye"
+
+#: searchengine.cpp:59
+#, kde-format
+msgid "Error: No search handler for document type '%1'."
+msgstr "Aroke: pont d' apougnaedje pol sôre di documint «%1»."
+
+#: searchengine.cpp:229
+#, kde-format
+msgid "No valid search handler found."
+msgstr "Pont d' apougneu d' cweraedje ki va."
+
+#: searchhandler.cpp:37
+#, kde-format
+msgid "Error executing search command '%1'."
+msgstr "Åk n' a nén stî en enondant l' comande di cweraedje «%1»"
+
+#: searchhandler.cpp:75
+#, kde-format
+msgid "Error: %1"
+msgstr "Aroke: %1"
+
+#: searchhandler.cpp:140 searchhandler.cpp:145
+#, kde-format
+msgid "'%1' not found, check your installation"
+msgstr "Dji n' a nén trové « %1 », verifyîz vost astalaedje"
+
+#: searchhandler.cpp:150
+#, kde-format
+msgid "'%1' not found, install the package containing it"
+msgstr "Dji n' a nén trové « %1 », astalez l' pacaedje ki l' a dvins"
+
+#: searchhandler.cpp:197
+#, kde-format
+msgid "No search command or URL specified."
+msgstr "Pont d' comande di cweraedje ou d' adresse sipecifieyes."
+
+#: searchwidget.cpp:39
+#, kde-format
+msgid "and"
+msgstr "eyet"
+
+#: searchwidget.cpp:40
+#, kde-format
+msgid "or"
+msgstr "oudonbén"
+
+#: searchwidget.cpp:42
+#, kde-format
+msgid "&Method:"
+msgstr "&Metôde:"
+
+#: searchwidget.cpp:58
+#, kde-format
+msgid "Max. &results:"
+msgstr "&Rezultats macs.:"
+
+#: searchwidget.cpp:73
+#, kde-format
+msgid "&Scope selection:"
+msgstr "&Sitårêye do tchoes:"
+
+#: searchwidget.cpp:81
+#, kde-format
+msgid "Scope"
+msgstr "Såme"
+
+#: searchwidget.cpp:322
+#, kde-format
+msgctxt "Label for searching documentation using custom (user defined) scope"
+msgid "Custom"
+msgstr "A vosse môde"
+
+#: searchwidget.cpp:324
+#, kde-format
+msgctxt "Label for searching documentation using default search scope"
+msgid "Default"
+msgstr "Prémetou"
+
+#: searchwidget.cpp:326
+#, kde-format
+msgctxt "Label for searching documentation in all subsections"
+msgid "All"
+msgstr "Totafwait"
+
+#: searchwidget.cpp:328
+#, kde-format
+msgctxt "Label for scope that deselects all search subsections"
+msgid "None"
+msgstr "Nouk"
+
+#: searchwidget.cpp:330
+#, kde-format
+msgctxt "Label for Unknown search scope, that should never appear"
+msgid "unknown"
+msgstr "nén cnoxhou"
+
+#: view.cpp:228
+#, kde-format
+msgid "Copy Link Address"
+msgstr "Copyî l' adresse do loyén"
+
+#: view.cpp:312
+#, kde-format
+msgid ""
+"<p>Read the topic documentation in this window.<br /><br />Press <b>Space</"
+"b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, <b>Tab</b>/"
+"<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
+msgstr ""
+
+#~ msgid "Unable to initialize SearchHandler from file '%1'."
+#~ msgstr ""
+#~ "Dji n' a sepou fé l' inicialijhaedje di SearchHandler pol fitchî «%1»."
+
+#~ msgid "Error"
+#~ msgstr "Aroke"
+
+#~ msgid ""
+#~ "Unable to show selected glossary entry: unable to open file 'glossary."
+#~ "html.in'!"
+#~ msgstr ""
+#~ "Nén capåbe di mostrer l' intrêye do motî: nén capåbe di drovi l' fitchî "
+#~ "«glossary.html.in»"
+
+#~ msgid "ht://dig"
+#~ msgstr "ht://dig"
+
+#~ msgid ""
+#~ "The fulltext search feature makes use of the ht://dig HTML search engine."
+#~ msgstr ""
+#~ "L' usteye di cweraedje dins tot l' tecse eploye l' éndjin d' cweraedje "
+#~ "HTML ht://dig."
+
+#~ msgid "Information about where to get the ht://dig package."
+#~ msgstr "Informåcion so wice prinde li pacaedje ht://dig."
+
+#~ msgid "You can get ht://dig at the ht://dig home page"
+#~ msgstr "Vos ploz aveur ht://dig al pådje måjhon d' ht://dig"
+
+#~ msgid "Program Locations"
+#~ msgstr "Eplaeçmints des programes"
+
+#~ msgid "htsearch:"
+#~ msgstr "htsearch:"
+
+#~ msgid "Enter the URL of the htsearch CGI program."
+#~ msgstr "Tapez l' hårdêye do programe CGI htsearch."
+
+#~ msgid "Indexer:"
+#~ msgstr "Indecseu:"
+
+#~ msgid "Enter the path to your htdig indexer program here."
+#~ msgstr "Tapez chal li tchmin pol programe fijheu d' indecses htdig."
+
+#~ msgid "htdig database:"
+#~ msgstr "Båze di dnêyes htdig:"
+
+#~ msgid "Enter the path to the htdig database folder."
+#~ msgstr "Dinez li tchmin pol ridant del båze di dnêyes htdig."
+
+#~ msgid "Change Index Folder"
+#~ msgstr "Candjî l' ridant d' indecse"
+
+#~ msgid "Index folder:"
+#~ msgstr "Ridant d' indecse:"
+
+#~ msgid "Build Search Indices"
+#~ msgstr "Fé les indecses di cweraedje"
+
+#~ msgid "Index creation log:"
+#~ msgstr "Djournå do fjhaedje di l' indecse:"
+
+#~ msgctxt ""
+#~ "Label for button to close search index progress dialog after successful "
+#~ "completion"
+#~ msgid "Close"
+#~ msgstr "Clôre"
+
+#~ msgid "Index creation finished."
+#~ msgstr "L' indecse est tot fwait."
+
+#~ msgctxt "Label for stopping search index generation before completion"
+#~ msgid "Stop"
+#~ msgstr "Hôw"
+
+#, fuzzy
+#~| msgid "Details >>"
+#~ msgid "Details <<"
+#~ msgstr "Detays >>"
+
+#~ msgid "Details >>"
+#~ msgstr "Detays >>"
+
+#~ msgid "Build Search Index"
+#~ msgstr "Fé l' indecse di cweraedje"
+
+#~ msgid "Build Index"
+#~ msgstr "Fé l' indecse"
+
+#~ msgid ""
+#~ "To be able to search a document, a search\n"
+#~ "index needs to exist. The status column of the list below shows whether "
+#~ "an index\n"
+#~ "for a document exists.\n"
+#~ msgstr ""
+#~ "Po saveur trover on documint, fåt k' on indecse di\n"
+#~ "cweraedje egzistêye. Li colone di statut del djivêye a costé mostere\n"
+#~ "si on indecse egzistêye po on documint.\n"
+
+#~ msgid ""
+#~ "To create an index, check the box in the list and press the\n"
+#~ "\"Build Index\" button.\n"
+#~ msgstr ""
+#~ "Po ahiver on indecse, croejhî l' boesse el djivêye eyet tchôkî\n"
+#~ "l' boton «Costrure indecse»\n"
+
+#~ msgid "Search Scope"
+#~ msgstr "Sitårêye di cweraedje"
+
+#~ msgid "Status"
+#~ msgstr "Estat"
+
+#~ msgid "Change..."
+#~ msgstr "Candjî..."
+
+#~ msgid ""
+#~ "<qt>The folder <b>%1</b> does not exist; unable to create index.</qt>"
+#~ msgstr ""
+#~ "<qt>Li ridant <b>%1</b> n' egzistêye nén. Dji n' såreu fé l' indecse.</qt>"
+
+#~ msgctxt "Describes the status of a documentation index that is present"
+#~ msgid "OK"
+#~ msgstr "I va"
+
+#~ msgctxt "Describes the status of a documentation index that is missing"
+#~ msgid "Missing"
+#~ msgstr "Mancant"
+
+#~ msgctxt ""
+#~ " Generic prefix label for error messages when creating documentation "
+#~ "index, first arg is the document's identifier, second is the document's "
+#~ "name"
+#~ msgid "Document '%1' (%2):\n"
+#~ msgstr "Documint «%1» (%2):\n"
+
+#~ msgid "No document type."
+#~ msgstr "Pont d' sôre di documint"
+
+#~ msgid "No search handler available for document type '%1'."
+#~ msgstr ""
+#~ "Pont d' apougneu d' cweraedje di disponibe pol sôre di documint «%1»."
+
+#~ msgid "No indexing command specified for document type '%1'."
+#~ msgstr ""
+#~ "Pont d' comande d' indecsaedje sipecifieye pol sôre di documint «%1»."
+
+#~ msgid "Failed to build index."
+#~ msgstr "Dji n' a savou fé l' indecse."
+
+#~ msgid ""
+#~ "Error executing indexing build command:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Åk n' a nén stî tot fjhant l' comande d' ahivaedje di l' indecse:\n"
+#~ "%1"
+
+#~ msgid "Unable to start command '%1'."
+#~ msgstr "Dji n' a sepou enonder l' comande «%1»."
+
+#~ msgid "KHelpCenter Index Builder"
+#~ msgstr "Fijheu d' indecses do cinte d' aidance"
+
+#~ msgid "Cornelius Schumacher"
+#~ msgstr "Cornelius Schumacher"
+
+#~ msgid "Document to be indexed"
+#~ msgstr "Documint a-z indecser"
+
+#~ msgid "Index directory"
+#~ msgstr "Ridant d' indecse"
+
+#~ msgid ""
+#~ "A search index does not yet exist. Do you want to create the index now?"
+#~ msgstr "I gn a nén co d' indecse di cweraedje. El vôrîz vs askepyî do côp?"
+
+#~ msgid "Create"
+#~ msgstr "Ahiver"
+
+#~ msgid "Do Not Create"
+#~ msgstr "En nén ahiver"
+
+#~ msgid "Build Search &Index..."
+#~ msgstr "Fé l' &indecse di cweraedje..."
+
+#~ msgid "The KDE Help Center"
+#~ msgstr "Li cinte d' aidance di KDE"
+
+#~ msgid "(c) 2003, The KHelpCenter developers"
+#~ msgstr "© 2003, Les programeus do Cinte d' Aidance di KDE"
+
+#~ msgid "Details &lt;&lt;"
+#~ msgstr "Detays &lt;&lt;"
+
+#~ msgid "Details &gt;&gt;"
+#~ msgstr "Detays &gt;&gt;"
+
+#~ msgid "Frerich Raabe"
+#~ msgstr "Frerich Raabe"
+
+#~ msgid "Matthias Elter"
+#~ msgstr "Matthias Elter"
+
+#~ msgid "Wojciech Smigaj"
+#~ msgstr "Wojciech Smigaj"
+
+#~ msgid "URL to display"
+#~ msgstr "Adresse a håyner"
+
+#~ msgid "&File"
+#~ msgstr "&Fitchî"
+
+#~ msgid "Show Search Error Log"
+#~ msgstr "Mostrer l' djournå des arokes di cweraedje"
+
+#~ msgid "ht://dig home page"
+#~ msgstr "Pådje måjhon di ht://dig"
+
+#~ msgid "Conquer your Desktop!"
+#~ msgstr "Al conkete di vosse sicribanne!"
+
+#~ msgid "Welcome to the K Desktop Environment"
+#~ msgstr "Wilicome so l' evironmint di scribanne da KDE"
+
+#~ msgid "The KDE team welcomes you to user-friendly UNIX computing"
+#~ msgstr ""
+#~ "L' ekipe KDE vos sohaite li bénvnowe dins l' infôrmatike UNIX amishtåve "
+#~ "po l' uzeu."
+
+#~ msgid ""
+#~ "KDE is a powerful graphical desktop environment for UNIX workstations. A\n"
+#~ "KDE desktop combines ease of use, contemporary functionality and "
+#~ "outstanding\n"
+#~ "graphical design with the technological superiority of the UNIX "
+#~ "operating\n"
+#~ "system."
+#~ msgstr ""
+#~ "KDE est on poûxhant evironmint grafike di buro po les ståcions UNIX.\n"
+#~ "On buro KDE est åjhey a eployî, il a totes les usteyes k' i vs fåt dins "
+#~ "ene éndjole d' ådjourdu, il est pår bea et, al copete do martchî, il est "
+#~ "basti so UNIX, li meyeu sistinme d' operance k' i gn åye."
+
+#~ msgid "What is the K Desktop Environment?"
+#~ msgstr "Li K Desktop Environment, cwè çki c' est di çoula?"
+
+#~ msgid "Contacting the KDE Project"
+#~ msgstr "Contacter li prodjet KDE"
+
+#~ msgid "Supporting the KDE Project"
+#~ msgstr "Sopoirter li prodjet KDE"
+
+#~ msgid "Useful links"
+#~ msgstr "Ahessåvès hårdêyes"
+
+#~ msgid "Getting the most out of KDE"
+#~ msgstr "Po-z eployî KDE å mî"
+
+#~ msgid "General Documentation"
+#~ msgstr "Documintåcion djeneråle"
+
+#~ msgid "A Quick Start Guide to the Desktop"
+#~ msgstr "Po-z aprinde al vole a s' siervi do scribanne"
+
+#~ msgid "KDE Users' guide"
+#~ msgstr "Guide di l' uzeu di KDE"
+
+#~ msgid "Frequently asked questions"
+#~ msgstr "Kesses Sovint Dmandêyes"
+
+#~ msgid "Basic Applications"
+#~ msgstr "Programes di båze"
+
+#~ msgid "The Kicker Desktop Panel"
+#~ msgstr "Li scriftôr Kicker do scribanne"
+
+#~ msgid "The KDE Control Center"
+#~ msgstr "Li cinte di contrôle di KDE"
+
+#~ msgid "The Konqueror File manager and Web Browser"
+#~ msgstr "Li manaedjeu di fitchîs eyet betchteu waibe Konqueror"
+
+#, fuzzy
+#~ msgid "Clear search"
+#~ msgstr "Cweri"

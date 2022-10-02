@@ -1,0 +1,785 @@
+# Finnish messages for khelpcenter.
+# Copyright © 2010, 2011, 2012 This_file_is_part_of_KDE
+# This file is distributed under the same license as the kde-runtime package.
+# Kim Enkovaara <kim.enkovaara@iki.fi>, 2002, 2003.
+# Teemu Rytilahti <teemu.rytilahti@d5k.net>, 2003.
+# Teemu Rytilahti <teemu.rytilahti@kde-fi.org>, 2003, 2004, 2008.
+# Tapio Kautto <eleknader@phnet.fi>, 2004.
+# Ilpo Kantonen <ilpo@iki.fi>, 2005.
+# Jorma Karvonen <karvonen.jorma@gmail.com>, 2010.
+# Lasse Liehu <lasse.liehu@gmail.com>, 2010, 2011, 2012, 2013, 2014, 2016.
+# Tommi Nieminen <translator@legisign.org>, 2018, 2019, 2021.
+#
+# KDE Finnish translation sprint participants:
+# Author: Artnay
+msgid ""
+msgstr ""
+"Project-Id-Version: khelpcenter\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-15 00:47+0000\n"
+"PO-Revision-Date: 2021-06-12 21:42+0300\n"
+"Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
+"Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-POT-Import-Date: 2012-12-01 22:22:13+0000\n"
+"X-Generator: Lokalize 20.04.2\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+"Kim Enkovaara,Teemu Rytilahti,Tapio Kautto,Ilpo Kantonen,Jorma Karvonen,"
+"Tommi Nieminen"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+"kim.enkovaara@iki.fi,teemu.rytilahti@d5k.net,eleknader@phnet.fi,ilpo@iki.fi,"
+"karvonen.jorma@gmail.com,translator@legisign.org"
+
+#: application.cpp:30
+#, kde-format
+msgid "Documentation to open"
+msgstr "Avattava dokumentaatio"
+
+# pmap: =:gen=Ohjekeskuksen:
+# pmap: =:elat=Ohjekeskuksesta:
+# pmap: =:yleisnimi=kyllä:
+#: application.cpp:114 application.cpp:116
+#, kde-format
+msgid "Help Center"
+msgstr "Ohjekeskus"
+
+#: application.cpp:118
+#, kde-format
+msgid "(c) 1999-2020, The KHelpCenter developers"
+msgstr "© 1999–2020 KHelpCenterin kehittäjät"
+
+#: application.cpp:120
+#, kde-format
+msgid "Current maintainer"
+msgstr "Nykyinen ylläpitäjä"
+
+#: application.cpp:121
+#, kde-format
+msgid "Xapian-based search, lot of bugfixes"
+msgstr "Xapian-pohjainen haku, lukuisia virheenkorjauksia"
+
+#: application.cpp:122
+#, kde-format
+msgid "Former maintainer"
+msgstr "Aiempi ylläpitäjä"
+
+#: application.cpp:124
+#, kde-format
+msgid "Original Author"
+msgstr "Alkuperäinen tekijä"
+
+#: application.cpp:125
+#, kde-format
+msgid "Info page support"
+msgstr "Infosivutuki"
+
+#: docmetainfo.cpp:35
+#, kde-format
+msgid "Top-Level Documentation"
+msgstr "Päätason dokumentaatio"
+
+#: docmetainfo.cpp:83
+#, kde-format
+msgctxt "doctitle (language)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: docmetainfo.cpp:119
+#, kde-format
+msgctxt "Describes documentation entries that are in English"
+msgid "English"
+msgstr "Englanninkielinen"
+
+#: fontdialog.cpp:36
+#, kde-format
+msgid "Font Configuration"
+msgstr "Fonttiasetukset"
+
+#: fontdialog.cpp:62
+#, kde-format
+msgid "Sizes"
+msgstr "Fonttikoot"
+
+#: fontdialog.cpp:66
+#, kde-format
+msgctxt "The smallest size a will have"
+msgid "M&inimum font size:"
+msgstr "&Fontin vähimmäiskoko:"
+
+#: fontdialog.cpp:73
+#, kde-format
+msgctxt "The normal size a font will have"
+msgid "M&edium font size:"
+msgstr "F&ontin keskikoko:"
+
+#: fontdialog.cpp:83
+#, kde-format
+msgid "Fonts"
+msgstr "Fontit"
+
+#: fontdialog.cpp:87
+#, kde-format
+msgid "S&tandard font:"
+msgstr "O&letusfontti:"
+
+#: fontdialog.cpp:93
+#, kde-format
+msgid "F&ixed font:"
+msgstr "&Tasavälinen fontti:"
+
+#: fontdialog.cpp:99
+#, kde-format
+msgid "S&erif font:"
+msgstr "S&erif-fontti:"
+
+#: fontdialog.cpp:105
+#, kde-format
+msgid "S&ans serif font:"
+msgstr "&Sans serif -fontti:"
+
+#: fontdialog.cpp:111
+#, kde-format
+msgid "&Italic font:"
+msgstr "&Kursivoitu fontti:"
+
+#: fontdialog.cpp:117
+#, kde-format
+msgid "&Fantasy font:"
+msgstr "&Fantasiafontti:"
+
+#: fontdialog.cpp:126
+#, kde-format
+msgid "Encoding"
+msgstr "Merkistö"
+
+#: fontdialog.cpp:131
+#, kde-format
+msgid "&Default encoding:"
+msgstr "&Oletusmerkistö:"
+
+#: fontdialog.cpp:136 fontdialog.cpp:204
+#, kde-format
+msgid "Use Language Encoding"
+msgstr "Käytä kielimerkistöä"
+
+#: fontdialog.cpp:140
+#, kde-format
+msgid "&Font size adjustment:"
+msgstr "Fontti&koon säätäminen:"
+
+#: glossary.cpp:68
+#, kde-format
+msgid "By Topic"
+msgstr "Aiheen mukaan"
+
+#: glossary.cpp:72 infotree.cpp:74
+#, kde-format
+msgid "Alphabetically"
+msgstr "Aakkosjärjestyksessä"
+
+#: glossary.cpp:128
+#, kde-format
+msgid "Rebuilding glossary cache..."
+msgstr "Uudelleenrakennetaan välimuistia…"
+
+#: glossary.cpp:182
+#, kde-format
+msgid "Rebuilding cache... done."
+msgstr "Uudelleenrakennetaan välimuistia… valmis."
+
+#: grantleeformatter.cpp:102
+#, kde-format
+msgctxt "%1 is a glossary term"
+msgid "KDE Glossary: %1"
+msgstr "KDE:n sanasto: %1"
+
+#: grantleeformatter.cpp:103
+#, kde-format
+msgid "KDE Glossary"
+msgstr "KDE:n sanasto"
+
+#: grantleeformatter.cpp:107
+#, kde-format
+msgid "See also: %1"
+msgstr "Katso myös: %1"
+
+#: grantleeformatter.cpp:128
+#, kde-format
+msgid "Search Results"
+msgstr "Hakutulokset"
+
+#: grantleeformatter.cpp:129 searchengine.cpp:259
+#, kde-format
+msgid "Search Results for '%1':"
+msgstr "Hakutulokset haulle ”%1”:"
+
+#: infotree.cpp:77
+#, kde-format
+msgid "By Category"
+msgstr "Luokan mukaan"
+
+#. i18n: ectx: label, entry, group (Search)
+#: khelpcenter.kcfg:31
+#, kde-format
+msgid "Path to index directory."
+msgstr "Polku hakemistokansioon."
+
+#. i18n: ectx: whatsthis, entry, group (Search)
+#: khelpcenter.kcfg:32
+#, kde-format
+msgid "Path to directory containing search indices."
+msgstr "Polku hakuindeksien kansioon."
+
+#. i18n: ectx: label, entry, group (Layout)
+#: khelpcenter.kcfg:46
+#, kde-format
+msgid "Currently visible navigator tab"
+msgstr "Navigaattorin nyt näkyvä välilehti"
+
+#. i18n: ectx: Menu (edit)
+#: khelpcenterui.rc:5
+#, kde-format
+msgid "&Edit"
+msgstr "&Muokkaa"
+
+#. i18n: ectx: Menu (view)
+#: khelpcenterui.rc:13
+#, kde-format
+msgid "&View"
+msgstr "&Näytä"
+
+#. i18n: ectx: Menu (go)
+#: khelpcenterui.rc:19
+#, kde-format
+msgid "&Go"
+msgstr "&Siirry"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: khelpcenterui.rc:36
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Päätyökalurivi"
+
+#: mainwindow.cpp:62
+#, kde-format
+msgid "Search Error Log"
+msgstr "Näytä virheloki"
+
+#: mainwindow.cpp:114
+#, kde-format
+msgid "Preparing Index"
+msgstr "Rakennan hakemistoa"
+
+#: mainwindow.cpp:157
+#, kde-format
+msgid "Ready"
+msgstr "Valmis"
+
+#: mainwindow.cpp:208
+#, kde-format
+msgid "Previous Page"
+msgstr "Edellinen sivu"
+
+#: mainwindow.cpp:210
+#, kde-format
+msgid "Moves to the previous page of the document"
+msgstr "Siirtyy asiakirjan edelliselle sivulle"
+
+#: mainwindow.cpp:214
+#, kde-format
+msgid "Next Page"
+msgstr "Seuraava sivu"
+
+#: mainwindow.cpp:216
+#, kde-format
+msgid "Moves to the next page of the document"
+msgstr "Siirtyy asiakirjan seuraavalle sivulle"
+
+#: mainwindow.cpp:223
+#, kde-format
+msgid "Table of &Contents"
+msgstr "Sis&ällysluettelo"
+
+#: mainwindow.cpp:224
+#, kde-format
+msgid "Table of contents"
+msgstr "Sisällysluettelo"
+
+#: mainwindow.cpp:225
+#, kde-format
+msgid "Go back to the table of contents"
+msgstr "Siirry takaisin sisällysluetteloon"
+
+#: mainwindow.cpp:231
+#, kde-format
+msgid "&Last Search Result"
+msgstr "&Viimeinen hakutulos"
+
+#: mainwindow.cpp:249
+#, kde-format
+msgid "Configure Fonts..."
+msgstr "Fonttiasetukset…"
+
+#: mainwindow.cpp:253
+#, kde-format
+msgid "Increase Font Sizes"
+msgstr "Lisää fonttikokoa"
+
+#: mainwindow.cpp:258
+#, kde-format
+msgid "Decrease Font Sizes"
+msgstr "Vähennä fonttikokoa"
+
+#: mainwindow.cpp:274
+#, kde-format
+msgctxt "@title:menu"
+msgid "&Bookmarks"
+msgstr "&Kirjanmerkit"
+
+#: navigator.cpp:63
+#, kde-format
+msgid "Search..."
+msgstr "Etsi…"
+
+#: navigator.cpp:118
+#, kde-format
+msgid "&Contents"
+msgstr "Sis&ällysluettelo"
+
+#: navigator.cpp:128
+#, kde-format
+msgid "Search Options"
+msgstr "Hakuvalinnat"
+
+#: navigator.cpp:136
+#, kde-format
+msgid "G&lossary"
+msgstr "&Sanasto"
+
+#: navigator.cpp:480
+#, kde-format
+msgid "Start Page"
+msgstr "Aloitussivu"
+
+#: navigator.cpp:481
+#, kde-format
+msgid "KDE Help Center"
+msgstr "KDE:n ohjekeskus"
+
+#: navigator.cpp:564
+#, kde-format
+msgid "Unable to run search program."
+msgstr "Ei voitu suorittaa hakuohjelmaa"
+
+#: navigator.cpp:657
+#, kde-format
+msgid "Updating search index..."
+msgstr "Päivitetään hakuhakemistoa…"
+
+#: navigator.cpp:668
+#, kde-format
+msgid "Updating search index... done."
+msgstr "Päivitetään hakuhakemistoa… valmis."
+
+#: searchengine.cpp:57
+#, kde-format
+msgid "Error: No document type specified."
+msgstr "Virhe: Asiakirjan tyyppiä ei ole määritelty."
+
+#: searchengine.cpp:59
+#, kde-format
+msgid "Error: No search handler for document type '%1'."
+msgstr "Virhe: Asiakirjatyypille ”%1” ei ole hakukäsittelijää."
+
+#: searchengine.cpp:229
+#, kde-format
+msgid "No valid search handler found."
+msgstr "Oikeantyyppistä hakukäsittelijää ei löytynyt."
+
+#: searchhandler.cpp:37
+#, kde-format
+msgid "Error executing search command '%1'."
+msgstr "Virhe hakukomennon ”%1” suorituksessa."
+
+#: searchhandler.cpp:75
+#, kde-format
+msgid "Error: %1"
+msgstr "Virhe: %1"
+
+#: searchhandler.cpp:140 searchhandler.cpp:145
+#, kde-format
+msgid "'%1' not found, check your installation"
+msgstr "”%1” ei löytynyt. Tarkista asennuksesi"
+
+#: searchhandler.cpp:150
+#, kde-format
+msgid "'%1' not found, install the package containing it"
+msgstr "”%1” ei löytynyt. Asenna pakkaus, johon se sisältyy"
+
+#: searchhandler.cpp:197
+#, kde-format
+msgid "No search command or URL specified."
+msgstr "Hakukomentoa tai verkko-osoitetta ei ole määritelty."
+
+#: searchwidget.cpp:39
+#, kde-format
+msgid "and"
+msgstr "ja"
+
+#: searchwidget.cpp:40
+#, kde-format
+msgid "or"
+msgstr "tai"
+
+#: searchwidget.cpp:42
+#, kde-format
+msgid "&Method:"
+msgstr "&Tapa:"
+
+#: searchwidget.cpp:58
+#, kde-format
+msgid "Max. &results:"
+msgstr "Tulosten &maksimimäärä:"
+
+#: searchwidget.cpp:73
+#, kde-format
+msgid "&Scope selection:"
+msgstr "&Laajuuden valinta:"
+
+#: searchwidget.cpp:81
+#, kde-format
+msgid "Scope"
+msgstr "Laajuus"
+
+#: searchwidget.cpp:322
+#, kde-format
+msgctxt "Label for searching documentation using custom (user defined) scope"
+msgid "Custom"
+msgstr "Oma"
+
+#: searchwidget.cpp:324
+#, kde-format
+msgctxt "Label for searching documentation using default search scope"
+msgid "Default"
+msgstr "Oletus"
+
+#: searchwidget.cpp:326
+#, kde-format
+msgctxt "Label for searching documentation in all subsections"
+msgid "All"
+msgstr "Kaikki"
+
+#: searchwidget.cpp:328
+#, kde-format
+msgctxt "Label for scope that deselects all search subsections"
+msgid "None"
+msgstr "Ei mikään"
+
+#: searchwidget.cpp:330
+#, kde-format
+msgctxt "Label for Unknown search scope, that should never appear"
+msgid "unknown"
+msgstr "tuntematon"
+
+#: view.cpp:228
+#, kde-format
+msgid "Copy Link Address"
+msgstr "Kopioi linkin osoite"
+
+#: view.cpp:312
+#, kde-format
+msgid ""
+"<p>Read the topic documentation in this window.<br /><br />Press <b>Space</"
+"b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, <b>Tab</b>/"
+"<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
+msgstr ""
+"<p>Voit lukea aiheen ohjetta tästä ikkunasta.<br /><br />Voit vierittää "
+"painamalla <b>Välilyöntiä</b>/<b>Vaihto+Välilyöntiä</b>, etsiä jotain "
+"painamalla <b>%1</b>, hypätä painamalla <b>Sarkainta</b>/<b>Vaihto"
+"+Sarkainta</b> ja seurata linkkiä painamalla <b>Enteriä</b>.</p>"
+
+#~ msgid "Handler"
+#~ msgstr "Käsittelijä"
+
+#~ msgid "Unable to initialize SearchHandler from file '%1'."
+#~ msgstr "Hakukäsittelijää tiedostosta ”%1” ei voi alustaa."
+
+#~ msgid "Error"
+#~ msgstr "Virhe"
+
+#~ msgid ""
+#~ "Unable to show selected glossary entry: unable to open file 'glossary."
+#~ "html.in'!"
+#~ msgstr ""
+#~ "Ei voitu näyttää valittua sanastotietuetta: ei voitu avata tiedostoa "
+#~ "”glossary.html.in”."
+
+#~ msgid "ht://dig"
+#~ msgstr "ht://dig"
+
+#~ msgid ""
+#~ "The fulltext search feature makes use of the ht://dig HTML search engine."
+#~ msgstr "Kokotekstihaku käyttää hyväkseen ht://dig-hakukonetta."
+
+#~ msgid "Information about where to get the ht://dig package."
+#~ msgstr "Tietoa mistä voit hakea ht://dig paketin."
+
+#~ msgid "You can get ht://dig at the ht://dig home page"
+#~ msgstr "Voit hakea ht://dig-ohjelman kotisivuilta"
+
+#~ msgid "Program Locations"
+#~ msgstr "Ohjelmien sijainti"
+
+#~ msgid "htsearch:"
+#~ msgstr "htsearch:"
+
+#~ msgid "Enter the URL of the htsearch CGI program."
+#~ msgstr "Anna htsearch CHI-ohjelman URL."
+
+#~ msgid "Indexer:"
+#~ msgstr "Indeksoija:"
+
+#~ msgid "Enter the path to your htdig indexer program here."
+#~ msgstr "Anna polku htdig-hakemistonluontiohjelmaan tässä."
+
+#~ msgid "htdig database:"
+#~ msgstr "htdig-tietokanta:"
+
+#~ msgid "Enter the path to the htdig database folder."
+#~ msgstr "Anna polku htdig-ohjelman tietokantakansioon."
+
+#~ msgid "Change Index Folder"
+#~ msgstr "Vaihda indeksikansio"
+
+#~ msgid "Index folder:"
+#~ msgstr "Indeksikansio:"
+
+#~ msgid "Build Search Indices"
+#~ msgstr "Rakenna hakemistot"
+
+#~ msgid "Index creation log:"
+#~ msgstr "Indeksin luomisloki:"
+
+#~ msgctxt ""
+#~ "Label for button to close search index progress dialog after successful "
+#~ "completion"
+#~ msgid "Close"
+#~ msgstr "Sulje"
+
+#~ msgid "Index creation finished."
+#~ msgstr "Indeksin luominen valmis."
+
+#~ msgctxt "Label for stopping search index generation before completion"
+#~ msgid "Stop"
+#~ msgstr "Pysäytä"
+
+#~ msgid "Details <<"
+#~ msgstr "Yksityiskohdat <<"
+
+#~ msgid "Details >>"
+#~ msgstr "Yksityiskohdat >>"
+
+#~ msgid "Build Search Index"
+#~ msgstr "Rakenna hakemisto"
+
+#~ msgid "Build Index"
+#~ msgstr "Rakenna hakemisto"
+
+#~ msgid ""
+#~ "To be able to search a document, a search\n"
+#~ "index needs to exist. The status column of the list below shows whether "
+#~ "an index\n"
+#~ "for a document exists.\n"
+#~ msgstr ""
+#~ "Jotta tiedostoa voi etsiä, hakemiston tulee olla olemassa.\n"
+#~ "Hakemiston olemassaolo näkyy alla olevan luettelon tilasarakkeessa.\n"
+
+#~ msgid ""
+#~ "To create an index, check the box in the list and press the\n"
+#~ "\"Build Index\" button.\n"
+#~ msgstr ""
+#~ "Hakemisto luodaan valitsemalla asiakirja ja painamalla\n"
+#~ "”Rakenna hakemisto” -painiketta.\n"
+
+#~ msgid "Search Scope"
+#~ msgstr "Haun laajuus"
+
+#~ msgid "Status"
+#~ msgstr "Tila"
+
+#~ msgid "Change..."
+#~ msgstr "Muuta…"
+
+#~ msgid ""
+#~ "<qt>The folder <b>%1</b> does not exist; unable to create index.</qt>"
+#~ msgstr ""
+#~ "<qt>Kansiota <b>%1</b> ei ole olemassa. Ei voitu luoda indeksiä.</qt>"
+
+#~ msgctxt "Describes the status of a documentation index that is present"
+#~ msgid "OK"
+#~ msgstr "Ok"
+
+#~ msgctxt "Describes the status of a documentation index that is missing"
+#~ msgid "Missing"
+#~ msgstr "Puuttuu"
+
+#~ msgctxt ""
+#~ " Generic prefix label for error messages when creating documentation "
+#~ "index, first arg is the document's identifier, second is the document's "
+#~ "name"
+#~ msgid "Document '%1' (%2):\n"
+#~ msgstr "Tiedosto ”%1” (%2):\n"
+
+#~ msgid "No document type."
+#~ msgstr "Ei asiakirjatyyppiä."
+
+#~ msgid "No search handler available for document type '%1'."
+#~ msgstr "Hakukäsittelijää ei ole saatavilla asiakirjatyypille ”%1”."
+
+#~ msgid "No indexing command specified for document type '%1'."
+#~ msgstr "Asiakirjatyypille ”%1” ei ole määritelty hakemistontekokomentoa."
+
+#~ msgid "Failed to build index."
+#~ msgstr "Indeksin rakentaminen epäonnistui."
+
+#~ msgid ""
+#~ "Error executing indexing build command:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Virhe hakemiston rakentamiskomennon suorituksessa:\n"
+#~ "%1"
+
+#~ msgid "Unable to start command '%1'."
+#~ msgstr "Ei voi käynnistää komentoa ”%1”."
+
+#~ msgid "KHelpCenter Index Builder"
+#~ msgstr "Käyttöohjeen indeksirakentaja"
+
+#~ msgid "2003 KDE"
+#~ msgstr "2003 KDE"
+
+#~ msgid "Cornelius Schumacher"
+#~ msgstr "Cornelius Schumacher"
+
+#~ msgid "Document to be indexed"
+#~ msgstr "Indeksoitava tiedosto"
+
+#~ msgid "Index directory"
+#~ msgstr "Indeksihakemisto"
+
+#~ msgid ""
+#~ "A search index does not yet exist. Do you want to create the index now?"
+#~ msgstr "Hakemistoa ei ole vielä olemassa. Haluatko luoda sen nyt?"
+
+#~ msgid "Create"
+#~ msgstr "Luo"
+
+#~ msgid "Do Not Create"
+#~ msgstr "Älä luo"
+
+#~ msgid "Build Search &Index..."
+#~ msgstr "Rakenna &hakuhakemisto…"
+
+#~ msgid "The KDE Help Center"
+#~ msgstr "KDE:n ohjeet"
+
+#~ msgid "(c) 2003, The KHelpCenter developers"
+#~ msgstr "© 1999–2003 KHelpCenter-kehittäjät"
+
+#~ msgid "Details &gt;&gt;"
+#~ msgstr "Yksityiskohdat &gt;&gt;"
+
+#~ msgid "Frerich Raabe"
+#~ msgstr "Frerich Raabe"
+
+#~ msgid "Matthias Elter"
+#~ msgstr "Matthias Elter"
+
+#~ msgid "Wojciech Smigaj"
+#~ msgstr "Wojciech Smigaj"
+
+#~ msgid "URL to display"
+#~ msgstr "Näytettävä verkko-osoite"
+
+#~ msgid "&File"
+#~ msgstr "&Tiedosto"
+
+#~ msgid "Show Search Error Log"
+#~ msgstr "Näytä haun virheloki"
+
+#~ msgid "ht://dig home page"
+#~ msgstr "ht://dig kotisivu"
+
+#~ msgid "Conquer your Desktop!"
+#~ msgstr "Valloita työpöytäsi!"
+
+#~ msgid "Welcome to the K Desktop Environment"
+#~ msgstr "Tervetuloa KDE-työpöytäympäristöön"
+
+#~ msgid "The KDE team welcomes you to user-friendly UNIX computing"
+#~ msgstr ""
+#~ "KDE-tiimi toivottaa sinut tervetulleeksi käyttäjäystävälliseen UNIX-"
+#~ "käyttöön"
+
+#~ msgid ""
+#~ "KDE is a powerful graphical desktop environment for UNIX workstations. A\n"
+#~ "KDE desktop combines ease of use, contemporary functionality and "
+#~ "outstanding\n"
+#~ "graphical design with the technological superiority of the UNIX "
+#~ "operating\n"
+#~ "system."
+#~ msgstr ""
+#~ "KDE on tehokas graafinen työpöytäympäristö Unix työasemille.\n"
+#~ "KDE:n työpöytä yhdistää Unixin teknisen ylivoiman käytön\n"
+#~ "helppouteen, toiminnallisuuteen ja graafiseen näyttävyyteen."
+
+#~ msgid "What is the K Desktop Environment?"
+#~ msgstr "Mikä on KDE-työpöytäympäristö?"
+
+#~ msgid "Contacting the KDE Project"
+#~ msgstr "Yhteyden ottaminen KDE-projektiin"
+
+#~ msgid "Supporting the KDE Project"
+#~ msgstr "KDE-projektin tukeminen"
+
+#~ msgid "Useful links"
+#~ msgstr "Hyödyllisiä linkkejä"
+
+#~ msgid "Getting the most out of KDE"
+#~ msgstr "Kaikki irti KDE-työpöytäympäristöstä"
+
+#~ msgid "General Documentation"
+#~ msgstr "Yleinen dokumentaatio"
+
+#~ msgid "A Quick Start Guide to the Desktop"
+#~ msgstr "Nopea opas työpöydän käyttöön"
+
+#~ msgid "KDE Users' guide"
+#~ msgstr "KDE-työpöytäympäristön käyttöohje"
+
+#~ msgid "Frequently asked questions"
+#~ msgstr "Usein kysytyt kysymykset"
+
+#~ msgid "Basic Applications"
+#~ msgstr "Perussovellukset"
+
+#~ msgid "The Kicker Desktop Panel"
+#~ msgstr "Työpöydän paneeli"
+
+#~ msgid "The KDE Control Center"
+#~ msgstr "KDE:n Ohjauskeskus"
+
+#~ msgid "The Konqueror File manager and Web Browser"
+#~ msgstr "Tiedostonhallintaohjelma ja WWW-selain Konqueror"

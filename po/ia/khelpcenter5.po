@@ -1,0 +1,707 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# g.sora <g.sora@tiscali.it>, 2010, 2011, 2012, 2014, 2016, 2019, 2020, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-15 00:47+0000\n"
+"PO-Revision-Date: 2021-08-04 22:58+0200\n"
+"Last-Translator: giovanni <g.sora@tiscali.it>\n"
+"Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
+"Language: ia\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 21.04.3\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Giovanni Sora"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "g.sora@tiscali.it"
+
+#: application.cpp:30
+#, kde-format
+msgid "Documentation to open"
+msgstr "Documento que on debe aperir"
+
+#: application.cpp:114 application.cpp:116
+#, kde-format
+msgid "Help Center"
+msgstr "Centro de Adjuta "
+
+#: application.cpp:118
+#, kde-format
+msgid "(c) 1999-2020, The KHelpCenter developers"
+msgstr "(c) 1999-2020, Le disveloppatores de KHelpCenter"
+
+#: application.cpp:120
+#, kde-format
+msgid "Current maintainer"
+msgstr "Mantenitor Currente"
+
+#: application.cpp:121
+#, kde-format
+msgid "Xapian-based search, lot of bugfixes"
+msgstr "Cerca basate sur Xapian, multe bugfixes"
+
+#: application.cpp:122
+#, kde-format
+msgid "Former maintainer"
+msgstr "Mantenitor Precedente"
+
+#: application.cpp:124
+#, kde-format
+msgid "Original Author"
+msgstr "Autor original"
+
+#: application.cpp:125
+#, kde-format
+msgid "Info page support"
+msgstr "Supporto de pagina initial"
+
+#: docmetainfo.cpp:35
+#, kde-format
+msgid "Top-Level Documentation"
+msgstr "Documentation de nivello culmine"
+
+#: docmetainfo.cpp:83
+#, kde-format
+msgctxt "doctitle (language)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: docmetainfo.cpp:119
+#, kde-format
+msgctxt "Describes documentation entries that are in English"
+msgid "English"
+msgstr "Anglese"
+
+#: fontdialog.cpp:36
+#, kde-format
+msgid "Font Configuration"
+msgstr "Configuration de font"
+
+#: fontdialog.cpp:62
+#, kde-format
+msgid "Sizes"
+msgstr "Dimensiones"
+
+#: fontdialog.cpp:66
+#, kde-format
+msgctxt "The smallest size a will have"
+msgid "M&inimum font size:"
+msgstr "Dimension de font m&inime:"
+
+#: fontdialog.cpp:73
+#, kde-format
+msgctxt "The normal size a font will have"
+msgid "M&edium font size:"
+msgstr "Dimension de font M&edie:"
+
+#: fontdialog.cpp:83
+#, kde-format
+msgid "Fonts"
+msgstr "Fonts"
+
+#: fontdialog.cpp:87
+#, kde-format
+msgid "S&tandard font:"
+msgstr "Font s&tandard:"
+
+#: fontdialog.cpp:93
+#, kde-format
+msgid "F&ixed font:"
+msgstr "Font f&ixate:"
+
+#: fontdialog.cpp:99
+#, kde-format
+msgid "S&erif font:"
+msgstr "Font s&erif:"
+
+#: fontdialog.cpp:105
+#, kde-format
+msgid "S&ans serif font:"
+msgstr "Font s&ans serif:"
+
+#: fontdialog.cpp:111
+#, kde-format
+msgid "&Italic font:"
+msgstr "Font &Italic:"
+
+#: fontdialog.cpp:117
+#, kde-format
+msgid "&Fantasy font:"
+msgstr "Font &Fantasy:"
+
+#: fontdialog.cpp:126
+#, kde-format
+msgid "Encoding"
+msgstr "Codificar"
+
+#: fontdialog.cpp:131
+#, kde-format
+msgid "&Default encoding:"
+msgstr "Codifica pre&definite:"
+
+#: fontdialog.cpp:136 fontdialog.cpp:204
+#, kde-format
+msgid "Use Language Encoding"
+msgstr "Usa codifica de linguage"
+
+#: fontdialog.cpp:140
+#, kde-format
+msgid "&Font size adjustment:"
+msgstr "Adjustamento de dimension de &Font:"
+
+#: glossary.cpp:68
+#, kde-format
+msgid "By Topic"
+msgstr "Per Topico"
+
+#: glossary.cpp:72 infotree.cpp:74
+#, kde-format
+msgid "Alphabetically"
+msgstr "Alphabeticamente"
+
+#: glossary.cpp:128
+#, kde-format
+msgid "Rebuilding glossary cache..."
+msgstr "Il reconstrue cache de glossario..."
+
+#: glossary.cpp:182
+#, kde-format
+msgid "Rebuilding cache... done."
+msgstr "Il reconstrue cache ... facite."
+
+#: grantleeformatter.cpp:102
+#, kde-format
+msgctxt "%1 is a glossary term"
+msgid "KDE Glossary: %1"
+msgstr "Glossario de KDE: %1"
+
+#: grantleeformatter.cpp:103
+#, kde-format
+msgid "KDE Glossary"
+msgstr "Glossario de KDE"
+
+#: grantleeformatter.cpp:107
+#, kde-format
+msgid "See also: %1"
+msgstr "Vide anque: %1"
+
+#: grantleeformatter.cpp:128
+#, kde-format
+msgid "Search Results"
+msgstr "Resultatos de cerca"
+
+#: grantleeformatter.cpp:129 searchengine.cpp:259
+#, kde-format
+msgid "Search Results for '%1':"
+msgstr "Resultatos de cerca pro '%1':"
+
+#: infotree.cpp:77
+#, kde-format
+msgid "By Category"
+msgstr "Per categoria"
+
+#. i18n: ectx: label, entry, group (Search)
+#: khelpcenter.kcfg:31
+#, kde-format
+msgid "Path to index directory."
+msgstr "Percurso a directorio de indice."
+
+#. i18n: ectx: whatsthis, entry, group (Search)
+#: khelpcenter.kcfg:32
+#, kde-format
+msgid "Path to directory containing search indices."
+msgstr "Percurso a directorio continente indices de cerca."
+
+#. i18n: ectx: label, entry, group (Layout)
+#: khelpcenter.kcfg:46
+#, kde-format
+msgid "Currently visible navigator tab"
+msgstr "Scheda de Navigator currentemente visibile"
+
+#. i18n: ectx: Menu (edit)
+#: khelpcenterui.rc:5
+#, kde-format
+msgid "&Edit"
+msgstr "&Edita"
+
+#. i18n: ectx: Menu (view)
+#: khelpcenterui.rc:13
+#, kde-format
+msgid "&View"
+msgstr "&Vide"
+
+#. i18n: ectx: Menu (go)
+#: khelpcenterui.rc:19
+#, kde-format
+msgid "&Go"
+msgstr "&Vade"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: khelpcenterui.rc:36
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Barra de instrumento Principal"
+
+#: mainwindow.cpp:62
+#, kde-format
+msgid "Search Error Log"
+msgstr "Registro de Error de Cerca"
+
+#: mainwindow.cpp:114
+#, kde-format
+msgid "Preparing Index"
+msgstr "Il prepara Indice"
+
+#: mainwindow.cpp:157
+#, kde-format
+msgid "Ready"
+msgstr "Preste"
+
+#: mainwindow.cpp:208
+#, kde-format
+msgid "Previous Page"
+msgstr "Pagina &Precedente"
+
+#: mainwindow.cpp:210
+#, kde-format
+msgid "Moves to the previous page of the document"
+msgstr "Il move al precedente pagina del documento"
+
+#: mainwindow.cpp:214
+#, kde-format
+msgid "Next Page"
+msgstr "Pagina Proxime"
+
+#: mainwindow.cpp:216
+#, kde-format
+msgid "Moves to the next page of the document"
+msgstr "Il move al proxime pagina del documento"
+
+#: mainwindow.cpp:223
+#, kde-format
+msgid "Table of &Contents"
+msgstr "Tabula de &Contentos"
+
+#: mainwindow.cpp:224
+#, kde-format
+msgid "Table of contents"
+msgstr "Tabula de contentos"
+
+#: mainwindow.cpp:225
+#, kde-format
+msgid "Go back to the table of contents"
+msgstr "Vader retro al tabula de contentos"
+
+#: mainwindow.cpp:231
+#, kde-format
+msgid "&Last Search Result"
+msgstr "Resultato de u&ltime cerca"
+
+#: mainwindow.cpp:249
+#, kde-format
+msgid "Configure Fonts..."
+msgstr "Configura Fontes..."
+
+#: mainwindow.cpp:253
+#, kde-format
+msgid "Increase Font Sizes"
+msgstr "Augmenta dimensiones de font"
+
+#: mainwindow.cpp:258
+#, kde-format
+msgid "Decrease Font Sizes"
+msgstr "Diminue dimensiones de font"
+
+#: mainwindow.cpp:274
+#, kde-format
+msgctxt "@title:menu"
+msgid "&Bookmarks"
+msgstr "Marcatores de li&bro"
+
+#: navigator.cpp:63
+#, kde-format
+msgid "Search..."
+msgstr "Cerca..."
+
+#: navigator.cpp:118
+#, kde-format
+msgid "&Contents"
+msgstr "C&ontentos"
+
+#: navigator.cpp:128
+#, kde-format
+msgid "Search Options"
+msgstr "Optiones de cerca"
+
+#: navigator.cpp:136
+#, kde-format
+msgid "G&lossary"
+msgstr "G&lossario"
+
+#: navigator.cpp:480
+#, kde-format
+msgid "Start Page"
+msgstr "Pagina Initial"
+
+#: navigator.cpp:481
+#, kde-format
+msgid "KDE Help Center"
+msgstr "Centro de Adjuta de KDE"
+
+#: navigator.cpp:564
+#, kde-format
+msgid "Unable to run search program."
+msgstr "Il non pote executar programma de cerca."
+
+#: navigator.cpp:657
+#, kde-format
+msgid "Updating search index..."
+msgstr "Il actualisa indice de cerca ..."
+
+#: navigator.cpp:668
+#, kde-format
+msgid "Updating search index... done."
+msgstr "Il actualisa indice de cerca ... facite"
+
+#: searchengine.cpp:57
+#, kde-format
+msgid "Error: No document type specified."
+msgstr "Error: necun typo de documento specificate."
+
+#: searchengine.cpp:59
+#, kde-format
+msgid "Error: No search handler for document type '%1'."
+msgstr "Error: necun gerente de cerca pro typo de documento '%1'."
+
+#: searchengine.cpp:229
+#, kde-format
+msgid "No valid search handler found."
+msgstr "Il non trovava alcun gerente de cerca valide"
+
+#: searchhandler.cpp:37
+#, kde-format
+msgid "Error executing search command '%1'."
+msgstr "Error durante que il executa le commando de cerca '%1'."
+
+#: searchhandler.cpp:75
+#, kde-format
+msgid "Error: %1"
+msgstr "Error: %1"
+
+#: searchhandler.cpp:140 searchhandler.cpp:145
+#, kde-format
+msgid "'%1' not found, check your installation"
+msgstr "'%1' non trovate, tu verifica tu installation"
+
+#: searchhandler.cpp:150
+#, kde-format
+msgid "'%1' not found, install the package containing it"
+msgstr "'%1' non trovate, tu installa le pacchetto que contine lo."
+
+#: searchhandler.cpp:197
+#, kde-format
+msgid "No search command or URL specified."
+msgstr "Necun commando de cerca o URL specificate."
+
+#: searchwidget.cpp:39
+#, kde-format
+msgid "and"
+msgstr "e"
+
+#: searchwidget.cpp:40
+#, kde-format
+msgid "or"
+msgstr "o"
+
+#: searchwidget.cpp:42
+#, kde-format
+msgid "&Method:"
+msgstr "&Methodo:"
+
+#: searchwidget.cpp:58
+#, kde-format
+msgid "Max. &results:"
+msgstr "Max. &resultatos:"
+
+#: searchwidget.cpp:73
+#, kde-format
+msgid "&Scope selection:"
+msgstr "Selection de exten&sion:"
+
+#: searchwidget.cpp:81
+#, kde-format
+msgid "Scope"
+msgstr "Extension"
+
+#: searchwidget.cpp:322
+#, kde-format
+msgctxt "Label for searching documentation using custom (user defined) scope"
+msgid "Custom"
+msgstr "Personalisate"
+
+#: searchwidget.cpp:324
+#, kde-format
+msgctxt "Label for searching documentation using default search scope"
+msgid "Default"
+msgstr "Predefinite"
+
+#: searchwidget.cpp:326
+#, kde-format
+msgctxt "Label for searching documentation in all subsections"
+msgid "All"
+msgstr "Omne"
+
+#: searchwidget.cpp:328
+#, kde-format
+msgctxt "Label for scope that deselects all search subsections"
+msgid "None"
+msgstr "Necun"
+
+#: searchwidget.cpp:330
+#, kde-format
+msgctxt "Label for Unknown search scope, that should never appear"
+msgid "unknown"
+msgstr "incognite"
+
+#: view.cpp:228
+#, kde-format
+msgid "Copy Link Address"
+msgstr "Copia adresse de ligamine"
+
+#: view.cpp:312
+#, kde-format
+msgid ""
+"<p>Read the topic documentation in this window.<br /><br />Press <b>Space</"
+"b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, <b>Tab</b>/"
+"<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
+msgstr ""
+"<p>Lege le decumentation del argumento in iste fenestra.<br /><br />Pressa "
+"<b>Spatio</b>/<b>Shift+Spatio</b> per rolar, <b>%1</b>per trovar alcun "
+"cosas, <b>Tab</b>/<b>Shift+Tab</b> per saltar, e <b>Enter</b>per sequer.</p>"
+
+#~ msgid "Handler"
+#~ msgstr "Maneator"
+
+#~ msgid "Unable to initialize SearchHandler from file '%1'."
+#~ msgstr "Il es inhabile a initialisar SearchHandler ab file '%1'."
+
+#~ msgid "Error"
+#~ msgstr "Error"
+
+#~ msgid ""
+#~ "Unable to show selected glossary entry: unable to open file 'glossary."
+#~ "html.in'!"
+#~ msgstr ""
+#~ "Il non pote monstrar entrata selectionate de glossario: il non pote "
+#~ "aperir file 'glossary.html'"
+
+#~ msgid "ht://dig"
+#~ msgstr "ht://dig"
+
+#~ msgid ""
+#~ "The fulltext search feature makes use of the ht://dig HTML search engine."
+#~ msgstr ""
+#~ "Le characteristica de cerca a texto plen fa uso del motor de cerca HTML "
+#~ "ht://dig"
+
+#~ msgid "Information about where to get the ht://dig package."
+#~ msgstr "Information super ubi obtener le pacchetto ht://dig."
+
+#~ msgid "You can get ht://dig at the ht://dig home page"
+#~ msgstr "Tu pote obtener ht:// a le pagina domo de ht://dig"
+
+#~ msgid "Program Locations"
+#~ msgstr "Locationes de programmas"
+
+#~ msgid "htsearch:"
+#~ msgstr "htsearch:"
+
+#~ msgid "Enter the URL of the htsearch CGI program."
+#~ msgstr "Inserta le URL del programma CGI htsearch."
+
+#~ msgid "Indexer:"
+#~ msgstr "Creator de Indice:"
+
+#~ msgid "Enter the path to your htdig indexer program here."
+#~ msgstr "Inserta ci le percurso a tu programma per crear indice htdig"
+
+#~ msgid "htdig database:"
+#~ msgstr "Base de Datos htdig:"
+
+#~ msgid "Enter the path to the htdig database folder."
+#~ msgstr "Inserta le percurso a le dossier de le base de datos htdig."
+
+#~ msgid "Change Index Folder"
+#~ msgstr "Cambia Dossier de Indice"
+
+#~ msgid "Index folder:"
+#~ msgstr "Dossier de Indice:"
+
+#~ msgid "Build Search Indices"
+#~ msgstr "Construe Indices de Cerca"
+
+#~ msgid "Index creation log:"
+#~ msgstr "Registro de Creation de Indice:"
+
+#~ msgctxt ""
+#~ "Label for button to close search index progress dialog after successful "
+#~ "completion"
+#~ msgid "Close"
+#~ msgstr "Claude"
+
+#~ msgid "Index creation finished."
+#~ msgstr "Creation de Indice finiva."
+
+#~ msgctxt "Label for stopping search index generation before completion"
+#~ msgid "Stop"
+#~ msgstr "Stoppa"
+
+#, fuzzy
+#~| msgid "Details &lt;&lt;"
+#~ msgid "Details <<"
+#~ msgstr "Detalios &lt;&lt;"
+
+#, fuzzy
+#~| msgid "Details &lt;&lt;"
+#~ msgid "Details >>"
+#~ msgstr "Detalios &lt;&lt;"
+
+#~ msgid "Build Search Index"
+#~ msgstr "Construe Indice de cerca"
+
+#~ msgid "Build Index"
+#~ msgstr "Construe indice"
+
+#~ msgid ""
+#~ "To be able to search a document, a search\n"
+#~ "index needs to exist. The status column of the list below shows whether "
+#~ "an index\n"
+#~ "for a document exists.\n"
+#~ msgstr ""
+#~ "Pro poter cercar un documento, il es necessari\n"
+#~ "que un indice de cerca es existente. Le columna de stato de le lista a "
+#~ "basso monstra si un indice\n"
+#~ "pro un documento es existente.\n"
+
+#~ msgid ""
+#~ "To create an index, check the box in the list and press the\n"
+#~ "\"Build Index\" button.\n"
+#~ msgstr ""
+#~ "Pro crear un indice, tu marca le quadrato in le lista e pressa le\n"
+#~ "button \"Construe Indice\".\n"
+
+#~ msgid "Search Scope"
+#~ msgstr "Extension de cerca"
+
+#~ msgid "Status"
+#~ msgstr "Stato"
+
+#~ msgid "Change..."
+#~ msgstr "Cambiar ..."
+
+#~ msgid ""
+#~ "<qt>The folder <b>%1</b> does not exist; unable to create index.</qt>"
+#~ msgstr "<qt>Le dossier<b>%1</b> non existe; on non pote crear indice.</qt>"
+
+#~ msgctxt "Describes the status of a documentation index that is present"
+#~ msgid "OK"
+#~ msgstr "OK"
+
+#~ msgctxt "Describes the status of a documentation index that is missing"
+#~ msgid "Missing"
+#~ msgstr "Mancante"
+
+#~ msgctxt ""
+#~ " Generic prefix label for error messages when creating documentation "
+#~ "index, first arg is the document's identifier, second is the document's "
+#~ "name"
+#~ msgid "Document '%1' (%2):\n"
+#~ msgstr "Documento '%1'(%2):\n"
+
+#~ msgid "No document type."
+#~ msgstr "Necun typo de documento."
+
+#~ msgid "No search handler available for document type '%1'."
+#~ msgstr "Necun gerente de cerca disponibile pro le typo de documento '%1'."
+
+#~ msgid "No indexing command specified for document type '%1'."
+#~ msgstr ""
+#~ "Necun commando de construer indice esseva specificate pro documento de "
+#~ "typo '%1'."
+
+#~ msgid "Failed to build index."
+#~ msgstr "Il falleva a construer indice."
+
+#~ msgid ""
+#~ "Error executing indexing build command:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Error durante que il executava le commando constructor de indice:\n"
+#~ "%1"
+
+#~ msgid "Unable to start command '%1'."
+#~ msgstr "Il non pote initiar commando '%1'."
+
+#~ msgid "KHelpCenter Index Builder"
+#~ msgstr "Constructor de Indice de KHelpCenter"
+
+#~ msgid "Cornelius Schumacher"
+#~ msgstr " Cornelius Schumacher"
+
+#~ msgid "Document to be indexed"
+#~ msgstr "Documento que debe esser indicisate"
+
+#~ msgid "Index directory"
+#~ msgstr "Directorio Indice"
+
+#~ msgid ""
+#~ "A search index does not yet exist. Do you want to create the index now?"
+#~ msgstr "Ancora un indice de cerca non es existente. Tu vole crea lo nunc?"
+
+#~ msgid "Create"
+#~ msgstr "Crea"
+
+#~ msgid "Do Not Create"
+#~ msgstr "Non crea"
+
+#~ msgid "Build Search &Index..."
+#~ msgstr "Construe &Indice de Cerca..."
+
+#~ msgid "The KDE Help Center"
+#~ msgstr "Le Centro de Adjuta de KDE"
+
+#~ msgid "(c) 2003, The KHelpCenter developers"
+#~ msgstr "(c) 2003, Le disveloppatores de KHelpCenter"
+
+#~ msgid "Details &gt;&gt;"
+#~ msgstr "Detalios &gt;&gt;"
+
+#~ msgid "Frerich Raabe"
+#~ msgstr "Frerich Raabe"
+
+#~ msgid "Matthias Elter"
+#~ msgstr "Matthias Elter"
+
+#~ msgid "Wojciech Smigaj"
+#~ msgstr "Wojciech Smigaj"
+
+#~ msgid "URL to display"
+#~ msgstr "URL de monstrar"
+
+#~ msgid "&File"
+#~ msgstr "&File"
+
+#~ msgid "Show Search Error Log"
+#~ msgstr "Monstrar registro de error de cerca"

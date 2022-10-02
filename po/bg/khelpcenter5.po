@@ -1,0 +1,497 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Zlatko Popov <zlatkopopov@fsa-bg.org>, 2006, 2007, 2008.
+# Yasen Pramatarov <yasen@lindeas.com>, 2009, 2012.
+# Mincho Kondarev <mkondarev@yahoo.de>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: khelpcenter\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-15 00:47+0000\n"
+"PO-Revision-Date: 2022-05-20 22:42+0200\n"
+"Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
+"Language-Team: Bulgarian <dict@ludost.net>\n"
+"Language: bg\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 22.04.0\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Радостин Раднев"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "radnev@yahoo.com"
+
+#: application.cpp:30
+#, kde-format
+msgid "Documentation to open"
+msgstr "Документация за отваряне"
+
+#: application.cpp:114 application.cpp:116
+#, kde-format
+msgid "Help Center"
+msgstr "Помощен център"
+
+#: application.cpp:118
+#, kde-format
+msgid "(c) 1999-2020, The KHelpCenter developers"
+msgstr "(c) 1999-2011, разработчиците на KHelpCenter"
+
+#: application.cpp:120
+#, kde-format
+msgid "Current maintainer"
+msgstr "Текуща поддръжка"
+
+#: application.cpp:121
+#, kde-format
+msgid "Xapian-based search, lot of bugfixes"
+msgstr "Xapian-базирана програма за търсене с много отстранени грешки"
+
+#: application.cpp:122
+#, kde-format
+msgid "Former maintainer"
+msgstr "Предишна поддръжка"
+
+#: application.cpp:124
+#, kde-format
+msgid "Original Author"
+msgstr "Първоначален автор"
+
+#: application.cpp:125
+#, kde-format
+msgid "Info page support"
+msgstr "Поддръжка на страници Info"
+
+#: docmetainfo.cpp:35
+#, kde-format
+msgid "Top-Level Documentation"
+msgstr "Основна документация"
+
+#: docmetainfo.cpp:83
+#, kde-format
+msgctxt "doctitle (language)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: docmetainfo.cpp:119
+#, kde-format
+msgctxt "Describes documentation entries that are in English"
+msgid "English"
+msgstr "Английски"
+
+#: fontdialog.cpp:36
+#, kde-format
+msgid "Font Configuration"
+msgstr "Настройване на шрифтове"
+
+#: fontdialog.cpp:62
+#, kde-format
+msgid "Sizes"
+msgstr "Размер на шрифта"
+
+#: fontdialog.cpp:66
+#, kde-format
+msgctxt "The smallest size a will have"
+msgid "M&inimum font size:"
+msgstr "&Минимален размер на шрифта:"
+
+#: fontdialog.cpp:73
+#, kde-format
+msgctxt "The normal size a font will have"
+msgid "M&edium font size:"
+msgstr "&Нормален размер на шрифта:"
+
+#: fontdialog.cpp:83
+#, kde-format
+msgid "Fonts"
+msgstr "Шрифтове"
+
+#: fontdialog.cpp:87
+#, kde-format
+msgid "S&tandard font:"
+msgstr "О&сновен шрифт:"
+
+#: fontdialog.cpp:93
+#, kde-format
+msgid "F&ixed font:"
+msgstr "&Равноширок шрифт:"
+
+#: fontdialog.cpp:99
+#, kde-format
+msgid "S&erif font:"
+msgstr "С&ерифен шрифт:"
+
+#: fontdialog.cpp:105
+#, kde-format
+msgid "S&ans serif font:"
+msgstr "Бе&зсерифен шрифт:"
+
+#: fontdialog.cpp:111
+#, kde-format
+msgid "&Italic font:"
+msgstr "&Курсивен шрифт:"
+
+#: fontdialog.cpp:117
+#, kde-format
+msgid "&Fantasy font:"
+msgstr "&Декоративен шрифт:"
+
+#: fontdialog.cpp:126
+#, kde-format
+msgid "Encoding"
+msgstr "Кодова таблица"
+
+#: fontdialog.cpp:131
+#, kde-format
+msgid "&Default encoding:"
+msgstr "Ко&дова таблица по подразбиране:"
+
+#: fontdialog.cpp:136 fontdialog.cpp:204
+#, kde-format
+msgid "Use Language Encoding"
+msgstr "Използване кодовата таблица на езика"
+
+#: fontdialog.cpp:140
+#, kde-format
+msgid "&Font size adjustment:"
+msgstr "Кори&гиране размера на шрифта:"
+
+#: glossary.cpp:68
+#, kde-format
+msgid "By Topic"
+msgstr "По тема"
+
+#: glossary.cpp:72 infotree.cpp:74
+#, kde-format
+msgid "Alphabetically"
+msgstr "Азбучно"
+
+#: glossary.cpp:128
+#, kde-format
+msgid "Rebuilding glossary cache..."
+msgstr "Повторно създаване на кеш-паметта..."
+
+#: glossary.cpp:182
+#, kde-format
+msgid "Rebuilding cache... done."
+msgstr "Повторното създаване на кеш-паметта завърши."
+
+#: grantleeformatter.cpp:102
+#, kde-format
+msgctxt "%1 is a glossary term"
+msgid "KDE Glossary: %1"
+msgstr "Терминологичен речник на KDE: %1"
+
+#: grantleeformatter.cpp:103
+#, kde-format
+msgid "KDE Glossary"
+msgstr "Терминологичен речник на KDE"
+
+#: grantleeformatter.cpp:107
+#, kde-format
+msgid "See also: %1"
+msgstr "Виж също:  %1"
+
+#: grantleeformatter.cpp:128
+#, kde-format
+msgid "Search Results"
+msgstr "Резултати от търсенето"
+
+#: grantleeformatter.cpp:129 searchengine.cpp:259
+#, kde-format
+msgid "Search Results for '%1':"
+msgstr "Резултати от търсенето за \"%1\":"
+
+#: infotree.cpp:77
+#, kde-format
+msgid "By Category"
+msgstr "По категория"
+
+#. i18n: ectx: label, entry, group (Search)
+#: khelpcenter.kcfg:31
+#, kde-format
+msgid "Path to index directory."
+msgstr "Път до директорията с индексите."
+
+#. i18n: ectx: whatsthis, entry, group (Search)
+#: khelpcenter.kcfg:32
+#, kde-format
+msgid "Path to directory containing search indices."
+msgstr "Път до директорията, съдържаща индексите."
+
+#. i18n: ectx: label, entry, group (Layout)
+#: khelpcenter.kcfg:46
+#, kde-format
+msgid "Currently visible navigator tab"
+msgstr "Текущо показан страничен панел за навигация"
+
+#. i18n: ectx: Menu (edit)
+#: khelpcenterui.rc:5
+#, kde-format
+msgid "&Edit"
+msgstr "&Редактиране"
+
+#. i18n: ectx: Menu (view)
+#: khelpcenterui.rc:13
+#, kde-format
+msgid "&View"
+msgstr "&Изглед"
+
+#. i18n: ectx: Menu (go)
+#: khelpcenterui.rc:19
+#, kde-format
+msgid "&Go"
+msgstr "Навига&ция"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: khelpcenterui.rc:36
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Главна лента с инструменти"
+
+#: mainwindow.cpp:62
+#, kde-format
+msgid "Search Error Log"
+msgstr "Журнален файл на търсенето"
+
+#: mainwindow.cpp:114
+#, kde-format
+msgid "Preparing Index"
+msgstr "Подготовка на индекса"
+
+#: mainwindow.cpp:157
+#, kde-format
+msgid "Ready"
+msgstr "Готово"
+
+#: mainwindow.cpp:208
+#, kde-format
+msgid "Previous Page"
+msgstr "Предишна страница"
+
+#: mainwindow.cpp:210
+#, kde-format
+msgid "Moves to the previous page of the document"
+msgstr "Предишна страница на документа"
+
+#: mainwindow.cpp:214
+#, kde-format
+msgid "Next Page"
+msgstr "Следваща страница"
+
+#: mainwindow.cpp:216
+#, kde-format
+msgid "Moves to the next page of the document"
+msgstr "Следваща страница на документа"
+
+#: mainwindow.cpp:223
+#, kde-format
+msgid "Table of &Contents"
+msgstr "С&ъдържание"
+
+#: mainwindow.cpp:224
+#, kde-format
+msgid "Table of contents"
+msgstr "Съдържание"
+
+#: mainwindow.cpp:225
+#, kde-format
+msgid "Go back to the table of contents"
+msgstr "Връщане към съдържанието"
+
+#: mainwindow.cpp:231
+#, kde-format
+msgid "&Last Search Result"
+msgstr "&Последни резултати"
+
+#: mainwindow.cpp:249
+#, kde-format
+msgid "Configure Fonts..."
+msgstr "Настройване на шрифтове..."
+
+#: mainwindow.cpp:253
+#, kde-format
+msgid "Increase Font Sizes"
+msgstr "Увеличаване размера на шрифта"
+
+#: mainwindow.cpp:258
+#, kde-format
+msgid "Decrease Font Sizes"
+msgstr "Намаляване размера на шрифта"
+
+#: mainwindow.cpp:274
+#, kde-format
+msgctxt "@title:menu"
+msgid "&Bookmarks"
+msgstr "&Отметки"
+
+#: navigator.cpp:63
+#, kde-format
+msgid "Search..."
+msgstr "Търсене..."
+
+#: navigator.cpp:118
+#, kde-format
+msgid "&Contents"
+msgstr "С&ъдържание"
+
+#: navigator.cpp:128
+#, kde-format
+msgid "Search Options"
+msgstr "Настройки на търсенето"
+
+#: navigator.cpp:136
+#, kde-format
+msgid "G&lossary"
+msgstr "&Речник"
+
+#: navigator.cpp:480
+#, kde-format
+msgid "Start Page"
+msgstr "Начална страница"
+
+#: navigator.cpp:481
+#, kde-format
+msgid "KDE Help Center"
+msgstr "Помощен център"
+
+#: navigator.cpp:564
+#, kde-format
+msgid "Unable to run search program."
+msgstr "Грешка при стартиране на търсещата програма."
+
+#: navigator.cpp:657
+#, kde-format
+msgid "Updating search index..."
+msgstr "Актуализиране на индекс за търсене..."
+
+#: navigator.cpp:668
+#, kde-format
+msgid "Updating search index... done."
+msgstr "Актуализиране на индекс за търсене... завършено."
+
+#: searchengine.cpp:57
+#, kde-format
+msgid "Error: No document type specified."
+msgstr "Грешка: Няма зададен вид на документа."
+
+#: searchengine.cpp:59
+#, kde-format
+msgid "Error: No search handler for document type '%1'."
+msgstr ""
+"Грешка:Няма намерена програма за извършване на търсенето за типа на "
+"документа \"%1\"."
+
+#: searchengine.cpp:229
+#, kde-format
+msgid "No valid search handler found."
+msgstr "Няма намерена програма за извършване на търсенето."
+
+#: searchhandler.cpp:37
+#, kde-format
+msgid "Error executing search command '%1'."
+msgstr "Грешка при изпълнението на командата за търсене \"%1\"."
+
+#: searchhandler.cpp:75
+#, kde-format
+msgid "Error: %1"
+msgstr "Грешка: %1"
+
+#: searchhandler.cpp:140 searchhandler.cpp:145
+#, kde-format
+msgid "'%1' not found, check your installation"
+msgstr "\"%1\" не е открито, проверете инсталацията си."
+
+#: searchhandler.cpp:150
+#, kde-format
+msgid "'%1' not found, install the package containing it"
+msgstr "\"%1\" не е открито, инсталирайте пакета, който го съдържа."
+
+#: searchhandler.cpp:197
+#, kde-format
+msgid "No search command or URL specified."
+msgstr "Няма зададена команда за търсене или адрес."
+
+#: searchwidget.cpp:39
+#, kde-format
+msgid "and"
+msgstr "и"
+
+#: searchwidget.cpp:40
+#, kde-format
+msgid "or"
+msgstr "или"
+
+#: searchwidget.cpp:42
+#, kde-format
+msgid "&Method:"
+msgstr "&Метод:"
+
+#: searchwidget.cpp:58
+#, kde-format
+msgid "Max. &results:"
+msgstr "Максимален &брой резултати:"
+
+#: searchwidget.cpp:73
+#, kde-format
+msgid "&Scope selection:"
+msgstr "Об&хват на търсене:"
+
+#: searchwidget.cpp:81
+#, kde-format
+msgid "Scope"
+msgstr "Обхват"
+
+#: searchwidget.cpp:322
+#, kde-format
+msgctxt "Label for searching documentation using custom (user defined) scope"
+msgid "Custom"
+msgstr "Потребителски"
+
+#: searchwidget.cpp:324
+#, kde-format
+msgctxt "Label for searching documentation using default search scope"
+msgid "Default"
+msgstr "По подразбиране"
+
+#: searchwidget.cpp:326
+#, kde-format
+msgctxt "Label for searching documentation in all subsections"
+msgid "All"
+msgstr "Всичко"
+
+#: searchwidget.cpp:328
+#, kde-format
+msgctxt "Label for scope that deselects all search subsections"
+msgid "None"
+msgstr "Без"
+
+#: searchwidget.cpp:330
+#, kde-format
+msgctxt "Label for Unknown search scope, that should never appear"
+msgid "unknown"
+msgstr "неизвестно"
+
+#: view.cpp:228
+#, kde-format
+msgid "Copy Link Address"
+msgstr "Копиране на адреса на препратката"
+
+#: view.cpp:312
+#, kde-format
+msgid ""
+"<p>Read the topic documentation in this window.<br /><br />Press <b>Space</"
+"b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, <b>Tab</b>/"
+"<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
+msgstr ""
+"<p> Прочетете документацията на темата в този прозорец. <br /> <br/> "
+"Натиснете <b> интервал </b> / <b> Shift + интервал </b>, за да превъртите, "
+"<b>%1</b > за намиране на нещо, <b> Tab </b> / <b> Shift + Tab </b> за "
+"прескачане и <b> Enter </b> за следване.</p>"

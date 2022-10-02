@@ -1,0 +1,1884 @@
+<chapter id="tasks">
+<title
+>Tarefas Comuns</title>
+
+<!--FIXME add Scanning here?-->
+<sect1 id="nav">
+<sect1info>
+<authorgroup>
+<author
+>&TC.Hollingsworth; &TC.Hollingsworth.mail;</author>
+<othercredit role="translator"
+><firstname
+>José</firstname
+><surname
+>Pires</surname
+><affiliation
+><address
+><email
+>zepires@gmail.com</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+</authorgroup>
+</sect1info>
+<title
+>Navegar pelos Documentos</title>
+<!-- FIXME
+Add auto scroll feature Konqueror with KHTML/Okular/more apps here?
+automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
+-->
+<sect2 id="nav-scroll">
+<title
+>Posicionamento</title>
+
+<para
+>Provavelmente estará familiarizado com a barra de posicionamento que aparece do lado direito (e em algumas vezes no fundo) dos documentos, permitindo-lhe deslocar-se dentro dos documentos. Contudo, existem muitas outras formas para navegar pelos documentos, sendo algumas delas mais rápidas e fáceis.</para>
+
+<para
+>Muitos dos ratos têm uma roda no meio. Podê-la-á deslocar para cima ou para baixo num documento. Se carregar na tecla &Shift; enquanto usa a roda do rato, o documento deslocar-se-á mais rapidamente.</para>
+
+<para
+>Se estiver a usar um computador pessoal, como um portátil, também poderá deslocar-se se usar o rato por toque. Alguns computadores permitem-lhe deslocar-se na vertical se mover o seu dedo para cima e para baixo no lado direito do rato por toque, permitindo-lhe também deslocar-se na horizontal se deslocar o seu dedo ao longo do lado inferior do rato por toque. Outros permitem-lhe deslocar-se com dois dedos, carregando para tal com os dois dedos em qualquer ponto do rato por toque e deslocando-os para cima ou para baixo, no caso de um deslocamento vertical, ou para a esquerda e para a direita, no caso de um deslocamento horizontal. Dado que esta funcionalidade emula a funcionalidade da roda do rato descrita acima, também poderá carregar na tecla &Shift; para se deslocar mais depressa.</para>
+
+<para
+>Se usar as &plasma-workspaces;, poderá controlar o comportamento da roda do rato no <ulink url="help:/kcontrol/mouse/"
+>módulo do Rato no &systemsettings;</ulink
+> e poderá controlar o comportamento do deslocamento do rato por toque no módulo do Rato por Toque no &systemsettings;. Caso contrário, veja a área de configuração do seu sistema operativo ou ambiente de trabalho.</para>
+
+<para
+>Para além disso, a barra de deslocamento tem várias opções no seu menu de contexto. Poderá aceder ás mesmas se carregar com o botão direito em qualquer ponto da barra. Estão disponíveis as seguintes opções:</para>
+
+<variablelist>
+
+<varlistentry id="nav-scroll-here">
+<term
+><guimenuitem
+>Desloque aqui</guimenuitem
+></term>
+<listitem
+><para
+>Vai directamente para o local representado pelo ponto onde carregou com o botão direito. Isto é o equivalente a carregar com o botão esquerdo na barra.</para
+></listitem>
+</varlistentry>
+
+<varlistentry id="nav-scroll-top">
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Home</keycap
+></keycombo
+></shortcut
+> <guimenuitem
+>Topo</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Vai para o início do documento.</para
+></listitem>
+</varlistentry>
+
+<varlistentry id="nav-scroll-bottom">
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>End</keycap
+></keycombo
+></shortcut
+> <guimenuitem
+>Fundo</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Vai para o fim do documento.</para
+></listitem>
+</varlistentry>
+
+<varlistentry id="nav-scroll-page-up">
+<term
+><menuchoice
+><shortcut
+><keycap
+>PgUp</keycap
+></shortcut
+> <guimenuitem
+>Subir uma página</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Vai para a página anterior de um documento que representa um documento impresso, ou então para o ecrã anterior nos outros tipos de documentos.</para
+></listitem>
+</varlistentry>
+
+<varlistentry id="nav-scroll-page-down">
+<term
+><menuchoice
+><shortcut
+><keycap
+>PgDown</keycap
+></shortcut
+> <guimenuitem
+>Descer uma página</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Vai para a página seguinte de um documento que representa um documento impresso, ou então para o ecrã seguinte nos outros tipos de documentos. </para
+></listitem>
+</varlistentry>
+
+<varlistentry id="nav-scroll-up">
+<term
+><guilabel
+>Deslocar para cima</guilabel
+></term>
+<listitem
+><para
+>Sobe uma unidade (normalmente uma linha) no documento. Isto é o equivalente a carregar na seta para cima do topo da barra de posicionamento.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="nav-scroll-down">
+<term
+><guilabel
+>Deslocar para baixo</guilabel
+></term>
+<listitem
+><para
+>Desce uma unidade (normalmente uma linha) no documento. Isto é o equivalente a carregar na seta para baixo do fundo da barra de posicionamento.</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect2>
+
+<sect2 id="nav-zoom">
+<title
+>Ampliação</title>
+
+<para
+>Muitas aplicações permitem-lhe ampliar ou reduzir. Isto torna o texto ou imagens que está a ver maior ou menor. Poderá encontrar de um modo geral a função de ampliação no menu <link linkend="menus-view"
+>Ver</link
+> e estando algumas vezes na barra de estado da aplicação.</para>
+
+<para
+>Também poderá ampliar com o teclado se usar as teclas <keycombo action="simul"
+>&Ctrl;<keycap
+>+</keycap
+></keycombo
+> ou <keycombo action="simul"
+>&Ctrl;<keycap
+>-</keycap
+></keycombo
+> para reduzir. Se puder deslocar com a roda do rato ou com o rato por toque, como descrito em <xref linkend="nav-scroll"/>, também poderá ampliar ou reduzir se carregar em &Ctrl; e deslocar a roda dessa forma.</para>
+
+</sect2>
+
+</sect1>
+
+ <!--FIXME  Ctrl+Left Mouse Button or Shift+Left Mouse Button to select multiple files-->
+<sect1 id="files">
+<sect1info>
+<authorgroup>
+<author
+>&TC.Hollingsworth; &TC.Hollingsworth.mail;</author>
+<othercredit role="translator"
+><firstname
+>José</firstname
+><surname
+>Pires</surname
+><affiliation
+><address
+><email
+>zepires@gmail.com</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+</authorgroup>
+</sect1info>
+<title
+>Abrir e Gravar Ficheiros</title>
+
+<sect2 id="files-intro">
+<title
+>Introdução</title>
+
+<para
+>Muitas das aplicações do &kde; lidam com ficheiros. A maioria das aplicações têm um menu <guimenu
+>Ficheiro</guimenu
+> com opções que lhe permitem abrir e gravar os ficheiros. Para mais informações sobre o assunto, veja em <xref linkend="menus-file"/>. Contudo, existem muitas outras operações que obrigam à selecção de um ficheiro. Independentemente do método, todas as aplicações do &kappname; usam de um modo geral a mesma janela de selecção de ficheiros.</para>
+
+<screenshot id="screenshot-files-open">
+<screeninfo
+>A Janela de Abertura de Ficheiros</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="files-open.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>A janela de Abertura de Ficheiros.</phrase
+></textobject>
+<caption
+><para
+>A abrir um ficheiro no <ulink url="http://kde.org/applications/internet/konqueror/"
+>&konqueror;</ulink
+>. </para
+></caption>
+</mediaobject>
+</screenshot>
+
+</sect2>
+
+<sect2 id="files-ui">
+<title
+>A Janela de Selecção de Ficheiros</title>
+
+<!--large portions of this section were taken from the "Filesystem Browser"
+    section of kate/plugins.docbook (kde-baseapps/kate_plugins.po)           -->
+
+<variablelist>
+
+<varlistentry id="files-ui-toolbar">
+<term
+>A Barra de Ferramentas</term>
+<listitem>
+<para
+>Esta contém alguns botões de ferramentas de navegação normais:</para>
+
+<variablelist>
+<varlistentry id="files-ui-toolbar-back">
+<term
+><guibutton
+>Recuar</guibutton
+></term>
+<listitem
+><para
+>Faz com que a área de pastas vá para a pasta anteriormente apresentada no seu histórico. Este botão estará desactivado, caso não exista nenhum item anterior. </para
+></listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-toolbar-forward">
+<term
+><guibutton
+>Avançar</guibutton
+></term>
+<listitem
+><para
+>Faz com que a área de pastas vá para a pasta apresentada a seguir no seu histórico. Este botão estará desactivado, caso não exista nenhum item posterior.</para
+></listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-toolbar-parent">
+<term
+><guibutton
+>Pasta-Mãe</guibutton
+></term>
+<listitem
+><para
+>Faz com que a área de pastas vá para a pasta imediatamente acima da pasta apresentada de momento, se existir.</para
+></listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-toolbar-reload">
+<term
+><guibutton
+>Recarregar</guibutton
+> (<keycap
+>F5</keycap
+>)</term>
+<listitem
+><para
+>Volta a carregar a área de pastas, mostrando as alterações que tenham ocorrido desde que foi carregado ou actualizado da última vez.</para
+></listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-toolbar-show-preview">
+<term
+><guibutton
+>Mostrar a Antevisão</guibutton
+></term>
+<listitem
+><para
+>Mostra uma antevisão de cada ficheiro dentro da área de pastas. </para
+></listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-toolbar-zoom">
+<term
+>Barra de Ampliação</term>
+<listitem
+><para
+>Isto permite-lhe alterar o tamanho do ícone ou da antevisão apresentada na área de pastas.</para
+></listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-toolbar-options">
+<term
+><guibutton
+>Opções</guibutton
+></term>
+<listitem>
+<variablelist>
+
+<varlistentry id="files-ui-toolbar-options-sorting">
+<term
+><menuchoice
+><guimenu
+>Opções</guimenu
+><guisubmenu
+>Ordenação</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<variablelist>
+
+<varlistentry id="files-ui-toolbar-options-sorting-name">
+<term
+><menuchoice
+><guimenu
+>Opções</guimenu
+><guisubmenu
+>Ordenação</guisubmenu
+> <guimenuitem
+>Pelo Nome</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Ordena os ficheiros apresentados na área de pastas alfabeticamente pelo nome. </para
+></listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-toolbar-options-sorting-size">
+<term
+><menuchoice
+><guimenu
+>Opções</guimenu
+><guisubmenu
+>Ordenação</guisubmenu
+> <guimenuitem
+>Pelo Tamanho</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Ordena os ficheiros apresentados na área de pastas pelo seu tamanho.</para
+></listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-toolbar-options-sorting-date">
+<term
+><menuchoice
+><guimenu
+>Opções</guimenu
+><guisubmenu
+>Ordenação</guisubmenu
+> <guimenuitem
+>Pela Data</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Ordena os ficheiros apresentados na área de pastas pela data da sua última modificação. </para
+></listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-toolbar-options-sorting-type">
+<term
+><menuchoice
+><guimenu
+>Opções</guimenu
+><guisubmenu
+>Ordenação</guisubmenu
+> <guimenuitem
+>Pelo Tipo</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Ordena os ficheiros apresentados na área de pastas pelo seu respectivo tipo.</para
+></listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-toolbar-options-sorting-descending">
+<term
+><menuchoice
+><guimenu
+>Opções</guimenu
+><guisubmenu
+>Ordenação</guisubmenu
+> <guimenuitem
+>Descendente</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Quando estiver desligada (como está por omissão), os ficheiros na área de pastas serão ordenados de forma ascendente. (Por exemplo, os ficheiros ordenados alfabeticamente serão ordenados de A a Z, enquanto os ficheiros ordenados de forma numérica serão ordenados do menor para o maior). Quando estiver assinalada, os ficheiros na pasta serão ordenados de forma descendente (ao contrário).</para
+></listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-toolbar-options-sorting-folders-first">
+<term
+><menuchoice
+><guimenu
+>Opções</guimenu
+><guisubmenu
+>Ordenação</guisubmenu
+> <guimenuitem
+>Primeiro as Pastas</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Quando estiver activa (como está por omissão), as pastas irão aparecer antes dos ficheiros normais.</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+</listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-toolbar-options-view">
+<term
+><menuchoice
+><guimenu
+>Opções</guimenu
+><guisubmenu
+>Ver</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<variablelist>
+
+<varlistentry id="files-ui-toolbar-options-view-short">
+<term
+><menuchoice
+><guimenu
+>Opções</guimenu
+><guisubmenu
+>Ver</guisubmenu
+> <guimenuitem
+>Vista Curta</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Mostra apenas os nomes dos ficheiros.</para
+></listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-toolbar-options-view-detailed">
+<term
+><menuchoice
+><guimenu
+>Opções</guimenu
+><guisubmenu
+>Ver</guisubmenu
+> <guimenuitem
+>Vista Detalhada</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Mostra o <guilabel
+>Nome</guilabel
+>, a <guilabel
+>Data</guilabel
+> e o <guilabel
+>Tamanho</guilabel
+> dos ficheiros.</para
+></listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-toolbar-options-view-tree">
+<term
+><menuchoice
+><guimenu
+>Opções</guimenu
+><guisubmenu
+>Ver</guisubmenu
+> <guimenuitem
+>Árvore</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Como a Vista Curta, só que poderá expandir as pastas para ver o seu conteúdo.</para
+></listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-toolbar-options-view-detailed-tree">
+<term
+><menuchoice
+><guimenu
+>Opções</guimenu
+><guisubmenu
+>Ver</guisubmenu
+> <guimenuitem
+>Árvore Detalhada</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Isto também permite expandir as pastas, mas mostra as colunas adicionais que estão disponíveis na Vista Detalhada.</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+</listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-toolbar-options-hidden">
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Alt;<keycap
+>.</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Opções</guimenu
+><guimenuitem
+>Mostrar os Ficheiros Escondidos</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Mostra os ficheiros ou pastas que normalmente estão escondidos pelo seu sistema operativo. O atalho alternativo desta acção é o <keycap
+>F8</keycap
+>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-toolbar-options-show-places">
+<term
+><menuchoice
+><shortcut
+><keycap
+>F9</keycap
+></shortcut
+> <guimenu
+>Opções</guimenu
+><guimenuitem
+>Mostrar o Painel de Navegação dos Locais</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Mostra o painel de locais que dá um acesso rápido aos locais marcados como favoritos, aos discos e a outros dispositivos.</para
+></listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-toolbar-options-show-bookmarks">
+<term
+><menuchoice
+><guimenu
+>Opções</guimenu
+><guimenuitem
+>Mostrar os Favoritos</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Mostra um ícone adicional na barra de ferramentas que fornece o acesso aos <quote
+>favoritos</quote
+>, uma lista com locais gravados.</para
+></listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-toolbar-options-show-preview">
+<term
+><menuchoice
+><guimenu
+>Opções</guimenu
+><guimenuitem
+>Mostrar a Antevisão ao Lado</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Mostra uma antevisão do ficheiro seleccionado de momento à direita da área de pastas.</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+</listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-toolbar-bookmarks">
+<term
+><guibutton
+>Favoritos</guibutton
+></term>
+<listitem
+><para
+>Abre um submenu para editar ou adicionar favoritos, bem como para adicionar uma nova pasta de favoritos.</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+</listitem>
+</varlistentry>
+
+<!--adapted from dolphin documentation-->
+<varlistentry id="files-ui-location">
+<term
+>Barra de Localização</term>
+<listitem>
+<para
+>A barra de localização, que pode ser encontrada no topo da área de pastas, mostra a localização da pasta actual. A barra de localização tem dois modos:</para>
+
+<variablelist>
+<varlistentry id="files-ui-location-breadcrumb">
+<term
+>Modo de Navegação</term>
+<listitem>
+<para
+>No modo de <quote
+>navegação</quote
+>, que é o predefinido, cada nome de pasta no caminho da localização da pasta actual é um botão que poderá carregar para abrir rapidamente essa pasta. Para além disso, se carregar no símbolo <quote
+>&gt;</quote
+> à direita de uma pasta, irá abrir um menu que permite abrir rapidamente uma sub-pasta dessa pasta. </para>
+
+<screenshot id="screenshot-files-locationbar-breadcrumb">
+<screeninfo
+>Imagem da barra de localização no modo de navegação</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="files-locationbar-breadcrumb.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>A barra de localização no modo de navegação.</phrase>
+</textobject>
+<caption
+><para
+>A barra de localização no modo de navegação.</para
+></caption>
+</mediaobject>
+</screenshot>
+
+</listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-location-editable">
+<term
+>Modo de Edição</term>
+<listitem>
+<para
+>No modo de navegação, ao carregar na área cinzenta do lado direito do local com o &LMB;, irá mudar a barra de localização para o modo de <quote
+>edição</quote
+>, na qual poderá editar a localização por completo com o teclado. Para voltar para o modo de navegação, carregue na marcação à direita da barra de localização com o &LMB;. </para>
+
+<screenshot>
+<screeninfo
+>Imagem da barra de localização no modo de edição</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="files-locationbar-editable.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>A barra de localização no modo de edição.</phrase>
+</textobject>
+<caption
+><para
+>A barra de localização no modo de edição.</para
+></caption>
+</mediaobject>
+</screenshot>
+
+</listitem>
+</varlistentry>
+
+<!--currently in dolphin only, should be added to the file dialog when  this is implemented there 4.9/10?
+<varlistentry id="files-ui-location-context">
+<term
+>Places</term>
+
+<listitem>
+<para
+>If the <guilabel
+>Places</guilabel
+> panel is hidden; in both modes an
+additional icon in front of the path is displayed. This icon can be clicked with
+the &LMB; to open a menu which offers quick access to <quote
+>places</quote
+> and
+storage media. See the <link linkend="files-ui-places"
+>section about the Places
+Panel</link
+> for details.</para>
+
+<screenshot id="screenshot-files-locationbar-places-icon">
+<screeninfo
+>Location bar with Places icon</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="files-locationbar-places-icon.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Location bar with Places icon</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+</listitem>
+</varlistentry
+>-->
+
+</variablelist>
+
+<para
+>O menu de contexto da barra de localização oferece acções para mudar de modo e para copiar e colar a localização com a área de transferência. Assinale a última opção neste menu de contexto para mostrar a localização completa, a começar pela pasta de topo do sistema de ficheiros, ou para mostrar a localização a começar no item de locais actual. </para>
+
+<screenshot id="screenshot-files-locationbar-context-menu">
+<screeninfo
+>Menu de contexto da barra de localização</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="files-locationbar-context-menu.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Menu de contexto da barra de localização</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+</listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-places">
+<term
+>A Lista de <guilabel
+>Locais</guilabel
+></term>
+<listitem
+><para
+>Isto mostra a lista normal de Locais do &kde;, partilhada com o &dolphin; e as outras ferramentas de gestão de ficheiros.</para
+></listitem>
+</varlistentry>
+<!-- add options for places here 
+e.g "Show only in" to have kind a bookmarks special for an application etc.
+how to add/edit entries, 
+mount/unmount devices 
+show/hide entries
+size changes via splitter moving, different in dolhin (context menu with 4 predefined icon sizes)
+  -->
+<varlistentry id="files-ui-folder-view">
+<term
+>A Janela de Pastas</term>
+<listitem>
+<para
+>A maior parte da janela de selecção dos ficheiros é a área que apresenta todos os itens na pasta actual. Para seleccionar um ficheiro, poderá fazer duplo-click sobre o mesmo ou escolher um e carregar em <guibutton
+>Abrir</guibutton
+> ou <guibutton
+>Gravar</guibutton
+>.</para>
+<!-- FIXME select a file by typing the first letters of its name-->
+<para
+>Também poderá seleccionar vários ficheiros de uma vez. Para seleccionar ficheiros específicos, ou para desmarcar ficheiros que já tenham sido previamente seleccionados, carregue e mantenha carregada a tecla &Ctrl;, carregue em cada  um dos ficheiros e depois largue o &Ctrl;. Para seleccionar um grupo contíguo de ficheiros, carregue no primeiro ficheiro, mantendo pressionada a tecla &Shift;, carregue no último ficheiro no grupo e largue finalmente o &Shift;.</para>
+
+<para
+>A Área de Pastas suportam um conjunto limitado de operações com ficheiros, as quais poderão ser acedidas com o botão direito sobre um ficheiro, para que possa aceder ao seu menu de contexto ou então através de atalhos de teclado. Estão disponíveis os seguintes itens no menu de contexto:</para>
+
+<variablelist>
+
+<varlistentry>
+<term
+><guimenuitem
+>Criar um Novo...</guimenuitem
+></term>
+<listitem
+><para
+>Cria um novo ficheiro ou pasta.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guimenuitem
+>Enviar para o Lixo...</guimenuitem
+> (<keycombo action="simul"
+><keycap
+>Del</keycap
+></keycombo
+>)</term>
+<listitem
+><para
+>Envia o item seleccionado de momento para o lixo.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guisubmenu
+>Ordenação</guisubmenu
+></term>
+<listitem
+><para
+>Este submenu também poderá ser acedido a partir da barra de ferramentas e está descrito em <xref linkend="files-ui-toolbar-options-sorting"/>.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guisubmenu
+>Ver</guisubmenu
+></term>
+<listitem
+><para
+>Este submenu também poderá ser acedido a partir da barra de ferramentas e está descrito em <xref linkend="files-ui-toolbar-options-view"/>.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guimenuitem
+>Abrir o Gestor de Ficheiros</guimenuitem
+></term>
+<listitem
+><para
+>Abre a pasta actual na sua aplicação de gestão de ficheiros predefinida.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guimenuitem
+>Propriedades</guimenuitem
+> (<keycombo action="simul"
+>&Alt;&Enter;</keycombo
+>)</term>
+<listitem
+><para
+>Abre a janela de Propriedades que lhe permite ver e modificar vários tipos de meta-dados que estejam relacionados com o ficheiro seleccionado de momento.</para
+></listitem>
+</varlistentry>
+<!-- FIXME http://www.aelog.org/checksums-made-easy -->
+</variablelist>
+</listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-preview">
+<term
+>A Área de Antevisão</term>
+<listitem
+><para
+>Se estiver activa, irá mostrar uma antevisão do ficheiro seleccionado de momento.</para
+></listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-name">
+<term
+>O Item <guilabel
+>Nome</guilabel
+></term>
+<listitem
+><para
+>Quando estiver seleccionado um ficheiro, irá aparecer um nome neste campo de texto. Poderá também indicar o nome ou localização de um ficheiro neste campo de texto.</para
+></listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-filter">
+<term
+>O Item <guilabel
+>Filtro</guilabel
+></term>
+<listitem>
+<para
+>Ao abrir um ficheiro, o item <guilabel
+>Filtro</guilabel
+> permite-lhe indicar um filtro para os ficheiros que aparecem na área de pastas. O filtro usa padrões de nomes de ficheiros normais; os padrões deverão estar separados por espaços em branco. Por exemplo, poderá indicar <userinput
+>*.cpp *.h *.moc</userinput
+> para mostrar vários ficheiros de programação comuns no &Qt;.</para>
+
+<para
+>Para mostrar todos os ficheiros, indique um único asterisco (<userinput
+>*</userinput
+>).</para>
+
+<para
+>O campo do filtro grava os últimos 10 filtros introduzidos entre sessões. Para usar um, carregue no botão de setas à direita do campo e seleccione o filtro desejado. Poderá desactivar o filtro se carregar no botão <guibutton
+>Limpar o texto</guibutton
+> à esquerda do botão de auto-completação.</para>
+
+<para
+>Ao gravar um ficheiro, o item <guilabel
+>Filtro</guilabel
+> irá mostrar uma lista que lhe permite seleccionar entre os vários tipos de ficheiros que a aplicação suporta. Seleccione um para gravar um dado ficheiro nesse formato.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-autoselect-extension">
+<term
+><guilabel
+>Seleccionar automaticamente a extensão do ficheiro</guilabel
+></term>
+<listitem
+><para
+>Ao gravar um ficheiro, esta opção irá aparecer. Se estiver seleccionada (como acontece por omissão), a aplicação irá adicionar automaticamente a extensão por omissão ao fim do ficheiro, para o tipo de ficheiro seleccionado, caso não conste já no texto que aparece no campo <guilabel
+>Nome</guilabel
+>. A extensão do ficheiro que será usada aparece entre parêntesis no fim do texto da opção de marcação. </para>
+
+<screenshot id="screenshot-files-save">
+<screeninfo
+>A Janela de Gravação dos Ficheiros</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="files-save.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>A janela de Gravação dos Ficheiros.</phrase
+></textobject>
+<caption
+><para
+>A gravar um ficheiro no <ulink url="http://kde.org/applications/internet/konqueror/"
+>&konqueror;</ulink
+>. </para
+></caption>
+</mediaobject>
+</screenshot>
+
+</listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-open-save">
+<term
+>O Botão <guibutton
+>Abrir</guibutton
+> ou <guibutton
+>Gravar</guibutton
+></term>
+<listitem
+><para
+>Dependendo da acção a ser efectuada, será apresentado um botão <guibutton
+>Abrir</guibutton
+> ou <guibutton
+>Gravar</guibutton
+>. Se carregar neste botão, irá fechar a janela de selecção de ficheiros e efectuar a acção pedida.</para
+></listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-cancel">
+<term
+>O Botão <guibutton
+>Cancelar</guibutton
+></term>
+<listitem
+><para
+>Se carregar em <guibutton
+>Cancelar</guibutton
+>, irá fechar a janela de ficheiros sem efectuar qualquer acção.</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect2>
+
+<sect2 id="files-ack">
+<title
+>Agradecimentos e Reconhecimentos</title>
+
+<para
+>Muito obrigado ao participante no Google Code-In 2011 Alexey Subach por escrever partes desta secção.</para>
+
+</sect2>
+
+</sect1>
+
+
+<sect1 id="spellcheck">
+<sect1info>
+<authorgroup>
+<author
+>&David.Sweet; &David.Sweet.mail;</author>
+<author
+><firstname
+>Salma</firstname
+> <surname
+>Sultana</surname
+></author>
+<author
+>&TC.Hollingsworth; &TC.Hollingsworth.mail;</author>
+<othercredit role="translator"
+><firstname
+>José</firstname
+><surname
+>Pires</surname
+><affiliation
+><address
+><email
+>zepires@gmail.com</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+</authorgroup>
+</sect1info>
+<title
+>Verificação Ortográfica</title>
+
+<para
+>O &sonnet; é o sistema de verificação ortográfica usado pelas aplicações do &kde;, como o &kate;, o &kmail; e o &kword;. É uma interface &GUI; para vários sistemas de verificação ortográfica gratuitos.</para>
+
+<para
+>Para usar o &sonnet; é necessário instalar um verificador ortográfico como o <application
+>&GNU; Aspell</application
+>, <application
+>Enchant</application
+>, <application
+>Hspell</application
+>, <application
+>ISpell</application
+> ou <application
+>Hunspell</application
+> e, para além disso, os dicionários correspondentes para as línguas que deseja usar.</para>
+
+<sect2 id="spellcheck-check">
+<title
+>Verificação Ortográfica</title>
+
+<screenshot id="screenshot-spellcheck-check">
+<screeninfo
+>A Janela de Verificação Ortográfica</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="spellcheck-check.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>A janela de verificação ortográfica.</phrase>
+</textobject>
+<caption
+><para
+>A corrigir um erro ortográfico.</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Para verificar a ortografia, vá a <menuchoice
+><guimenu
+>Ferramentas</guimenu
+> <guimenuitem
+>Ortografia...</guimenuitem
+></menuchoice
+>.</para>
+
+<para
+>Se tiver uma palavra que esteja provavelmente errada no seu documento, esta aparece na linha superior da janela. O &sonnet; tenta fornecer palavras apropriadas de substituição. A melhor sugestão é apresentada à direita do campo <guilabel
+>Substituir por</guilabel
+>. Para aceitar esta substituição, carregue em <guibutton
+>Substituir</guibutton
+>.</para>
+
+<para
+>O &sonnet; também lhe permite seleccionar uma palavra da lista de sugestões e substituir a palavra errada pela palavra seleccionada. Com a ajuda do botão <guibutton
+>Sugerir</guibutton
+>, poderá adicionar mais sugestões do dicionário à lista de sugestões.</para>
+
+<para
+>Carregue em <guibutton
+>Ignorar</guibutton
+> para manter a sua ortografia original.</para>
+
+<para
+>Carregue em <guibutton
+>Terminado</guibutton
+> para parar a verificação ortográfica e <emphasis
+>manter</emphasis
+> as alterações feitas.</para>
+
+<para
+>Carregue em <guibutton
+>Cancelar</guibutton
+> para parar a verificação ortográfica e <emphasis
+>cancelar</emphasis
+> as alterações já efectuadas.</para>
+
+<para
+>Se carregar em <guibutton
+>Substituir Tudo</guibutton
+> irá substituir automaticamente as palavras erradas pela palavra de substituição escolhida, caso apareçam mais que uma vez no seu documento.</para>
+
+<para
+>Se carregar em <guibutton
+>Ignorar Tudo</guibutton
+>, irá ignorar a ortografia nesse ponto e todas as ocorrências futuras da palavra errada.</para>
+
+<para
+>Se carregar em <guibutton
+>Adicionar ao Dicionário</guibutton
+>, irá adicionar a palavra errada ao seu dicionário pessoal.</para>
+
+<para
+>O <guilabel
+>Dicionário Pessoal</guilabel
+> é um dicionário distinto do do sistema e que também contém todas as suas alterações e que não serão vistas pelos outros.</para>
+
+<para
+>A lista <guilabel
+>Língua</guilabel
+>, no fundo desta janela, permite-lhe mudar temporariamente para outro dicionário.</para>
+
+</sect2>
+
+<sect2 id="spellcheck-auto">
+<title
+>Verificação Ortográfica Automática</title>
+
+<!--FIXME:screenshot-->
+
+<para
+>Em muitas aplicações, poderá verificar automaticamente a ortografia à medida que escreve. Para activar esta funcionalidade, seleccione a opção <menuchoice
+><guimenu
+>Ferramentas</guimenu
+> <guimenuitem
+>Verificação Ortográfica Automática</guimenuitem
+></menuchoice
+>.</para>
+
+<para
+>As palavras potencialmente erradas serão sublinhadas a vermelho. Para seleccionar uma sugestão, carregue com o botão direito sobre a palavra, seleccione o submenu <guisubmenu
+>Ortografia</guisubmenu
+> e seleccione a sugestão. Também poderá indicar ao &sonnet; para ignorar este erro ortográfico, seleccionando para tal a opção <guimenuitem
+>Ignorar a Palavra</guimenuitem
+>, podendo ainda seleccionar a palavra <guimenuitem
+>Adicionar ao Dicionário</guimenuitem
+> para a gravar no seu dicionário pessoal.</para>
+
+</sect2>
+
+<sect2 id="spellcheck-config">
+<title
+>Configurar o &sonnet;</title>
+
+<para
+>Para mudar o seu dicionário, vá à opção <menuchoice
+><guimenu
+>Ferramentas</guimenu
+> <guimenuitem
+>Mudar o Dicionário...</guimenuitem
+></menuchoice
+>. Irá aparecer uma pequena janela no fundo do documento actual que lhe permitirá mudar o seu dicionário.</para>
+
+<!--FIXME: maybe move kcm handbook here too?-->
+<para
+>Para mais informações sobre a configuração do &sonnet;, veja a <ulink url="help:/kcontrol/spellchecking"
+>documentação do módulo de Ortografia do &systemsettings;</ulink
+></para>
+
+</sect2>
+
+<sect2 id="spellcheck-ack">
+<title
+>Agradecimentos e Reconhecimentos</title>
+
+<para
+>Muito obrigado ao participante no Google Code-In 2011 Salma Sultana por escrever a maioria desta secção.</para>
+
+</sect2>
+
+</sect1>
+
+
+<sect1 id="find">
+<sect1info>
+<authorgroup>
+<author
+>&TC.Hollingsworth; &TC.Hollingsworth.mail;</author>
+<othercredit role="translator"
+><firstname
+>José</firstname
+><surname
+>Pires</surname
+><affiliation
+><address
+><email
+>zepires@gmail.com</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+</authorgroup>
+</sect1info>
+<title
+>Procurar e Substituir</title>
+
+<!--FIXME
+different visual appearance, lot of common options for all Find/Search bars or windows
+Find window used in KMail Composer, where else?
+Search bar used e.g. in Konsole/Konqueror Views (readonly)
+Search+Replace bar in Kate/KWrite
+  -->
+<para
+>A função Procurar de muitas das aplicações do &kde; permite-lhe procurar por determinado texto num documento, enquanto a função Substituir lhe permite substituir o texto que for encontrado por outro texto diferente que indique.</para>
+
+<para
+>Poderá encontrar ambas as funções no menu <guimenu
+>Editar</guimenu
+> de muitas aplicações do &kde;. Para mais informações sobre este menu, veja em <xref linkend="menus-edit"/>.</para>
+
+<sect2 id="find-find">
+<title
+>A Função Procurar</title>
+
+<para
+>A função Procurar pesquisa por determinado texto num documento e selecciona-o.</para>
+
+<screenshot id="screenshot-find-find">
+<screeninfo
+>A Janela Procurar</screeninfo>
+<!--FIXME find dialog is only used in sheets + kalarm, see https://lxr.kde.org/search?_filestring=&_string=kfinddialog.h-->
+<mediaobject>
+<imageobject
+><imagedata fileref="find-find.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>A janela Procurar.</phrase
+></textobject>
+<caption
+><para
+>Procurar pela palavra <userinput
+>receita</userinput
+> no <ulink url="http://kde.org/applications/office/sheets/"
+>&calligrasheets;</ulink
+>. </para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Para usar a opção Procurar em várias aplicações vá a <menuchoice
+><guimenu
+>Editar</guimenu
+> <guimenuitem
+>Procurar...</guimenuitem
+></menuchoice
+> ou carregue em <keycombo action="simul"
+>&Ctrl;<keycap
+>F</keycap
+></keycombo
+>. Depois, no campo <guilabel
+>Texto a procurar:</guilabel
+>, indique o texto que deseja pesquisar.</para>
+
+<para
+>Se a <guilabel
+>Expressão regular</guilabel
+> estiver assinalada, poderá efectuar uma pesquisa com a ajuda deste tipo de expressões. Carregue em <guibutton
+>Editar</guibutton
+> para seleccionar e e introduzir os caracteres normalmente usados em expressões regulares, como o <guilabel
+>Espaço em Branco</guilabel
+> ou o <guilabel
+>Início da Linha</guilabel
+>. Se o &kate; estiver instalado, poderá encontrar <ulink url="help:/katepart/regular-expressions.html"
+>mais informações sobre a criação de expressões regulares na sua documentação</ulink
+>.</para>
+
+
+<para
+>Poderá limitar os resultados encontrados se configurar estas opções:</para>
+<variablelist>
+
+<varlistentry>
+<term
+><guilabel
+>Distinguir capitalização</guilabel
+></term>
+<listitem
+><para
+>As letras maiúsculas e minúsculas são consideradas diferentes. Por exemplo, se procurar por <quote
+>Este</quote
+>, os resultados que contêm <quote
+>este</quote
+> não serão devolvidos.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Apenas palavras completas</guilabel
+></term>
+<listitem
+><para
+>Por omissão, quando a aplicação pesquisa por determinado texto, irá devolver os resultados mesmo a meio de outro texto. Por exemplo, se procurar por <quote
+>é</quote
+>, irá parar em todas as palavras que contenham este pedaço, como o <quote
+><emphasis
+>lé</emphasis
+>gua</quote
+> ou <quote
+>t<emphasis
+>é</emphasis
+>cnica</quote
+>. Se assinalar esta opção, a aplicação só irá devolver os resultados quando o texto a procurar corresponde à palavra inteira em si, isto é, apenas apareça rodeada por espaços em branco.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>A partir do cursor</guilabel
+></term>
+<listitem
+><para
+>A pesquisa irá começar a partir do local do cursor e parar no fim do texto.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Procurar para trás</guilabel
+></term>
+<listitem
+><para
+>Por omissão, a aplicação procura pelo texto a partir do início do documento, deslocando-se até ao fim. Se assinalar esta opção, irá então começar a partir do fim e deslocar-se-á até ao início. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Texto seleccionado</guilabel
+></term>
+<listitem
+><para
+>Seleccione esta opção para procurar apenas o texto que estiver seleccionado, em vez do documento inteiro. Está desactivada se não tiver nenhum texto seleccionado. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+<!--FIXME
+Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook + katepart/part.docbook
+  -->
+<para
+>Muitas aplicações mostram uma barra de pesquisa em vez da janela para Procurar. Veja a <ulink url="help:/katepart/kate-part-find-replace.html#finding-text"
+>documentação do &katepart;</ulink
+> para obter informações adicionais sobre a barra de pesquisa.</para>
+
+<screenshot id="screenshot-find-find-inline">
+<screeninfo
+>A barra de pesquisa no &kate;.</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="find-find-inline.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>A barra de pesquisa no &kate;.</phrase
+></textobject>
+<caption
+><para
+>A pesquisar por <userinput
+>software</userinput
+> na barra de pesquisa do &kate;. </para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+>A função Procurar apenas selecciona a primeira ocorrência que encontrar. Poderá continuar a procurar se seleccionar a opção <menuchoice
+><guimenu
+>Editar</guimenu
+><guimenuitem
+>Procurar o Próximo</guimenuitem
+></menuchoice
+> ou carregando em <keycap
+>F3</keycap
+>.</para>
+
+<screenshot id="screenshot-find-found">
+<screeninfo
+>Exemplo de uma Pesquisa</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="find-found.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Um exemplo de uma pesquisa.</phrase
+></textobject>
+<caption
+><para
+>O &kate; mostra uma ocorrência de <userinput
+>KDE</userinput
+>. </para
+></caption>
+</mediaobject>
+</screenshot>
+
+</sect2>
+
+<sect2 id="find-replace">
+<title
+>A Função para Substituir</title>
+
+<para
+>A função Substituir procura por determinado texto num documento e substitui por outro texto. Podê-la-á encontrar em várias aplicações em <menuchoice
+><guimenu
+>Editar</guimenu
+><guisubmenu
+>Substituir...</guisubmenu
+></menuchoice
+> ou carregando em <keycombo action="simul"
+>&Ctrl;<keycap
+>R</keycap
+></keycombo
+>.</para>
+
+<screenshot id="screenshot-find-replace">
+<!--FIXME replace dialog is only used in sheets + kalarm, see https://lxr.kde.org/search?_filestring=&_string=kreplacedialog.h-->
+<screeninfo
+>A Janela de Substituição</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="find-replace.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>A janela de substituição.</phrase
+></textobject>
+<caption
+><para
+>A substituir a palavra <userinput
+>receita</userinput
+> por <userinput
+>despesa</userinput
+> no &calligrasheets;</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+>A janela da função de Substituição está separada em 3 secções:</para>
+<variablelist>
+
+<varlistentry>
+<term
+><guilabel
+>Procurar</guilabel
+></term>
+<listitem
+><para
+>Aqui poderá introduzir o texto que deseja procurar. Veja em <xref linkend="find-find"/> mais informações sobre as opções aqui indicadas. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Substituir</guilabel
+></term>
+<listitem>
+<para
+>Aqui poderá introduzir o texto pelo qual deseja substituir o texto encontrado.</para>
+
+<para
+>Poderá reutilizar o texto encontrado no texto de substituição se seleccionar a opção <guilabel
+>Usar as substituições</guilabel
+>. Os itens de substituição, também conhecidos por referências anteriores, são uma sequência de caracteres especial que será substituída por todo o texto encontrado ou por parte deste. Por exemplo, o <quote
+>\0</quote
+> representa o texto encontrado por inteiro.</para>
+<para
+>Poderá introduzir itens de substituição no campo de texto se carregar no botão <guibutton
+>Inserir uma Substituição</guibutton
+>, seleccionando depois uma opção do menu como a <guimenuitem
+>Correspondência Completa</guimenuitem
+>. Por exemplo, se estiver a procurar por <quote
+>casa</quote
+> e quiser substituí-la por <guilabel
+>casas</guilabel
+>, introduza <guimenuitem
+>Correspondência Completa</guimenuitem
+> e adicione <quote
+>s</quote
+>. O campo de substituição irá então conter <quote
+>\0s</quote
+>.</para>
+
+<para
+>Se o &kate; estiver instalado, poderá aprender mais sobre os itens de substituição no <ulink url="help:/katepart/regular-expressions.html"
+>apêndice das Expressões Regulares na sua documentação</ulink
+>.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Opções</guilabel
+></term>
+<listitem
+><para
+>Isto contém todas as opções que a função <link linkend="find-find"
+>Procurar</link
+> contém, com uma adição:</para>
+<para
+>Se a opção <guilabel
+>Perguntar ao substituir</guilabel
+> estiver seleccionada, irá aparecer uma janela para cada palavra encontrada, permitindo-lhe confirmar se quer substituir o texto encontrado.</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+<!--FIXME
+Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook + katepart/part.docbook
+  -->
+<para
+>Muitas aplicações mostram a barra de pesquisa e substituição em vez da janela para Substituir. Veja a <ulink url="help:/katepart/kate-part-find-replace.html#replacing-text"
+>documentação do &katepart;</ulink
+> para obter informações adicionais sobre a barra de pesquisa e substituição.</para>
+
+<screenshot id="screenshot-find-replace-inline"
+><!--FIXME update !!!-->
+<screeninfo
+>A barra de pesquisa e substituição.</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="find-replace-inline.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>A barra de pesquisa e substituição.</phrase
+></textobject>
+<caption
+><para
+>A substituir a palavra <userinput
+>kmail</userinput
+> por <userinput
+>kate</userinput
+> na barra de pesquisa e substituição do &kate;</para
+></caption>
+</mediaobject>
+</screenshot>
+
+</sect2>
+
+<sect2 id="find-ack">
+<title
+>Agradecimentos e Reconhecimentos</title>
+<para
+>Muito obrigado a um participante anónimo do Google Code-In 2011 por escrever a maior parte desta secção.</para>
+</sect2>
+
+</sect1>
+
+
+<sect1 id="fonts">
+<sect1info>
+<authorgroup>
+<author
+>&TC.Hollingsworth; &TC.Hollingsworth.mail;</author>
+<othercredit role="translator"
+><firstname
+>José</firstname
+><surname
+>Pires</surname
+><affiliation
+><address
+><email
+>zepires@gmail.com</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+</authorgroup>
+</sect1info>
+<title
+>Escolher Tipos de Letra</title>
+
+<para
+>O selector de tipos de letra aparece em muitas aplicações diferentes do &kde;. Permite-lhe seleccionar a família, o estilo e o tamanho do texto que aparece na sua aplicação.</para>
+
+<screenshot id="screenshot-fonts">
+<screeninfo
+>O Selector de Tipos de Letra</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="fonts.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>O selector de tipos de letra.</phrase
+></textobject>
+<caption
+><para
+>A seleccionar um tipo de letra no <ulink url="help:/systemsettings"
+>&systemsettings;</ulink
+>.</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<variablelist>
+
+<varlistentry>
+<term
+><guilabel
+>Tipo de Letra</guilabel
+></term>
+<listitem
+><para
+>Este é o campo de selecção mais à esquerda, o que lhe permite escolher a família de tipos de letra a partir de uma lista de tipos de letra no seu sistema.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Estilo do tipo de letra</guilabel
+></term>
+<listitem>
+<para
+>Este é o campo de selecção ao centro, o que lhe permite escolher o estilo de tipos de letra com base nas seguintes opções:</para>
+<itemizedlist>
+
+<listitem
+><para
+><guilabel
+>Itálico</guilabel
+> - isto mostra o texto numa forma cursiva ou inclinada, sendo usada normalmente para citar ou enfatizar o texto. </para
+></listitem>
+
+<listitem
+><para
+><guilabel
+>Normal</guilabel
+> - o valor por omissão. O texto é apresentado sem qualquer aparência em especial.</para
+></listitem>
+
+<listitem
+><para
+><guilabel
+>Negrito e Itálico</guilabel
+> - uma combinação tanto da opção <guilabel
+>Negrito</guilabel
+> como da <guilabel
+>Itálico</guilabel
+></para
+></listitem>
+
+<listitem
+><para
+><guilabel
+>Negrito</guilabel
+> - isto mostra o texto de forma mais grossa e carregada, sendo normalmente usada para os títulos dos documentos ou para enfatizar o texto.</para
+></listitem>
+
+</itemizedlist>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Tamanho</guilabel
+></term>
+<listitem
+><para
+>Esta é a área de selecção mais à direita, permitindo-lhe seleccionar o tamanho do seu texto. O tamanho do texto é medido em <emphasis
+>pontos</emphasis
+>, uma unidade-padrão de medida na tipografia. Para mais informações sobre isto, veja o <ulink url="http://en.wikipedia.org/wiki/Point_(typography)"
+>artigo <quote
+>Ponto (tipografia)</quote
+> na Wikipédia</ulink
+>.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Antevisão</term>
+<listitem
+><para
+>O fundo do selector de tipos de letra mostra uma antevisão do texto a usar as definições de tipos de letra seleccionados de momento. Poderá alterar este texto se o desejar.</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+</sect1>
+
+
+<sect1 id="colors">
+<sect1info>
+<authorgroup>
+<author
+>&TC.Hollingsworth; &TC.Hollingsworth.mail;</author>
+<othercredit role="translator"
+><firstname
+>José</firstname
+><surname
+>Pires</surname
+><affiliation
+><address
+><email
+>zepires@gmail.com</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+</authorgroup>
+</sect1info>
+<title
+>Escolher Cores</title>
+
+<para
+>O selector de cores aparece em várias aplicações do &kde;, sempre que precisar de seleccionar uma cor. Ele permite-lhe seleccionar a partir de uma paleta de <guilabel
+>Cores básicas</guilabel
+> que consiste em várias cores predefinidas ou misturá-las, caso deseje uma cor específica.</para>
+
+<screenshot id="screenshot-colors">
+<screeninfo
+>O Selector de Cores</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="colors.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>O selector de cores.</phrase
+></textobject>
+<caption
+><para
+>A seleccionar uma cor no <ulink url="help:/systemsettings"
+>&systemsettings;</ulink
+>.</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<sect2 id="basic-colors">
+<title
+>Usar as Cores Básicas</title>
+
+<para
+>O grupo de cores básicas é um conjunto de cores predefinidas. Podê-la-á encontrar do lado direito da janela de selecção de cores.</para>
+
+<para
+>Para seleccionar uma cor a partir das cores básicas, basta carregar sobre ela. A cor será apresentada à direita da paleta, em conjunto com o nome e o código em hexadecimal para &HTML;</para>
+
+</sect2>
+
+<sect2 id="colors-mixing">
+<title
+>Misturar as Cores</title>
+
+<para
+>O selector de cores também lhe permite misturar as suas próprias cores. Existem várias formas de o fazer:</para>
+
+<sect3 id="colors-mixing-select">
+<title
+>Usar a Grelha</title>
+
+<para
+>O lado direito do selector de cores contém um campo grande e um campo mais fino logo à sua direita. Poderá usar o campo da esquerda para seleccionar o Tom e a Saturação da cor desejada com base na guia visual indicada no campo. A barra da direita ajusta o Valor. Ajuste-os para seleccionar a cor desejada, a qual aparece no meio da janela.</para>
+
+<para
+>Para mais informações sobre o Tom, Saturação e Valor, veja a <xref linkend="colors-mixing-hsv"/></para>
+
+</sect3>
+
+<sect3 id="colors-mixing-eyedropper">
+<title
+>Usar as Cores do Ecrã</title>
+
+<para
+>A ferramenta de conta-gotas permite-lhe seleccionar uma cor no seu ecrã. Para a usar, seleccione o botão de <guibutton
+>Escolher uma Cor do Ecrã</guibutton
+>, por baixo das cores básicas, e depois carregar em qualquer lado do ecrã para seleccionar essa cor.</para>
+
+</sect3>
+
+<sect3 id="colors-mixing-hsv">
+<title
+>Tom/Saturação/Valor</title>
+
+<para
+>O canto inferior direito do ecrã permite-lhe indicar manualmente as coordenadas da cor desejada no espaço de cores Tom/Saturação/Valor (<acronym
+>HSV</acronym
+>). Para mais informações sobre o assunto, veja o <ulink url="https://en.wikipedia.org/wiki/HSL_and_HSV"
+>artigo sobre o <quote
+>HSL e o HSV</quote
+> na Wikipédia</ulink
+>.</para>
+
+<para
+>Estes valores são também actualizados ao seleccionar uma cor por outro método qualquer, para que represente sempre a cor seleccionada de momento.</para>
+
+</sect3>
+
+<sect3 id="colors-mixing-rgb">
+<title
+>Vermelho/Verde/Azul</title>
+
+<para
+>O canto inferior direito do ecrã também lhe permite indicar manualmente as coordenadas da cor desejada no espaço de cores Vermelho/Verde/Azul (<acronym
+>RGB</acronym
+>). Para mais informações sobre o assunto, veja o <ulink url="https://en.wikipedia.org/wiki/RGB_color_model"
+>artigo sobre o modelo <quote
+>RGB</quote
+> na Wikipédia</ulink
+>.</para>
+
+<para
+>Estes valores são também actualizados ao seleccionar uma cor por outro método qualquer, para que represente sempre a cor seleccionada de momento.</para>
+
+</sect3>
+
+<sect3 id="colors-mixing-HTML">
+<title
+>Código Hexadecimal &HTML;</title>
+
+<para
+>Poderá indicar o código de &HTML; em hexadecimal que representa a cor no canto inferior direito do ecrã. Para mais informações sobre isto, veja o <ulink url="http://en.wikipedia.org/wiki/Web_colors"
+>artigo de <quote
+>cores na Web</quote
+> na Wikipédia</ulink
+>.</para>
+
+<para
+>Este valor também é actualizado ao seleccionar uma cor por outros métodos, para que represente sempre de forma exacta a cor seleccionada de momento.</para>
+
+</sect3>
+</sect2>
+
+<sect2 id="colors-custom">
+<title
+>Cores Personalizadas</title>
+
+<para
+>Depois de seleccionar uma cor, podê-la-á adicionar ao grupo de Cores Personalizadas para a usar mais tarde. Para o fazer, carregue no botão <guibutton
+>Adicionar às Cores Personalizadas</guibutton
+>.</para>
+
+</sect2>
+
+</sect1>
+
+</chapter>

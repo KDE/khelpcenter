@@ -1,0 +1,1156 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" 
+"customization/dtd/kdedbx45.dtd" [
+  <!ENTITY % Spanish "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="khelpcenter" lang="&language;">
+<bookinfo>
+<title
+>El &khelpcenter;</title>
+<authorgroup>
+<corpauthor
+>El equipo de &kde;</corpauthor>
+<othercredit role="translator"
+><firstname
+>Rocío</firstname
+><surname
+> Gallego</surname
+><affiliation
+><address
+><email
+>traducciones@rociogallego.com</email
+></address
+></affiliation
+><contrib
+>Traducción</contrib
+></othercredit
+><othercredit role="translator"
+><firstname
+>Pablo</firstname
+><surname
+>de Vicente</surname
+><affiliation
+><address
+><email
+>pablo.devicente@gmail.com</email
+></address
+></affiliation
+><contrib
+>Traductor</contrib
+></othercredit
+> <othercredit role="translator"
+> <firstname
+>Marcos</firstname
+> <surname
+>Fouces Lago</surname
+> <affiliation
+><address
+><email
+>mfouces@yahoo.es</email
+></address
+></affiliation
+> <contrib
+>Traductor</contrib
+> </othercredit
+><othercredit role="translator"
+> <firstname
+>Cristina Yenyxe</firstname
+> <surname
+>González García</surname
+> <affiliation
+><address
+><email
+>the.blue.valkyrie@gmail.com</email
+></address
+></affiliation
+> <contrib
+>Traductor</contrib
+> </othercredit
+> 
+</authorgroup>
+<legalnotice
+>&FDLNotice;</legalnotice>
+<date
+>2016-04-17</date>
+<releaseinfo
+>Aplicaciones 16.04</releaseinfo>
+
+<abstract>
+<para
+>&kde; es un equipo tecnológico internacional que desarrolla <ulink url="https://www.gnu.org/philosophy/free-sw.html"
+>software libre</ulink
+> para el escritorio y sistemas portátiles. Entre los productos de &kde; se encuentran un moderno entorno de escritorio para &Linux; y &UNIX;, una suite de oficina y cientos de aplicaciones agrupadas en muchas categorías, como Internet y web, multimedia, entretenimiento, educación, gráficos y desarrollo de software. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdebase</keyword>
+<keyword
+>khelpcenter</keyword>
+<keyword
+>kdehelp</keyword>
+<keyword
+>ayuda</keyword>
+<keyword
+>centro de ayuda</keyword>
+<keyword
+>Centro de ayuda de KDE</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="help-system-handbook">
+<title
+>Manual del sistema de ayuda de &kde;</title>
+<anchor id="help"/>
+
+<sect1 id="help-introduction">
+<title
+>Sistema de ayuda</title>
+	
+<para
+>El sistema de ayuda está diseñado para simplificar el acceso a los sistemas de ayuda habituales de &UNIX; (<application
+>man</application
+> e <application
+>info</application
+>), así como a la documentación del usuario de las aplicaciones, incluidos los &plasma-workspaces; de la comunidad &kde; (&XML;). </para>
+
+<para
+>Todo el espacio de trabajo (incluido &plasma-workspaces;) de la comunidad &kde; están completamente documentadas gracias a los esfuerzos del equipo de documentación. Si está interesado en ayudar en el trabajo de documentación, únase a la <ulink url="https://mail.kde.org/mailman/listinfo/kde-doc-english"
+>lista de correo</ulink
+> y escriba al equipo usando la dirección <email
+>kde-doc-english@kde.org</email
+>. No se necesita ninguna experiencia, solo entusiasmo y paciencia. </para>
+
+<para
+>Si desea ayudar a traducir la documentación de &kde; a su idioma nativo, revise la información, incluyendo los coordinadores de los equipos de cada idioma, en el <ulink url="https://l10n.kde.org/"
+>sitio web de localización</ulink
+>. </para>
+
+</sect1>
+
+<sect1 id="invoking-help">
+<title
+>Solicitar ayuda</title>
+
+<para
+>Puede invocar a &khelpcenter; de varias maneras: </para>
+
+<variablelist
+> 
+<varlistentry
+> 
+<term
+>Desde el menú <guimenu
+>Ayuda</guimenu
+></term
+> 
+<listitem>
+<para
+>Lo más habitual será probablemente desde dentro de una aplicación. Seleccione <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>F1</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Ayuda</guimenu
+> <guimenuitem
+><replaceable
+>Aplicación</replaceable
+>Manual </guimenuitem
+></menuchoice
+> para abrir el manual de la aplicación. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Desde el lanzador de aplicaciones</term>
+<listitem>
+<para
+>Haga clic en la gran <guiicon
+>K</guiicon
+> de su panel y seleccione <guimenuitem
+>Ayuda</guimenuitem
+> en la pestaña de <guimenuitem
+>Aplicaciones</guimenuitem
+> para abrir el &khelpcenter;, que se desplegará mostrando la página de inicio predeterminada. </para>
+</listitem
+> 
+</varlistentry>
+
+<varlistentry>
+<term
+>Desde la línea de órdenes</term>
+<listitem>
+<para
+>El &khelpcenter; puede ser iniciado utilizando una &URL; para mostrar un archivo. Las &URL;s también han sido añadidas para las páginas <command
+>info</command
+> y <command
+>man</command
+>. Puede utilizarlas del siguiente modo: </para
+> 
+
+<variablelist>
+<varlistentry>
+<term
+>Desde un archivo de ayuda de una aplicación</term>
+<listitem>
+<para
+><command
+>khelpcenter</command
+> <option
+>help:/<replaceable
+>kwrite</replaceable
+></option
+> </para>
+<para
+>Abre el archivo de ayuda de &kwrite;, en la página de contenidos. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Un &URL; local</term>
+<listitem
+><para
+><command
+>khelpcenter</command
+> <option
+>file:/<replaceable
+>usr/local/src/qt/html/index.html</replaceable
+></option
+> </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Una página man</term>
+<listitem>
+<para
+><command
+>khelpcenter</command
+> <option
+>man:/<replaceable
+>strcpy</replaceable
+></option
+> </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Una página de información</term>
+<listitem>
+<para
+><command
+>khelpcenter</command
+> <option
+>info:/<replaceable
+>gcc</replaceable
+></option
+> </para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Invocar <command
+>khelpcenter</command
+> sin parámetros abre la página de inicio predeterminada. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+</sect1>
+
+<sect1 id="interface-basics">
+<title
+>La interfaz de &khelpcenter;</title>
+
+<para
+>La interfaz del &khelpcenter; se compone de dos paneles de información. </para>
+
+<para
+>La barra de herramientas y los menús se explican en más detalle en <xref linkend="menu-and-toolbar-ref"/>. </para>
+
+<para
+>Los documentos contienen sus propias herramientas de navegación, permitiéndole moverse bien secuencialmente a través del documento, utilizando los enlaces <guilabel
+>Siguiente</guilabel
+>, <guilabel
+>Anterior</guilabel
+>, y <guilabel
+>Contenidos</guilabel
+>, o bien moverse a través de una manera menos estructurada, utilizando hiperenlaces. </para>
+
+<para
+>Los enlaces pueden llevarle a otras partes del mismo documento, o a un documento diferente, y puede utilizar los iconos <guiicon
+>Atrás</guiicon
+> (flecha apuntando a la izquierda) o <guiicon
+>Adelante</guiicon
+> (flecha apuntando a la derecha) de la barra de herramientas para moverse a través de los documentos que esté visualizando en la sesión actual. </para
+> 
+
+<para
+>Los dos paneles muestran los contenidos del sistema de ayuda, y los propios archivos de ayuda, a la izquierda y a la derecha respectivamente. </para>
+
+<sect2 id="contents-pane">
+<title
+>Panel de contenido</title>
+
+<para
+>El panel de contenidos del &khelpcenter; se muestra en el lado izquierdo de la ventana. Como cabría esperar, puede mover la barra divisoria para asegurarse de poder leer cómodamente los contenidos de cada panel. </para
+> 
+
+<para
+>El panel de contenidos está además dividido en tres pestañas, una contiene una <link linkend="contents-tab"
+>vista de árbol</link
+> que muestra toda la información de ayuda de que dispone el &khelpcenter;, otra contiene el <link linkend="kde-glossary"
+>glosario de términos</link
+> de &kde; y en la tercera se pueden configurar las <guilabel
+>Opciones de búsqueda</guilabel
+>. </para>
+
+<sect3 id="contents-tab">
+<title
+>Pestaña de de contenidos</title>
+
+<para
+>La pestaña de <guilabel
+>Contenidos</guilabel
+> contiene las siguientes entradas predeterminadas en el nivel mas alto de la vista de árbol: </para
+> 
+
+<variablelist>
+
+<varlistentry>
+<term
+><guilabel
+>Aspectos básicos</guilabel
+></term>
+<listitem>
+<para
+>Los «Aspectos básicos» le presentan una introducción de las numerosas características de &plasma-workspaces; y de las &applications;  y describe muchas tareas comunes que puede realizar en todas las &applications;. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Manual de Plasma</guilabel
+></term>
+<listitem>
+<para
+>El manual de &plasma; es la documentación de &plasma-workspaces;. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Ayuda en línea</guilabel
+></term>
+<listitem>
+<para
+>Una página con enlaces a ayuda en línea e información adicional proporcionada por la comunidad de &kde;. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Manuales de aplicación</guilabel
+></term>
+<listitem>
+<para
+>Documentación de una aplicación nativa de &kde;. Todas las aplicaciones de &kde; tienen documentación en formato &XML;, que es convertida a <acronym
+>HTML</acronym
+> cuando las visualiza. Esta sección lista todas las aplicaciones &kde; con una breve descripción y un enlace a la documentación completa de la aplicación. </para>
+<para
+>Las aplicaciones se muestran en una estructura arbórea que imita la estructura predeterminada del menú <guimenu
+>K</guimenu
+>, facilitando encontrar la aplicación que está buscando. </para>
+</listitem
+> 
+</varlistentry>
+
+<varlistentry>
+<term
+>Entidades de los <guilabel
+>Módulos de preferencias</guilabel
+></term>
+<listitem>
+<para
+>Proporciona una lista de enlaces a varios módulos que están localizados en la aplicación &systemsettings; o a los módulos de &konqueror;, el administrador de archivos o el navegador. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Módulos de KInfoCenter</guilabel
+></term>
+<listitem>
+<para
+>Contiene una lista de enlaces a la documentación de varios módulos de KInfocenter. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Módulos de trabajo de KIO</guilabel
+></term>
+<listitem>
+<para
+>Contiene una lista de enlaces a la documentación de varios módulos de <acronym
+>KIO</acronym
+>. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Páginas de manual de &UNIX;</guilabel
+></term>
+<listitem>
+<para
+>Las páginas man de &UNIX; son el formato de documentación en línea tradicional para los sistemas &UNIX;. La mayoría de los programas de su sistema tienen una página man. Además, las páginas man existen para funciones de programación y formatos de archivo. </para>
+</listitem
+> 
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Scrollkeeper</guilabel
+></term>
+<listitem>
+<para
+>Documentación adicional no nativa de &kde; instalada en sus sistema. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Navegar por las páginas info</guilabel
+></term>
+<listitem>
+<para
+>La documentación TeXinfo es utilizada por muchas aplicaciones &GNU; incluyendo <command
+>gcc</command
+> (el compilador de C/C++), <command
+>emacs</command
+>, y muchos otros. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect3>
+
+<sect3 id="search">
+<title
+>Pestaña <guilabel
+>Opciones de búsqueda</guilabel
+></title>
+
+<para
+>Buscar en los archivos de ayuda es muy intuitivo. Introduzca en el cuadro de búsqueda las palabras que quiera buscar, seleccione las opciones que desee y pulse <guibutton
+>Buscar</guibutton
+>. Los resultados se muestran en el panel de visualización de la derecha. </para>
+<note
+><para
+>La búsqueda no es sensible a las mayúsculas y minúsculas, &ie;, los caracteres en mayúsculas se consideran iguales a los correspondientes caracteres en minúsculas. Por ejemplo, si busca <quote
+>Acceso rápido</quote
+>, también se mostrarán los resultados que contengan <quote
+>acceso rápido</quote
+>.</para
+></note>
+<!--no wildcards? -->
+
+<para
+>Las opciones disponibles son:</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Método</guilabel
+></term>
+<listitem>
+<para
+>Elija cómo se debe buscar cuando hay varias palabras en el patrón de búsqueda. Si selecciona <guilabel
+>y</guilabel
+>, solo se mostrarán las páginas que incluyan todas los términos de búsqueda. <guilabel
+>O</guilabel
+> muestra las páginas que contengan <emphasis
+>cualquiera</emphasis
+> de los términos de búsqueda. </para
+> 
+<para
+>Si sus búsquedas no devuelven los resultados que esperaba, compruebe si ha excluido algún término de búsqueda por error con alguna configuración equivocada. </para
+></listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Resultados máximos</guilabel
+></term>
+<listitem
+><para
+>Determina el número máximo de resultados que se mostrarán para su búsqueda.</para
+></listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Ámbito de selección</guilabel
+></term>
+<listitem
+><para
+>Se utiliza para seleccionar la secciones en las que se realizará la búsqueda. Las opciones disponibles seleccionan rápidamente la opción más común, mientras que <guimenuitem
+>Personalizada</guimenuitem
+> permite seleccionar secciones únicas. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect3>
+
+
+</sect2>
+
+<sect2 id="man-and-info">
+<title
+>Las secciones <application
+>Man</application
+> y <application
+>Info</application
+></title>
+
+<para
+>Las páginas man son las páginas del manual estándar de &UNIX; y han sido utilizadas durante muchos años en muchos otros sistemas operativos. Son extremadamente completas, y son sin lugar a dudas el mejor lugar para obtener información sobre la mayoría de las órdenes y las aplicaciones de &UNIX;. Cuando la gente dice <quote
+>RTFM</quote
+>, el manual al que se están refiriendo es casi siempre las páginas man.</para>
+
+<para
+>Las páginas man no son perfectas. Tienden a entrar en profundidad, pero también son extremadamente técnicas, a menudo están escritas por desarrolladores y para desarrolladores. En algunos casos, esto las hace algo difíciles e incluso a veces, imposibles de comprender para muchos usuarios. No obstante, son la mejor fuente de información sólida sobre la mayoría de las aplicaciones de línea de ordenes, y muy a menudo la única fuente.</para>
+
+<para
+>Si alguna vez se ha preguntado que quiere decir el número cuando la gente escribe cosas como man (1), su significado es la sección del manual en la que está el elemento. Verá que &khelpcenter; utiliza los números para dividir las numerosas páginas man en sus propias secciones, facilitándole la búsqueda de la información que está buscando, si está navegando.</para>
+
+<para
+>También están disponibles las páginas info, que pretenden ser un remplazo de las páginas man. Los mantenedores de algunas aplicaciones han dejado de actualizar las páginas man, por lo que si están disponibles tanto una página man como una página info, la página info es probablemente la más reciente. La mayoría de las aplicaciones tienen una o la otra. Si la aplicación para la que está buscando ayuda es una utilidad &GNU;, lo más probable es que encuentre que tiene una página info, y no una página man.</para>
+
+<sect3 id="navigation">
+<title
+>Navegando dentro de las páginas <application
+>Info</application
+></title>
+
+<para
+>Los documentos Info están organizados jerárquicamente con cada página denominada nodo. Todos los documentos info tienen un nodo <guilabel
+>Top</guilabel
+>, &ie; la página de apertura. Puede volver al <guilabel
+>Top</guilabel
+> de un documento info pulsando <guilabel
+>Top</guilabel
+>.</para>
+
+<para
+><guibutton
+>Anterior
+></guibutton
+> &amp; <guibutton
+>Siguiente</guibutton
+> se utilizan para moverse a las páginas anterior/siguiente del nivel actual de la jerarquía.</para>
+
+<para
+>Hacer clic en una opción de menú dentro de un documento le llevará a un nivel más bajo en la jerarquía. Puede subir en la jerarquía presionando <guibutton
+>Arriba</guibutton
+>.</para>
+
+<para
+>Man es tratado de forma similar a info, con la sección índice siendo el nodo Top y con cada página man en el nivel inferior. Las entradas man son páginas largas.</para>
+
+</sect3>
+</sect2>
+
+<sect2 id="kde-glossary">
+<title
+>El glosario de &kde;</title>
+
+<para
+>El glosario proporciona un punto de referencia rápida, en el que puede buscar las definiciones de aquellas palabras que no le sean familiares. En él se incluyen desde aplicaciones y tecnologías específicas de &kde;, a términos de computación generales de &UNIX;. </para>
+
+<para
+>En el panel de la izquierda verá una vista arbórea, con dos opciones: <guilabel
+>Alfabéticamente</guilabel
+> o <guilabel
+>Por tema</guilabel
+>. Ambas contienen las mismas entradas, ordenadas de forma diferente, para permitirle encontrar rápidamente el tema que le interesa. </para>
+
+<para
+>Navegue hacia abajo en las vistas árbol de la izquierda, y los elementos que seleccione se mostrarán en el panel de la derecha. </para>
+
+</sect2>
+
+<sect2 id="menu-and-toolbar-ref">
+<title
+>Los menús y la barra de herramientas</title>
+
+<para
+>&khelpcenter; tiene una interfaz muy simple, para permitirle concentrarse en obtener la ayuda en lugar de tener que aprender cómo usar el navegador de ayuda. </para>
+
+<para
+>Los iconos disponibles en la barra de herramientas son los siguientes: </para>
+
+<variablelist>
+<title
+>Iconos de la barra de herramientas</title>
+
+<varlistentry>
+<term
+><guiicon
+>Tabla de contenido</guiicon
+></term>
+<listitem>
+<para
+>Ir a la página de inicio principal del &khelpcenter;. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guiicon
+>Atrás</guiicon
+></term>
+<listitem>
+<para
+>Ir a la página anterior que ha visto. Haga clic en la marca de comprobación que hay a la derecha del icono. Esto muestra una lista de las páginas vistas anteriormente. Al seleccionar una de ellas será llevado directamente a la página en cuestión. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guiicon
+>Adelante</guiicon
+></term>
+<listitem>
+<para
+>Avanzar una página. Este icono solo estará activo si ya ha utilizado el icono <guiicon
+>Atrás</guiicon
+>. </para>
+</listitem>
+</varlistentry>
+<!--
+<varlistentry>
+<term
+><guiicon
+>Print Frame</guiicon
+></term>
+<listitem>
+<para>
+Print the contents of the currently visible page.
+</para>
+</listitem>
+</varlistentry>
+-->
+<varlistentry>
+<term
+><guiicon
+>Copiar</guiicon
+></term>
+<listitem>
+<para
+>Copia el texto al portapapeles para ser pegado en otra aplicación. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guiicon
+>Buscar</guiicon
+></term>
+<listitem>
+<para
+>Busca una o varias palabras dentro de la página actualmente visible. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guiicon
+>Aumentar el tamaño de las letras</guiicon
+></term>
+<listitem>
+<para
+>Aumenta el tamaño del texto en el panel visor. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guiicon
+>Disminuir el tamaño de las letras</guiicon
+></term>
+<listitem>
+<para
+>Disminuye el tamaño del texto en el panel visor. Este icono solo estará activado si has anteriormente había aumentado el tamaño del texto. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>Los menús contienen las siguientes entradas: </para>
+
+<variablelist>
+<varlistentry>
+<term
+><guimenu
+>Archivo</guimenu
+></term>
+<listitem>
+
+<variablelist>
+
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Archivo</guimenu
+> <guimenuitem
+>Imprimir</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Imprime el contenido de la página que está visible actualmente. Puede encontrar los manuales en formato <acronym
+>PDF</acronym
+> en el <ulink url="https://docs.kde.org/index.php?language=en"
+>servidor de documentación de &kde;</ulink
+>. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Archivo</guimenu
+> <guimenuitem
+>Salir</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Cerrar y salir de &khelpcenter; </para>
+</listitem>
+</varlistentry>
+</variablelist>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<variablelist>
+<varlistentry>
+<term
+><guimenu
+>Editar</guimenu
+></term>
+<listitem>
+
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Editar</guimenu
+><guimenuitem
+>Copiar</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Copia el texto seleccionado al portapapeles. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>t</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Editar</guimenu
+> <guimenuitem
+>Seleccionar todo</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Selecciona todo el texto de la página actual. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>B</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Editar</guimenu
+> <guimenuitem
+>Buscar...</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Buscar una palabra o palabras en la página visible en ese momento. </para>
+</listitem>
+</varlistentry>
+</variablelist>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<variablelist>
+<varlistentry>
+<term
+><guimenu
+>Ver</guimenu
+></term>
+<listitem>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ver</guimenu
+> <guisubmenu
+>Especificar codificación</guisubmenu
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Cambia la codificación de la página actual. Normalmente, la configuración por defecto de <guimenuitem
+>Predeterminada</guimenuitem
+> debería ser suficiente, pero si está teniendo problemas con la visualización de páginas escritas en idiomas diferentes al Inglés, puede que necesite seleccionar una codificación específica en este menú. </para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ver</guimenu
+> <guisubmenu
+>Modo a pantalla completa</guisubmenu
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Cambia el &khelpcenter; al modo a pantalla completa, donde la ventana de &khelpcenter; ocupa toda la pantalla y no contiene las típicas decoraciones de las ventanas. Para salir del modo a pantalla completa, pulse <keycombo action="simul"
+>&Ctrl;&Shift; <keycap
+>F</keycap
+></keycombo
+>. </para>
+</listitem>
+</varlistentry>
+</variablelist>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<variablelist>
+<varlistentry>
+<term
+><guimenu
+>Ir</guimenu
+></term>
+<listitem>
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Alt;<keycap
+>Inicio</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Ir</guimenu
+> <guimenuitem
+>Tabla de contenido</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>Ir a la página de inicio principal del &khelpcenter;. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>RePág</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Ir</guimenu
+> <guimenuitem
+>Página anterior</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>Ir a la página anterior de la documentación actual. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>AvPág</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Ir</guimenu
+> <guimenuitem
+>Página siguiente</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>Ir a la página siguiente de la documentación actual. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Alt;<keysym
+>Izquierda</keysym
+></keycombo
+></shortcut
+> <guimenu
+>Ir</guimenu
+> <guimenuitem
+>Atrás</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>Ir a la página anterior a la que está viendo.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Alt;<keysym
+>Derecha</keysym
+></keycombo
+></shortcut
+> <guimenu
+>Ir</guimenu
+> <guimenuitem
+>Adelante</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Si previamente se ha movido atrás con el icono o la entrada de menú atrás, puede volver adelante con esta entrada de menú.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+<variablelist id="bookmarks-menu">
+
+<varlistentry>
+<term
+><guimenu
+>Marcadores</guimenu
+></term>
+<listitem>
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>B</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Marcadores</guimenu
+> <guimenuitem
+>Añadir marcador</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>Al añadir un marcador para la página actual, el título de las páginas se añade al menú de marcadores.  Para eliminarlo del menú, utilice la acción <guimenuitem
+>Borrar marcador</guimenuitem
+> en el menú de contexto de un elemento. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Marcadores</guimenu
+> <guimenuitem
+>Nueva carpeta de marcadores</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>Abre el diálogo <guilabel
+>Nueva carpeta</guilabel
+> en el que se puede añadir nuevas subopciones de menú al menú de marcadores. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<variablelist>
+<varlistentry>
+<term
+><guimenu
+>Preferencias</guimenu
+></term>
+<listitem>
+
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice
+><guimenu
+>Preferencias</guimenu
+> <guimenuitem
+>Configurar los tipos de letra...</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Le permite configurar la familia de tipo de letra y el tamaño de letra que utiliza &khelpcenter;. </para>
+</listitem>
+</varlistentry>
+</variablelist>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Además, &khelpcenter; cuenta con las <guimenu
+>Preferencias</guimenu
+> y las opciones de menú de <guimenu
+>Ayuda</guimenu
+> comunes de &kde;. Para obtener más información, consulte las secciones sobre el <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Menú de preferencias</ulink
+> y el <ulink url="help:/fundamentals/menus.html#menus-help"
+>Menú de ayuda</ulink
+> de «Aspectos básicos de &kde;». </para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="credits">
+<title
+>Créditos y licencia</title>
+
+<para
+>&khelpcenter;</para>
+
+<para
+>Desarrollo iniciado por &Matthias.Elter; &Matthias.Elter.mail;</para>
+<para
+>El encargado actual es &Cornelius.Schumacher; &Cornelius.Schumacher.mail;</para>
+
+<para
+>Traducido por Rocío Gallego <email
+>traducciones@rociogallego.com</email
+>, Pablo de Vicente <email
+>pablo.devicente@gmail.com</email
+>, Marcos Fouces Lago <email
+>mfouces@yahoo.es</email
+> y Cristina Yenyxe González García <email
+>the.blue.valkyrie@gmail.com</email
+>.</para
+> &underFDL; &underGPL; </sect1>
+</chapter>
+
+
+</book>
+
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: sgml
+sgml-omittag:t
+sgml-shorttag:nil
+sgml-namecase-general:t
+sgml-general-insert-case:lower
+sgml-always-quote-attributes:t
+End:
+-->
+

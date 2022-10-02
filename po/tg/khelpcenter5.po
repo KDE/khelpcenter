@@ -1,0 +1,732 @@
+# translation of khelpcenter.po to Tajik
+# translation of khelpcenter.po to Тоҷикӣ
+# Copyright (C) 2004 Free Software Foundation, Inc.
+#
+# Victor Ibragimov <youth_opportunities@tajik.net>, 2004, 2019.
+msgid ""
+msgstr ""
+"Project-Id-Version: khelpcenter\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-15 00:47+0000\n"
+"PO-Revision-Date: 2019-09-16 11:54+0500\n"
+"Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
+"Language-Team: English <kde-i18n-doc@kde.org>\n"
+"Language: tg\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 19.04.3\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Victor Ibragimov"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "victor.ibragimov@gmail.com"
+
+#: application.cpp:30
+#, kde-format
+msgid "Documentation to open"
+msgstr ""
+
+#: application.cpp:114 application.cpp:116
+#, kde-format
+msgid "Help Center"
+msgstr "Маркази Ёрӣ"
+
+#: application.cpp:118
+#, fuzzy, kde-format
+#| msgid "(c) 2003, The KHelpCenter developers"
+msgid "(c) 1999-2020, The KHelpCenter developers"
+msgstr "(c) 2003, The KHelpCenter developers"
+
+#: application.cpp:120
+#, kde-format
+msgid "Current maintainer"
+msgstr ""
+
+#: application.cpp:121
+#, kde-format
+msgid "Xapian-based search, lot of bugfixes"
+msgstr ""
+
+#: application.cpp:122
+#, kde-format
+msgid "Former maintainer"
+msgstr ""
+
+#: application.cpp:124
+#, kde-format
+msgid "Original Author"
+msgstr "Муаллифи аслӣ"
+
+#: application.cpp:125
+#, kde-format
+msgid "Info page support"
+msgstr "Сиҳифаи Хабар барои ёрӣ"
+
+#: docmetainfo.cpp:35
+#, kde-format
+msgid "Top-Level Documentation"
+msgstr ""
+
+#: docmetainfo.cpp:83
+#, kde-format
+msgctxt "doctitle (language)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: docmetainfo.cpp:119
+#, kde-format
+msgctxt "Describes documentation entries that are in English"
+msgid "English"
+msgstr "Англисӣ"
+
+#: fontdialog.cpp:36
+#, kde-format
+msgid "Font Configuration"
+msgstr "Танзимоти Ҳарф"
+
+#: fontdialog.cpp:62
+#, kde-format
+msgid "Sizes"
+msgstr "Андозаҳо"
+
+#: fontdialog.cpp:66
+#, kde-format
+msgctxt "The smallest size a will have"
+msgid "M&inimum font size:"
+msgstr "&Минимальный размер шрифта:"
+
+#: fontdialog.cpp:73
+#, kde-format
+msgctxt "The normal size a font will have"
+msgid "M&edium font size:"
+msgstr ""
+
+#: fontdialog.cpp:83
+#, kde-format
+msgid "Fonts"
+msgstr "Ҳарфҳо"
+
+#: fontdialog.cpp:87
+#, kde-format
+msgid "S&tandard font:"
+msgstr "Ҳ&арфи стандартӣ:"
+
+#: fontdialog.cpp:93
+#, kde-format
+msgid "F&ixed font:"
+msgstr "Ҳарфи &мустаҳкам:"
+
+#: fontdialog.cpp:99
+#, kde-format
+msgid "S&erif font:"
+msgstr "Ҳарфи S&erif:"
+
+#: fontdialog.cpp:105
+#, kde-format
+msgid "S&ans serif font:"
+msgstr "Ҳарфи S&ans:"
+
+#: fontdialog.cpp:111
+#, kde-format
+msgid "&Italic font:"
+msgstr "&Ҳарфи курсив:"
+
+#: fontdialog.cpp:117
+#, kde-format
+msgid "&Fantasy font:"
+msgstr "&Ҳарфи Фэнтези:"
+
+#: fontdialog.cpp:126
+#, kde-format
+msgid "Encoding"
+msgstr "Рамзгузорӣ"
+
+#: fontdialog.cpp:131
+#, kde-format
+msgid "&Default encoding:"
+msgstr "&Рамзгузории пешфарз:"
+
+#: fontdialog.cpp:136 fontdialog.cpp:204
+#, kde-format
+msgid "Use Language Encoding"
+msgstr "Рамзгузории забонро истифода баред"
+
+#: fontdialog.cpp:140
+#, kde-format
+msgid "&Font size adjustment:"
+msgstr "&Танзимоти андозаи ҳарф:"
+
+#: glossary.cpp:68
+#, kde-format
+msgid "By Topic"
+msgstr "Аз рӯи мавзӯъ:"
+
+#: glossary.cpp:72 infotree.cpp:74
+#, kde-format
+msgid "Alphabetically"
+msgstr "Алифбоӣ"
+
+#: glossary.cpp:128
+#, kde-format
+msgid "Rebuilding glossary cache..."
+msgstr ""
+
+#: glossary.cpp:182
+#, kde-format
+msgid "Rebuilding cache... done."
+msgstr ""
+
+#: grantleeformatter.cpp:102
+#, fuzzy, kde-format
+#| msgid "KDE Glossary"
+msgctxt "%1 is a glossary term"
+msgid "KDE Glossary: %1"
+msgstr "Луғати KDE"
+
+#: grantleeformatter.cpp:103
+#, kde-format
+msgid "KDE Glossary"
+msgstr "Луғати KDE"
+
+#: grantleeformatter.cpp:107
+#, fuzzy, kde-format
+#| msgid "See also: "
+msgid "See also: %1"
+msgstr "Боз дидан кунед: "
+
+#: grantleeformatter.cpp:128
+#, kde-format
+msgid "Search Results"
+msgstr "Ҷусиуҷӯи натиҷаҳо"
+
+#: grantleeformatter.cpp:129 searchengine.cpp:259
+#, kde-format
+msgid "Search Results for '%1':"
+msgstr "Натиҷаҳои ҷустуҷӯӣ барои  '%1':"
+
+#: infotree.cpp:77
+#, kde-format
+msgid "By Category"
+msgstr "Ба Категория"
+
+#. i18n: ectx: label, entry, group (Search)
+#: khelpcenter.kcfg:31
+#, kde-format
+msgid "Path to index directory."
+msgstr ""
+
+#. i18n: ectx: whatsthis, entry, group (Search)
+#: khelpcenter.kcfg:32
+#, kde-format
+msgid "Path to directory containing search indices."
+msgstr ""
+
+#. i18n: ectx: label, entry, group (Layout)
+#: khelpcenter.kcfg:46
+#, kde-format
+msgid "Currently visible navigator tab"
+msgstr ""
+
+#. i18n: ectx: Menu (edit)
+#: khelpcenterui.rc:5
+#, kde-format
+msgid "&Edit"
+msgstr "&Таҳрир"
+
+#. i18n: ectx: Menu (view)
+#: khelpcenterui.rc:13
+#, kde-format
+msgid "&View"
+msgstr "&Намоиш"
+
+#. i18n: ectx: Menu (go)
+#: khelpcenterui.rc:19
+#, kde-format
+msgid "&Go"
+msgstr "&Гузаштан"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: khelpcenterui.rc:36
+#, kde-format
+msgid "Main Toolbar"
+msgstr ""
+
+#: mainwindow.cpp:62
+#, kde-format
+msgid "Search Error Log"
+msgstr ""
+
+#: mainwindow.cpp:114
+#, kde-format
+msgid "Preparing Index"
+msgstr ""
+
+#: mainwindow.cpp:157
+#, kde-format
+msgid "Ready"
+msgstr "Тайёр"
+
+#: mainwindow.cpp:208
+#, kde-format
+msgid "Previous Page"
+msgstr ""
+
+#: mainwindow.cpp:210
+#, kde-format
+msgid "Moves to the previous page of the document"
+msgstr ""
+
+#: mainwindow.cpp:214
+#, kde-format
+msgid "Next Page"
+msgstr "Саҳифаи навбатӣ"
+
+#: mainwindow.cpp:216
+#, kde-format
+msgid "Moves to the next page of the document"
+msgstr ""
+
+#: mainwindow.cpp:223
+#, kde-format
+msgid "Table of &Contents"
+msgstr ""
+
+#: mainwindow.cpp:224
+#, kde-format
+msgid "Table of contents"
+msgstr ""
+
+#: mainwindow.cpp:225
+#, kde-format
+msgid "Go back to the table of contents"
+msgstr ""
+
+#: mainwindow.cpp:231
+#, kde-format
+msgid "&Last Search Result"
+msgstr "&Натиҷаҳои ҷустуҷӯи охирин"
+
+#: mainwindow.cpp:249
+#, kde-format
+msgid "Configure Fonts..."
+msgstr "Танзимоти ҳарф..."
+
+#: mainwindow.cpp:253
+#, kde-format
+msgid "Increase Font Sizes"
+msgstr "Андозаи ҳарфро калон кунед"
+
+#: mainwindow.cpp:258
+#, kde-format
+msgid "Decrease Font Sizes"
+msgstr "Андозаи ҳарфро кам кунед"
+
+#: mainwindow.cpp:274
+#, kde-format
+msgctxt "@title:menu"
+msgid "&Bookmarks"
+msgstr "&Хатчӯбҳо"
+
+#: navigator.cpp:63
+#, fuzzy, kde-format
+#| msgid "&Search"
+msgid "Search..."
+msgstr "&Ҷустуҷӯ"
+
+#: navigator.cpp:118
+#, kde-format
+msgid "&Contents"
+msgstr ""
+
+#: navigator.cpp:128
+#, kde-format
+msgid "Search Options"
+msgstr "Интихобҳои ҷусиуҷӯӣ"
+
+#: navigator.cpp:136
+#, kde-format
+msgid "G&lossary"
+msgstr "Лу&ғати KDE"
+
+#: navigator.cpp:480
+#, kde-format
+msgid "Start Page"
+msgstr "Саҳифаро сар кунед. "
+
+#: navigator.cpp:481
+#, kde-format
+msgid "KDE Help Center"
+msgstr "Маркази ёрирасонии KDE"
+
+#: navigator.cpp:564
+#, kde-format
+msgid "Unable to run search program."
+msgstr "Барномаи ҷустуҷӯ иҷро карда натавонист."
+
+#: navigator.cpp:657
+#, fuzzy, kde-format
+msgid "Updating search index..."
+msgstr "Сохтани индекси ҷустуҷӯ"
+
+#: navigator.cpp:668
+#, kde-format
+msgid "Updating search index... done."
+msgstr ""
+
+#: searchengine.cpp:57
+#, kde-format
+msgid "Error: No document type specified."
+msgstr ""
+
+#: searchengine.cpp:59
+#, kde-format
+msgid "Error: No search handler for document type '%1'."
+msgstr ""
+
+#: searchengine.cpp:229
+#, kde-format
+msgid "No valid search handler found."
+msgstr ""
+
+#: searchhandler.cpp:37
+#, kde-format
+msgid "Error executing search command '%1'."
+msgstr ""
+
+#: searchhandler.cpp:75
+#, kde-format
+msgid "Error: %1"
+msgstr "Хато: %1"
+
+#: searchhandler.cpp:140 searchhandler.cpp:145
+#, kde-format
+msgid "'%1' not found, check your installation"
+msgstr ""
+
+#: searchhandler.cpp:150
+#, kde-format
+msgid "'%1' not found, install the package containing it"
+msgstr ""
+
+#: searchhandler.cpp:197
+#, kde-format
+msgid "No search command or URL specified."
+msgstr ""
+
+#: searchwidget.cpp:39
+#, kde-format
+msgid "and"
+msgstr "ва"
+
+#: searchwidget.cpp:40
+#, kde-format
+msgid "or"
+msgstr "ё"
+
+#: searchwidget.cpp:42
+#, kde-format
+msgid "&Method:"
+msgstr ""
+
+#: searchwidget.cpp:58
+#, kde-format
+msgid "Max. &results:"
+msgstr "Натиҷаи &максималӣ:"
+
+#: searchwidget.cpp:73
+#, kde-format
+msgid "&Scope selection:"
+msgstr "&Интихоби ҳаҷм:"
+
+#: searchwidget.cpp:81
+#, kde-format
+msgid "Scope"
+msgstr "Ҳаҷм"
+
+#: searchwidget.cpp:322
+#, kde-format
+msgctxt "Label for searching documentation using custom (user defined) scope"
+msgid "Custom"
+msgstr "Оддӣ"
+
+#: searchwidget.cpp:324
+#, kde-format
+msgctxt "Label for searching documentation using default search scope"
+msgid "Default"
+msgstr "Стандартӣ"
+
+#: searchwidget.cpp:326
+#, kde-format
+msgctxt "Label for searching documentation in all subsections"
+msgid "All"
+msgstr "Ҳама"
+
+#: searchwidget.cpp:328
+#, kde-format
+msgctxt "Label for scope that deselects all search subsections"
+msgid "None"
+msgstr "Ҳеҷ чиз"
+
+#: searchwidget.cpp:330
+#, kde-format
+msgctxt "Label for Unknown search scope, that should never appear"
+msgid "unknown"
+msgstr "номуайян"
+
+#: view.cpp:228
+#, kde-format
+msgid "Copy Link Address"
+msgstr "Нусхабардории номи суроға"
+
+#: view.cpp:312
+#, kde-format
+msgid ""
+"<p>Read the topic documentation in this window.<br /><br />Press <b>Space</"
+"b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, <b>Tab</b>/"
+"<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
+msgstr ""
+
+#~ msgid "Unable to initialize SearchHandler from file '%1'."
+#~ msgstr "Не удаётся инициализировать SearchHandler из файла «%1»."
+
+#~ msgid "Error"
+#~ msgstr "Хато"
+
+#~ msgid ""
+#~ "Unable to show selected glossary entry: unable to open file 'glossary."
+#~ "html.in'!"
+#~ msgstr ""
+#~ "Невозможно показать выбранную запись глоссария: не удаётся открыть файл "
+#~ "«glossary.html.in»!"
+
+#~ msgid "ht://dig"
+#~ msgstr "ht://dig"
+
+#~ msgid ""
+#~ "The fulltext search feature makes use of the ht://dig HTML search engine."
+#~ msgstr ""
+#~ "Функция полнотекстового поиска обеспечивается поисковой системой ht//dig."
+
+#~ msgid "Information about where to get the ht://dig package."
+#~ msgstr "Информация о расположении пакета ht://dig."
+
+#~ msgid "You can get ht://dig at the ht://dig home page"
+#~ msgstr "Пакет ht//dig можно получить по адресу"
+
+#~ msgid "Program Locations"
+#~ msgstr "Ҷойгиршавии барнома"
+
+#~ msgid "htsearch:"
+#~ msgstr "htsearch:"
+
+#~ msgid "Enter the URL of the htsearch CGI program."
+#~ msgstr "Номи URL-ро гузоред барои ҷустҷӯи барномаи CGI."
+
+#~ msgid "Indexer:"
+#~ msgstr "Индекскунанда:"
+
+#~ msgid "Enter the path to your htdig indexer program here."
+#~ msgstr "Укажите путь к программе индексирования htdig."
+
+#~ msgid "htdig database:"
+#~ msgstr "Пойгоҳи додаи htdig:"
+
+#~ msgid "Enter the path to the htdig database folder."
+#~ msgstr "Укажите путь к папке базы данных htdig."
+
+#~ msgid "Change Index Folder"
+#~ msgstr "Изменить папку индексов"
+
+#~ msgid "Index folder:"
+#~ msgstr "Фаҳрасти индекс:"
+
+#~ msgid "Build Search Indices"
+#~ msgstr "Сохтани индексҳои ҷустуҷӯ"
+
+#~ msgid "Index creation log:"
+#~ msgstr "Журнал создания индекса:"
+
+#~ msgctxt ""
+#~ "Label for button to close search index progress dialog after successful "
+#~ "completion"
+#~ msgid "Close"
+#~ msgstr "Хуруҷ"
+
+#~ msgid "Index creation finished."
+#~ msgstr "Сохтани индекс тамом шуд."
+
+#~ msgctxt "Label for stopping search index generation before completion"
+#~ msgid "Stop"
+#~ msgstr "Ист"
+
+#, fuzzy
+#~| msgid "Details >>"
+#~ msgid "Details <<"
+#~ msgstr "Тафсилотҳо >>"
+
+#~ msgid "Details >>"
+#~ msgstr "Тафсилотҳо >>"
+
+#~ msgid "Build Search Index"
+#~ msgstr "Сохтани индекси ҷустуҷӯ"
+
+#~ msgid "Build Index"
+#~ msgstr "Создать индекс"
+
+#~ msgid ""
+#~ "To be able to search a document, a search\n"
+#~ "index needs to exist. The status column of the list below shows whether "
+#~ "an index\n"
+#~ "for a document exists.\n"
+#~ msgstr ""
+#~ "Для обеспечения возможности поиска должен существовать\n"
+#~ "индекс для файлов соответствующего типа. Столбец состояния\n"
+#~ "ниже показывает, существует ли индекс для документа.\n"
+
+#~ msgid ""
+#~ "To create an index, check the box in the list and press the\n"
+#~ "\"Build Index\" button.\n"
+#~ msgstr ""
+#~ "Для создания индекса отметьте переключатель в списке и\n"
+#~ "нажмите кнопку «Создать индекс».\n"
+
+#~ msgid "Search Scope"
+#~ msgstr "Ҷустуҷӯи ҳаҷм"
+
+#~ msgid "Status"
+#~ msgstr "Ҳолат"
+
+#~ msgid "Change..."
+#~ msgstr "Тағйир..."
+
+#~ msgid ""
+#~ "<qt>The folder <b>%1</b> does not exist; unable to create index.</qt>"
+#~ msgstr "<qt>Папка <b>%1</b> не существует. Не удаётся создать индекс.</qt>"
+
+#~ msgctxt "Describes the status of a documentation index that is present"
+#~ msgid "OK"
+#~ msgstr "Шуд"
+
+#~ msgctxt "Describes the status of a documentation index that is missing"
+#~ msgid "Missing"
+#~ msgstr "Мавҷуд нест"
+
+#~ msgctxt ""
+#~ " Generic prefix label for error messages when creating documentation "
+#~ "index, first arg is the document's identifier, second is the document's "
+#~ "name"
+#~ msgid "Document '%1' (%2):\n"
+#~ msgstr "Ҳуҷҷат '%1' (%2):\n"
+
+#~ msgid "No document type."
+#~ msgstr "Нет типа документа."
+
+#~ msgid "No search handler available for document type '%1'."
+#~ msgstr "Нет доступного обработчика поиска для документа типа «%1»."
+
+#~ msgid "No indexing command specified for document type '%1'."
+#~ msgstr "Команда индексирования не указана для документов типа «%1»."
+
+#~ msgid "Failed to build index."
+#~ msgstr "Индексро сохтан карда натавонист."
+
+#~ msgid ""
+#~ "Error executing indexing build command:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Ошибка выполнения команды построения индексов:\n"
+#~ "%1"
+
+#~ msgid "Unable to start command '%1'."
+#~ msgstr "Не удаётся запустить команду «%1»."
+
+#~ msgid "KHelpCenter Index Builder"
+#~ msgstr "Сохтмони Индекс - KHelpCenter "
+
+#~ msgid "Cornelius Schumacher"
+#~ msgstr "Cornelius Schumacher"
+
+#~ msgid "Document to be indexed"
+#~ msgstr "Документ для индексирования"
+
+#~ msgid "Index directory"
+#~ msgstr "Феҳрасти индекс"
+
+#~ msgid ""
+#~ "A search index does not yet exist. Do you want to create the index now?"
+#~ msgstr "Индекс поиска не существует. Создать его?"
+
+#~ msgid "Create"
+#~ msgstr "Эҷод кардан"
+
+#~ msgid "Do Not Create"
+#~ msgstr "Эҷод накунед"
+
+#~ msgid "Build Search &Index..."
+#~ msgstr "Создать &индекс поиска..."
+
+#~ msgid "The KDE Help Center"
+#~ msgstr "Маркази Ёрии KDE"
+
+#~ msgid "Details &lt;&lt;"
+#~ msgstr "Сведения &lt;&lt;"
+
+#~ msgid "Details &gt;&gt;"
+#~ msgstr "Сведения &gt;&gt;"
+
+#~ msgid "Frerich Raabe"
+#~ msgstr "Frerich Raabe"
+
+#~ msgid "Matthias Elter"
+#~ msgstr "Matthias Elter"
+
+#~ msgid "Wojciech Smigaj"
+#~ msgstr "Wojciech Smigaj"
+
+#~ msgid "URL to display"
+#~ msgstr "Намоиши URL"
+
+#~ msgid "&File"
+#~ msgstr "&Файл"
+
+#~ msgid "ht://dig home page"
+#~ msgstr "ht://dig Саҳифаи Хона"
+
+#~ msgid "Conquer your Desktop!"
+#~ msgstr "Мизи Кориро кушоед!"
+
+#~ msgid "Welcome to the K Desktop Environment"
+#~ msgstr "Хуш Омадед ба Муҳити Мизи Корӣ"
+
+#~ msgid "What is the K Desktop Environment?"
+#~ msgstr "Муҳити KDE чӣ тавр аст?"
+
+#~ msgid "Contacting the KDE Project"
+#~ msgstr "Бо Проекти KDE-ро алоқа парбо кардан"
+
+#~ msgid "Useful links"
+#~ msgstr "Алоқаҳои фойданок"
+
+#~ msgid "General Documentation"
+#~ msgstr "Ҳуҷҷати Умумӣ"
+
+#, fuzzy
+#~ msgid "KDE Users' guide"
+#~ msgstr "Роҳнамои истифодакунандаи KDE"
+
+#~ msgid "Basic Applications"
+#~ msgstr "Барномаҳои оддӣ"
+
+#~ msgid "The KDE Control Center"
+#~ msgstr "Маркази Роҳбари KDE"
+
+#, fuzzy
+#~ msgid "Clear search"
+#~ msgstr "Ҷустуҷӯ"

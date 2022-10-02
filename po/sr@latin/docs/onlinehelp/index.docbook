@@ -1,0 +1,122 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Serbian-Latin "INCLUDE">
+]>
+<article id="onlinehelp" lang="&language;">
+<title
+>Pomoć na vezi</title>
+<articleinfo>
+
+<date
+>17. 4. 2016.</date>
+<releaseinfo
+>Programi KDE‑a 16.04</releaseinfo>
+
+</articleinfo>
+
+<para
+>Ova stranica izlaže različite načine za nalaženje pomoći na vezi i drugih informacija koje pruža zajednica KDE‑a.</para>
+
+<variablelist>
+<title
+>Korisnička baza KDE‑a</title>
+<varlistentry
+><term
+><ulink url="http://userbase.kde.org/An_introduction_to_KDE"
+>Uvod u KDE</ulink
+></term>
+<listitem>
+<para
+>Saznajte više o <ulink url="http://userbase.kde.org/What_is_KDE"
+>zajednici i softveru KDE‑a</ulink
+>, i neke informacije da vam pomognu na početku. Takođe otkrijte šta je <ulink url="http://userbase.kde.org/Welcome_to_KDE_UserBase"
+>Korisnička baza</ulink
+> i kako vam može biti od pomoći. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><ulink url="http://userbase.kde.org/Getting_Help"
+>Dobijanje pomoći</ulink
+></term>
+<listitem>
+<para
+>Treba vam pomoć? Evo nekih mesta na kojima možete potražiti pomoć za probleme, kao i saveta o tome kako da poboljšate kvalitet dobijenih odgovora. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><ulink url="http://userbase.kde.org/Applications"
+>Programi</ulink
+></term>
+<listitem>
+<para
+>Otkrijte raznolikost programa iz zajednice KDE‑a, kao i konkretne programe koji odgovaraju vašim potrebama i željama. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><ulink url="http://userbase.kde.org/Tutorials"
+>Tutorijali</ulink
+></term>
+<listitem>
+<para
+>Kako‑da, saveti i trikovi, i ostalo što vam može učiniti rad sa KDE softverom prijatnijim i produktivnijim. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+<variablelist>
+<title
+>Forumi KDE‑a</title>
+<varlistentry
+><term
+><ulink url="http://forum.kde.org/"
+>Forumi zajednice KDE‑a</ulink
+></term>
+<listitem>
+<para
+>Forumi KDE‑a pružaju korisnicima, programerima i ostalim zainteresovanim za KDE mesto na kome mogu da se ispomažu, pričaju o temama vezanim za KDE i razmenjuju ideje. Na forumu možete naći i <ulink url="http://forum.kde.org/viewforum.php?f=14/"
+>tutorijale i savete</ulink
+>.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<variablelist>
+<title
+>Techbase KDE‑a</title>
+<varlistentry
+><term
+><ulink url="http://techbase.kde.org/"
+>Techbase KDE‑a</ulink
+></term>
+<listitem>
+<para
+>Informacije za programere i pomoć u postavljanju razvojnog okruženja KDE‑a.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<variablelist>
+<title
+>Dokumentacija KDE‑a</title>
+<varlistentry
+><term
+><ulink url="http://docs.kde.org/"
+>Sajt dokumentacije KDE‑a</ulink
+></term>
+<listitem>
+<para
+>Ova stranica predstavlja sveukupnu korisničku dokumentaciju KDE‑a, na više od 25 jezika, za izdate i razvojne verzije Radnih okvira KDE‑a, plasma radnog prostora i Programa KDE‑a.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</article>

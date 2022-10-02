@@ -1,0 +1,727 @@
+# Translation of khelpcenter.po into Bosnian.
+# Aleksandar Dezelin <deza@ptt.yu>, 2001.
+# Toplica Tanaskovic <toptan@kde.org.yu>, 2003, 2004.
+# Chusslove Illich <caslav.ilic@gmx.net>, 2005, 2007, 2008, 2009, 2010.
+# Dalibor Djuric <dalibor.djuric@mozilla-srbija.org>, 2009, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: khelpcenter\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-15 00:47+0000\n"
+"PO-Revision-Date: 2014-10-20 19:49+0000\n"
+"Last-Translator: Vedran Ljubovic <vljubovic@smartnet.ba>\n"
+"Language-Team: Bosnian <bs@li.org>\n"
+"Language: bs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Launchpad (build 17341)\n"
+"X-Launchpad-Export-Date: 2015-02-16 06:42+0000\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+"X-Environment: kde\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Chusslove Illich,Samir Ribić,Vedran Ljubovic"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "Caslav.ilic@gmx.net,samir.ribic@etf.unsa.ba,vljubovic@smartnet.ba"
+
+#: application.cpp:30
+#, kde-format
+msgid "Documentation to open"
+msgstr "Dokumenacija za otvoriti"
+
+#: application.cpp:114 application.cpp:116
+#, fuzzy, kde-format
+#| msgid "KDE Help Center"
+msgid "Help Center"
+msgstr "Centar pomoći KDE‑a"
+
+#: application.cpp:118
+#, fuzzy, kde-format
+#| msgid "(c) 1999-2011, The KHelpCenter developers"
+msgid "(c) 1999-2020, The KHelpCenter developers"
+msgstr "(c) 1999-2011, The KHelpCenter razvojni tim"
+
+#: application.cpp:120
+#, kde-format
+msgid "Current maintainer"
+msgstr ""
+
+#: application.cpp:121
+#, kde-format
+msgid "Xapian-based search, lot of bugfixes"
+msgstr ""
+
+#: application.cpp:122
+#, kde-format
+msgid "Former maintainer"
+msgstr ""
+
+#: application.cpp:124
+#, kde-format
+msgid "Original Author"
+msgstr "Prvobitni autor"
+
+#: application.cpp:125
+#, kde-format
+msgid "Info page support"
+msgstr "Podrška za info stranice"
+
+#: docmetainfo.cpp:35
+#, kde-format
+msgid "Top-Level Documentation"
+msgstr "Dokumentacija s vrha"
+
+#: docmetainfo.cpp:83
+#, kde-format
+msgctxt "doctitle (language)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: docmetainfo.cpp:119
+#, kde-format
+msgctxt "Describes documentation entries that are in English"
+msgid "English"
+msgstr "Engleski"
+
+#: fontdialog.cpp:36
+#, kde-format
+msgid "Font Configuration"
+msgstr "Postava fontova"
+
+# >> @title:group Font sizes
+#: fontdialog.cpp:62
+#, kde-format
+msgid "Sizes"
+msgstr "Veličine"
+
+# >> @label:spinbox Font sizes
+# rewrite-msgid: /font//
+#: fontdialog.cpp:66
+#, kde-format
+msgctxt "The smallest size a will have"
+msgid "M&inimum font size:"
+msgstr "Naj&manja veličina:"
+
+# >> @label:spinbox Font sizes
+# rewrite-msgid: /font//
+#: fontdialog.cpp:73
+#, kde-format
+msgctxt "The normal size a font will have"
+msgid "M&edium font size:"
+msgstr "Sr&ednja veličina:"
+
+# >> @title:group
+#: fontdialog.cpp:83
+#, kde-format
+msgid "Fonts"
+msgstr "Fontovi"
+
+# >> @label:listbox Fonts
+# rewrite-msgid: /font//
+#: fontdialog.cpp:87
+#, kde-format
+msgid "S&tandard font:"
+msgstr "&Standardni:"
+
+# >> @label:listbox Fonts
+# rewrite-msgid: /font//
+#: fontdialog.cpp:93
+#, kde-format
+msgid "F&ixed font:"
+msgstr "&Fiksni:"
+
+# >> @label:listbox Fonts
+# rewrite-msgid: /font//
+#: fontdialog.cpp:99
+#, kde-format
+msgid "S&erif font:"
+msgstr "Ser&ifni:"
+
+# >> @label:listbox Fonts
+# rewrite-msgid: /font//
+#: fontdialog.cpp:105
+#, kde-format
+msgid "S&ans serif font:"
+msgstr "&Beserifni:"
+
+# >> @label:listbox Fonts
+# rewrite-msgid: /font//
+#: fontdialog.cpp:111
+#, kde-format
+msgid "&Italic font:"
+msgstr "&Kurzivni:"
+
+# >> @label:listbox Fonts
+# rewrite-msgid: /font//
+#: fontdialog.cpp:117
+#, kde-format
+msgid "&Fantasy font:"
+msgstr "F&antazijski:"
+
+# >> @title:group
+#: fontdialog.cpp:126
+#, kde-format
+msgid "Encoding"
+msgstr "Kodiranje"
+
+# >> @label:listbox
+# rewrite-msgid: /encoding//
+#: fontdialog.cpp:131
+#, kde-format
+msgid "&Default encoding:"
+msgstr "Podra&zumijevano:"
+
+# >> @item:inlistbox Default encoding
+# rewrite-msgid: /Encoding//
+#: fontdialog.cpp:136 fontdialog.cpp:204
+#, kde-format
+msgid "Use Language Encoding"
+msgstr "Po jeziku"
+
+# >> @label:listbox Encoding
+# rewrite-msgid: /Font//
+#: fontdialog.cpp:140
+#, kde-format
+msgid "&Font size adjustment:"
+msgstr "Pri&lagođenje veličine:"
+
+# >> @title Documentation sorted by topic (branch in tree view)
+#: glossary.cpp:68
+#, kde-format
+msgid "By Topic"
+msgstr "Po temi"
+
+# >> @title Documentation sorted alphabetically (branch in tree view)
+#: glossary.cpp:72 infotree.cpp:74
+#, kde-format
+msgid "Alphabetically"
+msgstr "Abecedno"
+
+#: glossary.cpp:128
+#, kde-format
+msgid "Rebuilding glossary cache..."
+msgstr "Obnavljam keš pojmovnika..."
+
+#: glossary.cpp:182
+#, kde-format
+msgid "Rebuilding cache... done."
+msgstr "Obnavljam keš... gotovo."
+
+#: grantleeformatter.cpp:102
+#, fuzzy, kde-format
+#| msgid "KDE Glossary"
+msgctxt "%1 is a glossary term"
+msgid "KDE Glossary: %1"
+msgstr "Pojmovnik KDE‑a"
+
+#: grantleeformatter.cpp:103
+#, kde-format
+msgid "KDE Glossary"
+msgstr "Pojmovnik KDE‑a"
+
+#: grantleeformatter.cpp:107
+#, fuzzy, kde-format
+#| msgid "See also: "
+msgid "See also: %1"
+msgstr "Takođe pogledajte: "
+
+#: grantleeformatter.cpp:128
+#, kde-format
+msgid "Search Results"
+msgstr "Rezultati pretrage"
+
+#: grantleeformatter.cpp:129 searchengine.cpp:259
+#, kde-format
+msgid "Search Results for '%1':"
+msgstr "Rezultati pretrage za „%1“:"
+
+#: infotree.cpp:77
+#, kde-format
+msgid "By Category"
+msgstr "Po kategoriji"
+
+#. i18n: ectx: label, entry, group (Search)
+#: khelpcenter.kcfg:31
+#, kde-format
+msgid "Path to index directory."
+msgstr "Putanja do indeksnog direktorijuma."
+
+#. i18n: ectx: whatsthis, entry, group (Search)
+#: khelpcenter.kcfg:32
+#, kde-format
+msgid "Path to directory containing search indices."
+msgstr "Putanja do direktorijuma koji sadrži pretraživačke indekse."
+
+#. i18n: ectx: label, entry, group (Layout)
+#: khelpcenter.kcfg:46
+#, kde-format
+msgid "Currently visible navigator tab"
+msgstr "Trenutno vidljiv navigatorski jezičak"
+
+#. i18n: ectx: Menu (edit)
+#: khelpcenterui.rc:5
+#, kde-format
+msgid "&Edit"
+msgstr "&Izmijeni"
+
+#. i18n: ectx: Menu (view)
+#: khelpcenterui.rc:13
+#, kde-format
+msgid "&View"
+msgstr "&Pogled"
+
+#. i18n: ectx: Menu (go)
+#: khelpcenterui.rc:19
+#, kde-format
+msgid "&Go"
+msgstr "&Kreni"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: khelpcenterui.rc:36
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Glavna alatna traka"
+
+#: mainwindow.cpp:62
+#, kde-format
+msgid "Search Error Log"
+msgstr "Dnevnik grešaka pretraživanja"
+
+# >> @info:progress
+#: mainwindow.cpp:114
+#, kde-format
+msgid "Preparing Index"
+msgstr "Pripremam indeks"
+
+# >> @info:progress
+#: mainwindow.cpp:157
+#, kde-format
+msgid "Ready"
+msgstr "Spreman"
+
+#: mainwindow.cpp:208
+#, kde-format
+msgid "Previous Page"
+msgstr "Prethodna stranica"
+
+#: mainwindow.cpp:210
+#, kde-format
+msgid "Moves to the previous page of the document"
+msgstr "Ide na prethodnu stranicu dokumenta"
+
+#: mainwindow.cpp:214
+#, kde-format
+msgid "Next Page"
+msgstr "Naredna stranica"
+
+#: mainwindow.cpp:216
+#, kde-format
+msgid "Moves to the next page of the document"
+msgstr "Ide na narednu stranicu dokumenta"
+
+#: mainwindow.cpp:223
+#, kde-format
+msgid "Table of &Contents"
+msgstr "&Sadržaj"
+
+#: mainwindow.cpp:224
+#, kde-format
+msgid "Table of contents"
+msgstr "Sadržaj"
+
+#: mainwindow.cpp:225
+#, kde-format
+msgid "Go back to the table of contents"
+msgstr "Nazad na sadržaj"
+
+#: mainwindow.cpp:231
+#, kde-format
+msgid "&Last Search Result"
+msgstr "Rezultat pos&ljednje pretrage"
+
+#: mainwindow.cpp:249
+#, kde-format
+msgid "Configure Fonts..."
+msgstr "Podešavanje fonta..."
+
+# Drži kratko, na traci alatki
+#: mainwindow.cpp:253
+#, kde-format
+msgid "Increase Font Sizes"
+msgstr "Povećaj font"
+
+# Drži kratko, na traci alatki
+#: mainwindow.cpp:258
+#, kde-format
+msgid "Decrease Font Sizes"
+msgstr "Smanji font"
+
+#: mainwindow.cpp:274
+#, kde-format
+msgctxt "@title:menu"
+msgid "&Bookmarks"
+msgstr ""
+
+#: navigator.cpp:63
+#, fuzzy, kde-format
+#| msgid "&Search"
+msgid "Search..."
+msgstr "&Traži"
+
+#: navigator.cpp:118
+#, kde-format
+msgid "&Contents"
+msgstr "&Sadržaj"
+
+#: navigator.cpp:128
+#, kde-format
+msgid "Search Options"
+msgstr "Opcije pretrage"
+
+#: navigator.cpp:136
+#, kde-format
+msgid "G&lossary"
+msgstr "&Pojmovnik"
+
+#: navigator.cpp:480
+#, kde-format
+msgid "Start Page"
+msgstr "Početna stranica"
+
+#: navigator.cpp:481
+#, kde-format
+msgid "KDE Help Center"
+msgstr "Centar pomoći KDE‑a"
+
+#: navigator.cpp:564
+#, kde-format
+msgid "Unable to run search program."
+msgstr "Ne mogu da pokrenem pretraživački program."
+
+#: navigator.cpp:657
+#, fuzzy, kde-format
+#| msgid "Build Search &Index..."
+msgid "Updating search index..."
+msgstr "Izgradi pretraživački &indeks..."
+
+#: navigator.cpp:668
+#, fuzzy, kde-format
+#| msgid "Rebuilding cache... done."
+msgid "Updating search index... done."
+msgstr "Obnavljam keš... gotovo."
+
+#: searchengine.cpp:57
+#, kde-format
+msgid "Error: No document type specified."
+msgstr "Greška: Nije zadat tip dokumenta."
+
+#: searchengine.cpp:59
+#, kde-format
+msgid "Error: No search handler for document type '%1'."
+msgstr "Greška: Nema rukovaoca pretragom za tip dokumenta „%1“."
+
+#: searchengine.cpp:229
+#, kde-format
+msgid "No valid search handler found."
+msgstr "Nema nijednog valjanog rukovaoca pretragom."
+
+#: searchhandler.cpp:37
+#, kde-format
+msgid "Error executing search command '%1'."
+msgstr "Greška pri izvršavanju pretraživačke naredbe „%1“."
+
+#: searchhandler.cpp:75
+#, kde-format
+msgid "Error: %1"
+msgstr "Greška: %1"
+
+# >> %1 is a shell command
+#: searchhandler.cpp:140 searchhandler.cpp:145
+#, kde-format
+msgid "'%1' not found, check your installation"
+msgstr "<command>%1</command> nije nađena, provjerite instalaciju."
+
+#: searchhandler.cpp:150
+#, kde-format
+msgid "'%1' not found, install the package containing it"
+msgstr "'%1' nije nađena, instalirajte paket koji je sadrži."
+
+#: searchhandler.cpp:197
+#, kde-format
+msgid "No search command or URL specified."
+msgstr "Pretraživačka naredba ili URL nisu zadati."
+
+#: searchwidget.cpp:39
+#, kde-format
+msgid "and"
+msgstr "i"
+
+#: searchwidget.cpp:40
+#, kde-format
+msgid "or"
+msgstr "ili"
+
+#: searchwidget.cpp:42
+#, kde-format
+msgid "&Method:"
+msgstr "&Metod:"
+
+#: searchwidget.cpp:58
+#, kde-format
+msgid "Max. &results:"
+msgstr "Maks. &rezultata:"
+
+#: searchwidget.cpp:73
+#, kde-format
+msgid "&Scope selection:"
+msgstr "&Izbor dosega:"
+
+# >> @title:column
+#: searchwidget.cpp:81
+#, kde-format
+msgid "Scope"
+msgstr "Doseg"
+
+# >> @item:inlistbox Scope selection
+#: searchwidget.cpp:322
+#, kde-format
+msgctxt "Label for searching documentation using custom (user defined) scope"
+msgid "Custom"
+msgstr "Posebno"
+
+# >> @item:inlistbox Scope selection
+#: searchwidget.cpp:324
+#, kde-format
+msgctxt "Label for searching documentation using default search scope"
+msgid "Default"
+msgstr "Podrazumijevano"
+
+# >> @item:inlistbox Scope selection
+#: searchwidget.cpp:326
+#, kde-format
+msgctxt "Label for searching documentation in all subsections"
+msgid "All"
+msgstr "Sve"
+
+# >> @item:inlistbox Scope selection
+#: searchwidget.cpp:328
+#, kde-format
+msgctxt "Label for scope that deselects all search subsections"
+msgid "None"
+msgstr "Ništa"
+
+# >> @item:inlistbox Scope selection
+#: searchwidget.cpp:330
+#, kde-format
+msgctxt "Label for Unknown search scope, that should never appear"
+msgid "unknown"
+msgstr "nepoznat"
+
+#: view.cpp:228
+#, kde-format
+msgid "Copy Link Address"
+msgstr "Kopiraj adresu veze"
+
+#: view.cpp:312
+#, kde-format
+msgid ""
+"<p>Read the topic documentation in this window.<br /><br />Press <b>Space</"
+"b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, <b>Tab</b>/"
+"<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
+msgstr ""
+
+#~ msgid "Handler"
+#~ msgstr "Upravljač"
+
+#~ msgid "Unable to initialize SearchHandler from file '%1'."
+#~ msgstr "Ne mogu da pripremim rukovaoca pretragom iz datoteke „%1“."
+
+#~ msgid "Error"
+#~ msgstr "Greška"
+
+#~ msgid ""
+#~ "Unable to show selected glossary entry: unable to open file 'glossary."
+#~ "html.in'!"
+#~ msgstr ""
+#~ "Ne mogu da prikažem izabranu stavku: ne mogu da otvorim fajl "
+#~ "<filename>glossary.html.in</filename>!"
+
+#~ msgid "ht://dig"
+#~ msgstr "ht://dig"
+
+#~ msgid ""
+#~ "The fulltext search feature makes use of the ht://dig HTML search engine."
+#~ msgstr "Punotekstualno pretraživanje koristi HTML pretraživač ht://dig."
+
+#~ msgid "Information about where to get the ht://dig package."
+#~ msgstr "Gdje nabaviti paket ht://diga."
+
+#~ msgid "You can get ht://dig at the ht://dig home page"
+#~ msgstr "Ht://dig možete preuzeti sa njegove domaće stranice"
+
+#~ msgid "Program Locations"
+#~ msgstr "Lokacije programa"
+
+#~ msgid "htsearch:"
+#~ msgstr "traženje:"
+
+#~ msgid "Enter the URL of the htsearch CGI program."
+#~ msgstr "URL CGI programa <command>htsearch</command>."
+
+#~ msgid "Indexer:"
+#~ msgstr "Indeksar:"
+
+#~ msgid "Enter the path to your htdig indexer program here."
+#~ msgstr "Putanja do ht://digove naredbe za indeksiranje."
+
+#~ msgid "htdig database:"
+#~ msgstr "ht://digova baza:"
+
+#~ msgid "Enter the path to the htdig database folder."
+#~ msgstr "Putanja do direktorija ht://digove baze podataka."
+
+#~ msgid "Change Index Folder"
+#~ msgstr "Promjena indeksnog direktorija"
+
+#~ msgid "Index folder:"
+#~ msgstr "Indeksni direktorij:"
+
+# >> @title:window
+#~ msgid "Build Search Indices"
+#~ msgstr "Gradnja pretraživačkih indeksa"
+
+#~ msgid "Index creation log:"
+#~ msgstr "Dnevnik stvaranja indeksa:"
+
+#~ msgctxt ""
+#~ "Label for button to close search index progress dialog after successful "
+#~ "completion"
+#~ msgid "Close"
+#~ msgstr "Zatvori"
+
+#~ msgid "Index creation finished."
+#~ msgstr "Stvaranje indeksa je završeno."
+
+#~ msgctxt "Label for stopping search index generation before completion"
+#~ msgid "Stop"
+#~ msgstr "Zaustavi"
+
+#~ msgid "Details <<"
+#~ msgstr "Detalji <<"
+
+#~ msgid "Details >>"
+#~ msgstr "Detalji >>"
+
+# >> @title:window
+#~ msgid "Build Search Index"
+#~ msgstr "Gradnja pretraživačkog indeksa"
+
+#~ msgid "Build Index"
+#~ msgstr "Izgradi indeks"
+
+#~ msgid ""
+#~ "To be able to search a document, a search\n"
+#~ "index needs to exist. The status column of the list below shows whether "
+#~ "an index\n"
+#~ "for a document exists.\n"
+#~ msgstr ""
+#~ "Da bi se moglo tražiti po dokumentu, mora postojati\n"
+#~ "pretraživački indeks. Kolona stanja u spisku ispod\n"
+#~ "pokazuje da li takav indeks postoji za dokument.\n"
+
+#~ msgid ""
+#~ "To create an index, check the box in the list and press the\n"
+#~ "\"Build Index\" button.\n"
+#~ msgstr ""
+#~ "Da biste stvorili indeks, popunite kućicu u spisku i\n"
+#~ "kliknite na dugme <interface>Izgradi indeks</interface>.\n"
+
+#~ msgid "Search Scope"
+#~ msgstr "Opseg pretrage"
+
+# >> @title:column
+#~ msgid "Status"
+#~ msgstr "Stanje"
+
+#~ msgid "Change..."
+#~ msgstr "Izmijeni..."
+
+#~ msgid ""
+#~ "<qt>The folder <b>%1</b> does not exist; unable to create index.</qt>"
+#~ msgstr "<qt>Direktorij %1 ne postoji; ne mogu da napravim indeks.</qt>"
+
+# >> @item:intable
+#~ msgctxt "Describes the status of a documentation index that is present"
+#~ msgid "OK"
+#~ msgstr "U redu"
+
+# >> @item:intable
+#~ msgctxt "Describes the status of a documentation index that is missing"
+#~ msgid "Missing"
+#~ msgstr "Nedostaje"
+
+#~ msgctxt ""
+#~ " Generic prefix label for error messages when creating documentation "
+#~ "index, first arg is the document's identifier, second is the document's "
+#~ "name"
+#~ msgid "Document '%1' (%2):\n"
+#~ msgstr "Dokument '%1' (%2):\n"
+
+#~ msgid "No document type."
+#~ msgstr "Nema tipa dokumenta."
+
+#~ msgid "No search handler available for document type '%1'."
+#~ msgstr "Rukovalac pretragom nije dostupan za tip dokumenta „%1“."
+
+#~ msgid "No indexing command specified for document type '%1'."
+#~ msgstr "Naredba indeksiranja nije zadata za tip dokumenta „%1“."
+
+#~ msgid "Failed to build index."
+#~ msgstr "Neuspjeh u izgradnji indeksa."
+
+#~ msgid ""
+#~ "Error executing indexing build command:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Greška pri izvršavanju naredbe za izgradnju indeksa:\n"
+#~ "%1"
+
+#~ msgid "Unable to start command '%1'."
+#~ msgstr "Ne mogu da pokrenem naredbu <command>%1</command>."
+
+#~ msgid "KHelpCenter Index Builder"
+#~ msgstr "Izgrađivač indeksa za K‑centar-pomoći"
+
+#~ msgid "Cornelius Schumacher"
+#~ msgstr "Kornelijus Šumaher"
+
+#~ msgid "Document to be indexed"
+#~ msgstr "Dokument za indeksiranje"
+
+#~ msgid "Index directory"
+#~ msgstr "Indeksni direktorijum"
+
+#~ msgid ""
+#~ "A search index does not yet exist. Do you want to create the index now?"
+#~ msgstr "Pretraživački indeks ne postoji. Želite li da ga stvorim sada?"
+
+#~ msgid "Create"
+#~ msgstr "Stvori"
+
+#~ msgid "Do Not Create"
+#~ msgstr "Ne stvaraj"
+
+#~ msgid "The KDE Help Center"
+#~ msgstr "Centar pomoći KDE‑a"
+
+#~ msgid "(c) 2003, The KHelpCenter developers"
+#~ msgstr "© 2003, programeri K‑centra-pomoći"

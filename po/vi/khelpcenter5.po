@@ -1,0 +1,494 @@
+# Vietnamese translation for khelpcenter.
+# Copyright © 2007 KDE i18n Project for Vietnamese.
+#
+# Clytie Siddall <clytie@riverland.net.au>, 2006-2007.
+# Lê Hoàng Phương <herophuong93@gmail.com>, 2012.
+# Phu Hung Nguyen <phu.nguyen@kdemail.net>, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: khelpcenter\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-15 00:47+0000\n"
+"PO-Revision-Date: 2021-08-02 10:55+0200\n"
+"Last-Translator: Phu Hung Nguyen <phu.nguyen@kdemail.net>\n"
+"Language-Team: Vietnamese <kde-l10n-vi@kde.org>\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 20.12.2\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Nguyễn Hùng Phú,Lê Hoàng Phương,Clytie Siddall"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "phu.nguyen@kdemail.net,herophuong93@gmail.com,clytie@riverland.net.au"
+
+#: application.cpp:30
+#, kde-format
+msgid "Documentation to open"
+msgstr "Tài liệu để mở"
+
+#: application.cpp:114 application.cpp:116
+#, kde-format
+msgid "Help Center"
+msgstr "Trung tâm trợ giúp"
+
+#: application.cpp:118
+#, kde-format
+msgid "(c) 1999-2020, The KHelpCenter developers"
+msgstr "(c) 1999-2020, Các nhà phát triển KHelpCenter"
+
+#: application.cpp:120
+#, kde-format
+msgid "Current maintainer"
+msgstr "Bảo trì viên hiện tại"
+
+#: application.cpp:121
+#, kde-format
+msgid "Xapian-based search, lot of bugfixes"
+msgstr "Tìm kiếm dựa trên Xapian, nhiều bản sửa lỗi"
+
+#: application.cpp:122
+#, kde-format
+msgid "Former maintainer"
+msgstr "Bảo trì viên trước đây"
+
+#: application.cpp:124
+#, kde-format
+msgid "Original Author"
+msgstr "Tác giả gốc"
+
+#: application.cpp:125
+#, kde-format
+msgid "Info page support"
+msgstr "Hỗ trợ cho trang Info"
+
+#: docmetainfo.cpp:35
+#, kde-format
+msgid "Top-Level Documentation"
+msgstr "Tài liệu mức đỉnh"
+
+#: docmetainfo.cpp:83
+#, kde-format
+msgctxt "doctitle (language)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: docmetainfo.cpp:119
+#, kde-format
+msgctxt "Describes documentation entries that are in English"
+msgid "English"
+msgstr "Tiếng Anh"
+
+#: fontdialog.cpp:36
+#, kde-format
+msgid "Font Configuration"
+msgstr "Cấu hình phông chữ"
+
+#: fontdialog.cpp:62
+#, kde-format
+msgid "Sizes"
+msgstr "Cỡ"
+
+#: fontdialog.cpp:66
+#, kde-format
+msgctxt "The smallest size a will have"
+msgid "M&inimum font size:"
+msgstr "Cỡ phông chữ tối th&iểu:"
+
+#: fontdialog.cpp:73
+#, kde-format
+msgctxt "The normal size a font will have"
+msgid "M&edium font size:"
+msgstr "Cỡ phông chữ tr&ung bình:"
+
+#: fontdialog.cpp:83
+#, kde-format
+msgid "Fonts"
+msgstr "Phông chữ"
+
+#: fontdialog.cpp:87
+#, kde-format
+msgid "S&tandard font:"
+msgstr "Phông chữ tiêu &chuẩn:"
+
+#: fontdialog.cpp:93
+#, kde-format
+msgid "F&ixed font:"
+msgstr "Phông chữ độ &rộng cố định:"
+
+#: fontdialog.cpp:99
+#, kde-format
+msgid "S&erif font:"
+msgstr "&Phông chữ có chân:"
+
+#: fontdialog.cpp:105
+#, kde-format
+msgid "S&ans serif font:"
+msgstr "Phông chữ &không chân:"
+
+#: fontdialog.cpp:111
+#, kde-format
+msgid "&Italic font:"
+msgstr "Phông chữ n&ghiêng:"
+
+#: fontdialog.cpp:117
+#, kde-format
+msgid "&Fantasy font:"
+msgstr "Phông chữ &trang trí:"
+
+#: fontdialog.cpp:126
+#, kde-format
+msgid "Encoding"
+msgstr "Mã hoá"
+
+#: fontdialog.cpp:131
+#, kde-format
+msgid "&Default encoding:"
+msgstr "Mã h&oá mặc định:"
+
+#: fontdialog.cpp:136 fontdialog.cpp:204
+#, kde-format
+msgid "Use Language Encoding"
+msgstr "Dùng mã hoá ngôn ngữ"
+
+#: fontdialog.cpp:140
+#, kde-format
+msgid "&Font size adjustment:"
+msgstr "Điều c&hỉnh cỡ phông chữ:"
+
+#: glossary.cpp:68
+#, kde-format
+msgid "By Topic"
+msgstr "Theo chủ đề"
+
+#: glossary.cpp:72 infotree.cpp:74
+#, kde-format
+msgid "Alphabetically"
+msgstr "Theo bảng chữ cái"
+
+#: glossary.cpp:128
+#, kde-format
+msgid "Rebuilding glossary cache..."
+msgstr "Đang xây dựng lại bộ nhớ sẵn thuật ngữ..."
+
+#: glossary.cpp:182
+#, kde-format
+msgid "Rebuilding cache... done."
+msgstr "Đang xây dựng lại bộ nhớ sẵn... xong."
+
+#: grantleeformatter.cpp:102
+#, kde-format
+msgctxt "%1 is a glossary term"
+msgid "KDE Glossary: %1"
+msgstr "Thuật ngữ KDE: %1"
+
+#: grantleeformatter.cpp:103
+#, kde-format
+msgid "KDE Glossary"
+msgstr "Thuật ngữ KDE"
+
+#: grantleeformatter.cpp:107
+#, kde-format
+msgid "See also: %1"
+msgstr "Xem thêm: %1"
+
+#: grantleeformatter.cpp:128
+#, kde-format
+msgid "Search Results"
+msgstr "Kết quả tìm kiếm"
+
+#: grantleeformatter.cpp:129 searchengine.cpp:259
+#, kde-format
+msgid "Search Results for '%1':"
+msgstr "Kết quả tìm kiếm cho '%1':"
+
+#: infotree.cpp:77
+#, kde-format
+msgid "By Category"
+msgstr "Theo nhóm"
+
+#. i18n: ectx: label, entry, group (Search)
+#: khelpcenter.kcfg:31
+#, kde-format
+msgid "Path to index directory."
+msgstr "Đường dẫn đến thư mục chỉ mục."
+
+#. i18n: ectx: whatsthis, entry, group (Search)
+#: khelpcenter.kcfg:32
+#, kde-format
+msgid "Path to directory containing search indices."
+msgstr "Đường dẫn đến thư mục chứa các chỉ mục tìm kiếm."
+
+#. i18n: ectx: label, entry, group (Layout)
+#: khelpcenter.kcfg:46
+#, kde-format
+msgid "Currently visible navigator tab"
+msgstr "Thẻ trình điều hướng đang hiển thị"
+
+#. i18n: ectx: Menu (edit)
+#: khelpcenterui.rc:5
+#, kde-format
+msgid "&Edit"
+msgstr "&Sửa"
+
+#. i18n: ectx: Menu (view)
+#: khelpcenterui.rc:13
+#, kde-format
+msgid "&View"
+msgstr "&Xem"
+
+#. i18n: ectx: Menu (go)
+#: khelpcenterui.rc:19
+#, kde-format
+msgid "&Go"
+msgstr "Đ&i"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: khelpcenterui.rc:36
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Thanh công cụ chính"
+
+#: mainwindow.cpp:62
+#, kde-format
+msgid "Search Error Log"
+msgstr "Nhật kí lỗi tìm kiếm"
+
+#: mainwindow.cpp:114
+#, kde-format
+msgid "Preparing Index"
+msgstr "Đang chuẩn bị chỉ mục"
+
+#: mainwindow.cpp:157
+#, kde-format
+msgid "Ready"
+msgstr "Sẵn sàng"
+
+#: mainwindow.cpp:208
+#, kde-format
+msgid "Previous Page"
+msgstr "Trang trước"
+
+#: mainwindow.cpp:210
+#, kde-format
+msgid "Moves to the previous page of the document"
+msgstr "Chuyển về trang trước trong tài liệu"
+
+#: mainwindow.cpp:214
+#, kde-format
+msgid "Next Page"
+msgstr "Trang sau"
+
+#: mainwindow.cpp:216
+#, kde-format
+msgid "Moves to the next page of the document"
+msgstr "Chuyển đến trang sau trong tài liệu"
+
+#: mainwindow.cpp:223
+#, kde-format
+msgid "Table of &Contents"
+msgstr "&Mục lục"
+
+#: mainwindow.cpp:224
+#, kde-format
+msgid "Table of contents"
+msgstr "Mục lục"
+
+#: mainwindow.cpp:225
+#, kde-format
+msgid "Go back to the table of contents"
+msgstr "Lùi lại về mục lục"
+
+#: mainwindow.cpp:231
+#, kde-format
+msgid "&Last Search Result"
+msgstr "Kết quả tìm kiếm &cuối cùng"
+
+#: mainwindow.cpp:249
+#, kde-format
+msgid "Configure Fonts..."
+msgstr "Cấu hình phông chữ..."
+
+#: mainwindow.cpp:253
+#, kde-format
+msgid "Increase Font Sizes"
+msgstr "Tăng cỡ phông chữ"
+
+#: mainwindow.cpp:258
+#, kde-format
+msgid "Decrease Font Sizes"
+msgstr "Giảm cỡ phông chữ"
+
+#: mainwindow.cpp:274
+#, kde-format
+msgctxt "@title:menu"
+msgid "&Bookmarks"
+msgstr "&Dấu nhớ"
+
+#: navigator.cpp:63
+#, kde-format
+msgid "Search..."
+msgstr "Tìm kiếm..."
+
+#: navigator.cpp:118
+#, kde-format
+msgid "&Contents"
+msgstr "&Nội dung"
+
+#: navigator.cpp:128
+#, kde-format
+msgid "Search Options"
+msgstr "Lựa chọn tìm kiếm"
+
+#: navigator.cpp:136
+#, kde-format
+msgid "G&lossary"
+msgstr "&Thuật ngữ"
+
+#: navigator.cpp:480
+#, kde-format
+msgid "Start Page"
+msgstr "Trang đầu"
+
+#: navigator.cpp:481
+#, kde-format
+msgid "KDE Help Center"
+msgstr "Trung tâm trợ giúp KDE"
+
+#: navigator.cpp:564
+#, kde-format
+msgid "Unable to run search program."
+msgstr "Không thể chạy chương trình tìm kiếm."
+
+#: navigator.cpp:657
+#, kde-format
+msgid "Updating search index..."
+msgstr "Đang cập nhật chỉ mục tìm kiếm..."
+
+#: navigator.cpp:668
+#, kde-format
+msgid "Updating search index... done."
+msgstr "Đang cập nhật chỉ mục tìm kiếm... xong."
+
+#: searchengine.cpp:57
+#, kde-format
+msgid "Error: No document type specified."
+msgstr "Lỗi: Chưa xác định kiểu tài liệu."
+
+#: searchengine.cpp:59
+#, kde-format
+msgid "Error: No search handler for document type '%1'."
+msgstr "Lỗi: Không có trình xử lí tìm kiếm cho kiểu tài liệu '%1'."
+
+#: searchengine.cpp:229
+#, kde-format
+msgid "No valid search handler found."
+msgstr "Không tìm thấy trình xử lí tìm kiếm hợp lệ."
+
+#: searchhandler.cpp:37
+#, kde-format
+msgid "Error executing search command '%1'."
+msgstr "Lỗi khi thực thi lệnh tìm kiếm '%1'."
+
+#: searchhandler.cpp:75
+#, kde-format
+msgid "Error: %1"
+msgstr "Lỗi: %1"
+
+#: searchhandler.cpp:140 searchhandler.cpp:145
+#, kde-format
+msgid "'%1' not found, check your installation"
+msgstr "Không tìm thấy '%1', hãy kiểm tra bản cài đặt của bạn"
+
+#: searchhandler.cpp:150
+#, kde-format
+msgid "'%1' not found, install the package containing it"
+msgstr "Không tìm thấy '%1', hãy cài đặt gói chứa nó"
+
+#: searchhandler.cpp:197
+#, kde-format
+msgid "No search command or URL specified."
+msgstr "Chưa xác định lệnh hoặc URL tìm kiếm."
+
+#: searchwidget.cpp:39
+#, kde-format
+msgid "and"
+msgstr "và"
+
+#: searchwidget.cpp:40
+#, kde-format
+msgid "or"
+msgstr "hoặc"
+
+#: searchwidget.cpp:42
+#, kde-format
+msgid "&Method:"
+msgstr "&Phương thức:"
+
+#: searchwidget.cpp:58
+#, kde-format
+msgid "Max. &results:"
+msgstr "Lượng &kết quả tối đa:"
+
+#: searchwidget.cpp:73
+#, kde-format
+msgid "&Scope selection:"
+msgstr "Chọn phạm &vi:"
+
+#: searchwidget.cpp:81
+#, kde-format
+msgid "Scope"
+msgstr "Phạm vi"
+
+#: searchwidget.cpp:322
+#, kde-format
+msgctxt "Label for searching documentation using custom (user defined) scope"
+msgid "Custom"
+msgstr "Tự chọn"
+
+#: searchwidget.cpp:324
+#, kde-format
+msgctxt "Label for searching documentation using default search scope"
+msgid "Default"
+msgstr "Mặc định"
+
+#: searchwidget.cpp:326
+#, kde-format
+msgctxt "Label for searching documentation in all subsections"
+msgid "All"
+msgstr "Tất cả"
+
+#: searchwidget.cpp:328
+#, kde-format
+msgctxt "Label for scope that deselects all search subsections"
+msgid "None"
+msgstr "Không"
+
+#: searchwidget.cpp:330
+#, kde-format
+msgctxt "Label for Unknown search scope, that should never appear"
+msgid "unknown"
+msgstr "không rõ"
+
+#: view.cpp:228
+#, kde-format
+msgid "Copy Link Address"
+msgstr "Chép địa chỉ liên kết"
+
+#: view.cpp:312
+#, kde-format
+msgid ""
+"<p>Read the topic documentation in this window.<br /><br />Press <b>Space</"
+"b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, <b>Tab</b>/"
+"<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
+msgstr ""
+"<p>Đọc tài liệu của chủ đề ở trong cửa sổ này.<br /><br />Nhấn <b>Cách</b>/"
+"<b>Shift+Cách</b> để cuộn, <b>%1</b> để tìm kiếm, <b>Tab</b>/<b>Shift+Tab</"
+"b> để di chuyển nhắm, và <b>Enter</b> để đi theo nhắm.</p>"

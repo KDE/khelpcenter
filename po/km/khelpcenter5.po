@@ -1,0 +1,698 @@
+# translation of khelpcenter.po to Khmer
+# Khoem Sokhem <khoemsokhem@khmeros.info>, 2005, 2007, 2008, 2010, 2012.
+# Auk Piseth <piseth_dv@khmeros.info>, 2007, 2008.
+# Eng Vannak <evannak@khmeros.info>, 2007.
+msgid ""
+msgstr ""
+"Project-Id-Version: khelpcenter\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-15 00:47+0000\n"
+"PO-Revision-Date: 2012-01-06 08:50+0700\n"
+"Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
+"Language-Team: Khmer <support@khmeros.info>\n"
+"Language: km\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ខឹម សុខែម, អេង វណ្ណៈ, អោក ពិសិដ្ឋ​​"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "khoemsokhem@khmeros.info,​​evannak@khmeros.info,piseth_dv@khmeros.info"
+
+#: application.cpp:30
+#, fuzzy, kde-format
+#| msgid "Document to be indexed"
+msgid "Documentation to open"
+msgstr "ឯកសារ​ត្រូវ​បាន​ដាក់​លិបិក្រម"
+
+#: application.cpp:114 application.cpp:116
+#, fuzzy, kde-format
+#| msgid "KDE Help Center"
+msgid "Help Center"
+msgstr "មជ្ឈមណ្ឌល​ជំនួយ KDE"
+
+#: application.cpp:118
+#, fuzzy, kde-format
+#| msgid "(c) 1999-2011, The KHelpCenter developers"
+msgid "(c) 1999-2020, The KHelpCenter developers"
+msgstr "រក្សា​សិទ្ធិ​ឆ្នាំ ១៩៩៩-២០១១ ដោយ​អ្នក​អភិវឌ្ឍន៍ KHelpCenter"
+
+#: application.cpp:120
+#, kde-format
+msgid "Current maintainer"
+msgstr ""
+
+#: application.cpp:121
+#, kde-format
+msgid "Xapian-based search, lot of bugfixes"
+msgstr ""
+
+#: application.cpp:122
+#, kde-format
+msgid "Former maintainer"
+msgstr ""
+
+#: application.cpp:124
+#, kde-format
+msgid "Original Author"
+msgstr "អ្នក​និពន្ធ​ដើម"
+
+#: application.cpp:125
+#, kde-format
+msgid "Info page support"
+msgstr "ការ​គាំទ្រ​ទំព័រ​ព័ត៌មាន"
+
+#: docmetainfo.cpp:35
+#, kde-format
+msgid "Top-Level Documentation"
+msgstr "ឯកសារ​កម្រិត​ខ្ពស់"
+
+#: docmetainfo.cpp:83
+#, kde-format
+msgctxt "doctitle (language)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: docmetainfo.cpp:119
+#, kde-format
+msgctxt "Describes documentation entries that are in English"
+msgid "English"
+msgstr "អង់គ្លេស"
+
+#: fontdialog.cpp:36
+#, kde-format
+msgid "Font Configuration"
+msgstr "ការ​កំណត់​រចនាសម្ព័ន្ធ​ពុម្ព​អក្សរ"
+
+#: fontdialog.cpp:62
+#, kde-format
+msgid "Sizes"
+msgstr "ទំហំ"
+
+#: fontdialog.cpp:66
+#, kde-format
+msgctxt "The smallest size a will have"
+msgid "M&inimum font size:"
+msgstr "ទំហំ​ពុម្ព​អក្សរ​អប្បបរមា ៖"
+
+#: fontdialog.cpp:73
+#, kde-format
+msgctxt "The normal size a font will have"
+msgid "M&edium font size:"
+msgstr "ទំហំ​ពុម្ព​អក្សរ​មធ្យម ៖"
+
+#: fontdialog.cpp:83
+#, kde-format
+msgid "Fonts"
+msgstr "ពុម្ព​អក្សរ​"
+
+#: fontdialog.cpp:87
+#, kde-format
+msgid "S&tandard font:"
+msgstr "ទំហំ​ពុម្ព​អក្សរ​ស្តង់ដារ ៖"
+
+#: fontdialog.cpp:93
+#, kde-format
+msgid "F&ixed font:"
+msgstr "ទំហំ​ពុម្ព​អក្សរ​ថេរ ៖"
+
+#: fontdialog.cpp:99
+#, kde-format
+msgid "S&erif font:"
+msgstr "ពុម្ព​អក្សរ Serif ៖"
+
+#: fontdialog.cpp:105
+#, kde-format
+msgid "S&ans serif font:"
+msgstr "ពុម្ព​អក្សរ Sans serif ៖"
+
+#: fontdialog.cpp:111
+#, kde-format
+msgid "&Italic font:"
+msgstr "ពុម្ព​អក្សរ​ទ្រេត ៖"
+
+#: fontdialog.cpp:117
+#, kde-format
+msgid "&Fantasy font:"
+msgstr "ពុម្ព​អក្សរ​ដែល​ចូលចិត្ត ៖"
+
+#: fontdialog.cpp:126
+#, kde-format
+msgid "Encoding"
+msgstr "សំណុំ​តួ​អក្សរ"
+
+#: fontdialog.cpp:131
+#, kde-format
+msgid "&Default encoding:"
+msgstr "សំណុំ​តួ​អក្សរ​លំនាំ​ដើម ៖"
+
+#: fontdialog.cpp:136 fontdialog.cpp:204
+#, kde-format
+msgid "Use Language Encoding"
+msgstr "ប្រើ​សំណុំ​តួ​អក្សរ​របស់​ភាសា"
+
+#: fontdialog.cpp:140
+#, kde-format
+msgid "&Font size adjustment:"
+msgstr "ការ​លៃ​តម្រូវ​ទំហំ​ពុម្ព​អក្សរ ៖"
+
+#: glossary.cpp:68
+#, kde-format
+msgid "By Topic"
+msgstr "តាម​ប្រធាន​បទ"
+
+#: glossary.cpp:72 infotree.cpp:74
+#, kde-format
+msgid "Alphabetically"
+msgstr "តាម​លំដាប់​អក្ខរ​ក្រម"
+
+#: glossary.cpp:128
+#, kde-format
+msgid "Rebuilding glossary cache..."
+msgstr "កំពុង​ស្ថាបនា​ឃ្លាំង​សម្ងាត់​ឡើងវិញ..."
+
+#: glossary.cpp:182
+#, kde-format
+msgid "Rebuilding cache... done."
+msgstr "កំពុង​ស្ថាបនា​ឃ្លាំង​សម្ងាត់​ឡើង​វិញ...​បាន​ធ្វើ​រួច ។"
+
+#: grantleeformatter.cpp:102
+#, fuzzy, kde-format
+#| msgid "KDE Glossary"
+msgctxt "%1 is a glossary term"
+msgid "KDE Glossary: %1"
+msgstr "សទ្ទានុក្រម KDE"
+
+#: grantleeformatter.cpp:103
+#, kde-format
+msgid "KDE Glossary"
+msgstr "សទ្ទានុក្រម KDE"
+
+#: grantleeformatter.cpp:107
+#, fuzzy, kde-format
+#| msgid "See also: "
+msgid "See also: %1"
+msgstr "មើល​ផង​ដែរ ៖ "
+
+#: grantleeformatter.cpp:128
+#, kde-format
+msgid "Search Results"
+msgstr "លទ្ធផល​ស្វែងរក​"
+
+#: grantleeformatter.cpp:129 searchengine.cpp:259
+#, kde-format
+msgid "Search Results for '%1':"
+msgstr "លទ្ធផល​ស្វែងរក​សម្រាប់ '%1' ៖"
+
+#: infotree.cpp:77
+#, kde-format
+msgid "By Category"
+msgstr "តាម​ប្រភេទ"
+
+#. i18n: ectx: label, entry, group (Search)
+#: khelpcenter.kcfg:31
+#, kde-format
+msgid "Path to index directory."
+msgstr "ផ្លូវ​ទៅ​ថត​លិបិក្រម ។"
+
+#. i18n: ectx: whatsthis, entry, group (Search)
+#: khelpcenter.kcfg:32
+#, kde-format
+msgid "Path to directory containing search indices."
+msgstr "ផ្លូវ​ទៅ​ថត​ដែល​មាន​លិបិក្រម​ស្វែង​រក ។"
+
+#. i18n: ectx: label, entry, group (Layout)
+#: khelpcenter.kcfg:46
+#, kde-format
+msgid "Currently visible navigator tab"
+msgstr "ផ្ទាំង​កម្មវិធី​រុករក​ដែល​មើល​ឃើញ​ថ្មីៗ"
+
+#. i18n: ectx: Menu (edit)
+#: khelpcenterui.rc:5
+#, kde-format
+msgid "&Edit"
+msgstr "កែ​សម្រួល​"
+
+#. i18n: ectx: Menu (view)
+#: khelpcenterui.rc:13
+#, kde-format
+msgid "&View"
+msgstr "មើល​"
+
+#. i18n: ectx: Menu (go)
+#: khelpcenterui.rc:19
+#, kde-format
+msgid "&Go"
+msgstr "ទៅ"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: khelpcenterui.rc:36
+#, kde-format
+msgid "Main Toolbar"
+msgstr "របារ​ឧបករណ៍​មេ​"
+
+#: mainwindow.cpp:62
+#, kde-format
+msgid "Search Error Log"
+msgstr "ស្វែង​រក​កំណត់​ហេតុ​របស់​កំហុស"
+
+#: mainwindow.cpp:114
+#, kde-format
+msgid "Preparing Index"
+msgstr "កំពុង​រៀបចំ​លិបិក្រម"
+
+#: mainwindow.cpp:157
+#, kde-format
+msgid "Ready"
+msgstr "រួចរាល់"
+
+#: mainwindow.cpp:208
+#, kde-format
+msgid "Previous Page"
+msgstr "ទំព័រ​មុន"
+
+#: mainwindow.cpp:210
+#, kde-format
+msgid "Moves to the previous page of the document"
+msgstr "ផ្លាស់ទី​ទៅ​ទំព័រ​មុន​របស់​ឯកសារ"
+
+#: mainwindow.cpp:214
+#, kde-format
+msgid "Next Page"
+msgstr "ទំព័រ​បន្ទាប់"
+
+#: mainwindow.cpp:216
+#, kde-format
+msgid "Moves to the next page of the document"
+msgstr "ផ្លាស់ទី​ទៅ​ទំព័រ​បន្ទាប់​របស់​ឯកសារ"
+
+#: mainwindow.cpp:223
+#, kde-format
+msgid "Table of &Contents"
+msgstr "តារាង​មាតិកា"
+
+#: mainwindow.cpp:224
+#, kde-format
+msgid "Table of contents"
+msgstr "តារាង​មាតិកា"
+
+#: mainwindow.cpp:225
+#, kde-format
+msgid "Go back to the table of contents"
+msgstr "ត្រឡប់​ទៅ​តារាង​មាតិកា"
+
+#: mainwindow.cpp:231
+#, kde-format
+msgid "&Last Search Result"
+msgstr "លទ្ធផល​ស្វែងរក​ចុង​ក្រោយ"
+
+#: mainwindow.cpp:249
+#, kde-format
+msgid "Configure Fonts..."
+msgstr "កំណត់​រចនា​សម្ព័ន្ធ​ពុម្ព​អក្សរ..."
+
+#: mainwindow.cpp:253
+#, kde-format
+msgid "Increase Font Sizes"
+msgstr "បង្កើន​ទំហំ​ពុម្ព​អក្សរ"
+
+#: mainwindow.cpp:258
+#, kde-format
+msgid "Decrease Font Sizes"
+msgstr "បន្ថយ​ទំហំ​ពុម្ព​អក្សរ"
+
+#: mainwindow.cpp:274
+#, kde-format
+msgctxt "@title:menu"
+msgid "&Bookmarks"
+msgstr ""
+
+#: navigator.cpp:63
+#, fuzzy, kde-format
+#| msgid "&Search"
+msgid "Search..."
+msgstr "ស្វែង​រក"
+
+#: navigator.cpp:118
+#, kde-format
+msgid "&Contents"
+msgstr "មាតិកា​"
+
+#: navigator.cpp:128
+#, kde-format
+msgid "Search Options"
+msgstr "ជម្រើស​ស្វែង​រក"
+
+#: navigator.cpp:136
+#, kde-format
+msgid "G&lossary"
+msgstr "សទ្ទានុក្រម"
+
+#: navigator.cpp:480
+#, kde-format
+msgid "Start Page"
+msgstr "ទំព័រ​ចាប់ផ្ដើម"
+
+#: navigator.cpp:481
+#, kde-format
+msgid "KDE Help Center"
+msgstr "មជ្ឈមណ្ឌល​ជំនួយ KDE"
+
+#: navigator.cpp:564
+#, kde-format
+msgid "Unable to run search program."
+msgstr "មិន​អាច​រត់​កម្មវិធី​ស្វែងរក"
+
+#: navigator.cpp:657
+#, fuzzy, kde-format
+#| msgid "Build Search &Index..."
+msgid "Updating search index..."
+msgstr "ស្ថាបនា​លិបិក្រម​ស្វែងរក..."
+
+#: navigator.cpp:668
+#, fuzzy, kde-format
+#| msgid "Rebuilding cache... done."
+msgid "Updating search index... done."
+msgstr "កំពុង​ស្ថាបនា​ឃ្លាំង​សម្ងាត់​ឡើង​វិញ...​បាន​ធ្វើ​រួច ។"
+
+#: searchengine.cpp:57
+#, kde-format
+msgid "Error: No document type specified."
+msgstr "កំហុស ៖ គ្មាន​បាន​បញ្ជាក់​ប្រភេទ​ឯកសារ ។"
+
+#: searchengine.cpp:59
+#, kde-format
+msgid "Error: No search handler for document type '%1'."
+msgstr "កំហុស ៖ គ្មាន​កម្មវិធី​ដោះស្រាយ​ការ​ស្វែង​រក សម្រាប់​ប្រភេទ​ឯកសារ '%1' ។"
+
+#: searchengine.cpp:229
+#, kde-format
+msgid "No valid search handler found."
+msgstr "រក​មិន​ឃើញ​កម្មវិធី ដោះស្រាយ​ការ ស្វែង​រក​ដែល​ត្រឹម​ត្រូវ ។"
+
+#: searchhandler.cpp:37
+#, kde-format
+msgid "Error executing search command '%1'."
+msgstr "កំហុស​ក្នុង​ការ​ប្រតិបត្តិ​ពាក្យ​បញ្ជា​ស្វែងរក %1 ។"
+
+#: searchhandler.cpp:75
+#, kde-format
+msgid "Error: %1"
+msgstr "កំហុស ៖ %1"
+
+#: searchhandler.cpp:140 searchhandler.cpp:145
+#, kde-format
+msgid "'%1' not found, check your installation"
+msgstr "រក​មិនឃើញ '%1' ទេ ពិនិត្យ​មើល​ការ​ដំឡើង​របស់​អ្នក"
+
+#: searchhandler.cpp:150
+#, kde-format
+msgid "'%1' not found, install the package containing it"
+msgstr "រក​មិនឃើញ '%1' ទេ ដំឡើង​កញ្ចប់​ដែល​មាន​វា"
+
+#: searchhandler.cpp:197
+#, kde-format
+msgid "No search command or URL specified."
+msgstr "គ្មាន​បាន​បញ្ជាក់​ពាក្យ​បញ្ជា ឬ URL ស្វែងរក ។"
+
+#: searchwidget.cpp:39
+#, kde-format
+msgid "and"
+msgstr "និង"
+
+#: searchwidget.cpp:40
+#, kde-format
+msgid "or"
+msgstr "ឬ"
+
+#: searchwidget.cpp:42
+#, kde-format
+msgid "&Method:"
+msgstr "វិធីសាស្ត្រ ៖"
+
+#: searchwidget.cpp:58
+#, kde-format
+msgid "Max. &results:"
+msgstr "លទ្ធផល​អតិបរមា ៖"
+
+#: searchwidget.cpp:73
+#, kde-format
+msgid "&Scope selection:"
+msgstr "ការ​ជ្រើស​វិសាលភាព ៖"
+
+#: searchwidget.cpp:81
+#, kde-format
+msgid "Scope"
+msgstr "វិសាលភាព"
+
+#: searchwidget.cpp:322
+#, kde-format
+msgctxt "Label for searching documentation using custom (user defined) scope"
+msgid "Custom"
+msgstr "ផ្ទាល់​ខ្លួន"
+
+#: searchwidget.cpp:324
+#, kde-format
+msgctxt "Label for searching documentation using default search scope"
+msgid "Default"
+msgstr "លំនាំ​ដើម​"
+
+#: searchwidget.cpp:326
+#, kde-format
+msgctxt "Label for searching documentation in all subsections"
+msgid "All"
+msgstr "ទាំង​អស់"
+
+#: searchwidget.cpp:328
+#, kde-format
+msgctxt "Label for scope that deselects all search subsections"
+msgid "None"
+msgstr "គ្មាន"
+
+#: searchwidget.cpp:330
+#, kde-format
+msgctxt "Label for Unknown search scope, that should never appear"
+msgid "unknown"
+msgstr "មិន​ស្គាល់"
+
+#: view.cpp:228
+#, kde-format
+msgid "Copy Link Address"
+msgstr "ចម្លង​អាសយដ្ឋាន​របស់​តំណ"
+
+#: view.cpp:312
+#, kde-format
+msgid ""
+"<p>Read the topic documentation in this window.<br /><br />Press <b>Space</"
+"b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, <b>Tab</b>/"
+"<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
+msgstr ""
+
+#~ msgid "Unable to initialize SearchHandler from file '%1'."
+#~ msgstr "មិន​អាច​ចាប់ផ្ដើម​កម្មវិធី​ដោះស្រាយ​ការ​ស្វែងរក​ពី​ឯកសារ '%1' ។"
+
+#~ msgid "Error"
+#~ msgstr "កំហុស ៖ %1"
+
+#~ msgid ""
+#~ "Unable to show selected glossary entry: unable to open file 'glossary."
+#~ "html.in'!"
+#~ msgstr ""
+#~ "មិន​អាច​បង្ហាញ​ធាតុ​របស់​សទ្ទានុក្រម​ដែល​បាន​ជ្រើស ៖ មិន​អាច​បើក​ឯកសារ 'glossary.html.in'!"
+
+#~ msgid "ht://dig"
+#~ msgstr "ht://dig"
+
+#~ msgid ""
+#~ "The fulltext search feature makes use of the ht://dig HTML search engine."
+#~ msgstr "លក្ខណៈ​ពិសេស​ស្វែងរក​អត្ថបទ​ពេញលេញ ប្រើ​ម៉ាស៊ីន​ស្វែងរក ht://dig HTML ។ៅ"
+
+#~ msgid "Information about where to get the ht://dig package."
+#~ msgstr "ព័ត៌មាន​អំពី​កន្លែង​ដែល​ត្រូវ​យក ht://dig package ។"
+
+#~ msgid "You can get ht://dig at the ht://dig home page"
+#~ msgstr "អ្នកអាច​យក​គេហទំព័រ ht://dig at the ht://dig"
+
+#~ msgid "Program Locations"
+#~ msgstr "ទីតាំង​កម្មវិធី"
+
+#~ msgid "htsearch:"
+#~ msgstr "htsearch ៖"
+
+#~ msgid "Enter the URL of the htsearch CGI program."
+#~ msgstr "បញ្ចូល URL របស់​កម្មវិធី CGI htsearch​ ។"
+
+#~ msgid "Indexer:"
+#~ msgstr "ឧបករណ៍​កំណត់​លិបិក្រម ៖"
+
+#~ msgid "Enter the path to your htdig indexer program here."
+#~ msgstr "បញ្ចូល​ផ្លូវ​ទៅ​កម្មវិធី​បង្កើត​លិបិក្រម htdig របស់​អ្នក​នៅ​ទីនេះ ។"
+
+#~ msgid "htdig database:"
+#~ msgstr "មូលដ្ឋាន​ទិន្នន័យ htdig ៖"
+
+#~ msgid "Enter the path to the htdig database folder."
+#~ msgstr "បញ្ចូល​ផ្លូវ​ទៅ​ថត​មូលដ្ឋាន​ទិន្នន័យ htdig ។"
+
+#~ msgid "Change Index Folder"
+#~ msgstr "ផ្លាស់ប្ដូរ​ថត​លិបិក្រម"
+
+#~ msgid "Index folder:"
+#~ msgstr "ថត​លិបិក្រម ៖"
+
+#~ msgid "Build Search Indices"
+#~ msgstr "ស្ថាបនា​លិបិក្រម​ស្វែង​រក"
+
+#~ msgid "Index creation log:"
+#~ msgstr "កំណត់​ហេតុ​បង្កើត​លិបិក្រម"
+
+#~ msgctxt ""
+#~ "Label for button to close search index progress dialog after successful "
+#~ "completion"
+#~ msgid "Close"
+#~ msgstr "បិទ​"
+
+#~ msgid "Index creation finished."
+#~ msgstr "ការ​បង្កើត​លិបិក្រម​បាន​បញ្ចប់ ។"
+
+#~ msgctxt "Label for stopping search index generation before completion"
+#~ msgid "Stop"
+#~ msgstr "បញ្ឈប់"
+
+#, fuzzy
+#~| msgid "Details &lt;&lt;"
+#~ msgid "Details <<"
+#~ msgstr "លម្អិត &lt;&lt;"
+
+#, fuzzy
+#~| msgid "Details &lt;&lt;"
+#~ msgid "Details >>"
+#~ msgstr "លម្អិត &lt;&lt;"
+
+#~ msgid "Build Search Index"
+#~ msgstr "ស្ថាបនា​លិបិក្រម​ស្វែង​រក"
+
+#~ msgid "Build Index"
+#~ msgstr "ស្ថាបនា​លិបិក្រម"
+
+#~ msgid ""
+#~ "To be able to search a document, a search\n"
+#~ "index needs to exist. The status column of the list below shows whether "
+#~ "an index\n"
+#~ "for a document exists.\n"
+#~ msgstr ""
+#~ "ដើម្បី​អាច​រក​ឯកសារ ស្វែង​រក​\n"
+#~ "លិបិក្រម​ដែល​ចាំបាច់​ត្រូវ​មាន ។ ជួរ​ឈរ​ស្ថានភាព​​របស់​បញ្ជី​ខាង​ក្រោម​បង្ហាញ​ថាតើ​ជា​លិបិក្រម\n"
+#~ "សម្រាប់​ឯកសារ​ដែល​មាន ។\n"
+
+#~ msgid ""
+#~ "To create an index, check the box in the list and press the\n"
+#~ "\"Build Index\" button.\n"
+#~ msgstr ""
+#~ "ដើម្បី​បង្កើត​លិបិក្រម​មួយ ធីក​ប្រអប់​នេះ​ក្នុង​បញ្ជី និង​ចុច​\n"
+#~ "ប៊ូតុង \"ស្ថាបនា​លិបិក្រម\" ។\n"
+
+#~ msgid "Search Scope"
+#~ msgstr "វិសាល​ភាព​ស្វែង​រក"
+
+#~ msgid "Status"
+#~ msgstr "ស្ថានភាព"
+
+#~ msgid "Change..."
+#~ msgstr "ផ្លាស់ប្ដូរ..."
+
+#~ msgid ""
+#~ "<qt>The folder <b>%1</b> does not exist; unable to create index.</qt>"
+#~ msgstr "<qt>ថត <b>%1</b> មិន​ទាន់​មាន​ឡើយ ដូច្នេះ​មិន​អាច​បង្កើត​លិបិក្រម​បាន​ទេ ។</qt>"
+
+#~ msgctxt "Describes the status of a documentation index that is present"
+#~ msgid "OK"
+#~ msgstr "យល់​ព្រម​"
+
+#~ msgctxt "Describes the status of a documentation index that is missing"
+#~ msgid "Missing"
+#~ msgstr "បាត់"
+
+#~ msgctxt ""
+#~ " Generic prefix label for error messages when creating documentation "
+#~ "index, first arg is the document's identifier, second is the document's "
+#~ "name"
+#~ msgid "Document '%1' (%2):\n"
+#~ msgstr "ឯកសារ '%1' (%2) ៖\n"
+
+#~ msgid "No document type."
+#~ msgstr "គ្មាន​ប្រភេទ​ឯកសារ ។"
+
+#~ msgid "No search handler available for document type '%1'."
+#~ msgstr "គ្មាន​កម្មវិធី ដោះស្រាយ​ការ​ស្វែងរក​អាច​ប្រើ​បាន សម្រាប់​ប្រភេទ​ឯកសារ '%1' ។"
+
+#~ msgid "No indexing command specified for document type '%1'."
+#~ msgstr "គ្មាន​ពាក្យ​បញ្ជា​បង្កើត​លិបិក្រម​បាន​បញ្ជាក់ សម្រាប់​ប្រភេទ​ឯកសារ '%1' ​។"
+
+#~ msgid "Failed to build index."
+#~ msgstr "បាន​បរាជ័យ ក្នុង​ការ​ស្ថាបនា​លិបិក្រម ។"
+
+#~ msgid ""
+#~ "Error executing indexing build command:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "មាន​កំហុស ពេល​ប្រតិបត្តិ​ពាក្យ​បញ្ជា​ស្ថាបនា​លិបិក្រម ៖\n"
+#~ "%1"
+
+#~ msgid "Unable to start command '%1'."
+#~ msgstr "មិន​អាច​ចាប់​ផ្ដើម​ពាក្យ​បញ្ជា '%1' ។"
+
+#~ msgid "KHelpCenter Index Builder"
+#~ msgstr "កម្មវិធី​ស្ថាបនា​លិបិក្រម​របស់ KHelpCenter"
+
+#~ msgid "Cornelius Schumacher"
+#~ msgstr "Cornelius Schumacher"
+
+#~ msgid "Document to be indexed"
+#~ msgstr "ឯកសារ​ត្រូវ​បាន​ដាក់​លិបិក្រម"
+
+#~ msgid "Index directory"
+#~ msgstr "ថត​របស់​លិបិក្រម"
+
+#~ msgid ""
+#~ "A search index does not yet exist. Do you want to create the index now?"
+#~ msgstr "មិន​ទាន់​មាន​លិបិក្រម​ស្វែងរក​នៅ​ឡើយ​ទេ ។ តើ​អ្នក​ចង់​បង្កើត​លិបិក្រម​ឥឡូវ​នេះ​ឬ​ទេ?"
+
+#~ msgid "Create"
+#~ msgstr "បង្កើត"
+
+#~ msgid "Do Not Create"
+#~ msgstr "កុំ​បង្កើត"
+
+#~ msgid "The KDE Help Center"
+#~ msgstr "មជ្ឈមណ្ឌល​ជំនួយ KDE"
+
+#~ msgid "(c) 2003, The KHelpCenter developers"
+#~ msgstr "រក្សា​សិទ្ធិ​ឆ្នាំ ២០០៣ ដោយ​អ្នក​បង្កើត​របស់ KHelpCenter"
+
+#~ msgid "Details &gt;&gt;"
+#~ msgstr "លម្អិត &gt;&gt;"
+
+#~ msgid "Frerich Raabe"
+#~ msgstr "Frerich Raabe"
+
+#~ msgid "Matthias Elter"
+#~ msgstr "Matthias Elter"
+
+#~ msgid "Wojciech Smigaj"
+#~ msgstr "Wojciech Smigaj"
+
+#~ msgid "URL to display"
+#~ msgstr "URL ដែល​ត្រូវ​បង្ហាញ​"
+
+#~ msgid "&File"
+#~ msgstr "ឯកសារ​"

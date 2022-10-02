@@ -1,0 +1,146 @@
+<chapter id="install">
+<title
+>Instalar o &plasma-desktop; e as Aplicações do &kde;</title>
+
+<para
+>Poderá instalar as aplicações do &kde;, incluindo o &plasma-desktop;, numa variedade de plataformas diferentes, desde os telemóveis e tabletes a computadores que correm &Microsoft; &Windows;, &MacOS;, &UNIX;, &BSD; ou &Linux;. Estão disponíveis pacotes de binários para diversas plataformas e distribuições; para além disso, os utilizadores avançados poderão compilar directamente o código-fonte.</para>
+
+<sect1 id="install-packages">
+<title
+>Instalação dos Pacotes</title>
+
+<para
+>Centenas de programadores em todo o mundo fizeram um bom trabalho para tornar simples a instalação do &kde; numa enorme variedade de dispositivos e plataformas diferentes.</para>
+
+<sect2 id="install-linux">
+<title
+>&Linux;</title>
+
+<para
+>Praticamente todas as distribuições de &Linux; oferecem pacotes de binários para as aplicações individuais e para o &plasma-desktop; como um todo.</para>
+
+<para
+>Para instalar uma aplicação individual, procure pelo seu nome na colecção de pacotes da sua distribuição. Para instalar uma das &plasma-workspaces;, como o &plasma-desktop;, procure por um meta-pacote ou grupo de pacotes, tipicamente o <literal
+>plasma-desktop</literal
+>.</para>
+
+<note>
+<para
+>Algumas aplicações de base poderão ser instaladas em conjunto com outras, num pacote combinado cujo nome se baseia no pacote do &kde; em que são fornecidas. Por exemplo, o &konqueror; poderá ser encontrado no pacote <literal
+>kde-baseapps</literal
+>.</para>
+</note>
+
+<para
+>Se tiver problemas em encontrar pacotes do &kde; para a sua distribuição, por favor contacte os recursos de suporte da mesma. Muitas distribuições têm também uma equipa dedicada à publicação em pacotes do &kde; que poderá dar sugestões específicas para os mesmos. </para>
+
+<!--FIXME: provide steps for common distributions?-->
+
+</sect2>
+
+<sect2 id="install-windows">
+<title
+>&Microsoft; &Windows;</title>
+
+<para
+>A Iniciativa do &kde; no Windows oferece pacotes binários das aplicações do &kde; para o &Microsoft; &Windows;. Também oferecem uma aplicação de instalação especial que lhe permite instalar aplicações ou grupos individuais, bem como todas as dependências necessárias, de forma simples.</para>
+
+<para
+>Para mais informações sobre a iniciativa e para instalar o instalador, vá à <ulink url="http://windows.kde.org/"
+>Iniciativa do KDE no Windows</ulink
+>. </para>
+
+<!--FIXME: describe how to use the installer?-->
+
+</sect2>
+
+<sect2 id="install-mac">
+<title
+>&MacOS;</title>
+
+<para
+>Poderá instalar pacotes individuais do &kde; através dos diferentes sistemas de <quote
+>ports</quote
+> disponíveis para o &MacOS;. Diversas aplicações diferentes do &kde; também têm as suas próprias versões binárias para o &MacOS;.</para>
+
+<para
+>Para mais informações, vá ao <ulink url="http://mac.kde.org/"
+>&kde; no &MacOS;X</ulink
+>.</para>
+
+</sect2>
+
+<sect2 id="install-bsd">
+<title
+>&BSD;</title>
+
+<para
+>A maioria das distribuições de &BSD; permitem-lhe instalar as aplicações do &kde; e as &plasma-desktop;, a partir do seu sistema de <quote
+>ports</quote
+>.</para>
+
+<para
+>Para mais informações sobre a instalação destes 'ports', veja a documentação da sua distribuição de &BSD;.</para>
+
+<!--FIXME: provide steps/links for common BSDs?-->
+
+</sect2>
+
+<sect2 id="install-mobile">
+<title
+>Dispositivos Móveis</title>
+<para
+>O <productname
+>Plasma Mobile</productname
+> é uma iniciativa excelente para trazer uma nova experiência do &kde; para dispositivos móveis, como os 'smartphones' ou as tabletes. Existem versões binárias para diferentes dispositivos.</para>
+
+<para
+>Para mais informações, visite o <ulink url="http://plasma-mobile.org/"
+><productname
+>Plasma Mobile</productname
+></ulink
+>.</para>
+
+</sect2>
+
+<sect2 id="install-live">
+<title
+>Conteúdo 'Live'</title>
+
+<para
+>Muitas distribuições de &Linux; e &BSD; fornecem discos 'live'. Estes permitem-lhe experimentar as &plasma-desktop; sem instalar nada no seu sistema. Tudo o que tem a fazer é introduzir um CD ou um dispositivo USB e arrancar a partir dele. Se gostar do que vê, a maioria deles oferece uma opção para o instalar no seu disco rígido.</para>
+
+<para
+>Existe uma <ulink url="http://www.kde.org/download/distributions.php"
+>lista de distribuições que oferecem a área de trabalho e as aplicações do &kde; em suporte 'live'</ulink
+> na página Web do &kde;.</para>
+</sect2>
+<!--Neon?-->
+<sect2 id="install-source">
+<title
+>Compilar a Partir do Código-Fonte</title>
+
+<para
+>Para obter informações detalhadas sobre como compilar e instalar o &plasma-desktop; e as aplicações, vá à página da <ulink url="https://community.kde.org/Guidelines_and_HOWTOs/Build_from_source"
+>Compilação a partir do código</ulink
+>.</para>
+
+<para
+>Dado que as aplicações do &kde; usa o <command
+>cmake</command
+> não deverá ter problemas a compilá-lo. Se tiver, por favor comunique-os às listas de correio do &kde;.</para>
+
+<para
+>A ferramenta recomendada para compilar as Plataformas, o &plasma-desktop; e todas as outras aplicações é o <ulink url="https://commits.kde.org/kdesrc-build"
+>kdesrc-build</ulink
+> </para>
+</sect2>
+<!--FIXME more info:
+  Where to get sources (git split) 
+  where to get help building from souces
+  kdesrc-build
+  -->
+
+</sect1>
+
+</chapter>

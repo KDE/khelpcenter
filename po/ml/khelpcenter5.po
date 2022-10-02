@@ -1,0 +1,713 @@
+# translation of khelpcenter.po to
+# Copyright (C) 2008 This_file_is_part_of_KDE
+# This file is distributed under the same license as the khelpcenter package.
+# Shiju Alex <shijualexonline@gmail.com>, 2008.
+# Sankaranaarayanan.N.M <snalledam@dataone.in>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: khelpcenter\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-15 00:47+0000\n"
+"PO-Revision-Date: 2019-12-12 21:19+0000\n"
+"Last-Translator: Vivek KJ Pazhedath <vivekkj2004@gmail.com>\n"
+"Language-Team: Swathanthra|സ്വതന്ത്ര Malayalam|മലയാളം Computing|കമ്പ്യൂട്ടിങ്ങ് <smc-"
+"discuss@googlegroups.com>\n"
+"Language: ml\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ഷിജു അലക്സ്,ശങ്കരനാരായണന്‍ എന്‍ എം"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "shijualexonline@gmail.com,snalledam@dataone.in,vivekkj2004@gmail.com"
+
+#: application.cpp:30
+#, kde-format
+msgid "Documentation to open"
+msgstr "തുറക്കാനുള്ള വിവരം"
+
+#: application.cpp:114 application.cpp:116
+#, kde-format
+msgid "Help Center"
+msgstr "സഹായ കേന്ദ്രം"
+
+#: application.cpp:118
+#, fuzzy, kde-format
+#| msgid "(c) 1999-2018, The KHelpCenter developers"
+msgid "(c) 1999-2020, The KHelpCenter developers"
+msgstr "(c) 1999-2003, കെഡി‌‌ഇ സഹായകേന്ദ്രം ഡെവലപ്പര്‍മാര്‍"
+
+#: application.cpp:120
+#, kde-format
+msgid "Current maintainer"
+msgstr "ഇപ്പോഴത്തെ പരിപാലകൻ"
+
+#: application.cpp:121
+#, kde-format
+msgid "Xapian-based search, lot of bugfixes"
+msgstr "Xapian അടിസ്ഥാനമാക്കിയ തിരയൽ, കുറെ പ്രശ്നങ്ങൾ പരിഹരിച്ചിട്ടുണ്ട്."
+
+#: application.cpp:122
+#, kde-format
+msgid "Former maintainer"
+msgstr "പണ്ടത്തെ പരിപാലകൻ"
+
+#: application.cpp:124
+#, kde-format
+msgid "Original Author"
+msgstr "യഥാര്‍ത്ഥ രചയിതാവു്"
+
+#: application.cpp:125
+#, kde-format
+msgid "Info page support"
+msgstr "വിവര പേജ് പിന്തുണ"
+
+#: docmetainfo.cpp:35
+#, kde-format
+msgid "Top-Level Documentation"
+msgstr "ഉന്നതതല സഹായപ്രമാണം"
+
+#: docmetainfo.cpp:83
+#, kde-format
+msgctxt "doctitle (language)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: docmetainfo.cpp:119
+#, kde-format
+msgctxt "Describes documentation entries that are in English"
+msgid "English"
+msgstr "ഇംഗ്ളീഷ്"
+
+#: fontdialog.cpp:36
+#, kde-format
+msgid "Font Configuration"
+msgstr "അക്ഷരസഞ്ചയ ക്രമീകരണം "
+
+#: fontdialog.cpp:62
+#, kde-format
+msgid "Sizes"
+msgstr "വലിപ്പം "
+
+#: fontdialog.cpp:66
+#, kde-format
+msgctxt "The smallest size a will have"
+msgid "M&inimum font size:"
+msgstr "അക്ഷരസഞ്ചയത്തിന്റെ കു&റഞ്ഞ വലിപ്പം:"
+
+#: fontdialog.cpp:73
+#, kde-format
+msgctxt "The normal size a font will have"
+msgid "M&edium font size:"
+msgstr "അക്ഷരസഞ്ചയത്തിന്റെ ഇടത്തരം വലിപ്പം:"
+
+#: fontdialog.cpp:83
+#, kde-format
+msgid "Fonts"
+msgstr "അക്ഷരസഞ്ചയം"
+
+#: fontdialog.cpp:87
+#, kde-format
+msgid "S&tandard font:"
+msgstr "സ്റ്റാന്‍‌ഡേര്‍ഡ് അക്ഷരസഞ്ചയം:"
+
+#: fontdialog.cpp:93
+#, kde-format
+msgid "F&ixed font:"
+msgstr "ഫിക്സ്ഡ് അക്ഷരസഞ്ചയം:"
+
+#: fontdialog.cpp:99
+#, kde-format
+msgid "S&erif font:"
+msgstr "സെറിഫ് അക്ഷരസഞ്ചയം:"
+
+#: fontdialog.cpp:105
+#, kde-format
+msgid "S&ans serif font:"
+msgstr "സാന്‍‌സ് സെറിഫ് അക്ഷരസഞ്ചയം:"
+
+#: fontdialog.cpp:111
+#, kde-format
+msgid "&Italic font:"
+msgstr "ഇറ്റാലിക് അക്ഷരസഞ്ചയം:"
+
+#: fontdialog.cpp:117
+#, kde-format
+msgid "&Fantasy font:"
+msgstr "ഫാന്റസി അക്ഷരസഞ്ചയം:"
+
+#: fontdialog.cpp:126
+#, kde-format
+msgid "Encoding"
+msgstr "എന്‍‌കോഡിങ്ങ്"
+
+#: fontdialog.cpp:131
+#, kde-format
+msgid "&Default encoding:"
+msgstr "&സ്വതവെയുള്ള എന്‍‌കോഡിംങ്ങ്:"
+
+#: fontdialog.cpp:136 fontdialog.cpp:204
+#, kde-format
+msgid "Use Language Encoding"
+msgstr "ഭാഷാ എന്‍‌കോഡിംങ്ങ് ഉപയോഗിക്കുക:"
+
+#: fontdialog.cpp:140
+#, kde-format
+msgid "&Font size adjustment:"
+msgstr "അക്ഷരസഞ്ചയത്തിന്റെ വലിപ്പം ക്രമീകരിക്കുക:"
+
+#: glossary.cpp:68
+#, kde-format
+msgid "By Topic"
+msgstr "വിഷയമനുസരിച്ചു്:"
+
+#: glossary.cpp:72 infotree.cpp:74
+#, kde-format
+msgid "Alphabetically"
+msgstr "അകാദാരി ക്രമത്തില്‍"
+
+#: glossary.cpp:128
+#, kde-format
+msgid "Rebuilding glossary cache..."
+msgstr "ഗ്ലോസ്സറി കാഷെ പുനഃര്‍നിര്‍മ്മിക്കുന്നു..."
+
+#: glossary.cpp:182
+#, kde-format
+msgid "Rebuilding cache... done."
+msgstr "കാഷെ പുനഃര്‍നിര്‍മ്മിക്കുന്നു... ചെയ്തു."
+
+#: grantleeformatter.cpp:102
+#, kde-format
+msgctxt "%1 is a glossary term"
+msgid "KDE Glossary: %1"
+msgstr "കെഡി‌ഇ ഗ്ലോസ്സറി: %1"
+
+#: grantleeformatter.cpp:103
+#, kde-format
+msgid "KDE Glossary"
+msgstr "കെഡി‌ഇ ഗ്ലോസ്സറി"
+
+#: grantleeformatter.cpp:107
+#, kde-format
+msgid "See also: %1"
+msgstr "ഇതും കാണുക: %1"
+
+#: grantleeformatter.cpp:128
+#, kde-format
+msgid "Search Results"
+msgstr "തിരച്ചില്‍ ഫലങ്ങള്‍ "
+
+#: grantleeformatter.cpp:129 searchengine.cpp:259
+#, kde-format
+msgid "Search Results for '%1':"
+msgstr "'%1 നെറ്റ് തിരച്ചില്‍ ഫലങ്ങള്‍ ':"
+
+#: infotree.cpp:77
+#, kde-format
+msgid "By Category"
+msgstr "വര്‍ഗ്ഗമനുസരിച്ച്"
+
+#. i18n: ectx: label, entry, group (Search)
+#: khelpcenter.kcfg:31
+#, kde-format
+msgid "Path to index directory."
+msgstr "ഇന്‍ഡെക്സ് ഡയറക്ടറിയിലേക്കുള്ള പാത."
+
+#. i18n: ectx: whatsthis, entry, group (Search)
+#: khelpcenter.kcfg:32
+#, kde-format
+msgid "Path to directory containing search indices."
+msgstr "തെരച്ചല്‍ ഇന്‍ഡെക്സ് സൂക്ഷിച്ചിട്ടുള്ള പാത. "
+
+#. i18n: ectx: label, entry, group (Layout)
+#: khelpcenter.kcfg:46
+#, kde-format
+msgid "Currently visible navigator tab"
+msgstr "ഇപ്പോൾ ദൃശ്യമായ നാവിഗേറ്റർ ജാലകം"
+
+#. i18n: ectx: Menu (edit)
+#: khelpcenterui.rc:5
+#, kde-format
+msgid "&Edit"
+msgstr "തിരുത്തുക (&E)"
+
+#. i18n: ectx: Menu (view)
+#: khelpcenterui.rc:13
+#, kde-format
+msgid "&View"
+msgstr "കാഴ്ച (&V)"
+
+#. i18n: ectx: Menu (go)
+#: khelpcenterui.rc:19
+#, kde-format
+msgid "&Go"
+msgstr "&പോകൂ"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: khelpcenterui.rc:36
+#, kde-format
+msgid "Main Toolbar"
+msgstr "പ്രധാന ടൂള്‍ബാര്‍"
+
+#: mainwindow.cpp:62
+#, kde-format
+msgid "Search Error Log"
+msgstr "തെരച്ചലില്‍ സംഭവിച്ച പിഴവിന്റെ പ്രവര്‍ത്തനരേഖ"
+
+#: mainwindow.cpp:114
+#, kde-format
+msgid "Preparing Index"
+msgstr "ഇന്‍‌ഡെക്സ് തയ്യാറാക്കുന്നു"
+
+#: mainwindow.cpp:157
+#, kde-format
+msgid "Ready"
+msgstr "തയ്യാര്‍"
+
+#: mainwindow.cpp:208
+#, kde-format
+msgid "Previous Page"
+msgstr "പുറകിലെ താള്‍ "
+
+#: mainwindow.cpp:210
+#, kde-format
+msgid "Moves to the previous page of the document"
+msgstr "പ്രമാണത്തിന്റെ കഴിഞ്ഞ താളിലേക്കു പോകുന്നു"
+
+#: mainwindow.cpp:214
+#, kde-format
+msgid "Next Page"
+msgstr "അടുത്ത താള്‍ "
+
+#: mainwindow.cpp:216
+#, kde-format
+msgid "Moves to the next page of the document"
+msgstr "പ്രമാണത്തിന്റെ അടുത്ത താളിലേക്കു പോകുന്നു"
+
+#: mainwindow.cpp:223
+#, kde-format
+msgid "Table of &Contents"
+msgstr "&ഉള്ളടക്ക പട്ടിക"
+
+#: mainwindow.cpp:224
+#, kde-format
+msgid "Table of contents"
+msgstr "ഉള്ളടക്ക പട്ടിക"
+
+#: mainwindow.cpp:225
+#, kde-format
+msgid "Go back to the table of contents"
+msgstr "ഉള്ളടക്ക പട്ടികയിലേക്കു തിരിച്ചു പോവുക"
+
+#: mainwindow.cpp:231
+#, kde-format
+msgid "&Last Search Result"
+msgstr "അവസാനത്തെ തെരച്ചിലിന്റെ ഫലം"
+
+#: mainwindow.cpp:249
+#, kde-format
+msgid "Configure Fonts..."
+msgstr "അക്ഷരചഞ്ചയിക ക്രമീകരിക്കുക..."
+
+#: mainwindow.cpp:253
+#, kde-format
+msgid "Increase Font Sizes"
+msgstr "അക്ഷരത്തിന്റെ വലിപ്പം കൂട്ടുക"
+
+#: mainwindow.cpp:258
+#, kde-format
+msgid "Decrease Font Sizes"
+msgstr "അക്ഷരത്തിന്റെ വലിപ്പം കുറയ്ക്കുക"
+
+#: mainwindow.cpp:274
+#, kde-format
+msgctxt "@title:menu"
+msgid "&Bookmarks"
+msgstr "അടയാളകുറിപ്പുകൾ (&B)"
+
+#: navigator.cpp:63
+#, kde-format
+msgid "Search..."
+msgstr "തിരയുക..."
+
+#: navigator.cpp:118
+#, kde-format
+msgid "&Contents"
+msgstr "&ഉള്ളടക്കം "
+
+#: navigator.cpp:128
+#, kde-format
+msgid "Search Options"
+msgstr "തെരച്ചലിന്റെ ഐഛികങ്ങള്‍"
+
+#: navigator.cpp:136
+#, kde-format
+msgid "G&lossary"
+msgstr "ഗ്ലോസറി"
+
+#: navigator.cpp:480
+#, kde-format
+msgid "Start Page"
+msgstr "ആദ്യത്തെ താള്‍"
+
+#: navigator.cpp:481
+#, kde-format
+msgid "KDE Help Center"
+msgstr "കെഡി‌‌ഇ സഹായകേന്ദ്രം "
+
+#: navigator.cpp:564
+#, kde-format
+msgid "Unable to run search program."
+msgstr "തെരച്ചില്‍ പ്രോഗ്രാം ഓടിക്കുവാന്‍ കഴിഞ്ഞില്ല"
+
+#: navigator.cpp:657
+#, kde-format
+msgid "Updating search index..."
+msgstr "തെരച്ചിലിന്റെ ഇന്‍‌ഡെക്സ് പുതുക്കുക"
+
+#: navigator.cpp:668
+#, kde-format
+msgid "Updating search index... done."
+msgstr "സൂചിക പുതുക്കുന്നു... ചെയ്തു."
+
+#: searchengine.cpp:57
+#, kde-format
+msgid "Error: No document type specified."
+msgstr "പിഴവ്: പ്രമാണത്തിന്റെ തരം കൊടുത്തിട്ടില്ല."
+
+#: searchengine.cpp:59
+#, kde-format
+msgid "Error: No search handler for document type '%1'."
+msgstr "പിഴവ്: '%1'. എന്ന പ്രമാണത്തിന്റെ തരത്തിനു തെരച്ചില്‍ ഹാന്‍ഡ്ലര്‍ ഇല്ല."
+
+#: searchengine.cpp:229
+#, kde-format
+msgid "No valid search handler found."
+msgstr "ശരിയായ തിരച്ചിൽ ഹാൻഡിലുകൾ കണ്ടെത്താനായില്ല."
+
+#: searchhandler.cpp:37
+#, kde-format
+msgid "Error executing search command '%1'."
+msgstr " '%1' എന്ന കമാന്‍ഡ് ഓടിക്കുമ്പോള്‍ എന്തോ പിഴവ് സംഭവിച്ചു."
+
+#: searchhandler.cpp:75
+#, kde-format
+msgid "Error: %1"
+msgstr "പിഴവ്: %1"
+
+#: searchhandler.cpp:140 searchhandler.cpp:145
+#, kde-format
+msgid "'%1' not found, check your installation"
+msgstr "'%1 ' കണ്ടെത്താനായില്ല, ഇൻസ്റ്റാളേഷൻ പരിശോധിക്കുക"
+
+#: searchhandler.cpp:150
+#, kde-format
+msgid "'%1' not found, install the package containing it"
+msgstr "' %1 ' കണ്ടെത്താനായില്ല, അത് സ്ഥിതി ചെയ്യുന്ന പാക്കേജ് ഇൻസ്റ്റാൾ ചെയ്യുക"
+
+#: searchhandler.cpp:197
+#, kde-format
+msgid "No search command or URL specified."
+msgstr "യുആര്‍‌എല്ലോ സേര്‍ച്ച് കമാന്‍ഡോ കൊടുത്തിട്ടില്ല. "
+
+#: searchwidget.cpp:39
+#, kde-format
+msgid "and"
+msgstr "-ഉം"
+
+#: searchwidget.cpp:40
+#, kde-format
+msgid "or"
+msgstr "അല്ലെങ്കില്‍ "
+
+#: searchwidget.cpp:42
+#, kde-format
+msgid "&Method:"
+msgstr "&വിധം:"
+
+#: searchwidget.cpp:58
+#, kde-format
+msgid "Max. &results:"
+msgstr "പരമാവധി ഫലങ്ങള്‍:"
+
+#: searchwidget.cpp:73
+#, kde-format
+msgid "&Scope selection:"
+msgstr "&വ്യാപ്തി തെരഞ്ഞെടുപ്പ്:"
+
+#: searchwidget.cpp:81
+#, kde-format
+msgid "Scope"
+msgstr "വ്യാപ്തി"
+
+#: searchwidget.cpp:322
+#, kde-format
+msgctxt "Label for searching documentation using custom (user defined) scope"
+msgid "Custom"
+msgstr "ഇഷ്ടാനുസൃതം"
+
+#: searchwidget.cpp:324
+#, kde-format
+msgctxt "Label for searching documentation using default search scope"
+msgid "Default"
+msgstr "സ്വതവെയുള്ളത്"
+
+#: searchwidget.cpp:326
+#, kde-format
+msgctxt "Label for searching documentation in all subsections"
+msgid "All"
+msgstr "എല്ലാം "
+
+#: searchwidget.cpp:328
+#, kde-format
+msgctxt "Label for scope that deselects all search subsections"
+msgid "None"
+msgstr "ഒന്നുമില്ല"
+
+#: searchwidget.cpp:330
+#, kde-format
+msgctxt "Label for Unknown search scope, that should never appear"
+msgid "unknown"
+msgstr "അജ്ഞാതം"
+
+#: view.cpp:228
+#, kde-format
+msgid "Copy Link Address"
+msgstr "ലിങ്ക് അഡ്രസ്സ് പകർത്തുക"
+
+#: view.cpp:312
+#, kde-format
+msgid ""
+"<p>Read the topic documentation in this window.<br /><br />Press <b>Space</"
+"b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, <b>Tab</b>/"
+"<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
+msgstr ""
+
+#~ msgid "Unable to initialize SearchHandler from file '%1'."
+#~ msgstr " '%1' എന്ന പ്രമാണത്തില്‍ നിന്നു സേര്‍ച്ച് ഹാന്‍ഡ്ലര്‍ തുടങ്ങാന്‍ കഴിഞ്ഞില്ല."
+
+#~ msgid "Error"
+#~ msgstr "പിഴവ്"
+
+#~ msgid ""
+#~ "Unable to show selected glossary entry: unable to open file 'glossary."
+#~ "html.in'!"
+#~ msgstr ""
+#~ "തെരഞ്ഞെടുത്ത് ഗ്ലോസ്സറി ഇനം കാണിക്കാന്‍ പറ്റിയില്ല: 'glossary.html.in' എന്ന പ്രാ‍മാണം "
+#~ "തുറക്കാന്‍ പറ്റിയില്ല."
+
+#~ msgid "ht://dig"
+#~ msgstr "ht://dig"
+
+#, fuzzy
+#~ msgid ""
+#~ "The fulltext search feature makes use of the ht://dig HTML search engine."
+#~ msgstr ""
+#~ "പൂര്‍ണ്ണ ടെക്സ്റ്റ് തെരച്ചില്‍ സം‌വിധാനം ht://dig എച്ച്ടിഎംഎല്‍ ആണുപയോഗിക്കുന്നത്. താങ്കള്‍ക്ക് "
+#~ "ht://dig ഇവിടെ നിന്നു കിട്ടും"
+
+#~ msgid "Information about where to get the ht://dig package."
+#~ msgstr "ht://dig പാക്കേക് എവിടെ ലഭിയ്ക്കും എന്നതിനെക്കുറിച്ചുള്ള വിവരം."
+
+#~ msgid "Program Locations"
+#~ msgstr "പ്രോഗ്രാമിന്റെ സ്ഥാനം"
+
+#~ msgid "htsearch:"
+#~ msgstr "htതെരച്ചില്‍:"
+
+#~ msgid "Enter the URL of the htsearch CGI program."
+#~ msgstr "htsearch സിജി‌ഐ പ്രോഗ്രാമിന്റെ യൂആര്‍എല്‍ രേഖപ്പെടുത്തുക"
+
+#~ msgid "htdig database:"
+#~ msgstr "htdig ഡാറ്റാബേസ്"
+
+#~ msgid "Enter the path to the htdig database folder."
+#~ msgstr "htdig ഡാറ്റാബേസ് ഫോള്‍ഡറിലേക്കുള്ള പാത രേഖപ്പെടുത്തുക:"
+
+#~ msgid "Change Index Folder"
+#~ msgstr "ഇന്‍ഡെക്സ് ഫോള്‍ഡര്‍ മാറ്റുക"
+
+#~ msgid "Index folder:"
+#~ msgstr "ഇന്‍ഡെക്സ് ഫോള്‍ഡര്‍:"
+
+#~ msgid "Build Search Indices"
+#~ msgstr "തെരച്ചില്‍ ഇന്‍ഡെക്സുകള്‍ നിര്‍മ്മിക്കുക"
+
+#~ msgid "Index creation log:"
+#~ msgstr "ഇന്‍‌ഡേക്സ് നിര്‍മ്മിച്ചതിന്റെ പ്രവര്‍ത്തനരേഖ:"
+
+#~ msgctxt ""
+#~ "Label for button to close search index progress dialog after successful "
+#~ "completion"
+#~ msgid "Close"
+#~ msgstr "അടയ്ക്കുക"
+
+#~ msgid "Index creation finished."
+#~ msgstr "ഇന്‍‌ഡെക്സ് നിര്‍മ്മാണം പൂര്‍ത്തിയായി. "
+
+#~ msgctxt "Label for stopping search index generation before completion"
+#~ msgid "Stop"
+#~ msgstr "നിര്‍ത്തുക"
+
+#, fuzzy
+#~ msgid "Details <<"
+#~ msgstr "വിശദാംശങ്ങള്‍ &lt;&lt;"
+
+#, fuzzy
+#~ msgid "Details >>"
+#~ msgstr "വിശദാംശങ്ങള്‍ &lt;&lt;"
+
+#~ msgid "Build Search Index"
+#~ msgstr "തെരച്ചില്‍ ഇന്‍ഡെക്സ് നിര്‍മ്മിക്കുക"
+
+#~ msgid "Build Index"
+#~ msgstr "ഇന്‍ഡെക്സ് നിര്‍മ്മിക്കുക"
+
+#~ msgid ""
+#~ "To be able to search a document, a search\n"
+#~ "index needs to exist. The status column of the list below shows whether "
+#~ "an index\n"
+#~ "for a document exists.\n"
+#~ msgstr ""
+#~ "ഒരു പ്രമാണം തിരയണമെങ്കില്‍ ഒരു തിരച്ചില്‍\n"
+#~ " ഇന്‍ഡെക്സ് ഉണ്ടായിരിക്കണം. താഴെയുള്ള പട്ടികയിലെ സ്ഥിതി കോളം പ്രമാണത്തിനു ഇന്‍ഡെക്സ്\n"
+#~ " ഉണ്ടോ എന്നു കാണിക്കും.\n"
+
+#~ msgid ""
+#~ "To create an index, check the box in the list and press the\n"
+#~ "\"Build Index\" button.\n"
+#~ msgstr ""
+#~ "ഇന്‍ഡെക്സ് നിര്‍മ്മിക്കുവാന്‍, പട്ടികയിലെ ബോക്സ് തെരഞ്ഞെടുത്ത്\n"
+#~ " \"Build Index\" ബട്ടണ്‍ അമര്‍ത്തുക.\n"
+
+#~ msgid "Search Scope"
+#~ msgstr "തെരച്ചിലിന്റെ വ്യാപ്തി"
+
+#~ msgid "Status"
+#~ msgstr "സ്ഥിതി"
+
+#~ msgid "Change..."
+#~ msgstr "മാറ്റുക..."
+
+#~ msgctxt "Describes the status of a documentation index that is present"
+#~ msgid "OK"
+#~ msgstr "ശരി"
+
+#~ msgctxt "Describes the status of a documentation index that is missing"
+#~ msgid "Missing"
+#~ msgstr "കാണ്മാനില്ല"
+
+#~ msgctxt ""
+#~ " Generic prefix label for error messages when creating documentation "
+#~ "index, first arg is the document's identifier, second is the document's "
+#~ "name"
+#~ msgid "Document '%1' (%2):\n"
+#~ msgstr "പ്രമാണം '%1' (%2):\n"
+
+#~ msgid "No document type."
+#~ msgstr "പ്രമാണത്തിന്റെ തരം തന്നിട്ടില്ല"
+
+#~ msgid "No search handler available for document type '%1'."
+#~ msgstr "'%1' എന്ന പ്രമാണതരത്തിനു തെരച്ചില്‍ ഹാന്‍ഡിലര്‍ ഇല്ല:"
+
+#~ msgid "No indexing command specified for document type '%1'."
+#~ msgstr "'%1' എന്ന പ്രമാണത്തിനു ഇന്‍ഡെക്സിങ്ങ് കമാന്‍ഡ് കൊടുത്തിട്ടില്ല. "
+
+#~ msgid "Failed to build index."
+#~ msgstr "ഇന്‍‌ഡെക്സ് സൃഷ്ടിക്കുവാന്‍ സാധിച്ചില്ല."
+
+#~ msgid "KHelpCenter Index Builder"
+#~ msgstr "കെസഹായ കേന്ദ്ര ഇന്‍ഡെക്സ് ബില്‍ഡര്‍"
+
+#~ msgid "Cornelius Schumacher"
+#~ msgstr "കൊര്‍ന്നല്യോസ് ഷൂമാക്കര്‍"
+
+#~ msgid "Document to be indexed"
+#~ msgstr "ഇന്‍‌ഡെക്സ് ചെയ്യാനുള്ള പ്രമാണം"
+
+#~ msgid "Index directory"
+#~ msgstr "ഇന്‍ഡെക്സ് ഡിറക്ടറി"
+
+#~ msgid ""
+#~ "A search index does not yet exist. Do you want to create the index now?"
+#~ msgstr "തെരച്ചില്‍ ഇന്‍ഡെക്സ് നിലവിലില്ല. ഇന്‍ഡെക്സ് ഇപ്പോള്‍ നിര്‍മ്മിക്കേണ്ടതുണ്ടോ?"
+
+#~ msgid "Create"
+#~ msgstr "സൃഷ്ടിക്കുക"
+
+#~ msgid "Do Not Create"
+#~ msgstr "സൃഷ്ടിക്കരുത്"
+
+#~ msgid "Build Search &Index..."
+#~ msgstr "സേര്‍ച്ച് &ഇന്‍ഡെക്സ് നിര്‍മ്മിക്കുക..."
+
+#~ msgid "The KDE Help Center"
+#~ msgstr "കെഡി‌‌ഇ സഹായകേന്ദ്രം "
+
+#~ msgid "(c) 2003, The KHelpCenter developers"
+#~ msgstr "(c) 2003, കെസഹായകേന്ദ്രം ഡെവലപ്പേര്‍സ്"
+
+#~ msgid "Details &gt;&gt;"
+#~ msgstr "വിശദാംശങ്ങള്‍  &gt;&gt; "
+
+#~ msgid "Frerich Raabe"
+#~ msgstr "ഫ്രെറിച്ച് റാബെ"
+
+#~ msgid "Matthias Elter"
+#~ msgstr "മത്തിയാസ് എല്‍ട്ടെര്‍"
+
+#~ msgid "Wojciech Smigaj"
+#~ msgstr "വോജ്സെക് സ്മിഗാജ്"
+
+#~ msgid "URL to display"
+#~ msgstr "പ്രദര്‍ശിപ്പിക്കാനുള്ള യുആര്‍‌എല്‍"
+
+#~ msgid "&File"
+#~ msgstr "&പ്രമാണം"
+
+#~ msgid "Show Search Error Log"
+#~ msgstr "തെരച്ചിലിന്റെ പിഴവ് രേഖ കാണിക്കുക"
+
+#~ msgid "ht://dig home page"
+#~ msgstr "ht://dig പൂമുഖ താള്‍"
+
+#~ msgid "Welcome to the K Desktop Environment"
+#~ msgstr "കെ ഡെസ്ക്ടോപ്പ് ഇടത്തിലേക്കു സ്വാഗതം"
+
+#~ msgid "The KDE team welcomes you to user-friendly UNIX computing"
+#~ msgstr "കെഡി‌ഇ താങ്കളെ ഉപയോക്തൃസഹായിയായ യൂണിക്സ് കമ്പ്യൂട്ടിങ്ങിലേക്കു സ്വാഗതം ചെയ്യുന്നു."
+
+#~ msgid "What is the K Desktop Environment?"
+#~ msgstr "എന്താണു കെ ഡെസ്ക്ടോപ്പ് പനിയിടം?"
+
+#~ msgid "Contacting the KDE Project"
+#~ msgstr "കെ‌ഡി‌ഇ പദ്ധതിയുമായി ബന്ധപ്പെടുക"
+
+#~ msgid "Supporting the KDE Project"
+#~ msgstr "കെ‌ഡി‌ഇ പദ്ധതിയെ സഹായിക്കുക"
+
+#~ msgid "Useful links"
+#~ msgstr "ഉപയോഗപ്രദമായ കണ്ണികള്‍"
+
+#~ msgid "Getting the most out of KDE"
+#~ msgstr "കെ‌ഡി‌ഇ പരമാവധി ഉപയോഗപ്പെടുത്താന്‍"
+
+#~ msgid "General Documentation"
+#~ msgstr "പൊതുവായ സഹായപ്രമാണം"
+
+#~ msgid "KDE Users' guide"
+#~ msgstr "കെഡി‌ഇ ഉപയോക്താവിന്റെ സഹായി "
+
+#~ msgid "Frequently asked questions"
+#~ msgstr "പതിവു ചോദ്യങ്ങല്‍"
+
+#~ msgid "The KDE Control Center"
+#~ msgstr "കെഡി‌ഇ നിയന്ത്രണകേന്ദ്രം"

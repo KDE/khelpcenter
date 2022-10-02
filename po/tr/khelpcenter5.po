@@ -1,0 +1,770 @@
+# translation of khelpcenter.po to
+# Copyright (C) 2003-2007 Free Software Foundation, Inc.
+#
+# Görkem Çetin <tulliana@gmail.com>, 2002,2003, 2004.
+# Ömer Fadıl USTA <tulliana@gmail.com>, 2002.
+# Rıdvan CAN <tulliana@gmail.com>, 2003.
+# Muhammet Kara <tulliana@gmail.com>, 2007.
+# Serdar Soytetir <tulliana@gmail.com>, 2007, 2008, 2009.
+# H. İbrahim Güngör <tulliana@gmail.com>, 2011, 2012.
+# Volkan Gezer <volkangezer@gmail.com>, 2013, 2014, 2017.
+# Emir SARI <emir_sari@icloud.com>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: khelpcenter\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-15 00:47+0000\n"
+"PO-Revision-Date: 2022-04-08 12:23+0300\n"
+"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
+"Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 21.12.3\n"
+"X-Poedit-Language: Turkish\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Görkem Çetin, Muhammet Kara, Volkan Gezer"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "gorkem@kde.org, muhammet.k@gmail.com, volkangezer@gmail.com"
+
+#: application.cpp:30
+#, kde-format
+msgid "Documentation to open"
+msgstr "Açılacak dosya"
+
+#: application.cpp:114 application.cpp:116
+#, kde-format
+msgid "Help Center"
+msgstr "Yardım Merkezi"
+
+#: application.cpp:118
+#, kde-format
+msgid "(c) 1999-2020, The KHelpCenter developers"
+msgstr "(c) 1999-2020, KHelpCenter geliştiricileri"
+
+#: application.cpp:120
+#, kde-format
+msgid "Current maintainer"
+msgstr "Projeyi sürdüren"
+
+#: application.cpp:121
+#, kde-format
+msgid "Xapian-based search, lot of bugfixes"
+msgstr "Xaplan tabanlı arama, hata düzeltmeleri"
+
+#: application.cpp:122
+#, kde-format
+msgid "Former maintainer"
+msgstr "Önceden projeyi sürdüren"
+
+#: application.cpp:124
+#, kde-format
+msgid "Original Author"
+msgstr "Asıl Yazar"
+
+#: application.cpp:125
+#, kde-format
+msgid "Info page support"
+msgstr "Info sayfası desteği"
+
+#: docmetainfo.cpp:35
+#, kde-format
+msgid "Top-Level Documentation"
+msgstr "Üst Düzey Belgeler"
+
+#: docmetainfo.cpp:83
+#, kde-format
+msgctxt "doctitle (language)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: docmetainfo.cpp:119
+#, kde-format
+msgctxt "Describes documentation entries that are in English"
+msgid "English"
+msgstr "İngilizce"
+
+#: fontdialog.cpp:36
+#, kde-format
+msgid "Font Configuration"
+msgstr "Yazıtipi Ayarları"
+
+#: fontdialog.cpp:62
+#, kde-format
+msgid "Sizes"
+msgstr "Boyutlar"
+
+#: fontdialog.cpp:66
+#, kde-format
+msgctxt "The smallest size a will have"
+msgid "M&inimum font size:"
+msgstr "En küçük yazıt&ipi boyutu:"
+
+#: fontdialog.cpp:73
+#, kde-format
+msgctxt "The normal size a font will have"
+msgid "M&edium font size:"
+msgstr "O&rta yazıtipi boyutu:"
+
+#: fontdialog.cpp:83
+#, kde-format
+msgid "Fonts"
+msgstr "Yazıtipleri"
+
+#: fontdialog.cpp:87
+#, kde-format
+msgid "S&tandard font:"
+msgstr "&Standart yazıtipi:"
+
+#: fontdialog.cpp:93
+#, kde-format
+msgid "F&ixed font:"
+msgstr "&Sabit boyutlu yazıtipi:"
+
+#: fontdialog.cpp:99
+#, kde-format
+msgid "S&erif font:"
+msgstr "S&erif yazıtipi:"
+
+#: fontdialog.cpp:105
+#, kde-format
+msgid "S&ans serif font:"
+msgstr "S&ans serif yazıtipi:"
+
+#: fontdialog.cpp:111
+#, kde-format
+msgid "&Italic font:"
+msgstr "&Eğik yazıtipi:"
+
+#: fontdialog.cpp:117
+#, kde-format
+msgid "&Fantasy font:"
+msgstr "&Fantezi yazıtipi:"
+
+#: fontdialog.cpp:126
+#, kde-format
+msgid "Encoding"
+msgstr "Kodlama"
+
+#: fontdialog.cpp:131
+#, kde-format
+msgid "&Default encoding:"
+msgstr "Ö&ntanımlı kodlama:"
+
+#: fontdialog.cpp:136 fontdialog.cpp:204
+#, kde-format
+msgid "Use Language Encoding"
+msgstr "Dil Kodlaması Kullan"
+
+#: fontdialog.cpp:140
+#, kde-format
+msgid "&Font size adjustment:"
+msgstr "&Yazıtipi boyutu ayarlama:"
+
+#: glossary.cpp:68
+#, kde-format
+msgid "By Topic"
+msgstr "Başlığa Göre"
+
+#: glossary.cpp:72 infotree.cpp:74
+#, kde-format
+msgid "Alphabetically"
+msgstr "Alfabetik"
+
+#: glossary.cpp:128
+#, kde-format
+msgid "Rebuilding glossary cache..."
+msgstr "Sözlükçe önbelleği yeniden oluşturuluyor..."
+
+#: glossary.cpp:182
+#, kde-format
+msgid "Rebuilding cache... done."
+msgstr "Önbellek yeniden oluşturuluyor... bitti!"
+
+#: grantleeformatter.cpp:102
+#, kde-format
+msgctxt "%1 is a glossary term"
+msgid "KDE Glossary: %1"
+msgstr "KDE Sözlüğü: %1"
+
+#: grantleeformatter.cpp:103
+#, kde-format
+msgid "KDE Glossary"
+msgstr "KDE Sözlüğü"
+
+#: grantleeformatter.cpp:107
+#, kde-format
+msgid "See also: %1"
+msgstr "Ayrıca bkz: %1"
+
+#: grantleeformatter.cpp:128
+#, kde-format
+msgid "Search Results"
+msgstr "Arama Sonuçları"
+
+#: grantleeformatter.cpp:129 searchengine.cpp:259
+#, kde-format
+msgid "Search Results for '%1':"
+msgstr "'%1' Arama Sonuçları:"
+
+#: infotree.cpp:77
+#, kde-format
+msgid "By Category"
+msgstr "Kategoriye Göre"
+
+#. i18n: ectx: label, entry, group (Search)
+#: khelpcenter.kcfg:31
+#, kde-format
+msgid "Path to index directory."
+msgstr "Dizin dizini yolu."
+
+#. i18n: ectx: whatsthis, entry, group (Search)
+#: khelpcenter.kcfg:32
+#, kde-format
+msgid "Path to directory containing search indices."
+msgstr "Arama indislerinin bulunduğu dizinin tam yolu."
+
+#. i18n: ectx: label, entry, group (Layout)
+#: khelpcenter.kcfg:46
+#, kde-format
+msgid "Currently visible navigator tab"
+msgstr "Şu anda görünür durumdaki gezinme sekmesi"
+
+#. i18n: ectx: Menu (edit)
+#: khelpcenterui.rc:5
+#, kde-format
+msgid "&Edit"
+msgstr "D&üzen"
+
+#. i18n: ectx: Menu (view)
+#: khelpcenterui.rc:13
+#, kde-format
+msgid "&View"
+msgstr "&Görünüm"
+
+#. i18n: ectx: Menu (go)
+#: khelpcenterui.rc:19
+#, kde-format
+msgid "&Go"
+msgstr "&Git"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: khelpcenterui.rc:36
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Ana Araç Çubuğu"
+
+#: mainwindow.cpp:62
+#, kde-format
+msgid "Search Error Log"
+msgstr "Arama Hatası Günlüğü"
+
+#: mainwindow.cpp:114
+#, kde-format
+msgid "Preparing Index"
+msgstr "Dizin Hazırlanıyor"
+
+#: mainwindow.cpp:157
+#, kde-format
+msgid "Ready"
+msgstr "Hazır"
+
+#: mainwindow.cpp:208
+#, kde-format
+msgid "Previous Page"
+msgstr "Önceki Sayfa"
+
+#: mainwindow.cpp:210
+#, kde-format
+msgid "Moves to the previous page of the document"
+msgstr "Önceki sayfaya gider"
+
+#: mainwindow.cpp:214
+#, kde-format
+msgid "Next Page"
+msgstr "Sonraki Sayfa"
+
+#: mainwindow.cpp:216
+#, kde-format
+msgid "Moves to the next page of the document"
+msgstr "Sonraki sayfaya gider"
+
+#: mainwindow.cpp:223
+#, kde-format
+msgid "Table of &Contents"
+msgstr "İç&indekiler"
+
+#: mainwindow.cpp:224
+#, kde-format
+msgid "Table of contents"
+msgstr "İçindekiler"
+
+#: mainwindow.cpp:225
+#, kde-format
+msgid "Go back to the table of contents"
+msgstr "İçindekiler kısmına geri git"
+
+#: mainwindow.cpp:231
+#, kde-format
+msgid "&Last Search Result"
+msgstr "&Son Arama Sonuçları"
+
+#: mainwindow.cpp:249
+#, kde-format
+msgid "Configure Fonts..."
+msgstr "Yazıtiplerini Yapılandır..."
+
+#: mainwindow.cpp:253
+#, kde-format
+msgid "Increase Font Sizes"
+msgstr "Yazıtipi Boyutlarını Büyüt"
+
+#: mainwindow.cpp:258
+#, kde-format
+msgid "Decrease Font Sizes"
+msgstr "Yazıtipi Boyutlarını Küçült"
+
+#: mainwindow.cpp:274
+#, kde-format
+msgctxt "@title:menu"
+msgid "&Bookmarks"
+msgstr "Y&er İmleri"
+
+#: navigator.cpp:63
+#, kde-format
+msgid "Search..."
+msgstr "Ara..."
+
+#: navigator.cpp:118
+#, kde-format
+msgid "&Contents"
+msgstr "İ&çindekiler"
+
+#: navigator.cpp:128
+#, kde-format
+msgid "Search Options"
+msgstr "Arama Seçenekleri"
+
+#: navigator.cpp:136
+#, kde-format
+msgid "G&lossary"
+msgstr "&Sözlük"
+
+#: navigator.cpp:480
+#, kde-format
+msgid "Start Page"
+msgstr "Başlangıç Sayfası"
+
+#: navigator.cpp:481
+#, kde-format
+msgid "KDE Help Center"
+msgstr "KDE Yardım Merkezi"
+
+#: navigator.cpp:564
+#, kde-format
+msgid "Unable to run search program."
+msgstr "Arama programı çalıştırılamadı."
+
+#: navigator.cpp:657
+#, kde-format
+msgid "Updating search index..."
+msgstr "Arama dizini güncelleniyor..."
+
+#: navigator.cpp:668
+#, kde-format
+msgid "Updating search index... done."
+msgstr "Arama dizini güncelleniyor... tamamlandı."
+
+#: searchengine.cpp:57
+#, kde-format
+msgid "Error: No document type specified."
+msgstr "Hata: Dosya türü belirtilmedi."
+
+#: searchengine.cpp:59
+#, kde-format
+msgid "Error: No search handler for document type '%1'."
+msgstr "Hata: '%1' dosya türü için bir arama işleyicisi yok."
+
+#: searchengine.cpp:229
+#, kde-format
+msgid "No valid search handler found."
+msgstr "Geçerli bir arama işleyicisi bulunamadı."
+
+#: searchhandler.cpp:37
+#, kde-format
+msgid "Error executing search command '%1'."
+msgstr "'%1' arama komutunu çalıştırırken bir hata oluştu."
+
+#: searchhandler.cpp:75
+#, kde-format
+msgid "Error: %1"
+msgstr "Hata: %1"
+
+#: searchhandler.cpp:140 searchhandler.cpp:145
+#, kde-format
+msgid "'%1' not found, check your installation"
+msgstr "'%1' bulunamadı, kurulumunuzu kontrol edin"
+
+#: searchhandler.cpp:150
+#, kde-format
+msgid "'%1' not found, install the package containing it"
+msgstr "'%1' bulunamadı, lütfen bunu içeren paketi kurun"
+
+#: searchhandler.cpp:197
+#, kde-format
+msgid "No search command or URL specified."
+msgstr "Arama komutu ya da adres belirtilmedi."
+
+#: searchwidget.cpp:39
+#, kde-format
+msgid "and"
+msgstr "ve"
+
+#: searchwidget.cpp:40
+#, kde-format
+msgid "or"
+msgstr "veya"
+
+#: searchwidget.cpp:42
+#, kde-format
+msgid "&Method:"
+msgstr "&Yöntem:"
+
+#: searchwidget.cpp:58
+#, kde-format
+msgid "Max. &results:"
+msgstr "Azami &sonuç sayısı:"
+
+#: searchwidget.cpp:73
+#, kde-format
+msgid "&Scope selection:"
+msgstr "&Kapsam seçimi:"
+
+#: searchwidget.cpp:81
+#, kde-format
+msgid "Scope"
+msgstr "Kapsam"
+
+#: searchwidget.cpp:322
+#, kde-format
+msgctxt "Label for searching documentation using custom (user defined) scope"
+msgid "Custom"
+msgstr "Özel"
+
+#: searchwidget.cpp:324
+#, kde-format
+msgctxt "Label for searching documentation using default search scope"
+msgid "Default"
+msgstr "Öntanımlı"
+
+#: searchwidget.cpp:326
+#, kde-format
+msgctxt "Label for searching documentation in all subsections"
+msgid "All"
+msgstr "Tümü"
+
+#: searchwidget.cpp:328
+#, kde-format
+msgctxt "Label for scope that deselects all search subsections"
+msgid "None"
+msgstr "Hiçbiri"
+
+#: searchwidget.cpp:330
+#, kde-format
+msgctxt "Label for Unknown search scope, that should never appear"
+msgid "unknown"
+msgstr "bilinmeyen"
+
+#: view.cpp:228
+#, kde-format
+msgid "Copy Link Address"
+msgstr "Bağlantı Adresini Kopyala"
+
+#: view.cpp:312
+#, kde-format
+msgid ""
+"<p>Read the topic documentation in this window.<br /><br />Press <b>Space</"
+"b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, <b>Tab</b>/"
+"<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
+msgstr ""
+"<p>Bu pencerede konu belgelendirmesini okuyun.<br /><br /><b>Boşluk</b>/"
+"<b>ÜstKarakter+Boşluk</b> tuşları ile kaydırın ve <b>%1</b> tuşu ile bir şey "
+"arayın. <b>Sekme</b>/<b>ÜstKarakter+Sekme</b> tuşu ile atlayın ve takip "
+"etmek için <b>Enter</b> tuşuna basın.</p>"
+
+#~ msgid "Handler"
+#~ msgstr "İşleyici"
+
+#~ msgid "Unable to initialize SearchHandler from file '%1'."
+#~ msgstr " '%1' dosyasından Aramaİşleyicisi ilklendirilemiyor."
+
+#~ msgid "Error"
+#~ msgstr "Hata"
+
+#~ msgid ""
+#~ "Unable to show selected glossary entry: unable to open file 'glossary."
+#~ "html.in'!"
+#~ msgstr "Seçilen kelime görüntülenemedi: 'glossary.html.in' bulunamadı."
+
+#~ msgid "ht://dig"
+#~ msgstr "ht://dig"
+
+#~ msgid ""
+#~ "The fulltext search feature makes use of the ht://dig HTML search engine."
+#~ msgstr "Tam metin arama özelliği ht //dig HTML arama motorundan yararlanır."
+
+#~ msgid "Information about where to get the ht://dig package."
+#~ msgstr "Paketler hakkında bilgi almak için ht //dig package"
+
+#~ msgid "You can get ht://dig at the ht://dig home page"
+#~ msgstr "ht://dig'e  ht://dig  ev sayfasından erişebilirsiniz"
+
+#~ msgid "Program Locations"
+#~ msgstr "Program Konumları"
+
+#~ msgid "htsearch:"
+#~ msgstr "htsearch:"
+
+#~ msgid "Enter the URL of the htsearch CGI program."
+#~ msgstr "htsearch CGI programının yolunu girin."
+
+#~ msgid "Indexer:"
+#~ msgstr "Dizinleyici:"
+
+#~ msgid "Enter the path to your htdig indexer program here."
+#~ msgstr "Buraya, Htdig dizinleyici uygulamanızın yolunu girin."
+
+#~ msgid "htdig database:"
+#~ msgstr "htdig veritabanı:"
+
+#~ msgid "Enter the path to the htdig database folder."
+#~ msgstr "Htdig veritabanı dizininin tam yolunu girin."
+
+#~ msgid "Change Index Folder"
+#~ msgstr "Dizin Dizinini Değiştir"
+
+#~ msgid "Index folder:"
+#~ msgstr "Dizin dizini:"
+
+#~ msgid "Build Search Indices"
+#~ msgstr "Arama İndislerini Oluştur"
+
+#~ msgid "Index creation log:"
+#~ msgstr "Dizin oluşturma günlüğü:"
+
+#~ msgctxt ""
+#~ "Label for button to close search index progress dialog after successful "
+#~ "completion"
+#~ msgid "Close"
+#~ msgstr "Kapat"
+
+#~ msgid "Index creation finished."
+#~ msgstr "Dizin oluşturma tamamlandı."
+
+#~ msgctxt "Label for stopping search index generation before completion"
+#~ msgid "Stop"
+#~ msgstr "Dur"
+
+#~ msgid "Details <<"
+#~ msgstr "Ayrıntılar <<"
+
+#~ msgid "Details >>"
+#~ msgstr "Ayrıntılar >>"
+
+#~ msgid "Build Search Index"
+#~ msgstr "Arama Dizini Oluştur"
+
+#~ msgid "Build Index"
+#~ msgstr "Dizin Oluştur"
+
+#~ msgid ""
+#~ "To be able to search a document, a search\n"
+#~ "index needs to exist. The status column of the list below shows whether "
+#~ "an index\n"
+#~ "for a document exists.\n"
+#~ msgstr ""
+#~ "Bir belgede aramasının yapılabilmesi için, bir arama dizininin bulunması\n"
+#~ "gerekir. Aşağıdaki listenin durum sütunu, bir belgenin dizininin\n"
+#~ "olup olmadığını gösterir.\n"
+
+#~ msgid ""
+#~ "To create an index, check the box in the list and press the\n"
+#~ "\"Build Index\" button.\n"
+#~ msgstr ""
+#~ "Bir dizin oluşturmak için listedeki kutucuğu işaretleyin\n"
+#~ "ve \"Dizin Oluştur\" düğmesine basın.\n"
+
+#~ msgid "Search Scope"
+#~ msgstr "Arama Sahası"
+
+#~ msgid "Status"
+#~ msgstr "Durum"
+
+#~ msgid "Change..."
+#~ msgstr "Değiştir..."
+
+#~ msgid ""
+#~ "<qt>The folder <b>%1</b> does not exist; unable to create index.</qt>"
+#~ msgstr "<qt><b>%1</b> dizini yok; dizin oluşturulamıyor.</qt>"
+
+#~ msgctxt "Describes the status of a documentation index that is present"
+#~ msgid "OK"
+#~ msgstr "Tamam"
+
+#~ msgctxt "Describes the status of a documentation index that is missing"
+#~ msgid "Missing"
+#~ msgstr "Eksik"
+
+#~ msgctxt ""
+#~ " Generic prefix label for error messages when creating documentation "
+#~ "index, first arg is the document's identifier, second is the document's "
+#~ "name"
+#~ msgid "Document '%1' (%2):\n"
+#~ msgstr "Belge '%1' (%2):\n"
+
+#~ msgid "No document type."
+#~ msgstr "Belge türü yok."
+
+#~ msgid "No search handler available for document type '%1'."
+#~ msgstr "'%1' dosya türü için bir arama işleyicisi bulunmuyor."
+
+#~ msgid "No indexing command specified for document type '%1'."
+#~ msgstr "'%1' dosya türü için bir dizinleme komutu belirtilmemiş."
+
+#~ msgid "Failed to build index."
+#~ msgstr "Dizin oluşturulamadı."
+
+#~ msgid ""
+#~ "Error executing indexing build command:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Dizinleme oluşturma komutu çalıştırılırken bir hata oluştu:\n"
+#~ "%1"
+
+#~ msgid "Unable to start command '%1'."
+#~ msgstr "'%1' komutu başlatılamıyor."
+
+#~ msgid "KHelpCenter Index Builder"
+#~ msgstr "KDE Yardım Merkezi Dizin Oluşturucu"
+
+#~ msgid "Cornelius Schumacher"
+#~ msgstr "Cornelius Schumacher"
+
+#~ msgid "Document to be indexed"
+#~ msgstr "Dizinlenecek belge"
+
+#~ msgid "Index directory"
+#~ msgstr "Dizin dizini"
+
+#~ msgid ""
+#~ "A search index does not yet exist. Do you want to create the index now?"
+#~ msgstr ""
+#~ "Bir arama dizini henüz yapılmadı. Dizin şimdi oluşturulmasını ister "
+#~ "misiniz?"
+
+#~ msgid "Create"
+#~ msgstr "Oluştur"
+
+#~ msgid "Do Not Create"
+#~ msgstr "Oluşturma"
+
+#~ msgid "Build Search &Index..."
+#~ msgstr "A&rama Dizini Oluştur..."
+
+#~ msgid "The KDE Help Center"
+#~ msgstr "KDE Yardım Merkezi"
+
+#~ msgid "(c) 2003, The KHelpCenter developers"
+#~ msgstr "(c) 1999-2003, KDE Yardım Merkezi Geliştiricileri"
+
+#~ msgid "Details &gt;&gt;"
+#~ msgstr "Ayrıntılar &gt;&gt;"
+
+#~ msgid "Frerich Raabe"
+#~ msgstr "Frerich Raabe"
+
+#~ msgid "Matthias Elter"
+#~ msgstr "Matthias Elter"
+
+#~ msgid "Wojciech Smigaj"
+#~ msgstr "Wojciech Smigaj"
+
+#~ msgid "URL to display"
+#~ msgstr "Gösterilecek adres"
+
+#~ msgid "&File"
+#~ msgstr "&Dosya"
+
+#~ msgid "Show Search Error Log"
+#~ msgstr "Arama Hatası Günlüğünü Göster"
+
+#~ msgid "ht://dig home page"
+#~ msgstr "ht://dig ev sayfası"
+
+#~ msgid "Conquer your Desktop!"
+#~ msgstr "Masaüstünüzü Keşfedin!"
+
+#~ msgid "Welcome to the K Desktop Environment"
+#~ msgstr "K Masaüstü Ortamına Hoş geldiniz"
+
+#~ msgid "The KDE team welcomes you to user-friendly UNIX computing"
+#~ msgstr "KDE grubu sizi kullanıcı dostu bir Linux ile karşılıyor"
+
+#~ msgid ""
+#~ "KDE is a powerful graphical desktop environment for UNIX workstations. A\n"
+#~ "KDE desktop combines ease of use, contemporary functionality and "
+#~ "outstanding\n"
+#~ "graphical design with the technological superiority of the UNIX "
+#~ "operating\n"
+#~ "system."
+#~ msgstr ""
+#~ "KDE UNIX iş yerleri için güçlü bir grafiksel masaüstüdür.\n"
+#~ "KDE, UNIX işletim sisteminin teknolojik üstünlüğü ile grafik tasarımın\n"
+#~ "masaüstü kolaylığını birleştirir."
+
+#~ msgid "What is the K Desktop Environment?"
+#~ msgstr "K Masaüstü Ortamı Nedir?"
+
+#~ msgid "Contacting the KDE Project"
+#~ msgstr "KDE Projesiyle İletişim"
+
+#~ msgid "Supporting the KDE Project"
+#~ msgstr "KDE Projesine Destek"
+
+#~ msgid "Useful links"
+#~ msgstr "Faydalı bağlantılar"
+
+#~ msgid "Getting the most out of KDE"
+#~ msgstr "KDE'den en iyi şekilde yararlanın"
+
+#~ msgid "General Documentation"
+#~ msgstr "Genel Belgeler"
+
+#~ msgid "A Quick Start Guide to the Desktop"
+#~ msgstr "Masaüstüne Hızlı Bir Başlangıç"
+
+#~ msgid "KDE Users' guide"
+#~ msgstr "KDE Kullanıcı Kılavuzu"
+
+#~ msgid "Frequently asked questions"
+#~ msgstr "Sıkça Sorulan Sorular"
+
+#~ msgid "Basic Applications"
+#~ msgstr "Temel Uygulamalar"
+
+#~ msgid "The Kicker Desktop Panel"
+#~ msgstr "Kicker Masaüstü Paneli"
+
+#~ msgid "The KDE Control Center"
+#~ msgstr "KDE Kontrol Merkezi"
+
+#~ msgid "The Konqueror File manager and Web Browser"
+#~ msgstr "Konqueror Dosya Yöneticisi ve Web Tarayıcısı"

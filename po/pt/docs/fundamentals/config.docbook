@@ -1,0 +1,610 @@
+<chapter id="config">
+<title
+>Personalizar as aplicações do &kde;</title>
+
+<sect1 id="toolbars">
+<sect1info>
+<authorgroup>
+<author
+>&TC.Hollingsworth; &TC.Hollingsworth.mail;</author>
+<othercredit role="translator"
+><firstname
+>José</firstname
+><surname
+>Pires</surname
+><affiliation
+><address
+><email
+>zepires@gmail.com</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+</authorgroup>
+</sect1info>
+<title
+>Personalizar as Barras de Ferramentas</title>
+
+<!--FIXME link from korganizer config-toolbars section-->
+<!--FIXME link from <sect2 id="configtoolbars"
+> in sheets/config.docbook
+> -->
+<!--FIXME link from <sect2 id="configuration-toolbars"
+> in extragear/multimedia-git/kplayer/doc/en_US/configuration.docbook -->
+<screenshot id="screenshot-toolbars-toolbar">
+<screeninfo
+>A Barra de Ferramentas do &gwenview;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="toolbars-toolbar.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>A barra de ferramentas do &gwenview;.</phrase
+></textobject>
+<caption
+><para
+>A barra de ferramentas no <ulink url="http://kde.org/applications/graphics/gwenview/"
+>&gwenview;</ulink
+>. </para
+></caption>
+</mediaobject>
+</screenshot>
+
+<sect2 id="toolbars-items">
+<title
+>Modificar os Itens da Barra de Ferramentas</title>
+
+<para
+>Para personalizar as barras de ferramentas de uma aplicação, vá à opção <menuchoice
+><guimenu
+>Configuração</guimenu
+><guimenuitem
+>Configurar as Barras de Ferramentas...</guimenuitem
+></menuchoice
+> ou carregue com o botão direito sobre uma barra de ferramentas e seleccione a opção <guimenuitem
+>Configurar as Barras de Ferramentas...</guimenuitem
+>.</para>
+
+<para
+>No lado esquerdo do painel de configuração das barras de ferramentas, são apresentados os itens disponíveis para colocar na sua barra de ferramentas. À direita, aparecem os que já constam da barra de ferramentas. No topo, poderá seleccionar a barra de ferramentas que deseja modificar ou ver.</para>
+
+<para
+>Por cima, em cada lado do painel, existe um campo de <guilabel
+>Filtro</guilabel
+>, poderá procurar facilmente itens na lista.</para>
+
+<screenshot id="screenshot-toolbars-customize">
+<screeninfo
+>A Janela para Personalizar as Barras de Ferramentas</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="toolbars-configure.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>A janela para Personalizar as Barras de Ferramentas.</phrase
+></textobject>
+<caption
+><para
+>A janela para Personalizar as Barras de Ferramentas no &gwenview; com o botão <guibutton
+>Anterior</guibutton
+> seleccionado.</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<sect3 id="toolbars-items-add">
+<title
+>Adicionar um Item</title>
+<para
+>Poderá adicionar um item à sua barra de ferramentas, seleccionando-o no lado esquerdo e carregar no botão com a seta para a direita.</para>
+</sect3>
+
+<sect3 id="toolbars-items-remove">
+<title
+>Remover um Item</title>
+<para
+>Poderá remover um item se o seleccionar e carregar no botão da seta para a esquerda.</para>
+</sect3>
+
+
+<sect3 id="toolbars-items-rearrange">
+<title
+>Mudar a Posição dos Itens</title>
+
+<para
+>Poderá alterar a posição dos itens se os mover para baixo ou para cima na lista. Para baixar os itens, carregue no botão da seta para baixo, enquanto para os subir poderá carregar no botão da seta para cima. Poderá mudar a posição dos itens se os arrastar e largar.</para>
+
+<para
+>Nas barras de ferramentas horizontais, o item que estiver no topo será o que aparece à esquerda. Nas barras verticais, os itens são organizados da mesma forma que aparecem na janela.</para>
+
+</sect3>
+
+<sect3 id="toolbars-items-separator">
+<title
+>Adicionar um Separador</title>
+<para
+>Poderá adicionar linhas separadoras entre os itens se adicionar um item <guilabel
+>--- separador ---</guilabel
+> à barra de ferramentas.</para>
+</sect3>
+
+<sect3 id="toolbars-items-defaults">
+<title
+>Repor as Predefinições</title>
+
+<para
+>Poderá repor a sua barra de ferramentas da forma como estava na instalação da aplicação se carregar no botão <guibutton
+>Predefinições</guibutton
+> no fundo da janela e depois confirmar a sua decisão.</para>
+
+</sect3>
+
+<sect3 id="toolbars-items-text-icons">
+<title
+>Mudar o Texto e os Ícones</title>
+
+<para
+>Poderá alterar o ícone e o texto dos itens individuais se seleccionar um item e carregar nos botões <guibutton
+>Mudar o Ícone...</guibutton
+> ou <guibutton
+>Mudar o Texto...</guibutton
+>.</para>
+<!--FIXME Icon selection and icon categories -> own section?
+  Change Text -> Option "Hide text when toolbar shows text alongside icons"
+  -->
+</sect3>
+</sect2>
+
+<sect2 id="toolbars-appearance">
+<title
+>Personalizar a Aparência das Barras de Ferramentas</title>
+
+<para
+>Poderá alterar a aparência das barras de ferramentas, carregando com o botão direito numa barra de ferramentas, para aceder ao seu menu de contexto.</para>
+<!-- settings for each toolbar separately-->
+<sect3 id="toolbars-appearance-text-position">
+<title
+>Posição do Texto</title>
+
+<para
+>Poderá alterar a aparência do texto nas barras de ferramentas com o submenu da <guisubmenu
+>Posição do Texto</guisubmenu
+> no menu de contexto de uma barra de ferramentas.</para>
+
+<para
+>Poderá escolher entre:</para>
+<itemizedlist>
+
+<listitem
+><para
+><guimenuitem
+>Ícones</guimenuitem
+> - só irá aparecer o ícone de cada item da barra de ferramentas. </para
+></listitem>
+
+<listitem
+><para
+><guimenuitem
+>Texto</guimenuitem
+> - só irá aparecer o texto de cada item da barra de ferramentas. </para
+></listitem>
+
+<listitem
+><para
+><guimenuitem
+>Texto ao Lado dos Ícones</guimenuitem
+> - a legenda de texto irá aparecer à direita de cada ícone do item da barra </para
+></listitem>
+
+<listitem
+><para
+><guimenuitem
+>Texto sob os Ícones</guimenuitem
+> - a legenda de texto irá aparecer por baixo de cada ícone do item da barra </para
+></listitem>
+
+</itemizedlist>
+
+<para
+>Poderá também mostrar ou esconder o texto dos itens individuais da barra de ferramentas se carregar com o botão direito sobre um item e marcar ou desmarcar o item sob o <guilabel
+>Mostrar o Texto</guilabel
+>.</para>
+
+</sect3>
+
+<sect3 id="toolbars-appearance-icon-size">
+<title
+>Tamanho dos Ícones</title>
+
+<para
+>Poderá alterar o tamanho dos ícones dos itens da barra de ferramentas se seleccionar o <guisubmenu
+>Tamanho dos Ícones</guisubmenu
+> do menu de contexto da barra de ferramentas.</para>
+
+<para
+>Poderá optar por uma das seguintes opções: (cada uma apresenta o tamanho do ícone em pixels)</para>
+
+<itemizedlist>
+<listitem
+><para
+><guimenuitem
+>Pequeno (16x16)</guimenuitem
+></para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Médio (22x22)</guimenuitem
+> [o valor por omissão]</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Grande (32x32)</guimenuitem
+></para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Enorme (48x48)</guimenuitem
+></para
+></listitem>
+</itemizedlist>
+
+</sect3>
+
+<sect3 id="toolbars-appearance-move">
+<title
+>Mover as Barras de Ferramentas</title>
+
+<para
+>Para mover as barras de ferramentas, terá de as <quote
+>desbloquear</quote
+> primeiro. Para o fazer, desligue a opção <guimenuitem
+>Bloquear as Barras de Ferramentas</guimenuitem
+> no menu de contexto de uma barra de ferramentas. Para repor o bloqueio, basta voltar a assinalar este item do menu.</para>
+
+<para
+>Poderá alterar a posição de uma barra de ferramentas no submenu <guisubmenu
+>Orientação</guisubmenu
+> do seu menu de contexto.</para>
+
+<para
+>Poderá escolher entre:</para>
+<itemizedlist>
+<listitem
+><para
+><guimenuitem
+>Topo</guimenuitem
+> [por omissão na maioria das aplicações]</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Esquerda</guimenuitem
+></para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Direita</guimenuitem
+></para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Fundo</guimenuitem
+></para
+></listitem>
+</itemizedlist>
+
+<para
+>Também poderá mover uma barra de ferramentas se carregar e manter carregada a linha pontilhada à esquerda das barras de ferramentas horizontais ou no topo das barras verticais e arrastá-la para o local desejado.</para>
+
+</sect3>
+
+<sect3 id="toolbars-appearance-show-hide">
+<title
+>Mostrar/Esconder as Barras de Ferramentas</title>
+
+<para
+>Se a sua aplicação só tiver uma barra de ferramentas, podê-la-á esconder se seleccionar a opção <guimenuitem
+>Mostrar a Barra de Ferramentas</guimenuitem
+> do menu de contexto da barra ou no menu <guimenu
+>Configuração</guimenu
+> Para repor a barra de ferramentas, seleccione a opção <guimenuitem
+>Mostrar a Barra de Ferramentas</guimenuitem
+> do menu <guimenu
+>Configuração</guimenu
+>. Lembre-se que as barras de ferramentas terão de estar <quote
+>desbloqueadas</quote
+> para as esconder no seu menu de contexto; veja mais informações em <xref linkend="toolbars-appearance-move"/>.</para>
+
+<para
+>Se a sua aplicação tiver mais que uma barra de ferramentas, irá aparecer um submenu <guisubmenu
+>Barras de Ferramentas Visíveis</guisubmenu
+> no menu de contexto e no menu <guimenu
+>Configuração</guimenu
+>, em vez do item acima. Nesse menu, poderá seleccionar as barras a esconder ou mostrar individualmente.</para>
+
+</sect3>
+</sect2>
+
+<sect2 id="toolbars-ack">
+<title
+>Agradecimentos e Reconhecimentos</title>
+<para
+>Muito obrigado a um participante anónimo do Google Code-In 2011 por escrever a maior parte desta secção.</para>
+</sect2>
+
+</sect1>
+
+
+<sect1 id="shortcuts">
+<sect1info>
+<authorgroup>
+<author
+><firstname
+>Alexey</firstname
+> <surname
+>Subach</surname
+></author>
+<author
+>&TC.Hollingsworth; &TC.Hollingsworth.mail;</author>
+<othercredit role="translator"
+><firstname
+>José</firstname
+><surname
+>Pires</surname
+><affiliation
+><address
+><email
+>zepires@gmail.com</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+</authorgroup>
+</sect1info>
+
+ <!--FIXME link from
+ <sect2 id="configshort"
+> in tables/config.docbook>
+ <sect2 id="configuration-shortcuts"
+> in extragear/multimedia-git/kplayer/doc/en_US/configuration.docbook
+ -->
+<!--FIXME explain Alternate + Global shortcuts in Screenshot and 
+another place to change Global Shortcuts (Systemsettings)-->
+<title
+>Usar e Personalizar os Atalhos</title>
+
+<sect2 id="shortcuts-intro">
+<title
+>Introdução</title>
+
+<para
+>Muitas das aplicações do &kde; permitem-lhe configurar os atalhos de teclado. Para abrir o painel de configuração dos atalhos de teclado, vá para <menuchoice
+><guimenu
+>Configuração</guimenu
+><guimenuitem
+>Configurar os Atalhos...</guimenuitem
+></menuchoice
+>.</para>
+
+<para
+>Na janela para Configurar os Atalhos, irá ver uma lista com todas as combinações de teclas disponíveis na aplicação actual. Poderá usar o campo de pesquisa no topo para procurar pelo atalho que deseja.</para>
+
+<screenshot id="screenshot-shortcuts-search">
+<screeninfo
+>A Janela para Personalizar os Atalhos</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="shortcuts-search.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>A janela para Personalizar os Atalhos.</phrase
+></textobject>
+<caption
+><para
+>Procurar por atalhos com o <userinput
+>file</userinput
+> em <ulink url="http://kde.org/applications/system/dolphin/"
+>&dolphin;</ulink
+>. </para
+></caption>
+</mediaobject>
+</screenshot>
+
+</sect2>
+
+<sect2 id="shortcuts-change">
+<title
+>Mudar um Atalho</title>
+
+<para
+>Para mudar uma combinação de teclas, carregue primeiro no nome do atalho que deseja alterar. Irá ver um grupo de opções onde poderá seleccionar se deseja atribuir o valor por omissão ou seleccionar uma nova combinação para a acção seleccionada. Para definir uma nova combinação de teclas, escolha a opção <guilabel
+>Personalizado</guilabel
+> e carregue no botão a seguir a ela. Depois, basta carregar na combinação de teclas que deseja usar, para que as suas alterações sejam gravadas.</para>
+
+<screenshot id="screenshot-shortcuts-set">
+<screeninfo
+>Definir um Atalho</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="shortcuts-set.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>A janela para Personalizar os Atalhos demonstra como definir uma combinação de teclas.</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+</sect2>
+
+<sect2 id="shortcuts-reset">
+<title
+>Repor as Combinações de Teclas</title>
+<para
+>Existe um botão no fundo da janela, chamado <guibutton
+>Predefinição</guibutton
+>. Se carregar neste botão, irá repor todos os seus atalhos personalizados com os seus valores por omissão.</para>
+
+<para
+>Poderá também repor uma combinação de teclas individual com o seu valor por omissão, seleccionando-a e carregando na opção <guilabel
+>Predefinição</guilabel
+>.</para>
+
+</sect2>
+
+<sect2 id="shortcuts-delete">
+<title
+>Remover um Atalho</title>
+
+<para
+>Para remover um atalho, seleccione-o na lista e carregue no ícone para remover (uma seta preta com uma cruz) à direita do botão que lhe permite seleccionar um atalho.</para>
+
+</sect2>
+
+<sect2 id ="shortcuts-schemes">
+<title
+>Lidar com Esquemas</title>
+
+<para
+>Os esquemas são perfis de configuração dos atalhos de teclado, para que possa criar vários perfis com diferentes combinações de teclas e mudar de perfis facilmente.</para>
+
+<screenshot id="screenshot-shortcuts-schemes">
+<screeninfo
+>Lidar com Esquemas</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="shortcuts-schemes.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>A janela para Personalizar os Atalhos a mostrar as ferramentas de edição do esquema.</phrase
+></textobject>
+<caption
+><para
+>Editar um esquema chamado <userinput
+>trabalho</userinput
+>.</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Para ver um menu que lhe permite editar os esquemas, carregue no botão <guibutton
+>Gerir os Esquemas</guibutton
+> no fundo do formulário. Irão aparecer as seguintes opções:</para>
+
+<variablelist>
+
+<varlistentry>
+<term
+><guilabel
+>Esquema Actual</guilabel
+></term>
+<listitem
+><para
+>Permite-lhe mudar de esquema.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guibutton
+>Novo...</guibutton
+></term>
+<listitem
+><para
+>Cria um novo esquema. Isto abre uma janela que lhe permite seleccionar um nome para o novo esquema.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guibutton
+>Apagar</guibutton
+></term>
+<listitem
+><para
+>Apaga o esquema actual.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guibutton
+>Mais Acções</guibutton
+></term>
+<listitem>
+<para
+>Abre o seguinte menu:</para>
+<variablelist>
+
+<varlistentry>
+<term
+><guimenuitem
+>Gravar os Atalhos no Esquema</guimenuitem
+></term>
+<listitem
+><para
+>Grava os atalhos de teclado no esquema actual.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guimenuitem
+>Exportar o Esquema...</guimenuitem
+></term>
+<listitem
+><para
+>Exporta o esquema actual para um ficheiro .</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guimenuitem
+>Importar um Esquema...</guimenuitem
+></term>
+<listitem
+><para
+>Importa um esquema a partir de um ficheiro .</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+<sect2 id="shortcuts-print">
+<title
+>Imprimir os Atalhos</title>
+
+<para
+>Poderá imprimir uma lista de atalhos para uma referência simples, carregando para tal no botão <guibutton
+>Imprimir</guibutton
+> no fundo da janela.</para>
+
+</sect2>
+
+<sect2 id="shortcuts-ack">
+<title
+>Agradecimentos e Reconhecimentos</title>
+
+<para
+>Muito obrigado ao participante do Google Code-In 2011 Alexey Subach por escrever a maioria desta secção.</para>
+
+</sect2>
+
+</sect1>
+
+</chapter>

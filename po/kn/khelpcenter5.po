@@ -1,0 +1,682 @@
+# translation of khelpcenter.po to Kannada
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Shankar Prasad <svenkate@redhat.com>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: khelpcenter\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-15 00:47+0000\n"
+"PO-Revision-Date: 2009-01-06 17:45+0530\n"
+"Last-Translator: Shankar Prasad <svenkate@redhat.com>\n"
+"Language-Team: Kannada <en@li.org>\n"
+"Language: kn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ಶಂಕರ ಪ್ರಸಾದ್ ಎಂ ವಿ"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "svenkate@redhat.com"
+
+#: application.cpp:30
+#, fuzzy, kde-format
+#| msgid "Document to be indexed"
+msgid "Documentation to open"
+msgstr "ಸೂಚಿ ಮಾಡಬೇಕಿರುವ ದಸ್ತಾವೇಜು"
+
+#: application.cpp:114 application.cpp:116
+#, fuzzy, kde-format
+#| msgid "KDE Help Center"
+msgid "Help Center"
+msgstr "ಕೆಡಿಇ ಯ ಸಹಾಯ ಕೇಂದ್ರ"
+
+#: application.cpp:118
+#, fuzzy, kde-format
+#| msgid "(c) 1999-2003, The KHelpCenter developers"
+msgid "(c) 1999-2020, The KHelpCenter developers"
+msgstr "(c) 1999-2003, The KHelpCenter ವಿಕಸನಗಾರರು"
+
+#: application.cpp:120
+#, kde-format
+msgid "Current maintainer"
+msgstr ""
+
+#: application.cpp:121
+#, kde-format
+msgid "Xapian-based search, lot of bugfixes"
+msgstr ""
+
+#: application.cpp:122
+#, kde-format
+msgid "Former maintainer"
+msgstr ""
+
+#: application.cpp:124
+#, kde-format
+msgid "Original Author"
+msgstr "ಮೂಲ ಕರ್ತೃ"
+
+#: application.cpp:125
+#, kde-format
+msgid "Info page support"
+msgstr "ಮಾಹಿತಿ ಪುಟ ಬೆಂಬಲ"
+
+#: docmetainfo.cpp:35
+#, kde-format
+msgid "Top-Level Documentation"
+msgstr "ಮೇಲ್ಮಟ್ಟದ ದಸ್ತಾವೇಜು"
+
+#: docmetainfo.cpp:83
+#, kde-format
+msgctxt "doctitle (language)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: docmetainfo.cpp:119
+#, kde-format
+msgctxt "Describes documentation entries that are in English"
+msgid "English"
+msgstr "ಇಂಗ್ಲೀಷ್"
+
+#: fontdialog.cpp:36
+#, kde-format
+msgid "Font Configuration"
+msgstr "ಅಕ್ಷರಶೈಲಿ ಸಂರಚನೆ"
+
+#: fontdialog.cpp:62
+#, kde-format
+msgid "Sizes"
+msgstr "ಗಾತ್ರಗಳು"
+
+#: fontdialog.cpp:66
+#, kde-format
+msgctxt "The smallest size a will have"
+msgid "M&inimum font size:"
+msgstr "ಅಕ್ಷರ ಶೈಲಿಯ ಕನಿಷ್ಟ ಗಾತ್ರ (&i):"
+
+#: fontdialog.cpp:73
+#, kde-format
+msgctxt "The normal size a font will have"
+msgid "M&edium font size:"
+msgstr "ಅಕ್ಷರ ಶೈಲಿಯ ಮಧ್ಯಮ ಗಾತ್ರ (&i):"
+
+#: fontdialog.cpp:83
+#, kde-format
+msgid "Fonts"
+msgstr "ಅಕ್ಷರಶೈಲಿಗಳು"
+
+#: fontdialog.cpp:87
+#, kde-format
+msgid "S&tandard font:"
+msgstr "ಮಾನಕ(ಸ್ಟ್ಯಾಂಡರ್ಡ್) ಅಕ್ಷರಶೈಲಿ(&t):"
+
+#: fontdialog.cpp:93
+#, kde-format
+msgid "F&ixed font:"
+msgstr "ನಿಶ್ಚಿತ ಅಕ್ಷರಶೈಲಿ(&i):"
+
+#: fontdialog.cpp:99
+#, kde-format
+msgid "S&erif font:"
+msgstr "s&erif ಅಕ್ಷರಶೈಲಿ:"
+
+#: fontdialog.cpp:105
+#, kde-format
+msgid "S&ans serif font:"
+msgstr "S&ans serif ಅಕ್ಷರಶೈಲಿ:"
+
+#: fontdialog.cpp:111
+#, kde-format
+msgid "&Italic font:"
+msgstr "&Italic ಅಕ್ಷರಶೈಲಿ:"
+
+#: fontdialog.cpp:117
+#, kde-format
+msgid "&Fantasy font:"
+msgstr "ಫ್ಯಾಂಟಸಿ ಅಕ್ಷರಶೈಲಿ(&F):"
+
+#: fontdialog.cpp:126
+#, kde-format
+msgid "Encoding"
+msgstr "ಎನ್ಕೋಡಿಂಗ್‌"
+
+#: fontdialog.cpp:131
+#, kde-format
+msgid "&Default encoding:"
+msgstr "ಪೂರ್ವನಿಯೋಜಿತ ಎನ್ಕೋಡಿಂಗ್‌(&D):"
+
+#: fontdialog.cpp:136 fontdialog.cpp:204
+#, kde-format
+msgid "Use Language Encoding"
+msgstr "ಭಾಷೆ ಎನ್ಕೋಡಿಂಗ್‌ ಅನ್ನು ಬಳಸು"
+
+#: fontdialog.cpp:140
+#, kde-format
+msgid "&Font size adjustment:"
+msgstr "ಅಕ್ಷರಶೈಲಿಯನ್ನು ಹೊಂದಿಸುವಿಕೆ(&F):"
+
+#: glossary.cpp:68
+#, kde-format
+msgid "By Topic"
+msgstr "ಶೀರ್ಷಿಕೆಯ ಮೇರೆಗೆ"
+
+#: glossary.cpp:72 infotree.cpp:74
+#, kde-format
+msgid "Alphabetically"
+msgstr "ವರ್ಣಮಾಲೆಯ ಮೇರೆಗೆ"
+
+#: glossary.cpp:128
+#, kde-format
+msgid "Rebuilding glossary cache..."
+msgstr "ಶಬ್ಧಕೋಶದ ಕ್ಯಾಶೆಯನ್ನು ಮರಳಿ ನಿರ್ಮಿಸಲಾಗುತ್ತಿದೆ..."
+
+#: glossary.cpp:182
+#, kde-format
+msgid "Rebuilding cache... done."
+msgstr ""
+
+#: grantleeformatter.cpp:102
+#, fuzzy, kde-format
+#| msgid "KDE Glossary"
+msgctxt "%1 is a glossary term"
+msgid "KDE Glossary: %1"
+msgstr "KDE ಶಬ್ಧಕೋಶ"
+
+#: grantleeformatter.cpp:103
+#, kde-format
+msgid "KDE Glossary"
+msgstr "KDE ಶಬ್ಧಕೋಶ"
+
+#: grantleeformatter.cpp:107
+#, fuzzy, kde-format
+#| msgid "See also: "
+msgid "See also: %1"
+msgstr "ಇಲ್ಲಿಯೂ ಸಹ ಹುಡುಕು: "
+
+#: grantleeformatter.cpp:128
+#, kde-format
+msgid "Search Results"
+msgstr "ಹುಡುಕು ಫಲಿತಾಂಶಗಳು"
+
+#: grantleeformatter.cpp:129 searchengine.cpp:259
+#, kde-format
+msgid "Search Results for '%1':"
+msgstr "'%1' ಗಾಗಿನ ಹುಡುಕು ಫಲಿತಾಂಶ:"
+
+#: infotree.cpp:77
+#, kde-format
+msgid "By Category"
+msgstr "ವರ್ಗದ ಮೇರೆಗೆ"
+
+#. i18n: ectx: label, entry, group (Search)
+#: khelpcenter.kcfg:31
+#, kde-format
+msgid "Path to index directory."
+msgstr "ಸೂಚಿ ಕೋಶಕ್ಕಾಗಿನ ಮಾರ್ಗ."
+
+#. i18n: ectx: whatsthis, entry, group (Search)
+#: khelpcenter.kcfg:32
+#, kde-format
+msgid "Path to directory containing search indices."
+msgstr "ಹುಡುಕು ಸೂಚಿಗಳನ್ನು ಹೊಂದಿರುವ ಕೋಶದ ಮಾರ್ಗ."
+
+#. i18n: ectx: label, entry, group (Layout)
+#: khelpcenter.kcfg:46
+#, kde-format
+msgid "Currently visible navigator tab"
+msgstr "ಪ್ರಸಕ್ತ ಗೋಚರಿಸುತ್ತಿರುವ ನ್ಯಾವಿಗೇಟರ್ ಟ್ಯಾಬ್"
+
+#. i18n: ectx: Menu (edit)
+#: khelpcenterui.rc:5
+#, kde-format
+msgid "&Edit"
+msgstr "ಸಂಪಾದನೆ(&E)"
+
+#. i18n: ectx: Menu (view)
+#: khelpcenterui.rc:13
+#, kde-format
+msgid "&View"
+msgstr "ನೋಟ(&V)"
+
+#. i18n: ectx: Menu (go)
+#: khelpcenterui.rc:19
+#, kde-format
+msgid "&Go"
+msgstr "ಹೋಗು(&G)"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: khelpcenterui.rc:36
+#, kde-format
+msgid "Main Toolbar"
+msgstr "ಮುಖ್ಯ ಸಲಕರಣೆಪಟ್ಟಿ"
+
+#: mainwindow.cpp:62
+#, kde-format
+msgid "Search Error Log"
+msgstr "ಹುಡುಕು ದಾಖಲೆ ದೋಷ"
+
+#: mainwindow.cpp:114
+#, kde-format
+msgid "Preparing Index"
+msgstr "ಸೂಚಿಯನ್ನು ತಯಾರಿಸಲಾಗುತ್ತಿದೆ"
+
+#: mainwindow.cpp:157
+#, kde-format
+msgid "Ready"
+msgstr "ಸಿದ್ಧವಾಗಿದೆ"
+
+#: mainwindow.cpp:208
+#, kde-format
+msgid "Previous Page"
+msgstr "ಹಿಂದಿನ ಪುಟ"
+
+#: mainwindow.cpp:210
+#, kde-format
+msgid "Moves to the previous page of the document"
+msgstr "ದಸ್ತಾವೇಜಿನ ಹಿಂದಿನ ಪುಟಕ್ಕೆ ಹೋಗುತ್ತದೆ"
+
+#: mainwindow.cpp:214
+#, kde-format
+msgid "Next Page"
+msgstr "ಮುಂದಿನ ಪುಟ"
+
+#: mainwindow.cpp:216
+#, kde-format
+msgid "Moves to the next page of the document"
+msgstr "ದಸ್ತಾವೇಜಿನ ಮುಂದಿನ ಪುಟಕ್ಕೆ ಹೋಗುತ್ತದೆ"
+
+#: mainwindow.cpp:223
+#, kde-format
+msgid "Table of &Contents"
+msgstr "ವಿಷಯಗಳ ಪಟ್ಟಿ(&C)"
+
+#: mainwindow.cpp:224
+#, kde-format
+msgid "Table of contents"
+msgstr "ವಿಷಯಗಳ ಪಟ್ಟಿ"
+
+#: mainwindow.cpp:225
+#, kde-format
+msgid "Go back to the table of contents"
+msgstr "ವಿಷಯಗಳ ಪಟ್ಟಿಗೆ ಹಿಂತಿರುಗು"
+
+#: mainwindow.cpp:231
+#, kde-format
+msgid "&Last Search Result"
+msgstr "ಕೊನೆಯ ಹುಡುಕು ಫಲಿತಾಂಶ(&L)"
+
+#: mainwindow.cpp:249
+#, kde-format
+msgid "Configure Fonts..."
+msgstr "ಅಕ್ಷರಶೈಲಿಯನ್ನು ಸಂರಚಿಸು..."
+
+#: mainwindow.cpp:253
+#, kde-format
+msgid "Increase Font Sizes"
+msgstr "ಅಕ್ಷರದ ಗಾತ್ರವನ್ನು ದೊಡ್ಡದಾಗಿಸಿ"
+
+#: mainwindow.cpp:258
+#, kde-format
+msgid "Decrease Font Sizes"
+msgstr "ಅಕ್ಷರದ ಗಾತ್ರವನ್ನು ಚಿಕ್ಕದಾಗಿಸಿ"
+
+#: mainwindow.cpp:274
+#, kde-format
+msgctxt "@title:menu"
+msgid "&Bookmarks"
+msgstr ""
+
+#: navigator.cpp:63
+#, fuzzy, kde-format
+#| msgid "&Search"
+msgid "Search..."
+msgstr "ಹುಡುಕು(&S)"
+
+#: navigator.cpp:118
+#, kde-format
+msgid "&Contents"
+msgstr "ಒಳವಿಷಯಗಳ(&C)"
+
+#: navigator.cpp:128
+#, kde-format
+msgid "Search Options"
+msgstr "ಹುಡುಕು ಆಯ್ಕೆಗಳು"
+
+#: navigator.cpp:136
+#, kde-format
+msgid "G&lossary"
+msgstr "ಶಬ್ಧಕೋಶ(&l)"
+
+#: navigator.cpp:480
+#, kde-format
+msgid "Start Page"
+msgstr "ಆರಂಭಿಕ ಪುಟ"
+
+#: navigator.cpp:481
+#, kde-format
+msgid "KDE Help Center"
+msgstr "ಕೆಡಿಇ ಯ ಸಹಾಯ ಕೇಂದ್ರ"
+
+#: navigator.cpp:564
+#, kde-format
+msgid "Unable to run search program."
+msgstr "ಹುಡುಕು ಪ್ರೊಗ್ರಾಂ ಅನ್ನು ಚಲಾಯಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
+
+#: navigator.cpp:657
+#, fuzzy, kde-format
+#| msgid "Build Search Index..."
+msgid "Updating search index..."
+msgstr "ಹುಡುಕು ಸೂಚಿಯನ್ನು ನಿರ್ಮಿಸು..."
+
+#: navigator.cpp:668
+#, kde-format
+msgid "Updating search index... done."
+msgstr ""
+
+#: searchengine.cpp:57
+#, kde-format
+msgid "Error: No document type specified."
+msgstr "ದೋಷ: ಯಾವುದೆ ದಸ್ತಾವೇಜಿನ ಬಗೆಯನ್ನು ಸೂಚಿಸಲಾಗಿಲ್ಲ."
+
+#: searchengine.cpp:59
+#, kde-format
+msgid "Error: No search handler for document type '%1'."
+msgstr ""
+
+#: searchengine.cpp:229
+#, kde-format
+msgid "No valid search handler found."
+msgstr ""
+
+#: searchhandler.cpp:37
+#, kde-format
+msgid "Error executing search command '%1'."
+msgstr "ಆದೇಶ '%1' ಅನ್ನು ಕಾರ್ಯಗತಗೊಳಿಸುವಾಗ ದೋಷ ಉಂಟಾಗಿದೆ."
+
+#: searchhandler.cpp:75
+#, kde-format
+msgid "Error: %1"
+msgstr "ದೋಷ: %1"
+
+#: searchhandler.cpp:140 searchhandler.cpp:145
+#, kde-format
+msgid "'%1' not found, check your installation"
+msgstr ""
+
+#: searchhandler.cpp:150
+#, kde-format
+msgid "'%1' not found, install the package containing it"
+msgstr ""
+
+#: searchhandler.cpp:197
+#, kde-format
+msgid "No search command or URL specified."
+msgstr "ಯಾವುದೆ ಹುಡುಕು ಆದೇಶ ಅಥವ ತಾಣಸೂಚಿಯನ್ನು ಸೂಚಿಸಲಾಗಿಲ್ಲ."
+
+#: searchwidget.cpp:39
+#, kde-format
+msgid "and"
+msgstr "ಹಾಗು"
+
+#: searchwidget.cpp:40
+#, kde-format
+msgid "or"
+msgstr "ಅಥವ"
+
+#: searchwidget.cpp:42
+#, kde-format
+msgid "&Method:"
+msgstr "ವಿಧಾನ(&M):"
+
+#: searchwidget.cpp:58
+#, kde-format
+msgid "Max. &results:"
+msgstr "ಗರಿಷ್ಟ ಫಲಿತಾಂಶಗಳು(&r):"
+
+#: searchwidget.cpp:73
+#, kde-format
+msgid "&Scope selection:"
+msgstr ""
+
+#: searchwidget.cpp:81
+#, kde-format
+msgid "Scope"
+msgstr "ವ್ಯಾಪ್ತಿ (ಸ್ಕೋಪ್)"
+
+#: searchwidget.cpp:322
+#, kde-format
+msgctxt "Label for searching documentation using custom (user defined) scope"
+msgid "Custom"
+msgstr "ಇಚ್ಛೆಯ"
+
+#: searchwidget.cpp:324
+#, kde-format
+msgctxt "Label for searching documentation using default search scope"
+msgid "Default"
+msgstr "ಪೂರ್ವನಿಯೋಜಿತ"
+
+#: searchwidget.cpp:326
+#, kde-format
+msgctxt "Label for searching documentation in all subsections"
+msgid "All"
+msgstr "ಎಲ್ಲವೂ"
+
+#: searchwidget.cpp:328
+#, kde-format
+msgctxt "Label for scope that deselects all search subsections"
+msgid "None"
+msgstr "ಯಾವುದೂ ಇಲ್ಲ"
+
+#: searchwidget.cpp:330
+#, kde-format
+msgctxt "Label for Unknown search scope, that should never appear"
+msgid "unknown"
+msgstr "ಗೊತ್ತಿಲ್ಲದ"
+
+#: view.cpp:228
+#, kde-format
+msgid "Copy Link Address"
+msgstr "ಕೊಂಡಿಯ ವಿಳಾಸವನ್ನು ನಕಲಿಸು"
+
+#: view.cpp:312
+#, kde-format
+msgid ""
+"<p>Read the topic documentation in this window.<br /><br />Press <b>Space</"
+"b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, <b>Tab</b>/"
+"<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
+msgstr ""
+
+#~ msgid "Error"
+#~ msgstr "ದೋಷ"
+
+#~ msgid "ht://dig"
+#~ msgstr "ht://dig"
+
+#~ msgid "Information about where to get the ht://dig package."
+#~ msgstr "ht://dig ಪ್ಯಾಕೇಜು ಎಲ್ಲಿ ದೊರೆಯುತ್ತದೆಂಬುದರ ಬಗ್ಗೆ ಮಾಹಿತಿ."
+
+#~ msgid "You can get ht://dig at the ht://dig home page"
+#~ msgstr "ನೀವು ht://dig ನೆಲೆ ಪುಟದಲ್ಲಿ ht://dig ಅನ್ನು ನೋಡಬಹುದಾಗಿದೆ"
+
+#~ msgid "Program Locations"
+#~ msgstr "ಕ್ರಮವಿಧಿ (ಪ್ರೋಗ್ರಾಂ) ಸ್ಥಾನಗಳು"
+
+#~ msgid "htsearch:"
+#~ msgstr "htsearch:"
+
+#~ msgid "Enter the URL of the htsearch CGI program."
+#~ msgstr "htsearch CGI ಕ್ರಮವಿಧಿಯ ತಾಣಸೂಚಿಯನ್ನು ನಮೂದಿಸಿ."
+
+#~ msgid "Indexer:"
+#~ msgstr "ಸೂಚಿ ನಿರ್ಮಾಣಗಾರ:"
+
+#~ msgid "Enter the path to your htdig indexer program here."
+#~ msgstr "htdig ಸೂಚಿ ನಿರ್ಮಾಣ ಕ್ರಮವಿಧಿಯ ಮಾರ್ಗವನ್ನು ನಮೂದಿಸಿ."
+
+#~ msgid "htdig database:"
+#~ msgstr "htdig ದತ್ತಸಂಚಯ:"
+
+#~ msgid "Enter the path to the htdig database folder."
+#~ msgstr "htdig ದತ್ತಸಂಚಯದ ಕಡತಕೋಶದ ಮಾರ್ಗವನ್ನು ನಮೂದಿಸಿ."
+
+#~ msgid "Change Index Folder"
+#~ msgstr "ಸೂಚಿ ಕಡತಕೋಶವನ್ನು ಬದಲಾಯಿಸು"
+
+#~ msgid "Index folder:"
+#~ msgstr "ಸೂಚಿ ಕಡತಕೋಶ:"
+
+#~ msgid "Build Search Indices"
+#~ msgstr "ಹುಡುಕು ಸೂಚಿಗಳನ್ನು ನಿರ್ಮಿಸು"
+
+#~ msgid "Index creation log:"
+#~ msgstr "ಸೂಚಿಯನ್ನು ನಿರ್ಮಾಣ ದಾಖಲೆ:"
+
+#~ msgctxt ""
+#~ "Label for button to close search index progress dialog after successful "
+#~ "completion"
+#~ msgid "Close"
+#~ msgstr "ಮುಚ್ಚು"
+
+#~ msgid "Index creation finished."
+#~ msgstr "ಸೂಚಿಯನ್ನು ನಿರ್ಮಾಣವು ಪೂರ್ಣಗೊಂಡಿದೆ."
+
+#~ msgctxt "Label for stopping search index generation before completion"
+#~ msgid "Stop"
+#~ msgstr "ನಿಲ್ಲಿಸು"
+
+#, fuzzy
+#~| msgid "Details &lt;&lt;"
+#~ msgid "Details <<"
+#~ msgstr "ವಿವರಗಳು &lt;&lt;"
+
+#, fuzzy
+#~| msgid "Details &lt;&lt;"
+#~ msgid "Details >>"
+#~ msgstr "ವಿವರಗಳು &lt;&lt;"
+
+#~ msgid "Build Search Index"
+#~ msgstr "ಹುಡುಕು ಸೂಚಿಯನ್ನು ನಿರ್ಮಿಸು"
+
+#~ msgid "Build Index"
+#~ msgstr "ಸೂಚಿಯನ್ನು ನಿರ್ಮಿಸು"
+
+#~ msgid ""
+#~ "To create an index, check the box in the list and press the\n"
+#~ "\"Build Index\" button.\n"
+#~ msgstr ""
+#~ "ಸೂಚಿಯನ್ನು ನಿರ್ಮಿಸಲು, ಪಟ್ಟಿಯಲ್ಲಿನ ಚೌಕವನ್ನು ಗುರುತು ಹಾಕಿ ನಂತರ\n"
+#~ "\"ಸೂಚಿಯನ್ನು ನಿರ್ಮಿಸು\" ಗುಂಡಿಯನ್ನು ಒತ್ತಿ.\n"
+
+#~ msgid "Search Scope"
+#~ msgstr "ಹುಡುಕು ವ್ಯಾಪ್ತಿ"
+
+#~ msgid "Status"
+#~ msgstr "ಸ್ಥಿತಿಗತಿ"
+
+#~ msgid "Change..."
+#~ msgstr "ಬದಲಾಯಿಸು..."
+
+#~ msgid ""
+#~ "<qt>The folder <b>%1</b> does not exist; unable to create index.</qt>"
+#~ msgstr ""
+#~ "<qt><b>%1</b> ಕಡತಕೋಶವು ಅಸ್ತಿತ್ವದಲ್ಲಿಲ್ಲ; ಸೂಚಿಯನ್ನು ರಚಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ.</qt>"
+
+#~ msgctxt "Describes the status of a documentation index that is present"
+#~ msgid "OK"
+#~ msgstr "ಸರಿ"
+
+#~ msgctxt "Describes the status of a documentation index that is missing"
+#~ msgid "Missing"
+#~ msgstr "ಕಾಣೆಯಾಗಿದೆ"
+
+#~ msgctxt ""
+#~ " Generic prefix label for error messages when creating documentation "
+#~ "index, first arg is the document's identifier, second is the document's "
+#~ "name"
+#~ msgid "Document '%1' (%2):\n"
+#~ msgstr "ದಸ್ತಾವೇಜು '%1' (%2):\n"
+
+#~ msgid "No document type."
+#~ msgstr "ದಸ್ತಾವೇಜಿನ ಬಗೆ ಇಲ್ಲ."
+
+#, fuzzy
+#~ msgid "No search handler available for document type '%1'."
+#~ msgstr "'%1' ಬಗೆಯ ದಸ್ತಾವೇಜಿಗೆ ಯಾವುದೆ ಸೂಚಿ ಆದೇಶವನ್ನು ನೀಡಲಾಗಿಲ್ಲ."
+
+#~ msgid "No indexing command specified for document type '%1'."
+#~ msgstr "'%1' ಬಗೆಯ ದಸ್ತಾವೇಜಿಗೆ ಯಾವುದೆ ಸೂಚಿ ಆದೇಶವನ್ನು ನೀಡಲಾಗಿಲ್ಲ."
+
+#~ msgid "Failed to build index."
+#~ msgstr "ಸೂಚಿಯನ್ನು ನಿರ್ಮಿಸುವಲ್ಲಿ ವಿಫಲಗೊಂಡಿದೆ."
+
+#~ msgid ""
+#~ "Error executing indexing build command:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "ಸೂಚಿ ನಿರ್ಮಿಸುವ ಆದೇಶವನ್ನು ಕಾರ್ಯಗತಗೊಳಿಸುವಾಗ ದೋಷ:\n"
+#~ "%1"
+
+#~ msgid "Unable to start command '%1'."
+#~ msgstr "ಆದೇಶ '%1' ಅನ್ನು ಆರಂಭಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
+
+#~ msgid "KHelpCenter Index Builder"
+#~ msgstr "KHelpCenter ಸೂಚಿ ನಿರ್ಮಾಣಗಾರ"
+
+#~ msgid "Cornelius Schumacher"
+#~ msgstr "Cornelius Schumacher"
+
+#~ msgid "Document to be indexed"
+#~ msgstr "ಸೂಚಿ ಮಾಡಬೇಕಿರುವ ದಸ್ತಾವೇಜು"
+
+#~ msgid "Index directory"
+#~ msgstr "ಸೂಚಿ ಕೋಶ"
+
+#~ msgid ""
+#~ "A search index does not yet exist. Do you want to create the index now?"
+#~ msgstr "ಒಂದು ಹುಡುಕು ಸೂಚಿಯು ಅಸ್ತಿತ್ವದಲ್ಲಿಲ್ಲ. ನೀವು ಸೂಚಿಯನ್ನು ನಿರ್ಮಿಸಲು ಬಯಸುತ್ತೀರೆ?"
+
+#~ msgid "Create"
+#~ msgstr "ರಚಿಸು"
+
+#~ msgid "Do Not Create"
+#~ msgstr "ರಚಿಸಬೇಡ"
+
+#~ msgid "Build Search &Index..."
+#~ msgstr "ಹುಡುಕು ಸೂಚಿಯನ್ನು ನಿರ್ಮಿಸು(&I)..."
+
+#~ msgid "The KDE Help Center"
+#~ msgstr "ಕೆಡಿಇ ಯ ಸಹಾಯ ಕೇಂದ್ರ"
+
+#~ msgid "(c) 2003, The KHelpCenter developers"
+#~ msgstr "(c) 2003, The KHelpCenter ವಿಕಸನಗಾರರು"
+
+#~ msgid "Details &gt;&gt;"
+#~ msgstr "ವಿವರಗಳು &gt;&gt;"
+
+#~ msgid "Frerich Raabe"
+#~ msgstr "Frerich Raabe"
+
+#~ msgid "Matthias Elter"
+#~ msgstr "Matthias Elter"
+
+#~ msgid "Wojciech Smigaj"
+#~ msgstr "Wojciech Smigaj"
+
+#~ msgid "URL to display"
+#~ msgstr "ತೋರಿಸಬೇಕಿರುವ ತಾಣಸೂಚಿ"
+
+#~ msgid "&File"
+#~ msgstr "ಕಡತ(&F)"
+
+#~ msgid "Show Search Error Log"
+#~ msgstr "ಹುಡುಕು ದೋಷ ದಾಖಲೆಯನ್ನು ತೋರಿಸು"

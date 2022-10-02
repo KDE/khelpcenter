@@ -1,0 +1,708 @@
+# translation of khelpcenter.po to Karakh
+#
+# Sairan Kikkarin <sairan@computer.org>, 2005, 2008, 2010, 2011, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: khelpcenter\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-15 00:47+0000\n"
+"PO-Revision-Date: 2012-01-05 02:45+0600\n"
+"Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
+"Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
+"Language: kk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.1\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"\n"
+"\n"
+"\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Ақсәуле Мамаева, Сайран Киккарин"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "ak78@sci.kz, sairan@computer.org"
+
+#: application.cpp:30
+#, fuzzy, kde-format
+#| msgid "Document to be indexed"
+msgid "Documentation to open"
+msgstr "Индекстейтін құжат"
+
+#: application.cpp:114 application.cpp:116
+#, fuzzy, kde-format
+#| msgid "KDE Help Center"
+msgid "Help Center"
+msgstr "KDE Анықтама орталығы"
+
+#: application.cpp:118
+#, fuzzy, kde-format
+#| msgid "(c) 1999-2011, The KHelpCenter developers"
+msgid "(c) 1999-2020, The KHelpCenter developers"
+msgstr "(c) 1999-2011,  KHelpCenter құрастырушылары"
+
+#: application.cpp:120
+#, kde-format
+msgid "Current maintainer"
+msgstr ""
+
+#: application.cpp:121
+#, kde-format
+msgid "Xapian-based search, lot of bugfixes"
+msgstr ""
+
+#: application.cpp:122
+#, kde-format
+msgid "Former maintainer"
+msgstr ""
+
+#: application.cpp:124
+#, kde-format
+msgid "Original Author"
+msgstr "Бастапқы авторы"
+
+#: application.cpp:125
+#, kde-format
+msgid "Info page support"
+msgstr "Info парақтарын қолдау"
+
+#: docmetainfo.cpp:35
+#, kde-format
+msgid "Top-Level Documentation"
+msgstr "Құжаттаманың жоғарғы деңгейі"
+
+#: docmetainfo.cpp:83
+#, kde-format
+msgctxt "doctitle (language)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: docmetainfo.cpp:119
+#, kde-format
+msgctxt "Describes documentation entries that are in English"
+msgid "English"
+msgstr "Ағылшын"
+
+#: fontdialog.cpp:36
+#, kde-format
+msgid "Font Configuration"
+msgstr "Қаріптерін баптау"
+
+#: fontdialog.cpp:62
+#, kde-format
+msgid "Sizes"
+msgstr "Өлшемдері"
+
+#: fontdialog.cpp:66
+#, kde-format
+msgctxt "The smallest size a will have"
+msgid "M&inimum font size:"
+msgstr "Ең &кіші қаріптің өлшемі:"
+
+#: fontdialog.cpp:73
+#, kde-format
+msgctxt "The normal size a font will have"
+msgid "M&edium font size:"
+msgstr "&Орташа қаріптің өлшемі:"
+
+#: fontdialog.cpp:83
+#, kde-format
+msgid "Fonts"
+msgstr "Қаріптер"
+
+#: fontdialog.cpp:87
+#, kde-format
+msgid "S&tandard font:"
+msgstr "Қалы&пты қаріп:"
+
+#: fontdialog.cpp:93
+#, kde-format
+msgid "F&ixed font:"
+msgstr "Е&ні бірыңғай қаріпі:"
+
+#: fontdialog.cpp:99
+#, kde-format
+msgid "S&erif font:"
+msgstr "S&erif қаріпі:"
+
+#: fontdialog.cpp:105
+#, kde-format
+msgid "S&ans serif font:"
+msgstr "Sa&ns serif қаріпі:"
+
+#: fontdialog.cpp:111
+#, kde-format
+msgid "&Italic font:"
+msgstr "&Көлбеу қаріпі:"
+
+#: fontdialog.cpp:117
+#, kde-format
+msgid "&Fantasy font:"
+msgstr "Fantas&y қаріпі:"
+
+#: fontdialog.cpp:126
+#, kde-format
+msgid "Encoding"
+msgstr "Кодтамасы"
+
+#: fontdialog.cpp:131
+#, kde-format
+msgid "&Default encoding:"
+msgstr "&Әдеттегі кодтамасы:"
+
+#: fontdialog.cpp:136 fontdialog.cpp:204
+#, kde-format
+msgid "Use Language Encoding"
+msgstr "Тіл кодтамасын қолдану"
+
+#: fontdialog.cpp:140
+#, kde-format
+msgid "&Font size adjustment:"
+msgstr "&Қаріптің өлшемін жөнге салу:"
+
+#: glossary.cpp:68
+#, kde-format
+msgid "By Topic"
+msgstr "Тақырып бойынша"
+
+#: glossary.cpp:72 infotree.cpp:74
+#, kde-format
+msgid "Alphabetically"
+msgstr "Әліппе бойынша"
+
+#: glossary.cpp:128
+#, kde-format
+msgid "Rebuilding glossary cache..."
+msgstr "Глоссарийдың кэшін қайта құру..."
+
+#: glossary.cpp:182
+#, kde-format
+msgid "Rebuilding cache... done."
+msgstr "Кэшін қайта құру... дайын."
+
+#: grantleeformatter.cpp:102
+#, fuzzy, kde-format
+#| msgid "KDE Glossary"
+msgctxt "%1 is a glossary term"
+msgid "KDE Glossary: %1"
+msgstr "KDE глоссарийі"
+
+#: grantleeformatter.cpp:103
+#, kde-format
+msgid "KDE Glossary"
+msgstr "KDE глоссарийі"
+
+#: grantleeformatter.cpp:107
+#, fuzzy, kde-format
+#| msgid "See also: "
+msgid "See also: %1"
+msgstr "Қосымша қарайтыны: "
+
+#: grantleeformatter.cpp:128
+#, kde-format
+msgid "Search Results"
+msgstr "Іздеу нәтижесі"
+
+#: grantleeformatter.cpp:129 searchengine.cpp:259
+#, kde-format
+msgid "Search Results for '%1':"
+msgstr "'%1' іздеу нәтижесі:"
+
+#: infotree.cpp:77
+#, kde-format
+msgid "By Category"
+msgstr "Санаты бойынша"
+
+#. i18n: ectx: label, entry, group (Search)
+#: khelpcenter.kcfg:31
+#, kde-format
+msgid "Path to index directory."
+msgstr "Идекстер каталогының жолы."
+
+#. i18n: ectx: whatsthis, entry, group (Search)
+#: khelpcenter.kcfg:32
+#, kde-format
+msgid "Path to directory containing search indices."
+msgstr "Іздеу индекстері жазылатын каталогының жолы."
+
+#. i18n: ectx: label, entry, group (Layout)
+#: khelpcenter.kcfg:46
+#, kde-format
+msgid "Currently visible navigator tab"
+msgstr "Көрініп тұрған шолғыштың қойындысы"
+
+#. i18n: ectx: Menu (edit)
+#: khelpcenterui.rc:5
+#, kde-format
+msgid "&Edit"
+msgstr "Өң&деу"
+
+#. i18n: ectx: Menu (view)
+#: khelpcenterui.rc:13
+#, kde-format
+msgid "&View"
+msgstr "&Көрініс"
+
+#. i18n: ectx: Menu (go)
+#: khelpcenterui.rc:19
+#, kde-format
+msgid "&Go"
+msgstr "&Өту"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: khelpcenterui.rc:36
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Негізгі құралдары"
+
+#: mainwindow.cpp:62
+#, kde-format
+msgid "Search Error Log"
+msgstr "Іздеу қателіктер журналы"
+
+#: mainwindow.cpp:114
+#, kde-format
+msgid "Preparing Index"
+msgstr "Индексті дайындау"
+
+#: mainwindow.cpp:157
+#, kde-format
+msgid "Ready"
+msgstr "Дайын"
+
+#: mainwindow.cpp:208
+#, kde-format
+msgid "Previous Page"
+msgstr "Алдыңғы бет"
+
+#: mainwindow.cpp:210
+#, kde-format
+msgid "Moves to the previous page of the document"
+msgstr "Құжаттың алдыңғы бетіне өту"
+
+#: mainwindow.cpp:214
+#, kde-format
+msgid "Next Page"
+msgstr "Келесі бет"
+
+#: mainwindow.cpp:216
+#, kde-format
+msgid "Moves to the next page of the document"
+msgstr "Құжаттың келесі бетіне өту"
+
+#: mainwindow.cpp:223
+#, kde-format
+msgid "Table of &Contents"
+msgstr "&Мазмұны"
+
+#: mainwindow.cpp:224
+#, kde-format
+msgid "Table of contents"
+msgstr "Мазмұны"
+
+#: mainwindow.cpp:225
+#, kde-format
+msgid "Go back to the table of contents"
+msgstr "Мазмұн кестесіне оралу"
+
+#: mainwindow.cpp:231
+#, kde-format
+msgid "&Last Search Result"
+msgstr "&Соңғы іздеудің нәтижесі"
+
+#: mainwindow.cpp:249
+#, kde-format
+msgid "Configure Fonts..."
+msgstr "Қаріптерін баптау..."
+
+#: mainwindow.cpp:253
+#, kde-format
+msgid "Increase Font Sizes"
+msgstr "Қаріпті үлкейту"
+
+#: mainwindow.cpp:258
+#, kde-format
+msgid "Decrease Font Sizes"
+msgstr " Қаріпті кішірейту"
+
+#: mainwindow.cpp:274
+#, kde-format
+msgctxt "@title:menu"
+msgid "&Bookmarks"
+msgstr ""
+
+#: navigator.cpp:63
+#, fuzzy, kde-format
+#| msgid "&Search"
+msgid "Search..."
+msgstr "&Іздеу"
+
+#: navigator.cpp:118
+#, kde-format
+msgid "&Contents"
+msgstr "&Мазмұны"
+
+#: navigator.cpp:128
+#, kde-format
+msgid "Search Options"
+msgstr "Іздеу параметрлері"
+
+#: navigator.cpp:136
+#, kde-format
+msgid "G&lossary"
+msgstr "Г&лоссарий"
+
+#: navigator.cpp:480
+#, kde-format
+msgid "Start Page"
+msgstr "Бастапқы бет"
+
+#: navigator.cpp:481
+#, kde-format
+msgid "KDE Help Center"
+msgstr "KDE Анықтама орталығы"
+
+#: navigator.cpp:564
+#, kde-format
+msgid "Unable to run search program."
+msgstr "Іздеу бағдарламасын жегуі мүмкін болмай тұр."
+
+#: navigator.cpp:657
+#, fuzzy, kde-format
+#| msgid "Build Search Index..."
+msgid "Updating search index..."
+msgstr "Іздеу индексін құру..."
+
+#: navigator.cpp:668
+#, fuzzy, kde-format
+#| msgid "Rebuilding cache... done."
+msgid "Updating search index... done."
+msgstr "Кэшін қайта құру... дайын."
+
+#: searchengine.cpp:57
+#, kde-format
+msgid "Error: No document type specified."
+msgstr "Қате: құжаттың түрі келтірілмеген."
+
+#: searchengine.cpp:59
+#, kde-format
+msgid "Error: No search handler for document type '%1'."
+msgstr "Қате: %1 құжатының түрін іздеу өңдеушісі жоқ."
+
+#: searchengine.cpp:229
+#, kde-format
+msgid "No valid search handler found."
+msgstr "Жарамды іздеу өңдеушісі табылмады."
+
+#: searchhandler.cpp:37
+#, kde-format
+msgid "Error executing search command '%1'."
+msgstr "Іздеу командасының орындалуындағы қате '%1'."
+
+#: searchhandler.cpp:75
+#, kde-format
+msgid "Error: %1"
+msgstr "Қате: %1"
+
+#: searchhandler.cpp:140 searchhandler.cpp:145
+#, kde-format
+msgid "'%1' not found, check your installation"
+msgstr "'%1' табылмады, орнатылғанын тексеріңіз"
+
+#: searchhandler.cpp:150
+#, kde-format
+msgid "'%1' not found, install the package containing it"
+msgstr "'%1' табылмады, ол қай дестенің құрамында, орнатыңыз"
+
+#: searchhandler.cpp:197
+#, kde-format
+msgid "No search command or URL specified."
+msgstr "Іздеу командасы не URL келірілмеген."
+
+#: searchwidget.cpp:39
+#, kde-format
+msgid "and"
+msgstr "және"
+
+#: searchwidget.cpp:40
+#, kde-format
+msgid "or"
+msgstr "немесе"
+
+#: searchwidget.cpp:42
+#, kde-format
+msgid "&Method:"
+msgstr "&Әдіс:"
+
+#: searchwidget.cpp:58
+#, kde-format
+msgid "Max. &results:"
+msgstr "&Нәтижелер санының шегі:"
+
+#: searchwidget.cpp:73
+#, kde-format
+msgid "&Scope selection:"
+msgstr "&Шеңберін таңдау:"
+
+#: searchwidget.cpp:81
+#, kde-format
+msgid "Scope"
+msgstr "Шеңбері"
+
+#: searchwidget.cpp:322
+#, kde-format
+msgctxt "Label for searching documentation using custom (user defined) scope"
+msgid "Custom"
+msgstr "Қалау бойынша"
+
+#: searchwidget.cpp:324
+#, kde-format
+msgctxt "Label for searching documentation using default search scope"
+msgid "Default"
+msgstr "Әдетті"
+
+#: searchwidget.cpp:326
+#, kde-format
+msgctxt "Label for searching documentation in all subsections"
+msgid "All"
+msgstr "Барлығын"
+
+#: searchwidget.cpp:328
+#, kde-format
+msgctxt "Label for scope that deselects all search subsections"
+msgid "None"
+msgstr "Жоқ"
+
+#: searchwidget.cpp:330
+#, kde-format
+msgctxt "Label for Unknown search scope, that should never appear"
+msgid "unknown"
+msgstr "беймәлім"
+
+#: view.cpp:228
+#, kde-format
+msgid "Copy Link Address"
+msgstr "Сілтеме адресін көшіріп алу"
+
+#: view.cpp:312
+#, kde-format
+msgid ""
+"<p>Read the topic documentation in this window.<br /><br />Press <b>Space</"
+"b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, <b>Tab</b>/"
+"<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
+msgstr ""
+
+#~ msgid "Unable to initialize SearchHandler from file '%1'."
+#~ msgstr "'%1' файлындағы іздеу өңдеушісін инициализациялау мүмкін емес."
+
+#~ msgid "Error"
+#~ msgstr "Қате"
+
+#~ msgid ""
+#~ "Unable to show selected glossary entry: unable to open file 'glossary."
+#~ "html.in'!"
+#~ msgstr ""
+#~ "Глоссарийдың жазуын көрсету мүмкін емес: 'glossary.html.in' файлы "
+#~ "ашылмайды!"
+
+#~ msgid "ht://dig"
+#~ msgstr "ht://dig"
+
+#~ msgid ""
+#~ "The fulltext search feature makes use of the ht://dig HTML search engine."
+#~ msgstr ""
+#~ "Толық мәтінді іздеу мүмкіндігі ht://dig HTML іздеу тетігімен қамтамасыз "
+#~ "етіледі."
+
+#~ msgid "Information about where to get the ht://dig package."
+#~ msgstr "ht://dig дестесін қайдан алуға болатыны туралы мәлімет."
+
+#~ msgid "You can get ht://dig at the ht://dig home page"
+#~ msgstr " ht://dig дегенді ht://dig мекен парағынан табуға болады"
+
+#~ msgid "Program Locations"
+#~ msgstr "Бағдарламалардың орналасуы"
+
+#~ msgid "htsearch:"
+#~ msgstr "htsearch:"
+
+#~ msgid "Enter the URL of the htsearch CGI program."
+#~ msgstr "htsearch CGI бағдарламаның URL-адресін келтіріңіз."
+
+#~ msgid "Indexer:"
+#~ msgstr "Indexer:"
+
+#~ msgid "Enter the path to your htdig indexer program here."
+#~ msgstr "Мұнда htdig indexer бағдарламасының жолын келтіріңіз."
+
+#~ msgid "htdig database:"
+#~ msgstr "htdig деректер қоры:"
+
+#~ msgid "Enter the path to the htdig database folder."
+#~ msgstr "htdig деректер қорының қапшығының жолын келтіріңіз."
+
+#~ msgid "Change Index Folder"
+#~ msgstr "Индекс қапшығын өзгерту"
+
+#~ msgid "Index folder:"
+#~ msgstr "Индекс қапшығы:"
+
+#~ msgid "Build Search Indices"
+#~ msgstr "Іздеу индексін құру"
+
+#~ msgid "Index creation log:"
+#~ msgstr "Индексті құру журналы:"
+
+#~ msgctxt ""
+#~ "Label for button to close search index progress dialog after successful "
+#~ "completion"
+#~ msgid "Close"
+#~ msgstr "Жабу"
+
+#~ msgid "Index creation finished."
+#~ msgstr "Индексті құру аяқталды."
+
+#~ msgctxt "Label for stopping search index generation before completion"
+#~ msgid "Stop"
+#~ msgstr "Тоқтату"
+
+#, fuzzy
+#~| msgid "Details &lt;&lt;"
+#~ msgid "Details <<"
+#~ msgstr "Егжей-тегжейі &lt;&lt;"
+
+#, fuzzy
+#~| msgid "Details &lt;&lt;"
+#~ msgid "Details >>"
+#~ msgstr "Егжей-тегжейі &lt;&lt;"
+
+#~ msgid "Build Search Index"
+#~ msgstr "Іздеу индексін құру"
+
+#~ msgid "Build Index"
+#~ msgstr "Индексті құру"
+
+#~ msgid ""
+#~ "To be able to search a document, a search\n"
+#~ "index needs to exist. The status column of the list below shows whether "
+#~ "an index\n"
+#~ "for a document exists.\n"
+#~ msgstr ""
+#~ "Құжатта іздеу мүмкіндігін қамтамасыз ету үшін іздеу индексі\n"
+#~ "болу керек. Төмендегі күй-жай бағаны құжат индексінің\n"
+#~ "бар-жоғын көрсетеді.\n"
+
+#~ msgid ""
+#~ "To create an index, check the box in the list and press the\n"
+#~ "\"Build Index\" button.\n"
+#~ msgstr ""
+#~ "Индексті құру үшін тізімдегі белгісін қойып,\n"
+#~ "\"Индексті құру\" батырмасын басыңыз.\n"
+
+#~ msgid "Search Scope"
+#~ msgstr "Іздеу шеңбері"
+
+#~ msgid "Status"
+#~ msgstr "Күй-жайы"
+
+#~ msgid "Change..."
+#~ msgstr "Өзгерту..."
+
+#~ msgid ""
+#~ "<qt>The folder <b>%1</b> does not exist; unable to create index.</qt>"
+#~ msgstr "<qt><b>%1</b> қапшығы жоқ; индексті құру мүмкін емес.</qt>"
+
+#~ msgctxt "Describes the status of a documentation index that is present"
+#~ msgid "OK"
+#~ msgstr "ОК"
+
+#~ msgctxt "Describes the status of a documentation index that is missing"
+#~ msgid "Missing"
+#~ msgstr "Жоқ"
+
+#~ msgctxt ""
+#~ " Generic prefix label for error messages when creating documentation "
+#~ "index, first arg is the document's identifier, second is the document's "
+#~ "name"
+#~ msgid "Document '%1' (%2):\n"
+#~ msgstr "'%1' (%2) құжаты:\n"
+
+#~ msgid "No document type."
+#~ msgstr "Құжаттың түрі жоқ."
+
+#~ msgid "No search handler available for document type '%1'."
+#~ msgstr "'%1' құжаттың түрін іздеу үшін қол жеткізер өңдеушісі жоқ."
+
+#~ msgid "No indexing command specified for document type '%1'."
+#~ msgstr "'%1' құжаттың түрі үшін индекстеу командасы жоқ."
+
+#~ msgid "Failed to build index."
+#~ msgstr "Индексін құру қатесі."
+
+#~ msgid ""
+#~ "Error executing indexing build command:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Индексін құру командасының орындағандағы қате:\n"
+#~ "%1"
+
+#~ msgid "Unable to start command '%1'."
+#~ msgstr "'%1' командасын бастау мүмкін болмай тұр."
+
+#~ msgid "KHelpCenter Index Builder"
+#~ msgstr "KHelpCenter индекс құрғышы"
+
+#~ msgid "Cornelius Schumacher"
+#~ msgstr "Cornelius Schumacher"
+
+#~ msgid "Document to be indexed"
+#~ msgstr "Индекстейтін құжат"
+
+#~ msgid "Index directory"
+#~ msgstr "Индекс каталогы"
+
+#~ msgid ""
+#~ "A search index does not yet exist. Do you want to create the index now?"
+#~ msgstr "Іздеу индексі жоқ. Индексі құрылсын ба?"
+
+#~ msgid "Create"
+#~ msgstr "Құрылсын"
+
+#~ msgid "Do Not Create"
+#~ msgstr "Керегі жоқ"
+
+#~ msgid "Build Search &Index..."
+#~ msgstr "Іздеу &индексін құру..."
+
+#~ msgid "The KDE Help Center"
+#~ msgstr "KDE Анықтама орталығы "
+
+#~ msgid "(c) 2003, The KHelpCenter developers"
+#~ msgstr "(c) 2003, KHelpCenter жасаушылары"
+
+#~ msgid "Details &gt;&gt;"
+#~ msgstr "Егжей-тегжейі &gt;&gt;"
+
+#~ msgid "Frerich Raabe"
+#~ msgstr "Frerich Raabe"
+
+#~ msgid "Matthias Elter"
+#~ msgstr "Matthias Elter"
+
+#~ msgid "Wojciech Smigaj"
+#~ msgstr "Wojciech Smigaj"
+
+#~ msgid "URL to display"
+#~ msgstr "Көрсететін URL"
+
+#~ msgid "&File"
+#~ msgstr "&Файл"
+
+#~ msgid "Show Search Error Log"
+#~ msgstr "Іздеу қателіктер журналын көрсету"

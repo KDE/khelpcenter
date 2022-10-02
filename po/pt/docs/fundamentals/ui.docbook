@@ -1,0 +1,3168 @@
+<!--FIXME:
+        -general toolbar info
+        -basic keyboard shortcuts?
+-->
+
+<chapter id="ui">
+<title
+>Orientar-se pela Aplicação</title>
+
+<sect1 id="visualdict">
+<sect1info>
+<authorgroup>
+<author
+><firstname
+>Claus</firstname
+> <surname
+>Christensen</surname
+></author>
+<author
+>&TC.Hollingsworth; &TC.Hollingsworth.mail;</author>
+<othercredit role="translator"
+><firstname
+>José</firstname
+><surname
+>Pires</surname
+><affiliation
+><address
+><email
+>zepires@gmail.com</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+</authorgroup>
+</sect1info>
+
+<title
+>Um Dicionário Visual</title>
+
+<para
+>O &plasma-workspaces; oferece diversos elementos gráficos da interface de utilizador, chamados de elementos ou <quote
+>widgets</quote
+>. Este guia apresentá-lo-á aos seus nomes e funções.</para>
+
+<sect2 id="visualdict-screens">
+<title
+>A Imagem Global</title>
+
+<sect3 id="visualdict-windows">
+<title
+>Janelas</title>
+
+<screenshot>
+<screeninfo
+>Uma Janela</screeninfo>
+<mediaobjectco>
+<imageobjectco>
+<areaspec units="other" otherunits="imagemap">
+    <!--these ids are used only internally by DocBook so we keep them short-->
+    <area id="im-win1a1" linkends="visualdict-statusbar" coords="47,522,752,566"/>
+    <area id="im-win1a2" linkends="visualdict-scrollbar" coords="720,127,760,513"/>
+    <area id="im-win1a3" linkends="visualdict-central-widget" coords="48,127,719,515"/>
+    <area id="im-win1a4" linkends="visualdict-toolbar" coords="51,95,570,128"/>
+    <area id="im-win1a5" linkends="visualdict-menubar" coords="4,67,46,109"/>
+    <area id="im-win1a6" linkends="visualdict-menubar" coords="49,75,311,93"/>
+    <area id="im-win1a7" linkends="visualdict-menu" coords="50,51,72,70"/>
+    <area id="im-win1a8" linkends="visualdict-button" coords="74,52,93,69"/>
+    <area id="im-win1a9" linkends="visualdict-button" coords="678,51,747,70"/>
+    <area id="im-win1a10" linkends="visualdict-titlebar" coords="106,40,676,74"/>
+    <area id="im-win1a11" linkends="visualdict-button" coords="691,6,740,49"/>
+    <area id="im-win1a12" linkends="visualdict-titlebar" coords="346,0,388,37"/>
+    <area id="im-win1a13" linkends="visualdict-button" coords="61,1,103,43"/>
+    <area id="im-win1a14" linkends="visualdict-menu" coords="14,2,57,45"/>
+</areaspec>
+<imageobject
+><imagedata fileref="visualdict-window.png" format="PNG"/></imageobject>
+</imageobjectco>
+</mediaobjectco>
+</screenshot>
+<para
+>Esta é a janela do &kwrite;, um editor de texto. Carregue em parte da janela para saber mais sobre ela.</para>
+
+<orderedlist>
+
+<listitem
+><para
+>O <emphasis role="bold"
+>Menu da Janela</emphasis
+> </para
+></listitem>
+
+<!--FIXME no longer in kf5 listitem
+><para>
+A <link linkend="visualdict-button"
+>Button</link
+> to place this window on all
+desktops
+</para
+></listitem-->
+
+<listitem
+><para
+>A <emphasis role="bold"
+><link linkend="visualdict-titlebar"
+>Barra do Título</link
+></emphasis
+> </para
+></listitem>
+
+<listitem
+><para
+>Botões para <emphasis
+>minimizar</emphasis
+>, <emphasis
+>maximizar</emphasis
+> ou <emphasis
+>fechar</emphasis
+> a janela </para
+></listitem>
+
+<listitem
+><para
+>A <emphasis role="bold"
+><link linkend="visualdict-menubar"
+>Barra do Menu</link
+></emphasis
+> </para
+></listitem>
+
+<listitem
+><para
+>A <emphasis role="bold"
+><link linkend="visualdict-toolbar"
+>Barra de Ferramentas</link
+></emphasis
+> </para
+></listitem>
+
+<listitem
+><para
+>Uma enorme <emphasis role="bold"
+><link linkend="visualdict-text-area"
+>Área de Texto</link
+></emphasis
+> que funciona como o <emphasis role="bold"
+><link linkend="visualdict-central-widget"
+>Elemento Central</link
+> desta janela</emphasis
+> </para
+></listitem>
+
+<listitem
+><para
+>Uma <emphasis role="bold"
+><link linkend="visualdict-scrollbar"
+>Barra de Deslocamento</link
+></emphasis
+> (existe também uma barra de deslocamento horizontal por baixo da área de texto) </para
+></listitem>
+
+<listitem
+><para
+>A <emphasis role="bold"
+><link linkend="visualdict-statusbar"
+>Barra de Estado</link
+></emphasis
+> </para
+></listitem>
+
+</orderedlist>
+
+<screenshot>
+<screeninfo
+>Outra Janela</screeninfo>
+<mediaobjectco>
+<imageobjectco>
+<areaspec units="other" otherunits="imagemap">
+    <area id="im-win2a1" linkends="visualdict-panel" coords="580,80,763,529"/>
+    <area id="im-win2a2" linkends="visualdict-slider" coords="383,490,573,536"/>
+    <area id="im-win2a3" linkends="visualdict-context-menu" coords="199,225,451,462"/>
+    <area id="im-win2a4" linkends="visualdict-icon" coords="198,187,224,225"/>
+    <area id="im-win2a5" linkends="visualdict-icon" coords="121,187,197,276"/>
+    <area id="im-win2a6" linkends="visualdict-icon" coords="282,110,515,165"/>
+    <area id="im-win2a7" linkends="visualdict-icon" coords="124,111,211,163"/>
+    <area id="im-win2a8" linkends="visualdict-breadcrumb" coords="108,76,415,109"/>
+    <area id="im-win2a9" linkends="visualdict-panel" coords="1,73,107,544"/>
+</areaspec>
+<imageobject
+><imagedata fileref="visualdict-window2.png" format="PNG"/></imageobject>
+</imageobjectco>
+</mediaobjectco>
+</screenshot>
+
+<para
+>Esta é outra janela, neste caso do gestor de ficheiros &dolphin;. Carregue em parte da janela para saber mais sobre a mesma.</para>
+
+<orderedlist>
+
+<listitem
+><para
+>Um <emphasis role="bold"
+><link linkend="visualdict-panel"
+>painel</link
+></emphasis
+> que contém uma lista de Locais no sistema </para
+></listitem>
+
+<listitem
+><para
+>Uma <emphasis role="bold"
+><link linkend="visualdict-breadcrumb"
+>Área de Selecção</link
+></emphasis
+> com a localização da pasta apresentada </para
+></listitem>
+
+<listitem
+><para
+>O <emphasis role="bold"
+><link linkend="visualdict-icon"
+>Ícone</link
+></emphasis
+> de uma pasta </para
+></listitem>
+
+<listitem
+><para
+>O <emphasis role="bold"
+><link linkend="visualdict-icon"
+>Ícone</link
+></emphasis
+> de um ficheiro </para
+></listitem>
+
+<listitem
+><para
+>Um <emphasis role="bold"
+><link linkend="visualdict-icon"
+>Ícone</link
+></emphasis
+> realçado </para
+></listitem>
+
+<listitem
+><para
+>Um <emphasis role="bold"
+><link linkend="visualdict-context-menu"
+>Menu de Contexto</link
+></emphasis
+> que apresenta as acções que podem ser efectuadas sobre um ficheiro </para
+></listitem>
+
+<listitem
+><para
+>Uma <emphasis role="bold"
+><link linkend="visualdict-slider"
+>Barra Deslizante</link
+></emphasis
+> que muda o tamanho dos <link linkend="visualdict-icon"
+>Ícones</link
+> apresentados </para
+></listitem>
+
+<listitem
+><para
+>Mais <emphasis role="bold"
+><link linkend="visualdict-panel"
+>Painéis</link
+></emphasis
+> </para
+></listitem>
+
+</orderedlist>
+
+</sect3>
+
+<sect3 id="visualdict-gui">
+<title
+>Elementos da &GUI;</title>
+
+<screenshot>
+<screeninfo
+>Alguns Elementos da &GUI;</screeninfo>
+<mediaobjectco>
+<imageobjectco>
+<areaspec units="other" otherunits="imagemap">
+    <area id="im-g1a1" linkends="visualdict-button" coords="15,505,690,549"/>
+    <area id="im-g1a2" linkends="visualdict-button" coords="683,129,722,170"/>
+    <area id="im-g1a3" linkends="visualdict-button" coords="636,140,681,161"/>
+    <area id="im-g1a4" linkends="visualdict-drop-down-box" coords="225,137,631,327"/>
+    <area id="im-g1a5" linkends="visualdict-tab" coords="581,28,625,71"/>
+    <area id="im-g1a6" linkends="visualdict-tab" coords="172,112,632,135"/>
+    <area id="im-g1a7" linkends="visualdict-icon-list" coords="5,58,171,495"/>
+</areaspec>
+<imageobject
+><imagedata fileref="visualdict-gui1.png" format="PNG"/></imageobject>
+</imageobjectco>
+</mediaobjectco>
+</screenshot>
+
+<para
+>Esta imagem do painel de Formatos do &systemsettings; mostra alguns elementos da &GUI;. Carregue em parte da janela para aprender mais sobre a mesma.</para>
+
+<orderedlist>
+
+<listitem
+><para
+>Uma <emphasis role="bold"
+><link linkend="visualdict-icon-list"
+>Lista de Ícones</link
+></emphasis
+> (está seleccionado o segundo item) </para
+></listitem>
+
+<listitem
+><para
+>Uma <emphasis role="bold"
+><link linkend="visualdict-drop-down-box"
+>Lista de Selecção</link
+></emphasis
+> aberta </para
+></listitem>
+
+<listitem
+><para
+>Um item seleccionado na <link linkend="visualdict-drop-down-box"
+>Lista de Selecção</link
+> </para>
+</listitem>
+
+<listitem
+><para
+>Mais alguns <emphasis role="bold"
+><link linkend="visualdict-button"
+>Botões</link
+></emphasis
+> </para
+></listitem>
+
+</orderedlist>
+
+<screenshot>
+<screeninfo
+>Mais Alguns Elementos da &GUI;</screeninfo>
+<mediaobjectco>
+<imageobjectco>
+<areaspec units="other" otherunits="imagemap">
+    <area id="im-gui2a1" linkends="visualdict-menu-button" coords="306,451,349,493"/>
+    <area id="im-gui2a2" linkends="visualdict-menu-button" coords="172,405,298,538"/>
+    <area id="im-gui2a3" linkends="visualdict-spin-box" coords="522,204,638,253"/>
+    <area id="im-gui2a4" linkends="visualdict-check-box" coords="425,98,467,162"/>
+    <area id="im-gui2a5" linkends="visualdict-tree-view" coords="368,63,411,100"/>
+    <area id="im-gui2a6" linkends="visualdict-tree-view" coords="164,101,424,403"/>
+</areaspec>
+<imageobject
+><imagedata fileref="visualdict-gui2.png" format="PNG"/></imageobject>
+</imageobjectco>
+</mediaobjectco>
+</screenshot>
+
+<para
+>Esta imagem do painel de Atalhos Personalizados do &systemsettings; mostra ainda mais alguns elementos da &GUI;.</para>
+
+<orderedlist>
+
+<listitem
+><para
+>Uma <emphasis role="bold"
+><link linkend="visualdict-tree-view"
+>Vista em Árvore</link
+></emphasis
+> </para
+></listitem>
+
+<listitem
+><para
+>Uma <emphasis role="bold"
+><link linkend="visualdict-check-box"
+>Opção de Marcação</link
+></emphasis
+> seleccionada </para
+></listitem>
+
+<listitem
+><para
+>Um par de <emphasis role="bold"
+><link linkend="visualdict-spin-box"
+>Campos Incrementais</link
+></emphasis
+> </para
+></listitem>
+
+<listitem
+><para
+>Um <emphasis role="bold"
+><link linkend="visualdict-menu-button"
+>Botão do Menu</link
+></emphasis
+> </para
+></listitem>
+
+</orderedlist>
+
+<screenshot>
+<screeninfo
+>Ainda Mais Elementos da &GUI;</screeninfo>
+<mediaobjectco>
+<imageobjectco>
+<areaspec units="other" otherunits="imagemap">
+    <area id="im-gui3a1" linkends="visualdict-text-box" coords="562,235,603,252"/>
+    <area id="im-gui3a2" linkends="visualdict-text-box" coords="214,253,767,280"/>
+    <area id="im-gui3a3" linkends="visualdict-radio-button" coords="187,193,468,252"/>
+    <area id="im-gui3a4" linkends="visualdict-list-box" coords="8,101,185,547"/>
+</areaspec>
+<imageobject
+><imagedata fileref="visualdict-gui3.png" format="PNG"/></imageobject>
+</imageobjectco>
+</mediaobjectco>
+</screenshot>
+
+<para
+>Esta imagem do painel de Aplicações Predefinidas do &systemsettings; mostra ainda mais elementos da &GUI;. Carregue em parte da janela para saber mais sobre ela.</para>
+
+<orderedlist>
+
+<listitem
+><para
+>Uma <emphasis role="bold"
+><link linkend="visualdict-list-box"
+>Lista</link
+></emphasis
+> </para
+></listitem>
+
+<listitem
+><para
+>Um par de <emphasis role="bold"
+><link linkend="visualdict-radio-button"
+>Opções Exclusivas</link
+></emphasis
+> </para
+></listitem>
+
+<listitem
+><para
+>Um <emphasis role="bold"
+><link linkend="visualdict-text-box"
+>Campo de Texto</link
+></emphasis
+> </para
+></listitem>
+
+</orderedlist>
+
+<screenshot>
+<screeninfo
+>Algumas Listas</screeninfo>
+<mediaobjectco>
+<imageobjectco>
+<areaspec units="other" otherunits="imagemap">
+    <area id="im-gui4a1" linkends="visualdict-combo-box" coords="268,128,722,288"/>
+</areaspec>
+<imageobject
+><imagedata fileref="visualdict-gui4.png" format="PNG"/></imageobject>
+</imageobjectco>
+</mediaobjectco>
+</screenshot>
+
+<para
+>Finalmente, esta imagem da página de Cores do &systemsettings; mostra cinco <emphasis role="bold"
+><link linkend="visualdict-combo-box"
+>Páginas</link
+></emphasis
+> </para>
+
+</sect3>
+
+</sect2>
+
+<sect2 id="visualdict-widgets">
+<title
+>Os Elementos Gráficos</title>
+
+<informaltable>
+<tgroup cols="3">
+<colspec colnum="1" align="left"/>
+<colspec colnum="3" align="center"/>
+
+<thead>
+<row>
+<entry align="center"
+>Nome</entry>
+<entry
+>Descrição</entry>
+<entry
+>Imagem</entry>
+</row>
+</thead>
+
+<tbody valign="top">
+
+<!--I'm using the name QMainWindow uses for these, but perhaps there's a more
+    regular-user friendly term?-->
+<row id="visualdict-central-widget">
+<entry
+>Elemento Central</entry>
+<entry
+>A área principal da aplicação em execução. Poderá ser o documento que está a editar num processador de texto ou o tabuleiro de um jogo de xadrez, por exemplo.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-central-widget.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-button">
+<entry
+>Botão</entry>
+<entry
+>Poderá carregar nestes com o &LMB; para efectuar uma acção.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-button.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-breadcrumb">
+<entry
+>Área de Selecção</entry>
+<entry
+>Mostra a localização num sistema hierárquico, como um sistema de ficheiros. Carregue em qualquer parte da localização para subir na árvore para essa localização. Carregue na seta à direita de parte da localização para ir para outro filho dessa localização. </entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-breadcrumb.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-check-box">
+<entry
+>Opção</entry>
+<entry
+>Poderá carregar nestes para marcar ou desmarcar itens. São tipicamente usados numa lista com várias opções. Os itens seleccionados mostram tipicamente uma marcação, enquanto os itens não-seleccionados terão uma caixa vazia.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-check-box.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-color-selector">
+<entry
+>Selecção de Cores</entry>
+<entry
+>Isto permite-lhe seleccionar uma cor para vários fins, como a alteração da cor do texto. Para mais informações, veja em <xref linkend="colors"/>.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-color-selector.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-combo-box">
+<entry
+>Lista de Selecção</entry>
+<entry
+>Uma combinação entre uma <link linkend="visualdict-drop-down-box"
+>Lista de Selecção</link
+> e um <link linkend="visualdict-text-box"
+>Campo de Texto</link
+>. Poderá seleccionar uma opção da lista ou escrever no campo de texto. Algumas listas poderão finalizar automaticamente os itens por si ou abrir a lista com o conjunto de opções que correspondem ao que escreveu.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-combo-box.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-context-menu">
+<entry
+>Menu de Contexto</entry>
+<entry
+>Diversos elementos da interface de utilizador da área de trabalho e das aplicações do &plasma; contêm um menu de contexto, o qual poderá ser aberto se carregar em algo com o &RMB;. Este menu contém opções e acções que afectam normalmente o elemento da interface do utilizador sobre o qual carregou com o botão direito.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-context-menu.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-dialog-box">
+<entry
+>Janela</entry>
+<entry
+>Uma pequena janela de diálogo que aparece sobre uma janela maior da aplicação. Poderá conter uma mensagem, aviso ou painel de configuração, entre outros.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-dialog-box.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-drop-down-box">
+<entry
+>Lista de Selecção</entry>
+<entry
+>Esta oferece uma lista de itens, na qual só poderá seleccionar um.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-drop-down-box.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-icon">
+<entry
+>Ícone</entry>
+<entry
+>Uma representação gráfica de algo, como um ficheiro ou acção. Tipicamente, mas nem sempre, têm também  uma descrição em texto, seja por baixo ou à direita do ícone.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-icon.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-icon-list">
+<entry
+>Lista de Ícones</entry>
+<entry
+>Isto oferece uma lista dos seus itens, representados por um <link linkend="visualdict-icon"
+>Ícone</link
+> e uma descrição. Normalmente é usado no painel esquerdo dos painéis de configuração para permitir a selecção de vários tipos de categorias de configuração.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-icon-list.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-list-box">
+<entry
+>Lista</entry>
+<entry
+>Esta é uma lista de itens que tipicamente mostra vários itens para seleccionar. Para seleccionar um grupo contíguo de itens, mantenha carregada a tecla &Shift; e carregue no primeiro e último itens. Para seleccionar vários itens que não estejam seguidos, mantenha carregada a tecla &Ctrl; e seleccione os itens desejados.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-list-box.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-menu">
+<entry
+>Menu</entry>
+<entry
+>Uma lista de selecções que efectuam normalmente uma acção, definem uma opção ou abrem uma janela. Estas poderão ser abertas a partir das <link linkend="visualdict-menubar"
+>barras de menu</link
+> ou dos <link linkend="visualdict-menu-button"
+>botões do menu</link
+>.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-menu.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-menubar">
+<entry
+>Barra de Menu</entry>
+<entry
+>Estas localizam-se no topo de praticamente todas as janelas e oferecem o acesso a todas as funções da aplicação em execução. Para mais informações, veja os <xref linkend="menus"/>.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-menubar.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-menu-button">
+<entry
+>Botão do Menu</entry>
+<entry
+>Um tipo especial de <link linkend="visualdict-button"
+>botão</link
+> que abre um <link linkend="visualdict-menu"
+>menu</link
+>.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-menu-button.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-panel">
+<entry
+>Painel <emphasis
+>ou</emphasis
+> Barra Lateral <emphasis
+>ou</emphasis
+> Área de Ferramentas</entry>
+<entry
+>Estes localizam-se de lado ou no fundo do <link linkend="visualdict-central-widget"
+>elemento central</link
+> e permitem-lhe efectuar diferentes tarefas numa aplicação. Um editor de texto poderá apresentar uma lista com os documentos abertos num caso, ou num processador de texto poderá seleccionar uma imagem da galeria.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-panel.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-progress-bar">
+<entry
+>Barra de Evolução</entry>
+<entry
+>Uma pequena barra que indica que uma operação de longa duração está em execução. A barra poderá indicar que parte da operação está completa ou poderá simplesmente recuar e avançar para indicar que a operação está em curso. </entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-progress-bar.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-radio-button">
+<entry
+>Botão de Escolha Múltipla</entry>
+<entry
+>Estes são usados numa lista de opções, permitindo apenas que uma das opções da lista esteja seleccionada.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-radio-button.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-scrollbar">
+<entry
+>Barra de Posicionamento</entry>
+<entry
+>Permite-lhe navegar por um documento.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-scrollbar.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-slider">
+<entry
+>Barra Deslizante</entry>
+<entry
+>Permite seleccionar um valor numérico, movendo uma pequena barra na horizontal ou na vertical, ao longo de uma linha.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-slider.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-spin-box">
+<entry
+>Campo Incremental/Decremental</entry>
+<entry
+>Isto permite seleccionar um valor numérico, usando ainda as setas para cima ou para baixo, do lado direito do campo, para aumentar ou diminuir o valor, respectivamente, ou ainda escrever o valor no <link linkend="visualdict-text-box"
+>campo de texto</link
+>.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-spin-box.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-statusbar">
+<entry
+>Barra de Estado</entry>
+<entry
+>Estas localizam-se no fundo de várias aplicações e mostram informações acerca do que a aplicação está a fazer de momento. Por exemplo, um navegador Web poderá indicar a evolução do carregamento de uma página Web, enquanto um processador de texto poderá apresentar o número de palavras actual.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-statusbar.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-tab">
+<entry
+>Página</entry>
+<entry
+>Estes separadores ou abas das páginas aparecem no topo da área de uma janela, permitindo que essa área da janela mude para uma variedade de selecções diferentes.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-tab.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-text-area">
+<entry
+>Área de Texto</entry>
+<entry
+>Permite escrever uma grande quantidade de texto, normalmente várias linhas ou parágrafos. Ao contrário de um <link linkend="visualdict-text-box"
+>Campo de Texto</link
+>, se carregar em &Enter; irá resultar normalmente numa quebra de linha. </entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-text-area.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-text-box">
+<entry
+>Caixa de Texto</entry>
+<entry
+>Um campo de texto numa única linha que permite introduzir uma pequena quantidade de texto. Tipicamente, se carregar em &Enter; irá efectuar a mesma acção que carregar no botão <guibutton
+>OK</guibutton
+>.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-text-box.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-titlebar">
+<entry
+>Barra de título</entry>
+<entry
+>Isto localiza-se no topo de todas as janelas. Contém o nome da aplicação e normalmente informações acerca do que a aplicação está a fazer, como o título da página Web aberta num navegador Web ou o nome do ficheiro do documento aberto num processador de texto.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-titlebar.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-toolbar">
+<entry
+>Barra de Ferramentas</entry>
+<entry
+>Estes localizam-se perto do topo de muitas aplicações, tipicamente logo abaixo da <link linkend="visualdict-menubar"
+>barra do menu</link
+>. Eles oferecem acesso a muitas funções comuns da aplicação em execução, como a <emphasis
+>Gravar</emphasis
+> ou a <emphasis
+>Imprimir</emphasis
+>.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-toolbar.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-tree-view">
+<entry
+>Vista em Árvore</entry>
+<entry
+>Uma vista em árvore permite-lhe seleccionar um item de uma lista hierárquica de opções. Uma secção ou categoria da árvore poderá não estar expandida, pelo que não irão aparecer opções por baixo dela e a seta ao lado esquerdo do título irá apontar para a direita em direcção ao título. Poderá também ser expandida, onde nesse caso irão aparecer diversas opções por baixo dela, e onde a seta à esquerda do título estará a apontar para baixo, em direcção às opções. Para expandir uma parte da árvore, carregue na seta à esquerda do título da secção que deseja expandir, faça duplo-click sobre o título, ou seleccionar o título, usando as teclas de cursores do seu teclado e carregue na tecla &Enter; ou <keycap
+>+</keycap
+>. Para minimizar uma parte da árvore, também poderá carregar na seta, fazer duplo-click sobre o título ou ainda carregar nas teclas &Enter; ou <keycap
+>-</keycap
+>.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-tree-view.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+</tbody>
+</tgroup>
+</informaltable>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="menus">
+<sect1info>
+<authorgroup>
+<author
+>&TC.Hollingsworth; &TC.Hollingsworth.mail;</author>
+<othercredit role="translator"
+><firstname
+>José</firstname
+><surname
+>Pires</surname
+><affiliation
+><address
+><email
+>zepires@gmail.com</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+</authorgroup>
+</sect1info>
+
+<title
+>Menus Comuns</title>
+
+<para
+>Muitas das aplicações do &kde; contêm estes menus. Contudo, a maioria das aplicações terão mais itens que os apresentados aqui, assim como outras poderão não ter alguns dos itens aqui apresentados.</para>
+
+<screenshot id="screenshot-menus">
+<screeninfo
+>Uma Barra de Menu</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="menus.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Uma barra de menu</phrase
+></textobject>
+<caption
+><para
+>O menu no <ulink url="http://kde.org/applications/graphics/gwenview/"
+>&gwenview;</ulink
+>. </para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Algumas aplicações, como o &dolphin;, não mostram um menu por omissão. Podê-lo-á mostrar se carregar em <keycombo
+>&Ctrl;<keycap
+>M</keycap
+></keycombo
+>. Também poderá usar isto para esconder o menu nas aplicações que suportem esta funcionalidade.</para>
+
+<sect2 id="menus-file">
+<title
+>O Menu Ficheiro</title>
+<para
+>O menu <guimenu
+>Ficheiro</guimenu
+> permite-lhe efectuar operações sobre o ficheiro aberto de momento e aceder às tarefas comuns nas aplicações.</para>
+
+<para
+>Os itens comuns do menu incluem:</para>
+
+<variablelist>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Ficheiro</guimenu
+><guimenuitem
+>Novo</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Cria um novo ficheiro. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ficheiro</guimenu
+><guimenuitem
+>Nova Janela</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Abre uma janela nova. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Ficheiro</guimenu
+><guimenuitem
+>Abrir...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Abre um ficheiro já existente. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl; <keycap
+>S</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Ficheiro</guimenu
+> <guimenuitem
+>Gravar</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Grava o ficheiro. Se o ficheiro já existir, será substituído. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ficheiro</guimenu
+> <guimenuitem
+>Gravar Como...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Grava o ficheiro com um novo nome. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ficheiro</guimenu
+><guimenuitem
+>Gravar Tudo</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Grava todos os ficheiros abertos. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycap
+>F5</keycap
+></shortcut
+> <guimenu
+>Ficheiro</guimenu
+><guimenuitem
+>Recarregar</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Volta a carregar o ficheiro actual. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ficheiro</guimenu
+><guimenuitem
+>Recarregar Tudo</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Volta a carregar todos os ficheiros abertos. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Ficheiro</guimenu
+><guimenuitem
+>Imprimir...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Imprime o ficheiro. Use a opção <guilabel
+>Imprimir para um Ficheiro (PDF)</guilabel
+> para gerar um ficheiro &PDF; ou seleccione uma gama de páginas para imprimir só essas páginas num novo ficheiro &PDF; </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>W</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Ficheiro</guimenu
+><guimenuitem
+>Fechar</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Fecha o ficheiro actual. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ficheiro</guimenu
+><guimenuitem
+>Fechar Tudo</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Fecha todos os ficheiros abertos. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Ficheiro</guimenu
+><guimenuitem
+>Sair</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Sai do programa. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+</sect2>
+
+<sect2 id="menus-edit">
+<title
+>O Menu Editar</title>
+<para
+>O menu <guimenu
+>Editar</guimenu
+> permite-lhe modificar o ficheiro aberto de momento.</para>
+
+<variablelist>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Editar</guimenu
+><guimenuitem
+>Desfazer</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Anula a última acção que efectuou no ficheiro. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Editar</guimenu
+><guimenuitem
+>Refazer</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Volta a fazer a última acção anulada que efectuou no ficheiro. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>X</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Editar</guimenu
+><guimenuitem
+>Cortar</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Remove o bloco seleccionado de momento do ficheiro, se existir, e coloca uma cópia do mesmo na área de transferência. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Editar</guimenu
+> <guimenuitem
+>Copiar</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Coloca uma cópia do bloco seleccionado de momento do ficheiro, se existirem, na área de transferência. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>V</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Editar</guimenu
+> <guimenuitem
+>Colar</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Copia o primeiro item na área de transferência para a posição actual no ficheiro, se existir. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>A</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Editar</guimenu
+><guimenuitem
+>Seleccionar Tudo</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Selecciona o conteúdo do ficheiro aberto de momento na totalidade. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Editar</guimenu
+> <guimenuitem
+>Procurar...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Permite-lhe procurar por algum texto no ficheiro aberto de momento. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>R</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Editar</guimenu
+> <guimenuitem
+>Substituir...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Permite-lhe procurar por determinado texto no ficheiro aberto de momento e substituí-lo por outra coisa qualquer. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycap
+>F3</keycap
+></shortcut
+> <guimenu
+>Editar</guimenu
+><guimenuitem
+>Procurar o Próximo</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Vai para a ocorrência seguinte da última operação Procurar. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Shift;<keycap
+>F3</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Editar</guimenu
+><guimenuitem
+>Procurar o Anterior</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Vai para a ocorrência anterior da última operação Procurar. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+</sect2>
+
+<sect2 id="menus-view">
+<title
+>O Menu Ver</title>
+<para
+>O menu <guimenu
+>Ver</guimenu
+> permite-lhe alterar a disposição do ficheiro aberto de momento e/ou da aplicação em execução.</para>
+
+<para
+>Este menu tem diferentes opções, dependendo da aplicação que estiver a usar.</para>
+</sect2>
+
+<sect2 id="menus-tools">
+<title
+>O Menu Ferramentas</title>
+<para
+>O menu <guimenu
+>Ferramentas</guimenu
+> permite-lhe efectuar certas acções sobre o ficheiro aberto de momento.</para>
+
+<variablelist>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>O</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Ferramentas</guimenu
+><guimenuitem
+>Ortografia Automática</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Procura por erros ortográficos à medida que escreve. Para mais informações, veja em <xref linkend="spellcheck-auto"/>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ferramentas</guimenu
+><guimenuitem
+>Ortografia...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Isto inicia o programa de verificação ortográfica - um programa desenhado para ajudar o utilizador a descobrir e a corrigir erros ortográficos. Para mais informações, veja o <xref linkend="spellcheck-check"/>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ferramentas</guimenu
+><guimenuitem
+>Verificação ortográfica (do cursor)...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Isto inicia o programa de verificação ortográfica, mas só verifica as partes do documento da posição actual do cursor até ao fim. Para mais informações, veja o <xref linkend="spellcheck-check"/>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ferramentas</guimenu
+><guimenuitem
+>Verificação Ortográfica da Selecção...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Isto inicia o programa de verificação ortográfica, só efectuando a verificação sobre o texto seleccionado no documento. Para mais informações, veja em <xref linkend="spellcheck-check"/>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ferramentas</guimenu
+><guimenuitem
+>Mudar o Dicionário...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Isto permite-lhe alterar o dicionário usado para verificar a ortografia. Para mais informações, veja o <xref linkend="spellcheck-config"/>. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect2>
+<!--FIXME add bookmarks menu ?-->
+<sect2 id="menus-settings">
+<title
+>O Menu Configuração</title>
+<para
+>A <guimenu
+>Configuração</guimenu
+> permite-lhe personalizar a aplicação.</para>
+
+<para
+>Este menu normalmente contém os seguintes itens:</para>
+<variablelist>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>M</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Configuração</guimenu
+> <guimenuitem
+>Mostrar o Menu</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Activa ou desactiva a visibilidade do Menu</action
+>. Uma vez escondido, poderá ficar visível de novo se usar a combinação de teclas <keycombo action="simul"
+>&Ctrl;<keycap
+>M</keycap
+></keycombo
+> de novo. Se o menu estiver escondido, o menu de contexto que aparece com o botão direito do rato na área da janela terá um item adicional <guimenuitem
+>Mostrar o Menu</guimenuitem
+>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Configuração</guimenu
+> <guimenuitem
+>Mostrar a Barra de Estado</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Activa/desactiva a visibilidade da barra de estado. Algumas das aplicações do &kde; usam a barra de estado no fundo do seu ecrã para mostrar informações úteis. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Configuração</guimenu
+><guisubmenu
+>Barras de Ferramentas Visíveis</guisubmenu
+> </menuchoice
+></term>
+<listitem
+><para
+>Permite-lhe mostrar e esconder as várias barras de ferramentas suportadas pela aplicação. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Configuração</guimenu
+><guimenuitem
+>Mostrar a Barra de Estado</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>Quando estiver assinalado, isto irá mostrar uma pequena barra no fundo da aplicação, contendo informações sobre o estado. Quando estiver desligado, a barra de estado ficará escondida.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Configuração</guimenu
+><guimenuitem
+>Configurar os Atalhos...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Permite-lhe activar, desactivar e modificar os atalhos de teclado. Para mais informações, veja os <xref linkend="shortcuts"/>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Configuração</guimenu
+><guimenuitem
+>Configurar as Barras de Ferramentas...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Permite-lhe personalizar o conteúdo, a disposição, o texto e os ícones das barras de ferramentas. Para mais informações, veja as <xref linkend="toolbars"/>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Configuração</guimenu
+><guimenuitem
+>Configurar as Notificações...</guimenuitem
+></menuchoice
+></term>
+<listitem
+><para
+>Este item mostra uma janela de configuração normal do &kde; para as notificações, onde poderá modificar as notificações (sons, mensagens visíveis, &etc;) usadas pela aplicação.</para>
+<para
+>Para mais informações sobre a configuração das notificações, leia por favor a documentação do módulo do &systemsettings; <ulink url="help:/kcontrol/kcmnotify/index.html"
+>Notificações</ulink
+>. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Configuração</guimenu
+><guimenuitem
+>Configurar a <replaceable
+>Aplicação</replaceable
+>...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Abre o painel de configuração da aplicação actualmente em execução. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+</sect2>
+
+<sect2 id="menus-help">
+<title
+>O Menu Ajuda</title>
+<para
+>O menu <guimenu
+>Ajuda</guimenu
+> dá-lhe acesso à documentação da aplicação e a outros recursos úteis.</para>
+
+<!--taken from kdelibs.git/kdoctools/customization/en/entities/help-menu.docbook
+    and edited slightly to fit into buildingblocks-->
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+><keycap
+>F1</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Ajuda</guimenu
+> <guimenuitem
+>Manual da <replaceable
+>Aplicação</replaceable
+></guimenuitem
+> </menuchoice>
+</term>
+<listitem
+><para
+><action
+>Invoca o sistema de ajuda do KDE</action
+>, iniciando com o manual da aplicação em execução.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Shift;<keycap
+>F1</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Ajuda</guimenu
+> <guimenuitem
+>O Que é Isto?</guimenuitem
+> </menuchoice>
+</term>
+<listitem
+><para
+><action
+>Muda o cursor do rato para uma combinação de uma seta com um ponto de interrogação.</action
+> Se carregar nos itens dentro da aplicação, irá abrir uma janela de ajuda (se existir uma para o item em particular) que explica a função do item.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ajuda</guimenu
+> <guimenuitem
+>Dica do Dia</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Este comando <action
+>abre a janela da <guilabel
+>Dica do Dia</guilabel
+></action
+>. Poderá percorrer todas as dicas se usar os botões na janela e optar por mostrar as dicas no arranque.</para>
+<para
+>Nota: Nem todas as aplicações oferecem essas dicas.</para>
+
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ajuda</guimenu
+> <guimenuitem
+>Comunicar um Erro...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Abre a janela de relatório de erros</action
+> na qual você poderá comunicar um erro ou pedir um <quote
+>desejo</quote
+> de funcionalidade.</para
+></listitem>
+</varlistentry>
+<!--FIXME two different dialogs, either via web (default if aboutData->bugAddress() == "" or == "submit@bugs.kde.org" ) 
+or via email (see krecipes doc rev 1306076)
+-->
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ajuda</guimenu
+> <guimenuitem
+>Doação</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Abre a <ulink url="https://www.kde.org/community/donations"
+>página de Donativos</ulink
+>, onde poderá dar suporte ao &kde; e aos seus projectos.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ajuda</guimenu
+> <guimenuitem
+>Mudar a Língua da Aplicação...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Abre uma janela</action
+> onde poderá editar a <guilabel
+>Língua Primária</guilabel
+> e a <guilabel
+>Língua Alternativa</guilabel
+> desta aplicação.</para
+></listitem>
+</varlistentry>
+<!--FIXME: which languages are available here? how is that determined?
+-->
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ajuda</guimenu
+> <guimenuitem
+>Acerca da <replaceable
+>Aplicação</replaceable
+></guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Isto irá mostrar as informações da versão e do autor para a aplicação em execução.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ajuda</guimenu
+> <guimenuitem
+>Acerca do KDE</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Isto mostra a versão da Plataforma de Desenvolvimento do &kde; e outra informação básica.</action
+></para
+></listitem>
+</varlistentry>
+</variablelist>
+<!--FIXME Tip of the Day missing-->
+</sect2>
+
+<sect2 id="menus-ack">
+<title
+>Agradecimentos e Reconhecimentos</title>
+
+<para
+>Muito obrigado a um participante anónimo do Google Code-In 2011 por escrever a maioria desta documentação.</para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="kbd">
+<sect1info>
+<authorgroup>
+<author
+>&TC.Hollingsworth; &TC.Hollingsworth.mail;</author>
+<othercredit role="translator"
+><firstname
+>José</firstname
+><surname
+>Pires</surname
+><affiliation
+><address
+><email
+>zepires@gmail.com</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+</authorgroup>
+</sect1info>
+
+<title
+>Atalhos de Teclado Comuns</title>
+
+<para
+>O &plasma-workspaces; oferece combinações de teclas que lhe permitem efectuar diversas tarefas sem tocar no seu rato. Se usar o seu teclado com frequência, a utilização destas poder-lhe-á poupar bastante tempo.</para>
+
+<para
+>Esta lista contém as combinações de teclas mais comuns e suportadas pelo ambiente de trabalho em si, bem como em muitas aplicações disponíveis no mesmo. Cada aplicação fornece também os seus próprios atalhos, por isso certifique-se que verifica primeiro os manuais das mesmas para obter uma listagem completa.</para>
+
+<note
+><para
+>A tecla <keysym
+>Meta</keysym
+> descrita em baixo é um nome genérico para a tecla personalizada que existe em diversos teclados do mercado. Nos teclados desenhados para o &Microsoft; &Windows;, este tecla é chamada normalmente da tecla <keysym
+>Windows</keysym
+>, tendo uma imagem do logótipo do &Windows;. Nos teclados desenhados para os computadores &Mac;, esta tecla é conhecida como a <keysym
+>Command</keysym
+> e terá de uma imagem do logótipo da <trademark class="registered"
+>Apple</trademark
+> e/ou o símbolo <keycap
+>⌘</keycap
+>. Nos teclados desenhados para os sistemas &UNIX;, esta tecla é realmente conhecida como <keysym
+>Meta</keysym
+> e também é identificada com um losango: <keycap
+>◆</keycap
+>. </para
+></note>
+
+<sect2 id="kbd-windows">
+<title
+>Lidar com as Janelas</title>
+
+<para
+>Estas combinações de teclas permitir-lhe-ão efectuar todos os tipos de operações com as janelas, seja na sua abertura, fecho, mudança de posição ou circulação entre elas.</para>
+
+<sect3 id="kbd-windows-start-stop">
+<title
+>Iniciar e Parar as Aplicações</title>
+
+<para
+>Estes atalhos tornam simples o início e paragem dos programas.</para>
+
+<informaltable>
+<tgroup cols="2">
+
+<thead>
+<row>
+<entry
+>Atalho</entry>
+<entry
+>Descrição</entry>
+</row>
+</thead>
+
+<tbody>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></entry>
+<entry
+>Sair</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Esc</keycap
+></keycombo
+></entry>
+<entry
+>Actividade do Sistema</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;&Alt;&Esc;</keycombo
+></entry>
+<entry
+>Forçar a Saída</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Alt;<keycap
+>Espaço</keycap
+></keycombo
+> / <keycombo action="simul"
+>&Alt;<keycap
+>F2</keycap
+></keycombo
+></entry>
+<entry
+><ulink url="help:/plasma-desktop/krunner.html"
+>Interface de Execução de Comandos</ulink
+></entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Alt;<keycap
+>F4</keycap
+></keycombo
+></entry>
+<entry
+>Fechar</entry>
+</row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</sect3>
+
+<sect3 id="kbd-windows-moving">
+<title
+>Movimentar-se</title>
+
+<para
+>Estas combinações de teclas permitem-lhe navegar entre janelas, actividades e ecrãs de forma eficiente.</para>
+
+<informaltable>
+<tgroup cols="2">
+
+<thead>
+<row>
+<entry
+>Atalho</entry>
+<entry
+>Descrição</entry>
+</row>
+</thead>
+
+<tbody>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F10</keycap
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] ExposeAll=Ctrl+F10; Launch (C) -->
+<entry
+>Janelas Presentes</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F9</keycap
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] Expose=Ctrl+F9 -->
+<entry
+>Apresenta as janelas no ecrã actual</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F7</keycap
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] ExposeClass=Ctrl+F7 -->
+<entry
+>Apresenta apenas as janelas da aplicação actual</entry>
+</row>
+<!--FIXME not in 5.6.4
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F11</keycap
+></keycombo
+></entry>
+<entry
+>Desktop Cube</entry>
+</row>
+-->
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F12</keycap
+></keycombo
+></entry
+><!--[plasmashell][Global Shortcuts] show dashboard=Ctrl+F12-->
+<entry
+>Mostrar o Ecrã</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;&Alt;<keycap
+>A</keycap
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] Activate Window Demanding Attention=Ctrl+Alt+A -->
+<entry
+>Activar a Janela que Necessita de Atenção</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Alt;&Tab;</keycombo
+></entry
+><!--[kwin][Global Shortcuts] Walk Through Windows=Alt+Tab-->
+<entry
+>Percorrer as janelas</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Alt;&Shift;&Tab;</keycombo
+></entry
+><!--[kwin][Global Shortcuts] Walk Through Windows (Reverse)=Alt+Shift+Backtab-->
+<entry
+>Percorrer as janelas (Inverso)</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Alt;<keycap
+>F3</keycap
+></keycombo
+></entry
+><!--FIXME source ?-->
+<entry
+>Abrir o menu de operações da janela</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;&Alt;<keysym
+>Cima</keysym
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] Switch Window Up=Meta+Alt+Up-->
+<entry
+>Mudar para a Janela Acima</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;&Alt;<keysym
+>Baixo</keysym
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] Switch Window Down=Meta+Alt+Down-->
+<entry
+>Mudar para a Janela Abaixo</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;&Alt;<keysym
+>Esquerda</keysym
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] Switch Window Left=Meta+Alt+Left-->
+<entry
+>Mudar para a Janela à Esquerda</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;&Alt;<keysym
+>Direita</keysym
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] Switch Window Right=Meta+Alt+Right-->
+<entry
+>Mudar para a Janela à Direita</entry>
+</row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</sect3>
+
+<sect3 id="kbd-activity-pan-zoom">
+<title
+>Deslocamento e Ampliação</title
+><!--FIXME nothing works for me-->
+
+<para
+>Precisa de ver melhor as coisas? O &plasma-workspaces; permite-lhe ampliar e reduzir, assim como mudar de posição, o ecrã por inteiro, pelo que possa ampliar algo mesmo quando a aplicação não o suporte.</para>
+
+<informaltable>
+<tgroup cols="2">
+
+<thead>
+<row>
+<entry
+>Atalho</entry>
+<entry
+>Descrição</entry>
+</row>
+</thead>
+
+<tbody>
+
+<!--
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keycap
+></keycap
+></keycombo
+></entry>
+<entry
+></entry>
+</row>
+-->
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keycap
+>=</keycap
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] view_zoom_in=Meta+= -->
+<entry
+>Ampliar</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keycap
+>-</keycap
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] view_zoom_out=Meta+- -->
+<entry
+>Reduzir</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keycap
+>0</keycap
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] view_actual_size=Meta+0 -->
+<entry
+>Ampliação Normal</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keysym
+>Cima</keysym
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] MoveZoomUp=Meta+Up -->
+<entry
+>Deslocar para Cima</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keysym
+>Baixo</keysym
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] MoveZoomDown=Meta+Down -->
+<entry
+>Deslocar para Baixo</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keysym
+>Esquerda</keysym
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] MoveZoomLeft=Meta+Left -->
+<entry
+>Deslocar à Esquerda</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keysym
+>Direita</keysym
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] MoveZoomRight=Meta+Right -->
+<entry
+>Deslocar à Direita</entry>
+</row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</sect3>
+</sect2>
+
+<sect2 id="kbd-activities">
+<title
+>Lidar com as Actividades e Ecrãs Virtuais</title>
+
+<para
+>Estas combinações de teclas permitem circular e gerir as <ulink url="help:/plasma-desktop/activities.html"
+>Actividades</ulink
+> e <ulink url="help:/kcontrol/desktop/"
+>ecrãs virtuais</ulink
+>.</para>
+
+<informaltable>
+<tgroup cols="2">
+
+<thead>
+<row>
+<entry
+>Atalho</entry>
+<entry
+>Descrição</entry>
+</row>
+</thead>
+
+<tbody>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keycap
+>Q</keycap
+></keycombo
+> / <keycombo action="simul"
+>&Alt;<keycap
+>D</keycap
+></keycombo
+>,<keycombo action="simul"
+>&Alt;<keycap
+>A</keycap
+></keycombo
+> </entry>
+<entry
+>Gerir as Actividades</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;&Tab;</keycombo
+></entry
+><!-- [plasmashell][Global Shortcuts] next activity=Meta+Tab -->
+<entry
+>Actividade Seguinte</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;&Shift;&Tab;</keycombo
+></entry
+><!-- [plasmashell][Global Shortcuts] previous activity=Meta+Shift+Tab -->
+<entry
+>Actividade Anterior</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F1</keycap
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] Switch to Desktop 1=Ctrl+F1 -->
+<entry
+>Mudar para o Ecrã 1</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F2</keycap
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] Switch to Desktop 2=Ctrl+F2 -->
+<entry
+>Mudar para o Ecrã 2</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F3</keycap
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] Switch to Desktop 2=Ctrl+F3 -->
+<entry
+>Mudar para o Ecrã 3</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F4</keycap
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] Switch to Desktop 2=Ctrl+F4 -->
+<entry
+>Mudar para o Ecrã 4</entry>
+</row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</sect2>
+
+<sect2 id="kbd-desktop">
+<title
+>Lidar com o Ambiente de Trabalho</title>
+
+<para
+>Estas combinações de teclas permitem-lhe trabalhar com o &plasma-desktop; e com os painéis. </para>
+
+<informaltable>
+<tgroup cols="2">
+
+<thead>
+<row>
+<entry
+>Atalho</entry>
+<entry
+>Descrição</entry>
+</row>
+</thead>
+
+<tbody>
+
+<row>
+<entry
+><keycombo action="seq"
+><keycombo action="simul"
+>&Alt;<keycap
+>D</keycap
+></keycombo
+> <keycap
+>A</keycap
+> </keycombo
+></entry>
+<entry
+>Adicionar Elementos</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="seq"
+><keycombo action="simul"
+>&Alt;<keycap
+>D</keycap
+></keycombo
+> <keycap
+>R</keycap
+> </keycombo
+></entry>
+<entry
+>Remover este <replaceable
+>Elemento</replaceable
+></entry>
+</row>
+
+<row>
+<entry
+><keycombo action="seq"
+><keycombo action="simul"
+>&Alt;<keycap
+>D</keycap
+></keycombo
+> <keycap
+>L</keycap
+> </keycombo
+></entry>
+<entry
+>Bloquear/Desbloquear os Elementos</entry>
+</row>
+<!--FIXME source ? No
+>Next Widget< nor
+>Previous Widget< in kde-workspace or frameworks code
+<row>
+<entry
+><keycombo action="seq">
+<keycombo action="simul"
+>&Alt;<keycap
+>D</keycap
+></keycombo>
+<keycap
+>N</keycap>
+</keycombo
+></entry>
+<entry
+>Next Widget</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="seq">
+<keycombo action="simul"
+>&Alt;<keycap
+>D</keycap
+></keycombo>
+<keycap
+>P</keycap>
+</keycombo
+></entry>
+<entry
+>Previous Widget</entry>
+</row>
+-->
+<row>
+<entry
+><keycombo action="seq"
+><keycombo action="simul"
+>&Alt;<keycap
+>D</keycap
+></keycombo
+> <keycap
+>S</keycap
+> </keycombo
+></entry>
+<entry
+>Configuração do <replaceable
+>Elemento</replaceable
+></entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F12</keycap
+></keycombo
+></entry
+><!--[plasmashell][Global Shortcuts] show dashboard=Ctrl+F12-->
+<entry
+>Mostrar o Ecrã</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="seq"
+><keycombo action="simul"
+>&Alt;<keycap
+>D</keycap
+></keycombo
+> <keycap
+>T</keycap
+> </keycombo
+></entry>
+<entry
+>Executar a Aplicação Associada</entry>
+</row>
+<!--FIXME obsolete?
+<row>
+<entry
+><keycombo action="simul"
+>&Alt;&Shift;<keycap
+>F12</keycap
+></keycombo
+></entry>
+<entry
+>Enable/Disable Desktop Effects</entry>
+</row>
+-->
+
+<row>
+<entry
+><keycombo action="simul"
+>&Alt;<keycap
+>D</keycap
+></keycombo
+>,<keycombo action="simul"
+>&Alt;<keycap
+>S</keycap
+></keycombo
+> </entry>
+<entry
+>Configuração da Área de Trabalho</entry>
+</row>
+
+</tbody>
+</tgroup>
+</informaltable>
+
+</sect2>
+
+<sect2 id="kbd-help">
+<title
+>Obter Ajuda</title>
+
+<para
+>Precisa de alguma ajuda? O manual da aplicação actual está apenas a uma tecla de distância, e alguns programas até têm ajuda adicional que explica o elemento em primeiro plano.</para>
+
+<informaltable>
+<tgroup cols="2">
+
+<thead>
+<row>
+<entry
+>Atalho</entry>
+<entry
+>Descrição</entry>
+</row>
+</thead>
+
+<tbody>
+
+<row>
+<entry
+><keycap
+>F1</keycap
+></entry>
+<entry
+>Ajuda</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Shift;<keycap
+>F1</keycap
+></keycombo
+></entry>
+<entry
+>O Que é Isto?</entry>
+</row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</sect2>
+
+<sect2 id="kbd-docs">
+<title
+>Lidar com os Documentos</title>
+
+<para
+>Quer seja um documento de texto, uma folha de cálculo ou uma página Web, estas combinações de teclas simplificam a execução de diversos tipos de tarefas com eles.</para>
+
+<informaltable>
+<tgroup cols="2">
+
+<thead>
+<row>
+<entry
+>Atalho</entry>
+<entry
+>Descrição</entry>
+</row>
+</thead>
+
+<tbody>
+
+<row>
+<entry
+><keycap
+>F5</keycap
+></entry>
+<entry
+>Actualizar</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>A</keycap
+></keycombo
+></entry>
+<entry
+>Seleccionar Tudo</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+></entry>
+<entry
+>Desfazer</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+></entry>
+<entry
+>Refazer</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>X</keycap
+></keycombo
+></entry>
+<entry
+>Cortar</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+></entry>
+<entry
+>Copiar</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>V</keycap
+></keycombo
+></entry>
+<entry
+>Colar</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></entry>
+<entry
+>Novo</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+></entry>
+<entry
+>Imprimir</entry>
+</row>
+
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></entry>
+<entry
+>Gravar</entry>
+</row>
+
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F</keycap
+></keycombo
+></entry>
+<entry
+>Procurar</entry>
+</row>
+
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>W</keycap
+></keycombo
+></entry>
+<entry
+>Fechar o Documento/Página</entry>
+</row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</sect2>
+
+<sect2 id="kbd-files">
+<title
+>Lidar com os Ficheiros</title>
+
+<para
+>Quer esteja numa janela Abrir/Gravar ou no gestor de ficheiros &dolphin;, estas combinações de teclas poupam-lhe tempo a efectuar operações sobre os ficheiros. Lembre-se que alguns dos conceitos usadas com os ficheiros são os mesmos que com os documentos, pelo que bastantes dos atalhos são idênticos entre si.</para>
+
+<informaltable>
+<tgroup cols="2">
+
+<thead>
+<row>
+<entry
+>Atalho</entry>
+<entry
+>Descrição</entry>
+</row>
+</thead>
+
+<tbody>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+></entry>
+<entry
+>Desfazer</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>X</keycap
+></keycombo
+></entry>
+<entry
+>Cortar</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+></entry>
+<entry
+>Copiar</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>V</keycap
+></keycombo
+></entry>
+<entry
+>Colar</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>A</keycap
+></keycombo
+></entry>
+<entry
+>Seleccionar Tudo</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>L</keycap
+></keycombo
+></entry>
+<entry
+>Substituir a Localização</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>A</keycap
+></keycombo
+></entry>
+<entry
+>Inverter a Selecção</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Alt;<keycap
+>Esquerda</keycap
+></keycombo
+></entry>
+<entry
+>Recuar</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Alt;<keycap
+>Direita</keycap
+></keycombo
+></entry>
+<entry
+>Avançar</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Alt;<keycap
+>Cima</keycap
+></keycombo
+></entry>
+<entry
+>Subir (para a pasta que contém a actual)</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Alt;<keycap
+>Home</keycap
+></keycombo
+></entry>
+<entry
+>Pasta Pessoal</entry>
+</row>
+
+<row>
+<entry
+><keycap
+>Apagar</keycap
+></entry>
+<entry
+>Enviar para o Lixo</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Shift;<keycap
+>Delete</keycap
+></keycombo
+></entry>
+<entry
+>Apagar Permanentemente</entry>
+</row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</sect2>
+
+<sect2 id="kbd-vol-bright">
+<title
+>Mudar o Volume o Brilho</title>
+
+<para
+>Para além das teclas-padrão, muitos teclados de computadores e portáteis têm agora teclas ou botões especiais para variar o volume do altifalante, assim como o brilho do seu monitor, se for possível. Se estiverem presentes, poderá usar estas teclas no &plasma-workspaces; para efectuar estas tarefas.</para>
+
+<para
+>Se não tiver esse tipo de teclas, veja em <xref linkend="kbd-modifying"/> como atribuir outras teclas para essas tarefas.</para>
+
+</sect2>
+
+<sect2 id="kbd-leaving">
+<title
+>Abandonar o seu Computador</title>
+
+<para
+>Tudo feito? Use estas combinações de teclas e coloque o seu computador como ausente!</para>
+
+<informaltable>
+<tgroup cols="2">
+
+<thead>
+<row>
+<entry
+>Atalho</entry>
+<entry
+>Descrição</entry>
+</row>
+</thead>
+
+<tbody>
+<!--FIXME obsolete?
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;&Alt;<keycap
+>Insert</keycap
+></keycombo
+></entry>
+<entry
+>Switch User</entry>
+</row>
+-->
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;&Alt;<keycap
+>L</keycap
+></keycombo
+></entry
+><!--workspace/kscreenlocker/ksmserver/server.cpp-->
+<entry
+>Bloquear o Ecrã</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;&Alt;<keycap
+>Del</keycap
+></keycombo
+></entry
+><!--plasma-workspace/ksmserver/server.cpp-->
+<entry
+>Sair</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;&Alt;&Shift;<keycap
+>Del</keycap
+></keycombo
+></entry
+><!--plasma-workspace/ksmserver/server.cpp-->
+<entry
+>Sair sem confirmação</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;&Alt;&Shift;<keycap
+>Page Down</keycap
+></keycombo
+></entry
+><!--plasma-workspace/ksmserver/server.cpp-->
+<entry
+>Desligar sem confirmação</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;&Alt;&Shift;<keycap
+>Page Up</keycap
+></keycombo
+></entry
+><!--plasma-workspace/ksmserver/server.cpp-->
+<entry
+>Reiniciar sem confirmação</entry>
+</row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</sect2>
+
+<sect2 id="kbd-modifying">
+<title
+>Modificar os Atalhos</title>
+
+<para
+>As combinações de teclas descritas em <link linkend="kbd-windows"
+>Lidar com as Janelas</link
+>, <link linkend="kbd-leaving"
+>Abandonar o seu Computador</link
+>, <link linkend="kbd-vol-bright"
+>Mudar o Volume o Brilho</link
+> e <link linkend="kbd-activities"
+>Lidar com as Actividades e Ecrãs Virtuais</link
+> são chamadas normalmente de <emphasis
+>atalhos globais</emphasis
+>, dado que funcionam de forma independente  da janela que tiver aberta no ecrã. Estas podem ser modificadas no <ulink url="help:/kcontrol/keys/"
+>painel de Atalhos Globais do &systemsettings;</ulink
+>, onde estão separadas por cada componente do &kde;.</para>
+
+<para
+>Os atalhos descritos em <link linkend="kbd-desktop"
+>Trabalhar na Área de Trabalho</link
+> são fixos, pelo que não podem ser modificados.</para>
+
+<para
+>As combinações de teclas descritas em <link linkend="kbd-docs"
+>Lidar com os Documentos</link
+> e <link linkend="kbd-help"
+>Obter Ajuda</link
+> são definidas pelos programas individuais. A maioria dos programas do &kde; permitem-lhe usar a <link linkend="shortcuts"
+>janela de edição de atalhos comum</link
+> para as modificar. As combinações de teclas descritas em <link linkend="kbd-files"
+>Lidar com os Ficheiros</link
+> podem ser alteradas da mesma maneira quando forem usadas dentro de um gestor de ficheiros, como o &dolphin; ou &konqueror;, mas não podem ser modificadas no caso das janelas Abrir/Gravar, &etc; </para>
+
+</sect2>
+</sect1>
+
+</chapter>

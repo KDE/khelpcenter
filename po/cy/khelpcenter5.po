@@ -1,0 +1,730 @@
+# translation of khelpcenter.po to Cymraeg
+# Translation of khelpcenter.po to Cymraeg
+# Bwrdd Gwaith yn Gymraeg.
+# Copyright (C) 2003 Free Software Foundation, Inc.
+# www.kyfieithu.co.uk<kyfieithu@dotmon.com>, www.gyfieithu.co.uk<kyfieithu@dotmon.com>, 2003.
+# KGyfieithu <kyfieithu@dotmon.com>, 2003.
+# KD at KGyfieithu <kyfieithu@dotmon.com>, 2003.
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: khelpcenter\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-15 00:47+0000\n"
+"PO-Revision-Date: 2003-12-28 11:07+0000\n"
+"Last-Translator: KD at KGyfieithu <kyfieithu@dotmon.com>\n"
+"Language-Team: Cymraeg <cy@li.org>\n"
+"Language: cy\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.2\n"
+"\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Owain Green,KGyfieithu"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "owaing@oceanfree.net,kyfieithu@dotmon.com"
+
+#: application.cpp:30
+#, fuzzy, kde-format
+msgid "Documentation to open"
+msgstr "Dogfen i'w fynegeio."
+
+#: application.cpp:114 application.cpp:116
+#, kde-format
+msgid "Help Center"
+msgstr "Canolfan Gymorth"
+
+#: application.cpp:118
+#, fuzzy, kde-format
+#| msgid "(c) 1999-2003, The KHelpCenter developers"
+msgid "(c) 1999-2020, The KHelpCenter developers"
+msgstr "(h) 1999-2003, Datblygwyr KHelpCenter"
+
+#: application.cpp:120
+#, kde-format
+msgid "Current maintainer"
+msgstr ""
+
+#: application.cpp:121
+#, kde-format
+msgid "Xapian-based search, lot of bugfixes"
+msgstr ""
+
+#: application.cpp:122
+#, kde-format
+msgid "Former maintainer"
+msgstr ""
+
+#: application.cpp:124
+#, kde-format
+msgid "Original Author"
+msgstr "Awdur Gwreiddiol"
+
+#: application.cpp:125
+#, kde-format
+msgid "Info page support"
+msgstr "Cynhaliaeth tudalennau gwybodaeth"
+
+#: docmetainfo.cpp:35
+#, fuzzy, kde-format
+msgid "Top-Level Documentation"
+msgstr "Dogfennaeth gyffredinol"
+
+#: docmetainfo.cpp:83
+#, kde-format
+msgctxt "doctitle (language)"
+msgid "%1 (%2)"
+msgstr "%1(%2)"
+
+#: docmetainfo.cpp:119
+#, fuzzy, kde-format
+#| msgid "English"
+msgctxt "Describes documentation entries that are in English"
+msgid "English"
+msgstr "Saesneg"
+
+#: fontdialog.cpp:36
+#, kde-format
+msgid "Font Configuration"
+msgstr "Ffurfweddu Wynebfathau"
+
+#: fontdialog.cpp:62
+#, kde-format
+msgid "Sizes"
+msgstr "Meintiau"
+
+#: fontdialog.cpp:66
+#, fuzzy, kde-format
+#| msgid "M&inimum font size:"
+msgctxt "The smallest size a will have"
+msgid "M&inimum font size:"
+msgstr "Maint wynebfath &isaf:"
+
+#: fontdialog.cpp:73
+#, fuzzy, kde-format
+#| msgid "M&edium font size:"
+msgctxt "The normal size a font will have"
+msgid "M&edium font size:"
+msgstr "Maint wynebfath &canolig:"
+
+#: fontdialog.cpp:83
+#, kde-format
+msgid "Fonts"
+msgstr ""
+
+#: fontdialog.cpp:87
+#, kde-format
+msgid "S&tandard font:"
+msgstr "Wynebfath &safonol:"
+
+#: fontdialog.cpp:93
+#, kde-format
+msgid "F&ixed font:"
+msgstr "Wynebfath &sefydlog"
+
+#: fontdialog.cpp:99
+#, kde-format
+msgid "S&erif font:"
+msgstr "Wynebfath s&eriff:"
+
+#: fontdialog.cpp:105
+#, kde-format
+msgid "S&ans serif font:"
+msgstr "Wynebfath s&ans seriff:"
+
+#: fontdialog.cpp:111
+#, kde-format
+msgid "&Italic font:"
+msgstr "Wynebfath &italig:"
+
+#: fontdialog.cpp:117
+#, kde-format
+msgid "&Fantasy font:"
+msgstr "Wynebfath &ffantasi:"
+
+#: fontdialog.cpp:126
+#, kde-format
+msgid "Encoding"
+msgstr "Amgodiad"
+
+#: fontdialog.cpp:131
+#, kde-format
+msgid "&Default encoding:"
+msgstr "Amgodiad &rhagosodedig:"
+
+#: fontdialog.cpp:136 fontdialog.cpp:204
+#, kde-format
+msgid "Use Language Encoding"
+msgstr "Defnyddio Amgodiad Iaith"
+
+#: fontdialog.cpp:140
+#, kde-format
+msgid "&Font size adjustment:"
+msgstr "Addasu maint &wynebfath:"
+
+#: glossary.cpp:68
+#, kde-format
+msgid "By Topic"
+msgstr "Gan Bwnc"
+
+#: glossary.cpp:72 infotree.cpp:74
+#, kde-format
+msgid "Alphabetically"
+msgstr "Yn ôl yr wyddor"
+
+#: glossary.cpp:128
+#, fuzzy, kde-format
+#| msgid "Rebuilding cache..."
+msgid "Rebuilding glossary cache..."
+msgstr "Ailadeiladu'r storfa..."
+
+#: glossary.cpp:182
+#, fuzzy, kde-format
+msgid "Rebuilding cache... done."
+msgstr "Ailadeiladu'r storfa...wedi gorffen!"
+
+#: grantleeformatter.cpp:102
+#, fuzzy, kde-format
+#| msgid "KDE Glossary"
+msgctxt "%1 is a glossary term"
+msgid "KDE Glossary: %1"
+msgstr "Geirfa KDE"
+
+#: grantleeformatter.cpp:103
+#, kde-format
+msgid "KDE Glossary"
+msgstr "Geirfa KDE"
+
+#: grantleeformatter.cpp:107
+#, fuzzy, kde-format
+#| msgid "See also: "
+msgid "See also: %1"
+msgstr "Gweler hefyd:"
+
+#: grantleeformatter.cpp:128
+#, kde-format
+msgid "Search Results"
+msgstr "Canlyniadau Chwilio"
+
+#: grantleeformatter.cpp:129 searchengine.cpp:259
+#, fuzzy, kde-format
+msgid "Search Results for '%1':"
+msgstr "Canlyniadau Chwilio"
+
+#: infotree.cpp:77
+#, kde-format
+msgid "By Category"
+msgstr "Gan Gategori"
+
+#. i18n: ectx: label, entry, group (Search)
+#: khelpcenter.kcfg:31
+#, fuzzy, kde-format
+msgid "Path to index directory."
+msgstr "Cyfeiriadur mynegai"
+
+#. i18n: ectx: whatsthis, entry, group (Search)
+#: khelpcenter.kcfg:32
+#, kde-format
+msgid "Path to directory containing search indices."
+msgstr ""
+
+#. i18n: ectx: label, entry, group (Layout)
+#: khelpcenter.kcfg:46
+#, kde-format
+msgid "Currently visible navigator tab"
+msgstr ""
+
+#. i18n: ectx: Menu (edit)
+#: khelpcenterui.rc:5
+#, kde-format
+msgid "&Edit"
+msgstr ""
+
+#. i18n: ectx: Menu (view)
+#: khelpcenterui.rc:13
+#, kde-format
+msgid "&View"
+msgstr ""
+
+#. i18n: ectx: Menu (go)
+#: khelpcenterui.rc:19
+#, kde-format
+msgid "&Go"
+msgstr "&Ewch"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: khelpcenterui.rc:36
+#, kde-format
+msgid "Main Toolbar"
+msgstr ""
+
+#: mainwindow.cpp:62
+#, kde-format
+msgid "Search Error Log"
+msgstr "Cofnod Gwallau Chwilio"
+
+#: mainwindow.cpp:114
+#, kde-format
+msgid "Preparing Index"
+msgstr "Yn Paratoi'r Mynegai"
+
+#: mainwindow.cpp:157
+#, kde-format
+msgid "Ready"
+msgstr "Yn barod"
+
+#: mainwindow.cpp:208
+#, kde-format
+msgid "Previous Page"
+msgstr "Tudalen Flaenorol"
+
+#: mainwindow.cpp:210
+#, kde-format
+msgid "Moves to the previous page of the document"
+msgstr ""
+
+#: mainwindow.cpp:214
+#, kde-format
+msgid "Next Page"
+msgstr "Tudalen Nesaf"
+
+#: mainwindow.cpp:216
+#, kde-format
+msgid "Moves to the next page of the document"
+msgstr ""
+
+#: mainwindow.cpp:223
+#, kde-format
+msgid "Table of &Contents"
+msgstr "Tabl &Cynnwys"
+
+#: mainwindow.cpp:224
+#, kde-format
+msgid "Table of contents"
+msgstr "Tabl cynnwys"
+
+#: mainwindow.cpp:225
+#, kde-format
+msgid "Go back to the table of contents"
+msgstr ""
+
+#: mainwindow.cpp:231
+#, kde-format
+msgid "&Last Search Result"
+msgstr "&Canlyniad Chwiliad Diwethaf:"
+
+#: mainwindow.cpp:249
+#, kde-format
+msgid "Configure Fonts..."
+msgstr "Ffurfweddu Wynebfathau..."
+
+#: mainwindow.cpp:253
+#, kde-format
+msgid "Increase Font Sizes"
+msgstr "Cynyddu Meintiau Wynebfath"
+
+#: mainwindow.cpp:258
+#, kde-format
+msgid "Decrease Font Sizes"
+msgstr "Lleihau Meintiau Wynebfath"
+
+#: mainwindow.cpp:274
+#, kde-format
+msgctxt "@title:menu"
+msgid "&Bookmarks"
+msgstr ""
+
+#: navigator.cpp:63
+#, fuzzy, kde-format
+#| msgid "&Search"
+msgid "Search..."
+msgstr " &Chwilio"
+
+#: navigator.cpp:118
+#, fuzzy, kde-format
+msgid "&Contents"
+msgstr "Tabl &Cynnwys"
+
+#: navigator.cpp:128
+#, kde-format
+msgid "Search Options"
+msgstr "Dewisiadau Chwilio"
+
+#: navigator.cpp:136
+#, kde-format
+msgid "G&lossary"
+msgstr "&Geirfa"
+
+#: navigator.cpp:480
+#, kde-format
+msgid "Start Page"
+msgstr "Tudalen Gychwyn"
+
+#: navigator.cpp:481
+#, kde-format
+msgid "KDE Help Center"
+msgstr "Canolfan Gymorth KDE"
+
+#: navigator.cpp:564
+#, kde-format
+msgid "Unable to run search program."
+msgstr "Methu rhedeg rhaglen chwilio."
+
+#: navigator.cpp:657
+#, fuzzy, kde-format
+#| msgid "Build Search Index..."
+msgid "Updating search index..."
+msgstr "Adeiladu Mynegai Chwilio ..."
+
+#: navigator.cpp:668
+#, fuzzy, kde-format
+msgid "Updating search index... done."
+msgstr "Ailadeiladu'r storfa...wedi gorffen!"
+
+#: searchengine.cpp:57
+#, kde-format
+msgid "Error: No document type specified."
+msgstr ""
+
+#: searchengine.cpp:59
+#, kde-format
+msgid "Error: No search handler for document type '%1'."
+msgstr ""
+
+#: searchengine.cpp:229
+#, kde-format
+msgid "No valid search handler found."
+msgstr ""
+
+#: searchhandler.cpp:37
+#, kde-format
+msgid "Error executing search command '%1'."
+msgstr ""
+
+#: searchhandler.cpp:75
+#, kde-format
+msgid "Error: %1"
+msgstr "Gwall: %1"
+
+#: searchhandler.cpp:140 searchhandler.cpp:145
+#, kde-format
+msgid "'%1' not found, check your installation"
+msgstr ""
+
+#: searchhandler.cpp:150
+#, kde-format
+msgid "'%1' not found, install the package containing it"
+msgstr ""
+
+#: searchhandler.cpp:197
+#, kde-format
+msgid "No search command or URL specified."
+msgstr ""
+
+#: searchwidget.cpp:39
+#, kde-format
+msgid "and"
+msgstr "a"
+
+#: searchwidget.cpp:40
+#, kde-format
+msgid "or"
+msgstr "neu"
+
+#: searchwidget.cpp:42
+#, kde-format
+msgid "&Method:"
+msgstr "&Dull:"
+
+#: searchwidget.cpp:58
+#, kde-format
+msgid "Max. &results:"
+msgstr "Uchafswm &canlyniadau:"
+
+#: searchwidget.cpp:73
+#, kde-format
+msgid "&Scope selection:"
+msgstr "Dewis &amrediad:"
+
+#: searchwidget.cpp:81
+#, kde-format
+msgid "Scope"
+msgstr "Amrediad"
+
+#: searchwidget.cpp:322
+#, fuzzy, kde-format
+#| msgid "Custom"
+msgctxt "Label for searching documentation using custom (user defined) scope"
+msgid "Custom"
+msgstr "Addasiedig"
+
+#: searchwidget.cpp:324
+#, kde-format
+msgctxt "Label for searching documentation using default search scope"
+msgid "Default"
+msgstr ""
+
+#: searchwidget.cpp:326
+#, fuzzy, kde-format
+#| msgid "All"
+msgctxt "Label for searching documentation in all subsections"
+msgid "All"
+msgstr "I gyd"
+
+#: searchwidget.cpp:328
+#, fuzzy, kde-format
+#| msgid "None"
+msgctxt "Label for scope that deselects all search subsections"
+msgid "None"
+msgstr "Dim"
+
+#: searchwidget.cpp:330
+#, fuzzy, kde-format
+#| msgid "unknown"
+msgctxt "Label for Unknown search scope, that should never appear"
+msgid "unknown"
+msgstr "anhysbys"
+
+#: view.cpp:228
+#, kde-format
+msgid "Copy Link Address"
+msgstr "Copïo Cyfeiriad Cyswllt"
+
+#: view.cpp:312
+#, kde-format
+msgid ""
+"<p>Read the topic documentation in this window.<br /><br />Press <b>Space</"
+"b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, <b>Tab</b>/"
+"<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
+msgstr ""
+
+#, fuzzy
+#~ msgid "Error"
+#~ msgstr "Gwall: %1"
+
+#~ msgid ""
+#~ "Unable to show selected glossary entry: unable to open file 'glossary."
+#~ "html.in'!"
+#~ msgstr ""
+#~ "Nid oes modd dangos y cofnod geirfa dewisiedig: methwyd agor y ffeil "
+#~ "'glossary.html.in'!"
+
+#~ msgid "ht://dig"
+#~ msgstr "ht://dig"
+
+#, fuzzy
+#~| msgid ""
+#~| "The fulltext search feature makes use of the ht://dig HTML search "
+#~| "engine. You can get ht://dig at the"
+#~ msgid ""
+#~ "The fulltext search feature makes use of the ht://dig HTML search engine."
+#~ msgstr ""
+#~ "Mae'r nodwedd chwilio testun llawn yn defnyddio'r peiriant chwilio HTML "
+#~ "ht://dig. Gallwch gael gafael ar ht://dig yn"
+
+#~ msgid "Information about where to get the ht://dig package."
+#~ msgstr "Gwybodaeth am ble i gael y pecyn ht://dig."
+
+#~ msgid "Program Locations"
+#~ msgstr "Lleoliadau Rhaglenni"
+
+#~ msgid "htsearch:"
+#~ msgstr "htsearch:"
+
+#~ msgid "Enter the URL of the htsearch CGI program."
+#~ msgstr "Rhowch URL y rhaglen CGI htsearch."
+
+#~ msgid "Indexer:"
+#~ msgstr "Mynegeiydd:"
+
+#~ msgid "Enter the path to your htdig indexer program here."
+#~ msgstr "Rhowch y llwybr i'ch rhaglen mynegeio htdig yma."
+
+#~ msgid "htdig database:"
+#~ msgstr "cronfa ddata htdig:"
+
+#~ msgid "Enter the path to the htdig database folder."
+#~ msgstr "Rhowch y llwybr i'r blygell cronfa ddata htdig yma."
+
+#, fuzzy
+#~ msgid "Change Index Folder"
+#~ msgstr "Plygell Fynegai:"
+
+#~ msgid "Index folder:"
+#~ msgstr "Plygell Fynegai:"
+
+#~ msgid "Build Search Indices"
+#~ msgstr "Adeiladu Mynegeion Chwilio"
+
+#~ msgid "Index creation log:"
+#~ msgstr "Cofnod creu mynegai:"
+
+#~ msgid "Index creation finished."
+#~ msgstr "Gorffenwyd creu'r mynegai(eion)."
+
+#, fuzzy
+#~ msgctxt "Label for stopping search index generation before completion"
+#~ msgid "Stop"
+#~ msgstr "Amrediad"
+
+#, fuzzy
+#~| msgid "Details >>"
+#~ msgid "Details <<"
+#~ msgstr "Manylion >>"
+
+#~ msgid "Details >>"
+#~ msgstr "Manylion >>"
+
+#~ msgid "Build Search Index"
+#~ msgstr "Adeiladu Mynegai Chwilio"
+
+#, fuzzy
+#~ msgid "Build Index"
+#~ msgstr "Adeiladu Mynegai Chwilio"
+
+#~ msgid "Search Scope"
+#~ msgstr "Amrediad Chwiliad"
+
+#~ msgid "Status"
+#~ msgstr "Cyflwr"
+
+#~ msgid "Change..."
+#~ msgstr "Newid..."
+
+#, fuzzy
+#~ msgid ""
+#~ "<qt>The folder <b>%1</b> does not exist; unable to create index.</qt>"
+#~ msgstr "<qt>Nid yw'r blygell <b>%1</b> yn bodoli. Methu creu mynegai.</qt>"
+
+#, fuzzy
+#~| msgid "Missing"
+#~ msgctxt "Describes the status of a documentation index that is missing"
+#~ msgid "Missing"
+#~ msgstr "Ar goll"
+
+#~ msgid "Failed to build index."
+#~ msgstr "Methu adeiladu mynegai."
+
+#~ msgid "KHelpCenter Index Builder"
+#~ msgstr "Adeiladwr Mynegeion KHelpCenter"
+
+#, fuzzy
+#~ msgid "Document to be indexed"
+#~ msgstr "Dogfen i'w fynegeio."
+
+#~ msgid "Index directory"
+#~ msgstr "Cyfeiriadur mynegai"
+
+#~ msgid ""
+#~ "A search index does not yet exist. Do you want to create the index now?"
+#~ msgstr "Nid oes mynegai chwilio eto. A ydych am greu'r mynagai nawr?"
+
+#~ msgid "Create"
+#~ msgstr "Creu"
+
+#~ msgid "Build Search &Index..."
+#~ msgstr "Adeiladu Myne&gai Chwilio ..."
+
+#~ msgid "The KDE Help Center"
+#~ msgstr "Canolfan Gymorth KDE"
+
+#~ msgid "(c) 2003, The KHelpCenter developers"
+#~ msgstr "(h)2003, Datblygwyr KHelpCenter"
+
+#, fuzzy
+#~| msgid "Details <<"
+#~ msgid "Details &lt;&lt;"
+#~ msgstr "Manylion <<"
+
+#, fuzzy
+#~| msgid "Details <<"
+#~ msgid "Details &gt;&gt;"
+#~ msgstr "Manylion <<"
+
+#, fuzzy
+#~ msgid "URL to display"
+#~ msgstr "URL i'w ddangos"
+
+#~ msgid "Show Search Error Log"
+#~ msgstr "Dangos y Cofnod Gwallau Chwilio"
+
+#~ msgid "ht://dig home page"
+#~ msgstr "hafan ht://dig"
+
+#~ msgid "Conquer your Desktop!"
+#~ msgstr "Gorchfygwch eich Penbwrdd!"
+
+#~ msgid "Welcome to the K Desktop Environment"
+#~ msgstr "Croeso i'r Amgylchedd Penbwrdd K"
+
+#~ msgid "The KDE team welcomes you to user-friendly UNIX computing"
+#~ msgstr ""
+#~ "Mae'r tîm KDE yn eich croesawu i gyfrifiaduro UNIX cyfeillgar i "
+#~ "ddefnyddwyr."
+
+#~ msgid ""
+#~ "KDE is a powerful graphical desktop environment for UNIX workstations. A\n"
+#~ "KDE desktop combines ease of use, contemporary functionality and "
+#~ "outstanding\n"
+#~ "graphical design with the technological superiority of the UNIX "
+#~ "operating\n"
+#~ "system."
+#~ msgstr ""
+#~ "KDE is a powerful graphical desktop environment for UNIX workstations. A\n"
+#~ "KDE desktop combines ease of use, contemporary functionality and "
+#~ "outstanding\n"
+#~ "graphical design with the technological superiority of the UNIX "
+#~ "operating\n"
+#~ "system."
+
+#~ msgid "What is the K Desktop Environment?"
+#~ msgstr "Beth yw'r Amgylchedd Penbwrdd K?"
+
+#~ msgid "Contacting the KDE Project"
+#~ msgstr "Cysylltu â'r Cywaith KDE"
+
+#~ msgid "Supporting the KDE Project"
+#~ msgstr "Cynnal y Cywaith KDE"
+
+#~ msgid "Useful links"
+#~ msgstr "Cysylltiadau defnyddiol"
+
+#~ msgid "Getting the most out of KDE"
+#~ msgstr "Cael y gorau allan o KDE"
+
+#~ msgid "General Documentation"
+#~ msgstr "Dogfennaeth gyffredinol"
+
+#~ msgid "A Quick Start Guide to the Desktop"
+#~ msgstr "Canllaw Dechrau Cyflym i'r Penbwrdd"
+
+#, fuzzy
+#~ msgid "KDE Users' guide"
+#~ msgstr "Llawlyfr Defnyddwyr KDE"
+
+#~ msgid "Frequently asked questions"
+#~ msgstr "Cwestiynau a ofynnir yn aml"
+
+#~ msgid "Basic Applications"
+#~ msgstr "Cymhwysiadau Sylfaenol"
+
+#~ msgid "The Kicker Desktop Panel"
+#~ msgstr "Panel Penbwrdd Ciciwr"
+
+#~ msgid "The KDE Control Center"
+#~ msgstr "Canolfan Reolaeth KDE"
+
+#~ msgid "The Konqueror File manager and Web Browser"
+#~ msgstr "Y Trefnydd Ffeiliau a'r Porydd Gwê Konqueror"
+
+#~ msgid "Clear search"
+#~ msgstr "Gwagu'r chwiliad"

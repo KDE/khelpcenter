@@ -1,0 +1,122 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Spanish "INCLUDE">
+]>
+<article id="onlinehelp" lang="&language;">
+<title
+>Ayuda en línea</title>
+<articleinfo>
+
+<date
+>2018-04-01</date>
+<releaseinfo
+>Aplicaciones 18.04</releaseinfo>
+
+</articleinfo>
+
+<para
+>En esta página, puede encontrar diferentes formas de encontrar ayuda en línea e información adicional proporcionada por la comunidad &kde;.</para>
+
+<variablelist>
+<title
+>&kde; UserBase</title>
+<varlistentry
+><term
+><ulink url="https://userbase.kde.org/Special:myLanguage/An_introduction_to_KDE"
+>Una introducción a &kde;</ulink
+>&nbsp;</term>
+<listitem>
+<para
+>Aprenda más acerca de la <ulink url="https://kde.org/community/whatiskde/"
+>comunidad &kde; y su software</ulink
+> y encuentre información que le ayude a comenzar. Descubra también qué es <ulink url="https://userbase.kde.org/Special:myLanguage/Welcome_to_KDE_UserBase"
+>UserBase</ulink
+> y cómo puede ayudarle. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><ulink url="https://userbase.kde.org/Special:myLanguage/Getting_Help"
+>Obtener ayuda</ulink
+>&nbsp;</term>
+<listitem>
+<para
+>¿Necesita ayuda? Aquí le sugerimos algunos lugares en los que puede obtener ayuda para solucionar sus problemas, así como algunos consejos sobre como mejorar la calidad de las respuestas que reciba. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><ulink url="https://userbase.kde.org/Special:myLanguage/Applications"
+>Aplicaciones</ulink
+>&nbsp;</term>
+<listitem>
+<para
+>Descubra la amplia variedad de aplicaciones de la comunidad &kde;, y encuentre los programas que se adaptan mejor a sus necesidades y preferencias. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><ulink url="https://userbase.kde.org/Special:myLanguage/Tutorials"
+>Tutoriales</ulink
+>&nbsp;</term>
+<listitem>
+<para
+>Cómos, consejos y trucos que pueden ayudarle a hacer su experiencia con el software de &kde; más agradable y productiva. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+<variablelist>
+<title
+>Foro de &kde;</title>
+<varlistentry
+><term
+><ulink url="https://forum.kde.org/"
+>Foros de la comunidad &kde;</ulink
+>&nbsp;</term>
+<listitem>
+<para
+>Los foros de &kde; ofrecen a los usuarios, desarrolladores y demás personas interesadas en &kde; un lugar donde ayudarse mutuamente, discutir temas relacionados con &kde; e intercambiar ideas. Puede encontrar <ulink url="https://forum.kde.org/viewforum.php?f=14/"
+>Tutoriales &amp; consejos</ulink
+> en el foro.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<variablelist>
+<title
+>&kde; Techbase</title>
+<varlistentry
+><term
+><ulink url="https://techbase.kde.org/"
+>&kde; Techbase</ulink
+>&nbsp;</term>
+<listitem>
+<para
+>Información para desarrolladores y ayuda para instalar y configurar un entorno de escritorio &kde;.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<variablelist>
+<title
+>Documentación de &kde;</title>
+<varlistentry
+><term
+><ulink url="https://docs.kde.org/"
+>Sitio de la documentación de &kde;</ulink
+>&nbsp;</term>
+<listitem>
+<para
+>Esta página contiene la documentación completa para los usuarios de &kde; en unos 25 idiomas, tanto para la versión liberada como para la versión de desarrollo de &kde-frameworks;, &plasma-workspaces; y &applications;.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</article>

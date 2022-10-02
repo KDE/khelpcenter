@@ -1,0 +1,689 @@
+# Translation of khelpcenter5.po to Ukrainian
+# Copyright (C) 2018-2020 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Dmytro Kovalov <kov@tokyo.email.ne.jp>, 2002.
+# Eugene Onischenko <oneugene@ukr.net>, 2002, 2005.
+# Andriy Rysin <rysin@kde.org>, 2002, 2003, 2004, 2006.
+# Ivan Petrouchtchak <fr.ivan@ukrainian-orthodox.org>, 2005, 2007, 2008.
+# Yuri Chornoivan <yurchor@ukr.net>, 2008, 2009, 2010, 2011, 2012, 2014, 2016, 2018, 2019, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: khelpcenter5\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-15 00:47+0000\n"
+"PO-Revision-Date: 2020-10-12 08:38+0300\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 20.11.70\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Andriy Rysin,Dmytro Kovalov,Іван Петрущак"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "rysin@kde.org,kov@tokyo.email.ne.jp,iip@telus.net"
+
+#: application.cpp:30
+#, kde-format
+msgid "Documentation to open"
+msgstr "Документація, яку слід відкрити"
+
+#: application.cpp:114 application.cpp:116
+#, kde-format
+msgid "Help Center"
+msgstr "Центр довідки"
+
+#: application.cpp:118
+#, kde-format
+msgid "(c) 1999-2020, The KHelpCenter developers"
+msgstr "© Розробники KHelpCenter, 1999–2020"
+
+#: application.cpp:120
+#, kde-format
+msgid "Current maintainer"
+msgstr "Поточний супровідник"
+
+#: application.cpp:121
+#, kde-format
+msgid "Xapian-based search, lot of bugfixes"
+msgstr "Пошук на основі Xapian, багато виправлень вад"
+
+#: application.cpp:122
+#, kde-format
+msgid "Former maintainer"
+msgstr "Колишній супровідник"
+
+#: application.cpp:124
+#, kde-format
+msgid "Original Author"
+msgstr "Перший автор"
+
+#: application.cpp:125
+#, kde-format
+msgid "Info page support"
+msgstr "Підтримка сторінки довідки"
+
+#: docmetainfo.cpp:35
+#, kde-format
+msgid "Top-Level Documentation"
+msgstr "Документація верхнього рівня"
+
+#: docmetainfo.cpp:83
+#, kde-format
+msgctxt "doctitle (language)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: docmetainfo.cpp:119
+#, kde-format
+msgctxt "Describes documentation entries that are in English"
+msgid "English"
+msgstr "Англійська"
+
+#: fontdialog.cpp:36
+#, kde-format
+msgid "Font Configuration"
+msgstr "Налаштування шрифтів"
+
+#: fontdialog.cpp:62
+#, kde-format
+msgid "Sizes"
+msgstr "Розміри"
+
+#: fontdialog.cpp:66
+#, kde-format
+msgctxt "The smallest size a will have"
+msgid "M&inimum font size:"
+msgstr "Н&айменший розмір шрифту:"
+
+#: fontdialog.cpp:73
+#, kde-format
+msgctxt "The normal size a font will have"
+msgid "M&edium font size:"
+msgstr "С&ередній розмір шрифтів:"
+
+#: fontdialog.cpp:83
+#, kde-format
+msgid "Fonts"
+msgstr "Шрифти"
+
+#: fontdialog.cpp:87
+#, kde-format
+msgid "S&tandard font:"
+msgstr "Т&иповий розмір шрифтів:"
+
+#: fontdialog.cpp:93
+#, kde-format
+msgid "F&ixed font:"
+msgstr "М&оноширинний шрифт:"
+
+#: fontdialog.cpp:99
+#, kde-format
+msgid "S&erif font:"
+msgstr "Шр&ифт з засічками:"
+
+#: fontdialog.cpp:105
+#, kde-format
+msgid "S&ans serif font:"
+msgstr "Шрифт &без засічок:"
+
+#: fontdialog.cpp:111
+#, kde-format
+msgid "&Italic font:"
+msgstr "&Курсивний шрифт:"
+
+#: fontdialog.cpp:117
+#, kde-format
+msgid "&Fantasy font:"
+msgstr "Шрифт &фентезі:"
+
+#: fontdialog.cpp:126
+#, kde-format
+msgid "Encoding"
+msgstr "Кодування"
+
+#: fontdialog.cpp:131
+#, kde-format
+msgid "&Default encoding:"
+msgstr "&Типове кодування:"
+
+#: fontdialog.cpp:136 fontdialog.cpp:204
+#, kde-format
+msgid "Use Language Encoding"
+msgstr "Використовувати кодування мови"
+
+#: fontdialog.cpp:140
+#, kde-format
+msgid "&Font size adjustment:"
+msgstr "Регулювання розмірну &шрифтів:"
+
+#: glossary.cpp:68
+#, kde-format
+msgid "By Topic"
+msgstr "За темою"
+
+#: glossary.cpp:72 infotree.cpp:74
+#, kde-format
+msgid "Alphabetically"
+msgstr "За алфавітом"
+
+#: glossary.cpp:128
+#, kde-format
+msgid "Rebuilding glossary cache..."
+msgstr "Перебудова кешу словника..."
+
+#: glossary.cpp:182
+#, kde-format
+msgid "Rebuilding cache... done."
+msgstr "Перебудову кешу завершено."
+
+#: grantleeformatter.cpp:102
+#, kde-format
+msgctxt "%1 is a glossary term"
+msgid "KDE Glossary: %1"
+msgstr "Глосарій KDE: %1"
+
+#: grantleeformatter.cpp:103
+#, kde-format
+msgid "KDE Glossary"
+msgstr "Глосарій KDE"
+
+#: grantleeformatter.cpp:107
+#, kde-format
+msgid "See also: %1"
+msgstr "Дивіться також: %1"
+
+#: grantleeformatter.cpp:128
+#, kde-format
+msgid "Search Results"
+msgstr "Результати пошуку"
+
+#: grantleeformatter.cpp:129 searchengine.cpp:259
+#, kde-format
+msgid "Search Results for '%1':"
+msgstr "Результати пошуку для «%1»:"
+
+#: infotree.cpp:77
+#, kde-format
+msgid "By Category"
+msgstr "За категорією"
+
+#. i18n: ectx: label, entry, group (Search)
+#: khelpcenter.kcfg:31
+#, kde-format
+msgid "Path to index directory."
+msgstr "Шлях до каталогу індексів."
+
+#. i18n: ectx: whatsthis, entry, group (Search)
+#: khelpcenter.kcfg:32
+#, kde-format
+msgid "Path to directory containing search indices."
+msgstr "Шлях до каталогу, який містить індекси пошуку."
+
+#. i18n: ectx: label, entry, group (Layout)
+#: khelpcenter.kcfg:46
+#, kde-format
+msgid "Currently visible navigator tab"
+msgstr "Видима зараз вкладка навігатора"
+
+#. i18n: ectx: Menu (edit)
+#: khelpcenterui.rc:5
+#, kde-format
+msgid "&Edit"
+msgstr "З&міни"
+
+#. i18n: ectx: Menu (view)
+#: khelpcenterui.rc:13
+#, kde-format
+msgid "&View"
+msgstr "П&ерегляд"
+
+#. i18n: ectx: Menu (go)
+#: khelpcenterui.rc:19
+#, kde-format
+msgid "&Go"
+msgstr "Пере&хід"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: khelpcenterui.rc:36
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Головний пенал"
+
+#: mainwindow.cpp:62
+#, kde-format
+msgid "Search Error Log"
+msgstr "Журнал помилок пошуку"
+
+#: mainwindow.cpp:114
+#, kde-format
+msgid "Preparing Index"
+msgstr "Підготовка індексу"
+
+#: mainwindow.cpp:157
+#, kde-format
+msgid "Ready"
+msgstr "Готово"
+
+#: mainwindow.cpp:208
+#, kde-format
+msgid "Previous Page"
+msgstr "Попередня сторінка"
+
+#: mainwindow.cpp:210
+#, kde-format
+msgid "Moves to the previous page of the document"
+msgstr "Пересуває вас до попередньої сторінки документа"
+
+#: mainwindow.cpp:214
+#, kde-format
+msgid "Next Page"
+msgstr "Наступна сторінка"
+
+#: mainwindow.cpp:216
+#, kde-format
+msgid "Moves to the next page of the document"
+msgstr "Пересуває вас до наступної сторінки документа"
+
+#: mainwindow.cpp:223
+#, kde-format
+msgid "Table of &Contents"
+msgstr "&Зміст"
+
+#: mainwindow.cpp:224
+#, kde-format
+msgid "Table of contents"
+msgstr "Зміст"
+
+#: mainwindow.cpp:225
+#, kde-format
+msgid "Go back to the table of contents"
+msgstr "Назад до змісту"
+
+#: mainwindow.cpp:231
+#, kde-format
+msgid "&Last Search Result"
+msgstr "&Останній результат пошуку"
+
+#: mainwindow.cpp:249
+#, kde-format
+msgid "Configure Fonts..."
+msgstr "Налаштувати шрифти..."
+
+#: mainwindow.cpp:253
+#, kde-format
+msgid "Increase Font Sizes"
+msgstr "Збільшити розмір шрифтів"
+
+#: mainwindow.cpp:258
+#, kde-format
+msgid "Decrease Font Sizes"
+msgstr "Зменшити розмір шрифтів"
+
+#: mainwindow.cpp:274
+#, kde-format
+msgctxt "@title:menu"
+msgid "&Bookmarks"
+msgstr "&Закладки"
+
+#: navigator.cpp:63
+#, kde-format
+msgid "Search..."
+msgstr "Шукати…"
+
+#: navigator.cpp:118
+#, kde-format
+msgid "&Contents"
+msgstr "&Зміст"
+
+#: navigator.cpp:128
+#, kde-format
+msgid "Search Options"
+msgstr "Параметри пошуку"
+
+#: navigator.cpp:136
+#, kde-format
+msgid "G&lossary"
+msgstr "С&ловник"
+
+#: navigator.cpp:480
+#, kde-format
+msgid "Start Page"
+msgstr "Початкова сторінка"
+
+#: navigator.cpp:481
+#, kde-format
+msgid "KDE Help Center"
+msgstr "Центр довідки KDE"
+
+#: navigator.cpp:564
+#, kde-format
+msgid "Unable to run search program."
+msgstr "Неможливо запустити програму пошуку."
+
+#: navigator.cpp:657
+#, kde-format
+msgid "Updating search index..."
+msgstr "Оновлюємо покажчик для пошуку…"
+
+#: navigator.cpp:668
+#, kde-format
+msgid "Updating search index... done."
+msgstr "Оновлюємо покажчик для пошуку… Виконано."
+
+#: searchengine.cpp:57
+#, kde-format
+msgid "Error: No document type specified."
+msgstr "Помилка: Не вказано тип документа."
+
+#: searchengine.cpp:59
+#, kde-format
+msgid "Error: No search handler for document type '%1'."
+msgstr "Помилка: Немає аналізатора пошуку для документів типу «%1»."
+
+#: searchengine.cpp:229
+#, kde-format
+msgid "No valid search handler found."
+msgstr "Не знайдено чинного аналізатора пошуку."
+
+#: searchhandler.cpp:37
+#, kde-format
+msgid "Error executing search command '%1'."
+msgstr "Помилка виконання команди пошуку «%1»."
+
+#: searchhandler.cpp:75
+#, kde-format
+msgid "Error: %1"
+msgstr "Помилка: %1"
+
+#: searchhandler.cpp:140 searchhandler.cpp:145
+#, kde-format
+msgid "'%1' not found, check your installation"
+msgstr "«%1» не знайдено, перевірте, чи встановлено відповідні компоненти"
+
+#: searchhandler.cpp:150
+#, kde-format
+msgid "'%1' not found, install the package containing it"
+msgstr "«%1» не знайдено, встановіть пакунок, що містить відповідні дані"
+
+#: searchhandler.cpp:197
+#, kde-format
+msgid "No search command or URL specified."
+msgstr "Не вказано команди пошуку або адреси URL."
+
+#: searchwidget.cpp:39
+#, kde-format
+msgid "and"
+msgstr "та"
+
+#: searchwidget.cpp:40
+#, kde-format
+msgid "or"
+msgstr "або"
+
+#: searchwidget.cpp:42
+#, kde-format
+msgid "&Method:"
+msgstr "&Метод:"
+
+#: searchwidget.cpp:58
+#, kde-format
+msgid "Max. &results:"
+msgstr "Макс. &результатів:"
+
+#: searchwidget.cpp:73
+#, kde-format
+msgid "&Scope selection:"
+msgstr "&Вибір області:"
+
+#: searchwidget.cpp:81
+#, kde-format
+msgid "Scope"
+msgstr "Область"
+
+#: searchwidget.cpp:322
+#, kde-format
+msgctxt "Label for searching documentation using custom (user defined) scope"
+msgid "Custom"
+msgstr "Нетиповий"
+
+#: searchwidget.cpp:324
+#, kde-format
+msgctxt "Label for searching documentation using default search scope"
+msgid "Default"
+msgstr "Типовий"
+
+#: searchwidget.cpp:326
+#, kde-format
+msgctxt "Label for searching documentation in all subsections"
+msgid "All"
+msgstr "Всі"
+
+#: searchwidget.cpp:328
+#, kde-format
+msgctxt "Label for scope that deselects all search subsections"
+msgid "None"
+msgstr "Немає"
+
+#: searchwidget.cpp:330
+#, kde-format
+msgctxt "Label for Unknown search scope, that should never appear"
+msgid "unknown"
+msgstr "невідомий"
+
+#: view.cpp:228
+#, kde-format
+msgid "Copy Link Address"
+msgstr "Скопіювати адресу посилання"
+
+#: view.cpp:312
+#, kde-format
+msgid ""
+"<p>Read the topic documentation in this window.<br /><br />Press <b>Space</"
+"b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, <b>Tab</b>/"
+"<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
+msgstr ""
+"<p>У цьому вікні можна прочитати документацію з певної теми.<br /><br />Для "
+"гортання вмісту натискайте клавішу <b>Пробіл</b> або комбінацію <b>Shift"
+"+Пробіл</b>. Щоб знайти потрібне, натисніть <b>%1</b>. Щоб перейти за "
+"посиланням, натисніть <b>Tab</b> або <b>Shift+Tab</b>. Щоб перейти далі, "
+"натисніть <b>Enter</b>.</p>"
+
+#~ msgid "Handler"
+#~ msgstr "Обробник"
+
+#~ msgid "Unable to initialize SearchHandler from file '%1'."
+#~ msgstr "Не вдалось започаткувати SearchHandler з файла «%1»."
+
+#~ msgid "Error"
+#~ msgstr "Помилка"
+
+#~ msgid ""
+#~ "Unable to show selected glossary entry: unable to open file 'glossary."
+#~ "html.in'!"
+#~ msgstr ""
+#~ "Неможливо показати вибраний елемент глосарія: неможливо відкрити файл "
+#~ "«glossary.html.in»!"
+
+#~ msgid "ht://dig"
+#~ msgstr "ht://dig"
+
+#~ msgid ""
+#~ "The fulltext search feature makes use of the ht://dig HTML search engine."
+#~ msgstr ""
+#~ "Для реалізації можливості повнотекстового пошуку використовується рушій "
+#~ "HTML-пошуку ht://dig."
+
+#~ msgid "Information about where to get the ht://dig package."
+#~ msgstr "Інформація щодо отримання пакунка ht://dig."
+
+#~ msgid "You can get ht://dig at the ht://dig home page"
+#~ msgstr "Ви можете отримати ht://dig з домашньої сторінки ht://dig"
+
+#~ msgid "Program Locations"
+#~ msgstr "Адреси програм"
+
+#~ msgid "htsearch:"
+#~ msgstr "htsearch:"
+
+#~ msgid "Enter the URL of the htsearch CGI program."
+#~ msgstr "Введіть адресу (URL) CGI програми htsearch."
+
+#~ msgid "Indexer:"
+#~ msgstr "Індексатор:"
+
+#~ msgid "Enter the path to your htdig indexer program here."
+#~ msgstr "Введіть шлях до програми створення індексів htdig."
+
+#~ msgid "htdig database:"
+#~ msgstr "База даних htdig:"
+
+#~ msgid "Enter the path to the htdig database folder."
+#~ msgstr "Введіть шлях до теки з базою даних htdig."
+
+#~ msgid "Change Index Folder"
+#~ msgstr "Змінити теку індексів"
+
+#~ msgid "Index folder:"
+#~ msgstr "Тека індексів:"
+
+#~ msgid "Build Search Indices"
+#~ msgstr "Створити індекси пошуку"
+
+#~ msgid "Index creation log:"
+#~ msgstr "Журнал створення індексу:"
+
+#~ msgctxt ""
+#~ "Label for button to close search index progress dialog after successful "
+#~ "completion"
+#~ msgid "Close"
+#~ msgstr "Закрити"
+
+#~ msgid "Index creation finished."
+#~ msgstr "Створення індексу завершено."
+
+#~ msgctxt "Label for stopping search index generation before completion"
+#~ msgid "Stop"
+#~ msgstr "Зупинити"
+
+#~ msgid "Details <<"
+#~ msgstr "Подробиці &lt;&lt;"
+
+#~ msgid "Details >>"
+#~ msgstr "Подробиці &gt;&gt;"
+
+#~ msgid "Build Search Index"
+#~ msgstr "Побудувати індекси пошуку"
+
+#~ msgid "Build Index"
+#~ msgstr "Побудувати індекс"
+
+#~ msgid ""
+#~ "To be able to search a document, a search\n"
+#~ "index needs to exist. The status column of the list below shows whether "
+#~ "an index\n"
+#~ "for a document exists.\n"
+#~ msgstr ""
+#~ "Для того, щоб мати змогу шукати в документах, слід мати\n"
+#~ "побудований покажчик пошуку.\n"
+#~ "Стовпчик стану у списку нижче показує чи існує покажчик для\n"
+#~ "документа.\n"
+
+#~ msgid ""
+#~ "To create an index, check the box in the list and press the\n"
+#~ "\"Build Index\" button.\n"
+#~ msgstr ""
+#~ "Щоб створити покажчик, поставте прапорець у списку\n"
+#~ "і натисніть кнопку «Створити індекс».\n"
+
+#~ msgid "Search Scope"
+#~ msgstr "Область пошуку"
+
+#~ msgid "Status"
+#~ msgstr "Стан"
+
+#~ msgid "Change..."
+#~ msgstr "Змінити..."
+
+#~ msgid ""
+#~ "<qt>The folder <b>%1</b> does not exist; unable to create index.</qt>"
+#~ msgstr "<qt>Теки <b>%1</b> не існує — неможливо створити індекс.</qt>"
+
+#~ msgctxt "Describes the status of a documentation index that is present"
+#~ msgid "OK"
+#~ msgstr "Гаразд"
+
+#~ msgctxt "Describes the status of a documentation index that is missing"
+#~ msgid "Missing"
+#~ msgstr "Немає"
+
+#~ msgctxt ""
+#~ " Generic prefix label for error messages when creating documentation "
+#~ "index, first arg is the document's identifier, second is the document's "
+#~ "name"
+#~ msgid "Document '%1' (%2):\n"
+#~ msgstr "Документ «%1» (%2):\n"
+
+#~ msgid "No document type."
+#~ msgstr "Немає типу документа."
+
+#~ msgid "No search handler available for document type '%1'."
+#~ msgstr "Немає аналізатора пошуку для документів типу «%1»."
+
+#~ msgid "No indexing command specified for document type '%1'."
+#~ msgstr "Не вказано команду створення індексів для документів типу «%1»."
+
+#~ msgid "Failed to build index."
+#~ msgstr "Помилка будування індексу."
+
+#~ msgid ""
+#~ "Error executing indexing build command:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Помилка при виконанні команди створення індексів:\n"
+#~ "%1"
+
+#~ msgid "Unable to start command '%1'."
+#~ msgstr "Не вдалось виконати команду «%1»."
+
+#~ msgid "KHelpCenter Index Builder"
+#~ msgstr "Конструктор шрифтів KHelpCenter"
+
+#~ msgid "2003 KDE"
+#~ msgstr "2003, KDE"
+
+#~ msgid "Cornelius Schumacher"
+#~ msgstr "Cornelius Schumacher"
+
+#~ msgid "Document to be indexed"
+#~ msgstr "Документ для індексації"
+
+#~ msgid "Index directory"
+#~ msgstr "Каталог індексів"
+
+#~ msgid ""
+#~ "A search index does not yet exist. Do you want to create the index now?"
+#~ msgstr "Індекс пошуку ще не існує. Хочете створити його зараз?"
+
+#~ msgid "Create"
+#~ msgstr "Створити"
+
+#~ msgid "Do Not Create"
+#~ msgstr "Не створювати"
+
+#~ msgid "The KDE Help Center"
+#~ msgstr "Центр довідки KDE"
+
+#~ msgid "(c) 2003, The KHelpCenter developers"
+#~ msgstr "© Розробники KHelpCenter, 1999–2003"

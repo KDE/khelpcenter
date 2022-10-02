@@ -1,0 +1,762 @@
+# translation of khelpcenter.po to Tamil
+# Copyright (C) 2004 Free Software Foundation, Inc.
+#
+# Kishore G <kishore96@gmail.com>, 2021, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: khelpcenter\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-15 00:47+0000\n"
+"PO-Revision-Date: 2022-07-10 19:30+0530\n"
+"Last-Translator: Kishore G <kishore96@gmail.com>\n"
+"Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
+"Language: ta\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 22.04.3\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "சிவகுமார் சண்முகசுந்தரம்,கோமதி சிவகுமார்,துரையப்பா வசீகரன், பிரபு"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+"sshanmu@yahoo.com,gomathiss@hotmail.com,t_vasee@yahoo.com, "
+"prabu_anand2000@yahoo.com"
+
+#: application.cpp:30
+#, kde-format
+msgid "Documentation to open"
+msgstr "திறக்க வேண்டிய கையேடு"
+
+#: application.cpp:114 application.cpp:116
+#, kde-format
+msgid "Help Center"
+msgstr "உதவி மையம்"
+
+#: application.cpp:118
+#, kde-format
+msgid "(c) 1999-2020, The KHelpCenter developers"
+msgstr "(c) 1999-2020, கேஹெல்புசெண்டர் பராமரிப்பாளர்கள்"
+
+#: application.cpp:120
+#, kde-format
+msgid "Current maintainer"
+msgstr "தற்போதைய பராமரிப்பாளர்"
+
+#: application.cpp:121
+#, kde-format
+msgid "Xapian-based search, lot of bugfixes"
+msgstr "Xapian-வழி தேடலும், பல பிழைநீக்கங்களும்"
+
+#: application.cpp:122
+#, kde-format
+msgid "Former maintainer"
+msgstr "முந்தைய பராமரிப்பாளர்"
+
+#: application.cpp:124
+#, kde-format
+msgid "Original Author"
+msgstr "முதல் பதிப்பை இயற்றியவர்"
+
+#: application.cpp:125
+#, kde-format
+msgid "Info page support"
+msgstr "Info பக்கங்களுக்கான ஆதரவு"
+
+#: docmetainfo.cpp:35
+#, kde-format
+msgid "Top-Level Documentation"
+msgstr "மேல்நிலை ஆவணமயமாக்கல்"
+
+#: docmetainfo.cpp:83
+#, kde-format
+msgctxt "doctitle (language)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: docmetainfo.cpp:119
+#, kde-format
+msgctxt "Describes documentation entries that are in English"
+msgid "English"
+msgstr "ஆங்கிலம்"
+
+#: fontdialog.cpp:36
+#, kde-format
+msgid "Font Configuration"
+msgstr "எழுத்துரு அமைப்புகள்"
+
+#: fontdialog.cpp:62
+#, kde-format
+msgid "Sizes"
+msgstr "அளவுகள்"
+
+#: fontdialog.cpp:66
+#, kde-format
+msgctxt "The smallest size a will have"
+msgid "M&inimum font size:"
+msgstr "&குறைந்தபட்ச எழுத்துரு அளவு:"
+
+#: fontdialog.cpp:73
+#, kde-format
+msgctxt "The normal size a font will have"
+msgid "M&edium font size:"
+msgstr "&நடுத்தர எழுத்துரு அளவு:"
+
+#: fontdialog.cpp:83
+#, kde-format
+msgid "Fonts"
+msgstr "எழுத்துருக்கள்"
+
+#: fontdialog.cpp:87
+#, kde-format
+msgid "S&tandard font:"
+msgstr "&இயல்பான எழுத்துரு:"
+
+#: fontdialog.cpp:93
+#, kde-format
+msgid "F&ixed font:"
+msgstr "&சம‍அகல எழுத்துரு:"
+
+#: fontdialog.cpp:99
+#, kde-format
+msgid "S&erif font:"
+msgstr "செ&ரிப் எழுத்துரு:"
+
+#: fontdialog.cpp:105
+#, kde-format
+msgid "S&ans serif font:"
+msgstr "சா&ன்ஸ் செரிப் எழுத்துரு:"
+
+#: fontdialog.cpp:111
+#, kde-format
+msgid "&Italic font:"
+msgstr "&சாய்ந்த எழுத்துரு:"
+
+#: fontdialog.cpp:117
+#, kde-format
+msgid "&Fantasy font:"
+msgstr "&ஃபான்டசி எழுத்துரு:"
+
+#: fontdialog.cpp:126
+#, kde-format
+msgid "Encoding"
+msgstr "குறியாக்கம்"
+
+#: fontdialog.cpp:131
+#, kde-format
+msgid "&Default encoding:"
+msgstr "இ&யல்பிருப்பு குறியாக்கம்:"
+
+#: fontdialog.cpp:136 fontdialog.cpp:204
+#, kde-format
+msgid "Use Language Encoding"
+msgstr "மொழி குறியாக்கத்தை பயன்படுத்து"
+
+#: fontdialog.cpp:140
+#, kde-format
+msgid "&Font size adjustment:"
+msgstr "&எழுத்துரு அளவை மாற்றல்:"
+
+#: glossary.cpp:68
+#, kde-format
+msgid "By Topic"
+msgstr "தலைப்பைப் பொறுத்து"
+
+#: glossary.cpp:72 infotree.cpp:74
+#, kde-format
+msgid "Alphabetically"
+msgstr "அகரவரிசையாக"
+
+#: glossary.cpp:128
+#, kde-format
+msgid "Rebuilding glossary cache..."
+msgstr "சொற்களஞ்சிய நினைவகம் புதுப்பிக்கப்படுகிறது..."
+
+#: glossary.cpp:182
+#, kde-format
+msgid "Rebuilding cache... done."
+msgstr "தற்காலிக நினைவகத்தை புதுப்பித்தல் முடிந்தது."
+
+#: grantleeformatter.cpp:102
+#, kde-format
+msgctxt "%1 is a glossary term"
+msgid "KDE Glossary: %1"
+msgstr "கே.டீ.யீ. சொற்களஞ்சியம்: %1"
+
+#: grantleeformatter.cpp:103
+#, kde-format
+msgid "KDE Glossary"
+msgstr "கே.டீ.யீ. சொற்களஞ்சியம்"
+
+#: grantleeformatter.cpp:107
+#, kde-format
+msgid "See also: %1"
+msgstr "இதையும் பார்க்கவும்: %1"
+
+#: grantleeformatter.cpp:128
+#, kde-format
+msgid "Search Results"
+msgstr "தேடலின் முடிவுகள்"
+
+#: grantleeformatter.cpp:129 searchengine.cpp:259
+#, kde-format
+msgid "Search Results for '%1':"
+msgstr "'%1' என்ற தேடலுக்கான முடிவுகள்:"
+
+#: infotree.cpp:77
+#, kde-format
+msgid "By Category"
+msgstr "பகுப்பைப் பொறுத்து"
+
+#. i18n: ectx: label, entry, group (Search)
+#: khelpcenter.kcfg:31
+#, kde-format
+msgid "Path to index directory."
+msgstr "அட்டவணையாக்க அடைவுக்கான பாதை."
+
+#. i18n: ectx: whatsthis, entry, group (Search)
+#: khelpcenter.kcfg:32
+#, kde-format
+msgid "Path to directory containing search indices."
+msgstr "தேடல் அட்டவணைகளைக் கொண்ட அடைவுக்கான பாதை."
+
+#. i18n: ectx: label, entry, group (Layout)
+#: khelpcenter.kcfg:46
+#, kde-format
+msgid "Currently visible navigator tab"
+msgstr "தற்போது தெரியும் உலாவிக் கீற்று"
+
+#. i18n: ectx: Menu (edit)
+#: khelpcenterui.rc:5
+#, kde-format
+msgid "&Edit"
+msgstr "&திருத்து"
+
+#. i18n: ectx: Menu (view)
+#: khelpcenterui.rc:13
+#, kde-format
+msgid "&View"
+msgstr "&பார்வை"
+
+#. i18n: ectx: Menu (go)
+#: khelpcenterui.rc:19
+#, kde-format
+msgid "&Go"
+msgstr "&செல்"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: khelpcenterui.rc:36
+#, kde-format
+msgid "Main Toolbar"
+msgstr "பிரதான கருவிப்பட்டை"
+
+#: mainwindow.cpp:62
+#, kde-format
+msgid "Search Error Log"
+msgstr "சிக்கல் பதிவுகளில் தேடு"
+
+#: mainwindow.cpp:114
+#, kde-format
+msgid "Preparing Index"
+msgstr "அட்டவணை தயாராக்கப்படுகிறது"
+
+#: mainwindow.cpp:157
+#, kde-format
+msgid "Ready"
+msgstr "தயார்"
+
+#: mainwindow.cpp:208
+#, kde-format
+msgid "Previous Page"
+msgstr "முந்தைய பக்கம்"
+
+#: mainwindow.cpp:210
+#, kde-format
+msgid "Moves to the previous page of the document"
+msgstr "ஆவணத்தின் முந்தைய பக்கத்திற்குச் செல்லும்"
+
+#: mainwindow.cpp:214
+#, kde-format
+msgid "Next Page"
+msgstr "அடுத்த பக்கம்"
+
+#: mainwindow.cpp:216
+#, kde-format
+msgid "Moves to the next page of the document"
+msgstr "ஆவணத்தின் அடுத்த பக்கத்திற்கு செல்லும்"
+
+#: mainwindow.cpp:223
+#, kde-format
+msgid "Table of &Contents"
+msgstr "&பொருளடக்கம்"
+
+#: mainwindow.cpp:224
+#, kde-format
+msgid "Table of contents"
+msgstr "பொருளடக்கம்"
+
+#: mainwindow.cpp:225
+#, kde-format
+msgid "Go back to the table of contents"
+msgstr "பொருளடக்கத்திற்கு திரும்பச் செல்"
+
+#: mainwindow.cpp:231
+#, kde-format
+msgid "&Last Search Result"
+msgstr "&கடைசி தேடல் முடிவு"
+
+#: mainwindow.cpp:249
+#, kde-format
+msgid "Configure Fonts..."
+msgstr "எழுத்துருக்களை அமை..."
+
+#: mainwindow.cpp:253
+#, kde-format
+msgid "Increase Font Sizes"
+msgstr "எழுத்துருக்களை பெரிதாக்கு"
+
+#: mainwindow.cpp:258
+#, kde-format
+msgid "Decrease Font Sizes"
+msgstr "எழுத்துருக்களை சிறிதாக்கு"
+
+#: mainwindow.cpp:274
+#, kde-format
+msgctxt "@title:menu"
+msgid "&Bookmarks"
+msgstr "&நினைவுக்குறிகள்"
+
+#: navigator.cpp:63
+#, kde-format
+msgid "Search..."
+msgstr "தேடு..."
+
+#: navigator.cpp:118
+#, kde-format
+msgid "&Contents"
+msgstr "பொருளடக்கம்"
+
+#: navigator.cpp:128
+#, kde-format
+msgid "Search Options"
+msgstr "தேடல் விருப்பத்தேர்வுகள்"
+
+#: navigator.cpp:136
+#, kde-format
+msgid "G&lossary"
+msgstr "சொ&ற்களஞ்சியம்"
+
+#: navigator.cpp:480
+#, kde-format
+msgid "Start Page"
+msgstr "முதற்பக்கம்"
+
+#: navigator.cpp:481
+#, kde-format
+msgid "KDE Help Center"
+msgstr "கே.டீ.யீ. உதவி மையம்"
+
+#: navigator.cpp:564
+#, kde-format
+msgid "Unable to run search program."
+msgstr "தேடல் நிரலை இயக்க முடியவில்லை."
+
+#: navigator.cpp:657
+#, kde-format
+msgid "Updating search index..."
+msgstr "தேடல் அட்டவணை புதுப்பிக்கப்படுகிறது..."
+
+#: navigator.cpp:668
+#, kde-format
+msgid "Updating search index... done."
+msgstr "தேடல் அட்டவணை புதுப்பிக்கப்பட்டுள்ளது."
+
+#: searchengine.cpp:57
+#, kde-format
+msgid "Error: No document type specified."
+msgstr "சிக்கல்: ஆவண வகை குறிப்பிடப்படவில்லை."
+
+#: searchengine.cpp:59
+#, kde-format
+msgid "Error: No search handler for document type '%1'."
+msgstr "சிக்கல்: '%1' எனும் ஆவண வகையை கையாளும் தேடுநிரல் இல்லை."
+
+#: searchengine.cpp:229
+#, kde-format
+msgid "No valid search handler found."
+msgstr "முறையான தேடுநிரல் கண்டுபிடிக்கபடவில்லை."
+
+#: searchhandler.cpp:37
+#, kde-format
+msgid "Error executing search command '%1'."
+msgstr "'%1' எனும் தேடலை செயல்படுத்துவதில் சிக்கல்."
+
+#: searchhandler.cpp:75
+#, kde-format
+msgid "Error: %1"
+msgstr "பிழை: %1"
+
+#: searchhandler.cpp:140 searchhandler.cpp:145
+#, kde-format
+msgid "'%1' not found, check your installation"
+msgstr "'%1' கண்டுபிடிக்கப்படவில்லை, உங்கள் இயங்குதளத்தை சரிபாருங்கள்"
+
+#: searchhandler.cpp:150
+#, kde-format
+msgid "'%1' not found, install the package containing it"
+msgstr "'%1' கண்டுபிடிக்கப்படவில்லை, அதைக் கொண்டுள்ள தொகுப்பை நிறுவுங்கள்"
+
+#: searchhandler.cpp:197
+#, kde-format
+msgid "No search command or URL specified."
+msgstr "தேடலோ முகவரியோ குறிப்பிடப்படவில்லை."
+
+#: searchwidget.cpp:39
+#, kde-format
+msgid "and"
+msgstr "அனைத்தும்"
+
+#: searchwidget.cpp:40
+#, kde-format
+msgid "or"
+msgstr "ஏதேனும்"
+
+#: searchwidget.cpp:42
+#, kde-format
+msgid "&Method:"
+msgstr "&தேடல்முறை:"
+
+#: searchwidget.cpp:58
+#, kde-format
+msgid "Max. &results:"
+msgstr "அதிகப்பட்ச &முடிவுகள்:"
+
+#: searchwidget.cpp:73
+#, kde-format
+msgid "&Scope selection:"
+msgstr "&இலக்குத் தேர்வு:"
+
+#: searchwidget.cpp:81
+#, kde-format
+msgid "Scope"
+msgstr "இலக்கு"
+
+#: searchwidget.cpp:322
+#, kde-format
+msgctxt "Label for searching documentation using custom (user defined) scope"
+msgid "Custom"
+msgstr "தனிப்பயன்"
+
+#: searchwidget.cpp:324
+#, kde-format
+msgctxt "Label for searching documentation using default search scope"
+msgid "Default"
+msgstr "இயல்பிருப்பு"
+
+#: searchwidget.cpp:326
+#, kde-format
+msgctxt "Label for searching documentation in all subsections"
+msgid "All"
+msgstr "அனைத்தும்"
+
+#: searchwidget.cpp:328
+#, kde-format
+msgctxt "Label for scope that deselects all search subsections"
+msgid "None"
+msgstr "ஏதுமில்லை"
+
+#: searchwidget.cpp:330
+#, kde-format
+msgctxt "Label for Unknown search scope, that should never appear"
+msgid "unknown"
+msgstr "தெரியாத‍து"
+
+#: view.cpp:228
+#, kde-format
+msgid "Copy Link Address"
+msgstr "இணைப்பின் முகவரியை நகலெடு"
+
+#: view.cpp:312
+#, kde-format
+msgid ""
+"<p>Read the topic documentation in this window.<br /><br />Press <b>Space</"
+"b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, <b>Tab</b>/"
+"<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
+msgstr ""
+"<p>இத்தலைப்பிலான கையேட்டை இச்சாளரத்தில் படியுங்கள்.<br /><br />உருள <b>Space</b>/"
+"<b>Shift+Space</b>, எதையாவது கண்டுபிடிக்க <b>%1</b>, தாவ <b>Tab</b>/<b>Shift"
+"+Tab</b>, மற்றும் இணைப்பில் நுழைய <b>Enter</b> எனும் விசைகளை அழுத்துங்கள்.</p>"
+
+#~ msgid "Unable to initialize SearchHandler from file '%1'."
+#~ msgstr "கோப்பு '%1'ல் இருந்து தேடுதல்பிடிப்பானை துவக்கமுடியவில்லை."
+
+#, fuzzy
+#~ msgid "Error"
+#~ msgstr "பிழை: %1"
+
+#~ msgid ""
+#~ "Unable to show selected glossary entry: unable to open file 'glossary."
+#~ "html.in'!"
+#~ msgstr ""
+#~ "தேர்வு செய்யப்பட்ட கலைச்சொற்கள் பதிவை காட்ட முடியவில்லை. glossary.html.in'! என்ற "
+#~ "கோப்பை திறக்க முடிவில்லை!"
+
+#~ msgid "ht://dig"
+#~ msgstr "ht://dig"
+
+#, fuzzy
+#~| msgid ""
+#~| "The fulltext search feature makes use of the ht://dig HTML search "
+#~| "engine. You can get ht://dig at the"
+#~ msgid ""
+#~ "The fulltext search feature makes use of the ht://dig HTML search engine."
+#~ msgstr ""
+#~ "ht://dig HTML தேடல் கருவியைக் கொண்டுதான் தேடல் வசதி செயல்படுகிறது. நீங்கள் ht://"
+#~ "digஐ இதில் பெறலாம்."
+
+#~ msgid "Information about where to get the ht://dig package."
+#~ msgstr "ht://dig தொகுப்பை எடுப்பதற்கான தகவல்"
+
+#~ msgid "Program Locations"
+#~ msgstr "நிரல் இட அமைவுகள்"
+
+#~ msgid "htsearch:"
+#~ msgstr "htsearch:"
+
+#~ msgid "Enter the URL of the htsearch CGI program."
+#~ msgstr "htsearch என்ற தேடல்கருவியின் வலைமனை முகவரியைத் உள்ளிடவும்."
+
+#~ msgid "Indexer:"
+#~ msgstr "சுட்டு நிரல்:"
+
+#~ msgid "Enter the path to your htdig indexer program here."
+#~ msgstr "htdig சுட்டு நிரலுக்கான பாதையை உள்ளிடவும்."
+
+#~ msgid "htdig database:"
+#~ msgstr "htdig தரவுத்தளம்:"
+
+#~ msgid "Enter the path to the htdig database folder."
+#~ msgstr "htdig தரவுத்தர அடைவின் பாதையை உள்ளிடவும்."
+
+#~ msgid "Change Index Folder"
+#~ msgstr "சுட்டுவரிசை அடைவை மாற்று"
+
+#~ msgid "Index folder:"
+#~ msgstr "சுட்டுவரிசை அடைவு:"
+
+#~ msgid "Build Search Indices"
+#~ msgstr "தேடல் சுட்டு உருவாக்கப்படுகிறது"
+
+#~ msgid "Index creation log:"
+#~ msgstr "சுட்டுவரிசை உருவாக்கத்தின் பதிவு:"
+
+#~ msgid "Index creation finished."
+#~ msgstr "சுட்டுவரிசை உருவாக்கம் முடிந்தது "
+
+#, fuzzy
+#~ msgctxt "Label for stopping search index generation before completion"
+#~ msgid "Stop"
+#~ msgstr "இலக்கு"
+
+#, fuzzy
+#~| msgid "Details >>"
+#~ msgid "Details <<"
+#~ msgstr "விவரங்கள் >>"
+
+#~ msgid "Details >>"
+#~ msgstr "விவரங்கள் >>"
+
+#~ msgid "Build Search Index"
+#~ msgstr "சுட்டு உருவாக்கத் தேடல்"
+
+#~ msgid "Build Index"
+#~ msgstr "சுட்டுவரிசையை செய்"
+
+#, fuzzy
+#~| msgid ""
+#~| "To be able to search a document, there needs to exist a search\n"
+#~| "index. The status column of the list below shows, if an index\n"
+#~| "for a document exists.\n"
+#~ msgid ""
+#~ "To be able to search a document, a search\n"
+#~ "index needs to exist. The status column of the list below shows whether "
+#~ "an index\n"
+#~ "for a document exists.\n"
+#~ msgstr ""
+#~ "ஒரு ஆவணத்தை தேட, ஒரு தேடல் அட்டவனை இருக்க\n"
+#~ "வேண்டும். ஒரு ஆவணத்திற்கு அட்டவணை இருந்தால், கீழே\n"
+#~ "நெடுவரிசை பட்டியலை காட்டுகிறது.\n"
+
+#, fuzzy
+#~| msgid ""
+#~| "To create an index check the box in the list and press the\n"
+#~| "\"Build Index\" button.\n"
+#~ msgid ""
+#~ "To create an index, check the box in the list and press the\n"
+#~ "\"Build Index\" button.\n"
+#~ msgstr ""
+#~ "ஒரு அட்டவணை உருவாக்க பட்டியலில் பெட்டியைத் தேர்ந்தெடுத்து\n"
+#~ "\"அட்டவணையை அமை\"\" என்ற பட்டனை அழுத்தவும்.\n"
+
+#~ msgid "Search Scope"
+#~ msgstr "இலக்கைத் தேடு"
+
+#~ msgid "Status"
+#~ msgstr "நிலை"
+
+#~ msgid "Change..."
+#~ msgstr "மாற்று..."
+
+#~ msgid ""
+#~ "<qt>The folder <b>%1</b> does not exist; unable to create index.</qt>"
+#~ msgstr ""
+#~ "<qt>அடைவு <b>%1</b> ஏதும் இல்லை; சுட்டிவரிசையை உருவாக்க முடியவில்லை.</qt>"
+
+#, fuzzy
+#~| msgid "Missing"
+#~ msgctxt "Describes the status of a documentation index that is missing"
+#~ msgid "Missing"
+#~ msgstr "காணப்படவில்லை    "
+
+#, fuzzy
+#~| msgid "Document '%1' (%2):\n"
+#~ msgctxt ""
+#~ " Generic prefix label for error messages when creating documentation "
+#~ "index, first arg is the document's identifier, second is the document's "
+#~ "name"
+#~ msgid "Document '%1' (%2):\n"
+#~ msgstr "ஆவணம் '%1' (%2):\n"
+
+#~ msgid "No document type."
+#~ msgstr "ஆவண வகை இல்லை."
+
+#~ msgid "No search handler available for document type '%1'."
+#~ msgstr "ஆவண வகை '%1'க்கு தேடுதல் பிடிப்பான் இல்லை."
+
+#~ msgid "No indexing command specified for document type '%1'."
+#~ msgstr "ஆவண வகை '%1'க்கு அட்டவணையிடும் கட்டளை குறிப்பிடப்படவில்லை."
+
+#~ msgid "Failed to build index."
+#~ msgstr "சுட்டுவரிசையை உருவாக்க இயலவில்லை"
+
+#~ msgid ""
+#~ "Error executing indexing build command:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "அட்டவணையிடும் கட்டளையை இயக்கும்போது பிழை:\n"
+#~ "%1"
+
+#~ msgid "Unable to start command '%1'."
+#~ msgstr "கட்டளை '%1'ஐ துவக்கமுடியவில்லை."
+
+#~ msgid "KHelpCenter Index Builder"
+#~ msgstr "KHelp நிலை சுட்டு உருவாக்கம்"
+
+#~ msgid "Document to be indexed"
+#~ msgstr "சுட்டுவரிசையாக்க வேண்டிய ஆவணம்"
+
+#~ msgid "Index directory"
+#~ msgstr "சுட்டுவரிசை அடைவு"
+
+#~ msgid ""
+#~ "A search index does not yet exist. Do you want to create the index now?"
+#~ msgstr "தேடல் சுட்டி இதுவரை இல்லை. இப்போது சுட்டியை உருவாக்க விரும்புகிறீர்களா?"
+
+#~ msgid "Build Search &Index..."
+#~ msgstr "தேடல் அட்டவணையை செய்..."
+
+#~ msgid "The KDE Help Center"
+#~ msgstr "கேடியி உதவி மையம்"
+
+#~ msgid "(c) 2003, The KHelpCenter developers"
+#~ msgstr "(c) -2003, கேஉதவி மைய மேம்பாட்டாளர்கள்"
+
+#, fuzzy
+#~| msgid "Details <<"
+#~ msgid "Details &lt;&lt;"
+#~ msgstr "விவரங்கள் <<"
+
+#, fuzzy
+#~| msgid "Details <<"
+#~ msgid "Details &gt;&gt;"
+#~ msgstr "விவரங்கள் <<"
+
+#~ msgid "URL to display"
+#~ msgstr "காட்ட வேண்டிய வலைமனை"
+
+#~ msgid "Show Search Error Log"
+#~ msgstr "லாக் தவறு தேடுதலை காட்டு"
+
+#~ msgid "ht://dig home page"
+#~ msgstr "ht://dig தொடக்க பக்கம்"
+
+#~ msgid "Conquer your Desktop!"
+#~ msgstr "உங்கள் மேசையை வெல்லுங்கள்!"
+
+#~ msgid "Welcome to the K Desktop Environment"
+#~ msgstr "கேமேல்மேசைச் சூழலுக்கு நல்வரவு"
+
+#~ msgid "The KDE team welcomes you to user-friendly UNIX computing"
+#~ msgstr "பயனர் நயமிக்க UNIX கணினிகளுக்கு கேடியி குழு உங்களை வரவேற்கிறது"
+
+#~ msgid ""
+#~ "KDE is a powerful graphical desktop environment for UNIX workstations. A\n"
+#~ "KDE desktop combines ease of use, contemporary functionality and "
+#~ "outstanding\n"
+#~ "graphical design with the technological superiority of the UNIX "
+#~ "operating\n"
+#~ "system."
+#~ msgstr ""
+#~ "யூனிக்ஸ் பணி இடங்களுக்கு கேடியி ஒரு சக்திவாய்ந்த சித்திர மேல்மேசை சூழல்.\n"
+#~ "கேடியி மேல்மேசை யுனிக்ஸ் இயக்க அமைப்பின் தொழிநுட்ப ரீதியுடன் சுலபமான பயன்பாடு, ஒரே "
+#~ "காலத்திற்குரிய நடைமுறையாக்கம் மற்றும் மிகச்சிறந்த சித்திர வ்டிவமைப்பு போன்றவைகளை "
+#~ "ஒருங்கிணைக்கிறது."
+
+#~ msgid "What is the K Desktop Environment?"
+#~ msgstr "கே மேல்மேசைச் சூழல் என்றால் என்ன?"
+
+#~ msgid "Contacting the KDE Project"
+#~ msgstr "கேடியி திட்டத்துடன் தொடர்பு கொள்கிறது"
+
+#~ msgid "Supporting the KDE Project"
+#~ msgstr "கேடியி திட்டத்திற்கு உதவுதல்"
+
+#~ msgid "Useful links"
+#~ msgstr "பயனுள்ள இணைப்புகள்"
+
+#~ msgid "Getting the most out of KDE"
+#~ msgstr "கேடியிஇலிருந்து எல்லாவற்றையும் பெறுகிறது"
+
+#~ msgid "General Documentation"
+#~ msgstr "பொது ஆவணமயமாக்கல்"
+
+#~ msgid "A Quick Start Guide to the Desktop"
+#~ msgstr ",மேல்மேசை பற்றிய ஒரு விரைவுத் தொடக்க வழிகாட்டி"
+
+#~ msgid "KDE Users' guide"
+#~ msgstr "கேடியி பயனர்'கள் கையேடு"
+
+#~ msgid "Frequently asked questions"
+#~ msgstr "அடிக்கடி கேட்கப்படும் கேள்விகள்"
+
+#~ msgid "Basic Applications"
+#~ msgstr "அடிப்படை பயன்பாடுகள்"
+
+#~ msgid "The Kicker Desktop Panel"
+#~ msgstr "Kicker மேல்மேசைப் பலகம்"
+
+#~ msgid "The KDE Control Center"
+#~ msgstr "கேடியி கட்டுப்பாட்டு மையம்"
+
+#~ msgid "The Konqueror File manager and Web Browser"
+#~ msgstr "கான்கொரர் கோப்புமேலாளரும் வலை உலாவியும்"
+
+#, fuzzy
+#~ msgid "Clear search"
+#~ msgstr "தேடலை நீக்கு"

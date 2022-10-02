@@ -1,0 +1,675 @@
+# translation of khelpcenter.po to
+# translation of khelpcenter.po to Xhosa
+# translation of khelpcenter.po to
+# K Desktop Environment - khelpcenter
+# Copyright (C) 2001 translate.org.za
+# Antoinette Dekeni <antoinette@transalate.org.za>, 2001.
+# Lwandle Mgidlana <lwandle@translate.org.za>, 2002
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: khelpcenter\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-15 00:47+0000\n"
+"PO-Revision-Date: 2002-10-26 12:48SAST\n"
+"Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
+"Language-Team: Xhosa <xhosa@translate.org.za>\n"
+"Language: xh\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.0beta2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Antoinette Dekeni,Lwandle Mgidlana"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "antoinette@translate.org.za,lwandle@translate.org.za"
+
+#: application.cpp:30
+#, fuzzy, kde-format
+#| msgid "General Documentation"
+msgid "Documentation to open"
+msgstr "Uxwebhu Ngokubanzi"
+
+#: application.cpp:114 application.cpp:116
+#, kde-format
+msgid "Help Center"
+msgstr "Umbindi Woncendo"
+
+#: application.cpp:118
+#, fuzzy, kde-format
+msgid "(c) 1999-2020, The KHelpCenter developers"
+msgstr "(c) 1999-2002, Ababhekisi phambili be KHelpCenter"
+
+#: application.cpp:120
+#, kde-format
+msgid "Current maintainer"
+msgstr ""
+
+#: application.cpp:121
+#, kde-format
+msgid "Xapian-based search, lot of bugfixes"
+msgstr ""
+
+#: application.cpp:122
+#, kde-format
+msgid "Former maintainer"
+msgstr ""
+
+#: application.cpp:124
+#, kde-format
+msgid "Original Author"
+msgstr "Ubhali Woqobo"
+
+#: application.cpp:125
+#, kde-format
+msgid "Info page support"
+msgstr "Uxhaso lwephepha lolwazi"
+
+#: docmetainfo.cpp:35
+#, fuzzy, kde-format
+msgid "Top-Level Documentation"
+msgstr "Uxwebhu Ngokubanzi"
+
+#: docmetainfo.cpp:83
+#, kde-format
+msgctxt "doctitle (language)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: docmetainfo.cpp:119
+#, fuzzy, kde-format
+#| msgid "English"
+msgctxt "Describes documentation entries that are in English"
+msgid "English"
+msgstr "Isingesi"
+
+#: fontdialog.cpp:36
+#, fuzzy, kde-format
+msgid "Font Configuration"
+msgstr "Dibana nolwazi"
+
+#: fontdialog.cpp:62
+#, kde-format
+msgid "Sizes"
+msgstr ""
+
+#: fontdialog.cpp:66
+#, kde-format
+msgctxt "The smallest size a will have"
+msgid "M&inimum font size:"
+msgstr ""
+
+#: fontdialog.cpp:73
+#, kde-format
+msgctxt "The normal size a font will have"
+msgid "M&edium font size:"
+msgstr ""
+
+#: fontdialog.cpp:83
+#, kde-format
+msgid "Fonts"
+msgstr ""
+
+#: fontdialog.cpp:87
+#, kde-format
+msgid "S&tandard font:"
+msgstr ""
+
+#: fontdialog.cpp:93
+#, kde-format
+msgid "F&ixed font:"
+msgstr ""
+
+#: fontdialog.cpp:99
+#, kde-format
+msgid "S&erif font:"
+msgstr ""
+
+#: fontdialog.cpp:105
+#, kde-format
+msgid "S&ans serif font:"
+msgstr ""
+
+#: fontdialog.cpp:111
+#, kde-format
+msgid "&Italic font:"
+msgstr ""
+
+#: fontdialog.cpp:117
+#, kde-format
+msgid "&Fantasy font:"
+msgstr ""
+
+#: fontdialog.cpp:126
+#, kde-format
+msgid "Encoding"
+msgstr ""
+
+#: fontdialog.cpp:131
+#, kde-format
+msgid "&Default encoding:"
+msgstr ""
+
+#: fontdialog.cpp:136 fontdialog.cpp:204
+#, kde-format
+msgid "Use Language Encoding"
+msgstr ""
+
+#: fontdialog.cpp:140
+#, kde-format
+msgid "&Font size adjustment:"
+msgstr ""
+
+#: glossary.cpp:68
+#, fuzzy, kde-format
+msgid "By Topic"
+msgstr "Ngengongoma"
+
+#: glossary.cpp:72 infotree.cpp:74
+#, kde-format
+msgid "Alphabetically"
+msgstr "Ngokulandelelana"
+
+#: glossary.cpp:128
+#, kde-format
+msgid "Rebuilding glossary cache..."
+msgstr ""
+
+#: glossary.cpp:182
+#, kde-format
+msgid "Rebuilding cache... done."
+msgstr ""
+
+#: grantleeformatter.cpp:102
+#, fuzzy, kde-format
+#| msgid "KDE Glossary"
+msgctxt "%1 is a glossary term"
+msgid "KDE Glossary: %1"
+msgstr "Inkcazelo yamagama e KDE"
+
+#: grantleeformatter.cpp:103
+#, kde-format
+msgid "KDE Glossary"
+msgstr "Inkcazelo yamagama e KDE"
+
+#: grantleeformatter.cpp:107
+#, fuzzy, kde-format
+#| msgid "See also: "
+msgid "See also: %1"
+msgstr "Bona kwakho: "
+
+#: grantleeformatter.cpp:128
+#, kde-format
+msgid "Search Results"
+msgstr "Iziphumo Zophendlo"
+
+#: grantleeformatter.cpp:129 searchengine.cpp:259
+#, fuzzy, kde-format
+msgid "Search Results for '%1':"
+msgstr "Iziphumo Zophendlo"
+
+#: infotree.cpp:77
+#, kde-format
+msgid "By Category"
+msgstr ""
+
+#. i18n: ectx: label, entry, group (Search)
+#: khelpcenter.kcfg:31
+#, fuzzy, kde-format
+msgid "Path to index directory."
+msgstr "Umalathisi:"
+
+#. i18n: ectx: whatsthis, entry, group (Search)
+#: khelpcenter.kcfg:32
+#, kde-format
+msgid "Path to directory containing search indices."
+msgstr ""
+
+#. i18n: ectx: label, entry, group (Layout)
+#: khelpcenter.kcfg:46
+#, kde-format
+msgid "Currently visible navigator tab"
+msgstr ""
+
+#. i18n: ectx: Menu (edit)
+#: khelpcenterui.rc:5
+#, kde-format
+msgid "&Edit"
+msgstr ""
+
+#. i18n: ectx: Menu (view)
+#: khelpcenterui.rc:13
+#, kde-format
+msgid "&View"
+msgstr ""
+
+#. i18n: ectx: Menu (go)
+#: khelpcenterui.rc:19
+#, kde-format
+msgid "&Go"
+msgstr "&Hamba"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: khelpcenterui.rc:36
+#, kde-format
+msgid "Main Toolbar"
+msgstr ""
+
+#: mainwindow.cpp:62
+#, kde-format
+msgid "Search Error Log"
+msgstr ""
+
+#: mainwindow.cpp:114
+#, kde-format
+msgid "Preparing Index"
+msgstr "Ilungisa Isalathisi"
+
+#: mainwindow.cpp:157
+#, kde-format
+msgid "Ready"
+msgstr "Ilungile"
+
+#: mainwindow.cpp:208
+#, kde-format
+msgid "Previous Page"
+msgstr ""
+
+#: mainwindow.cpp:210
+#, kde-format
+msgid "Moves to the previous page of the document"
+msgstr ""
+
+#: mainwindow.cpp:214
+#, kde-format
+msgid "Next Page"
+msgstr ""
+
+#: mainwindow.cpp:216
+#, kde-format
+msgid "Moves to the next page of the document"
+msgstr ""
+
+#: mainwindow.cpp:223
+#, kde-format
+msgid "Table of &Contents"
+msgstr ""
+
+#: mainwindow.cpp:224
+#, kde-format
+msgid "Table of contents"
+msgstr ""
+
+#: mainwindow.cpp:225
+#, kde-format
+msgid "Go back to the table of contents"
+msgstr ""
+
+#: mainwindow.cpp:231
+#, kde-format
+msgid "&Last Search Result"
+msgstr "&Uphendlo Lokugqibela"
+
+#: mainwindow.cpp:249
+#, kde-format
+msgid "Configure Fonts..."
+msgstr ""
+
+#: mainwindow.cpp:253
+#, kde-format
+msgid "Increase Font Sizes"
+msgstr ""
+
+#: mainwindow.cpp:258
+#, kde-format
+msgid "Decrease Font Sizes"
+msgstr ""
+
+#: mainwindow.cpp:274
+#, kde-format
+msgctxt "@title:menu"
+msgid "&Bookmarks"
+msgstr ""
+
+#: navigator.cpp:63
+#, fuzzy, kde-format
+#| msgid "&Search"
+msgid "Search..."
+msgstr "&Phendla"
+
+#: navigator.cpp:118
+#, kde-format
+msgid "&Contents"
+msgstr ""
+
+#: navigator.cpp:128
+#, fuzzy, kde-format
+msgid "Search Options"
+msgstr "Iziphumo Zophendlo"
+
+#: navigator.cpp:136
+#, kde-format
+msgid "G&lossary"
+msgstr "I&nkcazelo yamagama"
+
+#: navigator.cpp:480
+#, kde-format
+msgid "Start Page"
+msgstr ""
+
+#: navigator.cpp:481
+#, kde-format
+msgid "KDE Help Center"
+msgstr "Umbindi Woncedo we KDE"
+
+#: navigator.cpp:564
+#, fuzzy, kde-format
+msgid "Unable to run search program."
+msgstr "Ngenisa i URL ye htsearch kwindlela yokusebenza."
+
+#: navigator.cpp:657
+#, fuzzy, kde-format
+msgid "Updating search index..."
+msgstr "Yakha Indices Zophendlo"
+
+#: navigator.cpp:668
+#, kde-format
+msgid "Updating search index... done."
+msgstr ""
+
+#: searchengine.cpp:57
+#, kde-format
+msgid "Error: No document type specified."
+msgstr ""
+
+#: searchengine.cpp:59
+#, kde-format
+msgid "Error: No search handler for document type '%1'."
+msgstr ""
+
+#: searchengine.cpp:229
+#, kde-format
+msgid "No valid search handler found."
+msgstr ""
+
+#: searchhandler.cpp:37
+#, kde-format
+msgid "Error executing search command '%1'."
+msgstr ""
+
+#: searchhandler.cpp:75
+#, kde-format
+msgid "Error: %1"
+msgstr ""
+
+#: searchhandler.cpp:140 searchhandler.cpp:145
+#, kde-format
+msgid "'%1' not found, check your installation"
+msgstr ""
+
+#: searchhandler.cpp:150
+#, kde-format
+msgid "'%1' not found, install the package containing it"
+msgstr ""
+
+#: searchhandler.cpp:197
+#, kde-format
+msgid "No search command or URL specified."
+msgstr ""
+
+#: searchwidget.cpp:39
+#, kde-format
+msgid "and"
+msgstr "ne"
+
+#: searchwidget.cpp:40
+#, kde-format
+msgid "or"
+msgstr "okanye"
+
+#: searchwidget.cpp:42
+#, kde-format
+msgid "&Method:"
+msgstr "&Indlela yokwenza:"
+
+#: searchwidget.cpp:58
+#, kde-format
+msgid "Max. &results:"
+msgstr "Iziphumo. &eziphezulu:"
+
+#: searchwidget.cpp:73
+#, kde-format
+msgid "&Scope selection:"
+msgstr "&Ukhetho lwephepha:"
+
+#: searchwidget.cpp:81
+#, kde-format
+msgid "Scope"
+msgstr "Ithuba"
+
+#: searchwidget.cpp:322
+#, fuzzy, kde-format
+#| msgid "Custom"
+msgctxt "Label for searching documentation using custom (user defined) scope"
+msgid "Custom"
+msgstr "Isiko"
+
+#: searchwidget.cpp:324
+#, kde-format
+msgctxt "Label for searching documentation using default search scope"
+msgid "Default"
+msgstr ""
+
+#: searchwidget.cpp:326
+#, fuzzy, kde-format
+#| msgid "All"
+msgctxt "Label for searching documentation in all subsections"
+msgid "All"
+msgstr "Onke"
+
+#: searchwidget.cpp:328
+#, fuzzy, kde-format
+#| msgid "None"
+msgctxt "Label for scope that deselects all search subsections"
+msgid "None"
+msgstr "Akukho nanye"
+
+#: searchwidget.cpp:330
+#, fuzzy, kde-format
+#| msgid "unknown"
+msgctxt "Label for Unknown search scope, that should never appear"
+msgid "unknown"
+msgstr "ayaziwa"
+
+#: view.cpp:228
+#, kde-format
+msgid "Copy Link Address"
+msgstr ""
+
+#: view.cpp:312
+#, kde-format
+msgid ""
+"<p>Read the topic documentation in this window.<br /><br />Press <b>Space</"
+"b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, <b>Tab</b>/"
+"<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
+msgstr ""
+
+#~ msgid "ht://dig"
+#~ msgstr "ht://dig"
+
+#, fuzzy
+#~| msgid ""
+#~| "The fulltext search feature makes use of the ht://dig HTML search "
+#~| "engine. You can get ht://dig at the"
+#~ msgid ""
+#~ "The fulltext search feature makes use of the ht://dig HTML search engine."
+#~ msgstr ""
+#~ "Umsebenzi osemqoka opheleleyo wenza usebezniso lwe ht://dig HTML injini "
+#~ "yokuphendla. Ungafumana i ht://dig kwi"
+
+#~ msgid "Information about where to get the ht://dig package."
+#~ msgstr "Ulwazi malunga nalapho unokufumana i ht://dig upakisho."
+
+#~ msgid "Program Locations"
+#~ msgstr "Iindawo ezikulo Udweliso lwenkqubo"
+
+#~ msgid "htsearch:"
+#~ msgstr "htsearch:"
+
+#~ msgid "Enter the URL of the htsearch CGI program."
+#~ msgstr "Ngenisa i URL ye htsearch kwindlela yokusebenza."
+
+#~ msgid "Indexer:"
+#~ msgstr "Umalathisi:"
+
+#~ msgid "Enter the path to your htdig indexer program here."
+#~ msgstr "Ngenisa umendo kumolathisi wakho wendlela yokusebenza apha."
+
+#~ msgid "htdig database:"
+#~ msgstr "htdig isiseko se data:"
+
+#, fuzzy
+#~ msgid "Enter the path to the htdig database folder."
+#~ msgstr "Ngenisa umendo kwisiseko se data somlawuli."
+
+#, fuzzy
+#~ msgid "Change Index Folder"
+#~ msgstr "Umalathisi:"
+
+#, fuzzy
+#~ msgid "Index folder:"
+#~ msgstr "Umalathisi:"
+
+#~ msgid "Build Search Indices"
+#~ msgstr "Yakha Indices Zophendlo"
+
+#, fuzzy
+#~ msgctxt "Label for stopping search index generation before completion"
+#~ msgid "Stop"
+#~ msgstr "Ithuba"
+
+#, fuzzy
+#~ msgid "Build Search Index"
+#~ msgstr "Yakha Indices Zophendlo"
+
+#~ msgid "Build Index"
+#~ msgstr "Yakha Isalathisi"
+
+#~ msgid "Search Scope"
+#~ msgstr "Phendla Indibaniso"
+
+#~ msgid "Status"
+#~ msgstr "Indawo engatsintshiyo"
+
+#, fuzzy
+#~| msgid "Missing"
+#~ msgctxt "Describes the status of a documentation index that is missing"
+#~ msgid "Missing"
+#~ msgstr "Engekoyo"
+
+#, fuzzy
+#~ msgid "KHelpCenter Index Builder"
+#~ msgstr "Umnqongo wolawulo Woncedo Wombindi Wolawulo"
+
+#, fuzzy
+#~ msgid "Index directory"
+#~ msgstr "Umalathisi:"
+
+#~ msgid ""
+#~ "A search index does not yet exist. Do you want to create the index now?"
+#~ msgstr ""
+#~ "Asikabikho isalathisi sophendlo. Ingaba ufuna ukwenza isalathisi ngoku?"
+
+#, fuzzy
+#~ msgid "Create"
+#~ msgstr "Umhla"
+
+#, fuzzy
+#~ msgid "Build Search &Index..."
+#~ msgstr "Yakha Indices Zophendlo"
+
+#~ msgid "The KDE Help Center"
+#~ msgstr "Umbindi Woncedo lwe KDE"
+
+#, fuzzy
+#~ msgid "(c) 2003, The KHelpCenter developers"
+#~ msgstr "(c) 1999-2002, Ababhekisi phambili be KHelpCenter"
+
+#, fuzzy
+#~ msgid "URL to display"
+#~ msgstr "URL ezakuboniswa"
+
+#~ msgid "ht://dig home page"
+#~ msgstr "ht://dig iphepha lasekhaya"
+
+#~ msgid "Conquer your Desktop!"
+#~ msgstr "Yoyisa i Desktop yakho!"
+
+#~ msgid "Welcome to the K Desktop Environment"
+#~ msgstr "Wamkelekile kwi meko bume ye K Desktop"
+
+#~ msgid "The KDE team welcomes you to user-friendly UNIX computing"
+#~ msgstr "Iqela le-KDE liyakwamkela kumsebenzisi-ongumhlobo ubhalo lwe Unix"
+
+#~ msgid ""
+#~ "KDE is a powerful graphical desktop environment for UNIX workstations. A\n"
+#~ "KDE desktop combines ease of use, contemporary functionality and "
+#~ "outstanding\n"
+#~ "graphical design with the technological superiority of the UNIX "
+#~ "operating\n"
+#~ "system."
+#~ msgstr ""
+#~ "KDE yimekobume enamandla engumzobi wedesktop kwizitishi zomsebenzi we "
+#~ "UNIX. I\n"
+#~ "KDE desktop indibanisa usebenziso olulula, usebenzo oluntanganye kunye "
+#~ "noludumileyo\n"
+#~ "uzobe olwenziwe ngocoselelo olunobunzulu olujongwayo lwendlela\n"
+#~ "esetyenziswayo ye UNIX."
+
+#~ msgid "What is the K Desktop Environment?"
+#~ msgstr "Yintoni imeko-bume ye K Desktop?"
+
+#~ msgid "Contacting the KDE Project"
+#~ msgstr "Inxibelelana neprojekti ye KDE"
+
+#~ msgid "Supporting the KDE Project"
+#~ msgstr "Ixhasa iprojekti ye KDE"
+
+#~ msgid "Useful links"
+#~ msgstr "Amakhonkco aluncedo"
+
+#~ msgid "Getting the most out of KDE"
+#~ msgstr "Ufumana okuninzi kwi KDE"
+
+#~ msgid "A Quick Start Guide to the Desktop"
+#~ msgstr "Isikhombiso sokuqala esikhawulezayo se Desktop"
+
+#, fuzzy
+#~ msgid "KDE Users' guide"
+#~ msgstr "Isikhombiso Somsebenzisi we KDE"
+
+#~ msgid "Frequently asked questions"
+#~ msgstr "Imibuzo ebuzwa rhoqo"
+
+#~ msgid "Basic Applications"
+#~ msgstr "Izicelo Ezisisiseko"
+
+#~ msgid "The Kicker Desktop Panel"
+#~ msgstr "Iqela lenjongo ethile ye Kicker Desktop"
+
+#~ msgid "The KDE Control Center"
+#~ msgstr "Umbindi Wolawulo we KDE"
+
+#~ msgid "The Konqueror File manager and Web Browser"
+#~ msgstr "Umphathi Wefayile ye Konqueror kunye Nomkhangeli zincwadi we Web"
+
+#, fuzzy
+#~ msgid "Clear search"
+#~ msgstr "Phendla"
