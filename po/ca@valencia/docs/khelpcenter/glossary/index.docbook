@@ -57,7 +57,7 @@ Project Neon
 >ARts</glossterm>
 			<glossdef
 ><para
->El marc de so en &kde; 2 i 3. La seua naturalea tasca-simple ha causat problemes quan es trobaven dues fonts de so. A l'escriptori &plasma; se substituïx per Phonon.&newpara; Més informació:&newpara; &linkstart;"https://en.wikipedia.org/wiki/ARts"&linkmid;Viquipèdia: ARts&linkend;</para
+>El marc de so en &kde; 2 i 3. La seua naturalea tasca-simple ha causat problemes quan es trobaven dues fonts de so. En l'escriptori &plasma; se substituïx per Phonon.&newpara; Més informació:&newpara; &linkstart;"https://en.wikipedia.org/wiki/ARts"&linkmid;Viquipèdia: ARts&linkend;</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-phonon"
@@ -71,7 +71,7 @@ Project Neon
 >D-Bus</glossterm>
 			<glossdef
 ><para
->D-Bus o Desktop Bus és un sistema de missatges de servei-intern. Desenvolupat per &RedHat;, que va ser fortament influenciat pel DCOP de &kde; 3, al que substituïx. La majoria de sistemes operatius POSIX suporten D-Bus, i existix un port per a Windows. És utilitzat per Qt 4 i GNOME.&newpara; Més informació:&newpara; &linkstart;"https://freedesktop.org/wiki/Software/dbus/"&linkmid;FreeDesktop.org: What is D-Bus?&linkend;&newpara; &linkstart;"https://en.wikipedia.org/wiki/D-Bus"&linkmid;Viquipèdia: D-Bus&linkend;</para
+>D-Bus o Desktop Bus és un sistema de missatges de servei-intern. Desenvolupat per &RedHat;, el qual va ser fortament influenciat pel DCOP de &kde; 3, al que substituïx. La majoria de sistemes operatius POSIX suporten D-Bus, i existix un port per a Windows. És utilitzat per Qt 4 i GNOME.&newpara; Més informació:&newpara; &linkstart;"https://freedesktop.org/wiki/Software/dbus/"&linkmid;FreeDesktop.org: What is D-Bus?&linkend;&newpara; &linkstart;"https://en.wikipedia.org/wiki/D-Bus"&linkmid;Viquipèdia: D-Bus&linkend;</para
 ><glossseealso otherterm="gloss-dcop"
 >&DCOP;</glossseealso
 > <glossseealso otherterm="gloss-gnome"
@@ -129,7 +129,7 @@ Project Neon
 >Obtín novetats candents</glossterm>
 			<glossdef
 ><para
->&emstart;G&emend;et &emstart;H&emend;ot &emstart;N&emend;ew &emstart;S&emend;tuff (GHNS -Obtín novetats candents-) és un estàndard obert que facilita als usuaris a descarregar i instal·lar diverses extensions per a les seues aplicacions. La nostra implementació de GHNS és utilitzada per &plasma; (per exemple, per a obtindre nous temes d'escriptori), i per moltes aplicacions i ginys.</para
+>&emstart;G&emend;et &emstart;H&emend;ot &emstart;N&emend;ew &emstart;S&emend;tuff (GHNS -Obtín novetats candents-) és un estàndard obert que facilita als usuaris per a que descarreguen i instal·len diverses extensions per a les seues aplicacions. La nostra implementació de GHNS és emprada per &plasma; (per exemple, per a obtindre temes nous d'escriptori), i per moltes aplicacions i ginys.</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-plasma"
@@ -173,7 +173,7 @@ Project Neon
 >KHTML</glossterm>
 			<glossdef
 ><para
->KHTML és el motor de renderitzat &HTML; per a l'escriptori &plasma; &kde;, com l'utilitzat pel navegador &konqueror;. També proporciona una KPart que permet a totes les aplicacions de &kde; mostrar contingut web. Una nova introducció, &Qt; WebKit és també per al desenvolupament d'aplicacions de Plasma i altres.</para
+>El KHTML és el motor de renderitzat &HTML; per a l'escriptori &plasma; &kde;, com l'emprat pel navegador &konqueror;. També proporciona una KPart que permet a totes les aplicacions de &kde; mostrar contingut web. Una introducció nova, WebKit de les &Qt; també és per al desenvolupament d'aplicacions de Plasma i altres.</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-konqueror"
@@ -209,9 +209,9 @@ Project Neon
 >Kiosk</glossterm>
 			<glossdef
 ><para
->Kiosk és un marc de treball per a restringir les capacitats de l'usuari sobre un sistema de plataforma &kde;, ideal per al seu ús en entorns restrictius com cibercafès. És present a &kde; 3 i &kde; 4, però l'eina d'administració, <application
+>El Kiosk és un marc de treball per a restringir les capacitats de l'usuari sobre un sistema de plataforma &kde;, ideal per al seu ús en entorns restrictius com cibercafès. Està present en &kde; 3 i &kde; 4, però l'eina d'administració, <application
 >Kiosktool</application
-> només es troba a &kde; 4. Es pot ser utilitzar per a configurar les aplicacions de &kde; 4, o es poden mantindre les configuracions kiosk editant els fitxers de configuració manualment.</para>
+> només es troba en &kde; 4. Es pot utilitzar per a configurar les aplicacions de &kde; 4, o es poden mantindre les configuracions de kiosk editant manualment els fitxers de configuració.</para>
 				<glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso>
 			</glossdef>
@@ -323,7 +323,7 @@ otherterm="gloss-kbuildsycoca"
 >Antialiàsing</glossterm>
 			<glossdef
 ><para
->Si es menciona en el context de &kde;, antialiàsing sovint significa el suavitzat dels tipus de lletra visibles a la pantalla. La versió 3.3 de &Qt; o posteriors, utilitzada conjuntament amb X.Org fa possible este efecte davall &kde;.</para
+>Si es menciona en el context de &kde;, antialiàsing sovint significa el suavitzat dels tipus de lletra visibles en la pantalla. La versió 3.3 de &Qt; o posteriors, utilitzada conjuntament amb X.Org fa possible este efecte davall &kde;.</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-qt"
@@ -335,7 +335,7 @@ otherterm="gloss-kbuildsycoca"
 >&X-Server;</glossterm>
 			<glossdef
 ><para
->&X-Server; representa una capa bàsica sobre la qual es construïxen les diverses &IGU;, com ara &kde;. Manipula el ratolí bàsic i l'entrada del teclat (tant des d'una màquina local com des d'una remota) i proporciona rutines gràfiques elementals per a dibuixar rectangles i d'altres figures primitives.</para
+>&X-Server; representa una capa bàsica sobre la qual es construïxen les diverses &IGU;, com ara &kde;. Manipula el ratolí bàsic i l'entrada del teclat (tant des d'un amfitrió local com des d'un remot) i proporciona rutines gràfiques elementals per a dibuixar rectangles i d'altres figures primitives.</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-gui"
@@ -352,7 +352,7 @@ otherterm="gloss-kbuildsycoca"
 >Dolphin</glossterm>
 			<glossdef
 ><para
->El gestor de fitxers per defecte a les Aplicacions de &kde;. Compta amb un quadro lateral (Llocs), però la navegació es fa principalment sobre de la finestra principal. La divisió de finestres és possible, i les vistes es poden aplicar a finestres individuals. Muntar i desmuntar dispositius <acronym
+>El gestor de fitxers predeterminat en les Aplicacions de &kde;. Compta amb un quadro lateral (Llocs), però la navegació es fa principalment sobre de la finestra principal. La divisió de finestres és possible, i les vistes es poden aplicar a finestres individuals. Muntar i desmuntar dispositius <acronym
 >USB</acronym
 > es pot fer en el quadro lateral. Es poden afegir altres directoris al quadro «Llocs». També és possible una vista en arbre.&newpara; Més informació:&newpara; &linkstart;"https://www.kde.org/applications/system/dolphin/"&linkmid;Dolphin&linkend;&newpara; &linkstart;"https://en.wikipedia.org/wiki/Dolphin_(file_manager)"&linkmid;Viquipèdia: Dolphin&linkend;&newpara; &linkstart;"https://userbase.kde.org/Dolphin/File_Management/ca"&linkmid;Userbase: Guia d'aprenentatge per a la Gestió de fitxers&linkend;</para
 ><glossseealso otherterm="gloss-kde"
@@ -412,7 +412,7 @@ otherterm="gloss-kbuildsycoca"
 ><para
 >La minilínia d'ordres a la qual s'accedix des del menú clàssic, la drecera de teclat &Alt;+<keycap
 >F2</keycap
->, o feu clic dret a l'escriptori. En &kde; SC 4 amb part d'un nom es mostraran tots els resultats possibles.&newpara; Més informació:&newpara; &linkstart;"https://userbase.kde.org/Plasma/KRunner/ca"&linkmid;UserBase: Utilitzar KRunner&linkend;</para
+>, o feu clic dret sobre l'escriptori. En &kde; SC 4 amb part d'un nom es mostraran tots els resultats possibles.&newpara; Més informació:&newpara; &linkstart;"https://userbase.kde.org/Plasma/KRunner/ca"&linkmid;UserBase: Utilitzar KRunner&linkend;</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-plasma"
@@ -424,7 +424,7 @@ otherterm="gloss-kbuildsycoca"
 >KWin</glossterm>
 			<glossdef
 ><para
->KWin és el gestor de finestres. Ací és on la decoració de les finestres es pot canviar i aplicar temes. &kde; SC 4 s'estén KWin per donar suport als efectes de composició 3D a l'escriptori.&newpara; Més informació: &newpara; &linkstart;"https://userbase.kde.org/KWin/ca"&linkmid;UserBase: KWin&linkend;</para
+>KWin és el gestor de finestres. Ací és on la decoració de les finestres es pot canviar i aplicar temes. &kde; SC 4 s'estén KWin per donar suport als efectes de composició 3D en l'escriptori.&newpara; Més informació: &newpara; &linkstart;"https://userbase.kde.org/KWin/ca"&linkmid;UserBase: KWin&linkend;</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-xserver"
@@ -446,7 +446,7 @@ otherterm="gloss-kbuildsycoca"
 >Paginador</glossterm>
 			<glossdef
 ><para
->Un paginador «pager» és un xicotet programa o una miniaplicació del quadro que mostra la posició de les finestres a l'escriptori i si teniu diversos escriptoris virtuals vos oferix una visió general sobre tots.</para
+>Un paginador «pager» és un xicotet programa o una miniaplicació del quadro que mostra la posició de les finestres en l'escriptori i si teniu diversos escriptoris virtuals vos oferix una visió general sobre tots.</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-application-starter"
@@ -497,7 +497,7 @@ otherterm="gloss-kbuildsycoca"
 ></glossterm>
 			<glossdef
 ><para
->Brisa és el tema predeterminat de &plasma;. El nou tema és de gran contrast, un tema prim per a l'espai de treball. Està disponible en variants amb llum i fosques. Gràfics i disposicions tipogràfiques més simples i monocromàtiques, centrat a oferir una experiència d'usuari neta i visualment clara.</para
+>Brisa és el tema predeterminat de &plasma;. El nou tema és de gran contrast, un tema prim per a l'espai de treball. Està disponible en variants amb llum i fosques. Gràfics i disposicions tipogràfiques més simples i monocromàtiques, centrat en oferir una experiència d'usuari neta i visualment clara.</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-ksvg"
@@ -557,7 +557,7 @@ otherterm="gloss-kbuildsycoca"
 >Directori inici</glossterm>
 			<glossdef
 ><para
->Este és el lloc en el sistema a on es guarden tots els vostres fitxers. Els podeu escriure fora d'esta carpeta, però totes les aplicacions estan configurades per proposar-la com a lloc per defecte. I açò és més fàcil, quan guardeu les vostres coses ací.&newpara; Més informació:&newpara; &linkstart;"https://en.wikipedia.org/wiki/Home_directory"&linkmid;Viquipèdia: Home Directory&linkend;</para>
+>Este és el lloc en el sistema a on es guarden tots els vostres fitxers. Els podeu escriure fora d'esta carpeta, però totes les aplicacions estan configurades per proposar-la com a lloc predeterminat. I açò és més fàcil, quan guardeu les vostres coses ací.&newpara; Més informació:&newpara; &linkstart;"https://en.wikipedia.org/wiki/Home_directory"&linkmid;Viquipèdia: Home Directory&linkend;</para>
 				<glossseealso otherterm="gloss-dolphin"
 >&dolphin;</glossseealso>
 			</glossdef>
@@ -643,7 +643,7 @@ otherterm="gloss-kbuildsycoca"
 >Plasma</glossterm>
 			<glossdef
 ><para
->L'escriptori &plasma; substituïx al KDesktop, &kicker; i el motor de ginys SuperKaramba. Les miniaplicacions s'anomenen Ginys, i abasten des de ginys amb informació a les miniaplicacions, com ara una calculadora o un diccionari. &newpara; Més informació:&newpara; &linkstart;"https://en.wikipedia.org/wiki/KDE_Plasma_5"&linkmid;Viquipèdia: Plasma 5 de KDE&linkend;&newpara; &linkstart;"https://www.kde.org/workspaces/"&linkmid;Espais de treball de Plasma&linkend;&newpara; &linkstart;"https://userbase.kde.org/Plasma/ca"&linkmid;Plasma&linkend;</para
+>L'escriptori &plasma; substituïx al KDesktop, &kicker; i el motor de ginys SuperKaramba. Les miniaplicacions s'anomenen Ginys, i abasten des de ginys amb informació fins a les miniaplicacions, com ara una calculadora o un diccionari. &newpara; Més informació:&newpara; &linkstart;"https://en.wikipedia.org/wiki/KDE_Plasma_5"&linkmid;Viquipèdia: Plasma 5 de KDE&linkend;&newpara; &linkstart;"https://www.kde.org/workspaces/"&linkmid;Espais de treball de Plasma&linkend;&newpara; &linkstart;"https://userbase.kde.org/Plasma/ca"&linkmid;Plasma&linkend;</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-kicker"
@@ -698,7 +698,7 @@ otherterm="gloss-kbuildsycoca"
 >Git</glossterm>
 			  <glossdef
 ><para
->Git és un sistema distribuït de codi obert i lliure per al control de versions dissenyat per a manejar tot, des de petits projectes a molt grans amb velocitat i eficiència.&newpara; Cada clon de Git és una font de ple dret amb tot l'historial i plena capacitat de seguiment de la revisió, no depén de l'accés a la xarxa o un servidor central. Treballar-hi fent branques i barreja és fàcil i ràpid de fer.&newpara; Git s'utilitza per al control de versions de fitxers, igual que les eines com Mercurial, Bazaar, Subversion, CVS, Perforce i Visual SourceSafe.&newpara; Es va decidir que Git serà el sistema de control de versions principals de &kde;, la substitució de SVN. S'ha utilitzat ja en alguns projectes &kde; com Konversation i Amarok.&newpara; Més informació:&newpara; &linkstart;"https://git-scm.com/"&linkmid;Pàgina web de Git&linkend;</para
+>Git és un sistema distribuït de codi obert i lliure per al control de versions dissenyat per a manejar tot, des de projectes petits fins a molt grans amb velocitat i eficiència.&newpara; Cada clon de Git és una font de ple dret amb tot l'historial i plena capacitat de seguiment de la revisió, no depén de l'accés a la xarxa o un servidor central. Treballar-hi fent branques i barreja és fàcil i ràpid de fer.&newpara; Git s'utilitza per al control de versions de fitxers, igual que les eines com Mercurial, Bazaar, Subversion, CVS, Perforce i Visual SourceSafe.&newpara; Es va decidir que Git serà el sistema de control de versions principals de &kde;, la substitució de SVN. S'ha utilitzat ja en alguns projectes &kde; com Konversation i Amarok.&newpara; Més informació:&newpara; &linkstart;"https://git-scm.com/"&linkmid;Pàgina web de Git&linkend;</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-svn"
@@ -736,7 +736,7 @@ otherterm="gloss-kbuildsycoca"
 ><para
 >Un mòdul de KPart per a crear <acronym
 >DOM</acronym
-> a KHTML (&emstart;D&emend;ocument &emstart;O&emend;bject &emstart;M&emend;odel) de manera que este siga capaç de representar totes les aplicacions disponibles. KSVG2 es basa en KDOM per a &kde; SC 4.</para
+> en el KHTML (&emstart;D&emend;ocument &emstart;O&emend;bject &emstart;M&emend;odel) de manera que este siga capaç de representar totes les aplicacions disponibles. KSVG2 es basa en KDOM per a &kde; SC 4.</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-khtml"
@@ -752,7 +752,7 @@ otherterm="gloss-kbuildsycoca"
 >KJS</glossterm>
 			<glossdef
 ><para
->Motor de JavaScript a la plataforma &kde;.</para
+>Motor de JavaScript en la plataforma &kde;.</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-kparts"
@@ -790,7 +790,7 @@ otherterm="gloss-kbuildsycoca"
 >Giny (widget)</glossterm>
 			<glossdef
 ><para
->En general, els ginys són elements gràfics com les barres de desplaçament, els botons o els camps d'entrada que s'utilitzen per construir la &IGU;.&newpara; Els ginys de &plasma;, són els components principals i assumixen una varietat de funcions, que van des de la visualització de l'escriptori i fons de pantalla associat, fins a mostrar el nivell de la bateria de l'ordinador portàtil, mostrar els dispositius endollats i dibuixar la barra de tasques: bàsicament, són xicotetes aplicacions que viuen a l'escriptori. A més, els ginys es poden agrupar en «Contenidors», igual que el quadro i, fins i tot l'escriptori mateix. </para
+>En general, els ginys són elements gràfics com les barres de desplaçament, els botons o els camps d'entrada que s'utilitzen per construir la &IGU;.&newpara; Els ginys de &plasma;, són els components principals i assumixen una varietat de funcions, les quals van des de la visualització de l'escriptori i fons de pantalla associat, fins a mostrar el nivell de la bateria de l'ordinador portàtil, mostrar els dispositius endollats i dibuixar la barra de tasques: bàsicament, són xicotetes aplicacions que viuen en l'escriptori. A més, els ginys es poden agrupar en «Contenidors», igual que el quadro i, fins i tot l'escriptori mateix. </para
 ><glossseealso otherterm="gloss-plasma"
 >&plasma;</glossseealso
 > <glossseealso otherterm="gloss-containment"
@@ -837,7 +837,7 @@ otherterm="gloss-kbuildsycoca"
 	
 	<glossdiv id="glossdiv-misc">
 		<title
->Miscelànea</title>
+>Miscel·lània</title>
 		<glossentry id="gloss-rfc">
 			<glossterm
 ><acronym
@@ -881,7 +881,7 @@ otherterm="gloss-kbuildsycoca"
 ><para
 >&emstart;I&emend;nternet &emstart;R&emend;elay &emstart;C&emend;hat. Un protocol definit en el <acronym
 >RFC</acronym
-> 1459, que manipula l'especificació per a permetre conversacions en temps real.</para>
+> 1459, el qual manipula l'especificació per a permetre conversacions en temps real.</para>
 				<glossseealso otherterm="gloss-rfc"
 ><acronym
 >RFC</acronym

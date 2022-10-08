@@ -3,7 +3,7 @@
 >Instal·lació de l'&plasma-desktop; i les aplicacions &kde;</title>
 
 <para
->Podeu instal·lar les aplicacions &kde;, inclòs l'&plasma-desktop; sobre una varietat de plataformes diferents, que van des de telèfons intel·ligents i tauletes fins a equips que executen &Microsoft; &Windows;, &MacOS;, &UNIX;, &BSD; o &Linux;. Els paquets binaris estan disponibles per a plataformes i distribucions diferents, o els usuaris avançats els poden construir des del codi font.</para>
+>Podeu instal·lar les aplicacions &kde;, inclòs l'&plasma-desktop; sobre una varietat de plataformes diferents, les quals van des de telèfons intel·ligents i tauletes fins a equips que executen &Microsoft; &Windows;, &MacOS;, &UNIX;, &BSD; o &Linux;. Els paquets binaris estan disponibles per a plataformes i distribucions diferents, o els usuaris avançats els poden construir des del codi font.</para>
 
 <sect1 id="install-packages">
 <title
@@ -20,7 +20,7 @@
 >Quasi totes les distribucions de &Linux; oferixen paquets binaris per a aplicacions &kde; individuals i l'&plasma-desktop; com un conjunt.</para>
 
 <para
->Per a instal·lar una aplicació individual, busqueu el seu nom a la col·lecció de paquets de la vostra distribució. Per a instal·lar un dels &plasma-workspaces;, com l'&plasma-desktop;, busqueu un metapaquet o grup de paquets, típicament el <literal
+>Per a instal·lar una aplicació individual, busqueu el seu nom en la col·lecció de paquets de la vostra distribució. Per a instal·lar un dels &plasma-workspaces;, com l'&plasma-desktop;, busqueu un metapaquet o grup de paquets, típicament el <literal
 >plasma-desktop</literal
 >.</para>
 
@@ -64,7 +64,7 @@
 > dels diferents sistemes disponibles per a &MacOS;. Diverses aplicacions &kde; diferents també proporcionen el seu propi binari compilat per a &MacOS;.</para>
 
 <para
->Per a més informació, visiteu el <ulink url="https://mac.kde.org/"
+>Per a més informació, visiteu <ulink url="https://mac.kde.org/"
 >&kde; a &MacOS;X</ulink
 >.</para>
 
@@ -128,7 +128,7 @@
 <para
 >Atés que el programari &kde; utilitza <command
 >cmake</command
->, no hauríeu de tindre problemes per a compilar-lo. Si arribeu a tindre problemes, informeu-ne a les llistes de correu de &kde;.</para>
+>, no hauríeu de tindre problemes per a compilar-lo. Si arribeu a tindre'n, informeu-ne a les llistes de correu de &kde;.</para>
 
 <para
 >L'eina recomanada per a construir els Frameworks i l'&plasma-desktop; i totes les altres aplicacions és <ulink url="https://commits.kde.org/kdesrc-build"

@@ -31,7 +31,7 @@
 ></textobject>
 <caption
 ><para
->La barra d'eines al <ulink url="https://kde.org/applications/graphics/gwenview/"
+>La barra d'eines a <ulink url="https://kde.org/applications/graphics/gwenview/"
 >&gwenview;</ulink
 >. </para
 ></caption>
@@ -54,7 +54,7 @@
 >.</para>
 
 <para
->A la part esquerra del quadro de configuració de la barra d'eines, es mostren els elements disponibles que hi podeu posar. A la dreta, es mostren els que ja apareixen. A la part superior, podeu seleccionar la barra d'eines que voleu modificar o veure.</para>
+>A la part esquerra del quadro de configuració de la barra d'eines, es mostren els elements disponibles que hi podeu posar. A la dreta, es mostren els que ja apareixen. En la part superior, podeu seleccionar la barra d'eines que voleu modificar o veure.</para>
 
 <para
 >Damunt de cada costat del quadro hi ha un quadro de text <guilabel
@@ -84,14 +84,14 @@
 <title
 >Afegir un element</title>
 <para
->Podeu afegir un element en la barra d'eines seleccionant-lo al costat esquerre i fent clic en el botó de fletxa dreta.</para>
+>Podeu afegir un element a la barra d'eines seleccionant-lo al costat esquerre i fent clic sobre el botó de fletxa dreta.</para>
 </sect3>
 
 <sect3 id="toolbars-items-remove">
 <title
 >Eliminar un element</title>
 <para
->Podeu eliminar un element seleccionant-lo i fent clic en el botó de fletxa esquerra.</para>
+>Podeu eliminar un element seleccionant-lo i fent clic sobre el botó de fletxa esquerra.</para>
 </sect3>
 
 
@@ -113,7 +113,7 @@
 <para
 >Podeu afegir línies de separació entre els elements afegint un element <guilabel
 >--- separador ---</guilabel
-> en la barra d'eines.</para>
+> a la barra d'eines.</para>
 </sect3>
 
 <sect3 id="toolbars-items-defaults">
@@ -132,7 +132,7 @@
 >Canviar el text i les icones</title>
 
 <para
->Podeu canviar la icona i el text dels elements individuals en la barra d'eines seleccionant un element i fent clic sobre els botons <guibutton
+>Podeu canviar la icona i el text dels elements individuals a la barra d'eines seleccionant un element i fent clic sobre els botons <guibutton
 >Canvia la icona...</guibutton
 > o <guibutton
 >Canvia el text...</guibutton
@@ -194,7 +194,7 @@
 </itemizedlist>
 
 <para
->També podeu mostrar o ocultar el text per a cada element individual en la barra d'eines fent clic dret sobre un element i marcant o desmarcant l'element davall <guilabel
+>També podeu mostrar o ocultar el text per a cada element individual a la barra d'eines fent clic dret sobre un element i marcant o desmarcant l'element davall <guilabel
 >Mostra el text</guilabel
 >.</para>
 
@@ -313,7 +313,7 @@
 >Barres d'eines mostrades</guisubmenu
 > en el menú contextual i en el menú <guimenu
 >Configuració</guimenu
-> en lloc de l'entrada del menú de dalt. Des d'este menú podreu seleccionar individualment les barres d'eines a ocultar o mostrar.</para>
+> en lloc de l'entrada del menú de dalt. Des d'este menú podreu seleccionar individualment les barres d'eines que s'han d'ocultar o mostrar.</para>
 
 </sect3>
 </sect2>
@@ -368,7 +368,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 >.</para>
 
 <para
->A la finestra «Configuració de les dreceres», veureu una llista de totes les dreceres disponibles per a l'aplicació actual. Podeu utilitzar el quadro de busca a la part superior per a buscar la drecera desitjada.</para>
+>En la finestra «Configuració de les dreceres», veureu una llista de totes les dreceres disponibles per a l'aplicació actual. Podeu utilitzar el quadro de busca a la part superior per a buscar la drecera desitjada.</para>
 
 <screenshot id="screenshot-shortcuts-search">
 <screeninfo
@@ -384,7 +384,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 ><para
 >La busca de dreceres amb <userinput
 >file</userinput
-> en el <ulink url="https://kde.org/applications/system/dolphin/"
+> en <ulink url="https://kde.org/applications/system/dolphin/"
 >&dolphin;</ulink
 >. </para
 ></caption>
@@ -564,7 +564,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 >Imprimir les dreceres</title>
 
 <para
->Podeu imprimir una llista de les dreceres per a facilitar la consulta fent clic en el botó <guibutton
+>Podeu imprimir una llista de les dreceres per a facilitar la consulta fent clic sobre el botó <guibutton
 >Imprimix</guibutton
 > a la part inferior de la finestra.</para>
 

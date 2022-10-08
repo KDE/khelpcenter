@@ -159,7 +159,7 @@
 ></option
 > </para>
 <para
->Obri el fitxer d'ajuda de &kwrite;, a la pàgina de continguts. </para>
+>Obri el fitxer d'ajuda de &kwrite;, en la pàgina de continguts. </para>
 </listitem>
 </varlistentry>
 
@@ -540,7 +540,7 @@
 >El glossari proporciona un lloc de referència ràpida, on podeu mirar les definicions de paraules que vos puguen resultar poc familiars. Estes abasten des d'aplicacions i tecnologies específiques de &kde; o fins i tot termes informàtics d'&UNIX;. </para>
 
 <para
->A la subfinestra de l'esquerra veureu una vista en arbre, amb dues possibilitats: <guilabel
+>En la subfinestra de l'esquerra veureu una vista en arbre, amb dues possibilitats: <guilabel
 >Alfabèticament</guilabel
 > o <guilabel
 >Per tema</guilabel

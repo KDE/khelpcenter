@@ -22,10 +22,10 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 >Barra de desplaçament</title>
 
 <para
->Probablement esteu familiaritzat amb la barra de desplaçament que apareix al costat dret (i de vegades a la part inferior) dels documents, la qual permet moure dins dels documents. No obstant açò, hi ha diverses altres maneres de navegar pels documents, algunes són més ràpides i fàcils.</para>
+>Probablement esteu familiaritzat amb la barra de desplaçament que apareix en el costat dret (i de vegades a la part inferior) dels documents, la qual permet moure dins dels documents. No obstant açò, hi ha diverses altres maneres de navegar pels documents, algunes són més ràpides i fàcils.</para>
 
 <para
->Alguns ratolins tenen una roda al mig. La podeu moure cap amunt i avall per a desplaçar-vos dins d'un document. Si premeu la tecla &Maj; mentre utilitzeu la roda del ratolí, el document es desplaçarà més de pressa.</para>
+>Alguns ratolins tenen una roda en el mig. La podeu moure cap amunt i avall per a desplaçar-vos dins d'un document. Si premeu la tecla &Maj; mentre utilitzeu la roda del ratolí, el document es desplaçarà més de pressa.</para>
 
 <para
 >Si esteu utilitzant un ordinador portàtil, també sereu capaç de desplaçar-vos utilitzant la pantalla tàctil. Alguns ordinadors permeten desplaçar en sentit vertical movent el dit cap amunt i avall per la pantalla tàctil, i desplaçar en sentit horitzontal movent el dit a dreta i esquerra per la part inferior. Altres permeten desplaçar amb dos dits: movent dos dits cap amunt i avall en qualsevol lloc de la pantalla tàctil per a desplaçar en sentit vertical, i moure a esquerra i dreta per a desplaçar en sentit horitzontal. Atés que esta funcionalitat emula la funcionalitat de la roda del ratolí que ja s'ha descrit anteriorment, també podeu prémer la tecla &Maj; per a desplaçar-vos més ràpid.</para>
@@ -33,10 +33,10 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 <para
 >Si utilitzeu els &plasma-workspaces;, podeu controlar el comportament de la roda del ratolí en el <ulink url="help:/kcontrol/mouse/"
 >mòdul per a ratolí a &systemsettings;</ulink
->, i podeu controlar el comportament del desplaçament del ratolí tàctil en el mòdul per al ratolí tàctil a &systemsettings;. En cas contrari, busqueu a l'àrea de configuració del vostre sistema operatiu o entorn d'escriptori.</para>
+>, i podeu controlar el comportament del desplaçament del ratolí tàctil en el mòdul per al ratolí tàctil a &systemsettings;. En cas contrari, busqueu en l'àrea de configuració del vostre sistema operatiu o entorn d'escriptori.</para>
 
 <para
->A més, la barra de desplaçament té diverses opcions en el seu menú contextual. Hi podeu accedir fent clic dret a qualsevol lloc de la barra de desplaçament. Les opcions disponibles són les següents:</para>
+>A més, la barra de desplaçament té diverses opcions en el seu menú contextual. Hi podeu accedir fent clic dret sobre qualsevol lloc de la barra de desplaçament. Les opcions disponibles són les següents:</para>
 
 <variablelist>
 
@@ -47,7 +47,7 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 ></term>
 <listitem
 ><para
->Desplaça directament a la ubicació representada on feu clic dret sobre la barra de desplaçament. Açò és l'equivalent de senzillament fer clic sobre esta ubicació en la barra de desplaçament.</para
+>Desplaça directament fins a la ubicació representada on feu clic dret sobre la barra de desplaçament. Açò és l'equivalent de sencillament fer clic sobre esta ubicació a la barra de desplaçament.</para
 ></listitem>
 </varlistentry>
 
@@ -130,7 +130,7 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 ></term>
 <listitem
 ><para
->Desplaça cap amunt una unitat (usualment una línia) en el document. Açò és l'equivalent de fer clic a la fletxa cap amunt a la part superior de la barra de desplaçament.</para>
+>Desplaça cap amunt una unitat (usualment una línia) en el document. Açò és l'equivalent de fer clic sobre la fletxa cap amunt a la part superior de la barra de desplaçament.</para>
 </listitem>
 </varlistentry>
 
@@ -141,7 +141,7 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 ></term>
 <listitem
 ><para
->Desplaça cap avall una unitat (usualment una línia) en el document. Açò és l'equivalent de fer clic a la fletxa cap avall a la part inferior de la barra de desplaçament.</para>
+>Desplaça cap avall una unitat (usualment una línia) en el document. Açò és l'equivalent de fer clic sobre la fletxa cap avall a la part inferior de la barra de desplaçament.</para>
 </listitem>
 </varlistentry>
 
@@ -206,7 +206,7 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 ></textobject>
 <caption
 ><para
->Obrir un fitxer en el <ulink url="https://www.kde.org/applications/internet/konqueror/"
+>Obrir un fitxer en <ulink url="https://www.kde.org/applications/internet/konqueror/"
 >&konqueror;</ulink
 >. </para
 ></caption>
@@ -399,7 +399,7 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 ></term>
 <listitem
 ><para
->Quan està sense marcar (de manera predeterminada), els fitxers a la vista de carpeta s'ordenaran en ordre ascendent. (Per exemple, els fitxers per ordre alfabètic, seran ordenats de l'A a la Z, mentre que els fitxers per ordre numèric, seran ordenats de menor a major). Quan està marcada, els fitxers de la carpeta s'ordenaran en ordre descendent (a l'inrevés).</para
+>Quan està sense marcar (de manera predeterminada), els fitxers en la vista de carpeta s'ordenaran en ordre ascendent. (Per exemple, els fitxers per ordre alfabètic, seran ordenats de l'A a la Z, mentre que els fitxers per ordre numèric, seran ordenats de menor a major). Quan està marcada, els fitxers de la carpeta s'ordenaran en ordre descendent (a l'inrevés).</para
 ></listitem>
 </varlistentry>
 
@@ -613,7 +613,7 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 >Barra d'ubicació</term>
 <listitem>
 <para
->La barra d'ubicació, la qual es pot trobar a la part superior de la vista de carpeta, mostra el camí cap a la carpeta actual. La barra d'ubicació té dos modes:</para>
+>La barra d'ubicació, la qual es pot trobar en la part superior de la vista de carpeta, mostra el camí cap a la carpeta actual. La barra d'ubicació té dos modes:</para>
 
 <variablelist>
 <varlistentry id="files-ui-location-breadcrumb">
@@ -653,9 +653,9 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 >El mode d'edició</term>
 <listitem>
 <para
->En el mode navegació, en fer clic en l'àrea grisa a la dreta del camí amb el &BER; es canvia la barra d'ubicació al mode <quote
+>En el mode navegació, en fer clic sobre l'àrea grisa a la dreta del camí amb el &BER; es canvia la barra d'ubicació al mode <quote
 >edita</quote
->, en el qual el camí es pot editar utilitzant el teclat. Per a tornar al mode navegació, feu clic en la marca de selecció a la dreta de la barra d'ubicació amb el &BER;. </para>
+>, en el qual el camí es pot editar utilitzant el teclat. Per a tornar al mode navegació, feu clic sobre la marca de selecció a la dreta de la barra d'ubicació amb el &BER;. </para>
 
 <screenshot>
 <screeninfo
@@ -766,7 +766,7 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 >.</para>
 <!-- FIXME select a file by typing the first letters of its name-->
 <para
->També podeu seleccionar múltiples fitxers alhora. Per a seleccionar fitxers específics, o per a anul·lar la selecció de fitxers específics que ja estan seleccionats, premeu la tecla &Ctrl;, feu clic sobre cada fitxer, llavors deixeu anar la tecla. Per a seleccionar un grup contigu de fitxers, feu clic en el primer fitxer, premeu la tecla &Maj;, feu clic sobre l'últim fitxer en el grup i deixeu anar la tecla.</para>
+>També podeu seleccionar múltiples fitxers alhora. Per a seleccionar fitxers específics, o per a anul·lar la selecció de fitxers específics que ja estan seleccionats, premeu la tecla &Ctrl;, feu clic sobre cada fitxer, llavors deixeu anar la tecla. Per a seleccionar un grup contigu de fitxers, feu clic sobre el primer fitxer, premeu la tecla &Maj;, feu clic sobre l'últim fitxer en el grup i deixeu anar la tecla.</para>
 
 <para
 >La vista de carpeta admet un nombre limitat d'operacions de fitxer, al qual es pot accedir fent clic dret sobre un fitxer per a accedir al seu menú contextual o utilitzant les dreceres de teclat. En el menú contextual hi ha disponibles els elements següents:</para>
@@ -922,7 +922,7 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 ></textobject>
 <caption
 ><para
->Guardar un fitxer al <ulink url="https://www.kde.org/applications/internet/konqueror/"
+>Guardar un fitxer a <ulink url="https://www.kde.org/applications/internet/konqueror/"
 >&konqueror;</ulink
 >. </para
 ></caption>
@@ -956,7 +956,7 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 ></term>
 <listitem
 ><para
->En fer clic a <guibutton
+>En fer clic sobre <guibutton
 >Cancel·la</guibutton
 >, es tancarà el diàleg de fitxer sense realitzar cap acció.</para
 ></listitem>
@@ -1045,9 +1045,9 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 >.</para>
 
 <para
->Si una paraula està possiblement mal escrita en el document, es mostrarà a la línia superior del diàleg. &sonnet; intentarà triar les paraules apropiades per a la substitució. La millor estimació es mostrarà a la dreta de <guilabel
+>Si una paraula està possiblement mal escrita en el document, es mostrarà en la línia superior del diàleg. &sonnet; intentarà triar les paraules apropiades per a la substitució. La millor estimació es mostrarà a la dreta de <guilabel
 >Substituïx per</guilabel
->. Per a acceptar esta substitució, feu clic a <guibutton
+>. Per a acceptar esta substitució, feu clic sobre <guibutton
 >Substituïx</guibutton
 >.</para>
 
@@ -1057,36 +1057,36 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 >, podeu afegir més suggeriments del diccionari a la llista de suggeriments.</para>
 
 <para
->Feu clic a <guibutton
+>Feu clic sobre <guibutton
 >Ignora</guibutton
 > per a mantindre l'ortografia original.</para>
 
 <para
->Feu clic a <guibutton
+>Feu clic sobre <guibutton
 >Finalitza</guibutton
 > per a parar la correcció ortogràfica i <emphasis
 >mantindre</emphasis
 > els canvis realitzats.</para>
 
 <para
->Feu clic a <guibutton
+>Feu clic sobre <guibutton
 >Cancel·la</guibutton
 > per a parar la correcció ortogràfica i <emphasis
 >cancel·lar</emphasis
 > els canvis realitzats.</para>
 
 <para
->Feu clic a <guibutton
+>Feu clic sobre <guibutton
 >Substituïx-ho tot</guibutton
 > per a substituir les paraules mal escrites amb la paraula de substitució escollida, per si tornen a aparéixer més tard en el document.</para>
 
 <para
->Feu clic a <guibutton
+>Feu clic sobre <guibutton
 >Ignora-ho tot</guibutton
 > per a ignorar l'ortografia en este punt i en totes les ocurrències futures de la paraula.</para>
 
 <para
->Feu clic a <guibutton
+>Feu clic sobre <guibutton
 >Afig al diccionari</guibutton
 > per a afegir la paraula mal escrita al vostre diccionari personal.</para>
 
@@ -1208,7 +1208,7 @@ Search+Replace bar in Kate/KWrite
 ><para
 >Busca d'<userinput
 >ingressos</userinput
-> en el <ulink url="https://www.kde.org/applications/office/sheets/"
+> en <ulink url="https://www.kde.org/applications/office/sheets/"
 >&calligrasheets;</ulink
 >. </para
 ></caption>
@@ -1233,7 +1233,7 @@ Search+Replace bar in Kate/KWrite
 <para
 >Si es marca <guilabel
 >Expressió regular</guilabel
-> sereu capaç de buscar utilitzant expressions regulars. Feu clic a <guibutton
+> sereu capaç de buscar utilitzant expressions regulars. Feu clic sobre <guibutton
 >Edita</guibutton
 > per a seleccionar i introduir caràcters d'expressions regulars d'ús comú, com <guilabel
 >Espai en blanc</guilabel
@@ -1302,7 +1302,7 @@ Search+Replace bar in Kate/KWrite
 ></term>
 <listitem
 ><para
->De manera predeterminada, l'aplicació buscarà des d'on comença el text al principi del document, i es mourà a través seu fins al final. Si marqueu esta opció, començarà pel final i treballarà cap al començament. </para
+>De manera predeterminada, l'aplicació buscarà des d'on comença el text fins al començament del document, i es mourà a través seu fins al final. Si marqueu esta opció, començarà pel final i treballarà cap al començament. </para
 ></listitem>
 </varlistentry>
 
@@ -1448,7 +1448,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 >\0</quote
 > representa tota la cadena trobada.</para>
 <para
->Podeu inserir reserves de lloc en el quadro de text fent clic en el botó <guibutton
+>Podeu inserir reserves de lloc a dins del quadro de text fent clic sobre el botó <guibutton
 >Inserix una reserva de lloc</guibutton
 >, després seleccionant una opció del menú com <guimenuitem
 >Coincidència completa</guimenuitem
@@ -1585,7 +1585,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 ></term>
 <listitem>
 <para
->Esta és la casella de selecció al centre, i permet escollir l'estil del tipus de lletra d'entre les opcions següents:</para>
+>Esta és la casella de selecció en el centre, i permet escollir l'estil del tipus de lletra d'entre les opcions següents:</para>
 <itemizedlist>
 
 <listitem
@@ -1694,10 +1694,10 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 >Utilitzant els colors bàsics</title>
 
 <para
->El grup de colors bàsics és un conjunt de colors predefinits. El trobareu a la part superior de la finestra del selector de color.</para>
+>El grup de colors bàsics és un conjunt de colors predefinits. El trobareu en la part superior de la finestra del selector de color.</para>
 
 <para
->Per a seleccionar un color des dels colors bàsics, senzillament feu-hi clic. El color es mostrarà a la dreta de la paleta, juntament amb el seu codi hexadecimal &HTML;</para>
+>Per a seleccionar un color des dels colors bàsics, sencillament feu-hi clic. El color es mostrarà a la dreta de la paleta, juntament amb el seu codi hexadecimal &HTML;</para>
 
 </sect2>
 
@@ -1789,7 +1789,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 >Colors personalitzats</title>
 
 <para
->Després de seleccionar un color, el podeu afegir al grup de colors personalitzats per a poder utilitzar-lo més tard. Per a fer-ho, feu clic en el botó <guibutton
+>Després de seleccionar un color, el podeu afegir al grup de colors personalitzats per a poder utilitzar-lo més tard. Per a fer-ho, feu clic sobre el botó <guibutton
 >Afig als colors personalitzats</guibutton
 >.</para>
 
