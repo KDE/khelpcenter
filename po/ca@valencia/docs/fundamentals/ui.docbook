@@ -181,7 +181,7 @@
 ><link linkend="visualdict-panel"
 >quadro</link
 ></emphasis
-> que conté una llista dels Llocs al sistema </para
+> que conté una llista dels Llocs en el sistema </para
 ></listitem>
 
 <listitem
@@ -302,7 +302,7 @@
 
 <listitem
 ><para
->Un element a la <link linkend="visualdict-drop-down-box"
+>Un element en la <link linkend="visualdict-drop-down-box"
 >llista desplegable</link
 > que ha sigut seleccionat </para>
 </listitem>
@@ -644,7 +644,7 @@
 <entry
 >Quadro de llista</entry>
 <entry
->És una llista d'elements que normalment permet seleccionar múltiples elements. Per a seleccionar un grup d'elements contigus, premeu la tecla &Maj; i feu clic en el primer i últim elements. Per a seleccionar múltiples elements no contigus, premeu la tecla &Ctrl; i seleccioneu els elements desitjats.</entry>
+>És una llista d'elements que normalment permet seleccionar múltiples elements. Per a seleccionar un grup d'elements contigus, premeu la tecla &Maj; i feu clic sobre el primer i últim elements. Per a seleccionar múltiples elements no contigus, premeu la tecla &Ctrl; i seleccioneu els elements desitjats.</entry>
 <entry>
 <inlinemediaobject>
 <imageobject>
@@ -659,7 +659,7 @@
 >Menú</entry>
 <entry
 >Una llista de les seleccions, que usualment realitzen una acció, establixen una opció, o òbriguen una finestra. Es poden obrir des de les <link linkend="visualdict-menubar"
->barres de menús</link
+>barres de menú</link
 > o <link linkend="visualdict-menu-button"
 >botons del menú</link
 >.</entry>
@@ -676,7 +676,7 @@
 <entry
 >Barra de menús</entry>
 <entry
->Es troba a la part superior de quasi totes les finestres i proporciona accés a totes les funcions de l'aplicació en execució. Per a obtindre més informació, vegeu <xref linkend="menus"/>.</entry>
+>Es troba en la part superior de quasi totes les finestres i proporciona accés a totes les funcions de l'aplicació en execució. Per a obtindre més informació, vegeu <xref linkend="menus"/>.</entry>
 <entry>
 <inlinemediaobject>
 <imageobject>
@@ -800,7 +800,7 @@
 <entry
 >Barra d'estat</entry>
 <entry
->Es troba a la part inferior de moltes aplicacions i mostra la informació sobre el que està fent actualment l'aplicació. Per exemple, un navegador web pot indicar el progrés de la càrrega d'una pàgina web, mentre que un processador de textos pot mostrar el nombre actual de paraules.</entry>
+>Es troba en la part inferior de moltes aplicacions i mostra la informació sobre el que està fent actualment l'aplicació. Per exemple, un navegador web pot indicar el progrés de la càrrega d'una pàgina web, mentre que un processador de textos pot mostrar el nombre actual de paraules.</entry>
 <entry>
 <inlinemediaobject>
 <imageobject>
@@ -844,7 +844,7 @@
 <entry
 >Quadro de text</entry>
 <entry
->Una entrada de text d'una sola línia que permet escriure una xicoteta quantitat de text. En general, en prémer &Intro; es realitzarà la mateixa acció que en fer clic en el botó <guibutton
+>Una entrada de text d'una sola línia que permet escriure una xicoteta quantitat de text. En general, en prémer &Intro; es realitzarà la mateixa acció que en fer clic sobre el botó <guibutton
 >D'acord</guibutton
 >.</entry>
 <entry>
@@ -860,7 +860,7 @@
 <entry
 >Barra de títol</entry>
 <entry
->Es troba a la part superior de cada finestra. Conté el nom de l'aplicació i normalment informació sobre el que fa, com el títol de la pàgina web que esteu veent en un navegador web o el nom del fitxer d'un document obert en un processador de textos.</entry>
+>Es troba en la part superior de cada finestra. Conté el nom de l'aplicació i normalment informació sobre el que fa, com el títol de la pàgina web que esteu veent en un navegador web o el nom del fitxer d'un document obert en un processador de textos.</entry>
 <entry>
 <inlinemediaobject>
 <imageobject>
@@ -894,9 +894,9 @@
 <entry
 >Vista en arbre</entry>
 <entry
->Una vista en arbre permet seleccionar des d'una llista jeràrquica d'opcions. Es pot plegar una secció o categoria de la vista en arbre, en este cas no apareixeran les opcions davall seu i la fletxa a l'esquerra del títol apuntarà cap a la dreta, cap al títol. També es pot desplegar, en este cas es mostraran diverses opcions per davall seu, i la fletxa a l'esquerra del títol estarà apuntant cap avall, cap a les opcions. Per a desplegar una part de la vista en arbre, feu clic en la fletxa situada a l'esquerra del títol de la secció que vulgueu desplegar, feu doble clic sobre el títol, o seleccioneu el títol amb les tecles de fletxa del teclat i premeu la tecla &Intro; o <keycap
+>Una vista en arbre permet seleccionar des d'una llista jeràrquica d'opcions. Es pot plegar una secció o categoria de la vista en arbre, en este cas no apareixeran les opcions davall seu i la fletxa a l'esquerra del títol apuntarà cap a la dreta, cap al títol. També es pot desplegar, en este cas es mostraran diverses opcions per davall seu, i la fletxa a l'esquerra del títol estarà apuntant cap avall, cap a les opcions. Per a desplegar una part de la vista en arbre, feu clic sobre la fletxa situada a l'esquerra del títol de la secció que vulgueu desplegar, feu doble clic sobre el títol, o seleccioneu el títol amb les tecles de fletxa del teclat i premeu la tecla &Intro; o <keycap
 >+</keycap
->. Per a minimitzar una part de la vista en arbre, també podeu fer clic en la fletxa, feu doble clic sobre el títol o premeu la tecla &Intro; o <keycap
+>. Per a minimitzar una part de la vista en arbre, també podeu fer clic sobre la fletxa, feu doble clic sobre el títol o premeu la tecla &Intro; o <keycap
 >-</keycap
 >.</entry>
 <entry>
@@ -943,7 +943,7 @@
 ></textobject>
 <caption
 ><para
->La barra de menús al <ulink url="https://www.kde.org/applications/graphics/gwenview/"
+>La barra de menús a <ulink url="https://www.kde.org/applications/graphics/gwenview/"
 >&gwenview;</ulink
 >. </para
 ></caption>
@@ -1285,7 +1285,7 @@
 ></term>
 <listitem
 ><para
->Col·loca una còpia de la part seleccionada del fitxer, si n'hi ha, al porta-retalls. </para
+>Col·loca una còpia de la part seleccionada del fitxer, si n'hi ha, en el porta-retalls. </para
 ></listitem>
 </varlistentry>
 
@@ -1652,7 +1652,7 @@
 ><para
 >Este element mostra un diàleg de configuració estàndard per a les notificacions de &kde;, on podreu canviar les notificacions (sons, missatges visibles, &etc;) utilitzades per l'aplicació.</para>
 <para
->Per a obtindre més informació sobre com configurar les notificacions, per favor, llegiu la documentació per al mòdul <ulink url="help:/kcontrol/kcmnotify/index.html"
+>Per a obtindre més informació sobre com configurar les notificacions, llegiu la documentació per al mòdul <ulink url="help:/kcontrol/kcmnotify/index.html"
 >Gestiona les notificacions</ulink
 > de &systemsettings;. </para>
 </listitem>
@@ -2050,7 +2050,7 @@ or via email (see krecipes doc rev 1306076)
 ></entry
 ><!--[kwin][Global Shortcuts] Expose=Ctrl+F9 -->
 <entry
->Presenta les finestres a l'escriptori actual</entry>
+>Presenta les finestres en l'escriptori actual</entry>
 </row>
 
 <row>
@@ -2289,7 +2289,11 @@ or via email (see krecipes doc rev 1306076)
 ></entry
 ><!--[kwin][Global Shortcuts] MoveZoomLeft=Meta+Left -->
 <entry
->Desplaça a l'esquerra</entry>
+>Desplaça a l'esquerra, mou la finestra en el monitor cap a l'esquerra<footnote id="fn1"
+><para
+>En un entorn multimonitor</para
+></footnote
+></entry>
 </row>
 
 <row>
@@ -2301,7 +2305,29 @@ or via email (see krecipes doc rev 1306076)
 ></entry
 ><!--[kwin][Global Shortcuts] MoveZoomRight=Meta+Right -->
 <entry
->Desplaça a la dreta</entry>
+>Desplaça a la dreta, mou la finestra en el monitor cap a la dreta<footnoteref linkend="fn1"/></entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keysym
+>Fletxa amunt</keysym
+></keycombo
+></entry>
+<entry
+>Maximitza/Restaura la finestra</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keysym
+>Fletxa avall</keysym
+></keycombo
+></entry>
+<entry
+>Maximitza la finestra</entry>
 </row>
 
 </tbody>
@@ -2981,7 +3007,7 @@ or via email (see krecipes doc rev 1306076)
 >Canviar el volum i la brillantor</title>
 
 <para
->A més de les tecles estàndard, molts teclats d'ordinador i portàtil, hui en dia tenen tecles especials o botons per a canviar el volum de l'altaveu, així com la brillantor del monitor. Si es troben presents, les podeu utilitzar als &plasma-workspaces; per a realitzar estes tasques.</para>
+>A més de les tecles estàndard, molts teclats d'ordinador i portàtil, hui en dia tenen tecles especials o botons per a canviar el volum de l'altaveu, així com la brillantor del monitor. Si es troben presents, les podeu utilitzar en els &plasma-workspaces; per a realitzar estes tasques.</para>
 
 <para
 >Si no disposeu d'este tipus de tecles, vegeu <xref linkend="kbd-modifying"/> per a obtindre informació sobre com assignar tecles per a estes tasques.</para>
@@ -3064,7 +3090,7 @@ or via email (see krecipes doc rev 1306076)
 >Treballar amb activitats i escriptoris virtuals</link
 > s'anomenen <emphasis
 >dreceres globals</emphasis
->, atés que funcionen independentment de la finestra que teniu oberta a la pantalla. Estes es poden modificar al <ulink url="help:/kcontrol/keys/"
+>, atés que funcionen independentment de la finestra que teniu oberta en la pantalla. Estes es poden modificar en el <ulink url="help:/kcontrol/keys/"
 >quadro Dreceres globals a &systemsettings;</ulink
 >, on es troben separades per components de &kde;.</para>
 
