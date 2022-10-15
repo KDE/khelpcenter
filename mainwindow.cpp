@@ -46,8 +46,10 @@
 #include <KWindowConfig>
 
 #include <KIO/JobUiDelegate>
+#include <KIO/JobUiDelegateFactory>
 #include <KIO/OpenUrlJob>
 #include <KIO/Job>
+#include <kio_version.h>
 
 #include <prefs.h>
 
@@ -347,7 +349,11 @@ void MainWindow::viewUrl( const QUrl &url, const KParts::OpenUrlArguments &args,
 
     if ( !own ) {
         auto *job = new KIO::OpenUrlJob(QUrl(url));
+#if KIO_VERSION < QT_VERSION_CHECK(5, 98, 0)
         job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
+#else
+        job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
+#endif
         job->start();
         return;
     }
