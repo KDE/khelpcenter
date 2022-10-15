@@ -228,7 +228,7 @@ bool SearchEngine::initSearchHandlers()
   if ( mHandlers.isEmpty() ) {
     const QString txt = i18n("No valid search handler found.");
     qCWarning(KHC_LOG) << txt;
-//    KMessageBox::sorry( mView->widget(), txt );
+//    KMessageBox::error( mView->widget(), txt );
     return false;
   }
 

@@ -561,7 +561,7 @@ void Navigator::slotSearch()
 
   if ( !mSearchEngine->search( words, method, pages, scope ) ) {
     slotSearchFinished();
-    KMessageBox::sorry( this, i18n("Unable to run search program.") );
+    KMessageBox::error( this, i18n("Unable to run search program.") );
   }
   
 }
