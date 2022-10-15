@@ -62,7 +62,7 @@ void Application::activateForStartLikeCall()
 #endif
 
   mMainWindow->raise();
-  KWindowSystem::activateWindow(mMainWindow->winId());
+  KWindowSystem::activateWindow(mMainWindow->windowHandle());
 }
 
 void Application::newInstance()
