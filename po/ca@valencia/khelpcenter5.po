@@ -36,7 +36,7 @@ msgstr "sps@sastia.com,antonibella5@yahoo.com"
 #: application.cpp:30
 #, kde-format
 msgid "Documentation to open"
-msgstr "Documentació que s'obrirà"
+msgstr "Documentació que s'ha d'obrir"
 
 #: application.cpp:114 application.cpp:116
 #, kde-format

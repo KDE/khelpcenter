@@ -248,7 +248,7 @@ otherterm="gloss-kbuildsycoca"
 >Plataforma</glossterm>
 			<glossdef
 ><para
->Anteriorment la base de les biblioteques i els serveis necessaris per executar les aplicacions &kde;. És utilitzat pel nucli i els desenvolupadors de tercers per crear programari &kde;. Sobretot si s'inclouen els frameworks i eines de desenvolupament que es poden anomenar com la Plataforma de desenvolupament de &kde;. La plataforma de &kde; es basa en una sèrie de pilars, per exemple Akonadi, Solid, Phonon.</para
+>Anteriorment la base de les biblioteques i els serveis necessaris per a executar les aplicacions &kde;. És utilitzat pel nucli i els desenvolupadors de tercers per crear programari &kde;. Sobretot si s'inclouen els frameworks i eines de desenvolupament que es poden anomenar com la Plataforma de desenvolupament de &kde;. La plataforma de &kde; es basa en una sèrie de pilars, per exemple Akonadi, Solid, Phonon.</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-plasma"
@@ -579,7 +579,7 @@ otherterm="gloss-kbuildsycoca"
 ></glossterm>
 			<glossdef>
 				<para
->En &kde; 3, la barra era ubicada, usualment a la part inferior de la pantalla (A vegades anomenada el Quadro), a on es troben els llançadors d'aplicacions, el Paginador, i els botons per executar algunes aplicacions.</para
+>En &kde; 3, la barra era ubicada, usualment a la part inferior de la pantalla (A vegades anomenada el Quadro), a on es troben els llançadors d'aplicacions, el Paginador, i els botons per a executar algunes aplicacions.</para
 ><glossseealso otherterm="gloss-panel"
 >Quadro</glossseealso
 > <glossseealso otherterm="gloss-plasma"
