@@ -86,9 +86,9 @@ void SearchJob::slotJobData( KIO::Job *job, const QByteArray &data )
 
 
 SearchHandler::SearchHandler( const KConfigGroup &cg )
+  : mLang( QLocale().bcp47Name().left( 2 ) )
+  , mDocumentTypes( cg.readEntry( "DocumentTypes" , QStringList() ) )
 {
-  mLang = QLocale().bcp47Name().left( 2 );
-  mDocumentTypes = cg.readEntry( "DocumentTypes" , QStringList() );
 }
 
 SearchHandler::~SearchHandler()
@@ -115,12 +115,12 @@ QStringList SearchHandler::documentTypes() const
 
 ExternalProcessSearchHandler::ExternalProcessSearchHandler( const KConfigGroup &cg )
   : SearchHandler( cg )
+  , mSearchCommand( cg.readEntry( "SearchCommand" ) )
+  , mSearchUrl( cg.readEntry( "SearchUrl" ) )
+  , mSearchBinary( cg.readEntry( "SearchBinary" ) )
+  , mIndexCommand( cg.readEntry( "IndexCommand" ) )
+  , mTryExec( cg.readEntry( "TryExec" ) )
 {
-  mSearchCommand = cg.readEntry( "SearchCommand" );
-  mSearchUrl = cg.readEntry( "SearchUrl" );
-  mIndexCommand = cg.readEntry( "IndexCommand" );
-  mTryExec = cg.readEntry( "TryExec" );
-  mSearchBinary = cg.readEntry( "SearchBinary" );
   const QStringList searchBinaryPaths = cg.readEntry( "SearchBinaryPaths", QStringList() );
   mSearchBinary = QStandardPaths::findExecutable(mSearchBinary, searchBinaryPaths);
 }
