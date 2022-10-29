@@ -168,7 +168,7 @@
 >Controladors, controladors d'impressora</glossterm>
                         <glossdef
 ><para
->El terme «controladors d'impressora», emprat en el mateix sentit que en la plataforma &Microsoft; &Windows;, no és totalment aplicable a una plataforma Linux o &UNIX;. La funcionalitat del «controlador» sobre &UNIX; és subministrada per diversos components modulars treballant conjuntament. En el cor de tot plegat estan els «filtres», que convertixen un cert format a un altre que puga entendre la impressora de destinació. En la majoria de casos els filtres poden estar connectats en una completa «cadena» de filtratge, en la qual tan sols s'envia a la impressora el resultat de l'últim filtre. La transferència real de dades per a la impressió, es fa a través d'un «dorsal». </para
+>El terme «controladors d'impressora», emprat en el mateix sentit que en la plataforma &Microsoft; &Windows;, no és totalment aplicable a una plataforma Linux o &UNIX;. La característica del «controlador» sobre &UNIX; és subministrada per diversos components modulars treballant conjuntament. En el cor de tot plegat estan els «filtres», que convertixen un cert format a un altre que puga entendre la impressora de destinació. En la majoria de casos els filtres poden estar connectats en una completa «cadena» de filtratge, en la qual tan sols s'envia a la impressora el resultat de l'últim filtre. La transferència real de dades per a la impressió, es fa a través d'un «dorsal». </para
 ><glossseealso otherterm="gloss-filter"
 >Filtre</glossseealso
 > <glossseealso otherterm="gloss-ppd"

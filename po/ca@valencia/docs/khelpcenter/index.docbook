@@ -336,7 +336,7 @@
 ></term>
 <listitem>
 <para
->Proporciona una llista d'enllaços als diversos mòduls que es troben a l'aplicació &systemsettings; o a &konqueror;, al gestor de fitxers o navegador. </para>
+>Proporciona una llista d'enllaços als diversos mòduls que es troben en l'aplicació &systemsettings; o a &konqueror;, al gestor de fitxers o navegador. </para>
 </listitem>
 </varlistentry>
 
@@ -347,7 +347,7 @@
 ></term>
 <listitem>
 <para
->Conté una llista d'enllaços a documentació de diversos mòduls de KInfoCenter. </para>
+>Conté una llista d'enllaços cap a documentació de diversos mòduls de KInfoCenter. </para>
 </listitem>
 </varlistentry>
 
@@ -358,7 +358,7 @@
 ></term>
 <listitem>
 <para
->Conté una llista d'enllaços a documentació de diversos mòduls <acronym
+>Conté una llista d'enllaços cap a documentació de diversos mòduls <acronym
 >KIO</acronym
 >. </para>
 </listitem>

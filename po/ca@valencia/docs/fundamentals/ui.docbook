@@ -278,7 +278,7 @@
 </screenshot>
 
 <para
->Esta captura de pantalla, del quadro Formats a &systemsettings;, mostra alguns elements de la &IGU;. Per a aprendre més sobre seu, feu clic sobre una part de la finestra.</para>
+>Esta captura de pantalla, del quadro Formats en &systemsettings;, mostra alguns elements de la &IGU;. Per a aprendre més sobre seu, feu clic sobre una part de la finestra.</para>
 
 <orderedlist>
 
@@ -338,7 +338,7 @@
 </screenshot>
 
 <para
->Esta captura de pantalla, del quadro Dreceres personalitzades a &systemsettings;, mostra alguns elements més de la &IGU;.</para>
+>Esta captura de pantalla, del quadro Dreceres personalitzades en &systemsettings;, mostra alguns elements més de la &IGU;.</para>
 
 <orderedlist>
 
@@ -398,7 +398,7 @@
 </screenshot>
 
 <para
->Esta captura de pantalla, del quadro Aplicacions predeterminades a &systemsettings;, mostra alguns elements més de la &IGU;. Per a aprendre més sobre seu, feu clic sobre una part de la finestra.</para>
+>Esta captura de pantalla, del quadro Aplicacions predeterminades en &systemsettings;, mostra alguns elements més de la &IGU;. Per a aprendre més sobre seu, feu clic sobre una part de la finestra.</para>
 
 <orderedlist>
 
@@ -446,7 +446,7 @@
 </screenshot>
 
 <para
->Finalment, esta captura de pantalla, del quadro Colors a &systemsettings;, mostra cinc <emphasis role="bold"
+>Finalment, esta captura de pantalla, del quadro Colors en &systemsettings;, mostra cinc <emphasis role="bold"
 ><link linkend="visualdict-tab"
 >pestanyes</link
 ></emphasis
@@ -3091,7 +3091,7 @@ or via email (see krecipes doc rev 1306076)
 > s'anomenen <emphasis
 >dreceres globals</emphasis
 >, atés que funcionen independentment de la finestra que teniu oberta en la pantalla. Estes es poden modificar en el <ulink url="help:/kcontrol/keys/"
->quadro Dreceres globals a &systemsettings;</ulink
+>quadro Dreceres globals en &systemsettings;</ulink
 >, on es troben separades per components de &kde;.</para>
 
 <para
