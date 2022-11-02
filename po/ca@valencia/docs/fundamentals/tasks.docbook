@@ -47,7 +47,7 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 ></term>
 <listitem
 ><para
->Desplaça directament fins a la ubicació representada on feu clic dret sobre la barra de desplaçament. Açò és l'equivalent de sencillament fer clic sobre esta ubicació a la barra de desplaçament.</para
+>Desplaça directament fins a la ubicació representada on feu clic dret sobre la barra de desplaçament. Açò és l'equivalent de sencillament fer clic damunt d'esta ubicació a la barra de desplaçament.</para
 ></listitem>
 </varlistentry>
 
@@ -130,7 +130,7 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 ></term>
 <listitem
 ><para
->Desplaça cap amunt una unitat (usualment una línia) en el document. Açò és l'equivalent de fer clic sobre la fletxa cap amunt a la part superior de la barra de desplaçament.</para>
+>Desplaça cap amunt una unitat (usualment una línia) en el document. Açò és l'equivalent de fer clic damunt de la fletxa cap amunt a la part superior de la barra de desplaçament.</para>
 </listitem>
 </varlistentry>
 
@@ -141,7 +141,7 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 ></term>
 <listitem
 ><para
->Desplaça cap avall una unitat (usualment una línia) en el document. Açò és l'equivalent de fer clic sobre la fletxa cap avall a la part inferior de la barra de desplaçament.</para>
+>Desplaça cap avall una unitat (usualment una línia) en el document. Açò és l'equivalent de fer clic damunt de la fletxa cap avall a la part inferior de la barra de desplaçament.</para>
 </listitem>
 </varlistentry>
 
@@ -154,7 +154,7 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 >Fer «zoom»</title>
 
 <para
->Moltes aplicacions permeten fer zoom. Açò fa més gran o xicotet el text o la imatge que esteu veent. En general trobareu la funció de zoom en el <link linkend="menus-view"
+>Moltes aplicacions permeten fer zoom. Açò fa més gran o xicotet el text o la imatge que esteu veent. En general trobareu la característica de zoom en el <link linkend="menus-view"
 >menú Visualitza</link
 >, i de vegades en la barra d'estat de l'aplicació.</para>
 
@@ -623,7 +623,7 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 <para
 >En el mode <quote
 >navega</quote
->, el qual que és el predeterminat, el nom de cada carpeta en el camí de la carpeta actual és un botó sobre el qual es pot fer clic per a obrir-la ràpidament. D'altra banda, fer clic sobre el signe <quote
+>, el qual que és el predeterminat, el nom de cada carpeta en el camí de la carpeta actual és un botó sobre el qual es pot fer clic per a obrir-la ràpidament. D'altra banda, fer clic damunt del signe <quote
 >&gt;</quote
 > a la dreta d'una carpeta obrirà un menú que permet obrir ràpidament una subcarpeta d'esta. </para>
 
@@ -655,7 +655,7 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 <para
 >En el mode navegació, en fer clic sobre l'àrea grisa a la dreta del camí amb el &BER; es canvia la barra d'ubicació al mode <quote
 >edita</quote
->, en el qual el camí es pot editar utilitzant el teclat. Per a tornar al mode navegació, feu clic sobre la marca de selecció a la dreta de la barra d'ubicació amb el &BER;. </para>
+>, en el qual el camí es pot editar utilitzant el teclat. Per a tornar al mode navegació, feu clic damunt de la marca de selecció a la dreta de la barra d'ubicació amb el &BER;. </para>
 
 <screenshot>
 <screeninfo
@@ -766,7 +766,7 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 >.</para>
 <!-- FIXME select a file by typing the first letters of its name-->
 <para
->També podeu seleccionar múltiples fitxers alhora. Per a seleccionar fitxers específics, o per a anul·lar la selecció de fitxers específics que ja estan seleccionats, premeu la tecla &Ctrl;, feu clic sobre cada fitxer, llavors deixeu anar la tecla. Per a seleccionar un grup contigu de fitxers, feu clic sobre el primer fitxer, premeu la tecla &Maj;, feu clic sobre l'últim fitxer en el grup i deixeu anar la tecla.</para>
+>També podeu seleccionar múltiples fitxers alhora. Per a seleccionar fitxers específics, o per a anul·lar la selecció de fitxers específics que ja estan seleccionats, premeu la tecla &Ctrl;, feu clic damunt de cada fitxer, llavors deixeu anar la tecla. Per a seleccionar un grup contigu de fitxers, feu clic damunt del primer fitxer, premeu la tecla &Maj;, feu clic sobre l'últim fitxer en el grup i deixeu anar la tecla.</para>
 
 <para
 >La vista de carpeta admet un nombre limitat d'operacions de fitxer, al qual es pot accedir fent clic dret sobre un fitxer per a accedir al seu menú contextual o utilitzant les dreceres de teclat. En el menú contextual hi ha disponibles els elements següents:</para>
@@ -1448,7 +1448,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 >\0</quote
 > representa tota la cadena trobada.</para>
 <para
->Podeu inserir reserves de lloc a dins del quadro de text fent clic sobre el botó <guibutton
+>Podeu inserir reserves de lloc a dins del quadro de text fent clic damunt del botó <guibutton
 >Inserix una reserva de lloc</guibutton
 >, després seleccionant una opció del menú com <guimenuitem
 >Coincidència completa</guimenuitem
@@ -1727,7 +1727,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 <para
 >L'eina de comptagotes permet seleccionar un color a la pantalla. Per a utilitzar-la, seleccioneu el botó <guibutton
 >Selecciona un color a la pantalla</guibutton
-> davall dels colors bàsics, i després feu clic sobre qualsevol lloc de la pantalla per a seleccionar este color.</para>
+> davall dels colors bàsics, i després feu clic damunt de qualsevol lloc de la pantalla per a seleccionar este color.</para>
 
 </sect3>
 
@@ -1789,7 +1789,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 >Colors personalitzats</title>
 
 <para
->Després de seleccionar un color, el podeu afegir al grup de colors personalitzats per a poder utilitzar-lo més tard. Per a fer-ho, feu clic sobre el botó <guibutton
+>Després de seleccionar un color, el podeu afegir al grup de colors personalitzats per a poder utilitzar-lo més tard. Per a fer-ho, feu clic damunt del botó <guibutton
 >Afig als colors personalitzats</guibutton
 >.</para>
 

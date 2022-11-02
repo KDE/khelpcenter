@@ -66,7 +66,7 @@
 </mediaobjectco>
 </screenshot>
 <para
->Esta és la finestra de &kwrite;, un editor de text. Per a aprendre més sobre seu, feu clic sobre una part de la finestra.</para>
+>Esta és la finestra de &kwrite;, un editor de text. Per a aprendre més sobre seu, feu clic damunt d'una part de la finestra.</para>
 
 <orderedlist>
 
@@ -171,7 +171,7 @@
 </screenshot>
 
 <para
->Esta és una altra finestra, la del gestor de fitxers &dolphin;. Per a aprendre més sobre seu, feu clic sobre una part de la finestra.</para>
+>Esta és una altra finestra, la del gestor de fitxers &dolphin;. Per a aprendre més sobre seu, feu clic damunt d'una part de la finestra.</para>
 
 <orderedlist>
 
@@ -278,7 +278,7 @@
 </screenshot>
 
 <para
->Esta captura de pantalla, del quadro Formats en &systemsettings;, mostra alguns elements de la &IGU;. Per a aprendre més sobre seu, feu clic sobre una part de la finestra.</para>
+>Esta captura de pantalla, del quadro Formats en &systemsettings;, mostra alguns elements de la &IGU;. Per a aprendre més sobre seu, feu clic damunt d'una part de la finestra.</para>
 
 <orderedlist>
 
@@ -398,7 +398,7 @@
 </screenshot>
 
 <para
->Esta captura de pantalla, del quadro Aplicacions predeterminades en &systemsettings;, mostra alguns elements més de la &IGU;. Per a aprendre més sobre seu, feu clic sobre una part de la finestra.</para>
+>Esta captura de pantalla, del quadro Aplicacions predeterminades en &systemsettings;, mostra alguns elements més de la &IGU;. Per a aprendre més sobre seu, feu clic damunt d'una part de la finestra.</para>
 
 <orderedlist>
 
@@ -512,7 +512,7 @@
 <entry
 >Àrea de selecció</entry>
 <entry
->Mostra el camí en un sistema jeràrquic, tal com un sistema de fitxers. Feu clic sobre qualsevol part del camí per a pujar en l'arbre des d'esta ubicació. Feu clic sobre la fletxa a la dreta de la part del camí per anar a un altre element secundari d'este camí. </entry>
+>Mostra el camí en un sistema jeràrquic, tal com un sistema de fitxers. Feu clic damunt de qualsevol part del camí per a pujar en l'arbre des d'esta ubicació. Feu clic damunt de la fletxa a la dreta de la part del camí per anar a un altre element secundari d'este camí. </entry>
 <entry>
 <inlinemediaobject>
 <imageobject>
@@ -644,7 +644,7 @@
 <entry
 >Quadro de llista</entry>
 <entry
->És una llista d'elements que normalment permet seleccionar múltiples elements. Per a seleccionar un grup d'elements contigus, premeu la tecla &Maj; i feu clic sobre el primer i últim elements. Per a seleccionar múltiples elements no contigus, premeu la tecla &Ctrl; i seleccioneu els elements desitjats.</entry>
+>És una llista d'elements que normalment permet seleccionar múltiples elements. Per a seleccionar un grup d'elements contigus, premeu la tecla &Maj; i feu clic damunt del primer i últim elements. Per a seleccionar múltiples elements no contigus, premeu la tecla &Ctrl; i seleccioneu els elements desitjats.</entry>
 <entry>
 <inlinemediaobject>
 <imageobject>
@@ -844,7 +844,7 @@
 <entry
 >Quadro de text</entry>
 <entry
->Una entrada de text d'una sola línia que permet escriure una xicoteta quantitat de text. En general, en prémer &Intro; es realitzarà la mateixa acció que en fer clic sobre el botó <guibutton
+>Una entrada de text d'una sola línia que permet escriure una xicoteta quantitat de text. En general, en prémer &Intro; es realitzarà la mateixa acció que en fer clic damunt del botó <guibutton
 >D'acord</guibutton
 >.</entry>
 <entry>
@@ -894,9 +894,9 @@
 <entry
 >Vista en arbre</entry>
 <entry
->Una vista en arbre permet seleccionar des d'una llista jeràrquica d'opcions. Es pot plegar una secció o categoria de la vista en arbre, en este cas no apareixeran les opcions davall seu i la fletxa a l'esquerra del títol apuntarà cap a la dreta, cap al títol. També es pot desplegar, en este cas es mostraran diverses opcions per davall seu, i la fletxa a l'esquerra del títol estarà apuntant cap avall, cap a les opcions. Per a desplegar una part de la vista en arbre, feu clic sobre la fletxa situada a l'esquerra del títol de la secció que vulgueu desplegar, feu doble clic sobre el títol, o seleccioneu el títol amb les tecles de fletxa del teclat i premeu la tecla &Intro; o <keycap
+>Una vista en arbre permet seleccionar des d'una llista jeràrquica d'opcions. Es pot plegar una secció o categoria de la vista en arbre, en este cas no apareixeran les opcions davall seu i la fletxa a l'esquerra del títol apuntarà cap a la dreta, cap al títol. També es pot desplegar, en este cas es mostraran diverses opcions per davall seu, i la fletxa a l'esquerra del títol estarà apuntant cap avall, cap a les opcions. Per a desplegar una part de la vista en arbre, feu clic damunt de la fletxa situada a l'esquerra del títol de la secció que vulgueu desplegar, feu doble clic damunt del títol, o seleccioneu el títol amb les tecles de fletxa del teclat i premeu la tecla &Intro; o <keycap
 >+</keycap
->. Per a minimitzar una part de la vista en arbre, també podeu fer clic sobre la fletxa, feu doble clic sobre el títol o premeu la tecla &Intro; o <keycap
+>. Per a minimitzar una part de la vista en arbre, també podeu fer clic damunt de la fletxa, feu doble clic damunt del títol o premeu la tecla &Intro; o <keycap
 >-</keycap
 >.</entry>
 <entry>
@@ -1733,7 +1733,7 @@
 ><para
 ><action
 >Canvia el cursor del ratolí a una combinació de fletxa i interrogació.</action
-> En fer clic sobre els elements dins de l'aplicació, s'obrirà una finestra d'ajuda (si existix per a este cas en particular) descrivint la funció de l'element.</para
+> En fer clic damunt dels elements dins de l'aplicació, s'obrirà una finestra d'ajuda (si existix per a este cas en particular) descrivint la funció de l'element.</para
 ></listitem>
 </varlistentry>
 

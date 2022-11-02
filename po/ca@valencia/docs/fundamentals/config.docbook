@@ -84,14 +84,14 @@
 <title
 >Afegir un element</title>
 <para
->Podeu afegir un element a la barra d'eines seleccionant-lo al costat esquerre i fent clic sobre el botó de fletxa dreta.</para>
+>Podeu afegir un element a la barra d'eines seleccionant-lo al costat esquerre i fent clic damunt del botó de fletxa dreta.</para>
 </sect3>
 
 <sect3 id="toolbars-items-remove">
 <title
 >Eliminar un element</title>
 <para
->Podeu eliminar un element seleccionant-lo i fent clic sobre el botó de fletxa esquerra.</para>
+>Podeu eliminar un element seleccionant-lo i fent clic damunt del botó de fletxa esquerra.</para>
 </sect3>
 
 
@@ -132,7 +132,7 @@
 >Canviar el text i les icones</title>
 
 <para
->Podeu canviar la icona i el text dels elements individuals a la barra d'eines seleccionant un element i fent clic sobre els botons <guibutton
+>Podeu canviar la icona i el text dels elements individuals a la barra d'eines seleccionant un element i fent clic damunt dels botons <guibutton
 >Canvia la icona...</guibutton
 > o <guibutton
 >Canvia el text...</guibutton
@@ -398,9 +398,9 @@ another place to change Global Shortcuts (Systemsettings)-->
 >Canviar una drecera</title>
 
 <para
->Per a canviar una drecera, primer feu clic sobre el nom de la que voleu canviar. Veureu un grup de botons d'opció en el qual podreu decidir si la voleu establir al seu valor predeterminat o seleccionar-ne una de nova per a l'acció seleccionada. Per a establir una drecera nova, escolliu <guilabel
+>Per a canviar una drecera, primer feu clic damunt del nom de la que voleu canviar. Veureu un grup de botons d'opció en el qual podreu decidir si la voleu establir al seu valor predeterminat o seleccionar-ne una de nova per a l'acció seleccionada. Per a establir una drecera nova, escolliu <guilabel
 >Personalitza</guilabel
-> i feu clic sobre el botó al seu costat. Després només haureu d'escriure la drecera que voleu i guardar els canvis.</para>
+> i feu clic damunt del botó al seu costat. Després només haureu d'escriure la drecera que voleu i guardar els canvis.</para>
 
 <screenshot id="screenshot-shortcuts-set">
 <screeninfo
@@ -437,7 +437,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 >Eliminar una drecera</title>
 
 <para
->Per a eliminar una drecera, seleccioneu-la a la llista, feu clic sobre la icona <guibutton
+>Per a eliminar una drecera, seleccioneu-la a la llista, feu clic damunt de la icona <guibutton
 >Elimina</guibutton
 > (una fletxa de color negre amb una creu) a la dreta del botó que permet seleccionar una drecera.</para>
 
@@ -470,7 +470,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 </screenshot>
 
 <para
->Per a veure un menú que vos permeta editar esquemes, feu clic sobre el botó <guibutton
+>Per a veure un menú que vos permeta editar esquemes, feu clic damunt del botó <guibutton
 >Gestiona els esquemes</guibutton
 > a la part inferior del formulari. Apareixeran les opcions següents:</para>
 
@@ -564,7 +564,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 >Imprimir les dreceres</title>
 
 <para
->Podeu imprimir una llista de les dreceres per a facilitar la consulta fent clic sobre el botó <guibutton
+>Podeu imprimir una llista de les dreceres per a facilitar la consulta fent clic damunt del botó <guibutton
 >Imprimix</guibutton
 > a la part inferior de la finestra.</para>
 
