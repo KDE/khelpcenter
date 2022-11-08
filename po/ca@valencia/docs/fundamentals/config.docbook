@@ -49,7 +49,7 @@
 ><guimenuitem
 >Configura les barres d'eines...</guimenuitem
 ></menuchoice
-> o feu clic dret sobre una barra d'eines i seleccioneu <guimenuitem
+> o feu clic dret damunt d'una barra d'eines i seleccioneu <guimenuitem
 >Configura les barres d'eines...</guimenuitem
 >.</para>
 
@@ -132,7 +132,7 @@
 >Canviar el text i les icones</title>
 
 <para
->Podeu canviar la icona i el text dels elements individuals a la barra d'eines seleccionant un element i fent clic damunt dels botons <guibutton
+>Podeu canviar la icona i el text dels elements individuals en la barra d'eines seleccionant un element i fent clic damunt dels botons <guibutton
 >Canvia la icona...</guibutton
 > o <guibutton
 >Canvia el text...</guibutton
@@ -194,7 +194,7 @@
 </itemizedlist>
 
 <para
->També podeu mostrar o ocultar el text per a cada element individual a la barra d'eines fent clic dret sobre un element i marcant o desmarcant l'element davall <guilabel
+>També podeu mostrar o ocultar el text per a cada element individual en la barra d'eines fent clic dret damunt d'un element i marcant o desmarcant l'element davall <guilabel
 >Mostra el text</guilabel
 >.</para>
 
