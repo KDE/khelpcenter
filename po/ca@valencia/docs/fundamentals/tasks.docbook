@@ -36,7 +36,7 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 >, i podeu controlar el comportament del desplaçament del ratolí tàctil en el mòdul per al ratolí tàctil en &systemsettings;. En cas contrari, busqueu en l'àrea de configuració del vostre sistema operatiu o entorn d'escriptori.</para>
 
 <para
->A més, la barra de desplaçament té diverses opcions en el seu menú contextual. Hi podeu accedir fent clic dret sobre qualsevol lloc de la barra de desplaçament. Les opcions disponibles són les següents:</para>
+>A més, la barra de desplaçament té diverses opcions en el seu menú contextual. Hi podeu accedir fent clic dret damunt de qualsevol lloc de la barra de desplaçament. Les opcions disponibles són les següents:</para>
 
 <variablelist>
 
@@ -47,7 +47,7 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 ></term>
 <listitem
 ><para
->Desplaça directament fins a la ubicació representada on feu clic dret sobre la barra de desplaçament. Açò és l'equivalent de sencillament fer clic damunt d'esta ubicació a la barra de desplaçament.</para
+>Desplaça directament fins a la ubicació representada on feu clic dret damunt de la barra de desplaçament. Açò és l'equivalent de sencillament fer clic damunt d'esta ubicació en la barra de desplaçament.</para
 ></listitem>
 </varlistentry>
 
@@ -769,7 +769,7 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 >També podeu seleccionar múltiples fitxers alhora. Per a seleccionar fitxers específics, o per a anul·lar la selecció de fitxers específics que ja estan seleccionats, premeu la tecla &Ctrl;, feu clic damunt de cada fitxer, llavors deixeu anar la tecla. Per a seleccionar un grup contigu de fitxers, feu clic damunt del primer fitxer, premeu la tecla &Maj;, feu clic sobre l'últim fitxer en el grup i deixeu anar la tecla.</para>
 
 <para
->La vista de carpeta admet un nombre limitat d'operacions de fitxer, al qual es pot accedir fent clic dret sobre un fitxer per a accedir al seu menú contextual o utilitzant les dreceres de teclat. En el menú contextual hi ha disponibles els elements següents:</para>
+>La vista de carpeta admet un nombre limitat d'operacions de fitxer, al qual es pot accedir fent clic dret damunt d'un fitxer per a accedir al seu menú contextual o utilitzant les dreceres de teclat. En el menú contextual hi ha disponibles els elements següents:</para>
 
 <variablelist>
 
@@ -1118,7 +1118,7 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 >.</para>
 
 <para
->Les paraules potencialment mal escrites seran subratllades en roig. Per a seleccionar un suggeriment, feu clic dret sobre la paraula, seleccioneu el submenú <guisubmenu
+>Les paraules potencialment mal escrites seran subratllades en roig. Per a seleccionar un suggeriment, feu clic dret damunt de la paraula, seleccioneu el submenú <guisubmenu
 >Ortografia</guisubmenu
 > i seleccioneu el suggeriment. També podeu instruir a &sonnet; per a ignorar esta ortografia en este document seleccionant <guimenuitem
 >Ignora la paraula</guimenuitem
