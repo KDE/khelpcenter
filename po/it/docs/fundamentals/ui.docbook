@@ -2331,7 +2331,11 @@ or via email (see krecipes doc rev 1306076)
 ></entry
 ><!--[kwin][Global Shortcuts] MoveZoomLeft=Meta+Left -->
 <entry
->Scorri a sinistra</entry>
+>Scorri a sinistra, sposta la finestra sul monitor a sinistra<footnote id="fn1"
+><para
+>In una abiente con più monitor</para
+></footnote
+></entry>
 </row>
 
 <row>
@@ -2343,7 +2347,29 @@ or via email (see krecipes doc rev 1306076)
 ></entry
 ><!--[kwin][Global Shortcuts] MoveZoomRight=Meta+Right -->
 <entry
->Scorri a destra</entry>
+>Scorri a destra, sposta la finestra sul monitor a destra<footnoteref linkend="fn1"/></entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keysym
+>PagSu</keysym
+></keycombo
+></entry>
+<entry
+>Massimizza/ripristina la finestra</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keysym
+>PagGiù</keysym
+></keycombo
+></entry>
+<entry
+>Minimizza la finestra</entry>
 </row>
 
 </tbody>
