@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-15 00:47+0000\n"
+"POT-Creation-Date: 2022-11-17 00:49+0000\n"
 "PO-Revision-Date: 2020-10-12 10:57+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
@@ -254,77 +254,77 @@ msgstr "&Ga naar"
 msgid "Main Toolbar"
 msgstr "Hoofdwerkbalk"
 
-#: mainwindow.cpp:62
+#: mainwindow.cpp:64
 #, kde-format
 msgid "Search Error Log"
 msgstr "Zoekfoutenlog"
 
-#: mainwindow.cpp:114
+#: mainwindow.cpp:116
 #, kde-format
 msgid "Preparing Index"
 msgstr "Bezig met voorbereiden van de index"
 
-#: mainwindow.cpp:157
+#: mainwindow.cpp:159
 #, kde-format
 msgid "Ready"
 msgstr "Gereed"
 
-#: mainwindow.cpp:208
+#: mainwindow.cpp:210
 #, kde-format
 msgid "Previous Page"
 msgstr "Vorige pagina"
 
-#: mainwindow.cpp:210
+#: mainwindow.cpp:212
 #, kde-format
 msgid "Moves to the previous page of the document"
 msgstr "Gaat naar de vorige pagina van het document"
 
-#: mainwindow.cpp:214
+#: mainwindow.cpp:216
 #, kde-format
 msgid "Next Page"
 msgstr "Volgende pagina"
 
-#: mainwindow.cpp:216
+#: mainwindow.cpp:218
 #, kde-format
 msgid "Moves to the next page of the document"
 msgstr "Gaat naar de volgende pagina van het document"
 
-#: mainwindow.cpp:223
+#: mainwindow.cpp:225
 #, kde-format
 msgid "Table of &Contents"
 msgstr "Inhoudsop&gave"
 
-#: mainwindow.cpp:224
+#: mainwindow.cpp:226
 #, kde-format
 msgid "Table of contents"
 msgstr "Inhoudsopgave"
 
-#: mainwindow.cpp:225
+#: mainwindow.cpp:227
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "Ga terug naar de inhoudsopgave"
 
-#: mainwindow.cpp:231
+#: mainwindow.cpp:233
 #, kde-format
 msgid "&Last Search Result"
 msgstr "&Laatste zoekresultaat"
 
-#: mainwindow.cpp:249
+#: mainwindow.cpp:251
 #, kde-format
 msgid "Configure Fonts..."
 msgstr "Lettertypen instellen..."
 
-#: mainwindow.cpp:253
+#: mainwindow.cpp:255
 #, kde-format
 msgid "Increase Font Sizes"
 msgstr "Lettertekens vergroten"
 
-#: mainwindow.cpp:258
+#: mainwindow.cpp:260
 #, kde-format
 msgid "Decrease Font Sizes"
 msgstr "Lettertekens verkleinen"
 
-#: mainwindow.cpp:274
+#: mainwindow.cpp:276
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"

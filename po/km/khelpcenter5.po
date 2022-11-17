@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-15 00:47+0000\n"
+"POT-Creation-Date: 2022-11-17 00:49+0000\n"
 "PO-Revision-Date: 2012-01-06 08:50+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -260,77 +260,77 @@ msgstr "ទៅ"
 msgid "Main Toolbar"
 msgstr "របារ​ឧបករណ៍​មេ​"
 
-#: mainwindow.cpp:62
+#: mainwindow.cpp:64
 #, kde-format
 msgid "Search Error Log"
 msgstr "ស្វែង​រក​កំណត់​ហេតុ​របស់​កំហុស"
 
-#: mainwindow.cpp:114
+#: mainwindow.cpp:116
 #, kde-format
 msgid "Preparing Index"
 msgstr "កំពុង​រៀបចំ​លិបិក្រម"
 
-#: mainwindow.cpp:157
+#: mainwindow.cpp:159
 #, kde-format
 msgid "Ready"
 msgstr "រួចរាល់"
 
-#: mainwindow.cpp:208
+#: mainwindow.cpp:210
 #, kde-format
 msgid "Previous Page"
 msgstr "ទំព័រ​មុន"
 
-#: mainwindow.cpp:210
+#: mainwindow.cpp:212
 #, kde-format
 msgid "Moves to the previous page of the document"
 msgstr "ផ្លាស់ទី​ទៅ​ទំព័រ​មុន​របស់​ឯកសារ"
 
-#: mainwindow.cpp:214
+#: mainwindow.cpp:216
 #, kde-format
 msgid "Next Page"
 msgstr "ទំព័រ​បន្ទាប់"
 
-#: mainwindow.cpp:216
+#: mainwindow.cpp:218
 #, kde-format
 msgid "Moves to the next page of the document"
 msgstr "ផ្លាស់ទី​ទៅ​ទំព័រ​បន្ទាប់​របស់​ឯកសារ"
 
-#: mainwindow.cpp:223
+#: mainwindow.cpp:225
 #, kde-format
 msgid "Table of &Contents"
 msgstr "តារាង​មាតិកា"
 
-#: mainwindow.cpp:224
+#: mainwindow.cpp:226
 #, kde-format
 msgid "Table of contents"
 msgstr "តារាង​មាតិកា"
 
-#: mainwindow.cpp:225
+#: mainwindow.cpp:227
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "ត្រឡប់​ទៅ​តារាង​មាតិកា"
 
-#: mainwindow.cpp:231
+#: mainwindow.cpp:233
 #, kde-format
 msgid "&Last Search Result"
 msgstr "លទ្ធផល​ស្វែងរក​ចុង​ក្រោយ"
 
-#: mainwindow.cpp:249
+#: mainwindow.cpp:251
 #, kde-format
 msgid "Configure Fonts..."
 msgstr "កំណត់​រចនា​សម្ព័ន្ធ​ពុម្ព​អក្សរ..."
 
-#: mainwindow.cpp:253
+#: mainwindow.cpp:255
 #, kde-format
 msgid "Increase Font Sizes"
 msgstr "បង្កើន​ទំហំ​ពុម្ព​អក្សរ"
 
-#: mainwindow.cpp:258
+#: mainwindow.cpp:260
 #, kde-format
 msgid "Decrease Font Sizes"
 msgstr "បន្ថយ​ទំហំ​ពុម្ព​អក្សរ"
 
-#: mainwindow.cpp:274
+#: mainwindow.cpp:276
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"

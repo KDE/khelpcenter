@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-15 00:47+0000\n"
+"POT-Creation-Date: 2022-11-17 00:49+0000\n"
 "PO-Revision-Date: 2022-05-20 22:42+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <dict@ludost.net>\n"
@@ -256,77 +256,77 @@ msgstr "Навига&ция"
 msgid "Main Toolbar"
 msgstr "Главна лента с инструменти"
 
-#: mainwindow.cpp:62
+#: mainwindow.cpp:64
 #, kde-format
 msgid "Search Error Log"
 msgstr "Журнален файл на търсенето"
 
-#: mainwindow.cpp:114
+#: mainwindow.cpp:116
 #, kde-format
 msgid "Preparing Index"
 msgstr "Подготовка на индекса"
 
-#: mainwindow.cpp:157
+#: mainwindow.cpp:159
 #, kde-format
 msgid "Ready"
 msgstr "Готово"
 
-#: mainwindow.cpp:208
+#: mainwindow.cpp:210
 #, kde-format
 msgid "Previous Page"
 msgstr "Предишна страница"
 
-#: mainwindow.cpp:210
+#: mainwindow.cpp:212
 #, kde-format
 msgid "Moves to the previous page of the document"
 msgstr "Предишна страница на документа"
 
-#: mainwindow.cpp:214
+#: mainwindow.cpp:216
 #, kde-format
 msgid "Next Page"
 msgstr "Следваща страница"
 
-#: mainwindow.cpp:216
+#: mainwindow.cpp:218
 #, kde-format
 msgid "Moves to the next page of the document"
 msgstr "Следваща страница на документа"
 
-#: mainwindow.cpp:223
+#: mainwindow.cpp:225
 #, kde-format
 msgid "Table of &Contents"
 msgstr "С&ъдържание"
 
-#: mainwindow.cpp:224
+#: mainwindow.cpp:226
 #, kde-format
 msgid "Table of contents"
 msgstr "Съдържание"
 
-#: mainwindow.cpp:225
+#: mainwindow.cpp:227
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "Връщане към съдържанието"
 
-#: mainwindow.cpp:231
+#: mainwindow.cpp:233
 #, kde-format
 msgid "&Last Search Result"
 msgstr "&Последни резултати"
 
-#: mainwindow.cpp:249
+#: mainwindow.cpp:251
 #, kde-format
 msgid "Configure Fonts..."
 msgstr "Настройване на шрифтове..."
 
-#: mainwindow.cpp:253
+#: mainwindow.cpp:255
 #, kde-format
 msgid "Increase Font Sizes"
 msgstr "Увеличаване размера на шрифта"
 
-#: mainwindow.cpp:258
+#: mainwindow.cpp:260
 #, kde-format
 msgid "Decrease Font Sizes"
 msgstr "Намаляване размера на шрифта"
 
-#: mainwindow.cpp:274
+#: mainwindow.cpp:276
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"

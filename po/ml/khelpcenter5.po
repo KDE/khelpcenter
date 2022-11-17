@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-15 00:47+0000\n"
+"POT-Creation-Date: 2022-11-17 00:49+0000\n"
 "PO-Revision-Date: 2019-12-12 21:19+0000\n"
 "Last-Translator: Vivek KJ Pazhedath <vivekkj2004@gmail.com>\n"
 "Language-Team: Swathanthra|സ്വതന്ത്ര Malayalam|മലയാളം Computing|കമ്പ്യൂട്ടിങ്ങ് <smc-"
@@ -257,77 +257,77 @@ msgstr "&പോകൂ"
 msgid "Main Toolbar"
 msgstr "പ്രധാന ടൂള്‍ബാര്‍"
 
-#: mainwindow.cpp:62
+#: mainwindow.cpp:64
 #, kde-format
 msgid "Search Error Log"
 msgstr "തെരച്ചലില്‍ സംഭവിച്ച പിഴവിന്റെ പ്രവര്‍ത്തനരേഖ"
 
-#: mainwindow.cpp:114
+#: mainwindow.cpp:116
 #, kde-format
 msgid "Preparing Index"
 msgstr "ഇന്‍‌ഡെക്സ് തയ്യാറാക്കുന്നു"
 
-#: mainwindow.cpp:157
+#: mainwindow.cpp:159
 #, kde-format
 msgid "Ready"
 msgstr "തയ്യാര്‍"
 
-#: mainwindow.cpp:208
+#: mainwindow.cpp:210
 #, kde-format
 msgid "Previous Page"
 msgstr "പുറകിലെ താള്‍ "
 
-#: mainwindow.cpp:210
+#: mainwindow.cpp:212
 #, kde-format
 msgid "Moves to the previous page of the document"
 msgstr "പ്രമാണത്തിന്റെ കഴിഞ്ഞ താളിലേക്കു പോകുന്നു"
 
-#: mainwindow.cpp:214
+#: mainwindow.cpp:216
 #, kde-format
 msgid "Next Page"
 msgstr "അടുത്ത താള്‍ "
 
-#: mainwindow.cpp:216
+#: mainwindow.cpp:218
 #, kde-format
 msgid "Moves to the next page of the document"
 msgstr "പ്രമാണത്തിന്റെ അടുത്ത താളിലേക്കു പോകുന്നു"
 
-#: mainwindow.cpp:223
+#: mainwindow.cpp:225
 #, kde-format
 msgid "Table of &Contents"
 msgstr "&ഉള്ളടക്ക പട്ടിക"
 
-#: mainwindow.cpp:224
+#: mainwindow.cpp:226
 #, kde-format
 msgid "Table of contents"
 msgstr "ഉള്ളടക്ക പട്ടിക"
 
-#: mainwindow.cpp:225
+#: mainwindow.cpp:227
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "ഉള്ളടക്ക പട്ടികയിലേക്കു തിരിച്ചു പോവുക"
 
-#: mainwindow.cpp:231
+#: mainwindow.cpp:233
 #, kde-format
 msgid "&Last Search Result"
 msgstr "അവസാനത്തെ തെരച്ചിലിന്റെ ഫലം"
 
-#: mainwindow.cpp:249
+#: mainwindow.cpp:251
 #, kde-format
 msgid "Configure Fonts..."
 msgstr "അക്ഷരചഞ്ചയിക ക്രമീകരിക്കുക..."
 
-#: mainwindow.cpp:253
+#: mainwindow.cpp:255
 #, kde-format
 msgid "Increase Font Sizes"
 msgstr "അക്ഷരത്തിന്റെ വലിപ്പം കൂട്ടുക"
 
-#: mainwindow.cpp:258
+#: mainwindow.cpp:260
 #, kde-format
 msgid "Decrease Font Sizes"
 msgstr "അക്ഷരത്തിന്റെ വലിപ്പം കുറയ്ക്കുക"
 
-#: mainwindow.cpp:274
+#: mainwindow.cpp:276
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"

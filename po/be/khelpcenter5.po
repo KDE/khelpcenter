@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-15 00:47+0000\n"
+"POT-Creation-Date: 2022-11-17 00:49+0000\n"
 "PO-Revision-Date: 2022-09-09 11:56\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@gmail.com>\n"
 "Language-Team: Belarusian\n"
@@ -261,77 +261,77 @@ msgstr "&Пераход"
 msgid "Main Toolbar"
 msgstr "Галоўная панэль інструментаў"
 
-#: mainwindow.cpp:62
+#: mainwindow.cpp:64
 #, kde-format
 msgid "Search Error Log"
 msgstr "Журнал памылак пошуку"
 
-#: mainwindow.cpp:114
+#: mainwindow.cpp:116
 #, kde-format
 msgid "Preparing Index"
 msgstr "Рыхтаванне індэкса"
 
-#: mainwindow.cpp:157
+#: mainwindow.cpp:159
 #, kde-format
 msgid "Ready"
 msgstr "Гатова"
 
-#: mainwindow.cpp:208
+#: mainwindow.cpp:210
 #, kde-format
 msgid "Previous Page"
 msgstr "Папярэдняя старонка"
 
-#: mainwindow.cpp:210
+#: mainwindow.cpp:212
 #, kde-format
 msgid "Moves to the previous page of the document"
 msgstr "Перайсці на папярэднюю старонку дакумента"
 
-#: mainwindow.cpp:214
+#: mainwindow.cpp:216
 #, kde-format
 msgid "Next Page"
 msgstr "Наступная старонка"
 
-#: mainwindow.cpp:216
+#: mainwindow.cpp:218
 #, kde-format
 msgid "Moves to the next page of the document"
 msgstr "Перайсці на наступную старонку дакумента"
 
-#: mainwindow.cpp:223
+#: mainwindow.cpp:225
 #, kde-format
 msgid "Table of &Contents"
 msgstr "&Змест"
 
-#: mainwindow.cpp:224
+#: mainwindow.cpp:226
 #, kde-format
 msgid "Table of contents"
 msgstr "Змест"
 
-#: mainwindow.cpp:225
+#: mainwindow.cpp:227
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "Вярнуцца да зместу"
 
-#: mainwindow.cpp:231
+#: mainwindow.cpp:233
 #, kde-format
 msgid "&Last Search Result"
 msgstr "Вынікі &апошняга пошуку"
 
-#: mainwindow.cpp:249
+#: mainwindow.cpp:251
 #, kde-format
 msgid "Configure Fonts..."
 msgstr "Наладжванне шрыфтоў..."
 
-#: mainwindow.cpp:253
+#: mainwindow.cpp:255
 #, kde-format
 msgid "Increase Font Sizes"
 msgstr "Павялічыць памеры шрыфтоў"
 
-#: mainwindow.cpp:258
+#: mainwindow.cpp:260
 #, kde-format
 msgid "Decrease Font Sizes"
 msgstr "Паменшыць памеры шрыфтоў"
 
-#: mainwindow.cpp:274
+#: mainwindow.cpp:276
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"
