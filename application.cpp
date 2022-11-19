@@ -25,8 +25,6 @@ using namespace KHC;
 Application::Application(int& argc, char** argv)
     : QApplication(argc, argv), mMainWindow( nullptr )
 {
-  setAttribute(Qt::AA_UseHighDpiPixmaps);
-
   KLocalizedString::setApplicationDomain("khelpcenter5");
 
   mCmdParser.addPositionalArgument( QStringLiteral("url"), i18n( "Documentation to open" ) );
@@ -111,6 +109,7 @@ void Application::open(const QList<QUrl>& urls)
 
 int main( int argc, char **argv )
 {
+  QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps, true);
   KHC::Application app(argc, argv);
   KAboutData aboutData( QStringLiteral("khelpcenter"), i18n("Help Center"),
                         QStringLiteral(PROJECT_VERSION),
