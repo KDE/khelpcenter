@@ -27,6 +27,8 @@ Application::Application(int& argc, char** argv)
 {
   setAttribute(Qt::AA_UseHighDpiPixmaps);
 
+  KLocalizedString::setApplicationDomain("khelpcenter5");
+
   mCmdParser.addPositionalArgument( QStringLiteral("url"), i18n( "Documentation to open" ) );
 
   // allow redirecting from internal pages to known protocols
@@ -110,7 +112,6 @@ void Application::open(const QList<QUrl>& urls)
 int main( int argc, char **argv )
 {
   KHC::Application app(argc, argv);
-  KLocalizedString::setApplicationDomain("khelpcenter5");
   KAboutData aboutData( QStringLiteral("khelpcenter"), i18n("Help Center"),
                         QStringLiteral(PROJECT_VERSION),
                         i18n("Help Center"),
