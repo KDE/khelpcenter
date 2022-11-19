@@ -912,13 +912,13 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 
 <screenshot id="screenshot-files-save">
 <screeninfo
->La finestra per guardar fitxers</screeninfo>
+>La finestra per a guardar fitxers</screeninfo>
 <mediaobject>
 <imageobject
 ><imagedata fileref="files-save.png" format="PNG"/></imageobject>
 <textobject
 ><phrase
->La finestra per guardar fitxers.</phrase
+>La finestra per a guardar fitxers.</phrase
 ></textobject>
 <caption
 ><para
