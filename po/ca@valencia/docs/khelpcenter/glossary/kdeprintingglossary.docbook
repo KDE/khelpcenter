@@ -554,7 +554,7 @@
 ></glossterm>
                         <glossdef
 ><para
->Abreviació de &emstart;Printer&emend;- &emstart;M&emend;anagement &emstart;I&emend;nformation &emstart;B&emend;ase (base per a informació de gestió); la impressió MIB definix un joc de paràmetres que són emmagatzemats a dins de la impressora per accedir a la xarxa. Açò és útil si moltes (en alguns casos, literalment milers) de les impressores de la xarxa són manipulades centralitzadament amb l'ajuda de SNMP (el protocol senzill per a la gestió de la xarxa).</para
+>Abreviació de &emstart;Printer&emend;- &emstart;M&emend;anagement &emstart;I&emend;nformation &emstart;B&emend;ase (base per a informació de gestió); la impressió MIB definix un joc de paràmetres que són emmagatzemats a dins de la impressora per a accedir a la xarxa. Açò és útil si moltes (en alguns casos, literalment milers) de les impressores de la xarxa són manipulades centralitzadament amb l'ajuda de SNMP (el protocol senzill per a la gestió de la xarxa).</para
 ><glossseealso otherterm="gloss-pwg"
 >PWG</glossseealso
 > <glossseealso otherterm="gloss-snmp"
