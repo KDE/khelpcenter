@@ -9,7 +9,7 @@ Dependencies:
     'frameworks/ki18n': '@stable'
     'frameworks/kdoctools': '@stable'
     'frameworks/khtml': '@stable'
-    'frameworks/service': '@stable'
+    'frameworks/kservice': '@stable'
     'frameworks/kbookmarks': '@stable'
     'frameworks/kconfig': '@stable'
     'frameworks/kwindowsystem': '@stable'
