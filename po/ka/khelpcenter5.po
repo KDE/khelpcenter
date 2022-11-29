@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-17 00:49+0000\n"
-"PO-Revision-Date: 2022-08-23 04:56+0200\n"
+"PO-Revision-Date: 2022-11-28 07:02+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -41,7 +41,7 @@ msgstr "დახმარების ცენტრი"
 #: application.cpp:118
 #, kde-format
 msgid "(c) 1999-2020, The KHelpCenter developers"
-msgstr ""
+msgstr "(c) 1999-2020, KHelpCenter-ის პროგრამისტები"
 
 #: application.cpp:120
 #, kde-format
@@ -51,7 +51,7 @@ msgstr "პროექტის მიმდინარე ხელმძღ�
 #: application.cpp:121
 #, kde-format
 msgid "Xapian-based search, lot of bugfixes"
-msgstr ""
+msgstr "Xapian-ზე დაფუძნებული ძებნა, გასწორდა ბევრი შეცდოა"
 
 #: application.cpp:122
 #, kde-format
@@ -66,7 +66,7 @@ msgstr "საწყისი ავტორი"
 #: application.cpp:125
 #, kde-format
 msgid "Info page support"
-msgstr ""
+msgstr "საინფორმაციო გვერდის მხარდაჭერა"
 
 #: docmetainfo.cpp:35
 #, kde-format
@@ -165,7 +165,7 @@ msgstr "&ფონტის ზომის მორგება:"
 #: glossary.cpp:68
 #, kde-format
 msgid "By Topic"
-msgstr ""
+msgstr "თემით"
 
 #: glossary.cpp:72 infotree.cpp:74
 #, kde-format
@@ -175,12 +175,12 @@ msgstr "ანბანის მიხედვით"
 #: glossary.cpp:128
 #, kde-format
 msgid "Rebuilding glossary cache..."
-msgstr ""
+msgstr "სარჩევის ქეშის თავიდან აგება..."
 
 #: glossary.cpp:182
 #, kde-format
 msgid "Rebuilding cache... done."
-msgstr ""
+msgstr "ქეშის თავიდან აგება... დასრულდა."
 
 #: grantleeformatter.cpp:102
 #, kde-format
@@ -223,13 +223,13 @@ msgstr "ბილიკი ინდექსის საქაღალდე�
 #: khelpcenter.kcfg:32
 #, kde-format
 msgid "Path to directory containing search indices."
-msgstr ""
+msgstr "ბილიკი ძებნის ინდექსების შემცველ საქაღალდემდე."
 
 #. i18n: ectx: label, entry, group (Layout)
 #: khelpcenter.kcfg:46
 #, kde-format
 msgid "Currently visible navigator tab"
-msgstr ""
+msgstr "ამჟამად ხილული ნავიგატორის ჩანართი"
 
 #. i18n: ectx: Menu (edit)
 #: khelpcenterui.rc:5
@@ -278,7 +278,7 @@ msgstr "წინა გვერდი"
 #: mainwindow.cpp:212
 #, kde-format
 msgid "Moves to the previous page of the document"
-msgstr ""
+msgstr "დოკუმენტის წინა გვერდზე გადასვლა"
 
 #: mainwindow.cpp:216
 #, kde-format
@@ -288,12 +288,12 @@ msgstr "შემდეგი გვერდი"
 #: mainwindow.cpp:218
 #, kde-format
 msgid "Moves to the next page of the document"
-msgstr ""
+msgstr "დოკუმენტის შემდეგ გვერდზე გადასვლა"
 
 #: mainwindow.cpp:225
 #, kde-format
 msgid "Table of &Contents"
-msgstr ""
+msgstr "&სარჩევი"
 
 #: mainwindow.cpp:226
 #, kde-format
@@ -303,12 +303,12 @@ msgstr "Სარჩევი"
 #: mainwindow.cpp:227
 #, kde-format
 msgid "Go back to the table of contents"
-msgstr ""
+msgstr "სარჩევზე დაბრუნება"
 
 #: mainwindow.cpp:233
 #, kde-format
 msgid "&Last Search Result"
-msgstr ""
+msgstr "&ბოლო ძებნის შედეგი"
 
 #: mainwindow.cpp:251
 #, kde-format
@@ -364,7 +364,7 @@ msgstr "KDE-ის დახმარების ცენტრი"
 #: navigator.cpp:564
 #, kde-format
 msgid "Unable to run search program."
-msgstr ""
+msgstr "ძებნის პროგრამის გაშვების შეცდომა."
 
 #: navigator.cpp:657
 #, kde-format
@@ -379,22 +379,22 @@ msgstr "ძებნის ინდექსის განახლება.
 #: searchengine.cpp:57
 #, kde-format
 msgid "Error: No document type specified."
-msgstr ""
+msgstr "შეცდომა: დოკუმენტის ტიპი მითითებული არაა."
 
 #: searchengine.cpp:59
 #, kde-format
 msgid "Error: No search handler for document type '%1'."
-msgstr ""
+msgstr "შეცდომა: ძებნის დამმუშავებლის გარეშე დოკუმენტის ტიპისთვის '%1'."
 
 #: searchengine.cpp:229
 #, kde-format
 msgid "No valid search handler found."
-msgstr ""
+msgstr "სწორი ძებნის დამმუშავებელი ვერ ვიპოვე."
 
 #: searchhandler.cpp:37
 #, kde-format
 msgid "Error executing search command '%1'."
-msgstr ""
+msgstr "შეცდომა ძებნის ბრძანების შესრულებისას '%1'."
 
 #: searchhandler.cpp:75
 #, kde-format
@@ -404,17 +404,17 @@ msgstr "შეცდომა: %1"
 #: searchhandler.cpp:140 searchhandler.cpp:145
 #, kde-format
 msgid "'%1' not found, check your installation"
-msgstr ""
+msgstr "'%1' ვერ ვიპოვე. შეამოწმეთ პროგრამის ფაილები"
 
 #: searchhandler.cpp:150
 #, kde-format
 msgid "'%1' not found, install the package containing it"
-msgstr ""
+msgstr "'%1' ვერ ვიპოვე. დააყენეთ პაკეტი, რომელიც მას შეიცავს"
 
 #: searchhandler.cpp:197
 #, kde-format
 msgid "No search command or URL specified."
-msgstr ""
+msgstr "ძებნის ბრძანება ან URL მითითებული არაა."
 
 #: searchwidget.cpp:39
 #, kde-format
@@ -439,7 +439,7 @@ msgstr "მაქს. &შედეგები:"
 #: searchwidget.cpp:73
 #, kde-format
 msgid "&Scope selection:"
-msgstr ""
+msgstr "&ფარგლების არჩევანი:"
 
 #: searchwidget.cpp:81
 #, kde-format
@@ -488,3 +488,6 @@ msgid ""
 "b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, <b>Tab</b>/"
 "<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
 msgstr ""
+"<p>წაიკითხეთ დოკუმენტაცია ამ ფანჯარაში.<br /><br />დააწექით <b>ჰარეს</b>/"
+"<b>Shift+ჰარეს</b> ჩასაწევად, <b>%1</b> მოსაძებნად, <b>Tab</b>/<b>Shift+Tab</"
+"b> გადასახტომად და <b>Enter-ს</b> მისაყოლად.</p>"
