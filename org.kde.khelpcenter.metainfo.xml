@@ -318,8 +318,8 @@
   <launchable type="desktop-id">org.kde.khelpcenter.desktop</launchable>
   <releases>
     <release version="5.8.22120" date="2022-12-08"/>
+    <release version="5.8.22120" date="2022-12-08"/>
     <release version="5.8.22083" date="2022-11-03"/>
     <release version="5.8.22082" date="2022-10-13"/>
-    <release version="5.8.22081" date="2022-09-08"/>
   </releases>
 </component>
