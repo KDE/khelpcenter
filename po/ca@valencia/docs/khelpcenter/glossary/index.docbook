@@ -567,7 +567,7 @@ otherterm="gloss-kbuildsycoca"
 >&kde;</glossterm>
 			<glossdef
 ><para
->&kde; és més que un programari. És una comunitat formada per programadors, traductors, col·laboradors, artistes, escriptors, distribuïdors i usuaris de tot el món. El nostre equip de tecnologia internacional s'ha compromés a crear el millor programari lliure per a l'escriptori. I no només els contribuents, però els usuaris i aficionats del programari &kde; es poden trobar al llarg de tot el planeta, ajudant a altres usuaris, difonent les notícies, o senzillament gaudint de l'experiència. Trobareu informació més detallada a &linkstart;"https://www.kde.org/"&linkmid;www.kde.org&linkend;.&newpara; El nom ha canviat el seu significat al llarg del temps. Podeu descobrir més sobre la seua història a &linkstart;"https://www.kde.org/community/history/"&linkmid;la pàgina web de la història de KDE&linkend;. </para>
+>&kde; és més que un programari. És una comunitat formada per programadors, traductors, col·laboradors, artistes, escriptors, distribuïdors i usuaris de tot el món. El nostre equip de tecnologia internacional s'ha compromés a crear el millor programari lliure per a l'escriptori. I no només els contribuents, però els usuaris i aficionats del programari &kde; es troben al llarg de tot el planeta, ajudant a altres usuaris, difonent les notícies, o senzillament gaudint de l'experiència. Trobareu informació més detallada a &linkstart;"https://www.kde.org/"&linkmid;www.kde.org&linkend;.&newpara; El nom ha canviat el seu significat al llarg del temps. Podeu descobrir més sobre la seua història a &linkstart;"https://www.kde.org/community/history/"&linkmid;la pàgina web de la història de KDE&linkend;. </para>
 				<glossseealso otherterm="gloss-gui"
 >&IGU;</glossseealso>
 			</glossdef>
@@ -790,7 +790,7 @@ otherterm="gloss-kbuildsycoca"
 >Giny (widget)</glossterm>
 			<glossdef
 ><para
->En general, els ginys són elements gràfics com les barres de desplaçament, els botons o els camps d'entrada que s'utilitzen per construir la &IGU;.&newpara; Els ginys de &plasma;, són els components principals i assumixen una varietat de funcions, les quals van des de la visualització de l'escriptori i fons de pantalla associat, fins a mostrar el nivell de la bateria de l'ordinador portàtil, mostrar els dispositius endollats i dibuixar la barra de tasques: bàsicament, són xicotetes aplicacions que viuen en l'escriptori. A més, els ginys es poden agrupar en «Contenidors», igual que el quadro i, fins i tot l'escriptori mateix. </para
+>En general, els ginys són elements gràfics com les barres de desplaçament, els botons o els camps d'entrada que s'utilitzen per a construir la &IGU;.&newpara; Els ginys de &plasma;, són els components principals i assumixen una varietat de funcions, les quals van des de la visualització de l'escriptori i fons de pantalla associat, fins a mostrar el nivell de la bateria de l'ordinador portàtil, mostrar els dispositius endollats i dibuixar la barra de tasques: bàsicament, són xicotetes aplicacions que viuen en l'escriptori. A més, els ginys es poden agrupar en «Contenidors», igual que el quadro i, fins i tot l'escriptori mateix. </para
 ><glossseealso otherterm="gloss-plasma"
 >&plasma;</glossseealso
 > <glossseealso otherterm="gloss-containment"
