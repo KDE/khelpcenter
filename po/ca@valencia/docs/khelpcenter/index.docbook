@@ -320,7 +320,7 @@
 <para
 >La documentació de les aplicacions natives de &kde;. Totes les aplicacions de &kde; tenen la documentació en format &XML;, el qual és convertit a <acronym
 >HTML</acronym
->. Esta secció llista totes les aplicacions de &kde; amb una curta descripció i un enllaç a la documentació completa de l'aplicació. </para>
+>. Esta secció llista totes les aplicacions de &kde; amb una curta descripció i un enllaç cap a la documentació completa de l'aplicació. </para>
 <para
 >Les aplicacions es mostren en una estructura en forma d'arbre que recorda l'estructura del menú <guimenu
 >K</guimenu
