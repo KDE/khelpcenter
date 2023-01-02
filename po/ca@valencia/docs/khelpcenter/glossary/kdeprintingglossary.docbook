@@ -243,7 +243,7 @@
 >Filtre</glossterm>
                         <glossdef
 ><para
->Els filtres, en general, són programes que reben dades d'entrada, les processen i les passen com a informació d'eixida. Els filtres poden o no modificar les dades.&newpara; Els filtres, en el context de la impressió, són programes que convertixen un fitxer (destinat per a la impressió, però que el seu format actual no és l'adequat) en un fitxer imprimible. A vegades és necessari construir autèntiques «cadenes de filtratge» per aconseguir l'objectiu, enviant l'eixida d'un dels filtres cap a l'entrada del següent. </para
+>Els filtres, en general, són programes que reben dades d'entrada, les processen i les passen com a informació d'eixida. Els filtres poden o no modificar les dades.&newpara; Els filtres, en el context de la impressió, són programes que convertixen un fitxer (destinat per a la impressió, però que el seu format actual no és l'adequat) en un fitxer imprimible. A vegades és necessari construir autèntiques «cadenes de filtratge» per a aconseguir l'objectiu, enviant l'eixida d'un dels filtres cap a l'entrada del següent. </para
 ><glossseealso otherterm="gloss-ghostscript"
 >Ghostscript</glossseealso
 > <glossseealso otherterm="gloss-rip"

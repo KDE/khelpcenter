@@ -579,7 +579,7 @@ otherterm="gloss-kbuildsycoca"
 ></glossterm>
 			<glossdef>
 				<para
->En &kde; 3, la barra era ubicada, usualment a la part inferior de la pantalla (A vegades anomenada el Quadro), a on es troben els llançadors d'aplicacions, el Paginador, i els botons per a executar algunes aplicacions.</para
+>En &kde; 3, la barra era ubicada, usualment a la part inferior de la pantalla (A vegades anomenada el Quadro), a on es troben els iniciadors d'aplicacions, el Paginador, i els botons per a executar algunes aplicacions.</para
 ><glossseealso otherterm="gloss-panel"
 >Quadro</glossseealso
 > <glossseealso otherterm="gloss-plasma"
