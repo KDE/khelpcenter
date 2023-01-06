@@ -2,119 +2,94 @@
 <!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
 "dtd/kdedbx45.dtd" [
   <!ENTITY % addindex "IGNORE">
-  <!ENTITY % German "INCLUDE">
+  <!ENTITY % English "INCLUDE">
 ]>
 <article id="onlinehelp" lang="&language;">
-<title
->Online-Hilfe</title>
+<title>Online Help</title>
 <articleinfo>
 
-<date
->2018-04-01</date>
-<releaseinfo
->Anwendungen 18.04</releaseinfo>
+<date>2018-04-01</date>
+<releaseinfo>Applications 18.04</releaseinfo>
 
 </articleinfo>
 
-<para
->Auf dieser Seite werden mehrere Verknüpfungen zu Online-Hilfen und zu weiteren Informationen, die von der &kde;-Gemeinschaft im Internet bereitgestellt werden, aufgeführt. </para>
+<para>On this page, you can find different ways to find online
+help and additional information provided by the &kde; community.</para>
 
 <variablelist>
-<title
->&kde;-UserBase</title>
-<varlistentry
-><term
-><ulink url="https://userbase.kde.org/Special:myLanguage/An_introduction_to_KDE"
->Eine Einführung in &kde;</ulink
->&nbsp;</term>
+<title>&kde; UserBase</title>
+<varlistentry><term>
+<ulink url="https://userbase.kde.org/Special:myLanguage/An_introduction_to_KDE">An 
+Introduction to &kde;</ulink>&nbsp;</term>
 <listitem>
-<para
->Hier erfahren Sie mehr über die <ulink url="https://kde.org/community/whatiskde/"
->&kde;-Gemeinschaft und ihre Software</ulink
-> und finden Sie Informationen, die Ihnen den Einstieg erleichtern. Entdecken Sie auch, was die <ulink url="https://userbase.kde.org/Special:myLanguage/Welcome_to_KDE_UserBase"
->UserBase</ulink
-> ist und wie diese Ihnen helfen kann. </para>
+<para>Learn more about the <ulink url="https://kde.org/community/whatiskde/">
+&kde; community and its software</ulink> and find information to help you get 
+started. Also, discover what <ulink url="https://userbase.kde.org/Special:myLanguage/Welcome_to_KDE_UserBase">
+UserBase</ulink> is and how it can help you.
+</para>
 </listitem>
 </varlistentry>
 
-<varlistentry
-><term
-><ulink url="https://userbase.kde.org/Special:myLanguage/Getting_Help"
->Hilfe bekommen</ulink
->&nbsp;</term>
+<varlistentry><term>
+<ulink url="https://userbase.kde.org/Special:myLanguage/Getting_Help">Getting Help</ulink>&nbsp;</term>
 <listitem>
-<para
->Wenn Sie Hilfe suchen, finden Sie hier Verknüpfungen, wo Sie Hilfe zu Problemen erhalten und einige Hinweise, wie Sie Ihre Fragen stellen sollten, um bessere Antworten zu erhalten. </para>
+<para>Need some help? Here are some suggested places where you can get help 
+with  problems, as well some hints on how to improve the quality of answers you receive.
+</para>
 </listitem>
 </varlistentry>
 
-<varlistentry
-><term
-><ulink url="https://userbase.kde.org/Special:myLanguage/Applications"
->Anwendungen</ulink
->&nbsp;</term>
+<varlistentry><term>
+<ulink url="https://userbase.kde.org/Special:myLanguage/Applications">Applications</ulink>&nbsp;</term>
 <listitem>
-<para
->Entdecken Sie die Vielzahl von Anwendungen aus der &kde;-Gemeinschaft, und finden Sie das passende Programm für Ihre Anforderungen und Vorlieben. </para>
+<para>Discover the wide variety of applications from the &kde; Community, 
+and find out what program suits your needs and preferences.
+</para>
 </listitem>
 </varlistentry>
 
-<varlistentry
-><term
-><ulink url="https://userbase.kde.org/Special:myLanguage/Tutorials"
->Anleitungen</ulink
->&nbsp;</term>
+<varlistentry><term>
+<ulink url="https://userbase.kde.org/Special:myLanguage/Tutorials">Tutorials</ulink>&nbsp;</term>
 <listitem>
-<para
->Anleitungen und Tipps &amp; Tricks, die Ihren Umgang mit &kde;-Software verbessern und die Produktivität erhöhen. </para>
+<para>How-To's, Tips &amp; Tricks that can help make your &kde; software 
+experience more enjoyable and productive.
+</para>
 </listitem>
 </varlistentry>
 
 </variablelist>
 
 <variablelist>
-<title
->&kde;-Forum</title>
-<varlistentry
-><term
-><ulink url="https://forum.kde.org/"
->Forum der &kde;-Gemeinschaft</ulink
->&nbsp;</term>
+<title>&kde; Forum</title>
+<varlistentry><term>
+<ulink url="https://forum.kde.org/">&kde; Community Forums</ulink>&nbsp;</term>
 <listitem>
-<para
->Im &kde;-Forum finden Benutzer, Entwickler und an &kde; interessierte Personen einen Platz, um sich gegenseitig zu helfen, Themen zu &kde; zu diskutieren und Ideen auszutauschen. Im Forum finden Sie auch <ulink url="https://forum.kde.org/viewforum.php?f=14/"
->Anleitungen &amp; Tipps</ulink
->.</para>
+<para>The &kde; Forums offer users, developers and people interested in &kde; 
+a place to help each other, discuss &kde;-related topics and exchange ideas.
+You can find <ulink url="https://forum.kde.org/viewforum.php?f=14/">Tutorials &amp; 
+Tips</ulink> in the forum.</para>
 </listitem>
 </varlistentry>
 </variablelist>
 
 <variablelist>
-<title
->&kde;-Techbase</title>
-<varlistentry
-><term
-><ulink url="https://techbase.kde.org/"
->&kde;-Techbase</ulink
->&nbsp;</term>
+<title>&kde; Techbase</title>
+<varlistentry><term>
+<ulink url="https://techbase.kde.org/">&kde; Techbase</ulink>&nbsp;</term>
 <listitem>
-<para
->Informationen für Entwickler und Anleitungen, um eine Entwicklungsumgebung für &kde; aufzusetzen.</para>
+<para>Information for developers and help to set up a &kde; development environment.</para>
 </listitem>
 </varlistentry>
 </variablelist>
 
 <variablelist>
-<title
->&kde;-Dokumentation</title>
-<varlistentry
-><term
-><ulink url="https://docs.kde.org/"
->&kde;-Dokumentationsseite</ulink
->&nbsp;</term>
+<title>&kde; Documentation</title>
+<varlistentry><term>
+<ulink url="https://docs.kde.org/">&kde; Documentation site</ulink>&nbsp;</term>
 <listitem>
-<para
->Diese Seite enthält die vollständige &kde;-Dokumentation für Benutzer in mehr als 25 Sprachen für die veröffentlichte und gerade entwickelte Version der &kde-frameworks;, &plasma-workspaces; und &applications;.</para>
+<para>This page holds the complete &kde; User Documentation in over 25 languages
+for the released and the development version of &kde-frameworks;, &plasma-workspaces;
+and &applications;.</para>
 </listitem>
 </varlistentry>
 </variablelist>
