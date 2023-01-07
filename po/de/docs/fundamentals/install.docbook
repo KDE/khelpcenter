@@ -1,122 +1,139 @@
 <chapter id="install">
-<title>Installing &plasma-desktop; and &kde; Applications</title>
+<title
+>&plasma-desktop; und &kde;-Anwendungen installieren</title>
 
-<para>You can install &kde; applications, including &plasma-desktop;, on a
-variety of different platforms, ranging from
-smartphones and tablets to computers running &Microsoft; &Windows;, &MacOS;,
-&UNIX;, &BSD; or &Linux;.  Binary packages are available for many different
-platforms and distributions, or advanced users may build the source code.</para>
+<para
+>Sie können den &kde; Anwendungen einschließlich des &plasma-desktop;auf vielen verschiedenen Plattformen von Smartphones über Tabletts bis zu Rechnern mit den Betriebssystemen &Microsoft; &Windows;, &MacOS;, &UNIX;, &BSD; oder &Linux;. Binärpakete werden für viele verschiedene Plattformen und Distributionen bereitgestellt, erfahrene Benutzer können die Software auch aus dem Quelltext kompilieren und installieren.</para>
 
 <sect1 id="install-packages">
-<title>Installing Packages</title>
+<title
+>Pakete installieren</title>
 
-<para>Hundreds of developers worldwide have done a lot of work to make it easy
-to install &kde; onto a variety of different devices and platforms.</para>
+<para
+>Hunderte von Entwicklern haben weltweit viel Arbeit investiert, um die Installation von &kde; auf vielen verschiedenen Geräten und Plattformen zu erleichtern.</para>
 
 <sect2 id="install-linux">
-<title>&Linux;</title>
+<title
+>&Linux;</title>
 
-<para>Nearly every &Linux; distribution provides binary packages for individual
-applications and the &plasma-desktop; as a whole.</para>
+<para
+>Fast jede &Linux;-Distribution enthält binäre Pakete für einzelne Programme und auch dem gesamten &plasma-desktop;.</para>
 
-<para>To install an individual application, look for its name in your
-distribution's package collection.  To install one of the &plasma-workspaces;,
-like &plasma-desktop;, look for a metapackage or package
-group, typically <literal>plasma-desktop</literal>.</para>
+<para
+>Um einzelne Programme zu installieren, suchen Sie nach deren Namen im Paketverwaltungsprogramm Ihrer Distribution. Um einen &plasma-workspaces; wie die &plasma-desktop; zu installieren, suchen Sie nach einem Metapaket oder einer Paketgruppe wie zum Beispiel <literal
+>plasma-desktop</literal
+>.</para>
 
 <note>
-<para>Some applications may be installed together with other
-applications in a combined package named after the &kde; package they are
-provided in. For instance, &konqueror; might be found in the
-<literal>kde-baseapps</literal> package.</para>
+<para
+>Einige Programme werden möglicherweise nur zusammen mit anderen Programmen in einem gemeinsamen Paket installiert, das nach dem &kde;-Paket benannt ist, in dessen Quelltextarchiv diese Programme entwickelt werden. &konqueror; zum Beispiel finden Sie im Paket <literal
+>kde-baseapps</literal
+>.</para>
 </note>
 
-<para>If you have trouble locating &kde; packages for your distribution, please
-contact their support resources.  Many distributions also have a team dedicated
-to packaging applications by &kde; that can provide assistance specific to them. </para>
+<para
+>Haben Sie Probleme, &kde;-Pakete für Ihre Distribution zu finden, nehmen Sie Kontakt zu deren Unterstützungsgruppen auf. In vielen Distributionen gibt es außerdem eine Gruppe, die Pakete für die Distribution erstellt. In dieser Gruppe finden Sie Hilfe bei Problemen mit &kde;. </para>
 
 <!--FIXME: provide steps for common distributions?-->
 
 </sect2>
 
 <sect2 id="install-windows">
-<title>&Microsoft; &Windows;</title>
+<title
+>&Microsoft; &Windows;</title>
 
-<para>The &kde; on Windows Initiative provides binary packages of &kde;
-applications for &Microsoft; &Windows;.  They also provide a special installer
-application that permits you to install individual applications or groups and
-all necessary dependencies easily.</para>
+<para
+>Die Initiative „&kde; für &Windows;“ stellt kompilierte Pakete von &kde;-Programmen für &Microsoft; &Windows; bereit. Es gibt auch einen spezielles Installationsprogramm, das die Installation einzelner Programme oder Gruppen sowie aller dafür erforderlichen Bibliotheken vereinfacht.</para>
 
-<para>For more information on the initiative and to download the installer,
-visit <ulink url="https://windows.kde.org/">the KDE on Windows Initiative</ulink>.
-</para>
+<para
+>Weitere Informationen über KDE unter Windows und das Herunterladen des Installationsprogramms finden Sie auf der Webseite <ulink url="https://windows.kde.org/"
+>KDE unter Windows</ulink
+>. </para>
 
 <!--FIXME: describe how to use the installer?-->
 
 </sect2>
 
 <sect2 id="install-mac">
-<title>&MacOS;</title>
+<title
+>&MacOS;</title>
 
-<para>Individual &kde; applications can be installed through several
-different <quote>ports</quote> systems available for &MacOS;.  Several different
-&kde; applications also provide their own binary builds for &MacOS;.</para>
+<para
+>Einzelne Programme von &kde; können mit mehreren verschiedenen <quote
+>Ports</quote
+>-Systemen für &MacOS; installiert werden. Einige &kde;-Programme stellen auch eigene Binärpakete für &MacOS; bereit.</para>
 
-<para>For more information, visit
-<ulink url="https://mac.kde.org/">&kde; on &MacOS;X</ulink>.</para>
+<para
+>Weitere Informationen finden Sie auf der Internetseite <ulink url="https://mac.kde.org/"
+>&kde; für &MacOS;X</ulink
+>.</para>
 
 </sect2>
 
 <sect2 id="install-bsd">
-<title>&BSD;</title>
+<title
+>&BSD;</title>
 
-<para>Most &BSD; distributions allows you to install &kde; applications
-and the &plasma-desktop; through their <quote>ports</quote>
-system.</para>
+<para
+>Die meisten &BSD;-Distributionen ermöglichen die Installation von &kde;Programmen und dem gesamten &plasma-desktop; durch das <quote
+>Ports</quote
+>-System.</para>
 
-<para>For more information on installing ports, see your &BSD; distribution's
-documentation.</para>
+<para
+>Weitere Informationen zur Installation von Ports finden Sie in der Dokumentation der &BSD;-Distribution.</para>
 
 <!--FIXME: provide steps/links for common BSDs?-->
 
 </sect2>
 
 <sect2 id="install-mobile">
-<title>Mobile Devices</title>
-<para><productname>Plasma Mobile</productname> is an exciting initiative to bring a new &kde;
-experience to mobile devices like smartphones or tablets.  Binary releases are
-provided for several different devices.</para>
+<title
+>Mobile Geräte</title>
+<para
+><productname
+>Plasma Mobile</productname
+> ist eine sehr interessante Initiative, die &kde; für mobile Geräte wie Smartphones oder Tablett-Rechner bereit stellt. Es gibt kompilierte Pakete für  mehrere Geräte.</para>
 
-<para>For more information, visit
-<ulink url="https://www.plasma-mobile.org/"><productname>Plasma Mobile</productname></ulink>.</para>
+<para
+>Weitere Informationen finden Sie auf der Internetseite <ulink url="https://www.plasma-mobile.org/"
+><productname
+>Plasma Mobile</productname
+></ulink
+>.</para>
 
 </sect2>
 
 <sect2 id="install-live">
-<title>Live Media</title>
+<title
+>Live-Medien</title>
 
-<para>Several &Linux; and &BSD; distributions offer live media.  This permits you
-to try out the &plasma-desktop; without installing anything to your system.
-All you have to do insert a CD or connect a USB drive and boot from it.  If you
-like what you see, most offer an option to install it to your hard drive.</para>
+<para
+>Für mehrere &Linux;- und &BSD;-Distributionen gibt es Live-Medien. Damit können Sie den &plasma-desktop; ohne Installation auf Ihrem System ausprobieren. Sie müssen nur eine CD einlegen oder einen USB-Stick einstecken und damit den Rechner hochfahren. Gefällt Ihnen das System, gibt es bei den meisten Live-Medien eine Möglichkeit, das System auf Ihre Festplatte zu installieren.</para>
 
-<para>There is <ulink url="https://www.kde.org/download/distributions.php">a list
-of distributions that offer the &kde; workspace and applications on live media</ulink> on the &kde; website.</para>
+<para
+>Auf der &kde;-Webseite finden Sie eine <ulink url="https://www.kde.org/download/distributions.php"
+>Liste von Distributionen mit dem &kde;-Arbeitsbereich und den Anwendungen auf Live-Medien</ulink
+>.</para>
 </sect2>
 <!--Neon?-->
 <sect2 id="install-source">
-<title>Building from Source Code</title>
+<title
+>Kompilieren und Installieren aus dem Quelltext</title>
 
-<para>For detailed information on how to compile and install &plasma-desktop; and
-applications see <ulink url="https://community.kde.org/Guidelines_and_HOWTOs/Build_from_source">Build from source</ulink>.</para>
+<para
+>Ausführliche Informationen zum Kompilieren und Installieren von &plasma-desktop; und Anwendungen siehe <ulink url="https://community.kde.org/Guidelines_and_HOWTOs/Build_from_source"
+>Build from source</ulink
+>.</para>
 
-<para>Since &kde; software uses <command>cmake</command> you should
-have no trouble compiling it. Should you run into problems please report them to the
-&kde; mailing lists.</para>
+<para
+>Da &kde; Software <command
+>cmake</command
+> verwendet, sollte es dabei keine Schwierigkeiten geben. Sollten dennoch Probleme auftreten, wenden Sie sich bitte an die &kde;-Mailinglisten.</para>
 
-<para>The recommended tool to build Frameworks, &plasma-desktop; and all the other applications is
-<ulink url="https://commits.kde.org/kdesrc-build">kdesrc-build</ulink>
-</para>
+<para
+>Als Werkzeug zum Erstellen von Frameworks, &plasma-desktop; und aller Anwendungen wird <ulink url="https://quickgit.kde.org/?p=kdesrc-build.git"
+>kdesrc-build</ulink
+> empfohlen. </para>
 </sect2>
 <!--FIXME more info:
   Where to get sources (git split) 
