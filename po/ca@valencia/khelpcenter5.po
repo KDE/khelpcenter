@@ -93,7 +93,7 @@ msgstr "Anglés"
 #: fontdialog.cpp:36
 #, kde-format
 msgid "Font Configuration"
-msgstr "Configuració del tipus de lletra"
+msgstr "Configureu el tipus de lletra"
 
 #: fontdialog.cpp:62
 #, kde-format
