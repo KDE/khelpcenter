@@ -5,6 +5,7 @@
   <project_license>GPL-2.0+</project_license>
   <name>KHelpCenter</name>
   <name xml:lang="ar">مركز مساعدتك</name>
+  <name xml:lang="be">Цэнтр даведак KDE</name>
   <name xml:lang="bg">KHelpCenter</name>
   <name xml:lang="ca">KHelpCenter</name>
   <name xml:lang="ca-valencia">KHelpCenter</name>
@@ -50,6 +51,7 @@
   <name xml:lang="zh-TW">KHelpCenter</name>
   <summary>Help Center</summary>
   <summary xml:lang="ar">مركز مساعدة</summary>
+  <summary xml:lang="be">Цэнтр даведак</summary>
   <summary xml:lang="bg">Помощен център</summary>
   <summary xml:lang="ca">Centre d'ajuda</summary>
   <summary xml:lang="ca-valencia">Centre d'ajuda</summary>
@@ -98,6 +100,7 @@
       An application to search and read the documentation for all your KDE applications and system utilities
     </p>
     <p xml:lang="ar">تطبيق للبحث عن الوثائق وقراءتها لجميع تطبيقات كدي وأدوات النظام المساعدة</p>
+    <p xml:lang="be">Праграма для пошуку і чытання дакументацыі для ўсіх вашых праграм і сістэмных утыліт KDE</p>
     <p xml:lang="bg">Приложение за търсене и четене на документация за всички приложения и системни инструменти на KDE</p>
     <p xml:lang="ca">Una aplicació per a cercar i llegir la documentació per a totes les aplicacions KDE i utilitats del sistema</p>
     <p xml:lang="ca-valencia">Una aplicació per a buscar i llegir la documentació per a totes les aplicacions KDE i utilitats del sistema</p>
@@ -137,6 +140,7 @@
     <p xml:lang="zh-TW">用來搜尋和閱讀所有 KDE 應用程式與系統工具文件的應用程式</p>
     <p>Features:</p>
     <p xml:lang="ar">الميزات:</p>
+    <p xml:lang="be">Магчымасці:</p>
     <p xml:lang="bg">Функции:</p>
     <p xml:lang="ca">Característiques:</p>
     <p xml:lang="ca-valencia">Característiques:</p>
@@ -183,6 +187,7 @@
     <ul>
       <li>Show documentation from various sources (applications from KDE community, man pages, etc)</li>
       <li xml:lang="ar">عرض التّوثيقات من مختلف المصادر (التّطبيقات من مجتمع كدي، صفحات man وغيرها)</li>
+      <li xml:lang="be">Паказ дакументацыі з розных крыніц (праграмы супольнасці KDE, старонкі дапаможнікаў і г. д.)</li>
       <li xml:lang="bg">Показване на документация от различни източници (приложения от  KDE общност, man страници и др.)</li>
       <li xml:lang="ca">Mostra la documentació de diverses fonts (aplicacions de la comunitat KDE, pàgines «man», etc.)</li>
       <li xml:lang="ca-valencia">Mostra la documentació de diverses fonts (aplicacions de la comunitat KDE, pàgines «man», etc.)</li>
@@ -226,6 +231,7 @@
       <li xml:lang="zh-TW">顯示不同來源的文件（自 KDE 社群而來的應用程式、man 手冊頁等）</li>
       <li>Search through the available documentation</li>
       <li xml:lang="ar">البحث داخل التّوثيقات المتوفّرة</li>
+      <li xml:lang="be">Пошук у даступнай дакументацыі</li>
       <li xml:lang="bg">Търсене в наличната документация</li>
       <li xml:lang="ca">Cerca a la documentació disponible</li>
       <li xml:lang="ca-valencia">Busca en la documentació disponible</li>
@@ -274,6 +280,7 @@
     <screenshot type="default">
       <caption>KHelpCenter main window</caption>
       <caption xml:lang="ar">الشاشة الرئيسة لمركز مساعدتك</caption>
+      <caption xml:lang="be">Галоўнае акно KHelpCenter</caption>
       <caption xml:lang="bg">Основен прозорец на KHelpCenter</caption>
       <caption xml:lang="ca">Finestra principal del KHelpCenter</caption>
       <caption xml:lang="ca-valencia">Finestra principal de KHelpCenter</caption>
