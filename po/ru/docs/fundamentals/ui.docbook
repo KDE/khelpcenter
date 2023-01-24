@@ -2349,7 +2349,11 @@ or via email (see krecipes doc rev 1306076)
 ></entry
 ><!--[kwin][Global Shortcuts] MoveZoomLeft=Meta+Left -->
 <entry
->Перемещает содержимое окна влево.</entry>
+>Сдвинуть влево, переместить окно на монитор слева<footnote id="fn1"
+><para
+>При работе с несколькими мониторами</para
+></footnote
+></entry>
 </row>
 
 <row>
@@ -2361,7 +2365,29 @@ or via email (see krecipes doc rev 1306076)
 ></entry
 ><!--[kwin][Global Shortcuts] MoveZoomRight=Meta+Right -->
 <entry
->Перемещает содержимое окна вправо.</entry>
+>Сдвинуть вправо, переместить окно на монитор справа<footnoteref linkend="fn1"/></entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keysym
+>PgUp</keysym
+></keycombo
+></entry>
+<entry
+>Распахнуть/Восстановить окно</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keysym
+>PgDn</keysym
+></keycombo
+></entry>
+<entry
+>Свернуть окно</entry>
 </row>
 
 </tbody>
