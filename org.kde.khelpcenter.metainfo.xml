@@ -43,7 +43,7 @@
   <name xml:lang="sr-ijekavianlatin">K‑centar-pomoći</name>
   <name xml:lang="sv">Hjälpcentralen</name>
   <name xml:lang="ta">கேஹெல்புசெண்டர்</name>
-  <name xml:lang="tr">KHelpCenter</name>
+  <name xml:lang="tr">K Yardım Merkezi</name>
   <name xml:lang="uk">KHelpCenter</name>
   <name xml:lang="vi">KHelpCenter</name>
   <name xml:lang="x-test">xxKHelpCenterxx</name>
@@ -313,7 +313,7 @@
       <caption xml:lang="sl">Glavno okno - KHelpCenter</caption>
       <caption xml:lang="sv">Huvudfönstret i Hjälpcentralen</caption>
       <caption xml:lang="ta">கேஹெல்புசெண்டரின் பிரதான சாளரம்</caption>
-      <caption xml:lang="tr">KHelpCenter ana penceresi</caption>
+      <caption xml:lang="tr">K Yardım Merkezi ana penceresi</caption>
       <caption xml:lang="uk">Головне вікно KHelpCenter</caption>
       <caption xml:lang="vi">Cửa sổ chính KHelpCenter</caption>
       <caption xml:lang="x-test">xxKHelpCenter main windowxx</caption>
