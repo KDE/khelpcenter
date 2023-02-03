@@ -40,7 +40,7 @@
 
 <sect2 id="toolbars-items">
 <title
->Modificació dels elements de la barra d'eines</title>
+>Modifiqueu els elements de la barra d'eines</title>
 
 <para
 >Per a personalitzar les barres d'eines d'una aplicació, aneu a <menuchoice
@@ -368,7 +368,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 >.</para>
 
 <para
->En la finestra «Configuració de les dreceres», veureu una llista de totes les dreceres disponibles per a l'aplicació actual. Podeu utilitzar el quadro de busca a la part superior per a buscar la drecera desitjada.</para>
+>En la finestra «Configureu les dreceres», veureu una llista de totes les dreceres disponibles per a l'aplicació actual. Podeu utilitzar el quadro de busca a la part superior per a buscar la drecera desitjada.</para>
 
 <screenshot id="screenshot-shortcuts-search">
 <screeninfo
