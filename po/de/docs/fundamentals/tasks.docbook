@@ -1054,7 +1054,9 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 >Rechtschreibprüfung</title>
 
 <para
->&sonnet; ist das Rechtschreibprogramm, das von den &kde;-Programmen wie &kate;, &kmail; und &kword; verwendet wird. Es handelt sich um eine Benutzeroberfläche zu verschiedenen freien Rechtschreibprogrammen.</para>
+>&sonnet; ist das Rechtschreibprogramm, das von den &kde;-Programmen wie &kate;, &kmail; und <application
+>KWord</application
+> verwendet wird. Es handelt sich um eine Benutzeroberfläche zu verschiedenen freien Rechtschreibprogrammen.</para>
 
 <para
 >Um &sonnet; zu benutzen, müssen Sie ein Programm zur Rechtschreibprüfung wie <application
