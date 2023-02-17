@@ -611,7 +611,7 @@ otherterm="gloss-kbuildsycoca"
 ></glossterm>
 			<glossdef>
 				<para
->Oxygen era el tema predeterminat de &kde; SC 4. Dissenyat per portar «una alenada d'aire fresc» a l'escriptori eliminant el simplista, icones animades, i la substitució per un tema net i amb icones de qualitat fotogràfica. Oxygen utilitza una paleta sense saturació per previndre que les icones es convertisquen en una distracció i utilitza detallats gràfics escalables (SVG).&newpara; Més informació:&newpara; &linkstart;"https://en.wikipedia.org/wiki/Oxygen_Project"&linkmid;Viquipèdia: Oxygen Project&linkend;</para
+>Oxygen era el tema predeterminat de &kde; SC 4. Dissenyat per a portar «una alenada d'aire fresc» a l'escriptori eliminant el simplista, icones animades, i la substitució per un tema net i amb icones de qualitat fotogràfica. Oxygen utilitza una paleta sense saturació per previndre que les icones es convertisquen en una distracció i utilitza detallats gràfics escalables (SVG).&newpara; Més informació:&newpara; &linkstart;"https://en.wikipedia.org/wiki/Oxygen_Project"&linkmid;Viquipèdia: Oxygen Project&linkend;</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-ksvg"
