@@ -59,7 +59,7 @@
 ></textobject>
 <caption
 ><para
->Barra de ferramentas no <ulink url="http://kde.org/applications/graphics/gwenview/"
+>Barra de ferramentas no <ulink url="https://kde.org/applications/graphics/gwenview/"
 >&gwenview;</ulink
 >. </para
 ></caption>
@@ -440,7 +440,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 ><para
 >Procurando atalhos com a palavra <userinput
 >arquivo</userinput
-> no <ulink url="http://kde.org/applications/system/dolphin/"
+> no <ulink url="https://kde.org/applications/system/dolphin/"
 >&dolphin;</ulink
 >. </para
 ></caption>
@@ -478,7 +478,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 >Restaurando atalhos</title>
 <para
 >Existe um botão na parte inferior da janela chamado <guibutton
->Restaurar padrões</guibutton
+>Padrões</guibutton
 >. Clicar neste botão irá restaurar todos os seus atalhos personalizados para seus valores padrão.</para>
 
 <para
@@ -504,11 +504,6 @@ another place to change Global Shortcuts (Systemsettings)-->
 <para
 >Esquemas são perfis de configuração de atalhos, de modo que você pode criar diversos perfis com diferentes atalhos e alternar entre estes perfis facilmente.</para>
 
-<warning
-><para
->Essa funcionalidade está em desenvolvimento. No momento, não é possível importar esquemas com uma &GUI;.</para
-></warning>
-
 <screenshot id="screenshot-shortcuts-schemes">
 <screeninfo
 >Trabalhando com esquemas</screeninfo>
@@ -530,7 +525,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 
 <para
 >Para ver um menu que permite-lhe editar esquemas, clique no botão <guibutton
->Detalhes</guibutton
+>Gerenciar esquemas</guibutton
 > na parte inferior do formulário. As seguintes opções irão aparecer:</para>
 
 <variablelist>
@@ -581,35 +576,34 @@ another place to change Global Shortcuts (Systemsettings)-->
 <varlistentry>
 <term
 ><guimenuitem
->Salvar como esquema padrão</guimenuitem
+>Salvar atalhos no esquema</guimenuitem
 ></term>
 <listitem
 ><para
->Define o esquema atual como o padrão para todos os novos esquemas.</para
+>Salva os atalhos atuais no esquema atual.</para
 ></listitem>
 </varlistentry>
 
 <varlistentry>
 <term
 ><guimenuitem
->Exportar o esquema...</guimenuitem
+>Exportar esquema...</guimenuitem
 ></term>
 <listitem
 ><para
->Exporta o esquema atual para um arquivo chamado <filename
-><replaceable
->aplicativo</replaceable
-><replaceable
->esquema</replaceable
->shortcuts.rc</filename
->.</para>
-<para
->Mova esse arquivo para a pasta <filename class="directory"
->$KDEDIR/apps/aplicativo/</filename
->, para que o esquema exportado fique disponível na lista <guilabel
->Esquema atual</guilabel
-> </para
-></listitem>
+>Exporta o esquema atual para um arquivo.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guimenuitem
+>Importar esquema...</guimenuitem
+></term>
+<listitem
+><para
+>Importa o esquema de um arquivo.</para>
+</listitem>
 </varlistentry>
 
 </variablelist>

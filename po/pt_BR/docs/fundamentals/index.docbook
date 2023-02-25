@@ -1,29 +1,12 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
 "dtd/kdedbx45.dtd" [
-  <!ENTITY kappname "&kde-sc;">
   <!ENTITY % addindex "IGNORE">
-  <!--FIXME: these entities should be added to kdoctools-->
-  <!ENTITY plasma-workspaces "&i18n-plasma-workspaces;">
-  <!ENTITY plasma-desktop "&i18n-plasma-desktop;">
-  <!ENTITY plasma-active "&i18n-plasma-active;">
-  <!ENTITY gwenview '<application
->Gwenview</application
->'>
-  <!ENTITY Meta "&i18n-Meta;">
-  <!--/end entities that need to be added to kdoctools-->
-  <!--make some of the above entities translatable in the interim-->
-  <!ENTITY i18n-plasma-workspaces "&kde; &plasma; Workspaces">
-  <!ENTITY i18n-plasma-desktop "<application
->&kde; &plasma; Desktop</application
->">
-  <!ENTITY i18n-plasma-active "<application
->&plasma; Active</application
->">
+  <!ENTITY Meta "&i18n-Meta;"
+>     <!--FIXME should this be in en/user.entities? -->
   <!ENTITY i18n-Meta "<keysym
 >Meta</keysym
 >">
-  <!--/end temporary translatable entities-->
   <!ENTITY ui-chapter SYSTEM "ui.docbook">
   <!ENTITY tasks-chapter SYSTEM "tasks.docbook">
   <!ENTITY config-chapter SYSTEM "config.docbook">
@@ -98,13 +81,11 @@
 >&FDLNotice;</legalnotice>
 
 <date
->30/07/2015</date>
-<releaseinfo
->&plasma; 5.4</releaseinfo>
-
+>28/11/2016</date>
+<releaseinfo/>
 <abstract>
 <para
->Este guia fornece uma introdução ao espaço de trabalho e aplicativos do &kde; e descreve muitas das tarefas comuns que podem ser realizadas.</para>
+>Este guia fornece uma introdução ao espaço de trabalho e aplicativos do &plasma; e descreve muitas das tarefas comuns que podem ser realizadas.</para>
 </abstract>
 
 <keywordset>
@@ -153,11 +134,11 @@
 >Bem-vindo ao &kde;!</para>
 
 <para
->Este guia apresenta muitas funcionalidades do espaço de trabalho e aplicativos do &kde; e descreve as tarefas mais comuns que podem ser realizadas.</para>
+>Este guia apresenta muitas funcionalidades do espaço de trabalho e aplicativos do &plasma; e descreve as tarefas mais comuns que podem ser realizadas.</para>
 
 <para
->Para obter mais informações sobre o &kde;, visite a <ulink url="http://www.kde.org/"
->página Web do Projeto</ulink
+>Para obter mais informações sobre o &kde;, visite o <ulink url="https://www.kde.org/"
+>site do KDE</ulink
 >.</para>
 
 </chapter>
@@ -189,8 +170,7 @@
 > e André Marcelo Alvarenga <email
 >alvarenga@kde.org</email
 ></para
-> 
-&underFDL; &underGPL; </chapter>
+> &underFDL; &underGPL; </chapter>
 
 &documentation.index;
 
