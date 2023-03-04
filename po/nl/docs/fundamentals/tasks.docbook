@@ -1733,7 +1733,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 
 <sect3 id="colors-mixing-hsv">
 <title
->Tint/verzadiging/intensiteit</title>
+>Tint/verzadiging/helderheid</title>
 
 <para
 >De rechtsonder hoek van het scherm stelt u in staat om handmatig de coördinaten van de gewenste kleur in de Tint/Verzadiging/Intensiteit (Hue/Saturation/Value) (<acronym
