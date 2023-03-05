@@ -95,7 +95,7 @@
     <p>
       An application to search and read the documentation for all your KDE applications and system utilities
     </p>
-    <p xml:lang="ar">تطبيق للبحث عن الوثائق وقراءتها لجميع تطبيقات كدي وأدوات النظام المساعدة</p>
+    <p xml:lang="ar">تطبيق للبحث عن الوثائق وقراءتها لجميع تطبيقات كِيدِي وأدوات النظام المساعدة</p>
     <p xml:lang="bg">Приложение за търсене и четене на документация за всички приложения и системни инструменти на KDE</p>
     <p xml:lang="ca">Una aplicació per a cercar i llegir la documentació per a totes les aplicacions KDE i utilitats del sistema</p>
     <p xml:lang="ca-valencia">Una aplicació per a buscar i llegir la documentació per a totes les aplicacions KDE i utilitats del sistema</p>
@@ -178,7 +178,7 @@
     <p xml:lang="zh-TW">功能：</p>
     <ul>
       <li>Show documentation from various sources (applications from KDE community, man pages, etc)</li>
-      <li xml:lang="ar">عرض التّوثيقات من مختلف المصادر (التّطبيقات من مجتمع كدي، صفحات man وغيرها)</li>
+      <li xml:lang="ar">عرض التّوثيقات من مختلف المصادر (التّطبيقات من مجتمع كِيدِي، صفحات man وغيرها)</li>
       <li xml:lang="bg">Показване на документация от различни източници (приложения от  KDE общност, man страници и др.)</li>
       <li xml:lang="ca">Mostra la documentació de diverses fonts (aplicacions de la comunitat KDE, pàgines «man», etc.)</li>
       <li xml:lang="ca-valencia">Mostra la documentació de diverses fonts (aplicacions de la comunitat KDE, pàgines «man», etc.)</li>
