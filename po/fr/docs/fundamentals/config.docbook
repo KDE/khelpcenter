@@ -1,0 +1,582 @@
+<chapter id="config">
+<title
+>Personnaliser les logiciels &kde;</title>
+
+<sect1 id="toolbars">
+<sect1info>
+<authorgroup>
+<author
+>&TC.Hollingsworth; &TC.Hollingsworth.mail;</author>
+&traducteurFrederickAngelique;&relecteurLudovicGrossard; 
+</authorgroup>
+</sect1info>
+<title
+>Personnaliser les barres d'outils</title>
+
+<!--FIXME link from korganizer config-toolbars section-->
+<!--FIXME link from <sect2 id="configtoolbars"
+> in sheets/config.docbook
+> -->
+<!--FIXME link from <sect2 id="configuration-toolbars"
+> in extragear/multimedia-git/kplayer/doc/en_US/configuration.docbook -->
+<screenshot id="screenshot-toolbars-toolbar">
+<screeninfo
+>La barre d'outils de &gwenview; </screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="toolbars-toolbar.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>La barre d'outils de &gwenview; </phrase
+></textobject>
+<caption
+><para
+>La barre d'outils de <ulink url="https://kde.org/applications/graphics/gwenview/"
+>&gwenview;</ulink
+>. </para
+></caption>
+</mediaobject>
+</screenshot>
+
+<sect2 id="toolbars-items">
+<title
+>Modifier les éléments de la barre d'outils</title>
+
+<para
+>Pour personnaliser les barres d'outils d'une application, allez dans <menuchoice
+><guimenu
+>Configuration</guimenu
+><guimenuitem
+>Configurer les barres d'outils...</guimenuitem
+></menuchoice
+> ou faites un clic droit sur la barre d'outils et choisissez <guimenuitem
+>Configurer les barres d'outils...</guimenuitem
+>.</para>
+
+<para
+>Sur le côté gauche du panneau de configuration de la barre d'outils, les éléments disponibles que vous pouvez ajouter à votre barre d'outils sont affichés. Sur la droite, ceux qui sont déjà dans la barre d'outils sont affichés. En haut, vous pouvez choisir la barre d'outils que vous souhaitez modifier ou afficher.</para>
+
+<para
+>Au-dessus de chaque côté du panneau il y a une boîte de texte <guilabel
+>Filtre</guilabel
+> que vous pouvez utiliser pour trouver facilement des éléments dans la liste.</para>
+
+<screenshot id="screenshot-toolbars-customize">
+<screeninfo
+>La fenêtre de personnalisation des barres d'outils</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="toolbars-configure.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>La fenêtre de personnalisation des barres d'outils.</phrase
+></textobject>
+<caption
+><para
+>La fenêtre de personnalisation des barres d'outils dans &gwenview; avec le bouton <guibutton
+>Précédent</guibutton
+> sélectionné.</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<sect3 id="toolbars-items-add">
+<title
+>Ajouter un Élément</title>
+<para
+>Vous pouvez ajouter un élément à votre barre d'outils en le sélectionnant dans le panneau à gauche puis en cliquant sur le bouton flèche droite.</para>
+</sect3>
+
+<sect3 id="toolbars-items-remove">
+<title
+>Supprimer un Élément</title>
+<para
+>Vous pouvez supprimer un élément en le sélectionnant puis en cliquant sur le bouton flèche gauche.</para>
+</sect3>
+
+
+<sect3 id="toolbars-items-rearrange">
+<title
+>Modifier la Position des Éléments</title>
+
+<para
+>Vous pouvez modifier la position des éléments en les déplaçant vers le bas ou vers le haut dans la liste. Pour déplacer des éléments vers le bas, appuyez sur le bouton flèche bas, alors que pour remonter des éléments appuyez sur le bouton flèche haut. Vous pouvez aussi modifier la position des éléments en leur appliquant un glisser-déposer.</para>
+
+<para
+>Dans les barres d'outils horizontales, l'élément qui est en haut sera celui à gauche. Dans les barres d'outils verticales, les éléments sont organisés comme ils apparaissent dans la barre d'outils.</para>
+
+</sect3>
+
+<sect3 id="toolbars-items-separator">
+<title
+>Ajouter un séparateur</title>
+<para
+>Vous pouvez ajouter des séparateurs linéaires entre les éléments en ajoutant un élément <guilabel
+>---séparateur---</guilabel
+> à la barre d'outils.</para>
+</sect3>
+
+<sect3 id="toolbars-items-defaults">
+<title
+>Restauration par défaut</title>
+
+<para
+>Vous pouvez restaurer votre barre d'outils comme elle était lorsque vous aviez installé l'application en appuyant sur le bouton <guibutton
+>Réglages par défauts</guibutton
+> en bas de la fenêtre puis en confirmant votre décision.</para>
+
+</sect3>
+
+<sect3 id="toolbars-items-text-icons">
+<title
+>Modifier le texte et les icônes</title>
+
+<para
+>Vous pouvez modifier l'icône et le texte de chaque élément de la barre d'outils en choisissant un élément puis en cliquant sur le bouton <guibutton
+>Changer l'icône...</guibutton
+> ou sur le bouton <guibutton
+>Changer le texte...</guibutton
+>.</para>
+<!--FIXME Icon selection and icon categories -> own section?
+  Change Text -> Option "Hide text when toolbar shows text alongside icons"
+  -->
+</sect3>
+</sect2>
+
+<sect2 id="toolbars-appearance">
+<title
+>Personnaliser l'apparence de la barre d'outils</title>
+
+<para
+>Vous pouvez modifier l'apparence des barres d'outils en faisant un clic droit sur la barre d'outils pour avoir accès à son menu contextuel.</para>
+<!-- settings for each toolbar separately-->
+<sect3 id="toolbars-appearance-text-position">
+<title
+>Position du Texte</title>
+
+<para
+>Vous pouvez modifier l'apparence du texte dans les barres d'outils dans le sous-menu <guisubmenu
+>Position du Texte</guisubmenu
+> du menu contextuel d'une barre d'outils.</para>
+
+<para
+>Vous pouvez choisir entre :</para>
+<itemizedlist>
+
+<listitem
+><para
+><guimenuitem
+>Icônes seules</guimenuitem
+> - Seule l'icône pour chaque élément de la barre d'outils s'affichera. </para
+></listitem>
+
+<listitem
+><para
+><guimenuitem
+>Texte seul</guimenuitem
+> - seul le texte de chaque élément de la barre d'outils s'affichera. </para
+></listitem>
+
+<listitem
+><para
+><guimenuitem
+>Texte contre les icônes</guimenuitem
+> - le texte s'affichera à droite de chaque icône de la barre d'outils. </para
+></listitem>
+
+<listitem
+><para
+><guimenuitem
+>Texte sous les icônes</guimenuitem
+> - le texte s'affichera sous chaque icône de la barre d'outils. </para
+></listitem>
+
+</itemizedlist>
+
+<para
+>Vous pouvez aussi afficher ou cacher le texte pour des éléments particuliers de la barre d'outils en faisant un clic droit sur un élément et en cochant ou décochant la case de l'élément sous <guilabel
+>Afficher le texte</guilabel
+>.</para>
+
+</sect3>
+
+<sect3 id="toolbars-appearance-icon-size">
+<title
+>Taille des icônes</title>
+
+<para
+>Vous pouvez modifier la taille des icônes de la barre d'outils en choisissant <guisubmenu
+>Taille des icônes</guisubmenu
+> dans le menu contextuel de la barre d'outils.</para>
+
+<para
+>Vous pouvez choisir à partir des options suivantes : (chacune liste la taille de l'icône en pixels)</para>
+
+<itemizedlist>
+<listitem
+><para
+><guimenuitem
+>Petite (16x16)</guimenuitem
+></para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Moyenne (22x22)</guimenuitem
+> [valeur par défaut]</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Grande (32x32)</guimenuitem
+></para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Énorme (48x48)</guimenuitem
+></para
+></listitem>
+</itemizedlist>
+
+</sect3>
+
+<sect3 id="toolbars-appearance-move">
+<title
+>Déplacer les barres d'outils</title>
+
+<para
+>Dans le but de déplacer les barres d'outils, vous devez les <quote
+>déverrouiller</quote
+>. Pour ce faire, décochez <guimenuitem
+>Verrouiller les positions des barres d'outils</guimenuitem
+> dans le menu contextuel d'une barre d'outils. Pour rétablir le verrouillage, cochez à nouveau cet élément du menu.</para>
+
+<para
+>Vous pouvez modifier la position d'une barre d'outils à partir du sous-menu <guisubmenu
+>Orientation</guisubmenu
+> du menu contextuel.</para>
+
+<para
+>Vous pouvez choisir entre :</para>
+<itemizedlist>
+<listitem
+><para
+><guimenuitem
+>En haut</guimenuitem
+> [par défaut dans de nombreuses applications]</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>À gauche</guimenuitem
+></para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>À droite</guimenuitem
+></para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>En bas</guimenuitem
+></para
+></listitem>
+</itemizedlist>
+
+<para
+>Vous pouvez aussi déplacer une barre d'outils en cliquant sans relâcher sur la ligne en pointillés à gauche des barres d'outils horizontales ou en haut des barres d'outils verticales et en la glissant jusqu'à l'emplacement désiré.</para>
+
+</sect3>
+
+<sect3 id="toolbars-appearance-show-hide">
+<title
+>Afficher / cacher les barres d'outils</title>
+
+<para
+>Si votre application n'a qu'une seule barre d'outils, vous pouvez cachez une barre d'outils en décochant <guimenuitem
+>Afficher la barre d'outils</guimenuitem
+> à partir du menu contextuel de la barre d'outils ou du menu <guimenu
+>Configuration</guimenu
+>. Pour restaurer la barre d'outils, cochez <guimenuitem
+>Afficher la barre d'outils</guimenuitem
+> à partir du menu <guimenu
+>Configuration</guimenu
+>. Remarquez que les barres d'outils doivent être <quote
+>déverrouillées</quote
+> pour les cacher à partir de leur menu contextuel ; allez à <xref linkend="toolbars-appearance-move"/> pour plus d'informations.</para>
+
+<para
+>Si votre application a plus d'une barre d'outils, un sous-menu nommé <guisubmenu
+>Barres d'outils affichées</guisubmenu
+> s'affichera dans le menu contextuel et dans le menu <guimenu
+>Configuration</guimenu
+> au lieu de l'entrée de menu ci-dessus. À partir de ce menu vous pouvez choisir individuellement les barres d'outils à cacher et afficher.</para>
+
+</sect3>
+</sect2>
+
+<sect2 id="toolbars-ack">
+<title
+>Remerciements</title>
+<para
+>Merci à un participant anonyme de Google Code-In 2011 pour la rédaction de la majorité de cette section.</para>
+</sect2>
+
+</sect1>
+
+
+<sect1 id="shortcuts">
+<sect1info>
+<authorgroup>
+<author
+><firstname
+>Alexey</firstname
+> <surname
+>Subach</surname
+></author>
+<author
+>&TC.Hollingsworth; &TC.Hollingsworth.mail;</author>
+&traducteurFrederickAngelique;&relecteurLudovicGrossard; 
+</authorgroup>
+</sect1info>
+
+ <!--FIXME link from
+ <sect2 id="configshort"
+> in tables/config.docbook>
+ <sect2 id="configuration-shortcuts"
+> in extragear/multimedia-git/kplayer/doc/en_US/configuration.docbook
+ -->
+<!--FIXME explain Alternate + Global shortcuts in Screenshot and 
+another place to change Global Shortcuts (Systemsettings)-->
+<title
+>Utiliser et personnaliser les raccourcis</title>
+
+<sect2 id="shortcuts-intro">
+<title
+>Introduction</title>
+
+<para
+>Beaucoup d'applications &kde; vous permettent de configurer des raccourcis clavier. Pour ouvrir le panneau de configuration des raccourcis clavier standards, allez dans <menuchoice
+><guimenu
+>Configuration</guimenu
+><guimenuitem
+>Configurer les raccourcis clavier...</guimenuitem
+></menuchoice
+></para>
+
+<para
+>Dans la fenêtre de configuration des raccourcis, vous verrez une liste de tous les raccourcis disponibles dans l'application courante. Vous pouvez utiliser la boîte de recherche en haut pour rechercher le raccourci que vous voulez.</para>
+
+<screenshot id="screenshot-shortcuts-search">
+<screeninfo
+>La fenêtre de personnalisation des raccourcis</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="shortcuts-search.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>La fenêtre de personnalisation des raccourcis.</phrase
+></textobject>
+<caption
+><para
+>Recherche des raccourcis avec le mot clé <userinput
+>fichier</userinput
+> dans <ulink url="https://kde.org/applications/system/dolphin/"
+>&dolphin;</ulink
+>. </para
+></caption>
+</mediaobject>
+</screenshot>
+
+</sect2>
+
+<sect2 id="shortcuts-change">
+<title
+>Modifier un raccourci</title>
+
+<para
+>Pour modifier un raccourci, cliquez d'abord sur le nom du raccourci que vous voulez modifier. Une liste de choix s'affichera où vous pouvez choisir de configurer le raccourci à sa valeur par défaut, ou choisir un nouveau raccourcis pour l'action sélectionnée. Pour configurer un nouveau raccourci, choisissez <guilabel
+>Personnalisé</guilabel
+> et appuyez sur le bouton juste à côté. Ensuite saisissez le raccourci que vous voudriez utiliser et vos modifications seront enregistrées.</para>
+
+<screenshot id="screenshot-shortcuts-set">
+<screeninfo
+>Configuration un raccourci</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="shortcuts-set.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Fenêtre de personnalisation des raccourcis montrant comment configurer un raccourci.</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+</sect2>
+
+<sect2 id="shortcuts-reset">
+<title
+>Reconfigurer les raccourcis</title>
+<para
+>Il y a un bouton en bas de la fenêtre, nommé <guibutton
+>Valeurs par défaut</guibutton
+>. Appuyer sur ce bouton restaurera tous vos raccourcis personnalisés à leur valeur par défaut.</para>
+
+<para
+>Vous pouvez aussi restaurer un raccourci particulier à sa valeur par défaut en le choisissant puis en appuyant sur le bouton radio <guilabel
+>Par défaut</guilabel
+>.</para>
+
+</sect2>
+
+<sect2 id="shortcuts-delete">
+<title
+>Supprimer un raccourci</title>
+
+<para
+>Pour supprimer un raccourci, choisissez-le dans la liste, ensuite appuyez sur l'icône supprimer (une flèche noire avec une croix) à droite du bouton qui vous permet de choisir un raccourci.</para>
+
+</sect2>
+
+<sect2 id ="shortcuts-schemes">
+<title
+>Travailler avec les Modèles</title>
+
+<para
+>Les modèles sont des profils de configuration de raccourcis, donc vous pouvez créer plusieurs profils avec différents raccourcis et passer d'un profil à l'autre facilement.</para>
+
+<screenshot id="screenshot-shortcuts-schemes">
+<screeninfo
+>Travailler avec les Modèles</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="shortcuts-schemes.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Fenêtre de personnalisation des raccourcis affiche les outils d'édition des modèles.</phrase
+></textobject>
+<caption
+><para
+>Modification d'un modèle appelé <userinput
+>travail</userinput
+>.</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Pour voir un menu vous permettant d'éditer les modèles, appuyez sur le bouton <guibutton
+>Gérer les modèles</guibutton
+> en bas de la fenêtre. Les options suivantes s'afficheront :</para>
+
+<variablelist>
+
+<varlistentry>
+<term
+><guilabel
+>Modèle actuel</guilabel
+></term>
+<listitem
+><para
+>Vous permet de passer d'un modèle à un autre.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guibutton
+>Nouveau...</guibutton
+></term>
+<listitem
+><para
+>Créez un nouveau modèle. Cela ouvre une fenêtre qui vous permet de choisir un nom pour votre nouveau modèle.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guibutton
+>Supprimer</guibutton
+></term>
+<listitem
+><para
+>Supprime le modèle courant.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guibutton
+>Plus d'actions</guibutton
+></term>
+<listitem>
+<para
+>Ouvre le menu suivant :</para>
+<variablelist>
+
+<varlistentry>
+<term
+><guimenuitem
+>Enregistrer les raccourcis dans le modèle</guimenuitem
+></term>
+<listitem
+><para
+>Enregistre les raccourcis actuels dans le modèle courant.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guimenuitem
+>Exporter le modèle...</guimenuitem
+></term>
+<listitem
+><para
+>Exporte le modèle courant dans un fichier.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guimenuitem
+>Importer le modèle...</guimenuitem
+></term>
+<listitem
+><para
+>Importe le modèle à partir d'un fichier.</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+<sect2 id="shortcuts-print">
+<title
+>Raccourci d'impression</title>
+
+<para
+>Vous pouvez imprimer une liste de raccourcis pour vous y référer facilement en appuyant sur le bouton <guibutton
+>Imprimer</guibutton
+>.</para>
+
+</sect2>
+
+<sect2 id="shortcuts-ack">
+<title
+>Remerciements</title>
+
+<para
+>Remerciements en particuliers au participant Alexey Subach au Google Code-In 2011 pour la rédaction de la majorité de cette section.</para>
+
+</sect2>
+
+</sect1>
+
+</chapter>

@@ -50,7 +50,7 @@ msgstr "مركز مساعدة"
 #: application.cpp:118
 #, kde-format
 msgid "(c) 1999-2020, The KHelpCenter developers"
-msgstr "(c) 1999-2020, مطوري مركز المساعدة لـِ كدي"
+msgstr "(c) 1999-2020, مطوري مركز المساعدة لـِ كِيدِي"
 
 #: application.cpp:120
 #, kde-format
@@ -195,12 +195,12 @@ msgstr "إعادة بناء الذاكرة المخبئة... انتهت."
 #, kde-format
 msgctxt "%1 is a glossary term"
 msgid "KDE Glossary: %1"
-msgstr "قاموس كدي: %1"
+msgstr "قاموس كِيدِي: %1"
 
 #: grantleeformatter.cpp:103
 #, kde-format
 msgid "KDE Glossary"
-msgstr "قاموس كيدي"
+msgstr "قاموس كِيدِي"
 
 #: grantleeformatter.cpp:107
 #, kde-format
@@ -368,7 +368,7 @@ msgstr "صفحة البداية"
 #: navigator.cpp:481
 #, kde-format
 msgid "KDE Help Center"
-msgstr "مركز مساعدة كيدي"
+msgstr "مركز مساعدة كِيدِي"
 
 #: navigator.cpp:564
 #, kde-format
@@ -681,10 +681,10 @@ msgstr ""
 #~ msgstr "أنشء &فهرس البحث..."
 
 #~ msgid "The KDE Help Center"
-#~ msgstr "مركز المساعدة لِـ كيدي"
+#~ msgstr "مركز المساعدة لِـ كِيدِي"
 
 #~ msgid "(c) 2003, The KHelpCenter developers"
-#~ msgstr "(c) 2003, مطوري مركز مساعدة كيدي"
+#~ msgstr "(c) 2003, مطوري مركز مساعدة كِيدِي"
 
 #~ msgid "Details &gt;&gt;"
 #~ msgstr "تفاصيل &gt;&gt;"
