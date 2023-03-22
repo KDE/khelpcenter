@@ -1,17 +1,17 @@
-# translation of khelpcenter.po to Esperanto
-# Esperantaj mesaĝoj por "kdehelp"
+# translation of khelpcenter5.pot to Esperanto
+# Esperantaj mesaĝoj por "khelpcenter"
 # Copyright (C) 1998, 2007 Free Software Foundation, Inc.
 # Wolfram Diestel <wolfram@steloj.de>, 1998.
 # Cindy McKee <cfmckee@gmail.com>, 2007.
-#
+# Oliver Kellogg <okellogg@users.sourceforge.net>, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-17 00:49+0000\n"
-"PO-Revision-Date: 2007-12-22 09:21-0600\n"
-"Last-Translator: Cindy McKee <cfmckee@gmail.com>\n"
+"PO-Revision-Date: 2023-03-20 22:43+0100\n"
+"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
@@ -31,10 +31,9 @@ msgid "Your emails"
 msgstr "wolfram@steloj.de,cfmckee@gmail.com"
 
 #: application.cpp:30
-#, fuzzy, kde-format
-#| msgid "Document to be indexed"
+#, kde-format
 msgid "Documentation to open"
-msgstr "Dokumento indeksiginda"
+msgstr "Dokumentaro malfermenda"
 
 #: application.cpp:114 application.cpp:116
 #, kde-format
@@ -42,15 +41,14 @@ msgid "Help Center"
 msgstr "Helpcentro"
 
 #: application.cpp:118
-#, fuzzy, kde-format
-#| msgid "(c) 1999-2003, The KHelpCenter developers"
+#, kde-format
 msgid "(c) 1999-2020, The KHelpCenter developers"
-msgstr "(c) 1999-2003, programistoj de KHelpCenter"
+msgstr ""
 
 #: application.cpp:120
 #, kde-format
 msgid "Current maintainer"
-msgstr ""
+msgstr "Aktuala prizorganto"
 
 #: application.cpp:121
 #, kde-format
@@ -60,12 +58,12 @@ msgstr ""
 #: application.cpp:122
 #, kde-format
 msgid "Former maintainer"
-msgstr ""
+msgstr "Antaŭa prizorganto"
 
 #: application.cpp:124
 #, kde-format
 msgid "Original Author"
-msgstr "Originala aŭtoro"
+msgstr "Origina aŭtoro"
 
 #: application.cpp:125
 #, kde-format
@@ -187,11 +185,10 @@ msgid "Rebuilding cache... done."
 msgstr "Rekonstruas kaŝmemoron... farita."
 
 #: grantleeformatter.cpp:102
-#, fuzzy, kde-format
-#| msgid "KDE Glossary"
+#, kde-format
 msgctxt "%1 is a glossary term"
 msgid "KDE Glossary: %1"
-msgstr "KDE-glosaro"
+msgstr ""
 
 #: grantleeformatter.cpp:103
 #, kde-format
@@ -199,10 +196,9 @@ msgid "KDE Glossary"
 msgstr "KDE-glosaro"
 
 #: grantleeformatter.cpp:107
-#, fuzzy, kde-format
-#| msgid "See also: "
+#, kde-format
 msgid "See also: %1"
-msgstr "Vidu ankaŭ: "
+msgstr "Vidu ankaŭ: %1"
 
 #: grantleeformatter.cpp:128
 #, kde-format
@@ -338,10 +334,9 @@ msgid "&Bookmarks"
 msgstr ""
 
 #: navigator.cpp:63
-#, fuzzy, kde-format
-#| msgid "&Search"
+#, kde-format
 msgid "Search..."
-msgstr "&Serĉi"
+msgstr "Serĉi..."
 
 #: navigator.cpp:118
 #, kde-format
@@ -374,16 +369,14 @@ msgid "Unable to run search program."
 msgstr "Ne eblas lanĉi la serĉprogramon."
 
 #: navigator.cpp:657
-#, fuzzy, kde-format
-#| msgid "Build Search Index..."
+#, kde-format
 msgid "Updating search index..."
-msgstr "Konstrui serĉindekson..."
+msgstr ""
 
 #: navigator.cpp:668
-#, fuzzy, kde-format
-#| msgid "Rebuilding cache... done."
+#, kde-format
 msgid "Updating search index... done."
-msgstr "Rekonstruas kaŝmemoron... farita."
+msgstr ""
 
 #: searchengine.cpp:57
 #, kde-format
@@ -497,277 +490,3 @@ msgid ""
 "b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, <b>Tab</b>/"
 "<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
 msgstr ""
-
-#~ msgid "Unable to initialize SearchHandler from file '%1'."
-#~ msgstr "Ne povas pravalorigi serĉan traktilon de dosiero '%1'."
-
-#~ msgid "Error"
-#~ msgstr "Eraro"
-
-#~ msgid ""
-#~ "Unable to show selected glossary entry: unable to open file 'glossary."
-#~ "html.in'!"
-#~ msgstr ""
-#~ "Ne povas montri elektitan gloson: ne povas malfermi dosieron 'glossary."
-#~ "html.in'!"
-
-#~ msgid "ht://dig"
-#~ msgstr "ht://dig"
-
-#~ msgid ""
-#~ "The fulltext search feature makes use of the ht://dig HTML search engine."
-#~ msgstr "La plenteksta serĉa eblon utiligas la ht://dig HTML-serĉilon."
-
-#~ msgid "Information about where to get the ht://dig package."
-#~ msgstr "Informoj pri akiro de la ht://dig-pakaĵo."
-
-#~ msgid "Program Locations"
-#~ msgstr "Programaj lokoj"
-
-#~ msgid "htsearch:"
-#~ msgstr "htsearch:"
-
-#~ msgid "Enter the URL of the htsearch CGI program."
-#~ msgstr "Entajpu la adreson de la htsearch-CGI-programo."
-
-#~ msgid "Indexer:"
-#~ msgstr "Indeksilo:"
-
-#~ msgid "Enter the path to your htdig indexer program here."
-#~ msgstr "Elektu vojon al la htdig indeksila programo."
-
-#~ msgid "htdig database:"
-#~ msgstr "htdig datumbazo:"
-
-#~ msgid "Enter the path to the htdig database folder."
-#~ msgstr "Elektu vojon al la htdig datumbaza dosierujo."
-
-#~ msgid "Change Index Folder"
-#~ msgstr "Ŝanĝi indeksodosierujon"
-
-#~ msgid "Index folder:"
-#~ msgstr "Indeksa dosierujo:"
-
-#~ msgid "Build Search Indices"
-#~ msgstr "Konstrui la serĉajn indeksojn"
-
-#~ msgid "Index creation log:"
-#~ msgstr "Indeksokonstruada protokolo:"
-
-#~ msgctxt ""
-#~ "Label for button to close search index progress dialog after successful "
-#~ "completion"
-#~ msgid "Close"
-#~ msgstr "Finiĝis"
-
-#~ msgid "Index creation finished."
-#~ msgstr "Finis la indeksokonstruadon."
-
-#~ msgctxt "Label for stopping search index generation before completion"
-#~ msgid "Stop"
-#~ msgstr "Ĉesi"
-
-#, fuzzy
-#~| msgid "Details &lt;&lt;"
-#~ msgid "Details <<"
-#~ msgstr "Detaloj &lt;&lt;"
-
-#, fuzzy
-#~| msgid "Details &lt;&lt;"
-#~ msgid "Details >>"
-#~ msgstr "Detaloj &lt;&lt;"
-
-#~ msgid "Build Search Index"
-#~ msgstr "Konstrui serĉindekson"
-
-#~ msgid "Build Index"
-#~ msgstr "Konstrui indekson"
-
-#, fuzzy
-#~| msgid ""
-#~| "To be able to search a document, there needs to exist a search\n"
-#~| "index. The status column of the list below shows, if an index\n"
-#~| "for a document exists.\n"
-#~ msgid ""
-#~ "To be able to search a document, a search\n"
-#~ "index needs to exist. The status column of the list below shows whether "
-#~ "an index\n"
-#~ "for a document exists.\n"
-#~ msgstr ""
-#~ "Vi bezonas serĉindekson por ebligi serĉadon de dokumentoj.\n"
-#~ "La stata kolumno de la suba listo montras la ekziston aŭ mankon de\n"
-#~ "ekzisto de indekso por dokumento.\n"
-
-#~ msgid ""
-#~ "To create an index, check the box in the list and press the\n"
-#~ "\"Build Index\" button.\n"
-#~ msgstr ""
-#~ "Por krei indekson marku la markobutonon en la listo kaj premu la\n"
-#~ "\"Konstrui indekson\" butonon.\n"
-
-#~ msgid "Search Scope"
-#~ msgstr "Serĉa amplekso"
-
-#~ msgid "Status"
-#~ msgstr "Stato"
-
-#~ msgid "Change..."
-#~ msgstr "Ŝanĝi..."
-
-#~ msgid ""
-#~ "<qt>The folder <b>%1</b> does not exist; unable to create index.</qt>"
-#~ msgstr ""
-#~ "<qt>La dosierujo <b>%1</b> ne ekzistas, ne povas krei indekson.</qt>"
-
-#~ msgctxt "Describes the status of a documentation index that is present"
-#~ msgid "OK"
-#~ msgstr "En ordo"
-
-#~ msgctxt "Describes the status of a documentation index that is missing"
-#~ msgid "Missing"
-#~ msgstr "Mankas"
-
-#~ msgctxt ""
-#~ " Generic prefix label for error messages when creating documentation "
-#~ "index, first arg is the document's identifier, second is the document's "
-#~ "name"
-#~ msgid "Document '%1' (%2):\n"
-#~ msgstr "Dokumento '%1' (%2):\n"
-
-#~ msgid "No document type."
-#~ msgstr "Neniu dokumentotipo."
-
-#~ msgid "No search handler available for document type '%1'."
-#~ msgstr "Ne estas serĉa traktilo por dokumentotipo '%1'."
-
-#~ msgid "No indexing command specified for document type '%1'."
-#~ msgstr "Ne estas specifita indeksa komando por dokumentotipo '%1'."
-
-#~ msgid "Failed to build index."
-#~ msgstr "Malsukcesis konstrui indekson."
-
-#~ msgid ""
-#~ "Error executing indexing build command:\n"
-#~ "%1"
-#~ msgstr ""
-#~ "Eraro dum plenumo de indeksokonstruada komando:\n"
-#~ "%1"
-
-#~ msgid "Unable to start command '%1'."
-#~ msgstr "Ne povas lanĉi komandon '%1'."
-
-#~ msgid "KHelpCenter Index Builder"
-#~ msgstr "KHelpCenter Indeksokonstruilo"
-
-#~ msgid "Cornelius Schumacher"
-#~ msgstr "Cornelius Schumacher"
-
-#~ msgid "Document to be indexed"
-#~ msgstr "Dokumento indeksiginda"
-
-#~ msgid "Index directory"
-#~ msgstr "Indeksodosierujo"
-
-#~ msgid ""
-#~ "A search index does not yet exist. Do you want to create the index now?"
-#~ msgstr "Serĉindekso ankoraŭ ne ekzistas. Ĉu vi volas krei la indekson nun?"
-
-#~ msgid "Create"
-#~ msgstr "Krei"
-
-#~ msgid "Do Not Create"
-#~ msgstr "Ne krei"
-
-#~ msgid "Build Search &Index..."
-#~ msgstr "Konstrui &serĉindekson..."
-
-#~ msgid "The KDE Help Center"
-#~ msgstr "La KDE-Helpcentro"
-
-#~ msgid "(c) 2003, The KHelpCenter developers"
-#~ msgstr "(c) 2003, programistoj de KHelpCenter"
-
-#~ msgid "Details &gt;&gt;"
-#~ msgstr "Detaloj &gt;&gt;"
-
-#~ msgid "Frerich Raabe"
-#~ msgstr "Frerich Raabe"
-
-#~ msgid "Matthias Elter"
-#~ msgstr "Matthias Elter"
-
-#~ msgid "Wojciech Smigaj"
-#~ msgstr "Wojciech Smigaj"
-
-#~ msgid "URL to display"
-#~ msgstr "Montrota retadreso"
-
-#~ msgid "&File"
-#~ msgstr "&Dosiero"
-
-#~ msgid "Show Search Error Log"
-#~ msgstr "Montri la serĉeraran protokolon"
-
-#~ msgid "ht://dig home page"
-#~ msgstr "ht://dig ĉefpaĝo"
-
-#~ msgid "Conquer your Desktop!"
-#~ msgstr "Konkeru vian labortablon!"
-
-#~ msgid "Welcome to the K Desktop Environment"
-#~ msgstr "Bonvenon ĉe la KDE-ĉirkaŭaĵo"
-
-#~ msgid "The KDE team welcomes you to user-friendly UNIX computing"
-#~ msgstr "La KDE-teamo bonvenigas vin al afabla Uniksumado"
-
-#~ msgid ""
-#~ "KDE is a powerful graphical desktop environment for UNIX workstations. A\n"
-#~ "KDE desktop combines ease of use, contemporary functionality and "
-#~ "outstanding\n"
-#~ "graphical design with the technological superiority of the UNIX "
-#~ "operating\n"
-#~ "system."
-#~ msgstr ""
-#~ "KDE estas potenca grafika ĉirkaŭaĵo por Uniksaj operaciumoj.\n"
-#~ "KDE-laborspaco kombinas facilan uzadon, modernan funkciaron kaj\n"
-#~ "elstaran grafikan desegnon kun la teknologia supereco de la Uniksa "
-#~ "operaciumo."
-
-#~ msgid "What is the K Desktop Environment?"
-#~ msgstr "Kio estas la KDE-ĉirkaŭaĵo?"
-
-#~ msgid "Contacting the KDE Project"
-#~ msgstr "Kontakti la KDE-projekton"
-
-#~ msgid "Supporting the KDE Project"
-#~ msgstr "Subteni la KDE-projekton"
-
-#~ msgid "Useful links"
-#~ msgstr "Utilaj ligiloj"
-
-#~ msgid "Getting the most out of KDE"
-#~ msgstr "Kiel avantaĝe uzi KDE-on"
-
-#~ msgid "General Documentation"
-#~ msgstr "Ĝenerala dokumentaro"
-
-#~ msgid "A Quick Start Guide to the Desktop"
-#~ msgstr "Rapida enkonduko al la ĉirkaŭaĵo"
-
-#~ msgid "KDE Users' guide"
-#~ msgstr "KDE-uzanto-manlibro"
-
-#~ msgid "Frequently asked questions"
-#~ msgstr "Oftaj demandoj"
-
-#~ msgid "Basic Applications"
-#~ msgstr "Bazaj aplikaĵoj"
-
-#~ msgid "The Kicker Desktop Panel"
-#~ msgstr "La lanĉila panelo"
-
-#~ msgid "The KDE Control Center"
-#~ msgstr "La KDE-Stircentro"
-
-#~ msgid "The Konqueror File manager and Web Browser"
-#~ msgstr "La dosieradministrilo kaj TTT-legilo Konkeranto"
