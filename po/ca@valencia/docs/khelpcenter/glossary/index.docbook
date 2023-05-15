@@ -292,7 +292,7 @@ otherterm="gloss-kbuildsycoca"
 >Threadweaver</glossterm>
 			<glossdef
 ><para
->Esta biblioteca de programació per fils estén la disponibilitat entre els processadors de múltiples nuclis tant com siga possible, donant-los prioritat abans de fer cua per a la seua execució. ThreadWeaver proporciona una interfície de treball d'alt nivell per a programar en multiprocés.&newpara; Més informació:&newpara; &linkstart;"https://api.kde.org/frameworks/threadweaver/html/index.html"&linkmid;Documentació de la API - ThreadWeaver&linkend;</para>
+>Esta biblioteca de programació per fils estén la disponibilitat entre els processadors de múltiples nuclis tant com siga possible, donant-los prioritat abans de fer cua per a la seua execució. ThreadWeaver proporciona una interfície de treball d'alt nivell per a programar en multiprocés.&newpara; Més informació:&newpara; &linkstart;"https://api.kde.org/frameworks/threadweaver/html/index.html"&linkmid;Documentació de l'API - ThreadWeaver&linkend;</para>
 				<glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso>
 			</glossdef>
