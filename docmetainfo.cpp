@@ -179,7 +179,7 @@ DocEntry *DocMetaInfo::scanMetaInfoDir( const QString &dirName,
 
 DocEntry *DocMetaInfo::addDirEntry( const QDir &dir, DocEntry *parent )
 {
-  DocEntry *dirEntry = addDocEntry( dir.absoluteFilePath( QStringLiteral(".directory") ) );
+  DocEntry *dirEntry = addDocEntry( QFileInfo(dir.absoluteFilePath( QStringLiteral(".directory"))));
 
   if ( !dirEntry ) 
   {

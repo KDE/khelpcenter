@@ -7,7 +7,6 @@
 #include "navigatoritem.h"
 
 #include "docentry.h"
-#include "khc_debug.h"
 
 #include <QIcon>
 

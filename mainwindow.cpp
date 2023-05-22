@@ -10,7 +10,6 @@
 #include "history.h"
 #include "view.h"
 #include "searchengine.h"
-#include "fontdialog.h"
 #include "khc_debug.h"
 #include "navigator.h"
 #include "grantleeformatter.h"
@@ -38,9 +37,8 @@
 #include <KBookmarkMenu>
 #include <KConfig>
 #include <KConfigGroup>
-#include <KHTMLSettings>
-#include <KHTMLView>
 #include <KStandardAction>
+#include <KLocalizedString>
 #include <KStartupInfo>
 #include <KToolBar>
 #include <KWindowConfig>
@@ -103,19 +101,16 @@ MainWindow::MainWindow()
     QDBusConnection::sessionBus().registerObject(QStringLiteral("/KHelpCenter"), this, QDBusConnection::ExportScriptableSlots);
     mSplitter = new QSplitter( this );
 
-    mDoc = new View( mSplitter, this, KHTMLPart::DefaultGUI, actionCollection() );
-    connect( mDoc, &View::setWindowCaption, this, &MainWindow::setWindowTitle );
-    connect( mDoc, &KParts::Part::setStatusBarText, this, &MainWindow::statusBarRichTextMessage );
-    connect( mDoc, &View::onURL, this, &MainWindow::statusBarMessage );
-    connect( mDoc, &View::started, this, &MainWindow::slotStarted );
-    connect( mDoc, QOverload<>::of(&View::completed), this, &MainWindow::documentCompleted );
+    mDoc = new View( mSplitter, actionCollection() );
+    connect( mDoc, &View::titleChanged, this, &MainWindow::setWindowTitle );
+    connect( mDoc->page(), &QWebEnginePage::linkHovered, this, &MainWindow::statusBarMessage );
+    connect( mDoc, &QWebEngineView::loadStarted, this, &MainWindow::slotStarted );
+    connect( mDoc, &View::loadFinished, this, &MainWindow::documentCompleted );
     connect( mDoc, &View::searchResultCacheAvailable, this, &MainWindow::enableLastSearchAction );
 
     connect( mDoc, &View::selectionChanged, this, &MainWindow::enableCopyTextAction );
 
     statusBar()->showMessage(i18n("Preparing Index"));
-
-    connect( mDoc->browserExtension(), &KParts::BrowserExtension::openUrlRequest, this, &MainWindow::slotOpenURLRequest );
 
     mNavigator = new Navigator( mDoc, mSplitter );
     mNavigator->setObjectName( QStringLiteral("nav") );
@@ -130,21 +125,7 @@ MainWindow::MainWindow()
     sizes << 220 << 580;
     mSplitter->setSizes(sizes);
 
-    {
-      if ( Prefs::useKonqSettings() ) {
-        KConfig konqCfg( QStringLiteral("konquerorrc") );
-        const_cast<KHTMLSettings *>( mDoc->settings() )->init( &konqCfg );
-      }
-      const int fontScaleFactor = Prefs::fontzoomfactor();
-      mDoc->setFontScaleFactor( fontScaleFactor );
-    }
-
     setupActions();
-
-    const auto actions = mDoc->actionCollection()->actions();
-    for (QAction *act : actions) {
-        actionCollection()->addAction(act->objectName(), act);
-    }
 
     setupBookmarks();
 
@@ -174,7 +155,7 @@ void MainWindow::enableCopyTextAction()
 
 void MainWindow::saveProperties( KConfigGroup &config )
 {
-    config.writePathEntry( "URL" , mDoc->baseURL().url() );
+    config.writePathEntry( "URL" , mDoc->url().toString() );
 }
 
 void MainWindow::readProperties( const KConfigGroup &config )
@@ -206,18 +187,6 @@ void MainWindow::setupActions()
     actionCollection()->addAction( KStandardAction::Quit, this, SLOT(close()) );
     actionCollection()->addAction( KStandardAction::Print, this, SLOT(print()) );
 
-    QAction *prevPage  = actionCollection()->addAction( QStringLiteral("prevPage") );
-    prevPage->setText( i18n( "Previous Page" ) );
-    actionCollection()->setDefaultShortcut(prevPage, Qt::CTRL+Qt::Key_PageUp );
-    prevPage->setWhatsThis( i18n( "Moves to the previous page of the document" ) );
-    connect( prevPage, &QAction::triggered, mDoc, &View::prevPage );
-
-    QAction *nextPage  = actionCollection()->addAction( QStringLiteral("nextPage") );
-    nextPage->setText( i18n( "Next Page" ) );
-    actionCollection()->setDefaultShortcut(nextPage, Qt::CTRL | Qt::Key_PageDown );
-    nextPage->setWhatsThis( i18n( "Moves to the next page of the document" ) );
-    connect( nextPage, &QAction::triggered, mDoc, &View::nextPage );
-
     KStandardAction::fullScreen( this, SLOT( slotFullScreen() ), this, actionCollection() );
 
     QAction *home = KStandardAction::home( this, SLOT(slotShowHome()), this );
@@ -247,19 +216,6 @@ void MainWindow::setupActions()
 */
     History::self().setupActions( actionCollection() );
 
-    QAction *action = actionCollection()->addAction(QStringLiteral("configure_fonts" ));
-    action->setText( i18n( "Configure Fonts..." ) );
-    connect( action, &QAction::triggered, this, &MainWindow::slotConfigureFonts );
-
-    action = actionCollection()->addAction(QStringLiteral("incFontSizes"));
-    action->setText( i18n( "Increase Font Sizes" ) );
-    action->setIcon( QIcon::fromTheme( QStringLiteral("zoom-in") ) );
-    connect( action, &QAction::triggered, this, &MainWindow::slotIncFontSizes );
-
-    action = actionCollection()->addAction(QStringLiteral("decFontSizes"));
-    action->setText( i18n( "Decrease Font Sizes" ) );
-    action->setIcon( QIcon::fromTheme( QStringLiteral("zoom-out") ) );
-    connect( action, &QAction::triggered, this, &MainWindow::slotDecFontSizes );
 }
 
 void MainWindow::setupBookmarks()
@@ -284,33 +240,23 @@ void MainWindow::slotCopySelectedText()
   mDoc->copySelectedText();
 }
 
-void MainWindow::print()
+void MainWindow::slotStarted()
 {
-    mDoc->view()->print();
-}
-
-void MainWindow::slotStarted(KIO::Job *job)
-{
-    if (job)
-       connect(job, &KIO::Job::infoMessage, this, &MainWindow::slotInfoMessage);
-
     History::self().updateActions();
 }
 
 void MainWindow::goInternalUrl( const QUrl &url )
 {
-  mDoc->closeUrl();
+  mDoc->stop();
   slotOpenURLRequest( url );
 }
 
-void MainWindow::slotOpenURLRequest( const QUrl &url,
-                                     const KParts::OpenUrlArguments &args,
-                                     const KParts::BrowserArguments &browserArgs )
+void MainWindow::slotOpenURLRequest( const QUrl &url)
 {
   qCDebug(KHC_LOG) << url.url();
 
   mNavigator->selectItem( url );
-  viewUrl( url, args, browserArgs );
+  viewUrl( url );
 }
 
 void MainWindow::viewUrl( const QString &url )
@@ -318,7 +264,7 @@ void MainWindow::viewUrl( const QString &url )
   viewUrl( QUrl( url ) );
 }
 
-void MainWindow::viewUrl( const QUrl &url, const KParts::OpenUrlArguments &args, const KParts::BrowserArguments &browserArgs )
+void MainWindow::viewUrl( const QUrl &url )
 {
     stop();
 
@@ -360,15 +306,12 @@ void MainWindow::viewUrl( const QUrl &url, const KParts::OpenUrlArguments &args,
 
     History::self().createEntry();
 
-    mDoc->setArguments( args );
-    mDoc->browserExtension()->setBrowserArguments( browserArgs );
-
     if ( proto == QLatin1String("glossentry") ) {
         QString decodedEntryId = QUrl::fromPercentEncoding( QUrl::toPercentEncoding(url.path()) );
         slotGlossSelected( mNavigator->glossEntry( decodedEntryId ) );
         mNavigator->slotSelectGlossEntry( decodedEntryId );
     } else {
-        mDoc->openUrl( url );
+        mDoc->load( url );
     }
 }
 
@@ -420,14 +363,12 @@ void MainWindow::slotGlossSelected(const GlossaryEntry &entry)
 {
     stop();
     History::self().createEntry();
-    mDoc->begin( QUrl( QStringLiteral("glossentry:") + entry.id() ) );
-    mDoc->write( mDoc->grantleeFormatter()->formatGlossaryEntry( entry ) );
-    mDoc->end();
+    mDoc->setInternalHtml( mDoc->grantleeFormatter()->formatGlossaryEntry( entry ), QUrl( QStringLiteral("glossentry:") + entry.id() ) );
 }
 
 void MainWindow::stop()
 {
-    mDoc->closeUrl();
+    mDoc->stop();
     History::self().updateCurrentEntry( mDoc );
 }
 
@@ -468,41 +409,6 @@ void MainWindow::showSearchStderr()
   mLogDialog->setLog( log );
   mLogDialog->show();
   mLogDialog->raise();
-}
-
-void MainWindow::slotIncFontSizes()
-{
-  mDoc->slotIncFontSizes();
-  updateFontScaleActions();
-}
-
-void MainWindow::slotDecFontSizes()
-{
-  mDoc->slotDecFontSizes();
-  updateFontScaleActions();
-}
-
-void MainWindow::updateFontScaleActions()
-{
-  actionCollection()->action( QStringLiteral("incFontSizes") )->setEnabled( mDoc->fontScaleFactor() + mDoc->fontScaleStepping() <= 300 );
-  actionCollection()->action( QStringLiteral("decFontSizes") )->setEnabled( mDoc->fontScaleFactor() - mDoc->fontScaleStepping() >= 20 );
-
-  Prefs::setFontzoomfactor( mDoc->fontScaleFactor() );
-  Prefs::self()->save();
-}
-
-void MainWindow::slotConfigureFonts()
-{
-  FontDialog dlg( this );
-  if ( dlg.exec() == QDialog::Accepted )
-  {
-    if (mDoc->baseURL().isEmpty())
-    {
-        const_cast<KHTMLSettings *>( mDoc->settings() )->init( KSharedConfig::openConfig().data() );
-        slotShowHome();
-    }
-    else mDoc->slotReload();
-  }
 }
 
 void MainWindow::slotFullScreen()

@@ -10,13 +10,12 @@
 
 #include <KXmlGuiWindow>
 
-#include <KParts/BrowserExtension>
-
 #include "glossary.h"
 
 class QSplitter;
 
 class LogDialog;
+class KJob;
 
 namespace KIO {
 
@@ -44,7 +43,6 @@ class MainWindow : public KXmlGuiWindow
     Q_SCRIPTABLE void lastSearch();
 
   public Q_SLOTS:
-    void print();
     void statusBarRichTextMessage(const QString &m);
     void statusBarMessage(const QString &m);
     void slotShowHome();
@@ -68,9 +66,7 @@ class MainWindow : public KXmlGuiWindow
     /**
       Show document corresponding to given URL in viewer part.
     */
-    void viewUrl( const QUrl &url,
-                  const KParts::OpenUrlArguments &args = KParts::OpenUrlArguments(),
-                  const KParts::BrowserArguments &browserArgs = KParts::BrowserArguments() );
+    void viewUrl( const QUrl &url);
 
     void saveProperties( KConfigGroup &config ) override;
     void readProperties( const KConfigGroup &config ) override;
@@ -87,19 +83,14 @@ class MainWindow : public KXmlGuiWindow
 
   private Q_SLOTS:
     void slotGlossSelected(const GlossaryEntry &entry);
-    void slotStarted(KIO::Job *job);
+    void slotStarted();
     void slotInfoMessage(KJob *, const QString &);
     void goInternalUrl( const QUrl & );
     /**
       This function is called when the user clicks on a link in the viewer part.
     */
-    void slotOpenURLRequest( const QUrl &url,
-                             const KParts::OpenUrlArguments &args = KParts::OpenUrlArguments(),
-                             const KParts::BrowserArguments &browserArgs = KParts::BrowserArguments());
+    void slotOpenURLRequest( const QUrl &url);
     void documentCompleted();
-    void slotIncFontSizes();
-    void slotDecFontSizes();
-    void slotConfigureFonts();
     void slotCopySelectedText();
 
 private:

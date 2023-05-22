@@ -14,6 +14,8 @@
 
 #include <prefs.h>
 
+#include <KLocalizedString>
+
 namespace KHC
 {
 

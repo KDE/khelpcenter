@@ -117,9 +117,6 @@ void History::updateCurrentEntry( View *view )
 
   Entry *current = *m_entries_current;
 
-  QDataStream stream( &current->buffer, QIODevice::WriteOnly );
-  view->browserExtension()->saveState( stream );
-
   current->view = view;
 
   if ( url.isEmpty() ) {
@@ -230,9 +227,8 @@ void History::goHistory( int steps )
 
   QDataStream stream( h.buffer );
 
-  h.view->closeUrl();
+  h.view->stop();
   updateCurrentEntry( h.view );
-  h.view->browserExtension()->restoreState( stream );
   
 
   updateActions();

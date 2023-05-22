@@ -28,31 +28,46 @@ include(CheckIncludeFiles)
 include(ECMQtDeclareLoggingCategory)
 include(ECMGenerateDBusServiceFile)
 
-find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
+if (QT_MAJOR_VERSION STREQUAL "6")
+    set(QT_REQUIRED_VERSION "6.4.0")
+    set(KF_MIN_VERSION "5.240.0")
+    set(KF_MAJOR_VERSION "6")
+else()
+    set(KF_MAJOR_VERSION "5")
+endif()
+
+find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     DBus
     Widgets
     Xml
+    WebEngineWidgets
 )
 
-find_package(KF5 ${KF_MIN_VERSION} REQUIRED COMPONENTS
+find_package(KF${KF_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS
     Archive
     Bookmarks
     Config
     CoreAddons
+    Completion
     DBusAddons
     DocTools
     I18n
-    KHtml
+    KIO
+    XmlGui
+    CoreAddons
     Service
     WindowSystem
 )
 
-find_package(Grantlee5 REQUIRED)
-set_package_properties(Grantlee5 PROPERTIES
-    DESCRIPTION "Support for HTML templates"
-    URL "https://github.com/steveire/grantlee"
-    TYPE REQUIRED)
-
+if (QT_MAJOR_VERSION STREQUAL "5")
+    find_package(Grantlee5 REQUIRED)
+    set_package_properties(Grantlee5 PROPERTIES
+        DESCRIPTION "Support for HTML templates"
+        URL "https://github.com/steveire/grantlee"
+        TYPE REQUIRED)
+else()
+    find_package(KF6TextTemplate CONFIG REQUIRED)
+endif()
 find_package(Xapian REQUIRED)
 set_package_properties(Xapian PROPERTIES
     DESCRIPTION "Support for text indexing and searching"
@@ -70,7 +85,6 @@ add_subdirectory( searchhandlers )
 if(BUILD_TESTING)
     add_subdirectory( tests )
 endif()
-add_subdirectory( doc )
 add_subdirectory( templates )
 
 ########### next target ###############
@@ -96,7 +110,6 @@ target_sources(khelpcenter PRIVATE
    application.cpp
    treebuilder.cpp
    infotree.cpp
-   fontdialog.cpp
    plugintraverser.cpp
    scrollkeepertreebuilder.cpp
    bookmarkowner.cpp
@@ -117,7 +130,21 @@ kconfig_add_kcfg_files(khelpcenter prefs.kcfgc )
 # kf5_add_app_icon(khelpcenter_SRCS "${KDE4_INSTALL_DIR}/share/icons/oxygen/*/apps/help-browser.png")
 
 target_compile_definitions(khelpcenter PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
-target_link_libraries(khelpcenter KF5::KHtml KF5::Service KF5::DBusAddons KF5::ConfigGui KF5::WindowSystem KF5::Bookmarks KF5::DocTools Qt5::Xml Grantlee5::Templates)
+target_link_libraries(khelpcenter KF${KF_MAJOR_VERSION}::Service KF${KF_MAJOR_VERSION}::DBusAddons KF${KF_MAJOR_VERSION}::ConfigGui
+    KF${KF_MAJOR_VERSION}::WindowSystem KF${KF_MAJOR_VERSION}::Bookmarks
+    KF${KF_MAJOR_VERSION}::DocTools Qt::Xml KF${KF_MAJOR_VERSION}::I18n KF${KF_MAJOR_VERSION}::XmlGui
+    Qt::WebEngineWidgets
+    KF${KF_MAJOR_VERSION}::CoreAddons
+    KF${KF_MAJOR_VERSION}::Completion
+    KF${KF_MAJOR_VERSION}::KIOCore
+    KF${KF_MAJOR_VERSION}::KIOWidgets
+)
+
+if (QT_MAJOR_VERSION STREQUAL "5")
+    target_link_libraries(khelpcenter Grantlee5::Templates)
+else()
+    target_link_libraries(khelpcenter KF6::TextTemplate)
+endif()
 
 # add clang-format target for all our real source files
 file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES *.cpp *.h)
@@ -135,13 +162,18 @@ ecm_generate_dbus_service_file(
 
 install( PROGRAMS org.kde.khelpcenter.desktop  DESTINATION  ${KDE_INSTALL_APPDIR} )
 install( FILES khelpcenter.kcfg  DESTINATION  ${KDE_INSTALL_KCFGDIR} )
-install( FILES khelpcenter.desktop  DESTINATION  ${KDE_INSTALL_KSERVICES5DIR} )
+install( FILES khelpcenter.desktop  DESTINATION  ${KDE_INSTALL_KSERVICESDIR} )
 install( FILES khelpcenter.desktop  DESTINATION  ${KDE_INSTALL_DATAROOTDIR}/kde4/services )
 install( FILES table-of-contents.xslt glossary.xslt DESTINATION ${KDE_INSTALL_DATADIR}/khelpcenter )
 install( FILES org.kde.khelpcenter.metainfo.xml DESTINATION ${KDE_INSTALL_METAINFODIR} )
 
 ki18n_install(po)
-kdoctools_install(po)
+if (QT_MAJOR_VERSION STREQUAL "5")
+    add_subdirectory( doc )
+    kdoctools_install(po)
+else()
+    MESSAGE(STATUS "docbook needs some fix for building against qt6")
+endif()
 
 ecm_qt_install_logging_categories(
     EXPORT KHELPCENTER

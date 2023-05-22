@@ -109,13 +109,15 @@ void Application::open(const QList<QUrl>& urls)
 
 int main( int argc, char **argv )
 {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
   QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps, true);
+#endif
   KHC::Application app(argc, argv);
   KAboutData aboutData( QStringLiteral("khelpcenter"), i18n("Help Center"),
                         QStringLiteral(PROJECT_VERSION),
                         i18n("Help Center"),
                         KAboutLicense::GPL,
-                        i18n("(c) 1999-2020, The KHelpCenter developers") );
+                        i18n("(c) 1999-2023, The KHelpCenter developers") );
 
   aboutData.addAuthor( QStringLiteral("Luigi Toscano"), i18n("Current maintainer"), QStringLiteral("luigi.toscano@tiscali.it") );
   aboutData.addAuthor( QStringLiteral("Pino Toscano"), i18n("Xapian-based search, lot of bugfixes"), QStringLiteral("pino@kde.org") );

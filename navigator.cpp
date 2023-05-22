@@ -22,8 +22,8 @@
 #include <KProcess>
 #include <KProtocolInfo>
 #include <KServiceGroup>
-#include <KServiceTypeTrader>
 #include <KShell>
+#include <KLocalizedString>
 
 #include "navigatoritem.h"
 #include "navigatorappitem.h"
@@ -43,6 +43,10 @@
 #include "grantleeformatter.h"
 
 #include <prefs.h>
+
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+#include <KServiceTypeTrader>
+#endif
 
 #include <set>
 
@@ -254,12 +258,13 @@ void Navigator::insertKCMDocs( const QString &name, NavigatorItem *topItem, cons
   QString systemsettingskontrolconstraint = QStringLiteral("[X-KDE-System-Settings-Parent-Category] != ''");
 
   KService::List list;
-
+#if 0 // KF6 TODO port it !
   if ( type == QLatin1String("kcontrol") ) {
     list = KServiceTypeTrader::self()->query( QStringLiteral("KCModule"), systemsettingskontrolconstraint );
   } else if ( type == QLatin1String("kinfocenter") ) {
     list = KServiceTypeTrader::self()->query( QStringLiteral("KCModule"), QStringLiteral("[X-KDE-ParentApp] == 'kinfocenter'") );
   }
+#endif
 
   bool no_children_present = true;
 
@@ -422,7 +427,7 @@ void Navigator::slotItemSelected( QTreeWidgetItem *currentItem )
   const QUrl url ( item->entry()->url() );
   
   if ( url.scheme() == QLatin1String("khelpcenter") ) {
-      mView->closeUrl();
+      mView->stop();
       History::self().updateCurrentEntry( mView );
       History::self().createEntry();
       showOverview( item, url );
@@ -463,8 +468,6 @@ void Navigator::openInternalUrl( const QUrl &url )
 
 void Navigator::showOverview( NavigatorItem *item, const QUrl &url )
 {
-  mView->beginInternal( url );
-
   QString title,name,content;
   uint childCount;
 
@@ -493,9 +496,8 @@ void Navigator::showOverview( NavigatorItem *item, const QUrl &url )
   else
     content += QLatin1String("<p></p>");
 
-  mView->write( mView->grantleeFormatter()->formatOverview( title, name, content ) );
+  mView->setInternalHtml( mView->grantleeFormatter()->formatOverview( title, name, content ), url );
 
-  mView->end();
 }
 
 QString Navigator::createChildrenList( QTreeWidgetItem *child, int level )
