@@ -37,6 +37,12 @@
 #include <QTextStream>
 #include <QWhatsThis>
 #include <QBuffer>
+#include <QFileDialog>
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+#include <QWebEngineDownloadItem>
+#else
+#include <QWebEngineDownloadRequest>
+#endif
 
 using namespace KHC;
 class HelpUrlSchemeHandler : public QWebEngineUrlSchemeHandler {
@@ -95,6 +101,7 @@ View::View( QWidget *parentWidget, KActionCollection *col )
         }
     }
     page()->installEventFilter( this );
+    connect(page()->profile(), &QWebEngineProfile::downloadRequested, this, &View::downloadRequested);
 }
 
 View::~View()
@@ -198,4 +205,71 @@ void View::slotReload( const QUrl &url )
     load( url );
 }
 
+void View::contextMenuEvent(QContextMenuEvent *ev)
+{
+    QMenu menu;
+    QAction *act = pageAction(QWebEnginePage::Back);
+    if (act->isEnabled()) {
+        menu.addAction(act);
+    }
+    act = pageAction(QWebEnginePage::Forward);
+    if (act->isEnabled()) {
+        menu.addAction(act);
+    }
+
+    if (!menu.actions().isEmpty()) {
+        auto separator = new QAction(&menu);
+        separator->setSeparator(true);
+        menu.addAction(separator);
+    }
+
+    act = pageAction(QWebEnginePage::Copy);
+    if (act->isEnabled() && hasSelection()) {
+        act->setIcon(QIcon::fromTheme(QStringLiteral("edit-copy")));
+        menu.addAction(act);
+    }
+    if (!menu.actions().isEmpty()) {
+        auto separator = new QAction(&menu);
+        separator->setSeparator(true);
+        menu.addAction(separator);
+    }
+    act = pageAction(QWebEnginePage::Reload);
+    if (act->isEnabled()) {
+        menu.addAction(act);
+    }
+    act = pageAction(QWebEnginePage::CopyLinkToClipboard);
+    if (act->isEnabled()) {
+        menu.addAction(act);
+    }
+    act = pageAction(QWebEnginePage::SavePage);
+    if (act->isEnabled()) {
+        auto separator = new QAction(&menu);
+        separator->setSeparator(true);
+        menu.addAction(separator);
+        act->setIcon(QIcon::fromTheme(QStringLiteral("document-save")));
+        menu.addAction(act);
+    }
+    menu.exec(ev->globalPos());
+}
+
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+void View::downloadRequested(QWebEngineDownloadItem *download)
+#else
+void View::downloadRequested(QWebEngineDownloadRequest *download)
+#endif
+{
+    const QString filename = QFileDialog::getSaveFileName(this, i18n("Save Page"));
+    if (!filename.isEmpty()) {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+        download->setSavePageFormat(QWebEngineDownloadItem::SingleHtmlSaveFormat);
+#else
+        download->setSavePageFormat(QWebEngineDownloadRequest::SingleHtmlSaveFormat);
+#endif
+        download->setDownloadDirectory(QFileInfo(filename).path());
+        download->setDownloadFileName(QFileInfo(filename).fileName());
+        download->accept();
+    } else {
+        download->cancel();
+    }
+}
 // vim:ts=2:sw=2:et
