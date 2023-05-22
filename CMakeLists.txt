@@ -114,7 +114,9 @@ target_sources(khelpcenter PRIVATE
    scrollkeepertreebuilder.cpp
    bookmarkowner.cpp
    searchhandler.cpp
-
+   
+   printdoc.cpp
+   printdoc.h
    khelpcenter.qrc
 )
 

@@ -1,6 +1,7 @@
 /*
     SPDX-FileCopyrightText: 1999 Matthias Elter <me@kde.org>
     SPDX-FileCopyrightText: 2001 Stephan Kulow <coolo@kde.org>
+    SPDX-FileCopyrightText: 2023 Laurent Montel <montel@kde.org>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
@@ -14,6 +15,7 @@
 #include "navigator.h"
 #include "grantleeformatter.h"
 #include "bookmarkowner.h"
+#include "printdoc.h"
 
 #include <QAction>
 #include <QDBusConnection>
@@ -185,7 +187,8 @@ void MainWindow::writeConfig()
 void MainWindow::setupActions()
 {
     actionCollection()->addAction( KStandardAction::Quit, this, SLOT(close()) );
-    actionCollection()->addAction( KStandardAction::Print, this, SLOT(print()) );
+    actionCollection()->addAction( KStandardAction::Print, this, SLOT(slotPrint()) );
+    actionCollection()->addAction( KStandardAction::PrintPreview, this, SLOT(slotPrintPreview()) );
 
     KStandardAction::fullScreen( this, SLOT( slotFullScreen() ), this, actionCollection() );
 
@@ -420,6 +423,22 @@ void MainWindow::slotFullScreen()
     KToggleFullScreenAction::setFullScreen(this, false);
     mFullScreen = false;
   }
+}
+
+void MainWindow::slotPrint()
+{
+    auto printDoc = new PrintDoc(this);
+    printDoc->setParentWidget(this);
+    printDoc->setView(mDoc);
+    printDoc->print();
+}
+
+void MainWindow::slotPrintPreview()
+{
+    auto printDoc = new PrintDoc(this);
+    printDoc->setParentWidget(this);
+    printDoc->setView(mDoc);
+    printDoc->printPreview();
 }
 
 

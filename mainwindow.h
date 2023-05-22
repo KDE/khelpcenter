@@ -1,6 +1,7 @@
 /*
     SPDX-FileCopyrightText: 1999 Matthias Elter <me@kde.org>
     SPDX-FileCopyrightText: 2001 Stephan Kulow <coolo@kde.org>
+    SPDX-FileCopyrightText: 2023 Laurent Montel <montel@kde.org>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
@@ -78,10 +79,12 @@ class MainWindow : public KXmlGuiWindow
     void enableLastSearchAction();
     void enableCopyTextAction();
 
-  private:
+private:
     void stop();
 
   private Q_SLOTS:
+    void slotPrintPreview();
+    void slotPrint();
     void slotGlossSelected(const GlossaryEntry &entry);
     void slotStarted();
     void slotInfoMessage(KJob *, const QString &);
