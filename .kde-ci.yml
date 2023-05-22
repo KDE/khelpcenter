@@ -13,6 +13,7 @@ Dependencies:
     'frameworks/kconfig': '@stable'
     'frameworks/kwindowsystem': '@stable'
     'frameworks/karchive': '@stable'
+    'frameworks/kio': '@stable'
 
 - 'on': ['Linux/Qt6', 'FreeBSD/Qt6', 'Windows/Qt6']
   'require':
@@ -26,6 +27,7 @@ Dependencies:
     'frameworks/kwindowsystem': '@latest-kf6'
     'frameworks/karchive': '@latest-kf6'
     'libraries/ktexttemplate': '@stable'
+    'frameworks/kio': '@latest-kf6'
 
 Options:
     require-passing-tests-on: [ 'Linux', 'FreeBSD' ]
