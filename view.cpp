@@ -38,6 +38,7 @@
 #include <QWhatsThis>
 #include <QBuffer>
 #include <QFileDialog>
+#include <QWebEngineUrlScheme>
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <QWebEngineDownloadItem>
 #else
@@ -63,6 +64,35 @@ class HelpUrlSchemeHandler : public QWebEngineUrlSchemeHandler {
 View::View( QWidget *parentWidget, KActionCollection *col )
     : QWebEngineView( parentWidget), mState( Docu ), mActionCollection(col)
 {
+    {
+        QWebEngineUrlScheme customScheme("help");
+        customScheme.setFlags(QWebEngineUrlScheme::SecureScheme | QWebEngineUrlScheme::ContentSecurityPolicyIgnored | QWebEngineUrlScheme::LocalScheme
+                              | QWebEngineUrlScheme::LocalAccessAllowed);
+        customScheme.setSyntax(QWebEngineUrlScheme::Syntax::Path);
+        QWebEngineUrlScheme::registerScheme(customScheme);
+    }
+    {
+        QWebEngineUrlScheme customScheme("khelpcenter");
+        customScheme.setFlags(QWebEngineUrlScheme::SecureScheme | QWebEngineUrlScheme::ContentSecurityPolicyIgnored | QWebEngineUrlScheme::LocalScheme
+                              | QWebEngineUrlScheme::LocalAccessAllowed);
+        customScheme.setSyntax(QWebEngineUrlScheme::Syntax::Path);
+        QWebEngineUrlScheme::registerScheme(customScheme);
+    }
+    {
+        QWebEngineUrlScheme customScheme("man");
+        customScheme.setFlags(QWebEngineUrlScheme::SecureScheme | QWebEngineUrlScheme::ContentSecurityPolicyIgnored | QWebEngineUrlScheme::LocalScheme
+                              | QWebEngineUrlScheme::LocalAccessAllowed);
+        customScheme.setSyntax(QWebEngineUrlScheme::Syntax::Path);
+        QWebEngineUrlScheme::registerScheme(customScheme);
+    }
+    {
+        QWebEngineUrlScheme customScheme("file");
+        customScheme.setFlags(QWebEngineUrlScheme::SecureScheme | QWebEngineUrlScheme::ContentSecurityPolicyIgnored | QWebEngineUrlScheme::LocalScheme
+                              | QWebEngineUrlScheme::LocalAccessAllowed);
+        customScheme.setSyntax(QWebEngineUrlScheme::Syntax::Path);
+        QWebEngineUrlScheme::registerScheme(customScheme);
+    }
+
     page()->settings()->setUnknownUrlSchemePolicy(QWebEngineSettings::AllowAllUnknownUrlSchemes);
     page()->settings()->setAttribute(QWebEngineSettings::ErrorPageEnabled,true);
 
@@ -70,10 +100,10 @@ View::View( QWidget *parentWidget, KActionCollection *col )
     page()->settings()->setAttribute(QWebEngineSettings::PluginsEnabled, false);
     page()->settings()->setAttribute(QWebEngineSettings::JavascriptEnabled, false);
 
-    page()->profile()->installUrlSchemeHandler("help",new HelpUrlSchemeHandler);
-    page()->profile()->installUrlSchemeHandler("khelpcenter",new HelpUrlSchemeHandler);
-    page()->profile()->installUrlSchemeHandler("man",new HelpUrlSchemeHandler);
-    page()->profile()->installUrlSchemeHandler("file",new HelpUrlSchemeHandler);
+    page()->profile()->installUrlSchemeHandler(QByteArrayLiteral("help"),new HelpUrlSchemeHandler);
+    page()->profile()->installUrlSchemeHandler(QByteArrayLiteral("khelpcenter"),new HelpUrlSchemeHandler);
+    page()->profile()->installUrlSchemeHandler(QByteArrayLiteral("man"),new HelpUrlSchemeHandler);
+    page()->profile()->installUrlSchemeHandler(QByteArrayLiteral("file"),new HelpUrlSchemeHandler);
     QString css = langLookup(QStringLiteral("kdoctools5-common/kde-default.css"));
     if (!css.isEmpty())
     {
