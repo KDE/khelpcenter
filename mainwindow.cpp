@@ -187,8 +187,10 @@ void MainWindow::writeConfig()
 void MainWindow::setupActions()
 {
     actionCollection()->addAction( KStandardAction::Quit, this, SLOT(close()) );
+#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     actionCollection()->addAction( KStandardAction::Print, this, SLOT(slotPrint()) );
     actionCollection()->addAction( KStandardAction::PrintPreview, this, SLOT(slotPrintPreview()) );
+#endif
 
     KStandardAction::fullScreen( this, SLOT( slotFullScreen() ), this, actionCollection() );
 
@@ -427,18 +429,26 @@ void MainWindow::slotFullScreen()
 
 void MainWindow::slotPrint()
 {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    qCWarning(KHC_LOG) << " NEED TO reimplement it in qt5";
+#else
     auto printDoc = new PrintDoc(this);
     printDoc->setParentWidget(this);
     printDoc->setView(mDoc);
     printDoc->print();
+#endif
 }
 
 void MainWindow::slotPrintPreview()
 {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    qCWarning(KHC_LOG) << " NEED TO reimplement it in qt5";
+#else
     auto printDoc = new PrintDoc(this);
     printDoc->setParentWidget(this);
     printDoc->setView(mDoc);
     printDoc->printPreview();
+#endif
 }
 
 
