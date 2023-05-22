@@ -5,7 +5,6 @@
 */
 
 #include "plugintraverser.h"
-#include "docmetainfo.h"
 #include "navigator.h"
 #include "navigatorappitem.h"
 #include "navigatorappgroupitem.h"
