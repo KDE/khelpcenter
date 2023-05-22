@@ -114,7 +114,30 @@ target_sources(khelpcenter PRIVATE
    scrollkeepertreebuilder.cpp
    bookmarkowner.cpp
    searchhandler.cpp
-   
+
+   navigator.h
+   navigatoritem.h
+   navigatorappitem.h
+   navigatorappgroupitem.h
+   view.h
+   searchwidget.h
+   searchengine.h
+   docmetainfo.h
+   docentrytraverser.h
+   grantleeformatter.h
+   glossary.h
+   toc.h
+   mainwindow.h
+   docentry.h
+   history.h
+   application.h
+   treebuilder.h
+   infotree.h
+   plugintraverser.h
+   scrollkeepertreebuilder.h
+   bookmarkowner.h
+   searchhandler.h
+
    printdoc.cpp
    printdoc.h
    khelpcenter.qrc

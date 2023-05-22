@@ -29,6 +29,7 @@ ecm_mark_nongui_executable(khc_xapiansearch)
 target_sources(khc_xapiansearch PRIVATE
    xapiancommon.cpp
    xapiansearch.cpp
+   xapiancommon.h
 )
 target_link_libraries(khc_xapiansearch Qt::Core ${XAPIAN_LIBRARIES})
 install(TARGETS khc_xapiansearch DESTINATION ${KDE_INSTALL_LIBEXECDIR})
