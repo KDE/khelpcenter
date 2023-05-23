@@ -85,13 +85,6 @@ View::View( QWidget *parentWidget, KActionCollection *col )
         customScheme.setSyntax(QWebEngineUrlScheme::Syntax::Path);
         QWebEngineUrlScheme::registerScheme(customScheme);
     }
-    {
-        QWebEngineUrlScheme customScheme("file");
-        customScheme.setFlags(QWebEngineUrlScheme::SecureScheme | QWebEngineUrlScheme::ContentSecurityPolicyIgnored | QWebEngineUrlScheme::LocalScheme
-                              | QWebEngineUrlScheme::LocalAccessAllowed);
-        customScheme.setSyntax(QWebEngineUrlScheme::Syntax::Path);
-        QWebEngineUrlScheme::registerScheme(customScheme);
-    }
 
     page()->settings()->setUnknownUrlSchemePolicy(QWebEngineSettings::AllowAllUnknownUrlSchemes);
     page()->settings()->setAttribute(QWebEngineSettings::ErrorPageEnabled,true);
@@ -103,7 +96,6 @@ View::View( QWidget *parentWidget, KActionCollection *col )
     page()->profile()->installUrlSchemeHandler(QByteArrayLiteral("help"),new HelpUrlSchemeHandler);
     page()->profile()->installUrlSchemeHandler(QByteArrayLiteral("khelpcenter"),new HelpUrlSchemeHandler);
     page()->profile()->installUrlSchemeHandler(QByteArrayLiteral("man"),new HelpUrlSchemeHandler);
-    page()->profile()->installUrlSchemeHandler(QByteArrayLiteral("file"),new HelpUrlSchemeHandler);
     QString css = langLookup(QStringLiteral("kdoctools5-common/kde-default.css"));
     if (!css.isEmpty())
     {
