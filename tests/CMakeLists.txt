@@ -20,5 +20,5 @@ kconfig_add_kcfg_files(testmetainfo ../prefs.kcfgc)
 
 target_include_directories(testmetainfo PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/..)
 
-target_link_libraries(testmetainfo KF${KF_MAJOR_VERSION}::ConfigGui KF${KF_MAJOR_VERSION}::CoreAddons KF${KF_MAJOR_VERSION}::I18n)
+target_link_libraries(testmetainfo KF6::ConfigGui KF6::CoreAddons KF6::I18n)
 

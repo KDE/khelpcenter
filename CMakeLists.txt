@@ -9,8 +9,8 @@ set (RELEASE_SERVICE_COMPACT_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}${RELEASE_
 
 project(KHelpCenter VERSION "5.8.${RELEASE_SERVICE_COMPACT_VERSION}")
 
-set(QT_MIN_VERSION "5.15.0")
-set(KF_MIN_VERSION "5.89.0")
+set(QT_MIN_VERSION "6.4.0")
+set(KF_MIN_VERSION "5.240.0")
 
 find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
@@ -28,22 +28,15 @@ include(CheckIncludeFiles)
 include(ECMQtDeclareLoggingCategory)
 include(ECMGenerateDBusServiceFile)
 
-if (QT_MAJOR_VERSION STREQUAL "6")
-    set(QT_REQUIRED_VERSION "6.4.0")
-    set(KF_MIN_VERSION "5.240.0")
-    set(KF_MAJOR_VERSION "6")
-else()
-    set(KF_MAJOR_VERSION "5")
-endif()
 
-find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
+find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     DBus
     Widgets
     Xml
     WebEngineWidgets
 )
 
-find_package(KF${KF_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS
+find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
     Archive
     Bookmarks
     Config
@@ -59,15 +52,8 @@ find_package(KF${KF_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS
     WindowSystem
 )
 
-if (QT_MAJOR_VERSION STREQUAL "5")
-    find_package(Grantlee5 REQUIRED)
-    set_package_properties(Grantlee5 PROPERTIES
-        DESCRIPTION "Support for HTML templates"
-        URL "https://github.com/steveire/grantlee"
-        TYPE REQUIRED)
-else()
-    find_package(KF6TextTemplate CONFIG REQUIRED)
-endif()
+find_package(KF6TextTemplate CONFIG REQUIRED)
+
 find_package(Xapian REQUIRED)
 set_package_properties(Xapian PROPERTIES
     DESCRIPTION "Support for text indexing and searching"
@@ -155,21 +141,17 @@ kconfig_add_kcfg_files(khelpcenter prefs.kcfgc )
 # kf5_add_app_icon(khelpcenter_SRCS "${KDE4_INSTALL_DIR}/share/icons/oxygen/*/apps/help-browser.png")
 
 target_compile_definitions(khelpcenter PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
-target_link_libraries(khelpcenter KF${KF_MAJOR_VERSION}::Service KF${KF_MAJOR_VERSION}::DBusAddons KF${KF_MAJOR_VERSION}::ConfigGui
-    KF${KF_MAJOR_VERSION}::WindowSystem KF${KF_MAJOR_VERSION}::Bookmarks
-    KF${KF_MAJOR_VERSION}::DocTools Qt::Xml KF${KF_MAJOR_VERSION}::I18n KF${KF_MAJOR_VERSION}::XmlGui
+target_link_libraries(khelpcenter KF6::Service KF6::DBusAddons KF6::ConfigGui
+    KF6::WindowSystem KF6::Bookmarks
+    KF6::DocTools Qt::Xml KF6::I18n KF6::XmlGui
     Qt::WebEngineWidgets
-    KF${KF_MAJOR_VERSION}::CoreAddons
-    KF${KF_MAJOR_VERSION}::Completion
-    KF${KF_MAJOR_VERSION}::KIOCore
-    KF${KF_MAJOR_VERSION}::KIOWidgets
+    KF6::CoreAddons
+    KF6::Completion
+    KF6::KIOCore
+    KF6::KIOWidgets
 )
 
-if (QT_MAJOR_VERSION STREQUAL "5")
-    target_link_libraries(khelpcenter Grantlee5::Templates)
-else()
-    target_link_libraries(khelpcenter KF6::TextTemplate)
-endif()
+target_link_libraries(khelpcenter KF6::TextTemplate)
 
 # add clang-format target for all our real source files
 file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES *.cpp *.h)
