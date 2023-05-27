@@ -129,11 +129,7 @@ void Glossary::rebuildGlossaryCache()
 
     KProcess *meinproc = new KProcess;
     connect(meinproc, QOverload<int, QProcess::ExitStatus>::of(&KProcess::finished), this, &Glossary::meinprocFinished);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    *meinproc << QStandardPaths::findExecutable(QStringLiteral( "meinproc5" ) );
-#else
     *meinproc << QStandardPaths::findExecutable(QStringLiteral( "meinproc6" ) );
-#endif
     *meinproc << QStringLiteral( "--output" ) << m_cacheFile;
     *meinproc << QStringLiteral( "--stylesheet" )
               << QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral( "khelpcenter/glossary.xslt" ) );

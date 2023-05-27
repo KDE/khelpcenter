@@ -10,36 +10,21 @@
 #include "glossary.h"
 #include "docentry.h"
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-#include <grantlee/context.h>
-#include <grantlee/engine.h>
-#include <grantlee/template.h>
-#include <grantlee/templateloader.h>
-#else
 #include <KTextTemplate/Context>
 #include <KTextTemplate/Engine>
 #include <KTextTemplate/Template>
 #include <KTextTemplate/TemplateLoader>
-#endif
 
 #include <KLocalizedString>
 
 #include <QStandardPaths>
 
 using namespace KHC;
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-class PlainOutputStream : public Grantlee::OutputStream
-#else
 class PlainOutputStream : public KTextTemplate::OutputStream
-#endif
 {
   public:
     explicit PlainOutputStream( QTextStream *stream )
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-      : Grantlee::OutputStream( stream )
-#else
       : KTextTemplate::OutputStream( stream )
-#endif
     {
     }
 
@@ -56,21 +41,12 @@ class PlainOutputStream : public KTextTemplate::OutputStream
 
 struct GrantleeFormatter::Private
 {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-  QString format( Grantlee::Template t, Grantlee::Context *ctx );
-
-  Grantlee::Engine engine;
-#else
   QString format( KTextTemplate::Template t, KTextTemplate::Context *ctx );
 
   KTextTemplate::Engine engine;
-#endif
 };
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-QString GrantleeFormatter::Private::format( Grantlee::Template t, Grantlee::Context *ctx )
-#else
+
 QString GrantleeFormatter::Private::format( KTextTemplate::Template t, KTextTemplate::Context *ctx )
-#endif
 {
   QString result;
   QTextStream textStream( &result );
@@ -87,11 +63,7 @@ QString GrantleeFormatter::Private::format( KTextTemplate::Template t, KTextTemp
 GrantleeFormatter::GrantleeFormatter()
   : d( new Private )
 {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-  QSharedPointer< Grantlee::FileSystemTemplateLoader > loader( new Grantlee::FileSystemTemplateLoader );
-#else
   QSharedPointer< KTextTemplate::FileSystemTemplateLoader > loader( new KTextTemplate::FileSystemTemplateLoader );
-#endif
   loader->setTemplateDirs( QStandardPaths::locateAll( QStandardPaths::AppDataLocation, QStringLiteral("templates"), QStandardPaths::LocateDirectory ) );
   d->engine.addTemplateLoader( loader );
 }
@@ -103,14 +75,8 @@ GrantleeFormatter::~GrantleeFormatter()
 
 QString GrantleeFormatter::formatOverview( const QString& title, const QString& name, const QString& content )
 {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-  Grantlee::Template t = d->engine.loadByName( QStringLiteral("index.html") );
-
-  Grantlee::Context ctx;
-#else
   KTextTemplate::Template t = d->engine.loadByName( QStringLiteral("index.html") );
   KTextTemplate::Context ctx;
-#endif
   ctx.insert( QStringLiteral("title"), title );
   ctx.insert( QStringLiteral("name"), name );
   ctx.insert( QStringLiteral("content"), content );
@@ -120,13 +86,8 @@ QString GrantleeFormatter::formatOverview( const QString& title, const QString& 
 
 QString GrantleeFormatter::formatGlossaryEntry( const GlossaryEntry& entry )
 {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-  Grantlee::Template t = d->engine.loadByName( QStringLiteral("glossary.html") );
-  Grantlee::Context ctx;
-#else
   KTextTemplate::Template t = d->engine.loadByName( QStringLiteral("glossary.html") );
   KTextTemplate::Context ctx;
-#endif
 
   const GlossaryEntryXRef::List entrySeeAlso = entry.seeAlso();
   QStringList seeAlso;
@@ -148,13 +109,8 @@ QString GrantleeFormatter::formatGlossaryEntry( const GlossaryEntry& entry )
 
 QString GrantleeFormatter::formatSearchResults( const QString& words, const QList<QPair<DocEntry *, QString> >& results )
 {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-  Grantlee::Template t = d->engine.loadByName( QStringLiteral("search.html") );
-  Grantlee::Context ctx;
-#else
     KTextTemplate::Template t = d->engine.loadByName( QStringLiteral("search.html") );
     KTextTemplate::Context ctx;
-#endif
 
   typedef QPair<DocEntry *, QString> Iter;
   QVariantList list;

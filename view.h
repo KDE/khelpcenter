@@ -8,11 +8,7 @@
 #define KHC_VIEW_H
 
 #include <QWebEngineView>
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-class QWebEngineDownloadItem;
-#else
 class QWebEngineDownloadRequest;
-#endif
 class KActionCollection;
 
 namespace KHC {
@@ -55,11 +51,7 @@ class View : public QWebEngineView
     void contextMenuEvent(QContextMenuEvent *ev) override;
 
   private:
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    void downloadRequested(QWebEngineDownloadItem *);
-#else
     void downloadRequested(QWebEngineDownloadRequest *);
-#endif
 
     int mState;
 

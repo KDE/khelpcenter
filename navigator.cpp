@@ -44,10 +44,6 @@
 
 #include <prefs.h>
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-#include <KServiceTypeTrader>
-#endif
-
 #include <set>
 
 using namespace KHC;
@@ -177,23 +173,13 @@ QList<KPluginMetaData> Navigator::findKCMsMetaData(KCMType source)
     };
 
     // We need the exist calls because otherwise the trader language aborts if the property doesn't exist and the second part of the or is not evaluated
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    KService::List services;
-#endif
     QVector<KPluginMetaData> metaDataList = KPluginMetaData::findPlugins(QStringLiteral("plasma/kcms"), filter);
     if (source & SystemSettings) {
         metaDataList << KPluginMetaData::findPlugins(QStringLiteral("plasma/kcms/systemsettings"), filter);
         metaDataList << KPluginMetaData::findPlugins(QStringLiteral("plasma/kcms/systemsettings_qwidgets"), filter);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-        services +=
-            KServiceTypeTrader::self()->query(QStringLiteral("KCModule"), QStringLiteral("[X-KDE-System-Settings-Parent-Category] != ''"));
-#endif
     }
     if (source & KInfoCenter) {
         metaDataList << KPluginMetaData::findPlugins(QStringLiteral("plasma/kcms/kinfocenter"), filter);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-        services += KServiceTypeTrader::self()->query(QStringLiteral("KCModule"), QStringLiteral("[X-KDE-ParentApp] == 'kinfocenter'"));
-#endif
     }
     for (const auto &m : qAsConst(metaDataList)) {
         // We check both since porting a module to loading view KPluginMetaData drops ".desktop" from the pluginId()
@@ -207,18 +193,6 @@ QList<KPluginMetaData> Navigator::findKCMsMetaData(KCMType source)
         }
     }
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    for (const auto &s : qAsConst(services)) {
-        if (!s->noDisplay() && !s->exec().isEmpty() && KAuthorized::authorizeControlModule(s->menuId())) {
-            const QString path = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kservices5/") + s->entryPath());
-            const KPluginMetaData data = KPluginMetaData::fromDesktopFile(path);
-            const bool inserted = uniquePluginIds.insert(data.pluginId()).second;
-            if (inserted) {
-                modules << data;
-            }
-        }
-    }
-#endif
     std::stable_sort(modules.begin(), modules.end(), [](const KPluginMetaData &m1, const KPluginMetaData &m2) {
         return QString::compare(m1.pluginId(), m2.pluginId(), Qt::CaseInsensitive) < 0;
     });

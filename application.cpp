@@ -48,18 +48,7 @@ QCommandLineParser *Application::cmdParser()
 void Application::activateForStartLikeCall()
 {
   mMainWindow->show();
-#if KWINDOWSYSTEM_VERSION >= QT_VERSION_CHECK(5, 91, 0)
   KWindowSystem::updateStartupId(mMainWindow->windowHandle());
-#else
-  if (KWindowSystem::isPlatformWayland()) {
-    const QString token = qEnvironmentVariable("XDG_ACTIVATION_TOKEN");
-    if (!token.isEmpty()) {
-      KWindowSystem::setCurrentXdgActivationToken(token);
-      // no need to unset XDG_ACTIVATION_TOKEN, because
-      // KDBusService cares for that and we only run in its signals handlers here
-    }
-  }
-#endif
 
   mMainWindow->raise();
   KWindowSystem::activateWindow(mMainWindow->windowHandle());
@@ -109,9 +98,6 @@ void Application::open(const QList<QUrl>& urls)
 
 int main( int argc, char **argv )
 {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-  QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps, true);
-#endif
   KHC::Application app(argc, argv);
   KAboutData aboutData( QStringLiteral("khelpcenter"), i18n("Help Center"),
                         QStringLiteral(PROJECT_VERSION),

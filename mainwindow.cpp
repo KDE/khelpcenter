@@ -187,10 +187,8 @@ void MainWindow::writeConfig()
 void MainWindow::setupActions()
 {
     actionCollection()->addAction( KStandardAction::Quit, this, SLOT(close()) );
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     actionCollection()->addAction( KStandardAction::Print, this, SLOT(slotPrint()) );
     actionCollection()->addAction( KStandardAction::PrintPreview, this, SLOT(slotPrintPreview()) );
-#endif
 
     KStandardAction::fullScreen( this, SLOT( slotFullScreen() ), this, actionCollection() );
 
@@ -300,11 +298,7 @@ void MainWindow::viewUrl( const QUrl &url )
 
     if ( !own ) {
         auto *job = new KIO::OpenUrlJob(QUrl(url));
-#if KIO_VERSION < QT_VERSION_CHECK(5, 98, 0)
-        job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
-#else
         job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
-#endif
         job->start();
         return;
     }
@@ -429,26 +423,18 @@ void MainWindow::slotFullScreen()
 
 void MainWindow::slotPrint()
 {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    qCWarning(KHC_LOG) << " NEED TO reimplement it in qt5";
-#else
     auto printDoc = new PrintDoc(this);
     printDoc->setParentWidget(this);
     printDoc->setView(mDoc);
     printDoc->print();
-#endif
 }
 
 void MainWindow::slotPrintPreview()
 {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    qCWarning(KHC_LOG) << " NEED TO reimplement it in qt5";
-#else
     auto printDoc = new PrintDoc(this);
     printDoc->setParentWidget(this);
     printDoc->setView(mDoc);
     printDoc->printPreview();
-#endif
 }
 
 

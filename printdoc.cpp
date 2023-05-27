@@ -25,12 +25,8 @@ void PrintDoc::setView(QWebEngineView *view)
 {
     Q_ASSERT(!mView);
     mView = view;
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    qWarning() << " NEED TO reimplement it in qt5";
-#else
     connect(mView, &QWebEngineView::printRequested, this, &PrintDoc::printPreview);
     connect(mView, &QWebEngineView::printFinished, this, &PrintDoc::printFinished);
-#endif
 }
 
 void PrintDoc::setDocumentName(const QString &name)
@@ -50,9 +46,7 @@ void PrintDoc::print()
 
 void PrintDoc::printDocument(QPrinter *printer)
 {
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     mView->print(printer);
-#endif
     mWaitForResult.exec();
 }
 

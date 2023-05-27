@@ -39,11 +39,7 @@
 #include <QBuffer>
 #include <QFileDialog>
 #include <QWebEngineUrlScheme>
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-#include <QWebEngineDownloadItem>
-#else
 #include <QWebEngineDownloadRequest>
-#endif
 
 using namespace KHC;
 class HelpUrlSchemeHandler : public QWebEngineUrlSchemeHandler {
@@ -274,19 +270,11 @@ void View::contextMenuEvent(QContextMenuEvent *ev)
     menu.exec(ev->globalPos());
 }
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-void View::downloadRequested(QWebEngineDownloadItem *download)
-#else
 void View::downloadRequested(QWebEngineDownloadRequest *download)
-#endif
 {
     const QString filename = QFileDialog::getSaveFileName(this, i18n("Save Page"));
     if (!filename.isEmpty()) {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-        download->setSavePageFormat(QWebEngineDownloadItem::SingleHtmlSaveFormat);
-#else
         download->setSavePageFormat(QWebEngineDownloadRequest::SingleHtmlSaveFormat);
-#endif
         download->setDownloadDirectory(QFileInfo(filename).path());
         download->setDownloadFileName(QFileInfo(filename).fileName());
         download->accept();

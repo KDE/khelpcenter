@@ -131,11 +131,7 @@ void TOC::buildCache()
     KProcess *meinproc = new KProcess;
     connect(meinproc, QOverload<int, QProcess::ExitStatus>::of(&KProcess::finished), this, &TOC::meinprocExited);
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    *meinproc << QStandardPaths::findExecutable(QStringLiteral( "meinproc5" ) );
-#else
     *meinproc << QStandardPaths::findExecutable(QStringLiteral( "meinproc6" ) );
-#endif
     *meinproc << QStringLiteral("--stylesheet") << QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("khelpcenter/table-of-contents.xslt") );
     *meinproc << QStringLiteral("--output") << m_cacheFile;
     *meinproc << m_sourceFile;
@@ -185,9 +181,6 @@ void TOC::meinprocExited( int exitCode, QProcess::ExitStatus exitStatus)
     // write back updated xml content 
     f.seek( 0 );
     QTextStream stream( &f );
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    stream.setCodec( "UTF-8" );
-#endif
 #ifdef Q_WS_WIN
     /*
       the problem that on german systems umlauts are displayed as '?' for unknown (Qt'r related ?) reasons
