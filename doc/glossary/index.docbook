@@ -30,7 +30,7 @@ Project Neon
 				storage and retrieval system allows efficiency and extensibility not possible under &kde; 3, where each PIM component had 
 				its own system. Note that use of Akonadi does not change data storage formats (vcard, iCalendar, mbox, maildir etc.) - it 
 				just provides a new way of accessing and updating the data.&newpara;
-				The main reasons for design and development of Akonadi are of technical nature, &eg; having a unique way to access PIM-data (contacts, calendars, emails..) from different applications (&eg; &kmail;, &kword; &etc;), thus eliminating the need to write similar code here and there.&newpara;
+				The main reasons for design and development of Akonadi are of technical nature, &eg; having a unique way to access PIM-data (contacts, calendars, emails..) from different applications (&eg; &kmail;, &calligrawords; &etc;), thus eliminating the need to write similar code here and there.&newpara;
 				Another goal is to de-couple GUI applications like &kmail; from the direct access to external resources like mail-servers - which was a major reason for bug-reports/wishes with regard to performance/responsiveness in the past.&newpara;
 				More info:&newpara;
 				&linkstart;"https://community.kde.org/KDE_PIM/Akonadi"&linkmid;Akonadi for KDE's PIM&linkend;&newpara;
@@ -51,7 +51,7 @@ Project Neon
 			</glossdef>
 		</glossentry>
 		<glossentry id="gloss-arts"><!--remove it?-->
-			<glossterm>ARts</glossterm>
+			<glossterm>aRts</glossterm>
 			<glossdef><para>The sound framework in &kde; 2 and 3. Its single-tasking nature caused problems when two sources of sound were encountered. In the &plasma; desktop it is replaced by Phonon.&newpara;
 				More info:&newpara;
 				&linkstart;"https://en.wikipedia.org/wiki/ARts"&linkmid; Wikipedia: ARts&linkend;</para>
@@ -66,7 +66,7 @@ Project Neon
 				More info:&newpara;
 				&linkstart;"https://freedesktop.org/wiki/Software/dbus/"&linkmid;FreeDesktop.org: What is D-Bus?&linkend;&newpara;
 				&linkstart;"https://en.wikipedia.org/wiki/D-Bus"&linkmid;Wikipedia: D-Bus&linkend;</para>
-				<glossseealso otherterm="gloss-dcop">&DCOP;</glossseealso>
+				<glossseealso otherterm="gloss-dcop">DCOP</glossseealso>
 				<glossseealso otherterm="gloss-gnome">GNOME</glossseealso>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 				<glossseealso otherterm="gloss-qt">&Qt;</glossseealso>
@@ -83,7 +83,7 @@ Project Neon
 		</glossentry>
 		<glossentry id="gloss-flake">
 			<glossterm>Flake</glossterm>
-			<glossdef><para>Flake is a programming library to be used in &koffice;/Calligra. Functionally, it provides Shapes to display content and Tools to manipulate content. Shapes can be zoomed or rotated and can be grouped to work as a single Shape, around which text flow is possible.&newpara;
+			<glossdef><para>Flake is a programming library to be used in &calligra;. Functionally, it provides Shapes to display content and Tools to manipulate content. Shapes can be zoomed or rotated and can be grouped to work as a single Shape, around which text flow is possible.&newpara;
 				More info:&newpara;
 				&linkstart;"https://community.kde.org/Calligra/Libs/Flake"&linkmid;&kde; Community Wiki: Flake&linkend;</para>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
@@ -187,7 +187,7 @@ otherterm="gloss-kbuildsycoca"><application>KBuildSycoca</application></glosssee
 				More info:&newpara;
 				&linkstart;"https://en.wikipedia.org/wiki/Phonon_(software)"&linkmid; Wikipedia: Phonon (software)&linkend;&newpara;
 				&linkstart;"https://phonon.kde.org/"&linkmid;Phonon website&linkend;</para>
-				<glossseealso otherterm="gloss-arts">&arts;</glossseealso>
+				<glossseealso otherterm="gloss-arts">aRts</glossseealso>
 				<glossseealso otherterm="gloss-kde">&kde;</glossseealso>
 			</glossdef>
 		</glossentry>
