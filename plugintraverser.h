@@ -10,7 +10,6 @@
 #include "docentrytraverser.h"
 #include <QTreeWidget>
 
-class QTreeWidget;
 
 namespace KHC {
   
