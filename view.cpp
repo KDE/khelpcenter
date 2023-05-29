@@ -7,9 +7,7 @@
 #include "view.h"
 
 #include "grantleeformatter.h"
-#include "history.h"
 #include "khc_debug.h"
-#include "mainwindow.h"
 
 #include <KActionCollection>
 #include <KToolBarPopupAction>

@@ -33,7 +33,6 @@
 #include "searchhandler.h"
 #include "docmetainfo.h"
 #include "docentrytraverser.h"
-#include "toc.h"
 #include "view.h"
 #include "infotree.h"
 #include "plugintraverser.h"
