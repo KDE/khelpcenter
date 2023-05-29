@@ -22,9 +22,7 @@
 #include <QDialog>
 #include <QDialogButtonBox>
 #include <QDir>
-#include <QIcon>
 #include <QList>
-#include <QMenuBar>
 #include <QMimeDatabase>
 #include <QPushButton>
 #include <QSplitter>
@@ -32,6 +30,7 @@
 #include <QTextDocument>
 #include <QTextEdit>
 #include <QVBoxLayout>
+#include <QMenu>
 
 #include <KActionCollection>
 #include <KActionMenu>
@@ -42,7 +41,6 @@
 #include <KStandardAction>
 #include <KLocalizedString>
 #include <KStartupInfo>
-#include <KToolBar>
 #include <KWindowConfig>
 
 #include <KIO/JobUiDelegate>

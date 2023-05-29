@@ -10,7 +10,6 @@
 #include "khc_debug.h"
 
 #include <KActionCollection>
-#include <KToolBarPopupAction>
 #include <KSharedConfig>
 #include <KLocalizedString>
 #include <docbookxslt.h>
@@ -19,23 +18,21 @@
 #include <QApplication>
 #include <QClipboard>
 #include <QWebEngineScript>
-#include <QWebEngineScriptCollection>
 #include <QWebEngineSettings>
 #include <QWebEngineProfile>
 #include <QWebEnginePage>
 #include <QWebEngineUrlSchemeHandler>
+#include <QWebEngineScriptCollection>
 #include <QWebEngineUrlRequestJob>
-#include <QDir>
 #include <QFileInfo>
 #include <QGuiApplication>
-#include <QKeyEvent>
 #include <QMenu>
-#include <QScrollBar>
 #include <QStandardPaths>
 #include <QTextStream>
 #include <QWhatsThis>
 #include <QBuffer>
 #include <QFileDialog>
+#include <QContextMenuEvent>
 #include <QWebEngineUrlScheme>
 #include <QWebEngineDownloadRequest>
 

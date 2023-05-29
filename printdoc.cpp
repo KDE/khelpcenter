@@ -10,7 +10,6 @@
 #include <QPrintDialog>
 #include <QPrintPreviewDialog>
 #include <QWebEngineView>
-#include <QDebug>
 
 #include <KLocalizedString>
 
