@@ -120,7 +120,7 @@ class SearchEngine : public QObject
 
     QString mStderr;
 
-    View *mView;
+    View *mView = nullptr;
 
     QString mWords;
     int mMatches;
@@ -131,7 +131,7 @@ class SearchEngine : public QObject
     int mMaxResults;
     Operation mOperation;
 
-    SearchTraverser *mRootTraverser;
+    SearchTraverser *mRootTraverser = nullptr;
 
     QMap<QString, QSharedPointer<SearchHandler> > mHandlers;
 };

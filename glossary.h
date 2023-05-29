@@ -93,8 +93,8 @@ namespace KHC {
       void buildGlossaryTree();
       static QDomElement childElement( const QDomElement &e, const QString &name );
 
-      QTreeWidgetItem *m_byTopicItem;
-      QTreeWidgetItem *m_alphabItem;
+      QTreeWidgetItem *m_byTopicItem = nullptr;
+      QTreeWidgetItem *m_alphabItem = nullptr;
       QString m_sourceFile;
       QString m_cacheFile;
       CacheStatus m_status;
