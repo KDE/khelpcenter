@@ -30,7 +30,7 @@ Project Neon
 >Akonadi</glossterm>
 			<glossdef
 ><para
->Mecanismo de acceso al almacenamiento de datos para todos los datos del PIM (Personal Information Manager - Gestor de Información Personal) en &kde; SC 4. Un solo sistema de almacenamiento y recuperación único permite una eficiencia y una extensibilidad que no era posible en &kde; 3, donde cada componente del PIM tenía su propio sistema. Observe que la utilización de Akonadi no cambia los formatos de almacenamiento de los datos (vcard, iCalendar, mbox, maildir, etc.), solo proporciona una nueva forma de acceder y actualizar los datos.&newpara; Las razones principales para el diseño y el desarrollo de Akonadi son de naturaleza técnica, &eg; tener un modo único de acceder a los datos del PIM (contactos, calendarios, emails, etc.) desde diferentes aplicaciones (&eg; &kmail;, &kword; &etc;), eliminando así la necesidad de escribir código similar aquí y allí.&newpara; Otro objetivo es separar las aplicaciones gráficas como &kmail; del acceso directo a los recursos externos tales como los servidores de correo - que fue una de las principales razones de los informes de errores/deseos con respecto al rendimiento/capacidad de respuesta en el pasado.&newpara; Más información:&newpara;&linkstart;"https://community.kde.org/KDE_PIM/Akonadi"&linkmid;Akonadi para el PIM de KDE&linkend;&newpara; &linkstart;"https://en.wikipedia.org/wiki/Akonadi"&linkmid;Wikipedia: Akonadi&linkend;&newpara; &linkstart;"https://techbase.kde.org/KDE_PIM/Akonadi"&linkmid;Techbase - Akonadi&linkend;</para
+>Mecanismo de acceso al almacenamiento de datos para todos los datos del PIM (Personal Information Manager - Gestor de Información Personal) en &kde; SC 4. Un solo sistema de almacenamiento y recuperación único permite una eficiencia y una extensibilidad que no era posible en &kde; 3, donde cada componente del PIM tenía su propio sistema. Observe que la utilización de Akonadi no cambia los formatos de almacenamiento de los datos (vcard, iCalendar, mbox, maildir, etc.), solo proporciona una nueva forma de acceder y actualizar los datos.&newpara; Las razones principales para el diseño y el desarrollo de Akonadi son de naturaleza técnica, &eg; tener un modo único de acceder a los datos del PIM (contactos, calendarios, emails, etc.) desde diferentes aplicaciones (&eg; &kmail;, &calligrawords; &etc;), eliminando así la necesidad de escribir código similar aquí y allí.&newpara; Otro objetivo es separar las aplicaciones gráficas como &kmail; del acceso directo a los recursos externos tales como los servidores de correo - que fue una de las principales razones de los informes de errores/deseos con respecto al rendimiento/capacidad de respuesta en el pasado.&newpara; Más información:&newpara;&linkstart;"https://community.kde.org/KDE_PIM/Akonadi"&linkmid;Akonadi para el PIM de KDE&linkend;&newpara; &linkstart;"https://en.wikipedia.org/wiki/Akonadi"&linkmid;Wikipedia: Akonadi&linkend;&newpara; &linkstart;"https://techbase.kde.org/KDE_PIM/Akonadi"&linkmid;Techbase - Akonadi&linkend;</para
 ><glossseealso otherterm="gloss-gui"
 >&GUI;</glossseealso
 > <glossseealso otherterm="gloss-kde"
@@ -54,7 +54,7 @@ Project Neon
 		<glossentry id="gloss-arts"
 ><!--remove it?-->
 			<glossterm
->ARts</glossterm>
+>aRts</glossterm>
 			<glossdef
 ><para
 >Infraestructura de sonido en &kde; 2 y 3. Su naturaleza monotarea causaba problemas cuando se encontraban dos fuentes de sonido. En el escritorio &plasma; es reemplazada por Phonon.&newpara;Más información:&newpara; &linkstart;"https://en.wikipedia.org/wiki/ARts"&linkmid; Wikipedia: ARts&linkend;</para
@@ -73,7 +73,7 @@ Project Neon
 ><para
 >D-Bus o Desktop Bus es un sistema de mensajería entre servicios. Desarrollado por &RedHat;, fue ampliamente influenciado por el DCOP de &kde; 3, al cual sustituye. La mayoría de los sistemas operativos POSIX soportan D-Bus, y existe una versión para Windows. Es utilizado por Qt 4 y por GNOME.&newpara; Más información:&newpara; &linkstart;"https://freedesktop.org/wiki/Software/dbus/"&linkmid;FreeDesktop.org: ¿Qué es D-Bus?&linkend;&newpara; &linkstart;"https://en.wikipedia.org/wiki/D-Bus"&linkmid;Wikipedia: D-Bus&linkend;</para
 ><glossseealso otherterm="gloss-dcop"
->&DCOP;</glossseealso
+>DCOP</glossseealso
 > <glossseealso otherterm="gloss-gnome"
 >GNOME</glossseealso
 > <glossseealso otherterm="gloss-kde"
@@ -101,7 +101,7 @@ Project Neon
 >Flake</glossterm>
 			<glossdef
 ><para
->Flake es una biblioteca de programación utilizada en &koffice;/Calligra. Funcionalmente, proporciona formas para mostrar contenido y herramientas para manipular dicho contenido. Las formas pueden ser ampliadas o rotadas y agrupadas para trabajar como una única forma, alrededor de la cual puede fluir el texto.&newpara; Más información:&newpara; &linkstart;"https://community.kde.org/Calligra/Libs/Flake"&linkmid;&kde; Community Wiki: Flake&linkend;</para
+>Flake es una biblioteca de programación utilizada en &calligra;. Funcionalmente, proporciona formas para mostrar contenido y herramientas para manipular dicho contenido. Las formas pueden ser ampliadas o rotadas y agrupadas para trabajar como una única forma, alrededor de la cual puede fluir el texto.&newpara; Más información:&newpara; &linkstart;"https://community.kde.org/Calligra/Libs/Flake"&linkmid;&kde; Community Wiki: Flake&linkend;</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-kparts"
@@ -272,7 +272,7 @@ otherterm="gloss-kbuildsycoca"
 ><para
 >Una API multimedia multiplataforma, que puede interactuar con infraestructuras existentes, tales como los motores gstreamer y xine. &kde; 2 y 3 dependieron de aRts para el sonido. Phonon lo reemplaza.&newpara; Más información:&newpara; &linkstart;"https://en.wikipedia.org/wiki/Phonon_(software)"&linkmid; Wikipedia: Phonon (software)&linkend;&newpara; &linkstart;"https://phonon.kde.org/"&linkmid;sitio web de Phonon&linkend;</para
 ><glossseealso otherterm="gloss-arts"
->&arts;</glossseealso
+>aRts</glossseealso
 > <glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > </glossdef>
@@ -665,7 +665,7 @@ otherterm="gloss-kbuildsycoca"
 >Escritorios virtuales</glossterm>
 			<glossdef
 ><para
->Un concepto popular de &UNIX; basado en los gestores de ventanas es el de los escritorios virtuales. Significa que usted no tiene solo una pantalla en la que puede colocar sus ventanas sino varias. Cuando cambie a un escritorio diferente (generalmente utilizando un paginador) solo verá las ventanas que haya iniciado en dicho escritorio o que haya movido al mismo. Una ventana también puede hacerse «adhesiva» lo que significa que aparecerá en todos los escritorios virtuales.&newpara; Más información:&newpara; &linkstart;"https://userbase.kde.org/Plasma"&linkmid;FAQ de Plasma&linkend;</para
+>Un concepto popular de &UNIX; basado en los gestores de ventanas es el de los escritorios virtuales. Significa que no tiene solo una pantalla en la que puede colocar las ventanas sino varias. Cuando cambie a un escritorio diferente (generalmente utilizando un paginador) solo verá las ventanas que haya iniciado en dicho escritorio o que haya movido al mismo. Una ventana también puede hacerse «adhesiva» lo que significa que aparecerá en todos los escritorios virtuales.&newpara; Más información:&newpara; &linkstart;"https://userbase.kde.org/Plasma"&linkmid;FAQ de Plasma&linkend;</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-application-starter"

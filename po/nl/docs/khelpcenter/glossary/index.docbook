@@ -30,7 +30,7 @@ Project Neon
 >Akonadi</glossterm>
 			<glossdef
 ><para
->Het mechanisme voor toegang tot de gegevensopslag voor alle PIM (Beheerder van persoonlijke informatie) gegevens in &kde; SC 4. Eén enkel opslag- en opvraagsysteem biedt efficiency en uitbreidbaarheid die niet mogelijk was onder &kde; 3, waar elke PIM component zijn eigen systeem had. Merk op dat het gebruik van Akonadi de gegevensopslagformaten (vcard, iCalendar, mbox, maildir etc.) niet wijzigt - het levert alleen een nieuwe manier om uw gegevens te benaderen en bij te werken.&newpara; De hoofdreden voor ontwerp en ontwikkeling van Akonadi zijn van technische aard, &eg; het hebben van een unieke manier om toegang te hebben tot PIM-gegevens (contacten, agenda's, e-mails..) uit verschillende toepassingen (&eg; &kmail;, &kword; &etc;), daarbij de noodzaak te elimineren om hier en daar gelijksoortige code te schrijven.&newpara; Een ander doel is om GUI-toepassingen zoals &kmail; los te koppelen van de directe toegang tot externe bronnen zoals e-mail-servers - wat in het verleden een belangrijke reden voor bugrapporten/wensen was met betrekking tot de performance/respons.&newpara; Meer informatie:&newpara; &linkstart;"https://community.kde.org/KDE_PIM/Akonadi"&linkmid;Akonadi voor KDE's PIM&linkend;&newpara; &linkstart;"https://en.wikipedia.org/wiki/Akonadi"&linkmid;Wikipedia: Akonadi&linkend;&newpara; &linkstart;"https://techbase.kde.org/KDE_PIM/Akonadi"&linkmid;Techbase - Akonadi&linkend;</para
+>Het mechanisme voor toegang tot de gegevensopslag voor alle PIM (Beheerder van persoonlijke informatie) gegevens in &kde; SC 4. Eén enkel opslag- en opvraagsysteem biedt efficiency en uitbreidbaarheid die niet mogelijk was onder &kde; 3, waar elke PIM component zijn eigen systeem had. Merk op dat het gebruik van Akonadi de gegevensopslagformaten (vcard, iCalendar, mbox, maildir etc.) niet wijzigt - het levert alleen een nieuwe manier om uw gegevens te benaderen en bij te werken.&newpara; De hoofdreden voor ontwerp en ontwikkeling van Akonadi zijn van technische aard, &eg; het hebben van een unieke manier om toegang te hebben tot PIM-gegevens (contacten, agenda's, e-mails..) uit verschillende toepassingen (&eg; &kmail;, &calligrawords; &etc;), daarbij de noodzaak te elimineren om hier en daar gelijksoortige code te schrijven.&newpara; Een ander doel is om GUI-toepassingen zoals &kmail; los te koppelen van de directe toegang tot externe bronnen zoals e-mail-servers - wat in het verleden een belangrijke reden voor bugrapporten/wensen was met betrekking tot de performance/respons.&newpara; Meer informatie:&newpara; &linkstart;"https://community.kde.org/KDE_PIM/Akonadi"&linkmid;Akonadi voor KDE's PIM&linkend;&newpara; &linkstart;"https://en.wikipedia.org/wiki/Akonadi"&linkmid;Wikipedia: Akonadi&linkend;&newpara; &linkstart;"https://techbase.kde.org/KDE_PIM/Akonadi"&linkmid;Techbase - Akonadi&linkend;</para
 ><glossseealso otherterm="gloss-gui"
 >&GUI;</glossseealso
 > <glossseealso otherterm="gloss-kde"
@@ -54,7 +54,7 @@ Project Neon
 		<glossentry id="gloss-arts"
 ><!--remove it?-->
 			<glossterm
->ARts</glossterm>
+>aRts</glossterm>
 			<glossdef
 ><para
 >Het geluidsframework in &kde; 2 en 3. Zijn natuur van een enkele taak veroorzaakte problemen wanneer twee geluidsbronnen elkaar tegenkwamen. In de &plasma;-desktop is het vervangen door Phonon.&newpara; Meer informatie:&newpara; &linkstart;"https://en.wikipedia.org/wiki/ARts"&linkmid; Wikipedia: ARts&linkend;</para
@@ -73,7 +73,7 @@ Project Neon
 ><para
 >D-Bus of Bureaublad-bus is een messagingsysteem tussen services. Ontwikkeld door &RedHat;, het is zwaar beïnvloed door DCOP van &kde; 3, die er aan vooraf is gegaan. De meeste POSIX besturingssystemen ondersteunen D-Bus en er bestaat een versie voor Windows. Het wordt gebruikt door Qt 4 en GNOME.&newpara; Meer informatie:&newpara; &linkstart;"https://freedesktop.org/wiki/Software/dbus/"&linkmid;FreeDesktop.org: Wat is D-Bus?&linkend;&newpara; &linkstart;"https://en.wikipedia.org/wiki/D-Bus"&linkmid;Wikipedia: D-Bus&linkend;</para
 ><glossseealso otherterm="gloss-dcop"
->&DCOP;</glossseealso
+>DCOP</glossseealso
 > <glossseealso otherterm="gloss-gnome"
 >GNOME</glossseealso
 > <glossseealso otherterm="gloss-kde"
@@ -101,7 +101,7 @@ Project Neon
 >Flake</glossterm>
 			<glossdef
 ><para
->Flake is een bibliotheek voor programmeren die wordt gebruikt in &koffice;/Calligra. De functionaliteit levert Vormen om inhoud te tonen en Hulpmiddelen om inhoud te manipuleren. Vormen kunnen in- of uitgezoomd worden of geroteerd en kunnen worden gegroepeerd om als een enkele Vorm te werken waardoor het mogelijk is om tekst te laten vloeien.&newpara; Meer informatie:&newpara; &linkstart;"https://community.kde.org/Calligra/Libs/Flake"&linkmid;&kde; Community Wiki: Flake&linkend;</para
+>Flake is een bibliotheek voor programmeren die wordt gebruikt in &calligra;/Calligra. De functionaliteit levert Vormen om inhoud te tonen en Hulpmiddelen om inhoud te manipuleren. Vormen kunnen in- of uitgezoomd worden of geroteerd en kunnen worden gegroepeerd om als een enkele Vorm te werken waardoor het mogelijk is om tekst te laten vloeien.&newpara; Meer informatie:&newpara; &linkstart;"https://community.kde.org/Calligra/Libs/Flake"&linkmid;&kde; Community Wiki: Flake&linkend;</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-kparts"
@@ -273,9 +273,9 @@ otherterm="gloss-kbuildsycoca"
 			<glossdef
 ><para
 >Een cross-platform multimedia API, die een interface vormt met bestaande raamwerken, zoals gstreamer en xine-engines. &kde; 2 en 3 waren afhankelijk van aRts voor geluid. Phonon vervangt dit.&newpara; Meer informatie:&newpara; &linkstart;"https://nl.wikipedia.org/wiki/Phonon_(software)"&linkmid; Wikipedia: Phonon (software)&linkend;&newpara; &linkstart;"https://phonon.kde.org"&linkmid;Phonon website&linkend;</para
-><glossseealso otherterm="gloss-kde"
->&arts;</glossseealso
-> <glossseealso otherterm="gloss-kicker"
+><glossseealso otherterm="gloss-arts"
+>aRts</glossseealso
+> <glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > </glossdef>
 		</glossentry>
