@@ -406,7 +406,7 @@
 <varlistentry>
 <term
 ><guilabel
->Módulos de trabajo de KIO</guilabel
+>Kioslaves</guilabel
 ></term>
 <listitem>
 <para
@@ -875,24 +875,6 @@ Print the contents of the currently visible page.
 >Cambia la codificación de la página actual. Normalmente, la configuración por defecto de <guimenuitem
 >Predeterminada</guimenuitem
 > debería ser suficiente, pero si está teniendo problemas con la visualización de páginas escritas en idiomas diferentes al Inglés, puede que necesite seleccionar una codificación específica en este menú. </para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term
-><menuchoice
-><guimenu
->Ver</guimenu
-> <guisubmenu
->Modo a pantalla completa</guisubmenu
-> </menuchoice>
-</term>
-<listitem>
-<para
->Cambia el &khelpcenter; al modo a pantalla completa, donde la ventana de &khelpcenter; ocupa toda la pantalla y no contiene las típicas decoraciones de las ventanas. Para salir del modo a pantalla completa, pulse <keycombo action="simul"
->&Ctrl;&Shift; <keycap
->F</keycap
-></keycombo
->. </para>
 </listitem>
 </varlistentry>
 </variablelist>

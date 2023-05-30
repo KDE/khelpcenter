@@ -148,18 +148,18 @@ Project Neon
 >Obtener cosas nuevas</glossseealso>
 			</glossdef>
 		</glossentry>
-		<glossentry id="gloss-ioworker">
+		<glossentry id="gloss-ioslave">
 			<glossterm
->Módulo de trabajo de <acronym
+><acronym
 >IO</acronym
-></glossterm>
+> Slave</glossterm>
 			<glossdef
 ><para
->Los módulos de trabajo de <acronym
+><acronym
 >IO</acronym
-> permiten el acceso a recursos remotos a las aplicaciones de &kde; del mismo modo que si fueran locales (haciéndolos «transparentes a la red»). Los recursos remotos (por ejemplo, archivos) pueden estar en particiones <acronym
+> Slaves enable &kde; applications to access remote resources as easily as local resources (making them "network transparent"). Remote resources (&eg; files) might be stored on <acronym
 >SMB</acronym
-> o similares.</para
+> shares or similar.</para
 ><glossseealso otherterm="gloss-smb"
 ><acronym
 >SMB</acronym
@@ -193,13 +193,13 @@ Project Neon
 ></glossterm>
 			<glossdef
 ><para
->Sistema de entrada/salida de &kde; que usan los «módulos de trabajo de <acronym
+>The &kde; Input/Output system which makes use of so-called "<acronym
 >IO</acronym
->».</para
-><glossseealso otherterm="gloss-ioworker"
->Módulo de trabajo de <acronym
+> Slaves".</para
+><glossseealso otherterm="gloss-ioslave"
+><acronym
 >IO</acronym
-></glossseealso
+> Slave</glossseealso
 > <glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > </glossdef>
@@ -665,7 +665,7 @@ otherterm="gloss-kbuildsycoca"
 >Escritorios virtuales</glossterm>
 			<glossdef
 ><para
->Un concepto popular de &UNIX; basado en los gestores de ventanas es el de los escritorios virtuales. Significa que usted no tiene solo una pantalla en la que puede colocar sus ventanas sino varias. Cuando cambie a un escritorio diferente (generalmente utilizando un paginador) solo verá las ventanas que haya iniciado en dicho escritorio o que haya movido al mismo. Una ventana también puede hacerse «adhesiva» lo que significa que aparecerá en todos los escritorios virtuales.&newpara; Más información:&newpara; &linkstart;"https://userbase.kde.org/Plasma"&linkmid;FAQ de Plasma&linkend;</para
+>Un concepto popular de &UNIX; basado en los gestores de ventanas es el de los escritorios virtuales. Significa que no tiene solo una pantalla en la que puede colocar las ventanas sino varias. Cuando cambie a un escritorio diferente (generalmente utilizando un paginador) solo verá las ventanas que haya iniciado en dicho escritorio o que haya movido al mismo. Una ventana también puede hacerse «adhesiva» lo que significa que aparecerá en todos los escritorios virtuales.&newpara; Más información:&newpara; &linkstart;"https://userbase.kde.org/Plasma"&linkmid;FAQ de Plasma&linkend;</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-application-starter"
@@ -866,10 +866,10 @@ otherterm="gloss-kbuildsycoca"
 			<glossdef
 ><para
 >&emstart;S&emend;erver &emstart;M&emend;essage &emstart;B&emend;lock (bloqueo de mensajes de servidor). Es un protocolo de red utilizado en las redes &Microsoft; &Windows; para acceder a los sistemas de archivos de otros ordenadores.</para>
-				<glossseealso otherterm="gloss-ioworker"
->Módulo de trabajo de <acronym
+				<glossseealso otherterm="gloss-ioslave"
+><acronym
 >IO</acronym
-></glossseealso>
+> Slave</glossseealso>
 			</glossdef>
 		</glossentry>
 		<glossentry id="gloss-irc">
