@@ -30,7 +30,7 @@ Project Neon
 >Akonadi</glossterm>
 			<glossdef
 ><para
->El mecanisme d'accés a les dades guardades per a totes les dades PIM (Personal Information Manager -gestor de la informació personal-) en &kde; SC 4. Un únic sistema d'emmagatzematge i sistema de recuperació permet eficiència i extensibilitat que no era possible davall &kde; 3, cadascun dels components PIM disposava del seu propi sistema. Cal tindre en compte que l'ús d'Akonadi no canvia el format de les dades guardades (vCard, iCalendar, mbox, maildir, &etc;) -senzillament només proporciona una nova forma d'accedir i actualitzar les dades-.&newpara; Els principals motius per al disseny i desenvolupament d'Akonadi són de naturalea tècnica, &ead; disposar d'una manera única per a l'accés a les dades PIM (contactes, calendaris, correus electrònics...) de diferents aplicacions (&pex; &kmail;, &kword;, &etc;), eliminant així la necessitat d'escriure codi pareixent ací i allà.&newpara; Un altre objectiu és part d'aplicacions IGU com &kmail; des de l'accés directe a recursos externs com el correu de servidors -este va ser un important motiu per informes-d'error/desitjos pel que fa al rendiment/capacitat_de_resposta en el passat.&newpara; Més informació:&newpara; &linkstart;"https://community.kde.org/KDE_PIM/Akonadi"&linkmid;Akonadi per al PIM de KDE&linkend;&newpara; &linkstart;"https://en.wikipedia.org/wiki/Akonadi"&linkmid;Viquipèdia: Akonadi&linkend;&newpara; &linkstart;"https://techbase.kde.org/KDE_PIM/Akonadi"&linkmid;Techbase - Akonadi&linkend;</para
+>El mecanisme d'accés a les dades guardades per a totes les dades PIM (Personal Information Manager -gestor de la informació personal-) en &kde; SC 4. Un únic sistema d'emmagatzematge i sistema de recuperació permet eficiència i extensibilitat que no era possible davall &kde; 3, cadascun dels components PIM disposava del seu propi sistema. Cal tindre en compte que l'ús d'Akonadi no canvia el format de les dades guardades (vCard, iCalendar, mbox, maildir, &etc;) -senzillament només proporciona una nova forma d'accedir i actualitzar les dades-.&newpara; Els principals motius per al disseny i desenvolupament d'Akonadi són de naturalea tècnica, &pex; disposar d'una manera única per a l'accés a les dades PIM (contactes, calendaris, correus electrònics...) de diferents aplicacions (&pex; &kmail;, &calligrawords;, &etc;), eliminant així la necessitat d'escriure codi pareixent ací i allà.&newpara; Un altre objectiu és part d'aplicacions IGU com &kmail; des de l'accés directe a recursos externs com el correu de servidors -este va ser un important motiu per informes-d'error/desitjos pel que fa al rendiment/capacitat_de_resposta en el passat.&newpara; Més informació:&newpara; &linkstart;"https://community.kde.org/KDE_PIM/Akonadi"&linkmid;Akonadi per al PIM de KDE&linkend;&newpara; &linkstart;"https://en.wikipedia.org/wiki/Akonadi"&linkmid;Viquipèdia: Akonadi&linkend;&newpara; &linkstart;"https://techbase.kde.org/KDE_PIM/Akonadi"&linkmid;Techbase - Akonadi&linkend;</para
 ><glossseealso otherterm="gloss-gui"
 >&IGU;</glossseealso
 > <glossseealso otherterm="gloss-kde"
@@ -54,7 +54,7 @@ Project Neon
 		<glossentry id="gloss-arts"
 ><!--remove it?-->
 			<glossterm
->ARts</glossterm>
+>aRts</glossterm>
 			<glossdef
 ><para
 >El marc de so en &kde; 2 i 3. La seua naturalea tasca-simple ha causat problemes quan es trobaven dues fonts de so. En l'escriptori &plasma; se substituïx per Phonon.&newpara; Més informació:&newpara; &linkstart;"https://en.wikipedia.org/wiki/ARts"&linkmid;Viquipèdia: ARts&linkend;</para
@@ -73,7 +73,7 @@ Project Neon
 ><para
 >D-Bus o Desktop Bus és un sistema de missatges de servei-intern. Desenvolupat per &RedHat;, el qual va ser fortament influenciat pel DCOP de &kde; 3, al que substituïx. La majoria de sistemes operatius POSIX suporten D-Bus, i existix un port per a Windows. És utilitzat per Qt 4 i GNOME.&newpara; Més informació:&newpara; &linkstart;"https://freedesktop.org/wiki/Software/dbus/"&linkmid;FreeDesktop.org: What is D-Bus?&linkend;&newpara; &linkstart;"https://en.wikipedia.org/wiki/D-Bus"&linkmid;Viquipèdia: D-Bus&linkend;</para
 ><glossseealso otherterm="gloss-dcop"
->&DCOP;</glossseealso
+>DCOP</glossseealso
 > <glossseealso otherterm="gloss-gnome"
 >GNOME</glossseealso
 > <glossseealso otherterm="gloss-kde"
@@ -101,7 +101,7 @@ Project Neon
 >Flake</glossterm>
 			<glossdef
 ><para
->Flake és una biblioteca de programació que s'utilitza en &koffice;/Calligra. Funcionalment, oferix «formes» per a mostrar el contingut i eines per a manipular el contingut. Les «formes» es poden acostar o rotar i es poden agrupar per a treballar com una única «forma», al voltant de la qual el flux de text és possible.&newpara; Més informació:&newpara;&linkstart;"https://community.kde.org/Calligra/Libs/Flake"&linkmid;&kde; Community Wiki: Flake&linkend;</para
+>Flake és una biblioteca de programació que s'utilitza en &calligra;. Funcionalment, oferix «formes» per a mostrar el contingut i eines per a manipular el contingut. Les «formes» es poden acostar o rotar i es poden agrupar per a treballar com una única «forma», al voltant de la qual el flux de text és possible.&newpara; Més informació:&newpara;&linkstart;"https://community.kde.org/Calligra/Libs/Flake"&linkmid;&kde; Community Wiki: Flake&linkend;</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-kparts"
@@ -272,7 +272,7 @@ otherterm="gloss-kbuildsycoca"
 ><para
 >Una API multimèdia multiplataforma, interfície per a connectar amb les plataformes existents, com ara motors gstreamer i xine. &kde; 2 i 3 depenen d'aRts per al so. Phono el substituïx.&newpara; Més informació:&newpara; &linkstart;"https://en.wikipedia.org/wiki/Phonon_(software)"&linkmid;Viquipèdia: Phonon (programari)&linkend;&newpara; &linkstart;"https://phonon.kde.org/"&linkmid;Lloc web de Phonon&linkend;</para
 ><glossseealso otherterm="gloss-arts"
->&arts;</glossseealso
+>aRts</glossseealso
 > <glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > </glossdef>
