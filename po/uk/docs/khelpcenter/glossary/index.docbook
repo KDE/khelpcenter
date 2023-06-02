@@ -30,7 +30,7 @@ Project Neon
 >Akonadi</glossterm>
 			<glossdef
 ><para
->Механізм доступу до сховища даних для всіх даних особистого керування даними (PIM) у &kde; SC 4. Єдина система зберігання і отримання даних уможливлює ефективність та масштабованість недосяжну у &kde; 3, де у кожного з компонентів PIM була власна система зберігання даних. Зауважте, що використання Akonadi не змінює формату зберігання ваших даних (vcard, iCalendar, mbox, maildir тощо) — система просто надає програмам нові можливості щодо доступу і оновлення цих даних.&newpara;Основною метою розробки і створення Akonadi є технічна: створення єдиного механізму доступу до особистих даних (записів контактів, календарів, електронної пошти) з різноманітних програм (наприклад &kmail;, &kword;). Ніяких особливих переваг для користувачів система на початковому етапі не надає, вона лише надає змогу не дублювати код розробникам.&newpara;Іншою причиною створення системи було вилучення з програм з графічним інтерфейсом можливостей безпосереднього доступу до зовнішніх ресурсів, зокрема серверів електронної пошти. Ці можливості були основним джерелом звітів щодо вад та реалізації можливостей у минулих версіях.&newpara; Докладніші відомості:&newpara; &linkstart;"https://community.kde.org/KDE_PIM/Akonadi&linkend;&newpara; &linkstart;"https://en.wikipedia.org/wiki/Akonadi"&linkmid;Вікіпедія — Akonadi&linkend;&newpara; &linkstart;"https://techbase.kde.org/KDE_PIM/Akonadi"&linkmid;Techbase — Akonadi&linkend;</para
+>Механізм доступу до сховища даних для всіх даних особистого керування даними (PIM) у &kde; SC 4. Єдина система зберігання і отримання даних уможливлює ефективність та масштабованість недосяжну у &kde; 3, де у кожного з компонентів PIM була власна система зберігання даних. Зауважте, що використання Akonadi не змінює формату зберігання ваших даних (vcard, iCalendar, mbox, maildir тощо) — система просто надає програмам нові можливості щодо доступу і оновлення цих даних.&newpara;Основною метою розробки і створення Akonadi є технічна: створення єдиного механізму доступу до особистих даних (записів контактів, календарів, електронної пошти) з різноманітних програм (наприклад &kmail;, &calligrawords;). Ніяких особливих переваг для користувачів система на початковому етапі не надає, вона лише надає змогу не дублювати код розробникам.&newpara;Іншою причиною створення системи було вилучення з програм з графічним інтерфейсом можливостей безпосереднього доступу до зовнішніх ресурсів, зокрема серверів електронної пошти. Ці можливості були основним джерелом звітів щодо вад та реалізації можливостей у минулих версіях.&newpara; Докладніші відомості:&newpara; &linkstart;"https://community.kde.org/KDE_PIM/Akonadi&linkend;&newpara; &linkstart;"https://en.wikipedia.org/wiki/Akonadi"&linkmid;Вікіпедія — Akonadi&linkend;&newpara; &linkstart;"https://techbase.kde.org/KDE_PIM/Akonadi"&linkmid;Techbase — Akonadi&linkend;</para
 ><glossseealso otherterm="gloss-gui"
 >Графічний інтерфейс</glossseealso
 > <glossseealso otherterm="gloss-kde"
@@ -54,7 +54,7 @@ Project Neon
 		<glossentry id="gloss-arts"
 ><!--remove it?-->
 			<glossterm
->ARts</glossterm>
+>aRts</glossterm>
 			<glossdef
 ><para
 >Оболонка для роботи зі звуковими даними у &kde; 2 і 3. Робота оболонки у режимі єдиного завдання могла спричиняти проблеми, коли джерел звуку було декілька. У робочому просторі Плазми цю оболонку замінено на Phonon.&newpara; Докладніші відомості:&newpara; &linkstart;"https://en.wikipedia.org/wiki/ARts"&linkmid; Вікіпедія — ARts&linkend;</para
@@ -73,7 +73,7 @@ Project Neon
 ><para
 >D-Bus або Desktop Bus (стільничний канал обміну даними) є системою обміну повідомленнями між службами. Цю систему розроблено &RedHat; на основі DCOP з &kde; 3, яку ця система і замінила. У більшості операційних систем POSIX передбачено підтримку D-Bus, існує порт у системі Windows. D-Bus використано у Qt 4 і GNOME.&newpara;Докладніші відомості:&newpara; &linkstart;"https://freedesktop.org/wiki/Software/dbus/"&linkmid;FreeDesktop.org: Для чого призначено D-Bus?&linkend;&newpara; &linkstart;"https://en.wikipedia.org/wiki/D-Bus"&linkmid;Вікіпедія — D-Bus&linkend;</para
 ><glossseealso otherterm="gloss-dcop"
->&DCOP;</glossseealso
+>DCOP</glossseealso
 > <glossseealso otherterm="gloss-gnome"
 >GNOME</glossseealso
 > <glossseealso otherterm="gloss-kde"
@@ -101,7 +101,7 @@ Project Neon
 >Flake</glossterm>
 			<glossdef
 ><para
->Flake — це бібліотека, що використовується у &koffice;/Calligra. У цій бібліотеці передбачено форми для показу вмісту та інструменти для керування цим вмістом. Форми можна збільшувати або обертати, а також об’єднувати у єдину форму, яку може обтікати текст.&newpara;Докладніші відомості:&newpara; &linkstart;"https://community.kde.org/Calligra/Libs/Flake"&linkmid;Вікі спільноти &kde;: Flake&linkend;</para
+>Flake — це бібліотека, що використовується у &calligra;. У цій бібліотеці передбачено форми для показу вмісту та інструменти для керування цим вмістом. Форми можна збільшувати або обертати, а також об’єднувати у єдину форму, яку може обтікати текст.&newpara;Докладніші відомості:&newpara; &linkstart;"https://community.kde.org/Calligra/Libs/Flake"&linkmid;Вікі спільноти &kde;: Flake&linkend;</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-kparts"
@@ -264,7 +264,7 @@ otherterm="gloss-kbuildsycoca"
 ><para
 >Мультимедійний програмний інтерфейс (API), здатний працювати на багатьох платформах. Працює з багатьма оболонками, зокрема рушіями gstreamer і xine. У &kde; 2 і 3 для виведення звукових даних використовувався сервер aRts. Phonon є його наступником. &newpara;Докладніші відомості:&newpara; &linkstart;"https://en.wikipedia.org/wiki/Phonon_(software)"&linkmid;Вікіпедія — Phonon (KDE)&linkend;&newpara; &linkstart;"https://phonon.kde.org/"&linkmid;Вебсайт Phonon&linkend;</para
 ><glossseealso otherterm="gloss-arts"
->&arts;</glossseealso
+>aRts</glossseealso
 > <glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > </glossdef>
