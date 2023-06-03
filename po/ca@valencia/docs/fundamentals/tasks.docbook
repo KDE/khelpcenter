@@ -998,7 +998,7 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 >Comprovar l'ortografia</title>
 
 <para
->&sonnet; és el corrector ortogràfic emprat per les aplicacions &kde; com &kate;, &kmail; i &kword;. És un frontal de la &IGU; per a diversos correctors ortogràfics lliures.</para>
+>&sonnet; is the spelling checker used by &kde; applications such as &kate;, &kmail;, and &kword;. It is a &GUI; frontend to various free spell checkers.</para>
 
 <para
 >Per a utilitzar &sonnet;, vos caldrà instal·lar un corrector ortogràfic, com <application
