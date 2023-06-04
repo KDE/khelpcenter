@@ -54,7 +54,7 @@ Project Neon
 		<glossentry id="gloss-arts"
 ><!--remove it?-->
 			<glossterm
->aRts</glossterm>
+>ARts</glossterm>
 			<glossdef
 ><para
 >El marc de so en &kde; 2 i 3. La seua naturalea tasca-simple ha causat problemes quan es trobaven dues fonts de so. En l'escriptori &plasma; se substituïx per Phonon.&newpara; Més informació:&newpara; &linkstart;"https://en.wikipedia.org/wiki/ARts"&linkmid;Viquipèdia: ARts&linkend;</para
@@ -73,7 +73,7 @@ Project Neon
 ><para
 >D-Bus o Desktop Bus és un sistema de missatges de servei-intern. Desenvolupat per &RedHat;, el qual va ser fortament influenciat pel DCOP de &kde; 3, al que substituïx. La majoria de sistemes operatius POSIX suporten D-Bus, i existix un port per a Windows. És utilitzat per Qt 4 i GNOME.&newpara; Més informació:&newpara; &linkstart;"https://freedesktop.org/wiki/Software/dbus/"&linkmid;FreeDesktop.org: What is D-Bus?&linkend;&newpara; &linkstart;"https://en.wikipedia.org/wiki/D-Bus"&linkmid;Viquipèdia: D-Bus&linkend;</para
 ><glossseealso otherterm="gloss-dcop"
->DCOP</glossseealso
+>&DCOP;</glossseealso
 > <glossseealso otherterm="gloss-gnome"
 >GNOME</glossseealso
 > <glossseealso otherterm="gloss-kde"
@@ -272,7 +272,7 @@ otherterm="gloss-kbuildsycoca"
 ><para
 >Una API multimèdia multiplataforma, interfície per a connectar amb les plataformes existents, com ara motors gstreamer i xine. &kde; 2 i 3 depenen d'aRts per al so. Phono el substituïx.&newpara; Més informació:&newpara; &linkstart;"https://en.wikipedia.org/wiki/Phonon_(software)"&linkmid;Viquipèdia: Phonon (programari)&linkend;&newpara; &linkstart;"https://phonon.kde.org/"&linkmid;Lloc web de Phonon&linkend;</para
 ><glossseealso otherterm="gloss-arts"
->aRts</glossseealso
+>&arts;</glossseealso
 > <glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > </glossdef>
