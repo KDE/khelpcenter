@@ -175,12 +175,11 @@ install( FILES org.kde.khelpcenter.metainfo.xml DESTINATION ${KDE_INSTALL_METAIN
 
 ki18n_install(po)
 if (QT_MAJOR_VERSION STREQUAL "5")
-    add_subdirectory( doc )
     kdoctools_install(po)
 else()
     MESSAGE(STATUS "docbook needs some fix for building against qt6")
 endif()
-
+add_subdirectory( doc )
 ecm_qt_install_logging_categories(
     EXPORT KHELPCENTER
     FILE khelpcenter.categories
