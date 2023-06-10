@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-17 00:49+0000\n"
-"PO-Revision-Date: 2023-03-21 22:43+0100\n"
+"PO-Revision-Date: 2023-06-08 19:23+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -23,12 +23,12 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Wolfram Diestel,CindyMcKee"
+msgstr "Wolfram Diestel,Cindy McKee,Oliver Kellogg"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "wolfram@steloj.de,cfmckee@gmail.com"
+msgstr "wolfram@steloj.de,cfmckee@gmail.com,okellogg@users.sourceforge.net"
 
 #: application.cpp:30
 #, kde-format
@@ -43,7 +43,7 @@ msgstr "Helpcentro"
 #: application.cpp:118
 #, kde-format
 msgid "(c) 1999-2020, The KHelpCenter developers"
-msgstr ""
+msgstr "(c) 1999-2020, La KHelpCenter-programistoj"
 
 #: application.cpp:120
 #, kde-format
@@ -53,7 +53,7 @@ msgstr "Aktuala prizorganto"
 #: application.cpp:121
 #, kde-format
 msgid "Xapian-based search, lot of bugfixes"
-msgstr ""
+msgstr "Serĉo bazita en Xapian, multaj korektoj"
 
 #: application.cpp:122
 #, kde-format
@@ -188,7 +188,7 @@ msgstr "Rekonstruas kaŝmemoron... farita."
 #, kde-format
 msgctxt "%1 is a glossary term"
 msgid "KDE Glossary: %1"
-msgstr ""
+msgstr "KDE-Glosaro: %1"
 
 #: grantleeformatter.cpp:103
 #, kde-format
@@ -331,7 +331,7 @@ msgstr "Malgrandigi la tiparojn"
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"
-msgstr ""
+msgstr "&Legosignoj"
 
 #: navigator.cpp:63
 #, kde-format
@@ -371,12 +371,12 @@ msgstr "Ne eblas lanĉi la serĉprogramon."
 #: navigator.cpp:657
 #, kde-format
 msgid "Updating search index..."
-msgstr ""
+msgstr "Ĝisdatigante serĉindekson..."
 
 #: navigator.cpp:668
 #, kde-format
 msgid "Updating search index... done."
-msgstr ""
+msgstr "Ĝisdatigo de serĉindekso... preta."
 
 #: searchengine.cpp:57
 #, kde-format
@@ -406,12 +406,12 @@ msgstr "Eraro: %1"
 #: searchhandler.cpp:140 searchhandler.cpp:145
 #, kde-format
 msgid "'%1' not found, check your installation"
-msgstr ""
+msgstr "'%1' ne trovita, kontrolu vian instaladon"
 
 #: searchhandler.cpp:150
 #, kde-format
 msgid "'%1' not found, install the package containing it"
-msgstr ""
+msgstr "'%1' ne trovita, instalu la pakaĵon enhavantan ĝin"
 
 #: searchhandler.cpp:197
 #, kde-format
@@ -490,3 +490,6 @@ msgid ""
 "b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, <b>Tab</b>/"
 "<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
 msgstr ""
+"<p>Legu la temdokumentaron en ĉi tiu fenestro.<br /><br />Premu <b>Spaco</b>/"
+"<b>Shift+Spaco</b> por rulumi, <b>%1</b > por trovi ion, <b>Tab</b>/<b>Shift"
+"+Tab</b> por salti, kaj <b>Enigu</b> por sekvi.</p>"
