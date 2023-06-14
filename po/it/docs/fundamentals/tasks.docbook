@@ -1040,7 +1040,7 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 >Controllo dell'ortografia</title>
 
 <para
->&sonnet; è il correttore ortografico utilizzato dalle applicazioni &kde; come &kate;, &kmail; e &kword; Si tratta di una interfaccia &GUI; per diversi correttori ortografici liberi.</para>
+>&sonnet; è il correttore ortografico utilizzato dalle applicazioni &kde; come &kate;, &kmail; e &calligrawords;. Si tratta di una interfaccia &GUI; per diversi correttori ortografici liberi.</para>
 
 <para
 >Per usare &sonnet; devi installare dei correttori ortografici come <application

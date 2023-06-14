@@ -30,7 +30,7 @@ Project Neon
 >Akonadi</glossterm>
 			<glossdef
 ><para
->Il meccanismo d'accesso a tutti i dati personali di &kde; SC 4. Un singolo sistema di memorizzazione e recupero permette un'efficienza e un'estensibilità impossibili in &kde; 3, dove ogni componente aveva il suo sistema. Nota che l'uso di Akonadi non cambia i formati di memorizzazione (vcard, iCalendar, mbox, maildir, eccetera), fornisce solo un nuovo modo di accedere ai dati e aggiornarli.&newpara;I motivi principali per la progettazione e lo sviluppo di Akonadi sono di natura tecnica, per esempio avere un modo solo di accedere ai dati personali (contatti, calendari, posta elettronica...) da diverse applicazioni (per esempio &kmail;, &kword;, eccetera), eliminando quindi la necessita di scrivere codice simile da diverse parti.&newpara;Un altro obbiettivo è sganciare le applicazioni grafiche come &kmail; dall'accesso diretto alle risorse esterne come i server di posta, che era in passato una delle cause principali delle segnalazioni di errori e richieste in riguardo alle prestazioni e alla responsività.&newpara;Maggiori informazioni:&newpara;&linkstart;"https://community.kde.org/KDE_PIM/Akonadi"&linkmid;Akonadi per i dati personali di KDE&linkend;&newpara;&linkstart;"https://en.wikipedia.org/wiki/Akonadi"&linkmid;Akonadi su Wikipedia&linkend;&newpara;&linkstart;"https://techbase.kde.org/KDE_PIM/Akonadi"&linkmid;Akonadi su Techbase&linkend;</para
+>Il meccanismo d'accesso a tutti i dati personali di &kde; SC 4. Un singolo sistema di memorizzazione e recupero permette un'efficienza e un'estensibilità impossibili in &kde; 3, dove ogni componente aveva il suo sistema. Nota che l'uso di Akonadi non cambia i formati di memorizzazione (vcard, iCalendar, mbox, maildir, eccetera), fornisce solo un nuovo modo di accedere ai dati e aggiornarli.&newpara;I motivi principali per la progettazione e lo sviluppo di Akonadi sono di natura tecnica, per esempio avere un modo solo di accedere ai dati personali (contatti, calendari, posta elettronica...) da diverse applicazioni (per esempio &kmail;, &calligrawords;, eccetera), eliminando quindi la necessita di scrivere codice simile da diverse parti.&newpara;Un altro obbiettivo è sganciare le applicazioni grafiche come &kmail; dall'accesso diretto alle risorse esterne come i server di posta, che era in passato una delle cause principali delle segnalazioni di errori e richieste in riguardo alle prestazioni e alla responsività.&newpara;Maggiori informazioni:&newpara;&linkstart;"https://community.kde.org/KDE_PIM/Akonadi"&linkmid;Akonadi per i dati personali di KDE&linkend;&newpara;&linkstart;"https://en.wikipedia.org/wiki/Akonadi"&linkmid;Akonadi su Wikipedia&linkend;&newpara;&linkstart;"https://techbase.kde.org/KDE_PIM/Akonadi"&linkmid;Akonadi su Techbase&linkend;</para
 ><glossseealso otherterm="gloss-gui"
 >&GUI;</glossseealso
 > <glossseealso otherterm="gloss-kde"
@@ -54,7 +54,7 @@ Project Neon
 		<glossentry id="gloss-arts"
 ><!--remove it?-->
 			<glossterm
->ARts</glossterm>
+>aRts</glossterm>
 			<glossdef
 ><para
 >L'infrastruttura sonora di &kde; 2 e 3. Potendo fare una sola cosa alla volta, causava problemi quando concorrevano due fonti sonore. Nel desktop &plasma; è stata sostituita da Phonon.&newpara;Maggiori informazioni:&newpara;&linkstart;"https://en.wikipedia.org/wiki/ARts"&linkmid;ARts su Wikipedia&linkend;</para
@@ -73,7 +73,7 @@ Project Neon
 ><para
 >&DBus;, o Desktop Bus, è un sistema di messaggistica tra servizi. Sviluppato da &RedHat;, è stato molto influenzato da DCOP di &kde; 3, che sostituisce. La maggior parte dei sistemi POSIX supportano &DBus;, ed esiste anche una versione per Windows. Viene usato da Qt 4 e GNOME.&newpara; Maggiori informazioni:&newpara;&linkstart;"https://freedesktop.org/wiki/Software/dbus/"&linkmid;FreeDesktop.org: cos'è D-Bus?&linkend;&newpara;&linkstart;"https://en.wikipedia.org/wiki/D-Bus"&linkmid;D-Bus su Wikipedia&linkend;</para
 ><glossseealso otherterm="gloss-dcop"
->&DCOP;</glossseealso
+>DCOP</glossseealso
 > <glossseealso otherterm="gloss-gnome"
 >GNOME</glossseealso
 > <glossseealso otherterm="gloss-kde"
@@ -101,7 +101,7 @@ Project Neon
 >Flake</glossterm>
 			<glossdef
 ><para
->Flake è una libreria di programmazione che verrà usata in &koffice; e Calligra. Funzionalmente, fornisce delle «forme» per visualizzare il contenuto e degli «strumenti» per manipolarlo. Le forme possono essere ingrandite o ruotate, e possono essere raggruppate per funzionare come una forma sola, attorno alla quale è possibile far scorrere il testo.&newpara;Maggiori informazioni:&newpara; &linkstart;"https://community.kde.org/Calligra/Libs/Flake"&linkmid;Flake su Community Wiki&linkend;</para
+>Flake è una libreria di programmazione che verrà usata in &calligra;. Funzionalmente, fornisce delle «forme» per visualizzare il contenuto e degli «strumenti» per manipolarlo. Le forme possono essere ingrandite o ruotate, e possono essere raggruppate per funzionare come una forma sola, attorno alla quale è possibile far scorrere il testo.&newpara;Maggiori informazioni:&newpara; &linkstart;"https://community.kde.org/Calligra/Libs/Flake"&linkmid;Flake su Community Wiki&linkend;</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-kparts"
@@ -276,7 +276,7 @@ otherterm="gloss-kbuildsycoca"
 ><para
 >Un'API multimediale multi-piattaforma che si interfaccia con le infrastrutture esistenti, come i motori gstreamer e xine. &kde; 2 e 3 dipendevano da aRts per il suono; Phonon lo sostituisce.&newpara;Maggiori informazioni:&newpara;&linkstart;"https://it.wikipedia.org/wiki/Phonon"&linkmid;Phonon su Wikipedia&linkend;&newpara; &linkstart;"https://phonon.kde.org"&linkmid;Sito Web di Phonon&linkend;</para
 ><glossseealso otherterm="gloss-arts"
->&arts;</glossseealso
+>aRts</glossseealso
 > <glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > </glossdef>
