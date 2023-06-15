@@ -2289,7 +2289,11 @@ or via email (see krecipes doc rev 1306076)
 ></entry
 ><!--[kwin][Global Shortcuts] MoveZoomLeft=Meta+Left -->
 <entry
->Pan left</entry>
+>Venster richting linker monitor verplaatsen<footnote id="fn1"
+><para
+>In een omgeving met meer monitoren</para
+></footnote
+></entry>
 </row>
 
 <row>
@@ -2301,7 +2305,29 @@ or via email (see krecipes doc rev 1306076)
 ></entry
 ><!--[kwin][Global Shortcuts] MoveZoomRight=Meta+Right -->
 <entry
->Pan Right</entry>
+>Venster richting rechter monitor verplaatsen<footnoteref linkend="fn1"/></entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keysym
+>PgUp</keysym
+></keycombo
+></entry>
+<entry
+>Venster maximaliseren/herstellen</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keysym
+>PgDn</keysym
+></keycombo
+></entry>
+<entry
+>Venster minimaliseren</entry>
 </row>
 
 </tbody>
