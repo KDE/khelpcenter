@@ -291,5 +291,6 @@ void Glossary::slotSelectGlossEntry( const QString &id )
     setCurrentItem( newItem );
 }
 
+#include "moc_glossary.cpp"
 
 // vim:ts=4:sw=4:et

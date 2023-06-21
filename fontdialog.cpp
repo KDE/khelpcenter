@@ -209,4 +209,6 @@ void FontDialog::save()
   cfg->sync();
 }
 
+#include "moc_fontdialog.cpp"
+
 // vim:ts=4:sw=4:noet

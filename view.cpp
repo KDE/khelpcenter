@@ -358,4 +358,6 @@ void View::reloadPage()
   mainWindow->viewUrl(baseURL().url());
 }
 
+#include "moc_view.cpp"
+
 // vim:ts=2:sw=2:et

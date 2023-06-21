@@ -211,4 +211,4 @@ void ExternalProcessSearchHandler::slotSearchError( SearchJob *job, DocEntry *en
     job->deleteLater();
 }
 
-
+#include "moc_searchhandler.cpp"

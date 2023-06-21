@@ -42,3 +42,5 @@ void BookmarkOwner::openBookmark( const KBookmark& bm, Qt::MouseButtons /*mb*/, 
 
   Q_EMIT openUrl( bm.url() );
 }
+
+#include "moc_bookmarkowner.cpp"

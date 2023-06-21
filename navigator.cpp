@@ -743,5 +743,6 @@ void Navigator::slotShowIndexingProgressBar()
   mIndexingBar->show();
 }
 
+#include "moc_navigator.cpp"
 
 // vim:ts=2:sw=2:et

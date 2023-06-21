@@ -516,5 +516,6 @@ void MainWindow::slotFullScreen()
   }
 }
 
+#include "moc_mainwindow.cpp"
 
 // vim:ts=2:sw=2:et

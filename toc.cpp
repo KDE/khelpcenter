@@ -289,5 +289,6 @@ QString TOCSectionItem::url()
     return QStringLiteral("help:") + toc()->application() + QLatin1Char('/') + m_name + QStringLiteral(".html");
 }
 
+#include "moc_toc.cpp"
 
 // vim:ts=2:sw=2:et
