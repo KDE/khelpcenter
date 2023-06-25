@@ -110,6 +110,7 @@
     <p xml:lang="de">Eine Anwendung zum Suchen und Lesen der Dokumentation für alle Ihre KDE-Anwendungen und Systemprogramme</p>
     <p xml:lang="el">Μια εφαρμογή αναζήτησης και ανάγνωσης της τεκμηρίωσης για όλες τις εφαρμογές και τα βοηθητικά προγράμματα συστήματος του KDE</p>
     <p xml:lang="en-GB">An application to search and read the documentation for all your KDE applications and system utilities</p>
+    <p xml:lang="eo">Aplikaĵo por serĉi kaj legi la dokumentaron por ĉiuj viaj KDE-aplikoj kaj sistemaj utilaĵoj</p>
     <p xml:lang="es">Aplicación para buscar y leer la documentación de todas las aplicaciones y utilidades del sistema de KDE</p>
     <p xml:lang="et">Rakendus kõigi paigaldatud KDE rakenduste ja süsteemi tööriistade dokumentatsiooni otsimiseks ja lugemiseks</p>
     <p xml:lang="eu">Zure KDE aplikazio eta sistema-baliagarritasun guztien dokumentazioa bilatu eta irakurtzeko aplikazio bat</p>
@@ -198,6 +199,7 @@
       <li xml:lang="de">Dokumentation aus unterschiedlichen Quellen anzeigen (KDE-Anwendungen, Man-Pages usw.)</li>
       <li xml:lang="el">Να εμφανίζεται τεκμηρίωση από διάφορες πηγές (εφαρμογές από την κοινότητα του KDE, σελίδες εγχειριδίου, κλπ)</li>
       <li xml:lang="en-GB">Show documentation from various sources (applications from KDE community, man pages, etc)</li>
+      <li xml:lang="eo">Montri dokumentadon el diversaj fontoj (aplikaĵoj de KDE-komunumo, manpaĝoj, ktp)</li>
       <li xml:lang="es">Mostrar documentación de diversas fuentes (aplicaciones de la comunidad KDE, páginas man, etc.)</li>
       <li xml:lang="et">Paljudest allikatest pärit (KDE kogukonna rakendused, manuaalileheküljed jne.) dokumentatsiooni näitamine</li>
       <li xml:lang="eu">Erakutsi hainbat jatorritako dokumentazioa (KDE elkarteko aplikazioetatik, man orrietatik, etab.)</li>
