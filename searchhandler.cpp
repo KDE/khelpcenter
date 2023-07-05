@@ -212,3 +212,5 @@ void ExternalProcessSearchHandler::slotSearchError( SearchJob *job, DocEntry *en
 }
 
 
+
+#include "moc_searchhandler.cpp"

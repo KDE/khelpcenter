@@ -360,3 +360,5 @@ int SearchWidget::scopeCount() const
 
 
 // vim:ts=2:sw=2:et
+
+#include "moc_searchwidget.cpp"

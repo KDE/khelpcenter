@@ -290,3 +290,5 @@ QString TOCSectionItem::url()
 
 
 // vim:ts=2:sw=2:et
+
+#include "moc_toc.cpp"

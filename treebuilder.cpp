@@ -20,3 +20,5 @@ void TreeBuilder::selectURL( const QString & )
 
 
 // vim:ts=2:sw=2:et
+
+#include "moc_treebuilder.cpp"

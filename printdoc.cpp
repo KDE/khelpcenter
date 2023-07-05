@@ -100,3 +100,5 @@ void PrintDoc::printPreview()
     mInPrintPreview = false;
     deleteLater();
 }
+
+#include "moc_printdoc.cpp"
