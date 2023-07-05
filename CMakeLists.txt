@@ -169,7 +169,6 @@ ecm_generate_dbus_service_file(
 
 install( PROGRAMS org.kde.khelpcenter.desktop  DESTINATION  ${KDE_INSTALL_APPDIR} )
 install( FILES khelpcenter.kcfg  DESTINATION  ${KDE_INSTALL_KCFGDIR} )
-install( FILES khelpcenter.desktop  DESTINATION  ${KDE_INSTALL_KSERVICESDIR} )
 install( FILES table-of-contents.xslt glossary.xslt DESTINATION ${KDE_INSTALL_DATADIR}/khelpcenter )
 install( FILES org.kde.khelpcenter.metainfo.xml DESTINATION ${KDE_INSTALL_METAINFODIR} )
 
