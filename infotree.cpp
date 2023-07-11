@@ -160,7 +160,7 @@ void InfoTree::parseInfoDirFile( const QString &infoDirFileName )
   m_categoryItem->sortChildren( 0, Qt::AscendingOrder );
 }
 
+#include "moc_infotree.cpp"
 
 // vim:ts=2:sw=2:et
 
-#include "moc_infotree.cpp"

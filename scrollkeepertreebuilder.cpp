@@ -179,7 +179,7 @@ void ScrollKeeperTreeBuilder::insertDoc( NavigatorItem *parent,
   entry->setUrl( url );
 }
 
+#include "moc_scrollkeepertreebuilder.cpp"
 
 // vim:sw=2:ts=2:et
 
-#include "moc_scrollkeepertreebuilder.cpp"

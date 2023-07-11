@@ -277,6 +277,8 @@ void View::downloadRequested(QWebEngineDownloadRequest *download)
         download->cancel();
     }
 }
-// vim:ts=2:sw=2:et
 
 #include "moc_view.cpp"
+
+// vim:ts=2:sw=2:et
+

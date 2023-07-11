@@ -132,7 +132,7 @@ int main( int argc, char **argv )
 
   return app.exec();
 }
+#include "moc_application.cpp"
 
 // vim:ts=2:sw=2:et
 
-#include "moc_application.cpp"

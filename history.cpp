@@ -361,6 +361,7 @@ void History::dumpHistory() const {
 
 }
 
+#include "moc_history.cpp"
+
 // vim:ts=2:sw=2:et
 
-#include "moc_history.cpp"
