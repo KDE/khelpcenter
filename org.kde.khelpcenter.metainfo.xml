@@ -14,7 +14,6 @@
   <name xml:lang="de">KHelpCenter</name>
   <name xml:lang="el">KHelpCenter</name>
   <name xml:lang="en-GB">KHelpCenter</name>
-  <name xml:lang="eo">KHelpCenter</name>
   <name xml:lang="es">KHelpCenter</name>
   <name xml:lang="et">KDE abikeskus</name>
   <name xml:lang="eu">KHelpCenter</name>
@@ -61,7 +60,6 @@
   <summary xml:lang="de">Hilfezentrum</summary>
   <summary xml:lang="el">Κέντρο βοήθειας</summary>
   <summary xml:lang="en-GB">Help Centre</summary>
-  <summary xml:lang="eo">Helpocentro</summary>
   <summary xml:lang="es">Centro de ayuda</summary>
   <summary xml:lang="et">Abikeskus</summary>
   <summary xml:lang="eu">Laguntza-gunea</summary>
@@ -110,7 +108,6 @@
     <p xml:lang="de">Eine Anwendung zum Suchen und Lesen der Dokumentation für alle Ihre KDE-Anwendungen und Systemprogramme</p>
     <p xml:lang="el">Μια εφαρμογή αναζήτησης και ανάγνωσης της τεκμηρίωσης για όλες τις εφαρμογές και τα βοηθητικά προγράμματα συστήματος του KDE</p>
     <p xml:lang="en-GB">An application to search and read the documentation for all your KDE applications and system utilities</p>
-    <p xml:lang="eo">Aplikaĵo por serĉi kaj legi la dokumentaron por ĉiuj viaj KDE-aplikoj kaj sistemaj utilaĵoj</p>
     <p xml:lang="es">Aplicación para buscar y leer la documentación de todas las aplicaciones y utilidades del sistema de KDE</p>
     <p xml:lang="et">Rakendus kõigi paigaldatud KDE rakenduste ja süsteemi tööriistade dokumentatsiooni otsimiseks ja lugemiseks</p>
     <p xml:lang="eu">Zure KDE aplikazio eta sistema-baliagarritasun guztien dokumentazioa bilatu eta irakurtzeko aplikazio bat</p>
@@ -152,7 +149,6 @@
     <p xml:lang="de">Funktionen:</p>
     <p xml:lang="el">Χαρακτηριστικά:</p>
     <p xml:lang="en-GB">Features:</p>
-    <p xml:lang="eo">Trajtoj:</p>
     <p xml:lang="es">Funciones:</p>
     <p xml:lang="et">Omadused:</p>
     <p xml:lang="eu">Eginbideak:</p>
@@ -199,7 +195,6 @@
       <li xml:lang="de">Dokumentation aus unterschiedlichen Quellen anzeigen (KDE-Anwendungen, Man-Pages usw.)</li>
       <li xml:lang="el">Να εμφανίζεται τεκμηρίωση από διάφορες πηγές (εφαρμογές από την κοινότητα του KDE, σελίδες εγχειριδίου, κλπ)</li>
       <li xml:lang="en-GB">Show documentation from various sources (applications from KDE community, man pages, etc)</li>
-      <li xml:lang="eo">Montri dokumentadon el diversaj fontoj (aplikaĵoj de KDE-komunumo, manpaĝoj, ktp)</li>
       <li xml:lang="es">Mostrar documentación de diversas fuentes (aplicaciones de la comunidad KDE, páginas man, etc.)</li>
       <li xml:lang="et">Paljudest allikatest pärit (KDE kogukonna rakendused, manuaalileheküljed jne.) dokumentatsiooni näitamine</li>
       <li xml:lang="eu">Erakutsi hainbat jatorritako dokumentazioa (KDE elkarteko aplikazioetatik, man orrietatik, etab.)</li>
@@ -245,7 +240,6 @@
       <li xml:lang="de">Die verfügbare Dokumentation durchsuchen</li>
       <li xml:lang="el">Αναζήτηση στη διαθέσιμη τεκμηρίωση</li>
       <li xml:lang="en-GB">Search through the available documentation</li>
-      <li xml:lang="eo">Serĉi tra la havebla dokumentado</li>
       <li xml:lang="es">Buscar en la documentación disponible</li>
       <li xml:lang="et">Võimalus otsida saadaolevas dokumentatsioonis</li>
       <li xml:lang="eu">Bilatu erabilgarri dagoen dokumentazioan zehar</li>
@@ -296,7 +290,6 @@
       <caption xml:lang="de">Hauptfenster von KHelpCenter</caption>
       <caption xml:lang="el">Κύριο παράθυρο του KHelpCenter</caption>
       <caption xml:lang="en-GB">KHelpCenter main window</caption>
-      <caption xml:lang="eo">KHelpCenter ĉefa fenestro</caption>
       <caption xml:lang="es">Ventana principal de KHelpCenter</caption>
       <caption xml:lang="et">KDE abikeskuse peaaken</caption>
       <caption xml:lang="eu">KHelpCenter leiho nagusia</caption>
