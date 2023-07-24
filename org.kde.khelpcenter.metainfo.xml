@@ -123,7 +123,7 @@
     <p xml:lang="is">Forrit til þess að leita í og lesa hjálparskjöl fyrir öll KDE-forrit og kerfistól</p>
     <p xml:lang="it">Un'applicazione per cercare e consultare la documentazione per tutte le applicazione di KDE e le utilità di sistema</p>
     <p xml:lang="ka">აპლიკაცია თქვენი ყველა KDE-ის აპლიკაციისა და სისტემური ხელსაწყოების დოკუმენტაციის მოსაძებნად და წასაკითხად</p>
-    <p xml:lang="ko">KDE 프로그램과 시스템 유틸리티의 도움말과 문서를 검색 및 열람하는 프로그램</p>
+    <p xml:lang="ko">KDE 앱과 시스템 유틸리티의 도움말과 문서를 검색 및 열람하는 앱</p>
     <p xml:lang="nl">Een toepassing om de documentatie te zoeken en te lezen voor al uw KDE toepassingen en systeemhulpmiddelen</p>
     <p xml:lang="nn">Eit program for å bla eller søkja gjennom alle brukarhandbøkene for KDE-programma og systemverktøya</p>
     <p xml:lang="pl">Aplikacja do wyszukiwania i czytania dokumentacji dla wszystkich twoich aplikacji KDE i narzędzi systemowych</p>
@@ -213,7 +213,7 @@
       <li xml:lang="is">Birta hjálparskjöl úr ýmsum áttum (forrit frá KDE-samfélaginu, man-síður, o.fl.)</li>
       <li xml:lang="it">Mostra la documentazione da varie fonti (applicazioni dalla comunità KDE, pagine di manuale, ecc)</li>
       <li xml:lang="ka">დოკუმენტაციის ჩვენება სხვადასხვა წყაროებიდან (პროგრამები KDE თემიდან, დახმარების გვერდებიდან და ა.შ.)</li>
-      <li xml:lang="ko">KDE 커뮤니티 프로그램, man 페이지 등 여러 곳의 문서 표시</li>
+      <li xml:lang="ko">KDE 커뮤니티 앱, man 페이지 등 여러 곳의 문서 표시</li>
       <li xml:lang="nl">Toon documentatie uit verschillende bronnen (toepassingen uit de KDE gemeenschap, manpagina's, etc)</li>
       <li xml:lang="nn">Vis hjelpetekstar frå ulike kjelder (KDE-program, man-sider o.l.)</li>
       <li xml:lang="pl">Wyświetlanie dokumentacji z różnych źródeł (aplikacje ze społeczności KDE, strony instrukcji, itp.)</li>
