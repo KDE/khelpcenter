@@ -150,6 +150,7 @@ target_link_libraries(khelpcenter KF6::Service KF6::DBusAddons KF6::ConfigGui
     KF6::Completion
     KF6::KIOCore
     KF6::KIOWidgets
+    KF6::BookmarksWidgets
 )
 
 target_link_libraries(khelpcenter KF6::TextTemplate)
