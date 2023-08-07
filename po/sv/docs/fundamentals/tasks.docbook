@@ -1042,7 +1042,7 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 >Stavningskontroll</title>
 
 <para
->&sonnet; är verktyget för stavningskontroll som används av program i &kde;, såsom &kate;, &kmail; och &kword;. Det är ett grafiskt gränssnitt för diverse fria stavningskontrollprogram.</para>
+>&sonnet; är verktyget för stavningskontroll som används av program i &kde;, såsom &kate;, &kmail; och &calligrawords;. Det är ett grafiskt gränssnitt för diverse fria stavningskontrollprogram.</para>
 
 <para
 >För att använda &sonnet; måste ett stavningskontrollverktyg som <application

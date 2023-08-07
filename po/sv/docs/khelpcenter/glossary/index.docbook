@@ -30,7 +30,7 @@ Project Neon
 >Akonadi</glossterm>
 			<glossdef
 ><para
->Datalagringsmekanismen för all data om personlig informationshantering (PIM) i &kde;:s programvarusamling 4. Ett enda lagrings- och hämtningssystem tillåter effektivitet och utökningsmöjligheter som inte var möjliga i &kde; 3, där varje komponent hade sitt eget system. Observera att använding av Akonadi ändrar inte datalagringsformat (vcard, iCalendar, mbox, maildir, etc.), utan tillhandahåller bara ett nytt sätt att komma åt och uppdatera data.&newpara; Huvudorsaken till konstruktion och utveckling av Akonadi är av teknisk natur, t.ex. att ha ett unikt sätt att komma åt data om personlig informationshantering (kontakter, kalendrar, e-post, ...) från olika program (t.ex. &kmail;, &kword;, etc.), och på så sätt eliminera behovet av att skriva liknande kod här och där.&newpara; Ett annat mål är att frikoppla program med grafiskt gränssnitt som &kmail; från direktåtkomst av externa resurser som e-postservrar, vilket tidigare var en huvudorsak till felrapporter och önskningar angående prestanda och svarstider.&newpara; Mer information: &newpara; &linkstart;"https://community.kde.org/KDE_PIM/Akonadi"&linkmid;Akonadi för KDE:s PIM&linkend;&newpara; &linkstart;"https://en.wikipedia.org/wiki/Akonadi"&linkmid;Wikipedia: Akonadi&linkend;&newpara; &linkstart;"https://techbase.kde.org/Projects/PIM/Akonadi"&linkmid;Teknikbasen - Akonadi&linkend;</para
+>Datalagringsmekanismen för all data om personlig informationshantering (PIM) i &kde;:s programvarusamling 4. Ett enda lagrings- och hämtningssystem tillåter effektivitet och utökningsmöjligheter som inte var möjliga i &kde; 3, där varje komponent hade sitt eget system. Observera att använding av Akonadi ändrar inte datalagringsformat (vcard, iCalendar, mbox, maildir, etc.), utan tillhandahåller bara ett nytt sätt att komma åt och uppdatera data.&newpara; Huvudorsaken till konstruktion och utveckling av Akonadi är av teknisk natur, t.ex. att ha ett unikt sätt att komma åt data om personlig informationshantering (kontakter, kalendrar, e-post, ...) från olika program (t.ex. &kmail;, &calligrawords;, etc.), och på så sätt eliminera behovet av att skriva liknande kod här och där.&newpara; Ett annat mål är att frikoppla program med grafiskt gränssnitt som &kmail; från direktåtkomst av externa resurser som e-postservrar, vilket tidigare var en huvudorsak till felrapporter och önskningar angående prestanda och svarstider.&newpara; Mer information: &newpara; &linkstart;"https://community.kde.org/KDE_PIM/Akonadi"&linkmid;Akonadi för KDE:s PIM&linkend;&newpara; &linkstart;"https://en.wikipedia.org/wiki/Akonadi"&linkmid;Wikipedia: Akonadi&linkend;&newpara; &linkstart;"https://techbase.kde.org/Projects/PIM/Akonadi"&linkmid;Teknikbasen - Akonadi&linkend;</para
 ><glossseealso otherterm="gloss-gui"
 >&GUI;</glossseealso
 > <glossseealso otherterm="gloss-kde"
@@ -54,7 +54,7 @@ Project Neon
 		<glossentry id="gloss-arts"
 ><!--remove it?-->
 			<glossterm
->ARts</glossterm>
+>aRts</glossterm>
 			<glossdef
 ><para
 >Ljudramverket i &kde; 2 och 3. Dess konstruktion med en enda process orsakade problem när två ljudkällor stöttes på. Med &plasma;-skrivbordet är det ersatt av Phonon.&newpara; Mer information:&newpara; &linkstart;"https://en.wikipedia.org/wiki/ARts"&linkmid; Wikipedia: ARts&linkend;</para
@@ -73,7 +73,7 @@ Project Neon
 ><para
 >D-Bus eller skrivbordsbuss (Desktop Bus) är ett meddelandesystem mellan tjänster. Det utvecklades av &RedHat;, och influerades starkt av &kde; 3 DCOP, som det ersätter. De flesta POSIX-operativsystem stöder D-Bus, och det finns en anpassning till Windows. Det används av Qt 4 och GNOME.&newpara; Mer information:&newpara; &linkstart;"https://freedesktop.org/wiki/Software/dbus/"&linkmid;FreeDesktop.org: Vad är D-Bus?&linkend;&newpara; &linkstart;"https://en.wikipedia.org/wiki/D-Bus"&linkmid;Wikipedia: D-Bus&linkend;</para
 ><glossseealso otherterm="gloss-dcop"
->&DCOP;</glossseealso
+>DCOP</glossseealso
 > <glossseealso otherterm="gloss-gnome"
 >GNOME</glossseealso
 > <glossseealso otherterm="gloss-kde"
@@ -101,7 +101,7 @@ Project Neon
 >Flake</glossterm>
 			<glossdef
 ><para
->Flake är ett programmeringsbibliotek som kommer att användas i &koffice; och Calligra. Funktionsmässigt tillhandahåller det former för att visa innehåll och verktyg för att hantera innehåll. Former kan zoomas eller roteras, och kan grupperas för att fungera som en enda form, som tillåter ett omgivande textflöde.&newpara; Mer information:&newpara; &linkstart;"https://community.kde.org/Calligra/Libs/Flake"&linkmid;&kde; Community Wiki: Flake&linkend;</para
+>Flake är ett programmeringsbibliotek som kommer att användas i &calligra; och Calligra. Funktionsmässigt tillhandahåller det former för att visa innehåll och verktyg för att hantera innehåll. Former kan zoomas eller roteras, och kan grupperas för att fungera som en enda form, som tillåter ett omgivande textflöde.&newpara; Mer information:&newpara; &linkstart;"https://community.kde.org/Calligra/Libs/Flake"&linkmid;&kde; Community Wiki: Flake&linkend;</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-kparts"
@@ -272,7 +272,7 @@ otherterm="gloss-kbuildsycoca"
 ><para
 >Ett plattformsoberoende programmeringsgränssnitt för multimedia, med gränssnitt till befintliga ramverk, såsom gstreamer- och xine-gränssnitten. &kde; 2 och 3 berodde på aRts för ljud. Phonon ersätter det.&newpara; Mer information:&newpara; &linkstart;"https://en.wikipedia.org/wiki/Phonon_(KDE)"&linkmid; Wikipedia: Phonon (KDE)&linkend;&newpara; &linkstart;"https://phonon.kde.org"&linkmid;Phonons webbplats&linkend;</para
 ><glossseealso otherterm="gloss-arts"
->&arts;</glossseealso
+>aRts</glossseealso
 > <glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > </glossdef>
