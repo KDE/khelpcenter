@@ -225,7 +225,7 @@ void MainWindow::setupBookmarks()
     QDir().mkpath( location );
     const QString file = location + QStringLiteral( "/bookmarks.xml" );
 
-    KBookmarkManager *manager = KBookmarkManager::managerForFile( file );
+    KBookmarkManager *manager = KBookmarkManager::managerForFile( file, QStringLiteral( "khelpcenter" ) );
     manager->setParent( this );
     BookmarkOwner *owner = new BookmarkOwner( mDoc, manager );
     connect( owner, &BookmarkOwner::openUrl, this, QOverload<const QUrl &>::of(&MainWindow::openUrl) );
