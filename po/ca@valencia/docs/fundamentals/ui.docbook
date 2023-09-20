@@ -26,7 +26,7 @@
 >Un diccionari visual</title>
 
 <para
->Les característiques dels &plasma-workspaces; disposen de molts elements per a la interfície gràfica d'usuari, comunament coneguts com a <quote
+>Les característiques dels &plasma-workspaces; disposen de molts elements per a la interfície gràfica d'usuari, comunament conegudes com a <quote
 >ginys</quote
 >. Esta guia vos presentarà els seus els noms i funcions.</para>
 
@@ -66,14 +66,14 @@
 </mediaobjectco>
 </screenshot>
 <para
->Esta és la finestra de &kwrite;, un editor de text. Per a aprendre més sobre seu, feu clic damunt d'una part de la finestra.</para>
+>Esta és la finestra de &kwrite;, un editor de text. Feu clic en la part de la finestra per a aprendre més sobre seu.</para>
 
 <orderedlist>
 
 <listitem
 ><para
 >El <emphasis role="bold"
->menú de la finestra</emphasis
+>menú Finestra</emphasis
 > </para
 ></listitem>
 
@@ -171,7 +171,7 @@
 </screenshot>
 
 <para
->Esta és una altra finestra, la del gestor de fitxers &dolphin;. Per a aprendre més sobre seu, feu clic damunt d'una part de la finestra.</para>
+>Esta és una altra finestra, la del gestor de fitxers &dolphin;. Feu clic en la part de la finestra per a aprendre més sobre seu.</para>
 
 <orderedlist>
 
@@ -278,7 +278,7 @@
 </screenshot>
 
 <para
->Esta captura de pantalla, del quadro Formats en &systemsettings;, mostra alguns elements de la &IGU;. Per a aprendre més sobre seu, feu clic damunt d'una part de la finestra.</para>
+>Esta captura de pantalla, del quadro Formats en &systemsettings;, mostra alguns elements de la &IGU;. Feu clic en una part de la finestra per a obtindre més informació.</para>
 
 <orderedlist>
 
@@ -398,7 +398,7 @@
 </screenshot>
 
 <para
->Esta captura de pantalla, del quadro Aplicacions predeterminades en &systemsettings;, mostra alguns elements més de la &IGU;. Per a aprendre més sobre seu, feu clic damunt d'una part de la finestra.</para>
+>Esta captura de pantalla, del quadro Aplicacions predeterminades en &systemsettings;, mostra alguns elements més de la &IGU;. Feu clic en la part de la finestra per a obtindre més informació.</para>
 
 <orderedlist>
 
@@ -512,7 +512,7 @@
 <entry
 >Àrea de selecció</entry>
 <entry
->Mostra el camí en un sistema jeràrquic, tal com un sistema de fitxers. Feu clic damunt de qualsevol part del camí per a pujar en l'arbre des d'esta ubicació. Feu clic damunt de la fletxa a la dreta de la part del camí per anar a un altre element secundari d'este camí. </entry>
+>Mostra el camí en un sistema jeràrquic, tal com un sistema de fitxers. Feu clic damunt de qualsevol part del camí per pujar a l'arbre des d'esta ubicació. Feu clic damunt de la fletxa a la dreta de la part del camí per anar a un altre element secundari d'este camí. </entry>
 <entry>
 <inlinemediaobject>
 <imageobject>
@@ -572,7 +572,7 @@
 <entry
 >Menú contextual</entry>
 <entry
->Molts elements de la interfície d'usuari en l'entorn de treball &kde; i les aplicacions, contenen un menú contextual, el qual es pot obrir fent clic sobre alguna cosa amb el &BDR;. Este menú conté opcions i accions que usualment afectaran els elements de la interfície d'usuari on feu clic dret.</entry>
+>Molts elements de la interfície d'usuari en l'entorn de treball &kde; i les aplicacions, contenen un menú contextual, que es pot obrir fent clic sobre alguna cosa amb el &BDR;. Este menú conté opcions i accions que usualment afectaran els elements de la interfície d'usuari on feu clic dret.</entry>
 <entry>
 <inlinemediaobject>
 <imageobject>
@@ -586,7 +586,7 @@
 <entry
 >Diàleg</entry>
 <entry
->Una finestra xicoteta que apareix damunt d'una finestra d'aplicació més gran. Pot contindre un missatgguració, entre d'altres.</entry>
+>Una xicoteta finestra que apareix damunt d'una finestra d'aplicació més gran. Pot contindre un missatge d'avís, o el quadro de configuració, entre d'altres.</entry>
 <entry>
 <inlinemediaobject>
 <imageobject>
@@ -644,7 +644,7 @@
 <entry
 >Quadro de llista</entry>
 <entry
->És una llista d'elements que normalment permet seleccionar múltiples elements. Per a seleccionar un grup d'elements contigus, premeu la tecla &Maj; i feu clic damunt del primer i últim elements. Per a seleccionar múltiples elements no contigus, premeu la tecla &Ctrl; i seleccioneu els elements desitjats.</entry>
+>És una llista d'elements que normalment permet seleccionar múltiples elements. Per a seleccionar un grup d'elements contigus, premeu la tecla &Maj; i feu clic en el primer i últim element. Per a seleccionar múltiples elements no contigus, premeu la tecla &Ctrl; i seleccioneu els elements desitjats.</entry>
 <entry>
 <inlinemediaobject>
 <imageobject>
@@ -728,7 +728,7 @@
 <entry
 >Barra de progrés</entry>
 <entry
->Una barra xicoteta que indica que s'està realitzant una operació de llarga duració. La barra pot indicar la quantitat de l'operació que s'ha completat, o senzillament pot anar arrere i avant per a indicar que l'operació està en curs. </entry>
+>Una xicoteta barra que indica que s'està realitzant una operació de llarga duració. La barra pot indicar la quantitat de l'operació que s'ha completat, o senzillament pot anar arrere i avant per a indicar que l'operació està en curs. </entry>
 <entry>
 <inlinemediaobject>
 <imageobject>
@@ -784,7 +784,7 @@
 <entry
 >Botó de selecció de valors</entry>
 <entry
->Permet seleccionar un valor numèric, siga utilitzant les fletxes amunt i avall a la dreta del quadro per a fer augmentar o disminuir el valor, respectivament, o escrivint el valor dins del <link linkend="visualdict-text-box"
+>Permet seleccionar un valor numèric, siga utilitzant les fletxes amunt i avall a la dreta del quadro per a augmentar o disminuir el valor, respectivament, o escrivint el valor dins del <link linkend="visualdict-text-box"
 >quadro de text</link
 >.</entry>
 <entry>
@@ -844,7 +844,7 @@
 <entry
 >Quadro de text</entry>
 <entry
->Una entrada de text d'una sola línia que permet escriure una xicoteta quantitat de text. En general, en prémer &Intro; es realitzarà la mateixa acció que en fer clic damunt del botó <guibutton
+>Una entrada de text d'una sola línia que permet escriure una xicoteta quantitat de text. En general, en prémer &Intro; es realitzarà la mateixa acció que fent clic en el botó <guibutton
 >D'acord</guibutton
 >.</entry>
 <entry>
@@ -894,9 +894,9 @@
 <entry
 >Vista en arbre</entry>
 <entry
->Una vista en arbre permet seleccionar des d'una llista jeràrquica d'opcions. Es pot plegar una secció o categoria de la vista en arbre, en este cas no apareixeran les opcions davall seu i la fletxa a l'esquerra del títol apuntarà cap a la dreta, cap al títol. També es pot desplegar, en este cas es mostraran diverses opcions per davall seu, i la fletxa a l'esquerra del títol estarà apuntant cap avall, cap a les opcions. Per a desplegar una part de la vista en arbre, feu clic damunt de la fletxa situada a l'esquerra del títol de la secció que vulgueu desplegar, feu doble clic damunt del títol, o seleccioneu el títol amb les tecles de fletxa del teclat i premeu la tecla &Intro; o <keycap
+>Una vista en arbre permet seleccionar des d'una llista jeràrquica d'opcions. Es pot plegar una secció o categoria de la vista en arbre, en este cas no apareixeran les opcions davall seu i la fletxa a l'esquerra del títol apuntarà cap a la dreta, cap al títol. També es pot desplegar, en este cas es mostraran diverses opcions per davall seu, i la fletxa a l'esquerra del títol estarà apuntant cap avall, cap a les opcions. Per a desplegar una part de la vista en arbre, feu clic en la fletxa situada a l'esquerra del títol de la secció que vulgueu desplegar, feu doble clic damunt del títol, o seleccioneu el títol amb les tecles de fletxa del teclat i premeu la tecla &Intro; o <keycap
 >+</keycap
->. Per a minimitzar una part de la vista en arbre, també podeu fer clic damunt de la fletxa, feu doble clic damunt del títol o premeu la tecla &Intro; o <keycap
+>. Per a minimitzar una part de la vista en arbre, també podeu fer clic en la fletxa, feu doble clic damunt del títol o premeu la tecla &Intro; o <keycap
 >-</keycap
 >.</entry>
 <entry>
@@ -951,7 +951,7 @@
 </screenshot>
 
 <para
->Algunes aplicacions, com &dolphin;, de manera predeterminada no mostren una barra de menús. La podeu mostrar prement <keycombo
+>Algunes aplicacions, com &dolphin;, no mostren una barra de menús per defecte. La podeu mostrar prement <keycombo
 >&Ctrl;<keycap
 >M</keycap
 ></keycombo
@@ -1306,7 +1306,7 @@
 ></term>
 <listitem
 ><para
->Copia el primer element en el porta-retalls a la ubicació actual en el fitxer, si n'hi ha. </para
+>Copia el primer element al porta-retalls a la ubicació actual en el fitxer, si n'hi ha. </para
 ></listitem>
 </varlistentry>
 
@@ -1369,7 +1369,7 @@
 ></term>
 <listitem
 ><para
->Permet buscar un text en el fitxer actualment obert i el substituïx per algun altre. </para
+>Permet buscar un text en el fitxer obert i el substituïx per algun altre. </para
 ></listitem>
 </varlistentry>
 
@@ -1388,7 +1388,7 @@
 ></term>
 <listitem
 ><para
->Va fins a la coincidència següent de l'última operació de busca. </para
+>Va a la següent coincidència de l'última operació de busca. </para
 ></listitem>
 </varlistentry>
 
@@ -1409,7 +1409,7 @@
 ></term>
 <listitem
 ><para
->Va fins a la coincidència anterior de l'última operació de busca. </para
+>Va a la coincidència anterior de l'última operació de busca. </para
 ></listitem>
 </varlistentry>
 
@@ -1500,7 +1500,7 @@
 ></term>
 <listitem
 ><para
->Inicia el programa de correcció ortogràfica, però només comprova el text seleccionat en el document. Per a obtindre més informació, vegeu <xref linkend="spellcheck-check"/>. </para
+>Inicia el programa de correcció ortogràfica, però només comprova el text seleccionat al document. Per a obtindre més informació, vegeu <xref linkend="spellcheck-check"/>. </para
 ></listitem>
 </varlistentry>
 
@@ -1532,7 +1532,7 @@
 > permet personalitzar l'aplicació.</para>
 
 <para
->Este menú normalment contindrà els elements següents:</para>
+>Este menú normalment contindrà els següents elements:</para>
 <variablelist>
 
 <varlistentry>
@@ -1558,7 +1558,7 @@
 >&Ctrl;<keycap
 >M</keycap
 ></keycombo
->. Si la barra de menús està oculta, el menú contextual s'obrirà fent clic amb el &BDR; en qualsevol part de l'àrea de la vista, este contindrà una entrada addicional <guimenuitem
+>. Si la barra de menús està oculta, el menú contextual s'obrirà fent clic amb el &BDR; a qualsevol part de l'àrea de la vista, este conté una entrada extra <guimenuitem
 >Mostra la barra de menús</guimenuitem
 >. </para
 ></listitem>
@@ -1590,7 +1590,7 @@
 ></term>
 <listitem
 ><para
->Permet mostrar i ocultar les diferents barres d'eines admeses per l'aplicació. </para
+>Permet mostrar i ocultar les diferents barres d'eines suportades per l'aplicació. </para
 ></listitem>
 </varlistentry>
 
@@ -1605,7 +1605,7 @@
 ></term>
 <listitem>
 <para
->Quan està marcada, es mostrarà una barra xicoteta a la part inferior de l'aplicació que conté informació sobre l'estat. Quan no està marcada la barra d'estat restarà oculta.</para>
+>Quan està marcada, es mostra una xicoteta barra a la part inferior de l'aplicació que conté informació sobre l'estat. Quan no està marcada la barra d'estat restarà oculta.</para>
 </listitem>
 </varlistentry>
 
@@ -1635,7 +1635,7 @@
 ></term>
 <listitem
 ><para
->Permet personalitzar els continguts, disposició, text i icones de les barres d'eines. Per a obtindre més informació, vegeu <xref linkend="toolbars"/>. </para
+>Permet personalitzar els continguts, disseny, text i icones de les barres d'eines. Per a obtindre més informació, vegeu <xref linkend="toolbars"/>. </para
 ></listitem>
 </varlistentry>
 
@@ -1650,7 +1650,7 @@
 ></term>
 <listitem
 ><para
->Este element mostra un diàleg de configuració estàndard per a les notificacions de &kde;, on podreu canviar les notificacions (sons, missatges visibles, &etc;) utilitzades per l'aplicació.</para>
+>Este element mostra un diàleg de configuració estàndard per a les notificacions de &kde;, on podreu canviar les notificacions (sons, missatges visibles, &etc;) utilitzats per l'aplicació.</para>
 <para
 >Per a obtindre més informació sobre com configurar les notificacions, llegiu la documentació per al mòdul <ulink url="help:/kcontrol/kcmnotify/index.html"
 >Gestiona les notificacions</ulink
@@ -1684,7 +1684,7 @@
 <para
 >El menú <guimenu
 >Ajuda</guimenu
-> proporciona accés a la documentació de l'aplicació, així com a altres recursos d'utilitat.</para>
+> proporciona accés a la documentació de l'aplicació i altres recursos d'utilitat.</para>
 
 <!--taken from kdelibs.git/kdoctools/customization/en/entities/help-menu.docbook
     and edited slightly to fit into buildingblocks-->
@@ -1752,9 +1752,9 @@
 >obri el diàleg <guilabel
 >Consell del dia</guilabel
 ></action
->. Podeu desplaçar-vos per tots els consells emprant els botons que hi ha en el diàleg i seleccionar mostrar els consells a l'inici.</para>
+>. Podeu desplaçar-vos per tots els consells emprant els botons al diàleg i seleccionar mostrar-los a l'inici.</para>
 <para
->Nota: No totes les aplicacions els proporcionen.</para>
+>Nota: No totes les aplicacions proporcionen estos consells.</para>
 
 </listitem>
 </varlistentry>
@@ -1864,7 +1864,7 @@ or via email (see krecipes doc rev 1306076)
 >Agraïments i reconeixements</title>
 
 <para
->Un agraïment especial a la Google Code-in de 2011, a un participant anònim per escriure gran part d'esta documentació.</para>
+>Un agraïment especial a la Google Code-in 2011, a un participant anònim per escriure gran part d'esta documentació.</para>
 
 </sect2>
 
@@ -2289,7 +2289,7 @@ or via email (see krecipes doc rev 1306076)
 ></entry
 ><!--[kwin][Global Shortcuts] MoveZoomLeft=Meta+Left -->
 <entry
->Desplaça a l'esquerra, mou la finestra en el monitor cap a l'esquerra<footnote id="fn1"
+>Desplaça a l'esquerra, mou la finestra al monitor de l'esquerra<footnote id="fn1"
 ><para
 >En un entorn multimonitor</para
 ></footnote
@@ -2305,29 +2305,29 @@ or via email (see krecipes doc rev 1306076)
 ></entry
 ><!--[kwin][Global Shortcuts] MoveZoomRight=Meta+Right -->
 <entry
->Desplaça a la dreta, mou la finestra en el monitor cap a la dreta<footnoteref linkend="fn1"/></entry>
+>Desplaça a la dreta, mou la finestra al monitor de la dreta<footnoteref linkend="fn1"/></entry>
 </row>
 
 <row>
 <entry
 ><keycombo action="simul"
 >&Meta;<keysym
->Fletxa amunt</keysym
+>&PgUp;</keysym
 ></keycombo
 ></entry>
 <entry
->Maximitza/Restaura la finestra</entry>
+>Maximitza/restaura la finestra</entry>
 </row>
 
 <row>
 <entry
 ><keycombo action="simul"
 >&Meta;<keysym
->Fletxa avall</keysym
+>&PgDn;</keysym
 ></keycombo
 ></entry>
 <entry
->Maximitza la finestra</entry>
+>Minimitza la finestra</entry>
 </row>
 
 </tbody>
@@ -2565,7 +2565,7 @@ or via email (see krecipes doc rev 1306076)
 > </keycombo
 ></entry>
 <entry
->Configura el <replaceable
+>Configureu el <replaceable
 >giny</replaceable
 ></entry>
 </row>
@@ -2621,7 +2621,7 @@ or via email (see krecipes doc rev 1306076)
 ></keycombo
 > </entry>
 <entry
->Configura l'escriptori</entry>
+>Configureu l'escriptori</entry>
 </row>
 
 </tbody>
@@ -2840,7 +2840,7 @@ or via email (see krecipes doc rev 1306076)
 >Treballar amb els fitxers</title>
 
 <para
->Ja siga en un diàleg Obri/Guarda o en el gestor de fitxers &dolphin;, estes dreceres estalvien temps en realitzar operacions sobre els fitxers. Cal tindre en compte que alguns dels conceptes emprats amb els fitxers són els mateixos que amb els documents, de manera que diverses de les dreceres són idèntiques a les seues homòlogues esmentades anteriorment.</para>
+>Ja siga en un diàleg Obri/Guarda o al gestor de fitxers &dolphin;, estes dreceres estalvien temps en realitzar operacions sobre els fitxers. Cal tindre en compte que alguns dels conceptes emprats amb els fitxers són els mateixos que amb els documents, de manera que diverses de les dreceres són idèntiques a les seues homòlogues esmentades anteriorment.</para>
 
 <informaltable>
 <tgroup cols="2">
@@ -3004,10 +3004,10 @@ or via email (see krecipes doc rev 1306076)
 
 <sect2 id="kbd-vol-bright">
 <title
->Canviar el volum i la brillantor</title>
+>Canviar el volum i la lluminositat</title>
 
 <para
->A més de les tecles estàndard, molts teclats d'ordinador i portàtil, hui en dia tenen tecles especials o botons per a canviar el volum de l'altaveu, així com la brillantor del monitor. Si es troben presents, les podeu utilitzar en els &plasma-workspaces; per a realitzar estes tasques.</para>
+>A més de les tecles estàndard, molts teclats d'ordinador i portàtil, hui en dia tenen tecles especials o botons per a canviar el volum de l'altaveu, així com la lluminositat del monitor. Si es troben presents, les podeu utilitzar en els &plasma-workspaces; per a realitzar estes tasques.</para>
 
 <para
 >Si no disposeu d'este tipus de tecles, vegeu <xref linkend="kbd-modifying"/> per a obtindre informació sobre com assignar tecles per a estes tasques.</para>
@@ -3085,7 +3085,7 @@ or via email (see krecipes doc rev 1306076)
 >, <link linkend="kbd-leaving"
 >Deixar l'ordinador</link
 >, <link linkend="kbd-vol-bright"
->Canviar el volum i la brillantor</link
+>Canviar el volum i la lluminositat</link
 > i <link linkend="kbd-activities"
 >Treballar amb activitats i escriptoris virtuals</link
 > s'anomenen <emphasis

@@ -57,7 +57,7 @@
 >Comunicació bidireccional</glossterm>
                         <glossdef
 ><para
->En el context de la impressió, un servidor o amfitrió pot rebre informació addicional enviada de retorn per la impressora (missatges d'estat, &etc;), bé com a resposta a una sol·licitud o sense cap sol·licitud. AppSocket ( = &HP; JetDirect), &CUPS; i IPP permeten la comunicació bidireccional, però no LPR/LPD i la impressió a l'estil BSD...</para
+>En el context de la impressió, un servidor o màquina pot rebre informació addicional enviada de retorn per la impressora (missatges d'estat, &etc;), bé com a resposta a una sol·licitud o sense cap sol·licitud. AppSocket ( = &HP; JetDirect), &CUPS; i IPP permeten la comunicació bidireccional, però no LPR/LPD i la impressió a l'estil BSD...</para
 ><glossseealso otherterm="gloss-appsocketprotocol"
 >Protocol AppSocket</glossseealso
 > <glossseealso otherterm="gloss-cups"
@@ -78,7 +78,7 @@
 >Impressió a l'estil BSD</glossterm>
                         <glossdef
 ><para
->Terme genèric per a diferents variants del mètode d'impressió tradicional d'&UNIX;. La seua primera versió aparegué en els anys 70 sobre BSD &UNIX; i l'any 1990 es va descriure formalment en un &linkstart;"https://www.ietf.org/rfc/rfc1179.txt"&linkmid;RFC 1179&linkend;.&newpara; En el moment quan es dissenyà per primera vegada la impressió «remota» BSD, les impressores estaven connectades amb ports sèrie o directament connectades amb un amfitrió (amb una Internet formada per menys de 100 nodes); les impressores empraven paper continu perforat en les bandes laterals, s'alimentaven emprant un mètode de tracció, imprimien senzilles columnes de text ASCII que s'obtenia per martelleig mecànic damunt del suport i prenien el paper d'una safata davall de la taula i el retornaven en forma de paper plegat en zig-zag -com una «serp»-. La impressió remota consistia en un amfitrió en l'habitació contigua que enviava fitxers per a imprimir.&newpara; Com ha canviat la tecnologia! Les impressores utilitzen guillotines per a tallar el paper, tenen dispositius intel·ligents per a calcular les imatges de les pàgines que se'ls envien emprant llenguatges molt potents de descripció de pàgines (PDL), moltes d'elles són nodes propis en la xarxa, disposen de CPU, memòria RAM, disc dur i d'un sistema operatiu propi i estan connectades amb una xarxa amb milions d'usuaris potencials...&newpara; És una veritable prova de la flexibilitat del concepte que té &UNIX; de dur a terme les coses, que ha fet que la «Impressió de línies» funcione amb fiabilitat fins i tot davall les condicions modernes. Però a la fi ha arribat l'hora d'alguna cosa nova, l'IPP. </para
+>Terme genèric per a diferents variants del mètode d'impressió tradicional d'&UNIX;. La seua primera versió aparegué en els anys 70 sobre BSD &UNIX; i l'any 1990 es va descriure formalment en un &linkstart;"https://www.ietf.org/rfc/rfc1179.txt"&linkmid;RFC 1179&linkend;.&newpara; En el moment quan es dissenyà per primera vegada la impressió «remota» BSD, les impressores estaven connectades amb ports sèrie o directament connectades amb un servidor (amb una Internet formada per menys de 100 nodes); les impressores empraven paper continu perforat en les bandes laterals, s'alimentaven emprant un mètode de tracció, imprimien senzilles columnes de text ASCII que s'obtenia per martelleig mecànic damunt del suport i prenien el paper d'una safata davall de la taula i el retornaven en forma de paper plegat en zig-zag -com una «serp»-. La impressió remota consistia en una màquina a l'habitació contigua que enviava fitxers per a imprimir.&newpara; Com ha canviat la tecnologia! Les impressores utilitzen guillotines per a tallar el paper, tenen una intel·ligència integrada per a calcular les imatges de les pàgines que se'ls envien emprant llenguatges molt potents de descripció de pàgines (PDL), moltes d'elles són nodes propis en la xarxa, disposen de CPU, memòria RAM, disc dur i d'un sistema operatiu propi i estan connectades amb una xarxa amb milions d'usuaris potencials...&newpara; És una veritable prova de la flexibilitat del concepte que té &UNIX; de dur a terme les coses, que ha fet que la «Impressió de línies» funcione amb fiabilitat fins i tot davall les condicions modernes. Però a la fi ha arribat l'hora d'alguna cosa nova, l'IPP. </para
 ><glossseealso otherterm="gloss-ipp"
 >IPP</glossseealso
 > <glossseealso otherterm="gloss-cups"
@@ -130,7 +130,7 @@
 ><para
 >Abreviatura de &emstart;D&emend;isk &emstart;a&emend;nd &emstart;e&emend;xecution &emstart;mon&emend;itor; Els <acronym
 >dimonis</acronym
-> estan presents en tots els sistemes &UNIX; per a fer les tasques independentment de la intervenció de l'usuari. Els lectors més familiaritzats amb &Microsoft; &Windows; poden comparar dimonis i les tasques de les quals són responsables amb els «serveis».&newpara; Un exemple de dimoni present en la majoria de sistemes &UNIX; és el LPD (Line Printer Daemon -dimoni d'impressió en línia-); &CUPS; és considerat en el món &UNIX; com el successor de LPD i també opera a través d'un dimoni. </para>
+> estan presents a tots els sistemes &UNIX; per a fer les tasques independentment de la intervenció de l'usuari. Els lectors més familiaritzats amb &Microsoft; &Windows; poden comparar dimonis i les tasques de les quals són responsables amb els «serveis».&newpara; Un exemple de dimoni present en la majoria de sistemes &UNIX; és el LPD (Line Printer Daemon -dimoni d'impressió en línia-); &CUPS; és considerat en el món &UNIX; com el successor de LPD i també opera a través d'un dimoni. </para>
                                 <glossseealso otherterm="gloss-spooling"
 >SPOOLing</glossseealso>
                         </glossdef>
@@ -141,7 +141,7 @@
 >Base de dades, Linuxprinting.org</glossterm>
                         <glossdef
 ><para
->Ja fa uns quants anys, quan la impressió a Linux era realment difícil (la majoria d'usuaris tan sols coneixia la impressió mitjançant la línia d'ordres i no existien opcions per a dispositius específics), en Grant Taylor, autor de «Linux Printing HOWTO», recollí la major part de la informació disponible sobre impressores, controladors i filtres en una base de dades.&newpara; Amb el concepte emergent de &CUPS;, estengué l'ús dels PPD cap a les impressores que no eren PostScript, comprengué el potencial de la seua base de dades: Si un posa els diferents blocs de dades (amb el contingut que podia descriure's en les línies «Quin dispositiu imprimix amb quin filtre Ghostscript o d'un altre tipus?», «Com de bé?» i «Quina línia d'ordres està disponible?») en fitxers compatibles PPD, podria tindre tota la potència de &CUPS; damunt dels tradicionals «controladors» d'impressió.&newpara; Açò ha evolucionat en un concepte més ampli, conegut com a «Foomatic». Foomatic estén les capacitats d'altres gestors de cues diferents de &CUPS; (LPR/LPD, LPRng, PDQ, PPR) fins a un cert límit («robant» alguns conceptes de &CUPS;). La base de dades de Linuxprinting no és tan sols una parada per a usuaris de Linux -- persones que executen altres SO basats en &UNIX; (com *BSD o &MacOS; X) també hi trobaran informació i programari útil. </para
+>Ja fa uns quants anys, quan la impressió a Linux era realment difícil (la majoria d'usuaris tan sols coneixia la impressió mitjançant la línia d'ordres i no existien opcions per a dispositius específics), en Grant Taylor, autor de «Linux Printing HOWTO», recollí la major part de la informació disponible sobre impressores, controladors i filtres en una base de dades.&newpara; Amb el concepte emergent de &CUPS;, estengué l'ús dels PPD fins cap a les impressores que no eren PostScript, comprengué el potencial de la seua base de dades: Si un posa els diferents blocs de dades (amb el contingut que podia descriure's en les línies «Quin dispositiu imprimix amb quin filtre Ghostscript o d'un altre tipus?», «Com de bé?» i «Quina línia d'ordres està disponible?») en fitxers compatibles PPD, podria tindre tota la potència de &CUPS; damunt dels tradicionals «controladors» d'impressió.&newpara; Açò ha evolucionat en un concepte més ampli, conegut com a «Foomatic». Foomatic estén les capacitats d'altres gestors de cues diferents de &CUPS; (LPR/LPD, LPRng, PDQ, PPR) fins a un cert límit («robant» alguns conceptes de &CUPS;). La base de dades de Linuxprinting no és tan sols una parada per a usuaris de Linux -- persones que executen altres SO basats en &UNIX; (com *BSD o &MacOS; X) també hi trobaran informació i programari útil. </para
 ><glossseealso otherterm="gloss-foomatic"
 >Foomatic</glossseealso
 > <glossseealso otherterm="gloss-linuxprintingdatabase"
@@ -154,7 +154,7 @@
 >Impressió directa TCP/IP</glossterm>
                         <glossdef
 ><para
->Este és un mètode que utilitza amb freqüència el port TCP/IP 9100 per a connectar-se amb la impressora. Funciona amb moltes impressores de xarxa modernes i disposa d'alguns avantatges sobre LPR/LPD, perquè és més ràpid i proporciona una mica de «dades de realimentació per al canal de retorn» des de la impressora fins a l'amfitrió que envia la tasca.</para
+>Este és un mètode que utilitza amb freqüència el port TCP/IP 9100 per a connectar-se amb la impressora. Funciona amb moltes impressores de xarxa modernes i disposa d'alguns avantatges sobre LPR/LPD, perquè és més ràpid i proporciona una mica de «dades de realimentació per al canal de retorn» des de la impressora a la màquina que envia la tasca.</para
 ><glossseealso otherterm="gloss-appsocketprotocol"
 >Protocol AppSocket</glossseealso
 > <glossseealso otherterm="gloss-hpjetdirectprotocol"
@@ -243,7 +243,7 @@
 >Filtre</glossterm>
                         <glossdef
 ><para
->Els filtres, en general, són programes que reben dades d'entrada, les processen i les passen com a informació d'eixida. Els filtres poden o no modificar les dades.&newpara; Els filtres, en el context de la impressió, són programes que convertixen un fitxer (destinat per a la impressió, però que el seu format actual no és l'adequat) en un fitxer imprimible. A vegades és necessari construir autèntiques «cadenes de filtratge» per a aconseguir l'objectiu, enviant l'eixida d'un dels filtres cap a l'entrada del següent. </para
+>Els filtres, en general, són programes que reben dades d'entrada, les processen i la passen com a informació d'eixida. Els filtres poden o no modificar les dades.&newpara; Els filtres, en el context de la impressió, són programes que convertixen un fitxer (destinat per a la impressió, però que el seu format actual no és l'adequat) en un fitxer imprimible. A vegades és necessari construir autèntiques «cadenes de filtratge» per a aconseguir l'objectiu, enviant l'eixida d'un dels filtres cap a l'entrada del següent. </para
 ><glossseealso otherterm="gloss-ghostscript"
 >Ghostscript</glossseealso
 > <glossseealso otherterm="gloss-rip"
@@ -280,7 +280,7 @@
 >Gimp-Print</glossterm>
                         <glossdef
 ><para
->Contràriament al seu nom, Gimp-Print no és el connector que s'utilitzarà per a imprimir des del popular programa Gimp -- la base del seu codi també pot utilitzar-se per a compilar en...&newpara;...un joc de PPD i de filtres associats que s'integren completament amb &CUPS;, implementant al voltant de 130 models diferents d'impressora, en molts casos proporcionant qualitat d'eixida fotogràfica;&newpara;...un filtre Ghostscript que pot utilitzar-se amb qualsevol altre programa que necessite un programari-RIP;&newpara;...una biblioteca que puga ser emprada per altres aplicacions de programari en la necessitat de funcions de &linkstart;"http://ca.wikipedia.org/wiki/Tramar"&linkmid;tramat&linkend;.</para
+>Contràriament al seu nom, Gimp-Print no és el connector que s'utilitzarà per a imprimir des del popular programa Gimp -- la base del seu codi també pot utilitzar-se per a compilar en...&newpara;...un joc de PPD i de filtres associats que s'integren completament a &CUPS;, implementant al voltant de 130 models diferents d'impressora, en molts casos proporcionant qualitat d'eixida fotogràfica;&newpara;...un filtre Ghostscript que pot utilitzar-se amb qualsevol altre programa que necessite un programari-RIP;&newpara;...una biblioteca que puga ser emprada per altres aplicacions de programari en la necessitat de funcions de &linkstart;"http://ca.wikipedia.org/wiki/Tramar"&linkmid;tramat&linkend;.</para
 ><glossseealso otherterm="gloss-lexmark"
 >Controladors Lexmark</glossseealso
 > <glossseealso otherterm="gloss-rip"
@@ -339,7 +339,7 @@
 ></glossterm>
                         <glossdef
 ><para
->Abreviació per a &emstart;I&emend;nternet &emstart;E&emend;ngineering &emstart;T&emend;ask &emstart;F&emend;orce; una assemblea d'Internet, els experts en programari i maquinari hi parlen de noves tecnologies connectades amb una xarxa i molt sovint arriben a conclusions, el qual és considerat per molts com a estàndards. El «TCP/IP» és l'exemple més famós.&newpara; Els estàndards de la IETF, així com els seus esborranys, xerrades, idees i guies d'aprenentatge d'utilitat, són posats per escrit en la famosa sèrie de «RFC», el qual està disponible al públic i inclòs en la majoria de distribucions Linux i BSD.</para
+>Abreviació per a &emstart;I&emend;nternet &emstart;E&emend;ngineering &emstart;T&emend;ask &emstart;F&emend;orce; una assemblea d'Internet, els experts en programari i maquinari hi parlen de noves tecnologies connectades amb una xarxa i molt sovint arriben a conclusions, el qual és considerat per molts com a estàndards. El «TCP/IP» és l'exemple més famós.&newpara; Els estàndards de la IETF, així com els seus esborranys, xerrades, idees i guies d'aprenentatge d'utilitat, són posats per escrit a la famosa sèrie de «RFC», que està disponible al públic i inclòs a la majoria de distribucions Linux i BSD.</para
 ><glossseealso otherterm="gloss-ipp"
 >IPP</glossseealso
 > <glossseealso otherterm="gloss-pwg"
@@ -356,7 +356,7 @@
 ></glossterm>
                         <glossdef
 ><para
->Abreviació per a &emstart;I&emend;nternet &emstart;P&emend;rinting &emstart;P&emend;rotocol (protocol d'impressió per Internet); definit en una sèrie de RFC acceptats per la IETF amb l'estat d'«estàndard proposat»; ha sigut dissenyat per la PWG. - IPP és un disseny completament nou per a la impressió en xarxa, però este utilitza un conegut i nou mètode de provada eficàcia per a la transferència de dades real: HTTP 1.1! Per a no «reinventar la roda» este es basa en un robust estàndard de la Internet actual, IPP és capaç d'un ús relativament fàcil entre altres mecanismes estàndards compatibles amb el HTTP:&newpara; Bàsic, resums, o mecanismes d'autenticació de certificats.&newpara; SSL o TLS per a l'encriptació de la transferència de dades.&newpara; LDAP per als serveis de directori (per a publicar dades en les impressores, opcions de dispositiu, controladors, costos a la xarxa; o per a comprovar contrasenyes fent autenticació). </para
+>Abreviació per a &emstart;I&emend;nternet &emstart;P&emend;rinting &emstart;P&emend;rotocol (protocol d'impressió per Internet); definit en una sèrie de RFC acceptats per la IETF amb l'estat d'«estàndard proposat»; ha sigut dissenyat per la PWG. - IPP és un disseny completament nou per a la impressió en xarxa, però este utilitza un conegut i nou mètode de provada eficàcia per a la transferència de dades real: HTTP 1.1! Per a no «reinventar la roda» este es basa en un robust estàndard de la Internet actual, IPP és capaç d'un ús relativament fàcil entre altres mecanismes estàndards compatibles amb el HTTP:&newpara; Bàsic, resums, o mecanismes d'autenticació de certificats.&newpara; SSL o TLS per a l'encriptació de la transferència de dades.&newpara; LDAP per als serveis de directori (per a publicar dades a les impressores, opcions de dispositiu, controladors, costos a la xarxa; o per a comprovar contrasenyes fent autenticació). </para
 ><glossseealso otherterm="gloss-cups"
 >&CUPS;</glossseealso
 > <glossseealso otherterm="gloss-pwg"
@@ -425,7 +425,7 @@
 >Tipus &MIME;</glossterm>
                         <glossdef
 ><para
->Abreviació de &emstart;M&emend;ultipurpose (o Multimèdia) &emstart;I&emend;nternet &emstart;M&emend;ail &emstart;E&emend;xtensions (extensions polivalents per a correu d'Internet); els tipus &MIME; són principalment emprats per al transport de dades binàries (com ara els adjunts de correu que contenen gràfics) sobre connexions de correu que normalment tan sols es transmeten mitjançant caràcters ASCII: pel que les dades han d'estar codificades en ASCII.&newpara; Més tard este concepte ha sigut ampliat per a acabar descrivint un format de dades independent de la plataforma, però alhora no ambigu. A la manera de fer de &Windows; tothom sap que les extensions .doc són per a &Microsoft; Word.&newpara; Açò és manejat amb ambigüitat sobre la plataforma &Windows;: les extensions .doc també són emprades per a fitxers de text senzills o per a fitxers Adobe Framemaker. I si un autèntic fitxer Word és canviat el nom amb una extensió diferent, este ja no pot ser obert pel programa.&newpara; Els tipus de fitxer &MIME; tenen una cadena de reconeixement i els reconeixen, descrivint el seu format de fitxer basat en &emstart;categoria_principal/subcategoria&emend;. Dintre d'IPP, els fitxers d'impressió també són descrits utilitzant l'esquema dels tipus &MIME;. Els tipus &MIME; estan registrats amb la IANA (Internet Assigning Numbers &emstart;Association&emend;) per a mantindre-los com a inequívocs.&newpara; &CUPS; disposa d'alguns tipus &MIME; registrats com a propis, com el &emstart;application/vnd.cups-raster&emend; (per al format d'imatge &CUPS; intern de la trama). </para
+>Abreviació de &emstart;M&emend;ultipurpose (o Multimèdia) &emstart;I&emend;nternet &emstart;M&emend;ail &emstart;E&emend;xtensions (extensions polivalents per a correu d'Internet); els tipus &MIME; són principalment emprats per al transport de dades binàries (com ara els adjunts de correu que contenen gràfics) sobre connexions de correu que normalment tan sols es transmeten mitjançant caràcters ASCII: pel que les dades han d'estar codificades en ASCII.&newpara; Més tard este concepte ha sigut ampliat per a acabar descrivint un format de dades independent de la plataforma, però alhora no ambigu. A la manera de fer de &Windows; tothom sap que les extensions .doc són per a &Microsoft; Word.&newpara; Açò és manejat amb ambigüitat sobre la plataforma &Windows;: les extensions .doc també són emprades per a fitxers de text simples o per a fitxers Adobe Framemaker. I si un autèntic fitxer Word és canviat el nom amb una extensió diferent, este ja no pot ser obert pel programa.&newpara; Els tipus de fitxer &MIME; tenen una cadena de reconeixement i els reconeixen, descrivint el seu format de fitxer basat en &emstart;categoria_principal/subcategoria&emend;. Dintre d'IPP, els fitxers d'impressió també són descrits utilitzant l'esquema dels tipus &MIME;. Els tipus &MIME; estan registrats amb la IANA (Internet Assigning Numbers &emstart;Association&emend;) per a mantindre-los com a inequívocs.&newpara; &CUPS; disposa d'alguns tipus &MIME; registrats com a propis, com el &emstart;application/vnd.cups-raster&emend; (per al format d'imatge &CUPS; intern de la trama). </para
 ><glossseealso otherterm="gloss-cups"
 >&CUPS;</glossseealso
 > <glossseealso otherterm="gloss-gimpprint"
@@ -440,7 +440,7 @@
 ></glossterm>
                         <glossdef
 ><para
->Abreviació de &emstart;P&emend;rinter &emstart;C&emend;ontrol &emstart;L&emend;anguage (llenguatge de control de la impressió); desenvolupat per &HP;. PCL va començar en la versió 1 com a un senzill joc d'ordres per a la impressió ASCII; ara, en les seues versions PCL6 i PCL-X, és capaç d'imprimir els gràfics i el color - però fora del regne de &Microsoft; &Windows; i &HP-UX; (&HP; té en propietat una marca &UNIX;), açò no és gaire emprat...</para
+>Abreviació de &emstart;P&emend;rinter &emstart;C&emend;ontrol &emstart;L&emend;anguage (llenguatge de control de la impressió); desenvolupat per &HP;. PCL va començar en la versió 1 com a un simple joc d'ordres per a la impressió ASCII; ara, en les seues versions PCL6 i PCL-X, és capaç d'imprimir els gràfics i el color - però fora del regne de &Microsoft; &Windows; i &HP-UX; (&HP; té en propietat una marca &UNIX;), açò no és gaire emprat...</para
 ><glossseealso otherterm="gloss-escp"
 >ESC/P</glossseealso
 > <glossseealso otherterm="gloss-hpgl"
@@ -476,7 +476,7 @@
 >Píxel</glossterm>
                         <glossdef
 ><para
->Abreviació de &emstart;Pic&emend;ture &emstart;El&emend;ement (element del paper pintat); este terme descriu la part més xicoteta d'un quadro d'imatge tramat (o siga, tant si està imprés en un paper com si és mostrat en un monitor mitjançant un tub de raigs catòdics o els elements d'un LCD). Com qualsevol gràfic o representació d'imatge en estos tipus de dispositius d'eixida, està compost de píxels, els valors de «ppp» (píxel per polzada -«ppi» en anglés-) i &ppp; (punts per polsada -dpi en anglés-) són un paràmetre important per a la qualitat total i la resolució d'una imatge.</para
+>Abreviació de &emstart;Pic&emend;ture &emstart;El&emend;ement (element del paper pintat); este terme descriu la part més xicoteta d'un quadro d'imatge tramat (o siga tant si està imprés en un paper com si mostrat en un monitor mitjançant un tub de raigs catòdics o els elements d'un LCD). Com qualsevol gràfic o representació d'imatge en estos tipus de dispositius d'eixida, és compost de píxels, els valors de «ppp» (píxel per polzada -«ppi» en anglés-) i &ppp; (punts per polzada -dpi en anglés-) són un paràmetre important per a la qualitat total i la resolució d'una imatge.</para
 ><glossseealso otherterm="gloss-filter"
 >Filtre</glossseealso
 > <glossseealso otherterm="gloss-ghostscript"
@@ -495,7 +495,7 @@
 ></glossterm>
                         <glossdef
 ><para
->Abreviació de &emstart;P&emend;rint &emstart;J&emend;ob &emstart;L&emend;anguage (llenguatge per a la tasca de la impressió); desenvolupat per &HP; per a controlar i influir de manera predeterminada, i per a les configuracions de les tasques d'una impressora. Açò no tan sols pot ser emprat per a les impressores d'&HP; (PCL-); també moltes &PostScript; i d'altres impressores entenen les ordres PJL enviades a dintre d'una tasca d'impressió o en un senyal a part.</para>
+>Abreviació de &emstart;P&emend;rint &emstart;J&emend;ob &emstart;L&emend;anguage (llenguatge per a la tasca de la impressió); desenvolupat per &HP; per a controlar i influir per defecte, i per als configuracions de les tasques d'una impressora. Açò no tan sols pot ser emprat per a les impressores d'&HP; (PCL-); també moltes &PostScript; i d'altres impressores entenen les ordres PJL enviades a dintre d'una tasca d'impressió o en un senyal a part.</para>
                                 <glossseealso otherterm="gloss-pcl"
 >PCL</glossseealso>
                         </glossdef>
@@ -554,7 +554,7 @@
 ></glossterm>
                         <glossdef
 ><para
->Abreviació de &emstart;Printer&emend;- &emstart;M&emend;anagement &emstart;I&emend;nformation &emstart;B&emend;ase (base per a informació de gestió); la impressió MIB definix un joc de paràmetres que són emmagatzemats a dins de la impressora per a accedir a la xarxa. Açò és útil si moltes (en alguns casos, literalment milers) de les impressores de la xarxa són manipulades centralitzadament amb l'ajuda de SNMP (el protocol senzill per a la gestió de la xarxa).</para
+>Abreviació de &emstart;Printer&emend;- &emstart;M&emend;anagement &emstart;I&emend;nformation &emstart;B&emend;ase (base per a informació de gestió); la impressió MIB definix un joc de paràmetres que són emmagatzemats a la impressora per a accedir a la xarxa. Açò és útil si moltes (en alguns casos, literalment milers) de les impressores de la xarxa són manipulades centralitzadament amb l'ajuda de SNMP (el protocol simple per a la gestió de la xarxa).</para
 ><glossseealso otherterm="gloss-pwg"
 >PWG</glossseealso
 > <glossseealso otherterm="gloss-snmp"
@@ -617,7 +617,7 @@
 ></glossterm>
                         <glossdef
 ><para
->Abreviació de &emstart;R&emend;aster &emstart;I&emend;mage &emstart;P&emend;rocess(or) (processament del tramat de la imatge); si s'utilitza en el context de la impressió, «RIP» significa un maquinari o programari que convertix a &PostScript; (o d'altres formats d'impressió que són representats en les PDL sense trama) a dins d'un format d'imatge tramada de tal manera que siga acceptable per al «marcat del motor» de la impressora.&newpara; Les impressores &PostScript; contenen els seus propis tramats-PostScript. Un RIP pot o no pot ser localitzat dintre d'una impressora.&newpara; Per a molts sistemes &UNIX;, Ghostscript és el paquet que proporciona «un RIP en el programari», iniciat en l'ordinador amfitrió i pre-digerint &PostScript; o d'altres dades per a deixar-les llestes per a enviar-les cap al dispositiu d'impressió (podeu percebre «una mica de veritat» en el lema «Ghostscript transforma la vostra impressora a dins d'una màquina &PostScript;», el qual per descomptat no és correcte en el vertader sentit de la paraula).</para
+>Abreviació de &emstart;R&emend;aster &emstart;I&emend;mage &emstart;P&emend;rocess(or) (processament del tramat de la imatge); si s'utilitza en el context de la impressió, «RIP» significa un maquinari o programari que convertix a &PostScript; (o d'altres formats d'impressió que són representats en les PDL sense trama) en un format d'imatge tramada de tal manera que siga acceptable per al «marcat del motor» de la impressora.&newpara; Les impressores &PostScript; contenen els seus propis tramats-PostScript. Un RIP pot o no pot ser localitzat dintre d'una impressora.&newpara; Per a molts sistemes &UNIX;, Ghostscript és el paquet que proporciona «un RIP en el programari», iniciat en l'ordinador amfitrió i pre-digerint &PostScript; o d'altres dades per a deixar-les llestes per a enviar-les cap al dispositiu d'impressió (podeu percebre «una mica de veritat» en el lema «Ghostscript transforma la vostra impressora en una màquina &PostScript;», que per descomptat no és correcte en el vertader sentit de la paraula).</para
 ><glossseealso otherterm="gloss-filter"
 >Filter</glossseealso
 > <glossseealso otherterm="gloss-ghostscript"
@@ -653,7 +653,7 @@
 ></glossterm>
                         <glossdef
 ><para
->Abreviació de &emstart;S&emend;imple &emstart;N&emend;etwork &emstart;M&emend;anagement &emstart;P&emend;rotocol; SNMP és extensament emprat per a controlar tots els tipus de nodes d'una xarxa (amfitrions, encaminadors, commutadors, passarel·les, impressores...) remotament.</para
+>Abreviació de &emstart;S&emend;imple &emstart;N&emend;etwork &emstart;M&emend;anagement &emstart;P&emend;rotocol; SNMP és extensament emprat per a controlar tots els tipus de nodes d'una xarxa (màquines, encaminadors, commutadors, passarel·les, impressores...) remotament.</para
 ><glossseealso otherterm="gloss-pwg"
 >PWG</glossseealso
 > <glossseealso otherterm="gloss-printermib"
@@ -739,7 +739,7 @@
 >TurboPrint</glossterm>
                         <glossdef
 ><para
->Programari shareware (d'accés lliure al públic) que proporciona impressió de qualitat fotogràfica per a moltes impressores de raig de tinta. És útil si no sou capaç de trobar un controlador per a la vostra impressora i esta es pot apegar a dins d'un sistema tradicional Ghostscript o un modern sistema &CUPS;.</para>
+>Programari shareware (d'accés lliure al públic) que proporciona impressió de qualitat fotogràfica per a moltes impressores de raig de tinta. És útil si no sou capaç de trobar un controlador per a la vostra impressora i esta es pot apegar a un sistema tradicional Ghostscript o un modern sistema &CUPS;.</para>
                                 <glossseealso otherterm="gloss-gimpprint"
 >Gimp-Print</glossseealso>
                         </glossdef>
