@@ -105,7 +105,7 @@
 > <guimenu
 >Ajuda</guimenu
 > <guimenuitem
->Manual de l'<replaceable
+>Manual del <replaceable
 >aplicació</replaceable
 ></guimenuitem
 ></menuchoice
@@ -120,7 +120,7 @@
 <para
 >Escolliu la gran <guiicon
 >K</guiicon
-> en el vostre quadro, seleccioneu <guimenuitem
+> del vostre quadro, seleccioneu <guimenuitem
 >Ajuda</guimenuitem
 > des de la pestanya <guimenuitem
 >Aplicacions</guimenuitem
@@ -128,7 +128,7 @@
 >ajuda</userinput
 > i tot seguit seleccioneu <guimenuitem
 >Ajuda</guimenuitem
->. Açò obrirà &khelpcenter;, començant a la pàgina d'inici predeterminada. </para>
+>. Açò obrirà &khelpcenter;, començant a la pàgina d'inici predeterminat. </para>
 </listitem
 > 
 </varlistentry>
@@ -138,7 +138,7 @@
 >Des de la línia d'ordres</term>
 <listitem>
 <para
->&khelpcenter; es pot iniciar emprant un &URL; per a mostrar un fitxer. Els &URL; també han sigut afegits per a les pàgines <command
+>&khelpcenter; es pot iniciar emprant un &URL; per a mostrar un fitxer. Els &URL; també han sigut afegits per a les pàgines d'<command
 >info</command
 > i <command
 >man</command
@@ -212,7 +212,7 @@
 <para
 >Invocant a <command
 >khelpcenter</command
-> sense paràmetres s'obrirà la pàgina d'inici predeterminada. </para>
+> sense paràmetres s'obrirà la pàgina d'inici predeterminat. </para>
 </listitem>
 </varlistentry>
 
@@ -230,13 +230,13 @@
 >La barra d'eines i el menú s'expliquen més avant a <xref linkend="menu-and-toolbar-ref"/>. </para>
 
 <para
->Els documents contenen les seues pròpies eines de navegació, permetent-vos una bona mobilitat seqüencial a través d'un document, emprant els enllaços <guilabel
+>Els documents contenen les seues pròpies eines de navegació, permetent-vos una bona mobilitat seqüencial a través d'un document, utilitzant els enllaços <guilabel
 >Anterior</guilabel
 >, <guilabel
 >Següent</guilabel
 > i <guilabel
 >Inici</guilabel
->, o bé moure's d'una manera menys estructurada, emprant els enllaços. </para>
+>, o bé moure's d'un mode menys estructurat, emprant els enllaços. </para>
 
 <para
 >Els enllaços vos poden dur a altres parts del mateix document o a un document diferent, i també podeu emprar les icones <guiicon
@@ -258,7 +258,7 @@
 > 
 
 <para
->La subfinestra de Contingut està subdividida en tres pestanyes, una que conté una <link linkend="contents-tab"
+>La subfinestra de Contingut està subdividit en tres pestanyes, una que conté una <link linkend="contents-tab"
 >vista en arbre</link
 > mostrant tota la informació d'ajuda a &khelpcenter; i l'altra que conté el <link linkend="kde-glossary"
 >Glossari</link
@@ -396,7 +396,7 @@
 <para
 >La documentació TeXinfo és emprada per la majoria d'aplicacions de &GNU;, s'inclou <application
 >gcc</application
-> (el compilador de C/C++), <application
+> (el compilador C/C++), <application
 >emacs</application
 > i moltes altres. </para>
 </listitem>
@@ -413,7 +413,7 @@
 ></title>
 
 <para
->La busca dels fitxers d'ajuda és força intuïtiva, introduïu les paraules que voleu buscar en el quadro de text, trieu entre les opcions (si n'hi ha), i premeu <guibutton
+>La busca dels fitxers d'ajuda és força intuïtiva, introduïu les paraules que voleu buscar al quadro de text, trieu entre les opcions (si n'hi ha), i premeu <guibutton
 >Busca</guibutton
 >. Els resultats es mostraran a la subfinestra del visor que hi ha a la dreta. </para>
 <note
@@ -488,13 +488,13 @@
 ></title>
 
 <para
->Les pàgines man són les pàgines de manual estàndard d'&UNIX; i s'han emprat durant molts anys en molts sistemes operatius. Són extremadament detallades i conformen la millor font d'informació per a la majoria de les ordres i aplicacions d'&UNIX;. Quan algú diu «RTFM», el manual al qual sovint es referix és a la pàgina man.</para>
+>Les pàgines man són les pàgines de manual estàndard d'&UNIX; i s'han emprat durant molts anys en molts sistemes operatius. Són extremadament detallades i formen la millor font d'informació per a la majoria de les ordres i aplicacions d'&UNIX;. Quan algú diu «RTFM», el manual al qual sovint es referix és a la pàgina man.</para>
 
 <para
->Les pàgines man no són perfectes. Solen ser detallades, però extremadament tècniques i sovint escrites per desenvolupadors i per a desenvolupadors. En alguns casos açò les convertix en difícils, fins i tot arribant a ser incomprensibles per a molts usuaris. Són, però, la millor font d'informació sòlida en la majoria de les aplicacions de línia d'ordres, i molt sovint l'única.</para>
+>Les pàgines man no són perfectes. Solen ser detallades, però extremadament tècniques i sovint escrites per desenvolupadors i per a desenvolupadors. En alguns casos açò les convertix en difícils, fins i tot arribant a ser incomprensibles per a molts usuaris. Són, però, la millor font d'informació sòlida en la majoria de les aplicacions de línia d'ordres, i molt sovint l'única font.</para>
 
 <para
->Si alguna vegada vos heu preguntat quin significat té el que la gent a vegades escriga coses com man(1), es referixen a la secció del manual a la qual pertany el terme que es busca. Advertiu que &khelpcenter; utilitza nombres per a dividir les nombroses pàgines man en seccions, de manera que la busca d'informació siga més senzilla, si senzillament esteu navegant.</para>
+>Si alguna vegada vos heu preguntat quin significat té el que la gent a vegades escriga coses com man(1), es referixen a la secció del manual a la qual pertany el terme que es busca. Advertiu que &khelpcenter; utilitza nombres per dividir les nombroses pàgines man en seccions, de manera que la busca d'informació siga més senzilla, si senzillament esteu navegant.</para>
 
 <para
 >També estan accessibles les pàgines Info, les quals es pretenia que substituïren a les man. Alguns programadors d'aplicacions ja no actualitzen les pàgines man, de manera que si per a estes aplicacions existix una pàgina man i una altra info, esta última probablement serà la més recent. La majoria d'aplicacions disposen d'una de les dues. Si esteu buscant ajuda per a una aplicació de &GNU;, el més probable siga que la trobeu en una pàgina info i no en una pàgina man.</para>
@@ -506,7 +506,7 @@
 ></title>
 
 <para
->Els documents info estan organitzats jeràrquicament de manera que cada pàgina s'anomena un node. Tots els documents info tenen un node <guilabel
+>Els documents info estan organitzats jeràrquicament de manera que cada pàgina es diu un node. Tots els documents info tenen un node <guilabel
 >Inici</guilabel
 > «Top», &ead;, la pàgina inicial. Sempre podeu tornar a l'<guilabel
 >Inici</guilabel
@@ -556,7 +556,7 @@
 >Les barres d'eines i de menú</title>
 
 <para
->&khelpcenter; té una interfície mínima, permetent que vos concentreu en obtindre ajuda i no en haver d'aprendre com utilitzar el navegador de l'ajuda. </para>
+>&khelpcenter; té una interfície mínima, permetent que vos concentreu en obtindre ajuda i no a haver d'aprendre com utilitzar el navegador de l'ajuda. </para>
 
 <para
 >Les icones disponibles en la barra d'eines són les següents: </para>
@@ -583,7 +583,7 @@
 ></term>
 <listitem>
 <para
->Va cap a la pàgina anterior que esteu visualitzant. Feu clic en la marca de selecció a la dreta de la icona. Açò mostrarà una llista de les pàgines visitades anteriorment. En seleccionar-ne una vos portarà directament a esta pàgina. </para>
+>Anirà a la pàgina anterior que esteu visualitzant. Feu clic en la marca de selecció a la dreta en la icona. Açò mostra una llista de pàgines visitades anteriorment. En seleccionar-ne una vos portarà directament a esta pàgina. </para>
 </listitem>
 </varlistentry>
 
@@ -594,7 +594,7 @@
 ></term>
 <listitem>
 <para
->Avança una pàgina. Esta icona tan sols s'activa si ja heu emprat la icona <guiicon
+>Avançarà una pàgina. Esta icona tan sols s'activa si ja heu emprat la icona <guiicon
 >Arrere</guiicon
 >. </para>
 </listitem>
@@ -659,7 +659,7 @@ Print the contents of the currently visible page.
 </variablelist>
 
 <para
->Els menús contenen les entrades següents: </para>
+>Els menús contenen les següents entrades: </para>
 
 <variablelist>
 <varlistentry>
@@ -891,7 +891,7 @@ Print the contents of the currently visible page.
 ></term>
 <listitem>
 <para
->Va cap a la pàgina anterior de la documentació actual. </para>
+>Anirà a la pàgina anterior de la documentació actual. </para>
 </listitem>
 </varlistentry>
 
@@ -912,7 +912,7 @@ Print the contents of the currently visible page.
 ></term>
 <listitem>
 <para
->Va cap a la pàgina següent de la documentació actual. </para>
+>Anirà a la pàgina següent de la documentació actual. </para>
 </listitem>
 </varlistentry>
 
@@ -933,7 +933,7 @@ Print the contents of the currently visible page.
 ></term>
 <listitem>
 <para
->Va cap a la pàgina anterior que esteu visualitzant.</para>
+>Anirà a la pàgina anterior que esteu visualitzant.</para>
 </listitem>
 </varlistentry>
 
@@ -991,7 +991,7 @@ Print the contents of the currently visible page.
 <para
 >Afig una adreça d'interés per a la pàgina actual, el títol de les pàgines serà afegit al menú d'adreces d'interés. Utilitzeu l'acció <guimenuitem
 >Elimina l'adreça d'interés</guimenuitem
-> en el menú contextual d'un element per a eliminar-la del menú. </para>
+> al menú contextual d'un element per a eliminar-lo del menú. </para>
 </listitem>
 </varlistentry>
 
@@ -1006,9 +1006,9 @@ Print the contents of the currently visible page.
 ></term>
 <listitem>
 <para
->Obri el diàleg <guilabel
+>Obriu el diàleg <guilabel
 >Carpeta nova</guilabel
->, on podreu afegir subelements nous al menú d'adreces d'interés. </para>
+> on podreu afegir nous subelements al menú d'adreces d'interés. </para>
 </listitem>
 </varlistentry>
 
@@ -1037,7 +1037,7 @@ Print the contents of the currently visible page.
 </term>
 <listitem>
 <para
->Permet configurar la família i la mida dels tipus de lletra emprats per &khelpcenter;. </para>
+>Permet configurar la família i la mida dels tipus de lletra utilitzats per &khelpcenter;. </para>
 </listitem>
 </varlistentry>
 </variablelist>

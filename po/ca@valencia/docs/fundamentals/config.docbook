@@ -59,7 +59,7 @@
 <para
 >Damunt de cada costat del quadro hi ha un quadro de text <guilabel
 >Filtre</guilabel
-> que podeu utilitzar per a trobar amb facilitat els elements en la llista.</para>
+> que podeu utilitzar per a trobar amb facilitat els elements de la llista.</para>
 
 <screenshot id="screenshot-toolbars-customize">
 <screeninfo
@@ -84,14 +84,14 @@
 <title
 >Afegir un element</title>
 <para
->Podeu afegir un element a la barra d'eines seleccionant-lo al costat esquerre i fent clic damunt del botó de fletxa dreta.</para>
+>Podeu afegir un element a la barra d'eines seleccionant-lo al costat esquerre i fent clic en el botó de fletxa dreta.</para>
 </sect3>
 
 <sect3 id="toolbars-items-remove">
 <title
 >Eliminar un element</title>
 <para
->Podeu eliminar un element seleccionant-lo i fent clic damunt del botó de fletxa esquerra.</para>
+>Podeu eliminar un element seleccionant-lo i fent clic en el botó de fletxa esquerra.</para>
 </sect3>
 
 
@@ -100,10 +100,10 @@
 >Canviar la posició dels elements</title>
 
 <para
->Podeu canviar la posició dels elements movent-los amunt o avall en la llista. Per a moure'ls cap avall, premeu el botó de fletxa avall, mentre que per a moure'ls cap amunt premeu el botó de fletxa amunt. També podeu canviar la seua posició fent arrossegar i deixar anar.</para>
+>Podeu canviar la posició dels elements movent-los amunt o avall a la llista. Per a moure'ls cap avall, premeu el botó de fletxa avall, mentre que per a moure'ls cap amunt premeu el botó de fletxa amunt. També podeu canviar la seua posició fent arrossegar i deixar anar.</para>
 
 <para
->En les barres d'eines en horitzontal, l'element que es troba en la part superior serà el de l'esquerra. En les barres d'eines en vertical, els elements es disposaran tal com apareixen.</para>
+>En les barres d'eines en horitzontal, l'element que està a la part superior serà el de l'esquerra. En les barres d'eines en vertical, els elements es disposen tal com apareixen.</para>
 
 </sect3>
 
@@ -122,7 +122,7 @@
 
 <para
 >Podeu restaurar la barra d'eines a la forma en què es trobava quan es va instal·lar l'aplicació prement el botó <guibutton
->Predeterminat</guibutton
+>De manera predeterminada,</guibutton
 > a la part inferior de la finestra i després confirmant la vostra decisió.</para>
 
 </sect3>
@@ -155,7 +155,7 @@
 >Posició del text</title>
 
 <para
->Podeu canviar l'aparença del text en les barres d'eines en el submenú <guisubmenu
+>Podeu canviar l'aparença del text a les barres d'eines en el submenú <guisubmenu
 >Posició del text</guisubmenu
 > del menú contextual d'una barra d'eines.</para>
 
@@ -205,7 +205,7 @@
 >Mida de les icones</title>
 
 <para
->Podeu canviar la mida de les icones dels elements en la barra d'eines seleccionant <guisubmenu
+>Podeu canviar la mida de les icones dels elements a la barra d'eines seleccionant <guisubmenu
 >Mida de les icones</guisubmenu
 > des del menú contextual de la barra d'eines.</para>
 
@@ -216,7 +216,7 @@
 <listitem
 ><para
 ><guimenuitem
->Xicoteta (16x16)</guimenuitem
+>Xicotet (16x16)</guimenuitem
 ></para
 ></listitem>
 <listitem
@@ -248,7 +248,7 @@
 <para
 >Per tal de moure les barres d'eines, primer les heu de <quote
 >desbloquejar</quote
->. Per a fer-ho, desmarqueu <guimenuitem
+>. Per fer-ho, desmarqueu <guimenuitem
 >Bloqueja la posició de les barres d'eines</guimenuitem
 > des del menú contextual de la barra d'eines. Per a restaurar el bloqueig, senzillament marqueu una altra vegada este element de menú.</para>
 
@@ -264,7 +264,7 @@
 ><para
 ><guimenuitem
 >Dalt</guimenuitem
-> [l'opció predeterminada en moltes aplicacions]</para
+> [l'opció predeterminada a moltes aplicacions]</para
 ></listitem>
 <listitem
 ><para
@@ -304,14 +304,14 @@
 >Mostra la barra d'eines</guimenuitem
 > des del menú <guimenu
 >Configuració</guimenu
->. Recordeu que per a actuar sobre les barres d'eines, primer s'han de <quote
+>. Recordeu que per actuar sobre les barres d'eines primer s'han de <quote
 >desbloquejar</quote
-> des del seu menú contextual. Per a més informació, vegeu <xref linkend="toolbars-appearance-move"/>.</para>
+> des del seu menú contextual. Vegeu <xref linkend="toolbars-appearance-move"/> per a més informació.</para>
 
 <para
 >Si l'aplicació té més d'una barra d'eines, apareixerà un submenú anomenat <guisubmenu
 >Barres d'eines mostrades</guisubmenu
-> en el menú contextual i en el menú <guimenu
+> al menú contextual i al menú <guimenu
 >Configuració</guimenu
 > en lloc de l'entrada del menú de dalt. Des d'este menú podreu seleccionar individualment les barres d'eines que s'han d'ocultar o mostrar.</para>
 
@@ -322,7 +322,7 @@
 <title
 >Agraïments i reconeixements</title>
 <para
->Un agraïment especial a la Google Code-in de 2011, a un participant anònim per escriure gran part d'esta secció.</para>
+>Un agraïment especial a la Google Code-in 2011, a un participant anònim per escriure gran part d'esta secció.</para>
 </sect2>
 
 </sect1>
@@ -384,7 +384,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 ><para
 >La busca de dreceres amb <userinput
 >file</userinput
-> en <ulink url="https://kde.org/applications/system/dolphin/"
+> a <ulink url="https://kde.org/applications/system/dolphin/"
 >&dolphin;</ulink
 >. </para
 ></caption>
@@ -398,7 +398,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 >Canviar una drecera</title>
 
 <para
->Per a canviar una drecera, primer feu clic damunt del nom de la que voleu canviar. Veureu un grup de botons d'opció en el qual podreu decidir si la voleu establir al seu valor predeterminat o seleccionar-ne una de nova per a l'acció seleccionada. Per a establir una drecera nova, escolliu <guilabel
+>Per a canviar una drecera, primer feu clic en el nom de la que voleu canviar. Veureu un grup de botons d'opció en el qual podreu decidir si la voleu establir al seu valor predeterminat, o seleccionar-ne una de nova per a l'acció seleccionada. Per a establir una drecera nova, escolliu <guilabel
 >Personalitza</guilabel
 > i feu clic damunt del botó al seu costat. Després només haureu d'escriure la drecera que voleu i guardar els canvis.</para>
 
@@ -422,12 +422,12 @@ another place to change Global Shortcuts (Systemsettings)-->
 >Restablir les dreceres</title>
 <para
 >Hi ha un botó a la part inferior de la finestra, anomenat <guibutton
->Predeterminat</guibutton
->. En fer clic sobre este botó es restabliran totes les dreceres personalitzades als seus valors predeterminats.</para>
+>De manera predeterminada,</guibutton
+>. Fent clic en este botó es restabliran totes les dreceres personalitzades als seus valors predeterminats.</para>
 
 <para
 >També podeu restablir una drecera individual al seu valor predeterminat, seleccionant-la i escollint el botó d'opció <guilabel
->Predeterminat</guilabel
+>De manera predeterminada,</guilabel
 >.</para>
 
 </sect2>
@@ -448,7 +448,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 >Treballar amb els esquemes</title>
 
 <para
->Els esquemes són perfils de configuració de les dreceres de teclat, de manera que podreu crear diversos perfils amb dreceres diferents i canviar entre estos amb facilitat.</para>
+>Els esquemes són perfils de configuració de les dreceres de teclat, de manera que podreu crear diversos perfils amb diferents dreceres i canviar entre estos perfils amb facilitat.</para>
 
 <screenshot id="screenshot-shortcuts-schemes">
 <screeninfo
@@ -470,7 +470,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 </screenshot>
 
 <para
->Per a veure un menú que vos permeta editar esquemes, feu clic damunt del botó <guibutton
+>Per a veure un menú que vos permeta editar esquemes, feu clic en el botó <guibutton
 >Gestiona els esquemes</guibutton
 > a la part inferior del formulari. Apareixeran les opcions següents:</para>
 
@@ -483,7 +483,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 ></term>
 <listitem
 ><para
->Permet canviar entre els diferents esquemes.</para
+>Us permet canviar entre els diferents esquemes.</para
 ></listitem>
 </varlistentry>
 
@@ -564,7 +564,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 >Imprimir les dreceres</title>
 
 <para
->Podeu imprimir una llista de les dreceres per a facilitar la consulta fent clic damunt del botó <guibutton
+>Podeu imprimir una llista de les dreceres per a facilitar la consulta fent clic en el botó <guibutton
 >Imprimix</guibutton
 > a la part inferior de la finestra.</para>
 
@@ -575,7 +575,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 >Agraïments i reconeixements</title>
 
 <para
->Un agraïment especial a la Google Code-in de 2011, al participant Alexey Subach per escriure gran part d'esta secció.</para>
+>Un agraïment especial a la Google Code-in 2011, al participant Alexey Subach per escriure gran part d'esta secció.</para>
 
 </sect2>
 
