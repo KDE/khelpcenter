@@ -40,6 +40,7 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
     Archive
     Bookmarks
     Config
+    ConfigWidgets
     CoreAddons
     Completion
     DBusAddons
@@ -47,8 +48,8 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
     I18n
     KIO
     XmlGui
-    CoreAddons
     Service
+    WidgetsAddons
     WindowSystem
 )
 
