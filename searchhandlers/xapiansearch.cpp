@@ -9,7 +9,7 @@
 #include <QCoreApplication>
 #include <QCommandLineParser>
 #include <QLoggingCategory>
-#include <QVector>
+#include <QList>
 
 #include <iostream>
 
@@ -21,7 +21,7 @@ Q_LOGGING_CATEGORY( LOG, "org.kde.khelpcenter.xapian.search", QtWarningMsg )
 
 Xapian::Query queryFromWordlist( const QString& words, Xapian::Query::op op )
 {
-  QVector<std::string> wordlist;
+  QList<std::string> wordlist;
   const QStringList splitlist = words.split( QLatin1Char( '+' ) );
   wordlist.reserve( splitlist.size() );
   for ( const QString& word : splitlist ) {

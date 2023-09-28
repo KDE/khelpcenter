@@ -9,7 +9,6 @@
 #include "xapiancommon.h"
 
 #include <docbookxslt.h>
-#include <QDateTime>
 #include <QCoreApplication>
 #include <QCommandLineParser>
 #include <QDirIterator>

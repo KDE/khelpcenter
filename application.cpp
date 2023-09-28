@@ -48,18 +48,7 @@ QCommandLineParser *Application::cmdParser()
 void Application::activateForStartLikeCall()
 {
   mMainWindow->show();
-#if KWINDOWSYSTEM_VERSION >= QT_VERSION_CHECK(5, 91, 0)
   KWindowSystem::updateStartupId(mMainWindow->windowHandle());
-#else
-  if (KWindowSystem::isPlatformWayland()) {
-    const QString token = qEnvironmentVariable("XDG_ACTIVATION_TOKEN");
-    if (!token.isEmpty()) {
-      KWindowSystem::setCurrentXdgActivationToken(token);
-      // no need to unset XDG_ACTIVATION_TOKEN, because
-      // KDBusService cares for that and we only run in its signals handlers here
-    }
-  }
-#endif
 
   mMainWindow->raise();
   KWindowSystem::activateWindow(mMainWindow->windowHandle());
@@ -109,13 +98,12 @@ void Application::open(const QList<QUrl>& urls)
 
 int main( int argc, char **argv )
 {
-  QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps, true);
   KHC::Application app(argc, argv);
   KAboutData aboutData( QStringLiteral("khelpcenter"), i18n("Help Center"),
                         QStringLiteral(PROJECT_VERSION),
                         i18n("Help Center"),
                         KAboutLicense::GPL,
-                        i18n("(c) 1999-2020, The KHelpCenter developers") );
+                        i18n("(c) 1999-2023, The KHelpCenter developers") );
 
   aboutData.addAuthor( QStringLiteral("Luigi Toscano"), i18n("Current maintainer"), QStringLiteral("luigi.toscano@tiscali.it") );
   aboutData.addAuthor( QStringLiteral("Pino Toscano"), i18n("Xapian-based search, lot of bugfixes"), QStringLiteral("pino@kde.org") );
@@ -144,7 +132,7 @@ int main( int argc, char **argv )
 
   return app.exec();
 }
-
 #include "moc_application.cpp"
 
 // vim:ts=2:sw=2:et
+

@@ -8,8 +8,6 @@
 
 #include "view.h"
 
-#include <dom/html_document.h>
-
 using namespace KHC;
 
 BookmarkOwner::BookmarkOwner( View *view, QObject *parent )
@@ -24,12 +22,12 @@ BookmarkOwner::~BookmarkOwner()
 
 QString BookmarkOwner::currentTitle() const
 {
-  return currentUrl().isValid() ? mView->htmlDocument().title().string() : QString();
+  return currentUrl().isValid() ? mView->title() : QString();
 }
 
 QUrl BookmarkOwner::currentUrl() const
 {
-  const QUrl url = mView->baseURL();
+  const QUrl url = mView->url();
   // khelpcenter: URLs are internal, hence to not bookmark
   return url.scheme() == QLatin1String( "khelpcenter" ) ? QUrl() : url;
 }

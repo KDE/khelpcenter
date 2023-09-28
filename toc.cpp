@@ -131,7 +131,7 @@ void TOC::buildCache()
     KProcess *meinproc = new KProcess;
     connect(meinproc, QOverload<int, QProcess::ExitStatus>::of(&KProcess::finished), this, &TOC::meinprocExited);
 
-    *meinproc << QStandardPaths::findExecutable(QStringLiteral("meinproc5"));
+    *meinproc << QStandardPaths::findExecutable(QStringLiteral( "meinproc6" ) );
     *meinproc << QStringLiteral("--stylesheet") << QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("khelpcenter/table-of-contents.xslt") );
     *meinproc << QStringLiteral("--output") << m_cacheFile;
     *meinproc << m_sourceFile;
@@ -181,7 +181,6 @@ void TOC::meinprocExited( int exitCode, QProcess::ExitStatus exitStatus)
     // write back updated xml content 
     f.seek( 0 );
     QTextStream stream( &f );
-    stream.setCodec( "UTF-8" );
 #ifdef Q_WS_WIN
     /*
       the problem that on german systems umlauts are displayed as '?' for unknown (Qt'r related ?) reasons
@@ -292,3 +291,4 @@ QString TOCSectionItem::url()
 #include "moc_toc.cpp"
 
 // vim:ts=2:sw=2:et
+

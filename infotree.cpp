@@ -163,3 +163,4 @@ void InfoTree::parseInfoDirFile( const QString &infoDirFileName )
 #include "moc_infotree.cpp"
 
 // vim:ts=2:sw=2:et
+

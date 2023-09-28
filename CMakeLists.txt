@@ -7,10 +7,10 @@ set (RELEASE_SERVICE_VERSION_MICRO "70")
 set (RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE_VERSION_MINOR}.${RELEASE_SERVICE_VERSION_MICRO}")
 set (RELEASE_SERVICE_COMPACT_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}${RELEASE_SERVICE_VERSION_MINOR}${RELEASE_SERVICE_VERSION_MICRO}")
 
-project(KHelpCenter VERSION "5.8.${RELEASE_SERVICE_COMPACT_VERSION}")
+project(KHelpCenter VERSION "6.0.${RELEASE_SERVICE_COMPACT_VERSION}")
 
-set(QT_MIN_VERSION "5.15.0")
-set(KF_MIN_VERSION "5.89.0")
+set(QT_MIN_VERSION "6.4.0")
+set(KF_MIN_VERSION "5.240.0")
 
 find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
@@ -28,30 +28,31 @@ include(CheckIncludeFiles)
 include(ECMQtDeclareLoggingCategory)
 include(ECMGenerateDBusServiceFile)
 
-find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
+
+find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     DBus
     Widgets
     Xml
+    WebEngineWidgets
 )
 
-find_package(KF5 ${KF_MIN_VERSION} REQUIRED COMPONENTS
+find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
     Archive
     Bookmarks
     Config
     CoreAddons
+    Completion
     DBusAddons
     DocTools
     I18n
-    KHtml
+    KIO
+    XmlGui
+    CoreAddons
     Service
     WindowSystem
 )
 
-find_package(Grantlee5 REQUIRED)
-set_package_properties(Grantlee5 PROPERTIES
-    DESCRIPTION "Support for HTML templates"
-    URL "https://github.com/steveire/grantlee"
-    TYPE REQUIRED)
+find_package(KF6TextTemplate CONFIG REQUIRED)
 
 find_package(Xapian REQUIRED)
 set_package_properties(Xapian PROPERTIES
@@ -70,7 +71,6 @@ add_subdirectory( searchhandlers )
 if(BUILD_TESTING)
     add_subdirectory( tests )
 endif()
-add_subdirectory( doc )
 add_subdirectory( templates )
 
 ########### next target ###############
@@ -96,12 +96,36 @@ target_sources(khelpcenter PRIVATE
    application.cpp
    treebuilder.cpp
    infotree.cpp
-   fontdialog.cpp
    plugintraverser.cpp
    scrollkeepertreebuilder.cpp
    bookmarkowner.cpp
    searchhandler.cpp
 
+   navigator.h
+   navigatoritem.h
+   navigatorappitem.h
+   navigatorappgroupitem.h
+   view.h
+   searchwidget.h
+   searchengine.h
+   docmetainfo.h
+   docentrytraverser.h
+   grantleeformatter.h
+   glossary.h
+   toc.h
+   mainwindow.h
+   docentry.h
+   history.h
+   application.h
+   treebuilder.h
+   infotree.h
+   plugintraverser.h
+   scrollkeepertreebuilder.h
+   bookmarkowner.h
+   searchhandler.h
+
+   printdoc.cpp
+   printdoc.h
    khelpcenter.qrc
 )
 
@@ -117,7 +141,17 @@ kconfig_add_kcfg_files(khelpcenter prefs.kcfgc )
 # kf5_add_app_icon(khelpcenter_SRCS "${KDE4_INSTALL_DIR}/share/icons/oxygen/*/apps/help-browser.png")
 
 target_compile_definitions(khelpcenter PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
-target_link_libraries(khelpcenter KF5::KHtml KF5::Service KF5::DBusAddons KF5::ConfigGui KF5::WindowSystem KF5::Bookmarks KF5::DocTools Qt5::Xml Grantlee5::Templates)
+target_link_libraries(khelpcenter KF6::Service KF6::DBusAddons KF6::ConfigGui
+    KF6::WindowSystem KF6::Bookmarks
+    KF6::DocTools Qt::Xml KF6::I18n KF6::XmlGui
+    Qt::WebEngineWidgets
+    KF6::CoreAddons
+    KF6::Completion
+    KF6::KIOCore
+    KF6::KIOWidgets
+)
+
+target_link_libraries(khelpcenter KF6::TextTemplate)
 
 # add clang-format target for all our real source files
 file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES *.cpp *.h)
@@ -135,14 +169,16 @@ ecm_generate_dbus_service_file(
 
 install( PROGRAMS org.kde.khelpcenter.desktop  DESTINATION  ${KDE_INSTALL_APPDIR} )
 install( FILES khelpcenter.kcfg  DESTINATION  ${KDE_INSTALL_KCFGDIR} )
-install( FILES khelpcenter.desktop  DESTINATION  ${KDE_INSTALL_KSERVICES5DIR} )
-install( FILES khelpcenter.desktop  DESTINATION  ${KDE_INSTALL_DATAROOTDIR}/kde4/services )
 install( FILES table-of-contents.xslt glossary.xslt DESTINATION ${KDE_INSTALL_DATADIR}/khelpcenter )
 install( FILES org.kde.khelpcenter.metainfo.xml DESTINATION ${KDE_INSTALL_METAINFODIR} )
 
 ki18n_install(po)
-kdoctools_install(po)
-
+if (QT_MAJOR_VERSION STREQUAL "5")
+    kdoctools_install(po)
+else()
+    MESSAGE(STATUS "docbook needs some fix for building against qt6")
+endif()
+add_subdirectory( doc )
 ecm_qt_install_logging_categories(
     EXPORT KHELPCENTER
     FILE khelpcenter.categories

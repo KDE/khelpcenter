@@ -22,8 +22,8 @@
 #include <KProcess>
 #include <KProtocolInfo>
 #include <KServiceGroup>
-#include <KServiceTypeTrader>
 #include <KShell>
+#include <KLocalizedString>
 
 #include "navigatoritem.h"
 #include "navigatorappitem.h"
@@ -33,7 +33,6 @@
 #include "searchhandler.h"
 #include "docmetainfo.h"
 #include "docentrytraverser.h"
-#include "toc.h"
 #include "view.h"
 #include "infotree.h"
 #include "plugintraverser.h"
@@ -173,23 +172,13 @@ QList<KPluginMetaData> Navigator::findKCMsMetaData(KCMType source)
     };
 
     // We need the exist calls because otherwise the trader language aborts if the property doesn't exist and the second part of the or is not evaluated
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    KService::List services;
-#endif
-    QVector<KPluginMetaData> metaDataList = KPluginMetaData::findPlugins(QStringLiteral("plasma/kcms"), filter);
+    QList<KPluginMetaData> metaDataList = KPluginMetaData::findPlugins(QStringLiteral("plasma/kcms"), filter);
     if (source & SystemSettings) {
         metaDataList << KPluginMetaData::findPlugins(QStringLiteral("plasma/kcms/systemsettings"), filter);
         metaDataList << KPluginMetaData::findPlugins(QStringLiteral("plasma/kcms/systemsettings_qwidgets"), filter);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-        services +=
-            KServiceTypeTrader::self()->query(QStringLiteral("KCModule"), QStringLiteral("[X-KDE-System-Settings-Parent-Category] != ''"));
-#endif
     }
     if (source & KInfoCenter) {
         metaDataList << KPluginMetaData::findPlugins(QStringLiteral("plasma/kcms/kinfocenter"), filter);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-        services += KServiceTypeTrader::self()->query(QStringLiteral("KCModule"), QStringLiteral("[X-KDE-ParentApp] == 'kinfocenter'"));
-#endif
     }
     for (const auto &m : qAsConst(metaDataList)) {
         // We check both since porting a module to loading view KPluginMetaData drops ".desktop" from the pluginId()
@@ -203,18 +192,6 @@ QList<KPluginMetaData> Navigator::findKCMsMetaData(KCMType source)
         }
     }
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    for (const auto &s : qAsConst(services)) {
-        if (!s->noDisplay() && !s->exec().isEmpty() && KAuthorized::authorizeControlModule(s->menuId())) {
-            const QString path = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kservices5/") + s->entryPath());
-            const KPluginMetaData data = KPluginMetaData::fromDesktopFile(path);
-            const bool inserted = uniquePluginIds.insert(data.pluginId()).second;
-            if (inserted) {
-                modules << data;
-            }
-        }
-    }
-#endif
     std::stable_sort(modules.begin(), modules.end(), [](const KPluginMetaData &m1, const KPluginMetaData &m2) {
         return QString::compare(m1.pluginId(), m2.pluginId(), Qt::CaseInsensitive) < 0;
     });
@@ -254,12 +231,13 @@ void Navigator::insertKCMDocs( const QString &name, NavigatorItem *topItem, cons
   QString systemsettingskontrolconstraint = QStringLiteral("[X-KDE-System-Settings-Parent-Category] != ''");
 
   KService::List list;
-
+#if 0 // KF6 TODO port it !
   if ( type == QLatin1String("kcontrol") ) {
     list = KServiceTypeTrader::self()->query( QStringLiteral("KCModule"), systemsettingskontrolconstraint );
   } else if ( type == QLatin1String("kinfocenter") ) {
     list = KServiceTypeTrader::self()->query( QStringLiteral("KCModule"), QStringLiteral("[X-KDE-ParentApp] == 'kinfocenter'") );
   }
+#endif
 
   bool no_children_present = true;
 
@@ -422,7 +400,7 @@ void Navigator::slotItemSelected( QTreeWidgetItem *currentItem )
   const QUrl url ( item->entry()->url() );
   
   if ( url.scheme() == QLatin1String("khelpcenter") ) {
-      mView->closeUrl();
+      mView->stop();
       History::self().updateCurrentEntry( mView );
       History::self().createEntry();
       showOverview( item, url );
@@ -463,8 +441,6 @@ void Navigator::openInternalUrl( const QUrl &url )
 
 void Navigator::showOverview( NavigatorItem *item, const QUrl &url )
 {
-  mView->beginInternal( url );
-
   QString title,name,content;
   uint childCount;
 
@@ -493,9 +469,8 @@ void Navigator::showOverview( NavigatorItem *item, const QUrl &url )
   else
     content += QLatin1String("<p></p>");
 
-  mView->write( mView->grantleeFormatter()->formatOverview( title, name, content ) );
+  mView->setInternalHtml( mView->grantleeFormatter()->formatOverview( title, name, content ), url );
 
-  mView->end();
 }
 
 QString Navigator::createChildrenList( QTreeWidgetItem *child, int level )
@@ -746,3 +721,4 @@ void Navigator::slotShowIndexingProgressBar()
 #include "moc_navigator.cpp"
 
 // vim:ts=2:sw=2:et
+

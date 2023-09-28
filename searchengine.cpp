@@ -14,6 +14,8 @@
 
 #include <prefs.h>
 
+#include <KLocalizedString>
+
 namespace KHC
 {
 
@@ -364,3 +366,4 @@ bool SearchEngine::needsIndex( DocEntry *entry )
 #include "moc_searchengine.cpp"
 
 // vim:ts=2:sw=2:et
+

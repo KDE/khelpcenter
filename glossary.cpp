@@ -10,6 +10,7 @@
 
 #include <KProcess>
 #include <KXmlGuiWindow>
+#include <KLocalizedString>
 
 #include <QApplication>
 #include <QDir>
@@ -76,7 +77,6 @@ Glossary::Glossary( QWidget *parent ) : QTreeWidget( parent )
     QDir().mkpath( QFileInfo( m_cacheFile ).absolutePath() );
 
     m_sourceFile = View::langLookup( QStringLiteral( "khelpcenter/glossary/index.docbook" ) );
-
 }
 
 void Glossary::showEvent(QShowEvent *event)
@@ -129,8 +129,7 @@ void Glossary::rebuildGlossaryCache()
 
     KProcess *meinproc = new KProcess;
     connect(meinproc, QOverload<int, QProcess::ExitStatus>::of(&KProcess::finished), this, &Glossary::meinprocFinished);
-
-    *meinproc << QStandardPaths::findExecutable(QStringLiteral( "meinproc5" ) );
+    *meinproc << QStandardPaths::findExecutable(QStringLiteral( "meinproc6" ) );
     *meinproc << QStringLiteral( "--output" ) << m_cacheFile;
     *meinproc << QStringLiteral( "--stylesheet" )
               << QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral( "khelpcenter/glossary.xslt" ) );
@@ -294,3 +293,4 @@ void Glossary::slotSelectGlossEntry( const QString &id )
 #include "moc_glossary.cpp"
 
 // vim:ts=4:sw=4:et
+
