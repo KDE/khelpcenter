@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-17 00:49+0000\n"
+"POT-Creation-Date: 2023-09-29 01:40+0000\n"
 "PO-Revision-Date: 2014-08-09 08:34+0200\n"
 "Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -40,37 +40,37 @@ msgstr ""
 msgid "Documentation to open"
 msgstr "Dokumentasjon som skal åpnes"
 
-#: application.cpp:114 application.cpp:116
+#: application.cpp:102 application.cpp:104
 #, kde-format
 msgid "Help Center"
 msgstr ""
 
-#: application.cpp:118
+#: application.cpp:106
 #, kde-format
-msgid "(c) 1999-2020, The KHelpCenter developers"
+msgid "(c) 1999-2023, The KHelpCenter developers"
 msgstr ""
 
-#: application.cpp:120
+#: application.cpp:108
 #, kde-format
 msgid "Current maintainer"
 msgstr ""
 
-#: application.cpp:121
+#: application.cpp:109
 #, kde-format
 msgid "Xapian-based search, lot of bugfixes"
 msgstr ""
 
-#: application.cpp:122
+#: application.cpp:110
 #, kde-format
 msgid "Former maintainer"
 msgstr ""
 
-#: application.cpp:124
+#: application.cpp:112
 #, kde-format
 msgid "Original Author"
 msgstr "Opprinnelig forfatter"
 
-#: application.cpp:125
+#: application.cpp:113
 #, kde-format
 msgid "Info page support"
 msgstr "Støtte for info-sider"
@@ -171,12 +171,12 @@ msgstr "Bruk språkkode"
 msgid "&Font size adjustment:"
 msgstr "&Justere skriftstørrelse:"
 
-#: glossary.cpp:68
+#: glossary.cpp:69
 #, kde-format
 msgid "By Topic"
 msgstr "Etter emne"
 
-#: glossary.cpp:72 infotree.cpp:74
+#: glossary.cpp:73 infotree.cpp:74
 #, kde-format
 msgid "Alphabetically"
 msgstr "Alfabetisk"
@@ -186,33 +186,33 @@ msgstr "Alfabetisk"
 msgid "Rebuilding glossary cache..."
 msgstr "Gjenoppbygger glossarmellomlager …"
 
-#: glossary.cpp:182
+#: glossary.cpp:181
 #, kde-format
 msgid "Rebuilding cache... done."
 msgstr "Gjenoppbygger mellomlager … ferdig."
 
-#: grantleeformatter.cpp:102
+#: grantleeformatter.cpp:100
 #, kde-format
 msgctxt "%1 is a glossary term"
 msgid "KDE Glossary: %1"
 msgstr ""
 
-#: grantleeformatter.cpp:103
+#: grantleeformatter.cpp:101
 #, kde-format
 msgid "KDE Glossary"
 msgstr "KDE-ordliste"
 
-#: grantleeformatter.cpp:107
+#: grantleeformatter.cpp:105
 #, kde-format
 msgid "See also: %1"
 msgstr ""
 
-#: grantleeformatter.cpp:128
+#: grantleeformatter.cpp:126
 #, kde-format
 msgid "Search Results"
 msgstr "Søkeresultater"
 
-#: grantleeformatter.cpp:129 searchengine.cpp:259
+#: grantleeformatter.cpp:127 searchengine.cpp:261
 #, kde-format
 msgid "Search Results for '%1':"
 msgstr "Søkeresultat for «%1»:"
@@ -264,138 +264,114 @@ msgstr "&Gå"
 msgid "Main Toolbar"
 msgstr "Hovedverktøylinje"
 
-#: mainwindow.cpp:64
+#: mainwindow.cpp:62
 #, kde-format
 msgid "Search Error Log"
 msgstr "Logg for søkefeil"
 
-#: mainwindow.cpp:116
+#: mainwindow.cpp:113
 #, kde-format
 msgid "Preparing Index"
 msgstr "Forbereder indeks"
 
-#: mainwindow.cpp:159
+#: mainwindow.cpp:140
 #, kde-format
 msgid "Ready"
 msgstr "Klar"
 
-#: mainwindow.cpp:210
-#, kde-format
-msgid "Previous Page"
-msgstr "Forrige side"
-
-#: mainwindow.cpp:212
-#, kde-format
-msgid "Moves to the previous page of the document"
-msgstr "Flytter til forrige side i dokumentet"
-
-#: mainwindow.cpp:216
-#, kde-format
-msgid "Next Page"
-msgstr "Neste side"
-
-#: mainwindow.cpp:218
-#, kde-format
-msgid "Moves to the next page of the document"
-msgstr "Flytter til neste side i dokumentet"
-
-#: mainwindow.cpp:225
+#: mainwindow.cpp:195
 #, kde-format
 msgid "Table of &Contents"
 msgstr "Inn&hold"
 
-#: mainwindow.cpp:226
+#: mainwindow.cpp:196
 #, kde-format
 msgid "Table of contents"
 msgstr "Innhold"
 
-#: mainwindow.cpp:227
+#: mainwindow.cpp:197
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "Gå tilbake til innholdsfortegnelsen"
 
-#: mainwindow.cpp:233
+#: mainwindow.cpp:203
 #, kde-format
 msgid "&Last Search Result"
 msgstr "&Siste søkeresultat"
 
-#: mainwindow.cpp:251
-#, kde-format
-msgid "Configure Fonts..."
-msgstr "Tilpass skrifter …"
-
-#: mainwindow.cpp:255
-#, kde-format
-msgid "Increase Font Sizes"
-msgstr "Øk skriftstørrelser"
-
-#: mainwindow.cpp:260
-#, kde-format
-msgid "Decrease Font Sizes"
-msgstr "Minsk skriftstørrelser"
-
-#: mainwindow.cpp:276
+#: mainwindow.cpp:233
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"
 msgstr "&Bokmerker"
 
-#: navigator.cpp:63
+#: navigator.cpp:62
 #, kde-format
 msgid "Search..."
 msgstr ""
 
-#: navigator.cpp:118
+#: navigator.cpp:117
 #, kde-format
 msgid "&Contents"
 msgstr "&Innhold"
 
-#: navigator.cpp:128
+#: navigator.cpp:127
 #, kde-format
 msgid "Search Options"
 msgstr "Søkevalg"
 
-#: navigator.cpp:136
+#: navigator.cpp:135
 #, kde-format
 msgid "G&lossary"
 msgstr "Ord&liste"
 
-#: navigator.cpp:480
+#: navigator.cpp:456
 #, kde-format
 msgid "Start Page"
 msgstr "Startside"
 
-#: navigator.cpp:481
+#: navigator.cpp:457
 #, kde-format
 msgid "KDE Help Center"
 msgstr "KDE hjelpesenter"
 
-#: navigator.cpp:564
+#: navigator.cpp:539
 #, kde-format
 msgid "Unable to run search program."
 msgstr "Kunne ikke kjøre søkeprogrammet."
 
-#: navigator.cpp:657
+#: navigator.cpp:632
 #, kde-format
 msgid "Updating search index..."
 msgstr ""
 
-#: navigator.cpp:668
+#: navigator.cpp:643
 #, kde-format
 msgid "Updating search index... done."
 msgstr ""
 
-#: searchengine.cpp:57
+#: printdoc.cpp:60
+#, kde-format
+msgid "Could not generate print preview."
+msgstr ""
+
+#: printdoc.cpp:96
+#, kde-format
+msgctxt "@title:window"
+msgid "Print Document"
+msgstr ""
+
+#: searchengine.cpp:59
 #, kde-format
 msgid "Error: No document type specified."
 msgstr "Feil: Ingen dokumenttype oppgitt."
 
-#: searchengine.cpp:59
+#: searchengine.cpp:61
 #, kde-format
 msgid "Error: No search handler for document type '%1'."
 msgstr "Feil: Ingen søkebehandler for dokument type «%1»."
 
-#: searchengine.cpp:229
+#: searchengine.cpp:231
 #, kde-format
 msgid "No valid search handler found."
 msgstr "Ingen gyldig søkebehandler funnet."
@@ -485,15 +461,32 @@ msgctxt "Label for Unknown search scope, that should never appear"
 msgid "unknown"
 msgstr "ukjent"
 
-#: view.cpp:228
-#, kde-format
-msgid "Copy Link Address"
-msgstr "Kopier lenkeadresse"
+#: view.cpp:270
+#, fuzzy, kde-format
+#| msgid "Start Page"
+msgid "Save Page"
+msgstr "Startside"
 
-#: view.cpp:312
-#, kde-format
-msgid ""
-"<p>Read the topic documentation in this window.<br /><br />Press <b>Space</"
-"b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, <b>Tab</b>/"
-"<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
-msgstr ""
+#~ msgid "Previous Page"
+#~ msgstr "Forrige side"
+
+#~ msgid "Moves to the previous page of the document"
+#~ msgstr "Flytter til forrige side i dokumentet"
+
+#~ msgid "Next Page"
+#~ msgstr "Neste side"
+
+#~ msgid "Moves to the next page of the document"
+#~ msgstr "Flytter til neste side i dokumentet"
+
+#~ msgid "Configure Fonts..."
+#~ msgstr "Tilpass skrifter …"
+
+#~ msgid "Increase Font Sizes"
+#~ msgstr "Øk skriftstørrelser"
+
+#~ msgid "Decrease Font Sizes"
+#~ msgstr "Minsk skriftstørrelser"
+
+#~ msgid "Copy Link Address"
+#~ msgstr "Kopier lenkeadresse"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-17 00:49+0000\n"
+"POT-Creation-Date: 2023-09-29 01:40+0000\n"
 "PO-Revision-Date: 2020-10-23 11:33+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -35,37 +35,38 @@ msgstr "hasso@linux.ee, qiilaq69@gmail.com"
 msgid "Documentation to open"
 msgstr "Avatav dokumentatsioon"
 
-#: application.cpp:114 application.cpp:116
+#: application.cpp:102 application.cpp:104
 #, kde-format
 msgid "Help Center"
 msgstr "Abikeskus"
 
-#: application.cpp:118
-#, kde-format
-msgid "(c) 1999-2020, The KHelpCenter developers"
+#: application.cpp:106
+#, fuzzy, kde-format
+#| msgid "(c) 1999-2020, The KHelpCenter developers"
+msgid "(c) 1999-2023, The KHelpCenter developers"
 msgstr "(c) 1999-2020: KDE abikeskuse arendajad"
 
-#: application.cpp:120
+#: application.cpp:108
 #, kde-format
 msgid "Current maintainer"
 msgstr "Praegune hooldaja"
 
-#: application.cpp:121
+#: application.cpp:109
 #, kde-format
 msgid "Xapian-based search, lot of bugfixes"
 msgstr "Xapiani-põhine otsing, rohkelt veaparandusi"
 
-#: application.cpp:122
+#: application.cpp:110
 #, kde-format
 msgid "Former maintainer"
 msgstr "Endine hooldaja"
 
-#: application.cpp:124
+#: application.cpp:112
 #, kde-format
 msgid "Original Author"
 msgstr "Algne autor"
 
-#: application.cpp:125
+#: application.cpp:113
 #, kde-format
 msgid "Info page support"
 msgstr "Infolehekülgede toetus"
@@ -164,12 +165,12 @@ msgstr "Keele kodeeringu kasutamine"
 msgid "&Font size adjustment:"
 msgstr "&Fondisuuruse kohendamine:"
 
-#: glossary.cpp:68
+#: glossary.cpp:69
 #, kde-format
 msgid "By Topic"
 msgstr "Teema järgi"
 
-#: glossary.cpp:72 infotree.cpp:74
+#: glossary.cpp:73 infotree.cpp:74
 #, kde-format
 msgid "Alphabetically"
 msgstr "Tähestiku järgi"
@@ -179,33 +180,33 @@ msgstr "Tähestiku järgi"
 msgid "Rebuilding glossary cache..."
 msgstr "Sõnaraamatupuhvri taasloomine..."
 
-#: glossary.cpp:182
+#: glossary.cpp:181
 #, kde-format
 msgid "Rebuilding cache... done."
 msgstr "Puhvri taasloomine... valmis."
 
-#: grantleeformatter.cpp:102
+#: grantleeformatter.cpp:100
 #, kde-format
 msgctxt "%1 is a glossary term"
 msgid "KDE Glossary: %1"
 msgstr "KDE sõnaraamat: %1"
 
-#: grantleeformatter.cpp:103
+#: grantleeformatter.cpp:101
 #, kde-format
 msgid "KDE Glossary"
 msgstr "KDE sõnaraamat"
 
-#: grantleeformatter.cpp:107
+#: grantleeformatter.cpp:105
 #, kde-format
 msgid "See also: %1"
 msgstr "Vaata ka: %1"
 
-#: grantleeformatter.cpp:128
+#: grantleeformatter.cpp:126
 #, kde-format
 msgid "Search Results"
 msgstr "Otsingutulemused"
 
-#: grantleeformatter.cpp:129 searchengine.cpp:259
+#: grantleeformatter.cpp:127 searchengine.cpp:261
 #, kde-format
 msgid "Search Results for '%1':"
 msgstr "\"%1\" otsingutulemused:"
@@ -257,138 +258,114 @@ msgstr "&Liikumine"
 msgid "Main Toolbar"
 msgstr "Peamine tööriistariba"
 
-#: mainwindow.cpp:64
+#: mainwindow.cpp:62
 #, kde-format
 msgid "Search Error Log"
 msgstr "Otsimisvea logi"
 
-#: mainwindow.cpp:116
+#: mainwindow.cpp:113
 #, kde-format
 msgid "Preparing Index"
 msgstr "Indeksi ettevalmistamine"
 
-#: mainwindow.cpp:159
+#: mainwindow.cpp:140
 #, kde-format
 msgid "Ready"
 msgstr "Valmis"
 
-#: mainwindow.cpp:210
-#, kde-format
-msgid "Previous Page"
-msgstr "Eelmine lehekülg"
-
-#: mainwindow.cpp:212
-#, kde-format
-msgid "Moves to the previous page of the document"
-msgstr "Liigub dokumendi eelmisele leheküljele"
-
-#: mainwindow.cpp:216
-#, kde-format
-msgid "Next Page"
-msgstr "Järgmine lehekülg"
-
-#: mainwindow.cpp:218
-#, kde-format
-msgid "Moves to the next page of the document"
-msgstr "Liigub dokumendi järgmisele leheküljele"
-
-#: mainwindow.cpp:225
+#: mainwindow.cpp:195
 #, kde-format
 msgid "Table of &Contents"
 msgstr "Sisu&kord"
 
-#: mainwindow.cpp:226
+#: mainwindow.cpp:196
 #, kde-format
 msgid "Table of contents"
 msgstr "Sisukord"
 
-#: mainwindow.cpp:227
+#: mainwindow.cpp:197
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "Liigub tagasi sisukorda"
 
-#: mainwindow.cpp:233
+#: mainwindow.cpp:203
 #, kde-format
 msgid "&Last Search Result"
 msgstr "Viimase otsingu tu&lemus"
 
-#: mainwindow.cpp:251
-#, kde-format
-msgid "Configure Fonts..."
-msgstr "Fontide seadistamine..."
-
-#: mainwindow.cpp:255
-#, kde-format
-msgid "Increase Font Sizes"
-msgstr "Suurenda fonti"
-
-#: mainwindow.cpp:260
-#, kde-format
-msgid "Decrease Font Sizes"
-msgstr "Vähenda fonti"
-
-#: mainwindow.cpp:276
+#: mainwindow.cpp:233
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"
 msgstr "&Järjehoidjad"
 
-#: navigator.cpp:63
+#: navigator.cpp:62
 #, kde-format
 msgid "Search..."
 msgstr "Otsi ..."
 
-#: navigator.cpp:118
+#: navigator.cpp:117
 #, kde-format
 msgid "&Contents"
 msgstr "Sisu&kord"
 
-#: navigator.cpp:128
+#: navigator.cpp:127
 #, kde-format
 msgid "Search Options"
 msgstr "Otsimisvalikud"
 
-#: navigator.cpp:136
+#: navigator.cpp:135
 #, kde-format
 msgid "G&lossary"
 msgstr "Sõna&raamat"
 
-#: navigator.cpp:480
+#: navigator.cpp:456
 #, kde-format
 msgid "Start Page"
 msgstr "Avalehekülg"
 
-#: navigator.cpp:481
+#: navigator.cpp:457
 #, kde-format
 msgid "KDE Help Center"
 msgstr "KDE abikeskus"
 
-#: navigator.cpp:564
+#: navigator.cpp:539
 #, kde-format
 msgid "Unable to run search program."
 msgstr "Otsimisprogrammi käivitamine nurjus."
 
-#: navigator.cpp:657
+#: navigator.cpp:632
 #, kde-format
 msgid "Updating search index..."
 msgstr "Otsimisindeksi uuendamine..."
 
-#: navigator.cpp:668
+#: navigator.cpp:643
 #, kde-format
 msgid "Updating search index... done."
 msgstr "Otsimisindeksi uuendamine ... tehtud."
 
-#: searchengine.cpp:57
+#: printdoc.cpp:60
+#, kde-format
+msgid "Could not generate print preview."
+msgstr ""
+
+#: printdoc.cpp:96
+#, kde-format
+msgctxt "@title:window"
+msgid "Print Document"
+msgstr ""
+
+#: searchengine.cpp:59
 #, kde-format
 msgid "Error: No document type specified."
 msgstr "Viga: dokumendi tüüp on määramata."
 
-#: searchengine.cpp:59
+#: searchengine.cpp:61
 #, kde-format
 msgid "Error: No search handler for document type '%1'."
 msgstr "Viga: dokumendile tüübiga \"%1\" pole otsingukäitlejat."
 
-#: searchengine.cpp:229
+#: searchengine.cpp:231
 #, kde-format
 msgid "No valid search handler found."
 msgstr "Sobivat otsingukäitlejat ei leitud."
@@ -478,22 +455,45 @@ msgctxt "Label for Unknown search scope, that should never appear"
 msgid "unknown"
 msgstr "tundmatu"
 
-#: view.cpp:228
-#, kde-format
-msgid "Copy Link Address"
-msgstr "Kopeeri viida aadress"
+#: view.cpp:270
+#, fuzzy, kde-format
+#| msgid "Start Page"
+msgid "Save Page"
+msgstr "Avalehekülg"
 
-#: view.cpp:312
-#, kde-format
-msgid ""
-"<p>Read the topic documentation in this window.<br /><br />Press <b>Space</"
-"b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, <b>Tab</b>/"
-"<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
-msgstr ""
-"<p>Selles aknas saab lugeda teemakohast dokumentatsiooni.<br /><br /"
-">Kerimiseks vajuta <b>tühikuklahv</b>/<b>Shift+tühikuklahv</b>, millegi "
-"leidmiseks <b>%1</b>, hüppamiseks <b>Tab</b>/<b>Shift+Tab</b> ja "
-"edasiminemiseks <b>Enter</b>.</p>"
+#~ msgid "Previous Page"
+#~ msgstr "Eelmine lehekülg"
+
+#~ msgid "Moves to the previous page of the document"
+#~ msgstr "Liigub dokumendi eelmisele leheküljele"
+
+#~ msgid "Next Page"
+#~ msgstr "Järgmine lehekülg"
+
+#~ msgid "Moves to the next page of the document"
+#~ msgstr "Liigub dokumendi järgmisele leheküljele"
+
+#~ msgid "Configure Fonts..."
+#~ msgstr "Fontide seadistamine..."
+
+#~ msgid "Increase Font Sizes"
+#~ msgstr "Suurenda fonti"
+
+#~ msgid "Decrease Font Sizes"
+#~ msgstr "Vähenda fonti"
+
+#~ msgid "Copy Link Address"
+#~ msgstr "Kopeeri viida aadress"
+
+#~ msgid ""
+#~ "<p>Read the topic documentation in this window.<br /><br />Press "
+#~ "<b>Space</b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, "
+#~ "<b>Tab</b>/<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
+#~ msgstr ""
+#~ "<p>Selles aknas saab lugeda teemakohast dokumentatsiooni.<br /><br /"
+#~ ">Kerimiseks vajuta <b>tühikuklahv</b>/<b>Shift+tühikuklahv</b>, millegi "
+#~ "leidmiseks <b>%1</b>, hüppamiseks <b>Tab</b>/<b>Shift+Tab</b> ja "
+#~ "edasiminemiseks <b>Enter</b>.</p>"
 
 #~ msgid "Handler"
 #~ msgstr "Käitleja"

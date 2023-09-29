@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-17 00:49+0000\n"
+"POT-Creation-Date: 2023-09-29 01:40+0000\n"
 "PO-Revision-Date: 2012-06-22 10:12+0430\n"
 "Last-Translator: Mohammad Reza Mirdamadi <mohi@linuxshop.ir>\n"
 "Language-Team: Farsi (Persian) <kde-i18n-fa@kde.org>\n"
@@ -35,38 +35,38 @@ msgstr "mohi@linuxshop.ir , kazemi@itland.ir"
 msgid "Documentation to open"
 msgstr "سند برای نمایه‌گذاری"
 
-#: application.cpp:114 application.cpp:116
+#: application.cpp:102 application.cpp:104
 #, kde-format
 msgid "Help Center"
 msgstr "مرکز کمک"
 
-#: application.cpp:118
+#: application.cpp:106
 #, fuzzy, kde-format
 #| msgid "(c) 1999-2011, The KHelpCenter developers"
-msgid "(c) 1999-2020, The KHelpCenter developers"
+msgid "(c) 1999-2023, The KHelpCenter developers"
 msgstr "(c) 1999-2011, The KHelpCenter developers"
 
-#: application.cpp:120
+#: application.cpp:108
 #, kde-format
 msgid "Current maintainer"
 msgstr ""
 
-#: application.cpp:121
+#: application.cpp:109
 #, kde-format
 msgid "Xapian-based search, lot of bugfixes"
 msgstr ""
 
-#: application.cpp:122
+#: application.cpp:110
 #, kde-format
 msgid "Former maintainer"
 msgstr ""
 
-#: application.cpp:124
+#: application.cpp:112
 #, kde-format
 msgid "Original Author"
 msgstr "نویسنده اصلی"
 
-#: application.cpp:125
+#: application.cpp:113
 #, kde-format
 msgid "Info page support"
 msgstr "پشتیبانی صفحه اطلاعات"
@@ -165,12 +165,12 @@ msgstr "استفاده از کدبندی زبان"
 msgid "&Font size adjustment:"
 msgstr "تنظیم اندازه &قلم:‌"
 
-#: glossary.cpp:68
+#: glossary.cpp:69
 #, kde-format
 msgid "By Topic"
 msgstr "بر اساس موضوع"
 
-#: glossary.cpp:72 infotree.cpp:74
+#: glossary.cpp:73 infotree.cpp:74
 #, kde-format
 msgid "Alphabetically"
 msgstr "الفبایی"
@@ -180,35 +180,35 @@ msgstr "الفبایی"
 msgid "Rebuilding glossary cache..."
 msgstr "بازسازی نهان‌گاه واژه‌نامه..."
 
-#: glossary.cpp:182
+#: glossary.cpp:181
 #, kde-format
 msgid "Rebuilding cache... done."
 msgstr "بازسازی نهانگاه... انجام شد."
 
-#: grantleeformatter.cpp:102
+#: grantleeformatter.cpp:100
 #, fuzzy, kde-format
 #| msgid "KDE Glossary"
 msgctxt "%1 is a glossary term"
 msgid "KDE Glossary: %1"
 msgstr "واژه‌نامه KDE"
 
-#: grantleeformatter.cpp:103
+#: grantleeformatter.cpp:101
 #, kde-format
 msgid "KDE Glossary"
 msgstr "واژه‌نامه KDE"
 
-#: grantleeformatter.cpp:107
+#: grantleeformatter.cpp:105
 #, fuzzy, kde-format
 #| msgid "See also: "
 msgid "See also: %1"
 msgstr "همچنین ببینید: "
 
-#: grantleeformatter.cpp:128
+#: grantleeformatter.cpp:126
 #, kde-format
 msgid "Search Results"
 msgstr "نتایج جستجو"
 
-#: grantleeformatter.cpp:129 searchengine.cpp:259
+#: grantleeformatter.cpp:127 searchengine.cpp:261
 #, kde-format
 msgid "Search Results for '%1':"
 msgstr "نتایج جستجو برای «%1»:"
@@ -260,141 +260,117 @@ msgstr "&برو‌"
 msgid "Main Toolbar"
 msgstr "میله ابزار اصلی"
 
-#: mainwindow.cpp:64
+#: mainwindow.cpp:62
 #, kde-format
 msgid "Search Error Log"
 msgstr "ثبت خطای جستجو"
 
-#: mainwindow.cpp:116
+#: mainwindow.cpp:113
 #, kde-format
 msgid "Preparing Index"
 msgstr "تدارک نمایه"
 
-#: mainwindow.cpp:159
+#: mainwindow.cpp:140
 #, kde-format
 msgid "Ready"
 msgstr "آماده"
 
-#: mainwindow.cpp:210
-#, kde-format
-msgid "Previous Page"
-msgstr "صفحه قبلی"
-
-#: mainwindow.cpp:212
-#, kde-format
-msgid "Moves to the previous page of the document"
-msgstr "به صفحه قبلی سند حرکت می‌کند"
-
-#: mainwindow.cpp:216
-#, kde-format
-msgid "Next Page"
-msgstr "صفحه بعد"
-
-#: mainwindow.cpp:218
-#, kde-format
-msgid "Moves to the next page of the document"
-msgstr "به صفحه بعدی سند حرکت می‌کند"
-
-#: mainwindow.cpp:225
+#: mainwindow.cpp:195
 #, kde-format
 msgid "Table of &Contents"
 msgstr "جدول &محتویات‌"
 
-#: mainwindow.cpp:226
+#: mainwindow.cpp:196
 #, kde-format
 msgid "Table of contents"
 msgstr "جدول محتویات"
 
-#: mainwindow.cpp:227
+#: mainwindow.cpp:197
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "برگشت به جدول محتویات"
 
-#: mainwindow.cpp:233
+#: mainwindow.cpp:203
 #, kde-format
 msgid "&Last Search Result"
 msgstr "&آخرین نتیجه جستجو‌"
 
-#: mainwindow.cpp:251
-#, kde-format
-msgid "Configure Fonts..."
-msgstr "پیکربندی قلمها..."
-
-#: mainwindow.cpp:255
-#, kde-format
-msgid "Increase Font Sizes"
-msgstr "افزایش اندازه‌های قلم"
-
-#: mainwindow.cpp:260
-#, kde-format
-msgid "Decrease Font Sizes"
-msgstr "کاهش اندازه‌های قلم"
-
-#: mainwindow.cpp:276
+#: mainwindow.cpp:233
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"
 msgstr ""
 
-#: navigator.cpp:63
+#: navigator.cpp:62
 #, fuzzy, kde-format
 #| msgid "&Search"
 msgid "Search..."
 msgstr "&جستجو‌"
 
-#: navigator.cpp:118
+#: navigator.cpp:117
 #, kde-format
 msgid "&Contents"
 msgstr "&محتویات‌"
 
-#: navigator.cpp:128
+#: navigator.cpp:127
 #, kde-format
 msgid "Search Options"
 msgstr "گزینه‌های جستجو"
 
-#: navigator.cpp:136
+#: navigator.cpp:135
 #, kde-format
 msgid "G&lossary"
 msgstr "&واژه‌نامه‌"
 
-#: navigator.cpp:480
+#: navigator.cpp:456
 #, kde-format
 msgid "Start Page"
 msgstr "صفحه آغاز"
 
-#: navigator.cpp:481
+#: navigator.cpp:457
 #, kde-format
 msgid "KDE Help Center"
 msgstr "مرکز کمک KDE"
 
-#: navigator.cpp:564
+#: navigator.cpp:539
 #, kde-format
 msgid "Unable to run search program."
 msgstr "قادر به اجرای برنامه جستجو نیست."
 
-#: navigator.cpp:657
+#: navigator.cpp:632
 #, fuzzy, kde-format
 #| msgid "Build Search Index..."
 msgid "Updating search index..."
 msgstr "ایجاد نمایه جستجو..."
 
-#: navigator.cpp:668
+#: navigator.cpp:643
 #, fuzzy, kde-format
 #| msgid "Rebuilding cache... done."
 msgid "Updating search index... done."
 msgstr "بازسازی نهانگاه... انجام شد."
 
-#: searchengine.cpp:57
+#: printdoc.cpp:60
+#, kde-format
+msgid "Could not generate print preview."
+msgstr ""
+
+#: printdoc.cpp:96
+#, kde-format
+msgctxt "@title:window"
+msgid "Print Document"
+msgstr ""
+
+#: searchengine.cpp:59
 #, kde-format
 msgid "Error: No document type specified."
 msgstr "خطا: نوع سند مشخص نشده است."
 
-#: searchengine.cpp:59
+#: searchengine.cpp:61
 #, kde-format
 msgid "Error: No search handler for document type '%1'."
 msgstr "خطا: گرداننده جستجو برای نوع سند «%1» نیست."
 
-#: searchengine.cpp:229
+#: searchengine.cpp:231
 #, kde-format
 msgid "No valid search handler found."
 msgstr "گرداننده جستجوی معتبر یافت نشد."
@@ -484,18 +460,35 @@ msgctxt "Label for Unknown search scope, that should never appear"
 msgid "unknown"
 msgstr "ناشناخته"
 
-#: view.cpp:228
-#, kde-format
-msgid "Copy Link Address"
-msgstr "رونوشت نشانی پیوند"
+#: view.cpp:270
+#, fuzzy, kde-format
+#| msgid "Start Page"
+msgid "Save Page"
+msgstr "صفحه آغاز"
 
-#: view.cpp:312
-#, kde-format
-msgid ""
-"<p>Read the topic documentation in this window.<br /><br />Press <b>Space</"
-"b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, <b>Tab</b>/"
-"<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
-msgstr ""
+#~ msgid "Previous Page"
+#~ msgstr "صفحه قبلی"
+
+#~ msgid "Moves to the previous page of the document"
+#~ msgstr "به صفحه قبلی سند حرکت می‌کند"
+
+#~ msgid "Next Page"
+#~ msgstr "صفحه بعد"
+
+#~ msgid "Moves to the next page of the document"
+#~ msgstr "به صفحه بعدی سند حرکت می‌کند"
+
+#~ msgid "Configure Fonts..."
+#~ msgstr "پیکربندی قلمها..."
+
+#~ msgid "Increase Font Sizes"
+#~ msgstr "افزایش اندازه‌های قلم"
+
+#~ msgid "Decrease Font Sizes"
+#~ msgstr "کاهش اندازه‌های قلم"
+
+#~ msgid "Copy Link Address"
+#~ msgstr "رونوشت نشانی پیوند"
 
 #~ msgid "Unable to initialize SearchHandler from file '%1'."
 #~ msgstr "قادر به مقداردهی اولیه SearchHandler از پرونده «%1» نیست."

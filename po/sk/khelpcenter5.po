@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-17 00:49+0000\n"
+"POT-Creation-Date: 2023-09-29 01:40+0000\n"
 "PO-Revision-Date: 2021-11-15 17:34+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -41,37 +41,38 @@ msgstr ""
 msgid "Documentation to open"
 msgstr "Dokumentácia na otvorenie"
 
-#: application.cpp:114 application.cpp:116
+#: application.cpp:102 application.cpp:104
 #, kde-format
 msgid "Help Center"
 msgstr "Pomocník KDE"
 
-#: application.cpp:118
-#, kde-format
-msgid "(c) 1999-2020, The KHelpCenter developers"
+#: application.cpp:106
+#, fuzzy, kde-format
+#| msgid "(c) 1999-2020, The KHelpCenter developers"
+msgid "(c) 1999-2023, The KHelpCenter developers"
 msgstr "(c) 1999-2020, Vývojári KHelpCenter"
 
-#: application.cpp:120
+#: application.cpp:108
 #, kde-format
 msgid "Current maintainer"
 msgstr "Aktuálny správca"
 
-#: application.cpp:121
+#: application.cpp:109
 #, kde-format
 msgid "Xapian-based search, lot of bugfixes"
 msgstr "Vyhľadávanie postavené na Xapian, veľa opráv chýb"
 
-#: application.cpp:122
+#: application.cpp:110
 #, kde-format
 msgid "Former maintainer"
 msgstr "Bývalý správca"
 
-#: application.cpp:124
+#: application.cpp:112
 #, kde-format
 msgid "Original Author"
 msgstr "Pôvodný autor"
 
-#: application.cpp:125
+#: application.cpp:113
 #, kde-format
 msgid "Info page support"
 msgstr "Podpora info stránok"
@@ -170,12 +171,12 @@ msgstr "Použiť znakovú sadu jazyka"
 msgid "&Font size adjustment:"
 msgstr "Úprava &veľkosti písma:"
 
-#: glossary.cpp:68
+#: glossary.cpp:69
 #, kde-format
 msgid "By Topic"
 msgstr "Podľa témy"
 
-#: glossary.cpp:72 infotree.cpp:74
+#: glossary.cpp:73 infotree.cpp:74
 #, kde-format
 msgid "Alphabetically"
 msgstr "Abecedne"
@@ -185,33 +186,33 @@ msgstr "Abecedne"
 msgid "Rebuilding glossary cache..."
 msgstr "Znovu vytváranie vyrovnávacej pamäte slovníka..."
 
-#: glossary.cpp:182
+#: glossary.cpp:181
 #, kde-format
 msgid "Rebuilding cache... done."
 msgstr "Znovu vytváranie vyrovnávacej pamäte... Hotovo."
 
-#: grantleeformatter.cpp:102
+#: grantleeformatter.cpp:100
 #, kde-format
 msgctxt "%1 is a glossary term"
 msgid "KDE Glossary: %1"
 msgstr "Významový slovník KDE: %1"
 
-#: grantleeformatter.cpp:103
+#: grantleeformatter.cpp:101
 #, kde-format
 msgid "KDE Glossary"
 msgstr "Významový slovník KDE"
 
-#: grantleeformatter.cpp:107
+#: grantleeformatter.cpp:105
 #, kde-format
 msgid "See also: %1"
 msgstr "Pozri aj: %1"
 
-#: grantleeformatter.cpp:128
+#: grantleeformatter.cpp:126
 #, kde-format
 msgid "Search Results"
 msgstr "Výsledky hľadania"
 
-#: grantleeformatter.cpp:129 searchengine.cpp:259
+#: grantleeformatter.cpp:127 searchengine.cpp:261
 #, kde-format
 msgid "Search Results for '%1':"
 msgstr "Výsledky hľadania pre '%1':"
@@ -263,138 +264,114 @@ msgstr "Pre&jsť"
 msgid "Main Toolbar"
 msgstr "Hlavný panel nástrojov"
 
-#: mainwindow.cpp:64
+#: mainwindow.cpp:62
 #, kde-format
 msgid "Search Error Log"
 msgstr "Záznam o chybách počas hľadania"
 
-#: mainwindow.cpp:116
+#: mainwindow.cpp:113
 #, kde-format
 msgid "Preparing Index"
 msgstr "Pripravuje sa index"
 
-#: mainwindow.cpp:159
+#: mainwindow.cpp:140
 #, kde-format
 msgid "Ready"
 msgstr "Pripravený"
 
-#: mainwindow.cpp:210
-#, kde-format
-msgid "Previous Page"
-msgstr "Predchádzajúca stránka"
-
-#: mainwindow.cpp:212
-#, kde-format
-msgid "Moves to the previous page of the document"
-msgstr "Presunie sa na predchádzajúcu stránku dokumentu"
-
-#: mainwindow.cpp:216
-#, kde-format
-msgid "Next Page"
-msgstr "Nasledujúca stránka"
-
-#: mainwindow.cpp:218
-#, kde-format
-msgid "Moves to the next page of the document"
-msgstr "Presunie sa na nasledujúcu stránku dokumentu"
-
-#: mainwindow.cpp:225
+#: mainwindow.cpp:195
 #, kde-format
 msgid "Table of &Contents"
 msgstr "&Obsah"
 
-#: mainwindow.cpp:226
+#: mainwindow.cpp:196
 #, kde-format
 msgid "Table of contents"
 msgstr "Obsah"
 
-#: mainwindow.cpp:227
+#: mainwindow.cpp:197
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "Prejsť späť na Obsah"
 
-#: mainwindow.cpp:233
+#: mainwindow.cpp:203
 #, kde-format
 msgid "&Last Search Result"
 msgstr "Výs&ledky posledného hľadania"
 
-#: mainwindow.cpp:251
-#, kde-format
-msgid "Configure Fonts..."
-msgstr "Nastaviť písma..."
-
-#: mainwindow.cpp:255
-#, kde-format
-msgid "Increase Font Sizes"
-msgstr "Zväčšiť veľkosť písma"
-
-#: mainwindow.cpp:260
-#, kde-format
-msgid "Decrease Font Sizes"
-msgstr "Zmenšiť veľkosť písma"
-
-#: mainwindow.cpp:276
+#: mainwindow.cpp:233
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"
 msgstr "&Záložky"
 
-#: navigator.cpp:63
+#: navigator.cpp:62
 #, kde-format
 msgid "Search..."
 msgstr "Hľadať..."
 
-#: navigator.cpp:118
+#: navigator.cpp:117
 #, kde-format
 msgid "&Contents"
 msgstr "&Obsah"
 
-#: navigator.cpp:128
+#: navigator.cpp:127
 #, kde-format
 msgid "Search Options"
 msgstr "Možnosti hľadania"
 
-#: navigator.cpp:136
+#: navigator.cpp:135
 #, kde-format
 msgid "G&lossary"
 msgstr "&Významový slovník"
 
-#: navigator.cpp:480
+#: navigator.cpp:456
 #, kde-format
 msgid "Start Page"
 msgstr "Úvodná stránka"
 
-#: navigator.cpp:481
+#: navigator.cpp:457
 #, kde-format
 msgid "KDE Help Center"
 msgstr "Pomocník KDE"
 
-#: navigator.cpp:564
+#: navigator.cpp:539
 #, kde-format
 msgid "Unable to run search program."
 msgstr "Nie je možné spustiť vyhľadávací program."
 
-#: navigator.cpp:657
+#: navigator.cpp:632
 #, kde-format
 msgid "Updating search index..."
 msgstr "Aktualizujem index hľadania..."
 
-#: navigator.cpp:668
+#: navigator.cpp:643
 #, kde-format
 msgid "Updating search index... done."
 msgstr "Aktualizujem index hľadania... Hotovo."
 
-#: searchengine.cpp:57
+#: printdoc.cpp:60
+#, kde-format
+msgid "Could not generate print preview."
+msgstr ""
+
+#: printdoc.cpp:96
+#, kde-format
+msgctxt "@title:window"
+msgid "Print Document"
+msgstr ""
+
+#: searchengine.cpp:59
 #, kde-format
 msgid "Error: No document type specified."
 msgstr "Chyba: Nebol špecifikovaný žiadny typ dokumentu."
 
-#: searchengine.cpp:59
+#: searchengine.cpp:61
 #, kde-format
 msgid "Error: No search handler for document type '%1'."
 msgstr "Chyba: Žiadny vyhľadávač pre typ dokumentu '%1'."
 
-#: searchengine.cpp:229
+#: searchengine.cpp:231
 #, kde-format
 msgid "No valid search handler found."
 msgstr "Nebol nájdený žiadny platný vyhľadávač."
@@ -484,21 +461,45 @@ msgctxt "Label for Unknown search scope, that should never appear"
 msgid "unknown"
 msgstr "neznámy"
 
-#: view.cpp:228
-#, kde-format
-msgid "Copy Link Address"
-msgstr "Kopírovať adresu odkazu"
+#: view.cpp:270
+#, fuzzy, kde-format
+#| msgid "Start Page"
+msgid "Save Page"
+msgstr "Úvodná stránka"
 
-#: view.cpp:312
-#, kde-format
-msgid ""
-"<p>Read the topic documentation in this window.<br /><br />Press <b>Space</"
-"b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, <b>Tab</b>/"
-"<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
-msgstr ""
-"<p>Prečítajte si dokumentáciu tému v tomto okne.<br /> <br />Stlačte "
-"<b>medzeru</b>/<b>Shift+Space</b> na rolovanie, <b>%1</b> na nájdenie "
-"niečoho, <b>Tab</b>/<b>Shift+Tab</b> na skok a <b>Enter</b> na prechod.</p>"
+#~ msgid "Previous Page"
+#~ msgstr "Predchádzajúca stránka"
+
+#~ msgid "Moves to the previous page of the document"
+#~ msgstr "Presunie sa na predchádzajúcu stránku dokumentu"
+
+#~ msgid "Next Page"
+#~ msgstr "Nasledujúca stránka"
+
+#~ msgid "Moves to the next page of the document"
+#~ msgstr "Presunie sa na nasledujúcu stránku dokumentu"
+
+#~ msgid "Configure Fonts..."
+#~ msgstr "Nastaviť písma..."
+
+#~ msgid "Increase Font Sizes"
+#~ msgstr "Zväčšiť veľkosť písma"
+
+#~ msgid "Decrease Font Sizes"
+#~ msgstr "Zmenšiť veľkosť písma"
+
+#~ msgid "Copy Link Address"
+#~ msgstr "Kopírovať adresu odkazu"
+
+#~ msgid ""
+#~ "<p>Read the topic documentation in this window.<br /><br />Press "
+#~ "<b>Space</b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, "
+#~ "<b>Tab</b>/<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
+#~ msgstr ""
+#~ "<p>Prečítajte si dokumentáciu tému v tomto okne.<br /> <br />Stlačte "
+#~ "<b>medzeru</b>/<b>Shift+Space</b> na rolovanie, <b>%1</b> na nájdenie "
+#~ "niečoho, <b>Tab</b>/<b>Shift+Tab</b> na skok a <b>Enter</b> na prechod.</"
+#~ "p>"
 
 #~ msgid "Handler"
 #~ msgstr "Spracovač"

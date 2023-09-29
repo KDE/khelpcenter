@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-17 00:49+0000\n"
+"POT-Creation-Date: 2023-09-29 01:40+0000\n"
 "PO-Revision-Date: 2022-02-02 20:54+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -42,37 +42,38 @@ msgstr "metehyi@free.fr,zayed.alsaidi@gmail.com,abdilra7eem@yahoo.com"
 msgid "Documentation to open"
 msgstr "التوثيق لفتحه"
 
-#: application.cpp:114 application.cpp:116
+#: application.cpp:102 application.cpp:104
 #, kde-format
 msgid "Help Center"
 msgstr "مركز مساعدة"
 
-#: application.cpp:118
-#, kde-format
-msgid "(c) 1999-2020, The KHelpCenter developers"
+#: application.cpp:106
+#, fuzzy, kde-format
+#| msgid "(c) 1999-2020, The KHelpCenter developers"
+msgid "(c) 1999-2023, The KHelpCenter developers"
 msgstr "(c) 1999-2020, مطوري مركز المساعدة لـِ كِيدِي"
 
-#: application.cpp:120
+#: application.cpp:108
 #, kde-format
 msgid "Current maintainer"
 msgstr "المصين الحاليّ"
 
-#: application.cpp:121
+#: application.cpp:109
 #, kde-format
 msgid "Xapian-based search, lot of bugfixes"
 msgstr "بحث بالاعتماد على Xapian والكثير من الإصلاحات"
 
-#: application.cpp:122
+#: application.cpp:110
 #, kde-format
 msgid "Former maintainer"
 msgstr "المصين السّابق"
 
-#: application.cpp:124
+#: application.cpp:112
 #, kde-format
 msgid "Original Author"
 msgstr "المؤلف الأصلي"
 
-#: application.cpp:125
+#: application.cpp:113
 #, kde-format
 msgid "Info page support"
 msgstr "دعم صفحة المعلومات"
@@ -171,12 +172,12 @@ msgstr "استخدم ترميز اللغة"
 msgid "&Font size adjustment:"
 msgstr "عدّل حجم الخ&ط:"
 
-#: glossary.cpp:68
+#: glossary.cpp:69
 #, kde-format
 msgid "By Topic"
 msgstr "حسب الموضوع"
 
-#: glossary.cpp:72 infotree.cpp:74
+#: glossary.cpp:73 infotree.cpp:74
 #, kde-format
 msgid "Alphabetically"
 msgstr "أبجدياً"
@@ -186,33 +187,33 @@ msgstr "أبجدياً"
 msgid "Rebuilding glossary cache..."
 msgstr "أعد بناء الذاكرة المخبئة للمصطلحات..."
 
-#: glossary.cpp:182
+#: glossary.cpp:181
 #, kde-format
 msgid "Rebuilding cache... done."
 msgstr "إعادة بناء الذاكرة المخبئة... انتهت."
 
-#: grantleeformatter.cpp:102
+#: grantleeformatter.cpp:100
 #, kde-format
 msgctxt "%1 is a glossary term"
 msgid "KDE Glossary: %1"
 msgstr "قاموس كِيدِي: %1"
 
-#: grantleeformatter.cpp:103
+#: grantleeformatter.cpp:101
 #, kde-format
 msgid "KDE Glossary"
 msgstr "قاموس كِيدِي"
 
-#: grantleeformatter.cpp:107
+#: grantleeformatter.cpp:105
 #, kde-format
 msgid "See also: %1"
 msgstr "طالع أيضًا: %1"
 
-#: grantleeformatter.cpp:128
+#: grantleeformatter.cpp:126
 #, kde-format
 msgid "Search Results"
 msgstr "نتائج البحث"
 
-#: grantleeformatter.cpp:129 searchengine.cpp:259
+#: grantleeformatter.cpp:127 searchengine.cpp:261
 #, kde-format
 msgid "Search Results for '%1':"
 msgstr "نتائج البحث لـِ'%1':"
@@ -264,138 +265,114 @@ msgstr "أ&ذهب"
 msgid "Main Toolbar"
 msgstr "شريط الأدوات الرئيسي"
 
-#: mainwindow.cpp:64
+#: mainwindow.cpp:62
 #, kde-format
 msgid "Search Error Log"
 msgstr "سجل وقائع أخطاء البحث"
 
-#: mainwindow.cpp:116
+#: mainwindow.cpp:113
 #, kde-format
 msgid "Preparing Index"
 msgstr "جاري تحضير الفهرسة"
 
-#: mainwindow.cpp:159
+#: mainwindow.cpp:140
 #, kde-format
 msgid "Ready"
 msgstr "جاهز"
 
-#: mainwindow.cpp:210
-#, kde-format
-msgid "Previous Page"
-msgstr "الصفحة السابقة"
-
-#: mainwindow.cpp:212
-#, kde-format
-msgid "Moves to the previous page of the document"
-msgstr "ينتقل إلى الصفحة السابقة من المستند"
-
-#: mainwindow.cpp:216
-#, kde-format
-msgid "Next Page"
-msgstr "الصفحة التالية"
-
-#: mainwindow.cpp:218
-#, kde-format
-msgid "Moves to the next page of the document"
-msgstr "ينتقل إلى الصفحة التالية من المستند"
-
-#: mainwindow.cpp:225
+#: mainwindow.cpp:195
 #, kde-format
 msgid "Table of &Contents"
 msgstr "جدول ال&محتويات"
 
-#: mainwindow.cpp:226
+#: mainwindow.cpp:196
 #, kde-format
 msgid "Table of contents"
 msgstr "جدول المحتويات"
 
-#: mainwindow.cpp:227
+#: mainwindow.cpp:197
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "أذهب إلى جدول المحتويات"
 
-#: mainwindow.cpp:233
+#: mainwindow.cpp:203
 #, kde-format
 msgid "&Last Search Result"
 msgstr "آ&خر نتائج البحث"
 
-#: mainwindow.cpp:251
-#, kde-format
-msgid "Configure Fonts..."
-msgstr "اضبط الخطوط..."
-
-#: mainwindow.cpp:255
-#, kde-format
-msgid "Increase Font Sizes"
-msgstr "زيادة أحجام الخط"
-
-#: mainwindow.cpp:260
-#, kde-format
-msgid "Decrease Font Sizes"
-msgstr "تقليل أحجام الخط"
-
-#: mainwindow.cpp:276
+#: mainwindow.cpp:233
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"
 msgstr "ال&علامات"
 
-#: navigator.cpp:63
+#: navigator.cpp:62
 #, kde-format
 msgid "Search..."
 msgstr "ابحث..."
 
-#: navigator.cpp:118
+#: navigator.cpp:117
 #, kde-format
 msgid "&Contents"
 msgstr "ال&محتويات"
 
-#: navigator.cpp:128
+#: navigator.cpp:127
 #, kde-format
 msgid "Search Options"
 msgstr "خيارات البحث"
 
-#: navigator.cpp:136
+#: navigator.cpp:135
 #, kde-format
 msgid "G&lossary"
 msgstr "القا&موس"
 
-#: navigator.cpp:480
+#: navigator.cpp:456
 #, kde-format
 msgid "Start Page"
 msgstr "صفحة البداية"
 
-#: navigator.cpp:481
+#: navigator.cpp:457
 #, kde-format
 msgid "KDE Help Center"
 msgstr "مركز مساعدة كِيدِي"
 
-#: navigator.cpp:564
+#: navigator.cpp:539
 #, kde-format
 msgid "Unable to run search program."
 msgstr "غير قادر على تنفيذ برنامج البحث."
 
-#: navigator.cpp:657
+#: navigator.cpp:632
 #, kde-format
 msgid "Updating search index..."
 msgstr "يحدث فهرسة البحث..."
 
-#: navigator.cpp:668
+#: navigator.cpp:643
 #, kde-format
 msgid "Updating search index... done."
 msgstr "يحدث فهرسة البحث....انتهى."
 
-#: searchengine.cpp:57
+#: printdoc.cpp:60
+#, kde-format
+msgid "Could not generate print preview."
+msgstr ""
+
+#: printdoc.cpp:96
+#, kde-format
+msgctxt "@title:window"
+msgid "Print Document"
+msgstr ""
+
+#: searchengine.cpp:59
 #, kde-format
 msgid "Error: No document type specified."
 msgstr "خطأ: لا يوجد نوع مستند محدّد."
 
-#: searchengine.cpp:59
+#: searchengine.cpp:61
 #, kde-format
 msgid "Error: No search handler for document type '%1'."
 msgstr "خطأ: لا يوجد مداوِل بحث لنوع المستند '%1'."
 
-#: searchengine.cpp:229
+#: searchengine.cpp:231
 #, kde-format
 msgid "No valid search handler found."
 msgstr "لم أجد مداول بحث صالح."
@@ -485,21 +462,44 @@ msgctxt "Label for Unknown search scope, that should never appear"
 msgid "unknown"
 msgstr "مجهول"
 
-#: view.cpp:228
-#, kde-format
-msgid "Copy Link Address"
-msgstr "انسخ عنوان الرابط"
+#: view.cpp:270
+#, fuzzy, kde-format
+#| msgid "Start Page"
+msgid "Save Page"
+msgstr "صفحة البداية"
 
-#: view.cpp:312
-#, kde-format
-msgid ""
-"<p>Read the topic documentation in this window.<br /><br />Press <b>Space</"
-"b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, <b>Tab</b>/"
-"<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
-msgstr ""
-"<p> اقرأ وثائق الموضوع في هذه النافذة. <br /><br /> اضغط على <b> مسافة </"
-"b> / <b> Shift + Space </b> للتمرير ، <b>%1</b > للعثور على شيء ما ، <b> Tab "
-"</b> / <b> Shift + Tab </b> للقفز ، و <b> Enter </b> للمتابعة. </p>"
+#~ msgid "Previous Page"
+#~ msgstr "الصفحة السابقة"
+
+#~ msgid "Moves to the previous page of the document"
+#~ msgstr "ينتقل إلى الصفحة السابقة من المستند"
+
+#~ msgid "Next Page"
+#~ msgstr "الصفحة التالية"
+
+#~ msgid "Moves to the next page of the document"
+#~ msgstr "ينتقل إلى الصفحة التالية من المستند"
+
+#~ msgid "Configure Fonts..."
+#~ msgstr "اضبط الخطوط..."
+
+#~ msgid "Increase Font Sizes"
+#~ msgstr "زيادة أحجام الخط"
+
+#~ msgid "Decrease Font Sizes"
+#~ msgstr "تقليل أحجام الخط"
+
+#~ msgid "Copy Link Address"
+#~ msgstr "انسخ عنوان الرابط"
+
+#~ msgid ""
+#~ "<p>Read the topic documentation in this window.<br /><br />Press "
+#~ "<b>Space</b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, "
+#~ "<b>Tab</b>/<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
+#~ msgstr ""
+#~ "<p> اقرأ وثائق الموضوع في هذه النافذة. <br /><br /> اضغط على <b> مسافة </"
+#~ "b> / <b> Shift + Space </b> للتمرير ، <b>%1</b > للعثور على شيء ما ، <b> "
+#~ "Tab </b> / <b> Shift + Tab </b> للقفز ، و <b> Enter </b> للمتابعة. </p>"
 
 #~ msgid "Unable to initialize SearchHandler from file '%1'."
 #~ msgstr "تعذر تهيئة مداوٍل البحث من الملف '%1'."

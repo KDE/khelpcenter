@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-17 00:49+0000\n"
+"POT-Creation-Date: 2023-09-29 01:40+0000\n"
 "PO-Revision-Date: 2023-08-16 10:36+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -38,37 +38,38 @@ msgstr "sps@sastia.com,antonibella5@yahoo.com"
 msgid "Documentation to open"
 msgstr "Documentació a obrir"
 
-#: application.cpp:114 application.cpp:116
+#: application.cpp:102 application.cpp:104
 #, kde-format
 msgid "Help Center"
 msgstr "Centre d'ajuda"
 
-#: application.cpp:118
-#, kde-format
-msgid "(c) 1999-2020, The KHelpCenter developers"
+#: application.cpp:106
+#, fuzzy, kde-format
+#| msgid "(c) 1999-2020, The KHelpCenter developers"
+msgid "(c) 1999-2023, The KHelpCenter developers"
 msgstr "(c) 1999-2020, Els desenvolupadors del KHelpCenter"
 
-#: application.cpp:120
+#: application.cpp:108
 #, kde-format
 msgid "Current maintainer"
 msgstr "Mantenidor actual"
 
-#: application.cpp:121
+#: application.cpp:109
 #, kde-format
 msgid "Xapian-based search, lot of bugfixes"
 msgstr "Cerca basada en Xapian, moltes esmenes d'errors"
 
-#: application.cpp:122
+#: application.cpp:110
 #, kde-format
 msgid "Former maintainer"
 msgstr "Mantenidor anterior"
 
-#: application.cpp:124
+#: application.cpp:112
 #, kde-format
 msgid "Original Author"
 msgstr "Autor original"
 
-#: application.cpp:125
+#: application.cpp:113
 #, kde-format
 msgid "Info page support"
 msgstr "Implementació de la pàgina Info"
@@ -167,12 +168,12 @@ msgstr "Usa la codificació de l'idioma"
 msgid "&Font size adjustment:"
 msgstr "Ajusta la mida del tipus de &lletra:"
 
-#: glossary.cpp:68
+#: glossary.cpp:69
 #, kde-format
 msgid "By Topic"
 msgstr "Per tema"
 
-#: glossary.cpp:72 infotree.cpp:74
+#: glossary.cpp:73 infotree.cpp:74
 #, kde-format
 msgid "Alphabetically"
 msgstr "Alfabèticament"
@@ -182,33 +183,33 @@ msgstr "Alfabèticament"
 msgid "Rebuilding glossary cache..."
 msgstr "S'està refent el cau del glossari..."
 
-#: glossary.cpp:182
+#: glossary.cpp:181
 #, kde-format
 msgid "Rebuilding cache... done."
 msgstr "S'està refent el cau... fet."
 
-#: grantleeformatter.cpp:102
+#: grantleeformatter.cpp:100
 #, kde-format
 msgctxt "%1 is a glossary term"
 msgid "KDE Glossary: %1"
 msgstr "Glossari del KDE: %1"
 
-#: grantleeformatter.cpp:103
+#: grantleeformatter.cpp:101
 #, kde-format
 msgid "KDE Glossary"
 msgstr "Glossari del KDE"
 
-#: grantleeformatter.cpp:107
+#: grantleeformatter.cpp:105
 #, kde-format
 msgid "See also: %1"
 msgstr "Veure també: %1"
 
-#: grantleeformatter.cpp:128
+#: grantleeformatter.cpp:126
 #, kde-format
 msgid "Search Results"
 msgstr "Resultats de la cerca"
 
-#: grantleeformatter.cpp:129 searchengine.cpp:259
+#: grantleeformatter.cpp:127 searchengine.cpp:261
 #, kde-format
 msgid "Search Results for '%1':"
 msgstr "Resultats de la cerca de «%1»:"
@@ -260,139 +261,115 @@ msgstr "&Ves"
 msgid "Main Toolbar"
 msgstr "Barra d'eines principal"
 
-#: mainwindow.cpp:64
+#: mainwindow.cpp:62
 #, kde-format
 msgid "Search Error Log"
 msgstr "Cerca error registrat"
 
-#: mainwindow.cpp:116
+#: mainwindow.cpp:113
 #, kde-format
 msgid "Preparing Index"
 msgstr "S'està preparant l'índex"
 
-#: mainwindow.cpp:159
+#: mainwindow.cpp:140
 #, kde-format
 msgid "Ready"
 msgstr "Llest"
 
-#: mainwindow.cpp:210
-#, kde-format
-msgid "Previous Page"
-msgstr "Pàgina prèvia"
-
-#: mainwindow.cpp:212
-#, kde-format
-msgid "Moves to the previous page of the document"
-msgstr "Va a la pàgina prèvia del document"
-
-#: mainwindow.cpp:216
-#, kde-format
-msgid "Next Page"
-msgstr "Pàgina següent"
-
-#: mainwindow.cpp:218
-#, kde-format
-msgid "Moves to the next page of the document"
-msgstr "Va a la pàgina següent del document"
-
-#: mainwindow.cpp:225
+#: mainwindow.cpp:195
 #, kde-format
 msgid "Table of &Contents"
 msgstr "Taula de &contingut"
 
-#: mainwindow.cpp:226
+#: mainwindow.cpp:196
 #, kde-format
 msgid "Table of contents"
 msgstr "Taula de contingut"
 
-#: mainwindow.cpp:227
+#: mainwindow.cpp:197
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "Torna a la taula de contingut"
 
-#: mainwindow.cpp:233
+#: mainwindow.cpp:203
 #, kde-format
 msgid "&Last Search Result"
 msgstr "Darrer resu&ltat de la cerca"
 
-#: mainwindow.cpp:251
-#, kde-format
-msgid "Configure Fonts..."
-msgstr "Configura els tipus de lletra..."
-
-#: mainwindow.cpp:255
-#, kde-format
-msgid "Increase Font Sizes"
-msgstr "Augmenta la mida dels tipus de lletra"
-
-#: mainwindow.cpp:260
-#, kde-format
-msgid "Decrease Font Sizes"
-msgstr "Minva la mida dels tipus de lletra"
-
-#: mainwindow.cpp:276
+#: mainwindow.cpp:233
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"
 msgstr "&Adreces d'interès"
 
-#: navigator.cpp:63
+#: navigator.cpp:62
 #, kde-format
 msgid "Search..."
 msgstr "Cerca..."
 
-#: navigator.cpp:118
+#: navigator.cpp:117
 #, kde-format
 msgid "&Contents"
 msgstr "&Contingut"
 
-#: navigator.cpp:128
+#: navigator.cpp:127
 #, kde-format
 msgid "Search Options"
 msgstr "Opcions de cerca"
 
-#: navigator.cpp:136
+#: navigator.cpp:135
 #, kde-format
 msgid "G&lossary"
 msgstr "G&lossari"
 
-#: navigator.cpp:480
+#: navigator.cpp:456
 #, kde-format
 msgid "Start Page"
 msgstr "Pàgina d'inici"
 
-#: navigator.cpp:481
+#: navigator.cpp:457
 #, kde-format
 msgid "KDE Help Center"
 msgstr "Centre d'ajuda del KDE"
 
-#: navigator.cpp:564
+#: navigator.cpp:539
 #, kde-format
 msgid "Unable to run search program."
 msgstr "No es pot iniciar el programa de cerca."
 
-#: navigator.cpp:657
+#: navigator.cpp:632
 #, kde-format
 msgid "Updating search index..."
 msgstr "S'està actualitzant l'índex de cerca..."
 
-#: navigator.cpp:668
+#: navigator.cpp:643
 #, kde-format
 msgid "Updating search index... done."
 msgstr "S'està actualitzant l'índex de cerca... fet."
 
-#: searchengine.cpp:57
+#: printdoc.cpp:60
+#, kde-format
+msgid "Could not generate print preview."
+msgstr ""
+
+#: printdoc.cpp:96
+#, kde-format
+msgctxt "@title:window"
+msgid "Print Document"
+msgstr ""
+
+#: searchengine.cpp:59
 #, kde-format
 msgid "Error: No document type specified."
 msgstr "Hi ha hagut un error: No s'ha especificat el tipus de document."
 
-#: searchengine.cpp:59
+#: searchengine.cpp:61
 #, kde-format
 msgid "Error: No search handler for document type '%1'."
 msgstr ""
 "Hi ha hagut un error: no hi ha gestor de cerca per al tipus de document «%1»."
 
-#: searchengine.cpp:229
+#: searchengine.cpp:231
 #, kde-format
 msgid "No valid search handler found."
 msgstr "No s'ha trobat cap gestor de cerca vàlid."
@@ -482,20 +459,43 @@ msgctxt "Label for Unknown search scope, that should never appear"
 msgid "unknown"
 msgstr "desconegut"
 
-#: view.cpp:228
-#, kde-format
-msgid "Copy Link Address"
-msgstr "Copia l'adreça de l'enllaç"
+#: view.cpp:270
+#, fuzzy, kde-format
+#| msgid "Start Page"
+msgid "Save Page"
+msgstr "Pàgina d'inici"
+
+#~ msgid "Previous Page"
+#~ msgstr "Pàgina prèvia"
+
+#~ msgid "Moves to the previous page of the document"
+#~ msgstr "Va a la pàgina prèvia del document"
+
+#~ msgid "Next Page"
+#~ msgstr "Pàgina següent"
+
+#~ msgid "Moves to the next page of the document"
+#~ msgstr "Va a la pàgina següent del document"
+
+#~ msgid "Configure Fonts..."
+#~ msgstr "Configura els tipus de lletra..."
+
+#~ msgid "Increase Font Sizes"
+#~ msgstr "Augmenta la mida dels tipus de lletra"
+
+#~ msgid "Decrease Font Sizes"
+#~ msgstr "Minva la mida dels tipus de lletra"
+
+#~ msgid "Copy Link Address"
+#~ msgstr "Copia l'adreça de l'enllaç"
 
 # skip-rule: kct-tab
-#: view.cpp:312
-#, kde-format
-msgid ""
-"<p>Read the topic documentation in this window.<br /><br />Press <b>Space</"
-"b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, <b>Tab</b>/"
-"<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
-msgstr ""
-"<p>Llegiu la documentació del tema en aquesta finestra.<br /><br />Premeu "
-"<b>Espai</b>/<b>Maj+Espai</b> per a desplaçar-se, <b>%1</b> per a cercar "
-"quelcom, <b>Tab</b>/<b>Maj+Tab</b> per a saltar, i <b>Retorn</b> per a "
-"seguir.</p>"
+#~ msgid ""
+#~ "<p>Read the topic documentation in this window.<br /><br />Press "
+#~ "<b>Space</b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, "
+#~ "<b>Tab</b>/<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
+#~ msgstr ""
+#~ "<p>Llegiu la documentació del tema en aquesta finestra.<br /><br />Premeu "
+#~ "<b>Espai</b>/<b>Maj+Espai</b> per a desplaçar-se, <b>%1</b> per a cercar "
+#~ "quelcom, <b>Tab</b>/<b>Maj+Tab</b> per a saltar, i <b>Retorn</b> per a "
+#~ "seguir.</p>"

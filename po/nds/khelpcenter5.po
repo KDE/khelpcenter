@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-17 00:49+0000\n"
+"POT-Creation-Date: 2023-09-29 01:40+0000\n"
 "PO-Revision-Date: 2014-08-11 11:51+0200\n"
 "Last-Translator: Sönke Dibbern <s_dibbern@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -34,38 +34,38 @@ msgstr "s_dibbern@web.de"
 msgid "Documentation to open"
 msgstr "Dokmentatschoon, de Du opmaken wullt"
 
-#: application.cpp:114 application.cpp:116
+#: application.cpp:102 application.cpp:104
 #, kde-format
 msgid "Help Center"
 msgstr "Hülpzentrum"
 
-#: application.cpp:118
+#: application.cpp:106
 #, fuzzy, kde-format
 #| msgid "(c) 1999-2011, The KHelpCenter developers"
-msgid "(c) 1999-2020, The KHelpCenter developers"
+msgid "(c) 1999-2023, The KHelpCenter developers"
 msgstr "© 1999-2011: De Schrieverslüüd vun't KDE-Hülpzenter"
 
-#: application.cpp:120
+#: application.cpp:108
 #, kde-format
 msgid "Current maintainer"
 msgstr ""
 
-#: application.cpp:121
+#: application.cpp:109
 #, kde-format
 msgid "Xapian-based search, lot of bugfixes"
 msgstr ""
 
-#: application.cpp:122
+#: application.cpp:110
 #, kde-format
 msgid "Former maintainer"
 msgstr ""
 
-#: application.cpp:124
+#: application.cpp:112
 #, kde-format
 msgid "Original Author"
 msgstr "Orginaalautor"
 
-#: application.cpp:125
+#: application.cpp:113
 #, kde-format
 msgid "Info page support"
 msgstr "Ünnerstütten för Info-Sieden"
@@ -164,12 +164,12 @@ msgstr "Spraakkoderen bruken"
 msgid "&Font size adjustment:"
 msgstr "Schri&ftgrött topassen:"
 
-#: glossary.cpp:68
+#: glossary.cpp:69
 #, kde-format
 msgid "By Topic"
 msgstr "Na Thema"
 
-#: glossary.cpp:72 infotree.cpp:74
+#: glossary.cpp:73 infotree.cpp:74
 #, kde-format
 msgid "Alphabetically"
 msgstr "Alfabeetsch"
@@ -179,35 +179,35 @@ msgstr "Alfabeetsch"
 msgid "Rebuilding glossary cache..."
 msgstr "Begrepenspieker warrt nieg opbuut..."
 
-#: glossary.cpp:182
+#: glossary.cpp:181
 #, kde-format
 msgid "Rebuilding cache... done."
 msgstr "Twischenspieker nieg opbuen..fardig."
 
-#: grantleeformatter.cpp:102
+#: grantleeformatter.cpp:100
 #, fuzzy, kde-format
 #| msgid "KDE Glossary"
 msgctxt "%1 is a glossary term"
 msgid "KDE Glossary: %1"
 msgstr "KDE-Begrepen"
 
-#: grantleeformatter.cpp:103
+#: grantleeformatter.cpp:101
 #, kde-format
 msgid "KDE Glossary"
 msgstr "KDE-Begrepen"
 
-#: grantleeformatter.cpp:107
+#: grantleeformatter.cpp:105
 #, fuzzy, kde-format
 #| msgid "See also: "
 msgid "See also: %1"
 msgstr "Kiek ok bi: "
 
-#: grantleeformatter.cpp:128
+#: grantleeformatter.cpp:126
 #, kde-format
 msgid "Search Results"
 msgstr "Söökresultaten"
 
-#: grantleeformatter.cpp:129 searchengine.cpp:259
+#: grantleeformatter.cpp:127 searchengine.cpp:261
 #, kde-format
 msgid "Search Results for '%1':"
 msgstr "Söökresultaten för \"%1\":"
@@ -259,141 +259,117 @@ msgstr "&Gah"
 msgid "Main Toolbar"
 msgstr "Hööft-Warktüüchbalken"
 
-#: mainwindow.cpp:64
+#: mainwindow.cpp:62
 #, kde-format
 msgid "Search Error Log"
 msgstr "Logbook för Söökfehlers"
 
-#: mainwindow.cpp:116
+#: mainwindow.cpp:113
 #, kde-format
 msgid "Preparing Index"
 msgstr "Index warrt torechtmaakt"
 
-#: mainwindow.cpp:159
+#: mainwindow.cpp:140
 #, kde-format
 msgid "Ready"
 msgstr "Fardig"
 
-#: mainwindow.cpp:210
-#, kde-format
-msgid "Previous Page"
-msgstr "Verleden Siet"
-
-#: mainwindow.cpp:212
-#, kde-format
-msgid "Moves to the previous page of the document"
-msgstr "Geiht na de verleden Siet vun't Dokment"
-
-#: mainwindow.cpp:216
-#, kde-format
-msgid "Next Page"
-msgstr "Nakamen Siet"
-
-#: mainwindow.cpp:218
-#, kde-format
-msgid "Moves to the next page of the document"
-msgstr "Geiht na de nakamen Siet vun't Dokment"
-
-#: mainwindow.cpp:225
+#: mainwindow.cpp:195
 #, kde-format
 msgid "Table of &Contents"
 msgstr "&Inholtverteken"
 
-#: mainwindow.cpp:226
+#: mainwindow.cpp:196
 #, kde-format
 msgid "Table of contents"
 msgstr "Inholtverteken"
 
-#: mainwindow.cpp:227
+#: mainwindow.cpp:197
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "Torüch na't Inholtverteken"
 
-#: mainwindow.cpp:233
+#: mainwindow.cpp:203
 #, kde-format
 msgid "&Last Search Result"
 msgstr "Ver&leden Söökresultaat"
 
-#: mainwindow.cpp:251
-#, kde-format
-msgid "Configure Fonts..."
-msgstr "Schriftoorden instellen..."
-
-#: mainwindow.cpp:255
-#, kde-format
-msgid "Increase Font Sizes"
-msgstr "Schrift grötter maken"
-
-#: mainwindow.cpp:260
-#, kde-format
-msgid "Decrease Font Sizes"
-msgstr "Schrift lütter maken"
-
-#: mainwindow.cpp:276
+#: mainwindow.cpp:233
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"
 msgstr ""
 
-#: navigator.cpp:63
+#: navigator.cpp:62
 #, fuzzy, kde-format
 #| msgid "&Search"
 msgid "Search..."
 msgstr "&Söken"
 
-#: navigator.cpp:118
+#: navigator.cpp:117
 #, kde-format
 msgid "&Contents"
 msgstr "&Inholtverteken"
 
-#: navigator.cpp:128
+#: navigator.cpp:127
 #, kde-format
 msgid "Search Options"
 msgstr "Söökoptschonen"
 
-#: navigator.cpp:136
+#: navigator.cpp:135
 #, kde-format
 msgid "G&lossary"
 msgstr "Beg&reeplist"
 
-#: navigator.cpp:480
+#: navigator.cpp:456
 #, kde-format
 msgid "Start Page"
 msgstr "Startsiet"
 
-#: navigator.cpp:481
+#: navigator.cpp:457
 #, kde-format
 msgid "KDE Help Center"
 msgstr "KDE-Hülpzenter"
 
-#: navigator.cpp:564
+#: navigator.cpp:539
 #, kde-format
 msgid "Unable to run search program."
 msgstr "Söökprogramm lett sik nich starten."
 
-#: navigator.cpp:657
+#: navigator.cpp:632
 #, fuzzy, kde-format
 #| msgid "Build Search Index..."
 msgid "Updating search index..."
 msgstr "Söökindex opstellen..."
 
-#: navigator.cpp:668
+#: navigator.cpp:643
 #, fuzzy, kde-format
 #| msgid "Rebuilding cache... done."
 msgid "Updating search index... done."
 msgstr "Twischenspieker nieg opbuen..fardig."
 
-#: searchengine.cpp:57
+#: printdoc.cpp:60
+#, kde-format
+msgid "Could not generate print preview."
+msgstr ""
+
+#: printdoc.cpp:96
+#, kde-format
+msgctxt "@title:window"
+msgid "Print Document"
+msgstr ""
+
+#: searchengine.cpp:59
 #, kde-format
 msgid "Error: No document type specified."
 msgstr "Fehler: Keen Dokmenttyp angeven"
 
-#: searchengine.cpp:59
+#: searchengine.cpp:61
 #, kde-format
 msgid "Error: No search handler for document type '%1'."
 msgstr "Fehler: Keen Söökmoduul för Dokmenttyp \"%1\""
 
-#: searchengine.cpp:229
+#: searchengine.cpp:231
 #, kde-format
 msgid "No valid search handler found."
 msgstr "Gellen Söökmoduul lett sik nich finnen"
@@ -483,18 +459,35 @@ msgctxt "Label for Unknown search scope, that should never appear"
 msgid "unknown"
 msgstr "nich begäng"
 
-#: view.cpp:228
-#, kde-format
-msgid "Copy Link Address"
-msgstr "Linkadress koperen"
+#: view.cpp:270
+#, fuzzy, kde-format
+#| msgid "Start Page"
+msgid "Save Page"
+msgstr "Startsiet"
 
-#: view.cpp:312
-#, kde-format
-msgid ""
-"<p>Read the topic documentation in this window.<br /><br />Press <b>Space</"
-"b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, <b>Tab</b>/"
-"<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
-msgstr ""
+#~ msgid "Previous Page"
+#~ msgstr "Verleden Siet"
+
+#~ msgid "Moves to the previous page of the document"
+#~ msgstr "Geiht na de verleden Siet vun't Dokment"
+
+#~ msgid "Next Page"
+#~ msgstr "Nakamen Siet"
+
+#~ msgid "Moves to the next page of the document"
+#~ msgstr "Geiht na de nakamen Siet vun't Dokment"
+
+#~ msgid "Configure Fonts..."
+#~ msgstr "Schriftoorden instellen..."
+
+#~ msgid "Increase Font Sizes"
+#~ msgstr "Schrift grötter maken"
+
+#~ msgid "Decrease Font Sizes"
+#~ msgstr "Schrift lütter maken"
+
+#~ msgid "Copy Link Address"
+#~ msgstr "Linkadress koperen"
 
 #~ msgid "Handler"
 #~ msgstr "Hülpprogramm"

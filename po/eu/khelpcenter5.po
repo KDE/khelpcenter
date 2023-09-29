@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-17 00:49+0000\n"
+"POT-Creation-Date: 2023-09-29 01:40+0000\n"
 "PO-Revision-Date: 2020-11-15 00:13+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque\n"
@@ -42,37 +42,38 @@ msgstr ""
 msgid "Documentation to open"
 msgstr "Ireki beharreko dokumentazioa"
 
-#: application.cpp:114 application.cpp:116
+#: application.cpp:102 application.cpp:104
 #, kde-format
 msgid "Help Center"
 msgstr "Laguntza-gunea"
 
-#: application.cpp:118
-#, kde-format
-msgid "(c) 1999-2020, The KHelpCenter developers"
+#: application.cpp:106
+#, fuzzy, kde-format
+#| msgid "(c) 1999-2020, The KHelpCenter developers"
+msgid "(c) 1999-2023, The KHelpCenter developers"
 msgstr "(c) 1999-2020, KHelpCenter-en garatzaileak"
 
-#: application.cpp:120
+#: application.cpp:108
 #, kde-format
 msgid "Current maintainer"
 msgstr "Egungo arduraduna"
 
-#: application.cpp:121
+#: application.cpp:109
 #, kde-format
 msgid "Xapian-based search, lot of bugfixes"
 msgstr "Xapian-en oinarritutako bilaketa, akats konpontze ugari"
 
-#: application.cpp:122
+#: application.cpp:110
 #, kde-format
 msgid "Former maintainer"
 msgstr "Arduradun ohia"
 
-#: application.cpp:124
+#: application.cpp:112
 #, kde-format
 msgid "Original Author"
 msgstr "Jatorrizko egilea"
 
-#: application.cpp:125
+#: application.cpp:113
 #, kde-format
 msgid "Info page support"
 msgstr "Info-orriko laguntza"
@@ -171,12 +172,12 @@ msgstr "Erabili hizkuntza-kodeketa"
 msgid "&Font size adjustment:"
 msgstr "Letra-neurriaren &doikuntza:"
 
-#: glossary.cpp:68
+#: glossary.cpp:69
 #, kde-format
 msgid "By Topic"
 msgstr "Gaiaren arabera"
 
-#: glossary.cpp:72 infotree.cpp:74
+#: glossary.cpp:73 infotree.cpp:74
 #, kde-format
 msgid "Alphabetically"
 msgstr "Alfabetikoki"
@@ -186,33 +187,33 @@ msgstr "Alfabetikoki"
 msgid "Rebuilding glossary cache..."
 msgstr "Glosategi-cachea berreraikitzea..."
 
-#: glossary.cpp:182
+#: glossary.cpp:181
 #, kde-format
 msgid "Rebuilding cache... done."
 msgstr "Cachea berreraikitzea... eginda."
 
-#: grantleeformatter.cpp:102
+#: grantleeformatter.cpp:100
 #, kde-format
 msgctxt "%1 is a glossary term"
 msgid "KDE Glossary: %1"
 msgstr "KDEren glosategia: %1"
 
-#: grantleeformatter.cpp:103
+#: grantleeformatter.cpp:101
 #, kde-format
 msgid "KDE Glossary"
 msgstr "KDEren glosategia"
 
-#: grantleeformatter.cpp:107
+#: grantleeformatter.cpp:105
 #, kde-format
 msgid "See also: %1"
 msgstr "Begiratu ere: %1"
 
-#: grantleeformatter.cpp:128
+#: grantleeformatter.cpp:126
 #, kde-format
 msgid "Search Results"
 msgstr "Bilaketaren emaitzak"
 
-#: grantleeformatter.cpp:129 searchengine.cpp:259
+#: grantleeformatter.cpp:127 searchengine.cpp:261
 #, kde-format
 msgid "Search Results for '%1':"
 msgstr "'%1'(r)en bilaketaren emaitzak:"
@@ -264,138 +265,114 @@ msgstr "&Joan"
 msgid "Main Toolbar"
 msgstr "Tresna-barra nagusia"
 
-#: mainwindow.cpp:64
+#: mainwindow.cpp:62
 #, kde-format
 msgid "Search Error Log"
 msgstr "Bilaketa-errorearen egunkaria"
 
-#: mainwindow.cpp:116
+#: mainwindow.cpp:113
 #, kde-format
 msgid "Preparing Index"
 msgstr "Indizea prestatzen"
 
-#: mainwindow.cpp:159
+#: mainwindow.cpp:140
 #, kde-format
 msgid "Ready"
 msgstr "Prest"
 
-#: mainwindow.cpp:210
-#, kde-format
-msgid "Previous Page"
-msgstr "Aurreko orria"
-
-#: mainwindow.cpp:212
-#, kde-format
-msgid "Moves to the previous page of the document"
-msgstr "Dokumentuaren aurreko orrira joaten da"
-
-#: mainwindow.cpp:216
-#, kde-format
-msgid "Next Page"
-msgstr "Hurrengo orria"
-
-#: mainwindow.cpp:218
-#, kde-format
-msgid "Moves to the next page of the document"
-msgstr "Dokumentuaren hurrengo orrira joaten da"
-
-#: mainwindow.cpp:225
+#: mainwindow.cpp:195
 #, kde-format
 msgid "Table of &Contents"
 msgstr "&Aurkibidea"
 
-#: mainwindow.cpp:226
+#: mainwindow.cpp:196
 #, kde-format
 msgid "Table of contents"
 msgstr "Aurkibidea"
 
-#: mainwindow.cpp:227
+#: mainwindow.cpp:197
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "Joan aurkibidera"
 
-#: mainwindow.cpp:233
+#: mainwindow.cpp:203
 #, kde-format
 msgid "&Last Search Result"
 msgstr "&Azken bilaketaren emaitza"
 
-#: mainwindow.cpp:251
-#, kde-format
-msgid "Configure Fonts..."
-msgstr "Letra-tipoak konfiguratzea..."
-
-#: mainwindow.cpp:255
-#, kde-format
-msgid "Increase Font Sizes"
-msgstr "Handitu letra-neurriak"
-
-#: mainwindow.cpp:260
-#, kde-format
-msgid "Decrease Font Sizes"
-msgstr "Txikitu letra-neurriak"
-
-#: mainwindow.cpp:276
+#: mainwindow.cpp:233
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"
 msgstr "&Laster-markak"
 
-#: navigator.cpp:63
+#: navigator.cpp:62
 #, kde-format
 msgid "Search..."
 msgstr "Bilatu..."
 
-#: navigator.cpp:118
+#: navigator.cpp:117
 #, kde-format
 msgid "&Contents"
 msgstr "Edu&kia"
 
-#: navigator.cpp:128
+#: navigator.cpp:127
 #, kde-format
 msgid "Search Options"
 msgstr "Bilaketa-aukerak"
 
-#: navigator.cpp:136
+#: navigator.cpp:135
 #, kde-format
 msgid "G&lossary"
 msgstr "&Glosategia"
 
-#: navigator.cpp:480
+#: navigator.cpp:456
 #, kde-format
 msgid "Start Page"
 msgstr "Hasierako orria"
 
-#: navigator.cpp:481
+#: navigator.cpp:457
 #, kde-format
 msgid "KDE Help Center"
 msgstr "KDEren laguntza-gunea"
 
-#: navigator.cpp:564
+#: navigator.cpp:539
 #, kde-format
 msgid "Unable to run search program."
 msgstr "Ezin da exekutatu bilaketa-programa."
 
-#: navigator.cpp:657
+#: navigator.cpp:632
 #, kde-format
 msgid "Updating search index..."
 msgstr "Bilaketaren aurkibidea eguneratzen..."
 
-#: navigator.cpp:668
+#: navigator.cpp:643
 #, kde-format
 msgid "Updating search index... done."
 msgstr "Bilaketaren aurkibidea eguneratzen.... osatua."
 
-#: searchengine.cpp:57
+#: printdoc.cpp:60
+#, kde-format
+msgid "Could not generate print preview."
+msgstr ""
+
+#: printdoc.cpp:96
+#, kde-format
+msgctxt "@title:window"
+msgid "Print Document"
+msgstr ""
+
+#: searchengine.cpp:59
 #, kde-format
 msgid "Error: No document type specified."
 msgstr "Errorea: ez da zehaztu dokumentu motarik."
 
-#: searchengine.cpp:59
+#: searchengine.cpp:61
 #, kde-format
 msgid "Error: No search handler for document type '%1'."
 msgstr "Errorea: ez dago bilaketa-kudeatzailerik '%1' dokumentu motarako."
 
-#: searchengine.cpp:229
+#: searchengine.cpp:231
 #, kde-format
 msgid "No valid search handler found."
 msgstr "Ez da aurkitu baliozko bilaketa-kudeatzailerik."
@@ -485,22 +462,45 @@ msgctxt "Label for Unknown search scope, that should never appear"
 msgid "unknown"
 msgstr "ezezaguna"
 
-#: view.cpp:228
-#, kde-format
-msgid "Copy Link Address"
-msgstr "Kopiatu estekaren helbidea"
+#: view.cpp:270
+#, fuzzy, kde-format
+#| msgid "Start Page"
+msgid "Save Page"
+msgstr "Hasierako orria"
 
-#: view.cpp:312
-#, kde-format
-msgid ""
-"<p>Read the topic documentation in this window.<br /><br />Press <b>Space</"
-"b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, <b>Tab</b>/"
-"<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
-msgstr ""
-"<p>Irakurri gaiari buruzko dokumentazioa leiho honetan.<br /><br />Sakatu "
-"<b>Zuriunea</b>/<b>Maius.+Zuriunea</b> labaintzeko, <b>%1</b> ezer "
-"aurkitzeko, <b>Tab</b>/<b>Maius.+Tab</b> jauzi egiteko, eta <b>Sartu</b> "
-"jarraitzeko.</p>"
+#~ msgid "Previous Page"
+#~ msgstr "Aurreko orria"
+
+#~ msgid "Moves to the previous page of the document"
+#~ msgstr "Dokumentuaren aurreko orrira joaten da"
+
+#~ msgid "Next Page"
+#~ msgstr "Hurrengo orria"
+
+#~ msgid "Moves to the next page of the document"
+#~ msgstr "Dokumentuaren hurrengo orrira joaten da"
+
+#~ msgid "Configure Fonts..."
+#~ msgstr "Letra-tipoak konfiguratzea..."
+
+#~ msgid "Increase Font Sizes"
+#~ msgstr "Handitu letra-neurriak"
+
+#~ msgid "Decrease Font Sizes"
+#~ msgstr "Txikitu letra-neurriak"
+
+#~ msgid "Copy Link Address"
+#~ msgstr "Kopiatu estekaren helbidea"
+
+#~ msgid ""
+#~ "<p>Read the topic documentation in this window.<br /><br />Press "
+#~ "<b>Space</b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, "
+#~ "<b>Tab</b>/<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
+#~ msgstr ""
+#~ "<p>Irakurri gaiari buruzko dokumentazioa leiho honetan.<br /><br />Sakatu "
+#~ "<b>Zuriunea</b>/<b>Maius.+Zuriunea</b> labaintzeko, <b>%1</b> ezer "
+#~ "aurkitzeko, <b>Tab</b>/<b>Maius.+Tab</b> jauzi egiteko, eta <b>Sartu</b> "
+#~ "jarraitzeko.</p>"
 
 #~ msgid "Unable to initialize SearchHandler from file '%1'."
 #~ msgstr "Ezin da abiarazi '%1' fitxategirako bilaketa-kudeatzailea."

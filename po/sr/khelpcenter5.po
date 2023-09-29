@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2020-03-11 02:40+0100\n"
+"POT-Creation-Date: 2023-09-29 01:40+0000\n"
 "PO-Revision-Date: 2017-09-28 17:56+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -31,78 +31,78 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "toptan@kde.org.yu,caslav.ilic@gmx.net"
 
-#: application.cpp:44
+#: application.cpp:30
 #, kde-format
 msgid "Documentation to open"
 msgstr "Документација за отварање"
 
-#: application.cpp:91 application.cpp:93
+#: application.cpp:102 application.cpp:104
 #, kde-format
 msgid "Help Center"
 msgstr "Центар помоћи"
 
-#: application.cpp:95
+#: application.cpp:106
 #, fuzzy, kde-format
 #| msgid "(c) 1999-2011, The KHelpCenter developers"
-msgid "(c) 1999-2018, The KHelpCenter developers"
+msgid "(c) 1999-2023, The KHelpCenter developers"
 msgstr "© 1999-2011, програмери Центра помоћи КДЕ‑а"
 
-#: application.cpp:97
+#: application.cpp:108
 #, kde-format
 msgid "Current maintainer"
 msgstr ""
 
-#: application.cpp:98
+#: application.cpp:109
 #, kde-format
 msgid "Xapian-based search, lot of bugfixes"
 msgstr ""
 
-#: application.cpp:99
+#: application.cpp:110
 #, kde-format
 msgid "Former maintainer"
 msgstr ""
 
-#: application.cpp:101
+#: application.cpp:112
 #, kde-format
 msgid "Original Author"
 msgstr "првобитни аутор"
 
-#: application.cpp:102
+#: application.cpp:113
 #, kde-format
 msgid "Info page support"
 msgstr "подршка за инфо странице"
 
-#: docmetainfo.cpp:49
+#: docmetainfo.cpp:35
 #, kde-format
 msgid "Top-Level Documentation"
 msgstr "Документација на врху"
 
-#: docmetainfo.cpp:97
+#: docmetainfo.cpp:83
 #, kde-format
 msgctxt "doctitle (language)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: docmetainfo.cpp:133
+#: docmetainfo.cpp:119
 #, kde-format
 msgctxt "Describes documentation entries that are in English"
 msgid "English"
 msgstr "енглески"
 
-#: fontdialog.cpp:51
+#: fontdialog.cpp:36
 #, kde-format
 msgid "Font Configuration"
 msgstr "Постава фонтова"
 
 # >> @title:group Font sizes
-#: fontdialog.cpp:78
+#: fontdialog.cpp:62
 #, kde-format
 msgid "Sizes"
 msgstr "Величине"
 
 # >> @label:spinbox Font sizes
 # rewrite-msgid: /font//
-#: fontdialog.cpp:85
+#: fontdialog.cpp:66
 #, kde-format
 msgctxt "The smallest size a will have"
 msgid "M&inimum font size:"
@@ -110,136 +110,136 @@ msgstr "Нај&мања величина:"
 
 # >> @label:spinbox Font sizes
 # rewrite-msgid: /font//
-#: fontdialog.cpp:92
+#: fontdialog.cpp:73
 #, kde-format
 msgctxt "The normal size a font will have"
 msgid "M&edium font size:"
 msgstr "Ср&едња величина:"
 
 # >> @title:group
-#: fontdialog.cpp:102
+#: fontdialog.cpp:83
 #, kde-format
 msgid "Fonts"
 msgstr "Фонтови"
 
 # >> @label:listbox Fonts
 # rewrite-msgid: /font//
-#: fontdialog.cpp:109
+#: fontdialog.cpp:87
 #, kde-format
 msgid "S&tandard font:"
 msgstr "&Стандардни:"
 
 # >> @label:listbox Fonts
 # rewrite-msgid: /font//
-#: fontdialog.cpp:115
+#: fontdialog.cpp:93
 #, kde-format
 msgid "F&ixed font:"
 msgstr "&Фиксни:"
 
 # >> @label:listbox Fonts
 # rewrite-msgid: /font//
-#: fontdialog.cpp:121
+#: fontdialog.cpp:99
 #, kde-format
 msgid "S&erif font:"
 msgstr "Сер&ифни:"
 
 # >> @label:listbox Fonts
 # rewrite-msgid: /font//
-#: fontdialog.cpp:127
+#: fontdialog.cpp:105
 #, kde-format
 msgid "S&ans serif font:"
 msgstr "&Бесерифни:"
 
 # >> @label:listbox Fonts
 # rewrite-msgid: /font//
-#: fontdialog.cpp:133
+#: fontdialog.cpp:111
 #, kde-format
 msgid "&Italic font:"
 msgstr "&Курзивни:"
 
 # >> @label:listbox Fonts
 # rewrite-msgid: /font//
-#: fontdialog.cpp:139
+#: fontdialog.cpp:117
 #, kde-format
 msgid "&Fantasy font:"
 msgstr "Ф&антазијски:"
 
 # >> @title:group
-#: fontdialog.cpp:148
+#: fontdialog.cpp:126
 #, kde-format
 msgid "Encoding"
 msgstr "Кодирање"
 
 # >> @label:listbox
 # rewrite-msgid: /encoding//
-#: fontdialog.cpp:155
+#: fontdialog.cpp:131
 #, kde-format
 msgid "&Default encoding:"
 msgstr "Подра&зумевано:"
 
 # >> @item:inlistbox Default encoding
 # rewrite-msgid: /Encoding//
-#: fontdialog.cpp:160 fontdialog.cpp:228
+#: fontdialog.cpp:136 fontdialog.cpp:204
 #, kde-format
 msgid "Use Language Encoding"
 msgstr "по језику"
 
 # >> @label:listbox Encoding
 # rewrite-msgid: /Font//
-#: fontdialog.cpp:164
+#: fontdialog.cpp:140
 #, kde-format
 msgid "&Font size adjustment:"
 msgstr "При&лагођење величине:"
 
 # >> @title Documentation sorted by topic (branch in tree view)
-#: glossary.cpp:83
+#: glossary.cpp:69
 #, kde-format
 msgid "By Topic"
 msgstr "По теми"
 
 # >> @title Documentation sorted alphabetically (branch in tree view)
-#: glossary.cpp:87 infotree.cpp:88
+#: glossary.cpp:73 infotree.cpp:74
 #, kde-format
 msgid "Alphabetically"
 msgstr "Азбучно"
 
-#: glossary.cpp:143
+#: glossary.cpp:128
 #, kde-format
 msgid "Rebuilding glossary cache..."
 msgstr "Обнављам кеш појмовника..."
 
-#: glossary.cpp:197
+#: glossary.cpp:181
 #, kde-format
 msgid "Rebuilding cache... done."
 msgstr "Обнављам кеш... готово."
 
-#: grantleeformatter.cpp:117
+#: grantleeformatter.cpp:100
 #, kde-format
 msgctxt "%1 is a glossary term"
 msgid "KDE Glossary: %1"
 msgstr "Појмовник КДЕ‑а: %1"
 
-#: grantleeformatter.cpp:118
+#: grantleeformatter.cpp:101
 #, kde-format
 msgid "KDE Glossary"
 msgstr "Појмовник КДЕ‑а"
 
-#: grantleeformatter.cpp:122
+#: grantleeformatter.cpp:105
 #, kde-format
 msgid "See also: %1"
 msgstr "Такође погледајте: %1"
 
-#: grantleeformatter.cpp:143
+#: grantleeformatter.cpp:126
 #, kde-format
 msgid "Search Results"
 msgstr "Резултати претраге"
 
-#: grantleeformatter.cpp:144 searchengine.cpp:273
+#: grantleeformatter.cpp:127 searchengine.cpp:261
 #, kde-format
 msgid "Search Results for '%1':"
 msgstr "Резултати претраге за „%1“:"
 
-#: infotree.cpp:91
+#: infotree.cpp:77
 #, kde-format
 msgid "By Category"
 msgstr "По категорији"
@@ -275,263 +275,262 @@ msgid "&View"
 msgstr "&Приказ"
 
 #. i18n: ectx: Menu (go)
-#: khelpcenterui.rc:18
+#: khelpcenterui.rc:19
 #, kde-format
 msgid "&Go"
 msgstr "&Кретање"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: khelpcenterui.rc:35
+#: khelpcenterui.rc:36
 #, kde-format
 msgid "Main Toolbar"
 msgstr "Главна трака"
 
-#: mainwindow.cpp:73
+#: mainwindow.cpp:62
 #, kde-format
 msgid "Search Error Log"
 msgstr "Дневник грешака претраживања"
 
 # >> @info:progress
-#: mainwindow.cpp:126
+#: mainwindow.cpp:113
 #, kde-format
 msgid "Preparing Index"
 msgstr "Припремам индекс"
 
 # >> @info:progress
-#: mainwindow.cpp:167
+#: mainwindow.cpp:140
 #, kde-format
 msgid "Ready"
 msgstr "Спреман"
 
-#: mainwindow.cpp:218
-#, kde-format
-msgid "Previous Page"
-msgstr "Претходна страница"
-
-#: mainwindow.cpp:220
-#, kde-format
-msgid "Moves to the previous page of the document"
-msgstr "Иде на претходну страницу документа"
-
-#: mainwindow.cpp:224
-#, kde-format
-msgid "Next Page"
-msgstr "Наредна страница"
-
-#: mainwindow.cpp:226
-#, kde-format
-msgid "Moves to the next page of the document"
-msgstr "Иде на наредну страницу документа"
-
-#: mainwindow.cpp:231
+#: mainwindow.cpp:195
 #, kde-format
 msgid "Table of &Contents"
 msgstr "&Садржај"
 
-#: mainwindow.cpp:232
+#: mainwindow.cpp:196
 #, kde-format
 msgid "Table of contents"
 msgstr "Садржај"
 
-#: mainwindow.cpp:233
+#: mainwindow.cpp:197
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "Назад на садржај"
 
-#: mainwindow.cpp:239
+#: mainwindow.cpp:203
 #, kde-format
 msgid "&Last Search Result"
 msgstr "Резултат пос&ледње претраге"
 
-#: mainwindow.cpp:257
-#, kde-format
-msgid "Configure Fonts..."
-msgstr "Подешавање фонта..."
-
-# Држи кратко, на траци алатки
-#: mainwindow.cpp:261
-#, kde-format
-msgid "Increase Font Sizes"
-msgstr "Повећај фонт"
-
-# Држи кратко, на траци алатки
-#: mainwindow.cpp:266
-#, kde-format
-msgid "Decrease Font Sizes"
-msgstr "Смањи фонт"
-
-#: mainwindow.cpp:282
+#: mainwindow.cpp:233
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"
 msgstr "&Обележивачи"
 
-#: navigator.cpp:75
+#: navigator.cpp:62
 #, fuzzy, kde-format
 #| msgid "&Search"
 msgid "Search..."
 msgstr "&Тражи"
 
-#: navigator.cpp:130
+#: navigator.cpp:117
 #, kde-format
 msgid "&Contents"
 msgstr "&Садржај"
 
-#: navigator.cpp:140
+#: navigator.cpp:127
 #, kde-format
 msgid "Search Options"
 msgstr "Опције претраге"
 
-#: navigator.cpp:148
+#: navigator.cpp:135
 #, kde-format
 msgid "G&lossary"
 msgstr "&Појмовник"
 
-#: navigator.cpp:437
+#: navigator.cpp:456
 #, kde-format
 msgid "Start Page"
 msgstr "Почетна страница"
 
-#: navigator.cpp:438
+#: navigator.cpp:457
 #, kde-format
 msgid "KDE Help Center"
 msgstr "Центар помоћи КДЕ‑а"
 
-#: navigator.cpp:521
+#: navigator.cpp:539
 #, kde-format
 msgid "Unable to run search program."
 msgstr "Не могу да покренем претраживачки програм."
 
-#: navigator.cpp:614
+#: navigator.cpp:632
 #, kde-format
 msgid "Updating search index..."
 msgstr "Ажурирам претраживачки индекс..."
 
-#: navigator.cpp:625
+#: navigator.cpp:643
 #, kde-format
 msgid "Updating search index... done."
 msgstr "Ажурирам претраживачки индекс... готово."
 
-#: searchengine.cpp:72
+#: printdoc.cpp:60
+#, kde-format
+msgid "Could not generate print preview."
+msgstr ""
+
+#: printdoc.cpp:96
+#, kde-format
+msgctxt "@title:window"
+msgid "Print Document"
+msgstr ""
+
+#: searchengine.cpp:59
 #, kde-format
 msgid "Error: No document type specified."
 msgstr "Грешка: Није задат тип документа."
 
-#: searchengine.cpp:74
+#: searchengine.cpp:61
 #, kde-format
 msgid "Error: No search handler for document type '%1'."
 msgstr "Грешка: Нема руковаоца претрагом за тип документа „%1“."
 
-#: searchengine.cpp:243
+#: searchengine.cpp:231
 #, kde-format
 msgid "No valid search handler found."
 msgstr "Нема ниједног прихватљивог руковаоца претрагом."
 
-#: searchhandler.cpp:52
+#: searchhandler.cpp:37
 #, kde-format
 msgid "Error executing search command '%1'."
 msgstr "Грешка при извршавању претраживачке наредбе „%1“."
 
-#: searchhandler.cpp:93
+#: searchhandler.cpp:75
 #, kde-format
 msgid "Error: %1"
 msgstr "Грешка: %1"
 
 # >> %1 is a shell command
-#: searchhandler.cpp:158 searchhandler.cpp:163
+#: searchhandler.cpp:140 searchhandler.cpp:145
 #, kde-format
 msgid "'%1' not found, check your installation"
 msgstr "%1 није нађена, проверите инсталацију."
 
 # >> %1 is a shell command
-#: searchhandler.cpp:168
+#: searchhandler.cpp:150
 #, kde-format
 msgid "'%1' not found, install the package containing it"
 msgstr "%1 није нађена, инсталирајте пакет који је садржи."
 
-#: searchhandler.cpp:215
+#: searchhandler.cpp:197
 #, kde-format
 msgid "No search command or URL specified."
 msgstr "Претраживачка наредба или УРЛ нису задати."
 
-#: searchwidget.cpp:55
+#: searchwidget.cpp:39
 #, kde-format
 msgid "and"
 msgstr "и"
 
-#: searchwidget.cpp:56
+#: searchwidget.cpp:40
 #, kde-format
 msgid "or"
 msgstr "или"
 
-#: searchwidget.cpp:58
+#: searchwidget.cpp:42
 #, kde-format
 msgid "&Method:"
 msgstr "&Метод:"
 
-#: searchwidget.cpp:74
+#: searchwidget.cpp:58
 #, kde-format
 msgid "Max. &results:"
 msgstr "Макс. &резултата:"
 
-#: searchwidget.cpp:89
+#: searchwidget.cpp:73
 #, kde-format
 msgid "&Scope selection:"
 msgstr "&Избор досега:"
 
 # >> @title:column
-#: searchwidget.cpp:97
+#: searchwidget.cpp:81
 #, kde-format
 msgid "Scope"
 msgstr "досег"
 
 # >> @item:inlistbox Scope selection
-#: searchwidget.cpp:338
+#: searchwidget.cpp:322
 #, kde-format
 msgctxt "Label for searching documentation using custom (user defined) scope"
 msgid "Custom"
 msgstr "посебно"
 
 # >> @item:inlistbox Scope selection
-#: searchwidget.cpp:340
+#: searchwidget.cpp:324
 #, kde-format
 msgctxt "Label for searching documentation using default search scope"
 msgid "Default"
 msgstr "подразумевано"
 
 # >> @item:inlistbox Scope selection
-#: searchwidget.cpp:342
+#: searchwidget.cpp:326
 #, kde-format
 msgctxt "Label for searching documentation in all subsections"
 msgid "All"
 msgstr "све"
 
 # >> @item:inlistbox Scope selection
-#: searchwidget.cpp:344
+#: searchwidget.cpp:328
 #, kde-format
 msgctxt "Label for scope that deselects all search subsections"
 msgid "None"
 msgstr "ништа"
 
 # >> @item:inlistbox Scope selection
-#: searchwidget.cpp:346
+#: searchwidget.cpp:330
 #, kde-format
 msgctxt "Label for Unknown search scope, that should never appear"
 msgid "unknown"
 msgstr "непознат"
 
-#: view.cpp:241
-#, kde-format
-msgid "Copy Link Address"
-msgstr "Копирај адресу везе"
+#: view.cpp:270
+#, fuzzy, kde-format
+#| msgid "Start Page"
+msgid "Save Page"
+msgstr "Почетна страница"
 
-#: view.cpp:325
-#, kde-format
-msgid ""
-"<p>Read the topic documentation in this window.<br /><br />Press <b>Space</"
-"b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, <b>Tab</b>/"
-"<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
-msgstr ""
-"<p>У овом прозору читате документацију уз тему.<br /><br />Притискајте "
-"<b>Space</b>/<b>Shift+Space</b> за клизање, <b>%1</b> да пронађете нешто, "
-"<b>Tab</b>/<b>Shift+Tab</b> за скакање, и <b>Enter</b> за праћење.</p>"
+#~ msgid "Previous Page"
+#~ msgstr "Претходна страница"
+
+#~ msgid "Moves to the previous page of the document"
+#~ msgstr "Иде на претходну страницу документа"
+
+#~ msgid "Next Page"
+#~ msgstr "Наредна страница"
+
+#~ msgid "Moves to the next page of the document"
+#~ msgstr "Иде на наредну страницу документа"
+
+#~ msgid "Configure Fonts..."
+#~ msgstr "Подешавање фонта..."
+
+# Држи кратко, на траци алатки
+#~ msgid "Increase Font Sizes"
+#~ msgstr "Повећај фонт"
+
+# Држи кратко, на траци алатки
+#~ msgid "Decrease Font Sizes"
+#~ msgstr "Смањи фонт"
+
+#~ msgid "Copy Link Address"
+#~ msgstr "Копирај адресу везе"
+
+#~ msgid ""
+#~ "<p>Read the topic documentation in this window.<br /><br />Press "
+#~ "<b>Space</b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, "
+#~ "<b>Tab</b>/<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
+#~ msgstr ""
+#~ "<p>У овом прозору читате документацију уз тему.<br /><br />Притискајте "
+#~ "<b>Space</b>/<b>Shift+Space</b> за клизање, <b>%1</b> да пронађете нешто, "
+#~ "<b>Tab</b>/<b>Shift+Tab</b> за скакање, и <b>Enter</b> за праћење.</p>"

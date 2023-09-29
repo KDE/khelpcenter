@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-17 00:49+0000\n"
+"POT-Creation-Date: 2023-09-29 01:40+0000\n"
 "PO-Revision-Date: 2011-07-27 02:00+0530\n"
 "Last-Translator: Danishka Navin <danishka@gmail.com>\n"
 "Language-Team: Sinhala <danishka@gmail.com>\n"
@@ -33,39 +33,39 @@ msgstr "danishka@gmail.com"
 msgid "Documentation to open"
 msgstr "සූචිගත කලයුතු ලේඛනය"
 
-#: application.cpp:114 application.cpp:116
+#: application.cpp:102 application.cpp:104
 #, fuzzy, kde-format
 #| msgid "KDE Help Center"
 msgid "Help Center"
 msgstr "KDE උදව් මධ්‍යස්ථානය"
 
-#: application.cpp:118
+#: application.cpp:106
 #, fuzzy, kde-format
 #| msgid "(c) 1999-2003, The KHelpCenter developers"
-msgid "(c) 1999-2020, The KHelpCenter developers"
+msgid "(c) 1999-2023, The KHelpCenter developers"
 msgstr "(c) 1999-2003, The KHelpCenter සංවර්‍ධකයින්"
 
-#: application.cpp:120
+#: application.cpp:108
 #, kde-format
 msgid "Current maintainer"
 msgstr ""
 
-#: application.cpp:121
+#: application.cpp:109
 #, kde-format
 msgid "Xapian-based search, lot of bugfixes"
 msgstr ""
 
-#: application.cpp:122
+#: application.cpp:110
 #, kde-format
 msgid "Former maintainer"
 msgstr ""
 
-#: application.cpp:124
+#: application.cpp:112
 #, kde-format
 msgid "Original Author"
 msgstr "මුල්ම කේත රචකයා"
 
-#: application.cpp:125
+#: application.cpp:113
 #, kde-format
 msgid "Info page support"
 msgstr "තොරතුරු පිටු සහාය"
@@ -164,12 +164,12 @@ msgstr "භාෂා සංකේතාංඛනය භාවිත කරන්
 msgid "&Font size adjustment:"
 msgstr "අකුරු ප්‍රමාණ සීරුමාරු (&F)"
 
-#: glossary.cpp:68
+#: glossary.cpp:69
 #, kde-format
 msgid "By Topic"
 msgstr "මාතෘකාව මඟින්"
 
-#: glossary.cpp:72 infotree.cpp:74
+#: glossary.cpp:73 infotree.cpp:74
 #, kde-format
 msgid "Alphabetically"
 msgstr "අකාරාදී ලෙස"
@@ -179,35 +179,35 @@ msgstr "අකාරාදී ලෙස"
 msgid "Rebuilding glossary cache..."
 msgstr "වාග්මාලා කෑශ් නැවත තනමින්..."
 
-#: glossary.cpp:182
+#: glossary.cpp:181
 #, kde-format
 msgid "Rebuilding cache... done."
 msgstr "කෑශ් නැවත සැකසීම.... අවසන්."
 
-#: grantleeformatter.cpp:102
+#: grantleeformatter.cpp:100
 #, fuzzy, kde-format
 #| msgid "KDE Glossary"
 msgctxt "%1 is a glossary term"
 msgid "KDE Glossary: %1"
 msgstr "KDE වාග්මාලාව"
 
-#: grantleeformatter.cpp:103
+#: grantleeformatter.cpp:101
 #, kde-format
 msgid "KDE Glossary"
 msgstr "KDE වාග්මාලාව"
 
-#: grantleeformatter.cpp:107
+#: grantleeformatter.cpp:105
 #, fuzzy, kde-format
 #| msgid "See also: "
 msgid "See also: %1"
 msgstr "බලන්න: "
 
-#: grantleeformatter.cpp:128
+#: grantleeformatter.cpp:126
 #, kde-format
 msgid "Search Results"
 msgstr "සෙවුම් ප්‍රථිපල"
 
-#: grantleeformatter.cpp:129 searchengine.cpp:259
+#: grantleeformatter.cpp:127 searchengine.cpp:261
 #, kde-format
 msgid "Search Results for '%1':"
 msgstr "'%1' සඳහා සෙවුම් ප්‍රථිපල:"
@@ -259,141 +259,117 @@ msgstr "&ආපසු යන්න"
 msgid "Main Toolbar"
 msgstr "ප්‍රධාන මෙවලම් තීරුව"
 
-#: mainwindow.cpp:64
+#: mainwindow.cpp:62
 #, kde-format
 msgid "Search Error Log"
 msgstr "දෝශ වාර්ථාව සඳහා සොයමින්"
 
-#: mainwindow.cpp:116
+#: mainwindow.cpp:113
 #, kde-format
 msgid "Preparing Index"
 msgstr "සූචිය සූදානම් කරමින්"
 
-#: mainwindow.cpp:159
+#: mainwindow.cpp:140
 #, kde-format
 msgid "Ready"
 msgstr "සූදානම්"
 
-#: mainwindow.cpp:210
-#, kde-format
-msgid "Previous Page"
-msgstr "මීටපෙර පිටුව"
-
-#: mainwindow.cpp:212
-#, kde-format
-msgid "Moves to the previous page of the document"
-msgstr "ලේඛනයේ පෙර පිටුවට ගෙනයයි"
-
-#: mainwindow.cpp:216
-#, kde-format
-msgid "Next Page"
-msgstr "මීළඟ පිටුව"
-
-#: mainwindow.cpp:218
-#, kde-format
-msgid "Moves to the next page of the document"
-msgstr "ලේඛනයේ ඊලඟ පිටුවට ගෙනයයි"
-
-#: mainwindow.cpp:225
+#: mainwindow.cpp:195
 #, kde-format
 msgid "Table of &Contents"
 msgstr "සූචිය (&C)"
 
-#: mainwindow.cpp:226
+#: mainwindow.cpp:196
 #, kde-format
 msgid "Table of contents"
 msgstr "අන්තර්ගතයන් වගුව"
 
-#: mainwindow.cpp:227
+#: mainwindow.cpp:197
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "ආපසු සූචියට යන්න"
 
-#: mainwindow.cpp:233
+#: mainwindow.cpp:203
 #, kde-format
 msgid "&Last Search Result"
 msgstr "අවසන් සෙවුම් ප්‍රතිපල (&L)"
 
-#: mainwindow.cpp:251
-#, kde-format
-msgid "Configure Fonts..."
-msgstr "අකුරු සකසන්න"
-
-#: mainwindow.cpp:255
-#, kde-format
-msgid "Increase Font Sizes"
-msgstr "අකුරු ප්‍රමාණ වැඩි කරන්න"
-
-#: mainwindow.cpp:260
-#, kde-format
-msgid "Decrease Font Sizes"
-msgstr "අකුරු ප්‍රමාණ අඩු කරන්න"
-
-#: mainwindow.cpp:276
+#: mainwindow.cpp:233
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"
 msgstr ""
 
-#: navigator.cpp:63
+#: navigator.cpp:62
 #, fuzzy, kde-format
 #| msgid "&Search"
 msgid "Search..."
 msgstr "සොයන්න (&S)"
 
-#: navigator.cpp:118
+#: navigator.cpp:117
 #, kde-format
 msgid "&Contents"
 msgstr "අන්තර්ගත (&C)"
 
-#: navigator.cpp:128
+#: navigator.cpp:127
 #, kde-format
 msgid "Search Options"
 msgstr "සෙවුම් විකල්ප"
 
-#: navigator.cpp:136
+#: navigator.cpp:135
 #, kde-format
 msgid "G&lossary"
 msgstr "වාග්මාලාව (&l)"
 
-#: navigator.cpp:480
+#: navigator.cpp:456
 #, kde-format
 msgid "Start Page"
 msgstr "ඇරඹුම් පිටුව"
 
-#: navigator.cpp:481
+#: navigator.cpp:457
 #, kde-format
 msgid "KDE Help Center"
 msgstr "KDE උදව් මධ්‍යස්ථානය"
 
-#: navigator.cpp:564
+#: navigator.cpp:539
 #, kde-format
 msgid "Unable to run search program."
 msgstr "සෙවුම් වැඩසටහන ධාවනය අසාර්ථක විය."
 
-#: navigator.cpp:657
+#: navigator.cpp:632
 #, fuzzy, kde-format
 #| msgid "Build Search &Index..."
 msgid "Updating search index..."
 msgstr "සෙවුම් සූවිය ගොඩනගන්න (&I)..."
 
-#: navigator.cpp:668
+#: navigator.cpp:643
 #, fuzzy, kde-format
 #| msgid "Rebuilding cache... done."
 msgid "Updating search index... done."
 msgstr "කෑශ් නැවත සැකසීම.... අවසන්."
 
-#: searchengine.cpp:57
+#: printdoc.cpp:60
+#, kde-format
+msgid "Could not generate print preview."
+msgstr ""
+
+#: printdoc.cpp:96
+#, kde-format
+msgctxt "@title:window"
+msgid "Print Document"
+msgstr ""
+
+#: searchengine.cpp:59
 #, kde-format
 msgid "Error: No document type specified."
 msgstr "දෝශය: ලේඛන වර්ගය යොදා නොමැත"
 
-#: searchengine.cpp:59
+#: searchengine.cpp:61
 #, kde-format
 msgid "Error: No search handler for document type '%1'."
 msgstr "දෝශය: '%1' වර්ගයේ ලේඛනයන්ට සෙවුම්හැසිරවුම් නැත"
 
-#: searchengine.cpp:229
+#: searchengine.cpp:231
 #, kde-format
 msgid "No valid search handler found."
 msgstr "කිසිඳු වලංගු සෙවුම් හසුරවනයක් හමු නොවිනි."
@@ -483,18 +459,35 @@ msgctxt "Label for Unknown search scope, that should never appear"
 msgid "unknown"
 msgstr "නොදන්නා"
 
-#: view.cpp:228
-#, kde-format
-msgid "Copy Link Address"
-msgstr "සබැඳි ලිපිනය පිටපත් කරන්න"
+#: view.cpp:270
+#, fuzzy, kde-format
+#| msgid "Start Page"
+msgid "Save Page"
+msgstr "ඇරඹුම් පිටුව"
 
-#: view.cpp:312
-#, kde-format
-msgid ""
-"<p>Read the topic documentation in this window.<br /><br />Press <b>Space</"
-"b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, <b>Tab</b>/"
-"<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
-msgstr ""
+#~ msgid "Previous Page"
+#~ msgstr "මීටපෙර පිටුව"
+
+#~ msgid "Moves to the previous page of the document"
+#~ msgstr "ලේඛනයේ පෙර පිටුවට ගෙනයයි"
+
+#~ msgid "Next Page"
+#~ msgstr "මීළඟ පිටුව"
+
+#~ msgid "Moves to the next page of the document"
+#~ msgstr "ලේඛනයේ ඊලඟ පිටුවට ගෙනයයි"
+
+#~ msgid "Configure Fonts..."
+#~ msgstr "අකුරු සකසන්න"
+
+#~ msgid "Increase Font Sizes"
+#~ msgstr "අකුරු ප්‍රමාණ වැඩි කරන්න"
+
+#~ msgid "Decrease Font Sizes"
+#~ msgstr "අකුරු ප්‍රමාණ අඩු කරන්න"
+
+#~ msgid "Copy Link Address"
+#~ msgstr "සබැඳි ලිපිනය පිටපත් කරන්න"
 
 #~ msgid "Unable to initialize SearchHandler from file '%1'."
 #~ msgstr "'%1' ගොනුවෙන් සෙවුම්හැසිරුම ආරම්භ කල නොහැකි විය."

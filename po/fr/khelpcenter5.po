@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-17 00:49+0000\n"
+"POT-Creation-Date: 2023-09-29 01:40+0000\n"
 "PO-Revision-Date: 2020-10-13 08:58+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -53,38 +53,39 @@ msgstr ""
 msgid "Documentation to open"
 msgstr "Documentation à ouvrir"
 
-#: application.cpp:114 application.cpp:116
+#: application.cpp:102 application.cpp:104
 #, kde-format
 msgid "Help Center"
 msgstr "Centre d'aide"
 
-#: application.cpp:118
-#, kde-format
-msgid "(c) 1999-2020, The KHelpCenter developers"
+#: application.cpp:106
+#, fuzzy, kde-format
+#| msgid "(c) 1999-2020, The KHelpCenter developers"
+msgid "(c) 1999-2023, The KHelpCenter developers"
 msgstr ""
 "(c) 1999-2020, les développeurs du centre d'aide de KDE « KHelpCenter »"
 
-#: application.cpp:120
+#: application.cpp:108
 #, kde-format
 msgid "Current maintainer"
 msgstr "Mainteneur actuel"
 
-#: application.cpp:121
+#: application.cpp:109
 #, kde-format
 msgid "Xapian-based search, lot of bugfixes"
 msgstr "Recherche utilisant Xapian, nombreuses corrections de bogues"
 
-#: application.cpp:122
+#: application.cpp:110
 #, kde-format
 msgid "Former maintainer"
 msgstr "Ancien mainteneur"
 
-#: application.cpp:124
+#: application.cpp:112
 #, kde-format
 msgid "Original Author"
 msgstr "Auteur originel"
 
-#: application.cpp:125
+#: application.cpp:113
 #, kde-format
 msgid "Info page support"
 msgstr "Gestion des pages d'informations"
@@ -183,12 +184,12 @@ msgstr "Utiliser l'encodage de votre langue"
 msgid "&Font size adjustment:"
 msgstr "A&justement des tailles de polices :"
 
-#: glossary.cpp:68
+#: glossary.cpp:69
 #, kde-format
 msgid "By Topic"
 msgstr "Par sujet"
 
-#: glossary.cpp:72 infotree.cpp:74
+#: glossary.cpp:73 infotree.cpp:74
 #, kde-format
 msgid "Alphabetically"
 msgstr "Par ordre alphabétique"
@@ -198,33 +199,33 @@ msgstr "Par ordre alphabétique"
 msgid "Rebuilding glossary cache..."
 msgstr "Reconstruction du cache pour le glossaire..."
 
-#: glossary.cpp:182
+#: glossary.cpp:181
 #, kde-format
 msgid "Rebuilding cache... done."
 msgstr "Reconstruction du cache... Terminée."
 
-#: grantleeformatter.cpp:102
+#: grantleeformatter.cpp:100
 #, kde-format
 msgctxt "%1 is a glossary term"
 msgid "KDE Glossary: %1"
 msgstr "Glossaire de KDE : %1"
 
-#: grantleeformatter.cpp:103
+#: grantleeformatter.cpp:101
 #, kde-format
 msgid "KDE Glossary"
 msgstr "Glossaire de KDE"
 
-#: grantleeformatter.cpp:107
+#: grantleeformatter.cpp:105
 #, kde-format
 msgid "See also: %1"
 msgstr "Voir aussi : %1"
 
-#: grantleeformatter.cpp:128
+#: grantleeformatter.cpp:126
 #, kde-format
 msgid "Search Results"
 msgstr "Résultats de la recherche"
 
-#: grantleeformatter.cpp:129 searchengine.cpp:259
+#: grantleeformatter.cpp:127 searchengine.cpp:261
 #, kde-format
 msgid "Search Results for '%1':"
 msgstr "Résultats de la recherche pour « %1 » :"
@@ -276,140 +277,116 @@ msgstr "Al&ler"
 msgid "Main Toolbar"
 msgstr "Barre principale d'outils"
 
-#: mainwindow.cpp:64
+#: mainwindow.cpp:62
 #, kde-format
 msgid "Search Error Log"
 msgstr "Chercher dans le journal des erreurs"
 
-#: mainwindow.cpp:116
+#: mainwindow.cpp:113
 #, kde-format
 msgid "Preparing Index"
 msgstr "Préparation de l'index en cours"
 
-#: mainwindow.cpp:159
+#: mainwindow.cpp:140
 #, kde-format
 msgid "Ready"
 msgstr "Prêt"
 
-#: mainwindow.cpp:210
-#, kde-format
-msgid "Previous Page"
-msgstr "Page précédente"
-
-#: mainwindow.cpp:212
-#, kde-format
-msgid "Moves to the previous page of the document"
-msgstr "Vers la page précédente du document"
-
-#: mainwindow.cpp:216
-#, kde-format
-msgid "Next Page"
-msgstr "Page suivante"
-
-#: mainwindow.cpp:218
-#, kde-format
-msgid "Moves to the next page of the document"
-msgstr "Vers la page suivante du document"
-
-#: mainwindow.cpp:225
+#: mainwindow.cpp:195
 #, kde-format
 msgid "Table of &Contents"
 msgstr "Table des mati&ères"
 
-#: mainwindow.cpp:226
+#: mainwindow.cpp:196
 #, kde-format
 msgid "Table of contents"
 msgstr "Table des matières"
 
-#: mainwindow.cpp:227
+#: mainwindow.cpp:197
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "Retourner à la table des matières"
 
-#: mainwindow.cpp:233
+#: mainwindow.cpp:203
 #, kde-format
 msgid "&Last Search Result"
 msgstr "Résu&ltat de la dernière recherche"
 
-#: mainwindow.cpp:251
-#, kde-format
-msgid "Configure Fonts..."
-msgstr "Configurer les polices..."
-
-#: mainwindow.cpp:255
-#, kde-format
-msgid "Increase Font Sizes"
-msgstr "Augmenter la taille des polices"
-
-#: mainwindow.cpp:260
-#, kde-format
-msgid "Decrease Font Sizes"
-msgstr "Réduire la taille des polices"
-
-#: mainwindow.cpp:276
+#: mainwindow.cpp:233
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"
 msgstr "&Signets"
 
-#: navigator.cpp:63
+#: navigator.cpp:62
 #, kde-format
 msgid "Search..."
 msgstr "Chercher..."
 
-#: navigator.cpp:118
+#: navigator.cpp:117
 #, kde-format
 msgid "&Contents"
 msgstr "&Contenus"
 
-#: navigator.cpp:128
+#: navigator.cpp:127
 #, kde-format
 msgid "Search Options"
 msgstr "Options de recherche"
 
-#: navigator.cpp:136
+#: navigator.cpp:135
 #, kde-format
 msgid "G&lossary"
 msgstr "G&lossaire"
 
-#: navigator.cpp:480
+#: navigator.cpp:456
 #, kde-format
 msgid "Start Page"
 msgstr "Page de départ"
 
-#: navigator.cpp:481
+#: navigator.cpp:457
 #, kde-format
 msgid "KDE Help Center"
 msgstr "Le centre d'aide de KDE"
 
-#: navigator.cpp:564
+#: navigator.cpp:539
 #, kde-format
 msgid "Unable to run search program."
 msgstr "Impossible d'exécuter le programme de recherche."
 
-#: navigator.cpp:657
+#: navigator.cpp:632
 #, kde-format
 msgid "Updating search index..."
 msgstr "Mise à jour de l'index de recherche…"
 
-#: navigator.cpp:668
+#: navigator.cpp:643
 #, kde-format
 msgid "Updating search index... done."
 msgstr "Mise à jour de l'index de recherche… terminée."
 
-#: searchengine.cpp:57
+#: printdoc.cpp:60
+#, kde-format
+msgid "Could not generate print preview."
+msgstr ""
+
+#: printdoc.cpp:96
+#, kde-format
+msgctxt "@title:window"
+msgid "Print Document"
+msgstr ""
+
+#: searchengine.cpp:59
 #, kde-format
 msgid "Error: No document type specified."
 msgstr "Erreur : aucun type de document fourni."
 
-#: searchengine.cpp:59
+#: searchengine.cpp:61
 #, kde-format
 msgid "Error: No search handler for document type '%1'."
 msgstr ""
 "Erreur : aucun module de recherche disponible pour le type de document "
 "« %1 »."
 
-#: searchengine.cpp:229
+#: searchengine.cpp:231
 #, kde-format
 msgid "No valid search handler found."
 msgstr "Aucun module de recherche valable trouvé."
@@ -500,22 +477,45 @@ msgctxt "Label for Unknown search scope, that should never appear"
 msgid "unknown"
 msgstr "inconnu"
 
-#: view.cpp:228
-#, kde-format
-msgid "Copy Link Address"
-msgstr "Copier l'adresse du lien"
+#: view.cpp:270
+#, fuzzy, kde-format
+#| msgid "Start Page"
+msgid "Save Page"
+msgstr "Page de départ"
 
-#: view.cpp:312
-#, kde-format
-msgid ""
-"<p>Read the topic documentation in this window.<br /><br />Press <b>Space</"
-"b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, <b>Tab</b>/"
-"<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
-msgstr ""
-"<p>Lisez la documentation sur votre sujet dans cette fenêtre.<br /><br /"
-">Appuyez sur <b>Espace</b>/<b>Maj+espace</b> pour défiler, <b>%1</b> pour "
-"chercher quelque chose, <b>Tab</b>/<b>Maj+Tab</b> pour sauter, et <b>Entrée</"
-"b> pour suivre.</p>"
+#~ msgid "Previous Page"
+#~ msgstr "Page précédente"
+
+#~ msgid "Moves to the previous page of the document"
+#~ msgstr "Vers la page précédente du document"
+
+#~ msgid "Next Page"
+#~ msgstr "Page suivante"
+
+#~ msgid "Moves to the next page of the document"
+#~ msgstr "Vers la page suivante du document"
+
+#~ msgid "Configure Fonts..."
+#~ msgstr "Configurer les polices..."
+
+#~ msgid "Increase Font Sizes"
+#~ msgstr "Augmenter la taille des polices"
+
+#~ msgid "Decrease Font Sizes"
+#~ msgstr "Réduire la taille des polices"
+
+#~ msgid "Copy Link Address"
+#~ msgstr "Copier l'adresse du lien"
+
+#~ msgid ""
+#~ "<p>Read the topic documentation in this window.<br /><br />Press "
+#~ "<b>Space</b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, "
+#~ "<b>Tab</b>/<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
+#~ msgstr ""
+#~ "<p>Lisez la documentation sur votre sujet dans cette fenêtre.<br /><br /"
+#~ ">Appuyez sur <b>Espace</b>/<b>Maj+espace</b> pour défiler, <b>%1</b> pour "
+#~ "chercher quelque chose, <b>Tab</b>/<b>Maj+Tab</b> pour sauter, et "
+#~ "<b>Entrée</b> pour suivre.</p>"
 
 #~ msgid "Unable to initialize SearchHandler from file '%1'."
 #~ msgstr ""
