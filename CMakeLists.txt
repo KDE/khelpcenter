@@ -173,11 +173,8 @@ install( FILES table-of-contents.xslt glossary.xslt DESTINATION ${KDE_INSTALL_DA
 install( FILES org.kde.khelpcenter.metainfo.xml DESTINATION ${KDE_INSTALL_METAINFODIR} )
 
 ki18n_install(po)
-if (QT_MAJOR_VERSION STREQUAL "5")
-    kdoctools_install(po)
-else()
-    MESSAGE(STATUS "docbook needs some fix for building against qt6")
-endif()
+kdoctools_install(po)
+
 add_subdirectory( doc )
 ecm_qt_install_logging_categories(
     EXPORT KHELPCENTER
