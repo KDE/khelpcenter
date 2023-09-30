@@ -8,13 +8,13 @@
 # Serdar Soytetir <tulliana@gmail.com>, 2007, 2008, 2009.
 # H. İbrahim Güngör <tulliana@gmail.com>, 2011, 2012.
 # Volkan Gezer <volkangezer@gmail.com>, 2013, 2014, 2017.
-# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-17 00:49+0000\n"
-"PO-Revision-Date: 2023-06-04 01:40+0300\n"
+"PO-Revision-Date: 2023-09-29 14:09+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.07.70\n"
+"X-Generator: Lokalize 23.08.1\n"
 "X-Poedit-Language: Turkish\n"
 
 #, kde-format
@@ -38,7 +38,7 @@ msgstr "gorkem@kde.org, muhammet.k@gmail.com, volkangezer@gmail.com"
 #: application.cpp:30
 #, kde-format
 msgid "Documentation to open"
-msgstr "Açılacak dosya"
+msgstr "Açılacak belgelendirme"
 
 #: application.cpp:114 application.cpp:116
 #, kde-format
@@ -53,7 +53,7 @@ msgstr "(c) 1999-2020, K Yardım Merkezi geliştiricileri"
 #: application.cpp:120
 #, kde-format
 msgid "Current maintainer"
-msgstr "Projeyi sürdüren"
+msgstr "Şu anki bakımcı"
 
 #: application.cpp:121
 #, kde-format
@@ -63,12 +63,12 @@ msgstr "Xaplan tabanlı arama, hata düzeltmeleri"
 #: application.cpp:122
 #, kde-format
 msgid "Former maintainer"
-msgstr "Önceden projeyi sürdüren"
+msgstr "Önceki bakımcı"
 
 #: application.cpp:124
 #, kde-format
 msgid "Original Author"
-msgstr "Asıl Yazar"
+msgstr "Özgün yazar"
 
 #: application.cpp:125
 #, kde-format
@@ -127,7 +127,7 @@ msgstr "&Standart yazıtipi:"
 #: fontdialog.cpp:93
 #, kde-format
 msgid "F&ixed font:"
-msgstr "&Sabit boyutlu yazıtipi:"
+msgstr "&Eş aralıklı boyutlu yazıtipi:"
 
 #: fontdialog.cpp:99
 #, kde-format
@@ -177,7 +177,7 @@ msgstr "Başlığa Göre"
 #: glossary.cpp:72 infotree.cpp:74
 #, kde-format
 msgid "Alphabetically"
-msgstr "Alfabetik"
+msgstr "Abecesel"
 
 #: glossary.cpp:128
 #, kde-format
@@ -224,7 +224,7 @@ msgstr "Kategoriye Göre"
 #: khelpcenter.kcfg:31
 #, kde-format
 msgid "Path to index directory."
-msgstr "Dizin dizini yolu."
+msgstr "İndeks dizini yolu."
 
 #. i18n: ectx: whatsthis, entry, group (Search)
 #: khelpcenter.kcfg:32
@@ -270,7 +270,7 @@ msgstr "Arama Hatası Günlüğü"
 #: mainwindow.cpp:116
 #, kde-format
 msgid "Preparing Index"
-msgstr "Dizin Hazırlanıyor"
+msgstr "İndeks Hazırlanıyor"
 
 #: mainwindow.cpp:159
 #, kde-format
@@ -376,12 +376,12 @@ msgstr "Arama programı çalıştırılamadı."
 #: navigator.cpp:657
 #, kde-format
 msgid "Updating search index..."
-msgstr "Arama dizini güncelleniyor..."
+msgstr "Arama indeksi güncelleniyor..."
 
 #: navigator.cpp:668
 #, kde-format
 msgid "Updating search index... done."
-msgstr "Arama dizini güncelleniyor... tamamlandı."
+msgstr "Arama indeksi güncelleniyor... tamamlandı."
 
 #: searchengine.cpp:57
 #, kde-format
