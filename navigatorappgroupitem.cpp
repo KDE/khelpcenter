@@ -117,9 +117,9 @@ void NavigatorAppGroupItem::populate( bool recursive )
 
 QString NavigatorAppGroupItem::documentationURL( const KService *s )
 {
-  QString docPath = s->property( QStringLiteral("DocPath") ).toString();
+  QString docPath = s->property<QString>( QStringLiteral("DocPath") );
   if ( docPath.isEmpty() ) {
-    docPath = s->property( QStringLiteral("X-DocPath") ).toString();
+    docPath = s->property<QString>( QStringLiteral("X-DocPath") );
     if ( docPath.isEmpty() ) {
       return QString();
     }
