@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-29 01:40+0000\n"
-"PO-Revision-Date: 2023-06-08 19:23+0100\n"
+"PO-Revision-Date: 2023-09-29 06:55+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -41,10 +41,9 @@ msgid "Help Center"
 msgstr "Helpcentro"
 
 #: application.cpp:106
-#, fuzzy, kde-format
-#| msgid "(c) 1999-2020, The KHelpCenter developers"
+#, kde-format
 msgid "(c) 1999-2023, The KHelpCenter developers"
-msgstr "(c) 1999-2020, La KHelpCenter-programistoj"
+msgstr "(c) 1999-2023, La KHelpCenter-programistoj"
 
 #: application.cpp:108
 #, kde-format
@@ -347,13 +346,13 @@ msgstr "Ĝisdatigo de serĉindekso... preta."
 #: printdoc.cpp:60
 #, kde-format
 msgid "Could not generate print preview."
-msgstr ""
+msgstr "Ne eblis generi presan antaŭrigardon."
 
 #: printdoc.cpp:96
 #, kde-format
 msgctxt "@title:window"
 msgid "Print Document"
-msgstr ""
+msgstr "Presi Dokumenton"
 
 #: searchengine.cpp:59
 #, kde-format
@@ -456,40 +455,6 @@ msgid "unknown"
 msgstr "nekonata"
 
 #: view.cpp:270
-#, fuzzy, kde-format
-#| msgid "Start Page"
+#, kde-format
 msgid "Save Page"
-msgstr "Startpaĝo"
-
-#~ msgid "Previous Page"
-#~ msgstr "Antaŭa paĝo"
-
-#~ msgid "Moves to the previous page of the document"
-#~ msgstr "Iras al la antaŭa paĝo de la dokumento"
-
-#~ msgid "Next Page"
-#~ msgstr "Sekva paĝo"
-
-#~ msgid "Moves to the next page of the document"
-#~ msgstr "Iras al la sekva paĝo de la dokumento"
-
-#~ msgid "Configure Fonts..."
-#~ msgstr "Agordi tiparojn..."
-
-#~ msgid "Increase Font Sizes"
-#~ msgstr "Pligrandigi la tiparojn"
-
-#~ msgid "Decrease Font Sizes"
-#~ msgstr "Malgrandigi la tiparojn"
-
-#~ msgid "Copy Link Address"
-#~ msgstr "Kopii ligilan adreson"
-
-#~ msgid ""
-#~ "<p>Read the topic documentation in this window.<br /><br />Press "
-#~ "<b>Space</b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, "
-#~ "<b>Tab</b>/<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
-#~ msgstr ""
-#~ "<p>Legu la temdokumentaron en ĉi tiu fenestro.<br /><br />Premu <b>Spaco</"
-#~ "b>/<b>Shift+Spaco</b> por rulumi, <b>%1</b > por trovi ion, <b>Tab</b>/"
-#~ "<b>Shift+Tab</b> por salti, kaj <b>Enigu</b> por sekvi.</p>"
+msgstr "Konservi Paĝon"

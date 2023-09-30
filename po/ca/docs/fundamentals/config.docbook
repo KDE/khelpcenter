@@ -59,7 +59,7 @@
 <para
 >A sobre de cada costat del plafó hi ha un quadre de text <guilabel
 >Filtre</guilabel
-> que podeu utilitzar per trobar amb facilitat els elements de la llista.</para>
+> que podeu utilitzar per a trobar amb facilitat els elements de la llista.</para>
 
 <screenshot id="screenshot-toolbars-customize">
 <screeninfo
@@ -100,7 +100,7 @@
 >Canviar la posició dels elements</title>
 
 <para
->Podeu canviar la posició dels elements movent-los amunt o avall a la llista. Per a moure'ls cap avall, premeu el botó de fletxa avall, mentre que per moure'ls cap amunt premeu el botó de fletxa amunt. També podeu canviar la seva posició fent arrossegar i deixar anar.</para>
+>Podeu canviar la posició dels elements movent-los amunt o avall a la llista. Per a moure'ls cap avall, premeu el botó de fletxa avall, mentre que per a moure'ls cap amunt premeu el botó de fletxa amunt. També podeu canviar la seva posició fent arrossegar i deixar anar.</para>
 
 <para
 >A les barres d'eines en horitzontal, l'element que està a la part superior serà el de l'esquerra. A les barres d'eines en vertical, els elements es disposen tal com apareixen.</para>
@@ -148,7 +148,7 @@
 >Personalització de l'aparença de la barra d'eines</title>
 
 <para
->Podeu canviar l'aparença de les barres d'eines fent-hi clic dret per accedir al seu menú contextual.</para>
+>Podeu canviar l'aparença de les barres d'eines fent-hi clic dret per a accedir al seu menú contextual.</para>
 <!-- settings for each toolbar separately-->
 <sect3 id="toolbars-appearance-text-position">
 <title
@@ -248,7 +248,7 @@
 <para
 >Per tal de moure les barres d'eines, primer les heu de <quote
 >desbloquejar</quote
->. Per fer-ho, desmarqueu <guimenuitem
+>. Per a fer-ho, desmarqueu <guimenuitem
 >Bloqueja la posició de les barres d'eines</guimenuitem
 > des del menú contextual de la barra d'eines. Per a restaurar el bloqueig, simplement marqueu una altra vegada aquest element de menú.</para>
 
@@ -304,7 +304,7 @@
 >Mostra la barra d'eines</guimenuitem
 > des del menú <guimenu
 >Arranjament</guimenu
->. Recordeu que per actuar sobre les barres d'eines primer s'han de <quote
+>. Recordeu que per a actuar sobre les barres d'eines primer s'han de <quote
 >desbloquejar</quote
 > des del seu menú contextual. Vegeu <xref linkend="toolbars-appearance-move"/> per a més informació.</para>
 
@@ -359,7 +359,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 >Introducció</title>
 
 <para
->Moltes aplicacions &kde; us permetran configurar les dreceres de teclat. Per obrir el plafó de configuració estàndard per a les dreceres de teclat, aneu a <menuchoice
+>Moltes aplicacions &kde; us permetran configurar les dreceres de teclat. Per a obrir el plafó de configuració estàndard per a les dreceres de teclat, aneu a <menuchoice
 ><guimenu
 >Arranjament</guimenu
 ><guimenuitem
@@ -398,7 +398,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 >Canviar una drecera</title>
 
 <para
->Per a canviar una drecera, primer feu clic al nom de la que voleu canviar. Veureu un grup de botons d'opció en el qual podreu decidir si la voleu establir al seu valor per omissió, o seleccionar-ne una de nova per a l'acció seleccionada. Per establir una drecera nova, escolliu <guilabel
+>Per a canviar una drecera, primer feu clic al nom de la que voleu canviar. Veureu un grup de botons d'opció en el qual podreu decidir si la voleu establir al seu valor per omissió, o seleccionar-ne una de nova per a l'acció seleccionada. Per a definir una drecera nova, escolliu <guilabel
 >Personalitza</guilabel
 > i feu clic sobre el botó al seu costat. Després només haureu d'escriure la drecera que voleu i desar els canvis.</para>
 
@@ -437,7 +437,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 >Eliminar una drecera</title>
 
 <para
->Per eliminar una drecera, seleccioneu-la a la llista, feu clic a la icona <guibutton
+>Per a eliminar una drecera, seleccioneu-la a la llista, feu clic a la icona <guibutton
 >Elimina</guibutton
 > (una fletxa de color negre amb una creu) a la dreta del botó que permet seleccionar una drecera.</para>
 

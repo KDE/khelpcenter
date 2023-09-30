@@ -243,7 +243,7 @@
 >Filtre</glossterm>
                         <glossdef
 ><para
->Els filtres, en general, són programes que reben dades d'entrada, les processen i la passen com a informació d'eixida. Els filtres poden o no modificar les dades.&newpara; Els filtres, en el context de la impressió, són programes que converteixen un fitxer (destinat per a la impressió, però que el seu format actual no és l'adequat) en un fitxer imprimible. A vegades és necessari construir autèntiques «cadenes de filtratge» per aconseguir l'objectiu, enviant l'eixida d'un dels filtres a l'entrada del següent. </para
+>Els filtres, en general, són programes que reben dades d'entrada, les processen i la passen com a informació d'eixida. Els filtres poden o no modificar les dades.&newpara; Els filtres, en el context de la impressió, són programes que converteixen un fitxer (destinat per a la impressió, però que el seu format actual no és l'adequat) en un fitxer imprimible. A vegades és necessari construir autèntiques «cadenes de filtratge» per a aconseguir l'objectiu, enviant l'eixida d'un dels filtres a l'entrada del següent. </para
 ><glossseealso otherterm="gloss-ghostscript"
 >Ghostscript</glossseealso
 > <glossseealso otherterm="gloss-rip"
@@ -540,7 +540,7 @@
 >printcap</glossterm>
                         <glossdef
 ><para
->En sistemes d'impressió a l'estil BSD, el fitxer «printcap» gestiona la informació de configuració; el dimoni d'impressió llegeix aquest fitxer per a determinar quina impressora està disponible, quins filtres s'usaran per a cadascuna, a on està localitzada la carpeta d'encuament, si hi ha pàgines de rètol a usar, i més... Algunes aplicacions també depenen de l'accés a lectura del fitxer «printcap», per obtenir els noms de les impressores disponibles. </para>
+>En sistemes d'impressió a l'estil BSD, el fitxer «printcap» gestiona la informació de configuració; el dimoni d'impressió llegeix aquest fitxer per a determinar quina impressora està disponible, quins filtres s'usaran per a cadascuna, a on està localitzada la carpeta d'encuament, si hi ha pàgines de rètol a usar, i més... Algunes aplicacions també depenen de l'accés a lectura del fitxer «printcap» per a obtenir els noms de les impressores disponibles. </para>
                                 <glossseealso otherterm="gloss-bsdstyleprinting"
 >Impressió a l'estil BSD</glossseealso>
                         </glossdef>
@@ -554,7 +554,7 @@
 ></glossterm>
                         <glossdef
 ><para
->Abreviació de &emstart;Printer&emend;- &emstart;M&emend;anagement &emstart;I&emend;nformation &emstart;B&emend;ase (base per a informació de gestió); la impressió MIB defineix un joc de paràmetres que són emmagatzemats a la impressora per accedir a la xarxa. Això és útil si moltes (en alguns casos, literalment milers) de les impressores de la xarxa són manipulades centralitzadament amb l'ajuda de SNMP (el protocol simple per a la gestió de la xarxa).</para
+>Abreviació de &emstart;Printer&emend;- &emstart;M&emend;anagement &emstart;I&emend;nformation &emstart;B&emend;ase (base per a informació de gestió); la impressió MIB defineix un joc de paràmetres que són emmagatzemats a la impressora per a accedir a la xarxa. Això és útil si moltes (en alguns casos, literalment milers) de les impressores de la xarxa són manipulades centralitzadament amb l'ajuda de SNMP (el protocol simple per a la gestió de la xarxa).</para
 ><glossseealso otherterm="gloss-pwg"
 >PWG</glossseealso
 > <glossseealso otherterm="gloss-snmp"

@@ -466,27 +466,3 @@ msgstr "ukjent"
 #| msgid "Start Page"
 msgid "Save Page"
 msgstr "Startside"
-
-#~ msgid "Previous Page"
-#~ msgstr "Forrige side"
-
-#~ msgid "Moves to the previous page of the document"
-#~ msgstr "Flytter til forrige side i dokumentet"
-
-#~ msgid "Next Page"
-#~ msgstr "Neste side"
-
-#~ msgid "Moves to the next page of the document"
-#~ msgstr "Flytter til neste side i dokumentet"
-
-#~ msgid "Configure Fonts..."
-#~ msgstr "Tilpass skrifter …"
-
-#~ msgid "Increase Font Sizes"
-#~ msgstr "Øk skriftstørrelser"
-
-#~ msgid "Decrease Font Sizes"
-#~ msgstr "Minsk skriftstørrelser"
-
-#~ msgid "Copy Link Address"
-#~ msgstr "Kopier lenkeadresse"

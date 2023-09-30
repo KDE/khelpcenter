@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Eloy Cuadra <ecuadra@eloihr.net>, 2014, 2016, 2018, 2019, 2020.
+# SPDX-FileCopyrightText: 2014, 2016, 2018, 2019, 2020, 2023 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-29 01:40+0000\n"
-"PO-Revision-Date: 2020-10-12 12:33+0200\n"
+"PO-Revision-Date: 2023-09-29 19:29+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.08.2\n"
+"X-Generator: Lokalize 23.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -38,10 +38,9 @@ msgid "Help Center"
 msgstr "Centro de ayuda"
 
 #: application.cpp:106
-#, fuzzy, kde-format
-#| msgid "(c) 1999-2020, The KHelpCenter developers"
+#, kde-format
 msgid "(c) 1999-2023, The KHelpCenter developers"
-msgstr "© 1999-2020, los desarrolladores de KHelpCenter"
+msgstr "© 1999-2023, los desarrolladores de KHelpCenter"
 
 #: application.cpp:108
 #, kde-format
@@ -344,13 +343,13 @@ msgstr "Actualizando el índice de búsqueda... terminado."
 #: printdoc.cpp:60
 #, kde-format
 msgid "Could not generate print preview."
-msgstr ""
+msgstr "No se ha podido generar la vista previa de la impresión."
 
 #: printdoc.cpp:96
 #, kde-format
 msgctxt "@title:window"
 msgid "Print Document"
-msgstr ""
+msgstr "Imprimir el documento"
 
 #: searchengine.cpp:59
 #, kde-format
@@ -453,10 +452,9 @@ msgid "unknown"
 msgstr "Desconocido"
 
 #: view.cpp:270
-#, fuzzy, kde-format
-#| msgid "Start Page"
+#, kde-format
 msgid "Save Page"
-msgstr "Página de inicio"
+msgstr "Guardar la página"
 
 #~ msgid "Previous Page"
 #~ msgstr "Página anterior"

@@ -460,15 +460,3 @@ msgstr ""
 #| msgid "Next Page"
 msgid "Save Page"
 msgstr "Boahtte siidu"
-
-#~ msgid "Previous Page"
-#~ msgstr "Ovddit siidu"
-
-#~ msgid "Increase Font Sizes"
-#~ msgstr "Stuorit fontta"
-
-#~ msgid "Decrease Font Sizes"
-#~ msgstr "Unnit fontta"
-
-#~ msgid "Copy Link Address"
-#~ msgstr "Máŋge liŋkačujuhusa"

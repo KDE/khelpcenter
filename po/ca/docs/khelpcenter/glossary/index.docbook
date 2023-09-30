@@ -113,7 +113,7 @@ Project Neon
 >Frameworks</glossterm>
 			<glossdef
 ><para
->Els Frameworks 5 del &kde; és la propera generació de les biblioteques &kde;, modulars i optimitzades per a una fàcil integració amb les aplicacions &Qt;. Els Frameworks ofereixen una àmplia varietat de funcionalitats comunament necessàries: madures, revisades per parelles i biblioteques ben provades amb termes de llicència amistosos. Hi ha més de 70 Frameworks diferents que proporcionen solucions incloent integració amb el maquinari, suport per a formats de fitxer, ginys addicionals, funcions de traçat, correcció ortogràfica i més. Molts dels Frameworks multiplataforma i tenen poca o cap dependència addicionals fent que siguin fàcils de construir i afegir a qualsevol aplicació &Qt;.&newpara; Més informació:&newpara; &linkstart;"https://community.kde.org/Frameworks"&linkmid;&kde; Wiki de la comunitat: Frameworks&linkend;</para
+>Els Frameworks 5 del &kde; és la pròxima generació de les biblioteques &kde;, modulars i optimitzades per a una fàcil integració amb les aplicacions &Qt;. Els Frameworks ofereixen una àmplia varietat de funcionalitats comunament necessàries: madures, revisades per parelles i biblioteques ben provades amb termes de llicència amistosos. Hi ha més de 70 Frameworks diferents que proporcionen solucions incloent integració amb el maquinari, suport per a formats de fitxer, ginys addicionals, funcions de traçat, correcció ortogràfica i més. Molts dels Frameworks multiplataforma i tenen poca o cap dependència addicionals fent que siguin fàcils de construir i afegir a qualsevol aplicació &Qt;.&newpara; Més informació:&newpara; &linkstart;"https://community.kde.org/Frameworks"&linkmid;&kde; Wiki de la comunitat: Frameworks&linkend;</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-plasma"
@@ -248,7 +248,7 @@ otherterm="gloss-kbuildsycoca"
 >Plataforma</glossterm>
 			<glossdef
 ><para
->Anteriorment la base de les biblioteques i els serveis necessaris per executar les aplicacions &kde;. És utilitzat pel nucli i els desenvolupadors de tercers per crear programari &kde;. Sobretot si s'inclouen els frameworks i eines de desenvolupament que es poden anomenar com la Plataforma de desenvolupament del &kde;. La plataforma del &kde; es basa en una sèrie de pilars, per exemple Akonadi, Solid, Phonon.</para
+>Anteriorment la base de les biblioteques i els serveis necessaris per a executar les aplicacions &kde;. És utilitzat pel nucli i els desenvolupadors de tercers per a crear programari &kde;. Sobretot si s'inclouen els frameworks i eines de desenvolupament que es poden anomenar com la Plataforma de desenvolupament del &kde;. La plataforma del &kde; es basa en una sèrie de pilars, per exemple Akonadi, Solid, Phonon.</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-plasma"
@@ -270,7 +270,7 @@ otherterm="gloss-kbuildsycoca"
 >Phonon</glossterm>
 			<glossdef
 ><para
->Una API multimèdia multiplataforma, interfície per a connectar amb les plataformes existents, com ara motors gstreamer i xine. &kde; 2 i 3 depenen d'aRts per al so. Phono el substitueix.&newpara; Més informació:&newpara; &linkstart;"https://en.wikipedia.org/wiki/Phonon_(software)"&linkmid;Viquipèdia: Phonon (programari)&linkend;&newpara; &linkstart;"https://phonon.kde.org/"&linkmid;Lloc web de Phonon&linkend;</para
+>Una API multimèdia multiplataforma, interfície per a connectar amb les plataformes existents, com ara els motors del «gstreamer» i del «xine». &kde; 2 i 3 depenen d'aRts per al so. Phono el substitueix.&newpara; Més informació:&newpara; &linkstart;"https://en.wikipedia.org/wiki/Phonon_(software)"&linkmid;Viquipèdia: Phonon (programari)&linkend;&newpara; &linkstart;"https://phonon.kde.org/"&linkmid;Lloc web de Phonon&linkend;</para
 ><glossseealso otherterm="gloss-arts"
 >aRts</glossseealso
 > <glossseealso otherterm="gloss-kde"
@@ -323,7 +323,7 @@ otherterm="gloss-kbuildsycoca"
 >Antialiàsing</glossterm>
 			<glossdef
 ><para
->Si es menciona en el context del &kde;, antialiàsing sovint significa el suavitzat dels tipus de lletra visibles a la pantalla. La versió 3.3 de &Qt; o posteriors, usada conjuntament amb X.Org fa possible aquest efecte sota el &kde;.</para
+>Si es menciona en el context del &kde;, antialiàsing sovint significa el suavitzat de les lletres visibles a la pantalla. La versió 3.3 de &Qt; o posteriors, usada conjuntament amb X.Org fa possible aquest efecte sota el &kde;.</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-qt"
@@ -424,7 +424,7 @@ otherterm="gloss-kbuildsycoca"
 >KWin</glossterm>
 			<glossdef
 ><para
->El KWin és el gestor de finestres. Aquí és on la decoració de les finestres es pot canviar i aplicar temes. &kde; SC 4 s'estén KWin per donar suport als efectes de composició 3D a l'escriptori.&newpara; Més informació: &newpara; &linkstart;"https://userbase.kde.org/KWin/ca"&linkmid;UserBase: KWin&linkend;</para
+>El KWin és el gestor de finestres. Aquí és on la decoració de les finestres es pot canviar i aplicar temes. &kde; SC 4 s'estén KWin per a donar suport als efectes de composició 3D a l'escriptori.&newpara; Més informació: &newpara; &linkstart;"https://userbase.kde.org/KWin/ca"&linkmid;UserBase: KWin&linkend;</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-xserver"
@@ -557,7 +557,7 @@ otherterm="gloss-kbuildsycoca"
 >Directori inici</glossterm>
 			<glossdef
 ><para
->Aquest és el lloc en el sistema a on es desen tots els vostres fitxers. Els podeu escriure fora d'aquesta carpeta, però totes les aplicacions estan configurades per proposar-la com a lloc per omissió. I això és més fàcil, quan deseu les vostres coses aquí.&newpara; Més informació:&newpara; &linkstart;"https://en.wikipedia.org/wiki/Home_directory"&linkmid;Viquipèdia: Home Directory&linkend;</para>
+>Aquest és el lloc en el sistema a on es desen tots els vostres fitxers. Els podeu escriure fora d'aquesta carpeta, però totes les aplicacions estan configurades per a proposar-la com a lloc per omissió. I això és més fàcil, quan deseu les vostres coses aquí.&newpara; Més informació:&newpara; &linkstart;"https://en.wikipedia.org/wiki/Home_directory"&linkmid;Viquipèdia: Home Directory&linkend;</para>
 				<glossseealso otherterm="gloss-dolphin"
 >&dolphin;</glossseealso>
 			</glossdef>
@@ -579,7 +579,7 @@ otherterm="gloss-kbuildsycoca"
 ></glossterm>
 			<glossdef>
 				<para
->En &kde; 3, la barra era ubicada, usualment a la part inferior de la pantalla (A vegades anomenada el Plafó), a on es troben els llançadors d'aplicacions, el Paginador, i els botons per executar algunes aplicacions.</para
+>En &kde; 3, la barra era ubicada, usualment a la part inferior de la pantalla (A vegades anomenada el Plafó), a on es troben els llançadors d'aplicacions, el Paginador, i els botons per a executar algunes aplicacions.</para
 ><glossseealso otherterm="gloss-panel"
 >Plafó</glossseealso
 > <glossseealso otherterm="gloss-plasma"
@@ -611,7 +611,7 @@ otherterm="gloss-kbuildsycoca"
 ></glossterm>
 			<glossdef>
 				<para
->Oxygen era el tema per omissió del &kde; SC 4. Dissenyat per portar «una alenada d'aire fresc» a l'escriptori eliminant el simplista, icones animades, i la substitució per un tema net i amb icones de qualitat fotogràfica. Oxygen usa una paleta sense saturació per prevenir que les icones es converteixin en una distracció i usa detallats gràfics escalables (SVG).&newpara; Més informació:&newpara; &linkstart;"https://en.wikipedia.org/wiki/Oxygen_Project"&linkmid;Viquipèdia: Oxygen Project&linkend;</para
+>Oxygen era el tema per omissió del &kde; SC 4. Dissenyat per a portar «una alenada d'aire fresc» a l'escriptori eliminant el simplista, icones animades, i la substitució per un tema net i amb icones de qualitat fotogràfica. Oxygen usa una paleta sense saturació per a evitar que les icones es converteixin en una distracció i usa detallats gràfics escalables (SVG).&newpara; Més informació:&newpara; &linkstart;"https://en.wikipedia.org/wiki/Oxygen_Project"&linkmid;Viquipèdia: Oxygen Project&linkend;</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-ksvg"
@@ -790,7 +790,7 @@ otherterm="gloss-kbuildsycoca"
 >Giny (widget)</glossterm>
 			<glossdef
 ><para
->En general, els ginys són elements gràfics com les barres de desplaçament, els botons o els camps d'entrada que s'utilitzen per construir la &IGU;.&newpara; Els ginys del &plasma;, són els components principals i assumeixen una varietat de funcions, que van des de la visualització de l'escriptori i fons de pantalla associat, fins a mostrar el nivell de la bateria de l'ordinador portàtil, mostrar els dispositius endollats i dibuixar la barra de tasques: bàsicament, són petites aplicacions que viuen a l'escriptori. A més, els ginys es poden agrupar en «Contenidors», igual que el plafó i, fins i tot l'escriptori mateix. </para
+>En general, els ginys són elements gràfics com les barres de desplaçament, els botons o els camps d'entrada que s'utilitzen per a construir la &IGU;.&newpara; Els ginys del &plasma;, són els components principals i assumeixen una varietat de funcions, que van des de la visualització de l'escriptori i fons de pantalla associat, fins a mostrar el nivell de la bateria de l'ordinador portàtil, mostrar els dispositius endollats i dibuixar la barra de tasques: bàsicament, són petites aplicacions que viuen a l'escriptori. A més, els ginys es poden agrupar en «Contenidors», igual que el plafó i, fins i tot l'escriptori mateix. </para
 ><glossseealso otherterm="gloss-plasma"
 >&plasma;</glossseealso
 > <glossseealso otherterm="gloss-containment"

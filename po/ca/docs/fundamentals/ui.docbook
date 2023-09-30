@@ -66,7 +66,7 @@
 </mediaobjectco>
 </screenshot>
 <para
->Aquesta és la finestra del &kwrite;, un editor de text. Feu clic a la part de la finestra per aprendre més sobre seu.</para>
+>Aquesta és la finestra del &kwrite;, un editor de text. Feu clic a la part de la finestra per a aprendre'n més quant a ell.</para>
 
 <orderedlist>
 
@@ -171,7 +171,7 @@
 </screenshot>
 
 <para
->Aquesta és una altra finestra, la del gestor de fitxers &dolphin;. Feu clic a la part de la finestra per aprendre més sobre seu.</para>
+>Aquesta és una altra finestra, la del gestor de fitxers &dolphin;. Feu clic a la part de la finestra per a aprendre'n més quant a ell.</para>
 
 <orderedlist>
 
@@ -278,7 +278,7 @@
 </screenshot>
 
 <para
->Aquesta captura de pantalla, del plafó Formats a &systemsettings;, mostra alguns elements de la &IGU;. Feu clic en una part de la finestra per obtenir més informació.</para>
+>Aquesta captura de pantalla, del plafó Formats a &systemsettings;, mostra alguns elements de la &IGU;. Feu clic en una part de la finestra per a obtenir més informació.</para>
 
 <orderedlist>
 
@@ -398,7 +398,7 @@
 </screenshot>
 
 <para
->Aquesta captura de pantalla, del plafó Aplicacions per omissió a &systemsettings;, mostra alguns elements més de la &IGU;. Feu clic a la part de la finestra per obtenir més informació.</para>
+>Aquesta captura de pantalla, del plafó Aplicacions per omissió a &systemsettings;, mostra alguns elements més de la &IGU;. Feu clic a la part de la finestra per a obtenir més informació.</para>
 
 <orderedlist>
 
@@ -512,7 +512,7 @@
 <entry
 >Àrea de selecció</entry>
 <entry
->Mostra el camí en un sistema jeràrquic, tal com un sistema de fitxers. Feu clic sobre qualsevol part del camí per pujar a l'arbre des d'aquesta ubicació. Feu clic sobre la fletxa a la dreta de la part del camí per anar a un altre element secundari d'aquest camí. </entry>
+>Mostra el camí en un sistema jeràrquic, tal com un sistema de fitxers. Feu clic sobre qualsevol part del camí per a pujar a l'arbre des d'aquesta ubicació. Feu clic sobre la fletxa a la dreta de la part del camí per a anar a un altre element secundari d'aquest camí. </entry>
 <entry>
 <inlinemediaobject>
 <imageobject>
@@ -540,7 +540,7 @@
 <entry
 >Selector de color</entry>
 <entry
->Permet seleccionar un color per a diverses finalitats, com ara canviar el color del text. Per obtenir més informació, vegeu <xref linkend="colors"/>.</entry>
+>Permet seleccionar un color per a diverses finalitats, com ara canviar el color del text. Per a obtenir més informació, vegeu <xref linkend="colors"/>.</entry>
 <entry>
 <inlinemediaobject>
 <imageobject>
@@ -676,7 +676,7 @@
 <entry
 >Barra de menús</entry>
 <entry
->Es troba a la part superior de gairebé totes les finestres i proporciona accés a totes les funcions de l'aplicació en execució. Per obtenir més informació, vegeu <xref linkend="menus"/>.</entry>
+>Es troba a la part superior de gairebé totes les finestres i proporciona accés a totes les funcions de l'aplicació en execució. Per a obtenir més informació, vegeu <xref linkend="menus"/>.</entry>
 <entry>
 <inlinemediaobject>
 <imageobject>
@@ -728,7 +728,7 @@
 <entry
 >Barra de progrés</entry>
 <entry
->Una petita barra que indica que s'està realitzant una operació de llarga durada. La barra pot indicar la quantitat de l'operació que s'ha completat, o simplement pot anar enrere i endavant per indicar que l'operació està en curs. </entry>
+>Una petita barra que indica que s'està realitzant una operació de llarga durada. La barra pot indicar la quantitat de l'operació que s'ha completat, o simplement pot anar enrere i endavant per a indicar que l'operació està en curs. </entry>
 <entry>
 <inlinemediaobject>
 <imageobject>
@@ -784,7 +784,7 @@
 <entry
 >Botó de selecció de valors</entry>
 <entry
->Permet seleccionar un valor numèric, sigui utilitzant les fletxes amunt i avall a la dreta del quadre per augmentar o disminuir el valor, respectivament, o escrivint el valor dins del <link linkend="visualdict-text-box"
+>Permet seleccionar un valor numèric, sigui utilitzant les fletxes amunt i avall a la dreta del quadre per a augmentar o disminuir el valor, respectivament, o escrivint el valor dins del <link linkend="visualdict-text-box"
 >quadre de text</link
 >.</entry>
 <entry>
@@ -955,7 +955,7 @@
 >&Ctrl;<keycap
 >M</keycap
 ></keycombo
->. També es pot utilitzar per ocultar la barra de menús en les aplicacions que admetin fer-ho.</para>
+>. També es pot utilitzar per a ocultar la barra de menús en les aplicacions que admetin fer-ho.</para>
 
 <sect2 id="menus-file">
 <title
@@ -1455,7 +1455,7 @@
 ></term>
 <listitem
 ><para
->Comprova si hi ha errors ortogràfics mentre escriviu. Per obtenir més informació, vegeu <xref linkend="spellcheck-auto"/>. </para
+>Comprova si hi ha errors ortogràfics mentre escriviu. Per a obtenir més informació, vegeu <xref linkend="spellcheck-auto"/>. </para
 ></listitem>
 </varlistentry>
 
@@ -1470,7 +1470,7 @@
 ></term>
 <listitem
 ><para
->Això inicia el programa de correcció ortogràfica: un programa dissenyat per ajudar a l'usuari a detectar i corregir els errors ortogràfics. Per obtenir més informació, vegeu <xref linkend="spellcheck-check"/>. </para
+>Això inicia el programa de correcció ortogràfica: un programa dissenyat per ajudar a l'usuari a detectar i corregir els errors ortogràfics. Per a obtenir més informació, vegeu <xref linkend="spellcheck-check"/>. </para
 ></listitem>
 </varlistentry>
 
@@ -1500,7 +1500,7 @@
 ></term>
 <listitem
 ><para
->Això inicia el programa de correcció ortogràfica, però només comprova el text seleccionat al document. Per obtenir més informació, vegeu <xref linkend="spellcheck-check"/>. </para
+>Això inicia el programa de correcció ortogràfica, però només comprova el text seleccionat al document. Per a obtenir més informació, vegeu <xref linkend="spellcheck-check"/>. </para
 ></listitem>
 </varlistentry>
 
@@ -1620,7 +1620,7 @@
 ></term>
 <listitem
 ><para
->Permet activar, desactivar i modificar les dreceres de teclat. Per obtenir més informació, vegeu <xref linkend="shortcuts"/>. </para
+>Permet activar, desactivar i modificar les dreceres de teclat. Per a obtenir més informació, vegeu <xref linkend="shortcuts"/>. </para
 ></listitem>
 </varlistentry>
 
@@ -1635,7 +1635,7 @@
 ></term>
 <listitem
 ><para
->Permet personalitzar els continguts, disseny, text i icones de les barres d'eines. Per obtenir més informació, vegeu <xref linkend="toolbars"/>. </para
+>Permet personalitzar els continguts, disseny, text i icones de les barres d'eines. Per a obtenir més informació, vegeu <xref linkend="toolbars"/>. </para
 ></listitem>
 </varlistentry>
 
@@ -1652,7 +1652,7 @@
 ><para
 >Aquest element mostra un diàleg de configuració estàndard per a les notificacions del &kde;, on podreu canviar les notificacions (sons, missatges visibles, &etc;) utilitzats per l'aplicació.</para>
 <para
->Per obtenir més informació sobre com configurar les notificacions, si us plau, llegiu la documentació per al mòdul <ulink url="help:/kcontrol/kcmnotify/index.html"
+>Per a obtenir més informació sobre com configurar les notificacions, si us plau, llegiu la documentació per al mòdul <ulink url="help:/kcontrol/kcmnotify/index.html"
 >Gestiona les notificacions</ulink
 > de &systemsettings;. </para>
 </listitem>
@@ -1957,7 +1957,7 @@ or via email (see krecipes doc rev 1306076)
 ></entry>
 <entry
 ><ulink url="help:/plasma-desktop/krunner.html"
->Interfície per executar ordres</ulink
+>Interfície d'execució ordres</ulink
 ></entry>
 </row>
 
@@ -3007,10 +3007,10 @@ or via email (see krecipes doc rev 1306076)
 >Canviar el volum i la lluminositat</title>
 
 <para
->A més de les tecles estàndard, molts teclats d'ordinador i portàtil, avui en dia tenen tecles especials o botons per canviar el volum de l'altaveu, així com la lluminositat del monitor. Si es troben presents, les podeu utilitzar als &plasma-workspaces; per a realitzar aquestes tasques.</para>
+>A més de les tecles estàndard, molts teclats d'ordinador i portàtil, avui en dia tenen tecles especials o botons per a canviar el volum de l'altaveu, així com la lluminositat del monitor. Si es troben presents, les podeu utilitzar als &plasma-workspaces; per a realitzar aquestes tasques.</para>
 
 <para
->Si no disposeu d'aquest tipus de tecles, vegeu <xref linkend="kbd-modifying"/> per obtenir informació sobre com assignar tecles per a aquestes tasques.</para>
+>Si no disposeu d'aquest tipus de tecles, vegeu <xref linkend="kbd-modifying"/> per a obtenir informació sobre com assignar tecles per a aquestes tasques.</para>
 
 </sect2>
 

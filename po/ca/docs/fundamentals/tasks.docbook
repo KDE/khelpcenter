@@ -163,11 +163,11 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 >&Ctrl;<keycap
 >+</keycap
 ></keycombo
-> per apropar o <keycombo action="simul"
+> per a apropar o <keycombo action="simul"
 >&Ctrl;<keycap
 >-</keycap
 ></keycombo
-> per allunyar. Si podeu desplaçar amb la roda del ratolí o el ratolí tàctil com es descriu a <xref linkend="nav-scroll"/>, també podeu fer zoom prement la tecla &Ctrl; i desplaçar d'aquesta manera.</para>
+> per a allunyar. Si podeu desplaçar amb la roda del ratolí o el ratolí tàctil com es descriu a <xref linkend="nav-scroll"/>, també podeu fer zoom prement la tecla &Ctrl; i desplaçar d'aquesta manera.</para>
 
 </sect2>
 
@@ -192,7 +192,7 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 <para
 >Moltes aplicacions &kde; treballen amb fitxers. La majoria de les aplicacions tenen un menú <guimenu
 >Fitxer</guimenu
-> amb opcions que permeten obrir i desar els fitxers. Per obtenir més informació sobre això, vegeu <xref linkend="menus-file"/>. No obstant això, hi ha moltes operacions diferents que requereixen la selecció d'un fitxer. En referència al mètode, totes les aplicacions &kde; solen utilitzar la mateixa finestra per a la selecció dels fitxers.</para>
+> amb opcions que permeten obrir i desar els fitxers. Per a obtenir més informació sobre això, vegeu <xref linkend="menus-file"/>. No obstant això, hi ha moltes operacions diferents que requereixen la selecció d'un fitxer. En referència al mètode, totes les aplicacions &kde; solen utilitzar la mateixa finestra per a la selecció dels fitxers.</para>
 
 <screenshot id="screenshot-files-open">
 <screeninfo
@@ -623,7 +623,7 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 <para
 >En el mode <quote
 >navega</quote
->, que és el per omissió, el nom de cada carpeta al camí de la carpeta actual és un botó sobre el qual es pot fer clic per obrir ràpidament la carpeta. D'altra banda, fer clic al signe <quote
+>, que és el per omissió, el nom de cada carpeta al camí de la carpeta actual és un botó sobre el qual es pot fer clic per a obrir ràpidament la carpeta. D'altra banda, fer clic al signe <quote
 >&gt;</quote
 > a la dreta d'una carpeta obre un menú que permet obrir ràpidament una subcarpeta d'aquesta. </para>
 
@@ -718,7 +718,7 @@ Panel</link
 </variablelist>
 
 <para
->El menú contextual de la barra de localització ofereix una acció per a canviar entre els modes i per copiar i enganxar el camí utilitzant el porta-retalls. Marqueu l'última opció en aquest menú contextual per a veure el camí d'accés complet partint de la carpeta arrel del sistema de fitxers o per mostrar el camí partint de l'actual entrada a llocs. </para>
+>El menú contextual de la barra de localització ofereix una acció per a canviar entre els modes i per a copiar i enganxar el camí utilitzant el porta-retalls. Marqueu l'última opció en aquest menú contextual per a veure el camí d'accés complet partint de la carpeta arrel del sistema de fitxers o per a mostrar el camí partint de l'actual entrada a llocs. </para>
 
 <screenshot id="screenshot-files-locationbar-context-menu">
 <screeninfo
@@ -766,10 +766,10 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 >.</para>
 <!-- FIXME select a file by typing the first letters of its name-->
 <para
->També podeu seleccionar múltiples fitxers alhora. Per a seleccionar fitxers específics, o per anul·lar la selecció de fitxers específics que ja estan seleccionats, premeu la tecla &Ctrl;, feu clic sobre cada fitxer, llavors deixeu anar la tecla. Per a seleccionar un grup contigu de fitxers, feu clic al primer fitxer, premeu la tecla &Maj;, feu clic sobre l'últim fitxer en el grup, i deixeu anar la tecla.</para>
+>També podeu seleccionar múltiples fitxers alhora. Per a seleccionar fitxers específics, o per a anul·lar la selecció de fitxers específics que ja estan seleccionats, premeu la tecla &Ctrl;, feu clic sobre cada fitxer, llavors deixeu anar la tecla. Per a seleccionar un grup contigu de fitxers, feu clic al primer fitxer, premeu la tecla &Maj;, feu clic sobre l'últim fitxer en el grup, i deixeu anar la tecla.</para>
 
 <para
->La vista de carpeta admet un nombre limitat d'operacions de fitxer, al qual es pot accedir fent clic dret sobre un fitxer per accedir al seu menú contextual, o utilitzant les dreceres de teclat. Al menú contextual hi ha disponibles els següents elements:</para>
+>La vista de carpeta admet un nombre limitat d'operacions de fitxer, al qual es pot accedir fent clic dret sobre un fitxer per a accedir al seu menú contextual, o utilitzant les dreceres de teclat. Al menú contextual hi ha disponibles els següents elements:</para>
 
 <variablelist>
 
@@ -888,7 +888,7 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 >).</para>
 
 <para
->L'entrada de filtre desa entre sessions els últims 10 filtres introduïts. Per utilitzar-los, premeu la fletxa a la dreta de l'entrada i seleccioneu la cadena de filtre desitjada. Podeu desactivar el filtre prement el botó <guibutton
+>L'entrada de filtre desa entre sessions els últims 10 filtres introduïts. Per a utilitzar-los, premeu la fletxa a la dreta de l'entrada i seleccioneu la cadena de filtre desitjada. Podeu desactivar el filtre prement el botó <guibutton
 >Neteja el text</guibutton
 > a l'esquerra de la fletxa d'autocompleció.</para>
 
@@ -912,13 +912,13 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 
 <screenshot id="screenshot-files-save">
 <screeninfo
->La finestra per desar fitxers</screeninfo>
+>La finestra de desar fitxers</screeninfo>
 <mediaobject>
 <imageobject
 ><imagedata fileref="files-save.png" format="PNG"/></imageobject>
 <textobject
 ><phrase
->La finestra per desar fitxers.</phrase
+>La finestra de desar fitxers.</phrase
 ></textobject>
 <caption
 ><para
@@ -1001,7 +1001,7 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 >El &sonnet; és el corrector ortogràfic emprat per les aplicacions &kde; com el &kate;, el &kmail; i el &calligrawords;. És un frontal de la &IGU; per a diversos correctors ortogràfics lliures.</para>
 
 <para
->Per utilitzar el &sonnet; us caldrà instal·lar un corrector ortogràfic, com <application
+>Per a utilitzar el &sonnet; us caldrà instal·lar un corrector ortogràfic, com <application
 >Aspell de &GNU;</application
 >, <application
 >Enchant</application
@@ -1047,7 +1047,7 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 <para
 >Si una paraula està possiblement mal escrita en el document, es mostrarà a la línia superior del diàleg. El &sonnet; intentarà triar la/es paraula/es apropiada/es per a la substitució. La millor estimació es mostrarà a la dreta de <guilabel
 >Substitueix per</guilabel
->. Per acceptar aquesta substitució, feu clic a <guibutton
+>. Per a acceptar aquesta substitució, feu clic a <guibutton
 >Substitueix</guibutton
 >.</para>
 
@@ -1064,14 +1064,14 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 <para
 >Feu clic a <guibutton
 >Finalitza</guibutton
-> per aturar la correcció ortogràfica i <emphasis
+> per a aturar la correcció ortogràfica i <emphasis
 >mantenir</emphasis
 > els canvis realitzats.</para>
 
 <para
 >Feu clic a <guibutton
 >Cancel·la</guibutton
-> per aturar la correcció ortogràfica i <emphasis
+> per a aturar la correcció ortogràfica i <emphasis
 >cancel·lar</emphasis
 > els canvis realitzats.</para>
 
@@ -1083,7 +1083,7 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 <para
 >Feu clic a <guibutton
 >Ignora-ho tot</guibutton
-> per ignorar l'ortografia en aquest punt i en totes les ocurrències futures de la paraula.</para>
+> per a ignorar l'ortografia en aquest punt i en totes les ocurrències futures de la paraula.</para>
 
 <para
 >Feu clic a <guibutton
@@ -1120,7 +1120,7 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 <para
 >Les paraules potencialment mal escrites seran subratllades en vermell. Per a seleccionar un suggeriment, feu clic dret sobre la paraula, seleccioneu el submenú <guisubmenu
 >Ortografia</guisubmenu
-> i seleccioneu el suggeriment. També podeu instruir al &sonnet; per ignorar aquesta ortografia en aquest document seleccionant <guimenuitem
+> i seleccioneu el suggeriment. També podeu instruir al &sonnet; per a ignorar aquesta ortografia en aquest document seleccionant <guimenuitem
 >Ignora la paraula</guimenuitem
 >, o podeu seleccionar <guimenuitem
 >Afegeix al diccionari</guimenuitem
@@ -1143,7 +1143,7 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 
 <!--FIXME: maybe move kcm handbook here too?-->
 <para
->Per obtenir més informació sobre la configuració del &sonnet;, vegeu la <ulink url="help:kcontrol/spellchecking"
+>Per a obtenir més informació sobre la configuració del &sonnet;, vegeu la <ulink url="help:kcontrol/spellchecking"
 >documentació del mòdul corrector ortogràfic a &systemsettings;</ulink
 >.</para>
 
@@ -1216,7 +1216,7 @@ Search+Replace bar in Kate/KWrite
 </screenshot>
 
 <para
->Per utilitzar la característica de cerca en moltes aplicacions, aneu a <menuchoice
+>Per a utilitzar la característica de cerca en moltes aplicacions, aneu a <menuchoice
 ><guimenu
 >Edita</guimenu
 > <guimenuitem
@@ -1313,7 +1313,7 @@ Search+Replace bar in Kate/KWrite
 ></term>
 <listitem
 ><para
->Seleccioneu aquesta opció per cercar només en el text seleccionat, no a tot el document. Es desactiva quan no hi ha text seleccionat. </para
+>Seleccioneu aquesta opció per a cercar només en el text seleccionat, no a tot el document. Es desactiva quan no hi ha text seleccionat. </para
 ></listitem>
 </varlistentry>
 
@@ -1325,7 +1325,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 <para
 >Moltes aplicacions mostren una barra de cerca en lloc de la finestra Cerca. Vegeu la <ulink url="help:/katepart/kate-part-find-replace.html#finding-text"
 >documentació de la &katepart;</ulink
-> per obtenir informació addicional sobre la barra de cerca.</para>
+> per a obtenir informació addicional sobre la barra de cerca.</para>
 
 <screenshot id="screenshot-find-find-inline">
 <screeninfo
@@ -1541,24 +1541,24 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 </authorgroup>
 </sect1info>
 <title
->Triar els tipus de lletra</title>
+>Triar les lletres</title>
 
 <para
->El selector de tipus de lletra apareix en moltes aplicacions &kde; diferents. Permet seleccionar l'aparença, estil i grandària del tipus de lletra del text que apareix en la vostra aplicació.</para>
+>El selector de lletra apareix en moltes aplicacions &kde; diferents. Permet seleccionar l'aparença, estil i grandària de la lletra del text que apareix en l'aplicació.</para>
 
 <screenshot id="screenshot-fonts">
 <screeninfo
->El selector del tipus de lletra</screeninfo>
+>El selector de la lletra</screeninfo>
 <mediaobject>
 <imageobject
 ><imagedata fileref="fonts.png" format="PNG"/></imageobject>
 <textobject
 ><phrase
->El selector del tipus de lletra.</phrase
+>El selector de la lletra.</phrase
 ></textobject>
 <caption
 ><para
->Seleccionant un tipus de lletra a <ulink url="help:/systemsettings"
+>Seleccionant una lletra a <ulink url="help:/systemsettings"
 >&systemsettings;</ulink
 >.</para
 ></caption>
@@ -1570,11 +1570,11 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 <varlistentry>
 <term
 ><guilabel
->Tipus de lletra</guilabel
+>Lletra</guilabel
 ></term>
 <listitem
 ><para
->Aquesta és la casella de selecció més a l'esquerra, i permet escollir l'aparença del tipus de lletra des d'una llista de tipus de lletra al vostre sistema.</para
+>Aquesta és la casella de selecció més a l'esquerra, i permet escollir l'aparença de la família tipogràfica des d'una llista de fonts del vostre sistema.</para
 ></listitem>
 </varlistentry>
 
@@ -1585,7 +1585,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 ></term>
 <listitem>
 <para
->Aquesta és la casella de selecció al centre, i permet escollir l'estil del tipus de lletra d'entre les següents opcions:</para>
+>Aquesta és la casella de selecció al centre, i permet escollir l'estil de la lletra d'entre les següents opcions:</para>
 <itemizedlist>
 
 <listitem
@@ -1617,7 +1617,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 ><para
 ><guilabel
 >Negreta</guilabel
->: mostra el text en un to més fosc, més gruixut, i s'utilitza per als títols dels documents o per emfatitzar el text.</para
+>: mostra el text en un to més fosc, més gruixut, i s'utilitza per als títols dels documents o per a emfatitzar el text.</para
 ></listitem>
 
 </itemizedlist>
@@ -1631,9 +1631,9 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 ></term>
 <listitem
 ><para
->Aquesta és la casella de selecció més a la dreta, i permet seleccionar la mida del text. La mida del tipus de lletra es mesura en <emphasis
+>Aquesta és la casella de selecció més a la dreta, i permet seleccionar la mida del text. La mida de la lletra es mesura en <emphasis
 >punts</emphasis
->, una unitat estàndard de mesura en la tipografia. Per obtenir més informació sobre això, vegeu l'article de la Viquipèdia <ulink url="https://ca.wikipedia.org/wiki/Punt_tipogràfic"
+>, una unitat estàndard de mesura en tipografia. Per a obtenir més informació sobre això, vegeu l'article de la Viquipèdia <ulink url="https://ca.wikipedia.org/wiki/Punt_tipogràfic"
 >el <quote
 >Punt tipogràfic</quote
 ></ulink
@@ -1646,7 +1646,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 >Vista prèvia</term>
 <listitem
 ><para
->La part inferior del selector de tipus de lletra mostra una vista prèvia del text amb la configuració actualment seleccionada. Si ho voleu, podeu canviar aquest text.</para
+>La part inferior del selector de la lletra mostra una vista prèvia del text amb la configuració actualment seleccionada. Si ho voleu, podeu canviar aquest text.</para
 ></listitem>
 </varlistentry>
 
@@ -1668,7 +1668,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 <para
 >El selector de color apareix en moltes aplicacions &kde;, sempre que el necessiteu per a seleccionar un color. Permet triar entre <guilabel
 >Colors bàsics</guilabel
-> consistent de molts colors predefinits o la vostra pròpia barreja quan es desitja un color específic.</para>
+> consistents de molts colors predefinits o la vostra pròpia barreja quan es desitja un color específic.</para>
 
 <screenshot id="screenshot-colors">
 <screeninfo
@@ -1756,7 +1756,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 <para
 >La cantonada inferior dreta de la pantalla també permet introduir manualment les coordenades del color desitjat en el model de color vermell/verd/blau (Red/Green/Blue - <acronym
 >RGB</acronym
->). Per obtenir més informació sobre això, vegeu l'<ulink url="https://ca.wikipedia.org/wiki/Senyal_RGB"
+>). Per a obtenir més informació sobre això, vegeu l'<ulink url="https://ca.wikipedia.org/wiki/Senyal_RGB"
 >article <quote
 >Senyal RGB</quote
 > de la Viquipèdia</ulink
@@ -1772,7 +1772,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 >Codi hexadecimal &HTML;</title>
 
 <para
->Podeu introduir el codi hexadecimal &HTML; que representa el color en la cantonada inferior dreta de la pantalla. Per obtenir més informació sobre això, vegeu l'<ulink url="https://en.wikipedia.org/wiki/Web_colors"
+>Podeu introduir el codi hexadecimal &HTML; que representa el color en la cantonada inferior dreta de la pantalla. Per a obtenir més informació sobre això, vegeu l'<ulink url="https://en.wikipedia.org/wiki/Web_colors"
 >article <quote
 >Web colors</quote
 > de la Viquipèdia</ulink
@@ -1789,7 +1789,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 >Colors personalitzats</title>
 
 <para
->Després de seleccionar un color, el podeu afegir al grup de colors personalitzats per a poder usar-lo més tard. Per fer-ho, feu clic al botó <guibutton
+>Després de seleccionar un color, el podeu afegir al grup de colors personalitzats per a poder usar-lo més tard. Per a fer-ho, feu clic al botó <guibutton
 >Afegeix als colors personalitzats</guibutton
 >.</para>
 

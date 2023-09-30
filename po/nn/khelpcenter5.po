@@ -464,37 +464,3 @@ msgstr "ukjend"
 #| msgid "Start Page"
 msgid "Save Page"
 msgstr "Startside"
-
-#~ msgid "Previous Page"
-#~ msgstr "Førre side"
-
-#~ msgid "Moves to the previous page of the document"
-#~ msgstr "Går til den førre sida i dokumentet"
-
-#~ msgid "Next Page"
-#~ msgstr "Neste side"
-
-#~ msgid "Moves to the next page of the document"
-#~ msgstr "Går til den neste sida i dokumentet"
-
-#~ msgid "Configure Fonts..."
-#~ msgstr "Set opp skrifter …"
-
-#~ msgid "Increase Font Sizes"
-#~ msgstr "Større skrift"
-
-#~ msgid "Decrease Font Sizes"
-#~ msgstr "Mindre skrift"
-
-#~ msgid "Copy Link Address"
-#~ msgstr "Kopier lenkjeadresse"
-
-#~ msgid ""
-#~ "<p>Read the topic documentation in this window.<br /><br />Press "
-#~ "<b>Space</b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, "
-#~ "<b>Tab</b>/<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
-#~ msgstr ""
-#~ "<p>Les hjelpeteksten i dette vindauget.<br /><br />Trykk <b>Mellomrom</b> "
-#~ "eller <b>Shift + Mellomrom</b> for å rulla, <b>%1</b> for å søkja, "
-#~ "<b>Tab</b> eller <b>Shift+Tab</b> for å hoppa og <b>Enter</b> for å "
-#~ "følgja.</p>"
