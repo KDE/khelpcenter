@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-29 01:40+0000\n"
-"PO-Revision-Date: 2023-09-29 14:09+0300\n"
+"PO-Revision-Date: 2023-09-30 22:15+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -127,7 +127,7 @@ msgstr "&Standart yazıtipi:"
 #: fontdialog.cpp:93
 #, kde-format
 msgid "F&ixed font:"
-msgstr "&Eş aralıklı boyutlu yazıtipi:"
+msgstr "&Eş aralıklı yazıtipi:"
 
 #: fontdialog.cpp:99
 #, kde-format
@@ -142,7 +142,7 @@ msgstr "S&ans serif yazıtipi:"
 #: fontdialog.cpp:111
 #, kde-format
 msgid "&Italic font:"
-msgstr "&Eğik yazıtipi:"
+msgstr "&Yatık yazıtipi:"
 
 #: fontdialog.cpp:117
 #, kde-format
@@ -172,7 +172,7 @@ msgstr "&Yazıtipi boyutu ayarlama:"
 #: glossary.cpp:69
 #, kde-format
 msgid "By Topic"
-msgstr "Başlığa Göre"
+msgstr "Konuya Göre"
 
 #: glossary.cpp:73 infotree.cpp:74
 #, kde-format
@@ -182,23 +182,23 @@ msgstr "Abecesel"
 #: glossary.cpp:128
 #, kde-format
 msgid "Rebuilding glossary cache..."
-msgstr "Sözlükçe önbelleği yeniden oluşturuluyor..."
+msgstr "Kavram dizini önbelleği yeniden yapılıyor..."
 
 #: glossary.cpp:181
 #, kde-format
 msgid "Rebuilding cache... done."
-msgstr "Önbellek yeniden oluşturuluyor... bitti!"
+msgstr "Önbellek yeniden yapılıyor... bitti!"
 
 #: grantleeformatter.cpp:100
 #, kde-format
 msgctxt "%1 is a glossary term"
 msgid "KDE Glossary: %1"
-msgstr "KDE Sözlüğü: %1"
+msgstr "KDE Kavram Dizini: %1"
 
 #: grantleeformatter.cpp:101
 #, kde-format
 msgid "KDE Glossary"
-msgstr "KDE Sözlüğü"
+msgstr "KDE Kavram Dizini"
 
 #: grantleeformatter.cpp:105
 #, kde-format
@@ -321,7 +321,7 @@ msgstr "Arama Seçenekleri"
 #: navigator.cpp:135
 #, kde-format
 msgid "G&lossary"
-msgstr "&Sözlük"
+msgstr "&Kavram Dizini"
 
 #: navigator.cpp:456
 #, kde-format
@@ -417,7 +417,7 @@ msgstr "&Yöntem:"
 #: searchwidget.cpp:58
 #, kde-format
 msgid "Max. &results:"
-msgstr "Azami &sonuç sayısı:"
+msgstr "En çok &sonuç sayısı:"
 
 #: searchwidget.cpp:73
 #, kde-format
@@ -451,7 +451,7 @@ msgstr "Tümü"
 #, kde-format
 msgctxt "Label for scope that deselects all search subsections"
 msgid "None"
-msgstr "Hiçbiri"
+msgstr "Yok"
 
 #: searchwidget.cpp:330
 #, kde-format

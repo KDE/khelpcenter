@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-29 01:40+0000\n"
-"PO-Revision-Date: 2023-09-29 12:51+0200\n"
+"PO-Revision-Date: 2023-09-29 15:41+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -93,7 +93,7 @@ msgstr "Anglés"
 #: fontdialog.cpp:36
 #, kde-format
 msgid "Font Configuration"
-msgstr "Configureu el tipus de lletra"
+msgstr "Configureu la lletra"
 
 #: fontdialog.cpp:62
 #, kde-format
@@ -104,48 +104,48 @@ msgstr "Mides"
 #, kde-format
 msgctxt "The smallest size a will have"
 msgid "M&inimum font size:"
-msgstr "Mida mín&ima del tipus de lletra:"
+msgstr "Mida mín&ima de la lletra:"
 
 #: fontdialog.cpp:73
 #, kde-format
 msgctxt "The normal size a font will have"
 msgid "M&edium font size:"
-msgstr "Mida &mitjana del tipus de lletra:"
+msgstr "Mida &mitjana de la lletra:"
 
 #: fontdialog.cpp:83
 #, kde-format
 msgid "Fonts"
-msgstr "Tipus de lletra"
+msgstr "Lletres"
 
 #: fontdialog.cpp:87
 #, kde-format
 msgid "S&tandard font:"
-msgstr "Tipus de lletra es&tàndard:"
+msgstr "Lletra es&tàndard:"
 
 #: fontdialog.cpp:93
 #, kde-format
 msgid "F&ixed font:"
-msgstr "Tipus de lletra f&ixa:"
+msgstr "Lletra d'amplària f&ixa:"
 
 #: fontdialog.cpp:99
 #, kde-format
 msgid "S&erif font:"
-msgstr "Tipus de lletra s&erif:"
+msgstr "Lletra s&erif:"
 
 #: fontdialog.cpp:105
 #, kde-format
 msgid "S&ans serif font:"
-msgstr "Tipus de lletra s&ans serif:"
+msgstr "Lletra s&ans serif:"
 
 #: fontdialog.cpp:111
 #, kde-format
 msgid "&Italic font:"
-msgstr "Tipus de lletra &cursiva:"
+msgstr "Lletra &cursiva:"
 
 #: fontdialog.cpp:117
 #, kde-format
 msgid "&Fantasy font:"
-msgstr "Tipus de lletra &fantasia:"
+msgstr "Lletra de &fantasia:"
 
 #: fontdialog.cpp:126
 #, kde-format
@@ -165,7 +165,7 @@ msgstr "Utilitza la codificació de l'idioma"
 #: fontdialog.cpp:140
 #, kde-format
 msgid "&Font size adjustment:"
-msgstr "Ajusta la mida del tipus de &lletra:"
+msgstr "Ajusta la mida de la &lletra:"
 
 #: glossary.cpp:69
 #, kde-format

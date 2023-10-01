@@ -1,6 +1,6 @@
 # translation of khelpcenter.po to Polish
 # translation of khelpcenter.po to
-# Version: $Revision: 1661189 $
+# Version: $Revision: 1661394 $
 # Norbert Popiołek <norbert@kde.com.pl>
 # Piotr Roszatycki <dexter@debian.org>, 1997-2000.
 # Michał Rudolf <mrudolf@kdewebdev.org>, 2002.
@@ -8,13 +8,13 @@
 # Michal Rudolf <mrudolf@kdewebdev.org>, 2004, 2005, 2008, 2009, 2010.
 # Krzysztof Lichota <lichota@mimuw.edu.pl>, 2005.
 # Marta Rybczyńska <kde-i18n@rybczynska.net>, 2008.
-# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2012, 2014, 2016, 2018, 2019, 2020.
+# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2012, 2014, 2016, 2018, 2019, 2020, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-29 01:40+0000\n"
-"PO-Revision-Date: 2020-12-06 09:01+0100\n"
+"PO-Revision-Date: 2023-09-30 11:08+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 ">\n"
-"X-Generator: Lokalize 20.08.1\n"
+"X-Generator: Lokalize 23.04.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
@@ -48,10 +48,9 @@ msgid "Help Center"
 msgstr "Centrum pomocy"
 
 #: application.cpp:106
-#, fuzzy, kde-format
-#| msgid "(c) 1999-2020, The KHelpCenter developers"
+#, kde-format
 msgid "(c) 1999-2023, The KHelpCenter developers"
-msgstr "(c) 1999-2020, Programiści CentrumPomocy"
+msgstr "(c) 1999-2023, Programiści KHelpCenter"
 
 #: application.cpp:108
 #, kde-format
@@ -354,13 +353,13 @@ msgstr "Uaktualnianie indeksu wyszukiwania... gotowe."
 #: printdoc.cpp:60
 #, kde-format
 msgid "Could not generate print preview."
-msgstr ""
+msgstr "Nie można stworzyć podglądu wydruku."
 
 #: printdoc.cpp:96
 #, kde-format
 msgctxt "@title:window"
 msgid "Print Document"
-msgstr ""
+msgstr "Wydrukuj dokument"
 
 #: searchengine.cpp:59
 #, kde-format
@@ -463,10 +462,9 @@ msgid "unknown"
 msgstr "nieznany"
 
 #: view.cpp:270
-#, fuzzy, kde-format
-#| msgid "Start Page"
+#, kde-format
 msgid "Save Page"
-msgstr "Strona początkowa"
+msgstr "Zapisz stronę"
 
 #~ msgid "Previous Page"
 #~ msgstr "Poprzednia strona"
