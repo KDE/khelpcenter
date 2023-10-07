@@ -10,6 +10,7 @@
 #define KHC_MAINWINDOW_H
 
 #include <KXmlGuiWindow>
+#include <KBookmarkManager>
 
 #include "glossary.h"
 
@@ -107,6 +108,7 @@ private:
     QAction *mCopyText = nullptr;
     LogDialog *mLogDialog = nullptr;
     bool mFullScreen = false;
+    KBookmarkManager *mBookmarkManager;
 };
 
 }

@@ -225,13 +225,12 @@ void MainWindow::setupBookmarks()
     QDir().mkpath( location );
     const QString file = location + QStringLiteral( "/bookmarks.xml" );
 
-    KBookmarkManager *manager = KBookmarkManager::managerForFile( file );
-    manager->setParent( this );
-    BookmarkOwner *owner = new BookmarkOwner( mDoc, manager );
+    mBookmarkManager = new KBookmarkManager( file, this );
+    BookmarkOwner *owner = new BookmarkOwner( mDoc, mBookmarkManager );
     connect( owner, &BookmarkOwner::openUrl, this, QOverload<const QUrl &>::of(&MainWindow::openUrl) );
     KActionMenu *actmenu = actionCollection()->add<KActionMenu>( QStringLiteral( "bookmarks" ) );
     actmenu->setText( i18nc( "@title:menu", "&Bookmarks" ) );
-    auto *bookmenu = new KBookmarkMenu( manager, owner, actmenu->menu());
+    auto *bookmenu = new KBookmarkMenu( mBookmarkManager, owner, actmenu->menu());
     actionCollection()->addActions(actmenu->menu()->actions());
     bookmenu->setParent( owner );
 }
