@@ -1,0 +1,3158 @@
+<!--FIXME:
+        -general toolbar info
+        -basic keyboard shortcuts?
+-->
+
+<chapter id="ui">
+<title
+>Yolunuzu Bulmak</title>
+
+<sect1 id="visualdict">
+<sect1info>
+<authorgroup>
+<author
+><firstname
+>Claus</firstname
+> <surname
+>Christensen</surname
+></author>
+<author
+>&TC.Hollingsworth; &TC.Hollingsworth.mail;</author>
+<othercredit role="translator"
+><firstname
+>Serdar</firstname
+><surname
+>Soytetir</surname
+><affiliation
+><address
+><email
+>tulliana@gmail.com</email
+></address
+></affiliation
+><contrib
+>Çeviri</contrib
+></othercredit
+> 
+</authorgroup>
+</sect1info>
+
+<title
+>Görsel Bir Sözlük</title>
+
+<para
+>&plasma-workspaces; genellikle <quote
+>araç takımları</quote
+> olarak bilinen birçok farklı grafiksel kullanıcı arayüzü ögesi içerir. Bu kılavuz, size bunların adlarını ve işlevlerini tanıtacaktır.</para>
+
+<sect2 id="visualdict-screens">
+<title
+>Büyük Resim</title>
+
+<sect3 id="visualdict-windows">
+<title
+>Pencereler</title>
+
+<screenshot>
+<screeninfo
+>Pencere</screeninfo>
+<mediaobjectco>
+<imageobjectco>
+<areaspec units="other" otherunits="imagemap">
+    <!--these ids are used only internally by DocBook so we keep them short-->
+    <area id="im-win1a1" linkends="visualdict-statusbar" coords="47,522,752,566"/>
+    <area id="im-win1a2" linkends="visualdict-scrollbar" coords="720,127,760,513"/>
+    <area id="im-win1a3" linkends="visualdict-central-widget" coords="48,127,719,515"/>
+    <area id="im-win1a4" linkends="visualdict-toolbar" coords="51,95,570,128"/>
+    <area id="im-win1a5" linkends="visualdict-menubar" coords="4,67,46,109"/>
+    <area id="im-win1a6" linkends="visualdict-menubar" coords="49,75,311,93"/>
+    <area id="im-win1a7" linkends="visualdict-menu" coords="50,51,72,70"/>
+    <area id="im-win1a8" linkends="visualdict-button" coords="74,52,93,69"/>
+    <area id="im-win1a9" linkends="visualdict-button" coords="678,51,747,70"/>
+    <area id="im-win1a10" linkends="visualdict-titlebar" coords="106,40,676,74"/>
+    <area id="im-win1a11" linkends="visualdict-button" coords="691,6,740,49"/>
+    <area id="im-win1a12" linkends="visualdict-titlebar" coords="346,0,388,37"/>
+    <area id="im-win1a13" linkends="visualdict-button" coords="61,1,103,43"/>
+    <area id="im-win1a14" linkends="visualdict-menu" coords="14,2,57,45"/>
+</areaspec>
+<imageobject
+><imagedata fileref="visualdict-window.png" format="PNG"/></imageobject>
+</imageobjectco>
+</mediaobjectco>
+</screenshot>
+<para
+>Bu, bir metin düzenleyicisi olan &kwrite;'ın penceresidir. Hakkında daha fazla bilgi almak için pencerenin bir kısmına tıklayın.</para>
+
+<orderedlist>
+
+<listitem
+><para
+><emphasis role="bold"
+>Pencere Menüsü</emphasis
+> </para
+></listitem>
+
+<listitem
+><para
+><emphasis role="bold"
+><link linkend="visualdict-titlebar"
+>Başlık Çubuğu</link
+></emphasis
+> </para
+></listitem>
+
+<listitem
+><para
+>Pencereyi <emphasis
+>simge durumuna küçültmek</emphasis
+>, <emphasis
+>ekranı kaplamak</emphasis
+> veya <emphasis
+>kapatmak</emphasis
+> için düğmeler </para
+></listitem>
+
+<listitem
+><para
+><emphasis role="bold"
+><link linkend="visualdict-menubar"
+>Menü Çubuğu</link
+></emphasis
+> </para
+></listitem>
+
+<listitem
+><para
+><emphasis role="bold"
+><link linkend="visualdict-toolbar"
+>Araç Çubuğu</link
+></emphasis
+> </para
+></listitem>
+
+<listitem
+><para
+>Bu programın <emphasis role="bold"
+><link linkend="visualdict-central-widget"
+>Ana Araç Takımı</link
+></emphasis
+> olarak görev yapan büyükçe bir <emphasis role="bold"
+><link linkend="visualdict-text-area"
+>Metin Alanı</link
+></emphasis
+> </para
+></listitem>
+
+<listitem
+><para
+>Dikey bir <emphasis role="bold"
+><link linkend="visualdict-scrollbar"
+>Sarma Çubuğu</link
+></emphasis
+> (metin kutusunun altında bir tane de yatay sarma çubuğu vardır) </para
+></listitem>
+
+<listitem
+><para
+><emphasis role="bold"
+><link linkend="visualdict-statusbar"
+>Durum Çubuğu</link
+></emphasis
+> </para
+></listitem>
+
+</orderedlist>
+
+<screenshot>
+<screeninfo
+>Başka Bir Pencere</screeninfo>
+<mediaobjectco>
+<imageobjectco>
+<areaspec units="other" otherunits="imagemap">
+    <area id="im-win2a1" linkends="visualdict-panel" coords="580,80,763,529"/>
+    <area id="im-win2a2" linkends="visualdict-slider" coords="383,490,573,536"/>
+    <area id="im-win2a3" linkends="visualdict-context-menu" coords="199,225,451,462"/>
+    <area id="im-win2a4" linkends="visualdict-icon" coords="198,187,224,225"/>
+    <area id="im-win2a5" linkends="visualdict-icon" coords="121,187,197,276"/>
+    <area id="im-win2a6" linkends="visualdict-icon" coords="282,110,515,165"/>
+    <area id="im-win2a7" linkends="visualdict-icon" coords="124,111,211,163"/>
+    <area id="im-win2a8" linkends="visualdict-breadcrumb" coords="108,76,415,109"/>
+    <area id="im-win2a9" linkends="visualdict-panel" coords="1,73,107,544"/>
+</areaspec>
+<imageobject
+><imagedata fileref="visualdict-window2.png" format="PNG"/></imageobject>
+</imageobjectco>
+</mediaobjectco>
+</screenshot>
+
+<para
+>Bu, &dolphin; dosya yöneticisinin bir penceresidir. Hakkında daha fazla bilgi almak için pencerenin bir kısmına tıklayın.</para>
+
+<orderedlist>
+
+<listitem
+><para
+>Bilgisayar sistemindeki Yerler listesini içeren bir <emphasis role="bold"
+><link linkend="visualdict-panel"
+>panel</link
+></emphasis
+> </para
+></listitem>
+
+<listitem
+><para
+>Görüntülenen klasörlerin yolunu belirten bir <emphasis role="bold"
+><link linkend="visualdict-breadcrumb"
+>kırıntı</link
+></emphasis
+> </para
+></listitem>
+
+<listitem
+><para
+>Bir klasör <emphasis role="bold"
+><link linkend="visualdict-icon"
+>simgesi</link
+></emphasis
+> </para
+></listitem>
+
+<listitem
+><para
+>Bir dosya <emphasis role="bold"
+><link linkend="visualdict-icon"
+>simgesi</link
+></emphasis
+> </para
+></listitem>
+
+<listitem
+><para
+>Vurgulanmış bir <emphasis role="bold"
+><link linkend="visualdict-icon"
+>simge</link
+></emphasis
+> </para
+></listitem>
+
+<listitem
+><para
+>Bir dosya üzerinde gerçekleştirilebilecek eylemleri listeleyen bir <emphasis role="bold"
+><link linkend="visualdict-context-menu"
+>Bağlam Menüsü</link
+></emphasis
+> </para
+></listitem>
+
+<listitem
+><para
+>Görüntülenen <link linkend="visualdict-icon"
+>simgelerin</link
+> boyutunu değiştiren bir <emphasis role="bold"
+><link linkend="visualdict-slider"
+>Kaydırıcı</link
+></emphasis
+> </para
+></listitem>
+
+<listitem
+><para
+>Daha çok <emphasis role="bold"
+><link linkend="visualdict-panel"
+>paneller</link
+></emphasis
+> </para
+></listitem>
+
+</orderedlist>
+
+</sect3>
+
+<sect3 id="visualdict-gui">
+<title
+>Grafiksel Kullanıcı Arayüzü Ögeleri</title>
+
+<screenshot>
+<screeninfo
+>Bazı Grafiksel Kullanıcı Arayüzü Ögeleri</screeninfo>
+<mediaobjectco>
+<imageobjectco>
+<areaspec units="other" otherunits="imagemap">
+    <area id="im-g1a1" linkends="visualdict-button" coords="15,505,690,549"/>
+    <area id="im-g1a2" linkends="visualdict-button" coords="683,129,722,170"/>
+    <area id="im-g1a3" linkends="visualdict-button" coords="636,140,681,161"/>
+    <area id="im-g1a4" linkends="visualdict-drop-down-box" coords="225,137,631,327"/>
+    <area id="im-g1a5" linkends="visualdict-tab" coords="581,28,625,71"/>
+    <area id="im-g1a6" linkends="visualdict-tab" coords="172,112,632,135"/>
+    <area id="im-g1a7" linkends="visualdict-icon-list" coords="5,58,171,495"/>
+</areaspec>
+<imageobject
+><imagedata fileref="visualdict-gui1.png" format="PNG"/></imageobject>
+</imageobjectco>
+</mediaobjectco>
+</screenshot>
+
+<para
+>&systemsettings; Biçimler panelinin bu ekran görüntüsü birkaç kullanıcı arayüzü ögesini gösterir. Hakkında daha fazla bilgi almak için pencerenin bir kısmına tıklayın.</para>
+
+<orderedlist>
+
+<listitem
+><para
+>Bir <emphasis role="bold"
+><link linkend="visualdict-icon-list"
+>Simge Listesi</link
+></emphasis
+> (ikinci öge seçili) </para
+></listitem>
+
+<listitem
+><para
+>Açık bir <emphasis role="bold"
+><link linkend="visualdict-drop-down-box"
+>Açılır Kutu</link
+></emphasis
+> </para
+></listitem>
+
+<listitem
+><para
+><link linkend="visualdict-drop-down-box"
+>Açılır Kutu</link
+> içinde seçili bir öge </para>
+</listitem>
+
+<listitem
+><para
+>Birkaç <emphasis role="bold"
+><link linkend="visualdict-button"
+>Düğme</link
+></emphasis
+> </para
+></listitem>
+
+</orderedlist>
+
+<screenshot>
+<screeninfo
+>Bazı Ek Grafiksel Kullanıcı Arayüzü Ögeleri</screeninfo>
+<mediaobjectco>
+<imageobjectco>
+<areaspec units="other" otherunits="imagemap">
+    <area id="im-gui2a1" linkends="visualdict-menu-button" coords="306,451,349,493"/>
+    <area id="im-gui2a2" linkends="visualdict-menu-button" coords="172,405,298,538"/>
+    <area id="im-gui2a3" linkends="visualdict-spin-box" coords="522,204,638,253"/>
+    <area id="im-gui2a4" linkends="visualdict-check-box" coords="425,98,467,162"/>
+    <area id="im-gui2a5" linkends="visualdict-tree-view" coords="368,63,411,100"/>
+    <area id="im-gui2a6" linkends="visualdict-tree-view" coords="164,101,424,403"/>
+</areaspec>
+<imageobject
+><imagedata fileref="visualdict-gui2.png" format="PNG"/></imageobject>
+</imageobjectco>
+</mediaobjectco>
+</screenshot>
+
+<para
+>&systemsettings; Özel Kısayollar panelinin bu ekran görüntüsü, ek kullanıcı arayüzü ögeleri gösterir.</para>
+
+<orderedlist>
+
+<listitem
+><para
+>Bir <emphasis role="bold"
+><link linkend="visualdict-tree-view"
+>Ağaç Görünümü</link
+></emphasis
+> </para
+></listitem>
+
+<listitem
+><para
+>Seçili bir <emphasis role="bold"
+><link linkend="visualdict-check-box"
+>Onay Kutusu</link
+></emphasis
+> </para
+></listitem>
+
+<listitem
+><para
+>Bir çift <emphasis role="bold"
+><link linkend="visualdict-spin-box"
+>Döndürme Kutusu</link
+></emphasis
+> </para
+></listitem>
+
+<listitem
+><para
+>Bir <emphasis role="bold"
+><link linkend="visualdict-menu-button"
+>Menü Düğmesi</link
+></emphasis
+> </para
+></listitem>
+
+</orderedlist>
+
+<screenshot>
+<screeninfo
+>Daha Daha Grafiksel Kullanıcı Arayüzü Ögeleri</screeninfo>
+<mediaobjectco>
+<imageobjectco>
+<areaspec units="other" otherunits="imagemap">
+    <area id="im-gui3a1" linkends="visualdict-text-box" coords="562,235,603,252"/>
+    <area id="im-gui3a2" linkends="visualdict-text-box" coords="214,253,767,280"/>
+    <area id="im-gui3a3" linkends="visualdict-radio-button" coords="187,193,468,252"/>
+    <area id="im-gui3a4" linkends="visualdict-list-box" coords="8,101,185,547"/>
+</areaspec>
+<imageobject
+><imagedata fileref="visualdict-gui3.png" format="PNG"/></imageobject>
+</imageobjectco>
+</mediaobjectco>
+</screenshot>
+
+<para
+>&systemsettings; Öntanımlı Uygulamalar panelinin bu ekran görüntüsü, daha çok kullanıcı arayüzü ögeleri gösterir. Hakkında daha fazla bilgi almak için pencerenin bir kısmına tıklayın.</para>
+
+<orderedlist>
+
+<listitem
+><para
+>Bir <emphasis role="bold"
+><link linkend="visualdict-list-box"
+>Liste Kutusu</link
+></emphasis
+> </para
+></listitem>
+
+<listitem
+><para
+>Bir çift <emphasis role="bold"
+><link linkend="visualdict-radio-button"
+>Radyo Düğmesi</link
+></emphasis
+> </para
+></listitem>
+
+<listitem
+><para
+>Bir <emphasis role="bold"
+><link linkend="visualdict-text-box"
+>Metin Kutusu</link
+></emphasis
+> </para
+></listitem>
+
+</orderedlist>
+
+<screenshot>
+<screeninfo
+>Bazı Çoklu Kutular</screeninfo>
+<mediaobjectco>
+<imageobjectco>
+<areaspec units="other" otherunits="imagemap">
+    <area id="im-gui4a1" linkends="visualdict-combo-box" coords="268,128,722,288"/>
+</areaspec>
+<imageobject
+><imagedata fileref="visualdict-gui4.png" format="PNG"/></imageobject>
+</imageobjectco>
+</mediaobjectco>
+</screenshot>
+
+<para
+>&systemsettings; Renkler panelinin bu ekran görüntüsü, beş adet <emphasis role="bold"
+><link linkend="visualdict-tab"
+>Sekme</link
+></emphasis
+> gösterir </para>
+
+</sect3>
+
+</sect2>
+
+<sect2 id="visualdict-widgets">
+<title
+>Araç Takımları</title>
+
+<informaltable>
+<tgroup cols="3">
+<colspec colnum="1" align="left"/>
+<colspec colnum="3" align="center"/>
+
+<thead>
+<row>
+<entry align="center"
+>Ad</entry>
+<entry
+>Açıklama</entry>
+<entry
+>Ekran Görüntüsü</entry>
+</row>
+</thead>
+
+<tbody valign="top">
+
+<!--I'm using the name QMainWindow uses for these, but perhaps there's a more
+    regular-user friendly term?-->
+<row id="visualdict-central-widget">
+<entry
+>Ana Araç Takımı</entry>
+<entry
+>Çalışan uygulamanın ana alanı. Bu, bir sözcük işlemcide düzenlediğiniz belge veya Satranç gibi bir oyunun tahtası olabilir.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-central-widget.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-button">
+<entry
+>Düğme</entry>
+<entry
+>Bir eylem gerçekleştirmek için &LMB; ile tıklanabilir.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-button.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-breadcrumb">
+<entry
+>Kırıntı</entry>
+<entry
+>Dosya sistemi gibi hiyerarşik bir sistemdeki yolu gösterir. Ağaçta o konuma gitmek için yolun herhangi bir kısmına tıklayın. Yolun başka bir alt ögesine gitmek için yolun bir bölümünün sağındaki oka tıklayın. </entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-breadcrumb.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-check-box">
+<entry
+>Onay Kutusu</entry>
+<entry
+>Ögeleri seçmek ve seçimi kaldırmak için bunlara tıklanabilir. Genellikle birkaç seçimden oluşan bir listede kullanılırlar. Seçili ögelerde genellikle bir onay imi görüntülenirken seçili olmayan ögelerde boş bir kutu bulunur.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-check-box.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-color-selector">
+<entry
+>Renk Seçicisi</entry>
+<entry
+>Bu, metnin rengini değiştirmek gibi çeşitli amaçlar için bir rengin seçilmesine olanak tanır. Daha fazla bilgi için <xref linkend="colors"/> bölümüne bakın.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-color-selector.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-combo-box">
+<entry
+>Çoklu Kutu</entry>
+<entry
+><link linkend="visualdict-drop-down-box"
+>Açılır Kutu</link
+>'nun ve <link linkend="visualdict-text-box"
+>Metin Kutusu</link
+>'nun birleşimidir. Listeden bir seçenek belirleyebilir veya metin kutusuna yazabilirsiniz. Bazı açılır kutular otomatik olarak girişleri tamamlayabilir veya yazdıklarınızla eşleşen seçeneklerin bir listesini açabilirler.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-combo-box.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-context-menu">
+<entry
+>Bağlam Menüsü</entry>
+<entry
+>&plasma; Çalışma Alanı'ndaki ve Uygulamalar'daki birçok kullanıcı arayüzü ögesinin, &RMB; ile tıklanarak açılabilen bir bağlam menüsü bulunur. Bu menü, genellikle sağ tıklanan kullanıcı arayüzü ögesini etkileyen seçenekleri ve eylemleri içerir.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-context-menu.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-dialog-box">
+<entry
+>İletişim Kutusu</entry>
+<entry
+>Daha büyük bir uygulama penceresinin üzerinde görünen küçük bir pencere. Diğerlerinin yanı sıra bir ileti, uyarı veya yapılandırma paneli içerebilir.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-dialog-box.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-drop-down-box">
+<entry
+>Açılır Kutu</entry>
+<entry
+>Bu, arasından seçim yapabileceğiniz ögelerin bir listesini sağlar.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-drop-down-box.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-icon">
+<entry
+>Simge</entry>
+<entry
+>Bir dosya veya eylem gibi bir şeyin grafiksel temsili. Bunlar her zaman olmasa da genellikle simgenin altında veya sağında bir metin açıklaması da içerir.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-icon.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-icon-list">
+<entry
+>Simge Listesi</entry>
+<entry
+>Bu, bir <link linkend="visualdict-icon"
+>simge</link
+> ve bir açıklama ile temsil edilen öğelerin bir listesini sağlar. Çeşitli yapılandırma kategorileri arasından seçim yapılmasına olanak sağlamak için genellikle yapılandırma panellerinin sol panelinde kullanılır.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-icon-list.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-list-box">
+<entry
+>Liste Kutusu</entry>
+<entry
+>Bu, genellikle birden fazla ögenin seçilmesine izin veren bir öge listesidir. Bir grup bitişik ögeyi seçmek için &Shift; düğmesine basıp ilk ve son ögelere tıklayın. Bitişik olmayan birden çok ögeyi seçmek için &Ctrl; düğmesine basıp istediğiniz ögeleri seçin.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-list-box.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-menu">
+<entry
+>Menü</entry>
+<entry
+>Genellikle bir eylemi gerçekleştiren, bir seçeneği ayarlayan veya bir pencere açan seçimlerin listesi. Bunlar, <link linkend="visualdict-menubar"
+>Menü Çubukları</link
+> veya <link linkend="visualdict-menu-button"
+>Menü Düğmeleri</link
+> ile açılabilirler.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-menu.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-menubar">
+<entry
+>Menü Çubuğu</entry>
+<entry
+>Bunlar hemen hemen her pencerenin üstünde bulunur ve çalışan uygulamanın tüm işlevlerine erişim sağlar. Daha fazla bilgi için <xref linkend="menus"/> bölümüne bakın.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-menubar.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-menu-button">
+<entry
+>Menü Düğmesi</entry>
+<entry
+>Bir <link linkend="visualdict-menu"
+>menü</link
+> açan özel bir <link linkend="visualdict-button"
+>düğme</link
+> türü.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-menu-button.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-panel">
+<entry
+>Panel <emphasis
+>veya</emphasis
+> Kenar Çubuğu <emphasis
+>veya</emphasis
+> Araç Görünümü</entry>
+<entry
+>Bunlar <link linkend="visualdict-central-widget"
+>merkezi araç takımının</link
+> yanlarında veya altında bulunur ve bir uygulamada birçok farklı görevi gerçekleştirmenize olanak tanır. Bir metin düzenleyicisi, açık belgelerin bir listesini tek bir belgede sunabilirken, bir sözcük işlemci bir hazır desen seçmenize izin verebilir.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-panel.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-progress-bar">
+<entry
+>İlerleme Çubuğu</entry>
+<entry
+>Uzun süren bir işlemin gerçekleştirildiğini gösteren küçük bir çubuk. Çubuk, işlemin ne kadarının tamamlandığını gösterebilir veya işlemin sürdüğünü göstermek için ileri geri sıçrayabilir. </entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-progress-bar.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-radio-button">
+<entry
+>Radyo Düğmesi</entry>
+<entry
+>Bunlar bir seçenek listesinde kullanılır ve listedeki seçeneklerden yalnızca birinin seçilmesine izin verir.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-radio-button.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-scrollbar">
+<entry
+>Sarma Çubuğu</entry>
+<entry
+>Bir belgede dolaşmanızı sağlar.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-scrollbar.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-slider">
+<entry
+>Kaydırıcı</entry>
+<entry
+>Küçük bir çubuğun bir çizgi boyunca yatay veya dikey olarak hareket ettirilmesiyle sayısal bir değerin seçilmesine olanak sağlar.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-slider.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-spin-box">
+<entry
+>Döndürme Kutusu</entry>
+<entry
+>Bu, kutunun yan tarafında bulunan ok düğmelerini aşağı veya yukarı doğru kullanarak veya <link linkend="visualdict-text-box"
+>metin kutusuna</link
+> doğrudan bir değer girerek bir sayısal değerin belirlenmesine olanak tanır.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-spin-box.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-statusbar">
+<entry
+>Durum Çubuğu</entry>
+<entry
+>Bunlar birçok uygulamanın alt kısmında bulunur ve uygulamanın o anda ne yaptığına ilişkin bilgileri görüntülerler. Örneğin, bir web tarayıcısı bir web sayfasının yüklenme sürecini gösterebilirken, bir sözcük işlemci şu anki sözcük sayısını görüntüleyebilir.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-statusbar.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-tab">
+<entry
+>Sekme</entry>
+<entry
+>Bunlar pencerenin bir alanının üst kısmında görünür ve pencerenin o alanının çeşitli farklı seçimlerle değiştirilmesine olanak tanır.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-tab.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-text-area">
+<entry
+>Metin Alanı</entry>
+<entry
+>Büyük miktarda metnin (genellikle birden çok satır veya paragraf) yazılmasına olanak tanır. Bir <link linkend="visualdict-text-box"
+>Metin Kutusu</link
+>'nun aksine, &Enter;'e basmak yeni bir satır yapar. </entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-text-area.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-text-box">
+<entry
+>Metin Kutusu</entry>
+<entry
+>Küçük bir metnin girilmesini sağlayan tek satırlı bir metin girişi. Tipik olarak, &Enter; düğmesine basmak <guibutton
+>Tamam</guibutton
+> düğmesi ile aynı işlemi gerçekleştirecektir.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-text-box.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-titlebar">
+<entry
+>Başlık Çubuğu</entry>
+<entry
+>Bu, her pencerenin üst kısmında bulunur. Uygulamanın adını ve genellikle, bir web tarayıcısında görüntülenen web sayfasının başlığı veya bir sözcük işlemcide açılan bir belgenin dosya adı gibi, uygulamanın ne yaptığına ilişkin bilgileri içerir.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-titlebar.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-toolbar">
+<entry
+>Araç Çubuğu</entry>
+<entry
+>Bunlar genellikle çoğu uygulamanın üst kısmında, <link linkend="visualdict-menubar"
+>menü çubuğunun</link
+> doğrudan altında bulunurlar. Örneğin, <emphasis
+>Kaydet</emphasis
+> veya <emphasis
+>Yazdır</emphasis
+> gibi uygulamaların en çok kullanılan işlevlerine doğrudan erişim sağlarlar.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-toolbar.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-tree-view">
+<entry
+>Ağaç Görünümü</entry>
+<entry
+>Ağaç Görünümü, hiyerarşik bir seçenekler listesinden seçim yapmanıza olanak tanır. Ağaç Görünümü'nün bir bölümü veya kategorisi genişletilmemiş olabilir; bu durumda altında hiçbir seçenek görünmez ve başlığın solundaki ok sağ başlığa doğru işaret eder. Genişletilmiş de olabilir; bu durumda altında birkaç seçenek listelenir ve başlığın solundaki ok aşağıya, seçeneklere doğru işaret eder. Ağaç görünümünün bir kısmını genişletmek için, genişletmek istediğiniz bölümün başlığının solundaki oka veya başlığa çift tıklayın veya klavyenizin ok düğmelerini kullanarak başlığı seçip &Enter; veya <keycap
+>+</keycap
+> düğmesine basın. Görünümün bir kısmını daraltmak için yine bölümün başlığının solundaki oka veya başlığa çift tıklayın veya klavyenizin ok düğmelerini kullanarak başlığı seçip &Enter; veya <keycap
+>-</keycap
+> düğmesine basın.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-tree-view.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+</tbody>
+</tgroup>
+</informaltable>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="menus">
+<sect1info>
+<authorgroup>
+<author
+>&TC.Hollingsworth; &TC.Hollingsworth.mail;</author>
+<othercredit role="translator"
+><firstname
+>Serdar</firstname
+><surname
+>Soytetir</surname
+><affiliation
+><address
+><email
+>tulliana@gmail.com</email
+></address
+></affiliation
+><contrib
+>Çeviri</contrib
+></othercredit
+> 
+</authorgroup>
+</sect1info>
+
+<title
+>Ortak Menüler</title>
+
+<para
+>Birçok &kde; uygulaması bu menüleri içerir. Ancak çoğu uygulamada burada listelenenlerden daha fazla menü girdisi bulunur ve bazılarında burada listelenen girdilerden bazıları eksik olabilir.</para>
+
+<screenshot id="screenshot-menus">
+<screeninfo
+>Bir Menü Çubuğu</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="menus.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Bir menü çubuğu</phrase
+></textobject>
+<caption
+><para
+><ulink url="https://www.kde.org/applications/graphics/gwenview/"
+>&gwenview;</ulink
+> uygulamasındaki menü çubuğu. </para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+>&dolphin; gibi bazı uygulamalar, öntanımlı olarak bir menü çubuğu göstermez. Menü çubuğunu, <keycombo
+>&Ctrl;<keycap
+>M</keycap
+></keycombo
+> kısayolunu kullanarak görünür duruma getirebilirsiniz. Ayrıca bu kısayolu, uygulama destekliyorsa menü çubuğunu gizlemek için de kullanabilirsiniz.</para>
+
+<sect2 id="menus-file">
+<title
+>Dosya Menüsü</title>
+<para
+><guimenu
+>Dosya</guimenu
+> menüsü, o anda açık olan dosya üzerinde işlemler yapmanızı ve uygulamanın temel işlevlerine erişmenizi sağlar.</para>
+
+<para
+>Genellikle içerilen menü ögeleri:</para>
+
+<variablelist>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Dosya</guimenu
+><guimenuitem
+>Yeni</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Yeni bir dosya oluşturur. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Dosya</guimenu
+><guimenuitem
+>Yeni Pencere</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Yeni bir pencere açar. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Dosya</guimenu
+><guimenuitem
+>Aç...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Var olan bir dosyayı açar. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Dosya</guimenu
+><guimenuitem
+>Kaydet</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Dosyayı kaydeder. Eğer dosya varsa üzerine yazılır. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Dosya</guimenu
+><guimenuitem
+>Farklı Kaydet...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Dosyayı yeni bir adla kaydeder. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Dosya</guimenu
+><guimenuitem
+>Tümünü Kaydet</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Açık olan tüm dosyaları kaydeder. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycap
+>F5</keycap
+></shortcut
+> <guimenu
+>Dosya</guimenu
+><guimenuitem
+>Yeniden Yükle</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Geçerli dosyayı yeniden yükler. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Dosya</guimenu
+><guimenuitem
+>Tümünü Yeniden Yükle</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Açık olan tüm dosyaları yeniden yükler. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Dosya</guimenu
+><guimenuitem
+>Yazdır...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Dosyayı yazdırır. Bir &PDF; dosyası üretmek veya bir sayfa erimini bir &PDF; dosyasına aktarmak için <guilabel
+>Dosyaya Yazdır (PDF)</guilabel
+> seçeneğini kullanın </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>W</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Dosya</guimenu
+><guimenuitem
+>Kapat</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Geçerli dosyayı kapatır. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Dosya</guimenu
+><guimenuitem
+>Tümünü Kapat</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Açık olan tüm dosyaları kapatır. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Dosya</guimenu
+><guimenuitem
+>Çık</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Programdan çıkar. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+</sect2>
+
+<sect2 id="menus-edit">
+<title
+>Düzen Menüsü</title>
+<para
+><guimenu
+>Düzen</guimenu
+> menüsü, açık olan dosya üzerinde değişiklikler yapmanızı sağlar.</para>
+
+<variablelist>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Düzen</guimenu
+><guimenuitem
+>Geri Al</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Dosya üzerinde yapılan son değişikliği geri alır. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Düzen</guimenu
+><guimenuitem
+>Yinele</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Dosya üzerinde yapılan son değişikliği yineler. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>X</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Düzen</guimenu
+><guimenuitem
+>Kes</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Dosyanın o anda seçili olan kısmını siler ve panoya kopyalar. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Düzen</guimenu
+><guimenuitem
+>Kopyala</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Dosyanın seçili bölümünün bir kopyasını (varsa) pano arabelleğine yerleştirir. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>V</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Düzen</guimenu
+><guimenuitem
+>Yapıştır</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Pano arabelleğindeki ilk ögeyi, varsa dosyadaki geçerli konuma kopyalar. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>A</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Düzen</guimenu
+><guimenuitem
+>Tümünü Seç</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Açık olan dosyanın tüm içeriğini seçer. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Düzen</guimenu
+><guimenuitem
+>Bul...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Açık olan dosyada metin aramanızı sağlar. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>R</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Düzen</guimenu
+><guimenuitem
+>Değiştir...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Açık olan dosyada metin aramanıza ve onu başka bir şeyle değiştirmenize olanak sağlar. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycap
+>F3</keycap
+></shortcut
+> <guimenu
+>Düzen</guimenu
+><guimenuitem
+>Sonrakini Bul</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Arama işleminde eşleşen sonraki sonuca gider. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Shift;<keycap
+>F3</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Düzen</guimenu
+><guimenuitem
+>Öncekini Bul</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Arama işleminde eşleşen önceki sonuca gider. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+</sect2>
+
+<sect2 id="menus-view">
+<title
+>Görünüm Menüsü</title>
+<para
+><guimenu
+>Görünüm</guimenu
+> menüsü, o anda açık olan dosyanın ve/veya çalışan uygulamanın yerleşimini değiştirmenize olanak tanır.</para>
+
+<para
+>Bu menüde kullandığınız uygulamaya bağlı olarak farklı seçenekler bulunur.</para>
+</sect2>
+
+<sect2 id="menus-tools">
+<title
+>Araçlar Menüsü</title>
+<para
+><guimenu
+>Araçlar</guimenu
+> menüsü, halihazırda açık olan dosya üzerinde belirli eylemleri gerçekleştirmenize olanak tanır.</para>
+
+<variablelist>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>O</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Araçlar</guimenu
+><guimenuitem
+>Otomatik Yazım Denetimi</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Yazarken yazdıklarınızı denetleyin Daha fazla bilgi için <xref linkend="spellcheck-auto"/> bölümüne bakın. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Araçlar</guimenu
+><guimenuitem
+>Yazım Denetimi...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Bu, yazım denetimi uygulamasını başlatır - bu uygulama kullanıcının yazım hatalarını yakalamasına ve düzeltmesine yardımcı olur. Daha fazla bilgi için <xref linkend="spellcheck-check"/> bölümüne bakın. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Araçlar</guimenu
+><guimenuitem
+>Yazım Denetimi (İmleçten İtibaren)...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Bu, yazım denetimi programını başlatır; ancak belgenin yalnızca imlecin geçerli konumundan sonuna kadar olan kısmını denetler. Daha fazla bilgi için <xref linkend="spellcheck-check"/> bölümüne bakın. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Araçlar</guimenu
+><guimenuitem
+>Yazım Denetimi Seçimi...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Bu, yazım denetimi programını başlatır; ancak yalnızca belgede seçili olan metni denetler. Daha fazla bilgi için <xref linkend="spellcheck-check"/> bölümüne bakın. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Araçlar</guimenu
+><guimenuitem
+>Sözlüğü Değiştir...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Bu, yazım denetimi için kullanılan sözlüğü değiştirmenize olanak tanır. Daha fazla bilgi için <xref linkend="spellcheck-config"/> bölümüne bakın. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect2>
+<!--FIXME add bookmarks menu ?-->
+<sect2 id="menus-settings">
+<title
+>Ayarlar Menüsü</title>
+<para
+><guimenu
+>Ayarlar</guimenu
+> menüsü, uygulamayı özelleştirmenize olanak tanır.</para>
+
+<para
+>Bu menü, genellikle aşağıdaki ögeleri içerir:</para>
+<variablelist>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>M</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Ayarlar</guimenu
+> <guimenuitem
+>Menü Çubuğunu Göster</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Menü Çubuğu</action
+>'nu görüntülemeyi açar/kapatır. Gizlendikten sonra, <keycombo action="simul"
+>&Ctrl; <keycap
+>M</keycap
+></keycombo
+> kısayolunu kullanarak yeniden görünür duruma getirilebilir. Menü çubuğu gizliyse görünüm alanının herhangi bir yerinde farenin sağ düğmesiyle tıklandığında açılan bağlam menüsünde ek bir <guimenuitem
+>Menü Çubuğunu Göster</guimenuitem
+> girdisi bulunur. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ayarlar</guimenu
+> <guimenuitem
+>Durum Çubuğunu Göster</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Durum çubuğunu açar ve kapatır. Bazı &kde; uygulamaları, yararlı bilgileri görüntülemek için ekranın altındaki durum çubuğunu kullanır. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ayarlar</guimenu
+><guisubmenu
+>Gösterilen Araç Çubukları</guisubmenu
+> </menuchoice
+></term>
+<listitem
+><para
+>Uygulama tarafından desteklenen çeşitli araç çubuklarını gösterip gizlemenizi sağlar. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ayarlar</guimenu
+><guimenuitem
+>Durum Çubuğunu Göster</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>İşaretlendiğinde, uygulamanın alt kısmında durumla ilgili bilgileri içeren küçük bir çubuk görüntülenir. İşaretlenmediğinde durum çubuğu gizlenir.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ayarlar</guimenu
+><guimenuitem
+>Kısayolları Yapılandır...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Kısayolları etkinleştirmenizi, devre dışı bırakmanızı ve değiştirebilmenizi sağlar. Daha fazla bilgi için <xref linkend="shortcuts"/> bölümüne bakın. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ayarlar</guimenu
+><guimenuitem
+>Araç Çubuklarını Yapılandır...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Araç çubuklarının içeriğini, yerleşimini, metnini ve simgelerini özelleştirmenizi sağlar. Daha fazla bilgi için <xref linkend="toolbars"/> bölümüne bakın. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ayarlar</guimenu
+><guimenuitem
+>Bildirimleri Yapılandır...</guimenuitem
+></menuchoice
+></term>
+<listitem
+><para
+>Bu öge, standart bir &kde; uygulaması tarafından kullanılan bildirimleri (sesler, görünür iletiler vb.) değiştirebileceğiniz bir bildirim yapılandırma iletişim kutusu görüntüler.</para>
+<para
+>Bildirimleri yapılandırma ile ilgili daha fazla bilgi için &systemsettings; <ulink url="help:/kcontrol/kcmnotify/index.html"
+>Bildirimleri Yönet</ulink
+> modülünün belgelendirmesini okuyun. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ayarlar</guimenu
+><guimenuitem
+><replaceable
+>'Uygulama'</replaceable
+> Uygulamasını Yapılandır...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Şu anda çalışan uygulamanın yapılandırma panelini açar. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+</sect2>
+
+<sect2 id="menus-help">
+<title
+>Yardım Menüsü</title>
+<para
+><guimenu
+>Yardım</guimenu
+> menüsü, uygulamanın belgelendirmesine ve başka kullanışlı özkaynaklara erişmenizi sağlar.</para>
+
+<!--taken from kdelibs.git/kdoctools/customization/en/entities/help-menu.docbook
+    and edited slightly to fit into buildingblocks-->
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+><keycap
+>F1</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Yardım</guimenu
+> <guimenuitem
+><replaceable
+>Uygulama</replaceable
+> El Kitabı</guimenuitem
+> </menuchoice>
+</term>
+<listitem
+><para
+>Çalışan uygulamanın el kitabını gösteren <action
+>KDE Yardım</action
+> sistemini çağırır.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Shift;<keycap
+>F1</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Yardım</guimenu
+> <guimenuitem
+>Bu Nedir?</guimenuitem
+> </menuchoice>
+</term>
+<listitem
+><para
+><action
+>Fare imlecini, bir ok ve soru işaretinden oluşan yeni bir işarete dönüştürür.</action
+> Uygulama içindeki ögelere tıklamak, o ögenin işlevlerini açıklayan bir yardım penceresi açar (o öge için varsa).</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Yardım</guimenu
+> <guimenuitem
+>Günün İpucu</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Bu komut, <action
+><guilabel
+>Günün İpucu</guilabel
+> iletişim kutusunu açar</action
+>. İletişim kutusundaki düğmeleri kullanarak tüm ipuçlarını tarayabilir ve başlangıçta ipuçlarını gösterilmesini seçebilirsiniz.</para>
+<para
+>Not: Tüm uygulamalar bu ipuçlarını sağlamaz.</para>
+
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Yardım</guimenu
+> <guimenuitem
+>Hata Bildir...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Hata bildirme iletişim kutusunu açar</action
+>, buradan bir hata bildirebilir veya özellik <quote
+>isteği</quote
+> yapabilirsiniz.</para
+></listitem>
+</varlistentry>
+<!--FIXME two different dialogs, either via web (default if aboutData->bugAddress() == "" or == "submit@bugs.kde.org" ) 
+or via email (see krecipes doc rev 1306076)
+-->
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Yardım</guimenu
+> <guimenuitem
+>Bağış Yap</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>&kde;'ye ve projelerine doğrudan bağış yapabileceğiniz bir <ulink url="https://www.kde.org/community/donations"
+>Bağış</ulink
+> sayfasını açar.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Yardım</guimenu
+> <guimenuitem
+>Dili Yapılandır...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Açık uygulamanın <guilabel
+>Birincil dil</guilabel
+>'ini ve <guilabel
+>Yedek dil</guilabel
+>'ini yapılandırabileceğiniz bir  <action
+>iletişim kutusu açar</action
+>.</para
+></listitem>
+</varlistentry>
+<!--FIXME: which languages are available here? how is that determined?
+-->
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Yardım</guimenu
+> <guimenuitem
+><replaceable
+>'Uygulama'</replaceable
+> Hakkında</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Bu, çalışan uygulamanın sürüm ve yazar bilgisini görüntüler</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Yardım</guimenu
+> <guimenuitem
+>KDE Hakkında</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Bu, &kde; Geliştirme Platformu sürümünü ve diğer temel bilgileri görüntüler.</action
+></para
+></listitem>
+</varlistentry>
+</variablelist>
+<!--FIXME Tip of the Day missing-->
+</sect2>
+
+<sect2 id="menus-ack">
+<title
+>Teşekkürler ve Destek Olanlar</title>
+
+<para
+>Bu belgelendirmenin çoğunu yazdığı için anonim bir Google Code-In 2011 katılımcısına özellikle teşekkür ederiz.</para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="kbd">
+<sect1info>
+<authorgroup>
+<author
+>&TC.Hollingsworth; &TC.Hollingsworth.mail;</author>
+<othercredit role="translator"
+><firstname
+>Serdar</firstname
+><surname
+>Soytetir</surname
+><affiliation
+><address
+><email
+>tulliana@gmail.com</email
+></address
+></affiliation
+><contrib
+>Çeviri</contrib
+></othercredit
+> 
+</authorgroup>
+</sect1info>
+
+<title
+>Ortak Klavye Kısayolları</title>
+
+<para
+>&plasma-workspaces;, farenize dokunmadan birçok görevi yerine getirebilmenizi sağlayan klavye kısayolları sağlar. Klavyenizi sıklıkla kullanıyorsanız bunları kullanmak size bayağı zaman kazandırabilir.</para>
+
+<para
+>Bu liste, çalışma alanının kendisi tarafından desteklenen en yaygın kısayolları ve içinde bulunan birçok uygulamayı içerir. Her uygulamanın kendi kısayolları da vardır; bu nedenle kapsamlı bir liste için kılavuzlarını denetlediğinizden emin olun.</para>
+
+<note
+><para
+>Aşağıda açıklanan <keysym
+>Meta</keysym
+> düğmesi, bir çok farklı klavyede bulunan özel düğme için kullanılan genel addır. &Microsoft; &Windows; için tasarlanan klavyelerde <keysym
+>Windows</keysym
+> düğmesi olarak bilinir ve üzerinde &Windows; simgesi vardır. &Mac; için tasarlanmış bilgisayarlarda bu düğmeye <keysym
+>Command</keysym
+> düğmesi denir ve üzerinde <trademark class="registered"
+>Apple</trademark
+> simgesi ve/veya <keycap
+>⌘</keycap
+> sembolü bulunur. &Unix; için tasarlanmış sistemlerde ise bu düğme <keysym
+>Meta</keysym
+> olarak bilinir ve genellikle bir elmas (<keycap
+>◆</keycap
+>) şekli ile etiketlenmiştir. </para
+></note>
+
+<sect2 id="kbd-windows">
+<title
+>Pencerelerle Çalışmak</title>
+
+<para
+>Bu kısayollar; pencerelerle açma, kapatma, taşıma veya pencereler arasında geçiş yapma gibi her türlü işlemi gerçekleştirmenize olanak tanır.</para>
+
+<sect3 id="kbd-windows-start-stop">
+<title
+>Uygulamaları Başlatma ve Durdurma</title>
+
+<para
+>Bu kısayollar programları başlatmayı ve durdurmayı kolaylaştırır.</para>
+
+<informaltable>
+<tgroup cols="2">
+
+<thead>
+<row>
+<entry
+>Kısayol</entry>
+<entry
+>Açıklama</entry>
+</row>
+</thead>
+
+<tbody>
+
+<row>
+<entry
+><keysym
+>Meta</keysym
+></entry>
+<entry
+>Uygulama Başlatıcısını Aç</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Alt;<keycap
+>Boşluk</keycap
+></keycombo
+> / <keycombo action="simul"
+>&Alt;<keycap
+>F2</keycap
+></keycombo
+></entry>
+<entry
+><ulink url="help:/plasma-desktop/krunner.html"
+>Komut Çalıştırma Arayüzü</ulink
+></entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Vazgeç</keycap
+></keycombo
+></entry>
+<entry
+>Sistem Etkinliği</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Alt;<keycap
+>F4</keycap
+></keycombo
+></entry>
+<entry
+>Kapat</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></entry>
+<entry
+>Çık</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;&Alt;&Esc;</keycombo
+></entry>
+<entry
+>Çıkmayı Zorla</entry>
+</row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</sect3>
+
+<sect3 id="kbd-windows-moving">
+<title
+>Dolaşmak</title>
+
+<para
+>Bu kısayollar; pencereler, etkinlikler ve masaüstleri arasında verimli bir şekilde dolaşmanıza olanak tanır.</para>
+
+<informaltable>
+<tgroup cols="2">
+
+<thead>
+<row>
+<entry
+>Kısayol</entry>
+<entry
+>Açıklama</entry>
+</row>
+</thead>
+
+<tbody>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F10</keycap
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] ExposeAll=Ctrl+F10; Launch (C) -->
+<entry
+>Açık pencereler</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F9</keycap
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] Expose=Ctrl+F9 -->
+<entry
+>Geçerli masaüstündeki açık pencereler</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F7</keycap
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] ExposeClass=Ctrl+F7 -->
+<entry
+>Yalnızca geçerli uygulamanın açık pencereleri</entry>
+</row>
+<!--FIXME not in 5.6.4
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F11</keycap
+></keycombo
+></entry>
+<entry
+>Desktop Cube</entry>
+</row>
+-->
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F12</keycap
+></keycombo
+></entry
+><!--[plasmashell][Global Shortcuts] show dashboard=Ctrl+F12-->
+<entry
+>Masaüstünü Göster</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;&Alt;<keycap
+>A</keycap
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] Activate Window Demanding Attention=Ctrl+Alt+A -->
+<entry
+>İlgi İsteyen Pencereyi Etkinleştir</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Alt;&Tab;</keycombo
+></entry
+><!--[kwin][Global Shortcuts] Walk Through Windows=Alt+Tab-->
+<entry
+>Pencereler arasında gezin</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Alt;&Shift;&Tab;</keycombo
+></entry
+><!--[kwin][Global Shortcuts] Walk Through Windows (Reverse)=Alt+Shift+Backtab-->
+<entry
+>Pencereler arasında gezin (geriye doğru)</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Alt;<keycap
+>F3</keycap
+></keycombo
+></entry
+><!--FIXME source ?-->
+<entry
+>Pencere İşlemleri menüsünü aç</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;&Alt;<keysym
+>Yukarı</keysym
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] Switch Window Up=Meta+Alt+Up-->
+<entry
+>Üstteki Masaüstüne Geç</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;&Alt;<keysym
+>Aşağı</keysym
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] Switch Window Down=Meta+Alt+Down-->
+<entry
+>Alttaki Masaüstüne Geç</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;&Alt;<keysym
+>Sol</keysym
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] Switch Window Left=Meta+Alt+Left-->
+<entry
+>Soldaki Pencereye Geç</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;&Alt;<keysym
+>Sağ</keysym
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] Switch Window Right=Meta+Alt+Right-->
+<entry
+>Sağdaki Pencereye Geç</entry>
+</row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</sect3>
+
+<sect3 id="kbd-activity-pan-zoom">
+<title
+>Kaydırma ve Yakınlaştırma</title
+><!--FIXME nothing works for me-->
+
+<para
+>Daha yakından bakmamız mı gerekiyor?  &plasma-workspaces; yakınlaştırıp uzaklaştırmanıza ve tüm masaüstünüzü hareket ettirmenize izin verir, ayrıca kullandığınız uygulama desteklemediğinde bile yakınlaştırabilirsiniz.</para>
+
+<informaltable>
+<tgroup cols="2">
+
+<thead>
+<row>
+<entry
+>Kısayol</entry>
+<entry
+>Açıklama</entry>
+</row>
+</thead>
+
+<tbody>
+
+<!--
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keycap
+></keycap
+></keycombo
+></entry>
+<entry
+></entry>
+</row>
+-->
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keycap
+>=</keycap
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] view_zoom_in=Meta+= -->
+<entry
+>Yakınlaştır</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keycap
+>-</keycap
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] view_zoom_out=Meta+- -->
+<entry
+>Uzaklaştır</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keycap
+>0</keycap
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] view_actual_size=Meta+0 -->
+<entry
+>Normalleştir</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keysym
+>Yukarı</keysym
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] MoveZoomUp=Meta+Up -->
+<entry
+>Yukarı Kaydır</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keysym
+>Aşağı</keysym
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] MoveZoomDown=Meta+Down -->
+<entry
+>Aşağı Kaydır</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keysym
+>Sol</keysym
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] MoveZoomLeft=Meta+Left -->
+<entry
+>Sola kaydır, pencereyi soldaki monitöre taşı<footnote id="fn1"
+><para
+>Çoklu monitör bulunan bir ortamda</para
+></footnote
+></entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keysym
+>Sağ</keysym
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] MoveZoomRight=Meta+Right -->
+<entry
+>Sağa kaydır, pencereyi sağdaki monitöre taşı<footnoteref linkend="fn1"/></entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keysym
+>Sayfa Yukarı</keysym
+></keycombo
+></entry>
+<entry
+>Pencereyi ekrana kapla/geri yükle</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keysym
+>Sayfa Aşağı</keysym
+></keycombo
+></entry>
+<entry
+>Pencereyi simge durumuna küçült</entry>
+</row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</sect3>
+</sect2>
+
+<sect2 id="kbd-activities">
+<title
+>Etkinlikler ve Sanal Masaüstleri ile Çalışmak</title>
+
+<para
+>Bu kısayollar, <ulink url="help:/plasma-desktop/activities-interface.html"
+>Etkinlikler</ulink
+> ve <ulink url="help:/kcontrol/desktop/"
+>Sanal Masaüstleri</ulink
+> arasında geçiş yapmanıza ve onları yönetmenize olanak tanır.</para>
+
+<informaltable>
+<tgroup cols="2">
+
+<thead>
+<row>
+<entry
+>Kısayol</entry>
+<entry
+>Açıklama</entry>
+</row>
+</thead>
+
+<tbody>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keycap
+>Q</keycap
+></keycombo
+> / <keycombo action="simul"
+>&Alt;<keycap
+>D</keycap
+></keycombo
+>,<keycombo action="simul"
+>&Alt;<keycap
+>A</keycap
+></keycombo
+> </entry>
+<entry
+>Etkinlikleri Yönet</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;&Tab;</keycombo
+></entry
+><!-- [plasmashell][Global Shortcuts] next activity=Meta+Tab -->
+<entry
+>Sonraki Etkinlik</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;&Shift;&Tab;</keycombo
+></entry
+><!-- [plasmashell][Global Shortcuts] previous activity=Meta+Shift+Tab -->
+<entry
+>Önceki Etkinlik</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F1</keycap
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] Switch to Desktop 1=Ctrl+F1 -->
+<entry
+>1. Masaüstüne Geç</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F2</keycap
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] Switch to Desktop 2=Ctrl+F2 -->
+<entry
+>2. Masaüstüne Geç</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F3</keycap
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] Switch to Desktop 2=Ctrl+F3 -->
+<entry
+>3. Masaüstüne Geç</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F4</keycap
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] Switch to Desktop 2=Ctrl+F4 -->
+<entry
+>4. Masaüstüne Geç</entry>
+</row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</sect2>
+
+<sect2 id="kbd-desktop">
+<title
+>Masaüstü ile Çalışmak</title>
+
+<para
+>Bu kısayollar, &plasma-desktop; ve panelleri ile çalışmanıza olanak tanır. </para>
+
+<informaltable>
+<tgroup cols="2">
+
+<thead>
+<row>
+<entry
+>Kısayol</entry>
+<entry
+>Açıklama</entry>
+</row>
+</thead>
+
+<tbody>
+
+<row>
+<entry
+><keycombo action="seq"
+><keycombo action="simul"
+>&Alt;<keycap
+>D</keycap
+></keycombo
+> <keycap
+>A</keycap
+> </keycombo
+></entry>
+<entry
+>Araç Takımları Ekle</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="seq"
+><keycombo action="simul"
+>&Alt;<keycap
+>D</keycap
+></keycombo
+> <keycap
+>R</keycap
+> </keycombo
+></entry>
+<entry
+>Bu <replaceable
+>Araç Takımı</replaceable
+>'nı Kaldır</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="seq"
+><keycombo action="simul"
+>&Alt;<keycap
+>D</keycap
+></keycombo
+> <keycap
+>L</keycap
+> </keycombo
+></entry>
+<entry
+>Araç Takımlarını Kilitle/Kilitlerini Aç</entry>
+</row>
+<!--FIXME source ? No
+>Next Widget< nor
+>Previous Widget< in kde-workspace or frameworks code
+<row>
+<entry
+><keycombo action="seq">
+<keycombo action="simul"
+>&Alt;<keycap
+>D</keycap
+></keycombo>
+<keycap
+>N</keycap>
+</keycombo
+></entry>
+<entry
+>Next Widget</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="seq">
+<keycombo action="simul"
+>&Alt;<keycap
+>D</keycap
+></keycombo>
+<keycap
+>P</keycap>
+</keycombo
+></entry>
+<entry
+>Previous Widget</entry>
+</row>
+-->
+<row>
+<entry
+><keycombo action="seq"
+><keycombo action="simul"
+>&Alt;<keycap
+>D</keycap
+></keycombo
+> <keycap
+>S</keycap
+> </keycombo
+></entry>
+<entry
+><replaceable
+>Araç Takımı</replaceable
+> Ayarları</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F12</keycap
+></keycombo
+></entry
+><!--[plasmashell][Global Shortcuts] show dashboard=Ctrl+F12-->
+<entry
+>Masaüstünü Göster</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="seq"
+><keycombo action="simul"
+>&Alt;<keycap
+>D</keycap
+></keycombo
+> <keycap
+>T</keycap
+> </keycombo
+></entry>
+<entry
+>İlişkilendirilmiş Uygulamayı Çalıştır</entry>
+</row>
+<!--FIXME obsolete?
+<row>
+<entry
+><keycombo action="simul"
+>&Alt;&Shift;<keycap
+>F12</keycap
+></keycombo
+></entry>
+<entry
+>Enable/Disable Desktop Effects</entry>
+</row>
+-->
+
+<row>
+<entry
+><keycombo action="simul"
+>&Alt;<keycap
+>D</keycap
+></keycombo
+>,<keycombo action="simul"
+>&Alt;<keycap
+>S</keycap
+></keycombo
+> </entry>
+<entry
+>Masaüstü Ayarları</entry>
+</row>
+
+</tbody>
+</tgroup>
+</informaltable>
+
+</sect2>
+
+<sect2 id="kbd-help">
+<title
+>Yardım Almak</title>
+
+<para
+>Yardıma mı gereksiniminiz var? Geçerli uygulamanın kılavuzu yalnızca bir düğme basımı kadar yakınınızdadır ve bazı programlarda odaklanılan ögeyi açıklayan ek yardım bile bulunmaktadır.</para>
+
+<informaltable>
+<tgroup cols="2">
+
+<thead>
+<row>
+<entry
+>Kısayol</entry>
+<entry
+>Açıklama</entry>
+</row>
+</thead>
+
+<tbody>
+
+<row>
+<entry
+><keycap
+>F1</keycap
+></entry>
+<entry
+>Yardım</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Shift;<keycap
+>F1</keycap
+></keycombo
+></entry>
+<entry
+>Bu Nedir?</entry>
+</row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</sect2>
+
+<sect2 id="kbd-docs">
+<title
+>Belgelerle Çalışmak</title>
+
+<para
+>İster bir metin belgesi, ister elektronik tablo veya web sitesi olsun, bu kısayollar birçok görevin gerçekleştirilmesini kolaylaştırır.</para>
+
+<informaltable>
+<tgroup cols="2">
+
+<thead>
+<row>
+<entry
+>Kısayol</entry>
+<entry
+>Açıklama</entry>
+</row>
+</thead>
+
+<tbody>
+
+<row>
+<entry
+><keycap
+>F5</keycap
+></entry>
+<entry
+>Yenile</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>A</keycap
+></keycombo
+></entry>
+<entry
+>Tümünü Seç</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+></entry>
+<entry
+>Geri Al</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+></entry>
+<entry
+>Yinele</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>X</keycap
+></keycombo
+></entry>
+<entry
+>Kes</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+></entry>
+<entry
+>Kopyala</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>V</keycap
+></keycombo
+></entry>
+<entry
+>Yapıştır</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></entry>
+<entry
+>Yeni</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+></entry>
+<entry
+>Yazdır</entry>
+</row>
+
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></entry>
+<entry
+>Kaydet</entry>
+</row>
+
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F</keycap
+></keycombo
+></entry>
+<entry
+>Bul</entry>
+</row>
+
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>W</keycap
+></keycombo
+></entry>
+<entry
+>Belgeyi/Sekmeyi Kapat</entry>
+</row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</sect2>
+
+<sect2 id="kbd-files">
+<title
+>Dosyalarla Çalışmak</title>
+
+<para
+>İster Aç/Kaydet iletişim kutusunda, ister &dolphin; dosya yöneticisinde olun, bu kısayollar dosyalar üzerinde işlem yaparken size zaman kazandırır. Dosyalarla kullanılan bazı kavramların belgelerle aynı olduğunu, dolayısıyla kısayolların birçoğunun yukarıda listelenenlerle aynı olduğunu unutmayın.</para>
+
+<informaltable>
+<tgroup cols="2">
+
+<thead>
+<row>
+<entry
+>Kısayol</entry>
+<entry
+>Açıklama</entry>
+</row>
+</thead>
+
+<tbody>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+></entry>
+<entry
+>Geri Al</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>X</keycap
+></keycombo
+></entry>
+<entry
+>Kes</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+></entry>
+<entry
+>Kopyala</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>V</keycap
+></keycombo
+></entry>
+<entry
+>Yapıştır</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>A</keycap
+></keycombo
+></entry>
+<entry
+>Tümünü Seç</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>L</keycap
+></keycombo
+></entry>
+<entry
+>Konumu Değiştir</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>A</keycap
+></keycombo
+></entry>
+<entry
+>Seçimi Tersine Çevir</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Alt;<keycap
+>Sol</keycap
+></keycombo
+></entry>
+<entry
+>Geri</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Alt;<keycap
+>Sağ</keycap
+></keycombo
+></entry>
+<entry
+>İleri</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Alt;<keycap
+>Yukarı</keycap
+></keycombo
+></entry>
+<entry
+>Yukarı (bunu içeren klasöre)</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Alt;<keycap
+>Baş</keycap
+></keycombo
+></entry>
+<entry
+>Ana Klasör</entry>
+</row>
+
+<row>
+<entry
+><keycap
+>Sil</keycap
+></entry>
+<entry
+>Çöp Kutusuna Taşı</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Shift;<keycap
+>Sil</keycap
+></keycombo
+></entry>
+<entry
+>Kalıcı Olarak Sil</entry>
+</row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</sect2>
+
+<sect2 id="kbd-vol-bright">
+<title
+>Ses Düzeyini ve Parlaklığı Değiştirmek</title>
+
+<para
+>Standart düğmelere ek olarak günümüzde birçok bilgisayar klavyesi ve dizüstü bilgisayarda, hoparlör ses düzeyini ve varsa monitörünüzün parlaklığını değiştirmek için özel düğmeler bulunmaktadır. Varsa bu düğmeleri, bu görevleri gerçekleştirmek için &plasma-workspaces; içinde kullanabilirsiniz.</para>
+
+<para
+>Bu tür düğmeleriniz yoksa bu görevlere nasıl düğmeler atayacağınızla ilgili bilgi için <xref linkend="kbd-modifying"/> bölümüne bakın.</para>
+
+</sect2>
+
+<sect2 id="kbd-leaving">
+<title
+>Bilgisayarınızdan Ayrılmak</title>
+
+<para
+>Her şey tamam mı? Bu kısayolları kullanın ve bilgisayarınızdan uzaklaşın!</para>
+
+<informaltable>
+<tgroup cols="2">
+
+<thead>
+<row>
+<entry
+>Kısayol</entry>
+<entry
+>Açıklama</entry>
+</row>
+</thead>
+
+<tbody>
+<!--FIXME obsolete?
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;&Alt;<keycap
+>Insert</keycap
+></keycombo
+></entry>
+<entry
+>Switch User</entry>
+</row>
+-->
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;&Alt;<keycap
+>L</keycap
+></keycombo
+></entry
+><!--workspace/kscreenlocker/ksmserver/server.cpp-->
+<entry
+>Ekranı Kilitle</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;&Alt;<keycap
+>Sil</keycap
+></keycombo
+></entry
+><!--plasma-workspace/ksmserver/server.cpp-->
+<entry
+>Ayrıl</entry>
+</row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</sect2>
+
+<sect2 id="kbd-modifying">
+<title
+>Kısayolları Değiştirmek</title>
+
+<para
+><link linkend="kbd-windows"
+>Pencerelerle Çalışmak</link
+>, <link linkend="kbd-leaving"
+>Bilgisayardanızdan Ayrılmak</link
+>, <link linkend="kbd-vol-bright"
+>Ses Düzeyini ve Parlaklığı değiştirmek</link
+> ve <link linkend="kbd-activities"
+>Etkinlikler ve Sanal Masaüstleri ile Çalışmak</link
+> bölümlerinde belirtilen kısayollar, <emphasis
+>evrensel kısayollar</emphasis
+> olarak bilinir; çünkü ekranda hangi pencereyi açtığınızdan bağımsız olarak çalışırlar. Bunlar, &kde; bileşeni olarak ayrılmış olan <ulink url="help:/control/keys/"
+> sistem ayarlarının Global Kısayollar panelinden</ulink
+> değiştirilebilirler.</para>
+
+<para
+><link linkend="kbd-desktop"
+>Masaüstü ile Çalışmak</link
+> bölümünde belirtilen kısayollar, değişmez ve değiştirilemezler.</para>
+
+<para
+><link linkend="kbd-docs"
+>Belgeler ile Çalışmak</link
+> ve <link linkend="kbd-help"
+>Yardım Almak</link
+> bölümlerinde belirtilen kısayollar, programlar tarafından belirlenirler. Birçok &kde; programı, <link linkend="shortcuts"
+>ortak kısayol düzenleme penceresi</link
+> kullanımına izin vererek, bunları değiştirmenize izin verir. <link linkend="kbd-files"
+>Dosyalar ile Çalışmak</link
+> bölümünde belirtilen kısayollar, &dolphin; dosya yöneticisi veya &konqueror; gibi programların içindeyken aynı şekilde düzenlenebilir; ancak Aç/Kaydet gibi pencereleri için düzenlenemezler. </para>
+
+</sect2>
+</sect1>
+
+</chapter>
