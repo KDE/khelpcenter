@@ -471,9 +471,9 @@
 <note
 ><para
 >La búsqueda no es sensible a las mayúsculas y minúsculas, &ie;, los caracteres en mayúsculas se consideran iguales a los correspondientes caracteres en minúsculas. Por ejemplo, si busca <quote
->Acceso rápido</quote
+>Atajo de teclado</quote
 >, también se mostrarán los resultados que contengan <quote
->acceso rápido</quote
+>atajo de teclado</quote
 >.</para
 ></note>
 <!--no wildcards? -->

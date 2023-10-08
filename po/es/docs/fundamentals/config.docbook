@@ -408,38 +408,38 @@
 <!--FIXME explain Alternate + Global shortcuts in Screenshot and 
 another place to change Global Shortcuts (Systemsettings)-->
 <title
->Uso y poersonalización de los accesos rápidos</title>
+>Uso y personalización de los atajos de teclado</title>
 
 <sect2 id="shortcuts-intro">
 <title
 >Introducción</title>
 
 <para
->Muchas aplicaciones de &kde; le permiten configurar accesos rápidos. Para abrir los accesos rápidos de teclado estándar, seleccione la opción <menuchoice
+>Muchas aplicaciones de &kde; le permiten configurar atajos de teclado. Para abrir los atajos de teclado estándar, seleccione la opción <menuchoice
 ><guimenu
 >Preferencias</guimenu
 ><guimenuitem
->Configurar accesos rápidos...</guimenuitem
+>Configurar atajos de teclado...</guimenuitem
 ></menuchoice
 >.</para>
 
 <para
->En la ventana de configuración de accesos rápidos, verá una lista de todos los accesos rápidos disponibles en la aplicación actual. Puede utilizar la casilla de búsqueda situada en la parte superior para buscar el acceso directo que desee.</para>
+>En la ventana de configuración de atajos de teclado, verá una lista de todos los atajos de teclado disponibles en la aplicación actual. Puede utilizar la casilla de búsqueda situada en la parte superior para buscar el atajo de teclado que desee.</para>
 
 <screenshot id="screenshot-shortcuts-search">
 <screeninfo
->Ventana de personalización de accesos rápidos</screeninfo>
+>Ventana de personalización de atajos de teclado</screeninfo>
 <mediaobject>
 <imageobject
 ><imagedata fileref="shortcuts-search.png" format="PNG"/></imageobject>
 <textobject
 ><phrase
->Ventana de personalización de accesos rápidos</phrase
+>Ventana de personalización de atajos de teclado</phrase
 ></textobject>
 <caption
 ><para
->Búsqueda de accesos rápidos con <userinput
->archivo</userinput
+>Búsqueda de atajos de teclado con <userinput
+>file</userinput
 > en <ulink url="https://kde.org/applications/system/dolphin/"
 >&dolphin;</ulink
 >. </para
@@ -451,22 +451,22 @@ another place to change Global Shortcuts (Systemsettings)-->
 
 <sect2 id="shortcuts-change">
 <title
->Cambiar un acceso rápido</title>
+>Cambiar un atajo de teclado</title>
 
 <para
->Para cambiar un acceso rápido, primero haga clic en su nombre. Verá un grupo de selectores donde puede elegir si dejar el acceso rápido con su valor predeterminado o seleccionar un nuevo acceso directo para la acción seleccionada. Para definir un nuevo acceso rápido, seleccione <guilabel
+>Para cambiar un atajo de teclado, primero haga clic en su nombre. Verá un grupo de selectores donde puede elegir si se deja el atajo de teclado con su valor predeterminado o seleccionar un nuevo atajo de teclado para la acción seleccionada. Para definir un nuevo atajo de teclado, seleccione <guilabel
 >Personalizar</guilabel
-> y pulse en el botón situado a su lado. A continuación, escriba el acceso directo que le gustaría utilizar y se guardarán sus cambios.</para>
+> y pulse en el botón situado a su lado. A continuación, escriba el atajo de teclado que le gustaría utilizar y se guardarán sus cambios.</para>
 
 <screenshot id="screenshot-shortcuts-set">
 <screeninfo
->Definir un acceso rápido</screeninfo>
+>Definir un atajo de teclado</screeninfo>
 <mediaobject>
 <imageobject
 ><imagedata fileref="shortcuts-set.png" format="PNG"/></imageobject>
 <textobject
 ><phrase
->La ventana de personalización mostrando como definir un acceso rápido.</phrase
+>La ventana de personalización mostrando cómo se define un atajo de teclado.</phrase
 ></textobject>
 </mediaobject>
 </screenshot>
@@ -475,14 +475,14 @@ another place to change Global Shortcuts (Systemsettings)-->
 
 <sect2 id="shortcuts-reset">
 <title
->Restablecer los accesos rápidos</title>
+>Restablecer los atajos de teclado</title>
 <para
 >Hay un botón en la parte inferior de la pantalla llamado <guibutton
 >Restablecer a los valores predeterminados</guibutton
->. Al hacer clic en este botón, todos los accesos rápidos personalizados se restablecerán a sus valores predeterminados.</para>
+>. Al hacer clic en este botón, todos los atajos de teclado personalizados se restablecerán a sus valores predeterminados.</para>
 
 <para
->También puede restablecer un acceso rápido en concreto a su valor predeterminado seleccionándolo y eligiendo la opción <guilabel
+>También puede restablecer un atajo de teclado en concreto a su valor predeterminado seleccionándolo y eligiendo la opción <guilabel
 >Predeterminado</guilabel
 >.</para>
 
@@ -490,10 +490,10 @@ another place to change Global Shortcuts (Systemsettings)-->
 
 <sect2 id="shortcuts-delete">
 <title
->Eliminar un acceso rápido</title>
+>Eliminar un atajo de teclado</title>
 
 <para
->Para eliminar un acceso rápido, selecciónelo de la lista, después pulse el icono de eliminar (una flecha negra con una cruz) situado a la derecha del botón que le permite seleccionar un acceso rápido.</para>
+>Para eliminar un atajo de teclado, selecciónelo de la lista, después pulse el icono de eliminar (una flecha negra con una cruz) situado a la derecha del botón que le permite seleccionar un atajo de teclado.</para>
 
 </sect2>
 
@@ -502,7 +502,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 >Trabajar con esquemas</title>
 
 <para
->Los esquemas son perfiles de configuración de los accesos rápidos de teclado, de forma que pueda crear varios perfiles con diferentes accesos rápidos y cambiar entre dichos perfiles fácilmente.</para>
+>Los esquemas son perfiles de configuración de los atajos de teclado, de forma que pueda crear varios perfiles con diferentes atajos de teclado y cambiar entre dichos perfiles fácilmente.</para>
 
 <screenshot id="screenshot-shortcuts-schemes">
 <screeninfo
@@ -512,7 +512,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 ><imagedata fileref="shortcuts-schemes.png" format="PNG"/></imageobject>
 <textobject
 ><phrase
->La ventana de personalización de accesos rápidos mostrando las herramientas de edición del esquema.</phrase
+>La ventana de personalización de atajos de teclado mostrando las herramientas de edición del esquema.</phrase
 ></textobject>
 <caption
 ><para
@@ -576,11 +576,11 @@ another place to change Global Shortcuts (Systemsettings)-->
 <varlistentry>
 <term
 ><guimenuitem
->Guardar accesos rápidos en el esquema</guimenuitem
+>Guardar atajos de teclado en el esquema</guimenuitem
 ></term>
 <listitem
 ><para
->Guarda los accesos rápidos actuales en el esquema actual.</para
+>Guarda los atajos de teclado actuales en el esquema actual.</para
 ></listitem>
 </varlistentry>
 
@@ -615,10 +615,10 @@ another place to change Global Shortcuts (Systemsettings)-->
 
 <sect2 id="shortcuts-print">
 <title
->Imprimir accesos rápidos</title>
+>Imprimir atajos de teclado</title>
 
 <para
->Puede imprimir una lista de accesos rápidos para utilizarla como referencia rápida pulsando el botón <guibutton
+>Puede imprimir una lista de atajos de teclado para utilizarla como referencia rápida pulsando el botón <guibutton
 >Imprimir</guibutton
 > situado en la parte inferior de la ventana.</para>
 

@@ -559,7 +559,7 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 ></term>
 <listitem
 ><para
->Muestra los archivos o carpetas que normalmente oculta el sistema operativo. El acceso rápido alternativo para esta acción es <keycap
+>Muestra los archivos o carpetas que normalmente oculta el sistema operativo. El atajo de teclado alternativo para esta acción es <keycap
 >F8</keycap
 >. </para
 ></listitem>
@@ -580,7 +580,7 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 ></term>
 <listitem
 ><para
->Muestra el panel de lugares, el cual proporciona accesos rápidos a los marcadores y a los discos o a otros medios de almacenamiento.</para
+>Muestra el panel de lugares, el cual proporciona un rápido acceso a los marcadores y a los discos o a otros medios de almacenamiento.</para
 ></listitem>
 </varlistentry>
 
@@ -797,7 +797,7 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 >También puede seleccionar muchos archivos a la vez. Para seleccionar archivos concretos o para descartar la selección de archivos concretos que ya están seleccionados, mantenga pulsada la tecla &Ctrl; y haga clic en cada uno de los archivos y a continuación, suelte la tecla &Ctrl;. Para seleccionar un grupo contiguo de archivos, haga clic en el primer archivo, pulse la tecla &Shift; haga clic en el último archivo del grupo y suelte la tecla &Shift;.</para>
 
 <para
->La vista de carpeta ofrece un conjunto limitado de operaciones con archivos, al que se puede acceder haciendo clic con el botón derecho en un archivo para mostrar el menú de contexto o utilizando los accesos rápidos de teclado. En el menú de contexto, están disponibles los siguientes elementos:</para>
+>La vista de carpeta ofrece un conjunto limitado de operaciones con archivos, al que se puede acceder haciendo clic con el botón derecho en un archivo para mostrar el menú de contexto o utilizando los atajos de teclado. En el menú de contexto, están disponibles los siguientes elementos:</para>
 
 <variablelist>
 
@@ -1235,7 +1235,7 @@ Search bar used e.g. in Konsole/Konqueror Views (readonly)
 Search+Replace bar in Kate/KWrite
   -->
 <para
->La función de búsqueda de muchas aplicaciones de &kde; le permite buscar un texto concreto en un documento, mientras que la función de sustituir le permite cambiar el texto encontrado por el texto que usted proporcione.</para>
+>La función de búsqueda de muchas aplicaciones de &kde; le permite buscar un texto concreto en un documento, mientras que la función de sustituir le permite cambiar el texto encontrado por el texto que proporcione.</para>
 
 <para
 >Puede encontrar ambas funciones en el menú <guimenu
@@ -1736,7 +1736,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 <para
 >El selector de color aparece en muchas de las aplicaciones de &kde; cada vez que necesite seleccionar un color. Le permite seleccionar de entre la paleta de <guilabel
 >Colores básicos</guilabel
-> que consta de muchos colores predefinidos o de  mezclas que realice usted cuando desee un color concreto.</para>
+> que consta de muchos colores predefinidos o de mezclas que realice cuando desee un color concreto.</para>
 
 <screenshot id="screenshot-colors">
 <screeninfo

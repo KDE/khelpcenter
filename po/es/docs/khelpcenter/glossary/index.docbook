@@ -235,7 +235,7 @@ Project Neon
 ><para
 ><acronym
 >KSycoca</acronym
-> (&kde; &emstart;Sy&emend;stem &emstart;Co&emend;nfiguration &emstart;Ca&emend;che -Sistema de configuración de caché de KDE) permite la configuración de la caché para, por ejemplo, garantizar el acceso rápido a las entradas del menú.</para>
+> (&kde; &emstart;Sy&emend;stem &emstart;Co&emend;nfiguration &emstart;Ca&emend;che, «Sistema de configuración de caché de KDE») permite la configuración de la caché para, por ejemplo, garantizar el acceso rápido a las entradas del menú.</para>
 				<glossseealso 
 otherterm="gloss-kbuildsycoca"
 ><application
@@ -410,7 +410,7 @@ otherterm="gloss-kbuildsycoca"
 >KRunner</glossterm>
 			<glossdef
 ><para
->La línea de ordenes en miniatura a la que se puede acceder desde el menú clásico, el acceso rápido de teclado &Alt;+<keycap
+>La línea de ordenes en miniatura a la que se puede acceder desde el menú clásico, el atajo de teclado &Alt;+<keycap
 >F2</keycap
 >, o pulsando con el botón derecho del ratón en el escritorio. En &kde; SC 4 un nombre parcial mostrará todas las coincidencias posibles.&newpara; Más información:&newpara; &linkstart;"https://userbase.kde.org/Plasma/Krunner"&linkmid;Base de usuarios: Uso de KRunner&linkend;</para
 ><glossseealso otherterm="gloss-kde"

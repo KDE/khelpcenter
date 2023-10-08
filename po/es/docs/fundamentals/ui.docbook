@@ -364,7 +364,7 @@
 </screenshot>
 
 <para
->Esta captura de pantalla del panel de «Accesos rápidos personalizados» de las &systemsettings; muestra algunos elementos más de la &GUI;.</para>
+>Esta captura de pantalla del panel de «Atajos de teclado personalizados» de las &systemsettings; muestra algunos elementos más de la &GUI;.</para>
 
 <orderedlist>
 
@@ -1608,7 +1608,7 @@
 ><para
 ><action
 >Conmuta la visualización de la barra de menú</action
->. Si no está visible, se puede volver a mostrar usando el acceso rápido de teclado <keycombo action="simul"
+>. Si no está visible, se puede volver a mostrar usando el atajo de teclado <keycombo action="simul"
 >&Ctrl;<keycap
 >M</keycap
 ></keycombo
@@ -1669,12 +1669,12 @@
 ><guimenu
 >Preferencias</guimenu
 ><guimenuitem
->Configurar accesos rápidos...</guimenuitem
+>Configurar atajos de teclado...</guimenuitem
 > </menuchoice
 ></term>
 <listitem
 ><para
->Le permite activar, desactivar y modificar los accesos rápidos de teclado. Para más información, consulte <xref linkend="shortcuts"/>. </para
+>Le permite activar, desactivar y modificar atajos de teclado. Para más información, consulte <xref linkend="shortcuts"/>. </para
 ></listitem>
 </varlistentry>
 
@@ -1960,13 +1960,13 @@ or via email (see krecipes doc rev 1306076)
 </sect1info>
 
 <title
->Accesos rápidos de teclado comunes</title>
+>Atajos de teclado comunes</title>
 
 <para
->Las &plasma-workspaces; proporcionan accesos rápidos que permiten realizar muchas tareas sin tocar el ratón. Si suele utilizar su teclado, estos accesos rápidos pueden ahorrarle mucho tiempo.</para>
+>Las &plasma-workspaces; proporcionan atajos de teclado que permiten realizar muchas tareas sin tocar el ratón. Si suele utilizar su teclado, estos atajos de teclado pueden ahorrarle mucho tiempo.</para>
 
 <para
->Esta lista contiene los accesos rápidos más comunes implementados en la propia área de trabajo y en muchas aplicaciones. Cada aplicación también proporciona sus propios accesos rápidos, así que consulte los manuales para obtener la lista completa.</para>
+>Esta lista contiene los atajos de teclado más comunes implementados en la propia área de trabajo y en muchas aplicaciones. Cada aplicación también proporciona sus propios atajos de teclado, así que consulte los manuales para obtener la lista completa.</para>
 
 <note
 ><para
@@ -1992,14 +1992,14 @@ or via email (see krecipes doc rev 1306076)
 >Trabajar con ventanas</title>
 
 <para
->Estos accesos rápidos permiten realizar todo tipo de operaciones con ventanas, como abrir, cerrar, mover o cambiar entre ellas.</para>
+>Estos atajos de teclado permiten realizar todo tipo de operaciones con ventanas, como abrir, cerrar, mover o cambiar entre ellas.</para>
 
 <sect3 id="kbd-windows-start-stop">
 <title
 >Iniciar y detener aplicaciones</title>
 
 <para
->Estos accesos rápidos facilitan iniciar y detener programas.</para>
+>Estos atajos de teclado facilitan el lanzamiento y la detención de programas.</para>
 
 <informaltable>
 <tgroup cols="2">
@@ -2007,7 +2007,7 @@ or via email (see krecipes doc rev 1306076)
 <thead>
 <row>
 <entry
->Acceso rápido</entry>
+>Atajo de teclado</entry>
 <entry
 >Descripción</entry>
 </row>
@@ -2093,7 +2093,7 @@ or via email (see krecipes doc rev 1306076)
 >Desplazarse</title>
 
 <para
->Estos accesos rápidos permiten navegar de manera eficaz entre ventanas, actividades y escritorios.</para>
+>Estos atajos de teclado permiten navegar de manera eficaz entre ventanas, actividades y escritorios.</para>
 
 <informaltable>
 <tgroup cols="2">
@@ -2101,7 +2101,7 @@ or via email (see krecipes doc rev 1306076)
 <thead>
 <row>
 <entry
->Acceso rápido</entry>
+>Atajo de teclado</entry>
 <entry
 >Descripción</entry>
 </row>
@@ -2279,7 +2279,7 @@ or via email (see krecipes doc rev 1306076)
 <thead>
 <row>
 <entry
->Acceso rápido</entry>
+>Atajo de teclado</entry>
 <entry
 >Descripción</entry>
 </row>
@@ -2421,7 +2421,7 @@ or via email (see krecipes doc rev 1306076)
 >Trabajar con actividades y escritorios virtuales</title>
 
 <para
->Estos accesos rápidos permiten cambiar entre <ulink url="help:/plasma-desktop/activities-interface.html"
+>Estos atajos de teclado permiten cambiar entre <ulink url="help:/plasma-desktop/activities-interface.html"
 >Actividades</ulink
 > y <ulink url="help:/kcontrol/desktop/"
 >Escritorios virtuales</ulink
@@ -2433,7 +2433,7 @@ or via email (see krecipes doc rev 1306076)
 <thead>
 <row>
 <entry
->Acceso rápido</entry>
+>Atajo de teclado</entry>
 <entry
 >Descripción</entry>
 </row>
@@ -2538,7 +2538,7 @@ or via email (see krecipes doc rev 1306076)
 >Trabajar con el escritorio</title>
 
 <para
->Estos accesos rápidos permiten trabajar con el &plasma-desktop; y los paneles. </para>
+>Estos atajos de teclado permiten trabajar con el &plasma-desktop; y los paneles. </para>
 
 <informaltable>
 <tgroup cols="2">
@@ -2546,7 +2546,7 @@ or via email (see krecipes doc rev 1306076)
 <thead>
 <row>
 <entry
->Acceso rápido</entry>
+>Atajo de teclado</entry>
 <entry
 >Descripción</entry>
 </row>
@@ -2723,7 +2723,7 @@ or via email (see krecipes doc rev 1306076)
 <thead>
 <row>
 <entry
->Acceso rápido</entry>
+>Atajo de teclado</entry>
 <entry
 >Descripción</entry>
 </row>
@@ -2761,7 +2761,7 @@ or via email (see krecipes doc rev 1306076)
 >Trabajar con documentos</title>
 
 <para
->Tanto si se trata de un documento de texto como si es una hoja de cálculo o un sitio web, estos accesos rápidos facilitan la realización de muchas tareas sobre ellos.</para>
+>Tanto si se trata de un documento de texto como si es una hoja de cálculo o un sitio web, estos atajos de teclado facilitan la realización de muchas tareas sobre ellos.</para>
 
 <informaltable>
 <tgroup cols="2">
@@ -2769,7 +2769,7 @@ or via email (see krecipes doc rev 1306076)
 <thead>
 <row>
 <entry
->Acceso rápido</entry>
+>Atajo de teclado</entry>
 <entry
 >Descripción</entry>
 </row>
@@ -2920,7 +2920,7 @@ or via email (see krecipes doc rev 1306076)
 >Trabajar con archivos</title>
 
 <para
->Tanto si se encuentra en un diálogo «Abrir o guardar» o en el administrador de archivos &dolphin;, estos accesos rápidos le ahorran tiempo a la hora de realizar operaciones con archivos. Tenga en cuenta que algunos de los conceptos utilizados con estos archivos son los mismos que los que se utilizan para los documentos, por lo que algunos de los accesos rápidos son idénticos a sus homólogos que aparecen en la siguiente lista.</para>
+>Tanto si se encuentra en un diálogo «Abrir o guardar» o en el administrador de archivos &dolphin;, estos atajos de teclado le ahorran tiempo a la hora de realizar operaciones con archivos. Tenga en cuenta que algunos de los conceptos utilizados con estos archivos son los mismos que los que se utilizan para los documentos, por lo que algunos de los atajos de teclado son idénticos a sus homólogos que aparecen en la siguiente lista.</para>
 
 <informaltable>
 <tgroup cols="2">
@@ -2928,7 +2928,7 @@ or via email (see krecipes doc rev 1306076)
 <thead>
 <row>
 <entry
->Acceso rápido</entry>
+>Atajo de teclado</entry>
 <entry
 >Descripción</entry>
 </row>
@@ -3099,7 +3099,7 @@ or via email (see krecipes doc rev 1306076)
 >Dejar de trabajar con el equipo</title>
 
 <para
->Si ya ha terminado su trabajo, puede utilizar estos accesos rápidos para dejar de utilizar su equipo.</para>
+>Si ya ha terminado su trabajo, puede utilizar estos atajos de teclado para dejar de utilizar su equipo.</para>
 
 <informaltable>
 <tgroup cols="2">
@@ -3107,7 +3107,7 @@ or via email (see krecipes doc rev 1306076)
 <thead>
 <row>
 <entry
->Acceso rápido</entry>
+>Atajo de teclado</entry>
 <entry
 >Descripción</entry>
 </row>
@@ -3157,10 +3157,10 @@ or via email (see krecipes doc rev 1306076)
 
 <sect2 id="kbd-modifying">
 <title
->Modificar los accesos rápidos</title>
+>Modificar los atajos de teclado</title>
 
 <para
->Los accesos rápidos descritos en <link linkend="kbd-windows"
+>Los atajos de teclado descritos en <link linkend="kbd-windows"
 >Trabajar con ventanas</link
 >, <link linkend="kbd-leaving"
 >Dejar de trabajar con el equipo</link
@@ -3169,24 +3169,24 @@ or via email (see krecipes doc rev 1306076)
 > y <link linkend="kbd-activities"
 >Trabajar con actividades y escritorios virtuales</link
 >se llaman <emphasis
->accesos rápidos globales</emphasis
->, ya que funcionan independientemente de qué ventana tenga abierta en la pantalla. Dichos accesos se pueden modificar en el <ulink url="help:/kcontrol/keys/"
->Panel de accesos rápidos globales de las &systemsettings;</ulink
+>atajos de teclado globales</emphasis
+>, ya que funcionan independientemente de qué ventana tenga abierta en la pantalla. Dichos atajos se pueden modificar en el <ulink url="help:/kcontrol/keys/"
+>Panel de atajos de teclado globales de las &systemsettings;</ulink
 >, donde están ordenados por componente de &kde;.</para>
 
 <para
->Los accesos rápidos descritos en <link linkend="kbd-desktop"
+>Los atajos de teclado descritos en <link linkend="kbd-desktop"
 >Trabajar con el escritorio</link
 > son inmutables y no se pueden cambiar.</para>
 
 <para
->Los accesos rápidos descritos en <link linkend="kbd-docs"
+>Los atajos de teclado descritos en <link linkend="kbd-docs"
 >Trabajar con documentos</link
 > u <link linkend="kbd-help"
 >Obtener ayuda</link
 > se configuran en cada programa en particular. Los programas de &kde; permiten utilizar el <link linkend="shortcuts"
->diálogo de accesos rápidos comunes</link
-> para modificarlos. Los accesos rápidos descritos en <link linkend="kbd-files"
+>diálogo de atajos de teclado comunes</link
+> para modificarlos. Los atajos de teclado descritos en <link linkend="kbd-files"
 >Trabajar con archivos</link
 > se pueden modificar de la misma manera cuando se utilizan en un administrador de archivos como &dolphin; o &konqueror;, pero no se pueden modificar en el caso de diálogos de abrir y guardar, &etc; </para>
 
