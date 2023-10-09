@@ -472,27 +472,3 @@ msgstr "不明"
 #| msgid "Start Page"
 msgid "Save Page"
 msgstr "スタートページ"
-
-#~ msgid "Previous Page"
-#~ msgstr "前のページ"
-
-#~ msgid "Moves to the previous page of the document"
-#~ msgstr "ドキュメントの前のページに移動します"
-
-#~ msgid "Next Page"
-#~ msgstr "次のページ"
-
-#~ msgid "Moves to the next page of the document"
-#~ msgstr "ドキュメントの次のページに移動します"
-
-#~ msgid "Configure Fonts..."
-#~ msgstr "フォント設定..."
-
-#~ msgid "Increase Font Sizes"
-#~ msgstr "フォントサイズを大きく|/|$[~setProps ~label '拡大']"
-
-#~ msgid "Decrease Font Sizes"
-#~ msgstr "フォントサイズを小さく|/|$[~setProps ~label '縮小']"
-
-#~ msgid "Copy Link Address"
-#~ msgstr "リンクアドレスをコピー"
