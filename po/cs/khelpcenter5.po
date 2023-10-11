@@ -40,10 +40,9 @@ msgid "Help Center"
 msgstr "Centrum nápovědy"
 
 #: application.cpp:106
-#, fuzzy, kde-format
-#| msgid "(c) 1999-2020, The KHelpCenter developers"
+#, kde-format
 msgid "(c) 1999-2023, The KHelpCenter developers"
-msgstr "(c) 1999-2020, vývojáři KHelpCenter"
+msgstr ""
 
 #: application.cpp:108
 #, kde-format
@@ -352,7 +351,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Print Document"
-msgstr ""
+msgstr "Vytisknout dokument"
 
 #: searchengine.cpp:59
 #, kde-format
@@ -455,31 +454,6 @@ msgid "unknown"
 msgstr "neznámý"
 
 #: view.cpp:270
-#, fuzzy, kde-format
-#| msgid "Start Page"
+#, kde-format
 msgid "Save Page"
-msgstr "Úvodní stránka"
-
-#~ msgid "Previous Page"
-#~ msgstr "Předchozí strana"
-
-#~ msgid "Moves to the previous page of the document"
-#~ msgstr "Přesune se na předchozí stranu v dokumentu"
-
-#~ msgid "Next Page"
-#~ msgstr "Následující strana"
-
-#~ msgid "Moves to the next page of the document"
-#~ msgstr "Přesune se na následující stranu v dokumentu"
-
-#~ msgid "Configure Fonts..."
-#~ msgstr "Nastavit písma..."
-
-#~ msgid "Increase Font Sizes"
-#~ msgstr "Zvětšit velikost písma"
-
-#~ msgid "Decrease Font Sizes"
-#~ msgstr "Zmenšit velikost písma"
-
-#~ msgid "Copy Link Address"
-#~ msgstr "Kopírovat adresu odkazu"
+msgstr "Uložit stranu"

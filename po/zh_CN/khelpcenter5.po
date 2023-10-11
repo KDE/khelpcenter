@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-29 01:40+0000\n"
-"PO-Revision-Date: 2023-09-16 10:08\n"
+"PO-Revision-Date: 2023-10-10 14:25\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf5-trunk/messages/khelpcenter/khelpcenter5.pot\n"
-"X-Crowdin-File-ID: 5391\n"
+"X-Crowdin-File: /kf6-trunk/messages/khelpcenter/khelpcenter5.pot\n"
+"X-Crowdin-File-ID: 46392\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -42,10 +42,9 @@ msgid "Help Center"
 msgstr "帮助中心"
 
 #: application.cpp:106
-#, fuzzy, kde-format
-#| msgid "(c) 1999-2020, The KHelpCenter developers"
+#, kde-format
 msgid "(c) 1999-2023, The KHelpCenter developers"
-msgstr "(c) 1999-2020，KHelpCenter 开发团队"
+msgstr ""
 
 #: application.cpp:108
 #, kde-format
@@ -457,40 +456,6 @@ msgid "unknown"
 msgstr "未知"
 
 #: view.cpp:270
-#, fuzzy, kde-format
-#| msgid "Start Page"
+#, kde-format
 msgid "Save Page"
-msgstr "起始页"
-
-#~ msgid "Previous Page"
-#~ msgstr "上一页"
-
-#~ msgid "Moves to the previous page of the document"
-#~ msgstr "移动到文档的上一页"
-
-#~ msgid "Next Page"
-#~ msgstr "下一页"
-
-#~ msgid "Moves to the next page of the document"
-#~ msgstr "移动到文档的下一页"
-
-#~ msgid "Configure Fonts..."
-#~ msgstr "配置字体..."
-
-#~ msgid "Increase Font Sizes"
-#~ msgstr "增大字体"
-
-#~ msgid "Decrease Font Sizes"
-#~ msgstr "减小字体"
-
-#~ msgid "Copy Link Address"
-#~ msgstr "复制链接地址"
-
-#~ msgid ""
-#~ "<p>Read the topic documentation in this window.<br /><br />Press "
-#~ "<b>Space</b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, "
-#~ "<b>Tab</b>/<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
-#~ msgstr ""
-#~ "<p>在此窗口中阅读主题文档。<br /><br />按下 <b>空格</b>/<b>Shift+空格</b> "
-#~ "来滚动，<b>%1</b> 来搜索，<b>Tab</b>/<b>Shift+Tab</b> 来跳转，<b>回车</b> "
-#~ "来跟随。</p>"
+msgstr ""
