@@ -235,7 +235,7 @@ Project Neon
 ><para
 ><acronym
 >KSycoca</acronym
-> (&kde; &emstart;Sy&emend;stem &emstart;Co&emend;nfiguration &emstart;Ca&emend;che, «Sistema de configuración de caché de KDE») permite la configuración de la caché para, por ejemplo, garantizar el acceso rápido a las entradas del menú.</para>
+> (&kde; &emstart;Sy&emend;stem &emstart;Co&emend;nfiguration &emstart;Ca&emend;che, «Sistema de configuración de caché de KDE») permite la configuración de la caché para, por ejemplo, garantizar un rápido acceso a las entradas del menú.</para>
 				<glossseealso 
 otherterm="gloss-kbuildsycoca"
 ><application
@@ -593,7 +593,7 @@ otherterm="gloss-kbuildsycoca"
 ></glossterm>
 			<glossdef>
 				<para
->Es un menú lanzador presente en &plasma;, en el cuál las aplicaciones están ordenadas por grupos funcionales. «Favoritos» sustituye a «Aplicaciones más usadas» del menú clásico y se le pueden añadir aplicaciones. Pulsando el botón derecho del ratón también ofrece la posibilidad de añadir aplicaciones al escritorio o al panel. El acceso rápido a una aplicación menos utilizada puede hacerse a través de la caja de búsqueda. También hay disponibles otras alternativas como el menú clásico de aplicaciones con menús desplegables y el panel de control de aplicaciones, un lanzador de pantalla completa. &plasma; se puede usar con más de un lanzador si es necesario.&newpara; </para
+>Es un menú lanzador presente en &plasma;, en el cuál las aplicaciones están ordenadas por grupos funcionales. «Favoritos» sustituye a «Aplicaciones más usadas» del menú clásico y se le pueden añadir aplicaciones. Pulsando el botón derecho del ratón también ofrece la posibilidad de añadir aplicaciones al escritorio o al panel. Puede acceder con rapidez a una aplicación menos utilizada usando el cuadro de búsqueda. También dispone de otras alternativas, como el menú clásico de aplicaciones con menús desplegables y el tablero de aplicaciones, un lanzador a pantalla completa. Si es necesario, &plasma; se puede usar con más de un lanzador.&newpara; </para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-pager"
