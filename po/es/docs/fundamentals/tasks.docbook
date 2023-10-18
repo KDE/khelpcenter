@@ -1040,7 +1040,7 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 >Comprobación de la ortografía</title>
 
 <para
->&sonnet; es el corrector ortográfico que utilizan las aplicaciones de &kde;, como &kate;, &kmail; y &calligrawords;. Es una presentación de la &GUI; para distintos correctores ortográficos gratuitos.</para>
+>&sonnet; is the spelling checker used by &kde; applications such as &kate;, &kmail;, and &kword;. It is a &GUI; frontend to various free spell checkers.</para>
 
 <para
 >Para utilizar &sonnet;, es necesario instalar un corrector ortográfico como <application

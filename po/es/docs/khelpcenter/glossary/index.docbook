@@ -30,7 +30,7 @@ Project Neon
 >Akonadi</glossterm>
 			<glossdef
 ><para
->Mecanismo de acceso al almacenamiento de datos para todos los datos del PIM (Personal Information Manager - Gestor de Información Personal) en &kde; SC 4. Un solo sistema de almacenamiento y recuperación único permite una eficiencia y una extensibilidad que no era posible en &kde; 3, donde cada componente del PIM tenía su propio sistema. Observe que la utilización de Akonadi no cambia los formatos de almacenamiento de los datos (vcard, iCalendar, mbox, maildir, etc.), solo proporciona una nueva forma de acceder y actualizar los datos.&newpara; Las razones principales para el diseño y el desarrollo de Akonadi son de naturaleza técnica, &eg; tener un modo único de acceder a los datos del PIM (contactos, calendarios, emails, etc.) desde diferentes aplicaciones (&eg; &kmail;, &calligrawords; &etc;), eliminando así la necesidad de escribir código similar aquí y allí.&newpara; Otro objetivo es separar las aplicaciones gráficas como &kmail; del acceso directo a los recursos externos tales como los servidores de correo - que fue una de las principales razones de los informes de errores/deseos con respecto al rendimiento/capacidad de respuesta en el pasado.&newpara; Más información:&newpara;&linkstart;"https://community.kde.org/KDE_PIM/Akonadi"&linkmid;Akonadi para el PIM de KDE&linkend;&newpara; &linkstart;"https://en.wikipedia.org/wiki/Akonadi"&linkmid;Wikipedia: Akonadi&linkend;&newpara; &linkstart;"https://techbase.kde.org/KDE_PIM/Akonadi"&linkmid;Techbase - Akonadi&linkend;</para
+>The data storage access mechanism for all PIM (Personal Information Manager) data in &kde; SC 4. One single storage and retrieval system allows efficiency and extensibility not possible under &kde; 3, where each PIM component had its own system. Note that use of Akonadi does not change data storage formats (vcard, iCalendar, mbox, maildir etc.) - it just provides a new way of accessing and updating the data.&newpara; The main reasons for design and development of Akonadi are of technical nature, &eg; having a unique way to access PIM-data (contacts, calendars, emails..) from different applications (&eg; &kmail;, &kword; &etc;), thus eliminating the need to write similar code here and there.&newpara; Another goal is to de-couple GUI applications like &kmail; from the direct access to external resources like mail-servers - which was a major reason for bug-reports/wishes with regard to performance/responsiveness in the past.&newpara; More info:&newpara; &linkstart;"https://community.kde.org/KDE_PIM/Akonadi"&linkmid;Akonadi for KDE's PIM&linkend;&newpara; &linkstart;"https://en.wikipedia.org/wiki/Akonadi"&linkmid;Wikipedia: Akonadi&linkend;&newpara; &linkstart;"https://techbase.kde.org/KDE_PIM/Akonadi"&linkmid;Techbase - Akonadi&linkend;</para
 ><glossseealso otherterm="gloss-gui"
 >&GUI;</glossseealso
 > <glossseealso otherterm="gloss-kde"
@@ -54,7 +54,7 @@ Project Neon
 		<glossentry id="gloss-arts"
 ><!--remove it?-->
 			<glossterm
->aRts</glossterm>
+>ARts</glossterm>
 			<glossdef
 ><para
 >Infraestructura de sonido en &kde; 2 y 3. Su naturaleza monotarea causaba problemas cuando se encontraban dos fuentes de sonido. En el escritorio &plasma; es reemplazada por Phonon.&newpara;Más información:&newpara; &linkstart;"https://en.wikipedia.org/wiki/ARts"&linkmid; Wikipedia: ARts&linkend;</para
@@ -73,7 +73,7 @@ Project Neon
 ><para
 >D-Bus o Desktop Bus es un sistema de mensajería entre servicios. Desarrollado por &RedHat;, fue ampliamente influenciado por el DCOP de &kde; 3, al cual sustituye. La mayoría de los sistemas operativos POSIX soportan D-Bus, y existe una versión para Windows. Es utilizado por Qt 4 y por GNOME.&newpara; Más información:&newpara; &linkstart;"https://freedesktop.org/wiki/Software/dbus/"&linkmid;FreeDesktop.org: ¿Qué es D-Bus?&linkend;&newpara; &linkstart;"https://en.wikipedia.org/wiki/D-Bus"&linkmid;Wikipedia: D-Bus&linkend;</para
 ><glossseealso otherterm="gloss-dcop"
->DCOP</glossseealso
+>&DCOP;</glossseealso
 > <glossseealso otherterm="gloss-gnome"
 >GNOME</glossseealso
 > <glossseealso otherterm="gloss-kde"
@@ -101,7 +101,7 @@ Project Neon
 >Flake</glossterm>
 			<glossdef
 ><para
->Flake es una biblioteca de programación utilizada en &calligra;. Funcionalmente, proporciona formas para mostrar contenido y herramientas para manipular dicho contenido. Las formas pueden ser ampliadas o rotadas y agrupadas para trabajar como una única forma, alrededor de la cual puede fluir el texto.&newpara; Más información:&newpara; &linkstart;"https://community.kde.org/Calligra/Libs/Flake"&linkmid;&kde; Community Wiki: Flake&linkend;</para
+>Flake is a programming library to be used in &koffice;/Calligra. Functionally, it provides Shapes to display content and Tools to manipulate content. Shapes can be zoomed or rotated and can be grouped to work as a single Shape, around which text flow is possible.&newpara; More info:&newpara; &linkstart;"https://community.kde.org/Calligra/Libs/Flake"&linkmid;&kde; Community Wiki: Flake&linkend;</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-kparts"
@@ -148,18 +148,18 @@ Project Neon
 >Obtener cosas nuevas</glossseealso>
 			</glossdef>
 		</glossentry>
-		<glossentry id="gloss-ioworker">
+		<glossentry id="gloss-ioslave">
 			<glossterm
->Módulo de trabajo de <acronym
+><acronym
 >IO</acronym
-></glossterm>
+> Slave</glossterm>
 			<glossdef
 ><para
->Los módulos de trabajo de <acronym
+><acronym
 >IO</acronym
-> permiten el acceso a recursos remotos a las aplicaciones de &kde; del mismo modo que si fueran locales (haciéndolos «transparentes a la red»). Los recursos remotos (por ejemplo, archivos) pueden estar en particiones <acronym
+> Slaves enable &kde; applications to access remote resources as easily as local resources (making them "network transparent"). Remote resources (&eg; files) might be stored on <acronym
 >SMB</acronym
-> o similares.</para
+> shares or similar.</para
 ><glossseealso otherterm="gloss-smb"
 ><acronym
 >SMB</acronym
@@ -193,13 +193,13 @@ Project Neon
 ></glossterm>
 			<glossdef
 ><para
->Sistema de entrada/salida de &kde; que usan los «módulos de trabajo de <acronym
+>The &kde; Input/Output system which makes use of so-called "<acronym
 >IO</acronym
->».</para
-><glossseealso otherterm="gloss-ioworker"
->Módulo de trabajo de <acronym
+> Slaves".</para
+><glossseealso otherterm="gloss-ioslave"
+><acronym
 >IO</acronym
-></glossseealso
+> Slave</glossseealso
 > <glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > </glossdef>
@@ -272,7 +272,7 @@ otherterm="gloss-kbuildsycoca"
 ><para
 >Una API multimedia multiplataforma, que puede interactuar con infraestructuras existentes, tales como los motores gstreamer y xine. &kde; 2 y 3 dependieron de aRts para el sonido. Phonon lo reemplaza.&newpara; Más información:&newpara; &linkstart;"https://en.wikipedia.org/wiki/Phonon_(software)"&linkmid; Wikipedia: Phonon (software)&linkend;&newpara; &linkstart;"https://phonon.kde.org/"&linkmid;sitio web de Phonon&linkend;</para
 ><glossseealso otherterm="gloss-arts"
->aRts</glossseealso
+>&arts;</glossseealso
 > <glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > </glossdef>
@@ -866,10 +866,10 @@ otherterm="gloss-kbuildsycoca"
 			<glossdef
 ><para
 >&emstart;S&emend;erver &emstart;M&emend;essage &emstart;B&emend;lock (bloqueo de mensajes de servidor). Es un protocolo de red utilizado en las redes &Microsoft; &Windows; para acceder a los sistemas de archivos de otros ordenadores.</para>
-				<glossseealso otherterm="gloss-ioworker"
->Módulo de trabajo de <acronym
+				<glossseealso otherterm="gloss-ioslave"
+><acronym
 >IO</acronym
-></glossseealso>
+> Slave</glossseealso>
 			</glossdef>
 		</glossentry>
 		<glossentry id="gloss-irc">

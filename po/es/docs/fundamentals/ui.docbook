@@ -1839,13 +1839,13 @@ or via email (see krecipes doc rev 1306076)
 ><guimenu
 >Ayuda</guimenu
 > <guimenuitem
->Donar</guimenuitem
+>Hacer un donativo</guimenuitem
 > </menuchoice
 ></term>
 <listitem
 ><para
 >Abre la <ulink url="https://www.kde.org/community/donations"
->página de donaciones</ulink
+>página de donativos</ulink
 > donde podrá apoyar a &kde; y a sus proyectos.</para
 ></listitem>
 </varlistentry>
@@ -2369,11 +2369,7 @@ or via email (see krecipes doc rev 1306076)
 ></entry
 ><!--[kwin][Global Shortcuts] MoveZoomLeft=Meta+Left -->
 <entry
->Vista panorámica hacia la izquierda, mover ventana al monitor de la izquierda<footnote id="fn1"
-><para
->En un entorno multimonitor</para
-></footnote
-></entry>
+>Pan left</entry>
 </row>
 
 <row>
@@ -2385,29 +2381,7 @@ or via email (see krecipes doc rev 1306076)
 ></entry
 ><!--[kwin][Global Shortcuts] MoveZoomRight=Meta+Right -->
 <entry
->Vista panorámica hacia la derecha, mover ventana al monitor de la derecha<footnoteref linkend="fn1"/></entry>
-</row>
-
-<row>
-<entry
-><keycombo action="simul"
->&Meta;<keysym
->RePág</keysym
-></keycombo
-></entry>
-<entry
->Maximizar/restaurar ventana</entry>
-</row>
-
-<row>
-<entry
-><keycombo action="simul"
->&Meta;<keysym
->AvPág</keysym
-></keycombo
-></entry>
-<entry
->Minimizar ventana</entry>
+>Pan Right</entry>
 </row>
 
 </tbody>
@@ -3148,6 +3122,42 @@ or via email (see krecipes doc rev 1306076)
 ><!--plasma-workspace/ksmserver/server.cpp-->
 <entry
 >Salir</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;&Alt;&Shift;<keycap
+>Del</keycap
+></keycombo
+></entry
+><!--plasma-workspace/ksmserver/server.cpp-->
+<entry
+>Logout without confirmation</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;&Alt;&Shift;<keycap
+>Page Down</keycap
+></keycombo
+></entry
+><!--plasma-workspace/ksmserver/server.cpp-->
+<entry
+>Shut Down without confirmation</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;&Alt;&Shift;<keycap
+>Page Up</keycap
+></keycombo
+></entry
+><!--plasma-workspace/ksmserver/server.cpp-->
+<entry
+>Reboot without confirmation</entry>
 </row>
 
 </tbody>
