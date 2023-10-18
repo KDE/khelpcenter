@@ -1,0 +1,608 @@
+<chapter id="config">
+<title
+>&kde; Yazılımlarını Özelleştirmek</title>
+
+<sect1 id="toolbars">
+<sect1info>
+<authorgroup>
+<author
+>&TC.Hollingsworth; &TC.Hollingsworth.mail;</author>
+<othercredit role="translator"
+><firstname
+>Serdar</firstname
+><surname
+>Soytetir</surname
+><affiliation
+><address
+><email
+>tulliana@gmail.com</email
+></address
+></affiliation
+><contrib
+>Çeviri</contrib
+></othercredit
+> 
+</authorgroup>
+</sect1info>
+<title
+>Araç Çubuklarını Özelleştirmek</title>
+
+<!--FIXME link from korganizer config-toolbars section-->
+<!--FIXME link from <sect2 id="configtoolbars"
+> in sheets/config.docbook
+> -->
+<!--FIXME link from <sect2 id="configuration-toolbars"
+> in extragear/multimedia-git/kplayer/doc/en_US/configuration.docbook -->
+<screenshot id="screenshot-toolbars-toolbar">
+<screeninfo
+>&gwenview; Araç Çubuğu</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="toolbars-toolbar.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>&gwenview; araç çubuğu.</phrase
+></textobject>
+<caption
+><para
+><ulink url="https://kde.org/applications/graphics/gwenview/"
+>&gwenview;</ulink
+> uygulamasındaki araç çubuğu. </para
+></caption>
+</mediaobject>
+</screenshot>
+
+<sect2 id="toolbars-items">
+<title
+>Araç Çubuğu Ögelerini Değiştirmek</title>
+
+<para
+>Bir uygulamanın araç çubuklarını özelleştirmek için <menuchoice
+><guimenu
+>Ayarlar</guimenu
+><guimenuitem
+>Araç Çubuklarını Yapılandır...</guimenuitem
+></menuchoice
+> seçeneğini kullanabilir veya bir araç çubuğuna sağ tıklayıp <guimenuitem
+>Araç Çubuklarını Yapılandır...</guimenuitem
+>'ı seçebilirsiniz.</para>
+
+<para
+>Araç çubuğu yapılandırma panelinin sol tarafında araç çubuğunuza ekleyebileceğiniz kullanılabilir ögeler gösterilir. Sağda, araç çubuğunda halihazırda görünenler vardır. Üst kısımda değiştirmek veya görüntülemek istediğiniz araç çubuğunu seçebilirsiniz.</para>
+
+<para
+>Panelin her iki yanında da bir <guilabel
+>Süzgeç</guilabel
+> metin kutusu bulunur. Bu ögeleri kullanarak listedeki ögeler içerisinde kolayca arama yapabilirsiniz.</para>
+
+<screenshot id="screenshot-toolbars-customize">
+<screeninfo
+>Araç Çubuklarını Özelleştir Penceresi</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="toolbars-configure.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Araç çubuklarını özelleştir penceresi.</phrase
+></textobject>
+<caption
+><para
+>&gwenview; içindeki Araç Çubuklarını Özelleştir penceresi <guibutton
+>Önceki</guibutton
+> düğmesi seçiliyken.</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<sect3 id="toolbars-items-add">
+<title
+>Bir Öge Eklemek</title>
+<para
+>Araç çubuğunuza bir öğeyi sol taraftan seçip sağ ok düğmesine tıklayarak ekleyebilirsiniz.</para>
+</sect3>
+
+<sect3 id="toolbars-items-remove">
+<title
+>Bir Ögeyi Kaldırmak</title>
+<para
+>Bir öğeyi seçip sol ok düğmesine tıklayarak kaldırabilirsiniz.</para>
+</sect3>
+
+
+<sect3 id="toolbars-items-rearrange">
+<title
+>Ögelerin Konumunu Değiştirmek</title>
+
+<para
+>Ögeleri listede aşağı veya yukarı taşıyarak konumlarını değiştirebilirsiniz. Ögeleri aşağıya taşımak için aşağı ok düğmesine, ögeleri daha yükseğe taşımak için ise yukarı ok düğmesine basın. Ögelerin konumunu sürükleyip bırakarak da değiştirebilirsiniz.</para>
+
+<para
+>Yatay araç çubuklarında üstteki öge soldaki öge olacaktır. Dikey araç çubuklarında ögeler, araç çubuğunda göründükleri şekilde düzenlenir.</para>
+
+</sect3>
+
+<sect3 id="toolbars-items-separator">
+<title
+>Bir Ayırıcı Eklemek</title>
+<para
+>Araç çubuğuna bir <guilabel
+>--- ayırıcı---</guilabel
+> koyarak ögeler arasına ayırıcı çizgiler ekleyebilirsiniz.</para>
+</sect3>
+
+<sect3 id="toolbars-items-defaults">
+<title
+>Öntanımlıları Geri Yüklemek</title>
+
+<para
+>Pencerenin altındaki <guibutton
+>Öntanımlılar</guibutton
+> düğmesine basıp kararınızı onaylayarak araç çubuğunuzu uygulamayı yüklediğiniz zamanki haline geri yükleyebilirsiniz.</para>
+
+</sect3>
+
+<sect3 id="toolbars-items-text-icons">
+<title
+>Metni ve Simgeleri Değiştirmek</title>
+
+<para
+><guibutton
+>Simgeyi Değiştir...</guibutton
+> ve/veya <guibutton
+>Metni Değiştir...</guibutton
+> düğmelerine tıklayarak belirli bir araç çubuğu ögesinin simgesini ve/veya metnini değiştirebilirsiniz.</para>
+<!--FIXME Icon selection and icon categories -> own section?
+  Change Text -> Option "Hide text when toolbar shows text alongside icons"
+  -->
+</sect3>
+</sect2>
+
+<sect2 id="toolbars-appearance">
+<title
+>Araç Çubuğu Görünüşünü Özelleştirmek</title>
+
+<para
+>Bağlam menüsüne erişmek için bir araç çubuğuna sağ tıklayarak araç çubuklarının görünüşünü değiştirebilirsiniz.</para>
+<!-- settings for each toolbar separately-->
+<sect3 id="toolbars-appearance-text-position">
+<title
+>Metin Konumu</title>
+
+<para
+>Araç çubuklarındaki metnin görünüşünü, bir araç çubuğunun bağlam menüsünün <gui submenu
+>Metin Konumu</gui alt menüsü
+> alt menüsünden değiştirebilirsiniz.</para>
+
+<para
+>Seçenekler şunlardır:</para>
+<itemizedlist>
+
+<listitem
+><para
+><guimenuitem
+>Simgeler</guimenuitem
+> - tüm araç çubuğu ögeleri için sadece simge gösterilir. </para
+></listitem>
+
+<listitem
+><para
+><guimenuitem
+>Metin</guimenuitem
+> - tüm araç çubuğu ögeleri için sadece metin gösterilir. </para
+></listitem>
+
+<listitem
+><para
+><guimenuitem
+>Simge Yanında Metin</guimenuitem
+> - tüm araç çubuğu ögelerinin simgelerinin sağında metin gösterilir </para
+></listitem>
+
+<listitem
+><para
+><guimenuitem
+>Simge Altında Metin</guimenuitem
+> - tüm araç çubuğu ögelerinin simgelerinin altında metin gösterilir </para
+></listitem>
+
+</itemizedlist>
+
+<para
+>Ayrıca, bir ögeye sağ tıklayarak ve <guilabel
+>Metni Göster</guilabel
+> altında ögeyi işaretleyerek veya işaretini kaldırarak, tek tek araç çubuğu ögelerinin metnini gösterebilir veya gizleyebilirsiniz.</para>
+
+</sect3>
+
+<sect3 id="toolbars-appearance-icon-size">
+<title
+>Simge Boyutu</title>
+
+<para
+>Araç çubuğu bağlam menüsünden <guisubmenu
+>Simge Boyutu</guisubmenu
+>'nu seçerek araç çubuğu ögelerinin simgelerinin boyutunu değiştirebilirsiniz.</para>
+
+<para
+>Aşağıdaki seçenekler arasından seçim yapabilirsiniz: (her biri simge boyutunu piksel türünden listeler)</para>
+
+<itemizedlist>
+<listitem
+><para
+><guimenuitem
+>Küçük (16 x 16)</guimenuitem
+></para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Orta (22 x 22)</guimenuitem
+> [öntanımlı değer]</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Büyük (32 x 32)</guimenuitem
+></para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Çok Büyük (48 x 48)</guimenuitem
+></para
+></listitem>
+</itemizedlist>
+
+</sect3>
+
+<sect3 id="toolbars-appearance-move">
+<title
+>Araç Çubuklarını Taşımak</title>
+
+<para
+>Araç çubuklarını taşımak için bunların <quote
+>kilidini açmanız</quote
+> gerekir. Bunu yapmak için, araç çubuğunun içerik menüsünden <guimenuitem
+>Araç Çubuğu Konumlarını Kilitle</guimenuitem
+> seçeneğinin işaretini kaldırın. Kilidi geri yüklemek için bu menü öğesini yeniden işaretlemeniz yeterlidir.</para>
+
+<para
+>Bir araç çubuğunun konumunu, bağlam menüsünün <guisubmenu
+>Yönelim</guisubmenu
+> alt menüsünden değiştirebilirsiniz.</para>
+
+<para
+>Seçenekler şunlardır:</para>
+<itemizedlist>
+<listitem
+><para
+><guimenuitem
+>Üst</guimenuitem
+> [birçok uygulamada öntanımlıdır]</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Sol</guimenuitem
+></para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Sağ</guimenuitem
+></para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Alt</guimenuitem
+></para
+></listitem>
+</itemizedlist>
+
+<para
+>Ayrıca yatay araç çubuklarının solundaki veya dikey araç çubuklarının üst kısmındaki noktalı çizgiye tıklayıp basılı tutarak ve onu istediğiniz konuma sürükleyerek de bir araç çubuğunu taşıyabilirsiniz.</para>
+
+</sect3>
+
+<sect3 id="toolbars-appearance-show-hide">
+<title
+>Araç Çubuklarını Göster/Gizle</title>
+
+<para
+>Uygulamanızda yalnızca bir araç çubuğu varsa araç çubuğunun bağlam menüsünden veya <guimenu
+>Ayarlar</guimenu
+> menüsünden <guimenuitem
+>Araç Çubuğunu Göster</guimenuitem
+> ögesinin seçimini kaldırarak bir araç çubuğunu gizleyebilirsiniz. Araç çubuğunu geri yüklemek için <guimenu
+>Ayarlar</guimenu
+> menüsünden <guimenuitem
+>Araç Çubuğunu Göster</guimenuitem
+> seçeneğini seçin.</para>
+
+<para
+>Uygulamanın birden fazla araç çubuğu varsa bağlam menüsünde <guisubmenu
+>Gösterilen Araç Çubukları</guisubmenu
+> alt menü ögesi gösterilir ve üstteki menü ögesinin yerine <guimenu
+>Ayarlar</guimenu
+> menüsü gelir. Bu menüden belirli bir araç çubuğununun gösterilip gizlenmesini sağlayabilirsiniz.</para>
+
+</sect3>
+</sect2>
+
+<sect2 id="toolbars-ack">
+<title
+>Teşekkürler ve Destek Olanlar</title>
+<para
+>Bu bölümün çoğunu yazdığı için anonim bir Google Code-In 2011 katılımcısına teşekkür ederiz.</para>
+</sect2>
+
+</sect1>
+
+
+<sect1 id="shortcuts">
+<sect1info>
+<authorgroup>
+<author
+><firstname
+>Alexey</firstname
+> <surname
+>Subach</surname
+></author>
+<author
+>&TC.Hollingsworth; &TC.Hollingsworth.mail;</author>
+<othercredit role="translator"
+><firstname
+>Serdar</firstname
+><surname
+>Soytetir</surname
+><affiliation
+><address
+><email
+>tulliana@gmail.com</email
+></address
+></affiliation
+><contrib
+>Çeviri</contrib
+></othercredit
+> 
+</authorgroup>
+</sect1info>
+
+ <!--FIXME link from
+ <sect2 id="configshort"
+> in tables/config.docbook>
+ <sect2 id="configuration-shortcuts"
+> in extragear/multimedia-git/kplayer/doc/en_US/configuration.docbook
+ -->
+<!--FIXME explain Alternate + Global shortcuts in Screenshot and 
+another place to change Global Shortcuts (Systemsettings)-->
+<title
+>Kısayolları Kullanmak ve Özelleştirmek</title>
+
+<sect2 id="shortcuts-intro">
+<title
+>Giriş</title>
+
+<para
+>Birçok &kde; uygulaması, uygulama kısayollarını yapılandırmanıza izin verir. Standart klavye kısayolları panelini açmak için <menuchoice
+><guimenu
+>Ayarlar</guimenu
+><guimenuitem
+>Kısayolları Yapılandır...</guimenuitem
+></menuchoice
+> yolunu izleyin.</para>
+
+<para
+>Kısayolları Yapılandır penceresinde, geçerli uygulamada mevcut olan tüm kısayolların bir listesini göreceksiniz. İstediğiniz kısayolu aramak için üstteki arama kutusunu kullanabilirsiniz.</para>
+
+<screenshot id="screenshot-shortcuts-search">
+<screeninfo
+>Kısayolları Özelleştir Penceresi</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="shortcuts-search.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Kısayolları Özelleştir penceresi.</phrase
+></textobject>
+<caption
+><para
+><ulink url="https://kde.org/applications/system/dolphin/"
+>&dolphin;</ulink
+> içinde <userinput
+>dosya</userinput
+> içeren kısayolları bulmak. </para
+></caption>
+</mediaobject>
+</screenshot>
+
+</sect2>
+
+<sect2 id="shortcuts-change">
+<title
+>Bir Kısayolu Değiştirmek</title>
+
+<para
+>Bir kısayolu değiştirmek için öncelikle değiştirmek istediğiniz kısayolun adına tıklayın. Kısayolu öntanımlı değerine ayarlamayı veya seçilen eylem için yeni bir kısayol seçmeyi seçebileceğiniz bir radyo grubu göreceksiniz. Yeni bir kısayol ayarlamak için <guilabel
+>Özel</guilabel
+>'i seçin ve yanındaki düğmeye tıklayın. Daha sonra kullanmak istediğiniz kısayolu yazmanız yeterlidir; sonrasında değişiklikleriniz kaydedilir.</para>
+
+<screenshot id="screenshot-shortcuts-set">
+<screeninfo
+>Bir Kısayol Ayarlamak</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="shortcuts-set.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Kısayolun nasıl ayarlanacağını gösteren Kısayolları Özelleştir penceresi.</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+</sect2>
+
+<sect2 id="shortcuts-reset">
+<title
+>Kısayolları Sıfırlamak</title>
+<para
+>Pencerenin alt kısmında <guibutton
+>Öntanımlılar</guibutton
+> adında bir düğme bulunur. Bu düğmeye tıkladığınızda tüm özel kısayollarınız öntanımlı değerlerine sıfırlanır.</para>
+
+<para
+>Ayrıca tek bir kısayolu seçip <guilabel
+>Öntanımlı</guilabel
+> radyo düğmesini seçerek öntanımlı değerine sıfırlayabilirsiniz.</para>
+
+</sect2>
+
+<sect2 id="shortcuts-delete">
+<title
+>Bir Kısayolu Kaldırmak</title>
+
+<para
+>Bir kısayolu kaldırmak için listeden seçin ve ardından kısayol seçmenizi sağlayan düğmenin sağındaki kaldır simgesine (çarpı işaretli siyah ok) tıklayın.</para>
+
+</sect2>
+
+<sect2 id ="shortcuts-schemes">
+<title
+>Şemalarla Çalışmak</title>
+
+<para
+>Şemalar klavye kısayolu yapılandırma profilleridir; böylece farklı kısayollara sahip birkaç profil oluşturabilir ve bu profiller arasında kolayca geçiş yapabilirsiniz.</para>
+
+<screenshot id="screenshot-shortcuts-schemes">
+<screeninfo
+>Şemalarla Çalışmak</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="shortcuts-schemes.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Şema düzenleme araçlarını gösteren Kısayolları Özelleştir penceresi.</phrase
+></textobject>
+<caption
+><para
+><userinput
+>work</userinput
+> adlı bir şemayı düzenlemek.</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+>Şemaları düzenlemenize izin veren bir menü görmek için formun altındaki <guibutton
+>Şemaları Yönet</guibutton
+> düğmesine tıklayın. Aşağıdaki seçenekler görünecektir:</para>
+
+<variablelist>
+
+<varlistentry>
+<term
+><guilabel
+>Geçerli Şema</guilabel
+></term>
+<listitem
+><para
+>Şemalar arasında geçiş yapmanızı sağlar.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guibutton
+>Yeni...</guibutton
+></term>
+<listitem
+><para
+>Yeni bir şema oluşturur. Bu, yeni planınız için bir ad seçmenizi sağlayan bir pencere açar.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guibutton
+>Sil</guibutton
+></term>
+<listitem
+><para
+>Geçerli şemayı siler.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guibutton
+>Daha Fazla Eylem</guibutton
+></term>
+<listitem>
+<para
+>Şu menüyü açar:</para>
+<variablelist>
+
+<varlistentry>
+<term
+><guimenuitem
+>Kısayolları Şemaya Kaydet</guimenuitem
+></term>
+<listitem
+><para
+>Geçerli kısayolları geçerli şemaya kaydedin.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guimenuitem
+>Şemayı Dışa Aktar...</guimenuitem
+></term>
+<listitem
+><para
+>Geçerli şemayı bir dosyaya dışa aktarır.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guimenuitem
+>Şema İçe Aktar...</guimenuitem
+></term>
+<listitem
+><para
+>Bir dosyadan şema içe aktarır.</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+<sect2 id="shortcuts-print">
+<title
+>Yazdırma Kısayolları</title>
+
+<para
+>Pencerenin alt kısmındaki <guibutton
+>Yazdır</guibutton
+> düğmesine tıklayarak, kolay başvuru için kısayolların bir listesini yazdırabilirsiniz.</para>
+
+</sect2>
+
+<sect2 id="shortcuts-ack">
+<title
+>Teşekkürler ve Destek Olanlar</title>
+
+<para
+>Bu bölümün çoğunu yazdığı için Google Code-In 2011 katılımcısı Alexey Subach'a özellikle teşekkür ederiz.</para>
+
+</sect2>
+
+</sect1>
+
+</chapter>

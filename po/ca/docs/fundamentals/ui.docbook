@@ -1470,7 +1470,7 @@
 ></term>
 <listitem
 ><para
->Això inicia el programa de correcció ortogràfica: un programa dissenyat per ajudar a l'usuari a detectar i corregir els errors ortogràfics. Per a obtenir més informació, vegeu <xref linkend="spellcheck-check"/>. </para
+>Això inicia el programa de correcció ortogràfica: un programa dissenyat per a ajudar a l'usuari a detectar i corregir els errors ortogràfics. Per a obtenir més informació, vegeu <xref linkend="spellcheck-check"/>. </para
 ></listitem>
 </varlistentry>
 
@@ -1485,7 +1485,7 @@
 ></term>
 <listitem
 ><para
->Això inicia el programa de correcció ortogràfica, però només comprova la porció del document des de la posició actual del cursor fins al final. Per obtenir més informació, vegeu <xref linkend="spellcheck-check"/>. </para
+>Això inicia el programa de correcció ortogràfica, però només comprova la porció del document des de la posició actual del cursor fins al final. Per a obtenir més informació, vegeu <xref linkend="spellcheck-check"/>. </para
 ></listitem>
 </varlistentry>
 
@@ -1515,7 +1515,7 @@
 ></term>
 <listitem
 ><para
->Això permet canviar el diccionari utilitzat per a revisar l'ortografia. Per obtenir més informació, vegeu <xref linkend="spellcheck-config"/>. </para
+>Això permet canviar el diccionari utilitzat per a revisar l'ortografia. Per a obtenir més informació, vegeu <xref linkend="spellcheck-config"/>. </para
 ></listitem>
 </varlistentry>
 

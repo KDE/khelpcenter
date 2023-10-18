@@ -1088,7 +1088,7 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 <para
 >Feu clic a <guibutton
 >Afegeix al diccionari</guibutton
-> per afegir la paraula mal escrita al vostre diccionari personal.</para>
+> per a afegir la paraula mal escrita al vostre diccionari personal.</para>
 
 <para
 >El <guilabel
@@ -1109,7 +1109,7 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 <!--FIXME:screenshot-->
 
 <para
->A moltes aplicacions, podeu comprovar automàticament l'ortografia mentre escriviu. Per activar aquesta característica, seleccioneu <menuchoice
+>A moltes aplicacions, podeu comprovar automàticament l'ortografia mentre escriviu. Per a activar aquesta característica, seleccioneu <menuchoice
 ><guimenu
 >Eines</guimenu
 > <guimenuitem
@@ -1496,7 +1496,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 <para
 >Moltes aplicacions mostren una barra de cerca i substitueix en lloc de la finestra Substitució. Vegeu la <ulink url="help:/katepart/kate-part-find-replace.html#replacing-text"
 >documentació de la &katepart;</ulink
-> per obtenir informació addicional sobre la barra de cerca i substitueix.</para>
+> per a obtenir informació addicional sobre la barra de cerca i substitueix.</para>
 
 <screenshot id="screenshot-find-replace-inline"
 ><!--FIXME update !!!-->
@@ -1725,7 +1725,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 >Usant els colors de la pantalla</title>
 
 <para
->L'eina de comptagotes permet seleccionar un color a la pantalla. Per utilitzar-la, seleccioneu el botó <guibutton
+>L'eina de comptagotes permet seleccionar un color a la pantalla. Per a utilitzar-la, seleccioneu el botó <guibutton
 >Selecciona un color a la pantalla</guibutton
 > a sota dels colors bàsics, i després feu clic sobre qualsevol lloc de la pantalla per a seleccionar aquest color.</para>
 

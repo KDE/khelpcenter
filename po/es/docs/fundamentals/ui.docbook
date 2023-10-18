@@ -1839,13 +1839,13 @@ or via email (see krecipes doc rev 1306076)
 ><guimenu
 >Ayuda</guimenu
 > <guimenuitem
->Donar</guimenuitem
+>Hacer un donativo</guimenuitem
 > </menuchoice
 ></term>
 <listitem
 ><para
 >Abre la <ulink url="https://www.kde.org/community/donations"
->página de donaciones</ulink
+>página de donativos</ulink
 > donde podrá apoyar a &kde; y a sus proyectos.</para
 ></listitem>
 </varlistentry>
