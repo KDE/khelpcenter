@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-29 01:40+0000\n"
+"POT-Creation-Date: 2023-10-21 01:40+0000\n"
 "PO-Revision-Date: 2014-12-06 16:40-0800\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -302,7 +302,7 @@ msgstr "目次に戻ります"
 msgid "&Last Search Result"
 msgstr "最新の検索結果(&L)"
 
-#: mainwindow.cpp:233
+#: mainwindow.cpp:232
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-29 01:40+0000\n"
+"POT-Creation-Date: 2023-10-21 01:40+0000\n"
 "PO-Revision-Date: 2023-10-10 14:25\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -293,7 +293,7 @@ msgstr "返回到目录"
 msgid "&Last Search Result"
 msgstr "上一次搜索结果(&L)"
 
-#: mainwindow.cpp:233
+#: mainwindow.cpp:232
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"

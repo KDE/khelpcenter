@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-29 01:40+0000\n"
+"POT-Creation-Date: 2023-10-21 01:40+0000\n"
 "PO-Revision-Date: 2009-02-05 17:35+0530\n"
 "Last-Translator: Ravishankar Shrivastava <raviratlami@aol.in>\n"
 "Language-Team: Hindi <kde-i18n-doc@lists.kde.org>\n"
@@ -295,7 +295,7 @@ msgstr "विसयसूची टेबल मं जाव"
 msgid "&Last Search Result"
 msgstr "पिछला खोज परिनाम (&L)"
 
-#: mainwindow.cpp:233
+#: mainwindow.cpp:232
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"

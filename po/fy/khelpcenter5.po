@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-29 01:40+0000\n"
+"POT-Creation-Date: 2023-10-21 01:40+0000\n"
 "PO-Revision-Date: 2010-07-16 13:09+0100\n"
 "Last-Translator: Berend Ytsma <berendy@gmail.com>\n"
 "Language-Team: Frysk <kde-i18n-fry@kde.org>\n"
@@ -293,7 +293,7 @@ msgstr "Gean werom nei de ynhâldsopjefte"
 msgid "&Last Search Result"
 msgstr "&Lêste sykresultaat"
 
-#: mainwindow.cpp:233
+#: mainwindow.cpp:232
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"
