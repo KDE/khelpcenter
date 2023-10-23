@@ -1,0 +1,185 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY Meta "&i18n-Meta;"
+>     <!--FIXME should this be in en/user.entities? -->
+  <!ENTITY i18n-Meta "<keysym
+>Meta</keysym
+>">
+  <!ENTITY ui-chapter SYSTEM "ui.docbook">
+  <!ENTITY tasks-chapter SYSTEM "tasks.docbook">
+  <!ENTITY config-chapter SYSTEM "config.docbook">
+  <!ENTITY install-chapter SYSTEM "install.docbook">
+  <!ENTITY % Turkish "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="fundamentals" lang="&language;">
+<title
+>&kde; Temelleri</title>
+
+<bookinfo>
+<authorgroup>
+<author
+>&TC.Hollingsworth; &TC.Hollingsworth.mail;</author>
+
+<othercredit role="translator"
+><firstname
+>Serdar</firstname
+><surname
+>Soytetir</surname
+><affiliation
+><address
+><email
+>tulliana@gmail.com</email
+></address
+></affiliation
+><contrib
+>Çeviri</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2011</year
+><year
+>2012</year
+><year
+>2013</year>
+<holder
+>&TC.Hollingsworth;</holder>
+</copyright>
+<copyright>
+<year
+>2011</year>
+<holder
+>Alexey Subach</holder>
+</copyright>
+<copyright>
+<year
+>2011</year>
+<holder
+>Salma Sultana</holder>
+</copyright>
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2016-11-28</date>
+<releaseinfo/>
+<abstract>
+<para
+>Bu kılavuz, &plasma; çalışma alanına, uygulamalarına giriş sağlar ve gerçekleştirilebilen birçok ortak görevleri tanımlar.</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>giriş</keyword>
+<keyword
+>kullanıcı arayüzü</keyword>
+<keyword
+>menüler</keyword>
+<keyword
+>dosyalar</keyword>
+<keyword
+>aç</keyword>
+<keyword
+>kaydet</keyword>
+<keyword
+>yazım</keyword>
+<keyword
+>yazım denetimi</keyword>
+<keyword
+>bul</keyword>
+<keyword
+>değiştir</keyword>
+<keyword
+>renkler</keyword>
+<keyword
+>yapılandırma</keyword>
+<keyword
+>özelleştirme</keyword>
+<keyword
+>araç çubukları</keyword>
+<keyword
+>kurulum</keyword>
+<keyword
+>derleme</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Giriş</title>
+<para
+>&kde;'ye hoş geldiniz!</para>
+
+<para
+>Bu kılavuz, &plasma; çalışma alanının, uygulamalarının birçok özelliğini size tanıtacak ve gerçekleştirebileceğiniz birçok ortak görevleri tanımlayacaktır.</para>
+
+<para
+>&kde; ile ilgili daha fazla bilgi almak için <ulink url="https://www.kde.org/"
+>KDE web sitesini</ulink
+> ziyaret edin.</para>
+
+</chapter>
+
+&install-chapter;
+
+&ui-chapter;
+
+&tasks-chapter;
+
+&config-chapter;
+
+<chapter id="credits">
+
+<title
+>Emeği Geçenler ve Lisans</title>
+
+<para
+>Kılavuz fikrinin ilk sahibi Chusslove Illich'tir. Oluşturulması ve gelişmesi için destek verenler ise şu kişilerdir: &Burkhard.Lueck;, Yuri Chornoivan ve &TC.Hollingsworth;.</para>
+
+<para
+>Kılavuzun çoğu <ulink url="http://code.google.com/opensource/gci/2011-12/index.html"
+>Google Code-In 2011</ulink
+> katılımcıları tarafından yazılmıştır. Onların mükemmel çalışmalarını destekledikleri için Google'a teşekkür ediyoruz!</para>
+
+<para
+>Çeviren: Serdar Soytetir <email
+>tulliana@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+
+</book>
+
+<!-- Comments, ideas, policy etc 
+
+Use default appearance + settings of kde compiled from sources
+
+Style issues:
+Task oriented
+Avoid variablelist for obvious terms like e. g. Left/Right
+
+FIXME missing stuff:
+
+add a11y docbooks from koffice 1.6?
+
+-->
+<!--
+Local Variables:
+mode: sgml
+sgml-namecase-general: t
+sgml-namecase-entity: nil
+sgml-general-insert-case: lower
+sgml-minimize-attributes: nil
+sgml-omittag: nil
+End:
+-->

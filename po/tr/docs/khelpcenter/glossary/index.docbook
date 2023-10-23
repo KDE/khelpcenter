@@ -1,0 +1,908 @@
+<?xml version="1.0" ?>
+<!DOCTYPE glossary PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Turkish "INCLUDE">
+<!ENTITY glossary-kdeprinting SYSTEM "kdeprintingglossary.docbook">
+<!ENTITY newpara "&lt;/p&gt;&lt;p&gt;">
+<!ENTITY linkstart "&lt;a href=">
+<!ENTITY linkmid ' target="_top"&gt;'>
+<!ENTITY linkend "&lt;/a&gt;">
+
+<!ENTITY emstart '&lt;span class="emphasis"&gt;&lt;em&gt;'>
+<!ENTITY emend '&lt;/em&gt;&lt;/span&gt;'>
+<!-- acronym, systemitem unchanged
+itemizedlist+listitem changed to simple para -->
+]>
+<!--FIXME
+Documentation local docbook / online userbase
+kde wikis community techbase userbase
+Nepomuk / Baloo / Desktop search
+Project Neon
+-->
+
+<glossary lang="&language;" id="glossary">
+
+	<glossdiv id="glossdiv-technologies">
+		<title
+>Teknolojiler</title>
+		<glossentry id="gloss-akonadi">
+			<glossterm
+>Akonadi</glossterm>
+			<glossdef
+><para
+>&kde; yazılım derlemesi 4 içindeki Kişişel Bilgi Yöneticisi (PIM) verisine erişmeyi sağlayan veri erişim sistemidir. Tek bir deponun ve depo erişim sisteminin kullanılması, verimliliği ve yeni özellikler eklemeyi kolaylaştırır. &kde; 3 serisinde bunun yerine her PIM uygulamasının kendi sistemi vardı. Akonadi'nin veri depolama biçimlerini değiştirmediğini (vcard, iCalendar, mbox, maildir vb.), bu verilere farklı bir yolla eriştiğini ve veriyi güncellediğini unutmayın.&newpara; Akonadi'nin tasarımının ve geliştirilmesinin teknik açıdan doğal nedenleri vardır; örneğin, farklı uygulamalardan (&eg; &kmail;, &calligrawords; &etc;) PIM verisine (adres defterindeki kişiler, takvimler, e-postalar gibi) erişmek için tek bir yol. Bu yol kullanıldığında aynı kodları iki ayrı yerde yazmak gerekmez.&newpara;Başka bir amaç da &kmail; gibi uygulamaların e-posta sunucuları gibi dış kaynaklara doğrudan erişmesini engelleyerek uygulama arayüzünü ayırmak. Bu durum, geçmişte açılan uygulama başarımı ve uygulamadan hızlı yanıt alma konulu hata bildirimlerine ve isteklere neden olan sorunları da çözdü.&newpara;Daha fazla bilgi:&newpara; &linkstart;"https://community.kde.org/KDE_PIM/Akonadi"&linkmid;KDE'nin Kişisel Bilgi Yöneticisi için Akonadi&linkend;&newpara; &linkstart;"https://en.wikipedia.org/wiki/Akonadi"&linkmid;Vikipedi: Akonadi&linkend;&newpara; &linkstart;"https://techbase.kde.org/KDE_PIM/Akonadi"&linkmid;Techbase - Akonadi&linkend;</para
+><glossseealso otherterm="gloss-gui"
+>&GUI;</glossseealso
+> <glossseealso otherterm="gloss-kde"
+>&kde;</glossseealso
+> </glossdef>
+		</glossentry>
+		<glossentry id="gloss-applications">
+			<glossterm
+>Uygulamalar</glossterm>
+			<glossdef
+><para
+>Uygulamalar, KDE topluluğu tarafından geliştirilen çekirdek kitaplıklar temellidir. Şu anki adı &kde; Frameworks olup eskiden &kde; Platform olarak biliniyordur.&newpara; Daha fazla bilgi:&newpara; &linkstart;"https://community.kde.org/Promo/Guidance/Branding/Quick_Guide/"&linkmid;KDE Branding&linkend;</para
+><glossseealso otherterm="gloss-plasma"
+>&plasma;</glossseealso
+> <glossseealso otherterm="gloss-frameworks"
+>Frameworks</glossseealso
+> <glossseealso otherterm="gloss-platform"
+>Platform</glossseealso
+> </glossdef>
+		</glossentry>
+		<glossentry id="gloss-arts"
+><!--remove it?-->
+			<glossterm
+>aRts</glossterm>
+			<glossdef
+><para
+>&kde; 2 ve 3 sürümlerinde kullanılan ses altyapısıdır. Tek görev odaklı olduğu için iki ses işlemi sırasında sorunlar çıkarıyordu. &plasma; masaüstünde bunun yerine artık Phonon kullanılıyor.&newpara;Daha fazla bilgi:&newpara; &linkstart;"http://en.wikipedia.org/wiki/ARts"&linkmid; Wikipedia: ARts&linkend;&newpara; &linkstart;"https://www.arts-project.org"&linkmid;ARts ana sayfası&linkend;</para
+><glossseealso otherterm="gloss-kde"
+>&kde;</glossseealso
+> <glossseealso otherterm="gloss-phonon"
+>Phonon</glossseealso
+> <glossseealso otherterm="gloss-plasma"
+>&plasma;</glossseealso
+> </glossdef>
+		</glossentry>
+		<glossentry id="gloss-dbus">
+			<glossterm
+>D-Bus</glossterm>
+			<glossdef
+><para
+>D-Bus veya Masaüstü Veri Yolu, hizmetler arası iletişim sistemidir. &RedHat; tarafından geliştirilmiştir; ancak genel olarak &kde;'nin DCOP uygulamasından esinlenmiştir ve onun yerini almıştır. Birçok POSIX işletim sisteminin D-Bus desteği vardır, ayrıca Windows'a uygun sürümü de oluşturulmuştur. D-Bus Qt 4 ve GNOME tarafından kullanılır.&newpara; Daha fazla bilgi:&newpara; &linkstart;"https://freedesktop.org/wiki/Software/dbus/"&linkmid;FreeDesktop.org: What is D-Bus?&linkend;&newpara; &linkstart;"http://en.wikipedia.org/wiki/D-Bus"&linkmid;Wikipedia: D-Bus&linkend;</para
+><glossseealso otherterm="gloss-dcop"
+>DCOP</glossseealso
+> <glossseealso otherterm="gloss-gnome"
+>GNOME</glossseealso
+> <glossseealso otherterm="gloss-kde"
+>&kde;</glossseealso
+> <glossseealso otherterm="gloss-qt"
+>&Qt;</glossseealso
+> </glossdef>
+		</glossentry>
+		<glossentry id="gloss-dcop">
+			<glossterm
+>DCOP</glossterm>
+			<glossdef
+><para
+>Masaüstü İletişim Protokolü'nün (Desktop COmmunication Protocol) bir kısaltması olan <acronym
+>DCOP</acronym
+>, &kde; 3'te kullanılan hafif bir süreçler arası yazılım bileşenleri iletişim sistemidir. &kde; SC 4'te bunun yerine artık &DBus; kullanılmaktadır.&newpara; Daha fazla bilgi:&newpara; &linkstart;"https://en.wikipedia.org/wiki/DCOP"&linkmid;Wikipedia: DCOP&linkend;</para
+><glossseealso otherterm="gloss-dbus"
+>D-Bus</glossseealso
+> <glossseealso otherterm="gloss-kde"
+>&kde;</glossseealso
+> </glossdef>
+		</glossentry>
+		<glossentry id="gloss-flake">
+			<glossterm
+>Flake</glossterm>
+			<glossdef
+><para
+>Flake, &calligra;'da kullanılan bir programlama kitaplığıdır. İşlev olarak, içerik görüntülemek için şekiller ve onları manipüle etmek için araçlar sağlar. Şekillere yakınlaştırılabilir, onlar döndürülebilir ve tek bir şekil olarak çalışmaları için birleştirilebilirler. Şekiller arası metin akışı olanaklıdır.&newpara; Daha fazla bilgi:&newpara; &linkstart;"https://community.kde.org/Calligra/Libs/Flake"&linkmid;&kde; Topluluğu vikisi: Flake&linkend;</para
+><glossseealso otherterm="gloss-kde"
+>&kde;</glossseealso
+> <glossseealso otherterm="gloss-kparts"
+>KParts</glossseealso
+> </glossdef>
+		</glossentry>
+		<glossentry id="gloss-frameworks">
+			<glossterm
+>Frameworks</glossterm>
+			<glossdef
+><para
+>&kde; Frameworks 5, &Qt; uygulamalarında kolay tümleştime için modülerize edilmiş ve eniyilenmiş sonraki nesil &kde; kitaplıklarına verilen addır. Frameworks, uygun lisans koşullarıyla olgun, hakemli ve iyi sınanmış kitaplıklarda yaygın olarak gereksinim duyulan çok çeşitli işlevler sunar. Donanım tümleştirmesi, dosya biçimleri desteği, ek araç takımları, çizim işlevleri, yazım denetimi ve daha fazlasını içeren çözümler sunan 70'in üzerinde farklı kitaplık vardır. Kitaplıkların pek çoğu çapraz platformdur ve ya çok az ya da hiç bağımlıklık içermez, bu da onları herhangi bir &Qt; uygulamasına eklemeyi pek kolay kılar.&newpara; Daha fazla bilgi:&newpara; &linkstart;"https://community.kde.org/Frameworks"&linkmid;&kde; Topluluk vikisi: Frameworks&linkend;</para
+><glossseealso otherterm="gloss-kde"
+>&kde;</glossseealso
+> <glossseealso otherterm="gloss-plasma"
+>&plasma;</glossseealso
+> <glossseealso otherterm="gloss-applications"
+>Uygulamalar</glossseealso
+> <glossseealso otherterm="gloss-platform"
+>Platform</glossseealso
+> </glossdef>
+		</glossentry>
+		<glossentry id="gloss-ghns">
+			<glossterm
+>Yeni Çıkanlar</glossterm>
+			<glossdef
+><para
+>&emstart;G&emend;et &emstart;H&emend;ot &emstart;N&emend;ew &emstart;S&emend;tuff (Yeni Çıkanlar - GHNS), kullanıcıların uygulamalarıyla ilgili çeşitli uzantıları indirmesini ve kurmasını kolaylaştıran özgür bir standarttır. Bizim GHNS gerçekleştirimimiz &plasma; tarafından (örneğin yeni masaüstü temaları almak için) ve birçok uygulama ve araç takımı tarafından kullanılır.</para
+><glossseealso otherterm="gloss-kde"
+>&kde;</glossseealso
+> <glossseealso otherterm="gloss-plasma"
+>&plasma;</glossseealso
+> </glossdef>
+		</glossentry>
+		<glossentry id="gloss-ghnsaccr">
+			<glossterm
+>GHNS</glossterm>
+			<glossdef
+><para
+><acronym
+>GHNS</acronym
+> (Get Hot New Stuff) kısaltmasıdır. KDE için duvar kağıdı, tema gibi yeni şeyler indirmenizi sağlar.</para>
+				<glossseealso otherterm="gloss-ghns"
+>Yeni Çıkanlar</glossseealso>
+			</glossdef>
+		</glossentry>
+		<glossentry id="gloss-ioworker">
+			<glossterm
+><acronym
+>GÇ</acronym
+> İşçisi</glossterm>
+			<glossdef
+><para
+><acronym
+>GÇ</acronym
+> İşçileri, &kde; uygulamalarının uzak özkaynaklara sanki yerelmişler gibi erişebilmelerine (onları "ağda saydam" yaparak) olanak tanır. Uzak özkaynaklar, (&eg; dosyalar) <acronym
+>SMB</acronym
+> veya buna benzer paylaşımlarda depolanabilirler.</para
+><glossseealso otherterm="gloss-smb"
+><acronym
+>SMB</acronym
+></glossseealso
+> <glossseealso otherterm="gloss-kde"
+>&kde;</glossseealso
+> </glossdef>
+		</glossentry>
+		<glossentry id="gloss-khtml">
+			<glossterm
+>KHTML</glossterm>
+			<glossdef
+><para
+>KHTML, &konqueror; gibi uygulamaların kullandığı, &kde; &plasma; masaüstü için üretilmiş bir &HTML; sunum işletkesidir. Ayrıca sağladığı KPart biçimiyle tüm &kde; uygulamalarının web içeriğini göstermesini sağlar. &Qt; WebKit de Plasma ve diğer uygulamalar için aynı işlevi sağlar.</para
+><glossseealso otherterm="gloss-kde"
+>&kde;</glossseealso
+> <glossseealso otherterm="gloss-konqueror"
+>&konqueror;</glossseealso
+> <glossseealso otherterm="gloss-kparts"
+>KParts</glossseealso
+> <glossseealso otherterm="gloss-plasma"
+>&plasma;</glossseealso
+> <glossseealso otherterm="gloss-webkit"
+>WebKit</glossseealso
+> </glossdef>
+		</glossentry>
+		<glossentry id="gloss-kio">
+			<glossterm
+><acronym
+>KIO</acronym
+></glossterm>
+			<glossdef
+><para
+>"<acronym
+>GÇ</acronym
+> İşçileri"nden yararlanan &kde; Girdi/Çıktı sistemi.</para
+><glossseealso otherterm="gloss-ioworker"
+><acronym
+>GÇ</acronym
+> İşçisi</glossseealso
+> <glossseealso otherterm="gloss-kde"
+>&kde;</glossseealso
+> </glossdef>
+		</glossentry>
+		<glossentry id="gloss-kiosk">
+			<glossterm
+>Kiosk</glossterm>
+			<glossdef
+><para
+>Kiosk, &kde; üzerindeki kullanıcı yeteneklerini kısıtlamaya yönelik bir kitaplıktır. İnternet kafeler gibi kilitli ortamlarda kullanım için ideal bir platform sistemidir. &kde; 3 ve 4'te vardır; ancak yönetim aracı <application
+>Kiosktool</application
+> yalnızca &kde; 3'te bulunur. &kde; 4 uygulamalarını yapılandırmak için kullanılabilir. Kiosk yapılandırmaları, yapılandırma dosyaları elle düzenlenerek de kullanılabilir.</para>
+				<glossseealso otherterm="gloss-kde"
+>&kde;</glossseealso>
+			</glossdef>
+		</glossentry>
+		<glossentry id="gloss-kparts">
+			<glossterm
+>KParts</glossterm>
+			<glossdef
+><para
+>KParts, &kde; uygulamalarının başka &kde; uygulamalarını gömülü olarak kullanabilmesini sağlayan bir teknolojidir. Örneğin, &konqueror; tarafından kullanılan metin görünümü bir KPart'tır.</para>
+				<glossseealso otherterm="gloss-konqueror"
+>&konqueror;</glossseealso>
+			</glossdef>
+		</glossentry>
+		<glossentry id="gloss-ksycoca">
+			<glossterm
+><acronym
+>KSycoca</acronym
+></glossterm>
+			<glossdef
+><para
+><acronym
+>KSycoca</acronym
+> (&kde; &emstart;Sy&emend;stem &emstart;Co&emend;nfiguration &emstart;Ca&emend;che); örneğin menü girişlerine hızlı erişimi garanti eden bir yapılandırma önbelleğidir.</para>
+				<glossseealso 
+otherterm="gloss-kbuildsycoca"
+><application
+>KBuildSycoca</application
+></glossseealso>
+			</glossdef>
+		</glossentry>
+		<glossentry id="gloss-platform">
+                    <glossterm
+>Platform</glossterm>
+			<glossdef
+><para
+>Önceden &kde; uygulamalarını çalıştırmak için gereken kitaplıkların ve hizmetlerin temeliydi. Çekirdek ve üçüncü taraf geliştiriciler tarafından &kde; yazılımları oluşturmak için kullanılır. Özellikle geliştirme kitaplıkları ve araçları dahil edildiğinde &kde; Geliştirme Platformu olarak anılabilir. &kde; Platformu bir dizi sütun üzerine yapılmıştır; örneğin Akonadi, Solid, Phonon gibi.</para
+><glossseealso otherterm="gloss-kde"
+>&kde;</glossseealso
+> <glossseealso otherterm="gloss-plasma"
+>&plasma;</glossseealso
+> <glossseealso otherterm="gloss-applications"
+>Uygulamalar</glossseealso
+> <glossseealso otherterm="gloss-frameworks"
+>Frameworks</glossseealso
+> <glossseealso otherterm="gloss-akonadi"
+>Akonadi</glossseealso
+> <glossseealso otherterm="gloss-solid"
+>Solid</glossseealso
+> <glossseealso otherterm="gloss-phonon"
+>Phonon</glossseealso
+> </glossdef>
+		</glossentry>
+		<glossentry id="gloss-phonon">
+			<glossterm
+>Phonon</glossterm>
+			<glossdef
+><para
+>Gstreamer ve xine işletkeleri gibi var olan kitaplıklarla arayüz oluşturan, platformlar arası bir çoklu ortam API'si. &kde; 2 ve 3 ses için ARTS'ye bağlıydı. Phonon onların yerini aldı.&newpara; Daha fazla bilgi:&newpara; &linkstart;"https://en.wikipedia.org/wiki/Phonon_(software)"&linkmid; Vikipedi: Phonon (yazılım)&linkend;&newpara; &linkstart;"https://phonon.kde.org/"&linkmid;Phonon web sitesi&linkend;</para
+><glossseealso otherterm="gloss-arts"
+>aRts</glossseealso
+> <glossseealso otherterm="gloss-kde"
+>&kde;</glossseealso
+> </glossdef>
+		</glossentry>
+		<glossentry id="gloss-solid">
+			<glossterm
+>Solid</glossterm>
+			<glossdef
+><para
+>Solid, donanım yönetimi için tek bir API sağlar. Donanım 'etki alanları' halinde gruplandırılmıştır. Solid'in arka uçları takılabilir olduğundan Solid, uygulama geliştiricilerin daha az kod yazmasına ve platformdan bağımsız olmasına yardımcı olur.&newpara; Daha fazla bilgi:&newpara; &linkstart;"https://solid.kde.org/"&linkmid;Solid'i Keşfet&linkend;</para>
+				<glossseealso otherterm="gloss-kde"
+>&kde;</glossseealso>
+			</glossdef>
+		</glossentry>
+		<glossentry id="gloss-threadweaver">
+			<glossterm
+>Threadweaver</glossterm>
+			<glossdef
+><para
+>Bu iş parçacığı programlama kitaplığı, işi olabildiğince çok çekirdekli işlemciler arasında dağıtır ve bunları yürütme için sıraya koymadan önce önceliklendirir. ThreadWeaver, çok iş parçacıklı programlama için üst düzey bir iş arayüzü sağlar.&newpara; Daha fazla bilgi:&newpara; &linkstart;"https://api.kde.org/frameworks/threadweaver/html/index.html"&linkmid;API Belgelendirmesi – ThreadWeaver&linkend;</para>
+				<glossseealso otherterm="gloss-kde"
+>&kde;</glossseealso>
+			</glossdef>
+		</glossentry>
+		<glossentry id="gloss-webkit">
+			<glossterm
+>WebKit</glossterm>
+			<glossdef
+><para
+>KHTML'in bir çatalından kaynaklanan HTML sunum işletkesi. <trademark
+>Apple</trademark
+> tarafından sahiplenilmiş ve <trademark
+>Safari</trademark
+> için geliştirilmiştir. &Qt; ile uygun olduğu yerlerde Webkit tüm işlevselliği &kde; SC 4'e taşır.&newpara; Daha fazla bilgi:&newpara; &linkstart;"https://webkit.org/"&linkmid;WebKit Ana Sayfası&linkend;&newpara; &linkstart;"https://en.wikipedia.org/wiki/WebKit"&linkmid;Vikipedi: WebKit&linkend;</para
+><glossseealso otherterm="gloss-kde"
+>&kde;</glossseealso
+> <glossseealso otherterm="gloss-khtml"
+>KHTML</glossseealso
+> </glossdef>
+		</glossentry>
+	</glossdiv>
+	
+	<glossdiv id="glossdiv-xorg">
+		<title
+>X.Org</title>
+		<glossentry id="gloss-antialiasing">
+			<glossterm
+>Kenar Yumuşatma</glossterm>
+			<glossdef
+><para
+>&kde; ile birlikte söz edilirse kenar yumuşatma, genellikle ekranda görünen yazıtiplerinin yumuşatılması anlamına gelir. &Qt; X.Org sunucusuyla birlikte kullanılan sürüm 3.3 veya üzeri, bunu &kde; altında da olanaklı kılar.</para
+><glossseealso otherterm="gloss-kde"
+>&kde;</glossseealso
+> <glossseealso otherterm="gloss-qt"
+>&Qt;</glossseealso
+> </glossdef>
+		</glossentry>
+		<glossentry id="gloss-xserver">
+			<glossterm
+>&X-Server;</glossterm>
+			<glossdef
+><para
+>&X-Server;, &kde; gibi birçok grafik kullanıcı arayüzünün üzerine yapıldığı temel katmanı temsil eder. Temel fare ve klavye girişini (yerel veya uzak makinelerden) işler ve dörtgenleri ve diğer şekilleri çizmek için yalın grafik rutinleri sağlar.</para
+><glossseealso otherterm="gloss-kde"
+>&kde;</glossseealso
+> <glossseealso otherterm="gloss-gui"
+>&GUI;</glossseealso
+> </glossdef>
+		</glossentry>
+	</glossdiv>
+        <!--wayland missing?-->
+	<glossdiv id="glossdiv-applications">
+		<title
+>Uygulamalar</title>
+		<glossentry id="gloss-dolphin">
+			<glossterm
+>Dolphin</glossterm>
+			<glossdef
+><para
+>&kde; uygulamalarındaki öntanımlı dosya yöneticisi. Bir kenar çubuğu içerir; ancak dolaşım genellikle ana pencerenin üst kısmındaki zincirli yol çubuğu ile yapılır. Bölünmüş görünümler vardır ve görünümler bireysel pencerelere atanabilir. <acronym
+>USB</acronym
+> aygıtlarının bağlantısı ve bağlantılarının kesilmesi kenar çubuğundan yapılabilir. Yerler paneline başka klasörler de eklenebilir. Bir ağaç görünümü de olanaklıdır.&newpara; Daha fazla bilgi:&newpara; &linkstart;"https://www.kde.org/applications/system/dolphin/"&linkmid;Dolphin&linkend;&newpara; &linkstart;"https://en.wikipedia.org/wiki/Dolphin_(file_manager)"&linkmid;Vikipedi: Dolphin&linkend;&newpara; &linkstart;"https://userbase.kde.org/Dolphin/File_Management"&linkmid;Userbase: Dosya Yönetimi&linkend;</para
+><glossseealso otherterm="gloss-kde"
+>&kde;</glossseealso
+> <glossseealso otherterm="gloss-konqueror"
+>&konqueror;</glossseealso
+> </glossdef>
+		</glossentry>
+		<glossentry id="gloss-kbuildsycoca">
+			<glossterm
+><application
+>KBuildSycoca</application
+></glossterm>
+			<glossdef
+><para
+><application
+>KBuildSycoca4</application
+> bir komut satırı programıdır ve <acronym
+>KSycoca</acronym
+>'yı yeniden üretir. Bu; örneğin, &systemsettings; içindeki bazı veya tüm modüller kayıpsa yararlıdır.</para
+><glossseealso otherterm="gloss-ksycoca"
+><acronym
+>KSycoca</acronym
+></glossseealso
+> <glossseealso otherterm="gloss-systemsettings"
+>&systemsettings;</glossseealso
+> </glossdef>
+		</glossentry>
+		<glossentry id="gloss-kinfocenter">
+			<glossterm
+>K Bilgi Merkezi</glossterm>
+			<glossdef
+><para
+>K Bilgi Merkezi, KDE 3.1'deki Kcontrol'dan türetildi. &kde; SC 4'te, &systemsettings; içinde yapılandırılan modüllerle değiştirildi ve &plasma;'da yeni bir uygulama olarak sunuldu. &newpara; Daha fazla bilgi:&newpara; &linkstart;"https://www.kde.org/applications/system/kinfocenter/"&linkmid;KInfoCenter&linkend;&newpara; &linkstart;"https://en.wikipedia.org/wiki/Kinfocenter"&linkmid;Vikipedi: K Bilgi Merkezi&linkend;</para
+><glossseealso otherterm="gloss-kde"
+>&kde;</glossseealso
+> <glossseealso otherterm="gloss-solid"
+>Solid</glossseealso
+> <glossseealso otherterm="gloss-systemsettings"
+>&systemsettings;</glossseealso
+> </glossdef>
+		</glossentry>
+		<glossentry id="gloss-konqueror">
+			<glossterm
+>&konqueror;</glossterm>
+			<glossdef
+><para
+>&konqueror;, bir web tarayıcısı, resim görüntüleyicisi, dosya yöneticisi ve daha da önemlisi, &kde; projesinin temel bir parçasıdır. &konqueror; üzerine daha fazla bilgiyi &linkstart;"https://konqueror.org/"&linkmid;www.konqueror.org&linkend; adresinde bulabilirsiniz.</para>
+				<glossseealso otherterm="gloss-kde"
+>&kde;</glossseealso>
+			</glossdef>
+		</glossentry>
+		<glossentry id="gloss-krunner">
+			<glossterm
+>K Çalıştır</glossterm>
+			<glossdef
+><para
+>Klasik menüden, &Alt;+<keycap
+>F2</keycap
+> klavye kısayolundan veya masaüstüne sağ tıklayarak erişilebilen mini komut satırı. &kde; SC 4'te kısa bir ad girişi tüm olası eşleşmeleri listeler.&newpara; Daha fazla bilgi:&newpara; &linkstart;"https://userbase.kde.org/Plasma/Krunner"&linkmid;UserBase: K Çalıştır Kullanımı&linkend;</para
+><glossseealso otherterm="gloss-kde"
+>&kde;</glossseealso
+> <glossseealso otherterm="gloss-plasma"
+>&plasma;</glossseealso
+> </glossdef>
+		</glossentry>
+		<glossentry id="gloss-kwin">
+			<glossterm
+>KWin</glossterm>
+			<glossdef
+><para
+>KWin, KDE'nin pencere yöneticisidir. Bu pencere dekorasyonunun değiştirilebileceği ve temaların uygulanacağı yerdir. &kde; SC 4, masaüstünde 3B bileşikleştirme efektlerine destek sağlamak için KWin'i genişletir.&newpara; Daha fazla bilgi:&newpara; &linkstart;"http://userbase.kde.org/KWin"&linkmid;UserBase: KWin&linkend;</para
+><glossseealso otherterm="gloss-kde"
+>&kde;</glossseealso
+> <glossseealso otherterm="gloss-xserver"
+>&X-Server;</glossseealso
+> </glossdef>
+		</glossentry>
+		<glossentry id="gloss-minicli">
+			<glossterm
+>Mini Komut Satırı</glossterm>
+			<glossdef
+><para
+>Mini &emstart;C&emend;ommand &emstart;L&emend;ine &emstart;I&emend;nterface (Mini Komut Satırı). K Çalıştır'ın eşanlamlısıdır.</para>
+				<glossseealso otherterm="gloss-krunner"
+>K Çalıştır</glossseealso>
+			</glossdef>
+		</glossentry>
+		<glossentry id="gloss-pager">
+			<glossterm
+>Sayfalayıcı</glossterm>
+			<glossdef
+><para
+>Sayfalayıcı, masaüstünüzdeki pencerelerin konumunu gösteren ve genellikle birden fazla Sanal Masaüstünüz varsa genel bir bakış sağlayan küçük bir program veya panel uygulamacığıdır.</para
+><glossseealso otherterm="gloss-kde"
+>&kde;</glossseealso
+> <glossseealso otherterm="gloss-application-starter"
+>Uygulama Başlatıcısı</glossseealso
+> <glossseealso otherterm="gloss-kicker"
+>Kicker</glossseealso
+> <glossseealso otherterm="gloss-panel"
+>Panel</glossseealso
+> <glossseealso otherterm="gloss-plasma"
+>&plasma;</glossseealso
+> <glossseealso otherterm="gloss-virtualdesktops"
+>Sanal Masaüstleri</glossseealso
+> </glossdef>
+		</glossentry>
+		<glossentry id="gloss-systemsettings">
+			<glossterm
+>&systemsettings;</glossterm>
+			<glossdef
+><para
+>Bu, &kde; denetim merkezinin proje ve dosya adıdır. &systemsettings; &kde;'nin tüm yapılandırma seçeneklerini özelleştirmenize olanak tanır.</para
+><glossseealso otherterm="gloss-kde"
+>&kde;</glossseealso
+> <glossseealso otherterm="gloss-kinfocenter"
+>K Bilgi Merkezi</glossseealso
+> </glossdef>
+		</glossentry>
+	</glossdiv>
+	
+	<glossdiv id="glossdiv-desktop-terminology">
+		<title
+>Masaüstü Terminolojisi</title>
+		<glossentry id="gloss-activities">
+			<glossterm
+>Etkinlikler</glossterm>
+			<glossdef
+><para
+>Etkinlikler, kendi duvar kağıtlarına iye &plasma; araç takımı kümelerine verilen addır.&newpara; Biraz sanal masaüstlerine benzerler; ancak tam aynısı değillerdir. Örneğin, Git işlemelerinin RSS beslemeleri, yapılacaklarınız, işle ilgili klasörlerinizi gösteren bir klasör görünümü ve daha sade bir duvar kağıdı içeren bir "iş etkinliğiniz" olabilir.&newpara; Onun yanında; boş zaman etkinlikleriniz, aile fotoğraflarınız, köpeğinizin bir resmi, sıkça ziyaret ettiğiniz blogların RSS beslemeleri, bir X uygulamacığı ve ta 80'lerden bu yana hastası olduğunuz Iron Maiden içeren bir duvar kağıdı olan bir "kişisel etkinlik".&newpara; Saat öğleden sonra 5'i vurduğunda hemen iş etkinliğinden kişisel etkinliğinize geçebilirsiniz.&newpara; Daha fazla bilgi:&newpara; &linkstart;"https://userbase.kde.org/Plasma"&linkmid;Plasma SSS&linkend;</para
+><glossseealso otherterm="gloss-kde"
+>&kde;</glossseealso
+> <glossseealso otherterm="gloss-virtualdesktops"
+>Sanal Masaüstleri</glossseealso
+> </glossdef>
+		</glossentry>
+		<glossentry id="gloss-breeze">
+			<glossterm
+><acronym
+>Esinti</acronym
+></glossterm>
+			<glossdef
+><para
+>Esinti, &plasma;'nın öntanımlı temasıdır. Yeni tema, çalışma alanı için yüksek karşıtlıklı düz bir temadır. Açık ve koyu çeşitleri vardır. Daha basit ve daha tek renkli grafik varlıkları ve tipografi merkezli düzenler, temiz ve görsel olarak net bir kullanıcı deneyimi sunar.</para
+><glossseealso otherterm="gloss-kde"
+>&kde;</glossseealso
+> <glossseealso otherterm="gloss-ksvg"
+>KSVG</glossseealso
+> <glossseealso otherterm="gloss-plasma"
+>&plasma;</glossseealso
+> <glossseealso otherterm="gloss-oxygen"
+>Oksijen</glossseealso
+> </glossdef>
+		</glossentry>
+		<glossentry id="gloss-containment">
+			<glossterm
+>Kapsama</glossterm>
+			<glossdef
+><para
+>Kapsama, araç takımlarının üst düzey bir gruplandırmasıdır. Her kapsama, kendi araç takımı kümesinin yerleşimini ve yapılandırma verisini diğer kapsamlardan bağımsız olarak yönetir.&newpara; Sonuç olarak, bir kapsama dahilindeki araç takımlarını dizin gruplaması yerine, çalışma düzeniniz için olan öneme göre gruplandırabilirsiniz.</para
+><glossseealso otherterm="gloss-kde"
+>&kde;</glossseealso
+> <glossseealso otherterm="gloss-widget"
+>Araç Takımı</glossseealso
+> </glossdef>
+		</glossentry>
+		<glossentry id="gloss-draganddrop">
+			<glossterm
+>Sürükle ve Bırak</glossterm>
+			<glossdef
+><para
+>Bu kavram, dosyaları bir yerden başka bir yere kopyalamak gibi birçok eylemi belirli bir fare hareketiyle değiştirmeye çalışır. Örneğin, &konqueror; içindeki bir simgeye tıklamak, fare düğmesini basılı tutarken fareyi başka bir pencereye taşımak ve fare düğmesini bırakmak ("nesneyi bırakmak") dosyaları kopyalar.</para>
+				<glossseealso otherterm="gloss-konqueror"
+>&konqueror;</glossseealso>
+			</glossdef>
+		</glossentry>
+		<glossentry id="gloss-gnome">
+			<glossterm
+><acronym
+>GNOME</acronym
+></glossterm>
+			<glossdef>
+				<para
+>&emstart;G&emend;NU &emstart;N&emend;etwork &emstart;O&emend;bject &emstart;M&emend;odel &emstart;E&emend;nvironment, önde gelen &UNIX; grafik kullanıcı arayüzlerinden birisidir.</para>
+				<glossseealso otherterm="gloss-gui"
+>&GUI;</glossseealso>
+			</glossdef>
+		</glossentry>
+		<glossentry id="gloss-gui">
+			<glossterm
+>&GUI;</glossterm>
+			<glossdef
+><para
+>&emstart;G&emend;raphical &emstart;U&emend;ser &emstart;I&emend;nterface (Grafiksel Kullanıcı Arayüzü) sözcüklerinin kısaltmasıdır. Tüm masaüstü ortamları (&kde; gibi) bir &GUI; olarak geçer. Birçok &GUI;, temel özellik olarak fare ve uygulamaları yönetmek için pencereler desteği sunar.</para>
+				<glossseealso otherterm="gloss-kde"
+>&kde;</glossseealso>
+			</glossdef>
+		</glossentry>
+		<glossentry id="gloss-homedirectory">
+			<glossterm
+>Ana Klasör</glossterm>
+			<glossdef
+><para
+>Sistemdeki tüm dosyalarınızın saklandığı yer burasıdır. Dosyalarınızı bu klasörün dışına yazabilirsiniz; ancak tüm uygulamalar, dosyalarınızı yazacağınız yer olarak bu klasörü önerecek şekilde yapılandırılmıştır. Ögelerinizi burada tutmak daha kolaydır.&newpara; Daha fazla bilgi:&newpara; &linkstart;"https://en.wikipedia.org/wiki/Home_directory"&linkmid;Vikipedi: Ana Klasör&linkend;</para>
+				<glossseealso otherterm="gloss-dolphin"
+>&dolphin;</glossseealso>
+			</glossdef>
+		</glossentry>
+		<glossentry id="gloss-kde">
+			<glossterm
+>&kde;</glossterm>
+			<glossdef
+><para
+>&kde;, bir yazılımdan daha fazlasıdır. Dünyanın her yerinden programcılar, çevirmenler, katkıcılar, sanatçılar, yazarlar, dağıtımcılar ve kullanıcılardan oluşan bir topluluktur. Uluslararası teknoloji takımımız masaüstü için en iyi ücretsiz yazılımları yaratmaya kendini adamıştır. Yalnızca katkıda bulunanlar değil, aynı zamanda &kde; kullanıcıları ve hayranları da; yazılım dünyanın her yerinde bulunabilir, diğer kullanıcılara yardım edebilir, haberleri yayabilir veya yalnızca bu deneyimin tadını çıkarabilir. Daha ayrıntılı bilgiyi &linkstart;"https://www.kde.org"&linkmid;www.kde.org&linkend; adresinde bulabilirsiniz.&newpara; Zaman içinde bu adın anlamı değişmiştir. &linkstart;"https://www.kde.org/community/history/"&linkmid;KDE tarihçesi web sayfasında&linkend; KDE'nin geçmişi hakkında daha fazla bilgi alabilirsiniz. </para>
+				<glossseealso otherterm="gloss-gui"
+>&GUI;</glossseealso>
+			</glossdef>
+		</glossentry>
+		<glossentry id="gloss-kicker">
+			<glossterm
+><acronym
+>&kicker;</acronym
+></glossterm>
+			<glossdef>
+				<para
+>&kde; 3'te, genellikle ekranın alt kısmında bulunan (bazen Panel olarak da adlandırılır), üzerinde uygulama başlatıcılarının, sayfalayıcının ve uygulamaları çalıştırmak için düğmelerin bulunduğu, yeri değiştirilebilen çubuk.</para
+><glossseealso otherterm="gloss-panel"
+>Panel</glossseealso
+> <glossseealso otherterm="gloss-plasma"
+>&plasma;</glossseealso
+> </glossdef>
+		</glossentry>
+		<glossentry id="gloss-application-starter">
+			<glossterm
+><acronym
+>Uygulama Başlatıcısı</acronym
+></glossterm>
+			<glossdef>
+				<para
+>&plasma;'da uygulamaların işlevsel gruba göre sıralandığı bir uygulama başlatıcısı. 'Sık Kullanılanlar', Klasik Menü'deki 'En Çok Kullanılan Uygulamalar'ın yerini alır ve buraya ek uygulamalar eklenebilir. Sağ tıklama aynı zamanda masaüstüne veya panele uygulama ekleme olanağı da sunar. Daha az kullanılan bir uygulamaya hızlı erişim, arama kutusu aracılığıyla yapılabilir. Basamaklı açılır menülere sahip klasik Uygulama Menüsü ve tam ekran başlatıcı olan Uygulama Denetim Paneli gibi alternatifler kullanılabilirdir. &plasma;, istenildiği takdirde birden fazla başlatıcı ile kullanılabilir.&newpara; </para
+><glossseealso otherterm="gloss-kde"
+>&kde;</glossseealso
+> <glossseealso otherterm="gloss-pager"
+>Sayfalayıcı</glossseealso
+> <glossseealso otherterm="gloss-panel"
+>Panel</glossseealso
+> <glossseealso otherterm="gloss-plasma"
+>&plasma;</glossseealso
+> </glossdef>
+		</glossentry>
+                <glossentry id="gloss-oxygen">
+			<glossterm
+><acronym
+>Oksijen</acronym
+></glossterm>
+			<glossdef>
+				<para
+>Oksijen, &kde; SC 4'ün öntanımlı temasıydı. Basit, karikatürize simgeleri kaldırarak ve bunları temiz bir tema ve fotogerçekçi simgelerle değiştirerek masaüstüne 'yeni bir soluk' getirmek üzere tasarlanmıştı. Oksijen, simgelerin dikkat dağıtıcı olmasını önlemek için doygunluğu azaltılmış bir palet ve ayrıntılı ölçeklenebilir grafikler (SVG) kullanır.&newpara; Daha fazla bilgi:&newpara; &linkstart;"https://en.wikipedia.org/wiki/Oxygen_Project"&linkmid;Vikipedi: Oksijen Projesi&linkend;</para
+><glossseealso otherterm="gloss-kde"
+>&kde;</glossseealso
+> <glossseealso otherterm="gloss-ksvg"
+>KSVG</glossseealso
+> <glossseealso otherterm="gloss-plasma"
+>&plasma;</glossseealso
+> <glossseealso otherterm="gloss-breeze"
+>Esinti</glossseealso
+> </glossdef>
+		</glossentry>
+		<glossentry id="gloss-panel">
+			<glossterm
+>Panel</glossterm>
+			<glossdef
+><para
+>Genellikle ekranın alt kısmında bulunan paneli ifade eder.</para
+><glossseealso otherterm="gloss-kde"
+>&kde;</glossseealso
+> <glossseealso otherterm="gloss-kicker"
+>&kicker;</glossseealso
+> <glossseealso otherterm="gloss-application-starter"
+>Uygulama Başlatıcısı</glossseealso
+> <glossseealso otherterm="gloss-plasma"
+>&plasma;</glossseealso
+> </glossdef>
+		</glossentry>
+		<glossentry id="gloss-plasma">
+			<glossterm
+>Plasma</glossterm>
+			<glossdef
+><para
+>&plasma;; KDesktop, &kicker; ve SuperKaramba araç takımı işletkesinin yerini alır. Uygulamacıklara "Araç Takımları" adı verilir ve bunlar bilgi veren araç takımlarından hesap makinesi gibi ufak uygulamalara kadar gider.&newpara; Daha fazla bilgi:&newpara; &linkstart;"https://en.wikipedia.org/wiki/KDE_Plasma_5"&linkmid;Vikipedi: KDE Plasma 5&linkend;&newpara; &linkstart;"https://www.kde.org/workspaces/"&linkmid;Plasma Çalışma Alanları&linkend;&newpara; &linkstart;"https://userbase.kde.org/Plasma"&linkmid;Plasma&linkend;</para
+><glossseealso otherterm="gloss-kde"
+>&kde;</glossseealso
+> <glossseealso otherterm="gloss-kicker"
+>&kicker;</glossseealso
+> <glossseealso otherterm="gloss-widget"
+>Araç Takımı</glossseealso
+> </glossdef>
+		</glossentry>
+		<glossentry id="gloss-ripping">
+			<glossterm
+>CD Aktarma</glossterm>
+			<glossdef
+><para
+>Bir &cdrom; veya DVD'den ses ve video verisini okuyup bunu sabit diskte depolama işlemi.</para>
+			</glossdef>
+		</glossentry>
+		<glossentry id="gloss-virtualdesktops">
+			<glossterm
+>Sanal Masaüstleri</glossterm>
+			<glossdef
+><para
+>&UNIX; tabanlı pencere yöneticilerinin popüler bir kavramı sanal masaüstleridir. Bu, pencerelerinizi ancak birkaç tane yerleştirebileceğiniz birden fazla ekranınız olduğu anlamına gelir. Farklı bir masaüstüne geçtiğinizde (genellikle bir sayfalayıcı ile), yalnızca yeni masaüstünüzde başlattığınız veya ona taşıdığınız pencereleri görürsünüz. Ayrıca, tüm sanal masaüstlerinde görünen bir "yapışkan" pencere yapılabilir.&newpara; Daha fazla bilgi:&newpara; &linkstart;"https://userbase.kde.org/Plasma"&linkmid;Plasma SSS&linkend;</para
+><glossseealso otherterm="gloss-kde"
+>&kde;</glossseealso
+> <glossseealso otherterm="gloss-application-starter"
+>Uygulama Başlatıcısı</glossseealso
+> <glossseealso otherterm="gloss-pager"
+>Sayfalayıcı</glossseealso
+> </glossdef>
+		</glossentry>
+	</glossdiv>
+	
+	<glossdiv id="kde-development">
+		<title
+>&kde; Geliştirmesi</title>
+		<glossentry id="gloss-qt">
+			<glossterm
+>&Qt;</glossterm>
+			<glossdef
+><para
+>&kde;'nin grafiksel kullanıcı arayüzü, &Qt; araç kitinin üzerine yapılmıştır. Bu kit, adına araç takımı denilen birçok grafiksel öge sunar; bu ögeler masaüstünü yapmada kullanılır. &Qt; hakkında daha fazla bilgiyi &linkstart; "https://www.qt.io/developers/"&linkmid;https://www.qt.io/developers/&linkend; adresinde bulabilirsiniz.</para
+><glossseealso otherterm="gloss-kde"
+>&kde;</glossseealso
+> <glossseealso otherterm="gloss-gui"
+>&GUI;</glossseealso
+> <glossseealso otherterm="gloss-widget"
+>Araç Takımı</glossseealso
+> </glossdef>
+		</glossentry>
+		<glossentry id="gloss-git">
+			 <glossterm
+>Git</glossterm>
+			  <glossdef
+><para
+>Git, küçükten çok büyük projelere kadar her şeyi hızlı ve verimli bir şekilde ele almak için tasarlanmış ücretsiz ve açık kaynaklı, dağıtılmış bir sürüm denetim sistemidir.&newpara; Her bir Git klonu, ağ erişimine veya merkezi bir sunucuya bağlı olmayan, eksiksiz geçmişe ve tam revizyon izleme özelliklerine sahip tam teşekküllü bir depodur. Dallama ve birleştirme işlemleri hızlı ve kolaydır.&newpara; Git; Mercurial, Bazaar, Subversion, CVS, Perforce ve Visual SourceSafe gibi, dosyaların sürüm denetimi için kullanılır.&newpara; Git'in, SVN'nin yerine &kde;'nin ana sürüm denetim sistemi olmasına karar verildi. Konversation ve Amarok gibi bazı &kde; projeleri için halihazırda kullanıldı.&newpara; Daha fazla bilgi:&newpara; &linkstart;"https://git-scm.com/"&linkmid;Git Ana Sayfası&linkend;</para
+><glossseealso otherterm="gloss-kde"
+>&kde;</glossseealso
+> <glossseealso otherterm="gloss-svn"
+>SVN</glossseealso
+> </glossdef>
+		</glossentry>
+		<glossentry id="gloss-i18n">
+			<glossterm
+>i18n</glossterm>
+			<glossdef
+><para
+>"Uluslararasılaşma"nın kısaltması. &kde; birçok farklı dili destekler ve çeşitli i18n teknikleri grafik kullanıcı arayüzünü ve &kde; ilgili tüm belgeleri çevirmeyi kolaylaştırır. i18n süreci hakkında daha fazla bilgi &linkstart; "https://l10n.kde.org/"&linkmid;l10n.kde.org&linkend; adresinde bulunabilir.</para
+><glossseealso otherterm="gloss-kde"
+>&kde;</glossseealso
+> <glossseealso otherterm="gloss-gui"
+>&GUI;</glossseealso
+> <glossseealso otherterm="gloss-l10n"
+>l10n</glossseealso
+> </glossdef>
+		</glossentry>
+		<glossentry id="gloss-kross">
+			<glossterm
+>Kross</glossterm>
+			<glossdef
+><para
+>Kross, birden çok betik yazım dilini destekleyen bir kodlama kitaplığıdır. Bir eklenti sistemi gelecekte daha fazla dilin desteklenmesine olanak tanır.</para>
+				<glossseealso otherterm="gloss-kde"
+>&kde;</glossseealso>
+			</glossdef>
+		</glossentry>
+		<glossentry id="gloss-kdom">
+			<glossterm
+>KDOM</glossterm>
+			<glossdef
+><para
+>KHTML <acronym
+>DOM</acronym
+> (&emstart;D&emend;ocument &emstart;O&emend;bject &emstart;M&emend;odel - Belge Nesnesi Modeli) sunum yeteneklerini tüm uygulamalara açan bir KPart modülü. KSVG2, &kde; SC 4 için KDOM üzerine yapılmıştır.</para
+><glossseealso otherterm="gloss-kde"
+>&kde;</glossseealso
+> <glossseealso otherterm="gloss-khtml"
+>KHTML</glossseealso
+> <glossseealso otherterm="gloss-kparts"
+>KParts</glossseealso
+> <glossseealso otherterm="gloss-khtml"
+>KSVG</glossseealso
+> </glossdef>
+		</glossentry>
+		<glossentry id="gloss-kjs">
+			<glossterm
+>KJS</glossterm>
+			<glossdef
+><para
+>&kde; platformunun JavaScript işletkesi.</para
+><glossseealso otherterm="gloss-kde"
+>&kde;</glossseealso
+> <glossseealso otherterm="gloss-kparts"
+>KParts</glossseealso
+> <glossseealso otherterm="gloss-plasma"
+>&plasma;</glossseealso
+> </glossdef>
+		</glossentry>
+		<glossentry id="gloss-ksvg">
+			<glossterm
+>KSVG</glossterm>
+			<glossdef
+><para
+>KSVG, bir KHTML tarayıcısında ölçeklenebilir vektör grafiklerinin desteklenmesini sağlar. KSVG2 bunu &kde; SC 4 için genişletir.</para
+><glossseealso otherterm="gloss-kde"
+>&kde;</glossseealso
+> <glossseealso otherterm="gloss-khtml"
+>KHTML</glossseealso
+> <glossseealso otherterm="gloss-kparts"
+>KParts</glossseealso
+> </glossdef>
+		</glossentry>
+		<glossentry id="gloss-l10n">
+			<glossterm
+>l10n</glossterm>
+			<glossdef
+><para
+>Bir programın yerel ortama uyarlanması süreci olan "yerelleştirme"nin kısaltması. Bunda; &eg;, parasal değerler için kullanılan para birimleri, zaman biçimleri ve uygulamaların çeviri metinleri içerilir.&newpara; Daha fazla bilgi:&newpara; &linkstart;"https://l10n.kde.org/"&linkmid;l10n.kde.org&linkend;</para>
+				<glossseealso otherterm="gloss-i18n"
+>i18n</glossseealso>
+                        </glossdef>
+		</glossentry>
+		<glossentry id="gloss-widget">
+                    <glossterm
+>Araç Takımı</glossterm>
+			<glossdef
+><para
+>Genel olarak araç takımları, grafik kullanıcı arayüzünü oluşturmak için kullanılan sarma çubukları, düğmeler veya giriş alanları gibi grafik ögelerdir.&newpara; &plasma;'da araç takımları ana bileşenlerdir ve masaüstünü ve ilgili duvar kağıdını görüntülemek, dizüstü bilgisayarın pil düzeyini göstermek, takılı aygıtları görüntülemek ve görev çubuğunu çizmek gibi çeşitli işlevleri üstlenirler: Temel olarak masaüstünde yaşayan küçük uygulamalardır. Ek olarak araç takımları, panel ve hatta masaüstünün kendisi gibi "Kapsayıcılar" altında birlikte gruplandırılabilir. </para
+><glossseealso otherterm="gloss-plasma"
+>&plasma;</glossseealso
+> <glossseealso otherterm="gloss-containment"
+>Kapsama</glossseealso
+> <glossseealso otherterm="gloss-kde"
+>&kde;</glossseealso
+> <glossseealso otherterm="gloss-gui"
+>&GUI;</glossseealso
+> </glossdef>
+		</glossentry>
+		<glossentry id="gloss-svn">
+			 <glossterm
+><acronym
+>SVN</acronym
+></glossterm>
+			  <glossdef
+><para
+>&emstart;Subversion&emend;'un kısaltması olan bir sürüm denetim sistemidir. <acronym
+>SVN</acronym
+>, birden çok geliştiricinin aynı projede çalışmasını çok daha kolay kılan elegant bir sistemdir. &kde; kaynaklarının güncel kaynaklarını anonim bir <acronym
+>SVN</acronym
+> örneğini alma konusunda bilgiyi &linkstart;"http://developer.kde.org/source/anonsvn.html"&linkmid;http://developer.kde.org/source/anonsvn.html&linkend; adresinde bulabilirsiniz.&newpara; <acronym
+>SVN</acronym
+> hakkında daha fazla bilgi ise &linkstart;"http://subversion.tigris.org/"&linkmid;http://subversion.tigris.org/&linkend; adresindedir.</para>
+			  <glossseealso otherterm="gloss-git"
+>Git</glossseealso>
+			  </glossdef>
+		</glossentry>
+		<glossentry id="gloss-xmlgui">
+			<glossterm
+>XMLGUI</glossterm>
+			<glossdef
+><para
+>Kullanıcı arayüzü tasarlamak için programcı kitaplığı. KParts tarafından yaygın olarak kullanılmaktadır.&newpara; Daha fazla bilgi:&newpara; &linkstart;"https://en.wikipedia.org/wiki/XMLGUI"&linkmid;Wikipedia: XMLGUI&linkend;&newpara; &linkstart;"http://en.wikipedia.org/wiki/Qt_Style_Sheets"&linkmid;Wikipedia: Qt Style Sheets&linkend;</para
+><glossseealso otherterm="gloss-gui"
+>&GUI;</glossseealso
+> <glossseealso otherterm="gloss-kparts"
+>Kparts</glossseealso
+> <glossseealso otherterm="gloss-qt"
+>&Qt;</glossseealso
+> </glossdef>
+		</glossentry>
+	</glossdiv>
+	
+	<glossdiv id="glossdiv-misc">
+		<title
+>Çeşitli</title>
+		<glossentry id="gloss-rfc">
+			<glossterm
+><acronym
+>RFC</acronym
+></glossterm>
+			<glossdef
+><para
+>&emstart;R&emend;equest &emstart;F&emend;or &emstart;C&emend;omment (Yorum İsteği). İnternet topluluğunun değerlendirilmesi için yeni protokol fikirlerini veya prosedürlerini yayınlamanın yaygın bir yolu. <acronym
+>RFC</acronym
+>'ler zorunlu olmasa da, birçok uygulama topluluk tarafından onaylandıktan sonra bunlara uymaya çalışır.&newpara; <acronym
+>RFC</acronym
+>'ler hakkında daha fazla bilgi &linkstart;"https://www.rfc-editor.org/"&linkmid;RFC Ana Sayfasında&linkend; bulunabilir.</para>
+			</glossdef>
+		</glossentry
+>	
+	</glossdiv>
+	
+	<glossdiv id="glossdiv-protocols">
+		<title
+>Çeşitli protokoller</title>
+		<glossentry id="gloss-smb">
+			<glossterm
+><acronym
+>SMB</acronym
+></glossterm>
+			<glossdef
+><para
+>&emstart;S&emend;erver &emstart;M&emend;essage &emstart;B&emend;lock (Sunucu İletisi Bloku). &Microsoft; &Windows; ağları tarafından diğer bilgisayarların dosya sistemlerine ulaşmak için kullanılan bir ağ protokolüdür.</para>
+				<glossseealso otherterm="gloss-ioworker"
+><acronym
+>GÇ</acronym
+> İşçisi</glossseealso>
+			</glossdef>
+		</glossentry>
+		<glossentry id="gloss-irc">
+			<glossterm
+><acronym
+>IRC</acronym
+></glossterm>
+			<glossdef
+><para
+>&emstart;I&emend;nternet &emstart;R&emend;elay &emstart;C&emend;hat (İnternet üzerinden Canlı Sohbet). <acronym
+>RFC</acronym
+> 1459'da tanımlanan ve gerçek zamanlı metin sohbetini etkinleştirme belirtimini işleyen bir protokol.</para>
+				<glossseealso otherterm="gloss-rfc"
+><acronym
+>RFC</acronym
+></glossseealso>
+			</glossdef>
+		</glossentry>
+                <glossentry id="gloss-host">
+		        <glossterm
+>Makine</glossterm>
+			<glossdef
+><para
+>Bu, ya <filename
+>/etc/hosts</filename
+> dosyanızdaki bir ad (<systemitem class="systemname"
+>bilgisayarım</systemitem
+>) ya bir İnternet adı (<systemitem class="systemname"
+>www.kde.org</systemitem
+>) ya da bir IP adresi (<systemitem
+>192.168.0.10</systemitem
+>) olabilir. </para>
+	                </glossdef>
+	        </glossentry>
+	</glossdiv
+>&glossary-kdeprinting; </glossary>
