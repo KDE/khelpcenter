@@ -5,6 +5,7 @@ confinement: strict
 grade: stable
 base: core22
 adopt-info: khelpcenter
+version: '23.08.2'
 apps:
     khelpcenter:
         # extensions:
