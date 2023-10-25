@@ -283,7 +283,7 @@ msgstr "Pàgina prèvia"
 #: mainwindow.cpp:212
 #, kde-format
 msgid "Moves to the previous page of the document"
-msgstr "Va a la pàgina prèvia del document"
+msgstr "Va fins a la pàgina prèvia del document"
 
 #: mainwindow.cpp:216
 #, kde-format
@@ -293,7 +293,7 @@ msgstr "Pàgina següent"
 #: mainwindow.cpp:218
 #, kde-format
 msgid "Moves to the next page of the document"
-msgstr "Va a la pàgina següent del document"
+msgstr "Va fins a la pàgina següent del document"
 
 #: mainwindow.cpp:225
 #, kde-format
