@@ -667,8 +667,7 @@ writing parts of this section.</para>
 &kmail;, and &calligrawords;. It is a &GUI; frontend to various free spell checkers.</para>
 
 <para>To use &sonnet; you need to install a spell checker like
-<application>&GNU; Aspell</application>, <application>Enchant</application>,
-<application>Hspell</application>, <application>ISpell</application> or
+<application>&GNU; Aspell</application>, <application>Hspell</application> or
 <application>Hunspell</application> and additionally the corresponding
 dictionaries for the languages that you wish to use.</para>
 
