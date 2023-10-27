@@ -567,9 +567,7 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 ></term>
 <listitem
 ><para
->Mostra una icona addicional a la barra d'eines que proporciona accés a <quote
->adreces d'interès</quote
->, una llista d'ubicacions desades.</para
+>Mostra una icona addicional a la barra d'eines que proporciona accés a «adreces d'interès», una llista d'ubicacions desades.</para
 ></listitem>
 </varlistentry>
 
@@ -621,11 +619,7 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 >El mode navega</term>
 <listitem>
 <para
->En el mode <quote
->navega</quote
->, que és el per omissió, el nom de cada carpeta al camí de la carpeta actual és un botó sobre el qual es pot fer clic per a obrir ràpidament la carpeta. D'altra banda, fer clic al signe <quote
->&gt;</quote
-> a la dreta d'una carpeta obre un menú que permet obrir ràpidament una subcarpeta d'aquesta. </para>
+>En el mode «navega», que és el per omissió, el nom de cada carpeta al camí de la carpeta actual és un botó sobre el qual es pot fer clic per a obrir ràpidament la carpeta. D'altra banda, fer clic al signe «&gt;» a la dreta d'una carpeta obre un menú que permet obrir ràpidament una subcarpeta d'aquesta. </para>
 
 <screenshot id="screenshot-files-locationbar-breadcrumb">
 <screeninfo
@@ -653,9 +647,7 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 >El mode d'edició</term>
 <listitem>
 <para
->En el mode navegació, en fer clic a l'àrea grisa a la dreta del camí amb el &BER; es canvia la barra de localització al mode <quote
->edita</quote
->, en el qual el camí es pot editar utilitzant el teclat. Per a tornar al mode navegació, feu clic a la marca de selecció a la dreta de la barra de localització amb el &BER;. </para>
+>En el mode navegació, en fer clic a l'àrea grisa a la dreta del camí amb el &BER; es canvia la barra de localització al mode «edita», en el qual el camí es pot editar utilitzant el teclat. Per a tornar al mode navegació, feu clic a la marca de selecció a la dreta de la barra de localització amb el &BER;. </para>
 
 <screenshot>
 <screeninfo
@@ -1001,17 +993,13 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 >El &sonnet; és el corrector ortogràfic emprat per les aplicacions &kde; com el &kate;, el &kmail; i el &calligrawords;. És un frontal de la &IGU; per a diversos correctors ortogràfics lliures.</para>
 
 <para
->Per a utilitzar el &sonnet; us caldrà instal·lar un corrector ortogràfic, com <application
->Aspell de &GNU;</application
->, <application
->Enchant</application
+>To use &sonnet; you need to install a spell checker like <application
+>&GNU; Aspell</application
 >, <application
 >Hspell</application
->, <application
->ISpell</application
-> o <application
+> or <application
 >Hunspell</application
-> i, a més, els diccionaris corresponents per als idiomes que voleu utilitzar.</para>
+> and additionally the corresponding dictionaries for the languages that you wish to use.</para>
 
 <sect2 id="spellcheck-check">
 <title
@@ -1255,11 +1243,7 @@ Search+Replace bar in Kate/KWrite
 ></term>
 <listitem
 ><para
->Els caràcters en majúscules i minúscules es consideraran diferents. Per exemple, si cerqueu <quote
->Això</quote
->, els resultats no retornaran <quote
->això</quote
->.</para
+>Els caràcters en majúscules i minúscules es consideraran diferents. Per exemple, si cerqueu «Això», els resultats no retornaran «això».</para
 ></listitem>
 </varlistentry>
 
@@ -1270,17 +1254,11 @@ Search+Replace bar in Kate/KWrite
 ></term>
 <listitem
 ><para
->Per omissió, quan l'aplicació cerca un text, retornarà els resultats fins i tot quan es trobi enmig d'un altre text. Per exemple, si cerqueu <quote
->es</quote
-> s'aturarà en cada paraula que la contingui, com <quote
->bot<emphasis
+>Per omissió, quan l'aplicació cerca un text, retornarà els resultats fins i tot quan es trobi enmig d'un altre text. Per exemple, si cerqueu «es» s'aturarà en cada paraula que la contingui, com «bot<emphasis
 >es</emphasis
-></quote
-> o <quote
->r<emphasis
+>» o «r<emphasis
 >es</emphasis
->plendor</quote
->. Si marqueu aquesta opció, l'aplicació sols retornarà els resultats quan el text cercat sigui una paraula en si mateixa, és a dir, envoltada per espais en blanc.</para
+>plendor». Si marqueu aquesta opció, l'aplicació sols retornarà els resultats quan el text cercat sigui una paraula en si mateixa, és a dir, envoltada per espais en blanc.</para
 ></listitem>
 </varlistentry>
 
@@ -1444,25 +1422,17 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 <para
 >Podeu tornar a utilitzar el text que apareix en el text de substitució seleccionant la casella de selecció <guilabel
 >Usa la reserva de lloc</guilabel
->. Les reserves de lloc, de vegades conegudes com a referències cap enrere, són una seqüència de caràcters especials que seran substituïts amb la totalitat o part del text trobat. Per exemple, el <quote
->\0</quote
-> representa tota la cadena trobada.</para>
+>. Les reserves de lloc, de vegades conegudes com a referències cap enrere, són una seqüència de caràcters especials que seran substituïts amb la totalitat o part del text trobat. Per exemple, el «\0» representa tota la cadena trobada.</para>
 <para
 >Podeu inserir reserves de lloc al quadre de text fent clic al botó <guibutton
 >Insereix una reserva de lloc</guibutton
 >, després seleccionant una opció del menú com <guimenuitem
 >Coincidència completa</guimenuitem
->. Per exemple, si esteu cercant <quote
->missatge</quote
->, i la voleu substituir amb <guilabel
+>. Per exemple, si esteu cercant «missatge», i la voleu substituir amb <guilabel
 >missatges</guilabel
 > inseriu la reserva de lloc <guimenuitem
 >Coincidència completa</guimenuitem
-> i afegiu una <quote
->s</quote
->. Llavors el camp de substitució contindrà <quote
->\0s</quote
->.</para>
+> i afegiu una «s». Llavors el camp de substitució contindrà «\0s».</para>
 
 <para
 >Si està instal·lat el &kate;, podeu aprendre més sobre les reserves de lloc en l'<ulink url="help:/katepart/regular-expressions.html"
@@ -1634,9 +1604,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 >Aquesta és la casella de selecció més a la dreta, i permet seleccionar la mida del text. La mida de la lletra es mesura en <emphasis
 >punts</emphasis
 >, una unitat estàndard de mesura en tipografia. Per a obtenir més informació sobre això, vegeu l'article de la Viquipèdia <ulink url="https://ca.wikipedia.org/wiki/Punt_tipogràfic"
->el <quote
->Punt tipogràfic</quote
-></ulink
+>el «Punt tipogràfic»</ulink
 >.</para
 ></listitem>
 </varlistentry>
@@ -1739,9 +1707,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 >La cantonada inferior dreta de la pantalla permet introduir manualment les coordenades del color desitjat en l'espai de color To/Saturació/Valor (Hue/Saturation/Value - <acronym
 >HSV</acronym
 >). Per a més informació sobre això, vegeu l'<ulink url="https://ca.wikipedia.org/wiki/Model_de_color_HSV"
->article <quote
->Model de color HSV</quote
-> de la Viquipèdia</ulink
+>article «Model de color HSV» de la Viquipèdia</ulink
 >.</para>
 
 <para
@@ -1757,9 +1723,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 >La cantonada inferior dreta de la pantalla també permet introduir manualment les coordenades del color desitjat en el model de color vermell/verd/blau (Red/Green/Blue - <acronym
 >RGB</acronym
 >). Per a obtenir més informació sobre això, vegeu l'<ulink url="https://ca.wikipedia.org/wiki/Senyal_RGB"
->article <quote
->Senyal RGB</quote
-> de la Viquipèdia</ulink
+>article «Senyal RGB» de la Viquipèdia</ulink
 >.</para>
 
 <para
@@ -1773,9 +1737,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 
 <para
 >Podeu introduir el codi hexadecimal &HTML; que representa el color en la cantonada inferior dreta de la pantalla. Per a obtenir més informació sobre això, vegeu l'<ulink url="https://en.wikipedia.org/wiki/Web_colors"
->article <quote
->Web colors</quote
-> de la Viquipèdia</ulink
+>article «Web colors» de la Viquipèdia</ulink
 >.</para>
 
 <para

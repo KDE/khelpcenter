@@ -59,9 +59,7 @@
 >&MacOS;</title>
 
 <para
->Les aplicacions &kde; individuals es poden instal·lar a través de diversos <quote
->ports</quote
-> dels diferents sistemes disponibles per a &MacOS;. Diverses aplicacions &kde; diferents també proporcionen el seu propi binari compilat per a &MacOS;.</para>
+>Les aplicacions &kde; individuals es poden instal·lar a través de diversos «ports» dels diferents sistemes disponibles per a &MacOS;. Diverses aplicacions &kde; diferents també proporcionen el seu propi binari compilat per a &MacOS;.</para>
 
 <para
 >Per a més informació, visiteu el <ulink url="https://mac.kde.org/"
@@ -75,9 +73,7 @@
 >&BSD;</title>
 
 <para
->La majoria de distribucions &BSD; us permeten instal·lar aplicacions &kde; i l'&plasma-desktop; en el seu conjunt a través del seu sistema de <quote
->ports</quote
->.</para>
+>La majoria de distribucions &BSD; us permeten instal·lar aplicacions &kde; i l'&plasma-desktop; en el seu conjunt a través del seu sistema de «ports».</para>
 
 <para
 >Per a més informació sobre com instal·lar els ports, consulteu la documentació de la vostra distribució &BSD;.</para>

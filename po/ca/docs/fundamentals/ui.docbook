@@ -26,9 +26,7 @@
 >Un diccionari visual</title>
 
 <para
->Les característiques dels &plasma-workspaces; disposen de molts elements per a la interfície gràfica d'usuari, comunament conegudes com a <quote
->ginys</quote
->. Aquesta guia us presentarà els seus els noms i funcions.</para>
+>Les característiques dels &plasma-workspaces; disposen de molts elements per a la interfície gràfica d'usuari, comunament conegudes com a «ginys». Aquesta guia us presentarà els seus els noms i funcions.</para>
 
 <sect2 id="visualdict-screens">
 <title
@@ -1772,9 +1770,7 @@
 ><para
 ><action
 >Obre el diàleg d'informe d'error</action
-> on podreu informar d'un error o sol·licitar una característica (<quote
->wishlist</quote
->).</para
+> on podreu informar d'un error o sol·licitar una característica («wishlist»).</para
 ></listitem>
 </varlistentry>
 <!--FIXME two different dialogs, either via web (default if aboutData->bugAddress() == "" or == "submit@bugs.kde.org" ) 

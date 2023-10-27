@@ -246,9 +246,7 @@
 >Moure les barres d'eines</title>
 
 <para
->Per tal de moure les barres d'eines, primer les heu de <quote
->desbloquejar</quote
->. Per a fer-ho, desmarqueu <guimenuitem
+>Per tal de moure les barres d'eines, primer les heu de «desbloquejar». Per a fer-ho, desmarqueu <guimenuitem
 >Bloqueja la posició de les barres d'eines</guimenuitem
 > des del menú contextual de la barra d'eines. Per a restaurar el bloqueig, simplement marqueu una altra vegada aquest element de menú.</para>
 
@@ -304,9 +302,7 @@
 >Mostra la barra d'eines</guimenuitem
 > des del menú <guimenu
 >Arranjament</guimenu
->. Recordeu que per a actuar sobre les barres d'eines primer s'han de <quote
->desbloquejar</quote
-> des del seu menú contextual. Vegeu <xref linkend="toolbars-appearance-move"/> per a més informació.</para>
+>. Recordeu que per a actuar sobre les barres d'eines primer s'han de «desbloquejar» des del seu menú contextual. Vegeu <xref linkend="toolbars-appearance-move"/> per a més informació.</para>
 
 <para
 >Si l'aplicació té més d'una barra d'eines, apareixerà un submenú anomenat <guisubmenu

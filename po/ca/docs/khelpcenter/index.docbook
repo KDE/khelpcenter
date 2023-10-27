@@ -418,11 +418,7 @@
 >. Els resultats es mostraran a la subfinestra del visualitzador que hi ha a la dreta. </para>
 <note
 ><para
->La cerca no distingeix entre majúscules i minúscules, &ead;, es consideren iguals. Per exemple, si cerqueu <quote
->Drecera</quote
->, els resultats també contindran <quote
->drecera</quote
->.</para
+>La cerca no distingeix entre majúscules i minúscules, &ead;, es consideren iguals. Per exemple, si cerqueu «Drecera», els resultats també contindran «drecera».</para
 ></note>
 <!--no wildcards? -->
 
