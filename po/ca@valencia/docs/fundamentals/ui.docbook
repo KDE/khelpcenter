@@ -66,7 +66,7 @@
 </mediaobjectco>
 </screenshot>
 <para
->Esta és la finestra de &kwrite;, un editor de text. Feu clic en la part de la finestra per a aprendre més sobre seu.</para>
+>Esta és la finestra de &kwrite;, un editor de text. Feu clic en la part de la finestra per a aprendre'n més quant a ell.</para>
 
 <orderedlist>
 
@@ -278,7 +278,7 @@
 </screenshot>
 
 <para
->Esta captura de pantalla, del quadro Formats en &systemsettings;, mostra alguns elements de la &IGU;. Feu clic en una part de la finestra per a obtindre més informació.</para>
+>Esta captura de pantalla, del quadro Formats en &systemsettings;, mostra alguns elements de la &IGU;. Per a obtindre més informació, feu clic en una part de la finestra.</para>
 
 <orderedlist>
 
@@ -398,7 +398,7 @@
 </screenshot>
 
 <para
->Esta captura de pantalla, del quadro Aplicacions predeterminades en &systemsettings;, mostra alguns elements més de la &IGU;. Feu clic en la part de la finestra per a obtindre més informació.</para>
+>Esta captura de pantalla, del quadro Aplicacions predeterminades en &systemsettings;, mostra alguns elements més de la &IGU;. Per a obtindre més informació, feu clic en la part de la finestra.</para>
 
 <orderedlist>
 
@@ -512,7 +512,7 @@
 <entry
 >Àrea de selecció</entry>
 <entry
->Mostra el camí en un sistema jeràrquic, tal com un sistema de fitxers. Feu clic damunt de qualsevol part del camí per pujar a l'arbre des d'esta ubicació. Feu clic damunt de la fletxa a la dreta de la part del camí per anar a un altre element secundari d'este camí. </entry>
+>Mostra el camí en un sistema jeràrquic, tal com un sistema de fitxers. Feu clic damunt de qualsevol part del camí per a pujar en l'arbre des d'esta ubicació. Feu clic damunt de la fletxa a la dreta de la part del camí per a anar cap a un element secundari d'este. </entry>
 <entry>
 <inlinemediaobject>
 <imageobject>
@@ -572,7 +572,7 @@
 <entry
 >Menú contextual</entry>
 <entry
->Molts elements de la interfície d'usuari en l'entorn de treball &kde; i les aplicacions, contenen un menú contextual, que es pot obrir fent clic sobre alguna cosa amb el &BDR;. Este menú conté opcions i accions que usualment afectaran els elements de la interfície d'usuari on feu clic dret.</entry>
+>Molts elements de la interfície d'usuari en l'entorn de treball &kde; i les aplicacions, contenen un menú contextual, el qual es pot obrir fent clic sobre alguna cosa amb el &BDR;. Este menú conté opcions i accions que usualment afectaran els elements de la interfície d'usuari on feu clic dret.</entry>
 <entry>
 <inlinemediaobject>
 <imageobject>
@@ -658,9 +658,9 @@
 <entry
 >Menú</entry>
 <entry
->Una llista de les seleccions, que usualment realitzen una acció, establixen una opció, o òbriguen una finestra. Es poden obrir des de les <link linkend="visualdict-menubar"
->barres de menú</link
-> o <link linkend="visualdict-menu-button"
+>Una llista de les seleccions, que usualment realitzen una acció, establixen una opció, o òbriguen una finestra. Es poden obrir des de la <link linkend="visualdict-menubar"
+>barra de menús</link
+> o els <link linkend="visualdict-menu-button"
 >botons del menú</link
 >.</entry>
 <entry>
@@ -728,7 +728,7 @@
 <entry
 >Barra de progrés</entry>
 <entry
->Una xicoteta barra que indica que s'està realitzant una operació de llarga duració. La barra pot indicar la quantitat de l'operació que s'ha completat, o senzillament pot anar arrere i avant per a indicar que l'operació està en curs. </entry>
+>Una xicoteta barra que indica que s'està realitzant una operació de llarga duració. La barra pot indicar la quantitat que s'ha completat de l'operació, o senzillament pot anar arrere i avant per a indicar que l'operació està en curs. </entry>
 <entry>
 <inlinemediaobject>
 <imageobject>
@@ -951,11 +951,11 @@
 </screenshot>
 
 <para
->Algunes aplicacions, com &dolphin;, no mostren una barra de menús per defecte. La podeu mostrar prement <keycombo
+>Algunes aplicacions, com &dolphin;, no mostren una barra de menús predeterminada. La podeu mostrar prement <keycombo
 >&Ctrl;<keycap
 >M</keycap
 ></keycombo
->. També es pot utilitzar per a ocultar la barra de menús en les aplicacions que admeten fer-ho.</para>
+>. També es pot utilitzar per a ocultar-la barra en les aplicacions que admeten fer-ho.</para>
 
 <sect2 id="menus-file">
 <title
@@ -1388,7 +1388,7 @@
 ></term>
 <listitem
 ><para
->Va a la següent coincidència de l'última operació de busca. </para
+>Va fins a la següent coincidència de l'última operació de busca. </para
 ></listitem>
 </varlistentry>
 
@@ -1409,7 +1409,7 @@
 ></term>
 <listitem
 ><para
->Va a la coincidència anterior de l'última operació de busca. </para
+>Va fins a la coincidència anterior de l'última operació de busca. </para
 ></listitem>
 </varlistentry>
 
@@ -2289,7 +2289,7 @@ or via email (see krecipes doc rev 1306076)
 ></entry
 ><!--[kwin][Global Shortcuts] MoveZoomLeft=Meta+Left -->
 <entry
->Desplaça a l'esquerra, mou la finestra al monitor de l'esquerra<footnote id="fn1"
+>Desplaça cap a l'esquerra, mou la finestra cap al monitor de l'esquerra<footnote id="fn1"
 ><para
 >En un entorn multimonitor</para
 ></footnote
@@ -2305,7 +2305,7 @@ or via email (see krecipes doc rev 1306076)
 ></entry
 ><!--[kwin][Global Shortcuts] MoveZoomRight=Meta+Right -->
 <entry
->Desplaça a la dreta, mou la finestra al monitor de la dreta<footnoteref linkend="fn1"/></entry>
+>Desplaça cap a la dreta, mou la finestra cap al monitor de la dreta<footnoteref linkend="fn1"/></entry>
 </row>
 
 <row>
@@ -2983,7 +2983,7 @@ or via email (see krecipes doc rev 1306076)
 >Suprimix</keycap
 ></entry>
 <entry
->Mou a la paperera</entry>
+>Mou cap a dins de la paperera</entry>
 </row>
 
 <row>
@@ -3004,10 +3004,10 @@ or via email (see krecipes doc rev 1306076)
 
 <sect2 id="kbd-vol-bright">
 <title
->Canviar el volum i la lluminositat</title>
+>Canviar el volum i la brillantor</title>
 
 <para
->A més de les tecles estàndard, molts teclats d'ordinador i portàtil, hui en dia tenen tecles especials o botons per a canviar el volum de l'altaveu, així com la lluminositat del monitor. Si es troben presents, les podeu utilitzar en els &plasma-workspaces; per a realitzar estes tasques.</para>
+>A més de les tecles estàndard, molts teclats d'ordinador i portàtil, hui en dia tenen tecles especials o botons per a canviar el volum de l'altaveu, així com la brillantor del monitor. Si es troben presents, les podeu utilitzar en els &plasma-workspaces; per a realitzar estes tasques.</para>
 
 <para
 >Si no disposeu d'este tipus de tecles, vegeu <xref linkend="kbd-modifying"/> per a obtindre informació sobre com assignar tecles per a estes tasques.</para>

@@ -32,7 +32,7 @@
 </note>
 
 <para
->Si teniu problemes per a localitzar els paquets &kde; per a la vostra distribució, Poseu-vos en contacte amb els seus recursos de suport. Moltes distribucions també disposen d'un equip dedicat a empaquetar aplicacions per &kde; i que vos podran proporcionar assistència específica. </para>
+>Si teniu problemes per a localitzar els paquets &kde; per a la vostra distribució, contacteu amb els seus recursos de suport. Moltes distribucions també disposen d'un equip dedicat a empaquetar aplicacions per &kde; i que vos podran proporcionar assistència específica. </para>
 
 <!--FIXME: provide steps for common distributions?-->
 
@@ -128,7 +128,7 @@
 <para
 >Atés que el programari &kde; utilitza <command
 >cmake</command
->, no hauríeu de tindre problemes per compilar-lo. Si arribeu a tindre problemes, informeu-ne a les llistes de correu de &kde;.</para>
+>, no hauríeu de tindre problemes per a compilar-lo. Si n'arribeu a tindre, informeu-ne a les llistes de correu de &kde;.</para>
 
 <para
 >L'eina recomanada per a construir els Frameworks i l'&plasma-desktop; i totes les altres aplicacions és <ulink url="https://commits.kde.org/kdesrc-build"

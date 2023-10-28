@@ -43,7 +43,7 @@
 >Modifiqueu els elements de la barra d'eines</title>
 
 <para
->Per a personalitzar les barres d'eines d'una aplicació, aneu a <menuchoice
+>Per a personalitzar les barres d'eines d'una aplicació, aneu fins a <menuchoice
 ><guimenu
 >Configuració</guimenu
 ><guimenuitem
@@ -113,7 +113,7 @@
 <para
 >Podeu afegir línies de separació entre els elements afegint un element <guilabel
 >--- separador ---</guilabel
-> a la barra d'eines.</para>
+> en la barra d'eines.</para>
 </sect3>
 
 <sect3 id="toolbars-items-defaults">
@@ -122,7 +122,7 @@
 
 <para
 >Podeu restaurar la barra d'eines a la forma en què es trobava quan es va instal·lar l'aplicació prement el botó <guibutton
->De manera predeterminada,</guibutton
+>Per omissió</guibutton
 > a la part inferior de la finestra i després confirmant la vostra decisió.</para>
 
 </sect3>
@@ -248,7 +248,7 @@
 <para
 >Per tal de moure les barres d'eines, primer les heu de <quote
 >desbloquejar</quote
->. Per fer-ho, desmarqueu <guimenuitem
+>. Per a fer-ho, desmarqueu <guimenuitem
 >Bloqueja la posició de les barres d'eines</guimenuitem
 > des del menú contextual de la barra d'eines. Per a restaurar el bloqueig, senzillament marqueu una altra vegada este element de menú.</para>
 
@@ -264,7 +264,7 @@
 ><para
 ><guimenuitem
 >Dalt</guimenuitem
-> [l'opció predeterminada a moltes aplicacions]</para
+> [l'opció predeterminada en moltes aplicacions]</para
 ></listitem>
 <listitem
 ><para
@@ -304,9 +304,9 @@
 >Mostra la barra d'eines</guimenuitem
 > des del menú <guimenu
 >Configuració</guimenu
->. Recordeu que per actuar sobre les barres d'eines primer s'han de <quote
+>. Recordeu que per a actuar sobre les barres d'eines primer s'han de <quote
 >desbloquejar</quote
-> des del seu menú contextual. Vegeu <xref linkend="toolbars-appearance-move"/> per a més informació.</para>
+> des del seu menú contextual. Per a més informació, vegeu <xref linkend="toolbars-appearance-move"/>.</para>
 
 <para
 >Si l'aplicació té més d'una barra d'eines, apareixerà un submenú anomenat <guisubmenu
@@ -359,7 +359,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 >Introducció</title>
 
 <para
->Moltes aplicacions &kde; vos permetran configurar les dreceres de teclat. Per a obrir el quadro de configuració estàndard per a les dreceres de teclat, aneu a <menuchoice
+>Moltes aplicacions &kde; permetran configurar les dreceres de teclat. Per a obrir el quadro de configuració estàndard per a les dreceres de teclat, aneu fins a <menuchoice
 ><guimenu
 >Configuració</guimenu
 ><guimenuitem
@@ -398,7 +398,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 >Canviar una drecera</title>
 
 <para
->Per a canviar una drecera, primer feu clic en el nom de la que voleu canviar. Veureu un grup de botons d'opció en el qual podreu decidir si la voleu establir al seu valor predeterminat, o seleccionar-ne una de nova per a l'acció seleccionada. Per a establir una drecera nova, escolliu <guilabel
+>Per a canviar una drecera, primer feu clic en el nom de la que voleu canviar. Veureu un grup de botons d'opció en el qual podreu decidir si la voleu establir al seu valor predeterminat o seleccionar-ne una de nova per a l'acció seleccionada. Per a establir una drecera nova, escolliu <guilabel
 >Personalitza</guilabel
 > i feu clic damunt del botó al seu costat. Després només haureu d'escriure la drecera que voleu i guardar els canvis.</para>
 
@@ -422,12 +422,12 @@ another place to change Global Shortcuts (Systemsettings)-->
 >Restablir les dreceres</title>
 <para
 >Hi ha un botó a la part inferior de la finestra, anomenat <guibutton
->De manera predeterminada,</guibutton
+>Per omissió</guibutton
 >. Fent clic en este botó es restabliran totes les dreceres personalitzades als seus valors predeterminats.</para>
 
 <para
 >També podeu restablir una drecera individual al seu valor predeterminat, seleccionant-la i escollint el botó d'opció <guilabel
->De manera predeterminada,</guilabel
+>Per omissió</guilabel
 >.</para>
 
 </sect2>

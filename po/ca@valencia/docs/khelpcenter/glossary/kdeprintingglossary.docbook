@@ -78,7 +78,7 @@
 >Impressió a l'estil BSD</glossterm>
                         <glossdef
 ><para
->Terme genèric per a diferents variants del mètode d'impressió tradicional d'&UNIX;. La seua primera versió aparegué en els anys 70 sobre BSD &UNIX; i l'any 1990 es va descriure formalment en un &linkstart;"https://www.ietf.org/rfc/rfc1179.txt"&linkmid;RFC 1179&linkend;.&newpara; En el moment quan es dissenyà per primera vegada la impressió «remota» BSD, les impressores estaven connectades amb ports sèrie o directament connectades amb un servidor (amb una Internet formada per menys de 100 nodes); les impressores empraven paper continu perforat en les bandes laterals, s'alimentaven emprant un mètode de tracció, imprimien senzilles columnes de text ASCII que s'obtenia per martelleig mecànic damunt del suport i prenien el paper d'una safata davall de la taula i el retornaven en forma de paper plegat en zig-zag -com una «serp»-. La impressió remota consistia en una màquina a l'habitació contigua que enviava fitxers per a imprimir.&newpara; Com ha canviat la tecnologia! Les impressores utilitzen guillotines per a tallar el paper, tenen una intel·ligència integrada per a calcular les imatges de les pàgines que se'ls envien emprant llenguatges molt potents de descripció de pàgines (PDL), moltes d'elles són nodes propis en la xarxa, disposen de CPU, memòria RAM, disc dur i d'un sistema operatiu propi i estan connectades amb una xarxa amb milions d'usuaris potencials...&newpara; És una veritable prova de la flexibilitat del concepte que té &UNIX; de dur a terme les coses, que ha fet que la «Impressió de línies» funcione amb fiabilitat fins i tot davall les condicions modernes. Però a la fi ha arribat l'hora d'alguna cosa nova, l'IPP. </para
+>Terme genèric per a diferents variants del mètode d'impressió tradicional d'&UNIX;. La seua primera versió aparegué en els anys 70 sobre BSD &UNIX; i l'any 1990 es va descriure formalment en un &linkstart;"https://www.ietf.org/rfc/rfc1179.txt"&linkmid;RFC 1179&linkend;.&newpara; En el moment quan es dissenyà per primera vegada la impressió «remota» BSD, les impressores estaven connectades amb ports sèrie o directament connectades amb un servidor (amb una Internet formada per menys de 100 nodes); les impressores empraven paper continu perforat en les bandes laterals, s'alimentaven emprant un mètode de tracció, imprimien columnes senzilles de text ASCII que s'obtenia per martelleig mecànic damunt del suport i prenien el paper d'una safata davall de la taula i el retornaven en forma de paper plegat en zig-zag -com una «serp»-. La impressió remota consistia en una màquina a l'habitació contigua que enviava fitxers per a imprimir.&newpara; Com ha canviat la tecnologia! Les impressores utilitzen guillotines per a tallar el paper, tenen una intel·ligència integrada per a calcular les imatges de les pàgines que se'ls envien emprant llenguatges molt potents de descripció de pàgines (PDL), moltes d'elles són nodes propis en la xarxa, disposen de CPU, memòria RAM, disc dur i d'un sistema operatiu propi i estan connectades amb una xarxa amb milions d'usuaris potencials...&newpara; És una veritable prova de la flexibilitat del concepte que té &UNIX; de dur a terme les coses, que ha fet que la «Impressió de línies» funcione amb fiabilitat fins i tot davall les condicions modernes. Però a la fi ha arribat l'hora d'alguna cosa nova, IPP. </para
 ><glossseealso otherterm="gloss-ipp"
 >IPP</glossseealso
 > <glossseealso otherterm="gloss-cups"
@@ -168,7 +168,7 @@
 >Controladors, controladors d'impressora</glossterm>
                         <glossdef
 ><para
->El terme «controladors d'impressora», emprat en el mateix sentit que en la plataforma &Microsoft; &Windows;, no és totalment aplicable a una plataforma Linux o &UNIX;. La característica del «controlador» sobre &UNIX; és subministrada per diversos components modulars treballant conjuntament. En el cor de tot plegat estan els «filtres», que convertixen un cert format a un altre que puga entendre la impressora de destinació. En la majoria de casos els filtres poden estar connectats en una completa «cadena» de filtratge, en la qual tan sols s'envia a la impressora el resultat de l'últim filtre. La transferència real de dades per a la impressió, es fa a través d'un «dorsal». </para
+>El terme «controladors d'impressora», emprat en el mateix sentit que en la plataforma &Microsoft; &Windows;, no és totalment aplicable a una plataforma Linux o &UNIX;. La característica de «controladors» sobre &UNIX; és subministrada per diversos components modulars treballant conjuntament. En el cor de tot plegat estan els «filtres», que convertixen un cert format a un altre que puga entendre la impressora de destinació. En la majoria de casos els filtres poden estar connectats en una completa «cadena» de filtratge, en la qual tan sols s'envia a la impressora el resultat de l'últim filtre. La transferència real de dades per a la impressió, es fa a través d'un «dorsal». </para
 ><glossseealso otherterm="gloss-filter"
 >Filtre</glossseealso
 > <glossseealso otherterm="gloss-ppd"
@@ -339,7 +339,7 @@
 ></glossterm>
                         <glossdef
 ><para
->Abreviació per a &emstart;I&emend;nternet &emstart;E&emend;ngineering &emstart;T&emend;ask &emstart;F&emend;orce; una assemblea d'Internet, els experts en programari i maquinari hi parlen de noves tecnologies connectades amb una xarxa i molt sovint arriben a conclusions, el qual és considerat per molts com a estàndards. El «TCP/IP» és l'exemple més famós.&newpara; Els estàndards de la IETF, així com els seus esborranys, xerrades, idees i guies d'aprenentatge d'utilitat, són posats per escrit a la famosa sèrie de «RFC», que està disponible al públic i inclòs a la majoria de distribucions Linux i BSD.</para
+>Abreviació per a &emstart;I&emend;nternet &emstart;E&emend;ngineering &emstart;T&emend;ask &emstart;F&emend;orce; una assemblea d'Internet, els experts en programari i maquinari hi parlen de tecnologies noves connectades amb una xarxa i molt sovint arriben a conclusions, el qual és considerat per molts com a estàndards. El «TCP/IP» és l'exemple més famós.&newpara; Els estàndards de la IETF, així com els seus esborranys, xerrades, idees i guies d'aprenentatge d'utilitat, són posats per escrit en la famosa sèrie de «RFC», els quals estan disponibles al públic i inclòs en la majoria de distribucions Linux i BSD.</para
 ><glossseealso otherterm="gloss-ipp"
 >IPP</glossseealso
 > <glossseealso otherterm="gloss-pwg"
@@ -495,7 +495,7 @@
 ></glossterm>
                         <glossdef
 ><para
->Abreviació de &emstart;P&emend;rint &emstart;J&emend;ob &emstart;L&emend;anguage (llenguatge per a la tasca de la impressió); desenvolupat per &HP; per a controlar i influir per defecte, i per als configuracions de les tasques d'una impressora. Açò no tan sols pot ser emprat per a les impressores d'&HP; (PCL-); també moltes &PostScript; i d'altres impressores entenen les ordres PJL enviades a dintre d'una tasca d'impressió o en un senyal a part.</para>
+>Abreviació de &emstart;P&emend;rint &emstart;J&emend;ob &emstart;L&emend;anguage (llenguatge per a la tasca de la impressió); desenvolupat per &HP; per a controlar i influir de manera predeterminada, i per a la configuració de les tasques d'una impressora. Açò no tan sols pot ser emprat per a les impressores d'&HP; (PCL-); també moltes &PostScript; i d'altres entenen les ordres PJL enviades dintre d'una tasca d'impressió o en una senyal a part.</para>
                                 <glossseealso otherterm="gloss-pcl"
 >PCL</glossseealso>
                         </glossdef>
@@ -540,7 +540,7 @@
 >printcap</glossterm>
                         <glossdef
 ><para
->En sistemes d'impressió a l'estil BSD, el fitxer «printcap» gestiona la informació de configuració; el dimoni d'impressió llig este fitxer per a determinar quina impressora està disponible, quins filtres s'utilitzaran per a cadascuna, a on està localitzada la carpeta d'encuament, si hi ha pàgines de rètol que s'utilitzaran, i més... Algunes aplicacions també depenen de l'accés a lectura del fitxer «printcap», per a obtindre els noms de les impressores disponibles. </para>
+>En sistemes d'impressió a l'estil BSD, el fitxer «printcap» gestiona la informació de configuració; el dimoni d'impressió llig este fitxer per a determinar quina impressora està disponible, quins filtres s'utilitzaran per a cadascuna, a on està localitzada la carpeta d'encuament, si hi ha pàgines de rètol que s'utilitzaran, i més... Algunes aplicacions també depenen de l'accés a lectura del fitxer «printcap» per a obtindre els noms de les impressores disponibles. </para>
                                 <glossseealso otherterm="gloss-bsdstyleprinting"
 >Impressió a l'estil BSD</glossseealso>
                         </glossdef>
@@ -569,7 +569,7 @@
 ></glossterm>
                         <glossdef
 ><para
->Abreviació de &emstart;P&emend;rinter &emstart;W&emend;orking &emstart;G&emend;roup; el PWG és una xicoteta agrupació de representants de la indústria de la impressió que, en anys passats, ha desenvolupat diferents normes en relació amb la impressió en xarxa. Estes han sigut posteriorment acceptades per la IETF com a normes RFC, com ara el «Printer-MIB» i l'IPP.</para
+>Abreviació de &emstart;P&emend;rinter &emstart;W&emend;orking &emstart;G&emend;roup; el PWG és una xicoteta agrupació de representants de la indústria de la impressió que, en anys passats, ha desenvolupat diferents normes en relació amb la impressió en xarxa. Estes han sigut posteriorment acceptades per la IETF com a normes RFC, com ara el «Printer-MIB» i IPP.</para
 ><glossseealso otherterm="gloss-postscript"
 >&PostScript;</glossseealso
 > <glossseealso otherterm="gloss-ipp"

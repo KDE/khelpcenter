@@ -142,7 +142,7 @@
 >info</command
 > i <command
 >man</command
->. Els podeu emprar de la següent manera: </para
+>. Els podeu emprar de la manera següent: </para
 > 
 
 <variablelist>
@@ -159,7 +159,7 @@
 ></option
 > </para>
 <para
->Obri el fitxer d'ajuda de &kwrite;, en la pàgina de continguts. </para>
+>Obri el fitxer d'ajuda de &kwrite;, en la pàgina de contingut. </para>
 </listitem>
 </varlistentry>
 
@@ -307,7 +307,7 @@
 ></term>
 <listitem>
 <para
->Una pàgina amb enllaços a ajuda en línia i informació addicional proveïda per la comunitat &kde;. </para>
+>Una pàgina amb enllaços cap a ajuda en línia i informació addicional proveïda per la comunitat &kde;. </para>
 </listitem>
 </varlistentry>
 
@@ -336,7 +336,7 @@
 ></term>
 <listitem>
 <para
->Proporciona una llista d'enllaços als diversos mòduls que es troben en l'aplicació &systemsettings; o a &konqueror;, al gestor de fitxers o navegador. </para>
+>Proporciona una llista d'enllaços cap als diversos mòduls que es troben en l'aplicació &systemsettings; o a &konqueror;, al gestor de fitxers o navegador. </para>
 </listitem>
 </varlistentry>
 
@@ -494,7 +494,7 @@
 >Les pàgines man no són perfectes. Solen ser detallades, però extremadament tècniques i sovint escrites per desenvolupadors i per a desenvolupadors. En alguns casos açò les convertix en difícils, fins i tot arribant a ser incomprensibles per a molts usuaris. Són, però, la millor font d'informació sòlida en la majoria de les aplicacions de línia d'ordres, i molt sovint l'única font.</para>
 
 <para
->Si alguna vegada vos heu preguntat quin significat té el que la gent a vegades escriga coses com man(1), es referixen a la secció del manual a la qual pertany el terme que es busca. Advertiu que &khelpcenter; utilitza nombres per dividir les nombroses pàgines man en seccions, de manera que la busca d'informació siga més senzilla, si senzillament esteu navegant.</para>
+>Si alguna vegada vos heu preguntat quin significat té el que la gent a vegades escriga coses com man(1), es referixen a la secció del manual a la qual pertany el terme que es busca. Advertiu que &khelpcenter; utilitza nombres per a dividir les nombroses pàgines man en seccions, de manera que la busca d'informació siga més senzilla, si senzillament esteu navegant.</para>
 
 <para
 >També estan accessibles les pàgines Info, les quals es pretenia que substituïren a les man. Alguns programadors d'aplicacions ja no actualitzen les pàgines man, de manera que si per a estes aplicacions existix una pàgina man i una altra info, esta última probablement serà la més recent. La majoria d'aplicacions disposen d'una de les dues. Si esteu buscant ajuda per a una aplicació de &GNU;, el més probable siga que la trobeu en una pàgina info i no en una pàgina man.</para>
@@ -637,7 +637,7 @@ Print the contents of the currently visible page.
 <varlistentry>
 <term
 ><guiicon
->Augmenta la mida dels tipus de lletra</guiicon
+>Augmenta la mida de les lletres</guiicon
 ></term>
 <listitem>
 <para
@@ -648,7 +648,7 @@ Print the contents of the currently visible page.
 <varlistentry>
 <term
 ><guiicon
->Minva la mida dels tipus de lletra</guiicon
+>Minva la mida de les lletres</guiicon
 ></term>
 <listitem>
 <para
@@ -818,7 +818,7 @@ Print the contents of the currently visible page.
 <listitem>
 <para
 >Canvia la codificació de la pàgina actual. Normalment, la configuració predeterminada <guimenuitem
->Predeterminat</guimenuitem
+>De manera predeterminada,</guimenuitem
 > hauria de ser suficient, però si teniu problemes per a veure les pàgines escrites en altres idiomes a part de l'anglés, podríeu haver de triar una codificació específica en este menú. </para>
 </listitem>
 </varlistentry>
@@ -1032,12 +1032,12 @@ Print the contents of the currently visible page.
 ><guimenu
 >Configuració</guimenu
 > <guimenuitem
->Configura els tipus de lletra...</guimenuitem
+>Configura les lletres...</guimenuitem
 > </menuchoice>
 </term>
 <listitem>
 <para
->Permet configurar la família i la mida dels tipus de lletra utilitzats per &khelpcenter;. </para>
+>Permet configurar la família i la mida de les lletres utilitzades per &khelpcenter;. </para>
 </listitem>
 </varlistentry>
 </variablelist>
