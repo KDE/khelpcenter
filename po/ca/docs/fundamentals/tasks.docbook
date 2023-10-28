@@ -993,13 +993,13 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 >El &sonnet; és el corrector ortogràfic emprat per les aplicacions &kde; com el &kate;, el &kmail; i el &calligrawords;. És un frontal de la &IGU; per a diversos correctors ortogràfics lliures.</para>
 
 <para
->To use &sonnet; you need to install a spell checker like <application
->&GNU; Aspell</application
+>Per a utilitzar el &sonnet; us caldrà instal·lar un corrector ortogràfic, com <application
+>Aspell de &GNU;</application
 >, <application
 >Hspell</application
-> or <application
+> o <application
 >Hunspell</application
-> and additionally the corresponding dictionaries for the languages that you wish to use.</para>
+> i, a més, els diccionaris corresponents per als idiomes que voleu utilitzar.</para>
 
 <sect2 id="spellcheck-check">
 <title

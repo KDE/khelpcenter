@@ -1046,11 +1046,7 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 >Per usare &sonnet; devi installare dei correttori ortografici come <application
 >&GNU; Aspell</application
 >, <application
->Enchant</application
->, <application
 >Hspell</application
->, <application
->ISpell</application
 > o <application
 >Hunspell</application
 >, e inoltre i corrispondenti dizionari per le lingue che vuoi usare.</para>

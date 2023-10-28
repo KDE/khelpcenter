@@ -1044,11 +1044,7 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 >Щоб скористатися &sonnet;, вам слід встановити програму для перевірки правопису, зокрема <application
 >&GNU; Aspell</application
 >, <application
->Enchant</application
->, <application
 >Hspell</application
->, <application
->ISpell</application
 > або <application
 >Hunspell</application
 >, та словники для мов, якими ви маєте намір користуватися.</para>
