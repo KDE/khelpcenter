@@ -1043,17 +1043,13 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 >&sonnet; es el corrector ortográfico que utilizan las aplicaciones de &kde;, como &kate;, &kmail; y &calligrawords;. Es una presentación de la &GUI; para distintos correctores ortográficos gratuitos.</para>
 
 <para
->Para utilizar &sonnet;, es necesario instalar un corrector ortográfico como <application
+>Para usar &sonnet; es necesario instalar un corrector ortográfico, como <application
 >&GNU;Aspell</application
 >, <application
->Enchant</application
->, <application
 >Hspell</application
->, <application
->ISpell</application
-> or <application
+> o  <application
 >Hunspell</application
-> y también los correspondientes diccionarios para los idiomas que desee utilizar.</para>
+>, además de los correspondientes diccionarios para los idiomas que desee utilizar.</para>
 
 <sect2 id="spellcheck-check">
 <title
@@ -1135,7 +1131,7 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 <para
 >El <guilabel
 >Diccionario personal</guilabel
-> es un diccionario distinto del diccionario del sistema y las aportaciones que realice usted no estarán visibles para los demás.</para>
+> es un diccionario distinto al diccionario del sistema, por lo que las aportaciones que realice no estarán disponibles para los demás.</para>
 
 <para
 >La lista desplegable <guilabel
