@@ -5,6 +5,7 @@
   <project_license>GPL-2.0+</project_license>
   <name>KHelpCenter</name>
   <name xml:lang="ar">مركز مساعدتك</name>
+  <name xml:lang="ast">KHelpCenter</name>
   <name xml:lang="be">Цэнтр даведак KDE</name>
   <name xml:lang="bg">KHelpCenter</name>
   <name xml:lang="ca">KHelpCenter</name>
@@ -53,6 +54,7 @@
   <name xml:lang="zh-TW">KHelpCenter</name>
   <summary>Help Center</summary>
   <summary xml:lang="ar">مركز مساعدة</summary>
+  <summary xml:lang="ast">Centru d'ayuda</summary>
   <summary xml:lang="be">Цэнтр даведак</summary>
   <summary xml:lang="bg">Помощен център</summary>
   <summary xml:lang="ca">Centre d'ajuda</summary>
@@ -104,6 +106,7 @@
       An application to search and read the documentation for all your KDE applications and system utilities
     </p>
     <p xml:lang="ar">تطبيق للبحث عن الوثائق وقراءتها لجميع تطبيقات كِيدِي وأدوات النظام المساعدة</p>
+    <p xml:lang="ast">Una aplicación pa buscar ya lleer la documentación de toles aplicaciones ya utilidaes del sistema de KDE</p>
     <p xml:lang="be">Праграма для пошуку і чытання дакументацыі для ўсіх вашых праграм і сістэмных утыліт KDE</p>
     <p xml:lang="bg">Приложение за търсене и четене на документация за всички приложения и системни инструменти на KDE</p>
     <p xml:lang="ca">Una aplicació per a cercar i llegir la documentació per a totes les aplicacions KDE i utilitats del sistema</p>
@@ -146,6 +149,7 @@
     <p xml:lang="zh-TW">用來搜尋和閱讀所有 KDE 應用程式與系統工具文件的應用程式</p>
     <p>Features:</p>
     <p xml:lang="ar">الميزات:</p>
+    <p xml:lang="ast">Funciones:</p>
     <p xml:lang="be">Магчымасці:</p>
     <p xml:lang="bg">Функции:</p>
     <p xml:lang="ca">Característiques:</p>
@@ -293,6 +297,7 @@
     <screenshot type="default">
       <caption>KHelpCenter main window</caption>
       <caption xml:lang="ar">الشاشة الرئيسة لمركز مساعدتك</caption>
+      <caption xml:lang="ast">La ventana principal de KHelpCenter</caption>
       <caption xml:lang="be">Галоўнае акно KHelpCenter</caption>
       <caption xml:lang="bg">Основен прозорец на KHelpCenter</caption>
       <caption xml:lang="ca">Finestra principal del KHelpCenter</caption>
