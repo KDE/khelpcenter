@@ -153,7 +153,7 @@ void InfoTree::parseInfoDirFile( const QString &infoDirFileName )
   }
   infoDirFile.close();
 
-  for ( InfoCategoryItem *item : qAsConst(alphabSections) ) {
+  for ( InfoCategoryItem *item : std::as_const(alphabSections) ) {
     item->sortChildren( 0, Qt::AscendingOrder );
   }
   m_alphabItem->sortChildren( 0, Qt::AscendingOrder );
