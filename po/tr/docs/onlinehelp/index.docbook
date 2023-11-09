@@ -1,0 +1,122 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Turkish "INCLUDE">
+]>
+<article id="onlinehelp" lang="&language;">
+<title
+>Çevrimiçi Yardım</title>
+<articleinfo>
+
+<date
+>2018-04-01</date>
+<releaseinfo
+>Uygulamalar 18.04</releaseinfo>
+
+</articleinfo>
+
+<para
+>Bu sayfada, &kde; topluluğu tarafından sağlanan çevrimiçi yardım ve ek bilgileri bulmanın farklı yollarını bulabilirsiniz.</para>
+
+<variablelist>
+<title
+>&kde; UserBase</title>
+<varlistentry
+><term
+><ulink url="https://userbase.kde.org/Special:myLanguage/An_introduction_to_KDE"
+>&kde;'ye Bir Giriş</ulink
+>&nbsp;</term>
+<listitem>
+<para
+><ulink url="https://kde.org/community/whatiskde/"
+>&kde; topluluğu ve yazılımları</ulink
+> hakkında bilgi alın ve başlamanızı sağlayacak bilgiye ulaşın. Ayrıca, <ulink url="https://userbase.kde.org/Special:myLanguage/Welcome_to_KDE_UserBase"
+>Kullanıcı Tabanı</ulink
+>'nın ne olduğunu ve size nasıl yardımcı olabileceğini öğrenin. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><ulink url="https://userbase.kde.org/Special:myLanguage/Getting_Help"
+>Yardım Almak</ulink
+>&nbsp;</term>
+<listitem>
+<para
+>Yardıma mı gereksiniminiz var? Sorunlarla ilgili yardım alabileceğiniz bazı önerilen yerlerin yanı sıra aldığınız yanıtların kalitesini nasıl artırabileceğinize dair bazı ipuçlarını burada bulabilirsiniz. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><ulink url="https://userbase.kde.org/Special:myLanguage/Applications"
+>Uygulamalar</ulink
+>&nbsp;</term>
+<listitem>
+<para
+>&kde; Topluluğu tarafından yaratılmış çok sayıda uygulamayı keşfedin. Gereksinimlerinize ve tercihlerinize en uygun uygulamayı bulun. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><ulink url="https://userbase.kde.org/Special:myLanguage/Tutorials"
+>Öğreticiler</ulink
+>&nbsp;</term>
+<listitem>
+<para
+>&kde; yazılımları ile olan deneyiminizi daha keyifli ve üretken kılmanıza yardımcı olacak nasıl yapılırlar, ipuçları ve kestirmeler. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+<variablelist>
+<title
+>&kde; Forumu</title>
+<varlistentry
+><term
+><ulink url="https://discuss.kde.org/"
+>&kde; Topluluğu Forumları</ulink
+>&nbsp;</term>
+<listitem>
+<para
+>&kde; Forumları; &kde; ile ilgilenen kullanıcılar, geliştiriciler ve diğer kişilerin birbirlerine yardım edebileceği, &kde; ile ilgili konuları tartışıp birbirlerine düşüncelerini aktarabileceği bir yer sunar. Forumda <ulink url="https://forum.kde.org/viewforum.php?f=14/"
+>öğreticiler ve ipuçları</ulink
+> bulabilirsiniz.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<variablelist>
+<title
+>&kde; Techbase</title>
+<varlistentry
+><term
+><ulink url="https://techbase.kde.org/"
+>&kde; Techbase</ulink
+>&nbsp;</term>
+<listitem>
+<para
+>Geliştiriciler için bilgiler ve &kde; geliştirme ortamı kurulumu ile ilgili yardım belgeleri.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<variablelist>
+<title
+>&kde; Belgelendirmesi</title>
+<varlistentry
+><term
+><ulink url="https://docs.kde.org/"
+>&kde; Belgelendirmesi</ulink
+>&nbsp;</term>
+<listitem>
+<para
+>Bu sayfa; &kde-frameworks;, &plasma-workspaces; ve &applications; kararlı ve geliştirme yayımları için tüm &kde; kullanıcı belgelendirmesini 25'ten fazla dilde sunar.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</article>
