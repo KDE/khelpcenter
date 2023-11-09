@@ -1,11 +1,13 @@
-# Rebuild 1
+
+# SPDX-FileCopyrightText: 2023 Scarlett Moore <sgmoore@kde.org>
+#
+# SPDX-License-Identifier: CC0-1.0
 ---
 name: khelpcenter
 confinement: strict
 grade: stable
 base: core22
 adopt-info: khelpcenter
-version: '23.08.2'
 apps:
     khelpcenter:
         # extensions:
@@ -55,6 +57,7 @@ plugs:
         target: $SNAP_DATA/foo
 environment:
     SNAP_DESKTOP_RUNTIME: $SNAP/kf5
+    XDG_DATA_DIRS: $SNAP/.local/share:$SNAP/usr/share:$SNAP/kf5/usr/share
 hooks:
     configure:
         plugs:
@@ -139,7 +142,6 @@ parts:
         - "-usr/lib/*/cmake/*"
         - "-usr/include/*"
         - "-usr/share/ECM/*"
-        - "-usr/share/doc/*"
         - "-usr/share/man/*"
         - "-usr/share/icons/breeze-dark*"
         - "-usr/bin/X11"
