@@ -1,0 +1,1111 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" 
+"customization/dtd/kdedbx45.dtd" [
+  <!ENTITY % Turkish "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="khelpcenter" lang="&language;">
+<bookinfo>
+<title
+>&khelpcenter;</title>
+<authorgroup>
+<corpauthor
+>&kde; Takımı</corpauthor>
+<othercredit role="translator"
+><firstname
+>Emir</firstname
+><surname
+>SARI</surname
+><affiliation
+><address
+><email
+>emir_sari@icloud.com</email
+></address
+></affiliation
+><contrib
+>-</contrib
+></othercredit
+> 
+</authorgroup>
+<legalnotice
+>&FDLNotice;</legalnotice>
+<date
+>2016-04-17</date>
+<releaseinfo
+>Uygulamalar 16.04</releaseinfo>
+
+<abstract>
+<para
+>&kde;, masaüstü ve taşınabilir bilgisayarlar için <ulink url="https://www.gnu.org/philosophy/free-sw.html"
+> Özgür Yazılımlar</ulink
+> yaratan uluslararası bir teknoloji takımıdır. &kde;'nin ürünleri arasında &Linux; ve &UNIX; platformları için çağdaş bir masaüstü sistemi, kapsamlı ofis üretkenliği ve grup yazılımı paketleri ve İnternet ve web uygulamaları, çoklu ortam, eğlence, eğitim, grafik ve yazılım geliştirme dahil olmak üzere birçok kategoride yüzlerce yazılım başlığı bulunmaktadır. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdebase</keyword>
+<keyword
+>k yardım merkezi</keyword>
+<keyword
+>kde yardımı</keyword>
+<keyword
+>yardım</keyword>
+<keyword
+>yardım merkezi</keyword>
+<keyword
+>KDE yardım merkezi</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="help-system-handbook">
+<title
+>&kde; Yardım Sistemi El Kitabı</title>
+<anchor id="help"/>
+
+<sect1 id="help-introduction">
+<title
+>Yardım Sistemi</title>
+	
+<para
+>Bu yardım sistemi, ortak &UNIX; yardım sistemlerine (<application
+>man</application
+>, <application
+>info</application
+>) basitçe erişmek ve aynı zamanda &kde; topluluğunun &plasma-workspaces; dahil olmak üzere uygulamaların kullanıcı belgelerine erişmek için tasarlanmıştır (&XML;). </para>
+
+<para
+>&kde; üzerindeki tüm uygulamalar (&plasma-workspaces; dahil), belgelendirme takımının çabalarıyla topluluk tarafından belgelendirilmiştir. Belgelendirmeye yardımcı olmak istiyorsanız <ulink url="https://mail.kde.org/mailman/listinfo/kde-doc-english"
+>e-posta listesine</ulink
+> katılın ve <email
+>kde-doc-english@kde.org</email
+> takımına bir ileti gönderin. Hiçbir deneyim gerekmez, yalnızca coşku ve sabır yeterlidir. </para>
+
+<para
+>&kde; belgelendirmesini ana dilinize çevirmeye yardımcı olmak isterseniz her bir dil ekibi için koordinatörleri de içeren bilgilere <ulink url="http://l10n.kde.org"
+>yerelleştirme web sitesi</ulink
+> üzerinden göz atın. </para>
+
+</sect1>
+
+<sect1 id="invoking-help">
+<title
+>Yardımı Çağırmak</title>
+
+<para
+>&khelpcenter; bir kaç farklı yolla başlatılabilir: </para>
+
+<variablelist
+> 
+<varlistentry
+> 
+<term
+><guimenu
+>Yardım</guimenu
+> menüsünden</term
+> 
+<listitem>
+<para
+>En yaygını genelde uygulamanın içinden olandır. Uygulamanın el kitabını açmak için <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>F1</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Yardım</guimenu
+> <guimenuitem
+><replaceable
+>Uygulama</replaceable
+> El Kitabı</guimenuitem
+></menuchoice
+> menü ögesini kullanın. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Uygulama Başlatıcısından</term>
+<listitem>
+<para
+>Panelinizdeki <guiicon
+>Plasma</guiicon
+> simgesine tıklayın ve <guimenuitem
+>Uygulamalar</guimenuitem
+> sekmesinden <guimenuitem
+>Yardım</guimenuitem
+>'ı seçin veya <userinput
+>help</userinput
+> yazıp <guimenuitem
+>Yardım</guimenuitem
+>'ı seçin. Bu, öntanımlı başlangıç sayfasıyla &khelpcenter; uygulamasını açar. </para>
+</listitem
+> 
+</varlistentry>
+
+<varlistentry>
+<term
+>Komut satırından</term>
+<listitem>
+<para
+>&khelpcenter;, bir dosyayı görüntülemek için bir &URL; kullanılarak başlatılabilir. &URL;'ler aynı zamanda <command
+>info</command
+> ve <command
+>man</command
+> sayfalarına da eklenmiştir. Onları şöyle kullanabilirsiniz: </para
+> 
+
+<variablelist>
+<varlistentry>
+<term
+>Bir uygulama yardım dosyası</term>
+<listitem>
+<para
+><command
+>khelpcenter</command
+> <option
+>help:/<replaceable
+>kwrite</replaceable
+></option
+> </para>
+<para
+>İçindekiler sayfasında &kwrite; yardım dosyasını açar. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Yerel bir &URL;</term>
+<listitem
+><para
+><command
+>khelpcenter</command
+> <option
+>file:/<replaceable
+>usr/local/src/qt/html/index.html</replaceable
+></option
+> </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Bir man sayfası</term>
+<listitem>
+<para
+><command
+>khelpcenter</command
+> <option
+>man:/<replaceable
+>strcpy</replaceable
+></option
+> </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Bir info sayfası</term>
+<listitem>
+<para
+><command
+>khelpcenter</command
+> <option
+>info:/<replaceable
+>gcc</replaceable
+></option
+> </para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+><command
+>khelpcenter</command
+> uygulamasını bir parametre olmadan çağırmak, öntanımlı başlangıç sayfasını açar. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+</sect1>
+
+<sect1 id="interface-basics">
+<title
+>&khelpcenter; arayüzü</title>
+
+<para
+>&khelpcenter; arayüzü, iki adet bilgi bölmesinden oluşur. </para>
+
+<para
+>Araç çubukları ve menüler ayrıntılı olarak <xref linkend="menu-and-toolbar-ref"/> adresinde açıklanmıştır. </para>
+
+<para
+>Belgeler, <guilabel
+>Sonraki</guilabel
+>, <guilabel
+>Önceki</guilabel
+> ve <guilabel
+>İçindekiler</guilabel
+> bağlantılarından ulaşılabilen kendi dolaşım araçlarını içerir; böylece bir belge içinde bu bağlantılarla veya diğer köprülerle kolaylıkla dolaşabilirsiniz. </para>
+
+<para
+>Bağlantılar sizi aynı belgenin başka kısımlarına veya başka bir belgeye götürebilir. Aynı oturumda görüntülediğiniz belgeler arasında, araç çubuğundaki <guiicon
+>Geri</guiicon
+> (sol ok) veya <guiicon
+>İleri</guiicon
+> (sağ ok) simgelerini kullanarak dolaşabilirsiniz. </para
+> 
+
+<para
+>İki panel, sırasıyla solda ve sağda yardım sisteminin içeriğini ve yardım dosyalarının kendisini görüntüler. </para>
+
+<sect2 id="contents-pane">
+<title
+>İçindekiler Bölmesi</title>
+
+<para
+>&khelpcenter; içindekiler bölmesi pencerenin sol tarafında görüntülenir. Tahmin edebileceğiniz gibi, her iki bölmenin içeriğini rahatça okuyabildiğinizden emin olmak için ayırma çubuğunu hareket ettirebilirsiniz. </para
+> 
+
+<para
+>İçindekiler bölmesi, üç ek sekmeye ayrılmıştır; bunlardan biri, tüm yardım bilgisini ve &khelpcenter; uygulamasını gösteren bir <link linkend="contents-tab"
+>ağaç görünümü</link
+>, diğeriyse &kde; terimler <link linkend="kde-glossary"
+>sözlüğüdür</link
+>. Üçüncü sekmedeyse <guilabel
+>Arama Seçenekleri</guilabel
+>'ni yapılandırabilirsiniz. </para>
+
+<sect3 id="contents-tab">
+<title
+>İçindekiler Sekmesi</title>
+
+<para
+><guilabel
+>İçindekiler</guilabel
+> sekmesi, ağaç görünümünde aşağıdaki öntanımlı üst düzey girdileri içerir: </para
+> 
+
+<variablelist>
+
+<varlistentry>
+<term
+><guilabel
+>Temel Bilgiler</guilabel
+></term>
+<listitem>
+<para
+>Temel Bilgiler, size &plasma-workspaces; ve &applications; ögelerinin birçok özelliği ile ilgili bilgilendirecek ve &applications; içinde yapabileceğiniz bir çok şeyi anlatacaktır. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Plasma Kılavuzu</guilabel
+></term>
+<listitem>
+<para
+>&plasma; kılavuzu, &plasma-workspaces; belgelendirmesidir. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Çevrimiçi Yardım</guilabel
+></term>
+<listitem>
+<para
+>&kde; topluluğu tarafından sağlanan çevrimiçi yardıma ve ek bilgilere bağlantılar içeren bir sayfa. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Uygulama Kılavuzları</guilabel
+></term>
+<listitem>
+<para
+>Yerel &kde; uygulamaları belgelendirmeleri. Tüm &kde; uygulamalarının &XML; biçiminde belgelendirmesi vardır ve bunlar görüntülenirken <acronym
+>HTML</acronym
+>'ye dönüştürülür. Bu bölüm, kısa bir açıklama ve tam uygulama belgelerine bir bağlantıyla tüm &kde; uygulamalarını listeler. </para>
+<para
+>Uygulamalar, aradığınız uygulamayı bulmayı kolaylaştıran <guimenu
+>Plasma</guimenu
+> menüsünün öntanımlı yapısını yansıtan bir ağaç yapısında görüntülenir. </para>
+</listitem
+> 
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Ayarlar Modülü</guilabel
+> varlıkları</term>
+<listitem>
+<para
+>&systemsettings; uygulamasındaki çeşitli modüllere veya &konqueror;, Dosya Yöneticisi veya Tarayıcı modüllerine bağlantılar listesi sağlar. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>K Bilgi Merkezi Modülleri</guilabel
+></term>
+<listitem>
+<para
+>Çeşitli K Bilgi Merkezi modülleri belgelendirmesine bağlantılar listesi içerir. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>KIO İşçileri</guilabel
+></term>
+<listitem>
+<para
+>Çeşitli <acronym
+>KIO</acronym
+> modülleri belgelendirmelerine bağlantılar listesi içerir. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>&UNIX; kılavuz sayfaları</guilabel
+></term>
+<listitem>
+<para
+>&UNIX; kılavuz sayfaları, &UNIX; sistemlerinin geleneksel belgelendirme biçimidir. Sisteminizdeki çoğu programın bir kılavuz sayfası vardır. Buna ek olarak, programlama işlevleri ve dosya biçimleri için de kılavuz sayfaları vardır. </para>
+</listitem
+> 
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Scrollkeeper</guilabel
+></term>
+<listitem>
+<para
+>Sisteminizde kurulu olan &kde; dışı programların ek belgelendirmeleri. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Bilgi Sayfalarına Göz At</guilabel
+></term>
+<listitem>
+<para
+>TeXinfo belgeleri; <command
+>gcc</command
+> (C/C++ derleyicisi), <command
+>emacs</command
+> ve diğerlerini içeren birçok &GNU; uygulaması tarafından kullanılır. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect3>
+
+<sect3 id="search">
+<title
+><guilabel
+>Arama Seçenekleri</guilabel
+> sekmesi</title>
+
+<para
+>Yardım dosyalarını aramak oldukça basittir, aramak istediğiniz sözcükleri metin kutusuna girin, seçeneklerinizi seçin (varsa) ve <guibutton
+>Ara</guibutton
+> düğmesine basın. Sonuçlar sağdaki görüntüleyici bölmesinde görüntülenir. </para>
+<note
+><para
+>Arama, BÜYÜK/küçük harf duyarlı değildir; &ie; büyük ve küçük harf karakterleri aynı kabul edilir. Örneğin, <quote
+>Kısayol</quote
+> için arama yaparsanız, <quote
+>kısayol</quote
+> içeren sonuçlar da döndürülür.</para
+></note>
+<!--no wildcards? -->
+
+<para
+>Kullanılabilir seçenekler şunlardır:</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Yöntem</guilabel
+></term>
+<listitem>
+<para
+>Birden çok sözcüğü nasıl arayacağınızı seçin. <guilabel
+>ve</guilabel
+> seçerseniz yalnızca tüm arama terimleriniz sayfaya dahil edildiğinde sonuçlar döndürülür. <guilabel
+>veya</guilabel
+>, arama terimlerinin <emphasis
+>herhangi biri</emphasis
+> bulunduğu takdirde sonuçları döndürür. </para
+> 
+<para
+>Aramalarınız beklediğiniz sonuçları getirmiyorsa hatalı bir ayarla yanlış arama terimini dışarıda tutmadığınızı dikkatlice denetleyin. </para
+></listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>En çok sonuç sayısı</guilabel
+></term>
+<listitem
+><para
+>Aramanızdan döndürülen en çok sonuç sayısını belirler.</para
+></listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Kapsam seçimi</guilabel
+></term>
+<listitem
+><para
+>Bu, aramanın yapılacağı bölümleri seçmek için kullanılır. Kullanılabilir seçenekler hızlı bir şekilde en yaygın seçeneği, <guimenuitem
+>Özel</guimenuitem
+> ise tek bir bölüm seçilmesine olanak tanır. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect3>
+
+
+</sect2>
+
+<sect2 id="man-and-info">
+<title
+><application
+>Man</application
+> ve <application
+>Info</application
+> bölümleri</title>
+
+<para
+>Man sayfaları standart &UNIX; kılavuz sayfalarıdır ve uzun yıllardır birçok işletim sisteminde kullanılmaktadır. Bunlar son derece kapsamlıdır ve çoğu &UNIX; komut ve uygulaması hakkında bilgi almak için en iyi yerdir. İnsanlar <quote
+>RTFM</quote
+> (Siktiğimin Kılavuz Sayfasını Oku) derken, genellikle kılavuz sayfalarını kastederler.</para>
+
+<para
+>Man sayfaları mükemmel değillerdir. Genellikle geliştiriciler tarafından ve geliştiriciler için yazılan, derinlemesine; ancak aynı zamanda son derece teknik olma eğilimindedirler. Bazı durumlarda bu, çoğu kullanıcının anlamasını tümüyle olanaksız olmasa da, onları olabildiğince güç kılar. Ancak bunlar çoğu komut satırı uygulaması için en sağlam ve genellikle tek bilgi kaynaklarıdırlar.</para>
+
+<para
+>İnsanlar man(1) gibi şeyler yazdıklarında sayının ne olduğunu merak ederseniz bu o ögenin kılavuzun hangi bölümünde olduğu anlamına gelir. &khelpcenter; çok sayıda kılavuz sayfasını kendi bölümlerine bölmek için sayıları kullanır, yalnızca göz atıyorsanız aradığınız bilgiyi bulmanızı kolaylaştırır.</para>
+
+<para
+>Ayrıca man sayfalarının yerini alması amaçlanan info sayfaları da kullanılabilirdir. Bazı uygulamaların bakımcıları artık man sayfalarını güncellememektedir, dolayısıyla hem man sayfası hem de bilgi sayfası varsa bilgi sayfası büyük olasılıkla en yeni olanıdır. Çoğu uygulamada biri veya diğeri vardır. Yardım aradığınız uygulama bir &GNU; izlencesiyse büyük olasılıkla bu uygulamanın bir man sayfası değil, bir info sayfası olduğunu göreceksiniz.</para>
+
+<sect3 id="navigation">
+<title
+><application
+>Info</application
+> sayfalarında dolaşmak</title>
+
+<para
+>Info belgeleri, her birine düğüm adı verilen sayfalarla oluşturulmuşlardır. Tüm info belgelerinin bir <guilabel
+>Üst</guilabel
+> düğümü; &ie; açılış sayfası vardır. Bir info belgesinin <guilabel
+>Üst</guilabel
+> bölümüne <guilabel
+>Üst</guilabel
+>'e basarak gidebilirsiniz.</para>
+
+<para
+><guibutton
+>Önceki</guibutton
+> ve <guibutton
+>Sonraki</guibutton
+> düğmeleri, hiyerarşinin güncel düzeyinde önceki/sonraki sayfaya gitmek için kullanılır.</para>
+
+<para
+>Bir belge içindeki bir menü ögesine tıklamak, sizi hiyerarşideki daha düşük bir düzeye taşır. <guibutton
+>Yukarı</guibutton
+> düğmesine basarak hiyerarşide yukarı çıkabilirsiniz.</para>
+
+<para
+>man de info'ya benzer şekilde ele alınır; bölüm dizini üst düğümdür ve her man sayfası bir alt düzeydedir. man girdileri bir sayfa uzunluğundadır.</para>
+
+</sect3>
+</sect2>
+
+<sect2 id="kde-glossary">
+<title
+>&kde; kavram dizini</title>
+
+<para
+>Kavram dizini, size tanıdık gelmeyen sözcüklerin tanımlarını arayabileceğiniz hızlı bir başvuru noktası sağlar. Bunlar &kde;'ye özgü uygulama ve teknolojilerden genel &UNIX; bilgi işlem terimlerine kadar uzanır. </para>
+
+<para
+>Sol bölmede, iki seçenekten oluşan bir ağaç görünümü göreceksiniz: <guilabel
+>Abecesel</guilabel
+> veya <guilabel
+>Konuya Göre</guilabel
+>. Her ikisi de, ilgili ögeyi hızlı bir şekilde bulmanıza izin vermek için farklı girdilere sahip aynı girdileri içerir. </para>
+
+<para
+>Ağaç görünümlerinde sola doğru ilerleyin; seçtiğiniz ögeler sağda görüntülenecektir. </para>
+
+</sect2>
+
+<sect2 id="menu-and-toolbar-ref">
+<title
+>Menüler ve araç çubukları</title>
+
+<para
+>&khelpcenter;, yardım tarayıcısını nasıl kullanacağınızı öğrenmek yerine yardım almaya konsantre olmanızı sağlayan çok minimal bir arayüze sahiptir. </para>
+
+<para
+>Araç çubuğunda bulunan simgeler şunlardır: </para>
+
+<variablelist>
+<title
+>Araç Çubuğu Simgeleri</title>
+
+<varlistentry>
+<term
+><guiicon
+>İçindekiler</guiicon
+></term>
+<listitem>
+<para
+>&khelpcenter; başlangıç sayfasına gidin. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guiicon
+>Geri</guiicon
+></term>
+<listitem>
+<para
+>Görüntülediğiniz önceki sayfaya gidin. Simgenin sağındaki onay işaretine tıklayın. Bu, daha önce görüntülenen sayfaların bir listesini görüntüler. Birini seçtiğinizde doğrudan o sayfaya geri dönersiniz. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guiicon
+>İleri</guiicon
+></term>
+<listitem>
+<para
+>Bir sayfa ileri gidin. Bu simge yalnızca halihazırda <guiicon
+>Geri</guiicon
+> simgesini kullandıysanız etkindir. </para>
+</listitem>
+</varlistentry>
+<!--
+<varlistentry>
+<term
+><guiicon
+>Print Frame</guiicon
+></term>
+<listitem>
+<para>
+Print the contents of the currently visible page.
+</para>
+</listitem>
+</varlistentry>
+-->
+<varlistentry>
+<term
+><guiicon
+>Kopyala</guiicon
+></term>
+<listitem>
+<para
+>Metni başka bir uygulamaya yapıştırabilmek için panoya kopyalayın. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guiicon
+>Bul</guiicon
+></term>
+<listitem>
+<para
+>Şu anda görünen sayfadaki bir sözcüğü veya sözcükleri bulun. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guiicon
+>Yazıtipi Boyutunu Büyüt</guiicon
+></term>
+<listitem>
+<para
+>Görüntüleyici bölmesindeki metnin boyutunu artırın. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guiicon
+>Yazıtipi Boyutunu Küçült</guiicon
+></term>
+<listitem>
+<para
+>Görüntüleyici bölmesindeki metnin boyutunu azaltın. Bu simge yalnızca metni daha önce büyüttüyseniz etkinleştirilir. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>Menüler aşağıdaki girdileri içerir: </para>
+
+<variablelist>
+<varlistentry>
+<term
+><guimenu
+>Dosya</guimenu
+></term>
+<listitem>
+
+<variablelist>
+
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Dosya</guimenu
+> <guimenuitem
+>Yazdır</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Şu anda görünür olan sayfanın içeriğini yazdırın. El kitaplarını <acronym
+>PDF</acronym
+> biçiminde <ulink url="https://docs.kde.org/index.php?language=en"
+> &kde; Belgelendirme Sunucusu</ulink
+>'nda bulabilirsiniz. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Dosya</guimenu
+> <guimenuitem
+>Çık</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>&khelpcenter; uygulamasını kapat ve çık </para>
+</listitem>
+</varlistentry>
+</variablelist>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<variablelist>
+<varlistentry>
+<term
+><guimenu
+>Düzen</guimenu
+></term>
+<listitem>
+
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Düzen</guimenu
+><guimenuitem
+>Kopyala</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Seçili metni panoya kopyalayın. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>A</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Düzen</guimenu
+> <guimenuitem
+>Tümünü Seç</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Geçerli sayfadaki tüm metni seçin. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>F</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Düzen</guimenu
+> <guimenuitem
+>Bul...</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Şu anda görünen sayfadaki bir sözcüğü veya sözcükleri bulun. </para>
+</listitem>
+</varlistentry>
+</variablelist>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<variablelist>
+<varlistentry>
+<term
+><guimenu
+>Görünüm</guimenu
+></term>
+<listitem>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Görünüm</guimenu
+> <guisubmenu
+>Kodlamayı Ayarla</guisubmenu
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Geçerli sayfanın kodlamasını değiştirin. Normalde <guimenuitem
+>Öntanımlı</guimenuitem
+> ayarı yeterli olmalıdır; ancak İngilizce dışındaki dillerde yazılmış sayfaları görüntülemekte sorun yaşıyorsanız bu menüde belirli bir kodlama seçmeniz gerekebilir. </para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Görünüm</guimenu
+> <guisubmenu
+>Tam Ekran Kipi</guisubmenu
+> </menuchoice>
+</term>
+<listitem>
+<para
+>&khelpcenter; uygulamasını tam ekran kipine geçirir. Bu kipte, &khelpcenter; tüm ekranı kaplar ve pencere dekorasyonları görünmez. Tam ekran kipinden çıkmak için <keycombo action="simul"
+>&Ctrl;&Shift; <keycap
+>F</keycap
+></keycombo
+> kısayolunu kullanın. </para>
+</listitem>
+</varlistentry>
+</variablelist>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<variablelist>
+<varlistentry>
+<term
+><guimenu
+>Git</guimenu
+></term>
+<listitem>
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Alt;<keycap
+>Baş</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Git</guimenu
+> <guimenuitem
+>İçindekiler</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>&khelpcenter; başlangıç sayfasına gidin. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Sayfa Yukarı</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Git</guimenu
+> <guimenuitem
+>Önceki Sayfa</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>Geçerli belgelendirmenin önceki sayfasına gidin. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Sayfa Aşağı</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Git</guimenu
+> <guimenuitem
+>Sonraki Sayfa</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>Geçerli belgelendirmenin sonraki sayfasına gidin. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Alt;<keysym
+>Sol</keysym
+></keycombo
+></shortcut
+> <guimenu
+>Git</guimenu
+> <guimenuitem
+>Geri</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>Görüntülediğiniz önceki sayfaya geri dönün.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Alt;<keysym
+>Sağ</keysym
+></keycombo
+></shortcut
+> <guimenu
+>Git</guimenu
+> <guimenuitem
+>İleri</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Daha önce geri simgesiyle veya menü girdisiyle geri döndüyseniz bu menü girdisiyle yeniden ileri doğru ilerleyebilirsiniz.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+<variablelist id="bookmarks-menu">
+
+<varlistentry>
+<term
+><guimenu
+>Yer İmleri</guimenu
+></term>
+<listitem>
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>B</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Yer İmleri</guimenu
+> <guimenuitem
+>Yer İmi Ekle</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>Geçerli sayfa için bir yer imi ekleyin; sayfaların başlığı yer imleri menüsüne eklenir. Bir ögeyi menüden kaldırmak için bağlam menüsündeki <guimenuitem
+>Yer İmini Sil</guimenuitem
+> ögesini kullanın. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Yer İmleri</guimenu
+> <guimenuitem
+>Yeni Yer İmleri Klasörü</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>Yer imleri menüsüne yeni alt menü ögeleri ekleyebileceğiniz <guilabel
+>Yeni Klasör</guilabel
+> iletişim kutusunu açın. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<variablelist>
+<varlistentry>
+<term
+><guimenu
+>Ayarlar</guimenu
+></term>
+<listitem>
+
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice
+><guimenu
+>Ayarlar</guimenu
+> <guimenuitem
+>Yazıtiplerini Yapılandır...</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>&khelpcenter; tarafından kullanılan yazıtipi ailesini ve boyutunu yapılandırmanıza izin verir. </para>
+</listitem>
+</varlistentry>
+</variablelist>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Ek olarak &khelpcenter;, temel &kde; <guimenu
+>Ayarlar</guimenu
+> ve <guimenu
+>Yardım</guimenu
+> menü ögelerine sahiptir; daha fazla bilgi için &kde; Temelleri'nin <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Ayarlar Menüsü</ulink
+> ve <ulink url="help:/fundamentals/menus.html#menus-help"
+>Yardım Menüsü</ulink
+> bölümlerine bakın. </para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="credits">
+<title
+>Emeği Geçenler ve Lisans</title>
+
+<para
+>&khelpcenter;</para>
+
+<para
+>Özgün olarak &Matthias.Elter; &Matthias.Elter.mail; tarafından geliştirilmiştir.</para>
+<para
+>Şu anki bakımcı: &Cornelius.Schumacher; &Cornelius.Schumacher.mail;</para>
+
+<para
+>Çeviri: Emir SARI <email
+>emir_sari@icloud.com</email
+></para
+> &underFDL; &underGPL; </sect1>
+</chapter>
+
+
+</book>
+
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: sgml
+sgml-omittag:t
+sgml-shorttag:nil
+sgml-namecase-general:t
+sgml-general-insert-case:lower
+sgml-always-quote-attributes:t
+End:
+-->
+
