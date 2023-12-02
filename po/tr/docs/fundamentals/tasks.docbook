@@ -1605,14 +1605,14 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 </authorgroup>
 </sect1info>
 <title
->Yazı Tiplerini Seçmek</title>
+>Yazıtiplerini Seçmek</title>
 
 <para
->Yazı tipi seçici birçok &kde; uygulamasında kullanılır. Bu araç, uygulamanızda metinlerin gösterileceği yazı tipi görünümünü, biçimini ve boyutunu seçmenizi sağlar.</para>
+>Yazıtipi seçicisi birçok &kde; uygulamasında kullanılır. Bu araç, uygulamanızda metinlerin gösterileceği yazıtipi görünümünü, biçimini ve boyutunu seçmenizi sağlar.</para>
 
 <screenshot id="screenshot-fonts">
 <screeninfo
->Yazı Tipi Seçici</screeninfo>
+>Yazıtipi Seçicisi</screeninfo>
 <mediaobject>
 <imageobject
 ><imagedata fileref="fonts.png" format="PNG"/></imageobject>
@@ -1649,7 +1649,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 ></term>
 <listitem>
 <para
->Bu, ortadali seçim kutusudur ve aşağıdaki seçenekler arasından yazıtipi biçemini seçmenizi sağlar:</para>
+>Bu, ortadaki seçim kutusudur ve aşağıdaki seçenekler arasından yazıtipi biçemini seçmenizi sağlar:</para>
 <itemizedlist>
 
 <listitem
@@ -1669,7 +1669,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 <listitem
 ><para
 ><guilabel
->Kalın Yatıl</guilabel
+>Kalın Yatık</guilabel
 > - hem <guilabel
 >Kalın</guilabel
 > hem de <guilabel
