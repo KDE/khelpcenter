@@ -25,7 +25,7 @@ using namespace KHC;
 Application::Application(int& argc, char** argv)
     : QApplication(argc, argv), mMainWindow( nullptr )
 {
-  KLocalizedString::setApplicationDomain("khelpcenter5");
+  KLocalizedString::setApplicationDomain("khelpcenter6");
 
   mCmdParser.addPositionalArgument( QStringLiteral("url"), i18n( "Documentation to open" ) );
 
