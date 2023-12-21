@@ -73,13 +73,13 @@ class LogDialog : public QDialog
       connect( buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject );
       mainLayout->addWidget( buttonBox );
 
-      KConfigGroup cg = KSharedConfig::openConfig()->group( "logdialog" );
+      KConfigGroup cg = KSharedConfig::openConfig()->group( QStringLiteral("logdialog") );
       KWindowConfig::restoreWindowSize( windowHandle(), cg );
     }
 
     ~LogDialog()
     {
-      KConfigGroup cg = KSharedConfig::openConfig()->group( "logdialog" );
+      KConfigGroup cg = KSharedConfig::openConfig()->group( QStringLiteral("logdialog") );
       KWindowConfig::saveWindowSize(windowHandle(), cg);
     }
 

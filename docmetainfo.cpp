@@ -123,7 +123,7 @@ QString DocMetaInfo::languageName( const QString &langcode )
   qCDebug(KHC_LOG) << "-- langcode: " << langcode << " cfgfile: " << cfgfile;
 
   KConfig _cfg( cfgfile, KConfig::SimpleConfig );
-  KConfigGroup cfg(&_cfg, "KCM Locale" );
+  KConfigGroup cfg(&_cfg, QStringLiteral("KCM Locale") );
   const QString name = cfg.readEntry( "Name", langcode );
 
   return name;

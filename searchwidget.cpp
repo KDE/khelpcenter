@@ -97,7 +97,7 @@ SearchWidget::~SearchWidget()
 
 void SearchWidget::readConfig( KConfig *cfg )
 {
-  KConfigGroup searchGroup(cfg, "Search");
+  KConfigGroup searchGroup(cfg, QStringLiteral("Search"));
   int scopeSelection = searchGroup.readEntry( "ScopeSelection", (int)ScopeDefault );
   mScopeCombo->setCurrentIndex( scopeSelection );
   if ( scopeSelection != ScopeDefault ) scopeSelectionChanged( scopeSelection );
@@ -106,7 +106,7 @@ void SearchWidget::readConfig( KConfig *cfg )
   mPagesCombo->setCurrentIndex( Prefs::maxCount() );
 
   if ( scopeSelection == ScopeCustom ) {
-    KConfigGroup searchScopeGroup(cfg, "Custom Search Scope" );
+    KConfigGroup searchScopeGroup(cfg, QStringLiteral("Custom Search Scope" ));
     QTreeWidgetItemIterator it( mScopeListView );
     while( *it ) {
       if ( (*it)->type() == ScopeItem::ScopeItemType ) {
@@ -124,14 +124,14 @@ void SearchWidget::readConfig( KConfig *cfg )
 
 void SearchWidget::writeConfig( KConfig *cfg )
 {
-  KConfigGroup cg (cfg, "Search");
+  KConfigGroup cg (cfg, QStringLiteral("Search"));
 
   cg.writeEntry( "ScopeSelection", mScopeCombo->currentIndex() );
   Prefs::setMethod( mMethodCombo->currentIndex() );
   Prefs::setMaxCount( mPagesCombo->currentIndex() );
 
   if ( mScopeCombo->currentIndex() == ScopeCustom ) {
-    KConfigGroup cg2 (cfg, "Custom Search Scope");
+    KConfigGroup cg2 (cfg, QStringLiteral("Custom Search Scope"));
     QTreeWidgetItemIterator it( mScopeListView );
     while( (*it) ) {
       if ( (*it)->type() == ScopeItem::ScopeItemType ) {
