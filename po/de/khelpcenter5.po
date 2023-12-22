@@ -4,19 +4,21 @@
 # Frederik Schwarzer <schwarzer@kde.org>, 2009, 2011, 2012, 2016.
 # Rolf Eike Beer <kde@opensource.sf-tec.de>, 2012.
 # Burkhard Lück <lueck@hube-lueck.de>, 2014, 2018, 2019, 2020.
+# Johannes Obermayr <johannesobermayr@gmx.de>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-21 01:40+0000\n"
-"PO-Revision-Date: 2020-10-17 07:43+0200\n"
-"Last-Translator: Burkhard Lück <lueck@hube-lueck.de>\n"
+"PO-Revision-Date: 2023-12-18 15:48+0100\n"
+"Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -39,10 +41,9 @@ msgid "Help Center"
 msgstr "KDE-Hilfezentrum"
 
 #: application.cpp:106
-#, fuzzy, kde-format
-#| msgid "(c) 1999-2020, The KHelpCenter developers"
+#, kde-format
 msgid "(c) 1999-2023, The KHelpCenter developers"
-msgstr "© 1999–2020, die Entwickler von KHelpCenter"
+msgstr "© 1999–2023, die Entwickler von KHelpCenter"
 
 #: application.cpp:108
 #, kde-format
@@ -345,13 +346,13 @@ msgstr "Suchindex wird aktualisiert .... fertig."
 #: printdoc.cpp:60
 #, kde-format
 msgid "Could not generate print preview."
-msgstr ""
+msgstr "Die Druckvorschau konnte nicht erstellt werden."
 
 #: printdoc.cpp:96
 #, kde-format
 msgctxt "@title:window"
 msgid "Print Document"
-msgstr ""
+msgstr "Dokument drucken"
 
 #: searchengine.cpp:59
 #, kde-format
@@ -454,10 +455,9 @@ msgid "unknown"
 msgstr "Unbekannt"
 
 #: view.cpp:270
-#, fuzzy, kde-format
-#| msgid "Start Page"
+#, kde-format
 msgid "Save Page"
-msgstr "Startseite"
+msgstr "Seite speichern"
 
 #~ msgid "Previous Page"
 #~ msgstr "Vorherige Seite"
