@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-21 01:40+0000\n"
-"PO-Revision-Date: 2023-11-07 21:27+0100\n"
+"PO-Revision-Date: 2023-12-18 22:42+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
-"Language-Team: \n"
+"Language-Team: Assamese <alministradores@softastur.org>\n"
 "Language: ast\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -144,7 +144,7 @@ msgstr ""
 #: fontdialog.cpp:126
 #, kde-format
 msgid "Encoding"
-msgstr ""
+msgstr "Codificación"
 
 #: fontdialog.cpp:131
 #, kde-format
@@ -185,7 +185,7 @@ msgstr ""
 #, kde-format
 msgctxt "%1 is a glossary term"
 msgid "KDE Glossary: %1"
-msgstr ""
+msgstr "Glosariu de KDE: %1"
 
 #: grantleeformatter.cpp:101
 #, kde-format
@@ -303,7 +303,7 @@ msgstr ""
 #: navigator.cpp:117
 #, kde-format
 msgid "&Contents"
-msgstr ""
+msgstr "&Conteníu"
 
 #: navigator.cpp:127
 #, kde-format
@@ -313,27 +313,27 @@ msgstr ""
 #: navigator.cpp:135
 #, kde-format
 msgid "G&lossary"
-msgstr ""
+msgstr "G&losariu"
 
 #: navigator.cpp:456
 #, kde-format
 msgid "Start Page"
-msgstr ""
+msgstr "Páxina d'ayuda"
 
 #: navigator.cpp:457
 #, kde-format
 msgid "KDE Help Center"
-msgstr ""
+msgstr "Centru d'ayuda de KDE"
 
 #: navigator.cpp:539
 #, kde-format
 msgid "Unable to run search program."
-msgstr ""
+msgstr "Nun ye posible executar el programa d'ayuda."
 
 #: navigator.cpp:632
 #, kde-format
 msgid "Updating search index..."
-msgstr ""
+msgstr "Anovando l'indiz de busca…"
 
 #: navigator.cpp:643
 #, kde-format
