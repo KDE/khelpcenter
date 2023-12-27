@@ -1,6 +1,6 @@
 # translation of khelpcenter.po to Polish
 # translation of khelpcenter.po to
-# Version: $Revision: 1662816 $
+# Version: $Revision: 1668235 $
 # Norbert Popiołek <norbert@kde.com.pl>
 # Piotr Roszatycki <dexter@debian.org>, 1997-2000.
 # Michał Rudolf <mrudolf@kdewebdev.org>, 2002.
