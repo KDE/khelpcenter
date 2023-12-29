@@ -580,7 +580,7 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 ></term>
 <listitem
 ><para
->Yer imlerine eklenen konumlara, disklere veya diğer ortamlara hızlı erişim sağlayan yerler panelini görüntüler.</para
+>Yer imlerine eklenen konumlara, disklere veya diğer ortamlara tez erişim sağlayan yerler panelini görüntüler.</para
 ></listitem>
 </varlistentry>
 
@@ -651,9 +651,9 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 <para
 >Öntanımlı olan <quote
 >kırıntı</quote
-> kipinde, geçerli klasörün yolundaki her klasör adı, o klasörü hızlı bir şekilde açmak için tıklanabilen bir düğmedir. Ayrıca, bir klasörün sağındaki <quote
+> kipinde, geçerli klasörün yolundaki her klasör adı, o klasörü tez açmak için tıklanabilen bir düğmedir. Ayrıca, bir klasörün sağındaki <quote
 >&gt;</quote
-> işaretine tıklamak, o klasörün bir alt klasörünün hızlı bir şekilde açılmasını sağlayan bir menü açar. </para>
+> işaretine tıklamak, o klasörün bir alt klasörünün tez açılmasını sağlayan bir menü açar. </para>
 
 <screenshot id="screenshot-files-locationbar-breadcrumb">
 <screeninfo

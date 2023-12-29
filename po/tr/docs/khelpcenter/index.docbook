@@ -480,7 +480,7 @@
 ></term>
 <listitem
 ><para
->Bu, aramanın yapılacağı bölümleri seçmek için kullanılır. Kullanılabilir seçenekler hızlı bir şekilde en yaygın seçeneği, <guimenuitem
+>Bu, aramanın yapılacağı bölümleri seçmek için kullanılır. Kullanılabilir seçenekler tez en yaygın seçeneği, <guimenuitem
 >Özel</guimenuitem
 > ise tek bir bölüm seçilmesine olanak tanır. </para
 ></listitem>
@@ -553,14 +553,14 @@
 >&kde; kavram dizini</title>
 
 <para
->Kavram dizini, size tanıdık gelmeyen sözcüklerin tanımlarını arayabileceğiniz hızlı bir başvuru noktası sağlar. Bunlar &kde;'ye özgü uygulama ve teknolojilerden genel &UNIX; bilgi işlem terimlerine kadar uzanır. </para>
+>Kavram dizini, size tanıdık gelmeyen sözcüklerin tanımlarını arayabileceğiniz tez bir başvuru noktası sağlar. Bunlar &kde;'ye özgü uygulama ve teknolojilerden genel &UNIX; bilgi işlem terimlerine kadar uzanır. </para>
 
 <para
 >Sol bölmede, iki seçenekten oluşan bir ağaç görünümü göreceksiniz: <guilabel
 >Abecesel</guilabel
 > veya <guilabel
 >Konuya Göre</guilabel
->. Her ikisi de, ilgili ögeyi hızlı bir şekilde bulmanıza izin vermek için farklı girdilere sahip aynı girdileri içerir. </para>
+>. Her ikisi de, ilgili ögeyi tez bulmanıza izin vermek için farklı girdilere sahip aynı girdileri içerir. </para>
 
 <para
 >Ağaç görünümlerinde sola doğru ilerleyin; seçtiğiniz ögeler sağda görüntülenecektir. </para>
