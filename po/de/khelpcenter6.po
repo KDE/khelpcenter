@@ -1,16 +1,16 @@
+# SPDX-FileCopyrightText: 2023 Johannes Obermayr <johannesobermayr@gmx.de>
 # Thomas Diehl <thd@kde.org>, 2002, 2003, 2004.
 # Stephan Johach <hunsum@gmx.de>, 2005, 2006.
 # Thomas Reitelbach <tr@erdfunkstelle.de>, 2005, 2006, 2007, 2008.
 # Frederik Schwarzer <schwarzer@kde.org>, 2009, 2011, 2012, 2016.
 # Rolf Eike Beer <kde@opensource.sf-tec.de>, 2012.
 # Burkhard Lück <lueck@hube-lueck.de>, 2014, 2018, 2019, 2020.
-# Johannes Obermayr <johannesobermayr@gmx.de>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-21 01:40+0000\n"
-"PO-Revision-Date: 2023-12-18 15:48+0100\n"
+"PO-Revision-Date: 2023-12-21 16:53+0100\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -346,7 +346,7 @@ msgstr "Suchindex wird aktualisiert .... fertig."
 #: printdoc.cpp:60
 #, kde-format
 msgid "Could not generate print preview."
-msgstr "Die Druckvorschau konnte nicht erstellt werden."
+msgstr "Die Druckvorschau kann nicht erstellt werden."
 
 #: printdoc.cpp:96
 #, kde-format
