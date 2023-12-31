@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-21 01:40+0000\n"
-"PO-Revision-Date: 2023-12-23 08:00\n"
+"PO-Revision-Date: 2023-12-30 13:38\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -14,22 +14,22 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/khelpcenter/khelpcenter5.pot\n"
-"X-Crowdin-File-ID: 46392\n"
+"X-Crowdin-File: /kf6-trunk/messages/khelpcenter/khelpcenter6.pot\n"
+"X-Crowdin-File-ID: 49112\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr ""
-"KDE China, Funda Wang, Feng Chao, Guo Yunhe, Lie Ex, Wang Jian, Weng "
-"Xuetian, Yan Shuangchun"
+"KDE China, Funda Wang, Feng Chao, Guo Yunhe, Lie Ex, Tyson Tan, Wang Jian, "
+"Weng Xuetian, Yan Shuangchun"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
 "fundawang@gmail.com, chaofeng111@gmail.com, i@guoyunhe.me, lilith.ex@gmail."
-"com, lark@linux.ustc.edu.cn, wengxt@gmail.com, yahzee@21cn.com"
+"com, tds00@qq.com, lark@linux.ustc.edu.cn, wengxt@gmail.com, yahzee@21cn.com"
 
 #: application.cpp:30
 #, kde-format
@@ -44,7 +44,7 @@ msgstr "帮助中心"
 #: application.cpp:106
 #, kde-format
 msgid "(c) 1999-2023, The KHelpCenter developers"
-msgstr ""
+msgstr "(c) 1999-2023, The KHelpCenter developers"
 
 #: application.cpp:108
 #, kde-format
@@ -347,13 +347,13 @@ msgstr "更新搜索索引... 完成。"
 #: printdoc.cpp:60
 #, kde-format
 msgid "Could not generate print preview."
-msgstr ""
+msgstr "无法生成打印预览。"
 
 #: printdoc.cpp:96
 #, kde-format
 msgctxt "@title:window"
 msgid "Print Document"
-msgstr ""
+msgstr "打印文档"
 
 #: searchengine.cpp:59
 #, kde-format
@@ -458,4 +458,4 @@ msgstr "未知"
 #: view.cpp:270
 #, kde-format
 msgid "Save Page"
-msgstr ""
+msgstr "保存页面"
