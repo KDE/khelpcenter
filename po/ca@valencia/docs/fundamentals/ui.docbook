@@ -558,7 +558,7 @@
 >llista desplegable</link
 > i un <link linkend="visualdict-text-box"
 >quadro de text</link
->. Podeu seleccionar una opció de la llista, o escriure en el quadro de text. Alguns quadros combinats poden completar automàticament les entrades, o òbriguen la llista amb una llista d'opcions que coincidixen amb el que heu escrit.</entry>
+>. Podeu seleccionar una opció de la llista, o escriure en el quadro de text. Alguns quadros combinats poden completar automàticament les entrades, o obrin la llista amb una llista d'opcions que coincidixen amb el que heu escrit.</entry>
 <entry>
 <inlinemediaobject>
 <imageobject>
@@ -658,7 +658,7 @@
 <entry
 >Menú</entry>
 <entry
->Una llista de les seleccions, que usualment realitzen una acció, establixen una opció, o òbriguen una finestra. Es poden obrir des de la <link linkend="visualdict-menubar"
+>Una llista de les seleccions, que usualment realitzen una acció, establixen una opció, o obrin una finestra. Es poden obrir des de la <link linkend="visualdict-menubar"
 >barra de menús</link
 > o els <link linkend="visualdict-menu-button"
 >botons del menú</link
@@ -1306,7 +1306,7 @@
 ></term>
 <listitem
 ><para
->Copia el primer element al porta-retalls a la ubicació actual en el fitxer, si n'hi ha. </para
+>Copia el primer element a dins del porta-retalls en la ubicació actual en el fitxer, si n'hi ha. </para
 ></listitem>
 </varlistentry>
 
@@ -1500,7 +1500,7 @@
 ></term>
 <listitem
 ><para
->Inicia el programa de correcció ortogràfica, però només comprova el text seleccionat al document. Per a obtindre més informació, vegeu <xref linkend="spellcheck-check"/>. </para
+>Inicia el programa de correcció ortogràfica, però només comprova el text seleccionat en el document. Per a obtindre més informació, vegeu <xref linkend="spellcheck-check"/>. </para
 ></listitem>
 </varlistentry>
 
@@ -1558,7 +1558,7 @@
 >&Ctrl;<keycap
 >M</keycap
 ></keycombo
->. Si la barra de menús està oculta, el menú contextual s'obrirà fent clic amb el &BDR; a qualsevol part de l'àrea de la vista, este conté una entrada extra <guimenuitem
+>. Si la barra de menús està oculta, el menú contextual s'obrirà fent clic amb el &BDR; en qualsevol part de l'àrea de la vista, este conté una entrada extra <guimenuitem
 >Mostra la barra de menús</guimenuitem
 >. </para
 ></listitem>
@@ -1605,7 +1605,7 @@
 ></term>
 <listitem>
 <para
->Quan està marcada, es mostra una xicoteta barra a la part inferior de l'aplicació que conté informació sobre l'estat. Quan no està marcada la barra d'estat restarà oculta.</para>
+>Quan se selecciona, es mostra una xicoteta barra a la part inferior de l'aplicació que conté informació sobre l'estat. Quan no se selecciona, la barra d'estat restarà oculta.</para>
 </listitem>
 </varlistentry>
 
@@ -1752,7 +1752,7 @@
 >obri el diàleg <guilabel
 >Consell del dia</guilabel
 ></action
->. Podeu desplaçar-vos per tots els consells emprant els botons al diàleg i seleccionar mostrar-los a l'inici.</para>
+>. Podeu desplaçar-vos per tots els consells emprant els botons en el diàleg i seleccionar mostrar-los a l'inici.</para>
 <para
 >Nota: No totes les aplicacions proporcionen estos consells.</para>
 
@@ -2840,7 +2840,7 @@ or via email (see krecipes doc rev 1306076)
 >Treballar amb els fitxers</title>
 
 <para
->Ja siga en un diàleg Obri/Guarda o al gestor de fitxers &dolphin;, estes dreceres estalvien temps en realitzar operacions sobre els fitxers. Cal tindre en compte que alguns dels conceptes emprats amb els fitxers són els mateixos que amb els documents, de manera que diverses de les dreceres són idèntiques a les seues homòlogues esmentades anteriorment.</para>
+>Ja siga en un diàleg Obri/Guarda o en el gestor de fitxers &dolphin;, estes dreceres estalvien temps en realitzar operacions sobre els fitxers. Cal tindre en compte que alguns dels conceptes emprats amb els fitxers són els mateixos que amb els documents, de manera que diverses de les dreceres són idèntiques a les seues homòlogues esmentades anteriorment.</para>
 
 <informaltable>
 <tgroup cols="2">
@@ -2963,7 +2963,7 @@ or via email (see krecipes doc rev 1306076)
 ></keycombo
 ></entry>
 <entry
->Cap amunt (a la carpeta que el conté)</entry>
+>Cap amunt (en la carpeta que el conté)</entry>
 </row>
 
 <row>
@@ -3080,12 +3080,12 @@ or via email (see krecipes doc rev 1306076)
 >Modificar les dreceres</title>
 
 <para
->Les dreceres descrites a <link linkend="kbd-windows"
+>Les dreceres descrites en <link linkend="kbd-windows"
 >Treballar amb les finestres</link
 >, <link linkend="kbd-leaving"
 >Deixar l'ordinador</link
 >, <link linkend="kbd-vol-bright"
->Canviar el volum i la lluminositat</link
+>Canviar el volum i la brillantor</link
 > i <link linkend="kbd-activities"
 >Treballar amb activitats i escriptoris virtuals</link
 > s'anomenen <emphasis
@@ -3095,18 +3095,18 @@ or via email (see krecipes doc rev 1306076)
 >, on es troben separades per components de &kde;.</para>
 
 <para
->Les dreceres descrites a <link linkend="kbd-desktop"
+>Les dreceres descrites en <link linkend="kbd-desktop"
 >Treballar amb l'escriptori</link
 > són immutables i no es poden modificar.</para>
 
 <para
->Les dreceres descrites a <link linkend="kbd-docs"
+>Les dreceres descrites en <link linkend="kbd-docs"
 >Treballar amb els documents</link
 > i <link linkend="kbd-help"
 >Obtindre ajuda</link
 > són establides de forma individual pels programes. La majoria dels programes &kde; permeten utilitzar un <link linkend="shortcuts"
 >diàleg d'edició de dreceres comú</link
-> per a modificar-les. Les dreceres descrites a <link linkend="kbd-files"
+> per a modificar-les. Les dreceres descrites en <link linkend="kbd-files"
 >Treballar amb els fitxers</link
 > es poden editar de la mateixa manera quan s'utilitzen dins d'un gestor de fitxers com &dolphin; o &konqueror;, però no es poden modificar en el cas dels diàlegs Obri/Guarda, &etc; </para>
 

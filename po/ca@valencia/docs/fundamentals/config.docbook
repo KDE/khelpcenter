@@ -155,7 +155,7 @@
 >Posició del text</title>
 
 <para
->Podeu canviar l'aparença del text a les barres d'eines en el submenú <guisubmenu
+>Podeu canviar l'aparença del text en les barres d'eines en el submenú <guisubmenu
 >Posició del text</guisubmenu
 > del menú contextual d'una barra d'eines.</para>
 
@@ -194,7 +194,7 @@
 </itemizedlist>
 
 <para
->També podeu mostrar o ocultar el text per a cada element individual en la barra d'eines fent clic dret damunt d'un element i marcant o desmarcant l'element davall <guilabel
+>També podeu mostrar o ocultar el text per a cada element individual en la barra d'eines fent clic dret damunt d'un element i des/seleccionant l'opció davall <guilabel
 >Mostra el text</guilabel
 >.</para>
 
@@ -311,7 +311,7 @@
 <para
 >Si l'aplicació té més d'una barra d'eines, apareixerà un submenú anomenat <guisubmenu
 >Barres d'eines mostrades</guisubmenu
-> al menú contextual i al menú <guimenu
+> en el menú contextual i en el menú <guimenu
 >Configuració</guimenu
 > en lloc de l'entrada del menú de dalt. Des d'este menú podreu seleccionar individualment les barres d'eines que s'han d'ocultar o mostrar.</para>
 

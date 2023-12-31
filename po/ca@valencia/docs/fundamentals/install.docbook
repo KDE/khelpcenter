@@ -95,7 +95,7 @@
 > és una interessant iniciativa per oferir una nova experiència &kde; als dispositius mòbils com telèfons intel·ligents o tauletes. Es proporcionen versions binàries per a diversos dispositius diferents.</para>
 
 <para
->Per a més informació, visiteu el <ulink url="https://plasma-mobile.org/"
+>Per a més informació, visiteu <ulink url="https://plasma-mobile.org/"
 ><productname
 >Plasma Mobile</productname
 ></ulink
@@ -111,7 +111,7 @@
 >Diverses distribucions &Linux; i &BSD; oferixen suports «live». Estos permeten provar l'&plasma-desktop; sense necessitat d'instal·lar res al sistema. Tot el que heu de fer és inserir el CD o connectar una unitat USB i arrancar des d'esta. Si vos agrada el que veeu, la majoria oferixen una opció per a instal·lar al disc dur.</para>
 
 <para
->Al lloc web de &kde; hi ha <ulink url="https://www.kde.org/download/distributions.php"
+>En el lloc web de &kde; hi ha <ulink url="https://www.kde.org/download/distributions.php"
 >una llista de les distribucions que oferixen l'entorn de treball i les aplicacions &kde; en suports «live»</ulink
 >.</para>
 </sect2>

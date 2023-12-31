@@ -331,7 +331,7 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 ></term>
 <listitem
 ><para
->Ordena els fitxers llistats a la vista de carpeta alfabèticament per nom. </para
+>Ordena els fitxers llistats en la vista de carpeta alfabèticament per nom. </para
 ></listitem>
 </varlistentry>
 
@@ -348,7 +348,7 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 ></term>
 <listitem
 ><para
->Ordena els fitxers llistats a la vista de carpeta en ordre per la seua mida de fitxer.</para
+>Ordena els fitxers llistats en la vista de carpeta en ordre per la seua mida de fitxer.</para
 ></listitem>
 </varlistentry>
 
@@ -365,7 +365,7 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 ></term>
 <listitem
 ><para
->Ordena els fitxers llistats a la vista de carpeta per la data de l'última modificació. </para
+>Ordena els fitxers llistats en la vista de carpeta per la data de l'última modificació. </para
 ></listitem>
 </varlistentry>
 
@@ -382,7 +382,7 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 ></term>
 <listitem
 ><para
->Ordena els fitxers llistats a la vista de carpeta alfabèticament pel seu tipus de fitxer.</para
+>Ordena els fitxers llistats en la vista de carpeta alfabèticament pel seu tipus de fitxer.</para
 ></listitem>
 </varlistentry>
 
@@ -399,7 +399,7 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 ></term>
 <listitem
 ><para
->Quan està sense marcar (predeterminat), els fitxers en la vista de carpeta s'ordenaran en ordre ascendent. (Per exemple, els fitxers per ordre alfabètic, seran ordenats de l'A a la Z, mentre que els fitxers per ordre numèric, seran ordenats de menor a major). Quan està marcada, els fitxers de la carpeta s'ordenaran en ordre descendent (a l'inrevés).</para
+>Quan no se selecciona (predeterminat), els fitxers en la vista de carpeta s'ordenaran en ordre ascendent. (Per exemple, els fitxers per ordre alfabètic, seran ordenats de l'A a la Z, mentre que els fitxers per ordre numèric, seran ordenats de menor a major). Quan se selecciona, els fitxers de la carpeta s'ordenaran en ordre descendent (a l'inrevés).</para
 ></listitem>
 </varlistentry>
 
@@ -613,7 +613,7 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 >Barra d'ubicació</term>
 <listitem>
 <para
->La barra d'ubicació, la qual es troba en la part superior de la vista de carpeta, mostra el camí a la carpeta actual. La barra d'ubicació té dos modes:</para>
+>La barra d'ubicació, la qual es troba en la part superior de la vista de carpeta, mostra el camí cap a la carpeta actual. La barra d'ubicació té dos modes:</para>
 
 <variablelist>
 <varlistentry id="files-ui-location-breadcrumb">
@@ -718,7 +718,7 @@ Panel</link
 </variablelist>
 
 <para
->El menú contextual de la barra d'ubicació oferix una acció per a canviar entre els modes i per a copiar i apegar el camí utilitzant el porta-retalls. Marqueu l'última opció en este menú contextual per a veure el camí d'accés complet partint de la carpeta arrel del sistema de fitxers o per a mostrar el camí partint de l'entrada actual a llocs. </para>
+>El menú contextual de la barra d'ubicació oferix una acció per a canviar entre els modes i per a copiar i apegar el camí utilitzant el porta-retalls. Seleccioneu l'última opció en este menú contextual per a veure el camí d'accés complet partint de la carpeta arrel del sistema de fitxers o per a mostrar el camí partint de l'entrada actual a llocs. </para>
 
 <screenshot id="screenshot-files-locationbar-context-menu">
 <screeninfo
@@ -795,7 +795,7 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 >)</term>
 <listitem
 ><para
->Mou l'element seleccionat a la paperera.</para
+>Mou l'element seleccionat cap a dins de la paperera.</para
 ></listitem>
 </varlistentry>
 
@@ -854,7 +854,7 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 >La subfinestra de vista prèvia</term>
 <listitem
 ><para
->Si està activada, mostra una vista prèvia del fitxer seleccionat.</para
+>Si se selecciona, mostra una vista prèvia del fitxer seleccionat.</para
 ></listitem>
 </varlistentry>
 
@@ -878,7 +878,7 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 <para
 >En obrir un fitxer, l'entrada <guilabel
 >Filtre</guilabel
-> permet introduir un filtre per als fitxers mostrats a la vista de carpeta. El filtre utilitza globals estàndards, els patrons han d'estar separats per espais en blanc. Per exemple, podeu introduir <userinput
+> permet introduir un filtre per als fitxers mostrats en la vista de carpeta. El filtre utilitza globals estàndards, els patrons han d'estar separats per espais en blanc. Per exemple, podeu introduir <userinput
 >*.cpp *.h *.moc</userinput
 > per a mostrar diversos fitxers diferents comuns en la programació de les &Qt;.</para>
 
@@ -1182,7 +1182,7 @@ Search+Replace bar in Kate/KWrite
 >La característica de busca de moltes aplicacions &kde; permet trobar text en un document, mentre que la característica Substituïx permet substituir el text que es troba amb un text diferent del que heu posat.</para>
 
 <para
->Trobareu estes dues característiques al menú <guimenu
+>Trobareu estes dues característiques en el menú <guimenu
 >Edita</guimenu
 > de moltes aplicacions &kde;. Per a més informació sobre este menú, vegeu <xref linkend="menus-edit"/>.</para>
 
@@ -1226,21 +1226,21 @@ Search+Replace bar in Kate/KWrite
 >&Ctrl;<keycap
 >F</keycap
 ></keycombo
->. Després, al quadro de text <guilabel
+>. Després, en el quadro de text <guilabel
 >Text que s'ha de buscar:</guilabel
 >, introduïu el text que voleu buscar.</para>
 
 <para
->Si es marca <guilabel
+>Si se selecciona <guilabel
 >Expressió regular</guilabel
-> sereu capaç de buscar utilitzant expressions regulars. Feu clic en <guibutton
+>, sereu capaç de buscar utilitzant expressions regulars. Feu clic en <guibutton
 >Edita</guibutton
-> per a seleccionar i introduir caràcters d'expressions regulars d'ús comú, com <guilabel
+> per a seleccionar i introduir caràcters d'expressions regulars d'ús habitual, com <guilabel
 >Espai en blanc</guilabel
 > o <guilabel
 >Inici de línia</guilabel
 >. Si està instal·lat &kate;, trobareu <ulink url="help:/katepart/regular-expressions.html"
->més informació sobre com escriure les expressions regulars en la seua documentació</ulink
+>més informació a la seua documentació sobre com escriure les expressions regulars</ulink
 >.</para>
 
 
@@ -1280,7 +1280,7 @@ Search+Replace bar in Kate/KWrite
 >r<emphasis
 >es</emphasis
 >plendor</quote
->. Si marqueu esta opció, l'aplicació sols retornarà els resultats quan el text buscat siga una paraula en si mateixa, és a dir, envoltada per espais en blanc.</para
+>. Si seleccioneu esta opció, l'aplicació sols retornarà els resultats quan el text buscat siga una paraula en si mateixa, és a dir, envoltada per espais en blanc.</para
 ></listitem>
 </varlistentry>
 
@@ -1302,7 +1302,7 @@ Search+Replace bar in Kate/KWrite
 ></term>
 <listitem
 ><para
->De manera predeterminada, l'aplicació buscarà des d'on comença el text al començament del document, i es mourà a través seu fins al final. Si marqueu esta opció, començarà pel final i treballarà cap al començament. </para
+>De manera predeterminada, l'aplicació buscarà des d'on comença el text al començament del document, i es mourà a través seu fins al final. Si seleccioneu esta opció, començarà pel final i treballarà cap al començament. </para
 ></listitem>
 </varlistentry>
 
@@ -1329,13 +1329,13 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 
 <screenshot id="screenshot-find-find-inline">
 <screeninfo
->La barra de busques a &kate;</screeninfo>
+>La barra de busques en &kate;</screeninfo>
 <mediaobject>
 <imageobject
 ><imagedata fileref="find-find-inline.png" format="PNG"/></imageobject>
 <textobject
 ><phrase
->La barra de busques a &kate;</phrase
+>La barra de busques en &kate;</phrase
 ></textobject>
 <caption
 ><para
@@ -1383,7 +1383,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 >La característica substituïx</title>
 
 <para
->La característica substituïx busca text en un document i el substituïx per un altre text. La trobareu a moltes aplicacions a <menuchoice
+>La característica substituïx busca text en un document i el substituïx per un altre text. La trobareu en moltes aplicacions a <menuchoice
 ><guimenu
 >Edita</guimenu
 ><guisubmenu
@@ -1412,7 +1412,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 >ingressos</userinput
 > amb <userinput
 >despeses</userinput
-> a &calligrasheets;.</para
+> en &calligrasheets;.</para
 ></caption>
 </mediaobject>
 </screenshot>
@@ -1448,7 +1448,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 >\0</quote
 > representa tota la cadena trobada.</para>
 <para
->Podeu inserir reserves de lloc al quadro de text fent clic en el botó <guibutton
+>Podeu inserir reserves de lloc a dins del quadro de text fent clic en el botó <guibutton
 >Inserix una reserva de lloc</guibutton
 >, després seleccionant una opció del menú com <guimenuitem
 >Coincidència completa</guimenuitem
@@ -1482,9 +1482,9 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 >busca</link
 >, amb un afegit:</para>
 <para
->Si l'opció <guilabel
+>Si se selecciona l'opció <guilabel
 >Pregunta en substituir</guilabel
-> està marcada, apareixerà una finestra en cada paraula que es trobe, la qual us permetrà confirmar si voleu substituir el text trobat.</para
+>, apareixerà una finestra en cada paraula que es trobe, la qual us permetrà confirmar si voleu substituir el text trobat.</para
 ></listitem>
 </varlistentry>
 
@@ -1574,7 +1574,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 ></term>
 <listitem
 ><para
->Esta és la casella de selecció més a l'esquerra, i permet escollir l'aparença de la família tipogràfica des d'una llista de fonts al vostre sistema.</para
+>Esta és la casella de selecció més a l'esquerra, i permet escollir l'aparença de la família tipogràfica des d'una llista de fonts en el vostre sistema.</para
 ></listitem>
 </varlistentry>
 
@@ -1710,10 +1710,10 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 
 <sect3 id="colors-mixing-select">
 <title
->Utilitzar la graella</title>
+>Utilitzar la quadrícula</title>
 
 <para
->A la dreta del selector de color hi ha un gran quadro, i un quadro més prim immediatament a la seua dreta. Podeu utilitzar el de l'esquerra per a seleccionar el to i la saturació del color desitjat basant-vos en la guia visual proveïda al quadro. La barra de la dreta ajusta el valor. Ajusteu-la per a seleccionar el color desitjat, el qual es mostrarà enmig de la finestra.</para>
+>A la dreta del selector de color hi ha un gran quadro, i un quadro més prim immediatament a la seua dreta. Podeu utilitzar el de l'esquerra per a seleccionar el to i la saturació del color desitjat basant-vos en la guia visual proveïda en el quadro. La barra de la dreta ajusta el valor. Ajusteu-la per a seleccionar el color desitjat, el qual es mostrarà enmig de la finestra.</para>
 
 <para
 >Per a més informació sobre el To, Saturació i Valor, vegeu <xref linkend="colors-mixing-hsv"/>.</para>
@@ -1725,8 +1725,8 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 >Utilitzant els colors de la pantalla</title>
 
 <para
->L'eina de comptagotes permet seleccionar un color a la pantalla. Per a utilitzar-la, seleccioneu el botó <guibutton
->Selecciona un color a la pantalla</guibutton
+>L'eina de comptagotes permet seleccionar un color en la pantalla. Per a utilitzar-la, seleccioneu el botó <guibutton
+>Selecciona un color de la pantalla</guibutton
 > davall dels colors bàsics, i després feu clic damunt de qualsevol lloc de la pantalla per a seleccionar este color.</para>
 
 </sect3>

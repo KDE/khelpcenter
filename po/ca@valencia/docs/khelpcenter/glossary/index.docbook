@@ -71,7 +71,7 @@ Project Neon
 >D-Bus</glossterm>
 			<glossdef
 ><para
->D-Bus o Desktop Bus és un sistema de missatges de servei-intern. Desenvolupat per &RedHat;, que va ser fortament influenciat pel DCOP de &kde; 3, al que substituïx. La majoria de sistemes operatius POSIX suporten D-Bus, i existix un port per a Windows. És utilitzat per les Qt 4 i GNOME.&newpara; Més informació:&newpara; &linkstart;"https://freedesktop.org/wiki/Software/dbus/"&linkmid;FreeDesktop.org: What is D-Bus?&linkend;&newpara; &linkstart;"https://en.wikipedia.org/wiki/D-Bus"&linkmid;Viquipèdia: D-Bus&linkend;</para
+>D-Bus o Desktop Bus és un sistema de missatges de servei-intern. Desenvolupat per &RedHat;, que va ser fortament influenciat pel DCOP de &kde; 3, al qual substituïx. La majoria de sistemes operatius POSIX suporten D-Bus, i existix un port per a Windows. És utilitzat per les Qt 4 i GNOME.&newpara; Més informació:&newpara; &linkstart;"https://freedesktop.org/wiki/Software/dbus/"&linkmid;FreeDesktop.org: What is D-Bus?&linkend;&newpara; &linkstart;"https://en.wikipedia.org/wiki/D-Bus"&linkmid;Viquipèdia: D-Bus&linkend;</para
 ><glossseealso otherterm="gloss-dcop"
 >DCOP</glossseealso
 > <glossseealso otherterm="gloss-gnome"
@@ -89,7 +89,7 @@ Project Neon
 ><para
 ><acronym
 >DCOP</acronym
->, vol dir Desktop COmmunication Protocol -protocol de comunicació de l'escriptori-, és un inter-processos lleuger i un component de programari per al sistema de comunicació utilitzat en &kde; 3. Substituït amb &DBus; a la &kde; SC 4.&newpara; Més informació:&newpara; &linkstart;"https://en.wikipedia.org/wiki/DCOP"&linkmid;Viquipèdia: DCOP&linkend;</para
+>, vol dir Desktop COmmunication Protocol -protocol de comunicació de l'escriptori-, és un inter-processos lleuger i un component de programari per al sistema de comunicació utilitzat en &kde; 3. Substituït amb &DBus; en la &kde; SC 4.&newpara; Més informació:&newpara; &linkstart;"https://en.wikipedia.org/wiki/DCOP"&linkmid;Viquipèdia: DCOP&linkend;</para
 ><glossseealso otherterm="gloss-dbus"
 >D-Bus</glossseealso
 > <glossseealso otherterm="gloss-kde"
@@ -335,7 +335,7 @@ otherterm="gloss-kbuildsycoca"
 >&X-Server;</glossterm>
 			<glossdef
 ><para
->&X-Server; representa una capa bàsica sobre la qual es construïxen les diverses &IGU;, com ara &kde;. Manipula el ratolí bàsic i l'entrada del teclat (tant des d'una màquina local com des d'una remota) i proporciona rutines gràfiques elementals per a dibuixar rectangles i d'altres figures primitives.</para
+>&X-Server; representa una capa bàsica sobre la qual es construïxen les diverses &IGU;, com ara &kde;. Manipula el ratolí bàsic i l'entrada del teclat (tant des d'un amfitrió local com des d'un remot) i proporciona rutines gràfiques elementals per a dibuixar rectangles i altres figures primitives.</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-gui"
@@ -352,7 +352,7 @@ otherterm="gloss-kbuildsycoca"
 >Dolphin</glossterm>
 			<glossdef
 ><para
->El gestor de fitxers predeterminat a les Aplicacions de &kde;. Compta amb un quadro lateral (Llocs), però la navegació es fa principalment sobre de la finestra principal. La divisió de finestres és possible, i les vistes es poden aplicar a finestres individuals. Muntar i desmuntar dispositius <acronym
+>El gestor de fitxers predeterminat en les Aplicacions de &kde;. Compta amb un quadro lateral (Llocs), però la navegació es fa principalment sobre de la finestra principal. La divisió de finestres és possible, i les vistes es poden aplicar a finestres individuals. Muntar i desmuntar dispositius <acronym
 >USB</acronym
 > es pot fer en el quadro lateral. Es poden afegir altres directoris al quadro «Llocs». També és possible una vista en arbre.&newpara; Més informació:&newpara; &linkstart;"https://www.kde.org/applications/system/dolphin/"&linkmid;Dolphin&linkend;&newpara; &linkstart;"https://en.wikipedia.org/wiki/Dolphin_(file_manager)"&linkmid;Viquipèdia: Dolphin&linkend;&newpara; &linkstart;"https://userbase.kde.org/Dolphin/File_Management/ca"&linkmid;Userbase: Guia d'aprenentatge per a la Gestió de fitxers&linkend;</para
 ><glossseealso otherterm="gloss-kde"
@@ -372,7 +372,7 @@ otherterm="gloss-kbuildsycoca"
 >KBuildSycoca4</application
 > és un programa de la línia d'ordres i regenera l'anomenat <application
 >KSycoca</application
->. Açò és d'utilitat, per exemple, si falta algun o tots els mòduls en el &systemsettings;.</para
+>. Açò és d'utilitat, per exemple, si falta algun o tots els mòduls en &systemsettings;.</para
 ><glossseealso otherterm="gloss-ksycoca"
 ><acronym
 >KSycoca</acronym
@@ -386,7 +386,7 @@ otherterm="gloss-kbuildsycoca"
 >KInfoCenter</glossterm>
 			<glossdef
 ><para
->El Kinfocenter es va originar com a part del Kcontrol des de KDE 3.1. En la &kde; SC 4 va ser substituït per mòduls configurats al &systemsettings;, sobretot Solid, i està sent presentada de nou com una aplicació en &plasma;.&newpara; Més informació:&newpara; &linkstart;"https://www.kde.org/applications/system/kinfocenter/"&linkmid;KInfoCenter&linkend;&newpara; &linkstart;&newpara; &linkstart;"https://en.wikipedia.org/wiki/Kinfocenter"&linkmid;Viquipèdia: KInfoCenter&linkend;</para
+>El Kinfocenter es va originar com a part del Kcontrol des de KDE 3.1. En la &kde; SC 4 va ser substituït per mòduls configurats en &systemsettings;, sobretot Solid, i està sent presentada de nou com una aplicació en &plasma;.&newpara; Més informació:&newpara; &linkstart;"https://www.kde.org/applications/system/kinfocenter/"&linkmid;KInfoCenter&linkend;&newpara; &linkstart;&newpara; &linkstart;"https://en.wikipedia.org/wiki/Kinfocenter"&linkmid;Viquipèdia: KInfoCenter&linkend;</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-solid"
@@ -466,7 +466,7 @@ otherterm="gloss-kbuildsycoca"
 >&systemsettings;</glossterm>
 			<glossdef
 ><para
->Este és el projecte i el nom del fitxer del Centre de control de &kde;. El &systemsettings; us permet personalitzar virtualment cada opció de configuració de &kde;.</para
+>Este és el projecte i el nom del fitxer del Centre de control de &kde;. &systemsettings; us permet personalitzar virtualment cada opció de configuració de &kde;.</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-kinfocenter"
@@ -497,7 +497,7 @@ otherterm="gloss-kbuildsycoca"
 ></glossterm>
 			<glossdef
 ><para
->Brisa és el tema predeterminat de &plasma;. El nou tema és de gran contrast, un tema prim per a l'espai de treball. Està disponible en variants amb llum i fosques. Gràfics i disposicions tipogràfiques més simples i monocromàtiques, centrat a oferir una experiència d'usuari neta i visualment clara.</para
+>Brisa és el tema predeterminat de &plasma;. El nou tema és de gran contrast, un tema prim per a l'espai de treball. Està disponible en variants amb llum i fosques. Gràfics i disposicions tipogràfiques més simples i monocromàtiques, centrat en oferir una experiència d'usuari neta i visualment clara.</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-ksvg"
@@ -537,7 +537,7 @@ otherterm="gloss-kbuildsycoca"
 ></glossterm>
 			<glossdef>
 				<para
->&emstart;G&emend;NU &emstart;N&emend;etwork &emstart;O&emend;bject &emstart;M&emend;odel &emstart;E&emend;nvironment, una de les &IGU; líders a &UNIX;.</para>
+>&emstart;G&emend;NU &emstart;N&emend;etwork &emstart;O&emend;bject &emstart;M&emend;odel &emstart;E&emend;nvironment, una de les &IGU; líders en &UNIX;.</para>
 				<glossseealso otherterm="gloss-gui"
 >&IGU;</glossseealso>
 			</glossdef>
@@ -547,7 +547,7 @@ otherterm="gloss-kbuildsycoca"
 >&IGU;</glossterm>
 			<glossdef
 ><para
->Abreviació de &emstart;G&emend;raphical &emstart;U&emend;ser &emstart;I&emend;nterface (interfície gràfica d'usuari). Tots els entorns d'escriptori (com ara &kde;) són una &IGU;. La majoria de les &IGU; proporcionen funcionalitats per al ratolí i/o les finestres per a manipular els programes.</para>
+>Abreviació de &emstart;G&emend;raphical &emstart;U&emend;ser &emstart;I&emend;nterface (interfície gràfica d'usuari). Tots els entorns d'escriptori (com ara &kde;) són una &IGU;. La majoria de les &IGU; proporcionen característiques per al ratolí i/o les finestres per a manipular els programes.</para>
 				<glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso>
 			</glossdef>
@@ -593,7 +593,7 @@ otherterm="gloss-kbuildsycoca"
 ></glossterm>
 			<glossdef>
 				<para
->a &plasma; hi ha un iniciador d'aplicacions en el qual les aplicacions s'ordenen per grups funcionals. «Preferides» substituïx «Aplicacions més utilitzades» en el menú clàssic, i s'hi poden afegir aplicacions. Fer clic dret també oferix la possibilitat d'afegir aplicacions a l'escriptori o al quadro. El ràpid accés a una aplicació menys utilitzada pot ser per al quadro de busca. Alternatives disponibles com el clàssic menú d'aplicacions en cascada amb menús emergents i el tauler d'aplicacions, un iniciador de pantalla completa. &plasma; es pot utilitzar amb més d'un iniciador, s'ha de requerir.&newpara; </para
+>En &plasma; hi ha un iniciador d'aplicacions en el qual les aplicacions s'ordenen per grups funcionals. «Preferides» substituïx «Aplicacions més utilitzades» en el menú clàssic, i s'hi poden afegir aplicacions. Fer clic dret també oferix la possibilitat d'afegir aplicacions a l'escriptori o al quadro. El ràpid accés a una aplicació menys utilitzada pot ser per al quadro de busca. Alternatives disponibles com el clàssic menú d'aplicacions en cascada amb menús emergents i el tauler d'aplicacions, un iniciador de pantalla completa. &plasma; es pot utilitzar amb més d'un iniciador, s'ha de requerir.&newpara; </para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-pager"
@@ -643,7 +643,7 @@ otherterm="gloss-kbuildsycoca"
 >Plasma</glossterm>
 			<glossdef
 ><para
->L'escriptori &plasma; substituïx al KDesktop, &kicker; i el motor de ginys SuperKaramba. Les miniaplicacions s'anomenen Ginys, i abasten des de ginys amb informació a les miniaplicacions, com ara una calculadora o un diccionari. &newpara; Més informació:&newpara; &linkstart;"https://en.wikipedia.org/wiki/KDE_Plasma_5"&linkmid;Viquipèdia: Plasma 5 de KDE&linkend;&newpara; &linkstart;"https://www.kde.org/workspaces/"&linkmid;Espais de treball de Plasma&linkend;&newpara; &linkstart;"https://userbase.kde.org/Plasma/ca"&linkmid;Plasma&linkend;</para
+>L'escriptori &plasma; substituïx a KDesktop, &kicker; i el motor de ginys SuperKaramba. Les miniaplicacions s'anomenen Ginys, i abasten des de ginys amb informació a les miniaplicacions, com ara una calculadora o un diccionari. &newpara; Més informació:&newpara; &linkstart;"https://en.wikipedia.org/wiki/KDE_Plasma_5"&linkmid;Viquipèdia: Plasma 5 de KDE&linkend;&newpara; &linkstart;"https://www.kde.org/workspaces/"&linkmid;Espais de treball de Plasma&linkend;&newpara; &linkstart;"https://userbase.kde.org/Plasma/ca"&linkmid;Plasma&linkend;</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-kicker"
@@ -657,7 +657,7 @@ otherterm="gloss-kbuildsycoca"
 >Extracció «ripping»</glossterm>
 			<glossdef
 ><para
->El procés de llegir dades de so des d'un &cdrom; o DVD i emmagatzemant-les al disc dur.</para>
+>El procés de llegir dades de so des d'un &cdrom; o DVD i emmagatzemant-les en el disc dur.</para>
 			</glossdef>
 		</glossentry>
 		<glossentry id="gloss-virtualdesktops">
@@ -881,7 +881,7 @@ otherterm="gloss-kbuildsycoca"
 ><para
 >&emstart;I&emend;nternet &emstart;R&emend;elay &emstart;C&emend;hat. Un protocol definit en el <acronym
 >RFC</acronym
-> 1459, que manipula l'especificació per a permetre conversacions en temps real.</para>
+> 1459, el qual manipula l'especificació per a permetre conversacions en temps real.</para>
 				<glossseealso otherterm="gloss-rfc"
 ><acronym
 >RFC</acronym
@@ -890,10 +890,10 @@ otherterm="gloss-kbuildsycoca"
 		</glossentry>
                 <glossentry id="gloss-host">
 		        <glossterm
->Màquina</glossterm>
+>Amfitrió</glossterm>
 			<glossdef
 ><para
->Este pot ser un nom al vostre fitxer <filename
+>Este pot ser un nom en el vostre fitxer <filename
 >/etc/hosts</filename
 > (<systemitem class="systemname"
 >elmeuordinador</systemitem

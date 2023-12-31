@@ -71,7 +71,7 @@
 >. No es requerix experiència, senzillament entusiasme i paciència. </para>
 
 <para
->Si voleu ajudar en la traducció de la documentació de &kde; a la vostra llengua nativa, mireu la informació, incloent-hi els noms dels coordinadors per a cada equip de traducció, al <ulink url="https://l10n.kde.org/"
+>Si voleu ajudar en la traducció de la documentació de &kde; en la vostra llengua nativa, mireu la informació, incloent-hi els noms dels coordinadors per a cada equip de traducció, en el <ulink url="https://l10n.kde.org/"
 >lloc web de localització</ulink
 >. </para>
 
@@ -262,7 +262,7 @@
 >vista en arbre</link
 > mostrant tota la informació d'ajuda a &khelpcenter; i l'altra que conté el <link linkend="kde-glossary"
 >Glossari</link
-> de termes de &kde;. A la tercera pestanya podreu configurar les <guilabel
+> de termes de &kde;. En la tercera pestanya podreu configurar les <guilabel
 >Opcions de busca</guilabel
 >. </para>
 
@@ -336,7 +336,7 @@
 ></term>
 <listitem>
 <para
->Proporciona una llista d'enllaços cap als diversos mòduls que es troben en l'aplicació &systemsettings; o a &konqueror;, al gestor de fitxers o navegador. </para>
+>Proporciona una llista d'enllaços cap als diversos mòduls que es troben en l'aplicació &systemsettings; o en &konqueror;, en el gestor de fitxers o navegador. </para>
 </listitem>
 </varlistentry>
 
@@ -383,7 +383,7 @@
 ></term>
 <listitem>
 <para
->Documentació addicional no &kde; instal·lada al vostre sistema. </para>
+>Documentació addicional no &kde; instal·lada en el vostre sistema. </para>
 </listitem>
 </varlistentry>
 
@@ -413,7 +413,7 @@
 ></title>
 
 <para
->La busca dels fitxers d'ajuda és força intuïtiva, introduïu les paraules que voleu buscar al quadro de text, trieu entre les opcions (si n'hi ha), i premeu <guibutton
+>La busca dels fitxers d'ajuda és força intuïtiva, introduïu les paraules que voleu buscar en el quadro de text, trieu entre les opcions (si n'hi ha), i premeu <guibutton
 >Busca</guibutton
 >. Els resultats es mostraran a la subfinestra del visor que hi ha a la dreta. </para>
 <note
@@ -439,7 +439,7 @@
 <para
 >Seleccioneu la manera com buscar múltiples paraules. Si trieu <guilabel
 >i</guilabel
->, els resultats només es retornaran si tots els termes de busca es troben inclosos a la pàgina. <guilabel
+>, els resultats només es retornaran si tots els termes de busca es troben inclosos en la pàgina. <guilabel
 >o</guilabel
 > retornarà resultats si es troba <emphasis
 >algun</emphasis
@@ -556,7 +556,7 @@
 >Les barres d'eines i de menú</title>
 
 <para
->&khelpcenter; té una interfície mínima, permetent que vos concentreu en obtindre ajuda i no a haver d'aprendre com utilitzar el navegador de l'ajuda. </para>
+>&khelpcenter; té una interfície mínima, permetent que vos concentreu en obtindre ajuda i no en haver d'aprendre com utilitzar el navegador de l'ajuda. </para>
 
 <para
 >Les icones disponibles en la barra d'eines són les següents: </para>
@@ -583,7 +583,7 @@
 ></term>
 <listitem>
 <para
->Anirà a la pàgina anterior que esteu visualitzant. Feu clic en la marca de selecció a la dreta en la icona. Açò mostra una llista de pàgines visitades anteriorment. En seleccionar-ne una vos portarà directament a esta pàgina. </para>
+>Anirà fins a la pàgina anterior que esteu visualitzant. Feu clic en la marca de selecció a la dreta en la icona. Açò mostra una llista de pàgines visitades anteriorment. En seleccionar-ne una vos portarà directament a esta pàgina. </para>
 </listitem>
 </varlistentry>
 
@@ -594,7 +594,7 @@
 ></term>
 <listitem>
 <para
->Avançarà una pàgina. Esta icona tan sols s'activa si ja heu emprat la icona <guiicon
+>Avançarà una pàgina. Esta icona tan sols s'activarà si ja heu emprat la icona <guiicon
 >Arrere</guiicon
 >. </para>
 </listitem>
@@ -641,7 +641,7 @@ Print the contents of the currently visible page.
 ></term>
 <listitem>
 <para
->Augmenta la mida del text a la subfinestra de visualització. </para>
+>Augmenta la mida del text en la subfinestra de visualització. </para>
 </listitem>
 </varlistentry>
 
@@ -652,7 +652,7 @@ Print the contents of the currently visible page.
 ></term>
 <listitem>
 <para
->Minva la mida del text a la subfinestra de visualització. Esta icona tan sols s'activa si prèviament heu emprat l'augment del text. </para>
+>Minva la mida del text en la subfinestra de visualització. Esta icona tan sols s'activarà si prèviament heu emprat l'augment del text. </para>
 </listitem>
 </varlistentry>
 
@@ -690,7 +690,7 @@ Print the contents of the currently visible page.
 <para
 >Imprimix el contingut de la pàgina actualment visible. Trobareu manuals en format <acronym
 >PDF</acronym
-> al <ulink url="https://docs.kde.org/index.php?language=ca"
+> en el <ulink url="https://docs.kde.org/index.php?language=ca"
 >servidor de documentació de &kde;</ulink
 >. </para>
 </listitem>
@@ -747,7 +747,7 @@ Print the contents of the currently visible page.
 </term>
 <listitem>
 <para
->Copia el text seleccionat al porta-retalls. </para>
+>Copia el text seleccionat a dins del porta-retalls. </para>
 </listitem>
 </varlistentry>
 
@@ -818,7 +818,7 @@ Print the contents of the currently visible page.
 <listitem>
 <para
 >Canvia la codificació de la pàgina actual. Normalment, la configuració predeterminada <guimenuitem
->De manera predeterminada,</guimenuitem
+>Per defecte</guimenuitem
 > hauria de ser suficient, però si teniu problemes per a veure les pàgines escrites en altres idiomes a part de l'anglés, podríeu haver de triar una codificació específica en este menú. </para>
 </listitem>
 </varlistentry>
@@ -891,7 +891,7 @@ Print the contents of the currently visible page.
 ></term>
 <listitem>
 <para
->Anirà a la pàgina anterior de la documentació actual. </para>
+>Anirà fins a la pàgina anterior de la documentació actual. </para>
 </listitem>
 </varlistentry>
 
@@ -912,7 +912,7 @@ Print the contents of the currently visible page.
 ></term>
 <listitem>
 <para
->Anirà a la pàgina següent de la documentació actual. </para>
+>Anirà fins a la pàgina següent de la documentació actual. </para>
 </listitem>
 </varlistentry>
 
@@ -933,7 +933,7 @@ Print the contents of the currently visible page.
 ></term>
 <listitem>
 <para
->Anirà a la pàgina anterior que esteu visualitzant.</para>
+>Anirà fins a la pàgina anterior que esteu visualitzant.</para>
 </listitem>
 </varlistentry>
 
@@ -991,7 +991,7 @@ Print the contents of the currently visible page.
 <para
 >Afig una adreça d'interés per a la pàgina actual, el títol de les pàgines serà afegit al menú d'adreces d'interés. Utilitzeu l'acció <guimenuitem
 >Elimina l'adreça d'interés</guimenuitem
-> al menú contextual d'un element per a eliminar-lo del menú. </para>
+> en el menú contextual d'un element per a eliminar-lo del menú. </para>
 </listitem>
 </varlistentry>
 
