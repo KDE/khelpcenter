@@ -1,4 +1,4 @@
-# Translation of khelpcenter5 to Northern Sami
+# Translation of khelpcenter6 to Northern Sami
 #
 # Luobbal-Jovsset Esko <esko.aikio@same.net>, 2003.
 # Børre Gaup <boerre@skolelinux.no>, 2003, 2004, 2005.
