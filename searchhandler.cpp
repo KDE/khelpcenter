@@ -11,7 +11,7 @@
 
 #include <KConfigGroup>
 #include <KDesktopFile>
-#include <KIO/Job>
+#include <KIO/TransferJob>
 #include <KLocalizedString>
 #include <KProcess>
 #include <KShell>
