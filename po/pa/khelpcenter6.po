@@ -4,21 +4,21 @@
 # Amanpreet Singh Brar <amanpreetalam@yahoo.com>, 2005.
 # Amanpreet Singh Brar <aalam@redhat.com>, 2005.
 # AP S Alam <aalam@users.sf.net>, 2007.
-# A S Alam <aalam@users.sf.net>, 2007, 2008, 2009, 2010, 2012, 2019.
+# SPDX-FileCopyrightText: 2007, 2008, 2009, 2010, 2012, 2019, 2024 A S Alam <aalam@users.sf.net>
 # ASB <aalam@users.sf.net>, 2007.
 msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-21 01:40+0000\n"
-"PO-Revision-Date: 2019-02-10 09:33-0800\n"
-"Last-Translator: A S Alam <alam.yellow@gmail.com>\n"
-"Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
+"PO-Revision-Date: 2024-01-03 14:24-0600\n"
+"Last-Translator: A S Alam <aalam@punlinux.org>\n"
+"Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
 "Language: pa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 2.0\n"
+"X-Generator: Lokalize 23.08.4\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "\n"
 
@@ -30,7 +30,7 @@ msgstr "ਅ ਸ ਆਲਮ"
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "alam.yellow@gmail.com"
+msgstr "aalam@punlinux.org"
 
 #: application.cpp:30
 #, kde-format
@@ -43,10 +43,9 @@ msgid "Help Center"
 msgstr "ਮਦਦ ਸੈਂਟਰ"
 
 #: application.cpp:106
-#, fuzzy, kde-format
-#| msgid "(c) 1999-2018, The KHelpCenter developers"
+#, kde-format
 msgid "(c) 1999-2023, The KHelpCenter developers"
-msgstr "(c) ੧੯੯੯-੨੦੧੮, ਕੇ-ਮਦਦ ਸੈਂਟਰ ਡਿਵੈਲਪਰ"
+msgstr "(c) ੧੯੯੯-੨੦੨੩, ਕੇ-ਮਦਦ ਸੈਂਟਰ ਡਿਵੈਲਪਰ"
 
 #: application.cpp:108
 #, kde-format
@@ -302,10 +301,9 @@ msgid "&Bookmarks"
 msgstr "ਬੁੱਕਮਾਰਕ(&B)"
 
 #: navigator.cpp:62
-#, fuzzy, kde-format
-#| msgid "&Search"
+#, kde-format
 msgid "Search..."
-msgstr "ਖੋਜ(&S)"
+msgstr "ਖੋਜੋ..."
 
 #: navigator.cpp:117
 #, kde-format
@@ -350,13 +348,13 @@ msgstr "ਖੋਜ ਇੰਡੈਕਸ ਅੱਪਡੇਟ ਕੀਤਾ ਜਾ ਰ�
 #: printdoc.cpp:60
 #, kde-format
 msgid "Could not generate print preview."
-msgstr ""
+msgstr "ਪਰਿੰਟ ਝਲਕ ਨੂੰ ਤਿਆਰ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ ਹੈ।"
 
 #: printdoc.cpp:96
 #, kde-format
 msgctxt "@title:window"
 msgid "Print Document"
-msgstr ""
+msgstr "ਡੌਕੂਮੈਂਟ ਪਰਿੰਟ ਕਰੋ"
 
 #: searchengine.cpp:59
 #, kde-format
@@ -459,10 +457,9 @@ msgid "unknown"
 msgstr "ਅਣਪਛਾਤਾ"
 
 #: view.cpp:270
-#, fuzzy, kde-format
-#| msgid "Start Page"
+#, kde-format
 msgid "Save Page"
-msgstr "ਸ਼ੁਰੂ ਸਫ਼ਾ"
+msgstr "ਸਫ਼ੇ ਨੂੰ ਸੰਭਾਲੋ"
 
 #~ msgid "Previous Page"
 #~ msgstr "ਪਿੱਛੇ ਸਫ਼ਾ"
