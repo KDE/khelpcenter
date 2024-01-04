@@ -33,6 +33,7 @@
   <name xml:lang="ko">KHelpCenter</name>
   <name xml:lang="nl">KHelpCenter</name>
   <name xml:lang="nn">KHelpCenter</name>
+  <name xml:lang="pa">ਕੇ-ਮਦਦ-ਸੈਂਟਰ</name>
   <name xml:lang="pl">KOśrodekPomocy</name>
   <name xml:lang="pt">KHelpCenter</name>
   <name xml:lang="pt-BR">KHelpCenter</name>
@@ -82,6 +83,7 @@
   <summary xml:lang="ko">도움말 센터</summary>
   <summary xml:lang="nl">Hulpcentrum</summary>
   <summary xml:lang="nn">Hjelpesenter</summary>
+  <summary xml:lang="pa">ਮਦਦ ਸੈਂਟਰ</summary>
   <summary xml:lang="pl">Ośrodek Pomocy</summary>
   <summary xml:lang="pt">Centro de Ajuda</summary>
   <summary xml:lang="pt-BR">Centro de ajuda</summary>
@@ -177,6 +179,7 @@
     <p xml:lang="ko">기능:</p>
     <p xml:lang="nl">Mogelijkheden:</p>
     <p xml:lang="nn">Funksjonar:</p>
+    <p xml:lang="pa">ਫੀਚਰ:</p>
     <p xml:lang="pl">Możliwości:</p>
     <p xml:lang="pt">Funcionalidades:</p>
     <p xml:lang="pt-BR">Recursos:</p>
@@ -273,6 +276,7 @@
       <li xml:lang="ko">사용 가능한 문서 내에서 검색</li>
       <li xml:lang="nl">Zoeken in de beschikbare documentatie</li>
       <li xml:lang="nn">Søk gjennom tilgjengelege hjelpetekstar</li>
+      <li xml:lang="pa">ਮੌਜੂਦਾ ਦਸਤਾਵੇਜ਼ਾਂ ਰਾਹੀਂ ਖੋਜੋ</li>
       <li xml:lang="pl">Wyszukiwanie w dostępnej dokumentacji</li>
       <li xml:lang="pt">Pesquisa pela documentação disponível</li>
       <li xml:lang="pt-BR">Pesquise na documentação disponível</li>
@@ -325,6 +329,7 @@
       <caption xml:lang="ko">KHelpCenter 주 창</caption>
       <caption xml:lang="nl">Hoofdvenster van KHelpCenter</caption>
       <caption xml:lang="nn">Hovudvindauge for hjelpesenteret</caption>
+      <caption xml:lang="pa">ਕੇ-ਮਦਦ ਸੈਂਟਰ ਮੁ਼ੱਖ ਵਿੰਡੋ</caption>
       <caption xml:lang="pl">Główne okno KOśrodkaPomocy</caption>
       <caption xml:lang="pt">Janela principal do KHelpCenter</caption>
       <caption xml:lang="pt-BR">Janela principal do KHelpCenter</caption>
