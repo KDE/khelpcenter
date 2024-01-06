@@ -497,7 +497,7 @@ otherterm="gloss-kbuildsycoca"
 ></glossterm>
 			<glossdef
 ><para
->Esinti, &plasma;'nın öntanımlı temasıdır. Yeni tema, çalışma alanı için yüksek karşıtlıklı düz bir temadır. Açık ve koyu çeşitleri vardır. Daha basit ve daha tek renkli grafik varlıkları ve tipografi merkezli düzenler, temiz ve görsel olarak net bir kullanıcı deneyimi sunar.</para
+>Esinti, &plasma;'nın öntanımlı temasıdır. Yeni tema, çalışma alanı için yüksek karşıtlıklı düz bir temadır. Açık ve koyu çeşitleri vardır. Daha basit ve daha tek renkli grafik varlıkları ve tipografi merkezli yerleşimler, temiz ve görsel olarak net bir kullanıcı deneyimi sunar.</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-ksvg"
