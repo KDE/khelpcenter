@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-21 01:40+0000\n"
-"PO-Revision-Date: 2017-10-02 10:28+0200\n"
+"PO-Revision-Date: 2024-01-17 23:00+0200\n"
 "Last-Translator: Mindaugas Baranauskas <opensuse.lietuviu.kalba@gmail.com>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Lokalize 2.0\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -41,25 +41,24 @@ msgid "Help Center"
 msgstr "Pagalbos centras"
 
 #: application.cpp:106
-#, fuzzy, kde-format
-#| msgid "(c) 1999-2011, The KHelpCenter developers"
+#, kde-format
 msgid "(c) 1999-2023, The KHelpCenter developers"
-msgstr "© 1999-2011, KHelpCenter programuotojai"
+msgstr "(c) 1999-2023, KHelpCenter programuotojai"
 
 #: application.cpp:108
 #, kde-format
 msgid "Current maintainer"
-msgstr ""
+msgstr "Dabartinis prižiūrėtojas"
 
 #: application.cpp:109
 #, kde-format
 msgid "Xapian-based search, lot of bugfixes"
-msgstr ""
+msgstr "Xapian pagrįsta paieška, daugybė klaidų pataisymų"
 
 #: application.cpp:110
 #, kde-format
 msgid "Former maintainer"
-msgstr ""
+msgstr "Ankstesnis prižiūrėtojas"
 
 #: application.cpp:112
 #, kde-format
@@ -300,10 +299,9 @@ msgid "&Bookmarks"
 msgstr "&Žymelės"
 
 #: navigator.cpp:62
-#, fuzzy, kde-format
-#| msgid "&Search"
+#, kde-format
 msgid "Search..."
-msgstr "&Ieškoti"
+msgstr "Ieškoti..."
 
 #: navigator.cpp:117
 #, kde-format
@@ -348,13 +346,13 @@ msgstr "Paieškos rodyklė atnaujinta."
 #: printdoc.cpp:60
 #, kde-format
 msgid "Could not generate print preview."
-msgstr ""
+msgstr "Nepavyko sugeneruoti spaudinio peržiūros."
 
 #: printdoc.cpp:96
 #, kde-format
 msgctxt "@title:window"
 msgid "Print Document"
-msgstr ""
+msgstr "Spausdinti dokumentą"
 
 #: searchengine.cpp:59
 #, kde-format
@@ -457,10 +455,9 @@ msgid "unknown"
 msgstr "nežinoma"
 
 #: view.cpp:270
-#, fuzzy, kde-format
-#| msgid "Start Page"
+#, kde-format
 msgid "Save Page"
-msgstr "Pradinis puslapis"
+msgstr "Įrašyti puslapį"
 
 #~ msgid "Previous Page"
 #~ msgstr "Ankstesnis puslapis"
