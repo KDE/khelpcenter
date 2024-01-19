@@ -459,37 +459,3 @@ msgstr "неизвестно"
 #, kde-format
 msgid "Save Page"
 msgstr "Запазване на страницата"
-
-#~ msgid "Previous Page"
-#~ msgstr "Предишна страница"
-
-#~ msgid "Moves to the previous page of the document"
-#~ msgstr "Предишна страница на документа"
-
-#~ msgid "Next Page"
-#~ msgstr "Следваща страница"
-
-#~ msgid "Moves to the next page of the document"
-#~ msgstr "Следваща страница на документа"
-
-#~ msgid "Configure Fonts..."
-#~ msgstr "Настройване на шрифтове..."
-
-#~ msgid "Increase Font Sizes"
-#~ msgstr "Увеличаване размера на шрифта"
-
-#~ msgid "Decrease Font Sizes"
-#~ msgstr "Намаляване размера на шрифта"
-
-#~ msgid "Copy Link Address"
-#~ msgstr "Копиране на адреса на препратката"
-
-#~ msgid ""
-#~ "<p>Read the topic documentation in this window.<br /><br />Press "
-#~ "<b>Space</b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, "
-#~ "<b>Tab</b>/<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
-#~ msgstr ""
-#~ "<p> Прочетете документацията на темата в този прозорец. <br /> <br/> "
-#~ "Натиснете <b> интервал </b> / <b> Shift + интервал </b>, за да "
-#~ "превъртите, <b>%1</b > за намиране на нещо, <b> Tab </b> / <b> Shift + "
-#~ "Tab </b> за прескачане и <b> Enter </b> за следване.</p>"
