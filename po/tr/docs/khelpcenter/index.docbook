@@ -543,7 +543,7 @@
 > düğmesine basarak hiyerarşide yukarı çıkabilirsiniz.</para>
 
 <para
->man de info'ya benzer şekilde ele alınır; bölüm dizini üst düğümdür ve her man sayfası bir alt düzeydedir. man girdileri bir sayfa uzunluğundadır.</para>
+>man de info’ya benzer şekilde ele alınır; bölüm dizini üst düğümdür ve her man sayfası bir alt düzeydedir. man girdileri bir sayfa uzunluğundadır.</para>
 
 </sect3>
 </sect2>
@@ -1066,7 +1066,7 @@ Print the contents of the currently visible page.
 >Ayarlar</guimenu
 > ve <guimenu
 >Yardım</guimenu
-> menü ögelerine sahiptir; daha fazla bilgi için &kde; Temelleri'nin <ulink url="help:/fundamentals/menus.html#menus-settings"
+> menü ögelerine sahiptir; daha fazla bilgi için &kde; Temelleri’nin <ulink url="help:/fundamentals/menus.html#menus-settings"
 >Ayarlar Menüsü</ulink
 > ve <ulink url="help:/fundamentals/menus.html#menus-help"
 >Yardım Menüsü</ulink

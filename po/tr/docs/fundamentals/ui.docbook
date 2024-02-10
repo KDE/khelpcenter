@@ -586,7 +586,7 @@
 <entry
 >Bağlam Menüsü</entry>
 <entry
->&plasma; Çalışma Alanı'ndaki ve Uygulamalar'daki birçok kullanıcı arayüzü ögesinin, &RMB; ile tıklanarak açılabilen bir bağlam menüsü bulunur. Bu menü, genellikle sağ tıklanan kullanıcı arayüzü ögesini etkileyen seçenekleri ve eylemleri içerir.</entry>
+>&plasma; Çalışma Alanı’ndaki ve Uygulamalar’daki birçok kullanıcı arayüzü ögesinin, &RMB; ile tıklanarak açılabilen bir bağlam menüsü bulunur. Bu menü, genellikle sağ tıklanan kullanıcı arayüzü ögesini etkileyen seçenekleri ve eylemleri içerir.</entry>
 <entry>
 <inlinemediaobject>
 <imageobject>
@@ -908,7 +908,7 @@
 <entry
 >Ağaç Görünümü</entry>
 <entry
->Ağaç Görünümü, hiyerarşik bir seçenekler listesinden seçim yapmanıza olanak tanır. Ağaç Görünümü'nün bir bölümü veya kategorisi genişletilmemiş olabilir; bu durumda altında hiçbir seçenek görünmez ve başlığın solundaki ok sağ başlığa doğru işaret eder. Genişletilmiş de olabilir; bu durumda altında birkaç seçenek listelenir ve başlığın solundaki ok aşağıya, seçeneklere doğru işaret eder. Ağaç görünümünün bir kısmını genişletmek için, genişletmek istediğiniz bölümün başlığının solundaki oka veya başlığa çift tıklayın veya klavyenizin ok düğmelerini kullanarak başlığı seçip &Enter; veya <keycap
+>Ağaç Görünümü, hiyerarşik bir seçenekler listesinden seçim yapmanıza olanak tanır. Ağaç Görünümü’nün bir bölümü veya kategorisi genişletilmemiş olabilir; bu durumda altında hiçbir seçenek görünmez ve başlığın solundaki ok sağ başlığa doğru işaret eder. Genişletilmiş de olabilir; bu durumda altında birkaç seçenek listelenir ve başlığın solundaki ok aşağıya, seçeneklere doğru işaret eder. Ağaç görünümünün bir kısmını genişletmek için, genişletmek istediğiniz bölümün başlığının solundaki oka veya başlığa çift tıklayın veya klavyenizin ok düğmelerini kullanarak başlığı seçip &Enter; veya <keycap
 >+</keycap
 > düğmesine basın. Görünümün bir kısmını daraltmak için yine bölümün başlığının solundaki oka veya başlığa çift tıklayın veya klavyenizin ok düğmelerini kullanarak başlığı seçip &Enter; veya <keycap
 >-</keycap

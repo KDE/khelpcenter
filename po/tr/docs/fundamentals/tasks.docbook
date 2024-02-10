@@ -427,7 +427,7 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 ></term>
 <listitem
 ><para
->İşaretlenmediğinde (öntanımlı), klasör görünümündeki dosyalar artan düzende sıralanacaktır. (Örneğin, abecesel olarak sıralanan dosyalar A'dan Z'ye, sayısal olarak sıralanan dosyalar ise en küçükten en büyüğe doğru sıralanacaktır.) İşaretlendiğinde, klasördeki dosyalar azalan düzende (tersine) sıralanacaktır.</para
+>İşaretlenmediğinde (öntanımlı), klasör görünümündeki dosyalar artan düzende sıralanacaktır. (Örneğin, abecesel olarak sıralanan dosyalar A’dan Z’ye, sayısal olarak sıralanan dosyalar ise en küçükten en büyüğe doğru sıralanacaktır.) İşaretlendiğinde, klasördeki dosyalar azalan düzende (tersine) sıralanacaktır.</para
 ></listitem>
 </varlistentry>
 
@@ -534,7 +534,7 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 ></term>
 <listitem
 ><para
->Bu aynı zamanda klasörlerin genişletilmesine de olanak tanır; ancak Ayrıntılı Görünüm'de kullanılabilir olan ek sütunları da görüntüler.</para
+>Bu aynı zamanda klasörlerin genişletilmesine de olanak tanır; ancak Ayrıntılı Görünüm’de kullanılabilir olan ek sütunları da görüntüler.</para
 ></listitem>
 </varlistentry>
 
@@ -999,7 +999,7 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 >Teşekkürler ve Destek Olanlar</title>
 
 <para
->Bu bölümün bazı kısımlarını yazdığı için Google Code-In 2011 katılımcısı Alexey Subach'a özellikle teşekkür ederiz.</para>
+>Bu bölümün bazı kısımlarını yazdığı için Google Code-In 2011 katılımcısı Alexey Subach’a özellikle teşekkür ederiz.</para>
 
 </sect2>
 
@@ -1192,7 +1192,7 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 >Teşekkürler ve Destek Olanlar</title>
 
 <para
->Bu bölümün çoğunu yazdığı için Google Code-2011 Katılımcısı Salma Sultana'ya özellikle teşekkür ederiz.</para>
+>Bu bölümün çoğunu yazdığı için Google Code-2011 Katılımcısı Salma Sultana’ya özellikle teşekkür ederiz.</para>
 
 </sect2>
 
@@ -1698,7 +1698,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 >Bu, en sağdaki seçim kutusudur ve metninizin boyutunu seçmenizi sağlar. Yazıtipi boyutu, tipografide standart bir ölçü birimi olan <emphasis
 >punto</emphasis
 > türünden ölçülür. Bunun hakkında daha fazla bilgi için <ulink url="https://tr.wikipedia.org/wiki/Punto_(birim)"
->Vikipedi'deki <quote
+>Vikipedi’deki <quote
 >Punto (birim)</quote
 > yazısına bakın</ulink
 >.</para
@@ -1817,7 +1817,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 >Ekranın sağ alt köşesi, Ton/Doygunluk/Değer (<acronym
 >HSV</acronym
 >) renk uzayında istediğiniz rengin koordinatlarını elle girmenize olanak tanır. Bunun hakkında daha fazla bilgi için <ulink url="https://tr.wikipedia.org/wiki/HSL_ve_HSV"
->Vikipedi'deki <quote
+>Vikipedi’deki <quote
 >HSL ve HSV</quote
 > yazısına bakın</ulink
 >.</para>
@@ -1835,7 +1835,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 >Ekranın sağ alt köşesi ayrıca Kırmızı/Yeşil/Mavi (<acronym
 >RGB</acronym
 >) renk modelinde istenilen rengin koordinatlarını manuel olarak girmenize olanak sağlar. Bunun hakkında daha fazla bilgi için <ulink url="https://tr.wikipedia.org/wiki/RGB_renk_modeli"
->Vikipedi'deki <quote
+>Vikipedi’deki <quote
 >RGB renk modeli</quote
 ></ulink
 > yazısına bakın.</para>
@@ -1851,7 +1851,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 
 <para
 >Ekranın sağ alt köşesine rengi temsil eden &HTML; onaltılı kodunu girebilirsiniz. Bunun hakkında daha fazla bilgi için <ulink url="https://tr.wikipedia.org/wiki/Web_renkleri"
->Vikipedi'deki <quote
+>Vikipedi’deki <quote
 >Web renkleri</quote
 ></ulink
 > yazısına bakın.</para>
