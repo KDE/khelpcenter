@@ -1,13 +1,13 @@
 # translation of khelpcenter.po to Tamil
 # Copyright (C) 2004 Free Software Foundation, Inc.
 #
-# Kishore G <kishore96@gmail.com>, 2021, 2022.
+# SPDX-FileCopyrightText: 2021, 2022, 2024 Kishore G <kishore96@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-21 01:40+0000\n"
-"PO-Revision-Date: 2022-07-10 19:30+0530\n"
+"PO-Revision-Date: 2024-02-18 14:55+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.04.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -40,10 +40,9 @@ msgid "Help Center"
 msgstr "உதவி மையம்"
 
 #: application.cpp:106
-#, fuzzy, kde-format
-#| msgid "(c) 1999-2020, The KHelpCenter developers"
+#, kde-format
 msgid "(c) 1999-2023, The KHelpCenter developers"
-msgstr "(c) 1999-2020, கேஹெல்புசெண்டர் பராமரிப்பாளர்கள்"
+msgstr "(c) 1999-2023, கேஹெல்புசெண்டர் பராமரிப்பாளர்கள்"
 
 #: application.cpp:108
 #, kde-format
@@ -346,13 +345,13 @@ msgstr "தேடல் அட்டவணை புதுப்பிக்க�
 #: printdoc.cpp:60
 #, kde-format
 msgid "Could not generate print preview."
-msgstr ""
+msgstr "அச்சின் முன்னேட்டத்தை உருவாக்க முடியவில்லை."
 
 #: printdoc.cpp:96
 #, kde-format
 msgctxt "@title:window"
 msgid "Print Document"
-msgstr ""
+msgstr "ஆவணத்தை அச்சிடுவது"
 
 #: searchengine.cpp:59
 #, kde-format
@@ -455,10 +454,9 @@ msgid "unknown"
 msgstr "தெரியாத‍து"
 
 #: view.cpp:270
-#, fuzzy, kde-format
-#| msgid "Start Page"
+#, kde-format
 msgid "Save Page"
-msgstr "முதற்பக்கம்"
+msgstr "பக்கத்தை சேமி"
 
 #~ msgid "Previous Page"
 #~ msgstr "முந்தைய பக்கம்"
