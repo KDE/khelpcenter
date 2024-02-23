@@ -4,10 +4,10 @@
 # Darafei Praliaskouski <komzpa@gmail.com>, 2008.
 msgid ""
 msgstr ""
-"Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
+"Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-21 01:40+0000\n"
-"PO-Revision-Date: 2022-11-30 21:05\n"
+"PO-Revision-Date: 2024-02-21 13:30\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@gmail.com>\n"
 "Language-Team: Belarusian\n"
 "Language: be\n"
@@ -18,11 +18,12 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || n%10>=5 && n%10<=9 || n"
 "%100>=11 && n%100<=14 ? 2 : 3);\n"
-"X-Crowdin-Project: 86ff119b1606fcaa910d6b44fc14b611\n"
-"X-Crowdin-Project-ID: 127\n"
+"X-Crowdin-Project: fc57ad16a28d02dea100ceb1c60de14e\n"
+"X-Crowdin-Project-ID: 136\n"
 "X-Crowdin-Language: be\n"
-"X-Crowdin-File: /main/be/khelpcenter/khelpcenter5.po\n"
-"X-Crowdin-File-ID: 7957\n"
+"X-Crowdin-File: /[antikruk.KDE] main/KDE6/be/messages/khelpcenter/"
+"khelpcenter6.po\n"
+"X-Crowdin-File-ID: 10084\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -45,10 +46,9 @@ msgid "Help Center"
 msgstr "Цэнтр даведак"
 
 #: application.cpp:106
-#, fuzzy, kde-format
-#| msgid "(c) 1999-2020, The KHelpCenter developers"
+#, kde-format
 msgid "(c) 1999-2023, The KHelpCenter developers"
-msgstr "(c) 1999-2020, распрацоўнікі KHelpCenter"
+msgstr "(c) 1999-2023, распрацоўнікі KHelpCenter"
 
 #: application.cpp:108
 #, kde-format
@@ -351,13 +351,13 @@ msgstr "Абнаўленне індэкса пошуку... завершана."
 #: printdoc.cpp:60
 #, kde-format
 msgid "Could not generate print preview."
-msgstr ""
+msgstr "Не ўдалося стварыць выканаць папярэдні прагляд для друкавання."
 
 #: printdoc.cpp:96
 #, kde-format
 msgctxt "@title:window"
 msgid "Print Document"
-msgstr ""
+msgstr "Друк дакумента"
 
 #: searchengine.cpp:59
 #, kde-format
@@ -461,10 +461,9 @@ msgid "unknown"
 msgstr "невядома"
 
 #: view.cpp:270
-#, fuzzy, kde-format
-#| msgid "Start Page"
+#, kde-format
 msgid "Save Page"
-msgstr "Пачатковая старонка"
+msgstr "Захаваць старонку"
 
 #~ msgid "Previous Page"
 #~ msgstr "Папярэдняя старонка"
