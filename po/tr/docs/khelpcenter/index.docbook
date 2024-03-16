@@ -460,7 +460,7 @@
 > bulunduğu takdirde sonuçları döndürür. </para
 > 
 <para
->Aramalarınız beklediğiniz sonuçları getirmiyorsa hatalı bir ayarla yanlış arama terimini dışarıda tutmadığınızı dikkatlice denetleyin. </para
+>Aramalarınız beklediğiniz sonuçları getirmiyorsa hatalı bir ayarla yanlış arama terimini dışlamadığınızı dikkatlice denetleyin. </para
 ></listitem>
 </varlistentry>
 <varlistentry>
