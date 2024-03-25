@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-21 01:40+0000\n"
-"PO-Revision-Date: 2024-02-18 14:55+0530\n"
+"PO-Revision-Date: 2024-03-24 17:44+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.02.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -345,7 +345,7 @@ msgstr "தேடல் அட்டவணை புதுப்பிக்க�
 #: printdoc.cpp:60
 #, kde-format
 msgid "Could not generate print preview."
-msgstr "அச்சின் முன்னேட்டத்தை உருவாக்க முடியவில்லை."
+msgstr "அச்சின் முன்னோட்டத்தை உருவாக்க முடியவில்லை."
 
 #: printdoc.cpp:96
 #, kde-format
