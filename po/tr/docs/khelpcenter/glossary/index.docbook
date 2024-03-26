@@ -270,7 +270,7 @@ otherterm="gloss-kbuildsycoca"
 >Phonon</glossterm>
 			<glossdef
 ><para
->Gstreamer ve xine işletkeleri gibi var olan kitaplıklarla arayüz oluşturan, platformlar arası bir çoklu ortam API’si. &kde; 2 ve 3 ses için ARTS’ye bağlıydı. Phonon onların yerini aldı.&newpara; Daha fazla bilgi:&newpara; &linkstart;"https://en.wikipedia.org/wiki/Phonon_(software)"&linkmid; Vikipedi: Phonon (yazılım)&linkend;&newpara; &linkstart;"https://phonon.kde.org/"&linkmid;Phonon web sitesi&linkend;</para
+>Gstreamer ve xine işletkeleri gibi var olan kitaplıklarla arayüz oluşturan, platformlar arası birçoklu ortam API’si. &kde; 2 ve 3 ses için ARTS’ye bağlıydı. Phonon onların yerini aldı.&newpara; Daha fazla bilgi:&newpara; &linkstart;"https://en.wikipedia.org/wiki/Phonon_(software)"&linkmid; Vikipedi: Phonon (yazılım)&linkend;&newpara; &linkstart;"https://phonon.kde.org/"&linkmid;Phonon web sitesi&linkend;</para
 ><glossseealso otherterm="gloss-arts"
 >aRts</glossseealso
 > <glossseealso otherterm="gloss-kde"

@@ -1292,7 +1292,7 @@
 ></term>
 <listitem
 ><para
->Dosyanın o anda seçili olan kısmını siler ve panoya kopyalar. </para
+>Dosyanın o anda seçili olan kısmını kaldırır ve panoya arabelleğine bir kopyasını yerleştirir. </para
 ></listitem>
 </varlistentry>
 
@@ -1934,7 +1934,7 @@ or via email (see krecipes doc rev 1306076)
 ><para
 >Aşağıda açıklanan <keysym
 >Meta</keysym
-> düğmesi, bir çok farklı klavyede bulunan özel düğme için kullanılan genel addır. &Microsoft; &Windows; için tasarlanan klavyelerde <keysym
+> düğmesi, birçok farklı klavyede bulunan özel düğme için kullanılan genel addır. &Microsoft; &Windows; için tasarlanan klavyelerde <keysym
 >Windows</keysym
 > düğmesi olarak bilinir ve üzerinde &Windows; simgesi vardır. &Mac; için tasarlanmış bilgisayarlarda bu düğmeye <keysym
 >Command</keysym
