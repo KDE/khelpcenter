@@ -7,7 +7,6 @@
 #include "application.h"
 #include "mainwindow.h"
 
-#include <kwindowsystem_version.h>
 #include <KAboutData>
 #include <KDBusService>
 #include <KWindowSystem>

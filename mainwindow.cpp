@@ -47,7 +47,6 @@
 #include <KIO/JobUiDelegateFactory>
 #include <KIO/OpenUrlJob>
 #include <KIO/Job>
-#include <kio_version.h>
 
 #include <prefs.h>
 
