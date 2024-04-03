@@ -49,11 +49,11 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
     KIO
     XmlGui
     Service
+    TextTemplate
     WidgetsAddons
     WindowSystem
 )
 
-find_package(KF6TextTemplate CONFIG REQUIRED)
 
 find_package(Xapian REQUIRED)
 set_package_properties(Xapian PROPERTIES
@@ -142,18 +142,24 @@ kconfig_add_kcfg_files(khelpcenter prefs.kcfgc )
 # kf5_add_app_icon(khelpcenter_SRCS "${KDE4_INSTALL_DIR}/share/icons/oxygen/*/apps/help-browser.png")
 
 target_compile_definitions(khelpcenter PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
-target_link_libraries(khelpcenter KF6::Service KF6::DBusAddons KF6::ConfigGui
-    KF6::WindowSystem KF6::Bookmarks
-    KF6::DocTools Qt::Xml KF6::I18n KF6::XmlGui
-    Qt::WebEngineWidgets
-    KF6::CoreAddons
+target_link_libraries(khelpcenter
+    KF6::Bookmarks
+    KF6::BookmarksWidgets
     KF6::Completion
+    KF6::ConfigGui
+    KF6::CoreAddons
+    KF6::DBusAddons
+    KF6::DocTools
+    KF6::I18n
     KF6::KIOCore
     KF6::KIOWidgets
-    KF6::BookmarksWidgets
+    KF6::Service
+    KF6::TextTemplate
+    KF6::WindowSystem
+    KF6::XmlGui
+    Qt6::WebEngineWidgets
+    Qt6::Xml
 )
-
-target_link_libraries(khelpcenter KF6::TextTemplate)
 
 # add clang-format target for all our real source files
 file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES *.cpp *.h)

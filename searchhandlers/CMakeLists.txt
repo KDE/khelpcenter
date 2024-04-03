@@ -18,7 +18,14 @@ target_sources(khc_xapianindexer PRIVATE
    xapianindexer.cpp
 )
 
-target_link_libraries(khc_xapianindexer KF6::DocTools Qt::Core KF6::Archive KF6::CoreAddons ${XAPIAN_LIBRARIES} ${LIBXML2_LIBRARIES})
+target_link_libraries(khc_xapianindexer
+   KF6::Archive
+   KF6::CoreAddons
+   KF6::DocTools
+   Qt6::Core
+   ${XAPIAN_LIBRARIES}
+   ${LIBXML2_LIBRARIES}
+)
 install(TARGETS khc_xapianindexer DESTINATION ${KDE_INSTALL_LIBEXECDIR})
 
 # Xapian search
@@ -31,7 +38,10 @@ target_sources(khc_xapiansearch PRIVATE
    xapiansearch.cpp
    xapiancommon.h
 )
-target_link_libraries(khc_xapiansearch Qt::Core ${XAPIAN_LIBRARIES})
+target_link_libraries(khc_xapiansearch
+   Qt6::Core
+   ${XAPIAN_LIBRARIES}
+)
 install(TARGETS khc_xapiansearch DESTINATION ${KDE_INSTALL_LIBEXECDIR})
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/xapian.desktop.cmake ${CMAKE_CURRENT_BINARY_DIR}/xapian.desktop)
