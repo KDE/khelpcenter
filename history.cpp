@@ -56,9 +56,9 @@ void History::setupActions( KActionCollection *coll )
   
   connect(m_backAction, &KToolBarPopupAction::triggered, this, &History::back);
 
-  connect( m_backAction->menu(), &QMenu::triggered, this, &History::backActivated );
+  connect( m_backAction->popupMenu(), &QMenu::triggered, this, &History::backActivated );
   
-  connect( m_backAction->menu(), &QMenu::aboutToShow, this, &History::fillBackMenu );
+  connect( m_backAction->popupMenu(), &QMenu::aboutToShow, this, &History::fillBackMenu );
   
   m_backAction->setEnabled( false );
 
@@ -68,9 +68,9 @@ void History::setupActions( KActionCollection *coll )
   
   connect(m_forwardAction, &KToolBarPopupAction::triggered, this, &History::forward);
 
-  connect( m_forwardAction->menu(), &QMenu::triggered, this, &History::forwardActivated );
+  connect( m_forwardAction->popupMenu(), &QMenu::triggered, this, &History::forwardActivated );
   
-  connect( m_forwardAction->menu(), &QMenu::aboutToShow, this, &History::fillForwardMenu );
+  connect( m_forwardAction->popupMenu(), &QMenu::aboutToShow, this, &History::fillForwardMenu );
   
   m_forwardAction->setEnabled( false );
 }
@@ -236,14 +236,14 @@ void History::goHistory( int steps )
 
 void History::fillBackMenu()
 {
-  QMenu *menu = m_backAction->menu();
+  QMenu *menu = m_backAction->popupMenu();
   menu->clear();
   fillHistoryPopup( menu, true, false, false );
 }
 
 void History::fillForwardMenu()
 {
-  QMenu *menu = m_forwardAction->menu();
+  QMenu *menu = m_forwardAction->popupMenu();
   menu->clear();
   fillHistoryPopup( menu, false, true, false );
 }
