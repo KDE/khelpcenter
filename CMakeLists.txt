@@ -27,7 +27,7 @@ include(FeatureSummary)
 include(CheckIncludeFiles)
 include(ECMQtDeclareLoggingCategory)
 include(ECMGenerateDBusServiceFile)
-
+include(ECMDeprecationSettings)
 
 find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     DBus
@@ -66,6 +66,11 @@ set_package_properties(LibXml2 PROPERTIES
     DESCRIPTION "Support for extracting text from HTML documents"
     URL "http://www.xmlsoft.org/"
     TYPE REQUIRED)
+
+ecm_set_disabled_deprecation_versions(
+    QT 6.5
+    KF 6.0
+)
 
 add_subdirectory( plugins )
 add_subdirectory( searchhandlers )
