@@ -87,7 +87,7 @@ View::View( QWidget *parentWidget, KActionCollection *col )
     page()->profile()->installUrlSchemeHandler(QByteArrayLiteral("help"),new HelpUrlSchemeHandler);
     page()->profile()->installUrlSchemeHandler(QByteArrayLiteral("khelpcenter"),new HelpUrlSchemeHandler);
     page()->profile()->installUrlSchemeHandler(QByteArrayLiteral("man"),new HelpUrlSchemeHandler);
-    QString css = langLookup(QStringLiteral("kdoctools5-common/kde-default.css"));
+    QString css = langLookup(QStringLiteral("kdoctools6-common/kde-default.css"));
     if (!css.isEmpty())
     {
 
