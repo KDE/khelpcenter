@@ -59,7 +59,7 @@ Glossary::Glossary( QWidget *parent ) : QTreeWidget( parent )
     m_initialized = false;
     setFrameStyle( QFrame::NoFrame );
 
-    connect(this, &Glossary::itemActivated, this, &Glossary::treeItemSelected);
+    connect(this, &QTreeWidget::itemClicked, this, &Glossary::treeItemSelected);
 
     setHeaderHidden(true);
     setAllColumnsShowFocus( true );
