@@ -110,7 +110,7 @@ void Navigator::setupContentsTab()
     mContentsTree->headerItem()->setHidden(true);
     mContentsTree->setExpandsOnDoubleClick(false);
 
-    connect(mContentsTree, &QTreeWidget::itemActivated, this, &Navigator::slotItemSelected);
+    connect(mContentsTree, &QTreeWidget::itemClicked, this, &Navigator::slotItemSelected);
     connect(mContentsTree, &QTreeWidget::itemExpanded, this, &Navigator::slotItemExpanded);
     connect(mContentsTree, &QTreeWidget::itemCollapsed, this, &Navigator::slotItemCollapsed);
     
