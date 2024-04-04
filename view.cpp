@@ -76,6 +76,13 @@ View::View( QWidget *parentWidget, KActionCollection *col )
         customScheme.setSyntax(QWebEngineUrlScheme::Syntax::Path);
         QWebEngineUrlScheme::registerScheme(customScheme);
     }
+    {
+        QWebEngineUrlScheme customScheme("glossentry");
+        customScheme.setFlags(QWebEngineUrlScheme::SecureScheme | QWebEngineUrlScheme::ContentSecurityPolicyIgnored | QWebEngineUrlScheme::LocalScheme
+                              | QWebEngineUrlScheme::LocalAccessAllowed);
+        customScheme.setSyntax(QWebEngineUrlScheme::Syntax::Path);
+        QWebEngineUrlScheme::registerScheme(customScheme);
+    }
 
     page()->settings()->setUnknownUrlSchemePolicy(QWebEngineSettings::AllowAllUnknownUrlSchemes);
     page()->settings()->setAttribute(QWebEngineSettings::ErrorPageEnabled,true);
