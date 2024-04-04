@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-21 01:40+0000\n"
+"POT-Creation-Date: 2024-04-04 00:40+0000\n"
 "PO-Revision-Date: 2020-10-14 08:02+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -38,43 +38,43 @@ msgstr ""
 "el97146@mail.ntua.gr,sdramis@egnatia.ee.auth.gr,sngeorgaras@otenet.gr,"
 "manolis@koppermind.homelinux.org"
 
-#: application.cpp:30
+#: application.cpp:29
 #, kde-format
 msgid "Documentation to open"
 msgstr "Άνοιγμα τεκμηρίωσης"
 
-#: application.cpp:102 application.cpp:104
+#: application.cpp:101 application.cpp:103
 #, kde-format
 msgid "Help Center"
 msgstr "Κέντρο αρωγής"
 
-#: application.cpp:106
+#: application.cpp:105
 #, fuzzy, kde-format
 #| msgid "(c) 1999-2020, The KHelpCenter developers"
 msgid "(c) 1999-2023, The KHelpCenter developers"
 msgstr "(c) 1999-2020, οι προγραμματιστές του KHelpCenter"
 
-#: application.cpp:108
+#: application.cpp:107
 #, kde-format
 msgid "Current maintainer"
 msgstr "Τρέχων συντηρητής"
 
-#: application.cpp:109
+#: application.cpp:108
 #, kde-format
 msgid "Xapian-based search, lot of bugfixes"
 msgstr "Αναζήτηση βασισμένη σε Xapian, πολλές διορθώσεις"
 
-#: application.cpp:110
+#: application.cpp:109
 #, kde-format
 msgid "Former maintainer"
 msgstr "Πρώην συντηρητής"
 
-#: application.cpp:112
+#: application.cpp:111
 #, kde-format
 msgid "Original Author"
 msgstr "Αρχικός συγγραφέας"
 
-#: application.cpp:113
+#: application.cpp:112
 #, kde-format
 msgid "Info page support"
 msgstr "Υποστήριξη σελίδων info"
@@ -266,42 +266,42 @@ msgstr "Πή&γαινε"
 msgid "Main Toolbar"
 msgstr "Κύρια γραμμή εργαλείων"
 
-#: mainwindow.cpp:62
+#: mainwindow.cpp:61
 #, kde-format
 msgid "Search Error Log"
 msgstr "Καταγραφή σφαλμάτων αναζήτησης"
 
-#: mainwindow.cpp:113
+#: mainwindow.cpp:112
 #, kde-format
 msgid "Preparing Index"
 msgstr "Προετοιμασία ευρετηρίου"
 
-#: mainwindow.cpp:140
+#: mainwindow.cpp:139
 #, kde-format
 msgid "Ready"
 msgstr "Έτοιμο"
 
-#: mainwindow.cpp:195
+#: mainwindow.cpp:194
 #, kde-format
 msgid "Table of &Contents"
 msgstr "Πίν&ακας περιεχομένων"
 
-#: mainwindow.cpp:196
+#: mainwindow.cpp:195
 #, kde-format
 msgid "Table of contents"
 msgstr "Πίνακας περιεχομένων"
 
-#: mainwindow.cpp:197
+#: mainwindow.cpp:196
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "Μετάβαση πίσω στα περιεχόμενα"
 
-#: mainwindow.cpp:203
+#: mainwindow.cpp:202
 #, kde-format
 msgid "&Last Search Result"
 msgstr "Αποτελέσματα τε&λευταίας αναζήτησης"
 
-#: mainwindow.cpp:232
+#: mainwindow.cpp:231
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"

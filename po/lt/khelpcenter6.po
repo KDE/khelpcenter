@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-21 01:40+0000\n"
+"POT-Creation-Date: 2024-04-04 00:40+0000\n"
 "PO-Revision-Date: 2024-01-17 23:00+0200\n"
 "Last-Translator: Mindaugas Baranauskas <opensuse.lietuviu.kalba@gmail.com>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -30,42 +30,42 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "rch@richard.eu.org"
 
-#: application.cpp:30
+#: application.cpp:29
 #, kde-format
 msgid "Documentation to open"
 msgstr "Atvertina dokumentacija"
 
-#: application.cpp:102 application.cpp:104
+#: application.cpp:101 application.cpp:103
 #, kde-format
 msgid "Help Center"
 msgstr "Pagalbos centras"
 
-#: application.cpp:106
+#: application.cpp:105
 #, kde-format
 msgid "(c) 1999-2023, The KHelpCenter developers"
 msgstr "(c) 1999-2023, KHelpCenter programuotojai"
 
-#: application.cpp:108
+#: application.cpp:107
 #, kde-format
 msgid "Current maintainer"
 msgstr "Dabartinis prižiūrėtojas"
 
-#: application.cpp:109
+#: application.cpp:108
 #, kde-format
 msgid "Xapian-based search, lot of bugfixes"
 msgstr "Xapian pagrįsta paieška, daugybė klaidų pataisymų"
 
-#: application.cpp:110
+#: application.cpp:109
 #, kde-format
 msgid "Former maintainer"
 msgstr "Ankstesnis prižiūrėtojas"
 
-#: application.cpp:112
+#: application.cpp:111
 #, kde-format
 msgid "Original Author"
 msgstr "Pradinis autorius"
 
-#: application.cpp:113
+#: application.cpp:112
 #, kde-format
 msgid "Info page support"
 msgstr "Info puslapių palaikymas"
@@ -257,42 +257,42 @@ msgstr "&Eiti"
 msgid "Main Toolbar"
 msgstr "Pagrindinė įrankinė"
 
-#: mainwindow.cpp:62
+#: mainwindow.cpp:61
 #, kde-format
 msgid "Search Error Log"
 msgstr "Paieškos klaidų žurnalas"
 
-#: mainwindow.cpp:113
+#: mainwindow.cpp:112
 #, kde-format
 msgid "Preparing Index"
 msgstr "Paruošiu rodyklę"
 
-#: mainwindow.cpp:140
+#: mainwindow.cpp:139
 #, kde-format
 msgid "Ready"
 msgstr "Pasiruošęs"
 
-#: mainwindow.cpp:195
+#: mainwindow.cpp:194
 #, kde-format
 msgid "Table of &Contents"
 msgstr "&Turinys"
 
-#: mainwindow.cpp:196
+#: mainwindow.cpp:195
 #, kde-format
 msgid "Table of contents"
 msgstr "Turinys"
 
-#: mainwindow.cpp:197
+#: mainwindow.cpp:196
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "Grįžti atgal į turinį"
 
-#: mainwindow.cpp:203
+#: mainwindow.cpp:202
 #, kde-format
 msgid "&Last Search Result"
 msgstr "&Ankstesnės paieškos rezultatas"
 
-#: mainwindow.cpp:232
+#: mainwindow.cpp:231
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"

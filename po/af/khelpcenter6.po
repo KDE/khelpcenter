@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter stable\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-21 01:40+0000\n"
+"POT-Creation-Date: 2024-04-04 00:40+0000\n"
 "PO-Revision-Date: 2005-11-24 08:47+0200\n"
 "Last-Translator: Kobus Venter <kabousv@therugby.co.za>\n"
 "Language-Team: AFRIKAANS <translate-discuss-af@lists.sourceforge.net>\n"
@@ -28,44 +28,44 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "frix@expertron.co.za, juanita.franz@vr-web.de, kabousv@therugby.co.za "
 
-#: application.cpp:30
+#: application.cpp:29
 #, fuzzy, kde-format
 #| msgid "Document to be indexed"
 msgid "Documentation to open"
 msgstr "Dokument om indekseer te word"
 
-#: application.cpp:102 application.cpp:104
+#: application.cpp:101 application.cpp:103
 #, kde-format
 msgid "Help Center"
 msgstr "Hulp Sentrum"
 
-#: application.cpp:106
+#: application.cpp:105
 #, fuzzy, kde-format
 #| msgid "(c) 1999-2003, The KHelpCenter developers"
 msgid "(c) 1999-2023, The KHelpCenter developers"
 msgstr "(c) 1999-2003, Die Khulpsentrum ontwikkelaars"
 
-#: application.cpp:108
+#: application.cpp:107
 #, kde-format
 msgid "Current maintainer"
 msgstr ""
 
-#: application.cpp:109
+#: application.cpp:108
 #, kde-format
 msgid "Xapian-based search, lot of bugfixes"
 msgstr ""
 
-#: application.cpp:110
+#: application.cpp:109
 #, kde-format
 msgid "Former maintainer"
 msgstr ""
 
-#: application.cpp:112
+#: application.cpp:111
 #, kde-format
 msgid "Original Author"
 msgstr "Oorspronklike Outeur"
 
-#: application.cpp:113
+#: application.cpp:112
 #, kde-format
 msgid "Info page support"
 msgstr "Inligting bladsy ondersteun"
@@ -263,42 +263,42 @@ msgstr "Gaan"
 msgid "Main Toolbar"
 msgstr ""
 
-#: mainwindow.cpp:62
+#: mainwindow.cpp:61
 #, kde-format
 msgid "Search Error Log"
 msgstr "Soektog Fout Log"
 
-#: mainwindow.cpp:113
+#: mainwindow.cpp:112
 #, kde-format
 msgid "Preparing Index"
 msgstr "Berei voor Indeks"
 
-#: mainwindow.cpp:140
+#: mainwindow.cpp:139
 #, kde-format
 msgid "Ready"
 msgstr "Gereed"
 
-#: mainwindow.cpp:195
+#: mainwindow.cpp:194
 #, kde-format
 msgid "Table of &Contents"
 msgstr "Tafel van Inhoud"
 
-#: mainwindow.cpp:196
+#: mainwindow.cpp:195
 #, kde-format
 msgid "Table of contents"
 msgstr "Tabel van Inhoud"
 
-#: mainwindow.cpp:197
+#: mainwindow.cpp:196
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "Gaan terug na die tafel van inhoud"
 
-#: mainwindow.cpp:203
+#: mainwindow.cpp:202
 #, kde-format
 msgid "&Last Search Result"
 msgstr "Laaste Soektog Resultaat"
 
-#: mainwindow.cpp:232
+#: mainwindow.cpp:231
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"

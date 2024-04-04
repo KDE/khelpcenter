@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.2\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-21 01:40+0000\n"
+"POT-Creation-Date: 2024-04-04 00:40+0000\n"
 "PO-Revision-Date: 2024-01-05 20:58+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -28,42 +28,42 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ulysses@fsf.hu"
 
-#: application.cpp:30
+#: application.cpp:29
 #, kde-format
 msgid "Documentation to open"
 msgstr "Megnyitandó dokumentum"
 
-#: application.cpp:102 application.cpp:104
+#: application.cpp:101 application.cpp:103
 #, kde-format
 msgid "Help Center"
 msgstr "Súgóközpont"
 
-#: application.cpp:106
+#: application.cpp:105
 #, kde-format
 msgid "(c) 1999-2023, The KHelpCenter developers"
 msgstr "© A KHelpCenter fejlesztői, 1999-2023."
 
-#: application.cpp:108
+#: application.cpp:107
 #, kde-format
 msgid "Current maintainer"
 msgstr "Jelenlegi karbantartó"
 
-#: application.cpp:109
+#: application.cpp:108
 #, kde-format
 msgid "Xapian-based search, lot of bugfixes"
 msgstr "Xapian-alapú keresés, rengeteg hibajavítás"
 
-#: application.cpp:110
+#: application.cpp:109
 #, kde-format
 msgid "Former maintainer"
 msgstr "Korábbi karbantartó"
 
-#: application.cpp:112
+#: application.cpp:111
 #, kde-format
 msgid "Original Author"
 msgstr "Eredeti szerző"
 
-#: application.cpp:113
+#: application.cpp:112
 #, kde-format
 msgid "Info page support"
 msgstr "Info oldalak megjeleníthetősége"
@@ -255,42 +255,42 @@ msgstr "&Ugrás"
 msgid "Main Toolbar"
 msgstr "Fő eszköztár"
 
-#: mainwindow.cpp:62
+#: mainwindow.cpp:61
 #, kde-format
 msgid "Search Error Log"
 msgstr "A keresési hibák naplója"
 
-#: mainwindow.cpp:113
+#: mainwindow.cpp:112
 #, kde-format
 msgid "Preparing Index"
 msgstr "Az index előkészítése"
 
-#: mainwindow.cpp:140
+#: mainwindow.cpp:139
 #, kde-format
 msgid "Ready"
 msgstr "Kész"
 
-#: mainwindow.cpp:195
+#: mainwindow.cpp:194
 #, kde-format
 msgid "Table of &Contents"
 msgstr "T&artalomjegyzék"
 
-#: mainwindow.cpp:196
+#: mainwindow.cpp:195
 #, kde-format
 msgid "Table of contents"
 msgstr "Tartalomjegyzék"
 
-#: mainwindow.cpp:197
+#: mainwindow.cpp:196
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "Visszalépés a tartalomjegyzékre"
 
-#: mainwindow.cpp:203
+#: mainwindow.cpp:202
 #, kde-format
 msgid "&Last Search Result"
 msgstr "Az &utolsó keresés eredménye"
 
-#: mainwindow.cpp:232
+#: mainwindow.cpp:231
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"

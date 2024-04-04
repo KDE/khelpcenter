@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-21 01:40+0000\n"
+"POT-Creation-Date: 2024-04-04 00:40+0000\n"
 "PO-Revision-Date: 2023-09-30 11:09+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -48,44 +48,44 @@ msgstr ""
 "duranceau@kde.org, cousin@kde.org, cmiramon@kde-france.org, nicolas."
 "ternisien@gmail.com, vpinon@kde.org, sdepiets@gmail.com"
 
-#: application.cpp:30
+#: application.cpp:29
 #, kde-format
 msgid "Documentation to open"
 msgstr "Documentation à ouvrir"
 
-#: application.cpp:102 application.cpp:104
+#: application.cpp:101 application.cpp:103
 #, kde-format
 msgid "Help Center"
 msgstr "Centre d'aide"
 
-#: application.cpp:106
+#: application.cpp:105
 #, kde-format
 msgid "(c) 1999-2023, The KHelpCenter developers"
 msgstr ""
 "(c) 1999-2023, l'équipe de développement du centre d'aide de KDE "
 "« KHelpCenter »"
 
-#: application.cpp:108
+#: application.cpp:107
 #, kde-format
 msgid "Current maintainer"
 msgstr "Mainteneur actuel"
 
-#: application.cpp:109
+#: application.cpp:108
 #, kde-format
 msgid "Xapian-based search, lot of bugfixes"
 msgstr "Recherche utilisant Xapian, nombreuses corrections de bogues"
 
-#: application.cpp:110
+#: application.cpp:109
 #, kde-format
 msgid "Former maintainer"
 msgstr "Ancien mainteneur"
 
-#: application.cpp:112
+#: application.cpp:111
 #, kde-format
 msgid "Original Author"
 msgstr "Auteur originel"
 
-#: application.cpp:113
+#: application.cpp:112
 #, kde-format
 msgid "Info page support"
 msgstr "Gestion des pages d'informations"
@@ -277,42 +277,42 @@ msgstr "Al&ler"
 msgid "Main Toolbar"
 msgstr "Barre principale d'outils"
 
-#: mainwindow.cpp:62
+#: mainwindow.cpp:61
 #, kde-format
 msgid "Search Error Log"
 msgstr "Chercher dans le journal des erreurs"
 
-#: mainwindow.cpp:113
+#: mainwindow.cpp:112
 #, kde-format
 msgid "Preparing Index"
 msgstr "Préparation de l'index en cours"
 
-#: mainwindow.cpp:140
+#: mainwindow.cpp:139
 #, kde-format
 msgid "Ready"
 msgstr "Prêt"
 
-#: mainwindow.cpp:195
+#: mainwindow.cpp:194
 #, kde-format
 msgid "Table of &Contents"
 msgstr "Table des mati&ères"
 
-#: mainwindow.cpp:196
+#: mainwindow.cpp:195
 #, kde-format
 msgid "Table of contents"
 msgstr "Table des matières"
 
-#: mainwindow.cpp:197
+#: mainwindow.cpp:196
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "Retourner à la table des matières"
 
-#: mainwindow.cpp:203
+#: mainwindow.cpp:202
 #, kde-format
 msgid "&Last Search Result"
 msgstr "Résu&ltat de la dernière recherche"
 
-#: mainwindow.cpp:232
+#: mainwindow.cpp:231
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdehelp-1.1\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-21 01:40+0000\n"
+"POT-Creation-Date: 2024-04-04 00:40+0000\n"
 "PO-Revision-Date: 2004-09-21 18:44+0200\n"
 "Last-Translator: Jañ-Mai Drapier <jdrapier@club-internet.fr>\n"
 "Language-Team: Brezhoneg <Suav.Icb@wanadoo.fr>\n"
@@ -27,44 +27,44 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "tvignaud@mandriva.com, jdrapier@club-internet.fr"
 
-#: application.cpp:30
+#: application.cpp:29
 #, fuzzy, kde-format
 #| msgid "General Documentation"
 msgid "Documentation to open"
 msgstr "Teuliadur hollek"
 
-#: application.cpp:102 application.cpp:104
+#: application.cpp:101 application.cpp:103
 #, kde-format
 msgid "Help Center"
 msgstr "Reizhiad Skoazell"
 
-#: application.cpp:106
+#: application.cpp:105
 #, fuzzy, kde-format
 #| msgid "(c) 1999-2003, The KHelpCenter developers"
 msgid "(c) 1999-2023, The KHelpCenter developers"
 msgstr "(c) 1999-2003, Diorroerien KHelpCenter"
 
-#: application.cpp:108
+#: application.cpp:107
 #, kde-format
 msgid "Current maintainer"
 msgstr ""
 
-#: application.cpp:109
+#: application.cpp:108
 #, kde-format
 msgid "Xapian-based search, lot of bugfixes"
 msgstr ""
 
-#: application.cpp:110
+#: application.cpp:109
 #, kde-format
 msgid "Former maintainer"
 msgstr ""
 
-#: application.cpp:112
+#: application.cpp:111
 #, kde-format
 msgid "Original Author"
 msgstr "Oberour kentañ"
 
-#: application.cpp:113
+#: application.cpp:112
 #, kde-format
 msgid "Info page support"
 msgstr ""
@@ -261,42 +261,42 @@ msgstr "&Mont"
 msgid "Main Toolbar"
 msgstr "Barrenn kentañ an ostilhoù"
 
-#: mainwindow.cpp:62
+#: mainwindow.cpp:61
 #, kde-format
 msgid "Search Error Log"
 msgstr ""
 
-#: mainwindow.cpp:113
+#: mainwindow.cpp:112
 #, kde-format
 msgid "Preparing Index"
 msgstr "Emaon o prientiñ ar meneger"
 
-#: mainwindow.cpp:140
+#: mainwindow.cpp:139
 #, kde-format
 msgid "Ready"
 msgstr "Prest"
 
-#: mainwindow.cpp:195
+#: mainwindow.cpp:194
 #, kde-format
 msgid "Table of &Contents"
 msgstr "Taolenn an &danvezioù"
 
-#: mainwindow.cpp:196
+#: mainwindow.cpp:195
 #, kde-format
 msgid "Table of contents"
 msgstr "Taolenn an danvezioù"
 
-#: mainwindow.cpp:197
+#: mainwindow.cpp:196
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "Mont en-dro da daolenn an danvezioù"
 
-#: mainwindow.cpp:203
+#: mainwindow.cpp:202
 #, fuzzy, kde-format
 msgid "&Last Search Result"
 msgstr "K&lask"
 
-#: mainwindow.cpp:232
+#: mainwindow.cpp:231
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"
