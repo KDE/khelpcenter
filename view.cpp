@@ -77,6 +77,13 @@ View::View( QWidget *parentWidget, KActionCollection *col )
         QWebEngineUrlScheme::registerScheme(customScheme);
     }
     {
+        QWebEngineUrlScheme customScheme("info");
+        customScheme.setFlags(QWebEngineUrlScheme::SecureScheme | QWebEngineUrlScheme::ContentSecurityPolicyIgnored | QWebEngineUrlScheme::LocalScheme
+                              | QWebEngineUrlScheme::LocalAccessAllowed);
+        customScheme.setSyntax(QWebEngineUrlScheme::Syntax::Path);
+        QWebEngineUrlScheme::registerScheme(customScheme);
+    }
+    {
         QWebEngineUrlScheme customScheme("glossentry");
         customScheme.setFlags(QWebEngineUrlScheme::SecureScheme | QWebEngineUrlScheme::ContentSecurityPolicyIgnored | QWebEngineUrlScheme::LocalScheme
                               | QWebEngineUrlScheme::LocalAccessAllowed);
@@ -94,6 +101,7 @@ View::View( QWidget *parentWidget, KActionCollection *col )
     page()->profile()->installUrlSchemeHandler(QByteArrayLiteral("help"),new HelpUrlSchemeHandler);
     page()->profile()->installUrlSchemeHandler(QByteArrayLiteral("khelpcenter"),new HelpUrlSchemeHandler);
     page()->profile()->installUrlSchemeHandler(QByteArrayLiteral("man"),new HelpUrlSchemeHandler);
+    page()->profile()->installUrlSchemeHandler(QByteArrayLiteral("info"),new HelpUrlSchemeHandler);
     QString css = langLookup(QStringLiteral("kdoctools6-common/kde-default.css"));
     if (!css.isEmpty())
     {
