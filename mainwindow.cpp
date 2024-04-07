@@ -10,6 +10,8 @@
 
 #include "history.h"
 #include "view.h"
+#include "viewcontainer.h"
+#include "pagesearchbar.h"
 #include "searchengine.h"
 #include "khc_debug.h"
 #include "navigator.h"
@@ -100,7 +102,9 @@ MainWindow::MainWindow()
     QDBusConnection::sessionBus().registerObject(QStringLiteral("/KHelpCenter"), this, QDBusConnection::ExportScriptableSlots);
     mSplitter = new QSplitter( this );
 
-    mDoc = new View( mSplitter, actionCollection() );
+    mViewContainer = new ViewContainer(mSplitter);
+    mDoc = new View( mViewContainer, actionCollection() );
+    mViewContainer->setView(mDoc);
     connect( mDoc, &View::titleChanged, this, &MainWindow::setWindowTitle );
     connect( mDoc->page(), &QWebEnginePage::linkHovered, this, &MainWindow::statusBarMessage );
     connect( mDoc, &QWebEngineView::loadStarted, this, &MainWindow::slotStarted );
@@ -108,6 +112,10 @@ MainWindow::MainWindow()
     connect( mDoc, &View::searchResultCacheAvailable, this, &MainWindow::enableLastSearchAction );
 
     connect( mDoc, &View::selectionChanged, this, &MainWindow::enableCopyTextAction );
+
+    mPageSearchBar = new PageSearchBar(mDoc, mViewContainer);
+    mPageSearchBar->hide();
+    mViewContainer->setBottomBar(mPageSearchBar);
 
     statusBar()->showMessage(i18n("Preparing Index"));
 
@@ -197,6 +205,10 @@ void MainWindow::setupActions()
 
     mCopyText = KStandardAction::copy( this, SLOT(slotCopySelectedText()), this );
     actionCollection()->addAction( QStringLiteral("copy_text"), mCopyText );
+
+    KStandardAction::find(mPageSearchBar, &PageSearchBar::startSearch, actionCollection());
+    KStandardAction::findNext(mPageSearchBar, &PageSearchBar::searchNext, actionCollection());
+    KStandardAction::findPrev(mPageSearchBar, &PageSearchBar::searchPrevious, actionCollection());
 
     mLastSearchAction = actionCollection()->addAction( QStringLiteral("lastsearch") );
     mLastSearchAction->setText( i18n("&Last Search Result") );

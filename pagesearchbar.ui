@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+<!--
+    SPDX-FileCopyrightText: 2017, 2024 Friedrich W. H. Kossebau <kossebau@kde.org>
+    SPDX-License-Identifier: GPL-2.0-or-later
+-->
+ <class>KHC::PageSearchBar</class>
+ <widget class="QWidget" name="KHC::PageSearchBar">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>582</width>
+    <height>35</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <layout class="QHBoxLayout">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QLineEdit" name="searchTextEdit">
+     <property name="clearButtonEnabled">
+      <bool>true</bool>
+     </property>
+     <property name="placeholderText">
+      <string comment="@info:placeholder">Search...</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QToolButton" name="nextButton">
+     <property name="toolTip">
+      <string>Jump to next match</string>
+     </property>
+     <property name="icon">
+      <iconset theme="go-down-search"/>
+     </property>
+     <property name="autoRaise">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QToolButton" name="previousButton">
+     <property name="toolTip">
+      <string>Jump to previous match</string>
+     </property>
+     <property name="icon">
+      <iconset theme="go-up-search"/>
+     </property>
+     <property name="autoRaise">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QToolButton" name="matchCaseCheckButton">
+     <property name="toolTip">
+      <string>Match case sensitive</string>
+     </property>
+     <property name="icon">
+      <iconset theme="format-text-superscript"/>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="autoRaise">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QToolButton" name="hideButton">
+     <property name="icon">
+      <iconset theme="dialog-close"/>
+     </property>
+     <property name="autoRaise">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

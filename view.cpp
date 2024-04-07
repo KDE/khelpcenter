@@ -9,6 +9,7 @@
 #include "grantleeformatter.h"
 #include "khc_debug.h"
 
+#include <KStandardAction>
 #include <KActionCollection>
 #include <KSharedConfig>
 #include <KLocalizedString>
@@ -258,6 +259,11 @@ void View::contextMenuEvent(QContextMenuEvent *ev)
         auto separator = new QAction(&menu);
         separator->setSeparator(true);
         menu.addAction(separator);
+    }
+
+    act = mActionCollection->action(KStandardAction::name(KStandardAction::Find));
+    if (act) {
+        menu.addAction(act);
     }
 
     act = pageAction(QWebEnginePage::Copy);

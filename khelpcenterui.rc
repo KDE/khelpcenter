@@ -1,5 +1,5 @@
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui name="khelpcenter" version="19">
+<gui name="khelpcenter" version="20">
 <MenuBar>
  <Menu name="edit" noMerge="1">
   <text>&amp;Edit</text>
@@ -7,7 +7,7 @@
   <Separator />
   <Action name="selectAll" />
   <Separator />
-  <Action name="find" />
+  <Action name="edit_find" />
  </Menu>
  <Menu name="view" noMerge="1">
   <text>&amp;View</text>

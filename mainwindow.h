@@ -29,6 +29,8 @@ namespace KHC {
 
 class Navigator;
 class View;
+class ViewContainer;
+class PageSearchBar;
 
 class MainWindow : public KXmlGuiWindow
 {
@@ -101,8 +103,10 @@ private:
     void updateFontScaleActions();
 
     QSplitter *mSplitter = nullptr;
+    ViewContainer *mViewContainer = nullptr;
     View *mDoc = nullptr;
     Navigator *mNavigator = nullptr;
+    PageSearchBar *mPageSearchBar = nullptr;
 
     QAction *mLastSearchAction = nullptr;
     QAction *mCopyText = nullptr;

@@ -83,12 +83,17 @@ add_subdirectory( templates )
 
 add_executable(khelpcenter)
 
+ki18n_wrap_ui(khelpcenter
+    pagesearchbar.ui
+)
+
 target_sources(khelpcenter PRIVATE
    navigator.cpp
    navigatoritem.cpp
    navigatorappitem.cpp
    navigatorappgroupitem.cpp
    view.cpp
+   viewcontainer.cpp
    searchwidget.cpp
    searchengine.cpp
    docmetainfo.cpp
@@ -106,12 +111,14 @@ target_sources(khelpcenter PRIVATE
    scrollkeepertreebuilder.cpp
    bookmarkowner.cpp
    searchhandler.cpp
+   pagesearchbar.cpp
 
    navigator.h
    navigatoritem.h
    navigatorappitem.h
    navigatorappgroupitem.h
    view.h
+   viewcontainer.h
    searchwidget.h
    searchengine.h
    docmetainfo.h
@@ -129,6 +136,7 @@ target_sources(khelpcenter PRIVATE
    scrollkeepertreebuilder.h
    bookmarkowner.h
    searchhandler.h
+   pagesearchbar.h
 
    printdoc.cpp
    printdoc.h
