@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-05 02:43+0000\n"
+"POT-Creation-Date: 2024-04-07 02:46+0000\n"
 "PO-Revision-Date: 2020-10-14 08:02+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -463,7 +463,7 @@ msgctxt "Label for Unknown search scope, that should never appear"
 msgid "unknown"
 msgstr "άγνωστο"
 
-#: view.cpp:277
+#: view.cpp:285
 #, fuzzy, kde-format
 #| msgid "Start Page"
 msgid "Save Page"

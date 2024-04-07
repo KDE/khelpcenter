@@ -1,6 +1,6 @@
 # Translation of khelpcenter.po to Slovenian
 # SLOVENIAN TRANSLATION OF KFONTMANAGER.
-# $Id: khelpcenter6.po 1677174 2024-04-05 03:06:47Z scripty $
+# $Id: khelpcenter6.po 1677417 2024-04-07 03:09:31Z scripty $
 # $Source$
 #
 # Copyright (C) 2001, 2003, 2004, 2005 Free Software Foundation, Inc.
@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-05 02:43+0000\n"
+"POT-Creation-Date: 2024-04-07 02:46+0000\n"
 "PO-Revision-Date: 2023-09-29 07:35+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -464,7 +464,7 @@ msgctxt "Label for Unknown search scope, that should never appear"
 msgid "unknown"
 msgstr "neznano"
 
-#: view.cpp:277
+#: view.cpp:285
 #, kde-format
 msgid "Save Page"
 msgstr "Shrani stran"
