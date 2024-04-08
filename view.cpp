@@ -40,7 +40,7 @@ using namespace KHC;
 class HelpUrlSchemeHandler : public QWebEngineUrlSchemeHandler {
     void requestStarted(QWebEngineUrlRequestJob* job) override {
         qCDebug(KHC_LOG) << job->requestUrl();
-        KIO::TransferJob* kiojob = KIO::get(job->requestUrl(), KIO::NoReload);
+        KIO::TransferJob* kiojob = KIO::get(job->requestUrl(), KIO::NoReload, KIO::HideProgressInfo);
         // QWebEngineUrlRequestJob seems to not support redirect & content at the same time
         kiojob->setRedirectionHandlingEnabled(false);
         QByteArray result;
