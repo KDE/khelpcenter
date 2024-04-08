@@ -41,11 +41,20 @@ class HelpUrlSchemeHandler : public QWebEngineUrlSchemeHandler {
     void requestStarted(QWebEngineUrlRequestJob* job) override {
         qCDebug(KHC_LOG) << job->requestUrl();
         KIO::TransferJob* kiojob = KIO::get(job->requestUrl(), KIO::NoReload);
+        // QWebEngineUrlRequestJob seems to not support redirect & content at the same time
+        kiojob->setRedirectionHandlingEnabled(false);
         QByteArray result;
         connect(kiojob, &KIO::TransferJob::data, this, [&result](KJob*, QByteArray data) {
             result += data;
         });
         kiojob->exec();
+
+        const QUrl redirectUrl = kiojob->redirectUrl();
+        if (redirectUrl.isValid()) {
+            job->redirect(redirectUrl);
+            return;
+        }
+
         auto buffer = new QBuffer(job);
         buffer->setData(result);
         job->reply("text/html", buffer);
