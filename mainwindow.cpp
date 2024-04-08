@@ -307,15 +307,7 @@ void MainWindow::viewUrl( const QUrl &url )
         slotGlossSelected( mNavigator->glossEntry( decodedEntryId ) );
         mNavigator->slotSelectGlossEntry( decodedEntryId );
     } else {
-        QUrl realUrl = url;
-
-        // add trailing slash if not present
-        // https://bugs.kde.org/show_bug.cgi?id=484176
-        if (!realUrl.toString().endsWith(QLatin1Char('/'))) {
-            realUrl = QUrl(realUrl.toString() + QLatin1Char('/'));
-        }
-
-        mDoc->load( realUrl );
+        mDoc->load( url );
     }
 }
 
