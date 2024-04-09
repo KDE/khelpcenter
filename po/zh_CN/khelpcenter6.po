@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-07 00:40+0000\n"
+"POT-Creation-Date: 2024-04-09 00:40+0000\n"
 "PO-Revision-Date: 2024-04-07 19:29\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -455,7 +455,7 @@ msgctxt "Label for Unknown search scope, that should never appear"
 msgid "unknown"
 msgstr "未知"
 
-#: view.cpp:285
+#: view.cpp:294
 #, kde-format
 msgid "Save Page"
 msgstr "保存页面"
