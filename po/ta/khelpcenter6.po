@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-07 02:46+0000\n"
+"POT-Creation-Date: 2024-04-09 02:46+0000\n"
 "PO-Revision-Date: 2024-03-24 17:44+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -453,7 +453,7 @@ msgctxt "Label for Unknown search scope, that should never appear"
 msgid "unknown"
 msgstr "தெரியாத‍து"
 
-#: view.cpp:285
+#: view.cpp:294
 #, kde-format
 msgid "Save Page"
 msgstr "பக்கத்தை சேமி"

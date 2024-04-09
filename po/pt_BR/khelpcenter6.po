@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-07 02:46+0000\n"
+"POT-Creation-Date: 2024-04-09 02:46+0000\n"
 "PO-Revision-Date: 2023-10-13 21:17-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -466,7 +466,7 @@ msgctxt "Label for Unknown search scope, that should never appear"
 msgid "unknown"
 msgstr "desconhecido"
 
-#: view.cpp:285
+#: view.cpp:294
 #, kde-format
 msgid "Save Page"
 msgstr "Salvar página"

@@ -1,6 +1,6 @@
 # translation of khelpcenter.po to Polish
 # translation of khelpcenter.po to
-# Version: $Revision: 1677417 $
+# Version: $Revision: 1677562 $
 # Norbert Popiołek <norbert@kde.com.pl>
 # Piotr Roszatycki <dexter@debian.org>, 1997-2000.
 # Michał Rudolf <mrudolf@kdewebdev.org>, 2002.
@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-07 02:46+0000\n"
+"POT-Creation-Date: 2024-04-09 02:46+0000\n"
 "PO-Revision-Date: 2023-09-30 11:08+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -461,7 +461,7 @@ msgctxt "Label for Unknown search scope, that should never appear"
 msgid "unknown"
 msgstr "nieznany"
 
-#: view.cpp:285
+#: view.cpp:294
 #, kde-format
 msgid "Save Page"
 msgstr "Zapisz stronę"
