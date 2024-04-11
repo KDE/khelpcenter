@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-09 00:40+0000\n"
+"POT-Creation-Date: 2024-04-11 00:39+0000\n"
 "PO-Revision-Date: 2024-01-17 19:15+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -264,42 +264,42 @@ msgstr "أ&ذهب"
 msgid "Main Toolbar"
 msgstr "شريط الأدوات الرئيسي"
 
-#: mainwindow.cpp:61
+#: mainwindow.cpp:63
 #, kde-format
 msgid "Search Error Log"
 msgstr "سجل وقائع أخطاء البحث"
 
-#: mainwindow.cpp:112
+#: mainwindow.cpp:120
 #, kde-format
 msgid "Preparing Index"
 msgstr "جاري تحضير الفهرسة"
 
-#: mainwindow.cpp:139
+#: mainwindow.cpp:147
 #, kde-format
 msgid "Ready"
 msgstr "جاهز"
 
-#: mainwindow.cpp:194
+#: mainwindow.cpp:202
 #, kde-format
 msgid "Table of &Contents"
 msgstr "جدول ال&محتويات"
 
-#: mainwindow.cpp:195
+#: mainwindow.cpp:203
 #, kde-format
 msgid "Table of contents"
 msgstr "جدول المحتويات"
 
-#: mainwindow.cpp:196
+#: mainwindow.cpp:204
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "أذهب إلى جدول المحتويات"
 
-#: mainwindow.cpp:202
+#: mainwindow.cpp:214
 #, kde-format
 msgid "&Last Search Result"
 msgstr "آ&خر نتائج البحث"
 
-#: mainwindow.cpp:231
+#: mainwindow.cpp:243
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"
@@ -461,7 +461,7 @@ msgctxt "Label for Unknown search scope, that should never appear"
 msgid "unknown"
 msgstr "مجهول"
 
-#: view.cpp:294
+#: view.cpp:300
 #, kde-format
 msgid "Save Page"
 msgstr "احفظ الصفحة"

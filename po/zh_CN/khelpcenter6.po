@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-09 00:40+0000\n"
+"POT-Creation-Date: 2024-04-11 00:39+0000\n"
 "PO-Revision-Date: 2024-04-07 19:29\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -258,42 +258,42 @@ msgstr "转到(&G)"
 msgid "Main Toolbar"
 msgstr "主工具栏"
 
-#: mainwindow.cpp:61
+#: mainwindow.cpp:63
 #, kde-format
 msgid "Search Error Log"
 msgstr "搜索错误日志"
 
-#: mainwindow.cpp:112
+#: mainwindow.cpp:120
 #, kde-format
 msgid "Preparing Index"
 msgstr "正在准备索引"
 
-#: mainwindow.cpp:139
+#: mainwindow.cpp:147
 #, kde-format
 msgid "Ready"
 msgstr "就绪"
 
-#: mainwindow.cpp:194
+#: mainwindow.cpp:202
 #, kde-format
 msgid "Table of &Contents"
 msgstr "目录(&C)"
 
-#: mainwindow.cpp:195
+#: mainwindow.cpp:203
 #, kde-format
 msgid "Table of contents"
 msgstr "目录"
 
-#: mainwindow.cpp:196
+#: mainwindow.cpp:204
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "返回到目录"
 
-#: mainwindow.cpp:202
+#: mainwindow.cpp:214
 #, kde-format
 msgid "&Last Search Result"
 msgstr "上一次搜索结果(&L)"
 
-#: mainwindow.cpp:231
+#: mainwindow.cpp:243
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"
@@ -455,7 +455,7 @@ msgctxt "Label for Unknown search scope, that should never appear"
 msgid "unknown"
 msgstr "未知"
 
-#: view.cpp:294
+#: view.cpp:300
 #, kde-format
 msgid "Save Page"
 msgstr "保存页面"
