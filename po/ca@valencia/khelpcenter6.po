@@ -180,12 +180,12 @@ msgstr "Alfabèticament"
 #: glossary.cpp:128
 #, kde-format
 msgid "Rebuilding glossary cache..."
-msgstr "S'està refent el cau del glossari..."
+msgstr "S'està refent el cau del glossari…"
 
 #: glossary.cpp:181
 #, kde-format
 msgid "Rebuilding cache... done."
-msgstr "S'està refent el cau... fet."
+msgstr "S'està refent el cau… fet."
 
 #: grantleeformatter.cpp:100
 #, kde-format
@@ -304,7 +304,7 @@ msgstr "&Adreces d'interés"
 #: navigator.cpp:62
 #, kde-format
 msgid "Search..."
-msgstr "Busca..."
+msgstr "Busca…"
 
 #: navigator.cpp:117
 #, kde-format
@@ -339,12 +339,12 @@ msgstr "No es pot iniciar el programa de busca."
 #: navigator.cpp:632
 #, kde-format
 msgid "Updating search index..."
-msgstr "S'està actualitzant l'índex de busca..."
+msgstr "S'està actualitzant l'índex de busca…"
 
 #: navigator.cpp:643
 #, kde-format
 msgid "Updating search index... done."
-msgstr "S'està actualitzant l'índex de busca... fet."
+msgstr "S'està actualitzant l'índex de busca… fet."
 
 #: printdoc.cpp:60
 #, kde-format
