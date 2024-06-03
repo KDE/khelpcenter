@@ -3,21 +3,21 @@
 #
 # Malcolm Hunter <malcolm.hunter@gmx.co.uk>, 2002,2003, 2004, 2005, 2008.
 # Andrew Coles <andrew_coles@yahoo.co.uk>, 2004, 2005, 2009.
-# Steve Allewell <steve.allewell@gmail.com>, 2014, 2016, 2018, 2019, 2020.
+# SPDX-FileCopyrightText: 2014, 2016, 2018, 2019, 2020, 2024 Steve Allewell <steve.allewell@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-11 00:39+0000\n"
-"PO-Revision-Date: 2020-10-17 13:13+0100\n"
+"PO-Revision-Date: 2024-06-02 11:40+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
-"Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
+"Language-Team: British English\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.08.2\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -40,10 +40,9 @@ msgid "Help Center"
 msgstr "Help Centre"
 
 #: application.cpp:105
-#, fuzzy, kde-format
-#| msgid "(c) 1999-2020, The KHelpCenter developers"
+#, kde-format
 msgid "(c) 1999-2023, The KHelpCenter developers"
-msgstr "(c) 1999-2020, The KHelpCenter developers"
+msgstr "(c) 1999-2023, The KHelpCenter developers"
 
 #: application.cpp:107
 #, kde-format
@@ -346,13 +345,13 @@ msgstr "Updating search index... done."
 #: printdoc.cpp:60
 #, kde-format
 msgid "Could not generate print preview."
-msgstr ""
+msgstr "Could not generate print preview."
 
 #: printdoc.cpp:96
 #, kde-format
 msgctxt "@title:window"
 msgid "Print Document"
-msgstr ""
+msgstr "Print Document"
 
 #: searchengine.cpp:59
 #, kde-format
@@ -455,10 +454,9 @@ msgid "unknown"
 msgstr "unknown"
 
 #: view.cpp:300
-#, fuzzy, kde-format
-#| msgid "Start Page"
+#, kde-format
 msgid "Save Page"
-msgstr "Start Page"
+msgstr "Save Page"
 
 #~ msgid "Previous Page"
 #~ msgstr "Previous Page"
