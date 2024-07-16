@@ -32,6 +32,7 @@ include(ECMDeprecationSettings)
 find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     DBus
     Widgets
+    PrintSupport
     Xml
     WebEngineWidgets
 )
@@ -170,6 +171,7 @@ target_link_libraries(khelpcenter
     KF6::TextTemplate
     KF6::WindowSystem
     KF6::XmlGui
+    Qt6::PrintSupport
     Qt6::WebEngineWidgets
     Qt6::Xml
 )
