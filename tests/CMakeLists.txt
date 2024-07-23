@@ -6,9 +6,9 @@ add_executable(testmetainfo)
 ecm_mark_as_test(testmetainfo)
 
 target_sources(testmetainfo PRIVATE
-    testmetainfo.cpp 
-    ${CMAKE_CURRENT_SOURCE_DIR}/../docmetainfo.cpp 
-    ${CMAKE_CURRENT_SOURCE_DIR}/../docentry.cpp 
+    testmetainfo.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../docmetainfo.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../docentry.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../docentrytraverser.cpp )
 ecm_qt_declare_logging_category(testmetainfo
     HEADER khc_debug.h

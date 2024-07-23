@@ -12,19 +12,19 @@ kde_target_enable_exceptions(khc_xapianindexer PRIVATE)
 ecm_mark_nongui_executable(khc_xapianindexer)
 
 target_sources(khc_xapianindexer PRIVATE
-   cachereader.cpp
-   htmltextdump.cpp
-   xapiancommon.cpp
-   xapianindexer.cpp
+    cachereader.cpp
+    htmltextdump.cpp
+    xapiancommon.cpp
+    xapianindexer.cpp
 )
 
 target_link_libraries(khc_xapianindexer
-   KF6::Archive
-   KF6::CoreAddons
-   KF6::DocTools
-   Qt6::Core
-   ${XAPIAN_LIBRARIES}
-   ${LIBXML2_LIBRARIES}
+    KF6::Archive
+    KF6::CoreAddons
+    KF6::DocTools
+    Qt6::Core
+    ${XAPIAN_LIBRARIES}
+    ${LIBXML2_LIBRARIES}
 )
 install(TARGETS khc_xapianindexer DESTINATION ${KDE_INSTALL_LIBEXECDIR})
 
@@ -34,13 +34,13 @@ kde_target_enable_exceptions(khc_xapiansearch PRIVATE)
 ecm_mark_nongui_executable(khc_xapiansearch)
 
 target_sources(khc_xapiansearch PRIVATE
-   xapiancommon.cpp
-   xapiansearch.cpp
-   xapiancommon.h
+    xapiancommon.cpp
+    xapiansearch.cpp
+    xapiancommon.h
 )
 target_link_libraries(khc_xapiansearch
-   Qt6::Core
-   ${XAPIAN_LIBRARIES}
+    Qt6::Core
+    ${XAPIAN_LIBRARIES}
 )
 install(TARGETS khc_xapiansearch DESTINATION ${KDE_INSTALL_LIBEXECDIR})
 
