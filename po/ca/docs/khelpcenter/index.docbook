@@ -985,8 +985,8 @@ Print the contents of the currently visible page.
 ></term>
 <listitem>
 <para
->Afegeix una adreça d'interès per a la pàgina actual, el títol de les pàgines serà afegit al menú d'adreces d'interès. Utilitzeu l'acció <guimenuitem
->Elimina l'adreça d'interès</guimenuitem
+>Afegeix una adreça d'interès per a la pàgina actual, el títol de les pàgines s'afegirà al menú d'adreces d'interès. Utilitzeu l'acció <guimenuitem
+>Suprimeix l'adreça d'interès</guimenuitem
 > al menú contextual d'un element per a eliminar-lo del menú. </para>
 </listitem>
 </varlistentry>
