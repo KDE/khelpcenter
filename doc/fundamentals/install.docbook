@@ -48,7 +48,7 @@ application that permits you to install individual applications or groups and
 all necessary dependencies easily.</para>
 
 <para>For more information on the initiative and to download the installer,
-visit <ulink url="https://windows.kde.org/">the KDE on Windows Initiative</ulink>.
+visit <ulink url="https://community.kde.org/Windows">the KDE on Windows Initiative</ulink>.
 </para>
 
 <!--FIXME: describe how to use the installer?-->
@@ -63,7 +63,7 @@ different <quote>ports</quote> systems available for &MacOS;.  Several different
 &kde; applications also provide their own binary builds for &MacOS;.</para>
 
 <para>For more information, visit
-<ulink url="https://mac.kde.org/">&kde; on &MacOS;X</ulink>.</para>
+<ulink url="https://community.kde.org/Mac">&kde; on &MacOS;X</ulink>.</para>
 
 </sect2>
 
