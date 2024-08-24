@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-11 00:39+0000\n"
-"PO-Revision-Date: 2024-08-14 00:22+0330\n"
+"PO-Revision-Date: 2024-08-17 03:39+0330\n"
 "Last-Translator: Mohi Mirdamadi <mohi.pub@gmail.com>\n"
 "Language-Team: fa\n"
 "Language: fa\n"
@@ -331,7 +331,7 @@ msgstr "صفحه آغاز"
 #: navigator.cpp:457
 #, kde-format
 msgid "KDE Help Center"
-msgstr "مرکز کمک KDE"
+msgstr "مرکز کمک کی‌دی‌ای"
 
 #: navigator.cpp:539
 #, kde-format
