@@ -457,6 +457,5 @@ msgstr ""
 
 #: view.cpp:300
 #, fuzzy, kde-format
-#| msgid "Next Page"
 msgid "Save Page"
 msgstr "Boahtte siidu"

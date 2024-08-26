@@ -463,6 +463,5 @@ msgstr "ukjent"
 
 #: view.cpp:300
 #, fuzzy, kde-format
-#| msgid "Start Page"
 msgid "Save Page"
 msgstr "Startside"
