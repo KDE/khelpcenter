@@ -43,6 +43,20 @@ if ( !$lang or $lang eq 'C' ) {
   $lang = 'en';
 }
 
+if ( $words =~ /[^+]$/ ) {
+  # If the query was a single word, perhaps it is the literal name of the command (or a prefix)
+  if ( !open( PREFIX, "-|", ( 'whatis', '-w', $words . '*' ) ) ) {
+    print "Can't open whatis.\n";
+    exit 1;
+  }
+
+  # ... or a substring
+  if ( !open( NAME, "-|", ( 'whatis', '-w', '*' . $words . '*' ) ) ) {
+    print "Can't open whatis.\n";
+    exit 1;
+  }
+}
+
 # Build the apropos command line
 my @apropos;
 push @apropos, 'apropos';
@@ -53,12 +67,13 @@ if ( $method eq 'and' ) {
 push @apropos, split( '\+', $words );
 
 # Perform search
-if ( !open( MAN, "-|", @apropos ) ) {
+if ( !open( DESCRIPTION, "-|", @apropos ) ) {
   print "Can't open apropos.\n";
   exit 1;
 }
 my @results;
-while( <MAN> ) {
+my %seen;
+while( $_ = (<PREFIX> // <NAME> // <DESCRIPTION>) ) {
 #  print "RAW:$_";
   chop;
   /^([^\s]+)\s+\((.*)\)\s+-\s+(.*)$/;
@@ -66,9 +81,11 @@ while( <MAN> ) {
   my $section = $2;
   my $description = $3;
 
-  if ( $page ) { push @results, [ $page, $section, $description ]; }
+  if ( $page && ! $seen{ $page . $section }++ ) { push @results, [ $page, $section, $description ]; }
 }
-close MAN;
+close PREFIX;
+close NAME;
+close DESCRIPTION;
 
 my $nummatches = @results;
 

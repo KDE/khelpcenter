@@ -25,7 +25,7 @@ some symbols which are replaced by KHelpcenter with the data for the concrete
 search request:
 
 %i  Identifier of document (usually the name of the document's desktop file)
-%w  Words to be searched for
+%w  Words to be searched for, separated by "+"
 %o  Operation for combining multiple search words. Allowed values: "and" and
     "or".
 %m  Maximum number of results
