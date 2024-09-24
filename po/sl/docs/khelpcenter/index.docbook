@@ -1,0 +1,1115 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" 
+"customization/dtd/kdedbx45.dtd" [
+  <!ENTITY % Slovenian "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="khelpcenter" lang="&language;">
+<bookinfo>
+<title
+>&khelpcenter;</title>
+<authorgroup>
+<corpauthor
+>&kde; ekipa</corpauthor>
+<othercredit role="translator"
+><contrib
+>Prevod:</contrib
+><firstname
+>Mojca</firstname
+><surname
+>Rob</surname
+><affiliation
+><address
+><email
+>mojca.rob@gmail.com</email
+></address
+></affiliation
+></othercredit
+> 
+</authorgroup>
+<legalnotice
+>&FDLNotice;</legalnotice>
+<date
+>17.04.2016</date>
+<releaseinfo
+>Applications 16.04</releaseinfo>
+
+<abstract>
+<para
+>&kde; je mednarodna tehnološka ekipa, ki ustvarja <ulink url="https://www.gnu.org/philosophy/free-sw.html"
+>prosto programsko opremo</ulink
+> za namizno in prenosno računalništvo. Med izdelki &kde;&apos;so sodoben namizni sistem za platformi &Linux; in &UNIX;, celoviti paketi za pisarniško produktivnost in skupinsko programsko opremo ter več sto naslovov programske opreme iz številnih kategorij, vključno z internetnimi in spletnimi aplikacijami, multimedijo, zabavo, izobraževanjem, grafiko in razvojem programske opreme. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdebase</keyword>
+<keyword
+>khelpcenter</keyword>
+<keyword
+>kdehelp</keyword>
+<keyword
+>pomoč</keyword>
+<keyword
+>središče za pomoč</keyword>
+<keyword
+>Središče za pomoč v KDE</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="help-system-handbook">
+<title
+>&kde; priročnik sistema pomoči</title>
+<anchor id="help"/>
+
+<sect1 id="help-introduction">
+<title
+>Sistem pomoči</title>
+	
+<para
+>The help system is designed to make accessing the common &UNIX; help systems (<application
+>man</application
+> and <application
+>info</application
+>) simple, as well as the user documentation of applications including &plasma-workspaces; from the &kde; community (&XML;).The help system is designed to make accessing the common &UNIX; help systems (<application
+>man</application
+> and <application
+>info</application
+>) simple, as well as the user documentation of applications including &plasma-workspaces; from the &kde; community (&XML;). </para>
+
+<para
+>Vse aplikacije (vključno z &plasma-workspaces;) iz skupnosti &kde; so po zaslugi prizadevanj ekipe za dokumentacijo v celoti dokumentirane. Če želite pomagati pri dokumentiranju, se pridružite <ulink url="https://mail.kde.org/mailman/listinfo/kde-doc-english"
+>poštnemu seznamu</ulink
+> in pišite ekipi na <email
+>kde-doc-english@kde.org</email
+>. Izkušnje niso potrebne, le navdušenje in potrpežljivost. </para>
+
+<para
+>Če želite pomagati pri prevajanju dokumentacije &kde; v svoj materni jezik, si oglejte informacije, vključno s koordinatorji za vsako jezikovno skupino, na <ulink url="https://l10n.kde.org/"
+>Lokalizacijsko spletno mesto</ulink
+>. </para>
+
+</sect1>
+
+<sect1 id="invoking-help">
+<title
+>Priklic pomoči</title>
+
+<para
+>&khelpcenter; lahko prikličete na več načinov: </para>
+
+<variablelist
+> 
+<varlistentry
+> 
+<term
+>V meniju <guimenu
+>Help</guimenu
+></term
+> 
+<listitem>
+<para
+>Najpogostejša možnost je verjetno iz aplikacije. Izberite <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>F1</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Pomoč</guimenu
+> <guimenuitem
+><replaceable
+>Aplikacije</replaceable
+> Priročnik</guimenuitem
+></menuchoice
+> in odprite priročnik te aplikacije. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Iz zaganjalnika aplikacij</term>
+<listitem>
+<para
+>Na plošči izberite velik <guiicon
+>K</guiicon
+> in na zavihku <guimenuitem
+>Aplikacije</guimenuitem
+> izberite <guimenuitem
+>Pomoč</guimenuitem
+> ali vnesite <userinput
+>pomoč</userinput
+> in nato izberite <guimenuitem
+>Pomoč</guimenuitem
+>. To bo odprlo program &khelpcenter; s privzeto začetno stranjo. </para>
+</listitem
+> 
+</varlistentry>
+
+<varlistentry>
+<term
+>Iz ukazne vrstice</term>
+<listitem>
+<para
+>&khelpcenter; se lahko zažene z uporabo &URL; za prikaz datoteke. &URL;i so bili dodani tudi za strani <command
+>info</command
+> in <command
+>man</command
+>. Uporabite jih lahko na naslednji način: </para
+> 
+
+<variablelist>
+<varlistentry>
+<term
+>Datoteka pomoči neke aplikacije</term>
+<listitem>
+<para
+><command
+>khelpcenter</command
+> <option
+>help:/<replaceable
+>kwrite</replaceable
+></option
+> </para>
+<para
+>Odpre datoteko pomoči &kwrite; na strani z vsebino. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Lokalni &URL;</term>
+<listitem
+><para
+><command
+>khelpcenter</command
+> <option
+>file:/<replaceable
+>usr/local/src/qt/html/index.html</replaceable
+></option
+> </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Man stran</term>
+<listitem>
+<para
+><command
+>khelpcenter</command
+> <option
+>man:/<replaceable
+>strcpy</replaceable
+></option
+> </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Info stran</term>
+<listitem>
+<para
+><command
+>khelpcenter</command
+> <option
+>info:/<replaceable
+>gcc</replaceable
+></option
+> </para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Priklic <command
+>khelpcenter</command
+> brez parametrov odpre privzeto začetno stran. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+</sect1>
+
+<sect1 id="interface-basics">
+<title
+>&khelpcenter; vmesnik</title>
+
+<para
+>Vmesnik &khelpcenter; je sestavljen iz dveh oken z informacijami. </para>
+
+<para
+>Orodna vrstica in meniji so podrobneje razloženi v <xref linkend="menu-and-toolbar-ref"/>. </para>
+
+<para
+>Dokumenti vsebujejo lastna navigacijska orodja, ki vam omogočajo zaporedno premikanje po dokumentu s povezavami <guilabel
+>Naslednji</guilabel
+>, <guilabel
+>Prejšnji</guilabel
+> in <guilabel
+>Vsebine</guilabel
+> ali manj strukturirano premikanje s hiperpovezavami. </para>
+
+<para
+>Povezave vas lahko vodijo do drugih delov istega dokumenta ali do drugega dokumenta, za premikanje po dokumentih, ki ste si jih ogledali v tej seji, pa lahko uporabite ikoni <guiicon
+>Back</guiicon
+> (puščica v levo) ali <guiicon
+>Forward</guiicon
+> (puščica v desno) v orodni vrstici. </para
+> 
+
+<para
+>V obeh podoknih je na levi strani prikazana vsebina sistema pomoči, na desni pa same datoteke pomoči. </para>
+
+<sect2 id="contents-pane">
+<title
+>Podokno z vsebino</title>
+
+<para
+>Podokno z vsebino v programu &khelpcenter; je prikazano na levi strani okna. Ko lahko pričakujete, lahko premikate razdelilno vrstico, da lahko udobno preberete vsebino obeh podoken. </para
+> 
+
+<para
+>Podokno z vsebino je nadalje razdeljeno na tri zavihke, od katerih prvi vsebuje <link linkend="contents-tab"
+>drevesni prikaz</link
+>, v katerem so prikazane vse informacije pomoči, ki jih &khelpcenter; pozna, drugi pa vsebuje<link linkend="kde-glossary"
+>slovar</link
+> izrazov &kde;. V tretjem zavihku lahko konfigurirate <guilabel
+>Možnosti iskanja</guilabel
+>. </para>
+
+<sect3 id="contents-tab">
+<title
+>Zavihek z vsebino</title>
+
+<para
+>Zavihek <guilabel
+>Vsebine</guilabel
+> vsebuje naslednje privzete vnose najvišjih ravni v drevesnem prikazu: </para
+> 
+
+<variablelist>
+
+<varlistentry>
+<term
+><guilabel
+>Osnove</guilabel
+></term>
+<listitem>
+<para
+>Osnove vas seznanijo s številnimi funkcijami &plasma-workspaces; in &applications; ter opisujejo številna običajna opravila, ki jih lahko izvajate v vseh &applications;. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Priročnik Plasma</guilabel
+></term>
+<listitem>
+<para
+>Priročnik &plasma; je dokumentacija za &plasma-workspaces;. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Pomoč na spletu</guilabel
+></term>
+<listitem>
+<para
+>Stran s povezavami do spletne pomoči in dodatnih informacij, ki jih zagotavlja skupnost &kde;. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Priročniki za aplikacije</guilabel
+></term>
+<listitem>
+<para
+>Nativna dokumentacija za aplikacije. Vsi programi &kde; imajo dokumentacijo v obliki &XML;, ki se ob ogledu pretvori v <acronym
+>HTML</acronym
+>. V tem razdelku so navedene vse aplikacije &kde; s kratkim opisom in povezavo do celotne dokumentacije aplikacije. </para>
+<para
+>Aplikacije so prikazane v drevesni strukturi, ki je enaka privzeti strukturi menija <guimenu
+>K</guimenu
+>, tako da zlahka najdete želeno aplikacijo. </para>
+</listitem
+> 
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Moduli nastavitev</guilabel
+> entitete</term>
+<listitem>
+<para
+>Zagotovijo seznam povezav do različnih modulov v aplikaciji &systemsettings; ali do modulov za &konqueror;, Filemanager ali Browser. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>KInfoCenter moduli</guilabel
+></term>
+<listitem>
+<para
+>Vsebuje seznam povezav do dokumentacije različnih modulov KInfocentra. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>KIO Workers</guilabel
+></term>
+<listitem>
+<para
+>Vsebuje seznam povezav do dokumentacije različnih modulov <acronym
+>KIO</acronym
+>. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Strani &UNIX; priročnika</guilabel
+></term>
+<listitem>
+<para
+>&UNIX; man strani so tradicionalna oblika spletne dokumentacije za sisteme &UNIX;. Večina programov v vašem sistemu ima stran z navodili za uporabo. Poleg tega so na voljo tudi priročniške strani za programske funkcije in datotečne formate. </para>
+</listitem
+> 
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Scrollkeeper</guilabel
+></term>
+<listitem>
+<para
+>Dodatna dokumentacija, ki ni&kde; nameščena v vašem sistemu. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>Brskanje po informativnih straneh</guilabel
+></term>
+<listitem>
+<para
+>Dokumentacijo TeXinfo uporabljajo številni &GNU; programi, vključno z <command
+>gcc</command
+> (prevajalnik C/C++), <command
+>emacs</command
+> in številni drugi. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect3>
+
+<sect3 id="search">
+<title
+>Zavihek <guilabel
+>Možnosti iskanja</guilabel
+></title>
+
+<para
+>Iskanje po datotekah pomoči je dokaj intuitivno, v besedilno polje vnesite besedo(-e), ki jo(-e) želite poiskati, izberite možnosti (če obstajajo) in pritisnite <guibutton
+>Poišči</guibutton
+>. Rezultati so prikazani v podoknu pregledovalnika na desni strani. </para>
+<note
+><para
+>Iskanje ne upošteva velikih in malih črk, zato se velike in male črke štejejo za enake. Če na primer iščete <quote
+>Bližnjice</quote
+>, bodo vrnjeni tudi rezultati, ki vsebujejo <quote
+>bližnjice</quote
+>.</para
+></note>
+<!--no wildcards? -->
+
+<para
+>Na voljo so naslednje možnosti:</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>Metoda</guilabel
+></term>
+<listitem>
+<para
+>Izberite način iskanja več besed. Če izberete <guilabel
+>in</guilabel
+>, se rezultati vrnejo le, če so na strani vključeni vsi iskalni izrazi. <guilabel
+>ali</guilabel
+> vrne rezultate, če so najdeni <emphasis
+>kateri koli</emphasis
+> iskalni izrazi. </para
+> 
+<para
+>Če iskanja ne prinašajo pričakovanih rezultatov, skrbno preverite, ali niste z napačno nastavitvijo izključili prave iskalne besede. </para
+></listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Maksimalni rezultati</guilabel
+></term>
+<listitem
+><para
+>Določa največje število vrnjenih rezultatov iskanja.</para
+></listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>Izbira področja uporabe</guilabel
+></term>
+<listitem
+><para
+>S tem se izberejo razdelki, v katerih se bo izvajalo iskanje. Z razpoložljivimi možnostmi hitro izberete najpogostejšo možnost, <guimenuitem
+>Po meri</guimenuitem
+> pa omogoča izbiro posameznih razdelkov. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect3>
+
+
+</sect2>
+
+<sect2 id="man-and-info">
+<title
+>Razdelka <application
+>Man</application
+> in <application
+>Info</application
+></title>
+
+<para
+>Priročniške strani so standardne priročniške strani &UNIX; in se že vrsto let uporabljajo v številnih operacijskih sistemih. So izredno temeljite in tako najboljše mesto za pridobivanje informacij o večini ukazov &UNIX; in aplikacij. Ko ljudje rečejo <quote
+>RTFM</quote
+> (Read the f*cking manual - preberite j*bena navodila, pogost akronim na internetu), je priročnik, na katerega se sklicujejo, zelo pogosto stran man.</para>
+
+<para
+>Strani man niso popolne. Navadno so poglobljene, a tudi zelo tehnične, pogosto jih pišejo razvijalci za razvijalce. V nekaterih primerih so zaradi tega za mnoge uporabnike nekoliko neprijazne ali celo povsem nerazumljive. Kljub temu so najboljši vir zanesljivih informacij o večini aplikacij ukazne vrstice in zelo pogosto tudi edini.</para>
+
+<para
+>Če ste se kdaj spraševali, kaj je številka, ko ljudje pišejo npr. man(1), to pomeni, v katerem delu priročnika je ta element. Videli boste, da &khelpcenter; uporablja številke za razdelitev velike količine priročniških strani v lastne razdelke, kar vam olajša iskanje informacij, ki jih iščete, če samo brskate skozi.</para>
+
+<para
+>Na voljo so tudi informativne strani, ki naj bi nadomestile strani man. Vzdrževalci nekaterih aplikacij ne posodabljajo več strani priročnika, zato je, če sta na voljo tako stran priročnika kot informacijska stran, verjetno najnovejša informacijska stran. Večina aplikacij ima eno ali drugo. Če je aplikacija, za katero iščete pomoč, pripomoček &GNU;, boste najverjetneje našli informacijsko stran in ne strani man.</para>
+
+<sect3 id="navigation">
+<title
+>Navigacija znotraj strani <application
+>Info</application
+></title>
+
+<para
+>Informacijski dokumenti so urejeni hierarhično, vsaka stran se imenuje vozlišče. Vsi informativni dokumenti imajo vozlišče <guilabel
+>Vrh</guilabel
+>, &ie; uvodno stran. Na <guilabel
+>Vrh</guilabel
+> informacijskega dokumenta se lahko vrnete tako, da pritisnete <guilabel
+>Vrh</guilabel
+>.</para>
+
+<para
+><guibutton
+>Prev</guibutton
+> &amp; <guibutton
+>Next</guibutton
+> se uporabljata za prehod na prejšnjo/naslednjo stran na trenutni ravni hierarhije.</para>
+
+<para
+>S klikom na element menija v dokumentu se premaknete na nižjo raven v hierarhiji. Hierarhijo lahko nadgradite s pritiskom na gumb <guibutton
+>Gor</guibutton
+>.</para>
+
+<para
+>Man je obravnavan podobno kot info, pri čemer je kazalo razdelka zgornje vozlišče, vsaka stran man pa je na nižji ravni. Prispevki man so dolgi eno stran.</para>
+
+</sect3>
+</sect2>
+
+<sect2 id="kde-glossary">
+<title
+>Ekipa &kde; glosar</title>
+
+<para
+>Slovar je hitra referenčna točka, v kateri lahko poiščete definicije besed, ki vam morda niso znane. Te segajo od posebnih aplikacij in tehnologij do splošnih računalniških izrazov. </para>
+
+<para
+>V levem podoknu je prikazan drevesni prikaz z dvema možnostma: <guilabel
+>Po abecedi</guilabel
+> ali <guilabel
+>Po temah</guilabel
+>. Oba vsebujeta enake vnose, ki so različno razvrščeni, da lahko hitro poiščete želeni element. </para>
+
+<para
+>Po drevesnih prikazih se pomikate navzdol po levi strani, izbrani elementi pa se prikažejo na desni strani. </para>
+
+</sect2>
+
+<sect2 id="menu-and-toolbar-ref">
+<title
+>Meniji in orodna vrstica</title>
+
+<para
+>&khelpcenter; ima zelo minimalen uporabniški vmesnik, zato se lahko osredotočite na pridobivanje pomoči in ne na učenje uporabe brskalnika za pomoč. </para>
+
+<para
+>V orodni vrstici so na voljo naslednje ikone: </para>
+
+<variablelist>
+<title
+>Ikone orodne vrstice</title>
+
+<varlistentry>
+<term
+><guiicon
+>Kazalo vsebine</guiicon
+></term>
+<listitem>
+<para
+>Pojdite na glavno začetno stran &khelpcenter;. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guiicon
+>Nazaj</guiicon
+></term>
+<listitem>
+<para
+>Pojdite na prejšnjo stran, ki ste si jo ogledali. Kliknite kljukico desno od ikone. Prikaže se seznam predhodno ogledanih strani. Če izberete eno od njih, se vrnete neposredno na to stran. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guiicon
+>Naprej</guiicon
+></term>
+<listitem>
+<para
+>Pojdite eno stran naprej. Ta ikona je aktivna le, če ste že uporabili ikono <guiicon
+>Back</guiicon
+>. </para>
+</listitem>
+</varlistentry>
+<!--
+<varlistentry>
+<term
+><guiicon
+>Print Frame</guiicon
+></term>
+<listitem>
+<para>
+Print the contents of the currently visible page.
+</para>
+</listitem>
+</varlistentry>
+-->
+<varlistentry>
+<term
+><guiicon
+>Kopiraj</guiicon
+></term>
+<listitem>
+<para
+>Kopirajte besedilo v odložišče in ga vstavite v drugo aplikacijo. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guiicon
+>Poišči</guiicon
+></term>
+<listitem>
+<para
+>Poiščite besedo ali besede na trenutno vidni strani. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guiicon
+>Povečaj velikost pisave</guiicon
+></term>
+<listitem>
+<para
+>Povečajte velikost besedila v podoknu pregledovalnika. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guiicon
+>Zmanjšaj velikost pisave</guiicon
+></term>
+<listitem>
+<para
+>Zmanjšajte velikost besedila v podoknu pregledovalnika. Ta ikona je omogočena le, če ste besedilo predhodno povečali. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>V menijih so naslednji vnosi: </para>
+
+<variablelist>
+<varlistentry>
+<term
+><guimenu
+>Datoteka</guimenu
+></term>
+<listitem>
+
+<variablelist>
+
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Datoteka</guimenu
+> <guimenuitem
+>Natisni</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Natisne vsebino trenutno vidne strani. Priročnike v formatu <acronym
+>PDF</acronym
+> najdete na <ulink url="https://docs.kde.org/index.php?language=en"
+> &kde; Documentacijski strežnik</ulink
+>. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Datoteka</guimenu
+> <guimenuitem
+>Zapri</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Zapri in zapusti &khelpcenter; </para>
+</listitem>
+</varlistentry>
+</variablelist>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<variablelist>
+<varlistentry>
+<term
+><guimenu
+>Uredi</guimenu
+></term>
+<listitem>
+
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Uredi</guimenu
+><guimenuitem
+>Kopiraj</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Kopirajte izbrano besedilo v odložišče. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>A</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Uredi</guimenu
+> <guimenuitem
+>Izberi vse</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Izberite vse besedilo na trenutni strani. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>F</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Uredi</guimenu
+> <guimenuitem
+>Poišči...</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Poiščite besedo ali besede na trenutno vidni strani. </para>
+</listitem>
+</varlistentry>
+</variablelist>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<variablelist>
+<varlistentry>
+<term
+><guimenu
+>Pogled</guimenu
+></term>
+<listitem>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Pogled</guimenu
+> <guisubmenu
+>Nastavi kodiranje</guisubmenu
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Spremeni kodiranje trenutne strani. Običajno zadostuje privzeta nastavitev <guimenuitem
+>Privzeto</guimenuitem
+>, če pa imate težave z ogledom strani, napisanih v drugih jezikih, boste morda morali v tem meniju izbrati določeno kodiranje. </para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Pogled</guimenu
+> <guisubmenu
+>Celozaslonski način</guisubmenu
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Spremeni &khelpcenter; v celozaslonski način, v katerem okno &khelpcenter; zavzame celoten zaslon in nima običajnih okrasnih elementov. Za izhod iz celozaslonskega načina pritisnite <keycombo action="simul"
+>&Ctrl;&Shift; <keycap
+>F</keycap
+></keycombo
+>. </para>
+</listitem>
+</varlistentry>
+</variablelist>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<variablelist>
+<varlistentry>
+<term
+><guimenu
+>Pojdi</guimenu
+></term>
+<listitem>
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Alt;<keycap
+>Dom</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Pojdi</guimenu
+> <guimenuitem
+>Kazalo vsebine</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>Pojdite na glavno začetno stran &khelpcenter;. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>PgUp</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Pojdi</guimenu
+> <guimenuitem
+>Prejšnja stran</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>Pojdite na prejšnjo stran trenutne dokumentacije. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>PgDown</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Pojdi</guimenu
+> <guimenuitem
+>Naslednja stran</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>Pojdite na naslednjo stran trenutne dokumentacije. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Alt;<keysym
+>Levo</keysym
+></keycombo
+></shortcut
+> <guimenu
+>Pojdi</guimenu
+> <guimenuitem
+>Nazaj</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>Vrnite se na prejšnjo stran, ki ste si jo ogledovali.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Alt;<keysym
+>Desno</keysym
+></keycombo
+></shortcut
+> <guimenu
+>Pojdi</guimenu
+> <guimenuitem
+>Naprej</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Če ste se prej vrnili nazaj z ikono nazaj ali vnosom menija, se lahko s tem vnosom menija ponovno pomaknete naprej.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+<variablelist id="bookmarks-menu">
+
+<varlistentry>
+<term
+><guimenu
+>Zaznamki</guimenu
+></term>
+<listitem>
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>B</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Zaznamki</guimenu
+> <guimenuitem
+>Dodaj zaznamek</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>Dodajte zaznamek za trenutno stran, naslov strani se doda v meni zaznamkov. Z dejanjem <guimenuitem
+>Izbriši zavihek</guimenuitem
+> v kontekstnem meniju elementa, ga odstranite iz menija. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Zavihki</guimenu
+> <guimenuitem
+>Nova mapa zavihkov</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>Odprite pogovorno okno <guilabel
+>Nova mapa</guilabel
+>, v katerem lahko v meni zaznamkov dodate nove podmenije. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<variablelist>
+<varlistentry>
+<term
+><guimenu
+>Nastavitve</guimenu
+></term>
+<listitem>
+
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice
+><guimenu
+>Nastavitve</guimenu
+> <guimenuitem
+>Konfiguracija pisav...</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Omogoča nastavitev družine in velikosti pisave, ki jo uporablja &khelpcenter;. </para>
+</listitem>
+</varlistentry>
+</variablelist>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Poleg tega ima &khelpcenter; skupna menija &kde; <guimenu
+>Nastavitve</guimenu
+> in <guimenu
+>Pomoč</guimenu
+>, za več informacij preberite poglavja o <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Menij Nastavitve</ulink
+> in <ulink url="help:/fundamentals/menus.html#menus-help"
+>Menij Pomoč</ulink
+> v &kde; Osnove. </para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="credits">
+<title
+>Zasluge in licenca</title>
+
+<para
+>&khelpcenter;</para>
+
+<para
+>Originalno razvil &Matthias.Elter; &Matthias.Elter.mail;</para>
+<para
+>Trenutni oskrbnik je &Cornelius.Schumacher; &Cornelius.Schumacher.mail;</para>
+
+<para
+>Prevod: Mojca Rob<email
+>mojca.rob@gmail.com</email
+></para
+> &underFDL; &underGPL; </sect1>
+</chapter>
+
+
+</book>
+
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: sgml
+sgml-omittag:t
+sgml-shorttag:nil
+sgml-namecase-general:t
+sgml-general-insert-case:lower
+sgml-always-quote-attributes:t
+End:
+-->
+
