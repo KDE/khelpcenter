@@ -8,13 +8,13 @@
 # Serdar Soytetir <tulliana@gmail.com>, 2007, 2008, 2009.
 # H. İbrahim Güngör <tulliana@gmail.com>, 2011, 2012.
 # Volkan Gezer <volkangezer@gmail.com>, 2013, 2014, 2017.
-# SPDX-FileCopyrightText: 2022, 2023 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-11 00:39+0000\n"
-"PO-Revision-Date: 2023-09-30 22:15+0300\n"
+"PO-Revision-Date: 2024-09-23 15:10+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 24.11.70\n"
 "X-Poedit-Language: Turkish\n"
 
 #, kde-format
@@ -48,7 +48,7 @@ msgstr "Yardım Merkezi"
 #: application.cpp:105
 #, kde-format
 msgid "(c) 1999-2023, The KHelpCenter developers"
-msgstr "(c) 1999-2023, K Yardım Merkezi geliştiricileri"
+msgstr "(c) 1999–2023, K Yardım Merkezi geliştiricileri"
 
 #: application.cpp:107
 #, kde-format
@@ -182,12 +182,12 @@ msgstr "Abecesel"
 #: glossary.cpp:128
 #, kde-format
 msgid "Rebuilding glossary cache..."
-msgstr "Kavram dizini önbelleği yeniden yapılıyor..."
+msgstr "Kavram dizini önbelleği yeniden yapılıyor…"
 
 #: glossary.cpp:181
 #, kde-format
 msgid "Rebuilding cache... done."
-msgstr "Önbellek yeniden yapılıyor... bitti!"
+msgstr "Önbellek yeniden yapılıyor… bitti!"
 
 #: grantleeformatter.cpp:100
 #, kde-format
@@ -213,7 +213,7 @@ msgstr "Arama Sonuçları"
 #: grantleeformatter.cpp:127 searchengine.cpp:261
 #, kde-format
 msgid "Search Results for '%1':"
-msgstr "'%1' Arama Sonuçları:"
+msgstr "“%1” arama sonuçları:"
 
 #: infotree.cpp:77
 #, kde-format
@@ -306,7 +306,7 @@ msgstr "Y&er İmleri"
 #: navigator.cpp:62
 #, kde-format
 msgid "Search..."
-msgstr "Ara..."
+msgstr "Ara…"
 
 #: navigator.cpp:117
 #, kde-format
@@ -341,12 +341,12 @@ msgstr "Arama programı çalıştırılamadı."
 #: navigator.cpp:632
 #, kde-format
 msgid "Updating search index..."
-msgstr "Arama indeksi güncelleniyor..."
+msgstr "Arama indeksi güncelleniyor…"
 
 #: navigator.cpp:643
 #, kde-format
 msgid "Updating search index... done."
-msgstr "Arama indeksi güncelleniyor... tamamlandı."
+msgstr "Arama indeksi güncelleniyor… bitti!"
 
 #: printdoc.cpp:60
 #, kde-format
@@ -367,7 +367,7 @@ msgstr "Hata: Dosya türü belirtilmedi."
 #: searchengine.cpp:61
 #, kde-format
 msgid "Error: No search handler for document type '%1'."
-msgstr "Hata: '%1' dosya türü için bir arama işleyicisi yok."
+msgstr "Hata: “%1” dosya türü için bir arama işleyicisi yok."
 
 #: searchengine.cpp:231
 #, kde-format
@@ -377,7 +377,7 @@ msgstr "Geçerli bir arama işleyicisi bulunamadı."
 #: searchhandler.cpp:37
 #, kde-format
 msgid "Error executing search command '%1'."
-msgstr "'%1' arama komutu yürütülürken bir hata oluştu."
+msgstr "“%1” arama komutu yürütülürken bir hata oluştu."
 
 #: searchhandler.cpp:75
 #, kde-format
@@ -387,12 +387,12 @@ msgstr "Hata: %1"
 #: searchhandler.cpp:140 searchhandler.cpp:145
 #, kde-format
 msgid "'%1' not found, check your installation"
-msgstr "'%1' bulunamadı, kurulumunuzu kontrol edin"
+msgstr "“%1” bulunamadı, kurulumunuzu denetleyin."
 
 #: searchhandler.cpp:150
 #, kde-format
 msgid "'%1' not found, install the package containing it"
-msgstr "'%1' bulunamadı, lütfen bunu içeren paketi kurun"
+msgstr "“%1” bulunamadı, lütfen bunu içeren paketi kurun."
 
 #: searchhandler.cpp:197
 #, kde-format

@@ -1,0 +1,805 @@
+
+<!--
+<?xml version="1.0" ?>
+<!DOCTYPE glossary PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"customization/dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Slovenian "INCLUDE">
+<!ENTITY glossary-kdeprinting SYSTEM "kdeprintingglossary.docbook">
+
+]>
+<glossary id="glossary">
+-->
+        <glossdiv id="glossdiv-printing">
+                <title
+>Tiskanje</title>
+ 
+
+                <glossentry id="gloss-acl">
+                        <glossterm
+><acronym
+>ACLs</acronym
+></glossterm>
+                        <glossdef
+><para
+>Okrajšava za &emstart;A&emend;ccess &emstart;C&emend;ontrol &emstart;L&emend;ists; (Seznami nadzora dostopa) ACL-ji se uporabljajo za preverjanje dostopa s strani danega(avtenticiranega) uporabnika. Prva groba podpora ACL za tiskanje je na voljo pri &CUPS;; to bo izboljšano v prihodnjih različicah. </para>
+                                <glossseealso otherterm="gloss-authentication"
+>Avtentikacija</glossseealso>
+                        </glossdef>
+                </glossentry>
+
+                <glossentry id="gloss-appsocketprotocol">
+                        <glossterm
+>AppSocket Protokcol</glossterm>
+                        <glossdef
+><para
+>AppSocket je protokol za prenos tiskalnih podatkov, prav tako pogosto poimenovano "Neposredno tiskanje prek TCP/IP". &Hewlett-Packard; je vzel AppSocket, okoli tega dodal nekaj manjših razširitev in bil zelo uspešen pri preimenovanjuin ga trži pod blagovno znamko "&HP; JetDirect"...</para
+><glossseealso otherterm="gloss-hpjetdirectprotocol"
+>&HP; JetDirect Protokol</glossseealso
+> <glossseealso otherterm="gloss-directtcpipprinting"
+>Neposredno tiskanje prek TCP/IP</glossseealso
+> </glossdef>
+                </glossentry>
+ 
+                <glossentry id="gloss-authentication">
+                        <glossterm
+>Avtentikacija</glossterm>
+                        <glossdef
+><para
+>Dokazovanje identitete določene osebe (lahko z uporabniškim imenom/geslom ali s potrdilom) se pogosto imenuje avtentikacija. Ko ste enkrat avtenticirani, lahko ali pa ne dobite dostopa do zahtevanega vira, po možnosti na podlagi ACL-jev.</para>
+                                <glossseealso otherterm="gloss-acl"
+>ACLs</glossseealso>
+                        </glossdef>
+                </glossentry>
+ 
+                <glossentry id="gloss-bidirectionalcommunication">
+                        <glossterm
+>Dvo-smerna komunikacija</glossterm>
+                        <glossdef
+><para
+>V okviru tiskanja lahko strežnik ali gostitelj prejme dodatne informacije, poslane nazaj iz tiskalnika (sporočila o stanju itd.), bodisi na poizvedbo ali nezahtevano. AppSocket ( = &HP; JetDirect), &CUPS; in IPPpodpirajo dvosmerno komunikacijo, LPR/LPD in tiskanje v slogu BSD pa ne...</para
+><glossseealso otherterm="gloss-appsocketprotocol"
+>Protokol AppSocket</glossseealso
+> <glossseealso otherterm="gloss-cups"
+>&CUPS;</glossseealso
+> <glossseealso otherterm="gloss-directtcpipprinting"
+>Neposredno tiskanje prek TCP/IP</glossseealso
+> <glossseealso otherterm="gloss-hpjetdirectprotocol"
+>&HP; JetDirect</glossseealso
+> <glossseealso otherterm="gloss-ipp"
+>IPP</glossseealso
+> <glossseealso otherterm="gloss-lprlpd"
+>LPR/LPD</glossseealso
+> </glossdef>
+                </glossentry>
+
+                <glossentry id="gloss-bsdstyleprinting">
+                        <glossterm
+>BSD slog tiskanja</glossterm>
+                        <glossdef
+><para
+>Generični izraz za različne različice tradicionalnih metod tiskanja na &UNIX;. Njena prva različica se je pojavila v zgodnjih 70-ih na BSD &UNIX; in je bila formalno opisano v &linkstart;"https://www.ietf.org/rfc/rfc1179.txt"&linkmid;RFC 1179&linkend; šele leta 1990.&newpara; V času, ko je bilo zasnovano BSD »oddaljeno« tiskanje, so bili tiskalniki povezani serijsko oz. drugače neposredno povezane naprave z gostiteljem (z internetom, ki ga je takrat sestavljalo komaj kaj več kot 100 vozlišč!); tiskalniki so upravljali papir z luknjami, neprekinjeni papir, ki ga je podajal traktorski mehanizem, s preprostimi vrsticami besedila ASCII mehansko nabit na medij, potegnjen iz spodnje kartonske škatle pod mizo. Izšlo je kot cik-cak zložena papirnata "kača". Daljinsko tiskanje je obsegalo pošiljanje datoteke od sosednjega gostitelja v sosednji sobi s prošnjo za izpis.&newpara; Kako se je tehnologija spremenila! Tiskalniki na splošno uporabljajo medije na posameznih listih, imajo vgrajeno inteligenco za izračun rastra slike strani za stranjo, ki se jim pošilja z uporabo enega od močnih opisnih jezikov strani (PDL). Mnoga so omrežna vozlišča sama po sebi, s CPE-jem, RAM-om, trdim diskom in lastnim operacijskim sistemom ter so nanj priključena omrežja s potencialno milijoni uporabnikov ...&newpara; To je velik dokaz za prilagodljiv &UNIX; koncept za izvajanje stvari, ki je ustvaril "vrstični tisk" zanesljivo deluje tudi v teh sodobnih razmerah. Toda končno je prišel čas. da se lotimo nečesa novega -- IPP. </para
+><glossseealso otherterm="gloss-ipp"
+>IPP</glossseealso
+> <glossseealso otherterm="gloss-cups"
+>&CUPS;</glossseealso
+> <glossseealso otherterm="gloss-lprlpd"
+>LPR/LPD tiskanje</glossseealso
+> </glossdef>
+                </glossentry>
+ 
+                <glossentry id="gloss-cups">
+                        <glossterm
+>&CUPS;</glossterm>
+                        <glossdef
+><para
+>Okrajšava za &emstart;C&emend;ommon &emstart;U&emend;NIX &emstart;P&emend;printing &emstart;S&emend;system; (Skupni Unixov tiskalni sistem) &CUPS; je najsodobnejši &UNIX; inLinux sistem tiskanja, ki ponuja tudi storitve tiskanja na več platformah na odjemalcih &Microsoft; &Windows; in Apple &MacOS;. Na podlagi IPP odpravi vse pasti starega tiskanja BSD, ki zagotavlja avtentikacijo,šifriranje in ACL ter številne druge funkcije. Hkrati je dovolj združljiv za nazaj, da služi vsem starim odjemalcem, ki še niso vzpostavljenina IPP prek LPR/LPD (slog BSD).&newpara; &CUPS; je sposoben nadzorovati kateri koli&PostScript; tiskalnik z uporabo PPD (PostScript Printer Description file - Datoteka opisa tiskalnika za Postscript), ki jo dobavi prodajalec, ki je bila prvotno namenjena samo za tisk na &Microsoft; Windows NT.&kde; Tiskanje je najmočnejše, če temelji na &CUPS;.&newpara;Več informacij:&newpara; &linkstart;"https://www.cups.org"&linkmid;&CUPS;Domača stran&linkend;</para
+><glossseealso otherterm="gloss-acl"
+>ACLs</glossseealso
+> <glossseealso otherterm="gloss-authentication"
+>Avtentikacija</glossseealso
+> <glossseealso otherterm="gloss-bsdstyleprinting"
+>Tiskanje v slogu BSD</glossseealso
+> <glossseealso otherterm="gloss-ipp"
+>IPP</glossseealso
+> <glossseealso otherterm="gloss-lprlpd"
+>LPR/LPD</glossseealso
+> <glossseealso otherterm="gloss-ppd"
+>PPD</glossseealso
+> </glossdef>
+                </glossentry>
+
+ 
+                <glossentry id="gloss-cupsfaq">
+                        <glossterm
+><acronym
+>&CUPS;-PZV</acronym
+></glossterm>
+                        <glossdef
+><para
+>&linkstart;"https://www.cups.org/faq.html"&linkmid;&CUPS;-FAQ&linkend; je dragocen vir odgovorov na mnoga vprašanja, ki jih vsak novinec uporablja tiskanje &CUPS; morda na začetku. </para>
+                        </glossdef>
+                </glossentry>
+
+                <glossentry id="gloss-daemon">
+                        <glossterm
+><acronym
+>Demon</acronym
+></glossterm>
+                        <glossdef
+><para
+>Okrajšava za  &emstart;D&emend;isk &emstart;a&emend;nd &emstart;e&emend;xecution &emstart;mon&emend;itor; <acronym
+>Daemoni</acronym
+> so prisotni na vseh &UNIX; sistemih za izvajanje nalog neodvisno od posredovanja uporabnika.Bralci, ki bolj poznajo &Microsoft; &Windows; bi mogoče želeli primerjate demoni in naloge, za katere so odgovorne "services - storitve".&newpara; En primer demona, ki je prisoten v večini podedovanih &UNIX; sistemov je LPD (Line Printer Daemon); &CUPS; na splošno velja za naslednika LPD v &UNIX;svetu in deluje tudi prek demona. </para>
+                                <glossseealso otherterm="gloss-spooling"
+>SPOOLing</glossseealso>
+                        </glossdef>
+                </glossentry>
+ 
+                <glossentry id="gloss-databaselinuxprinting">
+                        <glossterm
+>Podatkovna baza, Linuxprinting.org</glossterm>
+                        <glossdef
+><para
+>Že pred leti, ko je bilo tiskanje v Linuxu še res težko (večina uporabnikov Linuxa je poznala samo tiskanje v ukazni vrstici, ne glede na napravo za opravljanje nalog, kjer so bile na voljo druge možnosti tiskanja), Grant Taylor, avtor"Linux Printing HOWTO", je zbral večino razpoložljivih informacij o tiskalnikih, gonilnikih in filtrih v njegovi bazi podatkov.&newpara; Z nastajajočim konceptom &CUPS;, ki razširi uporabo PPD-jev tudi na ne-PostScripttiskalnike, je spoznal potencial te baze podatkov: če postavimo različne podatkovne bloke (z vsebino, ki bi jo lahko opisali vzdolž vrstic »Katera naprava tiska s katerim Ghostscriptom ali drugim filtrom?«, »Kako dobro?« in »Katera stikala ukazne vrstice so na voljo?«) v datoteke združljive s PPD, bi lahko imel vso moč &CUPS; poleg tradicionalnega"gonilnika" tiskalnika.&newpara; To se je zdaj razvilo v širši koncept, znan kot "Foomatic". Foomatic razširja zmogljivosti drugih upravljalnikov tiskalniških vrst kot &CUPS; (LPR/LPD, LPRng, PDQ, PPR) do določene mere ("kraja"nekaj konceptov iz &CUPS;). Baza podatkov Linuxprinting ni samo za Linux -- ljudje, ki poganjajo operacijske sisteme &UNIX; in druge (kot je *BSD ali &MacOS; X), tam najdejo tudi dragocene informacije in programsko opremo. </para
+><glossseealso otherterm="gloss-foomatic"
+>Foomatic</glossseealso
+> <glossseealso otherterm="gloss-linuxprintingdatabase"
+>podatkovna baza Linuxprinting</glossseealso
+> </glossdef>
+                </glossentry>
+
+                <glossentry id="gloss-directtcpipprinting">
+                        <glossterm
+>Neposredno tiskanje TCP/IP</glossterm>
+                        <glossdef
+><para
+>To je metoda, ki za povezavo s tiskalnikom pogosto uporablja vrata TCP/IP 9100. Deluje s številnimi sodobnimi omrežnimi tiskalniki in ima nekaj prednosti pred LPR/LPD, saj je hitrejši in zagotavlja nekaj "povratnih podatkov povratnega kanala" iz tiskalnika gostitelju, ki pošilja opravilo.</para
+><glossseealso otherterm="gloss-appsocketprotocol"
+>AppSocket Protokol</glossseealso
+> <glossseealso otherterm="gloss-hpjetdirectprotocol"
+>&HP; JetDirect Protokol</glossseealso
+> </glossdef>
+                </glossentry>
+
+
+                <glossentry id="gloss-drivers">
+                        <glossterm
+>Gonilniki, tiskalniški gonilniki</glossterm>
+                        <glossdef
+><para
+>Izraz "gonilniki tiskalnika", uporabljen v enakem pomenu kot na platformi &Microsoft; &Windows;, ni v celoti uporaben za platformo Linux ali &UNIX;. Funkcionalnost "gonilnika" je na voljo v &UNIX; v različnih modularnih komponentah, ki delujejo skupaj. Jedro gonilnikov tiskalnika so "filtri". Filtri pretvorijo datoteke za tiskanje iz določene vhodne oblike v drug format, ki je sprejemljiv za ciljni tiskalnik. V mnogih primerih so filtri lahko povezani v celotno filtrsko "verigo", kjer se samo rezultatzadnje pretvorbe pošlje v tiskalnik. Dejanski prenos tiskanja podatkov v napravo izvaja "ozadnji program". </para
+><glossseealso otherterm="gloss-filter"
+>Filter</glossseealso
+> <glossseealso otherterm="gloss-ppd"
+>PPDs</glossseealso
+> </glossdef>
+                </glossentry>
+
+                <glossentry id="gloss-encryption">
+                        <glossterm
+>Šifriranje</glossterm>
+                        <glossdef
+><para
+>Šifriranje zaupnih podatkov je nadvse pomembno vprašanje, če jih prenašateprek interneta ali celo znotraj intranetov.&newpara; Tiskanje prektradicionalnih protokolov sploh ni šifrirano -- zelo preprosto se jim je priklopiti inprisluškovati &eg; &PostScript; ali podatki PCL so preneseni po žici.&newpara; Zato je bilo pri načrtovanju IPP poskrbljeno za enostaven vtičnik mehanizmov šifriranja (ki se lahko zagotovi na enak način kot standardi šifriranja za promet HTTP: SSL in TLS).</para
+><glossseealso otherterm="gloss-authentication"
+>Avtentikacija</glossseealso
+> <glossseealso otherterm="gloss-cups"
+>&CUPS;</glossseealso
+> <glossseealso otherterm="gloss-ipp"
+>IPP</glossseealso
+> <glossseealso otherterm="gloss-ssl"
+>SSL</glossseealso
+> <glossseealso otherterm="gloss-tls"
+>TLS</glossseealso
+> </glossdef>
+                </glossentry>
+
+
+                <glossentry id="gloss-epson">
+                        <glossterm
+><acronym
+>Epson</acronym
+></glossterm>
+                        <glossdef
+><para
+>Brizgalni tiskalniki Epson so med najbolje podprtimi modeli gonilnikov proste programske opreme, saj podjetje ni bilo nujno tako skrivnostno glede svojih naprav in razvijalcem predala dokumente s tehničnimi specifikacijami. Odlična kakovost tiska, ki jo Gimp-Print doseže na seriji tiskalnikov Stylus, je lahko pripisati tej odprtosti. </para>
+                        </glossdef>
+                </glossentry>
+
+
+                <glossentry id="gloss-escapesequence">
+                        <glossterm
+>Ubežne sekvence</glossterm>
+                        <glossdef
+><para
+>Prvi tiskalniki so tiskali samo podatke ASCII. Za začetek nove vrstice oz. za izmet strani, so vključevali posebna zaporedja ukazov, ki so pogosto vsebovali vodilni znak [ESC]. &HP; razvil ta koncept s svojo serijo jezikovnih izdaj PCL do danes, zdaj pa so razvili Page Description Language (PDL) - Jezik za opis celotne strani iz teh skromnih začetkov. </para
+><glossseealso otherterm="gloss-pcl"
+>PCL</glossseealso
+> <glossseealso otherterm="gloss-pdl"
+>PDL</glossseealso
+> </glossdef>
+                </glossentry>
+
+                <glossentry id="gloss-escp">
+                        <glossterm
+><acronym
+>ESC/P</acronym
+></glossterm>
+                        <glossdef
+><para
+>Okrajšava za &emstart;E&emend;pson &emstart;S&emend;tandard &emstart;C&emend;odes for &emstart;P&emend;rinters. Poleg &PostScript; in PCL, Epson's ESC/P printer language je en od bolj znanih.</para
+><glossseealso otherterm="gloss-pcl"
+>PCL</glossseealso
+> <glossseealso otherterm="gloss-postscript"
+>&PostScript;</glossseealso
+> <glossseealso otherterm="gloss-hpgl"
+>hpgl</glossseealso
+> </glossdef>
+                </glossentry>
+
+                <glossentry id="gloss-filter">
+                        <glossterm
+>Filter</glossterm>
+                        <glossdef
+><para
+>Filtri so na splošno programi, ki vzamejo nekaj vhodnih podatkov, jih obdelajo in posredujejo kot svoje izhodne podatke. Filtri lahko spremenijo podatke ali pa tudi ne.&newpara; Filtri so v kontekstu tiskanja programi, ki pretvorijo dano datoteko (namenjena tiskanju, vendar ni v primernem formatu, v katerem je trenutno) v format za tiskanje. Včasih imajo cele "verige filtrov", ki naj bi bil zgrajen za dosego cilja, pri čemer je cevni izhod enega filtra kot vnos v naslednjega. </para
+><glossseealso otherterm="gloss-ghostscript"
+>Ghostscript</glossseealso
+> <glossseealso otherterm="gloss-rip"
+>RIP</glossseealso
+> </glossdef>
+                </glossentry>
+
+                <glossentry id="gloss-foomatic">
+                        <glossterm
+>Foomatic</glossterm>
+                        <glossdef
+><para
+>Foomatic se je začel kot ovojno ime za niz različnih orodij na voljo na &linkstart;"https://wiki.linuxfoundation.org/openprinting/database/foomatic"&linkmid;Linuxprinting.org&linkend; Ta orodja so bila namenjena olajšani uporabi tradicionalnega Ghostscripta in drugih tiskalnih filtrov uporabnikov in razširitve zmogljivosti filtrov z dodajanjem več stikal ukaznih vrstic ali razlag podatke o izvajanju gonilnika.&newpara; V zadnjem času je Foomatic težil k temu, da bi postal "meta-spooling" sistem, ki omogoča konfiguracijo osnovnega tiskalnega podsistema prek poenotenega niza (vendar je to veliko bolj zapleteno kot &kde; tiskanje in vmesnik &GUI;, ki opravlja podobno nalogo glede na drugačen podsisteme tiska). </para>
+                        </glossdef>
+                </glossentry>
+
+               <glossentry id="gloss-ghostscript">
+                        <glossterm
+>Ghostscript</glossterm>
+                        <glossdef
+><para
+>Ghostscript je tolmač za jezik &PostScript; in za PDF oz. Raster Image Processor (RIP) - obdelovalnik rastrskih slik v programski opremi, ki jo je prvotno razvil L. Peter Deutsch. Vedno obstaja <acronym
+>GPL</acronym
+> različica Ghostscripta na voljo za prosto uporabo in distribucijo. Ghostscript se pogosto uporablja znotraj sistemov Linux in &UNIX; okolje za preoblikovanje &PostScript; v rastrske podatke primerne za pošiljanje v ne-&PostScript; naprave. Več informacij na: &linkstart;"https://www.ghostscript.com/"&linkmid;Domača stran Ghostscripta&linkend;</para
+><glossseealso otherterm="gloss-postscript"
+>&PostScript;</glossseealso
+> <glossseealso otherterm="gloss-rip"
+>RIP</glossseealso
+> </glossdef>
+                </glossentry>
+
+                <glossentry id="gloss-gimpprint">
+                        <glossterm
+>Gimp-Print</glossterm>
+                        <glossdef
+><para
+>V nasprotju s svojim imenom Gimp-Print ni več samo vtičnik, za katerega se uporablja tiskanje iz priljubljenega programa Gimp -- lahko tudi njegova kodna baza prevedeno v...&newpara; ... niz PPD-jev in povezanih filtrov, ki so brezhibno vključeni v &CUPS;, ki podpira približno 130 različnih modelov tiskalnikov, ki v mnogih primerih zagotavljajo kakovost izpisa fotografij;&newpara; ...Filter Ghostscript, ki ga je mogoče uporabiti s katerim koli drugim programom, ki potrebuje programsko oprema-RIP;&newpara; ... knjižnico, ki jo lahko uporablja druga programska oprema aplikacije, ki potrebujejo funkcije rasterizacije.</para
+><glossseealso otherterm="gloss-lexmark"
+>Lexmark Drivers</glossseealso
+> <glossseealso otherterm="gloss-rip"
+>RIP</glossseealso
+> <glossseealso otherterm="gloss-ghostscript"
+>Ghostscript</glossseealso
+> </glossdef>
+                </glossentry>
+
+                <glossentry id="gloss-hp">
+                        <glossterm
+><acronym
+>&HP;</acronym
+></glossterm>
+                        <glossdef
+><para
+>Okrajšava za &emstart;H&emend;ewlett-&emstart;Packard&emend;; en izmed prvih podjetij, ki so distribuirala lastne tiskalniške gonilnike za Linux. -- Še več, pred kratkim je podjetje izdalo svoj paket gonilnikov "HPIJS", vključno z izvorno kodo in prosto licenco. To je prvi proizvajalec tiskalnikov, ki je to storil. HPIJS podpira večino trenutnih modelov HP Ink- in DeskJet. </para>
+                        </glossdef>
+                </glossentry>
+
+
+                <glossentry id="gloss-hpgl">
+                        <glossterm
+><acronym
+>&HP;/GL</acronym
+></glossterm>
+                        <glossdef
+><para
+>Okrajšava za &emstart;&HP;&emend; &emstart;G&emend;grafični &emstart;L&emend;jezik; a &HP; tiskalniški jezik, ki se uporablja predvsem za risalnike; veliko CAD(Računalniško podprto načrtovanje) programov izpiše datoteke &HP;/GL za tiskanje.</para
+><glossseealso otherterm="gloss-escp"
+>ESC/P</glossseealso
+> <glossseealso otherterm="gloss-pcl"
+>PCL</glossseealso
+> <glossseealso otherterm="gloss-postscript"
+>&PostScript;</glossseealso
+> </glossdef>
+                </glossentry>
+
+                <glossentry id="gloss-hpjetdirectprotocol">
+                        <glossterm
+>&HP; JetDirect Protokol</glossterm>
+                        <glossdef
+><para
+>Izraz pod blagovno znamko &HP; da opišejo njihovo implementacijo prenosa tiskalnih podk sicer »AppSocket« ali  protokola imenovanega »Neposredno tiskanje prek TCP/IP".</para
+><glossseealso otherterm="gloss-appsocketprotocol"
+>AppSocket Protokol</glossseealso
+> <glossseealso otherterm="gloss-directtcpipprinting"
+>Neposredno tiskanje TCP/IP</glossseealso
+> </glossdef>
+                </glossentry>
+
+		<glossentry id="gloss-ietf">
+                        <glossterm
+><acronym
+>IETF</acronym
+></glossterm>
+                        <glossdef
+><para
+>Okrajšava za &emstart;I&emend;nternet &emstart;E&emend;ngineering &emstart;T&emend;ask &emstart;F&emend;orce; zbor strokovnjakov za programsko in strojno opremo na internetu, ki razpravljajo o novih omrežnih tehnologijah in zelo pogosto pridejo do zaključkov, ki jih mnogi obravnavajo kot standarde."TCP/IP" je najbolj znan primer.&newpara; standardi IETF, kot tudi osnutke, razprave, ideje in uporabne vaje, so zapisane vznane serije "RFC-jev", ki so na voljo javnosti in vključeni v večino distribucij Linuxa in BSD.</para
+><glossseealso otherterm="gloss-ipp"
+>IPP</glossseealso
+> <glossseealso otherterm="gloss-pwg"
+>PWG</glossseealso
+> <glossseealso otherterm="gloss-rfc"
+>RFC</glossseealso
+> </glossdef>
+                </glossentry>
+
+                <glossentry id="gloss-ipp">
+                        <glossterm
+><acronym
+>IPP</acronym
+></glossterm>
+                        <glossdef
+><para
+>Okrajšava za  &emstart;I&emend;nternet &emstart;P&emend;rinting &emstart;P&emend;rotocol; opredeljeno v seriji RFC-jev, ki jih je sprejel IETF status "predlagani standard"; je zasnoval PWG. -- IPP je apopolnoma nov dizajn za mrežno tiskanje, vendar zelo dobro uporablja znano in preverjeno metodo za dejanski prenos podatkov: HTTP 1.1! Z ne da bi "ponovno izumljali kolo« in temelji na obstoječem in robustnem standardu interneta, lahko IPP razmeroma enostavno priklopi druge HTTP-združljivestandardne mehanizme v svoj okvir:&newpara; Basic, Digest oz. mehanizmi za preverjanje pristnosti potrdila&newpara; SSL ali TLS za šifriranje prenesenih podatkov&newpara; LDAP za imeniške storitve (za objavo podatkov na tiskalnikih, možnosti naprave, gonilniki, stroški omrežja; ali preverjanje gesla med izvajanjem avtentikacije) </para
+><glossseealso otherterm="gloss-cups"
+>&CUPS;</glossseealso
+> <glossseealso otherterm="gloss-pwg"
+>PWG</glossseealso
+> <glossseealso otherterm="gloss-ietf"
+>IETF</glossseealso
+> <glossseealso otherterm="gloss-rfc"
+>RFC</glossseealso
+> <glossseealso otherterm="gloss-tls"
+>TLS</glossseealso
+> </glossdef>
+                </glossentry>
+
+
+                <glossentry id="gloss-lexmark">
+                        <glossterm
+><acronym
+>Lexmark</acronym
+></glossterm>
+                        <glossdef
+><para
+>je bilo eno prvih podjetij, ki je distribuiralo lastne tiskalniške gonilnike za Linux za nekatere njihove modele. Vendar so ti gonilniki samo binarni (ni na voljo izvorne kode), zato jih ni mogoče uporabiti za integracijo v druge proste projekte programske opreme za tiskanje. </para>
+                        </glossdef>
+                </glossentry>
+
+                <glossentry id="gloss-linuxprintingorg">
+                        <glossterm
+>Linuxprinting.org</glossterm>
+                        <glossdef
+><para
+>Linuxprinting.org = ne samo za Linux; vsi OS-ji, podobni &UNIX;, kot je *BSD in komercialni Unixi lahko na tem mestu najdejo koristne informacije o tiskanju. Ta spletna stran je dom zanimivemu projektu Foomatic, ki si prizadeva razviti "Meta Print Spool and Driver Configuration Toolset" (ki je lahko prek enega skupnega vmesnika konfigurira različne podsisteme tiskanjain njihovih zahtevanih gonilnikov) z možnostjo prenosa vseh čakalnih vrst, tiskalnikov in konfiguracijskih datotek neopazno v drugo ozadje brez novih konfiguracijski naporov. -- Prav tako vzdržujejo podatkovno bazo tiskanja; zbiranje informacij o gonilniku in napravah, ki vsem omogoča iskanje najnovejših informacij o modelih tiskalnikov in da lahko ustvarite tudi na spletukonfiguracijske datoteke za katero koli kombinacijo ozadja/gonilnika/naprave, za katero je znano, da deluje z enim od običajnih Linux ali &UNIX; tiskalniških podsistemov. </para>
+                                <glossseealso otherterm="gloss-linuxprintingdatabase"
+>podatkovna baza Linuxprinting</glossseealso>
+                        </glossdef>
+                </glossentry>
+
+
+                <glossentry id="gloss-linuxprintingdatabase">
+                        <glossterm
+><acronym
+>Podatkovna baza Linuxprinting.org</acronym
+></glossterm>
+                        <glossdef
+><para
+>&linkstart;"https://www.openprinting.org/printers"&linkmid;Zbirka podatkov&linkend; ki vsebuje tiskalnike in gonilnike, ki so primerni zanjih. Več informacij: &linkstart;"https://wiki.linuxfoundation.org/openprinting/baza podatkov/indexfaq"&linkmid;Linuxprinting.org pogosta vprašanja&linkend;</para>
+                                <glossseealso otherterm="gloss-foomatic"
+>Foomatic</glossseealso>
+                        </glossdef>
+                </glossentry>
+
+                <glossentry id="gloss-lprlpd">
+                        <glossterm
+><acronym
+>LPR/LPD</acronym
+> tiskanje</glossterm>
+                        <glossdef
+><para
+>LPR ==nekaj ljudi prevaja &emstart;L&emend;ine &emstart;P&emend;rinting &emstart;R&emend;equest, ostali: &emstart;L&emend;ine &emstart;P&emend;rinter &emstart;R&emend;emote.</para>
+                                <glossseealso otherterm="gloss-bsdstyleprinting"
+>Tiskanje v slogu BSD</glossseealso>
+                        </glossdef>
+                </glossentry>
+
+                <glossentry id="gloss-mimetypes">
+                        <glossterm
+>Vrste &MIME;</glossterm>
+                        <glossdef
+><para
+>Okrajšava za &emstart;M&emend;ultipurpose (or Multimedia) &emstart;I&emend;nternet &emstart;M&emend;ail &emstart;E&emend;xtensions; &MIME;-Vrste so bile najprej uporabljene za omogočanje prenosa binarnih podatkov (kot so priloge pošte, ki vsebujejo grafiko) prek poštnih povezav, ki so bile običajnoprenos samo znakov ASCII: podatke je bilo treba kodirati v ASCIIzastopanje.&newpara; Kasneje je bil ta koncept razširjen na opis podatkovformatu na platformno neodvisen, a hkrati nedvoumen način.Iz &Windows; vsi poznajo razširitve .doc za &Microsoft; wordove datoteke. To se na &Windows; platforma: .docrazširitve se uporabljajo tudi za preproste besedilne datoteke ali za Adobe Framemakerdatoteke. In če pravo Wordovo datoteko preimenujete z drugo končnico, lahkoprogram ne odpre več.&newpara; &MIME; tipkane datoteke nosijo niz za prepoznavanje z njimi, ki opisuje njihov format datoteke na podlagi &emstart;glavna_kategorija/pod_kategorija&emend;. Znotraj IPP so tudi datoteke za tiskanjeopisan z &MIME; tipska shema. &MIME; vrste so registrirane pri IANA (Internet Assigning Numbers &emstart;Association&emend;), da jih obdržite nedvoumno.&newpara; &CUPS; ima nekaj &MIME; vrst lastnih registriranih,kot &emstart;application/vnd.cups-raster&emend; (za &CUPS;-interni rastrski format slike). </para
+><glossseealso otherterm="gloss-cups"
+>&CUPS;</glossseealso
+> <glossseealso otherterm="gloss-gimpprint"
+>Gimp-Print</glossseealso
+> </glossdef>
+                </glossentry>
+
+                <glossentry id="gloss-pcl">
+                        <glossterm
+><acronym
+>PCL</acronym
+></glossterm>
+                        <glossdef
+><para
+>Okrajšava za &emstart;P&emend;rinter &emstart;C&emend;ontrol &emstart;L&emend;anguage; razvil &HP;. PCL se je v različici 1 začel kot preprostnabor ukazov za tiskanje ASCII; zdaj, v svojih različicah PCL6 in PCL-X, jezmožen tiskanja grafike in barv -- vendar zunaj &Microsoft;&Windows; realm in &HP-UX; (&HP; lastna blagovna znamka &UNIX;), ni pogosto rabljeno...</para
+><glossseealso otherterm="gloss-escp"
+>ESC/P</glossseealso
+> <glossseealso otherterm="gloss-hpgl"
+>&HP;/GL</glossseealso
+> <glossseealso otherterm="gloss-pdl"
+>PDL</glossseealso
+> <glossseealso otherterm="gloss-postscript"
+>&PostScript;</glossseealso
+> </glossdef>
+                </glossentry>
+
+                <glossentry id="gloss-pdl">
+                        <glossterm
+><acronym
+>PDL</acronym
+></glossterm>
+                        <glossdef
+><para
+>Okrajšava za &emstart;P&emend;age &emstart;D&emend;escription &emstart;L&emend;anguage; PDL-ji na abstrakten način opisujejo grafikopredstavitve strani. - Preden se dejansko prenese v toner oz.črnilo na papir, je treba PDL najprej "interpretirati". Pri &UNIX;, je najpomembnejši PDL &PostScript;. </para
+><glossseealso otherterm="gloss-escp"
+>ESC/P</glossseealso
+> <glossseealso otherterm="gloss-hpgl"
+>&HP;/GL</glossseealso
+> <glossseealso otherterm="gloss-pcl"
+>PCL</glossseealso
+> <glossseealso otherterm="gloss-postscript"
+>&PostScript;</glossseealso
+> </glossdef>
+                </glossentry>
+
+                <glossentry id="gloss-pixel">
+                        <glossterm
+>Piksel</glossterm>
+                        <glossdef
+><para
+>Okrajšava za  &emstart;Pic&emend;ture &emstart;El&emend;ement; ta termin opisuje najmanjši del rastrske slike (bodisi natisnjene na papirju ali kot je prikazano na monitorju s katodnimi žarki ali elementi LCD). Kot katerikoli grafična ali slikovna predstavitev na teh vrstah izhodnih naprav je sestavljen iz slikovnih pik, vrednosti "ppi" (piksel na palec) in &dpi; (pike na palec) so pomemben parameter za splošno kakovost in ločljivost slike.</para
+><glossseealso otherterm="gloss-filter"
+>Filter</glossseealso
+> <glossseealso otherterm="gloss-ghostscript"
+>Ghostscript</glossseealso
+> <glossseealso otherterm="gloss-postscript"
+>&PostScript;</glossseealso
+> <glossseealso otherterm="gloss-raster"
+>Raster</glossseealso
+> </glossdef>
+                </glossentry>
+
+                <glossentry id="gloss-pjl">
+                        <glossterm
+><acronym
+>PJL</acronym
+></glossterm>
+                        <glossdef
+><para
+>Okrajšava za&emstart;P&emend;rint &emstart;J&emend;ob &emstart;L&emend;anguage; razvil &HP; za nadzor in vplivanje na privzeto in posamezno opravilonastavitve tiskalnika. Ne sme se uporabljati samo za &HP;(PCL-)tiskalnike; tudi veliko &PostScript; in drugih tiskalniki razume ukaze PJL, ki so jim poslani znotraj tiskalnega posla ali v ločenem signalu.</para>
+                                <glossseealso otherterm="gloss-pcl"
+>PCL</glossseealso>
+                        </glossdef>
+                </glossentry>
+
+                <glossentry id="gloss-postscript">
+                        <glossterm
+>&PostScript;</glossterm>
+                        <glossdef
+><para
+>&PostScript; (pogosto skrajšano na "PS") je de facto standard v &UNIX; svetu za tiskanje datotek. Razvil ga je Adobe in licenciran zaproizvajalce tiskalnikov in podjetja za programsko opremo.&newpara; Kot je &PostScript; specifikacije objavil Adobe, obstajajo tudi implementacije "Tretjih oseb" &PostScript; generiranje in &PostScript; tolmačenjerazpoložljiva programska oprema (ena najbolj znanih v svetu proste programske opreme jeGhostscript, močan tolmač PS). </para
+><glossseealso otherterm="gloss-escp"
+>ESC/P</glossseealso
+> <glossseealso otherterm="gloss-hpgl"
+>&HP;/GL</glossseealso
+> <glossseealso otherterm="gloss-pcl"
+>PCL</glossseealso
+> <glossseealso otherterm="gloss-ppd"
+>PPD</glossseealso
+> </glossdef>
+                </glossentry>
+
+                <glossentry id="gloss-ppd">
+                        <glossterm
+><acronym
+>PPD</acronym
+></glossterm>
+                        <glossdef
+><para
+>Okrajšava za &emstart;P&emend;ostScript &emstart;P&emend;rinter &emstart;D&emend;escription; opis; PPD so datoteke ASCII, ki shranjujejo vse informacije oposebnih zmožnostih tiskalnika ter definicije (PostScript- aliPJL-) ukazi za priklic določene zmogljivosti (na primer obojestransko tiskanje).&newpara; Kot razkriva akronim, so bili PPD prvotnouporablja se samo za &PostScript; tiskalniki. &CUPS; je koncept PPD razširil navse vrste tiskalnikov.&newpara; PPD za &PostScript; tiskalniki so na voljos strani prodajalcev tiskalnikov. Uporabljajo se lahko z &CUPS; in &kde; tiskanjepodsistema za dostop do vseh funkcij katerega koli &PostScript; tiskalnik.&kde; Skupina priporoča uporabo PPD, ki je bil prvotno namenjen za uporabo z&Microsoft; Windows NT.&newpara; PPD-ji za tiskalnike brez PostScripta &emstart;potrebujem&emend; spremljevalni "filter" za obdelavo &PostScript; tiskanje datotekv obliko, ki jo lahko prebavi ciljna naprava, ki ni PostScript. Tiste PPD/kombinacije filtrov (še) niso na voljo pri prodajalcih. Po pobudos strani &CUPS; razvijalcem za uporabo PPD-jev je bila skupnost proste programske opremedovolj ustvarjalen, da hitro najde podporo za večino trenutnouporabljenih modelov tiskalnikov, prek PPD-jev in klasičnih filtrov Ghostscript. AmpakOpomba: kakovost izpisa se razlikuje od "visokokakovostne fotografije".izpis" (z uporabo Gimp-Print z večino brizgalnikov Epson) na "komajberljivo" (z uporabo filtrov Ghostscript, ki podpirajo Foomatic, za modele, ocenjene kot"papirno težki" v bazi podatkov Linuxprinting.org). </para
+><glossseealso otherterm="gloss-cups"
+>&CUPS;</glossseealso
+> <glossseealso otherterm="gloss-linuxprintingorg"
+>Linuxprinting.org</glossseealso
+> <glossseealso otherterm="gloss-postscript"
+>&PostScript;</glossseealso
+> </glossdef>
+                </glossentry>
+
+                <glossentry id="gloss-printcap">
+                        <glossterm
+>printcap</glossterm>
+                        <glossdef
+><para
+>V tiskalniških sistemih v slogu BSD datoteka "printcap" vsebuje konfiguracijske informacije; tiskalniški demon prebere to datoteko, da ugotovi, kateri tiskalniki so na voljo, kateri filtri naj bodo uporabni za vsakega, kje je spooling in kje se nahaja mapa, če obstajajo strani pasic, ki jih je treba uporabiti, in tako naprej... Nekatere aplikacije so odvisne tudi od dostopa za branje do datoteke printcap, da pridobijo imena razpoložljivih tiskalnikov. </para>
+                                <glossseealso otherterm="gloss-bsdstyleprinting"
+>Tiskanje v slogu BSD</glossseealso>
+                        </glossdef>
+                </glossentry>
+  
+
+                <glossentry id="gloss-printermib">
+                        <glossterm
+>Printer-<acronym
+>MIB</acronym
+></glossterm>
+                        <glossdef
+><para
+>Okrajšava za &emstart;Printer&emend;-&emstart;M&emend;anagement &emstart;I&emend;nformation &emstart;B&emend;ase; Printer-MIB definira nabor parametrov, ki naj bodo shranjeni v tiskalniku za dostop prek omrežja. To je uporabno, če se omreži veliko (v nekaterih primerih dobesedno na tisoče).tiskalnikov se upravljajo centralno s pomočjo SNMP (Simple Network Protokol Magement).</para
+><glossseealso otherterm="gloss-pwg"
+>PWG</glossseealso
+> <glossseealso otherterm="gloss-snmp"
+>SNMP</glossseealso
+> </glossdef>
+                </glossentry>
+  
+                <glossentry id="gloss-pwg">
+                        <glossterm
+><acronym
+>PWG</acronym
+></glossterm>
+                        <glossdef
+><para
+>Okrajšava za &emstart;P&emend;rinter &emstart;W&emend;orking &emstart;G&emend;roup; PWG je ohlapna skupina predstavnikov tiskarske industrije, ki je v preteklih letih razvila drugačne standarde vpovezavi z mrežnim tiskanjem. IETF jih je pozneje sprejel kot RFC standarde, kot sta "Printer-MIB" in IPP.</para
+><glossseealso otherterm="gloss-postscript"
+>&PostScript;</glossseealso
+> <glossseealso otherterm="gloss-ipp"
+>IPP</glossseealso
+> <glossseealso otherterm="gloss-printermib"
+>Printer-MIB</glossseealso
+> <glossseealso otherterm="gloss-snmp"
+>SNMP</glossseealso
+> </glossdef>
+                </glossentry>
+                <glossentry id="gloss-printerdatabase">
+                        <glossterm
+>Podatkovna baza tiskalnika</glossterm>
+                        <glossdef
+><para
+>Dobro bazo gonilnikov tiskalnika lahko najdete na &linkstart;"https://www.openprinting.org/printers"&linkmid;https://www.openprinting.org/tiskalniki&linkend;.</para>
+                                <glossseealso otherterm="gloss-linuxprintingdatabase"
+>Podatkovna baza Linuxprinting</glossseealso>
+                        </glossdef>
+                </glossentry>
+
+                <glossentry id="gloss-raster">
+                        <glossterm
+>Rastrska slika</glossterm>
+                        <glossdef
+><para
+>Vsaka slika na fizičnem mediju je sestavljena iz vzorca ločenih pik v različnih barvah in (lahko tudi) velikostih. To se imenuje "rastrska slika".&newpara; To je v nasprotju z "vektorsko sliko", kjer je grafikaopisana v smislu neprekinjenih krivulj, odtenkov, oblik in zapolnjenih območij,predstavljenih z matematično formulo. Vektorske slike imajo običajno manjšo velikost datoteke in jo je mogoče povečati brez izgube informacij in kakovosti --- vendar jih ni mogoče izpisati neposredno, ampak vedno morajo bitinajprej "upodobljene" ali "rasterizirane" na dano ločljivost, ki jo je naprava zmožna izpisati...&newpara; Rasterizacija se izvaja s procesorjem rastrske slike (RIP, pogosto programska oprema Ghostscript) ali kakšnim drugim pojavkom filtriranja.</para
+><glossseealso otherterm="gloss-pixel"
+>Pixel</glossseealso
+> <glossseealso otherterm="gloss-ghostscript"
+>Ghostscript</glossseealso
+> <glossseealso otherterm="gloss-postscript"
+>&PostScript;</glossseealso
+> <glossseealso otherterm="gloss-filter"
+>Filter</glossseealso
+> <glossseealso otherterm="gloss-rip"
+>RIP</glossseealso
+> </glossdef>
+                </glossentry>
+
+                <glossentry id="gloss-rip">
+                        <glossterm
+><acronym
+>RIP</acronym
+></glossterm>
+                        <glossdef
+><para
+>Okrajšava za &emstart;R&emend;aster &emstart;I&emend;mage &emstart;P&emend;rocess(or); če se uporablja v kontekstu tiskanja, "RIP" pomeni apojavek strojne ali programske opreme, ki pretvori &PostScript; (ali drug format tiska, ki so predstavljeni v enem od PDL-jev, ki niso rastrski), v rastrski format slike na tak način, da je sprejemljiv za "označevalni mehanizem"tiskalnika.&newpara; &PostScript; tiskalniki vsebujejo lasten PostScript-RIP-ji. RIP se lahko nahaja znotraj tiskalnika ali pa ne.&newpara; Za mnoge&UNIX; sisteme, je Ghostscript paket, ki omogoča "RIP inprogramsko opremo«, ki se izvaja na gostiteljskem računalniku in predhodno prebavi &PostScript;ali druge podatke, da postanejo pripravljeni za pošiljanje v tiskalno napravo (torej lahko zazna "zrno resnice" v sloganu "Ghostscript pretvori vaš tiskalnik v &PostScript; stroj", kar seveda v pravem pomenu ni čisto res).</para
+><glossseealso otherterm="gloss-filter"
+>Filter</glossseealso
+> <glossseealso otherterm="gloss-ghostscript"
+>Ghostscript</glossseealso
+> <glossseealso otherterm="gloss-postscript"
+>&PostScript;</glossseealso
+> <glossseealso otherterm="gloss-pdl"
+>PDL</glossseealso
+> <glossseealso otherterm="gloss-raster"
+>Raster</glossseealso
+> </glossdef>
+                </glossentry>
+
+
+                <glossentry id="gloss-rlpr">
+                        <glossterm
+><acronym
+>RLPR</acronym
+> (Remote LPR)</glossterm>
+                        <glossdef
+><para
+>Okrajšava za &emstart;R&emend;emote &emstart;L&emend;ine &emstart;P&emend;rinting &emstart;R&emend;equest; to je tiskanje v slogu sistema BSD, ki ne potrebuje korenskih pravic za namestitev in ne "printcap" za delo: vse parametre lahko podate v ukazni vrstici.&newpara; RLPRpride prav za mnoge uporabnike prenosnih računalnikov, ki pogosto spreminjajo okolja. To je zato, ker je lahko nameščen sočasno z vsakim drugim tiskalniškim podsistemom in omogoča zelo prilagodljiv in hiter način zanamestitev tiskalnika za neposreden dostop prek LPR/LPD. </para>
+                                <glossseealso otherterm="gloss-printcap"
+>printcap</glossseealso>
+                        </glossdef>
+                </glossentry>
+
+ 
+                <glossentry id="gloss-snmp">
+                        <glossterm
+><acronym
+>SNMP</acronym
+></glossterm>
+                        <glossdef
+><para
+>Okrajšava za  &emstart;S&emend;imple &emstart;N&emend;etwork &emstart;M&emend;anagement &emstart;P&emend;rotocol; SNMP se pogosto uporablja za oddaljeni nadzorvseh vrst omrežnih vozlišč (gostiteljev, usmerjevalnikov, stikal, prehodov, tiskalnikov...).</para
+><glossseealso otherterm="gloss-pwg"
+>PWG</glossseealso
+> <glossseealso otherterm="gloss-printermib"
+>Printer-MIB</glossseealso
+> </glossdef>
+                </glossentry>
+
+	        <glossentry id="gloss-ssl">
+                        <glossterm
+><acronym
+>SSL(3)</acronym
+> šifriranje</glossterm>
+                        <glossdef
+><para
+>Okrajšava za &emstart;S&emend;ecure &emstart;S&emend;ocket &emstart;L&emend;ayer; <acronym
+>SSL</acronym
+> je lastniška metoda šifriranja zaprenos podatkov prek HTTP, ki ga je razvil Netscape. Zdaj jenadomeščen s standardom IETF, imenovanim TLS. </para>
+                                <glossseealso otherterm="gloss-tls"
+><acronym
+>TLS</acronym
+></glossseealso>
+                        </glossdef>
+                </glossentry>
+
+
+	        <glossentry id="gloss-spooling">
+                        <glossterm
+><acronym
+>SPOOL</acronym
+>ing</glossterm>
+                        <glossdef
+><para
+>Okrajšava za&emstart;S&emend;ynchronous &emstart;P&emend;eripheral &emstart;O&emend;perations &emstart;O&emend;n&emstart;L&emend;ine; <acronym
+>SPOOL</acronym
+>ing omogoča aplikacijam (in uporabnikom) da med tiskanjem nadaljujejo svoje delo, saj za delo skrbi sistem <acronym
+>daemon</acronym
+>, ki shrani datoteko na začasno lokacijo, dokler ni tiskalnik pripravljen na tiskanje. </para>
+                                <glossseealso otherterm="gloss-daemon"
+><acronym
+>Demon</acronym
+></glossseealso>
+                        </glossdef>
+                </glossentry>
+
+
+	        <glossentry id="gloss-tls">
+                        <glossterm
+><acronym
+>TLS</acronym
+> šifriranje</glossterm>
+                        <glossdef
+><para
+>Okrajšava za&emstart;T&emend;ransport &emstart;L&emend;ayer &emstart;S&emend;ecurity; <acronym
+>TLS</acronym
+> je šifrirni standard za podatke prenesene prek HTTP 1.1; definiran je v RFC 2246; čeprav temelji na prejšnji razvoj SSL (od Netscape) ni popolnoma združljiv z njim. </para>
+                                <glossseealso otherterm="gloss-ssl"
+><acronym
+>SSL(3)</acronym
+></glossseealso>
+                        </glossdef>
+                </glossentry>
+
+
+	        <glossentry id="gloss-systemVstyleprinting">
+                        <glossterm
+>Tiskanje v slogu System V</glossterm>
+                        <glossdef
+><para
+>To je drugi okus tradicionalnega &UNIX; tiskanje (v nasprotju s tiskanjem v slogu BSD). Uporablja drugačen nabor ukazov (lp, lpadmin,...) kot BSD, vendar se od njega bistveno ne razlikuje. Vendar je vrzel med obema dovolj velik, da sta oba nezdružljiva, tako da odjemalec BSD ne more preprosto natisniti na tiskalni strežnik v slogu System V brez dodatnega prilagajanja...IPP naj bi rešil to slabost in še več. </para
+><glossseealso otherterm="gloss-bsdstyleprinting"
+><acronym
+>BSD-style printing</acronym
+></glossseealso
+> <glossseealso otherterm="gloss-ipp"
+><acronym
+>IPP</acronym
+></glossseealso
+> </glossdef>
+                </glossentry>
+
+                <glossentry id="gloss-turboprint">
+                        <glossterm
+>TurboPrint</glossterm>
+                        <glossdef
+><para
+>Deljena programska oprema (angl. shareware), ki omogoča kakovostno tiskanje fotografij za številne brizgalne tiskalnike. Uporabno je, če ne najdete gonilnika za svoj tiskalnik, da se lahko priključi bodisi na tradicionalni sistem Ghostscript bodisi na sodoben sistem &CUPS;.</para>
+                                <glossseealso otherterm="gloss-gimpprint"
+>Gimp-Print</glossseealso>
+                        </glossdef>
+                </glossentry>
+
+                <glossentry id="gloss-xpp">
+                        <glossterm
+><acronym
+>XPP</acronym
+></glossterm>
+                        <glossdef
+><para
+>Okrajšava za <emphasis
+>X</emphasis
+> <emphasis
+>P</emphasis
+>rinting <emphasis
+>P</emphasis
+>anel; <acronym
+>XPP</acronym
+> je bil prvi prosti grafični tiskalniški ukaz za &CUPS;, ki ga je napisal Till Kamppeter in na nek način model za pripomoček "kprinter" v &kde; 3.</para>
+                        </glossdef>
+                </glossentry>
+<!--
+                <glossentry id="gloss-1">
+                        <glossterm
+>xxxx</glossterm>
+                        <glossdef
+><para
+>.</para>
+                                <glossseealso otherterm="gloss-1"
+>xyz</glossseealso>
+                        </glossdef>
+                </glossentry>
+
+                <glossentry id="gloss-3">
+                        <glossterm
+>xxxx</glossterm>
+                        <glossdef
+><para
+>.</para>
+                                <glossseealso otherterm="gloss-1"
+>xyz</glossseealso>
+                        </glossdef>
+                </glossentry>
+
+                <glossentry id="gloss-4">
+                        <glossterm
+>xxxx</glossterm>
+                        <glossdef
+><para
+>.</para>
+                                <glossseealso otherterm="gloss-1"
+>xyz</glossseealso>
+                        </glossdef>
+                </glossentry>
+-->
+	</glossdiv>
+
+
+<!--
+</glossary>
+-->
