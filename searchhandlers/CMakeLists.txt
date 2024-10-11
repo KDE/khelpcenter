@@ -55,6 +55,6 @@ ${CMAKE_CURRENT_BINARY_DIR}/man.desktop )
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/man.desktop DESTINATION ${KDE_INSTALL_DATADIR}/khelpcenter/searchhandlers)
 
-install(PROGRAMS khc_mansearch.pl DESTINATION ${KDE_INSTALL_LIBEXECDIR})
+install(PROGRAMS khc_mansearch.py DESTINATION ${KDE_INSTALL_LIBEXECDIR})
 
 endif ()
