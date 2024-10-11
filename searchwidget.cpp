@@ -51,10 +51,12 @@ SearchWidget::SearchWidget(SearchEngine *engine, QWidget *parent)
     topLayout->addLayout(hLayout);
 
     mPagesCombo = new QComboBox(this);
-    mPagesCombo->addItem(QStringLiteral("5"));
     mPagesCombo->addItem(QStringLiteral("10"));
     mPagesCombo->addItem(QStringLiteral("25"));
     mPagesCombo->addItem(QStringLiteral("50"));
+    mPagesCombo->addItem(QStringLiteral("100"));
+    mPagesCombo->addItem(QStringLiteral("250"));
+    mPagesCombo->addItem(QStringLiteral("500"));
     mPagesCombo->addItem(QStringLiteral("1000"));
 
     l = new QLabel(i18n("Max. &results:"), this);
