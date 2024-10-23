@@ -6,7 +6,7 @@ X-DocPath=khelpcenter/index.html
 Type=Application
 Terminal=false
 
-Name=Help
+Name=Help Center
 Name[af]=Hulp
 Name[ar]=مساعدة
 Name[as]=সহায়
@@ -252,7 +252,7 @@ Keywords[x-test]=xxman;info;documentation;handbook;manual;information;xx
 Keywords[zh_CN]=man;info;documentation;handbook;manual;information;使用说明;使用手册;说明书;信息;文档;手册;shuomingshu;xinxi;wendang;shouce;shiyongshuoming;shiyongshouce;
 Keywords[zh_TW]=man;info;documentation;handbook;manual;information;手冊;說明;
 
-Categories=Qt;KDE;Core;
+Categories=Qt;KDE;Core;Documentation;
 OnlyShowIn=KDE;
 DBusActivatable=true
 X-DBUS-StartupType=Unique
