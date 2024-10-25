@@ -7,6 +7,17 @@ Type=Application
 Terminal=false
 
 Name=Help Center
+Name[ca]=Centre d'ajuda
+Name[es]=Centro de ayuda
+Name[ia]=Centro de Adjuta 
+Name[ka]=დახმარების ცენტრი
+Name[nl]=Hulpcentrum
+Name[sl]=Središče za pomoč
+Name[tr]=Yardım Merkezi
+Name[uk]=Центр довідки
+Name[x-test]=xxHelp Centerxx
+Name[zh_CN]=帮助中心
+Name[zh_TW]=輔助中心
 GenericName=Help Center
 GenericName[ar]=مركز مساعدة
 GenericName[ast]=Centru d'ayuda
