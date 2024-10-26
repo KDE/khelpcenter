@@ -8,8 +8,11 @@ Terminal=false
 
 Name=Help Center
 Name[ca]=Centre d'ajuda
+Name[ca@valencia]=Centre d'ajuda
 Name[es]=Centro de ayuda
+Name[he]=מרכז העזרה
 Name[ia]=Centro de Adjuta 
+Name[it]=Centro documentazione
 Name[ka]=დახმარების ცენტრი
 Name[nl]=Hulpcentrum
 Name[sl]=Središče za pomoč
