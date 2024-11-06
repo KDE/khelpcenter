@@ -28,7 +28,7 @@ include(CheckIncludeFiles)
 include(ECMQtDeclareLoggingCategory)
 include(ECMGenerateDBusServiceFile)
 include(ECMDeprecationSettings)
-include(KDEClangFormat)
+include(KDEGitCommitHooks)
 
 find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     DBus
