@@ -28,6 +28,7 @@ include(CheckIncludeFiles)
 include(ECMQtDeclareLoggingCategory)
 include(ECMGenerateDBusServiceFile)
 include(ECMDeprecationSettings)
+include(KDEClangFormat)
 
 find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     DBus
@@ -206,3 +207,5 @@ ecm_qt_install_logging_categories(
 )
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
+
+kde_configure_git_pre_commit_hook(CHECKS CLANG_FORMAT)
