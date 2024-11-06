@@ -12,64 +12,63 @@
 
 using namespace KHC;
 
-NavigatorItem::NavigatorItem( DocEntry *entry, QTreeWidget *parent,
-                              QTreeWidgetItem *after )
-  : QTreeWidgetItem( parent, after )
+NavigatorItem::NavigatorItem(DocEntry *entry, QTreeWidget *parent, QTreeWidgetItem *after)
+    : QTreeWidgetItem(parent, after)
 {
-  init( entry );
+    init(entry);
 }
 
-NavigatorItem::NavigatorItem( DocEntry *entry, QTreeWidgetItem *parent,
-                              QTreeWidgetItem *after )
-  : QTreeWidgetItem( parent, after )
+NavigatorItem::NavigatorItem(DocEntry *entry, QTreeWidgetItem *parent, QTreeWidgetItem *after)
+    : QTreeWidgetItem(parent, after)
 {
-  init( entry );
+    init(entry);
 }
 
-NavigatorItem::NavigatorItem( DocEntry *entry, QTreeWidget *parent )
-  : QTreeWidgetItem( parent )
+NavigatorItem::NavigatorItem(DocEntry *entry, QTreeWidget *parent)
+    : QTreeWidgetItem(parent)
 {
-    init( entry );
+    init(entry);
 }
 
-NavigatorItem::NavigatorItem( DocEntry *entry, QTreeWidgetItem *parent )
-  : QTreeWidgetItem( parent )
+NavigatorItem::NavigatorItem(DocEntry *entry, QTreeWidgetItem *parent)
+    : QTreeWidgetItem(parent)
 {
-  init( entry );
+    init(entry);
 }
 
 NavigatorItem::~NavigatorItem()
 {
-  if ( mAutoDeleteDocEntry ) delete mEntry;
+    if (mAutoDeleteDocEntry)
+        delete mEntry;
 }
 
-void NavigatorItem::init( DocEntry *entry )
+void NavigatorItem::init(DocEntry *entry)
 {
-  mEntry = entry;
-  mAutoDeleteDocEntry = false;
+    mEntry = entry;
+    mAutoDeleteDocEntry = false;
 
-  updateItem();
+    updateItem();
 }
 
 DocEntry *NavigatorItem::entry() const
 {
-  return mEntry;
+    return mEntry;
 }
 
-void NavigatorItem::setAutoDeleteDocEntry( bool enabled )
+void NavigatorItem::setAutoDeleteDocEntry(bool enabled)
 {
-  mAutoDeleteDocEntry = enabled;
+    mAutoDeleteDocEntry = enabled;
 }
 
 void NavigatorItem::updateItem()
 {
-  setText( 0, entry()->name() );
-  setIcon( 0, QIcon::fromTheme( entry()->icon() ) );
+    setText(0, entry()->name());
+    setIcon(0, QIcon::fromTheme(entry()->icon()));
 }
 
-void NavigatorItem::itemExpanded( bool open )
+void NavigatorItem::itemExpanded(bool open)
 {
-  Q_UNUSED( open );
+    Q_UNUSED(open);
 }
 
 // vim:ts=2:sw=2:et

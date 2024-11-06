@@ -12,33 +12,34 @@
 #include <QList>
 #include <QUrl>
 
-namespace KHC {
+namespace KHC
+{
 
-  class MainWindow;
+class MainWindow;
 
-  class Application : public QApplication
-  {
+class Application : public QApplication
+{
     Q_OBJECT
-    public:
-      Application(int& argc, char** argv);
+public:
+    Application(int &argc, char **argv);
 
-      QCommandLineParser *cmdParser();
+    QCommandLineParser *cmdParser();
 
-      void newInstance();
-      void restoreInstance();
+    void newInstance();
+    void restoreInstance();
 
-    public Q_SLOTS:
-        void activate(const QStringList& args, const QString &workingDirectory);
-        void open(const QList<QUrl>& urls);
+public Q_SLOTS:
+    void activate(const QStringList &args, const QString &workingDirectory);
+    void open(const QList<QUrl> &urls);
 
-  private:
-        void activateForStartLikeCall();
+private:
+    void activateForStartLikeCall();
 
-    private:
-      MainWindow *mMainWindow = nullptr;
-      QUrl mOpen;
-      QCommandLineParser mCmdParser;
-  };
+private:
+    MainWindow *mMainWindow = nullptr;
+    QUrl mOpen;
+    QCommandLineParser mCmdParser;
+};
 
 }
 

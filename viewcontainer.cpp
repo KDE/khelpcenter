@@ -6,10 +6,11 @@
 
 #include "viewcontainer.h"
 
-#include <QVBoxLayout>
 #include <QShortcut>
+#include <QVBoxLayout>
 
-namespace KHC {
+namespace KHC
+{
 
 ViewContainer::ViewContainer(QWidget *parentWidget)
     : QWidget(parentWidget)
@@ -18,14 +19,14 @@ ViewContainer::ViewContainer(QWidget *parentWidget)
     l->setContentsMargins(0, 0, 0, 0);
     l->setSpacing(0);
 
-    auto* closeBottomBarShortcut = new QShortcut(QKeySequence(Qt::Key_Escape), this);
+    auto *closeBottomBarShortcut = new QShortcut(QKeySequence(Qt::Key_Escape), this);
     closeBottomBarShortcut->setContext(Qt::WidgetWithChildrenShortcut);
     connect(closeBottomBarShortcut, &QShortcut::activated, this, &ViewContainer::hideBottomBar);
 }
 
 void ViewContainer::setView(QWidget *view)
 {
-    auto *l = static_cast<QVBoxLayout*>(layout());
+    auto *l = static_cast<QVBoxLayout *>(layout());
     if (m_view) {
         l->removeWidget(m_view.data());
     }
@@ -38,7 +39,7 @@ void ViewContainer::setView(QWidget *view)
 
 void ViewContainer::setBottomBar(QWidget *bottomBar)
 {
-    auto *l = static_cast<QVBoxLayout*>(layout());
+    auto *l = static_cast<QVBoxLayout *>(layout());
     if (m_bottomBar) {
         l->removeWidget(m_bottomBar.data());
     }

@@ -9,6 +9,6 @@
 
 #include <QByteArray>
 
-bool htmlTextDump( const QByteArray& data, QByteArray *title, QByteArray *text );
+bool htmlTextDump(const QByteArray &data, QByteArray *title, QByteArray *text);
 
 #endif

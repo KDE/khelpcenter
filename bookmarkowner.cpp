@@ -10,9 +10,10 @@
 
 using namespace KHC;
 
-BookmarkOwner::BookmarkOwner( View *view, QObject *parent )
-  : QObject( parent ), KBookmarkOwner()
-  , mView( view )
+BookmarkOwner::BookmarkOwner(View *view, QObject *parent)
+    : QObject(parent)
+    , KBookmarkOwner()
+    , mView(view)
 {
 }
 
@@ -22,23 +23,23 @@ BookmarkOwner::~BookmarkOwner()
 
 QString BookmarkOwner::currentTitle() const
 {
-  return currentUrl().isValid() ? mView->title() : QString();
+    return currentUrl().isValid() ? mView->title() : QString();
 }
 
 QUrl BookmarkOwner::currentUrl() const
 {
-  const QUrl url = mView->url();
-  // khelpcenter: URLs are internal, hence to not bookmark
-  return url.scheme() == QLatin1String( "khelpcenter" ) ? QUrl() : url;
+    const QUrl url = mView->url();
+    // khelpcenter: URLs are internal, hence to not bookmark
+    return url.scheme() == QLatin1String("khelpcenter") ? QUrl() : url;
 }
 
-void BookmarkOwner::openBookmark( const KBookmark& bm, Qt::MouseButtons /*mb*/, Qt::KeyboardModifiers /*km*/ )
+void BookmarkOwner::openBookmark(const KBookmark &bm, Qt::MouseButtons /*mb*/, Qt::KeyboardModifiers /*km*/)
 {
-  if ( !bm.url().isValid() ) {
-    return;
-  }
+    if (!bm.url().isValid()) {
+        return;
+    }
 
-  Q_EMIT openUrl( bm.url() );
+    Q_EMIT openUrl(bm.url());
 }
 
 #include "moc_bookmarkowner.cpp"

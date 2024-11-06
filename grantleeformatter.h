@@ -11,28 +11,29 @@
 #include <QPair>
 #include <QString>
 
-namespace KHC {
+namespace KHC
+{
 
 class DocEntry;
 class GlossaryEntry;
 
-  class GrantleeFormatter
-  {
-    public:
-      GrantleeFormatter();
-      ~GrantleeFormatter();
+class GrantleeFormatter
+{
+public:
+    GrantleeFormatter();
+    ~GrantleeFormatter();
 
-      QString formatOverview( const QString& title, const QString& name, const QString& content );
-      QString formatGlossaryEntry( const GlossaryEntry& entry );
-      QString formatSearchResults( const QString& words, const QList<QPair<DocEntry *, QString> >& results );
+    QString formatOverview(const QString &title, const QString &name, const QString &content);
+    QString formatGlossaryEntry(const GlossaryEntry &entry);
+    QString formatSearchResults(const QString &words, const QList<QPair<DocEntry *, QString>> &results);
 
-    private:
-      struct Private;
-      Private *const d;
-  };
+private:
+    struct Private;
+    Private *const d;
+};
 
 }
 
-#endif //KHC_FORMATTER_H
+#endif // KHC_FORMATTER_H
 
 // vim:ts=2:sw=2:et

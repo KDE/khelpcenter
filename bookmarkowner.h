@@ -10,25 +10,26 @@
 #include <KBookmarkOwner>
 #include <QObject>
 
-namespace KHC {
+namespace KHC
+{
 
 class View;
 
 class BookmarkOwner : public QObject, public KBookmarkOwner
 {
-  Q_OBJECT
-  public:
-    explicit BookmarkOwner( View *view, QObject *parent = nullptr );
+    Q_OBJECT
+public:
+    explicit BookmarkOwner(View *view, QObject *parent = nullptr);
     ~BookmarkOwner() override;
 
     QString currentTitle() const override;
     QUrl currentUrl() const override;
-    void openBookmark( const KBookmark& bm, Qt::MouseButtons mb, Qt::KeyboardModifiers km ) override;
+    void openBookmark(const KBookmark &bm, Qt::MouseButtons mb, Qt::KeyboardModifiers km) override;
 
-  Q_SIGNALS:
-    void openUrl( const QUrl& url );
+Q_SIGNALS:
+    void openUrl(const QUrl &url);
 
-  private:
+private:
     View *const mView;
 };
 

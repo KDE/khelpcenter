@@ -18,8 +18,8 @@ class QComboBox;
 
 class KConfig;
 
-
-namespace KHC {
+namespace KHC
+{
 
 class SearchEngine;
 
@@ -27,41 +27,47 @@ class SearchWidget : public QWidget
 {
     Q_OBJECT
 
-  public:
-    explicit SearchWidget ( SearchEngine *, QWidget *parent = nullptr );
+public:
+    explicit SearchWidget(SearchEngine *, QWidget *parent = nullptr);
     ~SearchWidget();
 
     QString method() const;
     int pages() const;
     QStringList scope() const;
 
-    enum { ScopeDefault, ScopeAll, ScopeNone, ScopeCustom, ScopeNum };
+    enum {
+        ScopeDefault,
+        ScopeAll,
+        ScopeNone,
+        ScopeCustom,
+        ScopeNum
+    };
 
-    void readConfig( KConfig * );
-    void writeConfig( KConfig * );
+    void readConfig(KConfig *);
+    void writeConfig(KConfig *);
 
     int scopeCount() const;
 
     void searchIndexUpdated();
 
-  Q_SIGNALS:
-    void searchResult( const QString &url );
-    void scopeCountChanged( int );
+Q_SIGNALS:
+    void searchResult(const QString &url);
+    void scopeCountChanged(int);
 
-  public Q_SLOTS:
+public Q_SLOTS:
     void slotSwitchBoxes();
-    void scopeSelectionChanged( int );
+    void scopeSelectionChanged(int);
     void updateScopeList();
 
-  protected:
+protected:
     void checkScope();
-    static QString scopeSelectionLabel( int );
+    static QString scopeSelectionLabel(int);
 
-  protected Q_SLOTS:
-    void scopeDoubleClicked( QTreeWidgetItem* );
-    void scopeClicked( QTreeWidgetItem* );
+protected Q_SLOTS:
+    void scopeDoubleClicked(QTreeWidgetItem *);
+    void scopeClicked(QTreeWidgetItem *);
 
-  private:
+private:
     SearchEngine *const mEngine;
 
     QComboBox *mMethodCombo = nullptr;
@@ -74,5 +80,5 @@ class SearchWidget : public QWidget
 
 }
 
-#endif //KHC_SEARCHWIDGET_H
+#endif // KHC_SEARCHWIDGET_H
 // vim:ts=2:sw=2:et

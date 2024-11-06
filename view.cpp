@@ -9,43 +9,45 @@
 #include "grantleeformatter.h"
 #include "khc_debug.h"
 
-#include <KStandardAction>
 #include <KActionCollection>
-#include <KSharedConfig>
-#include <KLocalizedString>
-#include <docbookxslt.h>
 #include <KIO/TransferJob>
+#include <KLocalizedString>
+#include <KSharedConfig>
+#include <KStandardAction>
+#include <docbookxslt.h>
 
 #include <QApplication>
+#include <QBuffer>
 #include <QClipboard>
-#include <QWebEngineScript>
-#include <QWebEngineSettings>
-#include <QWebEngineProfile>
-#include <QWebEnginePage>
-#include <QWebEngineUrlSchemeHandler>
-#include <QWebEngineScriptCollection>
-#include <QWebEngineUrlRequestJob>
+#include <QContextMenuEvent>
+#include <QFileDialog>
 #include <QFileInfo>
 #include <QGuiApplication>
 #include <QMenu>
 #include <QStandardPaths>
 #include <QTextStream>
-#include <QWhatsThis>
-#include <QBuffer>
-#include <QFileDialog>
-#include <QContextMenuEvent>
-#include <QWebEngineUrlScheme>
 #include <QWebEngineDownloadRequest>
+#include <QWebEnginePage>
+#include <QWebEngineProfile>
+#include <QWebEngineScript>
+#include <QWebEngineScriptCollection>
+#include <QWebEngineSettings>
+#include <QWebEngineUrlRequestJob>
+#include <QWebEngineUrlScheme>
+#include <QWebEngineUrlSchemeHandler>
+#include <QWhatsThis>
 
 using namespace KHC;
-class HelpUrlSchemeHandler : public QWebEngineUrlSchemeHandler {
-    void requestStarted(QWebEngineUrlRequestJob* job) override {
+class HelpUrlSchemeHandler : public QWebEngineUrlSchemeHandler
+{
+    void requestStarted(QWebEngineUrlRequestJob *job) override
+    {
         qCDebug(KHC_LOG) << job->requestUrl();
-        KIO::TransferJob* kiojob = KIO::get(job->requestUrl(), KIO::NoReload, KIO::HideProgressInfo);
+        KIO::TransferJob *kiojob = KIO::get(job->requestUrl(), KIO::NoReload, KIO::HideProgressInfo);
         // QWebEngineUrlRequestJob seems to not support redirect & content at the same time
         kiojob->setRedirectionHandlingEnabled(false);
         QByteArray result;
-        connect(kiojob, &KIO::TransferJob::data, this, [&result](KJob*, QByteArray data) {
+        connect(kiojob, &KIO::TransferJob::data, this, [&result](KJob *, QByteArray data) {
             result += data;
         });
         kiojob->exec();
@@ -62,8 +64,10 @@ class HelpUrlSchemeHandler : public QWebEngineUrlSchemeHandler {
     }
 };
 
-View::View( QWidget *parentWidget, KActionCollection *col )
-    : QWebEngineView( parentWidget), mState( Docu ), mActionCollection(col)
+View::View(QWidget *parentWidget, KActionCollection *col)
+    : QWebEngineView(parentWidget)
+    , mState(Docu)
+    , mActionCollection(col)
 {
     {
         QWebEngineUrlScheme customScheme("help");
@@ -102,57 +106,56 @@ View::View( QWidget *parentWidget, KActionCollection *col )
     }
 
     page()->settings()->setUnknownUrlSchemePolicy(QWebEngineSettings::AllowAllUnknownUrlSchemes);
-    page()->settings()->setAttribute(QWebEngineSettings::ErrorPageEnabled,true);
+    page()->settings()->setAttribute(QWebEngineSettings::ErrorPageEnabled, true);
 
     mGrantleeFormatter = new GrantleeFormatter;
     page()->settings()->setAttribute(QWebEngineSettings::PluginsEnabled, false);
     page()->settings()->setAttribute(QWebEngineSettings::JavascriptEnabled, false);
 
-    page()->profile()->installUrlSchemeHandler(QByteArrayLiteral("help"),new HelpUrlSchemeHandler);
-    page()->profile()->installUrlSchemeHandler(QByteArrayLiteral("khelpcenter"),new HelpUrlSchemeHandler);
-    page()->profile()->installUrlSchemeHandler(QByteArrayLiteral("man"),new HelpUrlSchemeHandler);
-    page()->profile()->installUrlSchemeHandler(QByteArrayLiteral("info"),new HelpUrlSchemeHandler);
+    page()->profile()->installUrlSchemeHandler(QByteArrayLiteral("help"), new HelpUrlSchemeHandler);
+    page()->profile()->installUrlSchemeHandler(QByteArrayLiteral("khelpcenter"), new HelpUrlSchemeHandler);
+    page()->profile()->installUrlSchemeHandler(QByteArrayLiteral("man"), new HelpUrlSchemeHandler);
+    page()->profile()->installUrlSchemeHandler(QByteArrayLiteral("info"), new HelpUrlSchemeHandler);
     QString css = langLookup(QStringLiteral("kdoctools6-common/kde-default.css"));
-    if (!css.isEmpty())
-    {
-
+    if (!css.isEmpty()) {
         QFile css_file(css);
-        if (css_file.open(QIODevice::ReadOnly))
-        {
+        if (css_file.open(QIODevice::ReadOnly)) {
             QTextStream stream(&css_file);
-            QString stylesheet = stream.readAll().replace(QLatin1Char('"'),QLatin1Char(' '));
+            QString stylesheet = stream.readAll().replace(QLatin1Char('"'), QLatin1Char(' '));
             QWebEngineScript script;
-            QString s = QString::fromLatin1("(function() {"\
-                                            "    css = document.createElement('style');"\
-                                            "    css.type = 'text/css';"\
-                                            "    css.id = '%1';"\
-                                            "    document.head.appendChild(css);"\
-                                            "    css.innerText = \"%2\";"\
-                                            "})()").arg(QStringLiteral("default")).arg(stylesheet.simplified());
+            QString s = QString::fromLatin1(
+                            "(function() {"
+                            "    css = document.createElement('style');"
+                            "    css.type = 'text/css';"
+                            "    css.id = '%1';"
+                            "    document.head.appendChild(css);"
+                            "    css.innerText = \"%2\";"
+                            "})()")
+                            .arg(QStringLiteral("default"))
+                            .arg(stylesheet.simplified());
             script.setName(QStringLiteral("default"));
             script.setSourceCode(s);
             script.setInjectionPoint(QWebEngineScript::DocumentReady);
             script.setRunsOnSubFrames(true);
             script.setWorldId(QWebEngineScript::ApplicationWorld);
             page()->scripts().insert(script);
-
         }
     }
-    page()->installEventFilter( this );
+    page()->installEventFilter(this);
     connect(page()->profile(), &QWebEngineProfile::downloadRequested, this, &View::downloadRequested);
 }
 
 View::~View()
 {
-  delete mGrantleeFormatter;
+    delete mGrantleeFormatter;
 }
 
 void View::copySelectedText()
 {
-    qobject_cast<QGuiApplication*>(qApp)->clipboard()->setText( selectedText() );
+    qobject_cast<QGuiApplication *>(qApp)->clipboard()->setText(selectedText());
 }
 
-QString View::langLookup( const QString &fname )
+QString View::langLookup(const QString &fname)
 {
     qDebug() << " View::langLookup" << fname;
     QStringList search;
@@ -183,17 +186,16 @@ QString View::langLookup( const QString &fname )
 
     // try to locate the file
     for (QStringList::ConstIterator it = search.constBegin(); it != search.constEnd(); ++it) {
-
         QFileInfo info(*it);
         if (info.exists() && info.isFile() && info.isReadable()) {
             return *it;
         }
 
-            QString file = (*it).left((*it).lastIndexOf(QLatin1Char('/'))) + QStringLiteral("/index.docbook");
-            info.setFile(file);
-            if (info.exists() && info.isFile() && info.isReadable()) {
-                return *it;
-            }
+        QString file = (*it).left((*it).lastIndexOf(QLatin1Char('/'))) + QStringLiteral("/index.docbook");
+        info.setFile(file);
+        if (info.exists() && info.isFile() && info.isReadable()) {
+            return *it;
+        }
     }
 
     return QString();
@@ -201,46 +203,47 @@ QString View::langLookup( const QString &fname )
 
 void View::beginSearchResult()
 {
-  mState = Search;
-  mSearchResult = QString();
+    mState = Search;
+    mSearchResult = QString();
 }
 
-void View::writeSearchResult( const QString &str )
+void View::writeSearchResult(const QString &str)
 {
-  mSearchResult += str;
+    mSearchResult += str;
 }
 
 void View::endSearchResult()
 {
-  setInternalHtml(mSearchResult, QUrl( QStringLiteral( "khelpcenter:search/result" ) ) );
-  if ( !mSearchResult.isEmpty() )
-    Q_EMIT searchResultCacheAvailable();
+    setInternalHtml(mSearchResult, QUrl(QStringLiteral("khelpcenter:search/result")));
+    if (!mSearchResult.isEmpty())
+        Q_EMIT searchResultCacheAvailable();
 }
 
-void View::setInternalHtml(const QString& data,  const QUrl &url )
+void View::setInternalHtml(const QString &data, const QUrl &url)
 {
-  mInternalUrl = url;
-  setHtml(data, url);
+    mInternalUrl = url;
+    setHtml(data, url);
 }
 
 QUrl View::internalUrl() const
 {
-  return mInternalUrl;
+    return mInternalUrl;
 }
 
 void View::lastSearch()
 {
-  if ( mSearchResult.isEmpty() ) return;
+    if (mSearchResult.isEmpty())
+        return;
 
-  mState = Search;
-  setHtml( mSearchResult, QUrl( QStringLiteral( "khelpcenter:search/last" ) )  );
+    mState = Search;
+    setHtml(mSearchResult, QUrl(QStringLiteral("khelpcenter:search/last")));
 }
-void View::slotReload( const QUrl &url )
+void View::slotReload(const QUrl &url)
 {
-  if ( url.isEmpty() )
-    reload();
-  else
-    load( url );
+    if (url.isEmpty())
+        reload();
+    else
+        load(url);
 }
 
 void View::contextMenuEvent(QContextMenuEvent *ev)
@@ -311,4 +314,3 @@ void View::downloadRequested(QWebEngineDownloadRequest *download)
 #include "moc_view.cpp"
 
 // vim:ts=2:sw=2:et
-

@@ -14,22 +14,21 @@
 #include <QString>
 
 enum {
-  VALUE_LASTMOD = 0,
-  VALUE_TITLE = 1,
+    VALUE_LASTMOD = 0,
+    VALUE_TITLE = 1,
 };
 
-struct DatabaseVersionMismatch
-{
-  DatabaseVersionMismatch( int aversion );
+struct DatabaseVersionMismatch {
+    DatabaseVersionMismatch(int aversion);
 
-  const int version;
-  const int refVersion;
+    const int version;
+    const int refVersion;
 };
 
-Xapian::WritableDatabase openWritableDb( const QString& path );
-Xapian::Database openDb( const QString& path );
-void getDocInfo( const Xapian::Document& doc, std::string* lang, std::string* uid, std::string* xhtml );
+Xapian::WritableDatabase openWritableDb(const QString &path);
+Xapian::Database openDb(const QString &path);
+void getDocInfo(const Xapian::Document &doc, std::string *lang, std::string *uid, std::string *xhtml);
 
-QDebug operator<<( QDebug dbg, const std::string& s );
+QDebug operator<<(QDebug dbg, const std::string &s);
 
 #endif

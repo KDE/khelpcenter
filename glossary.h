@@ -15,94 +15,119 @@
 
 class EntryItem;
 
-namespace KHC {
+namespace KHC
+{
 
-  class GlossaryEntryXRef
-  {
-      public:
-	  typedef QList<GlossaryEntryXRef> List;
+class GlossaryEntryXRef
+{
+public:
+    typedef QList<GlossaryEntryXRef> List;
 
-	  GlossaryEntryXRef() {}
-	  GlossaryEntryXRef( const QString &term, const QString &id ) :
-	      m_term( term ),
-	      m_id( id )
-	  {
-	  }
+    GlossaryEntryXRef()
+    {
+    }
+    GlossaryEntryXRef(const QString &term, const QString &id)
+        : m_term(term)
+        , m_id(id)
+    {
+    }
 
-	  QString term() const { return m_term; }
-	  QString id() const { return m_id; }
-      
-      private:
-	  QString m_term;
-	  QString m_id;
-  };
+    QString term() const
+    {
+        return m_term;
+    }
+    QString id() const
+    {
+        return m_id;
+    }
 
-  class GlossaryEntry
-  {
-    public:
-      GlossaryEntry() {}
-      GlossaryEntry( const QString &id, const QString &term,
-	      const QString &definition,
-	      const GlossaryEntryXRef::List &seeAlso ) :
-	  m_id( id ),
-	  m_term( term ),
-	  m_definition( definition ),
-	  m_seeAlso( seeAlso )
-	  { }
+private:
+    QString m_term;
+    QString m_id;
+};
 
-	QString id() const { return m_id; }
-	QString term() const { return m_term; }
-	QString definition() const { return m_definition; }
-	GlossaryEntryXRef::List seeAlso() const { return m_seeAlso; }
-    
-    private:
-	QString m_id;
-	QString m_term;
-	QString m_definition;
-	GlossaryEntryXRef::List m_seeAlso;
-  };
+class GlossaryEntry
+{
+public:
+    GlossaryEntry()
+    {
+    }
+    GlossaryEntry(const QString &id, const QString &term, const QString &definition, const GlossaryEntryXRef::List &seeAlso)
+        : m_id(id)
+        , m_term(term)
+        , m_definition(definition)
+        , m_seeAlso(seeAlso)
+    {
+    }
 
-  class Glossary : public QTreeWidget
-  {
+    QString id() const
+    {
+        return m_id;
+    }
+    QString term() const
+    {
+        return m_term;
+    }
+    QString definition() const
+    {
+        return m_definition;
+    }
+    GlossaryEntryXRef::List seeAlso() const
+    {
+        return m_seeAlso;
+    }
+
+private:
+    QString m_id;
+    QString m_term;
+    QString m_definition;
+    GlossaryEntryXRef::List m_seeAlso;
+};
+
+class Glossary : public QTreeWidget
+{
     Q_OBJECT
-    public:
-      explicit Glossary( QWidget *parent );
-      virtual ~Glossary();
+public:
+    explicit Glossary(QWidget *parent);
+    virtual ~Glossary();
 
-      const GlossaryEntry &entry( const QString &id ) const;
+    const GlossaryEntry &entry(const QString &id) const;
 
-    public Q_SLOTS:
-      void slotSelectGlossEntry( const QString &id );
+public Q_SLOTS:
+    void slotSelectGlossEntry(const QString &id);
 
-    Q_SIGNALS:
-      void entrySelected( const GlossaryEntry &entry );
-	
-    private Q_SLOTS:
-      void meinprocFinished(int exitCode, QProcess::ExitStatus exitStatus);
-      void treeItemSelected( QTreeWidgetItem *item );
+Q_SIGNALS:
+    void entrySelected(const GlossaryEntry &entry);
 
-    protected:
-      void showEvent(QShowEvent *event) override;
-		
-    private:
-      enum CacheStatus { NeedRebuild, CacheOk };
+private Q_SLOTS:
+    void meinprocFinished(int exitCode, QProcess::ExitStatus exitStatus);
+    void treeItemSelected(QTreeWidgetItem *item);
 
-      CacheStatus cacheStatus() const;
-      int glossaryCTime() const;
-      void rebuildGlossaryCache();
-      void buildGlossaryTree();
-      static QDomElement childElement( const QDomElement &e, const QString &name );
+protected:
+    void showEvent(QShowEvent *event) override;
 
-      QTreeWidgetItem *m_byTopicItem = nullptr;
-      QTreeWidgetItem *m_alphabItem = nullptr;
-      QString m_sourceFile;
-      QString m_cacheFile;
-      CacheStatus m_status;
-      QHash<QString, GlossaryEntry*> m_glossEntries;
-      QHash<QString, EntryItem*> m_idDict;
-      bool m_initialized;
-      static bool m_alreadyWarned;
-  };
+private:
+    enum CacheStatus {
+        NeedRebuild,
+        CacheOk
+    };
+
+    CacheStatus cacheStatus() const;
+    int glossaryCTime() const;
+    void rebuildGlossaryCache();
+    void buildGlossaryTree();
+    static QDomElement childElement(const QDomElement &e, const QString &name);
+
+    QTreeWidgetItem *m_byTopicItem = nullptr;
+    QTreeWidgetItem *m_alphabItem = nullptr;
+    QString m_sourceFile;
+    QString m_cacheFile;
+    CacheStatus m_status;
+    QHash<QString, GlossaryEntry *> m_glossEntries;
+    QHash<QString, EntryItem *> m_idDict;
+    bool m_initialized;
+    static bool m_alreadyWarned;
+};
 
 }
 

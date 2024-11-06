@@ -15,43 +15,53 @@
 
 class QTreeWidgetItem;
 
-namespace KHC {
+namespace KHC
+{
 
 class TOC : public QObject
 {
-	Q_OBJECT
-	public:
-		explicit TOC( NavigatorItem *parentItem );
+    Q_OBJECT
+public:
+    explicit TOC(NavigatorItem *parentItem);
 
-		QString application() const { return m_application; }
-		void setApplication( const QString &application ) { m_application = application; }
-	
-	public Q_SLOTS:
-		void build( const QString &file );
-		
-	Q_SIGNALS:
-		void itemSelected( const QString &url );
+    QString application() const
+    {
+        return m_application;
+    }
+    void setApplication(const QString &application)
+    {
+        m_application = application;
+    }
 
-	private Q_SLOTS:
-		void slotItemSelected( QTreeWidgetItem *item );
-		void meinprocExited( int exitCode, QProcess::ExitStatus exitStatus);
+public Q_SLOTS:
+    void build(const QString &file);
 
-	private:
-		enum CacheStatus { NeedRebuild, CacheOk };
+Q_SIGNALS:
+    void itemSelected(const QString &url);
 
-		CacheStatus cacheStatus() const;
-		int sourceFileCTime() const;
-		int cachedCTime() const;
-		QDomElement childElement( const QDomElement &e, const QString &name );
-		void buildCache();
-		void fillTree();
+private Q_SLOTS:
+    void slotItemSelected(QTreeWidgetItem *item);
+    void meinprocExited(int exitCode, QProcess::ExitStatus exitStatus);
 
-		QString m_application;
-		QString m_cacheFile;
-		QString m_sourceFile;
+private:
+    enum CacheStatus {
+        NeedRebuild,
+        CacheOk
+    };
 
-        NavigatorItem *const m_parentItem;
-		static bool m_alreadyWarned;
+    CacheStatus cacheStatus() const;
+    int sourceFileCTime() const;
+    int cachedCTime() const;
+    QDomElement childElement(const QDomElement &e, const QString &name);
+    void buildCache();
+    void fillTree();
+
+    QString m_application;
+    QString m_cacheFile;
+    QString m_sourceFile;
+
+    NavigatorItem *const m_parentItem;
+    static bool m_alreadyWarned;
 };
 
 }

@@ -10,9 +10,11 @@
 #include <QWidget>
 #include <memory>
 
-namespace KHC {
+namespace KHC
+{
 
-namespace Ui {
+namespace Ui
+{
 class PageSearchBar;
 }
 class View;
@@ -22,10 +24,10 @@ class PageSearchBar : public QWidget
     Q_OBJECT
 
 public:
-    explicit PageSearchBar(View* view, QWidget* parent = nullptr);
+    explicit PageSearchBar(View *view, QWidget *parent = nullptr);
     ~PageSearchBar() override;
 
-    void hideEvent(QHideEvent* event) override;
+    void hideEvent(QHideEvent *event) override;
 
 public Q_SLOTS:
     void startSearch();
@@ -37,7 +39,7 @@ private Q_SLOTS:
 
 private:
     std::unique_ptr<Ui::PageSearchBar> const m_ui;
-    View* const m_view;
+    View *const m_view;
 };
 
 }

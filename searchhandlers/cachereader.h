@@ -15,16 +15,16 @@
 
 class CacheReader
 {
-  public:
+public:
     CacheReader();
     ~CacheReader();
 
-    bool parse( const QString& file );
+    bool parse(const QString &file);
 
     QSet<QString> documents() const;
-    QByteArray document( const QString& id ) const;
+    QByteArray document(const QString &id) const;
 
-  private:
+private:
     typedef QPair<int, int> Range;
 
     QString mText;

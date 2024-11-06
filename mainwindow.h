@@ -9,8 +9,8 @@
 #ifndef KHC_MAINWINDOW_H
 #define KHC_MAINWINDOW_H
 
-#include <KXmlGuiWindow>
 #include <KBookmarkManager>
+#include <KXmlGuiWindow>
 
 #include "glossary.h"
 
@@ -19,13 +19,15 @@ class QSplitter;
 class LogDialog;
 class KJob;
 
-namespace KIO {
+namespace KIO
+{
 
 class Job;
 
 }
 
-namespace KHC {
+namespace KHC
+{
 
 class Navigator;
 class View;
@@ -35,18 +37,18 @@ class PageSearchBar;
 class MainWindow : public KXmlGuiWindow
 {
     Q_OBJECT
-	Q_CLASSINFO("D-Bus Interface", "org.kde.khelpcenter.khelpcenter")
-  public:
+    Q_CLASSINFO("D-Bus Interface", "org.kde.khelpcenter.khelpcenter")
+public:
     MainWindow();
     ~MainWindow() override;
 
-  public Q_SLOTS:
-    Q_SCRIPTABLE void openUrl( const QString &url );
-    Q_SCRIPTABLE void openUrl( const QString &url, const QByteArray& startup_id );
+public Q_SLOTS:
+    Q_SCRIPTABLE void openUrl(const QString &url);
+    Q_SCRIPTABLE void openUrl(const QString &url, const QByteArray &startup_id);
     Q_SCRIPTABLE void showHome();
     Q_SCRIPTABLE void lastSearch();
 
-  public Q_SLOTS:
+public Q_SLOTS:
     void statusBarRichTextMessage(const QString &m);
     void statusBarMessage(const QString &m);
     void slotShowHome();
@@ -56,46 +58,46 @@ class MainWindow : public KXmlGuiWindow
     /**
       Show document corresponding to given URL in viewer part.
     */
-    void viewUrl( const QString & );
+    void viewUrl(const QString &);
 
     /**
       Open document corresponding to given URL, i.e. show it in the viewer part
       and select the corresponding entry in the navigator widget.
     */
-    void openUrl( const QUrl &url );
+    void openUrl(const QUrl &url);
 
-  protected:
+protected:
     void setupActions();
     void setupBookmarks();
     /**
       Show document corresponding to given URL in viewer part.
     */
-    void viewUrl( const QUrl &url);
+    void viewUrl(const QUrl &url);
 
-    void saveProperties( KConfigGroup &config ) override;
-    void readProperties( const KConfigGroup &config ) override;
+    void saveProperties(KConfigGroup &config) override;
+    void readProperties(const KConfigGroup &config) override;
 
     void readConfig();
     void writeConfig();
 
-  protected Q_SLOTS:
+protected Q_SLOTS:
     void enableLastSearchAction();
     void enableCopyTextAction();
 
 private:
     void stop();
 
-  private Q_SLOTS:
+private Q_SLOTS:
     void slotPrintPreview();
     void slotPrint();
     void slotGlossSelected(const GlossaryEntry &entry);
     void slotStarted();
     void slotInfoMessage(KJob *, const QString &);
-    void goInternalUrl( const QUrl & );
+    void goInternalUrl(const QUrl &);
     /**
       This function is called when the user clicks on a link in the viewer part.
     */
-    void slotOpenURLRequest( const QUrl &url);
+    void slotOpenURLRequest(const QUrl &url);
     void documentCompleted();
     void slotCopySelectedText();
 
@@ -117,5 +119,5 @@ private:
 
 }
 
-#endif //KHC_MAINWINDOW_H
+#endif // KHC_MAINWINDOW_H
 // vim:ts=2:sw=2:et

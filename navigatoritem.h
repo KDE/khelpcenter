@@ -9,33 +9,32 @@
 
 #include <QTreeWidgetItem>
 
-namespace KHC {
+namespace KHC
+{
 
 class DocEntry;
 
 class NavigatorItem : public QTreeWidgetItem
 {
-  public:
-    NavigatorItem( DocEntry *entry, QTreeWidget *parent );
-    NavigatorItem( DocEntry *entry, QTreeWidgetItem *parent );
+public:
+    NavigatorItem(DocEntry *entry, QTreeWidget *parent);
+    NavigatorItem(DocEntry *entry, QTreeWidgetItem *parent);
 
-    NavigatorItem( DocEntry *entry, QTreeWidget *parent,
-                   QTreeWidgetItem *after );
-    NavigatorItem( DocEntry *entry, QTreeWidgetItem *parent,
-                   QTreeWidgetItem *after );
+    NavigatorItem(DocEntry *entry, QTreeWidget *parent, QTreeWidgetItem *after);
+    NavigatorItem(DocEntry *entry, QTreeWidgetItem *parent, QTreeWidgetItem *after);
 
     ~NavigatorItem();
 
     DocEntry *entry() const;
 
-    void setAutoDeleteDocEntry( bool );
+    void setAutoDeleteDocEntry(bool);
 
     void updateItem();
 
-    virtual void itemExpanded( bool open );
+    virtual void itemExpanded(bool open);
 
-  private:
-    void init( DocEntry * );
+private:
+    void init(DocEntry *);
 
     DocEntry *mEntry = nullptr;
     bool mAutoDeleteDocEntry;

@@ -9,34 +9,32 @@
 
 #include "navigatoritem.h"
 
-namespace KHC {
+namespace KHC
+{
 
 class TOC;
 
 class NavigatorAppItem : public NavigatorItem
 {
-  public:
-    NavigatorAppItem( DocEntry *entry, QTreeWidgetItem *parent );
+public:
+    NavigatorAppItem(DocEntry *entry, QTreeWidgetItem *parent);
 
-    NavigatorAppItem( DocEntry *entry, QTreeWidget *parent,
-                      QTreeWidgetItem *after );
-    NavigatorAppItem( DocEntry *entry, QTreeWidgetItem *parent,
-                      QTreeWidgetItem *after );
+    NavigatorAppItem(DocEntry *entry, QTreeWidget *parent, QTreeWidgetItem *after);
+    NavigatorAppItem(DocEntry *entry, QTreeWidgetItem *parent, QTreeWidgetItem *after);
 
     ~NavigatorAppItem();
 
-    void itemExpanded( bool open ) override;
+    void itemExpanded(bool open) override;
 
-  private:
+private:
     void scheduleTOCBuild();
 
     TOC *mToc = nullptr;
-    
-    static QMap< QString,NavigatorAppItem* > s_menuItemsMap;
-    
+
+    static QMap<QString, NavigatorAppItem *> s_menuItemsMap;
 };
 
 }
 
-#endif //KHC_NAVIGATORAPPITEM_H
+#endif // KHC_NAVIGATORAPPITEM_H
 // vim:ts=2:sw=2:et

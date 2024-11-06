@@ -14,37 +14,38 @@ class QSpinBox;
 class KComboBox;
 class QFontComboBox;
 
-namespace KHC {
+namespace KHC
+{
 
-  class FontDialog : public QDialog
-  {
+class FontDialog : public QDialog
+{
     Q_OBJECT
-    
-    public:
-      explicit FontDialog( QWidget *parent = nullptr);
 
-    protected Q_SLOTS:
-      virtual void slotOk();
+public:
+    explicit FontDialog(QWidget *parent = nullptr);
 
-    private:
-      void setupFontSizesBox();
-      void setupFontTypesBox();
-      void setupFontEncodingBox();
+protected Q_SLOTS:
+    virtual void slotOk();
 
-      void load();
-      void save();
+private:
+    void setupFontSizesBox();
+    void setupFontTypesBox();
+    void setupFontEncodingBox();
 
-      QSpinBox *m_minFontSize = nullptr;
-      QSpinBox *m_medFontSize = nullptr;
-      QFontComboBox *m_standardFontCombo = nullptr;
-      QFontComboBox *m_fixedFontCombo = nullptr;
-      QFontComboBox *m_serifFontCombo = nullptr;
-      QFontComboBox *m_sansSerifFontCombo = nullptr;
-      QFontComboBox *m_italicFontCombo = nullptr;
-      QFontComboBox *m_fantasyFontCombo = nullptr;
-      KComboBox *m_defaultEncoding = nullptr;
-      QSpinBox *m_fontSizeAdjustement = nullptr;
-  };
+    void load();
+    void save();
+
+    QSpinBox *m_minFontSize = nullptr;
+    QSpinBox *m_medFontSize = nullptr;
+    QFontComboBox *m_standardFontCombo = nullptr;
+    QFontComboBox *m_fixedFontCombo = nullptr;
+    QFontComboBox *m_serifFontCombo = nullptr;
+    QFontComboBox *m_sansSerifFontCombo = nullptr;
+    QFontComboBox *m_italicFontCombo = nullptr;
+    QFontComboBox *m_fantasyFontCombo = nullptr;
+    KComboBox *m_defaultEncoding = nullptr;
+    QSpinBox *m_fontSizeAdjustement = nullptr;
+};
 
 }
 

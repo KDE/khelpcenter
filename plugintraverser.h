@@ -10,29 +10,29 @@
 #include "docentrytraverser.h"
 #include <QTreeWidget>
 
+namespace KHC
+{
 
-namespace KHC {
-  
-  class Navigator;
-  class NavigatorItem;
+class Navigator;
+class NavigatorItem;
 
-  class PluginTraverser : public DocEntryTraverser
-  {
-    public:
-      PluginTraverser( Navigator *navigator, QTreeWidget *parent );
-      PluginTraverser( Navigator *navigator, NavigatorItem *parent );
+class PluginTraverser : public DocEntryTraverser
+{
+public:
+    PluginTraverser(Navigator *navigator, QTreeWidget *parent);
+    PluginTraverser(Navigator *navigator, NavigatorItem *parent);
 
-      void process( DocEntry *entry ) override;
+    void process(DocEntry *entry) override;
 
-      DocEntryTraverser *createChild( DocEntry *entry ) override;
+    DocEntryTraverser *createChild(DocEntry *entry) override;
 
-  private:
+private:
     QTreeWidget *mListView = nullptr;
     NavigatorItem *mParentItem = nullptr;
     NavigatorItem *mCurrentItem = nullptr;
 
     Navigator *mNavigator = nullptr;
-  };
+};
 }
 
 #endif // KHC_PLUGINTRAVERSER_H

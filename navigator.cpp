@@ -18,28 +18,28 @@
 #include <KAuthorized>
 #include <KDesktopFile>
 #include <KLineEdit>
+#include <KLocalizedString>
 #include <KMessageBox>
 #include <KProcess>
 #include <KProtocolInfo>
 #include <KServiceGroup>
 #include <KShell>
-#include <KLocalizedString>
 
-#include "navigatoritem.h"
-#include "navigatorappitem.h"
-#include "navigatorappgroupitem.h"
-#include "searchwidget.h"
-#include "searchengine.h"
-#include "searchhandler.h"
-#include "docmetainfo.h"
 #include "docentrytraverser.h"
-#include "view.h"
+#include "docmetainfo.h"
+#include "grantleeformatter.h"
+#include "history.h"
 #include "infotree.h"
+#include "khc_debug.h"
+#include "navigatorappgroupitem.h"
+#include "navigatorappitem.h"
+#include "navigatoritem.h"
 #include "plugintraverser.h"
 #include "scrollkeepertreebuilder.h"
-#include "history.h"
-#include "khc_debug.h"
-#include "grantleeformatter.h"
+#include "searchengine.h"
+#include "searchhandler.h"
+#include "searchwidget.h"
+#include "view.h"
 
 #include <prefs.h>
 
@@ -47,34 +47,36 @@
 
 using namespace KHC;
 
-Navigator::Navigator( View *view, QWidget *parent )
-   : QWidget( parent ),
-     mView( view ), mSelected( false ), mIndexingProc( nullptr )
+Navigator::Navigator(View *view, QWidget *parent)
+    : QWidget(parent)
+    , mView(view)
+    , mSelected(false)
+    , mIndexingProc(nullptr)
 {
-    mSearchEngine = new SearchEngine( view );
+    mSearchEngine = new SearchEngine(view);
     connect(mSearchEngine, &SearchEngine::searchFinished, this, &Navigator::slotSearchFinished);
 
     DocMetaInfo::self()->scanMetaInfo();
 
-    QBoxLayout *topLayout = new QVBoxLayout( this );
+    QBoxLayout *topLayout = new QVBoxLayout(this);
 
     mSearchEdit = new KLineEdit(this);
-    mSearchEdit->setPlaceholderText( i18n("Search...") );
+    mSearchEdit->setPlaceholderText(i18n("Search..."));
     mSearchEdit->setClearButtonEnabled(true);
-    topLayout->addWidget( mSearchEdit );
+    topLayout->addWidget(mSearchEdit);
     connect(mSearchEdit, &KLineEdit::returnKeyPressed, this, &Navigator::slotSearch);
     connect(mSearchEdit, &KLineEdit::textChanged, this, &Navigator::checkSearchEdit);
 
-    mTabWidget = new QTabWidget( this );
-    topLayout->addWidget( mTabWidget );
+    mTabWidget = new QTabWidget(this);
+    topLayout->addWidget(mTabWidget);
 
-    mIndexingBar = new QProgressBar( this );
+    mIndexingBar = new QProgressBar(this);
     mIndexingBar->hide();
-    topLayout->addWidget( mIndexingBar );
+    topLayout->addWidget(mIndexingBar);
 
-    mIndexingTimer.setSingleShot( true );
-    mIndexingTimer.setInterval( 1000 );
-    connect( &mIndexingTimer, &QTimer::timeout, this, &Navigator::slotShowIndexingProgressBar );
+    mIndexingTimer.setSingleShot(true);
+    mIndexingTimer.setInterval(1000);
+    connect(&mIndexingTimer, &QTimer::timeout, this, &Navigator::slotShowIndexingProgressBar);
 
     setupContentsTab();
     setupGlossaryTab();
@@ -82,29 +84,29 @@ Navigator::Navigator( View *view, QWidget *parent )
 
     insertPlugins();
 
-    if ( !mSearchEngine->initSearchHandlers() ) {
-      hideSearch();
+    if (!mSearchEngine->initSearchHandlers()) {
+        hideSearch();
     } else {
-      mSearchWidget->updateScopeList();
-      mSearchWidget->readConfig( KSharedConfig::openConfig().data() );
-      QTimer::singleShot( 0, this, &Navigator::slotDelayedIndexingStart );
+        mSearchWidget->updateScopeList();
+        mSearchWidget->readConfig(KSharedConfig::openConfig().data());
+        QTimer::singleShot(0, this, &Navigator::slotDelayedIndexingStart);
     }
 }
 
 Navigator::~Navigator()
 {
-  delete mSearchEngine;
+    delete mSearchEngine;
 }
 
 SearchEngine *Navigator::searchEngine() const
 {
-  return mSearchEngine;
+    return mSearchEngine;
 }
 
 void Navigator::setupContentsTab()
 {
-    mContentsTree = new QTreeWidget( mTabWidget );
-    mContentsTree->setFrameStyle( QFrame::NoFrame );
+    mContentsTree = new QTreeWidget(mTabWidget);
+    mContentsTree->setFrameStyle(QFrame::NoFrame);
     mContentsTree->setAllColumnsShowFocus(true);
     mContentsTree->setRootIsDecorated(false);
     mContentsTree->headerItem()->setHidden(true);
@@ -113,51 +115,49 @@ void Navigator::setupContentsTab()
     connect(mContentsTree, &QTreeWidget::itemClicked, this, &Navigator::slotItemSelected);
     connect(mContentsTree, &QTreeWidget::itemExpanded, this, &Navigator::slotItemExpanded);
     connect(mContentsTree, &QTreeWidget::itemCollapsed, this, &Navigator::slotItemCollapsed);
-    
+
     mTabWidget->addTab(mContentsTree, i18n("&Contents"));
 }
 
 void Navigator::setupSearchTab()
 {
-  
-    mSearchWidget = new SearchWidget( mSearchEngine, mTabWidget );
+    mSearchWidget = new SearchWidget(mSearchEngine, mTabWidget);
     connect(mSearchWidget, &SearchWidget::searchResult, this, &Navigator::slotShowSearchResult);
     connect(mSearchWidget, &SearchWidget::scopeCountChanged, this, &Navigator::checkSearchEdit);
 
-    mTabWidget->addTab( mSearchWidget, i18n("Search Options"));
-    
+    mTabWidget->addTab(mSearchWidget, i18n("Search Options"));
 }
 
 void Navigator::setupGlossaryTab()
 {
-    mGlossaryTree = new Glossary( mTabWidget );
+    mGlossaryTree = new Glossary(mTabWidget);
     connect(mGlossaryTree, &Glossary::entrySelected, this, &Navigator::glossSelected);
-    mTabWidget->addTab( mGlossaryTree, i18n( "G&lossary" ) );
+    mTabWidget->addTab(mGlossaryTree, i18n("G&lossary"));
 }
 
 void Navigator::insertPlugins()
 {
-  PluginTraverser t( this, mContentsTree );
-  DocMetaInfo::self()->traverseEntries( &t );
+    PluginTraverser t(this, mContentsTree);
+    DocMetaInfo::self()->traverseEntries(&t);
 }
 
-void Navigator::insertParentAppDocs( const QString &name, NavigatorItem *topItem )
+void Navigator::insertParentAppDocs(const QString &name, NavigatorItem *topItem)
 {
-  qCDebug(KHC_LOG) << "Requested plugin documents for ID " << name;
+    qCDebug(KHC_LOG) << "Requested plugin documents for ID " << name;
 
-  KServiceGroup::Ptr grp = KServiceGroup::childGroup( name );
-  if ( !grp )
-    return;
+    KServiceGroup::Ptr grp = KServiceGroup::childGroup(name);
+    if (!grp)
+        return;
 
-  KServiceGroup::List entries = grp->entries();
-  KServiceGroup::List::ConstIterator it = entries.constBegin();
-  KServiceGroup::List::ConstIterator end = entries.constEnd();
-  for ( ; it != end; ++it ) {
-    QString desktopFile = ( *it )->entryPath();
-    if ( QDir::isRelativePath( desktopFile ) )
-        desktopFile = QStandardPaths::locate(QStandardPaths::ApplicationsLocation, desktopFile );
-    createItemFromDesktopFile( topItem, desktopFile );
-  }
+    KServiceGroup::List entries = grp->entries();
+    KServiceGroup::List::ConstIterator it = entries.constBegin();
+    KServiceGroup::List::ConstIterator end = entries.constEnd();
+    for (; it != end; ++it) {
+        QString desktopFile = (*it)->entryPath();
+        if (QDir::isRelativePath(desktopFile))
+            desktopFile = QStandardPaths::locate(QStandardPaths::ApplicationsLocation, desktopFile);
+        createItemFromDesktopFile(topItem, desktopFile);
+    }
 }
 
 // copied from systemsettings
@@ -198,39 +198,39 @@ QList<KPluginMetaData> Navigator::findKCMsMetaData(KCMType source)
     return modules;
 }
 
-void Navigator::insertSystemSettingsDocs( const QString &name, NavigatorItem *topItem, KCMType type )
+void Navigator::insertSystemSettingsDocs(const QString &name, NavigatorItem *topItem, KCMType type)
 {
-  qCDebug(KHC_LOG) << "Requested KCM documents for ID" << name;
+    qCDebug(KHC_LOG) << "Requested KCM documents for ID" << name;
 
-  const QList<KPluginMetaData> list = findKCMsMetaData(type);
+    const QList<KPluginMetaData> list = findKCMsMetaData(type);
 
-  bool no_children_present = true;
+    bool no_children_present = true;
 
-  for ( const KPluginMetaData &md : std::as_const(list))
-  {
-    QString docPath = md.value(QStringLiteral("X-DocPath"));
-    if ( !docPath.isNull() ) {
-      // First parameter is ignored if second is an absolute path
-      const QUrl url(QStringLiteral("help:/") + docPath);
-      QString icon = md.iconName();
-      if ( icon.isEmpty() ) icon = QStringLiteral("text-plain");
-      DocEntry *entry = new DocEntry( md.name(), url.url(), icon );
-      NavigatorItem *item = new NavigatorAppItem( entry, topItem );
-      item->setAutoDeleteDocEntry( true );
+    for (const KPluginMetaData &md : std::as_const(list)) {
+        QString docPath = md.value(QStringLiteral("X-DocPath"));
+        if (!docPath.isNull()) {
+            // First parameter is ignored if second is an absolute path
+            const QUrl url(QStringLiteral("help:/") + docPath);
+            QString icon = md.iconName();
+            if (icon.isEmpty())
+                icon = QStringLiteral("text-plain");
+            DocEntry *entry = new DocEntry(md.name(), url.url(), icon);
+            NavigatorItem *item = new NavigatorAppItem(entry, topItem);
+            item->setAutoDeleteDocEntry(true);
+        }
+
+        no_children_present = false;
     }
-
-    no_children_present = false;
-    }
-    topItem->sortChildren( 0, Qt::AscendingOrder /* ascending */ );
+    topItem->sortChildren(0, Qt::AscendingOrder /* ascending */);
     topItem->setHidden(no_children_present);
 }
 
-void Navigator::insertKCMDocs( const QString &name, NavigatorItem *topItem, const QString &type )
+void Navigator::insertKCMDocs(const QString &name, NavigatorItem *topItem, const QString &type)
 {
-  qCDebug(KHC_LOG) << "Requested KCM documents for ID" << name;
-  QString systemsettingskontrolconstraint = QStringLiteral("[X-KDE-System-Settings-Parent-Category] != ''");
+    qCDebug(KHC_LOG) << "Requested KCM documents for ID" << name;
+    QString systemsettingskontrolconstraint = QStringLiteral("[X-KDE-System-Settings-Parent-Category] != ''");
 
-  KService::List list;
+    KService::List list;
 #if 0 // KF6 TODO port it !
   if ( type == QLatin1String("kcontrol") ) {
     list = KServiceTypeTrader::self()->query( QStringLiteral("KCModule"), systemsettingskontrolconstraint );
@@ -239,486 +239,485 @@ void Navigator::insertKCMDocs( const QString &name, NavigatorItem *topItem, cons
   }
 #endif
 
-  bool no_children_present = true;
+    bool no_children_present = true;
 
-  for ( KService::List::const_iterator it = list.constBegin(); it != list.constEnd(); ++it )
-  {
-    KService::Ptr s(*it);
-    const QString desktopFile = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kservices5/") + s->entryPath() );
-    createItemFromDesktopFile( topItem, desktopFile );
-    no_children_present = false;
+    for (KService::List::const_iterator it = list.constBegin(); it != list.constEnd(); ++it) {
+        KService::Ptr s(*it);
+        const QString desktopFile = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kservices5/") + s->entryPath());
+        createItemFromDesktopFile(topItem, desktopFile);
+        no_children_present = false;
     }
-    topItem->sortChildren( 0, Qt::AscendingOrder /* ascending */ );
+    topItem->sortChildren(0, Qt::AscendingOrder /* ascending */);
     topItem->setHidden(no_children_present);
 }
 
-void Navigator::insertIOWorkerDocs( const QString &name, NavigatorItem *topItem )
+void Navigator::insertIOWorkerDocs(const QString &name, NavigatorItem *topItem)
 {
-  qCDebug(KHC_LOG) << "Requested IOWorker documents for ID" << name;
+    qCDebug(KHC_LOG) << "Requested IOWorker documents for ID" << name;
 
-  QStringList list = KProtocolInfo::protocols();
-  list.sort();
+    QStringList list = KProtocolInfo::protocols();
+    list.sort();
 
-  NavigatorItem *prevItem = nullptr;
-  for ( QStringList::ConstIterator it = list.constBegin(); it != list.constEnd(); ++it )
-  {
-    QString docPath = KProtocolInfo::docPath(*it);
-    if ( !docPath.isNull() )
-    {
-      // First parameter is ignored if second is an absolute path
-      QUrl url(QStringLiteral("help:/") + docPath);
-      QString icon = KProtocolInfo::icon(*it);
-      if ( icon.isEmpty() ) icon = QStringLiteral("text-plain");
-      DocEntry *entry = new DocEntry( *it, url.url(), icon );
-      NavigatorItem *item = new NavigatorAppItem( entry, topItem, prevItem );
-      prevItem = item;
-      item->setAutoDeleteDocEntry( true );
+    NavigatorItem *prevItem = nullptr;
+    for (QStringList::ConstIterator it = list.constBegin(); it != list.constEnd(); ++it) {
+        QString docPath = KProtocolInfo::docPath(*it);
+        if (!docPath.isNull()) {
+            // First parameter is ignored if second is an absolute path
+            QUrl url(QStringLiteral("help:/") + docPath);
+            QString icon = KProtocolInfo::icon(*it);
+            if (icon.isEmpty())
+                icon = QStringLiteral("text-plain");
+            DocEntry *entry = new DocEntry(*it, url.url(), icon);
+            NavigatorItem *item = new NavigatorAppItem(entry, topItem, prevItem);
+            prevItem = item;
+            item->setAutoDeleteDocEntry(true);
+        }
     }
-  }
 }
 
-void Navigator::createItemFromDesktopFile( NavigatorItem *topItem,
-                                           const QString &file )
+void Navigator::createItemFromDesktopFile(NavigatorItem *topItem, const QString &file)
 {
-    KDesktopFile desktopFile( file );
+    KDesktopFile desktopFile(file);
     QString docPath = desktopFile.readDocPath();
-    if ( !docPath.isNull() ) {
-      // First parameter is ignored if second is an absolute path
-      const QUrl url(QStringLiteral("help:/") + docPath);
-      QString icon = desktopFile.readIcon();
-      if ( icon.isEmpty() ) icon = QStringLiteral("text-plain");
-      DocEntry *entry = new DocEntry( desktopFile.readName(), url.url(), icon );
-      NavigatorItem *item = new NavigatorAppItem( entry, topItem );
-      item->setAutoDeleteDocEntry( true );
+    if (!docPath.isNull()) {
+        // First parameter is ignored if second is an absolute path
+        const QUrl url(QStringLiteral("help:/") + docPath);
+        QString icon = desktopFile.readIcon();
+        if (icon.isEmpty())
+            icon = QStringLiteral("text-plain");
+        DocEntry *entry = new DocEntry(desktopFile.readName(), url.url(), icon);
+        NavigatorItem *item = new NavigatorAppItem(entry, topItem);
+        item->setAutoDeleteDocEntry(true);
     }
 }
 
-void Navigator::insertInfoDocs( NavigatorItem *topItem )
+void Navigator::insertInfoDocs(NavigatorItem *topItem)
 {
-  InfoTree *infoTree = new InfoTree( this );
-  infoTree->build( topItem );
+    InfoTree *infoTree = new InfoTree(this);
+    infoTree->build(topItem);
 }
 
-void Navigator::insertScrollKeeperDocs( NavigatorItem *topItem )
+void Navigator::insertScrollKeeperDocs(NavigatorItem *topItem)
 {
-  ScrollKeeperTreeBuilder *builder = new ScrollKeeperTreeBuilder( this );
-  builder->buildOrHide( topItem );
+    ScrollKeeperTreeBuilder *builder = new ScrollKeeperTreeBuilder(this);
+    builder->buildOrHide(topItem);
 }
 
-void Navigator::selectItem( const QUrl &url )
+void Navigator::selectItem(const QUrl &url)
 {
-  qCDebug(KHC_LOG) << "Navigator::selectItem(): " << url.url();
+    qCDebug(KHC_LOG) << "Navigator::selectItem(): " << url.url();
 
-  if ( url.url() == QLatin1String("khelpcenter:home") ) {
-    clearSelection();
-    return;
-  }
+    if (url.url() == QLatin1String("khelpcenter:home")) {
+        clearSelection();
+        return;
+    }
 
-  // help:/foo&anchor=bar gets redirected to help:/foo#bar
-  // Make sure that we match both the original URL as well as
-  // its counterpart.
-  QUrl alternativeURL = url;
-  QUrl contentsItemURL = url;
-  if (url.hasFragment())
-  {
-     alternativeURL.setQuery(QStringLiteral("anchor=")+url.fragment());
-     alternativeURL.setFragment(QString());
-     contentsItemURL.setFragment(QString());
-  }
+    // help:/foo&anchor=bar gets redirected to help:/foo#bar
+    // Make sure that we match both the original URL as well as
+    // its counterpart.
+    QUrl alternativeURL = url;
+    QUrl contentsItemURL = url;
+    if (url.hasFragment()) {
+        alternativeURL.setQuery(QStringLiteral("anchor=") + url.fragment());
+        alternativeURL.setFragment(QString());
+        contentsItemURL.setFragment(QString());
+    }
 
-  // If the navigator already has the given URL selected, do nothing.
-  NavigatorItem *item;
-  item = static_cast<NavigatorItem *>( mContentsTree->currentItem() );
-  if ( item && mSelected ) {
-    const QUrl currentURL ( item->entry()->url() );
-    if ( (currentURL == url) || (currentURL == alternativeURL) ) {
-      qCDebug(KHC_LOG) << "URL already shown.";
-      return;
+    // If the navigator already has the given URL selected, do nothing.
+    NavigatorItem *item;
+    item = static_cast<NavigatorItem *>(mContentsTree->currentItem());
+    if (item && mSelected) {
+        const QUrl currentURL(item->entry()->url());
+        if ((currentURL == url) || (currentURL == alternativeURL)) {
+            qCDebug(KHC_LOG) << "URL already shown.";
+            return;
+        }
     }
-  }
 
-  // First, populate the NavigatorAppGroupItems if we don't want the home page
-  if ( url != homeURL() ) {
-    QTreeWidgetItemIterator it1( mContentsTree );
-    while( (*it1) ) 
-    {
-      NavigatorAppGroupItem *appItem = dynamic_cast<NavigatorAppGroupItem *>( (*it1) );
-      if ( appItem ) appItem->populate( true );
-      ++it1;
+    // First, populate the NavigatorAppGroupItems if we don't want the home page
+    if (url != homeURL()) {
+        QTreeWidgetItemIterator it1(mContentsTree);
+        while ((*it1)) {
+            NavigatorAppGroupItem *appItem = dynamic_cast<NavigatorAppGroupItem *>((*it1));
+            if (appItem)
+                appItem->populate(true);
+            ++it1;
+        }
     }
-  }
-  
-  NavigatorItem *contentsItem = nullptr;
-  QTreeWidgetItemIterator it( mContentsTree );
-  while ( (*it) ) {
-    NavigatorItem *item = static_cast<NavigatorItem *>( (*it) );
-    const QUrl itemUrl( item->entry()->url() );
-    if ( (itemUrl == url) || (itemUrl == alternativeURL) ) {
-      // If the current item was not selected and remained unchanged it
-      // needs to be explicitly selected
-      mContentsTree->setCurrentItem(item);
-      item->setExpanded( true );
-      break;
+
+    NavigatorItem *contentsItem = nullptr;
+    QTreeWidgetItemIterator it(mContentsTree);
+    while ((*it)) {
+        NavigatorItem *item = static_cast<NavigatorItem *>((*it));
+        const QUrl itemUrl(item->entry()->url());
+        if ((itemUrl == url) || (itemUrl == alternativeURL)) {
+            // If the current item was not selected and remained unchanged it
+            // needs to be explicitly selected
+            mContentsTree->setCurrentItem(item);
+            item->setExpanded(true);
+            break;
+        }
+        if ((contentsItem == nullptr) && (itemUrl == contentsItemURL)) {
+            contentsItem = item;
+        }
+        ++it;
     }
-    if ( (contentsItem == nullptr) && (itemUrl == contentsItemURL) ) {
-      contentsItem = item;
-    }
-    ++it;
-  }
-  if ( !(*it) ) {
-    // if search with fragment didn't find anything, but item without fragment was found, use it
-    if ( contentsItem != nullptr ) {
-      mContentsTree->setCurrentItem(contentsItem);
-      contentsItem->setExpanded( true );
-      mSelected = true;
+    if (!(*it)) {
+        // if search with fragment didn't find anything, but item without fragment was found, use it
+        if (contentsItem != nullptr) {
+            mContentsTree->setCurrentItem(contentsItem);
+            contentsItem->setExpanded(true);
+            mSelected = true;
+        } else {
+            clearSelection();
+        }
     } else {
-      clearSelection();
+        mSelected = true;
     }
-  } else {
-    mSelected = true;
-  }
 }
 
 void Navigator::clearSelection()
 {
-  mContentsTree->clearSelection();
-  mSelected = false;
+    mContentsTree->clearSelection();
+    mSelected = false;
 }
 
-void Navigator::slotItemSelected( QTreeWidgetItem *currentItem )
+void Navigator::slotItemSelected(QTreeWidgetItem *currentItem)
 {
-  if ( !currentItem ) return;
+    if (!currentItem)
+        return;
 
-  mSelected = true;
+    mSelected = true;
 
-  NavigatorItem *item = static_cast<NavigatorItem *>( currentItem );
+    NavigatorItem *item = static_cast<NavigatorItem *>(currentItem);
 
-  qCDebug(KHC_LOG) << item->entry()->name();
+    qCDebug(KHC_LOG) << item->entry()->name();
 
-  item->setExpanded( !item->isExpanded() );
+    item->setExpanded(!item->isExpanded());
 
-  const QUrl url ( item->entry()->url() );
-  
-  if ( url.scheme() == QLatin1String("khelpcenter") ) {
-      mView->stop();
-      History::self().updateCurrentEntry( mView );
-      History::self().createEntry();
-      showOverview( item, url );
-  } else {
-   
-    Q_EMIT itemSelected( url.url() );
-  }
+    const QUrl url(item->entry()->url());
+
+    if (url.scheme() == QLatin1String("khelpcenter")) {
+        mView->stop();
+        History::self().updateCurrentEntry(mView);
+        History::self().createEntry();
+        showOverview(item, url);
+    } else {
+        Q_EMIT itemSelected(url.url());
+    }
 }
 
-void Navigator::slotItemExpanded( QTreeWidgetItem *item )
+void Navigator::slotItemExpanded(QTreeWidgetItem *item)
 {
-  NavigatorItem *ni = static_cast<NavigatorItem *>( item );
-  ni->itemExpanded( true );
+    NavigatorItem *ni = static_cast<NavigatorItem *>(item);
+    ni->itemExpanded(true);
 }
 
-void Navigator::slotItemCollapsed( QTreeWidgetItem *item )
+void Navigator::slotItemCollapsed(QTreeWidgetItem *item)
 {
-  NavigatorItem *ni = static_cast<NavigatorItem *>( item );
-  ni->itemExpanded( false );
+    NavigatorItem *ni = static_cast<NavigatorItem *>(item);
+    ni->itemExpanded(false);
 }
 
-void Navigator::openInternalUrl( const QUrl &url )
+void Navigator::openInternalUrl(const QUrl &url)
 {
-  if ( url.url() == QLatin1String("khelpcenter:home") ) {
-    clearSelection();
-    showOverview( nullptr, url );
-    return;
-  }
-
-  selectItem( url );
-  if ( !mSelected ) return;
-
-  NavigatorItem *item =
-    static_cast<NavigatorItem *>( mContentsTree->currentItem() );
-
-  if ( item ) showOverview( item, url );
-}
-
-void Navigator::showOverview( NavigatorItem *item, const QUrl &url )
-{
-  QString title,name,content;
-  uint childCount;
-
-  if ( item ) {
-    title = item->entry()->name();
-    name = item->entry()->name();
-
-    const QString info = item->entry()->info();
-    if ( !info.isEmpty() ) content = QLatin1String("<p>") + info + QLatin1String("</p>\n");
-
-    childCount = item->childCount();
-  } else {
-    title = i18n("Start Page");
-    name = i18n("KDE Help Center");
-
-    childCount = mContentsTree->topLevelItemCount();
-  }
-
-  if ( childCount > 0 ) {
-    QTreeWidgetItem *child;
-    if ( item ) child = item;
-    else child = mContentsTree->invisibleRootItem();
-
-    content += createChildrenList( child, 0 );
-  }
-  else
-    content += QLatin1String("<p></p>");
-
-  mView->setInternalHtml( mView->grantleeFormatter()->formatOverview( title, name, content ), url );
-
-}
-
-QString Navigator::createChildrenList( QTreeWidgetItem *child, int level )
-{
-  QString t;
-
-  t += QLatin1String("<ul>\n");
-
-  int cc = child->childCount();
-  for (int i=0;i<cc;i++) 
-  {
-    NavigatorItem *childItem = static_cast<NavigatorItem *>( child->child(i) );
-
-    DocEntry *e = childItem->entry();
-
-    t += QLatin1String("<li><a href=\"") + e->url() + QLatin1String("\">");
-    if ( e->isDirectory() ) t += QLatin1String("<b>");
-    t += e->name();
-    if ( e->isDirectory() ) t += QLatin1String("</b>");
-    t += QLatin1String("</a>");
-
-    if ( !e->info().isEmpty() ) {
-      t += QLatin1String("<br>") + e->info();
+    if (url.url() == QLatin1String("khelpcenter:home")) {
+        clearSelection();
+        showOverview(nullptr, url);
+        return;
     }
 
-    if ( childItem->childCount() > 0 && level < 1 ) {
-      t += createChildrenList( childItem, level + 1 );
+    selectItem(url);
+    if (!mSelected)
+        return;
+
+    NavigatorItem *item = static_cast<NavigatorItem *>(mContentsTree->currentItem());
+
+    if (item)
+        showOverview(item, url);
+}
+
+void Navigator::showOverview(NavigatorItem *item, const QUrl &url)
+{
+    QString title, name, content;
+    uint childCount;
+
+    if (item) {
+        title = item->entry()->name();
+        name = item->entry()->name();
+
+        const QString info = item->entry()->info();
+        if (!info.isEmpty())
+            content = QLatin1String("<p>") + info + QLatin1String("</p>\n");
+
+        childCount = item->childCount();
+    } else {
+        title = i18n("Start Page");
+        name = i18n("KDE Help Center");
+
+        childCount = mContentsTree->topLevelItemCount();
     }
 
-    t += QLatin1String("</li>\n");
+    if (childCount > 0) {
+        QTreeWidgetItem *child;
+        if (item)
+            child = item;
+        else
+            child = mContentsTree->invisibleRootItem();
 
-  }
+        content += createChildrenList(child, 0);
+    } else
+        content += QLatin1String("<p></p>");
 
-  t += QLatin1String("</ul>\n");
+    mView->setInternalHtml(mView->grantleeFormatter()->formatOverview(title, name, content), url);
+}
 
-  return t;
+QString Navigator::createChildrenList(QTreeWidgetItem *child, int level)
+{
+    QString t;
+
+    t += QLatin1String("<ul>\n");
+
+    int cc = child->childCount();
+    for (int i = 0; i < cc; i++) {
+        NavigatorItem *childItem = static_cast<NavigatorItem *>(child->child(i));
+
+        DocEntry *e = childItem->entry();
+
+        t += QLatin1String("<li><a href=\"") + e->url() + QLatin1String("\">");
+        if (e->isDirectory())
+            t += QLatin1String("<b>");
+        t += e->name();
+        if (e->isDirectory())
+            t += QLatin1String("</b>");
+        t += QLatin1String("</a>");
+
+        if (!e->info().isEmpty()) {
+            t += QLatin1String("<br>") + e->info();
+        }
+
+        if (childItem->childCount() > 0 && level < 1) {
+            t += createChildrenList(childItem, level + 1);
+        }
+
+        t += QLatin1String("</li>\n");
+    }
+
+    t += QLatin1String("</ul>\n");
+
+    return t;
 }
 
 void Navigator::slotSearch()
 {
-  
-  qCDebug(KHC_LOG) << "Navigator::slotSearch()";
+    qCDebug(KHC_LOG) << "Navigator::slotSearch()";
 
-  if ( mIndexingProc ) return;
+    if (mIndexingProc)
+        return;
 
-  if ( mSearchEngine->isRunning() ) return;
+    if (mSearchEngine->isRunning())
+        return;
 
-  const QString words = mSearchEdit->text();
-  const QString method = mSearchWidget->method();
-  const int pages = mSearchWidget->pages();
-  const QStringList scope = mSearchWidget->scope();
+    const QString words = mSearchEdit->text();
+    const QString method = mSearchWidget->method();
+    const int pages = mSearchWidget->pages();
+    const QStringList scope = mSearchWidget->scope();
 
-  qCDebug(KHC_LOG) << "Navigator::slotSearch() words: " << words;
-  qCDebug(KHC_LOG) << "Navigator::slotSearch() scope: " << scope;
+    qCDebug(KHC_LOG) << "Navigator::slotSearch() words: " << words;
+    qCDebug(KHC_LOG) << "Navigator::slotSearch() scope: " << scope;
 
-  if ( words.isEmpty() || scope.isEmpty() ) return;
+    if (words.isEmpty() || scope.isEmpty())
+        return;
 
-  mTabWidget->setCurrentIndex( mTabWidget->indexOf( mSearchWidget ) );
+    mTabWidget->setCurrentIndex(mTabWidget->indexOf(mSearchWidget));
 
-  // disable search edit during searches
-  mSearchEdit->setEnabled(false);
-  QApplication::setOverrideCursor(Qt::WaitCursor);
+    // disable search edit during searches
+    mSearchEdit->setEnabled(false);
+    QApplication::setOverrideCursor(Qt::WaitCursor);
 
-  if ( !mSearchEngine->search( words, method, pages, scope ) ) {
-    slotSearchFinished();
-    KMessageBox::error( this, i18n("Unable to run search program.") );
-  }
-  
+    if (!mSearchEngine->search(words, method, pages, scope)) {
+        slotSearchFinished();
+        KMessageBox::error(this, i18n("Unable to run search program."));
+    }
 }
 
-void Navigator::slotShowSearchResult( const QString &url )
+void Navigator::slotShowSearchResult(const QString &url)
 {
-  QString u = url;
-  u.replace( QStringLiteral("%k"), mSearchEdit->text() );
+    QString u = url;
+    u.replace(QStringLiteral("%k"), mSearchEdit->text());
 
-  Q_EMIT itemSelected( u );
+    Q_EMIT itemSelected(u);
 }
 
 void Navigator::slotSearchFinished()
 {
-  mSearchEdit->setEnabled(true);
-  mSearchEdit->setFocus();
-  QApplication::restoreOverrideCursor();
+    mSearchEdit->setEnabled(true);
+    mSearchEdit->setFocus();
+    QApplication::restoreOverrideCursor();
 
-  qCDebug(KHC_LOG) << "Search finished.";
+    qCDebug(KHC_LOG) << "Search finished.";
 }
 
 void Navigator::checkSearchEdit()
 {
-  mSearchEdit->setEnabled( mSearchWidget->scopeCount() > 0 && !mIndexingProc );
+    mSearchEdit->setEnabled(mSearchWidget->scopeCount() > 0 && !mIndexingProc);
 }
-
 
 void Navigator::hideSearch()
 {
-  mSearchEdit->hide();
-  mTabWidget->removeTab( mTabWidget->indexOf( mSearchWidget ) );
+    mSearchEdit->hide();
+    mTabWidget->removeTab(mTabWidget->indexOf(mSearchWidget));
 }
 
-void Navigator::slotSelectGlossEntry( const QString &id )
+void Navigator::slotSelectGlossEntry(const QString &id)
 {
-  mGlossaryTree->slotSelectGlossEntry( id );
+    mGlossaryTree->slotSelectGlossEntry(id);
 }
 
 QUrl Navigator::homeURL()
 {
-  if ( !mHomeUrl.isEmpty() ) return mHomeUrl;
+    if (!mHomeUrl.isEmpty())
+        return mHomeUrl;
 
-  KSharedConfig::Ptr cfg = KSharedConfig::openConfig();
-  // We have to reparse the configuration here in order to get a
-  // language-specific StartUrl, e.g. "StartUrl[de]".
-  cfg->reparseConfiguration();
-  mHomeUrl = QUrl(cfg->group(QStringLiteral("General")).readPathEntry( "StartUrl", QStringLiteral("khelpcenter:home") ));
-  return mHomeUrl;
+    KSharedConfig::Ptr cfg = KSharedConfig::openConfig();
+    // We have to reparse the configuration here in order to get a
+    // language-specific StartUrl, e.g. "StartUrl[de]".
+    cfg->reparseConfiguration();
+    mHomeUrl = QUrl(cfg->group(QStringLiteral("General")).readPathEntry("StartUrl", QStringLiteral("khelpcenter:home")));
+    return mHomeUrl;
 }
 
 void Navigator::readConfig()
 {
-  if ( Prefs::currentTab() == Prefs::Search ) {
-    mTabWidget->setCurrentIndex( mTabWidget->indexOf( mSearchWidget ) );
-  } else if ( Prefs::currentTab() == Prefs::Glossary ) {
-    mTabWidget->setCurrentIndex( mTabWidget->indexOf( mGlossaryTree ) );
-  } else {
-    mTabWidget->setCurrentIndex( mTabWidget->indexOf( mContentsTree ) );
-  }
+    if (Prefs::currentTab() == Prefs::Search) {
+        mTabWidget->setCurrentIndex(mTabWidget->indexOf(mSearchWidget));
+    } else if (Prefs::currentTab() == Prefs::Glossary) {
+        mTabWidget->setCurrentIndex(mTabWidget->indexOf(mGlossaryTree));
+    } else {
+        mTabWidget->setCurrentIndex(mTabWidget->indexOf(mContentsTree));
+    }
 }
 
 void Navigator::writeConfig()
 {
-  if ( mTabWidget->currentWidget() == mSearchWidget ) {
-    Prefs::setCurrentTab( Prefs::Search );
-  } else if ( mTabWidget->currentWidget() == mGlossaryTree ) {
-    Prefs::setCurrentTab( Prefs::Glossary );
-  } else {
-    Prefs::setCurrentTab( Prefs::Content );
-  }
+    if (mTabWidget->currentWidget() == mSearchWidget) {
+        Prefs::setCurrentTab(Prefs::Search);
+    } else if (mTabWidget->currentWidget() == mGlossaryTree) {
+        Prefs::setCurrentTab(Prefs::Glossary);
+    } else {
+        Prefs::setCurrentTab(Prefs::Content);
+    }
 }
 
 void Navigator::clearSearch()
 {
-  mSearchEdit->setText( QString() );
+    mSearchEdit->setText(QString());
 }
 
 void Navigator::slotDelayedIndexingStart()
 {
-  mIndexingQueue.clear();
+    mIndexingQueue.clear();
 
-  const DocEntry::List &entries = DocMetaInfo::self()->docEntries();
-  for ( DocEntry *entry : entries ) {
-    if ( mSearchEngine->needsIndex( entry ) ) {
-      mIndexingQueue.append( entry );
+    const DocEntry::List &entries = DocMetaInfo::self()->docEntries();
+    for (DocEntry *entry : entries) {
+        if (mSearchEngine->needsIndex(entry)) {
+            mIndexingQueue.append(entry);
+        }
     }
-  }
 
-  if ( mIndexingQueue.isEmpty() ) {
-    return;
-  }
+    if (mIndexingQueue.isEmpty()) {
+        return;
+    }
 
-  Q_EMIT setStatusBarText( i18n( "Updating search index..." ) );
+    Q_EMIT setStatusBarText(i18n("Updating search index..."));
 
-  mIndexingTimer.start();
+    mIndexingTimer.start();
 
-  slotDoIndexWork();
+    slotDoIndexWork();
 }
 
 void Navigator::slotDoIndexWork()
 {
-  if ( mIndexingQueue.isEmpty() ) {
-    mIndexingTimer.stop();
-    Q_EMIT setStatusBarText( i18n( "Updating search index... done." ) );
-    mIndexingBar->hide();
-    mSearchWidget->searchIndexUpdated();
-    return;
-  }
+    if (mIndexingQueue.isEmpty()) {
+        mIndexingTimer.stop();
+        Q_EMIT setStatusBarText(i18n("Updating search index... done."));
+        mIndexingBar->hide();
+        mSearchWidget->searchIndexUpdated();
+        return;
+    }
 
-  const DocEntry *entry = mIndexingQueue.takeFirst();
+    const DocEntry *entry = mIndexingQueue.takeFirst();
 
-  QString error;
-  SearchHandler *handler = mSearchEngine->handler( entry->documentType() );
-  if ( !handler ) {
-    return slotDoIndexWork();
-  }
-  if ( !handler->checkPaths( &error ) ) {
-    qCWarning(KHC_LOG) << "Indexing path error for" << entry->name() << ":" << error;
-    return slotDoIndexWork();
-  }
-  QString indexer = handler->indexCommand( entry->identifier() );
-  if ( indexer.isEmpty() ) {
-    qCWarning(KHC_LOG) << "Empty indexer for" << entry->identifier() << entry->documentType();
-    return slotDoIndexWork();
-  }
+    QString error;
+    SearchHandler *handler = mSearchEngine->handler(entry->documentType());
+    if (!handler) {
+        return slotDoIndexWork();
+    }
+    if (!handler->checkPaths(&error)) {
+        qCWarning(KHC_LOG) << "Indexing path error for" << entry->name() << ":" << error;
+        return slotDoIndexWork();
+    }
+    QString indexer = handler->indexCommand(entry->identifier());
+    if (indexer.isEmpty()) {
+        qCWarning(KHC_LOG) << "Empty indexer for" << entry->identifier() << entry->documentType();
+        return slotDoIndexWork();
+    }
 
-  const QString indexDir = Prefs::indexDirectory();
+    const QString indexDir = Prefs::indexDirectory();
 
-  indexer.replace( QLatin1String( "%i" ), entry->identifier() );
-  indexer.replace( QLatin1String( "%d" ), indexDir );
-  indexer.replace( QLatin1String( "%p" ), entry->url() );
-  qCDebug(KHC_LOG) << "Indexer:" << indexer;
+    indexer.replace(QLatin1String("%i"), entry->identifier());
+    indexer.replace(QLatin1String("%d"), indexDir);
+    indexer.replace(QLatin1String("%p"), entry->url());
+    qCDebug(KHC_LOG) << "Indexer:" << indexer;
 
-  if ( !QDir().mkpath( indexDir ) ) {
-    qCWarning(KHC_LOG) << "cannot create the directory:" << indexDir;
-    return slotDoIndexWork();
-  }
+    if (!QDir().mkpath(indexDir)) {
+        qCWarning(KHC_LOG) << "cannot create the directory:" << indexDir;
+        return slotDoIndexWork();
+    }
 
-  mIndexingProc = new KProcess;
+    mIndexingProc = new KProcess;
 
-  *mIndexingProc << KShell::splitArgs( indexer );
+    *mIndexingProc << KShell::splitArgs(indexer);
 
-  connect(mIndexingProc, QOverload<int, QProcess::ExitStatus>::of(&KProcess::finished), this, &Navigator::slotProcessExited);
+    connect(mIndexingProc, QOverload<int, QProcess::ExitStatus>::of(&KProcess::finished), this, &Navigator::slotProcessExited);
 
-  mIndexingProc->start();
+    mIndexingProc->start();
 
-  if ( !mIndexingProc->waitForStarted() )  {
-    qCWarning(KHC_LOG) << "Unable to start command" << indexer;
-    delete mIndexingProc;
-    mIndexingProc = nullptr;
-    return slotDoIndexWork();
-  }
+    if (!mIndexingProc->waitForStarted()) {
+        qCWarning(KHC_LOG) << "Unable to start command" << indexer;
+        delete mIndexingProc;
+        mIndexingProc = nullptr;
+        return slotDoIndexWork();
+    }
 }
 
-void Navigator::slotProcessExited( int exitCode, QProcess::ExitStatus exitStatus )
+void Navigator::slotProcessExited(int exitCode, QProcess::ExitStatus exitStatus)
 {
-  if ( exitStatus != QProcess::NormalExit ) {
-    qCWarning(KHC_LOG) << "Process failed";
-    qCWarning(KHC_LOG) << "stdout output:" << mIndexingProc->readAllStandardOutput();
-    qCWarning(KHC_LOG) << "stderr output:" << mIndexingProc->readAllStandardError();
-  } else if ( exitCode != 0 ) {
-    qCWarning(KHC_LOG) << "running" << mIndexingProc->program() << "failed with exitCode" << exitCode;
-    qCWarning(KHC_LOG) << "stdout output:" << mIndexingProc->readAllStandardOutput();
-    qCWarning(KHC_LOG) << "stderr output:" << mIndexingProc->readAllStandardError();
-  }
-  delete mIndexingProc;
-  mIndexingProc = nullptr;
+    if (exitStatus != QProcess::NormalExit) {
+        qCWarning(KHC_LOG) << "Process failed";
+        qCWarning(KHC_LOG) << "stdout output:" << mIndexingProc->readAllStandardOutput();
+        qCWarning(KHC_LOG) << "stderr output:" << mIndexingProc->readAllStandardError();
+    } else if (exitCode != 0) {
+        qCWarning(KHC_LOG) << "running" << mIndexingProc->program() << "failed with exitCode" << exitCode;
+        qCWarning(KHC_LOG) << "stdout output:" << mIndexingProc->readAllStandardOutput();
+        qCWarning(KHC_LOG) << "stderr output:" << mIndexingProc->readAllStandardError();
+    }
+    delete mIndexingProc;
+    mIndexingProc = nullptr;
 
-  slotDoIndexWork();
+    slotDoIndexWork();
 }
 
 void Navigator::slotShowIndexingProgressBar()
 {
-  if ( !mIndexingProc ) {
-    return;
-  }
+    if (!mIndexingProc) {
+        return;
+    }
 
-  mIndexingBar->setRange( 0, 0 );
-  mIndexingBar->show();
+    mIndexingBar->setRange(0, 0);
+    mIndexingBar->show();
 }
 
 #include "moc_navigator.cpp"
 
 // vim:ts=2:sw=2:et
-

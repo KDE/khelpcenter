@@ -16,17 +16,17 @@ namespace KHC
 class NavigatorItem;
 class TreeBuilder : public QObject
 {
-	Q_OBJECT
-	public:
-		explicit TreeBuilder( QObject *parent );
+    Q_OBJECT
+public:
+    explicit TreeBuilder(QObject *parent);
 
-		virtual void build( NavigatorItem *item ) = 0;
+    virtual void build(NavigatorItem *item) = 0;
 
-  public Q_SLOTS:
-    virtual void selectURL( const QString &url );
+public Q_SLOTS:
+    virtual void selectURL(const QString &url);
 
-  Q_SIGNALS:
-    void urlSelected( const QUrl &url );
+Q_SIGNALS:
+    void urlSelected(const QUrl &url);
 };
 
 }

@@ -9,47 +9,46 @@
 
 using namespace KHC;
 
-void DocEntryTraverser::setNotifyee( DocMetaInfo *n )
+void DocEntryTraverser::setNotifyee(DocMetaInfo *n)
 {
-  mNotifyee = n;
+    mNotifyee = n;
 }
 
-void DocEntryTraverser::startProcess( DocEntry *entry )
+void DocEntryTraverser::startProcess(DocEntry *entry)
 {
-  process( entry );
-  mNotifyee->endProcess( entry, this );
+    process(entry);
+    mNotifyee->endProcess(entry, this);
 }
 
-DocEntryTraverser *DocEntryTraverser::childTraverser( DocEntry *parentEntry )
+DocEntryTraverser *DocEntryTraverser::childTraverser(DocEntry *parentEntry)
 {
-  DocEntryTraverser *child = createChild( parentEntry );
-  if (!child)
-    return nullptr;
-  if ( child != this )
-  {
-    child->mParent = this;
-    child->mNotifyee = mNotifyee;
-  }
-  return child;
+    DocEntryTraverser *child = createChild(parentEntry);
+    if (!child)
+        return nullptr;
+    if (child != this) {
+        child->mParent = this;
+        child->mNotifyee = mNotifyee;
+    }
+    return child;
 }
 
 DocEntryTraverser *DocEntryTraverser::parentTraverser()
 {
-  return mParent;
+    return mParent;
 }
 
 void DocEntryTraverser::deleteTraverser()
 {
-  delete this;
+    delete this;
 }
 
-void DocEntryTraverser::setParentEntry( DocEntry *entry )
+void DocEntryTraverser::setParentEntry(DocEntry *entry)
 {
-  mParentEntry = entry;
+    mParentEntry = entry;
 }
 
 DocEntry *DocEntryTraverser::parentEntry()
 {
-  return mParentEntry;
+    return mParentEntry;
 }
 // vim:ts=2:sw=2:et

@@ -7,8 +7,8 @@
 #ifndef KHC_NAVIGATOR_H
 #define KHC_NAVIGATOR_H
 
-#include "glossary.h"
 #include "docentry.h"
+#include "glossary.h"
 
 #include <QProcess>
 #include <QTimer>
@@ -23,7 +23,8 @@ class QTreeWidgetItem;
 class KLineEdit;
 class KProcess;
 
-namespace KHC {
+namespace KHC
+{
 
 class NavigatorItem;
 class Navigator;
@@ -34,53 +35,56 @@ class SearchWidget;
 class Navigator : public QWidget
 {
     Q_OBJECT
-  public:
-    explicit Navigator(View *, QWidget *parent= nullptr);
+public:
+    explicit Navigator(View *, QWidget *parent = nullptr);
     virtual ~Navigator();
 
     enum KCMType {
-      SystemSettings = 1,
-      KInfoCenter = 2,
+        SystemSettings = 1,
+        KInfoCenter = 2,
     };
 
     QUrl homeURL();
 
     SearchEngine *searchEngine() const;
 
-    const GlossaryEntry &glossEntry(const QString &term) const { return mGlossaryTree->entry( term ); }
+    const GlossaryEntry &glossEntry(const QString &term) const
+    {
+        return mGlossaryTree->entry(term);
+    }
 
-    void insertParentAppDocs( const QString &name, NavigatorItem *parent );
-    void insertScrollKeeperDocs( NavigatorItem *parent );
-    void insertInfoDocs( NavigatorItem *parentItem );
-    void insertKCMDocs(const QString &, NavigatorItem*parent, const QString &);
-    void insertSystemSettingsDocs( const QString &name, NavigatorItem *topItem, KCMType type );
-    
-    void insertIOWorkerDocs(const QString &, NavigatorItem*parent);
-    void createItemFromDesktopFile( NavigatorItem *item, const QString &name );
+    void insertParentAppDocs(const QString &name, NavigatorItem *parent);
+    void insertScrollKeeperDocs(NavigatorItem *parent);
+    void insertInfoDocs(NavigatorItem *parentItem);
+    void insertKCMDocs(const QString &, NavigatorItem *parent, const QString &);
+    void insertSystemSettingsDocs(const QString &name, NavigatorItem *topItem, KCMType type);
+
+    void insertIOWorkerDocs(const QString &, NavigatorItem *parent);
+    void createItemFromDesktopFile(NavigatorItem *item, const QString &name);
 
     void clearSelection();
 
-    void showOverview( NavigatorItem *item, const QUrl &url );
+    void showOverview(NavigatorItem *item, const QUrl &url);
 
     void readConfig();
     void writeConfig();
 
-  public Q_SLOTS:
-    void openInternalUrl( const QUrl &url );
-    void slotItemSelected(QTreeWidgetItem* index);
-    void slotItemExpanded( QTreeWidgetItem *item );
-    void slotItemCollapsed( QTreeWidgetItem *item );
+public Q_SLOTS:
+    void openInternalUrl(const QUrl &url);
+    void slotItemSelected(QTreeWidgetItem *index);
+    void slotItemExpanded(QTreeWidgetItem *item);
+    void slotItemCollapsed(QTreeWidgetItem *item);
     void slotSearch();
-    void slotShowSearchResult( const QString & );
-    void slotSelectGlossEntry( const QString &id );
-    void selectItem( const QUrl &url );
+    void slotShowSearchResult(const QString &);
+    void slotSelectGlossEntry(const QString &id);
+    void selectItem(const QUrl &url);
 
-  Q_SIGNALS:
-    void itemSelected(const QString& itemURL);
+Q_SIGNALS:
+    void itemSelected(const QString &itemURL);
     void glossSelected(const GlossaryEntry &entry);
     void setStatusBarText(const QString &text);
 
-  protected Q_SLOTS:
+protected Q_SLOTS:
     void slotSearchFinished();
     void checkSearchEdit();
 
@@ -88,13 +92,13 @@ class Navigator : public QWidget
 
     void slotDelayedIndexingStart();
     void slotDoIndexWork();
-    void slotProcessExited( int exitCode, QProcess::ExitStatus exitStatus );
+    void slotProcessExited(int exitCode, QProcess::ExitStatus exitStatus);
     void slotShowIndexingProgressBar();
 
-  protected:
-    static QString createChildrenList( QTreeWidgetItem *child, int level );
+protected:
+    static QString createChildrenList(QTreeWidgetItem *child, int level);
 
-  private:
+private:
     void setupContentsTab();
     void setupSearchTab();
     void setupGlossaryTab();
@@ -118,7 +122,7 @@ class Navigator : public QWidget
     View *mView = nullptr;
 
     QUrl mHomeUrl;
-    
+
     bool mSelected = false;
 
     DocEntry::List mIndexingQueue;
@@ -129,5 +133,5 @@ class Navigator : public QWidget
 
 }
 
-#endif //KHC_NAVIGATOR_H
+#endif // KHC_NAVIGATOR_H
 // vim:ts=2:sw=2:et

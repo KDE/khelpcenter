@@ -11,29 +11,47 @@
 
 #include "docmetainfo.h"
 
-namespace KHC {
+namespace KHC
+{
 
 class ScopeItem : public QTreeWidgetItem
 {
-  public:
-    ScopeItem( QTreeWidgetItem *parent, DocEntry *entry )
-      : QTreeWidgetItem( parent, QStringList() << entry->name(), ScopeItemType ),
-        mEntry( entry ) { init(); }
+public:
+    ScopeItem(QTreeWidgetItem *parent, DocEntry *entry)
+        : QTreeWidgetItem(parent, QStringList() << entry->name(), ScopeItemType)
+        , mEntry(entry)
+    {
+        init();
+    }
 
-    DocEntry *entry()const { return mEntry; }
+    DocEntry *entry() const
+    {
+        return mEntry;
+    }
 
-    enum { ScopeItemType = 734678 };
+    enum {
+        ScopeItemType = 734678
+    };
 
-    void setOn( bool on ) { setCheckState( 0, on ? Qt::Checked : Qt::Unchecked ); }
-    bool isOn() const { return checkState( 0 ) == Qt::Checked; }
+    void setOn(bool on)
+    {
+        setCheckState(0, on ? Qt::Checked : Qt::Unchecked);
+    }
+    bool isOn() const
+    {
+        return checkState(0) == Qt::Checked;
+    }
 
-  private:
-    void init() { setCheckState(0, Qt::Checked); }
+private:
+    void init()
+    {
+        setCheckState(0, Qt::Checked);
+    }
 
     DocEntry *mEntry = nullptr;
 };
 
 }
 
-#endif //KHC_SCOPEITEM_H
+#endif // KHC_SCOPEITEM_H
 // vim:ts=2:sw=2:et

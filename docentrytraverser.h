@@ -7,44 +7,51 @@
 #ifndef KHC_DOCENTRYTRAVERSER_H
 #define KHC_DOCENTRYTRAVERSER_H
 
-namespace KHC {
+namespace KHC
+{
 
-  class DocEntry;
-  class DocMetaInfo;
+class DocEntry;
+class DocMetaInfo;
 
-  class DocEntryTraverser
-  {
-    public:
-      DocEntryTraverser(){}
-      virtual ~DocEntryTraverser() {}
-      
-      void setNotifyee( DocMetaInfo * );
+class DocEntryTraverser
+{
+public:
+    DocEntryTraverser()
+    {
+    }
+    virtual ~DocEntryTraverser()
+    {
+    }
 
-      virtual void process( DocEntry * ) = 0;
+    void setNotifyee(DocMetaInfo *);
 
-      virtual void startProcess( DocEntry * );
+    virtual void process(DocEntry *) = 0;
 
-      virtual DocEntryTraverser *createChild( DocEntry *parentEntry ) = 0;
+    virtual void startProcess(DocEntry *);
 
-      virtual void deleteTraverser();
+    virtual DocEntryTraverser *createChild(DocEntry *parentEntry) = 0;
 
-      virtual void finishTraversal() {}
+    virtual void deleteTraverser();
 
-      DocEntryTraverser *childTraverser( DocEntry *parentEntry );
-      virtual DocEntryTraverser *parentTraverser();
+    virtual void finishTraversal()
+    {
+    }
 
-      void setParentEntry( DocEntry * );
-      DocEntry *parentEntry();
+    DocEntryTraverser *childTraverser(DocEntry *parentEntry);
+    virtual DocEntryTraverser *parentTraverser();
 
-    protected:
-      DocMetaInfo *mNotifyee = nullptr;
-      DocEntryTraverser *mParent = nullptr;
+    void setParentEntry(DocEntry *);
+    DocEntry *parentEntry();
 
-    private:
-      DocEntry *mParentEntry = nullptr;
-  };
+protected:
+    DocMetaInfo *mNotifyee = nullptr;
+    DocEntryTraverser *mParent = nullptr;
+
+private:
+    DocEntry *mParentEntry = nullptr;
+};
 
 }
 
-#endif //KHC_DOCENTRYTRAVERSER_H
+#endif // KHC_DOCENTRYTRAVERSER_H
 // vim:ts=2:sw=2:et

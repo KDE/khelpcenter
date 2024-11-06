@@ -7,16 +7,17 @@
 #ifndef KHC_VIEWCONTAINER_H
 #define KHC_VIEWCONTAINER_H
 
-#include <QWidget>
 #include <QPointer>
+#include <QWidget>
 
-namespace KHC {
+namespace KHC
+{
 
 class ViewContainer : public QWidget
 {
     Q_OBJECT
 
-  public:
+public:
     ViewContainer(QWidget *parentWidget);
 
 public:
@@ -30,8 +31,8 @@ private Q_SLOTS:
     void hideBottomBar();
 
 private:
-  QPointer<QWidget> m_view;
-  QPointer<QWidget> m_bottomBar;
+    QPointer<QWidget> m_view;
+    QPointer<QWidget> m_bottomBar;
 };
 
 }

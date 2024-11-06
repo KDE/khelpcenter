@@ -11,46 +11,57 @@
 class QWebEngineDownloadRequest;
 class KActionCollection;
 
-namespace KHC {
+namespace KHC
+{
 
 class GrantleeFormatter;
 
 class View : public QWebEngineView
 {
     Q_OBJECT
-  public:
-    View( QWidget *parentWidget, KActionCollection *col );
+public:
+    View(QWidget *parentWidget, KActionCollection *col);
 
     ~View();
 
-    enum State { Docu, About, Search };
+    enum State {
+        Docu,
+        About,
+        Search
+    };
 
-    int state() const { return mState; }
+    int state() const
+    {
+        return mState;
+    }
 
-    static QString langLookup( const QString &fname );
+    static QString langLookup(const QString &fname);
 
     void beginSearchResult();
-    void writeSearchResult( const QString & );
+    void writeSearchResult(const QString &);
     void endSearchResult();
 
-    void setInternalHtml(const QString&, const QUrl&);
+    void setInternalHtml(const QString &, const QUrl &);
     QUrl internalUrl() const;
 
-    GrantleeFormatter *grantleeFormatter() const { return mGrantleeFormatter; }
+    GrantleeFormatter *grantleeFormatter() const
+    {
+        return mGrantleeFormatter;
+    }
 
     void copySelectedText();
 
-  public Q_SLOTS:
+public Q_SLOTS:
     void lastSearch();
-    void slotReload( const QUrl &url = QUrl() );
+    void slotReload(const QUrl &url = QUrl());
 
-  Q_SIGNALS:
+Q_SIGNALS:
     void searchResultCacheAvailable();
 
-  protected:
+protected:
     void contextMenuEvent(QContextMenuEvent *ev) override;
 
-  private:
+private:
     void downloadRequested(QWebEngineDownloadRequest *);
 
     int mState;
@@ -65,6 +76,6 @@ class View : public QWebEngineView
 
 }
 
-#endif //KHC_VIEW_H
+#endif // KHC_VIEW_H
 
 // vim:ts=2:sw=2:et

@@ -10,27 +10,22 @@
 
 #include "view.h"
 
-namespace KHC {
+namespace KHC
+{
 
-PageSearchBar::PageSearchBar(View* view, QWidget* parent)
+PageSearchBar::PageSearchBar(View *view, QWidget *parent)
     : QWidget(parent)
     , m_ui(new Ui::PageSearchBar)
     , m_view(view)
 {
     m_ui->setupUi(this);
 
-    connect(m_ui->hideButton, &QToolButton::clicked,
-            this, &PageSearchBar::hide);
-    connect(m_ui->searchTextEdit, &QLineEdit::textEdited,
-            this, &PageSearchBar::searchIncrementally);
-    connect(m_ui->matchCaseCheckButton, &QAbstractButton::toggled,
-            this, &PageSearchBar::searchIncrementally);
-    connect(m_ui->searchTextEdit, &QLineEdit::returnPressed,
-            this, &PageSearchBar::searchNext);
-    connect(m_ui->nextButton, &QToolButton::clicked,
-            this, &PageSearchBar::searchNext);
-    connect(m_ui->previousButton, &QToolButton::clicked,
-            this, &PageSearchBar::searchPrevious);
+    connect(m_ui->hideButton, &QToolButton::clicked, this, &PageSearchBar::hide);
+    connect(m_ui->searchTextEdit, &QLineEdit::textEdited, this, &PageSearchBar::searchIncrementally);
+    connect(m_ui->matchCaseCheckButton, &QAbstractButton::toggled, this, &PageSearchBar::searchIncrementally);
+    connect(m_ui->searchTextEdit, &QLineEdit::returnPressed, this, &PageSearchBar::searchNext);
+    connect(m_ui->nextButton, &QToolButton::clicked, this, &PageSearchBar::searchNext);
+    connect(m_ui->previousButton, &QToolButton::clicked, this, &PageSearchBar::searchPrevious);
     // TODO: disable next/previous buttons if no (more) search hits, color coding in text field
 }
 
@@ -102,7 +97,7 @@ void PageSearchBar::searchIncrementally()
     m_view->findText(m_ui->searchTextEdit->text(), findFlags);
 }
 
-void PageSearchBar::hideEvent(QHideEvent* event)
+void PageSearchBar::hideEvent(QHideEvent *event)
 {
     // finish search
     // passing emptry string to reset search, as told in API docs

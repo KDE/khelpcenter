@@ -8,16 +8,15 @@
 
 using namespace KHC;
 
-TreeBuilder::TreeBuilder( QObject *parent )
-  : QObject( parent )
+TreeBuilder::TreeBuilder(QObject *parent)
+    : QObject(parent)
 {
 }
 
-void TreeBuilder::selectURL( const QString & )
+void TreeBuilder::selectURL(const QString &)
 {
 }
 
 #include "moc_treebuilder.cpp"
 
 // vim:ts=2:sw=2:et
-

@@ -7,9 +7,9 @@
 #ifndef KHC_HISTORY_H
 #define KHC_HISTORY_H
 
-#include <QUrl>
-#include <QObject>
 #include <QList>
+#include <QObject>
+#include <QUrl>
 
 class KActionCollection;
 class KXmlGuiWindow;
@@ -17,65 +17,67 @@ class KToolBarPopupAction;
 class QMenu;
 class QAction;
 
-namespace KHC {
+namespace KHC
+{
 
 class View;
 
 class History : public QObject
 {
     Q_OBJECT
-  public:
+public:
     friend class foo; // to make gcc shut up
-    struct Entry
-    {
-      Entry() {}
+    struct Entry {
+        Entry()
+        {
+        }
 
-      View *view = nullptr;
-      QUrl url;
-      QString title;
-      QByteArray buffer;
-      bool search = false;
+        View *view = nullptr;
+        QUrl url;
+        QString title;
+        QByteArray buffer;
+        bool search = false;
     };
 
     static History &self();
 
-    void setupActions( KActionCollection *coll );
+    void setupActions(KActionCollection *coll);
     void updateActions();
 
-    void installMenuBarHook( KXmlGuiWindow *mainWindow );
+    void installMenuBarHook(KXmlGuiWindow *mainWindow);
 
     void createEntry();
-    void updateCurrentEntry( KHC::View *view );
+    void updateCurrentEntry(KHC::View *view);
 
-  Q_SIGNALS:
-    void goInternalUrl( const QUrl & );
-    void goUrl( const QUrl & );
+Q_SIGNALS:
+    void goInternalUrl(const QUrl &);
+    void goUrl(const QUrl &);
 
-  private Q_SLOTS:
-    void backActivated( QAction *action );
+private Q_SLOTS:
+    void backActivated(QAction *action);
     void fillBackMenu();
-    void forwardActivated( QAction *action );
+    void forwardActivated(QAction *action);
     void fillForwardMenu();
-    void goMenuActivated( QAction* action );
+    void goMenuActivated(QAction *action);
     void fillGoMenu();
     void back();
     void forward();
-    void goHistoryActivated( int steps );
-    void goHistory( int steps );
+    void goHistoryActivated(int steps);
+    void goHistory(int steps);
     void goHistoryDelayed();
 
-  private:
+private:
     History();
-    History( const History &rhs );
-    History &operator=( const History &rhs );
+    History(const History &rhs);
+    History &operator=(const History &rhs);
     ~History();
-    
-    typedef QList<Entry*> EntryList;
+
+    typedef QList<Entry *> EntryList;
 
     bool canGoBack() const;
     bool canGoForward() const;
-    void fillHistoryPopup( QMenu *, bool, bool, bool, uint = 0 );
-    
+    void fillHistoryPopup(QMenu *, bool, bool, bool, uint = 0);
+
     /**
      *  dumps the history with a kDebug and mark wihch one is the current one
      *  This is a debugging function.
@@ -87,12 +89,12 @@ class History : public QObject
     EntryList m_entries;
     EntryList::Iterator m_entries_current;
 
-
     int m_goBuffer;
     int m_goMenuIndex;
     int m_goMenuHistoryStartPos;
     int m_goMenuHistoryCurrentPos;
-  public:
+
+public:
     KToolBarPopupAction *m_backAction = nullptr;
     KToolBarPopupAction *m_forwardAction = nullptr;
 };
