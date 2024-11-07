@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-11 00:39+0000\n"
+"POT-Creation-Date: 2024-11-07 00:42+0000\n"
 "PO-Revision-Date: 2021-04-16 17:24+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian\n"
@@ -29,59 +29,59 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ",sergiu@cip.md"
 
-#: application.cpp:29
+#: application.cpp:30
 #, kde-format
 msgid "Documentation to open"
 msgstr "Documentația de deschis"
 
-#: application.cpp:101 application.cpp:103
+#: application.cpp:103 application.cpp:105
 #, kde-format
 msgid "Help Center"
 msgstr "Centrul de ajutor"
 
-#: application.cpp:105
+#: application.cpp:107
 #, fuzzy, kde-format
 #| msgid "(c) 1999-2020, The KHelpCenter developers"
 msgid "(c) 1999-2023, The KHelpCenter developers"
 msgstr "(c) 1999-2020, Dezvoltatorii KHelpCenter"
 
-#: application.cpp:107
+#: application.cpp:109
 #, kde-format
 msgid "Current maintainer"
 msgstr "Responsabil actual"
 
-#: application.cpp:108
+#: application.cpp:110
 #, kde-format
 msgid "Xapian-based search, lot of bugfixes"
 msgstr "Căutare bazată pe Xapian, multe corecții de erori"
 
-#: application.cpp:109
+#: application.cpp:111
 #, kde-format
 msgid "Former maintainer"
 msgstr "Fostul responsabil"
 
-#: application.cpp:111
+#: application.cpp:113
 #, kde-format
 msgid "Original Author"
 msgstr "Autorul original"
 
-#: application.cpp:112
+#: application.cpp:114
 #, kde-format
 msgid "Info page support"
 msgstr "Suport pagini GNU Info"
 
-#: docmetainfo.cpp:35
+#: docmetainfo.cpp:36
 #, kde-format
 msgid "Top-Level Documentation"
 msgstr "Documentație generală"
 
-#: docmetainfo.cpp:83
+#: docmetainfo.cpp:79
 #, kde-format
 msgctxt "doctitle (language)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: docmetainfo.cpp:119
+#: docmetainfo.cpp:112
 #, kde-format
 msgctxt "Describes documentation entries that are in English"
 msgid "English"
@@ -154,7 +154,7 @@ msgstr "Codare"
 msgid "&Default encoding:"
 msgstr "Codare &implicită:"
 
-#: fontdialog.cpp:136 fontdialog.cpp:204
+#: fontdialog.cpp:136 fontdialog.cpp:198
 #, kde-format
 msgid "Use Language Encoding"
 msgstr "Utilizează codarea limbii"
@@ -164,53 +164,53 @@ msgstr "Utilizează codarea limbii"
 msgid "&Font size adjustment:"
 msgstr "Ajustarea mărimii f&ontului:"
 
-#: glossary.cpp:69
+#: glossary.cpp:74
 #, kde-format
 msgid "By Topic"
 msgstr "După subiect"
 
-#: glossary.cpp:73 infotree.cpp:74
+#: glossary.cpp:78 infotree.cpp:76
 #, kde-format
 msgid "Alphabetically"
 msgstr "Alfabetic"
 
-#: glossary.cpp:128
+#: glossary.cpp:130
 #, kde-format
 msgid "Rebuilding glossary cache..."
 msgstr "Regenerez cache-ul glosarului..."
 
-#: glossary.cpp:181
+#: glossary.cpp:178
 #, kde-format
 msgid "Rebuilding cache... done."
 msgstr "Regenerarea cache-ului s-a terminat."
 
-#: grantleeformatter.cpp:100
+#: grantleeformatter.cpp:97
 #, kde-format
 msgctxt "%1 is a glossary term"
 msgid "KDE Glossary: %1"
 msgstr "Glosar KDE: %1"
 
-#: grantleeformatter.cpp:101
+#: grantleeformatter.cpp:98
 #, kde-format
 msgid "KDE Glossary"
 msgstr "Glosar KDE"
 
-#: grantleeformatter.cpp:105
+#: grantleeformatter.cpp:102
 #, kde-format
 msgid "See also: %1"
 msgstr "Vezi și: %1"
 
-#: grantleeformatter.cpp:126
+#: grantleeformatter.cpp:122
 #, kde-format
 msgid "Search Results"
 msgstr "Rezultate căutare"
 
-#: grantleeformatter.cpp:127 searchengine.cpp:261
+#: grantleeformatter.cpp:123 searchengine.cpp:266
 #, kde-format
 msgid "Search Results for '%1':"
 msgstr "Rezultate căutare pentru '%1':"
 
-#: infotree.cpp:77
+#: infotree.cpp:79
 #, kde-format
 msgid "By Category"
 msgstr "După categorie"
@@ -262,53 +262,53 @@ msgstr "Bara de unelte principală"
 msgid "Search Error Log"
 msgstr "Jurnal erori căutare"
 
-#: mainwindow.cpp:120
+#: mainwindow.cpp:119
 #, kde-format
 msgid "Preparing Index"
 msgstr "Pregătesc indexul"
 
-#: mainwindow.cpp:147
+#: mainwindow.cpp:146
 #, kde-format
 msgid "Ready"
 msgstr "Gata"
 
-#: mainwindow.cpp:202
+#: mainwindow.cpp:201
 #, kde-format
 msgid "Table of &Contents"
 msgstr "&Cuprins"
 
-#: mainwindow.cpp:203
+#: mainwindow.cpp:202
 #, kde-format
 msgid "Table of contents"
 msgstr "Cuprinsul"
 
-#: mainwindow.cpp:204
+#: mainwindow.cpp:203
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "Sare înapoi la cuprins"
 
-#: mainwindow.cpp:214
+#: mainwindow.cpp:213
 #, kde-format
 msgid "&Last Search Result"
 msgstr "&Rezultatul ultimei căutări"
 
-#: mainwindow.cpp:243
+#: mainwindow.cpp:241
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"
 msgstr "&Semne de carte"
 
-#: navigator.cpp:62
+#: navigator.cpp:64
 #, kde-format
 msgid "Search..."
 msgstr "Caută..."
 
-#: navigator.cpp:117
+#: navigator.cpp:119
 #, kde-format
 msgid "&Contents"
 msgstr "&Cuprins"
 
-#: navigator.cpp:127
+#: navigator.cpp:128
 #, kde-format
 msgid "Search Options"
 msgstr "Opțiuni căutare"
@@ -318,17 +318,17 @@ msgstr "Opțiuni căutare"
 msgid "G&lossary"
 msgstr "G&losar"
 
-#: navigator.cpp:456
+#: navigator.cpp:455
 #, kde-format
 msgid "Start Page"
 msgstr "Pagina de început"
 
-#: navigator.cpp:457
+#: navigator.cpp:456
 #, kde-format
 msgid "KDE Help Center"
 msgstr "Centrul de ajutor KDE"
 
-#: navigator.cpp:539
+#: navigator.cpp:540
 #, kde-format
 msgid "Unable to run search program."
 msgstr "Nu pot executa programul de căutare."
@@ -354,107 +354,107 @@ msgctxt "@title:window"
 msgid "Print Document"
 msgstr ""
 
-#: searchengine.cpp:59
+#: searchengine.cpp:62
 #, kde-format
 msgid "Error: No document type specified."
 msgstr "Eroare: Nu a fost specificat tipul de document."
 
-#: searchengine.cpp:61
+#: searchengine.cpp:64
 #, kde-format
 msgid "Error: No search handler for document type '%1'."
 msgstr "Eroare: Nu există o metodă de căutare pentru tipul de document '%1'."
 
-#: searchengine.cpp:231
+#: searchengine.cpp:234
 #, kde-format
 msgid "No valid search handler found."
 msgstr "Nu am găsit un mecanism de căutare valid."
 
-#: searchhandler.cpp:37
+#: searchhandler.cpp:38
 #, kde-format
 msgid "Error executing search command '%1'."
 msgstr "Eroare la execuția comenzii de căutare '%1'."
 
-#: searchhandler.cpp:75
+#: searchhandler.cpp:76
 #, kde-format
 msgid "Error: %1"
 msgstr "Eroare: %1"
 
-#: searchhandler.cpp:140 searchhandler.cpp:145
+#: searchhandler.cpp:139 searchhandler.cpp:144
 #, kde-format
 msgid "'%1' not found, check your installation"
 msgstr "'%1' nu a fost găsit, verificați instalarea dumneavoastră"
 
-#: searchhandler.cpp:150
+#: searchhandler.cpp:149
 #, kde-format
 msgid "'%1' not found, install the package containing it"
 msgstr "'%1' nu a fost găsit, instalați pachetul care îl conține"
 
-#: searchhandler.cpp:197
+#: searchhandler.cpp:194
 #, kde-format
 msgid "No search command or URL specified."
 msgstr "Nu ați specificat un URL sau comandă de căutare."
 
-#: searchwidget.cpp:39
+#: searchwidget.cpp:41
 #, kde-format
 msgid "and"
 msgstr "și"
 
-#: searchwidget.cpp:40
+#: searchwidget.cpp:42
 #, kde-format
 msgid "or"
 msgstr "sau"
 
-#: searchwidget.cpp:42
+#: searchwidget.cpp:44
 #, kde-format
 msgid "&Method:"
 msgstr "&Metoda:"
 
-#: searchwidget.cpp:58
+#: searchwidget.cpp:60
 #, kde-format
 msgid "Max. &results:"
 msgstr "Maxim &rezultate:"
 
-#: searchwidget.cpp:73
+#: searchwidget.cpp:75
 #, kde-format
 msgid "&Scope selection:"
 msgstr "&Domeniu selecție:"
 
-#: searchwidget.cpp:81
+#: searchwidget.cpp:83
 #, kde-format
 msgid "Scope"
 msgstr "Domeniu"
 
-#: searchwidget.cpp:322
+#: searchwidget.cpp:335
 #, kde-format
 msgctxt "Label for searching documentation using custom (user defined) scope"
 msgid "Custom"
 msgstr "Personalizat"
 
-#: searchwidget.cpp:324
+#: searchwidget.cpp:337
 #, kde-format
 msgctxt "Label for searching documentation using default search scope"
 msgid "Default"
 msgstr "Implicit"
 
-#: searchwidget.cpp:326
+#: searchwidget.cpp:339
 #, kde-format
 msgctxt "Label for searching documentation in all subsections"
 msgid "All"
 msgstr "Tot"
 
-#: searchwidget.cpp:328
+#: searchwidget.cpp:341
 #, kde-format
 msgctxt "Label for scope that deselects all search subsections"
 msgid "None"
 msgstr "Nimic"
 
-#: searchwidget.cpp:330
+#: searchwidget.cpp:343
 #, kde-format
 msgctxt "Label for Unknown search scope, that should never appear"
 msgid "unknown"
 msgstr "necunoscut"
 
-#: view.cpp:300
+#: view.cpp:303
 #, fuzzy, kde-format
 #| msgid "Start Page"
 msgid "Save Page"

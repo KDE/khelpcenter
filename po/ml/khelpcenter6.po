@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-11 00:39+0000\n"
+"POT-Creation-Date: 2024-11-07 00:42+0000\n"
 "PO-Revision-Date: 2019-12-12 21:19+0000\n"
 "Last-Translator: Vivek KJ Pazhedath <vivekkj2004@gmail.com>\n"
 "Language-Team: Swathanthra|സ്വതന്ത്ര Malayalam|മലയാളം Computing|കമ്പ്യൂട്ടിങ്ങ് <smc-"
@@ -29,59 +29,59 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "shijualexonline@gmail.com,snalledam@dataone.in,vivekkj2004@gmail.com"
 
-#: application.cpp:29
+#: application.cpp:30
 #, kde-format
 msgid "Documentation to open"
 msgstr "തുറക്കാനുള്ള വിവരം"
 
-#: application.cpp:101 application.cpp:103
+#: application.cpp:103 application.cpp:105
 #, kde-format
 msgid "Help Center"
 msgstr "സഹായ കേന്ദ്രം"
 
-#: application.cpp:105
+#: application.cpp:107
 #, fuzzy, kde-format
 #| msgid "(c) 1999-2018, The KHelpCenter developers"
 msgid "(c) 1999-2023, The KHelpCenter developers"
 msgstr "(c) 1999-2003, കെഡി‌‌ഇ സഹായകേന്ദ്രം ഡെവലപ്പര്‍മാര്‍"
 
-#: application.cpp:107
+#: application.cpp:109
 #, kde-format
 msgid "Current maintainer"
 msgstr "ഇപ്പോഴത്തെ പരിപാലകൻ"
 
-#: application.cpp:108
+#: application.cpp:110
 #, kde-format
 msgid "Xapian-based search, lot of bugfixes"
 msgstr "Xapian അടിസ്ഥാനമാക്കിയ തിരയൽ, കുറെ പ്രശ്നങ്ങൾ പരിഹരിച്ചിട്ടുണ്ട്."
 
-#: application.cpp:109
+#: application.cpp:111
 #, kde-format
 msgid "Former maintainer"
 msgstr "പണ്ടത്തെ പരിപാലകൻ"
 
-#: application.cpp:111
+#: application.cpp:113
 #, kde-format
 msgid "Original Author"
 msgstr "യഥാര്‍ത്ഥ രചയിതാവു്"
 
-#: application.cpp:112
+#: application.cpp:114
 #, kde-format
 msgid "Info page support"
 msgstr "വിവര പേജ് പിന്തുണ"
 
-#: docmetainfo.cpp:35
+#: docmetainfo.cpp:36
 #, kde-format
 msgid "Top-Level Documentation"
 msgstr "ഉന്നതതല സഹായപ്രമാണം"
 
-#: docmetainfo.cpp:83
+#: docmetainfo.cpp:79
 #, kde-format
 msgctxt "doctitle (language)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: docmetainfo.cpp:119
+#: docmetainfo.cpp:112
 #, kde-format
 msgctxt "Describes documentation entries that are in English"
 msgid "English"
@@ -154,7 +154,7 @@ msgstr "എന്‍‌കോഡിങ്ങ്"
 msgid "&Default encoding:"
 msgstr "&സ്വതവെയുള്ള എന്‍‌കോഡിംങ്ങ്:"
 
-#: fontdialog.cpp:136 fontdialog.cpp:204
+#: fontdialog.cpp:136 fontdialog.cpp:198
 #, kde-format
 msgid "Use Language Encoding"
 msgstr "ഭാഷാ എന്‍‌കോഡിംങ്ങ് ഉപയോഗിക്കുക:"
@@ -164,53 +164,53 @@ msgstr "ഭാഷാ എന്‍‌കോഡിംങ്ങ് ഉപയോഗ�
 msgid "&Font size adjustment:"
 msgstr "അക്ഷരസഞ്ചയത്തിന്റെ വലിപ്പം ക്രമീകരിക്കുക:"
 
-#: glossary.cpp:69
+#: glossary.cpp:74
 #, kde-format
 msgid "By Topic"
 msgstr "വിഷയമനുസരിച്ചു്:"
 
-#: glossary.cpp:73 infotree.cpp:74
+#: glossary.cpp:78 infotree.cpp:76
 #, kde-format
 msgid "Alphabetically"
 msgstr "അകാദാരി ക്രമത്തില്‍"
 
-#: glossary.cpp:128
+#: glossary.cpp:130
 #, kde-format
 msgid "Rebuilding glossary cache..."
 msgstr "ഗ്ലോസ്സറി കാഷെ പുനഃര്‍നിര്‍മ്മിക്കുന്നു..."
 
-#: glossary.cpp:181
+#: glossary.cpp:178
 #, kde-format
 msgid "Rebuilding cache... done."
 msgstr "കാഷെ പുനഃര്‍നിര്‍മ്മിക്കുന്നു... ചെയ്തു."
 
-#: grantleeformatter.cpp:100
+#: grantleeformatter.cpp:97
 #, kde-format
 msgctxt "%1 is a glossary term"
 msgid "KDE Glossary: %1"
 msgstr "കെഡി‌ഇ ഗ്ലോസ്സറി: %1"
 
-#: grantleeformatter.cpp:101
+#: grantleeformatter.cpp:98
 #, kde-format
 msgid "KDE Glossary"
 msgstr "കെഡി‌ഇ ഗ്ലോസ്സറി"
 
-#: grantleeformatter.cpp:105
+#: grantleeformatter.cpp:102
 #, kde-format
 msgid "See also: %1"
 msgstr "ഇതും കാണുക: %1"
 
-#: grantleeformatter.cpp:126
+#: grantleeformatter.cpp:122
 #, kde-format
 msgid "Search Results"
 msgstr "തിരച്ചില്‍ ഫലങ്ങള്‍ "
 
-#: grantleeformatter.cpp:127 searchengine.cpp:261
+#: grantleeformatter.cpp:123 searchengine.cpp:266
 #, kde-format
 msgid "Search Results for '%1':"
 msgstr "'%1 നെറ്റ് തിരച്ചില്‍ ഫലങ്ങള്‍ ':"
 
-#: infotree.cpp:77
+#: infotree.cpp:79
 #, kde-format
 msgid "By Category"
 msgstr "വര്‍ഗ്ഗമനുസരിച്ച്"
@@ -262,53 +262,53 @@ msgstr "പ്രധാന ടൂള്‍ബാര്‍"
 msgid "Search Error Log"
 msgstr "തെരച്ചലില്‍ സംഭവിച്ച പിഴവിന്റെ പ്രവര്‍ത്തനരേഖ"
 
-#: mainwindow.cpp:120
+#: mainwindow.cpp:119
 #, kde-format
 msgid "Preparing Index"
 msgstr "ഇന്‍‌ഡെക്സ് തയ്യാറാക്കുന്നു"
 
-#: mainwindow.cpp:147
+#: mainwindow.cpp:146
 #, kde-format
 msgid "Ready"
 msgstr "തയ്യാര്‍"
 
-#: mainwindow.cpp:202
+#: mainwindow.cpp:201
 #, kde-format
 msgid "Table of &Contents"
 msgstr "&ഉള്ളടക്ക പട്ടിക"
 
-#: mainwindow.cpp:203
+#: mainwindow.cpp:202
 #, kde-format
 msgid "Table of contents"
 msgstr "ഉള്ളടക്ക പട്ടിക"
 
-#: mainwindow.cpp:204
+#: mainwindow.cpp:203
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "ഉള്ളടക്ക പട്ടികയിലേക്കു തിരിച്ചു പോവുക"
 
-#: mainwindow.cpp:214
+#: mainwindow.cpp:213
 #, kde-format
 msgid "&Last Search Result"
 msgstr "അവസാനത്തെ തെരച്ചിലിന്റെ ഫലം"
 
-#: mainwindow.cpp:243
+#: mainwindow.cpp:241
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"
 msgstr "അടയാളകുറിപ്പുകൾ (&B)"
 
-#: navigator.cpp:62
+#: navigator.cpp:64
 #, kde-format
 msgid "Search..."
 msgstr "തിരയുക..."
 
-#: navigator.cpp:117
+#: navigator.cpp:119
 #, kde-format
 msgid "&Contents"
 msgstr "&ഉള്ളടക്കം "
 
-#: navigator.cpp:127
+#: navigator.cpp:128
 #, kde-format
 msgid "Search Options"
 msgstr "തെരച്ചലിന്റെ ഐഛികങ്ങള്‍"
@@ -318,17 +318,17 @@ msgstr "തെരച്ചലിന്റെ ഐഛികങ്ങള്‍"
 msgid "G&lossary"
 msgstr "ഗ്ലോസറി"
 
-#: navigator.cpp:456
+#: navigator.cpp:455
 #, kde-format
 msgid "Start Page"
 msgstr "ആദ്യത്തെ താള്‍"
 
-#: navigator.cpp:457
+#: navigator.cpp:456
 #, kde-format
 msgid "KDE Help Center"
 msgstr "കെഡി‌‌ഇ സഹായകേന്ദ്രം "
 
-#: navigator.cpp:539
+#: navigator.cpp:540
 #, kde-format
 msgid "Unable to run search program."
 msgstr "തെരച്ചില്‍ പ്രോഗ്രാം ഓടിക്കുവാന്‍ കഴിഞ്ഞില്ല"
@@ -354,107 +354,107 @@ msgctxt "@title:window"
 msgid "Print Document"
 msgstr ""
 
-#: searchengine.cpp:59
+#: searchengine.cpp:62
 #, kde-format
 msgid "Error: No document type specified."
 msgstr "പിഴവ്: പ്രമാണത്തിന്റെ തരം കൊടുത്തിട്ടില്ല."
 
-#: searchengine.cpp:61
+#: searchengine.cpp:64
 #, kde-format
 msgid "Error: No search handler for document type '%1'."
 msgstr "പിഴവ്: '%1'. എന്ന പ്രമാണത്തിന്റെ തരത്തിനു തെരച്ചില്‍ ഹാന്‍ഡ്ലര്‍ ഇല്ല."
 
-#: searchengine.cpp:231
+#: searchengine.cpp:234
 #, kde-format
 msgid "No valid search handler found."
 msgstr "ശരിയായ തിരച്ചിൽ ഹാൻഡിലുകൾ കണ്ടെത്താനായില്ല."
 
-#: searchhandler.cpp:37
+#: searchhandler.cpp:38
 #, kde-format
 msgid "Error executing search command '%1'."
 msgstr " '%1' എന്ന കമാന്‍ഡ് ഓടിക്കുമ്പോള്‍ എന്തോ പിഴവ് സംഭവിച്ചു."
 
-#: searchhandler.cpp:75
+#: searchhandler.cpp:76
 #, kde-format
 msgid "Error: %1"
 msgstr "പിഴവ്: %1"
 
-#: searchhandler.cpp:140 searchhandler.cpp:145
+#: searchhandler.cpp:139 searchhandler.cpp:144
 #, kde-format
 msgid "'%1' not found, check your installation"
 msgstr "'%1 ' കണ്ടെത്താനായില്ല, ഇൻസ്റ്റാളേഷൻ പരിശോധിക്കുക"
 
-#: searchhandler.cpp:150
+#: searchhandler.cpp:149
 #, kde-format
 msgid "'%1' not found, install the package containing it"
 msgstr "' %1 ' കണ്ടെത്താനായില്ല, അത് സ്ഥിതി ചെയ്യുന്ന പാക്കേജ് ഇൻസ്റ്റാൾ ചെയ്യുക"
 
-#: searchhandler.cpp:197
+#: searchhandler.cpp:194
 #, kde-format
 msgid "No search command or URL specified."
 msgstr "യുആര്‍‌എല്ലോ സേര്‍ച്ച് കമാന്‍ഡോ കൊടുത്തിട്ടില്ല. "
 
-#: searchwidget.cpp:39
+#: searchwidget.cpp:41
 #, kde-format
 msgid "and"
 msgstr "-ഉം"
 
-#: searchwidget.cpp:40
+#: searchwidget.cpp:42
 #, kde-format
 msgid "or"
 msgstr "അല്ലെങ്കില്‍ "
 
-#: searchwidget.cpp:42
+#: searchwidget.cpp:44
 #, kde-format
 msgid "&Method:"
 msgstr "&വിധം:"
 
-#: searchwidget.cpp:58
+#: searchwidget.cpp:60
 #, kde-format
 msgid "Max. &results:"
 msgstr "പരമാവധി ഫലങ്ങള്‍:"
 
-#: searchwidget.cpp:73
+#: searchwidget.cpp:75
 #, kde-format
 msgid "&Scope selection:"
 msgstr "&വ്യാപ്തി തെരഞ്ഞെടുപ്പ്:"
 
-#: searchwidget.cpp:81
+#: searchwidget.cpp:83
 #, kde-format
 msgid "Scope"
 msgstr "വ്യാപ്തി"
 
-#: searchwidget.cpp:322
+#: searchwidget.cpp:335
 #, kde-format
 msgctxt "Label for searching documentation using custom (user defined) scope"
 msgid "Custom"
 msgstr "ഇഷ്ടാനുസൃതം"
 
-#: searchwidget.cpp:324
+#: searchwidget.cpp:337
 #, kde-format
 msgctxt "Label for searching documentation using default search scope"
 msgid "Default"
 msgstr "സ്വതവെയുള്ളത്"
 
-#: searchwidget.cpp:326
+#: searchwidget.cpp:339
 #, kde-format
 msgctxt "Label for searching documentation in all subsections"
 msgid "All"
 msgstr "എല്ലാം "
 
-#: searchwidget.cpp:328
+#: searchwidget.cpp:341
 #, kde-format
 msgctxt "Label for scope that deselects all search subsections"
 msgid "None"
 msgstr "ഒന്നുമില്ല"
 
-#: searchwidget.cpp:330
+#: searchwidget.cpp:343
 #, kde-format
 msgctxt "Label for Unknown search scope, that should never appear"
 msgid "unknown"
 msgstr "അജ്ഞാതം"
 
-#: view.cpp:300
+#: view.cpp:303
 #, fuzzy, kde-format
 #| msgid "Start Page"
 msgid "Save Page"

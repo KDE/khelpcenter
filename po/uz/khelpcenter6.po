@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-11 00:39+0000\n"
+"POT-Creation-Date: 2024-11-07 00:42+0000\n"
 "PO-Revision-Date: 2006-12-17 12:18+0000\n"
 "Last-Translator: Mashrab Kuvatov <kmashrab@uni-bremen.de>\n"
 "Language-Team: Uzbek <floss-uz-l10n@googlegroups.com>\n"
@@ -27,60 +27,60 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kmashrab@uni-bremen.de"
 
-#: application.cpp:29
+#: application.cpp:30
 #, fuzzy, kde-format
 #| msgid "Document to be indexed"
 msgid "Documentation to open"
 msgstr "Indekslash uchun hujjat"
 
-#: application.cpp:101 application.cpp:103
+#: application.cpp:103 application.cpp:105
 #, kde-format
 msgid "Help Center"
 msgstr "Yordam markazi"
 
-#: application.cpp:105
+#: application.cpp:107
 #, fuzzy, kde-format
 #| msgid "(c) 1999-2003, The KHelpCenter developers"
 msgid "(c) 1999-2023, The KHelpCenter developers"
 msgstr "(C) 1999-2003, KHelpCenter tuzuvchilari"
 
-#: application.cpp:107
+#: application.cpp:109
 #, kde-format
 msgid "Current maintainer"
 msgstr ""
 
-#: application.cpp:108
+#: application.cpp:110
 #, kde-format
 msgid "Xapian-based search, lot of bugfixes"
 msgstr ""
 
-#: application.cpp:109
+#: application.cpp:111
 #, kde-format
 msgid "Former maintainer"
 msgstr ""
 
-#: application.cpp:111
+#: application.cpp:113
 #, kde-format
 msgid "Original Author"
 msgstr "Birinchi muallif"
 
-#: application.cpp:112
+#: application.cpp:114
 #, kde-format
 msgid "Info page support"
 msgstr "Info varaqlarini qoʻllash"
 
-#: docmetainfo.cpp:35
+#: docmetainfo.cpp:36
 #, kde-format
 msgid "Top-Level Documentation"
 msgstr ""
 
-#: docmetainfo.cpp:83
+#: docmetainfo.cpp:79
 #, kde-format
 msgctxt "doctitle (language)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: docmetainfo.cpp:119
+#: docmetainfo.cpp:112
 #, fuzzy, kde-format
 #| msgid "English"
 msgctxt "Describes documentation entries that are in English"
@@ -156,7 +156,7 @@ msgstr "Kodlash usuli"
 msgid "&Default encoding:"
 msgstr "Andoza ko&dlash usuli:"
 
-#: fontdialog.cpp:136 fontdialog.cpp:204
+#: fontdialog.cpp:136 fontdialog.cpp:198
 #, kde-format
 msgid "Use Language Encoding"
 msgstr "Tilning kodlash usulini ishlatish"
@@ -166,56 +166,56 @@ msgstr "Tilning kodlash usulini ishlatish"
 msgid "&Font size adjustment:"
 msgstr "Shriftning oʻlchamini &moslash:"
 
-#: glossary.cpp:69
+#: glossary.cpp:74
 #, kde-format
 msgid "By Topic"
 msgstr "Mavzu boʻyicha"
 
-#: glossary.cpp:73 infotree.cpp:74
+#: glossary.cpp:78 infotree.cpp:76
 #, kde-format
 msgid "Alphabetically"
 msgstr "Alifbo boʻyicha"
 
-#: glossary.cpp:128
+#: glossary.cpp:130
 #, fuzzy, kde-format
 #| msgid "Rebuilding cache..."
 msgid "Rebuilding glossary cache..."
 msgstr "Kesh qaytadan yaratilmoqda..."
 
-#: glossary.cpp:181
+#: glossary.cpp:178
 #, kde-format
 msgid "Rebuilding cache... done."
 msgstr "Kesh qaytadan yaratilmoqda... tayyor."
 
-#: grantleeformatter.cpp:100
+#: grantleeformatter.cpp:97
 #, fuzzy, kde-format
 #| msgid "KDE Glossary"
 msgctxt "%1 is a glossary term"
 msgid "KDE Glossary: %1"
 msgstr "KDE atamalar"
 
-#: grantleeformatter.cpp:101
+#: grantleeformatter.cpp:98
 #, kde-format
 msgid "KDE Glossary"
 msgstr "KDE atamalar"
 
-#: grantleeformatter.cpp:105
+#: grantleeformatter.cpp:102
 #, fuzzy, kde-format
 #| msgid "See also: "
 msgid "See also: %1"
 msgstr "Bunga ham qarang: "
 
-#: grantleeformatter.cpp:126
+#: grantleeformatter.cpp:122
 #, kde-format
 msgid "Search Results"
 msgstr "Qidiruv natijalari"
 
-#: grantleeformatter.cpp:127 searchengine.cpp:261
+#: grantleeformatter.cpp:123 searchengine.cpp:266
 #, kde-format
 msgid "Search Results for '%1':"
 msgstr "'%1' uchun qidiruv natijalari:"
 
-#: infotree.cpp:77
+#: infotree.cpp:79
 #, kde-format
 msgid "By Category"
 msgstr "Turkum boʻyicha"
@@ -267,54 +267,54 @@ msgstr ""
 msgid "Search Error Log"
 msgstr ""
 
-#: mainwindow.cpp:120
+#: mainwindow.cpp:119
 #, kde-format
 msgid "Preparing Index"
 msgstr "Indeks tayyorlanmoqda"
 
-#: mainwindow.cpp:147
+#: mainwindow.cpp:146
 #, kde-format
 msgid "Ready"
 msgstr "Tayyor"
 
-#: mainwindow.cpp:202
+#: mainwindow.cpp:201
 #, kde-format
 msgid "Table of &Contents"
 msgstr "&Mundarija"
 
-#: mainwindow.cpp:203
+#: mainwindow.cpp:202
 #, kde-format
 msgid "Table of contents"
 msgstr "Mundarija"
 
-#: mainwindow.cpp:204
+#: mainwindow.cpp:203
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "Mundarijaga qaytish"
 
-#: mainwindow.cpp:214
+#: mainwindow.cpp:213
 #, kde-format
 msgid "&Last Search Result"
 msgstr "&Oxirgi qidiruvning natijasi"
 
-#: mainwindow.cpp:243
+#: mainwindow.cpp:241
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"
 msgstr ""
 
-#: navigator.cpp:62
+#: navigator.cpp:64
 #, fuzzy, kde-format
 #| msgid "&Search"
 msgid "Search..."
 msgstr "Qid&irish"
 
-#: navigator.cpp:117
+#: navigator.cpp:119
 #, fuzzy, kde-format
 msgid "&Contents"
 msgstr "&Mundarija"
 
-#: navigator.cpp:127
+#: navigator.cpp:128
 #, kde-format
 msgid "Search Options"
 msgstr "Qidirish parametrlari"
@@ -324,17 +324,17 @@ msgstr "Qidirish parametrlari"
 msgid "G&lossary"
 msgstr "&Atamalar"
 
-#: navigator.cpp:456
+#: navigator.cpp:455
 #, kde-format
 msgid "Start Page"
 msgstr "Birinchi bet"
 
-#: navigator.cpp:457
+#: navigator.cpp:456
 #, kde-format
 msgid "KDE Help Center"
 msgstr "KDE yordam markazi"
 
-#: navigator.cpp:539
+#: navigator.cpp:540
 #, kde-format
 msgid "Unable to run search program."
 msgstr "Qidiruv dasturini ishga tushirib boʻlmadi."
@@ -362,111 +362,111 @@ msgctxt "@title:window"
 msgid "Print Document"
 msgstr ""
 
-#: searchengine.cpp:59
+#: searchengine.cpp:62
 #, kde-format
 msgid "Error: No document type specified."
 msgstr "Xato: Hech qanday hujjatning turi koʻrsatilmagan."
 
-#: searchengine.cpp:61
+#: searchengine.cpp:64
 #, kde-format
 msgid "Error: No search handler for document type '%1'."
 msgstr ""
 
-#: searchengine.cpp:231
+#: searchengine.cpp:234
 #, kde-format
 msgid "No valid search handler found."
 msgstr ""
 
-#: searchhandler.cpp:37
+#: searchhandler.cpp:38
 #, kde-format
 msgid "Error executing search command '%1'."
 msgstr ""
 
-#: searchhandler.cpp:75
+#: searchhandler.cpp:76
 #, kde-format
 msgid "Error: %1"
 msgstr "Xato: %1"
 
-#: searchhandler.cpp:140 searchhandler.cpp:145
+#: searchhandler.cpp:139 searchhandler.cpp:144
 #, kde-format
 msgid "'%1' not found, check your installation"
 msgstr ""
 
-#: searchhandler.cpp:150
+#: searchhandler.cpp:149
 #, kde-format
 msgid "'%1' not found, install the package containing it"
 msgstr ""
 
-#: searchhandler.cpp:197
+#: searchhandler.cpp:194
 #, kde-format
 msgid "No search command or URL specified."
 msgstr ""
 
-#: searchwidget.cpp:39
+#: searchwidget.cpp:41
 #, kde-format
 msgid "and"
 msgstr "va"
 
-#: searchwidget.cpp:40
+#: searchwidget.cpp:42
 #, kde-format
 msgid "or"
 msgstr "yoki"
 
-#: searchwidget.cpp:42
+#: searchwidget.cpp:44
 #, kde-format
 msgid "&Method:"
 msgstr "&Usul:"
 
-#: searchwidget.cpp:58
+#: searchwidget.cpp:60
 #, kde-format
 msgid "Max. &results:"
 msgstr "&Natij. eng koʻp soni:"
 
-#: searchwidget.cpp:73
+#: searchwidget.cpp:75
 #, kde-format
 msgid "&Scope selection:"
 msgstr "Chegarani &tanlash:"
 
-#: searchwidget.cpp:81
+#: searchwidget.cpp:83
 #, kde-format
 msgid "Scope"
 msgstr "Chegara"
 
-#: searchwidget.cpp:322
+#: searchwidget.cpp:335
 #, fuzzy, kde-format
 #| msgid "Custom"
 msgctxt "Label for searching documentation using custom (user defined) scope"
 msgid "Custom"
 msgstr "Boshqa"
 
-#: searchwidget.cpp:324
+#: searchwidget.cpp:337
 #, kde-format
 msgctxt "Label for searching documentation using default search scope"
 msgid "Default"
 msgstr ""
 
-#: searchwidget.cpp:326
+#: searchwidget.cpp:339
 #, fuzzy, kde-format
 #| msgid "All"
 msgctxt "Label for searching documentation in all subsections"
 msgid "All"
 msgstr "Hammasi"
 
-#: searchwidget.cpp:328
+#: searchwidget.cpp:341
 #, fuzzy, kde-format
 #| msgid "None"
 msgctxt "Label for scope that deselects all search subsections"
 msgid "None"
 msgstr "Yoʻq"
 
-#: searchwidget.cpp:330
+#: searchwidget.cpp:343
 #, fuzzy, kde-format
 #| msgid "unknown"
 msgctxt "Label for Unknown search scope, that should never appear"
 msgid "unknown"
 msgstr "nomaʼlum"
 
-#: view.cpp:300
+#: view.cpp:303
 #, fuzzy, kde-format
 #| msgid "Start Page"
 msgid "Save Page"

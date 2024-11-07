@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-11 00:39+0000\n"
+"POT-Creation-Date: 2024-11-07 00:42+0000\n"
 "PO-Revision-Date: 2009-02-05 17:35+0530\n"
 "Last-Translator: Ravishankar Shrivastava <raviratlami@aol.in>\n"
 "Language-Team: Hindi <kde-i18n-doc@lists.kde.org>\n"
@@ -29,60 +29,60 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "raviratlami@aol.in,"
 
-#: application.cpp:29
+#: application.cpp:30
 #, fuzzy, kde-format
 #| msgid "Document to be indexed"
 msgid "Documentation to open"
 msgstr "कागद जेखर निर्देसिका बनाना हे"
 
-#: application.cpp:101 application.cpp:103
+#: application.cpp:103 application.cpp:105
 #, kde-format
 msgid "Help Center"
 msgstr "मदद केंद्र"
 
-#: application.cpp:105
+#: application.cpp:107
 #, fuzzy, kde-format
 #| msgid "(c) 1999-2003, The KHelpCenter developers"
 msgid "(c) 1999-2023, The KHelpCenter developers"
 msgstr "(c) 1999 - 2003, के-हेल्प-सेंटर बनइया मन"
 
-#: application.cpp:107
+#: application.cpp:109
 #, kde-format
 msgid "Current maintainer"
 msgstr ""
 
-#: application.cpp:108
+#: application.cpp:110
 #, kde-format
 msgid "Xapian-based search, lot of bugfixes"
 msgstr ""
 
-#: application.cpp:109
+#: application.cpp:111
 #, kde-format
 msgid "Former maintainer"
 msgstr ""
 
-#: application.cpp:111
+#: application.cpp:113
 #, kde-format
 msgid "Original Author"
 msgstr "मूल लेखक"
 
-#: application.cpp:112
+#: application.cpp:114
 #, kde-format
 msgid "Info page support"
 msgstr "जानकारी पेज समर्थन"
 
-#: docmetainfo.cpp:35
+#: docmetainfo.cpp:36
 #, kde-format
 msgid "Top-Level Documentation"
 msgstr "सीर्स स्तर कागद लिखना"
 
-#: docmetainfo.cpp:83
+#: docmetainfo.cpp:79
 #, kde-format
 msgctxt "doctitle (language)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: docmetainfo.cpp:119
+#: docmetainfo.cpp:112
 #, kde-format
 msgctxt "Describes documentation entries that are in English"
 msgid "English"
@@ -155,7 +155,7 @@ msgstr "एनकोडिंग"
 msgid "&Default encoding:"
 msgstr "डिफाल्ट एनकोडिंगः (&D)"
 
-#: fontdialog.cpp:136 fontdialog.cpp:204
+#: fontdialog.cpp:136 fontdialog.cpp:198
 #, kde-format
 msgid "Use Language Encoding"
 msgstr "भाखा एनकोडिंग उपयोग करव"
@@ -165,55 +165,55 @@ msgstr "भाखा एनकोडिंग उपयोग करव"
 msgid "&Font size adjustment:"
 msgstr "फोंट आकार बदलवः (&F)"
 
-#: glossary.cpp:69
+#: glossary.cpp:74
 #, kde-format
 msgid "By Topic"
 msgstr "विसय वार"
 
-#: glossary.cpp:73 infotree.cpp:74
+#: glossary.cpp:78 infotree.cpp:76
 #, kde-format
 msgid "Alphabetically"
 msgstr "वर्नमाला के हिसाब से"
 
-#: glossary.cpp:128
+#: glossary.cpp:130
 #, kde-format
 msgid "Rebuilding glossary cache..."
 msgstr "सब्द संग्रह कैस फिर से बनावत हे..."
 
-#: glossary.cpp:181
+#: glossary.cpp:178
 #, kde-format
 msgid "Rebuilding cache... done."
 msgstr "कैस रि-बिल्ड करत हे...पूरा."
 
-#: grantleeformatter.cpp:100
+#: grantleeformatter.cpp:97
 #, fuzzy, kde-format
 #| msgid "KDE Glossary"
 msgctxt "%1 is a glossary term"
 msgid "KDE Glossary: %1"
 msgstr "केडीई ग्लासरी"
 
-#: grantleeformatter.cpp:101
+#: grantleeformatter.cpp:98
 #, kde-format
 msgid "KDE Glossary"
 msgstr "केडीई ग्लासरी"
 
-#: grantleeformatter.cpp:105
+#: grantleeformatter.cpp:102
 #, fuzzy, kde-format
 #| msgid "See also: "
 msgid "See also: %1"
 msgstr "येला घलोक देखव:"
 
-#: grantleeformatter.cpp:126
+#: grantleeformatter.cpp:122
 #, kde-format
 msgid "Search Results"
 msgstr "खोज परिनाम"
 
-#: grantleeformatter.cpp:127 searchengine.cpp:261
+#: grantleeformatter.cpp:123 searchengine.cpp:266
 #, kde-format
 msgid "Search Results for '%1':"
 msgstr "'%1' बर ढूंढे गे परिनाम:"
 
-#: infotree.cpp:77
+#: infotree.cpp:79
 #, kde-format
 msgid "By Category"
 msgstr "वर्ग से"
@@ -265,54 +265,54 @@ msgstr "मुख्य औजार पट्टी"
 msgid "Search Error Log"
 msgstr "खोज गलती लाग"
 
-#: mainwindow.cpp:120
+#: mainwindow.cpp:119
 #, kde-format
 msgid "Preparing Index"
 msgstr "निर्देसिका बनाय के तैयारी करत हे"
 
-#: mainwindow.cpp:147
+#: mainwindow.cpp:146
 #, kde-format
 msgid "Ready"
 msgstr "तैयार"
 
-#: mainwindow.cpp:202
+#: mainwindow.cpp:201
 #, kde-format
 msgid "Table of &Contents"
 msgstr "विसयसूची टेबल (&C)"
 
-#: mainwindow.cpp:203
+#: mainwindow.cpp:202
 #, kde-format
 msgid "Table of contents"
 msgstr "विसयसूची टेबल"
 
-#: mainwindow.cpp:204
+#: mainwindow.cpp:203
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "विसयसूची टेबल मं जाव"
 
-#: mainwindow.cpp:214
+#: mainwindow.cpp:213
 #, kde-format
 msgid "&Last Search Result"
 msgstr "पिछला खोज परिनाम (&L)"
 
-#: mainwindow.cpp:243
+#: mainwindow.cpp:241
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"
 msgstr ""
 
-#: navigator.cpp:62
+#: navigator.cpp:64
 #, fuzzy, kde-format
 #| msgid "&Search"
 msgid "Search..."
 msgstr "खोजव (&S)"
 
-#: navigator.cpp:117
+#: navigator.cpp:119
 #, kde-format
 msgid "&Contents"
 msgstr "विसयसूची (&C)"
 
-#: navigator.cpp:127
+#: navigator.cpp:128
 #, kde-format
 msgid "Search Options"
 msgstr "खोज विकल्प"
@@ -322,17 +322,17 @@ msgstr "खोज विकल्प"
 msgid "G&lossary"
 msgstr "सब्द-संग्रह (&l)"
 
-#: navigator.cpp:456
+#: navigator.cpp:455
 #, kde-format
 msgid "Start Page"
 msgstr "सुरू पेज"
 
-#: navigator.cpp:457
+#: navigator.cpp:456
 #, kde-format
 msgid "KDE Help Center"
 msgstr "केडीई मदद केंद्र"
 
-#: navigator.cpp:539
+#: navigator.cpp:540
 #, kde-format
 msgid "Unable to run search program."
 msgstr "खोज प्रोग्राम चलाय मं अक्छम."
@@ -360,107 +360,107 @@ msgctxt "@title:window"
 msgid "Print Document"
 msgstr ""
 
-#: searchengine.cpp:59
+#: searchengine.cpp:62
 #, kde-format
 msgid "Error: No document type specified."
 msgstr "गलती: कोनो कागद किसिम निरधारित नइ हे."
 
-#: searchengine.cpp:61
+#: searchengine.cpp:64
 #, kde-format
 msgid "Error: No search handler for document type '%1'."
 msgstr "गलती: कागद किसिम '%1' बर कोनो सर्च हेंडलर नइ हे."
 
-#: searchengine.cpp:231
+#: searchengine.cpp:234
 #, kde-format
 msgid "No valid search handler found."
 msgstr "कोई वैध सर्च हेंडलर नइ मिलिस."
 
-#: searchhandler.cpp:37
+#: searchhandler.cpp:38
 #, kde-format
 msgid "Error executing search command '%1'."
 msgstr "सर्च कमांड '%1' चलाय मं गलती."
 
-#: searchhandler.cpp:75
+#: searchhandler.cpp:76
 #, kde-format
 msgid "Error: %1"
 msgstr "गलती: %1"
 
-#: searchhandler.cpp:140 searchhandler.cpp:145
+#: searchhandler.cpp:139 searchhandler.cpp:144
 #, kde-format
 msgid "'%1' not found, check your installation"
 msgstr ""
 
-#: searchhandler.cpp:150
+#: searchhandler.cpp:149
 #, kde-format
 msgid "'%1' not found, install the package containing it"
 msgstr ""
 
-#: searchhandler.cpp:197
+#: searchhandler.cpp:194
 #, kde-format
 msgid "No search command or URL specified."
 msgstr "कोई सर्च कमांड या यूआरएल निरधारित नइ हे."
 
-#: searchwidget.cpp:39
+#: searchwidget.cpp:41
 #, kde-format
 msgid "and"
 msgstr "और"
 
-#: searchwidget.cpp:40
+#: searchwidget.cpp:42
 #, kde-format
 msgid "or"
 msgstr "या"
 
-#: searchwidget.cpp:42
+#: searchwidget.cpp:44
 #, kde-format
 msgid "&Method:"
 msgstr "विधिः (&M)"
 
-#: searchwidget.cpp:58
+#: searchwidget.cpp:60
 #, kde-format
 msgid "Max. &results:"
 msgstr "सबसे अधिक परिनामः (&r)"
 
-#: searchwidget.cpp:73
+#: searchwidget.cpp:75
 #, kde-format
 msgid "&Scope selection:"
 msgstr "स्कोप चयन: (&S)"
 
-#: searchwidget.cpp:81
+#: searchwidget.cpp:83
 #, kde-format
 msgid "Scope"
 msgstr "स्कोप"
 
-#: searchwidget.cpp:322
+#: searchwidget.cpp:335
 #, kde-format
 msgctxt "Label for searching documentation using custom (user defined) scope"
 msgid "Custom"
 msgstr "मनमाफिक"
 
-#: searchwidget.cpp:324
+#: searchwidget.cpp:337
 #, kde-format
 msgctxt "Label for searching documentation using default search scope"
 msgid "Default"
 msgstr "डिफाल्ट"
 
-#: searchwidget.cpp:326
+#: searchwidget.cpp:339
 #, kde-format
 msgctxt "Label for searching documentation in all subsections"
 msgid "All"
 msgstr "सब्बो"
 
-#: searchwidget.cpp:328
+#: searchwidget.cpp:341
 #, kde-format
 msgctxt "Label for scope that deselects all search subsections"
 msgid "None"
 msgstr "कुछ नइ"
 
-#: searchwidget.cpp:330
+#: searchwidget.cpp:343
 #, kde-format
 msgctxt "Label for Unknown search scope, that should never appear"
 msgid "unknown"
 msgstr "अग्यात"
 
-#: view.cpp:300
+#: view.cpp:303
 #, fuzzy, kde-format
 #| msgid "Start Page"
 msgid "Save Page"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.2\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-11 00:39+0000\n"
+"POT-Creation-Date: 2024-11-07 00:42+0000\n"
 "PO-Revision-Date: 2024-01-05 20:58+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -28,58 +28,58 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ulysses@fsf.hu"
 
-#: application.cpp:29
+#: application.cpp:30
 #, kde-format
 msgid "Documentation to open"
 msgstr "Megnyitandó dokumentum"
 
-#: application.cpp:101 application.cpp:103
+#: application.cpp:103 application.cpp:105
 #, kde-format
 msgid "Help Center"
 msgstr "Súgóközpont"
 
-#: application.cpp:105
+#: application.cpp:107
 #, kde-format
 msgid "(c) 1999-2023, The KHelpCenter developers"
 msgstr "© A KHelpCenter fejlesztői, 1999-2023."
 
-#: application.cpp:107
+#: application.cpp:109
 #, kde-format
 msgid "Current maintainer"
 msgstr "Jelenlegi karbantartó"
 
-#: application.cpp:108
+#: application.cpp:110
 #, kde-format
 msgid "Xapian-based search, lot of bugfixes"
 msgstr "Xapian-alapú keresés, rengeteg hibajavítás"
 
-#: application.cpp:109
+#: application.cpp:111
 #, kde-format
 msgid "Former maintainer"
 msgstr "Korábbi karbantartó"
 
-#: application.cpp:111
+#: application.cpp:113
 #, kde-format
 msgid "Original Author"
 msgstr "Eredeti szerző"
 
-#: application.cpp:112
+#: application.cpp:114
 #, kde-format
 msgid "Info page support"
 msgstr "Info oldalak megjeleníthetősége"
 
-#: docmetainfo.cpp:35
+#: docmetainfo.cpp:36
 #, kde-format
 msgid "Top-Level Documentation"
 msgstr "Általános dokumentáció"
 
-#: docmetainfo.cpp:83
+#: docmetainfo.cpp:79
 #, kde-format
 msgctxt "doctitle (language)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: docmetainfo.cpp:119
+#: docmetainfo.cpp:112
 #, kde-format
 msgctxt "Describes documentation entries that are in English"
 msgid "English"
@@ -152,7 +152,7 @@ msgstr "Kódolás"
 msgid "&Default encoding:"
 msgstr "Alapértelmezett kó&dolás:"
 
-#: fontdialog.cpp:136 fontdialog.cpp:204
+#: fontdialog.cpp:136 fontdialog.cpp:198
 #, kde-format
 msgid "Use Language Encoding"
 msgstr "A nyelvnek megfelelő kódolás használata"
@@ -162,53 +162,53 @@ msgstr "A nyelvnek megfelelő kódolás használata"
 msgid "&Font size adjustment:"
 msgstr "A betűméret i&gazítása:"
 
-#: glossary.cpp:69
+#: glossary.cpp:74
 #, kde-format
 msgid "By Topic"
 msgstr "Téma szerint"
 
-#: glossary.cpp:73 infotree.cpp:74
+#: glossary.cpp:78 infotree.cpp:76
 #, kde-format
 msgid "Alphabetically"
 msgstr "Betűrendben"
 
-#: glossary.cpp:128
+#: glossary.cpp:130
 #, kde-format
 msgid "Rebuilding glossary cache..."
 msgstr "A kifejezésgyűjtemény gyorsítótárának újraépítése…"
 
-#: glossary.cpp:181
+#: glossary.cpp:178
 #, kde-format
 msgid "Rebuilding cache... done."
 msgstr "A gyorsítótár újraépítése befejeződött."
 
-#: grantleeformatter.cpp:100
+#: grantleeformatter.cpp:97
 #, kde-format
 msgctxt "%1 is a glossary term"
 msgid "KDE Glossary: %1"
 msgstr "KDE kifejezésgyűjtemény: %1"
 
-#: grantleeformatter.cpp:101
+#: grantleeformatter.cpp:98
 #, kde-format
 msgid "KDE Glossary"
 msgstr "KDE kifejezésgyűjtemény"
 
-#: grantleeformatter.cpp:105
+#: grantleeformatter.cpp:102
 #, kde-format
 msgid "See also: %1"
 msgstr "Lásd még: %1"
 
-#: grantleeformatter.cpp:126
+#: grantleeformatter.cpp:122
 #, kde-format
 msgid "Search Results"
 msgstr "Keresési eredmények"
 
-#: grantleeformatter.cpp:127 searchengine.cpp:261
+#: grantleeformatter.cpp:123 searchengine.cpp:266
 #, kde-format
 msgid "Search Results for '%1':"
 msgstr "A keresés eredménye - „%1”:"
 
-#: infotree.cpp:77
+#: infotree.cpp:79
 #, kde-format
 msgid "By Category"
 msgstr "Kategória szerint"
@@ -260,53 +260,53 @@ msgstr "Fő eszköztár"
 msgid "Search Error Log"
 msgstr "A keresési hibák naplója"
 
-#: mainwindow.cpp:120
+#: mainwindow.cpp:119
 #, kde-format
 msgid "Preparing Index"
 msgstr "Az index előkészítése"
 
-#: mainwindow.cpp:147
+#: mainwindow.cpp:146
 #, kde-format
 msgid "Ready"
 msgstr "Kész"
 
-#: mainwindow.cpp:202
+#: mainwindow.cpp:201
 #, kde-format
 msgid "Table of &Contents"
 msgstr "T&artalomjegyzék"
 
-#: mainwindow.cpp:203
+#: mainwindow.cpp:202
 #, kde-format
 msgid "Table of contents"
 msgstr "Tartalomjegyzék"
 
-#: mainwindow.cpp:204
+#: mainwindow.cpp:203
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "Visszalépés a tartalomjegyzékre"
 
-#: mainwindow.cpp:214
+#: mainwindow.cpp:213
 #, kde-format
 msgid "&Last Search Result"
 msgstr "Az &utolsó keresés eredménye"
 
-#: mainwindow.cpp:243
+#: mainwindow.cpp:241
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"
 msgstr "&Könyvjelzők"
 
-#: navigator.cpp:62
+#: navigator.cpp:64
 #, kde-format
 msgid "Search..."
 msgstr "Keresés…"
 
-#: navigator.cpp:117
+#: navigator.cpp:119
 #, kde-format
 msgid "&Contents"
 msgstr "T&artalomjegyzék"
 
-#: navigator.cpp:127
+#: navigator.cpp:128
 #, kde-format
 msgid "Search Options"
 msgstr "Keresési beállítások"
@@ -316,17 +316,17 @@ msgstr "Keresési beállítások"
 msgid "G&lossary"
 msgstr "Kifeje&zésgyűjtemény"
 
-#: navigator.cpp:456
+#: navigator.cpp:455
 #, kde-format
 msgid "Start Page"
 msgstr "Nyitóoldal"
 
-#: navigator.cpp:457
+#: navigator.cpp:456
 #, kde-format
 msgid "KDE Help Center"
 msgstr "KDE Súgóközpont"
 
-#: navigator.cpp:539
+#: navigator.cpp:540
 #, kde-format
 msgid "Unable to run search program."
 msgstr "A keresőprogram elindítása nem sikerült."
@@ -352,107 +352,107 @@ msgctxt "@title:window"
 msgid "Print Document"
 msgstr "Dokumentum nyomtatása"
 
-#: searchengine.cpp:59
+#: searchengine.cpp:62
 #, kde-format
 msgid "Error: No document type specified."
 msgstr "Hiba: nincs megadva dokumentumtípus."
 
-#: searchengine.cpp:61
+#: searchengine.cpp:64
 #, kde-format
 msgid "Error: No search handler for document type '%1'."
 msgstr "Hiba: nincs keresési kezelő ehhez a dokumentumtípushoz: „%1”."
 
-#: searchengine.cpp:231
+#: searchengine.cpp:234
 #, kde-format
 msgid "No valid search handler found."
 msgstr "Nem található érvényes keresési kezelő."
 
-#: searchhandler.cpp:37
+#: searchhandler.cpp:38
 #, kde-format
 msgid "Error executing search command '%1'."
 msgstr "Nem sikerült végrehajtani ezt a keresési parancsot: „%1”."
 
-#: searchhandler.cpp:75
+#: searchhandler.cpp:76
 #, kde-format
 msgid "Error: %1"
 msgstr "Hiba: %1"
 
-#: searchhandler.cpp:140 searchhandler.cpp:145
+#: searchhandler.cpp:139 searchhandler.cpp:144
 #, kde-format
 msgid "'%1' not found, check your installation"
 msgstr "A(z) „%1” nem található, ellenőrizze a telepítést"
 
-#: searchhandler.cpp:150
+#: searchhandler.cpp:149
 #, kde-format
 msgid "'%1' not found, install the package containing it"
 msgstr "A(z) „%1” nem található, telepítse az azt tartalmazó csomagot"
 
-#: searchhandler.cpp:197
+#: searchhandler.cpp:194
 #, kde-format
 msgid "No search command or URL specified."
 msgstr "Nincs megadva keresési parancs vagy URL."
 
-#: searchwidget.cpp:39
+#: searchwidget.cpp:41
 #, kde-format
 msgid "and"
 msgstr "és"
 
-#: searchwidget.cpp:40
+#: searchwidget.cpp:42
 #, kde-format
 msgid "or"
 msgstr "vagy"
 
-#: searchwidget.cpp:42
+#: searchwidget.cpp:44
 #, kde-format
 msgid "&Method:"
 msgstr "&Logikai művelet:"
 
-#: searchwidget.cpp:58
+#: searchwidget.cpp:60
 #, kde-format
 msgid "Max. &results:"
 msgstr "&Max. eredményszám:"
 
-#: searchwidget.cpp:73
+#: searchwidget.cpp:75
 #, kde-format
 msgid "&Scope selection:"
 msgstr "Ke&resési tartomány:"
 
-#: searchwidget.cpp:81
+#: searchwidget.cpp:83
 #, kde-format
 msgid "Scope"
 msgstr "Tartomány"
 
-#: searchwidget.cpp:322
+#: searchwidget.cpp:335
 #, kde-format
 msgctxt "Label for searching documentation using custom (user defined) scope"
 msgid "Custom"
 msgstr "Egyedi"
 
-#: searchwidget.cpp:324
+#: searchwidget.cpp:337
 #, kde-format
 msgctxt "Label for searching documentation using default search scope"
 msgid "Default"
 msgstr "Alapértelmezés"
 
-#: searchwidget.cpp:326
+#: searchwidget.cpp:339
 #, kde-format
 msgctxt "Label for searching documentation in all subsections"
 msgid "All"
 msgstr "Minden"
 
-#: searchwidget.cpp:328
+#: searchwidget.cpp:341
 #, kde-format
 msgctxt "Label for scope that deselects all search subsections"
 msgid "None"
 msgstr "Nincs"
 
-#: searchwidget.cpp:330
+#: searchwidget.cpp:343
 #, kde-format
 msgctxt "Label for Unknown search scope, that should never appear"
 msgid "unknown"
 msgstr "ismeretlen"
 
-#: view.cpp:300
+#: view.cpp:303
 #, kde-format
 msgid "Save Page"
 msgstr "Oldal mentése"
