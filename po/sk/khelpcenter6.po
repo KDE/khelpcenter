@@ -4,7 +4,7 @@
 # Richard Fric <Richard.Fric@kdemail.net>, 2006.
 # Jozef Riha <jose1711@gmail.com>, 2006.
 # Michal Sulek <misurel@gmail.com>, 2009, 2010, 2011.
-# Roman Paholík <wizzardsk@gmail.com>, 2014, 2016, 2021.
+# SPDX-FileCopyrightText: 2014, 2016, 2021, 2024 Roman Paholík <wizzardsk@gmail.com>
 # Mthw <jari_45@hotmail.com>, 2018.
 # Matej Mrenica <matejm98mthw@gmail.com>, 2019.
 msgid ""
@@ -12,14 +12,14 @@ msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-07 00:42+0000\n"
-"PO-Revision-Date: 2021-11-15 17:34+0100\n"
-"Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
+"PO-Revision-Date: 2024-11-10 19:39+0100\n"
+"Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 21.08.3\n"
+"X-Generator: Lokalize 24.08.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #, kde-format
@@ -47,10 +47,9 @@ msgid "Help Center"
 msgstr "Pomocník KDE"
 
 #: application.cpp:107
-#, fuzzy, kde-format
-#| msgid "(c) 1999-2020, The KHelpCenter developers"
+#, kde-format
 msgid "(c) 1999-2023, The KHelpCenter developers"
-msgstr "(c) 1999-2020, Vývojári KHelpCenter"
+msgstr "(c) 1999-2023, Vývojári KHelpCenter"
 
 #: application.cpp:109
 #, kde-format
@@ -353,13 +352,13 @@ msgstr "Aktualizujem index hľadania... Hotovo."
 #: printdoc.cpp:60
 #, kde-format
 msgid "Could not generate print preview."
-msgstr ""
+msgstr "Nemôžem vygenerovať náhľad tlače."
 
 #: printdoc.cpp:96
 #, kde-format
 msgctxt "@title:window"
 msgid "Print Document"
-msgstr ""
+msgstr "Vytlačiť dokument"
 
 #: searchengine.cpp:62
 #, kde-format
@@ -462,10 +461,9 @@ msgid "unknown"
 msgstr "neznámy"
 
 #: view.cpp:303
-#, fuzzy, kde-format
-#| msgid "Start Page"
+#, kde-format
 msgid "Save Page"
-msgstr "Úvodná stránka"
+msgstr "Uložiť stránku"
 
 #~ msgid "Previous Page"
 #~ msgstr "Predchádzajúca stránka"
