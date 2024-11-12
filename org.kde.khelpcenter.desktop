@@ -7,6 +7,7 @@ Type=Application
 Terminal=false
 
 Name=Help Center
+Name[ar]=مركز مساعدة
 Name[bg]=Помощен център
 Name[ca]=Centre d'ajuda
 Name[ca@valencia]=Centre d'ajuda
