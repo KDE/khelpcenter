@@ -102,7 +102,7 @@
 				&emstart;U&emend;NIX &emstart;P&emend;rinting
 				&emstart;S&emend;ystem; &CUPS; is the most modern &UNIX; and Linux
 				printing system, also providing cross-platform print services
-				to &Microsoft; &Windows; and Apple &MacOS; clients. Based on IPP, it does
+				to &Microsoft; &Windows; and Apple &macOS; clients. Based on IPP, it does
 				away with all the pitfalls of old-style BSD printing,
 				providing authentication, encryption and ACLs, plus many more
 				features. At the same time it is backward-compatible enough
@@ -171,7 +171,7 @@
 				of spoolers other than &CUPS; (LPR/LPD, LPRng, PDQ, PPR) to a certain
 				degree ("stealing" some concepts from &CUPS;). The Linuxprinting
 				Database is not a Linux-only stop -- people running other &UNIX;
- 				based OSes (like *BSD or &MacOS; X) will also find valuable information
+ 				based OSes (like *BSD or &macOS;) will also find valuable information
 				and software there.
 				</para>
                                 <glossseealso otherterm="gloss-foomatic">Foomatic</glossseealso>

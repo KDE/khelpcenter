@@ -3,7 +3,7 @@
 
 <para>You can install &kde; applications, including &plasma-desktop;, on a
 variety of different platforms, ranging from
-smartphones and tablets to computers running &Microsoft; &Windows;, &MacOS;,
+smartphones and tablets to computers running &Microsoft; &Windows;, &macOS;,
 &UNIX;, &BSD; or &Linux;.  Binary packages are available for many different
 platforms and distributions, or advanced users may build the source code.</para>
 
@@ -56,14 +56,14 @@ visit <ulink url="https://community.kde.org/Windows">the KDE on Windows Initiati
 </sect2>
 
 <sect2 id="install-mac">
-<title>&MacOS;</title>
+<title>&macOS;</title>
 
 <para>Individual &kde; applications can be installed through several
-different <quote>ports</quote> systems available for &MacOS;.  Several different
-&kde; applications also provide their own binary builds for &MacOS;.</para>
+different <quote>ports</quote> systems available for &macOS;.  Several different
+&kde; applications also provide their own binary builds for &macOS;.</para>
 
 <para>For more information, visit
-<ulink url="https://community.kde.org/Mac">&kde; on &MacOS;X</ulink>.</para>
+<ulink url="https://community.kde.org/Mac">&kde; on &macOS;</ulink>.</para>
 
 </sect2>
 
