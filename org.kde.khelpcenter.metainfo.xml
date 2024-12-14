@@ -43,6 +43,7 @@
   <name xml:lang="pt-BR">KHelpCenter</name>
   <name xml:lang="ro">KHelpCenter</name>
   <name xml:lang="ru">KHelpCenter</name>
+  <name xml:lang="sa">KHelpCenter इति</name>
   <name xml:lang="sk">KHelpCenter</name>
   <name xml:lang="sl">KHelpCenter</name>
   <name xml:lang="sr">К‑центар-помоћи</name>
@@ -94,6 +95,7 @@
   <summary xml:lang="pt-BR">Centro de ajuda</summary>
   <summary xml:lang="ro">Centrul de ajutor</summary>
   <summary xml:lang="ru">Центр справки</summary>
+  <summary xml:lang="sa">सहायता केन्द्र</summary>
   <summary xml:lang="sk">Pomocník KDE</summary>
   <summary xml:lang="sl">Središče za pomoč</summary>
   <summary xml:lang="sr">Центар помоћи</summary>
@@ -145,6 +147,7 @@
     <p xml:lang="pt-BR">Um aplicativo para pesquisar e ler a documentação de todos os aplicativos do KDE e utilitários do sistema</p>
     <p xml:lang="ro">Aplicație pentru căutarea și citirea documentației pentru toate aplicațiile KDE și utilitarele de sistem</p>
     <p xml:lang="ru">Приложение для поиска и чтения документации к приложениям KDE и программам системы</p>
+    <p xml:lang="sa">भवतः सर्वेषां KDE अनुप्रयोगानाम्, प्रणाली-उपयोगितानां च दस्तावेजान् अन्वेष्टुं पठितुं च एकः अनुप्रयोगः</p>
     <p xml:lang="sk">Aplikácia na vyhľadávanie a čítanie dokumentácie pre všetky vaše KDE aplikácie a systémové nástroje</p>
     <p xml:lang="sl">Aplikacija za iskanje in branje dokumentacije za vse aplikacije KDE in sistemska orodja</p>
     <p xml:lang="sv">Ett program för att söka i och läsa dokumentationen om alla KDE-program och systemverktyg</p>
@@ -192,6 +195,7 @@
     <p xml:lang="pt-BR">Recursos:</p>
     <p xml:lang="ro">Caracteristici:</p>
     <p xml:lang="ru">Возможности:</p>
+    <p xml:lang="sa">गुणाः:</p>
     <p xml:lang="sk">Funkcie:</p>
     <p xml:lang="sl">Zmožnosti:</p>
     <p xml:lang="sr">Могућности:</p>
@@ -241,6 +245,7 @@
       <li xml:lang="pt-BR">Exibe a documentação de várias fontes (aplicativos da comunidade KDE, páginas de manual, etc)</li>
       <li xml:lang="ro">Arată documentație din diferite surse (aplicații de la comunitatea KDE, pagini de manual, etc.)</li>
       <li xml:lang="ru">Просмотр документации из разных источников: из поставки приложений от сообщества KDE, страниц руководств UNIX и других;</li>
+      <li xml:lang="sa">विभिन्नस्रोताभ्यां दस्तावेजीकरणं दर्शयतु (KDE समुदायतः अनुप्रयोगाः, man पृष्ठानि इत्यादयः)</li>
       <li xml:lang="sk">Zobraziť dokumentáciu z rôznych zdrojov (aplikácie z KDE komunity, man stránky atď.)</li>
       <li xml:lang="sl">Pokaže dokumentacijo iz različnih virov (programov skupnosti KDE, strani man, itd.)</li>
       <li xml:lang="sr">приказ документације из различитих извора (програми заједнице КДЕ, упутне странице, итд.)</li>
@@ -291,6 +296,7 @@
       <li xml:lang="pt-BR">Pesquise na documentação disponível</li>
       <li xml:lang="ro">Caută prin documentația disponibilă</li>
       <li xml:lang="ru">Поиск по доступной документации.</li>
+      <li xml:lang="sa">उपलब्धदस्तावेजानां माध्यमेन अन्वेषणं कुर्वन्तु</li>
       <li xml:lang="sk">Prehľadávať v dostupnej dokumentácii</li>
       <li xml:lang="sl">Išči po razpoložljivi dokumentaciji</li>
       <li xml:lang="sr">тражење кроз доступну документацију</li>
@@ -345,6 +351,7 @@
       <caption xml:lang="pt-BR">Janela principal do KHelpCenter</caption>
       <caption xml:lang="ro">Fereastra principală KHelpCenter</caption>
       <caption xml:lang="ru">Главное окно KHelpCenter</caption>
+      <caption xml:lang="sa">KHelpCenter मुख्यविण्डो</caption>
       <caption xml:lang="sk">KHelpCenter hlavné okno</caption>
       <caption xml:lang="sl">Glavno okno - KHelpCenter</caption>
       <caption xml:lang="sv">Huvudfönstret i Hjälpcentralen</caption>
