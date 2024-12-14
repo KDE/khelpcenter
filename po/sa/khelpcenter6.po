@@ -1,0 +1,456 @@
+# Sanskrit translations for khelpcenter package.
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the khelpcenter package.
+# Kali <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: khelpcenter\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2024-11-07 00:42+0000\n"
+"PO-Revision-Date: 2024-12-13 19:10+0530\n"
+"Last-Translator: Kali <EMAIL@ADDRESS>\n"
+"Language-Team: Sanskrit\n"
+"Language: sa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+
+#: application.cpp:30
+#, kde-format
+msgid "Documentation to open"
+msgstr "दस्तावेजीकरणं उद्घाटयितुं"
+
+#: application.cpp:103 application.cpp:105
+#, kde-format
+msgid "Help Center"
+msgstr "सहायता केन्द्र"
+
+#: application.cpp:107
+#, kde-format
+msgid "(c) 1999-2023, The KHelpCenter developers"
+msgstr "(ग) १९९९-२०२३, द KHelpCenter विकासकाः"
+
+#: application.cpp:109
+#, kde-format
+msgid "Current maintainer"
+msgstr "वर्तमान परिपालक"
+
+#: application.cpp:110
+#, kde-format
+msgid "Xapian-based search, lot of bugfixes"
+msgstr "Xapian-आधारितं अन्वेषणं, बहुधा दोषनिराकरणम्"
+
+#: application.cpp:111
+#, kde-format
+msgid "Former maintainer"
+msgstr "पूर्व परिपालक"
+
+#: application.cpp:113
+#, kde-format
+msgid "Original Author"
+msgstr "मूल लेखक"
+
+#: application.cpp:114
+#, kde-format
+msgid "Info page support"
+msgstr "Info पृष्ठ समर्थन"
+
+#: docmetainfo.cpp:36
+#, kde-format
+msgid "Top-Level Documentation"
+msgstr "शीर्षस्तरीय दस्तावेजीकरण"
+
+#: docmetainfo.cpp:79
+#, kde-format
+msgctxt "doctitle (language)"
+msgid "%1 (%2)"
+msgstr ""
+
+#: docmetainfo.cpp:112
+#, kde-format
+msgctxt "Describes documentation entries that are in English"
+msgid "English"
+msgstr ""
+
+#: fontdialog.cpp:36
+#, kde-format
+msgid "Font Configuration"
+msgstr "फ़ॉन्ट् विन्यासः"
+
+#: fontdialog.cpp:62
+#, kde-format
+msgid "Sizes"
+msgstr "आकाराः"
+
+#: fontdialog.cpp:66
+#, kde-format
+msgctxt "The smallest size a will have"
+msgid "M&inimum font size:"
+msgstr ""
+
+#: fontdialog.cpp:73
+#, kde-format
+msgctxt "The normal size a font will have"
+msgid "M&edium font size:"
+msgstr ""
+
+#: fontdialog.cpp:83
+#, kde-format
+msgid "Fonts"
+msgstr "फॉन्ट्"
+
+#: fontdialog.cpp:87
+#, kde-format
+msgid "S&tandard font:"
+msgstr "S&मानक फ़ॉन्ट: ."
+
+#: fontdialog.cpp:93
+#, kde-format
+msgid "F&ixed font:"
+msgstr "F&ixed फ़ॉन्टः : १."
+
+#: fontdialog.cpp:99
+#, kde-format
+msgid "S&erif font:"
+msgstr "S&erif फ़ॉन्ट्: ."
+
+#: fontdialog.cpp:105
+#, kde-format
+msgid "S&ans serif font:"
+msgstr "S&ans सेरिफ फॉन्ट:"
+
+#: fontdialog.cpp:111
+#, kde-format
+msgid "&Italic font:"
+msgstr "&इटालिक फ़ॉन्टः : १."
+
+#: fontdialog.cpp:117
+#, kde-format
+msgid "&Fantasy font:"
+msgstr "&काल्पनिक फ़ॉन्टः : १."
+
+#: fontdialog.cpp:126
+#, kde-format
+msgid "Encoding"
+msgstr "एन्कोडिंग्"
+
+#: fontdialog.cpp:131
+#, kde-format
+msgid "&Default encoding:"
+msgstr "&पूर्वनिर्धारित एन्कोडिंग् : १."
+
+#: fontdialog.cpp:136 fontdialog.cpp:198
+#, kde-format
+msgid "Use Language Encoding"
+msgstr "Language Encoding इत्यस्य उपयोगं कुर्वन्तु"
+
+#: fontdialog.cpp:140
+#, kde-format
+msgid "&Font size adjustment:"
+msgstr "&फॉन्ट आकार समायोजनम् : १."
+
+#: glossary.cpp:74
+#, kde-format
+msgid "By Topic"
+msgstr "विषयानुसार"
+
+#: glossary.cpp:78 infotree.cpp:76
+#, kde-format
+msgid "Alphabetically"
+msgstr "वर्णमालानुसारम्"
+
+#: glossary.cpp:130
+#, kde-format
+msgid "Rebuilding glossary cache..."
+msgstr "शब्दावली-सञ्चयस्य पुनर्निर्माणम्..."
+
+#: glossary.cpp:178
+#, kde-format
+msgid "Rebuilding cache... done."
+msgstr "कैशस्य पुनर्निर्माणम्... कृतम्।"
+
+#: grantleeformatter.cpp:97
+#, kde-format
+msgctxt "%1 is a glossary term"
+msgid "KDE Glossary: %1"
+msgstr ""
+
+#: grantleeformatter.cpp:98
+#, kde-format
+msgid "KDE Glossary"
+msgstr "केडीई शब्दावली"
+
+#: grantleeformatter.cpp:102
+#, kde-format
+msgid "See also: %1"
+msgstr "इदमपि पश्यन्तु : %1"
+
+#: grantleeformatter.cpp:122
+#, kde-format
+msgid "Search Results"
+msgstr "अन्वेषण परिणाम"
+
+#: grantleeformatter.cpp:123 searchengine.cpp:266
+#, kde-format
+msgid "Search Results for '%1':"
+msgstr "'%1' इत्यस्य अन्वेषणपरिणामाः:"
+
+#: infotree.cpp:79
+#, kde-format
+msgid "By Category"
+msgstr "श्रेणी द्वारा"
+
+#. i18n: ectx: label, entry, group (Search)
+#: khelpcenter.kcfg:31
+#, kde-format
+msgid "Path to index directory."
+msgstr "अनुक्रमणिकानिर्देशिकायाः मार्गः ।"
+
+#. i18n: ectx: whatsthis, entry, group (Search)
+#: khelpcenter.kcfg:32
+#, kde-format
+msgid "Path to directory containing search indices."
+msgstr "अन्वेषणसूचकाङ्काः समाविष्टाः निर्देशिकाः मार्गः ।"
+
+#. i18n: ectx: label, entry, group (Layout)
+#: khelpcenter.kcfg:46
+#, kde-format
+msgid "Currently visible navigator tab"
+msgstr "सम्प्रति दृश्यमानं नेविगेटर् ट्याब्"
+
+#. i18n: ectx: Menu (edit)
+#: khelpcenterui.rc:5
+#, kde-format
+msgid "&Edit"
+msgstr "&सम्पादन"
+
+#. i18n: ectx: Menu (view)
+#: khelpcenterui.rc:13
+#, kde-format
+msgid "&View"
+msgstr "&दृश्यं"
+
+#. i18n: ectx: Menu (go)
+#: khelpcenterui.rc:19
+#, kde-format
+msgid "&Go"
+msgstr "&गच्छ"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: khelpcenterui.rc:36
+#, kde-format
+msgid "Main Toolbar"
+msgstr "मुख्य साधनपट्टी"
+
+#: mainwindow.cpp:63
+#, kde-format
+msgid "Search Error Log"
+msgstr "अन्वेषण त्रुटि लॉग"
+
+#: mainwindow.cpp:119
+#, kde-format
+msgid "Preparing Index"
+msgstr "सूचकाङ्कस्य निर्माणम्"
+
+#: mainwindow.cpp:146
+#, kde-format
+msgid "Ready"
+msgstr "आत्त"
+
+#: mainwindow.cpp:201
+#, kde-format
+msgid "Table of &Contents"
+msgstr "&सामग्रीसारणी"
+
+#: mainwindow.cpp:202
+#, kde-format
+msgid "Table of contents"
+msgstr "विषयवस्तुसारणी"
+
+#: mainwindow.cpp:203
+#, kde-format
+msgid "Go back to the table of contents"
+msgstr "पुनः विषयसूचीं प्रति गच्छन्तु"
+
+#: mainwindow.cpp:213
+#, kde-format
+msgid "&Last Search Result"
+msgstr "&अन्तिम अन्वेषण परिणाम"
+
+#: mainwindow.cpp:241
+#, kde-format
+msgctxt "@title:menu"
+msgid "&Bookmarks"
+msgstr ""
+
+#: navigator.cpp:64
+#, kde-format
+msgid "Search..."
+msgstr "अन्वेषण..."
+
+#: navigator.cpp:119
+#, kde-format
+msgid "&Contents"
+msgstr "&सामग्री"
+
+#: navigator.cpp:128
+#, kde-format
+msgid "Search Options"
+msgstr "अन्वेषणविकल्पाः"
+
+#: navigator.cpp:135
+#, kde-format
+msgid "G&lossary"
+msgstr "G&lossary"
+
+#: navigator.cpp:455
+#, kde-format
+msgid "Start Page"
+msgstr "पृष्ठ प्रारंभ"
+
+#: navigator.cpp:456
+#, kde-format
+msgid "KDE Help Center"
+msgstr "KDE सहायता केन्द्र"
+
+#: navigator.cpp:540
+#, kde-format
+msgid "Unable to run search program."
+msgstr "अन्वेषणकार्यक्रमं चालयितुं असमर्थः।"
+
+#: navigator.cpp:632
+#, kde-format
+msgid "Updating search index..."
+msgstr "अन्वेषणसूचकाङ्कं अद्यतनं कुर्वन्..."
+
+#: navigator.cpp:643
+#, kde-format
+msgid "Updating search index... done."
+msgstr "अन्वेषणसूचकाङ्कस्य अद्यतनीकरणं... कृतम्।"
+
+#: printdoc.cpp:60
+#, kde-format
+msgid "Could not generate print preview."
+msgstr "मुद्रणपूर्वावलोकनं जनयितुं न शक्तवान् ।"
+
+#: printdoc.cpp:96
+#, kde-format
+msgctxt "@title:window"
+msgid "Print Document"
+msgstr ""
+
+#: searchengine.cpp:62
+#, kde-format
+msgid "Error: No document type specified."
+msgstr "त्रुटिः : कोऽपि दस्तावेजप्रकारः निर्दिष्टः नास्ति ।"
+
+#: searchengine.cpp:64
+#, kde-format
+msgid "Error: No search handler for document type '%1'."
+msgstr "त्रुटिः: '%1' दस्तावेजप्रकारस्य अन्वेषणसञ्चालकः नास्ति ।"
+
+#: searchengine.cpp:234
+#, kde-format
+msgid "No valid search handler found."
+msgstr "वैधः अन्वेषणसञ्चालकः न प्राप्तः ।"
+
+#: searchhandler.cpp:38
+#, kde-format
+msgid "Error executing search command '%1'."
+msgstr "'%1' अन्वेषण आदेशं निष्पादयन् त्रुटिः ।"
+
+#: searchhandler.cpp:76
+#, kde-format
+msgid "Error: %1"
+msgstr "त्रुटिः %1"
+
+#: searchhandler.cpp:139 searchhandler.cpp:144
+#, kde-format
+msgid "'%1' not found, check your installation"
+msgstr "'%1' न प्राप्तम्, भवतः संस्थापनं पश्यन्तु"
+
+#: searchhandler.cpp:149
+#, kde-format
+msgid "'%1' not found, install the package containing it"
+msgstr "'%1' न प्राप्तम्, तत्युक्तं संकुलं संस्थापयन्तु"
+
+#: searchhandler.cpp:194
+#, kde-format
+msgid "No search command or URL specified."
+msgstr "अन्वेषणनिर्देशः अथवा URL निर्दिष्टः नास्ति ।"
+
+#: searchwidget.cpp:41
+#, kde-format
+msgid "and"
+msgstr "तथा"
+
+#: searchwidget.cpp:42
+#, kde-format
+msgid "or"
+msgstr "वा"
+
+#: searchwidget.cpp:44
+#, kde-format
+msgid "&Method:"
+msgstr "&प्रक्रिया:"
+
+#: searchwidget.cpp:60
+#, kde-format
+msgid "Max. &results:"
+msgstr "मैक्स। &परिणामाः:"
+
+#: searchwidget.cpp:75
+#, kde-format
+msgid "&Scope selection:"
+msgstr "&व्याप्तिचयनम् : १."
+
+#: searchwidget.cpp:83
+#, kde-format
+msgid "Scope"
+msgstr "लब्द्धावसर"
+
+#: searchwidget.cpp:335
+#, kde-format
+msgctxt "Label for searching documentation using custom (user defined) scope"
+msgid "Custom"
+msgstr ""
+
+#: searchwidget.cpp:337
+#, kde-format
+msgctxt "Label for searching documentation using default search scope"
+msgid "Default"
+msgstr ""
+
+#: searchwidget.cpp:339
+#, kde-format
+msgctxt "Label for searching documentation in all subsections"
+msgid "All"
+msgstr ""
+
+#: searchwidget.cpp:341
+#, kde-format
+msgctxt "Label for scope that deselects all search subsections"
+msgid "None"
+msgstr ""
+
+#: searchwidget.cpp:343
+#, kde-format
+msgctxt "Label for Unknown search scope, that should never appear"
+msgid "unknown"
+msgstr ""
+
+#: view.cpp:303
+#, kde-format
+msgid "Save Page"
+msgstr "पृष्ठं रक्षतु"
