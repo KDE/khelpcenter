@@ -3,28 +3,31 @@
 # This file is distributed under the same license as the khelpcenter package.
 # Kali <EMAIL@ADDRESS>, 2024.
 #
+# SPDX-FileCopyrightText: 2024 kali <skkalwar999@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-07 00:42+0000\n"
-"PO-Revision-Date: 2024-12-13 19:10+0530\n"
-"Last-Translator: Kali <EMAIL@ADDRESS>\n"
-"Language-Team: Sanskrit\n"
+"PO-Revision-Date: 2024-12-14 01:10+0530\n"
+"Last-Translator: kali <skkalwar999@gmail.com>\n"
+"Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "भवतः नामानि"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "भवतः ईमेलपत्राणि"
 
 #: application.cpp:30
 #, kde-format
@@ -75,13 +78,13 @@ msgstr "शीर्षस्तरीय दस्तावेजीकरण"
 #, kde-format
 msgctxt "doctitle (language)"
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1 (%2) २."
 
 #: docmetainfo.cpp:112
 #, kde-format
 msgctxt "Describes documentation entries that are in English"
 msgid "English"
-msgstr ""
+msgstr "आंग्ल"
 
 #: fontdialog.cpp:36
 #, kde-format
@@ -97,13 +100,13 @@ msgstr "आकाराः"
 #, kde-format
 msgctxt "The smallest size a will have"
 msgid "M&inimum font size:"
-msgstr ""
+msgstr "M& न्यूनतमं फ़ॉन्ट आकारः : १."
 
 #: fontdialog.cpp:73
 #, kde-format
 msgctxt "The normal size a font will have"
 msgid "M&edium font size:"
-msgstr ""
+msgstr "मध्यमः फ़ॉन्ट् आकारः : १."
 
 #: fontdialog.cpp:83
 #, kde-format
@@ -184,7 +187,7 @@ msgstr "कैशस्य पुनर्निर्माणम्... कृ�
 #, kde-format
 msgctxt "%1 is a glossary term"
 msgid "KDE Glossary: %1"
-msgstr ""
+msgstr "KDE शब्दावली: %1"
 
 #: grantleeformatter.cpp:98
 #, kde-format
@@ -292,7 +295,7 @@ msgstr "&अन्तिम अन्वेषण परिणाम"
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"
-msgstr ""
+msgstr "&पुस्तकचिह्न"
 
 #: navigator.cpp:64
 #, kde-format
@@ -348,7 +351,7 @@ msgstr "मुद्रणपूर्वावलोकनं जनयित�
 #, kde-format
 msgctxt "@title:window"
 msgid "Print Document"
-msgstr ""
+msgstr "दस्तावेजं मुद्रयन्तु"
 
 #: searchengine.cpp:62
 #, kde-format
@@ -424,31 +427,31 @@ msgstr "लब्द्धावसर"
 #, kde-format
 msgctxt "Label for searching documentation using custom (user defined) scope"
 msgid "Custom"
-msgstr ""
+msgstr "आचारः"
 
 #: searchwidget.cpp:337
 #, kde-format
 msgctxt "Label for searching documentation using default search scope"
 msgid "Default"
-msgstr ""
+msgstr "मूलभूतम्‌"
 
 #: searchwidget.cpp:339
 #, kde-format
 msgctxt "Label for searching documentation in all subsections"
 msgid "All"
-msgstr ""
+msgstr "सर्वे"
 
 #: searchwidget.cpp:341
 #, kde-format
 msgctxt "Label for scope that deselects all search subsections"
 msgid "None"
-msgstr ""
+msgstr "न कश्चित्"
 
 #: searchwidget.cpp:343
 #, kde-format
 msgctxt "Label for Unknown search scope, that should never appear"
 msgid "unknown"
-msgstr ""
+msgstr "अज्ञात"
 
 #: view.cpp:303
 #, kde-format
