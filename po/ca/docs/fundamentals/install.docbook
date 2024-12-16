@@ -3,7 +3,7 @@
 >Instal·lació de l'&plasma-desktop; i les aplicacions &kde;</title>
 
 <para
->Podeu instal·lar les aplicacions &kde;, inclòs l'&plasma-desktop; sobre una varietat de plataformes diferents, que van des de telèfons intel·ligents i tauletes a equips que executen &Microsoft; &Windows;, &MacOS;, &UNIX;, &BSD; o &Linux;. Els paquets binaris estan disponibles per a plataformes i distribucions diferents, o els usuaris avançats els poden construir des del codi font.</para>
+>Podeu instal·lar les aplicacions &kde;, inclòs l'&plasma-desktop; sobre una varietat de plataformes diferents, que van des de telèfons intel·ligents i tauletes a equips que executen &Microsoft; &Windows;, &macOS;, &UNIX;, &BSD; o &Linux;. Els paquets binaris estan disponibles per a plataformes i distribucions diferents, o els usuaris avançats els poden construir des del codi font.</para>
 
 <sect1 id="install-packages">
 <title
@@ -56,14 +56,14 @@
 
 <sect2 id="install-mac">
 <title
->&MacOS;</title>
+>&macOS;</title>
 
 <para
->Les aplicacions &kde; individuals es poden instal·lar a través de diversos «ports» dels diferents sistemes disponibles per a &MacOS;. Diverses aplicacions &kde; diferents també proporcionen el seu propi binari compilat per a &MacOS;.</para>
+>Les aplicacions &kde; individuals es poden instal·lar a través de diversos «ports» dels diferents sistemes disponibles per a &macOS;. Diverses aplicacions &kde; diferents també proporcionen el seu propi binari compilat per a &macOS;.</para>
 
 <para
 >Per a més informació, visiteu el <ulink url="https://community.kde.org/Mac"
->&kde; on &MacOS;X</ulink
+>&kde; on &macOS;</ulink
 >.</para>
 
 </sect2>

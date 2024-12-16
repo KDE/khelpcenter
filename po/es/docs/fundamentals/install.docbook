@@ -3,7 +3,7 @@
 >Instalación del &plasma-desktop; y de las aplicaciones de &kde;</title>
 
 <para
->Puede instalar las aplicaciones de &kde;, incluido el &plasma-desktop; en varias plataformas diferentes, que van desde teléfonos inteligentes y tabletas hasta equipos que ejecutan &Microsoft; &Windows;, &MacOS;, &UNIX;, &BSD; o &Linux;. Los paquetes binarios están disponibles para distintas plataformas y distribuciones, y los usuarios avanzados pueden compilar el código fuente.</para>
+>Puede instalar las aplicaciones de &kde;, incluido el &plasma-desktop; en varias plataformas diferentes, que van desde teléfonos inteligentes y tabletas hasta equipos que ejecutan &Microsoft; &Windows;, &macOS;, &UNIX;, &BSD; o &Linux;. Los paquetes binarios están disponibles para distintas plataformas y distribuciones, y los usuarios avanzados pueden compilar el código fuente.</para>
 
 <sect1 id="install-packages">
 <title
@@ -56,14 +56,14 @@
 
 <sect2 id="install-mac">
 <title
->&MacOS;</title>
+>&macOS;</title>
 
 <para
->Las aplicaciones &kde; individuales se pueden instalar a través de diferentes sistemas de «adaptaciones» disponibles para &MacOS;. Varias aplicaciones &kde; también proporcionan sus propias compilaciones binarias para &MacOS;.</para>
+>Las aplicaciones &kde; individuales se pueden instalar a través de diferentes sistemas de «adaptaciones» disponibles para &macOS;. Varias aplicaciones &kde; también proporcionan sus propias compilaciones binarias para &macOS;.</para>
 
 <para
 >Para obtener más información, visite <ulink url="https://community.kde.org/Mac"
->&kde; en &MacOS;X</ulink
+>&kde; en &macOS;</ulink
 >.</para>
 
 </sect2>
