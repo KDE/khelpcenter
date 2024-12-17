@@ -3,7 +3,7 @@
 >&plasma-desktop; en &kde; Applications worden geïnstalleerd</title>
 
 <para
->U kunt &kde; applications, met  &plasma-desktop; installeren op een verscheidenheid van verschillende platforms, variërend van smartphones en tablets tot computers met &Microsoft; &Windows;, &MacOS;, &UNIX;, &BSD; of &Linux;. Binaire pakketten zijn beschikbaar voor veel verschillende platforms en distributies of geavanceerde gebruikers kunnen het bouwen vanaf de broncode.</para>
+>U kunt &kde; applications, met  &plasma-desktop; installeren op een verscheidenheid van verschillende platforms, variërend van smartphones en tablets tot computers met &Microsoft; &Windows;, &macOS;, &UNIX;, &BSD; of &Linux;. Binaire pakketten zijn beschikbaar voor veel verschillende platforms en distributies of geavanceerde gebruikers kunnen het bouwen vanaf de broncode.</para>
 
 <sect1 id="install-packages">
 <title
@@ -46,7 +46,7 @@
 >Het initiatief "&kde; on Windows" levert binaire pakketten van toepassingen van de &kde; voor &Microsoft; &Windows;. Ze leveren ook een speciaal installatieprogramma dat u in staat stelt individuele toepassingen of groepen en alle noodzakelijke afhankelijkheden gemakkelijk te installeren.</para>
 
 <para
->Voor meer informatie over het initiatief en om het installatieprogramma te downloaden, bezoek <ulink url="https://windows.kde.org/"
+>Voor meer informatie over het initiatief en om het installatieprogramma te downloaden, bezoek <ulink url="https://community.kde.org/Windows"
 >het initiatief "KDE on Windows"</ulink
 >. </para>
 
@@ -56,16 +56,16 @@
 
 <sect2 id="install-mac">
 <title
->&MacOS;</title>
+>&macOS;</title>
 
 <para
 >Individuele toepassingen van &kde; kunnen geïnstalleerd worden met een aantal verschillende <quote
 >ports</quote
->-systemen beschikbaar voor &MacOS;. Een aantal verschillende &kde;-toepassingen leveren ook hun eigen binaire pakket voor &MacOS;.</para>
+>-systemen beschikbaar voor &macOS;. Een aantal verschillende &kde;-toepassingen leveren ook hun eigen binaire pakket voor &macOS;.</para>
 
 <para
->Voor meer informatie, bezoek <ulink url="https://mac.kde.org/"
->&kde; on &MacOS;X</ulink
+>Voor meer informatie, bezoek <ulink url="https://community.kde.org/Mac"
+>&kde; on &macOS;</ulink
 >.</para>
 
 </sect2>
