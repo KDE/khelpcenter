@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-07 00:42+0000\n"
-"PO-Revision-Date: 2024-12-14 01:10+0530\n"
+"PO-Revision-Date: 2024-12-20 21:52+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
@@ -78,7 +78,7 @@ msgstr "शीर्षस्तरीय दस्तावेजीकरण"
 #, kde-format
 msgctxt "doctitle (language)"
 msgid "%1 (%2)"
-msgstr "%1 (%2) २."
+msgstr "%1 (%2)"
 
 #: docmetainfo.cpp:112
 #, kde-format
@@ -100,13 +100,13 @@ msgstr "आकाराः"
 #, kde-format
 msgctxt "The smallest size a will have"
 msgid "M&inimum font size:"
-msgstr "M& न्यूनतमं फ़ॉन्ट आकारः : १."
+msgstr "M& न्यूनतमं फ़ॉन्ट आकारः :"
 
 #: fontdialog.cpp:73
 #, kde-format
 msgctxt "The normal size a font will have"
 msgid "M&edium font size:"
-msgstr "मध्यमः फ़ॉन्ट् आकारः : १."
+msgstr "मध्यमः फ़ॉन्ट् आकारः :"
 
 #: fontdialog.cpp:83
 #, kde-format
@@ -121,7 +121,7 @@ msgstr "S&मानक फ़ॉन्ट: ."
 #: fontdialog.cpp:93
 #, kde-format
 msgid "F&ixed font:"
-msgstr "F&ixed फ़ॉन्टः : १."
+msgstr "F&ixed फ़ॉन्टः :"
 
 #: fontdialog.cpp:99
 #, kde-format
@@ -136,12 +136,12 @@ msgstr "S&ans सेरिफ फॉन्ट:"
 #: fontdialog.cpp:111
 #, kde-format
 msgid "&Italic font:"
-msgstr "&इटालिक फ़ॉन्टः : १."
+msgstr "&इटालिक फ़ॉन्टः :"
 
 #: fontdialog.cpp:117
 #, kde-format
 msgid "&Fantasy font:"
-msgstr "&काल्पनिक फ़ॉन्टः : १."
+msgstr "&काल्पनिक फ़ॉन्टः :"
 
 #: fontdialog.cpp:126
 #, kde-format
@@ -151,7 +151,7 @@ msgstr "एन्कोडिंग्"
 #: fontdialog.cpp:131
 #, kde-format
 msgid "&Default encoding:"
-msgstr "&पूर्वनिर्धारित एन्कोडिंग् : १."
+msgstr "&पूर्वनिर्धारित एन्कोडिंग् :"
 
 #: fontdialog.cpp:136 fontdialog.cpp:198
 #, kde-format
@@ -161,7 +161,7 @@ msgstr "Language Encoding इत्यस्य उपयोगं कुर्�
 #: fontdialog.cpp:140
 #, kde-format
 msgid "&Font size adjustment:"
-msgstr "&फॉन्ट आकार समायोजनम् : १."
+msgstr "&फॉन्ट आकार समायोजनम् :"
 
 #: glossary.cpp:74
 #, kde-format
@@ -416,7 +416,7 @@ msgstr "मैक्स। &परिणामाः:"
 #: searchwidget.cpp:75
 #, kde-format
 msgid "&Scope selection:"
-msgstr "&व्याप्तिचयनम् : १."
+msgstr "&व्याप्तिचयनम् :"
 
 #: searchwidget.cpp:83
 #, kde-format
