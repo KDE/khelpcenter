@@ -95,7 +95,7 @@
 >&CUPS;</glossterm>
                         <glossdef
 ><para
->Abbreviazione di &emstart;C&emend;ommon &emstart;U&emend;NIX &emstart;P&emend;rinting &emstart;S&emend;ystem; &CUPS; è il più moderno sistema di stampa per &UNIX; e Linux, fornisce inoltre servizi di stampa multipiattaforma a client &Microsoft; &Windows; ed Apple &MacOS;. Basato su IPP, supera tutti i problemi del vecchio sistema di stampa BSD fornendo autenticazione, crittografia e ACL, più molte altre funzionalità. Allo stesso tempo è sufficientemente compatibile all'indietro per fornire servizi a tutte le applicazioni che non siano ancora compatibili con IPP attraverso LPR/LPD (sistema BSD).&newpara;&CUPS; è in grado di controllare qualsiasi stampante &PostScript; utilizzando il file PPD (PostScript Printer Description, file di definizione della stampante PostScript), orientato inizialmente  solo alla stampa su &Microsoft; Windows NT. La stampa &kde; dà il massimo quando è basata su &CUPS;.&newpara;Maggiori informazioni sulla &linkstart;"https://www.cups.org"&linkmid;pagina Web di &CUPS;&linkend;.</para
+>Abbreviazione di &emstart;C&emend;ommon &emstart;U&emend;NIX &emstart;P&emend;rinting &emstart;S&emend;ystem; &CUPS; è il più moderno sistema di stampa per &UNIX; e Linux, fornisce inoltre servizi di stampa multipiattaforma a client &Microsoft; &Windows; ed Apple &macOS;. Basato su IPP, supera tutti i problemi del vecchio sistema di stampa BSD fornendo autenticazione, crittografia e ACL, più molte altre funzionalità. Allo stesso tempo è sufficientemente compatibile all'indietro per fornire servizi a tutte le applicazioni che non siano ancora compatibili con IPP attraverso LPR/LPD (sistema BSD).&newpara;&CUPS; è in grado di controllare qualsiasi stampante &PostScript; utilizzando il file PPD (PostScript Printer Description, file di definizione della stampante PostScript), orientato inizialmente  solo alla stampa su &Microsoft; Windows NT. La stampa &kde; dà il massimo quando è basata su &CUPS;.&newpara;Maggiori informazioni sulla &linkstart;"https://www.cups.org"&linkmid;pagina Web di &CUPS;&linkend;.</para
 ><glossseealso otherterm="gloss-acl"
 >ACL</glossseealso
 > <glossseealso otherterm="gloss-authentication"
@@ -159,7 +159,7 @@
 >Foomatic</quote
 >. Foomatic estende le possibilità degli spooler diversi da &CUPS; (LPR/LPD, LPRng, LDQ, PPR) fino ad un certo livello (<quote
 >rubando</quote
-> certi concetti da &CUPS;). La banca dati Linuxprinting non è solo per utenti che utilizzano Linux e basta. Chi utilizza altri sistemi operativi basati su &UNIX; (come *BSD o &MacOS; X) possono comunque trovare lì informazioni e programmi di alta qualità. </para
+> certi concetti da &CUPS;). La banca dati Linuxprinting non è solo per utenti che utilizzano Linux e basta. Chi utilizza altri sistemi operativi basati su &UNIX; (come *BSD o &macOS;) possono comunque trovare lì informazioni e programmi di alta qualità. </para
 ><glossseealso otherterm="gloss-foomatic"
 >Foomatic</glossseealso
 > <glossseealso otherterm="gloss-linuxprintingdatabase"
