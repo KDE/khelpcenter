@@ -1064,17 +1064,13 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 >Проверка орфографии</title>
 
 <para
->&sonnet; — это модуль для проверки орфографии, используемый такими приложениями KDE как &kate;, &kmail; и &kword;. &sonnet; предоставляет графический интерфейс для различных инструментов проверки орфографии, распространяемых под свободными лицензиями.</para>
+>&sonnet; — это модуль для проверки орфографии, используемый такими приложениями &kde; как &kate;, &kmail; и &calligrawords;. &sonnet; предоставляет графический интерфейс для различных инструментов проверки орфографии, распространяемых под свободными лицензиями.</para>
 
 <para
 >Для использования &sonnet; необходимо установить программу для проверки орфографии: <application
 >&GNU; Aspell</application
 >, <application
->Enchant</application
->, <application
 >Hspell</application
->, <application
->ISpell</application
 > или <application
 >Hunspell</application
 >, а также соответствующие словари для необходимых языков.</para>
