@@ -1,13 +1,14 @@
-# Copyright (C) YEAR This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
+# Spanish translations for khelpcenter6.po package.
+# Copyright (C) 2014-2025 This file is copyright:
+# This file is distributed under the same license as the khelpcenter package.
 #
-# SPDX-FileCopyrightText: 2014, 2016, 2018, 2019, 2020, 2023 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2014, 2016, 2018, 2019, 2020, 2023, 2025 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: khelpcenter6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-07 00:42+0000\n"
-"PO-Revision-Date: 2023-09-29 19:29+0200\n"
+"PO-Revision-Date: 2025-05-17 13:10+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -174,12 +175,12 @@ msgstr "Alfabéticamente"
 #: glossary.cpp:130
 #, kde-format
 msgid "Rebuilding glossary cache..."
-msgstr "Reconstruyendo la caché del glosario..."
+msgstr "Reconstruyendo la caché del glosario…"
 
 #: glossary.cpp:178
 #, kde-format
 msgid "Rebuilding cache... done."
-msgstr "Reconstruyendo la caché... terminado."
+msgstr "Reconstruyendo la caché… terminado."
 
 #: grantleeformatter.cpp:97
 #, kde-format
@@ -298,7 +299,7 @@ msgstr "&Marcadores"
 #: navigator.cpp:64
 #, kde-format
 msgid "Search..."
-msgstr "Buscar..."
+msgstr "Buscar…"
 
 #: navigator.cpp:119
 #, kde-format
@@ -333,12 +334,12 @@ msgstr "No ha sido posible ejecutar el programa de búsqueda."
 #: navigator.cpp:632
 #, kde-format
 msgid "Updating search index..."
-msgstr "Actualizando el índice de búsqueda..."
+msgstr "Actualizando el índice de búsqueda…"
 
 #: navigator.cpp:643
 #, kde-format
 msgid "Updating search index... done."
-msgstr "Actualizando el índice de búsqueda... terminado."
+msgstr "Actualizando el índice de búsqueda… terminado."
 
 #: printdoc.cpp:60
 #, kde-format
@@ -455,232 +456,3 @@ msgstr "Desconocido"
 #, kde-format
 msgid "Save Page"
 msgstr "Guardar la página"
-
-#~ msgid "Previous Page"
-#~ msgstr "Página anterior"
-
-#~ msgid "Moves to the previous page of the document"
-#~ msgstr "Va a la página anterior del documento"
-
-#~ msgid "Next Page"
-#~ msgstr "Página siguiente"
-
-#~ msgid "Moves to the next page of the document"
-#~ msgstr "Va a la página siguiente del documento"
-
-#~ msgid "Configure Fonts..."
-#~ msgstr "Configurar tipos de letra..."
-
-#~ msgid "Increase Font Sizes"
-#~ msgstr "Aumentar el tamaño de los tipos de letras"
-
-#~ msgid "Decrease Font Sizes"
-#~ msgstr "Disminuir el tamaño de los tipos de letras"
-
-#~ msgid "Copy Link Address"
-#~ msgstr "Copiar dirección del enlace"
-
-#~ msgid ""
-#~ "<p>Read the topic documentation in this window.<br /><br />Press "
-#~ "<b>Space</b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, "
-#~ "<b>Tab</b>/<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
-#~ msgstr ""
-#~ "<p>Lea la documentación del tema en esta ventana.<br /><br />Pulse "
-#~ "<b>Espacio</b>/<b>Mayúsculas+Espacio</b> para desplazarse, <b>%1</b> para "
-#~ "buscar algo, <b>Tabulador</b>/<b>Mayúsculas+Tabulador</b> para saltar o "
-#~ "<b>Intro</b> para seguir enlaces.</p>"
-
-#~ msgid "Handler"
-#~ msgstr "Manejador"
-
-#~ msgid "Unable to initialize SearchHandler from file '%1'."
-#~ msgstr ""
-#~ "No ha sido posible inicializar el gestor de búsqueda desde el archivo "
-#~ "«%1»."
-
-#~ msgid "Error"
-#~ msgstr "Error"
-
-#~ msgid ""
-#~ "Unable to show selected glossary entry: unable to open file 'glossary."
-#~ "html.in'!"
-#~ msgstr ""
-#~ "No ha sido posible mostrar la entrada del glosario seleccionada: no ha "
-#~ "sido posible abrir el archivo «glossary.html.in»."
-
-#~ msgid "ht://dig"
-#~ msgstr "ht://dig"
-
-#~ msgid ""
-#~ "The fulltext search feature makes use of the ht://dig HTML search engine."
-#~ msgstr ""
-#~ "La función de búsqueda de texto completo hace uso del motor de búsqueda "
-#~ "HTML ht://dig."
-
-#~ msgid "Information about where to get the ht://dig package."
-#~ msgstr "Información sobre dónde obtener el paquete ht://dig."
-
-#~ msgid "You can get ht://dig at the ht://dig home page"
-#~ msgstr "Puede obtener ht://dig en la página web de ht://dig"
-
-#~ msgid "Program Locations"
-#~ msgstr "Ubicación de programas"
-
-#~ msgid "htsearch:"
-#~ msgstr "htsearch:"
-
-#~ msgid "Enter the URL of the htsearch CGI program."
-#~ msgstr "Introduzca el URL del programa CGI «htsearch»."
-
-#~ msgid "Indexer:"
-#~ msgstr "Indexador:"
-
-#~ msgid "Enter the path to your htdig indexer program here."
-#~ msgstr "Introduzca aquí la ruta del programa indexador htdig."
-
-#~ msgid "htdig database:"
-#~ msgstr "Base datos de htdig:"
-
-#~ msgid "Enter the path to the htdig database folder."
-#~ msgstr "Introduzca la ruta de la carpeta de la base de datos de htdig."
-
-#~ msgid "Change Index Folder"
-#~ msgstr "Cambiar carpeta del índice"
-
-#~ msgid "Index folder:"
-#~ msgstr "Carpeta del índice:"
-
-#~ msgid "Build Search Indices"
-#~ msgstr "Generar índices de búsqueda"
-
-#~ msgid "Index creation log:"
-#~ msgstr "Registro de creación del índice:"
-
-#~ msgctxt ""
-#~ "Label for button to close search index progress dialog after successful "
-#~ "completion"
-#~ msgid "Close"
-#~ msgstr "Cerrar"
-
-#~ msgid "Index creation finished."
-#~ msgstr "La creación del índice ha terminado."
-
-#~ msgctxt "Label for stopping search index generation before completion"
-#~ msgid "Stop"
-#~ msgstr "Detener"
-
-#~ msgid "Details <<"
-#~ msgstr "Detalles <<"
-
-#~ msgid "Details >>"
-#~ msgstr "Detalles >>"
-
-#~ msgid "Build Search Index"
-#~ msgstr "Generar índice de búsqueda"
-
-#~ msgid "Build Index"
-#~ msgstr "Generar índice"
-
-#~ msgid ""
-#~ "To be able to search a document, a search\n"
-#~ "index needs to exist. The status column of the list below shows whether "
-#~ "an index\n"
-#~ "for a document exists.\n"
-#~ msgstr ""
-#~ "Para poder buscar un documento es necesario que exista\n"
-#~ "un índice de búsqueda. La columna de estado de la lista\n"
-#~ "inferior muestra si existe un índice para el documento.\n"
-
-#~ msgid ""
-#~ "To create an index, check the box in the list and press the\n"
-#~ "\"Build Index\" button.\n"
-#~ msgstr ""
-#~ "Para crear un índice, marque la casilla de la lista y pulse el botón\n"
-#~ "«Generar índice».\n"
-
-#~ msgid "Search Scope"
-#~ msgstr "Ámbito de búsqueda"
-
-#~ msgid "Status"
-#~ msgstr "Estado"
-
-#~ msgid "Change..."
-#~ msgstr "Cambiar..."
-
-#~ msgid ""
-#~ "<qt>The folder <b>%1</b> does not exist; unable to create index.</qt>"
-#~ msgstr ""
-#~ "<qt>La carpeta <b>%1</b> no existe. No es posible crear el índice.</qt>"
-
-#~ msgctxt "Describes the status of a documentation index that is present"
-#~ msgid "OK"
-#~ msgstr "Aceptar"
-
-#~ msgctxt "Describes the status of a documentation index that is missing"
-#~ msgid "Missing"
-#~ msgstr "No presente"
-
-#~ msgctxt ""
-#~ " Generic prefix label for error messages when creating documentation "
-#~ "index, first arg is the document's identifier, second is the document's "
-#~ "name"
-#~ msgid "Document '%1' (%2):\n"
-#~ msgstr "Documento «%1» (%2):\n"
-
-#~ msgid "No document type."
-#~ msgstr "Ningún tipo de documento."
-
-#~ msgid "No search handler available for document type '%1'."
-#~ msgstr ""
-#~ "No dispone de un manejador de búsqueda para el tipo de documento «%1»."
-
-#~ msgid "No indexing command specified for document type '%1'."
-#~ msgstr ""
-#~ "No se ha indicado una orden de indexación para el tipo de documento «%1»."
-
-#~ msgid "Failed to build index."
-#~ msgstr "Ha ocurrido un fallo al crear el índice."
-
-#~ msgid ""
-#~ "Error executing indexing build command:\n"
-#~ "%1"
-#~ msgstr ""
-#~ "Ha ocurrido un error al ejecutar la orden de generación del índice:\n"
-#~ "%1"
-
-#~ msgid "Unable to start command '%1'."
-#~ msgstr "No ha sido posible iniciar la orden «%1»."
-
-#~ msgid "KHelpCenter Index Builder"
-#~ msgstr "Generador de índices para KHelpCenter"
-
-#~ msgid "2003 KDE"
-#~ msgstr "2003 KDE"
-
-#~ msgid "Cornelius Schumacher"
-#~ msgstr "Cornelius Schumacher"
-
-#~ msgid "Document to be indexed"
-#~ msgstr "Documento a indexar"
-
-#~ msgid "Index directory"
-#~ msgstr "Directorio del índice"
-
-#~ msgid ""
-#~ "A search index does not yet exist. Do you want to create the index now?"
-#~ msgstr "Todavía no existe un índice de búsqueda. ¿Desea crearlo ahora?"
-
-#~ msgid "Create"
-#~ msgstr "Crear"
-
-#~ msgid "Do Not Create"
-#~ msgstr "No crear"
-
-#~ msgid "The KDE Help Center"
-#~ msgstr "Centro de ayuda de KDE"
-
-#~ msgid "(c) 2003, The KHelpCenter developers"
-#~ msgstr "© 2003, los desarrolladores de KHelpCenter"
-
-#~ msgid "Details &gt;&gt;"
-#~ msgstr "Detalles &gt;&gt;"
