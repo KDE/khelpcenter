@@ -246,6 +246,11 @@ void View::slotReload(const QUrl &url)
         load(url);
 }
 
+void View::setCurrentlyHoveredLink(const QString &link)
+{
+    this->mCurrentlyHoveredLink = link;
+}
+
 void View::contextMenuEvent(QContextMenuEvent *ev)
 {
     QMenu menu;
@@ -284,7 +289,7 @@ void View::contextMenuEvent(QContextMenuEvent *ev)
         menu.addAction(act);
     }
     act = pageAction(QWebEnginePage::CopyLinkToClipboard);
-    if (act->isEnabled()) {
+    if (act->isEnabled() && !this->mCurrentlyHoveredLink.isEmpty()) {
         menu.addAction(act);
     }
     act = pageAction(QWebEnginePage::SavePage);

@@ -54,6 +54,7 @@ public:
 public Q_SLOTS:
     void lastSearch();
     void slotReload(const QUrl &url = QUrl());
+    void setCurrentlyHoveredLink(const QString &link);
 
 Q_SIGNALS:
     void searchResultCacheAvailable();
@@ -71,7 +72,7 @@ private:
 
     GrantleeFormatter *mGrantleeFormatter = nullptr;
     KActionCollection *mActionCollection = nullptr;
-    QString mCopyURL;
+    QString mCurrentlyHoveredLink;
 };
 
 }
