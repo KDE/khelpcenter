@@ -106,6 +106,7 @@ MainWindow::MainWindow()
     mViewContainer->setView(mDoc);
     connect(mDoc, &View::titleChanged, this, &MainWindow::setWindowTitle);
     connect(mDoc->page(), &QWebEnginePage::linkHovered, this, &MainWindow::statusBarMessage);
+    connect(mDoc->page(), &QWebEnginePage::linkHovered, mDoc, &View::setCurrentlyHoveredLink);
     connect(mDoc, &QWebEngineView::loadStarted, this, &MainWindow::slotStarted);
     connect(mDoc, &View::loadFinished, this, &MainWindow::documentCompleted);
     connect(mDoc, &View::searchResultCacheAvailable, this, &MainWindow::enableLastSearchAction);
