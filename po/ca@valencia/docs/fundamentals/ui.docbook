@@ -66,7 +66,7 @@
 </mediaobjectco>
 </screenshot>
 <para
->Esta és la finestra de &kwrite;, un editor de text. Feu clic en la part de la finestra per a aprendre més sobre seu.</para>
+>Esta és la finestra de &kwrite;, un editor de text. Cliqueu damunt de la part de la finestra per a aprendre'n més quant a ell.</para>
 
 <orderedlist>
 
@@ -171,7 +171,7 @@
 </screenshot>
 
 <para
->Esta és una altra finestra, la del gestor de fitxers &dolphin;. Feu clic en la part de la finestra per a aprendre més sobre seu.</para>
+>Esta és una altra finestra, la del gestor de fitxers &dolphin;. Cliqueu damunt de la part de la finestra per a aprendre més sobre seu.</para>
 
 <orderedlist>
 
@@ -278,7 +278,7 @@
 </screenshot>
 
 <para
->Esta captura de pantalla, del quadro Formats en &systemsettings;, mostra alguns elements de la &IGU;. Feu clic en una part de la finestra per a obtindre més informació.</para>
+>Esta captura de pantalla, del quadro Formats en &systemsettings;, mostra alguns elements de la &IGU;. Per a obtindre més informació, cliqueu damunt d'una part de la finestra.</para>
 
 <orderedlist>
 
@@ -398,7 +398,7 @@
 </screenshot>
 
 <para
->Esta captura de pantalla, del quadro Aplicacions predeterminades en &systemsettings;, mostra alguns elements més de la &IGU;. Feu clic en la part de la finestra per a obtindre més informació.</para>
+>Esta captura de pantalla, del quadro Aplicacions predeterminades en &systemsettings;, mostra alguns elements més de la &IGU;. Per a obtindre més informació, cliqueu damunt de la part de la finestra.</para>
 
 <orderedlist>
 
@@ -498,7 +498,7 @@
 <entry
 >Botó</entry>
 <entry
->Hi podeu fer clic amb el &BER; per a realitzar una acció.</entry>
+>Hi podeu clicar amb el &BER; per a realitzar una acció.</entry>
 <entry>
 <inlinemediaobject>
 <imageobject>
@@ -512,7 +512,7 @@
 <entry
 >Àrea de selecció</entry>
 <entry
->Mostra el camí en un sistema jeràrquic, tal com un sistema de fitxers. Feu clic damunt de qualsevol part del camí per pujar a l'arbre des d'esta ubicació. Feu clic damunt de la fletxa a la dreta de la part del camí per anar a un altre element secundari d'este camí. </entry>
+>Mostra el camí en un sistema jeràrquic, tal com un sistema de fitxers. Cliqueu damunt de qualsevol part del camí per a pujar en l'arbre des d'esta ubicació. Cliqueu damunt de la fletxa a la dreta de la part del camí per a anar cap a un element secundari d'este. </entry>
 <entry>
 <inlinemediaobject>
 <imageobject>
@@ -526,7 +526,7 @@
 <entry
 >Casella de selecció</entry>
 <entry
->S'hi pot fer clic per a seleccionar i desseleccionar elements. Normalment s'utilitza en una llista de diverses seleccions. Els elements seleccionats solen mostrar una marca de selecció, mentre que els elements sense seleccionar tindran una casella buida.</entry>
+>S'hi pot clicar per a seleccionar i desseleccionar elements. Normalment s'utilitza en una llista de diverses seleccions. Els elements seleccionats solen mostrar una marca de selecció, mentre que els elements sense seleccionar tindran una casella buida.</entry>
 <entry>
 <inlinemediaobject>
 <imageobject>
@@ -558,7 +558,7 @@
 >llista desplegable</link
 > i un <link linkend="visualdict-text-box"
 >quadro de text</link
->. Podeu seleccionar una opció de la llista, o escriure en el quadro de text. Alguns quadros combinats poden completar automàticament les entrades, o òbriguen la llista amb una llista d'opcions que coincidixen amb el que heu escrit.</entry>
+>. Podeu seleccionar una opció de la llista, o escriure en el quadro de text. Alguns quadros combinats poden completar automàticament les entrades, o obrin la llista amb una llista d'opcions que coincidixen amb el que heu escrit.</entry>
 <entry>
 <inlinemediaobject>
 <imageobject>
@@ -572,7 +572,7 @@
 <entry
 >Menú contextual</entry>
 <entry
->Molts elements de la interfície d'usuari en l'entorn de treball &kde; i les aplicacions, contenen un menú contextual, que es pot obrir fent clic sobre alguna cosa amb el &BDR;. Este menú conté opcions i accions que usualment afectaran els elements de la interfície d'usuari on feu clic dret.</entry>
+>Molts elements de la interfície d'usuari en l'entorn de treball &kde; i les aplicacions, contenen un menú contextual, el qual es pot obrir clicant sobre alguna cosa amb el &BDR;. Este menú conté opcions i accions que usualment afectaran els elements de la interfície d'usuari on feu clic dret.</entry>
 <entry>
 <inlinemediaobject>
 <imageobject>
@@ -644,7 +644,7 @@
 <entry
 >Quadro de llista</entry>
 <entry
->És una llista d'elements que normalment permet seleccionar múltiples elements. Per a seleccionar un grup d'elements contigus, premeu la tecla &Maj; i feu clic en el primer i últim element. Per a seleccionar múltiples elements no contigus, premeu la tecla &Ctrl; i seleccioneu els elements desitjats.</entry>
+>És una llista d'elements que normalment permet seleccionar múltiples elements. Per a seleccionar un grup d'elements contigus, premeu la tecla &Maj; i cliqueu damunt del primer i últim element. Per a seleccionar múltiples elements no contigus, premeu la tecla &Ctrl; i seleccioneu els elements desitjats.</entry>
 <entry>
 <inlinemediaobject>
 <imageobject>
@@ -658,9 +658,9 @@
 <entry
 >Menú</entry>
 <entry
->Una llista de les seleccions, que usualment realitzen una acció, establixen una opció, o òbriguen una finestra. Es poden obrir des de les <link linkend="visualdict-menubar"
->barres de menú</link
-> o <link linkend="visualdict-menu-button"
+>Una llista de les seleccions, que usualment realitzen una acció, establixen una opció, o obrin una finestra. Es poden obrir des de la <link linkend="visualdict-menubar"
+>barra de menús</link
+> o els <link linkend="visualdict-menu-button"
 >botons del menú</link
 >.</entry>
 <entry>
@@ -728,7 +728,7 @@
 <entry
 >Barra de progrés</entry>
 <entry
->Una xicoteta barra que indica que s'està realitzant una operació de llarga duració. La barra pot indicar la quantitat de l'operació que s'ha completat, o senzillament pot anar arrere i avant per a indicar que l'operació està en curs. </entry>
+>Una xicoteta barra que indica que s'està realitzant una operació de llarga duració. La barra pot indicar la quantitat que s'ha completat de l'operació, o senzillament pot anar arrere i avant per a indicar que l'operació està en curs. </entry>
 <entry>
 <inlinemediaobject>
 <imageobject>
@@ -844,7 +844,7 @@
 <entry
 >Quadro de text</entry>
 <entry
->Una entrada de text d'una sola línia que permet escriure una xicoteta quantitat de text. En general, en prémer &Intro; es realitzarà la mateixa acció que fent clic en el botó <guibutton
+>Una entrada de text d'una sola línia que permet escriure una xicoteta quantitat de text. En general, en prémer &Intro; es realitzarà la mateixa acció que quan es clique damunt del botó <guibutton
 >D'acord</guibutton
 >.</entry>
 <entry>
@@ -894,9 +894,9 @@
 <entry
 >Vista en arbre</entry>
 <entry
->Una vista en arbre permet seleccionar des d'una llista jeràrquica d'opcions. Es pot plegar una secció o categoria de la vista en arbre, en este cas no apareixeran les opcions davall seu i la fletxa a l'esquerra del títol apuntarà cap a la dreta, cap al títol. També es pot desplegar, en este cas es mostraran diverses opcions per davall seu, i la fletxa a l'esquerra del títol estarà apuntant cap avall, cap a les opcions. Per a desplegar una part de la vista en arbre, feu clic en la fletxa situada a l'esquerra del títol de la secció que vulgueu desplegar, feu doble clic damunt del títol, o seleccioneu el títol amb les tecles de fletxa del teclat i premeu la tecla &Intro; o <keycap
+>Una vista en arbre permet seleccionar des d'una llista jeràrquica d'opcions. Es pot plegar una secció o categoria de la vista en arbre, en este cas no apareixeran les opcions davall seu i la fletxa a l'esquerra del títol apuntarà cap a la dreta, cap al títol. També es pot desplegar, en este cas es mostraran diverses opcions per davall seu, i la fletxa a l'esquerra del títol estarà apuntant cap avall, cap a les opcions. Per a desplegar una part de la vista en arbre, cliqueu damunt de la fletxa situada a l'esquerra del títol de la secció que vulgueu desplegar, feu doble clic damunt del títol, o seleccioneu el títol amb les tecles de fletxa del teclat i premeu la tecla &Intro; o <keycap
 >+</keycap
->. Per a minimitzar una part de la vista en arbre, també podeu fer clic en la fletxa, feu doble clic damunt del títol o premeu la tecla &Intro; o <keycap
+>. Per a minimitzar una part de la vista en arbre, també podeu clicar damunt de la fletxa, feu doble clic damunt del títol o premeu la tecla &Intro; o <keycap
 >-</keycap
 >.</entry>
 <entry>
@@ -951,11 +951,11 @@
 </screenshot>
 
 <para
->Algunes aplicacions, com &dolphin;, no mostren una barra de menús per defecte. La podeu mostrar prement <keycombo
+>Algunes aplicacions, com &dolphin;, no mostren una barra de menús predeterminada. La podeu mostrar prement <keycombo
 >&Ctrl;<keycap
 >M</keycap
 ></keycombo
->. També es pot utilitzar per a ocultar la barra de menús en les aplicacions que admeten fer-ho.</para>
+>. També es pot utilitzar per a ocultar-la barra en les aplicacions que admeten fer-ho.</para>
 
 <sect2 id="menus-file">
 <title
@@ -1018,7 +1018,7 @@
 > <guimenu
 >Fitxer</guimenu
 ><guimenuitem
->Obri...</guimenuitem
+>Obri…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1054,7 +1054,7 @@
 ><guimenu
 >Fitxer</guimenu
 ><guimenuitem
->Anomena i guarda...</guimenuitem
+>Anomena i guarda…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1124,7 +1124,7 @@
 > <guimenu
 >Fitxer</guimenu
 ><guimenuitem
->Imprimix...</guimenuitem
+>Imprimix…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1264,7 +1264,7 @@
 ></term>
 <listitem
 ><para
->Elimina la porció seleccionada del fitxer, si n'hi ha, i col·loca una còpia en el porta-retalls. </para
+>Elimina la porció seleccionada del fitxer, si n'hi ha, i col·loca una còpia a dins del porta-retalls. </para
 ></listitem>
 </varlistentry>
 
@@ -1285,7 +1285,7 @@
 ></term>
 <listitem
 ><para
->Col·loca una còpia de la part seleccionada del fitxer, si n'hi ha, en el porta-retalls. </para
+>Col·loca una còpia de la part seleccionada del fitxer, si n'hi ha, a dins del porta-retalls. </para
 ></listitem>
 </varlistentry>
 
@@ -1306,7 +1306,7 @@
 ></term>
 <listitem
 ><para
->Copia el primer element al porta-retalls a la ubicació actual en el fitxer, si n'hi ha. </para
+>Copia el primer element a dins del porta-retalls en la ubicació actual en el fitxer, si n'hi ha. </para
 ></listitem>
 </varlistentry>
 
@@ -1343,7 +1343,7 @@
 > <guimenu
 >Edita</guimenu
 ><guimenuitem
->Busca...</guimenuitem
+>Busca…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1364,12 +1364,12 @@
 > <guimenu
 >Edita</guimenu
 ><guimenuitem
->Substituïx...</guimenuitem
+>Substituïx…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
 ><para
->Permet buscar un text en el fitxer obert i el substituïx per algun altre. </para
+>Permet buscar un text en el fitxer obert i el substituïx per alguna cosa altre. </para
 ></listitem>
 </varlistentry>
 
@@ -1388,7 +1388,7 @@
 ></term>
 <listitem
 ><para
->Va a la següent coincidència de l'última operació de busca. </para
+>Va fins a la següent coincidència de l'última operació de busca. </para
 ></listitem>
 </varlistentry>
 
@@ -1409,7 +1409,7 @@
 ></term>
 <listitem
 ><para
->Va a la coincidència anterior de l'última operació de busca. </para
+>Va fins a la coincidència anterior de l'última operació de busca. </para
 ></listitem>
 </varlistentry>
 
@@ -1465,7 +1465,7 @@
 ><guimenu
 >Eines</guimenu
 ><guimenuitem
->Ortografia...</guimenuitem
+>Ortografia…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1480,7 +1480,7 @@
 ><guimenu
 >Eines</guimenu
 ><guimenuitem
->Ortografia (des del cursor)...</guimenuitem
+>Ortografia (des del cursor)…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1495,12 +1495,12 @@
 ><guimenu
 >Eines</guimenu
 ><guimenuitem
->Corregix la selecció...</guimenuitem
+>Corregix la selecció…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
 ><para
->Inicia el programa de correcció ortogràfica, però només comprova el text seleccionat al document. Per a obtindre més informació, vegeu <xref linkend="spellcheck-check"/>. </para
+>Inicia el programa de correcció ortogràfica, però només comprova el text seleccionat en el document. Per a obtindre més informació, vegeu <xref linkend="spellcheck-check"/>. </para
 ></listitem>
 </varlistentry>
 
@@ -1510,7 +1510,7 @@
 ><guimenu
 >Eines</guimenu
 ><guimenuitem
->Canvia el diccionari...</guimenuitem
+>Canvia el diccionari…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1558,7 +1558,7 @@
 >&Ctrl;<keycap
 >M</keycap
 ></keycombo
->. Si la barra de menús està oculta, el menú contextual s'obrirà fent clic amb el &BDR; a qualsevol part de l'àrea de la vista, este conté una entrada extra <guimenuitem
+>. Si la barra de menús està oculta, el menú contextual s'obrirà clicant amb el &BDR; damunt de qualsevol part de l'àrea de la vista, este conté una entrada addicional <guimenuitem
 >Mostra la barra de menús</guimenuitem
 >. </para
 ></listitem>
@@ -1605,7 +1605,7 @@
 ></term>
 <listitem>
 <para
->Quan està marcada, es mostra una xicoteta barra a la part inferior de l'aplicació que conté informació sobre l'estat. Quan no està marcada la barra d'estat restarà oculta.</para>
+>Quan se selecciona, es mostra una barra xicoteta a la part inferior de l'aplicació que conté informació sobre l'estat. Quan no se selecciona, la barra d'estat restarà oculta.</para>
 </listitem>
 </varlistentry>
 
@@ -1615,7 +1615,7 @@
 ><guimenu
 >Configuració</guimenu
 ><guimenuitem
->Configura les dreceres...</guimenuitem
+>Configura les dreceres…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1630,7 +1630,7 @@
 ><guimenu
 >Configuració</guimenu
 ><guimenuitem
->Configura les barres d'eines...</guimenuitem
+>Configura les barres d'eines…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1645,7 +1645,7 @@
 ><guimenu
 >Configuració</guimenu
 ><guimenuitem
->Configura les notificacions...</guimenuitem
+>Configura les notificacions…</guimenuitem
 ></menuchoice
 ></term>
 <listitem
@@ -1666,7 +1666,7 @@
 ><guimenuitem
 >Configura l'<replaceable
 >Aplicació</replaceable
->...</guimenuitem
+>…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1733,7 +1733,7 @@
 ><para
 ><action
 >Canvia el cursor del ratolí a una combinació de fletxa i interrogació.</action
-> En fer clic damunt dels elements dins de l'aplicació, s'obrirà una finestra d'ajuda (si existix per a este cas en particular) descrivint la funció de l'element.</para
+> Quan es clique damunt dels elements dins de l'aplicació, s'obrirà una finestra d'ajuda (si existix per a este cas en particular) descrivint la funció de l'element.</para
 ></listitem>
 </varlistentry>
 
@@ -1752,7 +1752,7 @@
 >obri el diàleg <guilabel
 >Consell del dia</guilabel
 ></action
->. Podeu desplaçar-vos per tots els consells emprant els botons al diàleg i seleccionar mostrar-los a l'inici.</para>
+>. Podeu desplaçar-vos per tots els consells emprant els botons en el diàleg i seleccionar mostrar-los a l'inici.</para>
 <para
 >Nota: No totes les aplicacions proporcionen estos consells.</para>
 
@@ -1765,7 +1765,7 @@
 ><guimenu
 >Ajuda</guimenu
 > <guimenuitem
->Informeu d'un error...</guimenuitem
+>Informeu d'un error…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1804,7 +1804,7 @@ or via email (see krecipes doc rev 1306076)
 ><guimenu
 >Ajuda</guimenu
 > <guimenuitem
->Canvia l'idioma de l'aplicació...</guimenuitem
+>Canvia l'idioma de l'aplicació…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -2289,7 +2289,7 @@ or via email (see krecipes doc rev 1306076)
 ></entry
 ><!--[kwin][Global Shortcuts] MoveZoomLeft=Meta+Left -->
 <entry
->Desplaça a l'esquerra, mou la finestra al monitor de l'esquerra<footnote id="fn1"
+>Desplaça cap a l'esquerra, mou la finestra cap al monitor de l'esquerra<footnote id="fn1"
 ><para
 >En un entorn multimonitor</para
 ></footnote
@@ -2305,7 +2305,7 @@ or via email (see krecipes doc rev 1306076)
 ></entry
 ><!--[kwin][Global Shortcuts] MoveZoomRight=Meta+Right -->
 <entry
->Desplaça a la dreta, mou la finestra al monitor de la dreta<footnoteref linkend="fn1"/></entry>
+>Desplaça cap a la dreta, mou la finestra cap al monitor de la dreta<footnoteref linkend="fn1"/></entry>
 </row>
 
 <row>
@@ -2840,7 +2840,7 @@ or via email (see krecipes doc rev 1306076)
 >Treballar amb els fitxers</title>
 
 <para
->Ja siga en un diàleg Obri/Guarda o al gestor de fitxers &dolphin;, estes dreceres estalvien temps en realitzar operacions sobre els fitxers. Cal tindre en compte que alguns dels conceptes emprats amb els fitxers són els mateixos que amb els documents, de manera que diverses de les dreceres són idèntiques a les seues homòlogues esmentades anteriorment.</para>
+>Ja siga en un diàleg Obri/Guarda o en el gestor de fitxers &dolphin;, estes dreceres estalvien temps en realitzar operacions sobre els fitxers. Cal tindre en compte que alguns dels conceptes emprats amb els fitxers són els mateixos que amb els documents, de manera que diverses de les dreceres són idèntiques a les seues homòlogues esmentades anteriorment.</para>
 
 <informaltable>
 <tgroup cols="2">
@@ -2963,7 +2963,7 @@ or via email (see krecipes doc rev 1306076)
 ></keycombo
 ></entry>
 <entry
->Cap amunt (a la carpeta que el conté)</entry>
+>Cap amunt (en la carpeta que el conté)</entry>
 </row>
 
 <row>
@@ -2983,7 +2983,7 @@ or via email (see krecipes doc rev 1306076)
 >Suprimix</keycap
 ></entry>
 <entry
->Mou a la paperera</entry>
+>Mou cap a dins de la paperera</entry>
 </row>
 
 <row>
@@ -3004,10 +3004,10 @@ or via email (see krecipes doc rev 1306076)
 
 <sect2 id="kbd-vol-bright">
 <title
->Canviar el volum i la lluminositat</title>
+>Canviar el volum i la brillantor</title>
 
 <para
->A més de les tecles estàndard, molts teclats d'ordinador i portàtil, hui en dia tenen tecles especials o botons per a canviar el volum de l'altaveu, així com la lluminositat del monitor. Si es troben presents, les podeu utilitzar en els &plasma-workspaces; per a realitzar estes tasques.</para>
+>A més de les tecles estàndard, molts teclats d'ordinador i portàtil, hui en dia tenen tecles especials o botons per a canviar el volum de l'altaveu, així com la brillantor del monitor. Si es troben presents, les podeu utilitzar en els &plasma-workspaces; per a realitzar estes tasques.</para>
 
 <para
 >Si no disposeu d'este tipus de tecles, vegeu <xref linkend="kbd-modifying"/> per a obtindre informació sobre com assignar tecles per a estes tasques.</para>
@@ -3080,12 +3080,12 @@ or via email (see krecipes doc rev 1306076)
 >Modificar les dreceres</title>
 
 <para
->Les dreceres descrites a <link linkend="kbd-windows"
+>Les dreceres descrites en <link linkend="kbd-windows"
 >Treballar amb les finestres</link
 >, <link linkend="kbd-leaving"
 >Deixar l'ordinador</link
 >, <link linkend="kbd-vol-bright"
->Canviar el volum i la lluminositat</link
+>Canviar el volum i la brillantor</link
 > i <link linkend="kbd-activities"
 >Treballar amb activitats i escriptoris virtuals</link
 > s'anomenen <emphasis
@@ -3095,18 +3095,18 @@ or via email (see krecipes doc rev 1306076)
 >, on es troben separades per components de &kde;.</para>
 
 <para
->Les dreceres descrites a <link linkend="kbd-desktop"
+>Les dreceres descrites en <link linkend="kbd-desktop"
 >Treballar amb l'escriptori</link
 > són immutables i no es poden modificar.</para>
 
 <para
->Les dreceres descrites a <link linkend="kbd-docs"
+>Les dreceres descrites en <link linkend="kbd-docs"
 >Treballar amb els documents</link
 > i <link linkend="kbd-help"
 >Obtindre ajuda</link
 > són establides de forma individual pels programes. La majoria dels programes &kde; permeten utilitzar un <link linkend="shortcuts"
 >diàleg d'edició de dreceres comú</link
-> per a modificar-les. Les dreceres descrites a <link linkend="kbd-files"
+> per a modificar-les. Les dreceres descrites en <link linkend="kbd-files"
 >Treballar amb els fitxers</link
 > es poden editar de la mateixa manera quan s'utilitzen dins d'un gestor de fitxers com &dolphin; o &konqueror;, però no es poden modificar en el cas dels diàlegs Obri/Guarda, &etc; </para>
 

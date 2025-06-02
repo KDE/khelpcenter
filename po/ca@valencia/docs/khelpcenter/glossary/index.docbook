@@ -30,7 +30,7 @@ Project Neon
 >Akonadi</glossterm>
 			<glossdef
 ><para
->El mecanisme d'accés a les dades guardades per a totes les dades PIM (Personal Information Manager -gestor de la informació personal-) en &kde; SC 4. Un únic sistema d'emmagatzematge i sistema de recuperació permet eficiència i extensibilitat que no era possible davall &kde; 3, cadascun dels components PIM disposava del seu propi sistema. Cal tindre en compte que l'ús d'Akonadi no canvia el format de les dades guardades (vCard, iCalendar, mbox, maildir, &etc;) -senzillament només proporciona una nova forma d'accedir i actualitzar les dades-.&newpara; Els principals motius per al disseny i desenvolupament d'Akonadi són de naturalea tècnica, &ead; disposar d'una manera única per a l'accés a les dades PIM (contactes, calendaris, correus electrònics...) de diferents aplicacions (&pex; &kmail;, &calligrawords;, &etc;), eliminant així la necessitat d'escriure codi pareixent ací i allà.&newpara; Un altre objectiu és part d'aplicacions IGU com &kmail; des de l'accés directe a recursos externs com el correu de servidors -este va ser un important motiu per informes-d'error/desitjos pel que fa al rendiment/capacitat_de_resposta en el passat.&newpara; Més informació:&newpara; &linkstart;"https://community.kde.org/KDE_PIM/Akonadi"&linkmid;Akonadi per al PIM de KDE&linkend;&newpara; &linkstart;"https://en.wikipedia.org/wiki/Akonadi"&linkmid;Viquipèdia: Akonadi&linkend;&newpara; &linkstart;"https://techbase.kde.org/KDE_PIM/Akonadi"&linkmid;Techbase - Akonadi&linkend;</para
+>El mecanisme d'accés a les dades guardades per a totes les dades PIM (Personal Information Manager -gestor de la informació personal-) en la &kde; SC 4. Un únic sistema d'emmagatzematge i sistema de recuperació permet eficiència i extensibilitat que no era possible davall &kde; 3, cadascun dels components PIM disposava del seu propi sistema. Cal tindre en compte que l'ús d'Akonadi no canvia el format de les dades guardades (vCard, iCalendar, mbox, maildir, &etc;) -senzillament només proporciona una nova forma d'accedir i actualitzar les dades-.&newpara; Els principals motius per al disseny i desenvolupament d'Akonadi són de naturalea tècnica, &ead; disposar d'una manera única per a l'accés a les dades PIM (contactes, calendaris, correus electrònics…) de diferents aplicacions (&pex; &kmail;, &calligrawords;, &etc;), eliminant així la necessitat d'escriure codi pareixent ací i allà.&newpara; Un altre objectiu forma part d'aplicacions IGU com &kmail;, des de l'accés directe a recursos externs com el correu en els servidors -este va ser un motiu important en el passat pels informes d'error i desitjos referint-se al rendiment o la capacitat de resposta.&newpara; Més informació:&newpara; &linkstart;"https://community.kde.org/KDE_PIM/Akonadi"&linkmid;Akonadi per al PIM de KDE&linkend;&newpara; &linkstart;"https://en.wikipedia.org/wiki/Akonadi"&linkmid;Viquipèdia: Akonadi&linkend;&newpara; &linkstart;"https://techbase.kde.org/KDE_PIM/Akonadi"&linkmid;Techbase - Akonadi&linkend;</para
 ><glossseealso otherterm="gloss-gui"
 >&IGU;</glossseealso
 > <glossseealso otherterm="gloss-kde"
@@ -71,7 +71,7 @@ Project Neon
 >D-Bus</glossterm>
 			<glossdef
 ><para
->D-Bus o Desktop Bus és un sistema de missatges de servei-intern. Desenvolupat per &RedHat;, que va ser fortament influenciat pel DCOP de &kde; 3, al que substituïx. La majoria de sistemes operatius POSIX suporten D-Bus, i existix un port per a Windows. És utilitzat per Qt 4 i GNOME.&newpara; Més informació:&newpara; &linkstart;"https://freedesktop.org/wiki/Software/dbus/"&linkmid;FreeDesktop.org: What is D-Bus?&linkend;&newpara; &linkstart;"https://en.wikipedia.org/wiki/D-Bus"&linkmid;Viquipèdia: D-Bus&linkend;</para
+>D-Bus o Desktop Bus és un sistema de missatges de servei-intern. Desenvolupat per &RedHat;, que va ser fortament influenciat pel DCOP de &kde; 3, al qual substituïx. La majoria de sistemes operatius POSIX suporten D-Bus, i existix un port per a Windows. És utilitzat per les Qt 4 i GNOME.&newpara; Més informació:&newpara; &linkstart;"https://freedesktop.org/wiki/Software/dbus/"&linkmid;FreeDesktop.org: What is D-Bus?&linkend;&newpara; &linkstart;"https://en.wikipedia.org/wiki/D-Bus"&linkmid;Viquipèdia: D-Bus&linkend;</para
 ><glossseealso otherterm="gloss-dcop"
 >DCOP</glossseealso
 > <glossseealso otherterm="gloss-gnome"
@@ -89,7 +89,7 @@ Project Neon
 ><para
 ><acronym
 >DCOP</acronym
->, vol dir Desktop COmmunication Protocol -protocol de comunicació de l'escriptori-, és un inter-processos lleuger i un component de programari per al sistema de comunicació utilitzat en &kde; 3. Substituït amb &DBus; a &kde; SC 4.&newpara; Més informació:&newpara; &linkstart;"https://en.wikipedia.org/wiki/DCOP"&linkmid;Viquipèdia: DCOP&linkend;</para
+>, vol dir Desktop COmmunication Protocol -protocol de comunicació de l'escriptori-, és un inter-processos lleuger i un component de programari per al sistema de comunicació utilitzat en &kde; 3. Substituït amb &DBus; en la &kde; SC 4.&newpara; Més informació:&newpara; &linkstart;"https://en.wikipedia.org/wiki/DCOP"&linkmid;Viquipèdia: DCOP&linkend;</para
 ><glossseealso otherterm="gloss-dbus"
 >D-Bus</glossseealso
 > <glossseealso otherterm="gloss-kde"
@@ -105,7 +105,7 @@ Project Neon
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-kparts"
->KParts</glossseealso
+>KPart</glossseealso
 > </glossdef>
 		</glossentry>
 		<glossentry id="gloss-frameworks">
@@ -113,7 +113,7 @@ Project Neon
 >Frameworks</glossterm>
 			<glossdef
 ><para
->Els Frameworks 5 de &kde; és la propera generació de les biblioteques &kde;, modulars i optimitzades per a una fàcil integració amb les aplicacions &Qt;. Els Frameworks oferixen una àmplia varietat de funcionalitats comunament necessàries: madures, revisades per parelles i biblioteques ben provades amb termes de llicència amistosos. Hi ha més de 70 Frameworks diferents que proporcionen solucions incloent integració amb el maquinari, suport per a formats de fitxer, ginys addicionals, funcions de traçat, correcció ortogràfica i més. Molts dels Frameworks multiplataforma i tenen poca o cap dependència addicionals fent que siguen fàcils de construir i afegir a qualsevol aplicació &Qt;.&newpara; Més informació:&newpara; &linkstart;"https://community.kde.org/Frameworks"&linkmid;&kde; Wiki de la comunitat: Frameworks&linkend;</para
+>Els Frameworks 5 de &kde; és la pròxima generació de les biblioteques &kde;, modulars i optimitzades per a una fàcil integració amb les aplicacions &Qt;. Els Frameworks oferixen una àmplia varietat de funcionalitats comunament necessàries: madures, revisades per parelles i biblioteques ben provades amb termes de llicència amistosos. Hi ha més de 70 Frameworks diferents que proporcionen solucions incloent integració amb el maquinari, suport per a formats de fitxer, ginys addicionals, funcions de traçat, correcció ortogràfica i més. Molts dels Frameworks multiplataforma i tenen poca o cap dependència addicionals fent que siguen fàcils de construir i afegir a qualsevol aplicació &Qt;.&newpara; Més informació:&newpara; &linkstart;"https://community.kde.org/Frameworks"&linkmid;&kde; Wiki de la comunitat: Frameworks&linkend;</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-plasma"
@@ -157,7 +157,7 @@ Project Neon
 ><para
 >Els processos de treball <acronym
 >IO</acronym
-> permeten a les aplicacions &kde; accedir a recursos remots tan amb facilitat com als recursos locals (fent-los «transparents a xarxa»). Els recursos remots (&pex; els fitxers) podran estar emmagatzemats en recursos compartits <acronym
+> permeten a les aplicacions &kde; accedir a recursos remots amb tanta facilitat com als recursos locals (fent-los «transparents a xarxa»). Els recursos remots (&pex; els fitxers) podran emmagatzemar-se en recursos compartits <acronym
 >SMB</acronym
 > o similars.</para
 ><glossseealso otherterm="gloss-smb"
@@ -179,7 +179,7 @@ Project Neon
 > <glossseealso otherterm="gloss-konqueror"
 >&konqueror;</glossseealso
 > <glossseealso otherterm="gloss-kparts"
->KParts</glossseealso
+>KPart</glossseealso
 > <glossseealso otherterm="gloss-plasma"
 >&plasma;</glossseealso
 > <glossseealso otherterm="gloss-webkit"
@@ -218,10 +218,10 @@ Project Neon
 		</glossentry>
 		<glossentry id="gloss-kparts">
 			<glossterm
->KParts</glossterm>
+>KPart</glossterm>
 			<glossdef
 ><para
->KParts és una tecnologia d'incrustar que permet a les aplicacions &kde; incrustar altres aplicacions &kde;. Per exemple, la vista de text emprada per &konqueror; és un KPart.</para>
+>La KPart és una tecnologia d'incrustar que permet a les aplicacions &kde; incrustar altres aplicacions &kde;. Per exemple, la vista de text emprada per &konqueror; és un KPart.</para>
 				<glossseealso otherterm="gloss-konqueror"
 >&konqueror;</glossseealso>
 			</glossdef>
@@ -248,7 +248,7 @@ otherterm="gloss-kbuildsycoca"
 >Plataforma</glossterm>
 			<glossdef
 ><para
->Anteriorment la base de les biblioteques i els serveis necessaris per a executar les aplicacions &kde;. És utilitzat pel nucli i els desenvolupadors de tercers per crear programari &kde;. Sobretot si s'inclouen els frameworks i eines de desenvolupament que es poden anomenar com la Plataforma de desenvolupament de &kde;. La plataforma de &kde; es basa en una sèrie de pilars, per exemple Akonadi, Solid, Phonon.</para
+>Anteriorment la base de les biblioteques i els serveis necessaris per a executar les aplicacions &kde;. És utilitzat pel nucli i els desenvolupadors de tercers per a crear programari &kde;. Sobretot si s'inclouen els marcs de treball i eines de desenvolupament que es poden anomenar com la Plataforma de desenvolupament de &kde;. La plataforma de &kde; es basa en una sèrie de pilars, per exemple Akonadi, Solid i Phonon.</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-plasma"
@@ -270,7 +270,7 @@ otherterm="gloss-kbuildsycoca"
 >Phonon</glossterm>
 			<glossdef
 ><para
->Una API multimèdia multiplataforma, interfície per a connectar amb les plataformes existents, com ara motors gstreamer i xine. &kde; 2 i 3 depenen d'aRts per al so. Phono el substituïx.&newpara; Més informació:&newpara; &linkstart;"https://en.wikipedia.org/wiki/Phonon_(software)"&linkmid;Viquipèdia: Phonon (programari)&linkend;&newpara; &linkstart;"https://phonon.kde.org/"&linkmid;Lloc web de Phonon&linkend;</para
+>Una API multimèdia multiplataforma, interfície per a connectar amb les plataformes existents, com ara motors del «gstreamer» i «xine». &kde; 2 i 3 depenen d'aRts per al so. Phonon el substituïx.&newpara; Més informació:&newpara; &linkstart;"https://en.wikipedia.org/wiki/Phonon_(software)"&linkmid;Viquipèdia: Phonon (programari)&linkend;&newpara; &linkstart;"https://phonon.kde.org/"&linkmid;Lloc web de Phonon&linkend;</para
 ><glossseealso otherterm="gloss-arts"
 >aRts</glossseealso
 > <glossseealso otherterm="gloss-kde"
@@ -306,7 +306,7 @@ otherterm="gloss-kbuildsycoca"
 >Apple</trademark
 > i desenvolupat per a <trademark
 >Safari</trademark
->. Webkit porta tota la funcionalitat de nou a &kde; SC 4, on està disponible a través de &Qt;.&newpara; Més informació: &newpara; &linkstart;"https://webkit.org/"&linkmid;WebKit home page&linkend;&newpara; &linkstart;"https://en.wikipedia.org/wiki/WebKit"&linkmid;Viquipèdia: WebKit&linkend;</para
+>. Webkit porta tota la funcionalitat de nou a la &kde; SC 4, on està disponible a través de &Qt;.&newpara; Més informació: &newpara; &linkstart;"https://webkit.org/"&linkmid;WebKit home page&linkend;&newpara; &linkstart;"https://en.wikipedia.org/wiki/WebKit"&linkmid;Viquipèdia: WebKit&linkend;</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-khtml"
@@ -323,7 +323,7 @@ otherterm="gloss-kbuildsycoca"
 >Antialiàsing</glossterm>
 			<glossdef
 ><para
->Si es menciona en el context de &kde;, antialiàsing sovint significa el suavitzat dels tipus de lletra visibles en la pantalla. La versió 3.3 de &Qt; o posteriors, utilitzada conjuntament amb X.Org fa possible este efecte davall &kde;.</para
+>Si es menciona en el context de &kde;, antialiàsing sovint significa el suavitzat de les lletres visibles en la pantalla. La versió 3.3 de les &Qt; o posteriors, utilitzada conjuntament amb X.Org fa possible este efecte davall &kde;.</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-qt"
@@ -335,7 +335,7 @@ otherterm="gloss-kbuildsycoca"
 >&X-Server;</glossterm>
 			<glossdef
 ><para
->&X-Server; representa una capa bàsica sobre la qual es construïxen les diverses &IGU;, com ara &kde;. Manipula el ratolí bàsic i l'entrada del teclat (tant des d'una màquina local com des d'una remota) i proporciona rutines gràfiques elementals per a dibuixar rectangles i d'altres figures primitives.</para
+>&X-Server; representa una capa bàsica sobre la qual es construïxen les diverses &IGU;, com ara &kde;. Manipula el ratolí bàsic i l'entrada del teclat (tant des d'un amfitrió local com des d'un remot) i proporciona rutines gràfiques elementals per a dibuixar rectangles i altres figures primitives.</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-gui"
@@ -352,7 +352,7 @@ otherterm="gloss-kbuildsycoca"
 >Dolphin</glossterm>
 			<glossdef
 ><para
->El gestor de fitxers per defecte a les Aplicacions de &kde;. Compta amb un quadro lateral (Llocs), però la navegació es fa principalment sobre de la finestra principal. La divisió de finestres és possible, i les vistes es poden aplicar a finestres individuals. Muntar i desmuntar dispositius <acronym
+>El gestor de fitxers predeterminat en les Aplicacions de &kde;. Compta amb un quadro lateral (llocs), però la navegació es fa principalment sobre de la finestra principal. La divisió de finestres és possible, i les vistes es poden aplicar a finestres individuals. Muntar i desmuntar dispositius <acronym
 >USB</acronym
 > es pot fer en el quadro lateral. Es poden afegir altres directoris al quadro «Llocs». També és possible una vista en arbre.&newpara; Més informació:&newpara; &linkstart;"https://www.kde.org/applications/system/dolphin/"&linkmid;Dolphin&linkend;&newpara; &linkstart;"https://en.wikipedia.org/wiki/Dolphin_(file_manager)"&linkmid;Viquipèdia: Dolphin&linkend;&newpara; &linkstart;"https://userbase.kde.org/Dolphin/File_Management/ca"&linkmid;Userbase: Guia d'aprenentatge per a la Gestió de fitxers&linkend;</para
 ><glossseealso otherterm="gloss-kde"
@@ -372,7 +372,7 @@ otherterm="gloss-kbuildsycoca"
 >KBuildSycoca4</application
 > és un programa de la línia d'ordres i regenera l'anomenat <application
 >KSycoca</application
->. Açò és d'utilitat, per exemple, si falta algun o tots els mòduls en el &systemsettings;.</para
+>. Açò és d'utilitat, per exemple, si falta algun o tots els mòduls en &systemsettings;.</para
 ><glossseealso otherterm="gloss-ksycoca"
 ><acronym
 >KSycoca</acronym
@@ -386,7 +386,7 @@ otherterm="gloss-kbuildsycoca"
 >KInfoCenter</glossterm>
 			<glossdef
 ><para
->El Kinfocenter es va originar com a part del Kcontrol des de KDE 3.1. En KDE SC 4 va ser substituït per mòduls configurats al &systemsettings;, sobretot Solid, i està sent presentada de nou com una aplicació en &plasma;.&newpara; Més informació:&newpara; &linkstart;"https://www.kde.org/applications/system/kinfocenter/"&linkmid;KInfoCenter&linkend;&newpara; &linkstart;&newpara; &linkstart;"https://en.wikipedia.org/wiki/Kinfocenter"&linkmid;Viquipèdia: KInfoCenter&linkend;</para
+>El Kinfocenter es va originar com a part del Kcontrol des de KDE 3.1. En la &kde; SC 4 va ser substituït per mòduls configurats en &systemsettings;, sobretot Solid, i està sent presentada de nou com una aplicació en &plasma;.&newpara; Més informació:&newpara; &linkstart;"https://www.kde.org/applications/system/kinfocenter/"&linkmid;KInfoCenter&linkend;&newpara; &linkstart;&newpara; &linkstart;"https://en.wikipedia.org/wiki/Kinfocenter"&linkmid;Viquipèdia: KInfoCenter&linkend;</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-solid"
@@ -412,7 +412,7 @@ otherterm="gloss-kbuildsycoca"
 ><para
 >La minilínia d'ordres a la qual s'accedix des del menú clàssic, la drecera de teclat &Alt;+<keycap
 >F2</keycap
->, o feu clic dret en l'escriptori. En &kde; SC 4 amb part d'un nom es mostraran tots els resultats possibles.&newpara; Més informació:&newpara; &linkstart;"https://userbase.kde.org/Plasma/KRunner/ca"&linkmid;UserBase: Utilitzar KRunner&linkend;</para
+>, o feu clic dret damunt de l'escriptori. En la &kde; SC 4 amb part d'un nom es mostraran tots els resultats possibles.&newpara; Més informació:&newpara; &linkstart;"https://userbase.kde.org/Plasma/KRunner/ca"&linkmid;UserBase: Utilitzar KRunner&linkend;</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-plasma"
@@ -424,7 +424,7 @@ otherterm="gloss-kbuildsycoca"
 >KWin</glossterm>
 			<glossdef
 ><para
->KWin és el gestor de finestres. Ací és on la decoració de les finestres es pot canviar i aplicar temes. &kde; SC 4 s'estén KWin per donar suport als efectes de composició 3D en l'escriptori.&newpara; Més informació: &newpara; &linkstart;"https://userbase.kde.org/KWin/ca"&linkmid;UserBase: KWin&linkend;</para
+>KWin és el gestor de finestres. Ací és on la decoració de les finestres es pot canviar i aplicar temes. La &kde; SC 4 estén KWin per a donar suport als efectes de composició en 3D a l'escriptori.&newpara; Més informació: &newpara; &linkstart;"https://userbase.kde.org/KWin/ca"&linkmid;UserBase: KWin&linkend;</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-xserver"
@@ -466,7 +466,7 @@ otherterm="gloss-kbuildsycoca"
 >&systemsettings;</glossterm>
 			<glossdef
 ><para
->Este és el projecte i el nom del fitxer del Centre de control de &kde;. El &systemsettings; us permet personalitzar virtualment cada opció de configuració de &kde;.</para
+>Este és el projecte i el nom del fitxer del Centre de control de &kde;. &systemsettings; us permet personalitzar virtualment cada opció de configuració de &kde;.</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-kinfocenter"
@@ -497,7 +497,7 @@ otherterm="gloss-kbuildsycoca"
 ></glossterm>
 			<glossdef
 ><para
->Brisa és el tema predeterminat de &plasma;. El nou tema és de gran contrast, un tema prim per a l'espai de treball. Està disponible en variants amb llum i fosques. Gràfics i disposicions tipogràfiques més simples i monocromàtiques, centrat a oferir una experiència d'usuari neta i visualment clara.</para
+>Brisa és el tema predeterminat de &plasma;. El nou tema és de gran contrast, un tema prim per a l'espai de treball. Està disponible en variants amb llum i fosques. Gràfics i disposicions tipogràfiques més simples i monocromàtiques, centrat en oferir una experiència d'usuari neta i visualment clara.</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-ksvg"
@@ -525,7 +525,7 @@ otherterm="gloss-kbuildsycoca"
 >Arrossegar i deixar anar</glossterm>
 			<glossdef
 ><para
->Este concepte permet substituir moltes accions com copiar fitxers d'un a l'altre amb un simple moviment del ratolí, &pex; es copien fitxers prement damunt d'una icona en una finestra de &konqueror;, movent el ratolí a una altra finestra mentre es manté premut el botó del ratolí i deixant-lo anar («deixant» l'objecte).</para>
+>Este concepte permet substituir moltes accions com copiar fitxers d'un a l'altre amb un simple moviment del ratolí, &pex; es copien fitxers prement damunt d'una icona en una finestra de &konqueror;, movent el ratolí cap a una altra finestra mentre es manté premut el botó del ratolí i deixant-lo anar («deixant» l'objecte).</para>
 				<glossseealso otherterm="gloss-konqueror"
 >&konqueror;</glossseealso>
 			</glossdef>
@@ -537,7 +537,7 @@ otherterm="gloss-kbuildsycoca"
 ></glossterm>
 			<glossdef>
 				<para
->&emstart;G&emend;NU &emstart;N&emend;etwork &emstart;O&emend;bject &emstart;M&emend;odel &emstart;E&emend;nvironment, una de les &IGU; líders a &UNIX;.</para>
+>&emstart;G&emend;NU &emstart;N&emend;etwork &emstart;O&emend;bject &emstart;M&emend;odel &emstart;E&emend;nvironment, una de les &IGU; líders en &UNIX;.</para>
 				<glossseealso otherterm="gloss-gui"
 >&IGU;</glossseealso>
 			</glossdef>
@@ -547,17 +547,17 @@ otherterm="gloss-kbuildsycoca"
 >&IGU;</glossterm>
 			<glossdef
 ><para
->Abreviació de &emstart;G&emend;raphical &emstart;U&emend;ser &emstart;I&emend;nterface (interfície gràfica d'usuari). Tots els entorns d'escriptori (com ara &kde;) són una &IGU;. La majoria de les &IGU; proporcionen funcionalitats per al ratolí i/o les finestres per a manipular els programes.</para>
+>Abreviació de &emstart;G&emend;raphical &emstart;U&emend;ser &emstart;I&emend;nterface (interfície gràfica d'usuari). Tots els entorns d'escriptori (com ara &kde;) són una &IGU;. La majoria de les &IGU; proporcionen característiques per al ratolí i/o les finestres per a manipular els programes.</para>
 				<glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso>
 			</glossdef>
 		</glossentry>
 		<glossentry id="gloss-homedirectory">
 			<glossterm
->Directori inici</glossterm>
+>Directori d'inici</glossterm>
 			<glossdef
 ><para
->Este és el lloc en el sistema a on es guarden tots els vostres fitxers. Els podeu escriure fora d'esta carpeta, però totes les aplicacions estan configurades per proposar-la com a lloc predeterminat. I açò és més fàcil, quan guardeu les vostres coses ací.&newpara; Més informació:&newpara; &linkstart;"https://en.wikipedia.org/wiki/Home_directory"&linkmid;Viquipèdia: Home Directory&linkend;</para>
+>Este és el lloc en el sistema a on es guarden tots els vostres fitxers. Els podeu escriure fora d'esta carpeta, però totes les aplicacions estan configurades per a proposar-la com a lloc predeterminat. I açò és més fàcil, quan guardeu les vostres coses ací.&newpara; Més informació:&newpara; &linkstart;"https://en.wikipedia.org/wiki/Home_directory"&linkmid;Viquipèdia: Home Directory&linkend;</para>
 				<glossseealso otherterm="gloss-dolphin"
 >&dolphin;</glossseealso>
 			</glossdef>
@@ -567,7 +567,7 @@ otherterm="gloss-kbuildsycoca"
 >&kde;</glossterm>
 			<glossdef
 ><para
->&kde; és més que un programari. És una comunitat formada per programadors, traductors, col·laboradors, artistes, escriptors, distribuïdors i usuaris de tot el món. El nostre equip de tecnologia internacional s'ha compromés a crear el millor programari lliure per a l'escriptori. I no només els contribuents, però els usuaris i aficionats del programari &kde; es troben al llarg de tot el planeta, ajudant a altres usuaris, difonent les notícies, o senzillament gaudint de l'experiència. Trobareu informació més detallada a &linkstart;"https://www.kde.org/"&linkmid;www.kde.org&linkend;.&newpara; El nom ha canviat el seu significat al llarg del temps. Podeu descobrir més sobre la seua història a &linkstart;"https://www.kde.org/community/history/"&linkmid;la pàgina web de la història de KDE&linkend;. </para>
+>&kde; és més que un programari. És una comunitat formada per programadors, traductors, col·laboradors, artistes, escriptors, distribuïdors i usuaris de tot el món. El nostre equip de tecnologia internacional s'ha compromés a crear el millor programari lliure per a l'escriptori. I no només els contribuents, però els usuaris i aficionats del programari &kde; es troben al llarg de tot el planeta, ajudant a altres usuaris, difonent les notícies, o senzillament gaudint de l'experiència. Trobareu informació més detallada a &linkstart;"https://kde.org/ca-va/"&linkmid;www.kde.org&linkend;.&newpara; El nom ha canviat el seu significat al llarg del temps. Podeu descobrir més sobre la seua història a &linkstart;"https://www.kde.org/community/history/"&linkmid;la pàgina web de la història de KDE&linkend;. </para>
 				<glossseealso otherterm="gloss-gui"
 >&IGU;</glossseealso>
 			</glossdef>
@@ -593,7 +593,7 @@ otherterm="gloss-kbuildsycoca"
 ></glossterm>
 			<glossdef>
 				<para
->a &plasma; hi ha un iniciador d'aplicacions en el qual les aplicacions s'ordenen per grups funcionals. «Preferides» substituïx «Aplicacions més utilitzades» en el menú clàssic, i s'hi poden afegir aplicacions. Fer clic dret també oferix la possibilitat d'afegir aplicacions a l'escriptori o al quadro. El ràpid accés a una aplicació menys utilitzada pot ser per al quadro de busca. Alternatives disponibles com el clàssic menú d'aplicacions en cascada amb menús emergents i el tauler d'aplicacions, un iniciador de pantalla completa. &plasma; es pot utilitzar amb més d'un iniciador, s'ha de requerir.&newpara; </para
+>En &plasma; hi ha un iniciador d'aplicacions en el qual les aplicacions s'ordenen per grups funcionals. «Preferides» substituïx «Aplicacions més utilitzades» en el menú clàssic, i s'hi poden afegir aplicacions. Fer clic dret també oferix la possibilitat d'afegir aplicacions a l'escriptori o al quadro. El ràpid accés a una aplicació menys utilitzada pot ser per al quadro de busca. Alternatives disponibles com el clàssic menú d'aplicacions en cascada amb menús emergents i el tauler d'aplicacions, un iniciador de pantalla completa. &plasma; es pot utilitzar amb més d'un iniciador, s'ha de requerir.&newpara; </para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-pager"
@@ -611,7 +611,7 @@ otherterm="gloss-kbuildsycoca"
 ></glossterm>
 			<glossdef>
 				<para
->Oxygen era el tema predeterminat de &kde; SC 4. Dissenyat per a portar «una alenada d'aire fresc» a l'escriptori eliminant el simplista, icones animades, i la substitució per un tema net i amb icones de qualitat fotogràfica. Oxygen utilitza una paleta sense saturació per previndre que les icones es convertisquen en una distracció i utilitza detallats gràfics escalables (SVG).&newpara; Més informació:&newpara; &linkstart;"https://en.wikipedia.org/wiki/Oxygen_Project"&linkmid;Viquipèdia: Oxygen Project&linkend;</para
+>Oxygen era el tema predeterminat de la &kde; SC 4. Dissenyat per a portar «una alenada d'aire fresc» a l'escriptori eliminant el simplista, icones animades, i la substitució per un tema net i amb icones de qualitat fotogràfica. Oxygen utilitza una paleta sense saturació per a evitar que les icones es convertisquen en una distracció i utilitza detallats gràfics escalables (SVG).&newpara; Més informació:&newpara; &linkstart;"https://en.wikipedia.org/wiki/Oxygen_Project"&linkmid;Viquipèdia: Oxygen Project&linkend;</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-ksvg"
@@ -643,7 +643,7 @@ otherterm="gloss-kbuildsycoca"
 >Plasma</glossterm>
 			<glossdef
 ><para
->L'escriptori &plasma; substituïx al KDesktop, &kicker; i el motor de ginys SuperKaramba. Les miniaplicacions s'anomenen Ginys, i abasten des de ginys amb informació a les miniaplicacions, com ara una calculadora o un diccionari. &newpara; Més informació:&newpara; &linkstart;"https://en.wikipedia.org/wiki/KDE_Plasma_5"&linkmid;Viquipèdia: Plasma 5 de KDE&linkend;&newpara; &linkstart;"https://www.kde.org/workspaces/"&linkmid;Espais de treball de Plasma&linkend;&newpara; &linkstart;"https://userbase.kde.org/Plasma/ca"&linkmid;Plasma&linkend;</para
+>L'escriptori &plasma; substituïx a KDesktop, &kicker; i el motor de ginys SuperKaramba. Les miniaplicacions s'anomenen Ginys, i abasten des de ginys amb informació a les miniaplicacions, com ara una calculadora o un diccionari. &newpara; Més informació:&newpara; &linkstart;"https://en.wikipedia.org/wiki/KDE_Plasma_5"&linkmid;Viquipèdia: Plasma 5 de KDE&linkend;&newpara; &linkstart;"https://www.kde.org/workspaces/"&linkmid;Espais de treball de Plasma&linkend;&newpara; &linkstart;"https://userbase.kde.org/Plasma/ca"&linkmid;Plasma&linkend;</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-kicker"
@@ -657,7 +657,7 @@ otherterm="gloss-kbuildsycoca"
 >Extracció «ripping»</glossterm>
 			<glossdef
 ><para
->El procés de llegir dades de so des d'un &cdrom; o DVD i emmagatzemant-les al disc dur.</para>
+>El procés de llegir dades de so des d'un &cdrom; o DVD i emmagatzemant-les en el disc dur.</para>
 			</glossdef>
 		</glossentry>
 		<glossentry id="gloss-virtualdesktops">
@@ -684,7 +684,7 @@ otherterm="gloss-kbuildsycoca"
 >&Qt;</glossterm>
 			<glossdef
 ><para
->La &IGU; de &kde; està construïda emprant com a base la biblioteca &Qt;, la qual us proporciona molts elements gràfics (els anomenats «Ginys») que s'utilitzen per a construir l'escriptori. Trobareu més informació damunt de &Qt; a &linkstart; "https://www.qt.io/developers/"&linkmid;https://www.qt.io/developers/&linkend;..</para
+>La &IGU; de &kde; està construïda emprant com a base la biblioteca &Qt;, la qual us proporciona molts elements gràfics (els anomenats «Ginys») que s'utilitzen per a construir l'escriptori. Trobareu més informació damunt de les &Qt; a &linkstart; "https://www.qt.io/developers/"&linkmid;https://www.qt.io/developers/&linkend;..</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-gui"
@@ -734,15 +734,15 @@ otherterm="gloss-kbuildsycoca"
 >KDOM</glossterm>
 			<glossdef
 ><para
->Un mòdul de KPart per a crear <acronym
+>Un mòdul de les KPart per a crear <acronym
 >DOM</acronym
-> a KHTML (&emstart;D&emend;ocument &emstart;O&emend;bject &emstart;M&emend;odel) de manera que este siga capaç de representar totes les aplicacions disponibles. KSVG2 es basa en KDOM per a &kde; SC 4.</para
+> a KHTML (&emstart;D&emend;ocument &emstart;O&emend;bject &emstart;M&emend;odel) de manera que este siga capaç de representar totes les aplicacions disponibles. KSVG2 es basa en KDOM per a la &kde; SC 4.</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-khtml"
 >KHTML</glossseealso
 > <glossseealso otherterm="gloss-kparts"
->KParts</glossseealso
+>KPart</glossseealso
 > <glossseealso otherterm="gloss-khtml"
 >KSVG</glossseealso
 > </glossdef>
@@ -756,7 +756,7 @@ otherterm="gloss-kbuildsycoca"
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-kparts"
->KParts</glossseealso
+>KPart</glossseealso
 > <glossseealso otherterm="gloss-plasma"
 >&plasma;</glossseealso
 > </glossdef>
@@ -766,13 +766,13 @@ otherterm="gloss-kbuildsycoca"
 >KSVG</glossterm>
 			<glossdef
 ><para
->KSVG habilita el suport per a gràfics vectorials escalables en un navegador KHTML. KSVG2 estén açò per a &kde; SC 4.</para
+>KSVG habilita el suport per a gràfics vectorials escalables en un navegador KHTML. KSVG2 estén açò per a la &kde; SC 4.</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-khtml"
 >KHTML</glossseealso
 > <glossseealso otherterm="gloss-kparts"
->KParts</glossseealso
+>KPart</glossseealso
 > </glossdef>
 		</glossentry>
 		<glossentry id="gloss-l10n">
@@ -824,11 +824,11 @@ otherterm="gloss-kbuildsycoca"
 >XMLGUI</glossterm>
 			<glossdef
 ><para
->Un entorn de treball per a programadors per al disseny de la interfície d'usuari. És àmpliament utilitzat per KParts.&newpara; Més informació:&newpara; &linkstart;"https://en.wikipedia.org/wiki/XMLGUI"&linkmid;Viquipèdia: XMLGUI&linkend;&newpara; &linkstart;"https://en.wikipedia.org/wiki/Qt_Style_Sheets"&linkmid;Viquipèdia: Qt Style Sheets&linkend;</para
+>Un entorn de treball per a programadors per al disseny de la interfície d'usuari. És àmpliament utilitzat per les KPart.&newpara; Més informació:&newpara; &linkstart;"https://en.wikipedia.org/wiki/XMLGUI"&linkmid;Viquipèdia: XMLGUI&linkend;&newpara; &linkstart;"https://en.wikipedia.org/wiki/Qt_Style_Sheets"&linkmid;Viquipèdia: Qt Style Sheets&linkend;</para
 ><glossseealso otherterm="gloss-gui"
 >&IGU;</glossseealso
 > <glossseealso otherterm="gloss-kparts"
->Kparts</glossseealso
+>Kpart</glossseealso
 > <glossseealso otherterm="gloss-qt"
 >&Qt;</glossseealso
 > </glossdef>
@@ -849,7 +849,7 @@ otherterm="gloss-kbuildsycoca"
 >RFC</acronym
 > no són obligatoris, moltes aplicacions intenten adherir-se-hi, una vegada aprovats per la comunitat.&newpara; Per a més informació damunt dels <acronym
 >RFC</acronym
-> trobareu-la a &linkstart;"https://www.rfc-editor.org/"&linkmid;la pàgina web dels RFC&linkend;.</para>
+> la trobareu a &linkstart;"https://www.rfc-editor.org/"&linkmid;la pàgina web dels RFC&linkend;.</para>
 			</glossdef>
 		</glossentry
 >	
@@ -881,7 +881,7 @@ otherterm="gloss-kbuildsycoca"
 ><para
 >&emstart;I&emend;nternet &emstart;R&emend;elay &emstart;C&emend;hat. Un protocol definit en el <acronym
 >RFC</acronym
-> 1459, que manipula l'especificació per a permetre conversacions en temps real.</para>
+> 1459, el qual manipula l'especificació per a permetre conversacions en temps real.</para>
 				<glossseealso otherterm="gloss-rfc"
 ><acronym
 >RFC</acronym
@@ -890,10 +890,10 @@ otherterm="gloss-kbuildsycoca"
 		</glossentry>
                 <glossentry id="gloss-host">
 		        <glossterm
->Màquina</glossterm>
+>Amfitrió</glossterm>
 			<glossdef
 ><para
->Este pot ser un nom al vostre fitxer <filename
+>Este pot ser un nom en el vostre fitxer <filename
 >/etc/hosts</filename
 > (<systemitem class="systemname"
 >elmeuordinador</systemitem

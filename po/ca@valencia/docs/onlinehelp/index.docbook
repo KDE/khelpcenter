@@ -99,7 +99,7 @@
 >&nbsp;</term>
 <listitem>
 <para
->Informació per a desenvolupadors i ajuda per a crear un entorn de desenvolupament de &kde;.</para>
+>Informació per a desenvolupadors i ajuda per a configurar un entorn de desenvolupament de &kde;.</para>
 </listitem>
 </varlistentry>
 </variablelist>
@@ -114,7 +114,7 @@
 >&nbsp;</term>
 <listitem>
 <para
->Esta pàgina conté tota la documentació d'usuari de &kde; en més de 25 idiomes per a la versió publicada i la de desenvolupament de &kde-frameworks;, &plasma-workspaces; i &applications;.</para>
+>Esta pàgina conté tota la documentació d'usuari de &kde; en més de 25 idiomes per a la versió publicada i la de desenvolupament dels &kde-frameworks;, &plasma-workspaces; i &applications;.</para>
 </listitem>
 </varlistentry>
 </variablelist>

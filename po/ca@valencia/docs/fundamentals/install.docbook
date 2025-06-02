@@ -3,7 +3,7 @@
 >Instal·lació de l'&plasma-desktop; i les aplicacions &kde;</title>
 
 <para
->Podeu instal·lar les aplicacions &kde;, inclòs l'&plasma-desktop; sobre una varietat de plataformes diferents, que van des de telèfons intel·ligents i tauletes a equips que executen &Microsoft; &Windows;, &MacOS;, &UNIX;, &BSD; o &Linux;. Els paquets binaris estan disponibles per a plataformes i distribucions diferents, o els usuaris avançats els poden construir des del codi font.</para>
+>Podeu instal·lar les aplicacions &kde;, inclòs l'&plasma-desktop; sobre una varietat de plataformes diferents, que van des de telèfons intel·ligents i tauletes a equips que executen &Microsoft; &Windows;, &macOS;, &UNIX;, &BSD; o &Linux;. Els paquets binaris estan disponibles per a plataformes i distribucions diferents, o els usuaris avançats els poden construir des del codi font.</para>
 
 <sect1 id="install-packages">
 <title
@@ -32,7 +32,7 @@
 </note>
 
 <para
->Si teniu problemes per a localitzar els paquets &kde; per a la vostra distribució, Poseu-vos en contacte amb els seus recursos de suport. Moltes distribucions també disposen d'un equip dedicat a empaquetar aplicacions per &kde; i que vos podran proporcionar assistència específica. </para>
+>Si teniu problemes per a localitzar els paquets &kde; per a la vostra distribució, contacteu amb els seus recursos de suport. Moltes distribucions també disposen d'un equip dedicat a empaquetar aplicacions per &kde; i que vos podran proporcionar assistència específica. </para>
 
 <!--FIXME: provide steps for common distributions?-->
 
@@ -46,7 +46,7 @@
 >La iniciativa de &kde; sobre Windows proporciona paquets binaris de les aplicacions &kde; per a &Microsoft; &Windows;. També proporcionen una aplicació especial d'instal·lador que us permetrà instal·lar individualment i amb facilitat les aplicacions o grups amb totes les dependències necessàries.</para>
 
 <para
->Per a obtindre més informació sobre la iniciativa i per a baixar l'instal·lador, visiteu la <ulink url="https://windows.kde.org/"
+>Per a obtindre més informació sobre la iniciativa i per a baixar l'instal·lador, visiteu la <ulink url="https://community.kde.org/Windows"
 >KDE on Windows Initiative</ulink
 >. </para>
 
@@ -56,16 +56,16 @@
 
 <sect2 id="install-mac">
 <title
->&MacOS;</title>
+>&macOS;</title>
 
 <para
 >Les aplicacions &kde; individuals es poden instal·lar a través de diversos <quote
 >ports</quote
-> dels diferents sistemes disponibles per a &MacOS;. Diverses aplicacions &kde; diferents també proporcionen el seu propi binari compilat per a &MacOS;.</para>
+> dels diferents sistemes disponibles per a &macOS;. Diverses aplicacions &kde; diferents també proporcionen el seu propi binari compilat per a &macOS;.</para>
 
 <para
->Per a més informació, visiteu <ulink url="https://mac.kde.org/"
->&kde; on &MacOS;X</ulink
+>Per a més informació, visiteu <ulink url="https://community.kde.org/Mac"
+>&kde; on &macOS;</ulink
 >.</para>
 
 </sect2>
@@ -95,7 +95,7 @@
 > és una interessant iniciativa per oferir una nova experiència &kde; als dispositius mòbils com telèfons intel·ligents o tauletes. Es proporcionen versions binàries per a diversos dispositius diferents.</para>
 
 <para
->Per a més informació, visiteu el <ulink url="https://plasma-mobile.org/"
+>Per a més informació, visiteu <ulink url="https://plasma-mobile.org/"
 ><productname
 >Plasma Mobile</productname
 ></ulink
@@ -111,7 +111,7 @@
 >Diverses distribucions &Linux; i &BSD; oferixen suports «live». Estos permeten provar l'&plasma-desktop; sense necessitat d'instal·lar res al sistema. Tot el que heu de fer és inserir el CD o connectar una unitat USB i arrancar des d'esta. Si vos agrada el que veeu, la majoria oferixen una opció per a instal·lar al disc dur.</para>
 
 <para
->Al lloc web de &kde; hi ha <ulink url="https://www.kde.org/download/distributions.php"
+>En el lloc web de &kde; hi ha <ulink url="https://www.kde.org/download/distributions.php"
 >una llista de les distribucions que oferixen l'entorn de treball i les aplicacions &kde; en suports «live»</ulink
 >.</para>
 </sect2>
@@ -128,7 +128,7 @@
 <para
 >Atés que el programari &kde; utilitza <command
 >cmake</command
->, no hauríeu de tindre problemes per compilar-lo. Si arribeu a tindre problemes, informeu-ne a les llistes de correu de &kde;.</para>
+>, no hauríeu de tindre problemes per a compilar-lo. Si n'arribeu a tindre, informeu-ne a les llistes de correu de &kde;.</para>
 
 <para
 >L'eina recomanada per a construir els Frameworks i l'&plasma-desktop; i totes les altres aplicacions és <ulink url="https://commits.kde.org/kdesrc-build"
