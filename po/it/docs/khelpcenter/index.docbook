@@ -69,9 +69,9 @@
 <keyword
 >aiuto</keyword>
 <keyword
->centro informazioni</keyword>
+>centro d'informazione</keyword>
 <keyword
->Centro informazioni KDE</keyword>
+>Centro d'informazione KDE</keyword>
 </keywordset>
 </bookinfo>
 
@@ -290,7 +290,7 @@
 <para
 >Il riquadro dei contenuti presenta tre schede: una contiene una <link linkend="contents-tab"
 >vista ad albero</link
-> che mostra tutta la struttura del centro informazioni &khelpcenter;, l'altra contiene il <link linkend="kde-glossary"
+> che mostra tutta la struttura del centro d'informazione &khelpcenter;, l'altra contiene il <link linkend="kde-glossary"
 >glossario</link
 > dei termini usati in &kde;. Nella terza scheda puoi configurare le <guilabel
 >Opzioni di ricerca</guilabel

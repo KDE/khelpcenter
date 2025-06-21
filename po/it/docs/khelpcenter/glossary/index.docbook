@@ -794,7 +794,7 @@ otherterm="gloss-kbuildsycoca"
 >Oggetto</glossterm>
 			<glossdef
 ><para
->In generale gli oggetti sono elementi grafici come barre di scorrimento, pulsanti o campi di immissione usati per costruire la &GUI;.&newpara;In &plasma; gli oggetti sono i componenti principali e si occupano di svariate funzioni che vanno dal visualizzare il desktop e l'immagine di sfondo associata, al mostrare il livello della batteria, al mostrare i dispositivi collegati, al disegnare il gestore dei processi: praticamente si tratta di piccole applicazioni che vivono sul desktop. Inoltre gli oggetti possono essere raggruppati in «Contenitori», come il pannello e lo stesso desktop. </para
+>In generale gli oggetti sono elementi grafici come barre di scorrimento, pulsanti o campi di immissione usati per costruire la &GUI;.&newpara;In &plasma; gli oggetti sono i componenti principali e si occupano di svariate funzioni che vanno dal visualizzare il desktop e l'immagine di sfondo associata, al mostrare il livello della batteria, al mostrare i dispositivi collegati, al disegnare la barra delle applicazioni: praticamente si tratta di piccole applicazioni che vivono sul desktop. Inoltre gli oggetti possono essere raggruppati in «Contenitori», come il pannello e lo stesso desktop. </para
 ><glossseealso otherterm="gloss-plasma"
 >&plasma;</glossseealso
 > <glossseealso otherterm="gloss-containment"
