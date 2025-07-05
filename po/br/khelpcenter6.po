@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdehelp-1.1\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-07 00:42+0000\n"
+"POT-Creation-Date: 2025-07-05 00:45+0000\n"
 "PO-Revision-Date: 2004-09-21 18:44+0200\n"
 "Last-Translator: Jañ-Mai Drapier <jdrapier@club-internet.fr>\n"
 "Language-Team: Brezhoneg <Suav.Icb@wanadoo.fr>\n"
@@ -266,37 +266,37 @@ msgstr "Barrenn kentañ an ostilhoù"
 msgid "Search Error Log"
 msgstr ""
 
-#: mainwindow.cpp:119
+#: mainwindow.cpp:120
 #, kde-format
 msgid "Preparing Index"
 msgstr "Emaon o prientiñ ar meneger"
 
-#: mainwindow.cpp:146
+#: mainwindow.cpp:147
 #, kde-format
 msgid "Ready"
 msgstr "Prest"
 
-#: mainwindow.cpp:201
+#: mainwindow.cpp:202
 #, kde-format
 msgid "Table of &Contents"
 msgstr "Taolenn an &danvezioù"
 
-#: mainwindow.cpp:202
+#: mainwindow.cpp:203
 #, kde-format
 msgid "Table of contents"
 msgstr "Taolenn an danvezioù"
 
-#: mainwindow.cpp:203
+#: mainwindow.cpp:204
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "Mont en-dro da daolenn an danvezioù"
 
-#: mainwindow.cpp:213
+#: mainwindow.cpp:214
 #, fuzzy, kde-format
 msgid "&Last Search Result"
 msgstr "K&lask"
 
-#: mainwindow.cpp:241
+#: mainwindow.cpp:242
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"
@@ -466,7 +466,7 @@ msgctxt "Label for Unknown search scope, that should never appear"
 msgid "unknown"
 msgstr "dianav"
 
-#: view.cpp:303
+#: view.cpp:308
 #, fuzzy, kde-format
 #| msgid "Start Page"
 msgid "Save Page"

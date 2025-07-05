@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-07 00:42+0000\n"
+"POT-Creation-Date: 2025-07-05 00:45+0000\n"
 "PO-Revision-Date: 2010-07-16 13:09+0100\n"
 "Last-Translator: Berend Ytsma <berendy@gmail.com>\n"
 "Language-Team: Frysk <kde-i18n-fry@kde.org>\n"
@@ -263,37 +263,37 @@ msgstr "Haadarkbalke"
 msgid "Search Error Log"
 msgstr "Syk flater loch"
 
-#: mainwindow.cpp:119
+#: mainwindow.cpp:120
 #, kde-format
 msgid "Preparing Index"
 msgstr "Tarieding dwaande fan de yndeks"
 
-#: mainwindow.cpp:146
+#: mainwindow.cpp:147
 #, kde-format
 msgid "Ready"
 msgstr "Klear"
 
-#: mainwindow.cpp:201
+#: mainwindow.cpp:202
 #, kde-format
 msgid "Table of &Contents"
 msgstr "Ynhâldsop&jefte"
 
-#: mainwindow.cpp:202
+#: mainwindow.cpp:203
 #, kde-format
 msgid "Table of contents"
 msgstr "Ynhâldsopjefte"
 
-#: mainwindow.cpp:203
+#: mainwindow.cpp:204
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "Gean werom nei de ynhâldsopjefte"
 
-#: mainwindow.cpp:213
+#: mainwindow.cpp:214
 #, kde-format
 msgid "&Last Search Result"
 msgstr "&Lêste sykresultaat"
 
-#: mainwindow.cpp:241
+#: mainwindow.cpp:242
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"
@@ -458,7 +458,7 @@ msgctxt "Label for Unknown search scope, that should never appear"
 msgid "unknown"
 msgstr "ûnbekend"
 
-#: view.cpp:303
+#: view.cpp:308
 #, fuzzy, kde-format
 #| msgid "Start Page"
 msgid "Save Page"

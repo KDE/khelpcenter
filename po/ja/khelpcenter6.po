@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-07 00:42+0000\n"
+"POT-Creation-Date: 2025-07-05 00:45+0000\n"
 "PO-Revision-Date: 2014-12-06 16:40-0800\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -272,37 +272,37 @@ msgstr "メインツールバー"
 msgid "Search Error Log"
 msgstr "検索エラーログ"
 
-#: mainwindow.cpp:119
+#: mainwindow.cpp:120
 #, kde-format
 msgid "Preparing Index"
 msgstr "インデックスを準備"
 
-#: mainwindow.cpp:146
+#: mainwindow.cpp:147
 #, kde-format
 msgid "Ready"
 msgstr "準備完了"
 
-#: mainwindow.cpp:201
+#: mainwindow.cpp:202
 #, kde-format
 msgid "Table of &Contents"
 msgstr "目次(&C)"
 
-#: mainwindow.cpp:202
+#: mainwindow.cpp:203
 #, kde-format
 msgid "Table of contents"
 msgstr "目次"
 
-#: mainwindow.cpp:203
+#: mainwindow.cpp:204
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "目次に戻ります"
 
-#: mainwindow.cpp:213
+#: mainwindow.cpp:214
 #, kde-format
 msgid "&Last Search Result"
 msgstr "最新の検索結果(&L)"
 
-#: mainwindow.cpp:241
+#: mainwindow.cpp:242
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"
@@ -467,7 +467,7 @@ msgctxt "Label for Unknown search scope, that should never appear"
 msgid "unknown"
 msgstr "不明"
 
-#: view.cpp:303
+#: view.cpp:308
 #, fuzzy, kde-format
 #| msgid "Start Page"
 msgid "Save Page"

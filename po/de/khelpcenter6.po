@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-07 00:42+0000\n"
+"POT-Creation-Date: 2025-07-05 00:45+0000\n"
 "PO-Revision-Date: 2023-12-21 16:53+0100\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -262,37 +262,37 @@ msgstr "Haupt-Werkzeugleiste"
 msgid "Search Error Log"
 msgstr "Protokolldatei für Fehler bei Suchvorgängen"
 
-#: mainwindow.cpp:119
+#: mainwindow.cpp:120
 #, kde-format
 msgid "Preparing Index"
 msgstr "Index wird vorbereitet"
 
-#: mainwindow.cpp:146
+#: mainwindow.cpp:147
 #, kde-format
 msgid "Ready"
 msgstr "Fertig"
 
-#: mainwindow.cpp:201
+#: mainwindow.cpp:202
 #, kde-format
 msgid "Table of &Contents"
 msgstr "&Inhaltsverzeichnis"
 
-#: mainwindow.cpp:202
+#: mainwindow.cpp:203
 #, kde-format
 msgid "Table of contents"
 msgstr "Inhaltsverzeichnis"
 
-#: mainwindow.cpp:203
+#: mainwindow.cpp:204
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "Zurück zum Inhaltsverzeichnis"
 
-#: mainwindow.cpp:213
+#: mainwindow.cpp:214
 #, kde-format
 msgid "&Last Search Result"
 msgstr "&Letztes Suchergebnis"
 
-#: mainwindow.cpp:241
+#: mainwindow.cpp:242
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"
@@ -454,7 +454,7 @@ msgctxt "Label for Unknown search scope, that should never appear"
 msgid "unknown"
 msgstr "Unbekannt"
 
-#: view.cpp:303
+#: view.cpp:308
 #, kde-format
 msgid "Save Page"
 msgstr "Seite speichern"

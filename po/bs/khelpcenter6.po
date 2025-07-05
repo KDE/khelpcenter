@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-07 00:42+0000\n"
+"POT-Creation-Date: 2025-07-05 00:45+0000\n"
 "PO-Revision-Date: 2014-10-20 19:49+0000\n"
 "Last-Translator: Vedran Ljubovic <vljubovic@smartnet.ba>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
@@ -297,38 +297,38 @@ msgid "Search Error Log"
 msgstr "Dnevnik grešaka pretraživanja"
 
 # >> @info:progress
-#: mainwindow.cpp:119
+#: mainwindow.cpp:120
 #, kde-format
 msgid "Preparing Index"
 msgstr "Pripremam indeks"
 
 # >> @info:progress
-#: mainwindow.cpp:146
+#: mainwindow.cpp:147
 #, kde-format
 msgid "Ready"
 msgstr "Spreman"
 
-#: mainwindow.cpp:201
+#: mainwindow.cpp:202
 #, kde-format
 msgid "Table of &Contents"
 msgstr "&Sadržaj"
 
-#: mainwindow.cpp:202
+#: mainwindow.cpp:203
 #, kde-format
 msgid "Table of contents"
 msgstr "Sadržaj"
 
-#: mainwindow.cpp:203
+#: mainwindow.cpp:204
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "Nazad na sadržaj"
 
-#: mainwindow.cpp:213
+#: mainwindow.cpp:214
 #, kde-format
 msgid "&Last Search Result"
 msgstr "Rezultat pos&ljednje pretrage"
 
-#: mainwindow.cpp:241
+#: mainwindow.cpp:242
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"
@@ -500,7 +500,7 @@ msgctxt "Label for Unknown search scope, that should never appear"
 msgid "unknown"
 msgstr "nepoznat"
 
-#: view.cpp:303
+#: view.cpp:308
 #, fuzzy, kde-format
 #| msgid "Start Page"
 msgid "Save Page"
