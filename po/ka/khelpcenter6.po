@@ -150,7 +150,7 @@ msgstr "კოდირება"
 #: fontdialog.cpp:131
 #, kde-format
 msgid "&Default encoding:"
-msgstr "&ნაგულისხმები კოდირება:"
+msgstr "&ნაგულისხმევი კოდირება:"
 
 #: fontdialog.cpp:136 fontdialog.cpp:198
 #, kde-format
@@ -432,7 +432,7 @@ msgstr "ხელით"
 #, kde-format
 msgctxt "Label for searching documentation using default search scope"
 msgid "Default"
-msgstr "ნაგულისხმები"
+msgstr "ნაგულისხმევი"
 
 #: searchwidget.cpp:339
 #, kde-format
