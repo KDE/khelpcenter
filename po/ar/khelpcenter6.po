@@ -54,7 +54,7 @@ msgstr "(c) 1999-2023, مطوري مركز المساعدة لـِ كِيدِي"
 #: application.cpp:109
 #, kde-format
 msgid "Current maintainer"
-msgstr "المصين الحاليّ"
+msgstr "الصائن الحاليّ"
 
 #: application.cpp:110
 #, kde-format
@@ -64,7 +64,7 @@ msgstr "بحث بالاعتماد على Xapian والكثير من الإصلا
 #: application.cpp:111
 #, kde-format
 msgid "Former maintainer"
-msgstr "المصين السّابق"
+msgstr "الصائن السّابق"
 
 #: application.cpp:113
 #, kde-format
