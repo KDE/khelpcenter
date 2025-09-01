@@ -422,7 +422,7 @@ msgstr "Màx. &resultats:"
 #: searchwidget.cpp:75
 #, kde-format
 msgid "&Scope selection:"
-msgstr "Seleccioneu l'i&nterval:"
+msgstr "Trieu l'i&nterval:"
 
 #: searchwidget.cpp:83
 #, kde-format
