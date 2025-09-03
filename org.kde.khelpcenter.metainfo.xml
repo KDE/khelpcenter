@@ -374,6 +374,7 @@
   </provides>
   <launchable type="desktop-id">org.kde.khelpcenter.desktop</launchable>
   <releases>
+    <release version="6.0.25081" date="2025-09-11"/>
     <release version="6.0.25080" date="2025-08-14"/>
     <release version="6.0.25043" date="2025-07-03"/>
     <release version="6.0.25042" date="2025-06-05"/>
