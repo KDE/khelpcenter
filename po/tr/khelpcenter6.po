@@ -8,21 +8,21 @@
 # Serdar Soytetir <tulliana@gmail.com>, 2007, 2008, 2009.
 # H. İbrahim Güngör <tulliana@gmail.com>, 2011, 2012.
 # Volkan Gezer <volkangezer@gmail.com>, 2013, 2014, 2017.
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-05 00:45+0000\n"
-"PO-Revision-Date: 2024-09-23 15:20+0300\n"
-"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
+"PO-Revision-Date: 2025-09-04 15:06+0300\n"
+"Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.11.70\n"
+"X-Generator: Lokalize 25.08.0\n"
 "X-Poedit-Language: Turkish\n"
 
 #, kde-format
@@ -106,13 +106,13 @@ msgstr "Boyutlar"
 #, kde-format
 msgctxt "The smallest size a will have"
 msgid "M&inimum font size:"
-msgstr "En küçük yazıt&ipi boyutu:"
+msgstr "En küçük yazıtipi &puntosu:"
 
 #: fontdialog.cpp:73
 #, kde-format
 msgctxt "The normal size a font will have"
 msgid "M&edium font size:"
-msgstr "O&rta yazıtipi boyutu:"
+msgstr "O&rta yazıtipi puntosu:"
 
 #: fontdialog.cpp:83
 #, kde-format
@@ -167,7 +167,7 @@ msgstr "Dil Kodlaması Kullan"
 #: fontdialog.cpp:140
 #, kde-format
 msgid "&Font size adjustment:"
-msgstr "&Yazıtipi boyutu ayarlama:"
+msgstr "&Yazıtipi puntosu ayarlama:"
 
 #: glossary.cpp:74
 #, kde-format
