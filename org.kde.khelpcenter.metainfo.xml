@@ -55,7 +55,6 @@
   <name xml:lang="tr">K Yardım Merkezi</name>
   <name xml:lang="uk">KHelpCenter</name>
   <name xml:lang="vi">KHelpCenter</name>
-  <name xml:lang="x-test">xxKHelpCenterxx</name>
   <name xml:lang="zh-CN">KHelpCenter</name>
   <name xml:lang="zh-TW">KHelpCenter</name>
   <summary>Help Center</summary>
@@ -107,7 +106,6 @@
   <summary xml:lang="tr">Yardım Merkezi</summary>
   <summary xml:lang="uk">Центр довідки</summary>
   <summary xml:lang="vi">Trung tâm trợ giúp</summary>
-  <summary xml:lang="x-test">xxHelp Centerxx</summary>
   <summary xml:lang="zh-CN">帮助中心</summary>
   <summary xml:lang="zh-TW">輔助中心</summary>
   <description>
@@ -155,7 +153,6 @@
     <p xml:lang="tr">Tüm KDE uygulamalarının ve sistem izlencelerinin belgelendirmesini okumak ve içinde arama yapmak için bir uygulama</p>
     <p xml:lang="uk">Програма для пошуку і читання документації до усіх програм KDE та засобів системи</p>
     <p xml:lang="vi">Một ứng dụng để tìm kiếm và đọc các tài liệu cho tất cả các ứng dụng và tiện ích hệ thống KDE của bạn</p>
-    <p xml:lang="x-test">xxAn application to search and read the documentation for all your KDE applications and system utilitiesxx</p>
     <p xml:lang="zh-CN">用于搜索和阅读所有 KDE 应用程序和系统实用程序的文档的应用程序</p>
     <p xml:lang="zh-TW">用來搜尋和閱讀所有 KDE 應用程式與系統工具文件的應用程式</p>
     <p>Features:</p>
@@ -207,7 +204,6 @@
     <p xml:lang="tr">Özellikler:</p>
     <p xml:lang="uk">Можливості:</p>
     <p xml:lang="vi">Tính năng:</p>
-    <p xml:lang="x-test">xxFeatures:xx</p>
     <p xml:lang="zh-CN">功能：</p>
     <p xml:lang="zh-TW">功能：</p>
     <ul>
@@ -257,7 +253,6 @@
       <li xml:lang="tr">Farklı kaynaklardan belgelendirmeleri göster (KDE topluluğu, kılavuz sayfaları, vs)</li>
       <li xml:lang="uk">Показ документації з різних джерел (програми спільноти KDE, сторінки man тощо)</li>
       <li xml:lang="vi">Hiện tài liệu từ nhiều nguồn khác nhau (các ứng dụng của cộng đồng KDE, các trang sổ tay, v.v.)</li>
-      <li xml:lang="x-test">xxShow documentation from various sources (applications from KDE community, man pages, etc)xx</li>
       <li xml:lang="zh-CN">显示来自从多种来源的文档（KDE 社区应用，man 页面，等）</li>
       <li xml:lang="zh-TW">顯示不同來源的文件（自 KDE 社群而來的應用程式、man 手冊頁等）</li>
       <li>Search through the available documentation</li>
@@ -308,7 +303,6 @@
       <li xml:lang="tr">Mevcut belgelendirmede arama yapın</li>
       <li xml:lang="uk">Пошук у доступній документації</li>
       <li xml:lang="vi">Tìm kiếm các tài liệu hiện có</li>
-      <li xml:lang="x-test">xxSearch through the available documentationxx</li>
       <li xml:lang="zh-CN">在可用的文档中搜索</li>
       <li xml:lang="zh-TW">在可用的文件中搜尋</li>
     </ul>
@@ -359,7 +353,6 @@
       <caption xml:lang="tr">K Yardım Merkezi ana penceresi</caption>
       <caption xml:lang="uk">Головне вікно KHelpCenter</caption>
       <caption xml:lang="vi">Cửa sổ chính KHelpCenter</caption>
-      <caption xml:lang="x-test">xxKHelpCenter main windowxx</caption>
       <caption xml:lang="zh-CN">KHelpCenter 主窗口</caption>
       <caption xml:lang="zh-TW">KHelpCenter 主視窗</caption>
       <image width="1920" height="1044">https://kde.org/images/screenshots/khelpcenter.png</image>
