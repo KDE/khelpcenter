@@ -33,7 +33,7 @@
 >Protocolo AppSocket</glossterm>
                         <glossdef
 ><para
->AppSocket es un protocolo para transferir datos de impresión, también suele llamarse «impresión directa TCP/IP». &Hewlett-Packard; tiene un AppSocket, que añade unas pocas extensiones menores al mismo y le cambia el nombre bajo la marca «&HP; JetDirect»...</para
+>AppSocket es un protocolo para transferir datos de impresión, también suele llamarse «impresión directa TCP/IP». &Hewlett-Packard; tiene un AppSocket, que añade unas pocas extensiones menores al mismo y le cambia el nombre bajo la marca «&HP; JetDirect»…</para
 ><glossseealso otherterm="gloss-hpjetdirectprotocol"
 >Protocolo &HP; JetDirect</glossseealso
 > <glossseealso otherterm="gloss-directtcpipprinting"
@@ -57,7 +57,7 @@
 >Comunicación bidireccional</glossterm>
                         <glossdef
 ><para
->En el contexto de la impresión, un servidor puede recibir información adicional que haya enviado la impresora (mensajes de estado, &etc;), ya sea de petición o de respuesta. AppSocket ( = &HP; JetDirect), &CUPS; e IPP soportan comunicación bidireccional, LPR/LDP y la impresión al estilo BSD no...</para
+>En el contexto de la impresión, un servidor puede recibir información adicional que haya enviado la impresora (mensajes de estado, &etc;), ya sea de petición o de respuesta. AppSocket ( = &HP; JetDirect), &CUPS; e IPP soportan comunicación bidireccional, LPR/LDP y la impresión al estilo BSD no…</para
 ><glossseealso otherterm="gloss-appsocketprotocol"
 >Protocolo AppSocket</glossseealso
 > <glossseealso otherterm="gloss-cups"
@@ -78,7 +78,7 @@
 >Impresión al estilo BSD</glossterm>
                         <glossdef
 ><para
->Término genérico para diferentes variaciones del método de impresión tradicional de &UNIX;. Su primera versión apareció en los años 70 en BSD &UNIX; y se describió formalmente en la &linkstart;"https://www.ietf.org/rfc/rfc1179.txt"&linkmid;RFC 1179&linkend; después de 1990.&newpara; En la época en que se diseño la primera impresión «remota» BSD, las impresoras eran serie o estaban conectadas directamente al servidor (¡e Internet apenas eran más de 100 nodos!). Las impresoras utilizaban papel continuo perforado, alimentadas mediante un mecanismo de tracción, con simples filas de texto ASCII que golpeaban el papel, situado en una caja de cartón bajo la mesa. El papel doblado parecía hacer zig-zag como una serpiente. La impresión remota consistía en un servidor vecino, en la habitación de al lado, que enviaba un archivo para su impresión.&newpara;¡Cómo ha cambiado la tecnología! Las impresoras suelen poder cortar las hojas, tienen la suficiente inteligencia para transformar las imágenes de las páginas después de que estas se hayan enviado a ellas, utilizando alguno de los potentes lenguajes de descripción de páginas (PDL). Algunas son nodos de la red en sentido estricto, con CPU, RAM, disco duro y su propio sistema operativo, y están conectadas a una red con millones de usuarios potenciales...&newpara; Esto es una prueba enorme del concepto de flexibilidad en &UNIX; para hacer las cosas, que permite hacer «en línea» un buen trabajo bajo estas condiciones modernas. Pero el tiempo ha vuelto a traer algo nuevo... El IPP. </para
+>Término genérico para diferentes variaciones del método de impresión tradicional de &UNIX;. Su primera versión apareció en los años 70 en BSD &UNIX; y se describió formalmente en la &linkstart;"https://www.ietf.org/rfc/rfc1179.txt"&linkmid;RFC 1179&linkend; después de 1990.&newpara; En la época en que se diseño la primera impresión «remota» BSD, las impresoras eran serie o estaban conectadas directamente al servidor (¡e Internet apenas eran más de 100 nodos!). Las impresoras utilizaban papel continuo perforado, alimentadas mediante un mecanismo de tracción, con simples filas de texto ASCII que golpeaban el papel, situado en una caja de cartón bajo la mesa. El papel doblado parecía hacer zig-zag como una serpiente. La impresión remota consistía en un servidor vecino, en la habitación de al lado, que enviaba un archivo para su impresión.&newpara;¡Cómo ha cambiado la tecnología! Las impresoras suelen poder cortar las hojas, tienen la suficiente inteligencia para transformar las imágenes de las páginas después de que estas se hayan enviado a ellas, utilizando alguno de los potentes lenguajes de descripción de páginas (PDL). Algunas son nodos de la red en sentido estricto, con CPU, RAM, disco duro y su propio sistema operativo, y están conectadas a una red con millones de usuarios potenciales…&newpara; Esto es una prueba enorme del concepto de flexibilidad en &UNIX; para hacer las cosas, que permite hacer «en línea» un buen trabajo bajo estas condiciones modernas. Pero el tiempo ha vuelto a traer algo nuevo… El IPP. </para
 ><glossseealso otherterm="gloss-ipp"
 >IPP</glossseealso
 > <glossseealso otherterm="gloss-cups"
@@ -280,7 +280,7 @@
 >Gimp-Print</glossterm>
                         <glossdef
 ><para
->A diferencia de lo que parece indicar su nombre, Gimp-Print no es un complemento que se utiliza para imprimir en el popular programa Gimp -- su código base puede servir para ser compilado en... &newpara; ...un conjunto de PPDs y filtros asociados que se integra sin problemas en &CUPS;, admitiendo alrededor de 130 modelos de impresora diferentes, proporcionando una salida de calidad fotográfica en la mayor parte de los casos.&newpara; ...un filtro Ghostscript que puede ser utilizado con cualquier otro programa que necesite software-RIP.&newpara; ...una librería que pueda ser utilizada por otras aplicaciones que necesiten funciones de digitalización.</para
+>A diferencia de lo que parece indicar su nombre, Gimp-Print no es un complemento que se utiliza para imprimir en el popular programa Gimp -- su código base puede servir para ser compilado en… &newpara; …un conjunto de PPDs y filtros asociados que se integra sin problemas en &CUPS;, admitiendo alrededor de 130 modelos de impresora diferentes, proporcionando una salida de calidad fotográfica en la mayor parte de los casos.&newpara; …un filtro Ghostscript que puede ser utilizado con cualquier otro programa que necesite software-RIP.&newpara; …una librería que pueda ser utilizada por otras aplicaciones que necesiten funciones de digitalización.</para
 ><glossseealso otherterm="gloss-lexmark"
 >Lexmark Drivers</glossseealso
 > <glossseealso otherterm="gloss-rip"
@@ -440,7 +440,7 @@
 ></glossterm>
                         <glossdef
 ><para
->Abreviatura de &emstart;P&emend;rinter &emstart;C&emend;ontrol &emstart;L&emend;anguage; (Lenguaje de Control de Impresión) desarrollado por &HP;. PCL comenzó en la versión 1 como un simple conjunto de órdenes para la impresión ASCII, ahora, en su versión PCL6 y PCL-X, es capaz de imprimir gráficos y color -- pero fuera del ámbito de &Microsoft; &Windows; y &HP-UX; (&HP; tiene su propia rama de &UNIX;), no se suele utilizar...</para
+>Abreviatura de &emstart;P&emend;rinter &emstart;C&emend;ontrol &emstart;L&emend;anguage; (Lenguaje de Control de Impresión) desarrollado por &HP;. PCL comenzó en la versión 1 como un simple conjunto de órdenes para la impresión ASCII, ahora, en su versión PCL6 y PCL-X, es capaz de imprimir gráficos y color -- pero fuera del ámbito de &Microsoft; &Windows; y &HP-UX; (&HP; tiene su propia rama de &UNIX;), no se suele utilizar…</para
 ><glossseealso otherterm="gloss-escp"
 >ESC/P</glossseealso
 > <glossseealso otherterm="gloss-hpgl"
@@ -540,7 +540,7 @@
 >printcap</glossterm>
                         <glossdef
 ><para
->En los sistema de impresión al estilo BSD, el archivo «printcap» contiene información sobre la configuración. El demonio de impresión lee este archivo para determinar qué impresoras están disponibles, qué filtros deben usarse para cada una, dónde se ubica la carpeta de la cola, si se han de utilizar páginas de avisos, y así sucesivamente... Algunas aplicaciones también necesitan tener acceso de lectura al archivo printcap, para conseguir los nombres de las impresoras disponibles. </para>
+>En los sistema de impresión al estilo BSD, el archivo «printcap» contiene información sobre la configuración. El demonio de impresión lee este archivo para determinar qué impresoras están disponibles, qué filtros deben usarse para cada una, dónde se ubica la carpeta de la cola, si se han de utilizar páginas de avisos, y así sucesivamente… Algunas aplicaciones también necesitan tener acceso de lectura al archivo printcap, para conseguir los nombres de las impresoras disponibles. </para>
                                 <glossseealso otherterm="gloss-bsdstyleprinting"
 >Impresión al estilo BSD</glossseealso>
                         </glossdef>
@@ -596,7 +596,7 @@
 >Imagen digitalizada</glossterm>
                         <glossdef
 ><para
->Cada dibujo en un medio físico se compone de un patrón de puntos discretos de diferentes colores y (quizá) tamaños. Esto es lo que se denomina una «imagen digitalizada».&newpara;Es lo opuesto a una «imagen vectorial» en la que los gráficos se describen en forma de curvas continuas, sombras, formas y áreas rellenas, representadas por fórmulas matemáticas. Las imágenes vectoriales normalmente se guardan en archivos de pequeño tamaño y pueden ser escaladas sin ninguna pérdida de información o de calidad -- pero no pueden mostrarse directamente, sino que antes tienen que ser «renderizadas» o «digitalizadas» para proporcionar la resolución que el dispositivo de salida es capaz de...&newpara; La digitalización es realizada por el Raster Imagen Processor -Procesador de Imagen Digitalizada- (RIP, generalmente el software Ghostscript) o algún otro filtro para hacerlo.</para
+>Cada dibujo en un medio físico se compone de un patrón de puntos discretos de diferentes colores y (quizá) tamaños. Esto es lo que se denomina una «imagen digitalizada».&newpara;Es lo opuesto a una «imagen vectorial» en la que los gráficos se describen en forma de curvas continuas, sombras, formas y áreas rellenas, representadas por fórmulas matemáticas. Las imágenes vectoriales normalmente se guardan en archivos de pequeño tamaño y pueden ser escaladas sin ninguna pérdida de información o de calidad -- pero no pueden mostrarse directamente, sino que antes tienen que ser «renderizadas» o «digitalizadas» para proporcionar la resolución que el dispositivo de salida es capaz de…&newpara; La digitalización es realizada por el Raster Imagen Processor -Procesador de Imagen Digitalizada- (RIP, generalmente el software Ghostscript) o algún otro filtro para hacerlo.</para
 ><glossseealso otherterm="gloss-pixel"
 >Pixel</glossseealso
 > <glossseealso otherterm="gloss-ghostscript"
@@ -653,7 +653,7 @@
 ></glossterm>
                         <glossdef
 ><para
->Abreviatura de &emstart;S&emend;imple &emstart;N&emend;etwork &emstart;M&emend;anagement &emstart;P&emend;rotocol; (Protocolo de Administración Sencilla de Red). SNMP es ampliamente utilizado para controlar todos los tipos de nodos de red (Hosts, Routers, Switches, Puertas de enlace, Impresoras...) de forma remota.</para
+>Abreviatura de &emstart;S&emend;imple &emstart;N&emend;etwork &emstart;M&emend;anagement &emstart;P&emend;rotocol; (Protocolo de Administración Sencilla de Red). SNMP es ampliamente utilizado para controlar todos los tipos de nodos de red (Hosts, Routers, Switches, Puertas de enlace, Impresoras…) de forma remota.</para
 ><glossseealso otherterm="gloss-pwg"
 >PWG</glossseealso
 > <glossseealso otherterm="gloss-printermib"
@@ -722,7 +722,7 @@
 >Estilo de impresión System V</glossterm>
                         <glossdef
 ><para
->Esta es la segunda variedad de impresión del tradicional &UNIX; (en oposición al estilo de impresión basado en BSD). Utiliza un conjunto de órdenes diferente (lp, lpadmin,...) para BSD, pero en lo fundamental no se diferencia de él. Sin embargo, la diferencia entre los dos es lo suficientemente fuerte como para hacerlos incompatibles, por tanto un cliente BSD no puede imprimir en un servidor al estilo del System V sin retoques adicionales... IPP está preparado para resolver este inconveniente y alguno más. </para
+>Esta es la segunda variedad de impresión del tradicional &UNIX; (en oposición al estilo de impresión basado en BSD). Utiliza un conjunto de órdenes diferente (lp, lpadmin,…) para BSD, pero en lo fundamental no se diferencia de él. Sin embargo, la diferencia entre los dos es lo suficientemente fuerte como para hacerlos incompatibles, por tanto un cliente BSD no puede imprimir en un servidor al estilo del System V sin retoques adicionales… IPP está preparado para resolver este inconveniente y alguno más. </para
 ><glossseealso otherterm="gloss-bsdstyleprinting"
 ><acronym
 >Estilo de impresión BSD</acronym

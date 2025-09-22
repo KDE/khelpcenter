@@ -839,7 +839,7 @@ Print the contents of the currently visible page.
 > <guimenu
 >Editar</guimenu
 > <guimenuitem
->Buscar...</guimenuitem
+>Buscar…</guimenuitem
 > </menuchoice>
 </term>
 <listitem>
@@ -1087,7 +1087,7 @@ Print the contents of the currently visible page.
 ><guimenu
 >Preferencias</guimenu
 > <guimenuitem
->Configurar los tipos de letra...</guimenuitem
+>Configurar los tipos de letra…</guimenuitem
 > </menuchoice>
 </term>
 <listitem>
