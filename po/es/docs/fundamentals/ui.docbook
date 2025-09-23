@@ -1072,7 +1072,7 @@
 > <guimenu
 >Archivo</guimenu
 ><guimenuitem
->Abrir...</guimenuitem
+>Abrir…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1108,7 +1108,7 @@
 ><guimenu
 >Archivo</guimenu
 ><guimenuitem
->Guardar como...</guimenuitem
+>Guardar como…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1178,7 +1178,7 @@
 > <guimenu
 >Archivo</guimenu
 ><guimenuitem
->Imprimir...</guimenuitem
+>Imprimir…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1397,7 +1397,7 @@
 > <guimenu
 >Editar</guimenu
 ><guimenuitem
->Buscar...</guimenuitem
+>Buscar…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1418,7 +1418,7 @@
 > <guimenu
 >Editar</guimenu
 ><guimenuitem
->Sustituir...</guimenuitem
+>Sustituir…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1519,7 +1519,7 @@
 ><guimenu
 >Herramientas</guimenu
 ><guimenuitem
->Ortografía...</guimenuitem
+>Ortografía…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1534,7 +1534,7 @@
 ><guimenu
 >Herramientas</guimenu
 ><guimenuitem
->Comprobar ortografía (desde el cursor)...</guimenuitem
+>Comprobar ortografía (desde el cursor)…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1549,7 +1549,7 @@
 ><guimenu
 >Herramientas</guimenu
 ><guimenuitem
->Comprobar ortografía de la selección...</guimenuitem
+>Comprobar ortografía de la selección…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1564,7 +1564,7 @@
 ><guimenu
 >Herramientas</guimenu
 ><guimenuitem
->Cambiar diccionario...</guimenuitem
+>Cambiar diccionario…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1669,7 +1669,7 @@
 ><guimenu
 >Preferencias</guimenu
 ><guimenuitem
->Configurar atajos de teclado...</guimenuitem
+>Configurar atajos de teclado…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1684,7 +1684,7 @@
 ><guimenu
 >Preferencias</guimenu
 ><guimenuitem
->Configurar las barras de herramientas...</guimenuitem
+>Configurar las barras de herramientas…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1699,7 +1699,7 @@
 ><guimenu
 >Preferencias</guimenu
 ><guimenuitem
->Configurar notificaciones...</guimenuitem
+>Configurar notificaciones…</guimenuitem
 ></menuchoice
 ></term>
 <listitem
@@ -1720,7 +1720,7 @@
 ><guimenuitem
 >Configurar <replaceable
 >Aplicación</replaceable
->...</guimenuitem
+>…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1819,7 +1819,7 @@
 ><guimenu
 >Ayuda</guimenu
 > <guimenuitem
->Informar de fallo...</guimenuitem
+>Informar de fallo…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1856,7 +1856,7 @@ or via email (see krecipes doc rev 1306076)
 ><guimenu
 >Ayuda</guimenu
 > <guimenuitem
->Cambiar el idioma de la aplicación...</guimenuitem
+>Cambiar el idioma de la aplicación…</guimenuitem
 > </menuchoice
 ></term>
 <listitem

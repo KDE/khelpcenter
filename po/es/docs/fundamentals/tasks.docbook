@@ -804,7 +804,7 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 <varlistentry>
 <term
 ><guimenuitem
->Crear nuevo...</guimenuitem
+>Crear nuevo…</guimenuitem
 ></term>
 <listitem
 ><para
@@ -815,7 +815,7 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 <varlistentry>
 <term
 ><guimenuitem
->Mover a la papelera...</guimenuitem
+>Mover a la papelera…</guimenuitem
 > (<keycombo action="simul"
 ><keycap
 >Supr</keycap
@@ -1078,7 +1078,7 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 ><guimenu
 >Herramientas</guimenu
 ><guimenuitem
->Ortografía...</guimenuitem
+>Ortografía…</guimenuitem
 ></menuchoice
 >.</para>
 
@@ -1175,7 +1175,7 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 ><guimenu
 >Herramientas</guimenu
 ><guimenuitem
->Cambiar diccionario...</guimenuitem
+>Cambiar diccionario…</guimenuitem
 ></menuchoice
 >. Aparecerá una pequeña pantalla en la parte inferior del documento actual que le permitirá cambiar su diccionario.</para>
 
@@ -1272,7 +1272,7 @@ Search+Replace bar in Kate/KWrite
 ><guimenu
 >Editar</guimenu
 ><guimenuitem
->Buscar...</guimenuitem
+>Buscar…</guimenuitem
 ></menuchoice
 > o pulse <keycombo action="simul"
 >&Ctrl;<keycap
@@ -1429,7 +1429,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 ><guimenu
 >Editar</guimenu
 ><guisubmenu
->Sustituir...</guisubmenu
+>Sustituir…</guisubmenu
 ></menuchoice
 > o pulsando <keycombo action="simul"
 >&Ctrl;<keycap

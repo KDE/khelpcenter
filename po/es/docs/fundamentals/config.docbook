@@ -75,10 +75,10 @@
 ><guimenu
 >Preferencias</guimenu
 ><guimenuitem
->Configurar barras de herramientas...</guimenuitem
+>Configurar barras de herramientas…</guimenuitem
 ></menuchoice
 > o haga clic con el botón derecho en una barra de herramientas y seleccione <guimenuitem
->Configurar barras de herramientas...</guimenuitem
+>Configurar barras de herramientas…</guimenuitem
 >.</para>
 
 <para
@@ -161,9 +161,9 @@
 
 <para
 >Puede modificar el icono y el texto de cada uno de los elementos de la barra de herramientas seleccionando un elemento y haciendo clic en el botón <guibutton
->Cambiar icono...</guibutton
+>Cambiar icono…</guibutton
 > o en el botón <guibutton
->Cambiar texto...</guibutton
+>Cambiar texto…</guibutton
 >.</para>
 <!--FIXME Icon selection and icon categories -> own section?
   Change Text -> Option "Hide text when toolbar shows text alongside icons"
@@ -419,7 +419,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 ><guimenu
 >Preferencias</guimenu
 ><guimenuitem
->Configurar atajos de teclado...</guimenuitem
+>Configurar atajos de teclado…</guimenuitem
 ></menuchoice
 >.</para>
 
@@ -544,7 +544,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 <varlistentry>
 <term
 ><guibutton
->Nuevo...</guibutton
+>Nuevo…</guibutton
 ></term>
 <listitem
 ><para
@@ -587,7 +587,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 <varlistentry>
 <term
 ><guimenuitem
->Exportar esquema...</guimenuitem
+>Exportar esquema…</guimenuitem
 ></term>
 <listitem
 ><para
@@ -598,7 +598,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 <varlistentry>
 <term
 ><guimenuitem
->Importar esquema...</guimenuitem
+>Importar esquema…</guimenuitem
 ></term>
 <listitem
 ><para
