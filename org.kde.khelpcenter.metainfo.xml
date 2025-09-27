@@ -6,7 +6,7 @@
   <developer id="org.kde">
     <name translate="no">KDE</name>
   </developer>
-  <name>KHelpCenter</name>
+  <name>Help Center</name>
   <name xml:lang="ar">مركز مساعدتك</name>
   <name xml:lang="ast">KHelpCenter</name>
   <name xml:lang="be">Цэнтр даведак KDE</name>
@@ -57,7 +57,7 @@
   <name xml:lang="vi">KHelpCenter</name>
   <name xml:lang="zh-CN">KHelpCenter</name>
   <name xml:lang="zh-TW">KHelpCenter</name>
-  <summary>Help Center</summary>
+  <summary>Browse and search documentation</summary>
   <summary xml:lang="ar">مركز مساعدة</summary>
   <summary xml:lang="ast">Centru d'ayuda</summary>
   <summary xml:lang="be">Цэнтр даведак</summary>
