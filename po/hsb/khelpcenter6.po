@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 00:45+0000\n"
+"POT-Creation-Date: 2025-09-28 00:47+0000\n"
 "PO-Revision-Date: 2005-02-23 17:53+0100\n"
 "Last-Translator: Bianka Šwejdźic <hertn@gmx.de>\n"
 "Language-Team: Hornjoserbšćina\n"
@@ -415,49 +415,49 @@ msgstr "abo"
 msgid "&Method:"
 msgstr "&Metoda:"
 
-#: searchwidget.cpp:60
+#: searchwidget.cpp:62
 #, kde-format
 msgid "Max. &results:"
 msgstr " "
 
-#: searchwidget.cpp:75
+#: searchwidget.cpp:77
 #, kde-format
 msgid "&Scope selection:"
 msgstr ""
 
-#: searchwidget.cpp:83
+#: searchwidget.cpp:85
 #, kde-format
 msgid "Scope"
 msgstr "Wobłuk"
 
-#: searchwidget.cpp:335
+#: searchwidget.cpp:337
 #, fuzzy, kde-format
 #| msgid "Custom"
 msgctxt "Label for searching documentation using custom (user defined) scope"
 msgid "Custom"
 msgstr "Na wužiwarja přiměrjene"
 
-#: searchwidget.cpp:337
+#: searchwidget.cpp:339
 #, kde-format
 msgctxt "Label for searching documentation using default search scope"
 msgid "Default"
 msgstr ""
 
-#: searchwidget.cpp:339
+#: searchwidget.cpp:341
 #, fuzzy, kde-format
 #| msgid "All"
 msgctxt "Label for searching documentation in all subsections"
 msgid "All"
 msgstr "Wšě"
 
-#: searchwidget.cpp:341
+#: searchwidget.cpp:343
 #, fuzzy, kde-format
 #| msgid "None"
 msgctxt "Label for scope that deselects all search subsections"
 msgid "None"
 msgstr "Žane"
 
-#: searchwidget.cpp:343
+#: searchwidget.cpp:345
 #, kde-format
 msgctxt "Label for Unknown search scope, that should never appear"
 msgid "unknown"

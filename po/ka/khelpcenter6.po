@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 00:45+0000\n"
+"POT-Creation-Date: 2025-09-28 00:47+0000\n"
 "PO-Revision-Date: 2023-09-30 03:11+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -407,46 +407,46 @@ msgstr "ან"
 msgid "&Method:"
 msgstr "&მეთოდი:"
 
-#: searchwidget.cpp:60
+#: searchwidget.cpp:62
 #, kde-format
 msgid "Max. &results:"
 msgstr "მაქს. &შედეგები:"
 
-#: searchwidget.cpp:75
+#: searchwidget.cpp:77
 #, kde-format
 msgid "&Scope selection:"
 msgstr "&ფარგლების არჩევანი:"
 
-#: searchwidget.cpp:83
+#: searchwidget.cpp:85
 #, kde-format
 msgid "Scope"
 msgstr "ფარგლები"
 
-#: searchwidget.cpp:335
+#: searchwidget.cpp:337
 #, kde-format
 msgctxt "Label for searching documentation using custom (user defined) scope"
 msgid "Custom"
 msgstr "ხელით"
 
-#: searchwidget.cpp:337
+#: searchwidget.cpp:339
 #, kde-format
 msgctxt "Label for searching documentation using default search scope"
 msgid "Default"
 msgstr "ნაგულისხმევი"
 
-#: searchwidget.cpp:339
+#: searchwidget.cpp:341
 #, kde-format
 msgctxt "Label for searching documentation in all subsections"
 msgid "All"
 msgstr "ყველა"
 
-#: searchwidget.cpp:341
+#: searchwidget.cpp:343
 #, kde-format
 msgctxt "Label for scope that deselects all search subsections"
 msgid "None"
 msgstr "არაფერი"
 
-#: searchwidget.cpp:343
+#: searchwidget.cpp:345
 #, kde-format
 msgctxt "Label for Unknown search scope, that should never appear"
 msgid "unknown"

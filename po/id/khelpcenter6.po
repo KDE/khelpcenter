@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 00:45+0000\n"
+"POT-Creation-Date: 2025-09-28 00:47+0000\n"
 "PO-Revision-Date: 2022-09-27 17:54+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -409,46 +409,46 @@ msgstr "atau"
 msgid "&Method:"
 msgstr "&Metode:"
 
-#: searchwidget.cpp:60
+#: searchwidget.cpp:62
 #, kde-format
 msgid "Max. &results:"
 msgstr "&Hasil maks.:"
 
-#: searchwidget.cpp:75
+#: searchwidget.cpp:77
 #, kde-format
 msgid "&Scope selection:"
 msgstr "&Pemilihan lingkup:"
 
-#: searchwidget.cpp:83
+#: searchwidget.cpp:85
 #, kde-format
 msgid "Scope"
 msgstr "Cakup"
 
-#: searchwidget.cpp:335
+#: searchwidget.cpp:337
 #, kde-format
 msgctxt "Label for searching documentation using custom (user defined) scope"
 msgid "Custom"
 msgstr "Kustom"
 
-#: searchwidget.cpp:337
+#: searchwidget.cpp:339
 #, kde-format
 msgctxt "Label for searching documentation using default search scope"
 msgid "Default"
 msgstr "Baku"
 
-#: searchwidget.cpp:339
+#: searchwidget.cpp:341
 #, kde-format
 msgctxt "Label for searching documentation in all subsections"
 msgid "All"
 msgstr "Semua"
 
-#: searchwidget.cpp:341
+#: searchwidget.cpp:343
 #, kde-format
 msgctxt "Label for scope that deselects all search subsections"
 msgid "None"
 msgstr "Nihil"
 
-#: searchwidget.cpp:343
+#: searchwidget.cpp:345
 #, kde-format
 msgctxt "Label for Unknown search scope, that should never appear"
 msgid "unknown"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 00:45+0000\n"
+"POT-Creation-Date: 2025-09-28 00:47+0000\n"
 "PO-Revision-Date: 2006-12-17 12:18+0000\n"
 "Last-Translator: Mashrab Kuvatov <kmashrab@uni-bremen.de>\n"
 "Language-Team: Uzbek <floss-uz-l10n@googlegroups.com>\n"
@@ -417,49 +417,49 @@ msgstr "yoki"
 msgid "&Method:"
 msgstr "&Usul:"
 
-#: searchwidget.cpp:60
+#: searchwidget.cpp:62
 #, kde-format
 msgid "Max. &results:"
 msgstr "&Natij. eng koʻp soni:"
 
-#: searchwidget.cpp:75
+#: searchwidget.cpp:77
 #, kde-format
 msgid "&Scope selection:"
 msgstr "Chegarani &tanlash:"
 
-#: searchwidget.cpp:83
+#: searchwidget.cpp:85
 #, kde-format
 msgid "Scope"
 msgstr "Chegara"
 
-#: searchwidget.cpp:335
+#: searchwidget.cpp:337
 #, fuzzy, kde-format
 #| msgid "Custom"
 msgctxt "Label for searching documentation using custom (user defined) scope"
 msgid "Custom"
 msgstr "Boshqa"
 
-#: searchwidget.cpp:337
+#: searchwidget.cpp:339
 #, kde-format
 msgctxt "Label for searching documentation using default search scope"
 msgid "Default"
 msgstr ""
 
-#: searchwidget.cpp:339
+#: searchwidget.cpp:341
 #, fuzzy, kde-format
 #| msgid "All"
 msgctxt "Label for searching documentation in all subsections"
 msgid "All"
 msgstr "Hammasi"
 
-#: searchwidget.cpp:341
+#: searchwidget.cpp:343
 #, fuzzy, kde-format
 #| msgid "None"
 msgctxt "Label for scope that deselects all search subsections"
 msgid "None"
 msgstr "Yoʻq"
 
-#: searchwidget.cpp:343
+#: searchwidget.cpp:345
 #, fuzzy, kde-format
 #| msgid "unknown"
 msgctxt "Label for Unknown search scope, that should never appear"
