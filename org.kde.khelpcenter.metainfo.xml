@@ -58,6 +58,8 @@
   <name xml:lang="zh-CN">帮助中心</name>
   <name xml:lang="zh-TW">輔助中心</name>
   <summary>Browse and search documentation</summary>
+  <summary xml:lang="ar">تصفح وابحث في التوثيق</summary>
+  <summary xml:lang="bg">Преглед и търсене на документация</summary>
   <summary xml:lang="ca">Explora i cerca documentació</summary>
   <summary xml:lang="ca-valencia">Explora i busca documentació</summary>
   <summary xml:lang="es">Explorar y buscar documentación</summary>
@@ -68,6 +70,7 @@
   <summary xml:lang="nl">Blader in en doorzoek documentatie</summary>
   <summary xml:lang="pt-BR">Navegue e pesquise na documentação</summary>
   <summary xml:lang="sl">Brskaj in išči po dukumentaciji</summary>
+  <summary xml:lang="sv">Bläddra och sök i dokumentation</summary>
   <summary xml:lang="ta">கையேடுகளில் தேடி உலாவலாம்</summary>
   <summary xml:lang="tr">Belgelendirmeye göz atın ve içinde arama yapın</summary>
   <summary xml:lang="uk">Перегляд документації та пошук у ній</summary>
