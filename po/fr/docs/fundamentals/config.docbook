@@ -57,7 +57,7 @@
 >Sur le côté gauche du panneau de configuration de la barre d'outils, les éléments disponibles que vous pouvez ajouter à votre barre d'outils sont affichés. Sur la droite, ceux qui sont déjà dans la barre d'outils sont affichés. En haut, vous pouvez choisir la barre d'outils que vous souhaitez modifier ou afficher.</para>
 
 <para
->Au-dessus de chaque côté du panneau il y a une boîte de texte <guilabel
+>Au-dessus de chaque côté du panneau il y a une boite de texte <guilabel
 >Filtre</guilabel
 > que vous pouvez utiliser pour trouver facilement des éléments dans la liste.</para>
 
@@ -368,7 +368,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 ></para>
 
 <para
->Dans la fenêtre de configuration des raccourcis, vous verrez une liste de tous les raccourcis disponibles dans l'application courante. Vous pouvez utiliser la boîte de recherche en haut pour rechercher le raccourci que vous voulez.</para>
+>Dans la fenêtre de configuration des raccourcis, vous verrez une liste de tous les raccourcis disponibles dans l'application courante. Vous pouvez utiliser la boite de recherche en haut pour rechercher le raccourci que vous voulez.</para>
 
 <screenshot id="screenshot-shortcuts-search">
 <screeninfo
