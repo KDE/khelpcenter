@@ -99,20 +99,10 @@
 > (em inglês). Não é necessária experiência, apenas entusiasmo e paciência. </para>
 
 <para
->Se você quiser ajudar a traduzir a documentação do &kde; para o seu idioma nativo, revisar as traduções ou contatar os coordenadores de cada equipe de tradução, acesse a <ulink url="https://l10n.kde.org/"
->página Web de Localização</ulink
+>Se você quiser ajudar a traduzir a documentação do &kde; para o seu idioma nativo, revisar as traduções ou contatar os coordenadores de cada equipe de tradução, acesse o <ulink url="https://l10n.kde.org/"
+>site de Localização</ulink
 >. </para>
 
-<sect2 id="installation">
-<title
->Instalação</title>
-
-<para
->O &khelpcenter; é integrante do &applications;. Ele pode ser encontrado no <ulink url="https://download.kde.org/"
->site de downloads</ulink
-> do projeto &kde; ou no pacote &khelpcenter; do seu sistema operacional. </para>
-
-</sect2>
 </sect1>
 
 <sect1 id="invoking-help">
@@ -392,7 +382,7 @@
 <varlistentry>
 <term
 ><guilabel
->Kioslaves</guilabel
+>KIO workers</guilabel
 ></term>
 <listitem>
 <para
@@ -860,6 +850,24 @@ Print the contents of the currently visible page.
 >Muda a codificação da página atual. Normalmente a opção <guimenuitem
 >Padrão</guimenuitem
 > deverá ser suficiente mas, se tiver problemas ao ver as páginas feitas em outros idiomas que não o Inglês, poderá ter que escolher uma codificação específica neste menu. </para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Exibir</guimenu
+> <guisubmenu
+>Modo de tela cheia</guisubmenu
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Altera o &khelpcenter; para o modo de tela cheia, no qual a janela do &khelpcenter; ocupa toda a tela e não possui as decorações usuais da janela. Para sair do modo de tela cheia, pressione <keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>F</keycap
+></keycombo
+>. </para>
 </listitem>
 </varlistentry>
 </variablelist>

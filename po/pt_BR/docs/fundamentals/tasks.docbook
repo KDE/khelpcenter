@@ -139,7 +139,7 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 ><menuchoice
 ><shortcut
 ><keycap
->PgDown</keycap
+>PgDn</keycap
 ></shortcut
 > <guimenuitem
 >Página abaixo</guimenuitem
@@ -262,7 +262,7 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 ></textobject>
 <caption
 ><para
->Abrir um arquivo no <ulink url="http://kde.org/applications/internet/konqueror/"
+>Abrir um arquivo no <ulink url="https://www.kde.org/applications/internet/konqueror/"
 >&konqueror;</ulink
 >. </para
 ></caption>
@@ -337,11 +337,11 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 <varlistentry id="files-ui-toolbar-show-preview">
 <term
 ><guibutton
->Mostrar visualização</guibutton
+>Exibir prévia</guibutton
 ></term>
 <listitem
 ><para
->Exibe uma visualização de cada arquivo dentro da visualização da pasta. </para
+>Exibe uma prévia de cada arquivo dentro da visualização da pasta. </para
 ></listitem>
 </varlistentry>
 
@@ -350,7 +350,7 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 >Índice de ampliação</term>
 <listitem
 ><para
->Permite que você altere o tamanho do ícone ou da visualização exibida na visualização da pasta.</para
+>Permite que você altere o tamanho do ícone ou da prévia exibida na visualização da pasta.</para
 ></listitem>
 </varlistentry>
 
@@ -635,12 +635,12 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 ><guimenu
 >Opções</guimenu
 ><guimenuitem
->Mostrar visualização ao lado</guimenuitem
+>Mostrar prévia ao lado</guimenuitem
 > </menuchoice
 ></term>
 <listitem
 ><para
->Exibe uma visualização da arquivo atualmente selecionado à direita da visualização da pasta.</para
+>Exibe uma prévia da arquivo atualmente selecionado à direita da visualização da pasta.</para
 ></listitem>
 </varlistentry>
 
@@ -900,17 +900,17 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 >Abre a janela de propriedades, permitindo-lhe visualizar e modificar diversos tipos de metadados relacionados ao arquivo selecionado no momento.</para
 ></listitem>
 </varlistentry>
-
+<!-- FIXME http://www.aelog.org/checksums-made-easy -->
 </variablelist>
 </listitem>
 </varlistentry>
 
 <varlistentry id="files-ui-preview">
 <term
->O painel de visualização</term>
+>O painel de prévia</term>
 <listitem
 ><para
->Se ativo, isto exibe uma visualização do arquivo selecionado no momento.</para
+>Se ativo, isto exibe uma prévia do arquivo selecionado no momento.</para
 ></listitem>
 </varlistentry>
 
@@ -946,7 +946,7 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 <para
 >A entrada de filtro salva os últimos 10 filtros inseridos entre as sessões. Para usar um, pressione o botão com seta à direita da entrada e selecione o texto de filtro desejado. Você pode desativar o filtro pressionando o botão <guibutton
 >Limpar texto</guibutton
-> à esquerda do botão da seta de autocomplementação.</para>
+> à esquerda do botão da seta de completamento automático.</para>
 
 <para
 >Ao salvar um arquivo, a entrada <guilabel
@@ -978,7 +978,7 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 ></textobject>
 <caption
 ><para
->Salvar um arquivo no <ulink url="http://kde.org/applications/internet/konqueror/"
+>Salvar um arquivo no <ulink url="https://www.kde.org/applications/internet/konqueror/"
 >&konqueror;</ulink
 >. </para
 ></caption>
@@ -1082,17 +1082,13 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 >Verificação ortográfica</title>
 
 <para
->&sonnet; é o verificador ortográfico usado pelos aplicativos do &kde;, como o &kate;, o &kmail; e o &kword;. Ele é uma &GUI; para vários verificadores ortográficos livres.</para>
+>&sonnet; é o verificador ortográfico usado pelos aplicativos do &kde;, como o &kate;, o &kmail; e o &calligrawords;. Ele é uma &GUI; para vários verificadores ortográficos livres.</para>
 
 <para
 >Para usar o &sonnet;, você precisa instalar um verificador ortográfico, como o <application
 >&GNU; Aspell</application
 >, o <application
->Enchant</application
->, o <application
 >Hspell</application
->, o <application
->ISpell</application
 > ou o <application
 >Hunspell</application
 > e, adicionalmente, os dicionários correspondentes aos idiomas que deseja usar.</para>
@@ -1227,7 +1223,7 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 
 <!--FIXME: maybe move kcm handbook here too?-->
 <para
->Para mais informações sobre a configuração do &sonnet;, veja a <ulink url="help:kcontrol/spellchecking"
+>Para mais informações sobre a configuração do &sonnet;, veja a <ulink url="help:/kcontrol/spellchecking"
 >documentação do módulo do Verificador ortográfico nas &systemsettings;</ulink
 ></para>
 
@@ -1308,6 +1304,7 @@ Search+Replace bar in Kate/KWrite
 <screenshot id="screenshot-find-find">
 <screeninfo
 >A janela Localizar</screeninfo>
+<!--FIXME find dialog is only used in sheets + kalarm, see https://lxr.kde.org/search?_filestring=&_string=kfinddialog.h-->
 <mediaobject>
 <imageobject
 ><imagedata fileref="find-find.png" format="PNG"/></imageobject>
@@ -1317,10 +1314,10 @@ Search+Replace bar in Kate/KWrite
 ></textobject>
 <caption
 ><para
->Procurando por <userinput
->software</userinput
-> na <ulink url="http://kde.org/applications/internet/kmail/"
->janela de composição do &kmail;</ulink
+>Pesquisar por <userinput
+>receita</userinput
+> em <ulink url="https://www.kde.org/applications/office/sheets/"
+>&calligrasheets;</ulink
 >. </para
 ></caption>
 </mediaobject>
@@ -1350,7 +1347,7 @@ Search+Replace bar in Kate/KWrite
 >Espaço em branco</guilabel
 > ou <guilabel
 >Início da linha</guilabel
->. Se o &kate; estiver instalado, você pode encontrar <ulink url="help:/kate/regular-expressions.html"
+>. Se o &kate; estiver instalado, você pode encontrar <ulink url="help:/katepart/regular-expressions.html"
 >mais informações sobre escrita de expressões regulares em sua documentação</ulink
 >.</para>
 
@@ -1430,6 +1427,33 @@ Search+Replace bar in Kate/KWrite
 
 </variablelist>
 
+<!--FIXME
+Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook + katepart/part.docbook
+  -->
+<para
+>Muitos aplicativos exibem uma barra de pesquisa em vez da janela Localizar. Consulte a <ulink url="help:/katepart/kate-part-find-replace.html#finding-text"
+>documentação do &katepart;</ulink
+> para obter informações adicionais sobre a barra de pesquisa.</para>
+
+<screenshot id="screenshot-find-find-inline">
+<screeninfo
+>Barra de pesquisa no &kate;.</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="find-find-inline.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Barra de pesquisa no &kate;.</phrase
+></textobject>
+<caption
+><para
+>Procurando por <userinput
+>software</userinput
+> na barra de pesquisa do &kate;. </para
+></caption>
+</mediaobject>
+</screenshot>
+
 <para
 >A função Localizar somente seleciona a primeira ocorrência encontrada. Você pode continuar a pesquisa selecionando <menuchoice
 ><guimenu
@@ -1453,36 +1477,9 @@ Search+Replace bar in Kate/KWrite
 ></textobject>
 <caption
 ><para
->O &kmail; exibe uma correspondência para <userinput
->software</userinput
+>O &kate; exibe uma correspondência para <userinput
+>KDE</userinput
 >. </para
-></caption>
-</mediaobject>
-</screenshot>
-
-<!--FIXME
-Copy documentation from Kate/KWrite here.
-  -->
-<para
->Os aplicativos que usam o componente do editor de texto do &kde; mostram uma barra de pesquisa em vez da janela Localizar. Veja a <ulink url="help:/kwrite/edit.html#find"
->documentação do &kwrite;</ulink
-> para obter informações adicionais sobre a barra de pesquisa.</para>
-
-<screenshot id="screenshot-find-find-inline">
-<screeninfo
->Barra de pesquisa no &kate;.</screeninfo>
-<mediaobject>
-<imageobject
-><imagedata fileref="find-find-inline.png" format="PNG"/></imageobject>
-<textobject
-><phrase
->Barra de pesquisa no &kate;.</phrase
-></textobject>
-<caption
-><para
->Procurando por <userinput
->software</userinput
-> na barra de pesquisa do &kate;. </para
 ></caption>
 </mediaobject>
 </screenshot>
@@ -1507,6 +1504,7 @@ Copy documentation from Kate/KWrite here.
 >.</para>
 
 <screenshot id="screenshot-find-replace">
+<!--FIXME replace dialog is only used in sheets + kalarm, see https://lxr.kde.org/search?_filestring=&_string=kreplacedialog.h-->
 <screeninfo
 >A janela Substituir</screeninfo>
 <mediaobject>
@@ -1519,10 +1517,10 @@ Copy documentation from Kate/KWrite here.
 <caption
 ><para
 >Substituir <userinput
->comida</userinput
+>receita</userinput
 > por <userinput
->bebida</userinput
-> no &kmail;.</para
+>despesa</userinput
+> no &calligrasheets;</para
 ></caption>
 </mediaobject>
 </screenshot>
@@ -1575,7 +1573,7 @@ Copy documentation from Kate/KWrite here.
 >.</para>
 
 <para
->Se o &kate; estiver instalado, você pode aprender mais sobre substituições no <ulink url="help:/kate/regular-expressions.html"
+>Se o &kate; estiver instalado, você pode aprender mais sobre substituições no <ulink url="help:/katepart/regular-expressions.html"
 >apêndice de Expressões regulares de sua documentação</ulink
 >.</para>
 </listitem>
@@ -1601,14 +1599,15 @@ Copy documentation from Kate/KWrite here.
 </variablelist>
 
 <!--FIXME
-Copy documentation from Kate/KWrite here.
+Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook + katepart/part.docbook
   -->
 <para
->Os aplicativos que usam o componente do editor de texto do &kde; mostram uma barra de pesquisa e substituição em vez da janela para Substituir. Veja a <ulink url="help:/kwrite/edit.html#replace"
->documentação do &kwrite;</ulink
-> para obter informações adicionais sobre a barra de pesquisa e substituição.</para>
+>Muitos aplicativos exibem uma barra de pesquisa e substituição em vez da janela Substituir. Consulte a <ulink url="help:/katepart/kate-part-find-replace.html#replacing-text"
+>documentação do &katepart;</ulink
+> para obter mais informações sobre a barra de pesquisa e substituição.</para>
 
-<screenshot id="screenshot-find-replace-inline">
+<screenshot id="screenshot-find-replace-inline"
+><!--FIXME update !!!-->
 <screeninfo
 >Barra de pesquisa e substituição.</screeninfo>
 <mediaobject>
@@ -1770,7 +1769,7 @@ Copy documentation from Kate/KWrite here.
 ><para
 >Esta é a caixa de seleção mais à direita, que permite-lhe selecionar o tamanho do seu texto. O tamanho da fonte é medido em <emphasis
 >pontos</emphasis
->, uma unidade de medida padrão em tipografia. Para mais informações sobre isso, leia <ulink url="http://en.wikipedia.org/wiki/Point_(typography)"
+>, uma unidade de medida padrão em tipografia. Para mais informações sobre isso, leia <ulink url="https://en.wikipedia.org/wiki/Point_(typography)"
 >o artigo <quote
 >Ponto (tipografia)</quote
 > na Wikipédia</ulink
@@ -1780,7 +1779,7 @@ Copy documentation from Kate/KWrite here.
 
 <varlistentry>
 <term
->Visualização</term>
+>Prévia</term>
 <listitem
 ><para
 >A parte inferior do seletor de fontes exibe uma previsão do texto usando as configurações selecionadas no momento. Você pode mudar esse texto se desejar.</para
@@ -1831,9 +1830,9 @@ Copy documentation from Kate/KWrite here.
 >Selecionando as cores</title>
 
 <para
->O seletor de cores aparece em diversos aplicativos do &kde;, sempre que precisar selecionar uma cor. Ele permite que você selecione uma cor a partir de uma <quote
->paleta</quote
-> com várias cores predefinidas ou crie sua própria cor quando desejar uma cor específica.</para>
+>O seletor de cor aparece em diversos aplicativos do &kde;, sempre que precisar selecionar uma cor. Ele permite que você selecione uma cor a partir das <guilabel
+>Cores básicas</guilabel
+> consistindo de várias cores predefinidas ou crie sua própria cor quando desejar uma cor específica.</para>
 
 <screenshot id="screenshot-colors">
 <screeninfo
@@ -1854,24 +1853,15 @@ Copy documentation from Kate/KWrite here.
 </mediaobject>
 </screenshot>
 
-<sect2 id="colors-palette">
+<sect2 id="basic-colors">
 <title
->Usando paletas</title>
+>Usando cores básicas</title>
 
 <para
->Uma paleta é um conjunto de cores predefinidas. Você pode encontrá-la no lado direito da janela do seletor de cores.</para>
+>O grupo de cores básicas é um conjunto de cores predefinidas. Você pode encontrá-la no lado direito da janela do seletor de cor.</para>
 
 <para
->Para selecionar uma cor a partir de uma paleta, basta clicar na cor desejada. A cor será exibida abaixo da paleta, ao lado do seu código &HTML; em hexadecimal e do seu nome, se tiver um.</para>
-
-<para
->Para alternar entre elas, use a lista de opções existente acima da paleta de cores. A maioria das paletas exibirão uma grade com as cores, exceto para as <guilabel
->Cores com nome</guilabel
->, que permite que você selecione a partir de uma lista de nomes. Outras paletas especias incluem <guilabel
->* Cores recentes *</guilabel
->, que exibirão as cores que você tenha selecionado recentemente, e <guilabel
->* Cores personalizadas *</guilabel
->, que exibirá as cores personalizadas que tiver salvo. Para mais informações sobre a configuração de cores personalizadas, veja <xref linkend="colors-custom"/></para>
+>Para selecionar uma cor a partir das cores básicas, basta clicar na cor desejada. A cor será exibida à direita da paleta, ao lado do seu código &HTML; em hexadecimal</para>
 
 </sect2>
 
@@ -1887,7 +1877,7 @@ Copy documentation from Kate/KWrite here.
 >Usando a grade</title>
 
 <para
->O lado esquerdo do seletor de cores contém uma caixa grande e uma mais fina imediatamente à sua direita. Você pode usar a caixa da esquerda para selecionar a Matiz e a Saturação da cor desejada, com base no guia visual fornecido na caixa. A barra da direita ajusta o Valor. Ajuste estes controles para selecionar a cor desejada, que é exibida no canto inferior direito da janela.</para>
+>O lado direito do seletor de cores contém uma caixa grande e uma mais fina imediatamente à sua direita. Você pode usar a caixa da esquerda para selecionar a Matiz e a Saturação da cor desejada, com base no guia visual fornecido na caixa. A barra da direita ajusta o Valor. Ajuste estes controles para selecionar a cor desejada, que é exibida no meio da janela.</para>
 
 <para
 >Para mais informações sobre Matiz, Saturação e Valor, veja <xref linkend="colors-mixing-hsv"/></para>
@@ -1896,14 +1886,12 @@ Copy documentation from Kate/KWrite here.
 
 <sect3 id="colors-mixing-eyedropper">
 <title
->Usando o conta-gotas</title>
+>Usando as cores da tela</title>
 
 <para
->A ferramenta de conta-gotas permite-lhe selecionar uma cor a partir da sua tela. Para usá-la, selecione o botão do <guibutton
->conta-gotas</guibutton
-> à direita do botão <guibutton
->Adicionar às cores personalizadas</guibutton
-> e, então, clique em qualquer ponto da sua tela para selecionar uma cor.</para>
+>A ferramenta conta-gotas permite selecionar uma cor na tela. Para usá-la, selecione o botão <guibutton
+>Selecionar cor da tela</guibutton
+> abaixo das cores básicas e clique em qualquer lugar da tela para selecionar a cor.</para>
 
 </sect3>
 
@@ -1912,7 +1900,7 @@ Copy documentation from Kate/KWrite here.
 >Matiz/Saturação/Valor</title>
 
 <para
->O canto inferior esquerdo da tela permite que você defina manualmente as coordenadas da cor desejada no espaço de cores de Matiz/Saturação/Valor (do inglês, <acronym
+>O canto inferior direito da tela permite que você defina manualmente as coordenadas da cor desejada no espaço de cores de Matiz/Saturação/Valor (do inglês, <acronym
 >HSV</acronym
 >). Para mais informações sobre isto, leia <ulink url="https://en.wikipedia.org/wiki/HSL_and_HSV"
 >o artigo sobre <quote
@@ -1930,7 +1918,7 @@ Copy documentation from Kate/KWrite here.
 >Vermelho/Verde/Azul</title>
 
 <para
->O canto inferior esquerdo da tela também permite-lhe inserir manualmente as coordenadas da cor desejada no modelo de cores Vermelho/Verde/Azul (do inglês, <acronym
+>O canto inferior direito da tela também permite-lhe inserir manualmente as coordenadas da cor desejada no modelo de cores Vermelho/Verde/Azul (do inglês, <acronym
 >RGB</acronym
 >). Para mais informações sobre isto, leia <ulink url="https://en.wikipedia.org/wiki/RGB_color_model"
 >o artigo sobre <quote
@@ -1948,7 +1936,7 @@ Copy documentation from Kate/KWrite here.
 >Código &HTML; em hexadecimal</title>
 
 <para
->Você pode inserir o código &HTML; em hexadecimal que representa a cor no canto inferior direito da tela. Para mais informações sobre isto, leia <ulink url="http://en.wikipedia.org/wiki/Web_colors"
+>Você pode inserir o código &HTML; em hexadecimal que representa a cor no canto inferior direito da tela. Para mais informações sobre isto, leia <ulink url="https://en.wikipedia.org/wiki/Web_colors"
 >o artigo sobre <quote
 >cores da Web</quote
 > na Wikipédia</ulink
@@ -1962,14 +1950,12 @@ Copy documentation from Kate/KWrite here.
 
 <sect2 id="colors-custom">
 <title
->Salvando cores personalizadas</title>
+>Cores personalizadas</title>
 
 <para
->Após selecionar uma cor, você pode salvá-la na paleta de cores personalizadas de modo que possa encontrá-la mais tarde. Para fazer isso, clique no botão <guibutton
->Adicionar às cores personalizadas</guibutton
->. Você pode então encontrá-la selecionando a paleta <guilabel
->* Cores personalizadas *</guilabel
-> na lista de opções existente no canto superior direito da tela. Para mais informações sobre o uso de paletas, leia <xref linkend="colors-palette"/>.</para>
+>Após selecionar uma cor, você pode adicioná-la ao grupo Cores personalizadas para poderusá-la mais tarde. Para fazer isso, clique no <guibutton
+> Adicionar às cores personalizadas </guibutton
+>.</para>
 
 </sect2>
 

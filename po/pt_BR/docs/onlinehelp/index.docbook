@@ -10,36 +10,36 @@
 <articleinfo>
 
 <date
->17/04/2016</date>
+>01/04/2018</date>
 <releaseinfo
->Application 16.04</releaseinfo>
+>Applications 18.04</releaseinfo>
 
 </articleinfo>
 
 <para
->Nesta página, você poderá encontrar diferentes formas de encontrar ajuda online e algumas informações adicionais, fornecidas pela comunidade do KDE.</para>
+>Nesta página, você poderá encontrar diferentes formas de encontrar ajuda online e algumas informações adicionais, fornecidas pela comunidade do &kde;.</para>
 
 <variablelist>
 <title
->KDE UserBase (Base de Usuários do KDE)</title>
+>&kde; UserBase (Base de usuários do &kde;)</title>
 <varlistentry
 ><term
-><ulink url="http://userbase.kde.org/An_introduction_to_KDE"
->Uma Introdução ao KDE</ulink
+><ulink url="https://userbase.kde.org/Special:myLanguage/An_introduction_to_KDE"
+>Uma introdução ao &kde;</ulink
 >&nbsp;</term>
 <listitem>
 <para
->Aprenda mais sobre a <ulink url="http://userbase.kde.org/What_is_KDE"
-> comunidade do KDE e seus aplicativos</ulink
-> e descubra mais algumas informações que o ajudam a começar. Do mesmo modo, descubra o que é a <ulink url="http://userbase.kde.org/Welcome_to_KDE_UserBase"
->UserBase</ulink
+>Aprenda mais sobre a <ulink url="https://kde.org/community/whatiskde/"
+>comunidade do &kde; e seus softwares</ulink
+> e descubra mais algumas informações que o ajudam a começar. Do mesmo modo, descubra o que é a <ulink url="https://userbase.kde.org/Special:myLanguage/Welcome_to_KDE_UserBase"
+> UserBase</ulink
 > e como ela pode ajudá-lo. </para>
 </listitem>
 </varlistentry>
 
 <varlistentry
 ><term
-><ulink url="http://userbase.kde.org/Getting_Help"
+><ulink url="https://userbase.kde.org/Special:myLanguage/Getting_Help"
 >Obtendo Ajuda</ulink
 >&nbsp;</term>
 <listitem>
@@ -50,23 +50,23 @@
 
 <varlistentry
 ><term
-><ulink url="http://userbase.kde.org/Applications"
+><ulink url="https://userbase.kde.org/Special:myLanguage/Applications"
 >Aplicativos</ulink
 >&nbsp;</term>
 <listitem>
 <para
->Descubra a grande variedade de aplicações da comunidade do KDE, descobrindo qual o programa que se ajusta às suas necessidades e preferências. </para>
+>Descubra a grande variedade de aplicações da comunidade do &kde;, descobrindo qual o programa que se ajusta às suas necessidades e preferências. </para>
 </listitem>
 </varlistentry>
 
 <varlistentry
 ><term
-><ulink url="http://userbase.kde.org/Tutorials"
+><ulink url="https://userbase.kde.org/Special:myLanguage/Tutorials"
 >Tutoriais</ulink
 >&nbsp;</term>
 <listitem>
 <para
->How-Tos, Dicas &amp; Truques que poderão tornar a sua experiência com as aplicações do KDE mais agradável e produtiva. </para>
+>How-Tos, Dicas &amp; Truques que poderão tornar a sua experiência com os aplicativos do &kde; mais agradável e produtiva. </para>
 </listitem>
 </varlistentry>
 
@@ -74,16 +74,16 @@
 
 <variablelist>
 <title
->Fórum do KDE</title>
+>Fórum do &kde;</title>
 <varlistentry
 ><term
-><ulink url="http://forum.kde.org/"
->Fóruns da Comunidade KDE</ulink
+><ulink url="https://forum.kde.org/"
+>Fóruns da comunidade &kde;</ulink
 >&nbsp;</term>
 <listitem>
 <para
->Os Fóruns do KDE oferecem aos usuários, programadores e pessoas interessadas no KDE um local para ajudar cada um deles, discutir tópicos relacionados com o KDE e trocar ideias. Você poderá encontrar alguns <ulink url="http://forum.kde.org/viewforum.php?f=14/"
->Tutoriais &amp; Dicas</ulink
+>Os Fóruns do &kde; oferecem aos usuários, programadores e pessoas interessadas no &kde; um local para ajudar cada um deles, discutir tópicos relacionados com o &kde; e trocar ideias. Você poderá encontrar alguns <ulink url="https://forum.kde.org/viewforum.php?f=14/"
+>Tutoriais e Dicas</ulink
 > no fórum.</para>
 </listitem>
 </varlistentry>
@@ -91,30 +91,30 @@
 
 <variablelist>
 <title
->KDE Techbase (Base Técnica do KDE)</title>
+>&kde; Techbase (Base Técnica do &kde;)</title>
 <varlistentry
 ><term
-><ulink url="http://techbase.kde.org/"
->KDE Techbase (Base Técnica do KDE)</ulink
+><ulink url="https://techbase.kde.org/"
+>&kde; Techbase (Base técnica do &kde;)</ulink
 >&nbsp;</term>
 <listitem>
 <para
->Informações para os programadores e alguma ajuda sobre como configurar um ambiente de desenvolvimento para o KDE.</para>
+>Informações para os programadores e alguma ajuda sobre como configurar um ambiente de desenvolvimento para o &kde;.</para>
 </listitem>
 </varlistentry>
 </variablelist>
 
 <variablelist>
 <title
->Documentação do KDE</title>
+>Documentação do $KDE</title>
 <varlistentry
 ><term
-><ulink url="http://docs.kde.org/"
->Página de Documentação do KDE</ulink
+><ulink url="https://docs.kde.org/"
+>Página da documentação do &kde;</ulink
 >&nbsp;</term>
 <listitem>
 <para
->Esta página mantém a documentação completa do usuário do KDE, em mais de 25 idiomas, para a última versão estável disponível bem como para a versão de desenvolvimento do KDE &kde-frameworks;, &plasma-workspaces; e &applications;.</para>
+>Esta página mantém a documentação completa do usuário do &kde;, em mais de 25 idiomas, para a última versão estável disponível bem como para a versão de desenvolvimento do &kde-frameworks;, &plasma-workspaces; e &applications;.</para>
 </listitem>
 </varlistentry>
 </variablelist>
