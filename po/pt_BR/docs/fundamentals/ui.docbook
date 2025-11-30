@@ -105,15 +105,6 @@
 > </para
 ></listitem>
 
-<!--FIXME no longer in kf5 listitem
-><para>
-A <link linkend="visualdict-button"
->Button</link
-> to place this window on all
-desktops
-</para
-></listitem-->
-
 <listitem
 ><para
 ><emphasis role="bold"
@@ -292,7 +283,7 @@ desktops
 
 <sect3 id="visualdict-gui">
 <title
->Elementos da &GUI;</title>
+>Elementos da interface gráfica do usuário (&GUI;)</title>
 
 <screenshot>
 <screeninfo
@@ -837,7 +828,7 @@ desktops
 <entry
 >Barra de status</entry>
 <entry
->Localizam-se na parte inferior de vários aplicativos e mostram informações sobre o que o aplicativo está fazendo. Por exemplo, um navegador Web poderá indicar o progresso do carregamento de uma página Web, enquanto um processador de texto poderá apresentar o número de palavras atual.</entry>
+>Localizam-se na parte inferior de vários aplicativos e mostram informações sobre o que o aplicativo está fazendo. Por exemplo, um navegador poderá indicar o progresso do carregamento de um site, enquanto um processador de texto poderá apresentar o número de palavras atual.</entry>
 <entry>
 <inlinemediaobject>
 <imageobject>
@@ -897,7 +888,7 @@ desktops
 <entry
 >Barra de título</entry>
 <entry
->Localiza-se no topo de todas as janelas. Contém o nome do aplicativo e normalmente informações sobre o que o aplicativo está fazendo, como o título da página Web aberta em um navegador Web ou o nome do arquivo do documento aberto em um processador de texto.</entry>
+>Localiza-se no topo de todas as janelas. Contém o nome do aplicativo e normalmente informações sobre o que o aplicativo está fazendo, como o título do site aberto em um navegador ou o nome do arquivo do documento aberto em um processador de texto.</entry>
 <entry>
 <inlinemediaobject>
 <imageobject>
@@ -1008,7 +999,7 @@ desktops
 ></textobject>
 <caption
 ><para
->A barra de menus do <ulink url="http://kde.org/applications/graphics/gwenview/"
+>A barra de menus do <ulink url="https://www.kde.org/applications/graphics/gwenview/"
 >&gwenview;</ulink
 >. </para
 ></caption>
@@ -1194,7 +1185,9 @@ desktops
 ></term>
 <listitem
 ><para
->Imprime o arquivo. </para
+>Imprime em arquivo. Use <guilabel
+>Imprimir em arquivo (PDF)</guilabel
+> para gerar um &PDF; ou selecione um intervalo de páginas para imprimir somente essas páginas em um novo &PDF; </para
 ></listitem>
 </varlistentry>
 
@@ -1485,7 +1478,7 @@ desktops
 <para
 >O menu <guimenu
 >Exibir</guimenu
-> permite que você altere a disposição do arquivo aberto no momento e/ou do aplicativo em execução.</para>
+> permite que você altere o layout do arquivo aberto no momento e/ou do aplicativo em execução.</para>
 
 <para
 >Este menu possui opções diferentes dependendo do aplicativo que estiver usando.</para>
@@ -1585,7 +1578,7 @@ desktops
 </variablelist>
 
 </sect2>
-
+<!--FIXME add bookmarks menu ?-->
 <sect2 id="menus-settings">
 <title
 >Menu Configurações</title>
@@ -1616,8 +1609,14 @@ desktops
 <listitem
 ><para
 ><action
->Oculta ou mostra a barra de menu.</action
-></para
+>Ative e desative a exibição da barra de menus</action
+>. Uma vez oculto, pode torná-la visível novamente usando o atalho <keycombo action="simul"
+>&Ctrl;<keycap
+>M</keycap
+></keycombo
+>. Se a barra de menus estiver oculta, pode ser aberta com o menu de contexto clicando com o botão direito do mouse em qualquer lugar da área de exibição e na opção <guimenuitem
+>Mostrar barra de menus</guimenuitem
+>. </para
 ></listitem>
 </varlistentry>
 
@@ -1656,6 +1655,21 @@ desktops
 ><menuchoice
 ><guimenu
 >Configurações</guimenu
+> <guimenuitem
+>Mostrar barra de status</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>Quando marcada, exibe uma pequena barra na parte inferior do aplicativocontendo informações sobre o status. Quando desmarcada, a barra de status ficaescondido.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Configurações</guimenu
 ><guimenuitem
 >Configurar atalhos...</guimenuitem
 > </menuchoice
@@ -1677,7 +1691,7 @@ desktops
 ></term>
 <listitem
 ><para
->Permite que você personalize o conteúdo, disposição, texto e ícones das barras de ferramentas. Para mais informações, veja <xref linkend="toolbars"/>. </para
+>Permite que você personalize o conteúdo, layout, texto e ícones das barras de ferramentas. Para mais informações, veja <xref linkend="toolbars"/>. </para
 ></listitem>
 </varlistentry>
 
@@ -1779,6 +1793,27 @@ desktops
 ></listitem>
 </varlistentry>
 
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ajuda</guimenu
+> <guimenuitem
+>Dica do dia</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Este comando <action
+>abre a caixa de diálogo <guilabel
+>Dica do dia</guilabel
+></action
+>. Você pode percorrer todas as dicas usando os botões da caixa de diálogo e selecione para mostrar as dicas na inicialização.</para>
+<para
+>Nota: Nem todos os aplicativos fornecem estas dicas.</para>
+
+</listitem>
+</varlistentry>
 
 <varlistentry>
 <term
@@ -1801,6 +1836,24 @@ desktops
 <!--FIXME two different dialogs, either via web (default if aboutData->bugAddress() == "" or == "submit@bugs.kde.org" ) 
 or via email (see krecipes doc rev 1306076)
 -->
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ajuda</guimenu
+> <guimenuitem
+>Doar</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Abre a página de <ulink url="https://www.kde.org/community/donations"
+>Doações</ulink
+> onde você pode suportar o &kde; e seus projetos.</para
+></listitem>
+</varlistentry>
+
 <varlistentry>
 <term
 ><menuchoice
@@ -1968,13 +2021,28 @@ or via email (see krecipes doc rev 1306076)
 
 <row>
 <entry
+><keysym
+>Meta</keysym
+></entry>
+<entry
+>Abrir o lançador de aplicativo</entry>
+</row>
+
+<row>
+<entry
 ><keycombo action="simul"
->&Ctrl;<keycap
->Q</keycap
+>&Alt;<keycap
+>Espaço</keycap
+></keycombo
+> / <keycombo action="simul"
+>&Alt;<keycap
+>F2</keycap
 ></keycombo
 ></entry>
 <entry
->Sair</entry>
+><ulink url="help:/plasma-desktop/krunner.html"
+>Interface de execução de comandos</ulink
+></entry>
 </row>
 
 <row>
@@ -1991,34 +2059,32 @@ or via email (see krecipes doc rev 1306076)
 <row>
 <entry
 ><keycombo action="simul"
->&Ctrl;&Alt;&Esc;</keycombo
-></entry>
-<entry
->Forçar a saída</entry>
-</row>
-
-<row>
-<entry
-><keycombo action="simul"
->&Alt;<keycap
->Espaço</keycap
-></keycombo
-></entry>
-<entry
-><ulink url="help:/plasma-desktop/krunner.html"
->Interface de execução de comandos</ulink
-></entry>
-</row>
-
-<row>
-<entry
-><keycombo action="simul"
 >&Alt;<keycap
 >F4</keycap
 ></keycombo
 ></entry>
 <entry
 >Fechar</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></entry>
+<entry
+>Sair</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;&Alt;&Esc;</keycombo
+></entry>
+<entry
+>Forçar a saída</entry>
 </row>
 
 </tbody>
@@ -2053,7 +2119,8 @@ or via email (see krecipes doc rev 1306076)
 >&Ctrl;<keycap
 >F10</keycap
 ></keycombo
-></entry>
+></entry
+><!--[kwin][Global Shortcuts] ExposeAll=Ctrl+F10; Launch (C) -->
 <entry
 >Apresentar janelas</entry>
 </row>
@@ -2064,7 +2131,8 @@ or via email (see krecipes doc rev 1306076)
 >&Ctrl;<keycap
 >F9</keycap
 ></keycombo
-></entry>
+></entry
+><!--[kwin][Global Shortcuts] Expose=Ctrl+F9 -->
 <entry
 >Apresenta as janelas na área de trabalho atual</entry>
 </row>
@@ -2075,11 +2143,12 @@ or via email (see krecipes doc rev 1306076)
 >&Ctrl;<keycap
 >F7</keycap
 ></keycombo
-></entry>
+></entry
+><!--[kwin][Global Shortcuts] ExposeClass=Ctrl+F7 -->
 <entry
 >Apresenta apenas as janelas do aplicativo atual</entry>
 </row>
-
+<!--FIXME not in 5.6.4
 <row>
 <entry
 ><keycombo action="simul"
@@ -2088,18 +2157,19 @@ or via email (see krecipes doc rev 1306076)
 ></keycombo
 ></entry>
 <entry
->Cubo de áreas de trabalho</entry>
+>Desktop Cube</entry>
 </row>
-
+-->
 <row>
 <entry
 ><keycombo action="simul"
 >&Ctrl;<keycap
 >F12</keycap
 ></keycombo
-></entry>
+></entry
+><!--[plasmashell][Global Shortcuts] show dashboard=Ctrl+F12-->
 <entry
->Mostrar painel</entry>
+>Mostra a área de trabalho</entry>
 </row>
 
 <row>
@@ -2108,7 +2178,8 @@ or via email (see krecipes doc rev 1306076)
 >&Ctrl;&Alt;<keycap
 >A</keycap
 ></keycombo
-></entry>
+></entry
+><!--[kwin][Global Shortcuts] Activate Window Demanding Attention=Ctrl+Alt+A -->
 <entry
 >Ativar janela que demanda atenção</entry>
 </row>
@@ -2117,7 +2188,8 @@ or via email (see krecipes doc rev 1306076)
 <entry
 ><keycombo action="simul"
 >&Alt;&Tab;</keycombo
-></entry>
+></entry
+><!--[kwin][Global Shortcuts] Walk Through Windows=Alt+Tab-->
 <entry
 >Passear pelas janelas</entry>
 </row>
@@ -2125,12 +2197,11 @@ or via email (see krecipes doc rev 1306076)
 <row>
 <entry
 ><keycombo action="simul"
->&Alt;<keycap
->`</keycap
-></keycombo
-></entry>
+>&Alt;&Shift;&Tab;</keycombo
+></entry
+><!--[kwin][Global Shortcuts] Walk Through Windows (Reverse)=Alt+Shift+Backtab-->
 <entry
->Percorre as janelas do aplicativo atual</entry>
+>Passear pelas janelas (reverso)</entry>
 </row>
 
 <row>
@@ -2139,7 +2210,8 @@ or via email (see krecipes doc rev 1306076)
 >&Alt;<keycap
 >F3</keycap
 ></keycombo
-></entry>
+></entry
+><!--FIXME source ?-->
 <entry
 >Abre o menu de operações da janela</entry>
 </row>
@@ -2150,7 +2222,8 @@ or via email (see krecipes doc rev 1306076)
 >&Meta;&Alt;<keysym
 >Acima</keysym
 ></keycombo
-></entry>
+></entry
+><!--[kwin][Global Shortcuts] Switch Window Up=Meta+Alt+Up-->
 <entry
 >Mudar para a janela acima</entry>
 </row>
@@ -2161,7 +2234,8 @@ or via email (see krecipes doc rev 1306076)
 >&Meta;&Alt;<keysym
 >Abaixo</keysym
 ></keycombo
-></entry>
+></entry
+><!--[kwin][Global Shortcuts] Switch Window Down=Meta+Alt+Down-->
 <entry
 >Mudar para a janela abaixo</entry>
 </row>
@@ -2172,7 +2246,8 @@ or via email (see krecipes doc rev 1306076)
 >&Meta;&Alt;<keysym
 >Esquerda</keysym
 ></keycombo
-></entry>
+></entry
+><!--[kwin][Global Shortcuts] Switch Window Left=Meta+Alt+Left-->
 <entry
 >Mudar para a janela à esquerda</entry>
 </row>
@@ -2183,7 +2258,8 @@ or via email (see krecipes doc rev 1306076)
 >&Meta;&Alt;<keysym
 >Direita</keysym
 ></keycombo
-></entry>
+></entry
+><!--[kwin][Global Shortcuts] Switch Window Right=Meta+Alt+Right-->
 <entry
 >Mudar para a janela à direita</entry>
 </row>
@@ -2195,7 +2271,8 @@ or via email (see krecipes doc rev 1306076)
 
 <sect3 id="kbd-activity-pan-zoom">
 <title
->Deslocamento e ampliação</title>
+>Deslocamento e ampliação</title
+><!--FIXME nothing works for me-->
 
 <para
 >Precisa ver melhor as coisas? O &plasma-workspaces; permite-lhe ampliar e reduzir, bem como mudar a sua área de trabalho inteira de posição. Assim, você poderá ampliar algo mesmo sem suporte pelo aplicativo.</para>
@@ -2233,7 +2310,8 @@ or via email (see krecipes doc rev 1306076)
 >&Meta;<keycap
 >=</keycap
 ></keycombo
-></entry>
+></entry
+><!--[kwin][Global Shortcuts] view_zoom_in=Meta+= -->
 <entry
 >Ampliar</entry>
 </row>
@@ -2244,7 +2322,8 @@ or via email (see krecipes doc rev 1306076)
 >&Meta;<keycap
 >-</keycap
 ></keycombo
-></entry>
+></entry
+><!--[kwin][Global Shortcuts] view_zoom_out=Meta+- -->
 <entry
 >Reduzir</entry>
 </row>
@@ -2255,7 +2334,8 @@ or via email (see krecipes doc rev 1306076)
 >&Meta;<keycap
 >0</keycap
 ></keycombo
-></entry>
+></entry
+><!--[kwin][Global Shortcuts] view_actual_size=Meta+0 -->
 <entry
 >Zoom normal</entry>
 </row>
@@ -2266,7 +2346,8 @@ or via email (see krecipes doc rev 1306076)
 >&Meta;<keysym
 >Acima</keysym
 ></keycombo
-></entry>
+></entry
+><!--[kwin][Global Shortcuts] MoveZoomUp=Meta+Up -->
 <entry
 >Deslocar para cima</entry>
 </row>
@@ -2277,7 +2358,8 @@ or via email (see krecipes doc rev 1306076)
 >&Meta;<keysym
 >Abaixo</keysym
 ></keycombo
-></entry>
+></entry
+><!--[kwin][Global Shortcuts] MoveZoomDown=Meta+Down -->
 <entry
 >Deslocar para baixo</entry>
 </row>
@@ -2288,9 +2370,14 @@ or via email (see krecipes doc rev 1306076)
 >&Meta;<keysym
 >Esquerda</keysym
 ></keycombo
-></entry>
+></entry
+><!--[kwin][Global Shortcuts] MoveZoomLeft=Meta+Left -->
 <entry
->Deslocar para esquerda</entry>
+>Deslocar a janela para a esquerda e movê-la para o monitor à esquerda<footnote id="fn1"
+><para
+>Em um ambiente multi-monitor</para
+></footnote
+></entry>
 </row>
 
 <row>
@@ -2299,9 +2386,32 @@ or via email (see krecipes doc rev 1306076)
 >&Meta;<keysym
 >Direita</keysym
 ></keycombo
+></entry
+><!--[kwin][Global Shortcuts] MoveZoomRight=Meta+Right -->
+<entry
+>Deslize para a direita, mova a janela para o monitor à direita<footnoteref linkend="fn1"/></entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keysym
+>PgUp</keysym
+></keycombo
 ></entry>
 <entry
->Deslocar para direita</entry>
+>Maximizar/restaurar janela</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keysym
+>PgDn</keysym
+></keycombo
+></entry>
+<entry
+>Minimizar janela</entry>
 </row>
 
 </tbody>
@@ -2312,10 +2422,10 @@ or via email (see krecipes doc rev 1306076)
 
 <sect2 id="kbd-activities">
 <title
->Trabalhando com Atividades e Áreas de Trabalho Virtuais</title>
+>Trabalhando com atividades e áreas de trabalho virtuais</title>
 
 <para
->Estes atalhos permitem-lhe alternar entre e gerenciar <ulink url="help:/plasma-desktop/zooming-user-interface.html"
+>Estes atalhos permitem-lhe alternar entre e gerenciar <ulink url="help:/plasma-desktop/activities-interface.html"
 >Atividades</ulink
 > e <ulink url="help:/kcontrol/desktop/"
 >áreas de trabalho virtuais</ulink
@@ -2338,19 +2448,28 @@ or via email (see krecipes doc rev 1306076)
 <row>
 <entry
 ><keycombo action="simul"
->&Ctrl;<keycap
+>&Meta;<keycap
 >Q</keycap
 ></keycombo
-></entry>
+> / <keycombo action="simul"
+>&Alt;<keycap
+>D</keycap
+></keycombo
+>,<keycombo action="simul"
+>&Alt;<keycap
+>A</keycap
+></keycombo
+> </entry>
 <entry
->Exibir todas as suas atividades</entry>
+>Gerencia atividades</entry>
 </row>
 
 <row>
 <entry
 ><keycombo action="simul"
 >&Meta;&Tab;</keycombo
-></entry>
+></entry
+><!-- [plasmashell][Global Shortcuts] next activity=Meta+Tab -->
 <entry
 >Próxima atividade</entry>
 </row>
@@ -2359,39 +2478,10 @@ or via email (see krecipes doc rev 1306076)
 <entry
 ><keycombo action="simul"
 >&Meta;&Shift;&Tab;</keycombo
-></entry>
+></entry
+><!-- [plasmashell][Global Shortcuts] previous activity=Meta+Shift+Tab -->
 <entry
 >Atividade anterior</entry>
-</row>
-
-<row>
-<entry
-><keycombo action="seq"
-><keycombo action="simul"
->&Alt;<keycap
->D</keycap
-></keycombo
-> <keycap
->R</keycap
-> </keycombo
-></entry>
-<entry
->Remover esta atividade</entry>
-</row>
-
-<row>
-<entry
-><keycombo action="seq"
-><keycombo action="simul"
->&Alt;<keycap
->D</keycap
-></keycombo
-> <keycap
->S</keycap
-> </keycombo
-></entry>
-<entry
->Configurações das atividades</entry>
 </row>
 
 <row>
@@ -2400,7 +2490,8 @@ or via email (see krecipes doc rev 1306076)
 >&Ctrl;<keycap
 >F1</keycap
 ></keycombo
-></entry>
+></entry
+><!--[kwin][Global Shortcuts] Switch to Desktop 1=Ctrl+F1 -->
 <entry
 >Mudar para a área de trabalho 1</entry>
 </row>
@@ -2411,7 +2502,8 @@ or via email (see krecipes doc rev 1306076)
 >&Ctrl;<keycap
 >F2</keycap
 ></keycombo
-></entry>
+></entry
+><!--[kwin][Global Shortcuts] Switch to Desktop 2=Ctrl+F2 -->
 <entry
 >Mudar para a área de trabalho 2</entry>
 </row>
@@ -2422,7 +2514,8 @@ or via email (see krecipes doc rev 1306076)
 >&Ctrl;<keycap
 >F3</keycap
 ></keycombo
-></entry>
+></entry
+><!--[kwin][Global Shortcuts] Switch to Desktop 2=Ctrl+F3 -->
 <entry
 >Mudar para a área de trabalho 3</entry>
 </row>
@@ -2433,7 +2526,8 @@ or via email (see krecipes doc rev 1306076)
 >&Ctrl;<keycap
 >F4</keycap
 ></keycombo
-></entry>
+></entry
+><!--[kwin][Global Shortcuts] Switch to Desktop 2=Ctrl+F4 -->
 <entry
 >Mudar para a área de trabalho 4</entry>
 </row>
@@ -2445,7 +2539,7 @@ or via email (see krecipes doc rev 1306076)
 
 <sect2 id="kbd-desktop">
 <title
->Trabalhando com o Ambiente de Trabalho</title>
+>Trabalhando com a área de trabalho</title>
 
 <para
 >Estes atalhos permitem-lhe trabalhar com o &plasma-desktop; e painéis. </para>
@@ -2491,7 +2585,9 @@ or via email (see krecipes doc rev 1306076)
 > </keycombo
 ></entry>
 <entry
->Remover widgets</entry>
+>Remove este <replaceable
+>widget</replaceable
+></entry>
 </row>
 
 <row>
@@ -2508,37 +2604,39 @@ or via email (see krecipes doc rev 1306076)
 <entry
 >Bloquear/desbloquear widgets</entry>
 </row>
-
+<!--FIXME source ? No
+>Next Widget< nor
+>Previous Widget< in kde-workspace or frameworks code
 <row>
 <entry
-><keycombo action="seq"
-><keycombo action="simul"
+><keycombo action="seq">
+<keycombo action="simul"
 >&Alt;<keycap
 >D</keycap
-></keycombo
-> <keycap
->N</keycap
-> </keycombo
+></keycombo>
+<keycap
+>N</keycap>
+</keycombo
 ></entry>
 <entry
->Próximo widget</entry>
+>Next Widget</entry>
 </row>
 
 <row>
 <entry
-><keycombo action="seq"
-><keycombo action="simul"
+><keycombo action="seq">
+<keycombo action="simul"
 >&Alt;<keycap
 >D</keycap
-></keycombo
-> <keycap
->P</keycap
-> </keycombo
+></keycombo>
+<keycap
+>P</keycap>
+</keycombo
 ></entry>
 <entry
->Widget anterior</entry>
+>Previous Widget</entry>
 </row>
-
+-->
 <row>
 <entry
 ><keycombo action="seq"
@@ -2551,7 +2649,9 @@ or via email (see krecipes doc rev 1306076)
 > </keycombo
 ></entry>
 <entry
->Configurações do widget</entry>
+>Configurações do <replaceable
+>widget</replaceable
+></entry>
 </row>
 
 <row>
@@ -2560,9 +2660,10 @@ or via email (see krecipes doc rev 1306076)
 >&Ctrl;<keycap
 >F12</keycap
 ></keycombo
-></entry>
+></entry
+><!--[plasmashell][Global Shortcuts] show dashboard=Ctrl+F12-->
 <entry
->Mostrar painel</entry>
+>Mostra a área de trabalho</entry>
 </row>
 
 <row>
@@ -2579,7 +2680,7 @@ or via email (see krecipes doc rev 1306076)
 <entry
 >Executar o aplicativo associado</entry>
 </row>
-
+<!--FIXME obsolete?
 <row>
 <entry
 ><keycombo action="simul"
@@ -2588,12 +2689,29 @@ or via email (see krecipes doc rev 1306076)
 ></keycombo
 ></entry>
 <entry
->Habilitar/Desabilitar todos os efeitos da área de trabalho</entry>
+>Enable/Disable Desktop Effects</entry>
+</row>
+-->
+
+<row>
+<entry
+><keycombo action="simul"
+>&Alt;<keycap
+>D</keycap
+></keycombo
+>,<keycombo action="simul"
+>&Alt;<keycap
+>S</keycap
+></keycombo
+> </entry>
+<entry
+>Configurações da área de trabalho</entry>
 </row>
 
 </tbody>
 </tgroup>
 </informaltable>
+
 </sect2>
 
 <sect2 id="kbd-help">
@@ -2647,7 +2765,7 @@ or via email (see krecipes doc rev 1306076)
 >Trabalhando com documentos</title>
 
 <para
->Seja um documento de texto, uma planilha ou uma página Web, estes atalhos simplificam a execução de diversos tipos de tarefas com eles.</para>
+>Seja um documento de texto, uma planilha ou um site, estes atalhos simplificam a execução de diversos tipos de tarefas com eles.</para>
 
 <informaltable>
 <tgroup cols="2">
@@ -2806,7 +2924,7 @@ or via email (see krecipes doc rev 1306076)
 >Trabalhando com arquivos</title>
 
 <para
->Quer esteja em uma janela para Abrir/Salvar ou no gerenciador de arquivos &dolphin;, estes atalhos poupam-lhe tempo realizando operações sobre os arquivos. Lembre-se de que alguns dos conceitos usados com arquivos e documentos são os mesmos, sendo vários atalhos idênticos entre si.</para>
+>Quer você esteja em uma janela para Abrir/Salvar ou no gerenciador de arquivos &dolphin;, estes atalhos poupam-lhe tempo realizando operações sobre os arquivos. Lembre-se de que alguns dos conceitos usados com arquivos e documentos são os mesmos, sendo vários atalhos idênticos entre si.</para>
 
 <informaltable>
 <tgroup cols="2">
@@ -3000,7 +3118,7 @@ or via email (see krecipes doc rev 1306076)
 </thead>
 
 <tbody>
-
+<!--FIXME obsolete?
 <row>
 <entry
 ><keycombo action="simul"
@@ -3009,62 +3127,31 @@ or via email (see krecipes doc rev 1306076)
 ></keycombo
 ></entry>
 <entry
->Trocar usuário</entry>
+>Switch User</entry>
 </row>
-
+-->
 <row>
 <entry
 ><keycombo action="simul"
 >&Ctrl;&Alt;<keycap
 >L</keycap
 ></keycombo
-></entry>
+></entry
+><!--workspace/kscreenlocker/ksmserver/server.cpp-->
 <entry
->Bloquear sessão</entry>
+>Bloquear tela</entry>
 </row>
 
 <row>
 <entry
 ><keycombo action="simul"
 >&Ctrl;&Alt;<keycap
->Delete</keycap
+>Del</keycap
 ></keycombo
-></entry>
+></entry
+><!--plasma-workspace/ksmserver/server.cpp-->
 <entry
->Encerrar sessão</entry>
-</row>
-
-<row>
-<entry
-><keycombo action="simul"
->&Ctrl;&Alt;&Shift;<keycap
->Delete</keycap
-></keycombo
-></entry>
-<entry
->Encerrar sem configuração</entry>
-</row>
-
-<row>
-<entry
-><keycombo action="simul"
->&Ctrl;&Alt;&Shift;<keycap
->Page Down</keycap
-></keycombo
-></entry>
-<entry
->Desligar sem confirmação</entry>
-</row>
-
-<row>
-<entry
-><keycombo action="simul"
->&Ctrl;&Alt;&Shift;<keycap
->Page Up</keycap
-></keycombo
-></entry>
-<entry
->Reiniciar sem confirmação</entry>
+>Sair</entry>
 </row>
 
 </tbody>
@@ -3081,8 +3168,10 @@ or via email (see krecipes doc rev 1306076)
 >Trabalhando com janelas</link
 >, <link linkend="kbd-leaving"
 >Deixando de usar seu computador</link
-> e <link linkend="kbd-vol-bright"
+>, <link linkend="kbd-vol-bright"
 >Alterando volume e brilho</link
+> e <link linkend="kbd-activities"
+>Trabalhando com atividades e áreas de trabalho virtuais</link
 > são normalmente chamados de <emphasis
 >atalhos globais</emphasis
 >, uma vez que funcionam de forma independente da janela que estiver aberta na tela. Estas podem ser modificadas no <ulink url="help:/kcontrol/keys/"
@@ -3090,15 +3179,9 @@ or via email (see krecipes doc rev 1306076)
 >, onde estão separadas por componente do &kde;.</para>
 
 <para
->Os atalhos descritos em <link linkend="kbd-activities"
->Trabalhando com Atividades e Áreas de Trabalho Virtuais</link
-> e <link linkend="kbd-desktop"
->Trabalhando com o Ambiente de Trabalho</link
-> podem ser modificados se clicar na <ulink url="help:/plasma-desktop/using-kapp.html"
->Barra de ferramentas da tela</ulink
-> e selecionar as <guimenuitem
->Configurações do atalho</guimenuitem
->.</para>
+>Os atalhos descritos <link linkend = "kbd-desktop"
+> Trabalhando com aárea de trabalho </link
+> não pode ser modificada.</para>
 
 <para
 >Os atalhos descritos em <link linkend="kbd-docs"
