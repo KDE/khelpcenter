@@ -80,7 +80,7 @@
 </mediaobjectco>
 </screenshot>
 <para
->Bu, bir metin düzenleyicisi olan &kwrite;'ın penceresidir. Hakkında daha fazla bilgi almak için pencerenin bir kısmına tıklayın.</para>
+>Bu, bir metin düzenleyicisi olan &kwrite;’ın penceresidir. Hakkında daha fazla bilgi almak için pencerenin bir kısmına tıklayın.</para>
 
 <orderedlist>
 
@@ -249,7 +249,7 @@
 >simgelerin</link
 > boyutunu değiştiren bir <emphasis role="bold"
 ><link linkend="visualdict-slider"
->Kaydırıcı</link
+>Sürgü</link
 ></emphasis
 > </para
 ></listitem>
@@ -570,9 +570,9 @@
 <entry
 ><link linkend="visualdict-drop-down-box"
 >Açılır Kutu</link
->'nun ve <link linkend="visualdict-text-box"
+>’nun ve <link linkend="visualdict-text-box"
 >Metin Kutusu</link
->'nun birleşimidir. Listeden bir seçenek belirleyebilir veya metin kutusuna yazabilirsiniz. Bazı açılır kutular kendiliğinden girişleri tamamlayabilir veya yazdıklarınızla eşleşen seçeneklerin bir listesini açabilirler.</entry>
+>’nun birleşimidir. Listeden bir seçenek belirleyebilir veya metin kutusuna yazabilirsiniz. Bazı açılır kutular kendiliğinden girişleri tamamlayabilir veya yazdıklarınızla eşleşen seçeneklerin bir listesini açabilirler.</entry>
 <entry>
 <inlinemediaobject>
 <imageobject>
@@ -782,7 +782,7 @@
 
 <row id="visualdict-slider">
 <entry
->Kaydırıcı</entry>
+>Sürgü</entry>
 <entry
 >Küçük bir çubuğun bir çizgi boyunca yatay veya dikey olarak hareket ettirilmesiyle sayısal bir değerin seçilmesine olanak sağlar.</entry>
 <entry>
@@ -844,7 +844,7 @@
 <entry
 >Büyük miktarda metnin (genellikle birden çok satır veya paragraf) yazılmasına olanak tanır. Bir <link linkend="visualdict-text-box"
 >Metin Kutusu</link
->'nun aksine, &Enter;'e basmak yeni bir satır yapar. </entry>
+>’nun aksine, &Enter;’e basmak yeni bir satır yapar. </entry>
 <entry>
 <inlinemediaobject>
 <imageobject>
@@ -908,7 +908,7 @@
 <entry
 >Ağaç Görünümü</entry>
 <entry
->Ağaç Görünümü, hiyerarşik bir seçenekler listesinden seçim yapmanıza olanak tanır. Ağaç Görünümü’nün bir bölümü veya kategorisi genişletilmemiş olabilir; bu durumda altında hiçbir seçenek görünmez ve başlığın solundaki ok sağ başlığa doğru işaret eder. Genişletilmiş de olabilir; bu durumda altında birkaç seçenek listelenir ve başlığın solundaki ok aşağıya, seçeneklere doğru işaret eder. Ağaç görünümünün bir kısmını genişletmek için, genişletmek istediğiniz bölümün başlığının solundaki oka veya başlığa çift tıklayın veya klavyenizin ok düğmelerini kullanarak başlığı seçip &Enter; veya <keycap
+>Ağaç Görünümü, hiyerarşik bir seçenekler listesinden seçim yapmanıza olanak tanır. Ağaç Görünümü’nün bir bölümü veya kategorisi genişletilmemiş olabilir; bu durumda altında hiçbir seçenek görünmez ve başlığın solundaki ok sağ başlığa doğru işaret eder. Genişletilmiş de olabilir; bu durumda altında birkaç seçenek listelenir ve başlığın solundaki ok aşağıya, seçeneklere doğru işaret eder. Ağaç görünümünün bir kısmını genişletmek için genişletmek istediğiniz bölümün başlığının solundaki oka veya başlığa çift tıklayın veya klavyenizin ok düğmelerini kullanarak başlığı seçip &Enter; veya <keycap
 >+</keycap
 > düğmesine basın. Görünümün bir kısmını daraltmak için yine bölümün başlığının solundaki oka veya başlığa çift tıklayın veya klavyenizin ok düğmelerini kullanarak başlığı seçip &Enter; veya <keycap
 >-</keycap
@@ -1046,7 +1046,7 @@
 > <guimenu
 >Dosya</guimenu
 ><guimenuitem
->Aç...</guimenuitem
+>Aç…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1082,7 +1082,7 @@
 ><guimenu
 >Dosya</guimenu
 ><guimenuitem
->Farklı Kaydet...</guimenuitem
+>Farklı Kaydet…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1152,7 +1152,7 @@
 > <guimenu
 >Dosya</guimenu
 ><guimenuitem
->Yazdır...</guimenuitem
+>Yazdır…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1371,7 +1371,7 @@
 > <guimenu
 >Düzen</guimenu
 ><guimenuitem
->Bul...</guimenuitem
+>Bul…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1392,7 +1392,7 @@
 > <guimenu
 >Düzen</guimenu
 ><guimenuitem
->Değiştir...</guimenuitem
+>Değiştir…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1478,7 +1478,7 @@
 > <guimenu
 >Araçlar</guimenu
 ><guimenuitem
->Otomatik Yazım Denetimi</guimenuitem
+>Kendiliğinden Yazım Denetimi</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1493,12 +1493,12 @@
 ><guimenu
 >Araçlar</guimenu
 ><guimenuitem
->Yazım Denetimi...</guimenuitem
+>Yazım Denetimi…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
 ><para
->Bu, yazım denetimi uygulamasını başlatır - bu uygulama kullanıcının yazım hatalarını yakalamasına ve düzeltmesine yardımcı olur. Daha fazla bilgi için <xref linkend="spellcheck-check"/> bölümüne bakın. </para
+>Bu, yazım denetimi uygulamasını başlatır — bu uygulama kullanıcının yazım hatalarını yakalamasına ve düzeltmesine yardımcı olur. Daha fazla bilgi için <xref linkend="spellcheck-check"/> bölümüne bakın. </para
 ></listitem>
 </varlistentry>
 
@@ -1508,7 +1508,7 @@
 ><guimenu
 >Araçlar</guimenu
 ><guimenuitem
->Yazım Denetimi (İmleçten İtibaren)...</guimenuitem
+>Yazım Denetimi (İmleçten İtibaren)…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1523,7 +1523,7 @@
 ><guimenu
 >Araçlar</guimenu
 ><guimenuitem
->Yazım Denetimi Seçimi...</guimenuitem
+>Yazım Denetimi Seçimi…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1538,7 +1538,7 @@
 ><guimenu
 >Araçlar</guimenu
 ><guimenuitem
->Sözlüğü Değiştir...</guimenuitem
+>Sözlüğü Değiştir…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1582,7 +1582,7 @@
 ><para
 ><action
 >Menü Çubuğu</action
->'nu görüntülemeyi açar/kapatır. Gizlendikten sonra, <keycombo action="simul"
+>’nu görüntülemeyi açar/kapatır. Gizlendikten sonra, <keycombo action="simul"
 >&Ctrl; <keycap
 >M</keycap
 ></keycombo
@@ -1643,7 +1643,7 @@
 ><guimenu
 >Ayarlar</guimenu
 ><guimenuitem
->Kısayolları Yapılandır...</guimenuitem
+>Kısayolları Yapılandır…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1658,7 +1658,7 @@
 ><guimenu
 >Ayarlar</guimenu
 ><guimenuitem
->Araç Çubuklarını Yapılandır...</guimenuitem
+>Araç Çubuklarını Yapılandır…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1673,7 +1673,7 @@
 ><guimenu
 >Ayarlar</guimenu
 ><guimenuitem
->Bildirimleri Yapılandır...</guimenuitem
+>Bildirimleri Yapılandır…</guimenuitem
 ></menuchoice
 ></term>
 <listitem
@@ -1693,8 +1693,8 @@
 >Ayarlar</guimenu
 ><guimenuitem
 ><replaceable
->'Uygulama'</replaceable
-> Uygulamasını Yapılandır...</guimenuitem
+>“Uygulama”</replaceable
+> Uygulamasını Yapılandır…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1793,7 +1793,7 @@
 ><guimenu
 >Yardım</guimenu
 > <guimenuitem
->Hata Bildir...</guimenuitem
+>Hata Bildir…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1820,7 +1820,7 @@ or via email (see krecipes doc rev 1306076)
 ></term>
 <listitem
 ><para
->&kde;'ye ve projelerine doğrudan bağış yapabileceğiniz bir <ulink url="https://www.kde.org/community/donations"
+>&kde;’ye ve projelerine doğrudan bağış yapabileceğiniz bir <ulink url="https://www.kde.org/community/donations"
 >Bağış</ulink
 > sayfasını açar.</para
 ></listitem>
@@ -1832,16 +1832,16 @@ or via email (see krecipes doc rev 1306076)
 ><guimenu
 >Yardım</guimenu
 > <guimenuitem
->Dili Yapılandır...</guimenuitem
+>Dili Yapılandır…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
 ><para
 >Açık uygulamanın <guilabel
 >Birincil dil</guilabel
->'ini ve <guilabel
+>’ini ve <guilabel
 >Yedek dil</guilabel
->'ini yapılandırabileceğiniz bir  <action
+>’ini yapılandırabileceğiniz bir <action
 >iletişim kutusu açar</action
 >.</para
 ></listitem>
@@ -1855,7 +1855,7 @@ or via email (see krecipes doc rev 1306076)
 >Yardım</guimenu
 > <guimenuitem
 ><replaceable
->'Uygulama'</replaceable
+>“Uygulama”</replaceable
 > Hakkında</guimenuitem
 > </menuchoice
 ></term>
@@ -2545,7 +2545,7 @@ or via email (see krecipes doc rev 1306076)
 <entry
 >Bu <replaceable
 >Araç Takımı</replaceable
->'nı Kaldır</entry>
+>’nı Kaldır</entry>
 </row>
 
 <row>

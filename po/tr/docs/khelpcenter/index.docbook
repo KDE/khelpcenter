@@ -32,7 +32,7 @@
 <legalnotice
 >&FDLNotice;</legalnotice>
 <date
->2016-04-17</date>
+>2016‒04‒17</date>
 <releaseinfo
 >Uygulamalar 16.04</releaseinfo>
 
@@ -40,7 +40,7 @@
 <para
 >&kde;, masaüstü ve taşınabilir bilgisayarlar için <ulink url="https://www.gnu.org/philosophy/free-sw.html"
 > Özgür Yazılımlar</ulink
-> yaratan uluslararası bir teknoloji takımıdır. &kde;'nin ürünleri arasında &Linux; ve &UNIX; platformları için çağdaş bir masaüstü sistemi, kapsamlı ofis üretkenliği ve grup yazılımı paketleri ve İnternet ve web uygulamaları, çoklu ortam, eğlence, eğitim, grafik ve yazılım geliştirme dahil olmak üzere birçok kategoride yüzlerce yazılım başlığı bulunmaktadır. </para>
+> yaratan uluslararası bir teknoloji takımıdır. &kde;’nin ürünleri arasında &Linux; ve &UNIX; platformları için çağdaş bir masaüstü sistemi, kapsamlı ofis üretkenliği ve grup yazılımı paketleri ve İnternet ve web uygulamaları, çoklu ortam, eğlence, eğitim, grafik ve yazılım geliştirme dahil olmak üzere birçok kategoride yüzlerce yazılım başlığı bulunmaktadır. </para>
 </abstract>
 
 <keywordset>
@@ -138,11 +138,11 @@
 >Uygulamalar</guimenuitem
 > sekmesinden <guimenuitem
 >Yardım</guimenuitem
->'ı seçin veya <userinput
+>’ı seçin veya <userinput
 >help</userinput
 > yazıp <guimenuitem
 >Yardım</guimenuitem
->'ı seçin. Bu, öntanımlı başlangıç sayfasıyla &khelpcenter; uygulamasını açar. </para>
+>’ı seçin. Bu, öntanımlı başlangıç sayfasıyla &khelpcenter; uygulamasını açar. </para>
 </listitem
 > 
 </varlistentry>
@@ -152,7 +152,7 @@
 >Komut satırından</term>
 <listitem>
 <para
->&khelpcenter;, bir dosyayı görüntülemek için bir &URL; kullanılarak başlatılabilir. &URL;'ler aynı zamanda <command
+>&khelpcenter;, bir dosyayı görüntülemek için bir &URL; kullanılarak başlatılabilir. &URL;’ler aynı zamanda <command
 >info</command
 > ve <command
 >man</command
@@ -278,7 +278,7 @@
 >sözlüğüdür</link
 >. Üçüncü sekmedeyse <guilabel
 >Arama Seçenekleri</guilabel
->'ni yapılandırabilirsiniz. </para>
+>’ni yapılandırabilirsiniz. </para>
 
 <sect3 id="contents-tab">
 <title
@@ -334,7 +334,7 @@
 <para
 >Yerel &kde; uygulamaları belgelendirmeleri. Tüm &kde; uygulamalarının &XML; biçiminde belgelendirmesi vardır ve bunlar görüntülenirken <acronym
 >HTML</acronym
->'ye dönüştürülür. Bu bölüm, kısa bir açıklama ve tam uygulama belgelerine bir bağlantıyla tüm &kde; uygulamalarını listeler. </para>
+>’ye dönüştürülür. Bu bölüm, kısa bir açıklama ve tam uygulama belgelerine bir bağlantıyla tüm &kde; uygulamalarını listeler. </para>
 <para
 >Uygulamalar, aradığınız uygulamayı bulmayı kolaylaştıran <guimenu
 >Plasma</guimenu
@@ -528,7 +528,7 @@
 >Üst</guilabel
 > bölümüne <guilabel
 >Üst</guilabel
->'e basarak gidebilirsiniz.</para>
+>’e basarak gidebilirsiniz.</para>
 
 <para
 ><guibutton
@@ -553,7 +553,7 @@
 >&kde; kavram dizini</title>
 
 <para
->Kavram dizini, size tanıdık gelmeyen sözcüklerin tanımlarını arayabileceğiniz tez bir başvuru noktası sağlar. Bunlar &kde;'ye özgü uygulama ve teknolojilerden genel &UNIX; bilgi işlem terimlerine kadar uzanır. </para>
+>Kavram dizini, size tanıdık gelmeyen sözcüklerin tanımlarını arayabileceğiniz tez bir başvuru noktası sağlar. Bunlar &kde;’ye özgü uygulama ve teknolojilerden genel &UNIX; bilgi işlem terimlerine kadar uzanır. </para>
 
 <para
 >Sol bölmede, iki seçenekten oluşan bir ağaç görünümü göreceksiniz: <guilabel
@@ -653,7 +653,7 @@ Print the contents of the currently visible page.
 <varlistentry>
 <term
 ><guiicon
->Yazıtipi Boyutunu Büyüt</guiicon
+>Yazıtipi Puntosunu Büyüt</guiicon
 ></term>
 <listitem>
 <para
@@ -664,7 +664,7 @@ Print the contents of the currently visible page.
 <varlistentry>
 <term
 ><guiicon
->Yazıtipi Boyutunu Küçült</guiicon
+>Yazıtipi Puntosunu Küçült</guiicon
 ></term>
 <listitem>
 <para
@@ -708,7 +708,7 @@ Print the contents of the currently visible page.
 >PDF</acronym
 > biçiminde <ulink url="https://docs.kde.org/index.php?language=en"
 > &kde; Belgelendirme Sunucusu</ulink
->'nda bulabilirsiniz. </para>
+>’nda bulabilirsiniz. </para>
 </listitem>
 </varlistentry>
 
@@ -800,7 +800,7 @@ Print the contents of the currently visible page.
 > <guimenu
 >Düzen</guimenu
 > <guimenuitem
->Bul...</guimenuitem
+>Bul…</guimenuitem
 > </menuchoice>
 </term>
 <listitem>
@@ -1000,7 +1000,7 @@ Print the contents of the currently visible page.
 > <guimenu
 >Yer İmleri</guimenu
 > <guimenuitem
->Yer İmi Ekle</guimenuitem
+>Yer İmi Koy</guimenuitem
 ></menuchoice
 ></term>
 <listitem>
@@ -1048,7 +1048,7 @@ Print the contents of the currently visible page.
 ><guimenu
 >Ayarlar</guimenu
 > <guimenuitem
->Yazıtiplerini Yapılandır...</guimenuitem
+>Yazıtiplerini Yapılandır…</guimenuitem
 > </menuchoice>
 </term>
 <listitem>

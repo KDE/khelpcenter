@@ -236,7 +236,7 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 ><para
 ><ulink url="https://www.kde.org/applications/internet/konqueror/"
 >&konqueror;</ulink
->'da bir dosya açmak. </para
+>’da bir dosya açmak. </para
 ></caption>
 </mediaobject>
 </screenshot>
@@ -319,7 +319,7 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 
 <varlistentry id="files-ui-toolbar-zoom">
 <term
->Yakınlaştırma Kaydırıcısı</term>
+>Yakınlaştırma Sürgüsü</term>
 <listitem
 ><para
 >Bu, klasör görünümünde gösterilen simgenin veya önizlemenin boyutunu değiştirmenize olanak tanır.</para
@@ -561,7 +561,7 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 ><para
 >Normalde işletim sisteminiz tarafından gizlenen dosya veya klasörleri görüntüler. Bu eylemin alternatif kısayolu <keycap
 >F8</keycap
->'dir. </para
+>’dir. </para
 ></listitem>
 </varlistentry>
 
@@ -772,7 +772,7 @@ Panel</link
 > Listesi</term>
 <listitem
 ><para
->&dolphin; ve diğer dosya yönetimi araçlarıyla paylaşılan, &kde;'nin standart Yerler listesini gösterir.</para
+>&dolphin; ve diğer dosya yönetimi araçlarıyla paylaşılan, &kde;’nin standart Yerler listesini gösterir.</para
 ></listitem>
 </varlistentry>
 <!-- add options for places here 
@@ -794,7 +794,7 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 > düğmesine tıklayabilirsiniz.</para>
 <!-- FIXME select a file by typing the first letters of its name-->
 <para
->Aynı anda birden fazla dosyayı da seçebilirsiniz. Belirli dosyaları seçmek veya önceden seçili olan belirli dosyaların seçimini kaldırmak için &Ctrl; düğmesini basılı tutun, her bir dosyaya tıklayın ve ardından &Ctrl;'yi bırakın. Bitişik bir dosya grubunu seçmek için, ilk dosyaya tıklayın, &Shift; düğmesini basılı tutun, gruptaki son dosyayı tıklayın ve &Shift;'i bırakın.</para>
+>Aynı anda birden fazla dosyayı da seçebilirsiniz. Belirli dosyaları seçmek veya önceden seçili olan belirli dosyaların seçimini kaldırmak için &Ctrl; düğmesini basılı tutun, her bir dosyaya tıklayın ve ardından &Ctrl;’ü bırakın. Bitişik bir dosya grubunu seçmek için ilk dosyaya tıklayın, &Shift; düğmesini basılı tutun, gruptaki son dosyayı tıklayın ve &Shift;’i bırakın.</para>
 
 <para
 >Klasör Görünümü, bağlam menüsüne erişmek için bir dosyaya sağ tıklanarak veya klavye kısayolları kullanılarak erişilebilen sınırlı sayıda dosya işlemini destekler. Bağlam menüsünde aşağıdaki ögeler bulunur:</para>
@@ -804,7 +804,7 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 <varlistentry>
 <term
 ><guimenuitem
->Yeni Oluştur...</guimenuitem
+>Yeni Oluştur…</guimenuitem
 ></term>
 <listitem
 ><para
@@ -815,7 +815,7 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 <varlistentry>
 <term
 ><guimenuitem
->Çöp Kutusuna Taşı...</guimenuitem
+>Çöp Kutusuna Taşı…</guimenuitem
 > (<keycombo action="simul"
 ><keycap
 >Sil</keycap
@@ -952,7 +952,7 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 ><para
 ><ulink url="https://www.kde.org/applications/internet/konqueror/"
 >&konqueror;</ulink
->'da bir dosyayı kaydetmek. </para
+>’da bir dosyayı kaydetmek. </para
 ></caption>
 </mediaobject>
 </screenshot>
@@ -1043,7 +1043,7 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 >&sonnet;; &kate;, &kmail; ve &calligrawords; gibi &kde; uygulamaları tarafından kullanılan bir yazım denetleyicisidir. Birçok özgür yazım denetleyicisi için bir grafik kullanıcı arayüzü ön ucudur.</para>
 
 <para
->&sonnet;'i kullanmak için <application
+>&sonnet;’i kullanmak için <application
 >&GNU; Aspell</application
 >, <application
 >Hspell</application
@@ -1078,7 +1078,7 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 ><guimenu
 >Araçlar</guimenu
 > <guimenuitem
->Yazım Denetimi...</guimenuitem
+>Yazım Denetimi…</guimenuitem
 ></menuchoice
 > menüsüne gidin.</para>
 
@@ -1116,12 +1116,12 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 <para
 >Yanlış yazılan sözcükleri, daha sonra belgenizde yeniden görünürlerse seçili değiştirme sözcüğüyle kendiliğinden değiştirmek için <guibutton
 >Tümünü Değiştir</guibutton
->'e tıklayın.</para>
+>’e tıklayın.</para>
 
 <para
 >O noktadaki yazımı ve yanlış yazılan sözcüğün gelecekteki tüm oluşumlarını yok saymak için <guibutton
 >Tümünü Yok Say</guibutton
->'a tıklayın.</para>
+>’a tıklayın.</para>
 
 <para
 ><guibutton
@@ -1142,7 +1142,7 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 
 <sect2 id="spellcheck-auto">
 <title
->Otomatik Yazım Denetimi</title>
+>Kendiliğinden Yazım Denetimi</title>
 
 <!--FIXME:screenshot-->
 
@@ -1151,18 +1151,18 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 ><guimenu
 >Araçlar</guimenu
 > <guimenuitem
->Otomatik Yazım Denetimi</guimenuitem
+>Kendiliğinden Yazım Denetimi</guimenuitem
 ></menuchoice
->'ni seçin.</para>
+>’ni seçin.</para>
 
 <para
 >Yanlış yazılması olası sözcüklerin altı kırmızıyla çizilecektir. Bir öneri seçmek için sözcüğe sağ tıklayın, <guisubmenu
 >Yazım Denetimi</guisubmenu
-> alt menüsünü seçin ve öneriyi seçin. Ayrıca &sonnet;'in bu belgede bu yazımı yok sayması için <guimenuitem
+> alt menüsünü seçin ve öneriyi seçin. Ayrıca &sonnet;’in bu belgede bu yazımı yok sayması için <guimenuitem
 >Sözcüğü Yok Say</guimenuitem
->'ı veya kişisel sözlüğünüze kaydetmesi için <guimenuitem
+>’ı veya kişisel sözlüğünüze kaydetmesi için <guimenuitem
 >Sözlüğe Ekle</guimenuitem
->'yi seçebilirsiniz.</para>
+>’yi seçebilirsiniz.</para>
 
 </sect2>
 
@@ -1175,13 +1175,13 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 ><guimenu
 >Araçlar</guimenu
 > <guimenuitem
->Sözlüğü Değiştir...</guimenuitem
+>Sözlüğü Değiştir…</guimenuitem
 ></menuchoice
 > seçeneğine gidin. Geçerli belgenin altında sözlüğünüzü değiştirmenize olanak sağlayacak küçük bir pencere görünecektir.</para>
 
 <!--FIXME: maybe move kcm handbook here too?-->
 <para
->&sonnet;'i yapılandırma konusunda daha fazla bilgi için &systemsettings; <ulink url="help:/kcontrol/spellchecking"
+>&sonnet;’i yapılandırma konusunda daha fazla bilgi için &systemsettings; <ulink url="help:/kcontrol/spellchecking"
 >Yazım Denetimi modülü belgelendirmesine</ulink
 > gidin</para>
 
@@ -1272,7 +1272,7 @@ Search+Replace bar in Kate/KWrite
 ><guimenu
 >Düzen</guimenu
 > <guimenuitem
->Bul...</guimenuitem
+>Bul…</guimenuitem
 ></menuchoice
 > ögesine gidin veya <keycombo action="simul"
 >&Ctrl;<keycap
@@ -1280,7 +1280,7 @@ Search+Replace bar in Kate/KWrite
 ></keycombo
 > kısayolunu kullanın. Sonrasında <guilabel
 >Bulunacak metin:</guilabel
-> kutusuna bulmak istediğinzi metni girin.</para>
+> kutusuna bulmak istediğiniz metni girin.</para>
 
 <para
 >Eğer <guilabel
@@ -1407,7 +1407,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 ></menuchoice
 > seçeneğine gidebilir veya <keycap
 >F3</keycap
->'e basabilirsiniz.</para>
+>’e basabilirsiniz.</para>
 
 <screenshot id="screenshot-find-found">
 <screeninfo
@@ -1439,7 +1439,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 ><guimenu
 >Düzen</guimenu
 ><guisubmenu
->Değiştir...</guisubmenu
+>Değiştir…</guisubmenu
 ></menuchoice
 > ögesinde bulabilir veya <keycombo action="simul"
 >&Ctrl;<keycap
@@ -1462,8 +1462,8 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 ><para
 >&calligrasheets; içinde <userinput
 >income</userinput
->'ı <userinput
->expanse</userinput
+>’ı <userinput
+>expense</userinput
 > ile değiştirmek</para
 ></caption>
 </mediaobject>
@@ -1561,7 +1561,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 ></textobject>
 <caption
 ><para
->&kate;'in ara ve değiştir çubuğunda <userinput
+>&kate;’in ara ve değiştir çubuğunda <userinput
 >kmail</userinput
 > ile <userinput
 >kate</userinput
@@ -1608,7 +1608,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 >Yazıtiplerini Seçmek</title>
 
 <para
->Yazıtipi seçicisi birçok &kde; uygulamasında kullanılır. Bu araç, uygulamanızda metinlerin gösterileceği yazıtipi görünümünü, biçimini ve boyutunu seçmenizi sağlar.</para>
+>Yazıtipi seçicisi, birçok &kde; uygulamasında kullanılır. Bu araç, uygulamanızda metinlerin gösterileceği yazıtipi görünümünü, biçimini ve puntosunu seçmenizi sağlar.</para>
 
 <screenshot id="screenshot-fonts">
 <screeninfo
@@ -1656,21 +1656,21 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 ><para
 ><guilabel
 >Yatık</guilabel
-> - metni el yazısı veya eğik biçimde görüntüler ve genellikle alıntı yapmak veya metni vurgulamak için kullanılır. </para
+> — metni el yazısı veya eğik biçimde görüntüler ve genellikle alıntı yapmak veya metni vurgulamak için kullanılır. </para
 ></listitem>
 
 <listitem
 ><para
 ><guilabel
 >Normal</guilabel
-> - öntanımlı. Metin herhangi bir özel görünüş olmadan görüntülenir.</para
+> — öntanımlı. Metin herhangi bir özel görünüş olmadan görüntülenir.</para
 ></listitem>
 
 <listitem
 ><para
 ><guilabel
 >Kalın Yatık</guilabel
-> - hem <guilabel
+> — hem <guilabel
 >Kalın</guilabel
 > hem de <guilabel
 >Yatık</guilabel
@@ -1681,7 +1681,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 ><para
 ><guilabel
 >Kalın</guilabel
-> - bu, metni daha koyu, daha kalın bir biçimde görüntüler ve genellikle belge başlıkları için veya metni vurgulamak için kullanılır.</para
+> — bu, metni daha koyu, daha kalın bir biçimde görüntüler ve genellikle belge başlıkları için veya metni vurgulamak için kullanılır.</para
 ></listitem>
 
 </itemizedlist>
@@ -1803,7 +1803,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 >Ekran Renklerini Kullanmak</title>
 
 <para
->Damlalık aracı, ekranınızdan bir renk seçmenize olanak tanır. Bunu kullanmak için, temel renklerin altındaki <guibutton
+>Damlalık aracı, ekranınızdan bir renk seçmenize olanak tanır. Bunu kullanmak için temel renklerin altındaki <guibutton
 >Ekran Rengini Seç</guibutton
 > düğmesini seçin ve ardından o rengi seçmek için ekranınızda herhangi bir yeri tıklayın.</para>
 

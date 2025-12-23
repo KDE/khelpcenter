@@ -3,7 +3,7 @@
 >&plasma-desktop; ve &kde; Uygulamaları Kurulumu</title>
 
 <para
->&kde;'yi akıllı telefonlar, tabletler, &Microsoft; &Windows;, &MacOS;, &UNIX;, &BSD; ve &Linux; çalıştıran bilgisayarlar gibi çeşitli platformlara kurabilirsiniz. Birçok farklı platform ve dağıtım için ikili paketler vardır. Ayrıca ileri düzey kullanıcılar kaynak kodlardan derleyebilirler.</para>
+>&kde;’yi akıllı telefonlar, tabletler, &Microsoft; &Windows;, &macOS;, &UNIX;, &BSD; ve &Linux; çalıştıran bilgisayarlar gibi çeşitli platformlara kurabilirsiniz. Birçok farklı platform ve dağıtım için ikili paketler vardır. Ayrıca ileri düzey kullanıcılar kaynak kodlardan derleyebilirler.</para>
 
 <sect1 id="install-packages">
 <title
@@ -32,7 +32,7 @@
 </note>
 
 <para
->Eğer dağıtımınızda &kde; paketlerini bulamıyorsanız dağıtımınızın destek kaynaklarına başvurun. Birçok dağıtımın &kde; için ayrı bir ekibi vardır ve bu ekip &kde;'ye özel yardım sağlar. </para>
+>Eğer dağıtımınızda &kde; paketlerini bulamıyorsanız dağıtımınızın destek kaynaklarına başvurun. Birçok dağıtımın &kde; için ayrı bir takımı vardır ve bu takımlar &kde;’ye özel yardım sağlar. </para>
 
 <!--FIXME: provide steps for common distributions?-->
 
@@ -46,8 +46,8 @@
 >Windows üzerinde &kde; Girişimi, &Microsoft; &Windows; için &kde; uygulamalarının ikili paketlerini sağlarlar. Ayrıca, belirli uygulamaları ve bağımlılıkları kolayca kurmanızı sağlayan özel bir kurulum programı da sunulur.</para>
 
 <para
->Bu girişim ve kurulum programı hakkında daha fazla bilgi için <ulink url="https://windows.kde.org/"
->Windows üzerinde KDE Girişimi</ulink
+>Bu girişim ve kurulum programı hakkında daha fazla bilgi için <ulink url="https://community.kde.org/Windows"
+>the KDE on Windows Initiative</ulink
 > adresini ziyaret edin. </para>
 
 <!--FIXME: describe how to use the installer?-->
@@ -56,16 +56,16 @@
 
 <sect2 id="install-mac">
 <title
->&MacOS;</title>
+>&macOS;</title>
 
 <para
 >Belirli &kde; uygulamaları çeşitli <quote
 >aktarımlar</quote
-> ile &MacOS; üzerine kurulabilir. Bazı &kde; uygulamalarının &MacOS; için kendilerinin ürettiği ikili paketleri de vardır.</para>
+> ile &macOS; üzerine kurulabilir. Bazı &kde; uygulamalarının &macOS; için kendilerinin ürettiği ikili paketleri de vardır.</para>
 
 <para
->Daha fazla bilgi için <ulink url="https://mac.kde.org/"
->&kde; - &MacOS;X</ulink
+>Daha fazla bilgi için <ulink url="https://community.kde.org/Mac"
+>&macOS; üzerinde &kde;</ulink
 > adresini ziyaret edin.</para>
 
 </sect2>
@@ -75,7 +75,7 @@
 >&BSD;</title>
 
 <para
->&BSD; dağıtımlarının çoğu &kde; uygulamalarını ve &plasma-desktop;'nü bir bütün olarak kurmanızı sağlayacak <quote
+>&BSD; dağıtımlarının çoğu &kde; uygulamalarını ve &plasma-desktop;’nü bir bütün olarak kurmanızı sağlayacak <quote
 >aktarım</quote
 > sistemine sahiptirler.</para>
 
@@ -108,7 +108,7 @@
 >Çalışan Ortam (Live Media)</title>
 
 <para
->Bazı &Linux; ve &BSD; dağıtımları, çalışan ortamlar (live media) sunarlar. Çalışan ortamlar, sisteminize hiçbir şey kurmadan &plasma-desktop;'nü denemenizi sağlar. Yalnızca bir CD takmak veya USB sürücüsü bağlamak ve sistemi oradan başlatmak (önyüklemek) yeterlidir. Eğer denerken gördüğünüz ortamı severseniz aynı ortam (birçoğu) size bu yazılımı sabit diskinize kurma seçeneği de sunar.</para>
+>Bazı &Linux; ve &BSD; dağıtımları, çalışan ortamlar (live media) sunarlar. Çalışan ortamlar, sisteminize hiçbir şey kurmadan &plasma-desktop;’nü denemenizi sağlar. Yalnızca bir CD takmak veya USB sürücüsü bağlamak ve sistemi oradan başlatmak (önyüklemek) yeterlidir. Eğer denerken gördüğünüz ortamı severseniz aynı ortam (birçoğu) size bu yazılımı sabit diskinize kurma seçeneği de sunar.</para>
 
 <para
 >&kde; web sayfasında, &kde; çalışma alanını ve uygulamalarını sunan dağıtımların <ulink url="https://www.kde.org/download/distributions.php"
@@ -131,9 +131,9 @@
 > kullamaya başladığından beri artık derleme konusunda bir sorun yaşamamalısınız. Derleme sırasında bir sorun yaşarsanız lütfen oluşan hataları &kde; e-posta listelerine bildirin.</para>
 
 <para
->Frameworks, &plasma-desktop; ve tüm diğer uygulamaları yapmak için önerilen araç <ulink url="https://commits.kde.org/kdesrc-build"
+>lFrameworks, &plasma-desktop; ve tüm diğer uygulamaları yapmak için önerilen araç <ulink url="https://commits.kde.org/kdesrc-build"
 >kdesrc-build</ulink
->'dir </para>
+>’dir </para>
 </sect2>
 <!--FIXME more info:
   Where to get sources (git split) 

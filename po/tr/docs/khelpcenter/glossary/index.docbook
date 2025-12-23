@@ -30,7 +30,7 @@ Project Neon
 >Akonadi</glossterm>
 			<glossdef
 ><para
->&kde; yazılım derlemesi 4 içindeki Kişişel Bilgi Yöneticisi (PIM) verisine erişmeyi sağlayan veri erişim sistemidir. Tek bir deponun ve depo erişim sisteminin kullanılması, verimliliği ve yeni özellikler eklemeyi kolaylaştırır. &kde; 3 serisinde bunun yerine her PIM uygulamasının kendi sistemi vardı. Akonadi’nin veri depolama biçimlerini değiştirmediğini (vcard, iCalendar, mbox, maildir vb.), bu verilere farklı bir yolla eriştiğini ve veriyi güncellediğini unutmayın.&newpara; Akonadi’nin tasarımının ve geliştirilmesinin teknik açıdan doğal nedenleri vardır; örneğin, farklı uygulamalardan (&eg; &kmail;, &calligrawords; &etc;) PIM verisine (adres defterindeki kişiler, takvimler, e-postalar gibi) erişmek için tek bir yol. Bu yol kullanıldığında aynı kodları iki ayrı yerde yazmak gerekmez.&newpara;Başka bir amaç da &kmail; gibi uygulamaların e-posta sunucuları gibi dış kaynaklara doğrudan erişmesini engelleyerek uygulama arayüzünü ayırmak. Bu durum, geçmişte açılan uygulama başarımı ve uygulamadan hızlı yanıt alma konulu hata bildirimlerine ve isteklere neden olan sorunları da çözdü.&newpara;Daha fazla bilgi:&newpara; &linkstart;"https://community.kde.org/KDE_PIM/Akonadi"&linkmid;KDE’nin Kişisel Bilgi Yöneticisi için Akonadi&linkend;&newpara; &linkstart;"https://en.wikipedia.org/wiki/Akonadi"&linkmid;Vikipedi: Akonadi&linkend;&newpara; &linkstart;"https://techbase.kde.org/KDE_PIM/Akonadi"&linkmid;Techbase - Akonadi&linkend;</para
+>&kde; yazılım derlemesi 4 içindeki Kişişel Bilgi Yöneticisi (PIM) verisine erişmeyi sağlayan veri erişim sistemidir. Tek bir deponun ve depo erişim sisteminin kullanılması, verimliliği ve yeni özellikler eklemeyi kolaylaştırır. &kde; 3 serisinde bunun yerine her PIM uygulamasının kendi sistemi vardı. Akonadi’nin veri depolama biçimlerini değiştirmediğini (vcard, iCalendar, mbox, maildir vb.), bu verilere farklı bir yolla eriştiğini ve veriyi güncellediğini unutmayın.&newpara; Akonadi’nin tasarımının ve geliştirilmesinin teknik açıdan doğal nedenleri vardır; örneğin, farklı uygulamalardan (&eg; &kmail;, &calligrawords; &etc;) PIM verisine (adres defterindeki kişiler, takvimler, e-postalar gibi) erişmek için tek bir yol. Bu yol kullanıldığında aynı kodları iki ayrı yerde yazmak gerekmez.&newpara;Başka bir amaç da &kmail; gibi uygulamaların e-posta sunucuları gibi dış kaynaklara doğrudan erişmesini engelleyerek uygulama arayüzünü ayırmak. Bu durum, geçmişte açılan uygulama başarımı ve uygulamadan hızlı yanıt alma konulu hata bildirimlerine ve isteklere neden olan sorunları da çözdü.&newpara;Daha fazla bilgi:&newpara; &linkstart;"https://community.kde.org/KDE_PIM/Akonadi"&linkmid;KDE’nin Kişisel Bilgi Yöneticisi için Akonadi&linkend;&newpara; &linkstart;"https://en.wikipedia.org/wiki/Akonadi"&linkmid;Vikipedi: Akonadi&linkend;&newpara; &linkstart;"https://techbase.kde.org/KDE_PIM/Akonadi"&linkmid;Techbase — Akonadi&linkend;</para
 ><glossseealso otherterm="gloss-gui"
 >&GUI;</glossseealso
 > <glossseealso otherterm="gloss-kde"
@@ -101,7 +101,7 @@ Project Neon
 >Flake</glossterm>
 			<glossdef
 ><para
->Flake, &calligra;'da kullanılan bir programlama kitaplığıdır. İşlev olarak, içerik görüntülemek için şekiller ve onları manipüle etmek için araçlar sağlar. Şekillere yakınlaştırılabilir, onlar döndürülebilir ve tek bir şekil olarak çalışmaları için birleştirilebilirler. Şekiller arası metin akışı olanaklıdır.&newpara; Daha fazla bilgi:&newpara; &linkstart;"https://community.kde.org/Calligra/Libs/Flake"&linkmid;&kde; Topluluğu vikisi: Flake&linkend;</para
+>Flake, &calligra;’da kullanılan bir programlama kitaplığıdır. İşlev olarak, içerik görüntülemek için şekiller ve onları manipüle etmek için araçlar sağlar. Şekillere yakınlaştırılabilir, onlar döndürülebilir ve tek bir şekil olarak çalışmaları için birleştirilebilirler. Şekiller arası metin akışı olanaklıdır.&newpara; Daha fazla bilgi:&newpara; &linkstart;"https://community.kde.org/Calligra/Libs/Flake"&linkmid;&kde; Topluluğu vikisi: Flake&linkend;</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-kparts"
@@ -129,7 +129,7 @@ Project Neon
 >Yeni Çıkanlar</glossterm>
 			<glossdef
 ><para
->&emstart;G&emend;et &emstart;H&emend;ot &emstart;N&emend;ew &emstart;S&emend;tuff (Yeni Çıkanlar - GHNS), kullanıcıların uygulamalarıyla ilgili çeşitli uzantıları indirmesini ve kurmasını kolaylaştıran özgür bir standarttır. Bizim GHNS gerçekleştirimimiz &plasma; tarafından (örneğin yeni masaüstü temaları almak için) ve birçok uygulama ve araç takımı tarafından kullanılır.</para
+>&emstart;G&emend;et &emstart;H&emend;ot &emstart;N&emend;ew &emstart;S&emend;tuff (Yeni Çıkanlar — GHNS), kullanıcıların uygulamalarıyla ilgili çeşitli uzantıları indirmesini ve kurmasını kolaylaştıran özgür bir standarttır. Bizim GHNS gerçeklememiz &plasma; tarafından (örneğin yeni masaüstü temaları almak için) ve birçok uygulama ve araç takımı tarafından kullanılır.</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-plasma"
@@ -372,7 +372,7 @@ otherterm="gloss-kbuildsycoca"
 >KBuildSycoca4</application
 > bir komut satırı programıdır ve <acronym
 >KSycoca</acronym
->'yı yeniden üretir. Bu; örneğin, &systemsettings; içindeki bazı veya tüm modüller kayıpsa yararlıdır.</para
+>’yı yeniden üretir. Bu; örneğin, &systemsettings; içindeki bazı veya tüm modüller kayıpsa yararlıdır.</para
 ><glossseealso otherterm="gloss-ksycoca"
 ><acronym
 >KSycoca</acronym
@@ -466,7 +466,7 @@ otherterm="gloss-kbuildsycoca"
 >&systemsettings;</glossterm>
 			<glossdef
 ><para
->Bu, &kde; denetim merkezinin proje ve dosya adıdır. &systemsettings; &kde;'nin tüm yapılandırma seçeneklerini özelleştirmenize olanak tanır.</para
+>Bu, &kde; denetim merkezinin proje ve dosya adıdır. &systemsettings; &kde;’nin tüm yapılandırma seçeneklerini özelleştirmenize olanak tanır.</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-kinfocenter"
@@ -483,7 +483,7 @@ otherterm="gloss-kbuildsycoca"
 >Etkinlikler</glossterm>
 			<glossdef
 ><para
->Etkinlikler, kendi duvar kağıtlarına iye &plasma; araç takımı kümelerine verilen addır.&newpara; Biraz sanal masaüstlerine benzerler; ancak tam aynısı değillerdir. Örneğin, Git işlemelerinin RSS beslemeleri, yapılacaklarınız, işle ilgili klasörlerinizi gösteren bir klasör görünümü ve daha sade bir duvar kağıdı içeren bir "iş etkinliğiniz" olabilir.&newpara; Onun yanında; boş zaman etkinlikleriniz, aile fotoğraflarınız, köpeğinizin bir resmi, sıkça ziyaret ettiğiniz blogların RSS beslemeleri, bir X uygulamacığı ve ta 80’lerden bu yana hastası olduğunuz Iron Maiden içeren bir duvar kağıdı olan bir "kişisel etkinlik".&newpara; Saat öğleden sonra 5’i vurduğunda hemen iş etkinliğinden kişisel etkinliğinize geçebilirsiniz.&newpara; Daha fazla bilgi:&newpara; &linkstart;"https://userbase.kde.org/Plasma"&linkmid;Plasma SSS&linkend;</para
+>Etkinlikler, kendi duvar kâğıtlarına iye &plasma; araç takımı kümelerine verilen addır.&newpara; Biraz sanal masaüstlerine benzerler; ancak tam aynısı değillerdir. Örneğin, Git işlemelerinin RSS beslemeleri, yapılacaklarınız, işle ilgili klasörlerinizi gösteren bir klasör görünümü ve daha sade bir duvar kağıdı içeren bir "iş etkinliğiniz" olabilir.&newpara; Onun yanında; boş zaman etkinlikleriniz, aile fotoğraflarınız, köpeğinizin bir resmi, sıkça ziyaret ettiğiniz blogların RSS beslemeleri, bir X uygulamacığı ve ta 80’lerden bu yana hastası olduğunuz Iron Maiden içeren bir duvar kağıdı olan bir "kişisel etkinlik".&newpara; Saat öğleden sonra 5’i vurduğunda hemen iş etkinliğinden kişisel etkinliğinize geçebilirsiniz.&newpara; Daha fazla bilgi:&newpara; &linkstart;"https://userbase.kde.org/Plasma"&linkmid;Plasma SSS&linkend;</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-virtualdesktops"
@@ -497,7 +497,7 @@ otherterm="gloss-kbuildsycoca"
 ></glossterm>
 			<glossdef
 ><para
->Esinti, &plasma;'nın öntanımlı temasıdır. Yeni tema, çalışma alanı için yüksek karşıtlıklı düz bir temadır. Açık ve koyu çeşitleri vardır. Daha basit ve daha tek renkli grafik varlıkları ve tipografi merkezli yerleşimler, temiz ve görsel olarak net bir kullanıcı deneyimi sunar.</para
+>Esinti, &plasma;’nın öntanımlı temasıdır. Yeni tema, çalışma alanı için yüksek karşıtlıklı düz bir temadır. Açık ve koyu çeşitleri vardır. Daha basit ve daha tek renkli grafik varlıkları ve tipografi merkezli yerleşimler, temiz ve görsel olarak net bir kullanıcı deneyimi sunar.</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-ksvg"
@@ -611,7 +611,7 @@ otherterm="gloss-kbuildsycoca"
 ></glossterm>
 			<glossdef>
 				<para
->Oksijen, &kde; SC 4'ün öntanımlı temasıydı. Basit, karikatürize simgeleri kaldırarak ve bunları temiz bir tema ve fotogerçekçi simgelerle değiştirerek masaüstüne 'yeni bir soluk' getirmek üzere tasarlanmıştı. Oksijen, simgelerin dikkat dağıtıcı olmasını önlemek için doygunluğu azaltılmış bir palet ve ayrıntılı ölçeklenebilir grafikler (SVG) kullanır.&newpara; Daha fazla bilgi:&newpara; &linkstart;"https://en.wikipedia.org/wiki/Oxygen_Project"&linkmid;Vikipedi: Oksijen Projesi&linkend;</para
+>Oksijen, &kde; SC 4’ün öntanımlı temasıydı. Basit, karikatürize simgeleri kaldırarak ve bunları temiz bir tema ve fotogerçekçi simgelerle değiştirerek masaüstüne “yeni bir soluk” getirmek üzere tasarlanmıştı. Oksijen, simgelerin dikkat dağıtıcı olmasını önlemek için doygunluğu azaltılmış bir palet ve ayrıntılı ölçeklenebilir grafikler (SVG) kullanır.&newpara; Daha fazla bilgi:&newpara; &linkstart;"https://en.wikipedia.org/wiki/Oxygen_Project"&linkmid;Vikipedi: Oksijen Projesi&linkend;</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-ksvg"
@@ -684,7 +684,7 @@ otherterm="gloss-kbuildsycoca"
 >&Qt;</glossterm>
 			<glossdef
 ><para
->&kde;'nin grafiksel kullanıcı arayüzü, &Qt; araç kitinin üzerine yapılmıştır. Bu kit, adına araç takımı denilen birçok grafiksel öge sunar; bu ögeler masaüstünü yapmada kullanılır. &Qt; hakkında daha fazla bilgiyi &linkstart; "https://www.qt.io/developers/"&linkmid;https://www.qt.io/developers/&linkend; adresinde bulabilirsiniz.</para
+>&kde;’nin grafiksel kullanıcı arayüzü, &Qt; araç kitinin üzerine yapılmıştır. Bu kit, adına araç takımı denilen birçok grafiksel öge sunar; bu ögeler masaüstünü yapmada kullanılır. &Qt; hakkında daha fazla bilgiyi &linkstart; "https://www.qt.io/developers/"&linkmid;https://www.qt.io/developers/&linkend; adresinde bulabilirsiniz.</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-gui"
@@ -736,7 +736,7 @@ otherterm="gloss-kbuildsycoca"
 ><para
 >KHTML <acronym
 >DOM</acronym
-> (&emstart;D&emend;ocument &emstart;O&emend;bject &emstart;M&emend;odel - Belge Nesnesi Modeli) sunum yeteneklerini tüm uygulamalara açan bir KPart modülü. KSVG2, &kde; SC 4 için KDOM üzerine yapılmıştır.</para
+> (&emstart;D&emend;ocument &emstart;O&emend;bject &emstart;M&emend;odel — Belge Nesnesi Modeli) sunum yeteneklerini tüm uygulamalara açan bir KPart modülü. KSVG2, &kde; SC 4 için KDOM üzerine yapılmıştır.</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-khtml"
@@ -790,7 +790,7 @@ otherterm="gloss-kbuildsycoca"
 >Araç Takımı</glossterm>
 			<glossdef
 ><para
->Genel olarak araç takımları, grafik kullanıcı arayüzünü oluşturmak için kullanılan sarma çubukları, düğmeler veya giriş alanları gibi grafik ögelerdir.&newpara; &plasma;'da araç takımları ana bileşenlerdir ve masaüstünü ve ilgili duvar kağıdını görüntülemek, dizüstü bilgisayarın pil düzeyini göstermek, takılı aygıtları görüntülemek ve görev çubuğunu çizmek gibi çeşitli işlevleri üstlenirler: Temel olarak masaüstünde yaşayan küçük uygulamalardır. Ek olarak araç takımları, panel ve hatta masaüstünün kendisi gibi "Kapsayıcılar" altında birlikte gruplandırılabilir. </para
+>Genel olarak araç takımları, grafik kullanıcı arayüzünü oluşturmak için kullanılan sarma çubukları, düğmeler veya giriş alanları gibi grafik ögelerdir.&newpara; &plasma;’da araç takımları ana bileşenlerdir ve masaüstünü ve ilgili duvar kağıdını görüntülemek, dizüstü bilgisayarın pil düzeyini göstermek, takılı aygıtları görüntülemek ve görev çubuğunu çizmek gibi çeşitli işlevleri üstlenirler: Temel olarak masaüstünde yaşayan küçük uygulamalardır. Ek olarak araç takımları, panel ve hatta masaüstünün kendisi gibi "Kapsayıcılar" altında birlikte gruplandırılabilir. </para
 ><glossseealso otherterm="gloss-plasma"
 >&plasma;</glossseealso
 > <glossseealso otherterm="gloss-containment"
@@ -808,7 +808,7 @@ otherterm="gloss-kbuildsycoca"
 ></glossterm>
 			  <glossdef
 ><para
->&emstart;Subversion&emend;'un kısaltması olan bir sürüm denetim sistemidir. <acronym
+>&emstart;Subversion&emend;’un kısaltması olan bir sürüm denetim sistemidir. <acronym
 >SVN</acronym
 >, birden çok geliştiricinin aynı projede çalışmasını çok daha kolay kılan elegant bir sistemdir. &kde; kaynaklarının güncel kaynaklarını anonim bir <acronym
 >SVN</acronym
@@ -847,9 +847,9 @@ otherterm="gloss-kbuildsycoca"
 ><para
 >&emstart;R&emend;equest &emstart;F&emend;or &emstart;C&emend;omment (Yorum İsteği). İnternet topluluğunun değerlendirilmesi için yeni protokol fikirlerini veya prosedürlerini yayınlamanın yaygın bir yolu. <acronym
 >RFC</acronym
->'ler zorunlu olmasa da, birçok uygulama topluluk tarafından onaylandıktan sonra bunlara uymaya çalışır.&newpara; <acronym
+>’ler zorunlu olmasa da, birçok uygulama topluluk tarafından onaylandıktan sonra bunlara uymaya çalışır.&newpara; <acronym
 >RFC</acronym
->'ler hakkında daha fazla bilgi &linkstart;"https://www.rfc-editor.org/"&linkmid;RFC Ana Sayfasında&linkend; bulunabilir.</para>
+>’ler hakkında daha fazla bilgi &linkstart;"https://www.rfc-editor.org/"&linkmid;RFC Ana Sayfasında&linkend; bulunabilir.</para>
 			</glossdef>
 		</glossentry
 >	

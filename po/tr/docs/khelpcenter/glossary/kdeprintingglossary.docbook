@@ -33,7 +33,7 @@
 >AppSocket Protokolü</glossterm>
                         <glossdef
 ><para
->AppSocket, "Doğrudan TCP/IP Yazdırma" olarak da adlandırılan, yazdırma verisi aktarımı için bir protokoldür. &Hewlett-Packard;, AppSocket’i aldı, birkaç ufak uzantı ekledi ve "&HP; JetDirect" markası ile yeniden adlandırada ve pazarlamada oldukça başarılı oldu...</para
+>AppSocket, "Doğrudan TCP/IP Yazdırma" olarak da adlandırılan, yazdırma verisi aktarımı için bir protokoldür. &Hewlett-Packard;, AppSocket’i aldı, birkaç ufak uzantı ekledi ve "&HP; JetDirect" markası ile yeniden adlandırada ve pazarlamada oldukça başarılı oldu…</para
 ><glossseealso otherterm="gloss-hpjetdirectprotocol"
 >&HP; JetDirect Protokolü</glossseealso
 > <glossseealso otherterm="gloss-directtcpipprinting"
@@ -57,7 +57,7 @@
 >İki yönlü iletişim</glossterm>
                         <glossdef
 ><para
->Yazdırma bağlamında, bir sunucu veya bir istemci, bir sorgu veya istemsiz olarak yazıcıdan geri gönderilen (durum bilgisi &etc;) ek bilgileri alabilir. AppSocket ( = &HP; JetDirect), &CUPS; ve IPP iki yönlü iletişimi destekler, LPR/LPD ve BSD tarzı yazdırmayı desteklemez...</para
+>Yazdırma bağlamında, bir sunucu veya bir istemci, bir sorgu veya istemsiz olarak yazıcıdan geri gönderilen (durum bilgisi &etc;) ek bilgileri alabilir. AppSocket ( = &HP; JetDirect), &CUPS; ve IPP iki yönlü iletişimi destekler, LPR/LPD ve BSD tarzı yazdırmayı desteklemez…</para
 ><glossseealso otherterm="gloss-appsocketprotocol"
 >AppSocket Protokolü</glossseealso
 > <glossseealso otherterm="gloss-cups"
@@ -78,7 +78,7 @@
 >BSD-tarzı Yazdırma</glossterm>
                         <glossdef
 ><para
->Geleneksel &UNIX; yazdırma yönteminin farklı varyantları için genel terim. İlk sürümü, 70’lerin başında BSD &UNIX;’te çıktı ve resmi olarak 1990’da ’&linkstart;"https://www.ietf.org/rfc/rfc1179.txt"&linkmid;RFC 1179&linkend; içinde açıklandı.&newpara; BSD’nin "uzaktan" yazdırması ilk kez tasarlandığında, yazıcılar seri olarak veya ana bir makineye doğrudan bağlıydılar (Internetin 100 makineden fazla olmadığı zamanlarda!); yazıcılar masa altındaki bir mukavva kutudan çekilmiş, basit bir ASCII metni satırıyla mekanik olarak dövülmüş olarak, bir takipçi mekanizması ile beslenen delikli, sürekli kağıt kullanıyordu. Bir zikzak katlanmış kağıt "yılan" gibi çıkardı. Uzaktan yazdırma, yan odadaki komşu bir ana bilgisayardan çıktı isteyen bir dosya göndererek oluşuyordu.&newpara; Teknoloji nasıl da değişti! Yazıcılar genelde kesik yapraklı ortam kullanır; sayfaların raster görüntülerini güçlü sayfa tanımlama dillerinden (PDL) birini kullanarak onlara gönderilen sayfalardan sonra hesaplamak için dahili bir zekaya sahiptirler. Birçoğu CPU, RAM, sabit disk ve kendi işletim Sistemi ile kendi başına ağ düğümleridir ve potansiyel olarak milyonlarca kullanıcının bulunduğu bir ağa bağlıdırlar...&newpara; Bu bişeyler yapmak için &UNIX; kavramının iyi bir ispatıdır, bu çağdaş koşullar altında bile "Satır Yazdırma"nın düzgünce çalışmasını sağladı. Ancak zaman yeni bir şey için sonunda gelmişti -- IPP. </para
+>Geleneksel &UNIX; yazdırma yönteminin farklı varyantları için genel terim. İlk sürümü, 70’lerin başında BSD &UNIX;’te çıktı ve resmi olarak 1990’da &linkstart;"https://www.ietf.org/rfc/rfc1179.txt"&linkmid;RFC 1179&linkend; içinde açıklandı.&newpara; BSD’nin "uzaktan" yazdırması ilk kez tasarlandığında, yazıcılar seri olarak veya ana bir makineye doğrudan bağlıydılar (Internetin 100 makineden fazla olmadığı zamanlarda!); yazıcılar masa altındaki bir mukavva kutudan çekilmiş, basit bir ASCII metni satırıyla mekanik olarak dövülmüş olarak, bir takipçi mekanizması ile beslenen delikli, sürekli kâğıt kullanıyordu. Bir zikzak katlanmış kâğıt "yılan" gibi çıkardı. Uzaktan yazdırma, yan odadaki komşu bir ana bilgisayardan çıktı isteyen bir dosya göndererek oluşuyordu.&newpara; Teknoloji nasıl da değişti! Yazıcılar genelde kesik yapraklı ortam kullanır; sayfaların raster görüntülerini güçlü sayfa tanımlama dillerinden (PDL) birini kullanarak onlara gönderilen sayfalardan sonra hesaplamak için dahili bir zekaya sahiptirler. Birçoğu CPU, RAM, sabit disk ve kendi işletim Sistemi ile kendi başına ağ düğümleridir ve potansiyel olarak milyonlarca kullanıcının bulunduğu bir ağa bağlıdırlar…&newpara; Bu bir şeyler yapmak için &UNIX; kavramının iyi bir ispatıdır, bu çağdaş koşullar altında bile "Satır Yazdırma"nın düzgünce çalışmasını sağladı. Ancak zaman yeni bir şey için sonunda gelmişti -- IPP. </para
 ><glossseealso otherterm="gloss-ipp"
 >IPP</glossseealso
 > <glossseealso otherterm="gloss-cups"
@@ -93,7 +93,7 @@
 >&CUPS;</glossterm>
                         <glossdef
 ><para
->&emstart;C&emend;ommon &emstart;U&emend;NIX &emstart;P&emend;rinting &emstart;S&emend;ystem; (Genel UNIX Yazdırma Sistemi) için kısaltma olan &CUPS;, güncel en çağdaş &UNIX; ve Linux yazdırma sistemidir; ayrıca &Microsoft; &Windows; ve Apple &MacOS; istemcileri için çapraz platform yazdırma hizmetleri sağlar. IPP’ye göre; kimlik doğrulama, şifreleme ve ACL’ler ve daha birçok özellik sunan, eski tarz BSD yazdırmanın tüm kötü yanlarınından kaçınır. Aynı zamanda LPR/LPD (BSD tarzı) sayesinde IPP’ye kadar olmayan tüm eski istemcilere hizmet edecek kadar geriye doğru uyumludur.&newpara; &CUPS; sağlayıcı tarafından sağlanan, başlangıçta sadece &Microsoft; Windows NT için hedeflenen, PPD’yi (PostScript Yazıcı Tanımı dosyası) kullanarak herhangi bir &PostScript; yazıcısını denetleyebilir. &kde; bünyesindeki yazdırma işlemleri &CUPS; kullanılarak yapılıyorsa en kararlı sonucu verir.&newpara; Daha fazla bilgi:&newpara; &linkstart;"https://www.cups.org"&linkmid;&CUPS; Ana Sayfası&linkend;</para
+>&emstart;C&emend;ommon &emstart;U&emend;NIX &emstart;P&emend;rinting &emstart;S&emend;ystem; (Genel UNIX Yazdırma Sistemi) için kısaltma olan &CUPS;, güncel en çağdaş &UNIX; ve Linux yazdırma sistemidir; ayrıca &Microsoft; &Windows; ve Apple &macOS; istemcileri için çapraz platform yazdırma hizmetleri sağlar. IPP’ye göre; kimlik doğrulama, şifreleme ve ACL’ler ve daha birçok özellik sunan, eski tarz BSD yazdırmanın tüm kötü yanlarından kaçınır. Aynı zamanda LPR/LPD (BSD tarzı) sayesinde IPP’ye kadar olmayan tüm eski istemcilere hizmet edecek kadar geriye doğru uyumludur.&newpara; &CUPS; sağlayıcı tarafından sağlanan, başlangıçta sadece &Microsoft; Windows NT için hedeflenen, PPD’yi (PostScript Yazıcı Tanımı dosyası) kullanarak herhangi bir &PostScript; yazıcısını denetleyebilir. &kde; bünyesindeki yazdırma işlemleri &CUPS; kullanılarak yapılıyorsa en kararlı sonucu verir.&newpara; Daha fazla bilgi:&newpara; &linkstart;"https://www.cups.org"&linkmid;&CUPS; Ana Sayfası&linkend;</para
 ><glossseealso otherterm="gloss-acl"
 >ACLs</glossseealso
 > <glossseealso otherterm="gloss-authentication"
@@ -141,7 +141,7 @@
 >Veritabanı, Linuxprinting.org</glossterm>
                         <glossdef
 ><para
->Uzun yıllar önce, Linux’ta yazdırma hâlâ pek güç iken (yalnızca komut satırı yazdırma çoğu Linux kullanıcısı tarafından biliniyordu, işleri yapmak için aygıta özgü baskı seçenekleri yoktu), "Linux’ta Nasıl Yazdırılır’"ın yazarı Grant Taylor, veritabanın yazıcılar, sürücüler ve süzgeçler hakkındaki var olan bilginin çoğunu toplamıştı.&newpara; Gelişmekte olan &CUPS; kavramıyla ve PPD’lerin PostScript olmayan yazıcılara da yayılmasıyla birlikte, bu veritabanının potansiyelini fark etti: Farklı veri yollarını ("Hangi aygıt Ghostscript veya diğer süzgeç ile yazdırır?", "Ne kadar iyi?" ve "Hangi komut satırı anahtarları kullanılabilir?" gibi satırlarla tanımlanacak içerik ile) PPD uyumlu dosyalara dönüştürürse &CUPS;’ın tüm gücünü geleneksel yazıcı "sürücüleri"nin üstünde kullanabilirdi.&newpara; Bu "Foomatic" olarak bilinen daha geniş bir kavrama gelişti. Foomatic, &CUPS; dışındaki (LPR/LPD, LPRng, PDQ, PPR) diğer sarıcıların yeteneklerini belli bir derecede yükseltti (bazı kavramları &CUPS;tan "çalarak"). Linux Yazdırma Veritabanı yalnızca Linux için bir durak değil -- diğer &UNIX; işletim sistemlerini kullanan kişiler de (*BSD veya &MacOS; X gibi) orada değerli bilgi ve yazılımlar bulacaklardır. </para
+>Uzun yıllar önce, Linux’ta yazdırma hâlâ pek güç iken (yalnızca komut satırı yazdırma çoğu Linux kullanıcısı tarafından biliniyordu, işleri yapmak için aygıta özgü baskı seçenekleri yoktu), "Linux’ta Nasıl Yazdırılır’"ın yazarı Grant Taylor, veritabanının yazıcılar, sürücüler ve süzgeçler hakkındaki var olan bilginin çoğunu toplamıştı.&newpara; Gelişmekte olan &CUPS; kavramıyla ve PPD’lerin PostScript olmayan yazıcılara da yayılmasıyla birlikte, bu veritabanının potansiyelini fark etti: Farklı veri yollarını ("Hangi aygıt Ghostscript veya diğer süzgeç ile yazdırır?", "Ne kadar iyi?" ve "Hangi komut satırı anahtarları kullanılabilir?" gibi satırlarla tanımlanacak içerik ile) PPD uyumlu dosyalara dönüştürürse &CUPS;’ın tüm gücünü geleneksel yazıcı "sürücüleri"nin üstünde kullanabilirdi.&newpara; Bu "Foomatic" olarak bilinen daha geniş bir kavrama gelişti. Foomatic, &CUPS; dışındaki (LPR/LPD, LPRng, PDQ, PPR) diğer sarıcıların yeteneklerini belli bir derecede yükseltti (bazı kavramları &CUPS;tan "çalarak"). Linux Yazdırma Veritabanı yalnızca Linux için bir durak değil -- diğer &UNIX; işletim sistemlerini kullanan kişiler de (*BSD veya &macOS; X gibi) orada değerli bilgi ve yazılımlar bulacaklardır. </para
 ><glossseealso otherterm="gloss-foomatic"
 >Foomatic</glossseealso
 > <glossseealso otherterm="gloss-linuxprintingdatabase"
@@ -213,7 +213,7 @@
 >Kaçış Dizileri</glossterm>
                         <glossdef
 ><para
->İlk yazıcılar yalnızca ASCII verilerini yazdırıyorlardı. Yeni bir satır başlatmak veya bir sayfayı çıkarmak için, genellikle baştaki [ESC] karakterini taşıyan özel komut dizileri içerilirdi. &HP; bu konsepti, PCL dil sürümleri serisi aracılığıyla geliştirdi; bugün, bu mütevazi başlangıçlardan itibaren tam gelişmiş bir Sayfa Açıklama Dili (PDL) ortaya çıkmıştır. </para
+>İlk yazıcılar yalnızca ASCII verilerini yazdırıyorlardı. Yeni bir satır başlatmak veya bir sayfayı çıkarmak için genellikle baştaki [ESC] karakterini taşıyan özel komut dizileri içerilirdi. &HP; bu konsepti, PCL dil sürümleri serisi aracılığıyla geliştirdi; bugün, bu mütevazi başlangıçlardan itibaren tam gelişmiş bir Sayfa Açıklama Dili (PDL) ortaya çıkmıştır. </para
 ><glossseealso otherterm="gloss-pcl"
 >PCL</glossseealso
 > <glossseealso otherterm="gloss-pdl"
@@ -280,7 +280,7 @@
 >Gimp-Print</glossterm>
                         <glossdef
 ><para
->Adının aksine, Gimp-Print populer Gimp programından çıktı alan bir eklentinin çok daha ötesine geçti -- kod tabanı aynı zamanda &CUPS;’a sorunsuz bir şekilde tümleşen...&newpara; ...çoğu durumda 130 farklı yazıcı modelini destekleyen, çoğu durumda fotoğraf çıktısı kalitesini sağlayan bir dizi PPD’ye ve ilişkili süzgeçlere derlenebilir;&newpara; ...bir yazılım-RIP’ye gereksinim duyan diğer herhangi bir programla kullanılabilen bir Ghostscript süzgeci;&newpara; ...rasterleştirme işlevlerine gereksinim duyan diğer yazılım uygulamaları tarafından kullanılabilen bir kitaplık.</para
+>Adının aksine, Gimp-Print populer Gimp programından çıktı alan bir eklentinin çok daha ötesine geçti -- kod tabanı aynı zamanda &CUPS;’a sorunsuz bir şekilde tümleşen…&newpara; …çoğu durumda 130 farklı yazıcı modelini destekleyen, çoğu durumda fotoğraf çıktısı kalitesini sağlayan bir dizi PPD’ye ve ilişkili süzgeçlere derlenebilir;&newpara; …bir yazılım-RIP’ye gereksinim duyan diğer herhangi bir programla kullanılabilen bir Ghostscript süzgeci;&newpara; …rasterleştirme işlevlerine gereksinim duyan diğer yazılım uygulamaları tarafından kullanılabilen bir kitaplık.</para
 ><glossseealso otherterm="gloss-lexmark"
 >Lexmark Sürücüleri</glossseealso
 > <glossseealso otherterm="gloss-rip"
@@ -309,7 +309,7 @@
 ></glossterm>
                         <glossdef
 ><para
->&emstart;&HP;&emend; &emstart;G&emend;raphical &emstart;L&emend;anguage; (HP Görsel Dili) için kısaltma; çoğunlukla çiziciler için kullanılan bir &HP; dili; birçok CAD (Computer Aided Design - Bilgidayar Destekli Tasarım) yazılım programı yazdırma için &HP;/GL dosyaları çıktılar.</para
+>&emstart;&HP;&emend; &emstart;G&emend;raphical &emstart;L&emend;anguage; (HP Görsel Dili) için kısaltma; çoğunlukla çiziciler için kullanılan bir &HP; dili; birçok CAD (Computer Aided Design — Bilgisayar Destekli Tasarım) yazılım programı yazdırma için &HP;/GL dosyaları çıktılar.</para
 ><glossseealso otherterm="gloss-escp"
 >ESC/P</glossseealso
 > <glossseealso otherterm="gloss-pcl"
@@ -425,7 +425,7 @@
 >&MIME; Türleri</glossterm>
                         <glossdef
 ><para
->&emstart;M&emend;ultipurpose (or Multimedia) &emstart;I&emend;nternet &emstart;M&emend;ail &emstart;E&emend;xtensions; (Çok amaçlı İnternet Posta Uzantıları) için kısaltma &MIME;-Türleri normalde sadece ASCII karakterleri aktaran e-posta bağlantıları üzerinden ikili verinin (grafikler içeren e-posta ekleri gibi) aktarınmında kullanıldı: veri bir ASCII gösterimine kodlanmalıydı.&newpara; Sonrasında bu konsept bir veri formatını platform bağımsız ancak aynı zamanda belirsiz olmayan bir yolla tanımlamak için genişletildi. Herkes  &Windows;'tan .doc uzantılı &Microsoft; Word dosyalarını bilir. Bu &Windows; platformunda belirsiz şekilde işlenir: .doc uzantıları aynı zamanda basit metin dosyaları ve Adove Framemaker dosyaları için kullanıldı. Aynı zamanda eğer gerçek bir Word belgesi başka bir uzantı ile kaydedilirse artık program tarafından açılamaz.&newpara; &MIME; türünde dosyaları &emstart;main_category/sub_category&emend;'ye bağlı olarak dosya formatlarını belirleyen bir  tanıma karakter dizisini beraberlerinde taşırlar. IPP içinde, yazdırma dosyaları ayrıca &MIME; türü şemalar kullanılarak tanımlanır. &MIME; türleri, haklarındaki belirsizliği korumak için IANA (Internet Assigning Numbers &emstart;Association&emend;) ile kaydedilmiştir.&newpara; &CUPS; kaydedilmiş bazı kendi &MIME; türlerine sahiptir, &emstart;application/vnd.cups-raster&emend; gibi (&CUPS; dahili raster görsel biçimi). </para
+>&emstart;M&emend;ultipurpose (or Multimedia) &emstart;I&emend;nternet &emstart;M&emend;ail &emstart;E&emend;xtensions; (Çok amaçlı İnternet Posta Uzantıları) için kısaltma &MIME;-Türleri normalde sadece ASCII karakterleri aktaran e-posta bağlantıları üzerinden ikili verinin (grafikler içeren e-posta ekleri gibi) aktarımında kullanıldı: veri bir ASCII gösterimine kodlanmalıydı.&newpara; Sonrasında bu konsept bir veri formatını platform bağımsız ancak aynı zamanda belirsiz olmayan bir yolla tanımlamak için genişletildi. Herkes &Windows;’tan .doc uzantılı &Microsoft; Word dosyalarını bilir. Bu &Windows; platformunda belirsiz şekilde işlenir: .doc uzantıları aynı zamanda basit metin dosyaları ve Adobe Framemaker dosyaları için kullanıldı. Aynı zamanda eğer gerçek bir Word belgesi başka bir uzantı ile kaydedilirse artık program tarafından açılamaz.&newpara; &MIME; türünde dosyaları &emstart;main_category/sub_category&emend;’ye bağlı olarak dosya formatlarını belirleyen bir  tanıma karakter dizisini beraberlerinde taşırlar. IPP içinde, yazdırma dosyaları ayrıca &MIME; türü şemalar kullanılarak tanımlanır. &MIME; türleri, haklarındaki belirsizliği korumak için IANA (Internet Assigning Numbers &emstart;Association&emend;) ile kaydedilmiştir.&newpara; &CUPS; kaydedilmiş bazı kendi &MIME; türlerine sahiptir, &emstart;application/vnd.cups-raster&emend; gibi (&CUPS; dahili raster görsel biçimi). </para
 ><glossseealso otherterm="gloss-cups"
 >&CUPS;</glossseealso
 > <glossseealso otherterm="gloss-gimpprint"
@@ -440,7 +440,7 @@
 ></glossterm>
                         <glossdef
 ><para
->&emstart;P&emend;rinter &emstart;C&emend;ontrol &emstart;L&emend;anguage; (Yazdırma Kontrol Dili) için kısaltma &HP; tarafından geliştirildi. PCL, ASCII yazdırma için basit vir komut kümesi olarak sürüm 1 ile başladı; şimdi sürümleri PCL6 ve PCL-X, grafikler ve renkler yazdırma yeteneğine sahip -- &Microsoft; &Windows; ve &HP-UX; (&HP;'nin kendi &UNIX; markası) alemi dışında, genel olarak kullanılmıyor...</para
+>&emstart;P&emend;rinter &emstart;C&emend;ontrol &emstart;L&emend;anguage; (Yazdırma Kontrol Dili) için kısaltma &HP; tarafından geliştirildi. PCL, ASCII yazdırma için basit bir komut kümesi olarak sürüm 1 ile başladı; şimdi sürümleri PCL6 ve PCL-X, grafikler ve renkler yazdırma yeteneğine sahip -- &Microsoft; &Windows; ve &HP-UX; (&HP;’nin kendi &UNIX; markası) alemi dışında, genel olarak kullanılmıyor…</para
 ><glossseealso otherterm="gloss-escp"
 >ESC/P</glossseealso
 > <glossseealso otherterm="gloss-hpgl"
@@ -459,7 +459,7 @@
 ></glossterm>
                         <glossdef
 ><para
->&emstart;P&emend;age &emstart;D&emend;escription &emstart;L&emend;anguage; (Sayfa Tanımlama Dili) için kısaltma PDLler, soyut bir yolla, bir sayfanın görsel sunumunu tanımlar. - Gerçekten tonere aktarılmadan ve mürekkep kağıda geçmeden önce, bir PDL ilk olarak "yorumlanmalıdır". &UNIX;'te, en önemli PDL &PostScript;'tir. </para
+>&emstart;P&emend;age &emstart;D&emend;escription &emstart;L&emend;anguage; (Sayfa Tanımlama Dili) için kısaltma PDLler, soyut bir yolla, bir sayfanın görsel sunumunu tanımlar. Gerçekten tonere aktarılmadan ve mürekkep kağıda geçmeden önce, bir PDL ilk olarak "yorumlanmalıdır". &UNIX;’te, en önemli PDL &PostScript;’tir. </para
 ><glossseealso otherterm="gloss-escp"
 >ESC/P</glossseealso
 > <glossseealso otherterm="gloss-hpgl"
@@ -495,7 +495,7 @@
 ></glossterm>
                         <glossdef
 ><para
->&emstart;P&emend;rint &emstart;J&emend;ob &emstart;L&emend;anguage; (Yazdırma İş Dili) için kısaltma bir yazıcının öntanımlı ve iş bazlı ayarlarını denetlemek ve etkilemek için &HP; tarafından geliştirildi. Yalnızca &HP;'nin kendi (PCL-)yazıcıları için kullanılmayabilir; ayrıca birçok &PostScript; ve diğer yazıcılar kendilerine bir yazdırma işi veya ayrı bir sinyalle gönderilen PJL komutlarını anlar.</para>
+>&emstart;P&emend;rint &emstart;J&emend;ob &emstart;L&emend;anguage; (Yazdırma İş Dili) için kısaltma bir yazıcının öntanımlı ve iş bazlı ayarlarını denetlemek ve etkilemek için &HP; tarafından geliştirildi. Yalnızca &HP;’nin kendi (PCL-)yazıcıları için kullanılmayabilir; ayrıca birçok &PostScript; ve diğer yazıcılar kendilerine bir yazdırma işi veya ayrı bir sinyalle gönderilen PJL komutlarını anlar.</para>
                                 <glossseealso otherterm="gloss-pcl"
 >PCL</glossseealso>
                         </glossdef>
@@ -525,7 +525,7 @@
 ></glossterm>
                         <glossdef
 ><para
->&emstart;P&emend;ostScript &emstart;P&emend;rinter &emstart;D&emend;escription; (PostScript Yazıcı Tanımlaması) için kısaltma PPDler bir yazıcının özel yeteneklerinin ve belli bir yetenek (yazdırma çiftleme gibi) için çağrılacak komutların tanımlamalarının (PostScript- veya PJL-) bulunduğu ASCII dosyalardır.&newpara; Kısaltanın açıklamasının anlattığı gibi, PPDler özgün olarak &PostScript; yazıcılar için kullanıldılar. &CUPS; PPD kavramını tüm yazıcı türlerine genişletti.&newpara; &PostScript; için PPDler yazıcı firmaları tarafından sağlandı. Herhangi bir &PostScript; yazıcısının tüm özelliklerine erişmek için &CUPS; ve &kde; yazdırma altsistemi ile birlikte kullanılabilirler. &kde; Takımı özgün olarak &Microsoft; Windows NT için kullanılması amaçlanan PDDlerin kullanılmasını önerir.&newpara; PostScript olamayan yazıcılar için PDDler &PostScript; yazdırma dosyalarını PostScript olmayan hedef aygıtların sindirebileceği bir biçime işlemek için bir yardımcı "süzgeç"e &emstart;ihtiyaç duyar&emend;. Bu PPD/süzgeç bileşimleri sağlayıcılar tarafından henüz yok. &CUPS; geliştiricilerinin PPDleri kullanma girişimlerinden sonra, Özgür Yazılım topluluğu PPDler ve klasik Ghostscript süzgeçleri ile çoğu mevcut yazıcı modeli için tez destek sağlayacak kadar yaratıcıdır. Ancak: yazdırma kalitesi "yüksek kalite fotoğrafik çıktı"dan (çoğu Epson inkjet ile Gimp-Print kullanmak) "zorlukla okunabilir"e  (Linuxprinting.org veritabanında "kağıtağırlığı" olarak puanlanan Foomatic-etkinleştirilmiş Ghostscript süzgeçleri kullanmak) kadar değişir. </para
+>&emstart;P&emend;ostScript &emstart;P&emend;rinter &emstart;D&emend;escription; (PostScript Yazıcı Tanımlaması) için kısaltma PPD’ler bir yazıcının özel yeteneklerinin ve belli bir yetenek (yazdırma çiftleme gibi) için çağrılacak komutların tanımlamalarının (PostScript- veya PJL-) bulunduğu ASCII dosyalardır.&newpara; Kısaltmanın açıklamasının anlattığı gibi, PPD’ler özgün olarak &PostScript; yazıcılar için kullanıldılar. &CUPS; PPD kavramını tüm yazıcı türlerine genişletti.&newpara; &PostScript; için PPD’ler yazıcı firmaları tarafından sağlandı. Herhangi bir &PostScript; yazıcısının tüm özelliklerine erişmek için &CUPS; ve &kde; yazdırma alt sistemi ile birlikte kullanılabilirler. &kde; Takımı özgün olarak &Microsoft; Windows NT için kullanılması amaçlanan PDD’lerin kullanılmasını önerir.&newpara; PostScript olamayan yazıcılar için PDD’ler &PostScript; yazdırma dosyalarını PostScript olmayan hedef aygıtların sindirebileceği bir biçime işlemek için bir yardımcı "süzgeç"e &emstart;ihtiyaç duyar&emend;. Bu PPD/süzgeç bileşimleri sağlayıcılar tarafından henüz yok. &CUPS; geliştiricilerinin PPD’leri kullanma girişimlerinden sonra, Özgür Yazılım topluluğu PPD’ler ve klasik Ghostscript süzgeçleri ile çoğu mevcut yazıcı modeli için tez destek sağlayacak kadar yaratıcıdır. Ancak: yazdırma kalitesi "yüksek kalite fotoğrafik çıktı"dan (çoğu Epson Inkjet ile Gimp-Print kullanmak) "zorlukla okunabilir"e  (Linuxprinting.org veritabanında "kâğıt ağırlığı" olarak puanlanan Foomatic-etkinleştirilmiş Ghostscript süzgeçleri kullanmak) kadar değişir. </para
 ><glossseealso otherterm="gloss-cups"
 >&CUPS;</glossseealso
 > <glossseealso otherterm="gloss-linuxprintingorg"
@@ -540,7 +540,7 @@
 >printcap</glossterm>
                         <glossdef
 ><para
->BSD tarzı baskı sistemlerinde, "printcap" dosyası yapılandırma bilgilerini tutar; yazdırma arka plan programı hangi dosyaların kullanılabilir olduğunu, her biri için hangi süzgeçlerin kullanılacağını, biriktirme klasörünün bulunduğu yerde, kullanılacak afiş sayfaları varsa vb. belirlemek için bu dosyayı okur... Bazı uygulamalar da var olan yazıcıların adlarını öğrenmek için printcap dosyasına erişim yetkisine bel bağlarlar. </para>
+>BSD tarzı baskı sistemlerinde, "printcap" dosyası yapılandırma bilgilerini tutar; yazdırma arka plan programı hangi dosyaların kullanılabilir olduğunu, her biri için hangi süzgeçlerin kullanılacağını, biriktirme klasörünün bulunduğu yerde, kullanılacak afiş sayfaları varsa vb. belirlemek için bu dosyayı okur… Bazı uygulamalar da var olan yazıcıların adlarını öğrenmek için printcap dosyasına erişim yetkisine bel bağlarlar. </para>
                                 <glossseealso otherterm="gloss-bsdstyleprinting"
 >BSD tarzı yazdırma</glossseealso>
                         </glossdef>
@@ -596,7 +596,7 @@
 >Raster Görsel</glossterm>
                         <glossdef
 ><para
->Fiziksel bir ortamdaki her resim farklı renklerdeki ve (belki) boyutlardaki ayrık bir nokta deseninin bileşimidir. Bu bir "raster görsel" olarak adlandırılır.&newpara; Bu grafiğin devamlı kıvrımlar, gölgeler, formlar ve dolu alanlar şeklinde tanımlandığı matematiksal formullerle ifade edilen "vektör görsel"ın tersidir. Vektör görseller daha düşük boyuta sahiptir ve herhangi veri ve kalite kaybı olmadan farklı boyutlarda ölçeklendirilebilir -- ancak doğrudan çıktılanamazlar ve daima çıktı aygıtının algılayabilieceği bir çözünürlüğe "render" ve "rasterized" edilmelidir...&newpara; Rasterizasyon Raster Image Processor (RIP, genellikle Ghostscript yazılımı) tarafından yapılır veya başka bazı süzgeç örneklerince yapılır.</para
+>Fiziksel bir ortamdaki her resim farklı renklerdeki ve (belki) boyutlardaki ayrık bir nokta deseninin bileşimidir. Bu bir "raster görsel" olarak adlandırılır.&newpara; Bu grafiğin devamlı kıvrımlar, gölgeler, formlar ve dolu alanlar şeklinde tanımlandığı matematiksal formüllerle ifade edilen "vektör görsel"ın tersidir. Vektör görseller daha düşük boyuta sahiptir ve herhangi veri ve kalite kaybı olmadan farklı boyutlarda ölçeklendirilebilir -- ancak doğrudan çıktılanamazlar ve daima çıktı aygıtının algılayabileceği bir çözünürlüğe "render" ve "rasterized" edilmelidir…&newpara; Rasterizasyon Raster Image Processor (RIP, genellikle Ghostscript yazılımı) tarafından yapılır veya başka bazı süzgeç örneklerince yapılır.</para
 ><glossseealso otherterm="gloss-pixel"
 >Pixel</glossseealso
 > <glossseealso otherterm="gloss-ghostscript"
@@ -617,7 +617,7 @@
 ></glossterm>
                         <glossdef
 ><para
->&emstart;R&emend;aster &emstart;I&emend;mage &emstart;P&emend;rocess(or); (Raster Görsel İşleme/işleyici) için kısaltma yazdırma bağlamında kullanılırsa, "RIP", &PostScript;'i (veya Raster olmayan PDLlerden birinde gösterilen diğer yazdırma fırmatlarını) yazıcıların "işaretleme motor"ları için kabul edilebilir bir raster görsel biçimine dönüştüren bir donanım veya yazılım anlamına gelir.&newpara; &PostScript; yazıcılar kendi PostScript-RIPlerini bulundururlar. Bir RIP bir yazıcının içinde bulunabilir veya bulunmayabilir.&newpara; Birçok &UNIX; sistemi için Ghostscript ana bilgisayarda koşan ve &PostScript;'i veya yazdırma aygıtına gönderilmek için hazır olacak diğer verileri ön işleyen bir "yazılımda RIP" sağlar (dolayısıyla, "Ghostscript, yazıcınızı bir &PostScript; makineye dönüştürür" sloganı altında bir "gerçek tanesi" algılayabilirsiniz, bu elbette tam anlamda doğru değildir).</para
+>&emstart;R&emend;aster &emstart;I&emend;mage &emstart;P&emend;rocess(or); (Raster Görsel İşleme/işleyici) için kısaltma yazdırma bağlamında kullanılırsa, "RIP", &PostScript;’i (veya Raster olmayan PDLlerden birinde gösterilen diğer yazdırma formatlarını) yazıcıların "işaretleme motor"ları için kabul edilebilir bir raster görsel biçimine dönüştüren bir donanım veya yazılım anlamına gelir.&newpara; &PostScript; yazıcılar kendi PostScript-RIP’lerini bulundururlar. Bir RIP bir yazıcının içinde bulunabilir veya bulunmayabilir.&newpara; Birçok &UNIX; sistemi için Ghostscript ana bilgisayarda koşan ve &PostScript;’i veya yazdırma aygıtına gönderilmek için hazır olacak diğer verileri ön işleyen bir "yazılımda RIP" sağlar (dolayısıyla, "Ghostscript, yazıcınızı bir &PostScript; makineye dönüştürür" sloganı altında bir "gerçek tanesi" algılayabilirsiniz, bu elbette tam anlamda doğru değildir).</para
 ><glossseealso otherterm="gloss-filter"
 >Süzgeç</glossseealso
 > <glossseealso otherterm="gloss-ghostscript"
@@ -653,7 +653,7 @@
 ></glossterm>
                         <glossdef
 ><para
->&emstart;S&emend;imple &emstart;N&emend;etwork &emstart;M&emend;anagement &emstart;P&emend;rotocol; (Basit Ağ Yönetim Protokolü) için kısaltma SNMP tüm ağ düğümlerini (Makineler, Yönlenditiciler, Switchler, Geçitler, Yazıcılar...) uzaktan yönetmek için kullanılır.</para
+>&emstart;S&emend;imple &emstart;N&emend;etwork &emstart;M&emend;anagement &emstart;P&emend;rotocol; (Basit Ağ Yönetim Protokolü) için kısaltma SNMP tüm ağ düğümlerini (Makineler, Yönlenditiciler, Switchler, Geçitler, Yazıcılar…) uzaktan yönetmek için kullanılır.</para
 ><glossseealso otherterm="gloss-pwg"
 >PWG</glossseealso
 > <glossseealso otherterm="gloss-printermib"
@@ -722,7 +722,7 @@
 >Sistem V tarzı yazdırma</glossterm>
                         <glossdef
 ><para
->Bu geleneksel &UNIX; yazdırmanın ikinci tadı (BSD tarzı yazdırma yerine). BSD’ye farklı bir komut kümesi (lp, lpadmin,...) kullanır, ancak temel olarak bundan farklı değildir. Bununla birlikte, ikisi arasındaki boşluk, ikisini birbirine uyumsuz hale getirecek kadar büyük, böylece bir BSD istemcisi ek bir düzeltmeden System V tarzı baskı sunucusuna yazdıracak durumda değildir... IPP’nin bu zayıflığı ve daha fazlasını çözmesi gerekiyor. </para
+>Bu geleneksel &UNIX; yazdırmanın ikinci tadı (BSD tarzı yazdırma yerine). BSD’ye farklı bir komut kümesi (lp, lpadmin, …) kullanır, ancak temel olarak bundan farklı değildir. Bununla birlikte, ikisi arasındaki boşluk, ikisini birbirine uyumsuz hale getirecek kadar büyük, böylece bir BSD istemcisi ek bir düzeltmeden System V tarzı baskı sunucusuna yazdıracak durumda değildir… IPP’nin bu zayıflığı ve daha fazlasını çözmesi gerekiyor. </para
 ><glossseealso otherterm="gloss-bsdstyleprinting"
 ><acronym
 >BSD-tarzı yazdırma</acronym

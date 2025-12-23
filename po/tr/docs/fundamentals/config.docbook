@@ -61,11 +61,11 @@
 ><guimenu
 >Ayarlar</guimenu
 ><guimenuitem
->Araç Çubuklarını Yapılandır...</guimenuitem
+>Araç Çubuklarını Yapılandır…</guimenuitem
 ></menuchoice
 > seçeneğini kullanabilir veya bir araç çubuğuna sağ tıklayıp <guimenuitem
->Araç Çubuklarını Yapılandır...</guimenuitem
->'ı seçebilirsiniz.</para>
+>Araç Çubuklarını Yapılandır…</guimenuitem
+>’ı seçebilirsiniz.</para>
 
 <para
 >Araç çubuğu yapılandırma panelinin sol tarafında araç çubuğunuza ekleyebileceğiniz kullanılabilir ögeler gösterilir. Sağda, araç çubuğunda halihazırda görünenler vardır. Üst kısımda değiştirmek veya görüntülemek istediğiniz araç çubuğunu seçebilirsiniz.</para>
@@ -147,9 +147,9 @@
 
 <para
 ><guibutton
->Simgeyi Değiştir...</guibutton
+>Simgeyi Değiştir…</guibutton
 > ve/veya <guibutton
->Metni Değiştir...</guibutton
+>Metni Değiştir…</guibutton
 > düğmelerine tıklayarak belirli bir araç çubuğu ögesinin simgesini ve/veya metnini değiştirebilirsiniz.</para>
 <!--FIXME Icon selection and icon categories -> own section?
   Change Text -> Option "Hide text when toolbar shows text alongside icons"
@@ -181,28 +181,28 @@
 ><para
 ><guimenuitem
 >Simgeler</guimenuitem
-> - tüm araç çubuğu ögeleri için sadece simge gösterilir. </para
+> — tüm araç çubuğu ögeleri için sadece simge gösterilir. </para
 ></listitem>
 
 <listitem
 ><para
 ><guimenuitem
 >Metin</guimenuitem
-> - tüm araç çubuğu ögeleri için sadece metin gösterilir. </para
+> — tüm araç çubuğu ögeleri için sadece metin gösterilir. </para
 ></listitem>
 
 <listitem
 ><para
 ><guimenuitem
 >Simge Yanında Metin</guimenuitem
-> - tüm araç çubuğu ögelerinin simgelerinin sağında metin gösterilir </para
+> — tüm araç çubuğu ögelerinin simgelerinin sağında metin gösterilir </para
 ></listitem>
 
 <listitem
 ><para
 ><guimenuitem
 >Simge Altında Metin</guimenuitem
-> - tüm araç çubuğu ögelerinin simgelerinin altında metin gösterilir </para
+> — tüm araç çubuğu ögelerinin simgelerinin altında metin gösterilir </para
 ></listitem>
 
 </itemizedlist>
@@ -221,7 +221,7 @@
 <para
 >Araç çubuğu bağlam menüsünden <guisubmenu
 >Simge Boyutu</guisubmenu
->'nu seçerek araç çubuğu ögelerinin simgelerinin boyutunu değiştirebilirsiniz.</para>
+>’nu seçerek araç çubuğu ögelerinin simgelerinin boyutunu değiştirebilirsiniz.</para>
 
 <para
 >Aşağıdaki seçenekler arasından seçim yapabilirsiniz: (her biri simge boyutunu piksel türünden listeler)</para>
@@ -262,7 +262,7 @@
 <para
 >Araç çubuklarını taşımak için bunların <quote
 >kilidini açmanız</quote
-> gerekir. Bunu yapmak için, araç çubuğunun içerik menüsünden <guimenuitem
+> gerekir. Bunu yapmak için araç çubuğunun içerik menüsünden <guimenuitem
 >Araç Çubuğu Konumlarını Kilitle</guimenuitem
 > seçeneğinin işaretini kaldırın. Kilidi geri yüklemek için bu menü öğesini yeniden işaretlemeniz yeterlidir.</para>
 
@@ -389,7 +389,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 ><guimenu
 >Ayarlar</guimenu
 ><guimenuitem
->Kısayolları Yapılandır...</guimenuitem
+>Kısayolları Yapılandır…</guimenuitem
 ></menuchoice
 > yolunu izleyin.</para>
 
@@ -426,7 +426,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 <para
 >Bir kısayolu değiştirmek için öncelikle değiştirmek istediğiniz kısayolun adına tıklayın. Kısayolu öntanımlı değerine ayarlamayı veya seçilen eylem için yeni bir kısayol seçmeyi seçebileceğiniz bir radyo grubu göreceksiniz. Yeni bir kısayol ayarlamak için <guilabel
 >Özel</guilabel
->'i seçin ve yanındaki düğmeye tıklayın. Daha sonra kullanmak istediğiniz kısayolu yazmanız yeterlidir; sonrasında değişiklikleriniz kaydedilir.</para>
+>’i seçin ve yanındaki düğmeye tıklayın. Daha sonra kullanmak istediğiniz kısayolu yazmanız yeterlidir; sonrasında değişiklikleriniz kaydedilir.</para>
 
 <screenshot id="screenshot-shortcuts-set">
 <screeninfo
@@ -514,7 +514,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 <varlistentry>
 <term
 ><guibutton
->Yeni...</guibutton
+>Yeni…</guibutton
 ></term>
 <listitem
 ><para
@@ -557,7 +557,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 <varlistentry>
 <term
 ><guimenuitem
->Şemayı Dışa Aktar...</guimenuitem
+>Şemayı Dışa Aktar…</guimenuitem
 ></term>
 <listitem
 ><para
@@ -568,7 +568,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 <varlistentry>
 <term
 ><guimenuitem
->Şema İçe Aktar...</guimenuitem
+>Şema İçe Aktar…</guimenuitem
 ></term>
 <listitem
 ><para
