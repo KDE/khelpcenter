@@ -138,14 +138,14 @@
  
                 <glossentry id="gloss-databaselinuxprinting">
                         <glossterm
->Veritabanı, Linuxprinting.org</glossterm>
+>Veri Tabanı, Linuxprinting.org</glossterm>
                         <glossdef
 ><para
->Uzun yıllar önce, Linux’ta yazdırma hâlâ pek güç iken (yalnızca komut satırı yazdırma çoğu Linux kullanıcısı tarafından biliniyordu, işleri yapmak için aygıta özgü baskı seçenekleri yoktu), "Linux’ta Nasıl Yazdırılır’"ın yazarı Grant Taylor, veritabanının yazıcılar, sürücüler ve süzgeçler hakkındaki var olan bilginin çoğunu toplamıştı.&newpara; Gelişmekte olan &CUPS; kavramıyla ve PPD’lerin PostScript olmayan yazıcılara da yayılmasıyla birlikte, bu veritabanının potansiyelini fark etti: Farklı veri yollarını ("Hangi aygıt Ghostscript veya diğer süzgeç ile yazdırır?", "Ne kadar iyi?" ve "Hangi komut satırı anahtarları kullanılabilir?" gibi satırlarla tanımlanacak içerik ile) PPD uyumlu dosyalara dönüştürürse &CUPS;’ın tüm gücünü geleneksel yazıcı "sürücüleri"nin üstünde kullanabilirdi.&newpara; Bu "Foomatic" olarak bilinen daha geniş bir kavrama gelişti. Foomatic, &CUPS; dışındaki (LPR/LPD, LPRng, PDQ, PPR) diğer sarıcıların yeteneklerini belli bir derecede yükseltti (bazı kavramları &CUPS;tan "çalarak"). Linux Yazdırma Veritabanı yalnızca Linux için bir durak değil -- diğer &UNIX; işletim sistemlerini kullanan kişiler de (*BSD veya &macOS; X gibi) orada değerli bilgi ve yazılımlar bulacaklardır. </para
+>Uzun yıllar önce, Linux’ta yazdırma hâlâ pek güç iken (yalnızca komut satırı yazdırma çoğu Linux kullanıcısı tarafından biliniyordu, işleri yapmak için aygıta özgü baskı seçenekleri yoktu), "Linux’ta Nasıl Yazdırılır’"ın yazarı Grant Taylor, veri tabanının yazıcılar, sürücüler ve süzgeçler hakkındaki var olan bilginin çoğunu toplamıştı.&newpara; Gelişmekte olan &CUPS; kavramıyla ve PPD’lerin PostScript olmayan yazıcılara da yayılmasıyla birlikte, bu veri tabanının potansiyelini fark etti: Farklı veri yollarını ("Hangi aygıt Ghostscript veya diğer süzgeç ile yazdırır?", "Ne kadar iyi?" ve "Hangi komut satırı anahtarları kullanılabilir?" gibi satırlarla tanımlanacak içerik ile) PPD uyumlu dosyalara dönüştürürse &CUPS;’ın tüm gücünü geleneksel yazıcı "sürücüleri"nin üstünde kullanabilirdi.&newpara; Bu "Foomatic" olarak bilinen daha geniş bir kavrama gelişti. Foomatic, &CUPS; dışındaki (LPR/LPD, LPRng, PDQ, PPR) diğer sarıcıların yeteneklerini belli bir derecede yükseltti (bazı kavramları &CUPS;tan "çalarak"). Linux Yazdırma Veri Tabanı yalnızca Linux için bir durak değil -- diğer &UNIX; işletim sistemlerini kullanan kişiler de (*BSD veya &macOS; X gibi) orada değerli bilgi ve yazılımlar bulacaklardır. </para
 ><glossseealso otherterm="gloss-foomatic"
 >Foomatic</glossseealso
 > <glossseealso otherterm="gloss-linuxprintingdatabase"
->Linux Yazdırma Veritabanı</glossseealso
+>Linux Yazdırma Veri Tabanı</glossseealso
 > </glossdef>
                 </glossentry>
 
@@ -387,9 +387,9 @@
 >Linuxprinting.org</glossterm>
                         <glossdef
 ><para
->Linuxprinting.org = bu sitede yalnızca Linux değil; *BSD ve ticari Unixler gibi tüm &UNIX; benzeri işletim sistemleri yazdırma için yararlı bilgiler bulabilir. Bu web sitesi tüm kuyrukları, yazıcıları ve yapılandırma dosyalarını yeni bir yapılandırma çabası gerektirmeden sorunsuzca aktarma yeteneği ile "Üst Yazdırma Kuyruğu ve Sürücü Yapılandırma Araç Kiti"ni (tek bir genel arayüz ile, farklı yazdırma altsistemleri ve onların gerekli sürücülerini yapılandırabilmek) geçliştirmeye çalışan ilginç Foomatic projelerinin ana sayfasıdır. -- Ayrıca, herkesin yazıcı modelleri hakkında en güncel bilgileri bulmasını sağlayan bir sürücü ve aygıt bilgisi topluluğu ve ortak Linux veya &UNIX; yazdırma sistemlerinden biriyle çalıştığı bilinen biriktirici/sürücü/aygıt bileşiminin yapılandırma dosyalarını çevrimiçi oluşturan, Yazdırma Veritabanını sürdürüyorlar. </para>
+>Linuxprinting.org = bu sitede yalnızca Linux değil; *BSD ve ticari Unixler gibi tüm &UNIX; benzeri işletim sistemleri yazdırma için yararlı bilgiler bulabilir. Bu web sitesi tüm kuyrukları, yazıcıları ve yapılandırma dosyalarını yeni bir yapılandırma çabası gerektirmeden sorunsuzca aktarma yeteneği ile "Üst Yazdırma Kuyruğu ve Sürücü Yapılandırma Araç Kiti"ni (tek bir genel arayüz ile, farklı yazdırma altsistemleri ve onların gerekli sürücülerini yapılandırabilmek) geliştirmeye çalışan ilginç Foomatic projelerinin ana sayfasıdır. -- Ayrıca, herkesin yazıcı modelleri hakkında en güncel bilgileri bulmasını sağlayan bir sürücü ve aygıt bilgisi topluluğu ve ortak Linux veya &UNIX; yazdırma sistemlerinden biriyle çalıştığı bilinen biriktirici/sürücü/aygıt bileşiminin yapılandırma dosyalarını çevrimiçi oluşturan, Yazdırma Veri Tabanını sürdürüyorlar ve bakımını yapıyorlar. </para>
                                 <glossseealso otherterm="gloss-linuxprintingdatabase"
->Linuxprinting veritabanı</glossseealso>
+>Linuxprinting veri tabanı</glossseealso>
                         </glossdef>
                 </glossentry>
 
@@ -397,7 +397,7 @@
                 <glossentry id="gloss-linuxprintingdatabase">
                         <glossterm
 ><acronym
->Linuxprinting.org Veritabanı</acronym
+>Linuxprinting.org Veri Tabanı</acronym
 ></glossterm>
                         <glossdef
 ><para
@@ -525,7 +525,7 @@
 ></glossterm>
                         <glossdef
 ><para
->&emstart;P&emend;ostScript &emstart;P&emend;rinter &emstart;D&emend;escription; (PostScript Yazıcı Tanımlaması) için kısaltma PPD’ler bir yazıcının özel yeteneklerinin ve belli bir yetenek (yazdırma çiftleme gibi) için çağrılacak komutların tanımlamalarının (PostScript- veya PJL-) bulunduğu ASCII dosyalardır.&newpara; Kısaltmanın açıklamasının anlattığı gibi, PPD’ler özgün olarak &PostScript; yazıcılar için kullanıldılar. &CUPS; PPD kavramını tüm yazıcı türlerine genişletti.&newpara; &PostScript; için PPD’ler yazıcı firmaları tarafından sağlandı. Herhangi bir &PostScript; yazıcısının tüm özelliklerine erişmek için &CUPS; ve &kde; yazdırma alt sistemi ile birlikte kullanılabilirler. &kde; Takımı özgün olarak &Microsoft; Windows NT için kullanılması amaçlanan PDD’lerin kullanılmasını önerir.&newpara; PostScript olamayan yazıcılar için PDD’ler &PostScript; yazdırma dosyalarını PostScript olmayan hedef aygıtların sindirebileceği bir biçime işlemek için bir yardımcı "süzgeç"e &emstart;ihtiyaç duyar&emend;. Bu PPD/süzgeç bileşimleri sağlayıcılar tarafından henüz yok. &CUPS; geliştiricilerinin PPD’leri kullanma girişimlerinden sonra, Özgür Yazılım topluluğu PPD’ler ve klasik Ghostscript süzgeçleri ile çoğu mevcut yazıcı modeli için tez destek sağlayacak kadar yaratıcıdır. Ancak: yazdırma kalitesi "yüksek kalite fotoğrafik çıktı"dan (çoğu Epson Inkjet ile Gimp-Print kullanmak) "zorlukla okunabilir"e  (Linuxprinting.org veritabanında "kâğıt ağırlığı" olarak puanlanan Foomatic-etkinleştirilmiş Ghostscript süzgeçleri kullanmak) kadar değişir. </para
+>&emstart;P&emend;ostScript &emstart;P&emend;rinter &emstart;D&emend;escription; (PostScript Yazıcı Tanımlaması) için kısaltma PPD’ler bir yazıcının özel yeteneklerinin ve belli bir yetenek (yazdırma çiftleme gibi) için çağrılacak komutların tanımlamalarının (PostScript- veya PJL-) bulunduğu ASCII dosyalardır.&newpara; Kısaltmanın açıklamasının anlattığı gibi, PPD’ler özgün olarak &PostScript; yazıcılar için kullanıldılar. &CUPS; PPD kavramını tüm yazıcı türlerine genişletti.&newpara; &PostScript; için PPD’ler yazıcı firmaları tarafından sağlandı. Herhangi bir &PostScript; yazıcısının tüm özelliklerine erişmek için &CUPS; ve &kde; yazdırma alt sistemi ile birlikte kullanılabilirler. &kde; Takımı özgün olarak &Microsoft; Windows NT için kullanılması amaçlanan PDD’lerin kullanılmasını önerir.&newpara; PostScript olamayan yazıcılar için PDD’ler &PostScript; yazdırma dosyalarını PostScript olmayan hedef aygıtların sindirebileceği bir biçime işlemek için bir yardımcı "süzgeç"e &emstart;ihtiyaç duyar&emend;. Bu PPD/süzgeç bileşimleri sağlayıcılar tarafından henüz yok. &CUPS; geliştiricilerinin PPD’leri kullanma girişimlerinden sonra, Özgür Yazılım topluluğu PPD’ler ve klasik Ghostscript süzgeçleri ile çoğu mevcut yazıcı modeli için tez destek sağlayacak kadar yaratıcıdır. Ancak: yazdırma kalitesi "yüksek kalite fotoğrafik çıktı"dan (çoğu Epson Inkjet ile Gimp-Print kullanmak) "zorlukla okunabilir"e  (Linuxprinting.org veri tabanında "kâğıt ağırlığı" olarak puanlanan Foomatic-etkinleştirilmiş Ghostscript süzgeçleri kullanmak) kadar değişir. </para
 ><glossseealso otherterm="gloss-cups"
 >&CUPS;</glossseealso
 > <glossseealso otherterm="gloss-linuxprintingorg"
@@ -582,12 +582,12 @@
                 </glossentry>
                 <glossentry id="gloss-printerdatabase">
                         <glossterm
->Yazıcı Veritabanı</glossterm>
+>Yazıcı Veri Tabanı</glossterm>
                         <glossdef
 ><para
->Yazıcı sürücülerinin iyi bir veritabanı &linkstart;"https://www.openprinting.org/printers"&linkmid;https://www.openprinting.org/printers&linkend; adresinde bulunabilir.</para>
+>Yazıcı sürücülerinin iyi bir veri tabanı &linkstart;"https://www.openprinting.org/printers"&linkmid;https://www.openprinting.org/printers&linkend; adresinde bulunabilir.</para>
                                 <glossseealso otherterm="gloss-linuxprintingdatabase"
->Linuxyazdırma Veritabanı</glossseealso>
+>Linux Yazdırma Veri Tabanı</glossseealso>
                         </glossdef>
                 </glossentry>
 
