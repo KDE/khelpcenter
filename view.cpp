@@ -12,7 +12,6 @@
 #include <KActionCollection>
 #include <KIO/TransferJob>
 #include <KLocalizedString>
-#include <KSharedConfig>
 #include <KStandardAction>
 #include <docbookxslt.h>
 
@@ -24,18 +23,15 @@
 #include <QFileInfo>
 #include <QGuiApplication>
 #include <QMenu>
-#include <QStandardPaths>
 #include <QTextStream>
 #include <QWebEngineDownloadRequest>
 #include <QWebEnginePage>
 #include <QWebEngineProfile>
-#include <QWebEngineScript>
 #include <QWebEngineScriptCollection>
 #include <QWebEngineSettings>
 #include <QWebEngineUrlRequestJob>
 #include <QWebEngineUrlScheme>
 #include <QWebEngineUrlSchemeHandler>
-#include <QWhatsThis>
 
 using namespace KHC;
 class HelpUrlSchemeHandler : public QWebEngineUrlSchemeHandler
@@ -249,6 +245,29 @@ void View::slotReload(const QUrl &url)
 void View::setCurrentlyHoveredLink(const QString &link)
 {
     this->mCurrentlyHoveredLink = link;
+}
+
+void View::zoomIn()
+{
+    qreal newZoom = zoomFactor() * 1.05;
+
+    if (newZoom <= 5.0) {
+        setZoomFactor(newZoom);
+    }
+}
+
+void View::zoomOut()
+{
+    qreal newZoom = zoomFactor() * 0.95;
+
+    if (newZoom >= 0.25) {
+        setZoomFactor(newZoom);
+    }
+}
+
+void View::resetZoom()
+{
+    setZoomFactor(1.0);
 }
 
 void View::contextMenuEvent(QContextMenuEvent *ev)

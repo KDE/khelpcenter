@@ -1,5 +1,5 @@
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui name="khelpcenter" version="20">
+<gui name="khelpcenter" version="21">
 <MenuBar>
  <Menu name="edit" noMerge="1">
   <text>&amp;Edit</text>
@@ -13,6 +13,11 @@
   <text>&amp;View</text>
   <Action name="viewDocumentSource" />
   <Action name="setEncoding" />
+  <Separator />
+  <Action name="view_zoom_in" />
+  <Action name="view_zoom_out" />
+  <Action name="view_actual_size" />
+  <Separator />
   <Action name="fullscreen" />
  </Menu>
  <Menu name="go">

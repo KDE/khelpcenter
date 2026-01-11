@@ -55,6 +55,9 @@ public Q_SLOTS:
     void lastSearch();
     void slotReload(const QUrl &url = QUrl());
     void setCurrentlyHoveredLink(const QString &link);
+    void zoomIn();
+    void zoomOut();
+    void resetZoom();
 
 Q_SIGNALS:
     void searchResultCacheAvailable();

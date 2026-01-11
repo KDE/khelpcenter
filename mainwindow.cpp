@@ -21,16 +21,13 @@
 
 #include <QAction>
 #include <QDBusConnection>
-#include <QDialog>
 #include <QDialogButtonBox>
 #include <QDir>
 #include <QList>
 #include <QMenu>
 #include <QMimeDatabase>
-#include <QPushButton>
 #include <QSplitter>
 #include <QStatusBar>
-#include <QTextDocument>
 #include <QTextEdit>
 #include <QVBoxLayout>
 
@@ -38,14 +35,11 @@
 #include <KActionMenu>
 #include <KBookmarkManager>
 #include <KBookmarkMenu>
-#include <KConfig>
-#include <KConfigGroup>
 #include <KLocalizedString>
 #include <KStandardAction>
 #include <KStartupInfo>
 #include <KWindowConfig>
 
-#include <KIO/Job>
 #include <KIO/JobUiDelegate>
 #include <KIO/JobUiDelegateFactory>
 #include <KIO/OpenUrlJob>
@@ -205,6 +199,22 @@ void MainWindow::setupActions()
 
     mCopyText = KStandardAction::copy(this, SLOT(slotCopySelectedText()), this);
     actionCollection()->addAction(QStringLiteral("copy_text"), mCopyText);
+
+    const auto setupZoomAction = [this](QAction *action) {
+        action->setEnabled(false);
+        connect(mDoc, &View::loadFinished, this, [action] {
+            action->setEnabled(true);
+        });
+    };
+
+    QAction *zoomInAction = KStandardAction::zoomIn(mDoc, &View::zoomIn, actionCollection());
+    setupZoomAction(zoomInAction);
+
+    QAction *zoomOutAction = KStandardAction::zoomOut(mDoc, &View::zoomOut, actionCollection());
+    setupZoomAction(zoomOutAction);
+
+    QAction *resetZoomAction = KStandardAction::actualSize(mDoc, &View::resetZoom, actionCollection());
+    setupZoomAction(resetZoomAction);
 
     KStandardAction::find(mPageSearchBar, &PageSearchBar::startSearch, actionCollection());
     KStandardAction::findNext(mPageSearchBar, &PageSearchBar::searchNext, actionCollection());
