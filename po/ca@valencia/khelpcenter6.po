@@ -377,7 +377,7 @@ msgstr "No s'ha trobat cap gestor de busca vàlid."
 #: searchhandler.cpp:38
 #, kde-format
 msgid "Error executing search command '%1'."
-msgstr "S'ha produït un error en executar l'ordre de busca «%1»."
+msgstr "S'ha produït un error mentre s'executava l'ordre de busca «%1»."
 
 #: searchhandler.cpp:76
 #, kde-format
