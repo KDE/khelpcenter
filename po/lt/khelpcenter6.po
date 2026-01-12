@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2026-01-12 00:46+0000\n"
 "PO-Revision-Date: 2024-01-17 23:00+0200\n"
 "Last-Translator: Mindaugas Baranauskas <opensuse.lietuviu.kalba@gmail.com>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -246,53 +246,53 @@ msgid "&View"
 msgstr "&Rodymas"
 
 #. i18n: ectx: Menu (go)
-#: khelpcenterui.rc:19
+#: khelpcenterui.rc:24
 #, kde-format
 msgid "&Go"
 msgstr "&Eiti"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: khelpcenterui.rc:36
+#: khelpcenterui.rc:41
 #, kde-format
 msgid "Main Toolbar"
 msgstr "Pagrindinė įrankinė"
 
-#: mainwindow.cpp:63
+#: mainwindow.cpp:57
 #, kde-format
 msgid "Search Error Log"
 msgstr "Paieškos klaidų žurnalas"
 
-#: mainwindow.cpp:120
+#: mainwindow.cpp:114
 #, kde-format
 msgid "Preparing Index"
 msgstr "Paruošiu rodyklę"
 
-#: mainwindow.cpp:147
+#: mainwindow.cpp:141
 #, kde-format
 msgid "Ready"
 msgstr "Pasiruošęs"
 
-#: mainwindow.cpp:202
+#: mainwindow.cpp:196
 #, kde-format
 msgid "Table of &Contents"
 msgstr "&Turinys"
 
-#: mainwindow.cpp:203
+#: mainwindow.cpp:197
 #, kde-format
 msgid "Table of contents"
 msgstr "Turinys"
 
-#: mainwindow.cpp:204
+#: mainwindow.cpp:198
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "Grįžti atgal į turinį"
 
-#: mainwindow.cpp:214
+#: mainwindow.cpp:224
 #, kde-format
 msgid "&Last Search Result"
 msgstr "&Ankstesnės paieškos rezultatas"
 
-#: mainwindow.cpp:242
+#: mainwindow.cpp:252
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"
@@ -454,7 +454,7 @@ msgctxt "Label for Unknown search scope, that should never appear"
 msgid "unknown"
 msgstr "nežinoma"
 
-#: view.cpp:308
+#: view.cpp:327
 #, kde-format
 msgid "Save Page"
 msgstr "Įrašyti puslapį"

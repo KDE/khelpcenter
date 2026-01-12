@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2026-01-12 00:46+0000\n"
 "PO-Revision-Date: 2021-08-02 10:55+0200\n"
 "Last-Translator: Phu Hung Nguyen <phu.nguyen@kdemail.net>\n"
 "Language-Team: Vietnamese <kde-l10n-vi@kde.org>\n"
@@ -246,53 +246,53 @@ msgid "&View"
 msgstr "&Xem"
 
 #. i18n: ectx: Menu (go)
-#: khelpcenterui.rc:19
+#: khelpcenterui.rc:24
 #, kde-format
 msgid "&Go"
 msgstr "Đ&i"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: khelpcenterui.rc:36
+#: khelpcenterui.rc:41
 #, kde-format
 msgid "Main Toolbar"
 msgstr "Thanh công cụ chính"
 
-#: mainwindow.cpp:63
+#: mainwindow.cpp:57
 #, kde-format
 msgid "Search Error Log"
 msgstr "Nhật kí lỗi tìm kiếm"
 
-#: mainwindow.cpp:120
+#: mainwindow.cpp:114
 #, kde-format
 msgid "Preparing Index"
 msgstr "Đang chuẩn bị chỉ mục"
 
-#: mainwindow.cpp:147
+#: mainwindow.cpp:141
 #, kde-format
 msgid "Ready"
 msgstr "Sẵn sàng"
 
-#: mainwindow.cpp:202
+#: mainwindow.cpp:196
 #, kde-format
 msgid "Table of &Contents"
 msgstr "&Mục lục"
 
-#: mainwindow.cpp:203
+#: mainwindow.cpp:197
 #, kde-format
 msgid "Table of contents"
 msgstr "Mục lục"
 
-#: mainwindow.cpp:204
+#: mainwindow.cpp:198
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "Lùi lại về mục lục"
 
-#: mainwindow.cpp:214
+#: mainwindow.cpp:224
 #, kde-format
 msgid "&Last Search Result"
 msgstr "Kết quả tìm kiếm &cuối cùng"
 
-#: mainwindow.cpp:242
+#: mainwindow.cpp:252
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"
@@ -454,7 +454,7 @@ msgctxt "Label for Unknown search scope, that should never appear"
 msgid "unknown"
 msgstr "không rõ"
 
-#: view.cpp:308
+#: view.cpp:327
 #, fuzzy, kde-format
 #| msgid "Start Page"
 msgid "Save Page"

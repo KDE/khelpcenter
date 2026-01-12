@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2026-01-12 00:46+0000\n"
 "PO-Revision-Date: 2024-02-19 09:39+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -251,53 +251,53 @@ msgid "&View"
 msgstr "S&koða"
 
 #. i18n: ectx: Menu (go)
-#: khelpcenterui.rc:19
+#: khelpcenterui.rc:24
 #, kde-format
 msgid "&Go"
 msgstr "&Fara"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: khelpcenterui.rc:36
+#: khelpcenterui.rc:41
 #, kde-format
 msgid "Main Toolbar"
 msgstr "Aðaltækjaslá"
 
-#: mainwindow.cpp:63
+#: mainwindow.cpp:57
 #, kde-format
 msgid "Search Error Log"
 msgstr "Villuannál leitar"
 
-#: mainwindow.cpp:120
+#: mainwindow.cpp:114
 #, kde-format
 msgid "Preparing Index"
 msgstr "Undirbý yfirlit"
 
-#: mainwindow.cpp:147
+#: mainwindow.cpp:141
 #, kde-format
 msgid "Ready"
 msgstr "Tilbúinn"
 
-#: mainwindow.cpp:202
+#: mainwindow.cpp:196
 #, kde-format
 msgid "Table of &Contents"
 msgstr "Efnis&yfirlit"
 
-#: mainwindow.cpp:203
+#: mainwindow.cpp:197
 #, kde-format
 msgid "Table of contents"
 msgstr "Efnisyfirlit"
 
-#: mainwindow.cpp:204
+#: mainwindow.cpp:198
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "Fara til baka í efnisyfirlit"
 
-#: mainwindow.cpp:214
+#: mainwindow.cpp:224
 #, kde-format
 msgid "&Last Search Result"
 msgstr "Síðasta &leitarniðurstaða"
 
-#: mainwindow.cpp:242
+#: mainwindow.cpp:252
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"
@@ -459,7 +459,7 @@ msgctxt "Label for Unknown search scope, that should never appear"
 msgid "unknown"
 msgstr "óþekkt"
 
-#: view.cpp:308
+#: view.cpp:327
 #, kde-format
 msgid "Save Page"
 msgstr "Vista síðu"

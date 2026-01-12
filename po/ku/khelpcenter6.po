@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2026-01-12 00:46+0000\n"
 "PO-Revision-Date: 2009-01-06 14:01+0200\n"
 "Last-Translator: Erdal Ronahi <erdal.ronahi@nospam.gmail.com>\n"
 "Language-Team: Kurdish <kde-i18n-doc@lists.kde.org>\n"
@@ -252,53 +252,53 @@ msgid "&View"
 msgstr "&Dîmen"
 
 #. i18n: ectx: Menu (go)
-#: khelpcenterui.rc:19
+#: khelpcenterui.rc:24
 #, kde-format
 msgid "&Go"
 msgstr "&Biçe"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: khelpcenterui.rc:36
+#: khelpcenterui.rc:41
 #, kde-format
 msgid "Main Toolbar"
 msgstr "Darikê Serekî"
 
-#: mainwindow.cpp:63
+#: mainwindow.cpp:57
 #, kde-format
 msgid "Search Error Log"
 msgstr "Rojnivîska Çewtiya Lêgerînê"
 
-#: mainwindow.cpp:120
+#: mainwindow.cpp:114
 #, kde-format
 msgid "Preparing Index"
 msgstr "Amadekirina pêrist"
 
-#: mainwindow.cpp:147
+#: mainwindow.cpp:141
 #, kde-format
 msgid "Ready"
 msgstr "Amade"
 
-#: mainwindow.cpp:202
+#: mainwindow.cpp:196
 #, kde-format
 msgid "Table of &Contents"
 msgstr "Tabloya &Naverokan"
 
-#: mainwindow.cpp:203
+#: mainwindow.cpp:197
 #, kde-format
 msgid "Table of contents"
 msgstr "Tabloya Naverokan"
 
-#: mainwindow.cpp:204
+#: mainwindow.cpp:198
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "Biçe beşa naverokan"
 
-#: mainwindow.cpp:214
+#: mainwindow.cpp:224
 #, kde-format
 msgid "&Last Search Result"
 msgstr "Encamên Lêgerîna &Dawîn"
 
-#: mainwindow.cpp:242
+#: mainwindow.cpp:252
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"
@@ -463,7 +463,7 @@ msgctxt "Label for Unknown search scope, that should never appear"
 msgid "unknown"
 msgstr "nenas"
 
-#: view.cpp:308
+#: view.cpp:327
 #, fuzzy, kde-format
 #| msgid "Start Page"
 msgid "Save Page"

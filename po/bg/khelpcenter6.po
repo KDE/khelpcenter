@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2026-01-12 00:46+0000\n"
 "PO-Revision-Date: 2024-11-09 20:04+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -245,53 +245,53 @@ msgid "&View"
 msgstr "&Изглед"
 
 #. i18n: ectx: Menu (go)
-#: khelpcenterui.rc:19
+#: khelpcenterui.rc:24
 #, kde-format
 msgid "&Go"
 msgstr "Навига&ция"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: khelpcenterui.rc:36
+#: khelpcenterui.rc:41
 #, kde-format
 msgid "Main Toolbar"
 msgstr "Главна лента с инструменти"
 
-#: mainwindow.cpp:63
+#: mainwindow.cpp:57
 #, kde-format
 msgid "Search Error Log"
 msgstr "Журнален файл на търсенето"
 
-#: mainwindow.cpp:120
+#: mainwindow.cpp:114
 #, kde-format
 msgid "Preparing Index"
 msgstr "Подготовка на индекса"
 
-#: mainwindow.cpp:147
+#: mainwindow.cpp:141
 #, kde-format
 msgid "Ready"
 msgstr "Готово"
 
-#: mainwindow.cpp:202
+#: mainwindow.cpp:196
 #, kde-format
 msgid "Table of &Contents"
 msgstr "С&ъдържание"
 
-#: mainwindow.cpp:203
+#: mainwindow.cpp:197
 #, kde-format
 msgid "Table of contents"
 msgstr "Съдържание"
 
-#: mainwindow.cpp:204
+#: mainwindow.cpp:198
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "Връщане към съдържанието"
 
-#: mainwindow.cpp:214
+#: mainwindow.cpp:224
 #, kde-format
 msgid "&Last Search Result"
 msgstr "&Последни резултати"
 
-#: mainwindow.cpp:242
+#: mainwindow.cpp:252
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"
@@ -455,7 +455,7 @@ msgctxt "Label for Unknown search scope, that should never appear"
 msgid "unknown"
 msgstr "неизвестно"
 
-#: view.cpp:308
+#: view.cpp:327
 #, kde-format
 msgid "Save Page"
 msgstr "Запазване на страницата"
