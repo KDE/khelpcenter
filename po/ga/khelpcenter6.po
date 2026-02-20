@@ -28,10 +28,9 @@ msgid "Your emails"
 msgstr "seoc@iolfree.ie,kscanne@gmail.com"
 
 #: application.cpp:30
-#, fuzzy, kde-format
-#| msgid "Document to be indexed"
+#, kde-format
 msgid "Documentation to open"
-msgstr "Cáipéis le hinnéacsú"
+msgstr ""
 
 #: application.cpp:103 application.cpp:105
 #, kde-format
@@ -39,10 +38,9 @@ msgid "Help Center"
 msgstr "Lárionad Cabhrach"
 
 #: application.cpp:107
-#, fuzzy, kde-format
-#| msgid "(c) 1999-2011, The KHelpCenter developers"
+#, kde-format
 msgid "(c) 1999-2023, The KHelpCenter developers"
-msgstr "© 1999-2011, Forbróirí KHelpCenter"
+msgstr ""
 
 #: application.cpp:109
 #, kde-format
@@ -184,11 +182,10 @@ msgid "Rebuilding cache... done."
 msgstr "Taisce á hatógáil... críochnaithe."
 
 #: grantleeformatter.cpp:97
-#, fuzzy, kde-format
-#| msgid "KDE Glossary"
+#, kde-format
 msgctxt "%1 is a glossary term"
 msgid "KDE Glossary: %1"
-msgstr "Gluais KDE"
+msgstr ""
 
 #: grantleeformatter.cpp:98
 #, kde-format
@@ -196,10 +193,9 @@ msgid "KDE Glossary"
 msgstr "Gluais KDE"
 
 #: grantleeformatter.cpp:102
-#, fuzzy, kde-format
-#| msgid "See also: "
+#, kde-format
 msgid "See also: %1"
-msgstr "Féach freisin: "
+msgstr ""
 
 #: grantleeformatter.cpp:122
 #, kde-format
@@ -300,10 +296,9 @@ msgid "&Bookmarks"
 msgstr ""
 
 #: navigator.cpp:64
-#, fuzzy, kde-format
-#| msgid "&Search"
+#, kde-format
 msgid "Search..."
-msgstr "&Cuardaigh"
+msgstr ""
 
 #: navigator.cpp:119
 #, kde-format
@@ -336,16 +331,14 @@ msgid "Unable to run search program."
 msgstr "Ní féidir clár cuardaigh a rith."
 
 #: navigator.cpp:632
-#, fuzzy, kde-format
-#| msgid "Build Search Index..."
+#, kde-format
 msgid "Updating search index..."
-msgstr "Tóg Innéacs Cuardaigh..."
+msgstr ""
 
 #: navigator.cpp:643
-#, fuzzy, kde-format
-#| msgid "Rebuilding cache... done."
+#, kde-format
 msgid "Updating search index... done."
-msgstr "Taisce á hatógáil... críochnaithe."
+msgstr ""
 
 #: printdoc.cpp:60
 #, kde-format
@@ -460,287 +453,6 @@ msgid "unknown"
 msgstr "anaithnid"
 
 #: view.cpp:308
-#, fuzzy, kde-format
-#| msgid "Start Page"
+#, kde-format
 msgid "Save Page"
-msgstr "Leathanach Tosaigh"
-
-#~ msgid "Previous Page"
-#~ msgstr "An Leathanach Roimhe Seo"
-
-#~ msgid "Moves to the previous page of the document"
-#~ msgstr "Téigh go dtí an leathanach sa cháipéis roimh an gceann seo"
-
-#~ msgid "Next Page"
-#~ msgstr "An Chéad Leathanach Eile"
-
-#~ msgid "Moves to the next page of the document"
-#~ msgstr "Téigh go dtí an chéad leathanach eile sa cháipéis"
-
-#~ msgid "Configure Fonts..."
-#~ msgstr "Cumraigh Clónna..."
-
-#~ msgid "Increase Font Sizes"
-#~ msgstr "Méadaigh an Cló"
-
-#~ msgid "Decrease Font Sizes"
-#~ msgstr "Laghdaigh an Cló"
-
-#~ msgid "Copy Link Address"
-#~ msgstr "Cóipeáil Seoladh an Naisc"
-
-#~ msgid "Unable to initialize SearchHandler from file '%1'."
-#~ msgstr "Ní féidir Láimhseálaí Cuardaigh a thúsú ó chomhad '%1'."
-
-#~ msgid "Error"
-#~ msgstr "Earráid"
-
-#~ msgid ""
-#~ "Unable to show selected glossary entry: unable to open file 'glossary."
-#~ "html.in'!"
-#~ msgstr ""
-#~ "Ní féidir an iontráil roghnaithe gluaise a thaispeáint: ní féidir comhad "
-#~ "'glossary.html.in' a oscailt!"
-
-#~ msgid "ht://dig"
-#~ msgstr "ht://dig"
-
-#~ msgid ""
-#~ "The fulltext search feature makes use of the ht://dig HTML search engine."
-#~ msgstr ""
-#~ "Baineann cuardach lántéacs úsáid as an inneall cuardaigh HTML ht://dig."
-
-#~ msgid "Information about where to get the ht://dig package."
-#~ msgstr "Cén áit ar féidir an pacáiste ht://dig a fháil."
-
-#~ msgid "You can get ht://dig at the ht://dig home page"
-#~ msgstr "Is féidir leat ht://dig a fháil ó leathanach baile ht://dig"
-
-#~ msgid "Program Locations"
-#~ msgstr "Suímh an Chláir"
-
-#~ msgid "htsearch:"
-#~ msgstr "htsearch:"
-
-#~ msgid "Enter the URL of the htsearch CGI program."
-#~ msgstr "Iontráil URL an chláir CGI htsearch."
-
-#~ msgid "Indexer:"
-#~ msgstr "Innéacsóir:"
-
-#~ msgid "Enter the path to your htdig indexer program here."
-#~ msgstr "Iontráil an chonair go dtí an t-innéacsóir htdig anseo."
-
-#~ msgid "htdig database:"
-#~ msgstr "bunachar sonraí htdig:"
-
-#~ msgid "Enter the path to the htdig database folder."
-#~ msgstr "Iontráil an chonair go dtí fillteán an bhunachair sonraí htdig."
-
-#~ msgid "Change Index Folder"
-#~ msgstr "Athraigh Fillteán an Innéacs"
-
-#~ msgid "Index folder:"
-#~ msgstr "Fillteán an innéacs:"
-
-#~ msgid "Build Search Indices"
-#~ msgstr "Tóg Innéacsanna Cuardaigh"
-
-#~ msgid "Index creation log:"
-#~ msgstr "Logchomhad cruthaithe innéacs:"
-
-#~ msgctxt ""
-#~ "Label for button to close search index progress dialog after successful "
-#~ "completion"
-#~ msgid "Close"
-#~ msgstr "Dún"
-
-#~ msgid "Index creation finished."
-#~ msgstr "D'éirigh le cruthú an innéacs."
-
-#~ msgctxt "Label for stopping search index generation before completion"
-#~ msgid "Stop"
-#~ msgstr "Stad"
-
-#, fuzzy
-#~| msgid "Details >>"
-#~ msgid "Details <<"
-#~ msgstr "Mionsonraí >>"
-
-#~ msgid "Details >>"
-#~ msgstr "Mionsonraí >>"
-
-#~ msgid "Build Search Index"
-#~ msgstr "Tóg Innéacs Cuardaigh"
-
-#~ msgid "Build Index"
-#~ msgstr "Tóg Innéacs"
-
-#~ msgid ""
-#~ "To be able to search a document, a search\n"
-#~ "index needs to exist. The status column of the list below shows whether "
-#~ "an index\n"
-#~ "for a document exists.\n"
-#~ msgstr ""
-#~ "Chun cáipéis a chuardach, ní mór innéacs\n"
-#~ "cuardaigh a bheith ann. In aice le gach cáipéis sa liosta thíos, "
-#~ "taispeántar\n"
-#~ "an bhfuil innéacs aici, sa cholún Stádas.\n"
-
-#~ msgid ""
-#~ "To create an index, check the box in the list and press the\n"
-#~ "\"Build Index\" button.\n"
-#~ msgstr ""
-#~ "Chun innéacs a chruthú, cuir tic sa bhosca sa liosta\n"
-#~ "agus brúigh an cnaipe \"Tóg Innéacs\".\n"
-
-#~ msgid "Search Scope"
-#~ msgstr "Scóip Chuardaigh"
-
-#~ msgid "Status"
-#~ msgstr "Stádas"
-
-#~ msgid "Change..."
-#~ msgstr "Athraigh..."
-
-#~ msgid ""
-#~ "<qt>The folder <b>%1</b> does not exist; unable to create index.</qt>"
-#~ msgstr ""
-#~ "<qt>Níl fillteán <b>%1</b> ann; ní féidir an t-innéacs a chruthú.</qt>"
-
-#~ msgctxt "Describes the status of a documentation index that is present"
-#~ msgid "OK"
-#~ msgstr "OK"
-
-#~ msgctxt "Describes the status of a documentation index that is missing"
-#~ msgid "Missing"
-#~ msgstr "Ar iarraidh"
-
-#~ msgctxt ""
-#~ " Generic prefix label for error messages when creating documentation "
-#~ "index, first arg is the document's identifier, second is the document's "
-#~ "name"
-#~ msgid "Document '%1' (%2):\n"
-#~ msgstr "Cáipéis '%1' (%2):\n"
-
-#~ msgid "No document type."
-#~ msgstr "Gan chineál cáipéise."
-
-#~ msgid "No search handler available for document type '%1'."
-#~ msgstr ""
-#~ "Níl láimhseálaí cuardaigh ar fáil le haghaidh cineáil cáipéise '%1'."
-
-#~ msgid "No indexing command specified for document type '%1'."
-#~ msgstr "Níor sonraíodh ordú innéacsaithe le haghaidh cineáil cáipéise '%1'."
-
-#~ msgid "Failed to build index."
-#~ msgstr "Theip ar thógáil an innéacs."
-
-#~ msgid ""
-#~ "Error executing indexing build command:\n"
-#~ "%1"
-#~ msgstr ""
-#~ "Earráid agus an t-ordú tógála innéacs á rith:\n"
-#~ "%1"
-
-#~ msgid "Unable to start command '%1'."
-#~ msgstr "Ní féidir ordú '%1' a thosú."
-
-#~ msgid "KHelpCenter Index Builder"
-#~ msgstr "Tógálaí Innéacs KHelpCenter"
-
-#~ msgid "Cornelius Schumacher"
-#~ msgstr "Cornelius Schumacher"
-
-#~ msgid "Document to be indexed"
-#~ msgstr "Cáipéis le hinnéacsú"
-
-#~ msgid "Index directory"
-#~ msgstr "Comhadlann innéacs"
-
-#~ msgid ""
-#~ "A search index does not yet exist. Do you want to create the index now?"
-#~ msgstr ""
-#~ "Níl innéacs cuardaigh ann fós. An bhfuil fonn ort an t-innéacs a chruthú "
-#~ "anois?"
-
-#~ msgid "Create"
-#~ msgstr "Cruthaigh"
-
-#~ msgid "Do Not Create"
-#~ msgstr "Ná Cruthaigh"
-
-#~ msgid "Build Search &Index..."
-#~ msgstr "Tóg &Innéacs Cuardaigh..."
-
-#~ msgid "The KDE Help Center"
-#~ msgstr "Lárionad Cabhrach KDE"
-
-#~ msgid "(c) 2003, The KHelpCenter developers"
-#~ msgstr "© 2003, Forbróirí KHelpCenter"
-
-#~ msgid "Details &lt;&lt;"
-#~ msgstr "Mionsonraí &lt;&lt;"
-
-#~ msgid "Details &gt;&gt;"
-#~ msgstr "Mionsonraí &gt;&gt;"
-
-#~ msgid "Frerich Raabe"
-#~ msgstr "Frerich Raabe"
-
-#~ msgid "Matthias Elter"
-#~ msgstr "Matthias Elter"
-
-#~ msgid "Wojciech Smigaj"
-#~ msgstr "Wojciech Smigaj"
-
-#~ msgid "URL to display"
-#~ msgstr "URL le taispeáint"
-
-#~ msgid "&File"
-#~ msgstr "&Comhad"
-
-#~ msgid "Show Search Error Log"
-#~ msgstr "Taispeáin an Logchomhad Earráidí Cuardaigh"
-
-#~ msgid "ht://dig home page"
-#~ msgstr "Leathanach Baile ht://dig"
-
-#~ msgid "Conquer your Desktop!"
-#~ msgstr "Cuir do Dheasc faoi Smacht!"
-
-#~ msgid "Welcome to the K Desktop Environment"
-#~ msgstr "Fáilte go Timpeallacht Deisce KDE"
-
-#~ msgid "What is the K Desktop Environment?"
-#~ msgstr "Cad é Timpeallacht Deisce KDE?"
-
-#~ msgid "Contacting the KDE Project"
-#~ msgstr "Conas Dul i dTeagmháil le Tionscadal KDE"
-
-#~ msgid "Supporting the KDE Project"
-#~ msgstr "Conas Tacú le Tionscadal KDE"
-
-#~ msgid "Useful links"
-#~ msgstr "Naisc Úsáideacha"
-
-#~ msgid "General Documentation"
-#~ msgstr "Doiciméadú Ginearálta"
-
-#~ msgid "KDE Users' guide"
-#~ msgstr "Leabhrán Eolais KDE d'úsáideoirí"
-
-#~ msgid "Frequently asked questions"
-#~ msgstr "Ceisteanna coitianta"
-
-#~ msgid "Basic Applications"
-#~ msgstr "Feidhmchláir Bhunúsacha"
-
-#~ msgid "The KDE Control Center"
-#~ msgstr "Lárionad Rialaithe KDE"
-
-#~ msgid "The Konqueror File manager and Web Browser"
-#~ msgstr "Bainisteoir comhad agus Brabhsálaí Konqueror"
-
-#~ msgid "Clear search"
-#~ msgstr "Glan an cuardach"
+msgstr ""
