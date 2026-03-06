@@ -1,0 +1,122 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % English "INCLUDE">
+]>
+<article id="onlinehelp" lang="&language;">
+<title
+>المساعدة على الإنترنت</title>
+<articleinfo>
+
+<date
+>2018-04-01</date>
+<releaseinfo
+>التّطبيقات 18.04</releaseinfo>
+
+</articleinfo>
+
+<para
+>يمكنك في هذه الصفحة العثور على طرق مختلفة للحصول على المساعدة عبر الإنترنت ومعلومات إضافية يقدمها مجتمع كيدي.</para>
+
+<variablelist>
+<title
+>قاعدة مستخدمي كيدي</title>
+<varlistentry
+><term
+><ulink url="https://userbase.kde.org/Special:myLanguage/An_introduction_to_KDE"
+>مقدمة عن كيدي</ulink
+>&nbsp;</term>
+<listitem>
+<para
+>تعرف على المزيد حول <ulink url="https://kde.org/community/whatiskde/"
+> مجتمع كيدي وبرمجياته</ulink
+> وابحث عن معلومات تساعدك في البدء. واكتشف أيضًا ماهية <ulink url="https://userbase.kde.org/Special:myLanguage/Welcome_to_KDE_UserBase"
+> قاعدة المستخدمين (UserBase)</ulink
+> وكيف يمكنها مساعدتك. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><ulink url="https://userbase.kde.org/Special:myLanguage/Getting_Help"
+>الحصول على المساعدة</ulink
+>&nbsp;</term>
+<listitem>
+<para
+>أتحتاج إلى مساعدة؟ إليك بعض الأماكن المقترحة حيث يمكنك الحصول على مساعدة بشأن المشكلات، بالإضافة إلى بعض التلميحات حول كيفية تحسين جودة الإجابات التي تتلقاها. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><ulink url="https://userbase.kde.org/Special:myLanguage/Applications"
+>التطبيقات</ulink
+>&nbsp;</term>
+<listitem>
+<para
+>اكتشف التشكيلة الواسعة من تطبيقات مجتمع كيدي، واعرف البرنامج الذي يناسب احتياجاتك وتفضيلاتك. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><ulink url="https://userbase.kde.org/Special:myLanguage/Tutorials"
+>الدروس التعليمية</ulink
+>&nbsp;</term>
+<listitem>
+<para
+>أدلة شرح، وتلميحات وخدع يمكنها أن تجعل تجربتك مع برمجيات كيدي أكثر متعة وإنتاجية. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+<variablelist>
+<title
+>منتديات كيدي</title>
+<varlistentry
+><term
+><ulink url="https://forum.kde.org/"
+>منتديات مجتمع كيدي</ulink
+>&nbsp;</term>
+<listitem>
+<para
+>توفر منتديات كيدي للمستخدمين والمطورين والمهتمين بكيدي مكانًا لمساعدة بعضهم البعض ومناقشة الموضوعات المتعلقة بكيدي وتبادل الأفكار. يمكنك العثور على <ulink url="https://forum.kde.org/viewforum.php?f=14/"
+>الدروس التعليمية والتلميحات</ulink
+> في المنتدى.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<variablelist>
+<title
+>قاعدة كيدي التقنية</title>
+<varlistentry
+><term
+><ulink url="https://techbase.kde.org/"
+>قاعدة كيدي التقنية</ulink
+>&nbsp;</term>
+<listitem>
+<para
+>معلومات للمطورين ومساعدة في ضبط بيئة تطوير كيدي.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<variablelist>
+<title
+>توثيق كيدي</title>
+<varlistentry
+><term
+><ulink url="https://docs.kde.org/"
+>موقع توثيق كيدي</ulink
+>&nbsp;</term>
+<listitem>
+<para
+>تحتوي هذه الصفحة على توثيق مستخدم كيدي الكامل بأكثر من 25 لغة لإصدارات كيدي المستقرة والتطويرية من أطر عمل كيدي، ومساحات عمل بلازما، والتطبيقات.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</article>

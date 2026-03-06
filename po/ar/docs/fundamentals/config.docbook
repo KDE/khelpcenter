@@ -1,0 +1,610 @@
+<chapter id="config">
+<title
+>تخصيص برمجيات كيدي</title>
+
+<sect1 id="toolbars">
+<sect1info>
+<authorgroup>
+<author
+>&TC.Hollingsworth; &TC.Hollingsworth.mail;</author>
+<othercredit role="translator"
+><firstname
+>صفا</firstname
+><surname
+>الفليج</surname
+><affiliation
+><address
+><email
+>safa1996alfulaij@gmail.com</email
+></address
+></affiliation
+><contrib
+>الترجمة العربية</contrib
+></othercredit
+> 
+</authorgroup>
+</sect1info>
+<title
+>تخصيص أشرطة الأدوات</title>
+
+<!--FIXME link from korganizer config-toolbars section-->
+<!--FIXME link from <sect2 id="configtoolbars"
+> in sheets/config.docbook
+> -->
+<!--FIXME link from <sect2 id="configuration-toolbars"
+> in extragear/multimedia-git/kplayer/doc/en_US/configuration.docbook -->
+<screenshot id="screenshot-toolbars-toolbar">
+<screeninfo
+>شريط أدوات جونفيو</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="toolbars-toolbar.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>شريط أدوات جونفيو</phrase
+></textobject>
+<caption
+><para
+>شريط الأدوات في <ulink url="https://kde.org/applications/graphics/gwenview/"
+>جونفيو</ulink
+>. </para
+></caption>
+</mediaobject>
+</screenshot>
+
+<sect2 id="toolbars-items">
+<title
+>تعديل عناصر شريط الأدوات</title>
+
+<para
+>لتخصيص أشرطة أدوات تطبيق ما، انتقل إلى <menuchoice
+><guimenu
+>إعدادات</guimenu
+><guimenuitem
+>اضبط أشرطة الأدوات...</guimenuitem
+></menuchoice
+> أو انقر بالزر الأيمن على شريط الأدوات واختر <guimenuitem
+>اضبط أشرطة الأدوات...</guimenuitem
+>.</para>
+
+<para
+>تُعرض العناصر المتوفرة التي يمكن وضعها في شريط الأدوات على الجانب الأيسر من لوحة ضبط شريط الأدوات. وتُعرض العناصر التي تظهر بالفعل على شريط الأدوات على الجانب الأيمن. يمكنك في الجزء العلوي اختيار شريط الأدوات الذي ترغب في تعديله أو عرضه.</para>
+
+<para
+>يوجد فوق كل جانب من جانبي اللوحة مربع نص <guilabel
+>مرشح</guilabel
+> يمكن استخدامه للعثور على العناصر في القائمة بسهولة.</para>
+
+<screenshot id="screenshot-toolbars-customize">
+<screeninfo
+>نافذة تخصيص أشرطة الأدوات</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="toolbars-configure.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>نافذة تخصيص أشرطة الأدوات.</phrase
+></textobject>
+<caption
+><para
+>نافذة تخصيص أشرطة الأدوات في جونفيو مع تحديد زر <guibutton
+>السابق</guibutton
+>.</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<sect3 id="toolbars-items-add">
+<title
+>إضافة عنصر</title>
+<para
+>يمكن إضافة عنصر إلى شريط الأدوات باختياره من الجانب الأيسر ونقر زر السهم الأيمن.</para>
+</sect3>
+
+<sect3 id="toolbars-items-remove">
+<title
+>إزالة عنصر</title>
+<para
+>يمكن إزالة عنصر باختياره ونقر زر السهم الأيسر.</para>
+</sect3>
+
+
+<sect3 id="toolbars-items-rearrange">
+<title
+>تغيير موضع العناصر</title>
+
+<para
+>يمكن تغيير موضع العناصر بتحريكها للأعلى أو للأسفل في القائمة. لتحريك العناصر للأسفل، اضغط على زر السهم المتجه للأسفل، بينما لتحريكها للأعلى اضغط على زر السهم المتجه للأعلى. يمكن أيضًا تغيير موضع العناصر بسحبها وإفلاتها.</para>
+
+<para
+>في أشرطة الأدوات الأفقية، يكون العنصر الموجود في الأعلى هو العنصر الموجود على اليسار. وفي أشرطة الأدوات الرأسية، تُرتب العناصر كما تظهر في شريط الأدوات.</para>
+
+</sect3>
+
+<sect3 id="toolbars-items-separator">
+<title
+>إضافة فاصل</title>
+<para
+>يمكن إضافة خطوط فاصلة بين العناصر بإضافة عنصر <guilabel
+>--- فاصل ---</guilabel
+> إلى شريط الأدوات.</para>
+</sect3>
+
+<sect3 id="toolbars-items-defaults">
+<title
+>استعادة القيم المبدئية</title>
+
+<para
+>يمكن إعادة شريط الأدوات إلى الحالة التي كان عليها عند تثبيت التطبيق بالضغط على زر <guibutton
+>القيم المبدئية</guibutton
+> في أسفل النافذة ثم تأكيد القرار.</para>
+
+</sect3>
+
+<sect3 id="toolbars-items-text-icons">
+<title
+>تغيير النصوص والأيقونات</title>
+
+<para
+>يمكن تغيير الأيقونة والنص لعناصر شريط الأدوات الفردية باختيار العنصر ونقر أي من زر <guibutton
+>غير الأيقونة...</guibutton
+> أو زر <guibutton
+>غير النص...</guibutton
+>.</para>
+<!--FIXME Icon selection and icon categories -> own section?
+  Change Text -> Option "Hide text when toolbar shows text alongside icons"
+  -->
+</sect3>
+</sect2>
+
+<sect2 id="toolbars-appearance">
+<title
+>تخصيص مظهر شريط الأدوات</title>
+
+<para
+>يمكن تغيير مظهر أشرطة الأدوات بالنقر بالزر الأيمن على شريط الأدوات للوصول إلى قائمة السياق الخاصة به.</para>
+<!-- settings for each toolbar separately-->
+<sect3 id="toolbars-appearance-text-position">
+<title
+>موضع النص</title>
+
+<para
+>يمكن تغيير مظهر النص في أشرطة الأدوات من القائمة الفرعية <guisubmenu
+>موضع النص</guisubmenu
+> في قائمة سياق شريط الأدوات.</para>
+
+<para
+>يمكن الاختيار من بين:</para>
+<itemizedlist>
+
+<listitem
+><para
+><guimenuitem
+>أيقونات</guimenuitem
+> - ستظهر الأيقونة فقط لكل عنصر من عناصر شريط الأدوات. </para
+></listitem>
+
+<listitem
+><para
+><guimenuitem
+>نص</guimenuitem
+> - ستظهر التسمية النصية فقط لكل عنصر من عناصر شريط الأدوات. </para
+></listitem>
+
+<listitem
+><para
+><guimenuitem
+>النص بجانب الأيقونات</guimenuitem
+> - ستظهر التسمية النصية على يمين أيقونة كل عنصر في شريط الأدوات </para
+></listitem>
+
+<listitem
+><para
+><guimenuitem
+>النص تحت الأيقونات</guimenuitem
+> - ستظهر التسمية النصية تحت أيقونة كل عنصر في شريط الأدوات </para
+></listitem>
+
+</itemizedlist>
+
+<para
+>يمكن أيضًا إظهار أو إخفاء النص لعناصر شريط الأدوات الفردية بالنقر بالزر الأيمن على العنصر وتحديد أو إلغاء تحديد العنصر تحت <guilabel
+>أظهر النص</guilabel
+>.</para>
+
+</sect3>
+
+<sect3 id="toolbars-appearance-icon-size">
+<title
+>مقاس الأيقونة</title>
+
+<para
+>يمكن تغيير مقاس أيقونات عناصر شريط الأدوات باختيار <guisubmenu
+>مقاس الأيقونة</guisubmenu
+> من قائمة سياق شريط الأدوات.</para>
+
+<para
+>يمكن الاختيار من بين الخيارات التالية: (كل منها يسرد مقاس الأيقونة بالبكسل)</para>
+
+<itemizedlist>
+<listitem
+><para
+><guimenuitem
+>صغير (16×16)</guimenuitem
+></para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>متوسط (22x22)</guimenuitem
+> [القيمة المبدئية]</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>كبير (32×32)</guimenuitem
+></para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>ضخم (48×48)</guimenuitem
+></para
+></listitem>
+</itemizedlist>
+
+</sect3>
+
+<sect3 id="toolbars-appearance-move">
+<title
+>نقل أشرطة الأدوات</title>
+
+<para
+>لنقل أشرطة الأدوات، يجب <quote
+>فك قفلها</quote
+>. لفعل ذلك، ألغِ تحديد <guimenuitem
+>اقفل مواضع أشرطة الأدوات</guimenuitem
+> من قائمة سياق شريط الأدوات. لاستعادة القفل، أعِد تحديد عنصر القائمة هذا ببساطة.</para>
+
+<para
+>يمكن تغيير موضع شريط الأدوات من القائمة الفرعية <guisubmenu
+>الاتجاه</guisubmenu
+> في قائمة السياق الخاصة به.</para>
+
+<para
+>يمكن الاختيار من بين:</para>
+<itemizedlist>
+<listitem
+><para
+><guimenuitem
+>الأعلى</guimenuitem
+> [المبدئي في تطبيقات كثيرة]</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>اليسار</guimenuitem
+></para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>اليمين</guimenuitem
+></para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>الأسفل</guimenuitem
+></para
+></listitem>
+</itemizedlist>
+
+<para
+>يمكن أيضًا نقل شريط أدوات بالنقر مع الاستمرار على الخط المنقط الموجود على يسار أشرطة الأدوات الأفقية أو في أعلى أشرطة الأدوات الرأسية وسحبها إلى الموقع المطلوب.</para>
+
+</sect3>
+
+<sect3 id="toolbars-appearance-show-hide">
+<title
+>إظهار/إخفاء أشرطة الأدوات</title>
+
+<para
+>إذا كان تطبيقك يحتوي على شريط أدوات واحد فقط، فيمكن إخفاؤه بإلغاء تحديد <guimenuitem
+>أظهر شريط الأدوات</guimenuitem
+> من قائمة سياق شريط الأدوات أو من قائمة <guimenu
+>إعدادات</guimenu
+>. لاستعادة شريط الأدوات، اختر <guimenuitem
+>أظهر شريط الأدوات</guimenuitem
+> من قائمة <guimenu
+>إعدادات</guimenu
+>. لاحظ أنه يجب <quote
+>فك قفل</quote
+> أشرطة الأدوات لإخفائها من قائمة السياق الخاصة بها؛ راجع <xref linkend="toolbars-appearance-move"/> لمزيد من المعلومات.</para>
+
+<para
+>إذا كان تطبيقك يحتوي على أكثر من شريط أدوات واحد، فستظهر قائمة فرعية تسمى <guisubmenu
+>أشرطة الأدوات المعروضة</guisubmenu
+> في قائمة السياق وقائمة <guimenu
+>إعدادات</guimenu
+> بدلاً من مدخل القائمة المذكور أعلاه. يمكنك من تلك القائمة اختيار أشرطة أدوات فردية لإخفائها وإظهارها.</para>
+
+</sect3>
+</sect2>
+
+<sect2 id="toolbars-ack">
+<title
+>شكرٌ وتقدير</title>
+<para
+>الشكر لمشارك مجهول في مسابقة جوجل كود-إن 2011 لكتابة معظم هذا القسم.</para>
+</sect2>
+
+</sect1>
+
+
+<sect1 id="shortcuts">
+<sect1info>
+<authorgroup>
+<author
+><firstname
+>Alexey</firstname
+> <surname
+>Subach</surname
+></author>
+<author
+>&TC.Hollingsworth; &TC.Hollingsworth.mail;</author>
+<othercredit role="translator"
+><firstname
+>صفا</firstname
+><surname
+>الفليج</surname
+><affiliation
+><address
+><email
+>safa1996alfulaij@gmail.com</email
+></address
+></affiliation
+><contrib
+>الترجمة العربية</contrib
+></othercredit
+> 
+</authorgroup>
+</sect1info>
+
+ <!--FIXME link from
+ <sect2 id="configshort"
+> in tables/config.docbook>
+ <sect2 id="configuration-shortcuts"
+> in extragear/multimedia-git/kplayer/doc/en_US/configuration.docbook
+ -->
+<!--FIXME explain Alternate + Global shortcuts in Screenshot and 
+another place to change Global Shortcuts (Systemsettings)-->
+<title
+>استخدام الاختصارات وتخصيصها</title>
+
+<sect2 id="shortcuts-intro">
+<title
+>مقدمة</title>
+
+<para
+>تتيح تطبيقات كيدي كثيرة ضبط اختصارات لوحة المفاتيح. لفتح لوحة ضبط اختصارات لوحة المفاتيح القياسية، انتقل إلى <menuchoice
+><guimenu
+>إعدادات</guimenu
+><guimenuitem
+>اضبط الاختصارات...</guimenuitem
+></menuchoice
+>.</para>
+
+<para
+>ستظهر قائمة بجميع الاختصارات المتوفرة في التطبيق الحالي في نافذة ضبط الاختصارات. يمكن استخدام مربع البحث في الأعلى للبحث عن الاختصار المطلوب.</para>
+
+<screenshot id="screenshot-shortcuts-search">
+<screeninfo
+>نافذة تخصيص الاختصارات</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="shortcuts-search.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>نافذة تخصيص الاختصارات.</phrase
+></textobject>
+<caption
+><para
+>البحث عن الاختصارات باستخدام <userinput
+>file</userinput
+> في <ulink url="https://kde.org/applications/system/dolphin/"
+>دولفين</ulink
+>. </para
+></caption>
+</mediaobject>
+</screenshot>
+
+</sect2>
+
+<sect2 id="shortcuts-change">
+<title
+>تغيير اختصار</title>
+
+<para
+>لتغيير اختصار، انقر أولاً على اسم الاختصار المراد تغييره. ستظهر مجموعة أزرار اختيار حيث يمكن اختيار إما تعيين الاختصار إلى قيمته المبدئية، أو اختيار اختصار جديد للإجراء المحدد. لتعيين اختصار جديد، اختر <guilabel
+>مخصص</guilabel
+> وانقر على الزر المجاور له. ثم اكتب الاختصار الذي ترغب في استخدامه، وستُحفظ التغييرات.</para>
+
+<screenshot id="screenshot-shortcuts-set">
+<screeninfo
+>تعيين اختصار</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="shortcuts-set.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>نافذة تخصيص الاختصارات توضح كيفية تعيين اختصار.</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+</sect2>
+
+<sect2 id="shortcuts-reset">
+<title
+>تصفير الاختصارات</title>
+<para
+>يوجد زر في أسفل النافذة يسمى <guibutton
+>القيم المبدئية</guibutton
+>. سيؤدي النقر على هذا الزر إلى إعادة تعيين جميع الاختصارات المخصصة إلى قيمها المبدئية.</para>
+
+<para
+>يمكن أيضًا إعادة تعيين اختصار فردي إلى قيمته المبدئية باختياره، واختيار زر الاختيار <guilabel
+>مبدئي</guilabel
+>.</para>
+
+</sect2>
+
+<sect2 id="shortcuts-delete">
+<title
+>إزالة اختصار</title>
+
+<para
+>لإزالة اختصار، اختره من القائمة، ثم انقر على أيقونة الإزالة (سهم أسود عليه علامة ضرب) الموجودة على يمين الزر الذي يسمح باختيار اختصار.</para>
+
+</sect2>
+
+<sect2 id ="shortcuts-schemes">
+<title
+>العمل مع المخطّطات</title>
+
+<para
+>المخطّطات هي تشكيلات ضبط لاختصارات لوحة المفاتيح، وهي تتيح لك إنشاء عدّة تشكيلات باختصارات مختلفة والتّبديل بينها بسهولة.</para>
+
+<screenshot id="screenshot-shortcuts-schemes">
+<screeninfo
+>العمل مع المخطّطات</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="shortcuts-schemes.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>نافذة تخصيص الاختصارات تعرض أدوات تحرير المخططات.</phrase
+></textobject>
+<caption
+><para
+>تحرير تشكيلة تسمى <userinput
+>عمل</userinput
+>.</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+>لرؤية قائمة تتيح تحرير التشكيلات، انقر على زر <guibutton
+>أدر التشكيلات</guibutton
+> في أسفل النموذج. ستظهر الخيارات التالية:</para>
+
+<variablelist>
+
+<varlistentry>
+<term
+><guilabel
+>المخطّط الحاليّ</guilabel
+></term>
+<listitem
+><para
+>يتيح لك التّبديل بين المخطّطات لديك.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guibutton
+>جديد...</guibutton
+></term>
+<listitem
+><para
+>يُنشئ مخطّطًا جديدًا. يفتح هذا الزرّ نافذة فيها يمكنك اختيار اسم للمخطّط الجديد.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guibutton
+>احذف</guibutton
+></term>
+<listitem
+><para
+>يحذف المخطّط الحاليّ</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guibutton
+>إجراءات أخرى</guibutton
+></term>
+<listitem>
+<para
+>يفتح القائمة التالية:</para>
+<variablelist>
+
+<varlistentry>
+<term
+><guimenuitem
+>احفظ الاختصارات في مخطّط</guimenuitem
+></term>
+<listitem
+><para
+>يحفظ الاختصارات الحاليّة في المخطّط الحاليّ.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guimenuitem
+>صدّر المخطّط...</guimenuitem
+></term>
+<listitem
+><para
+>يصدّر المخطّط الحاليّ إلى ملفّ.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guimenuitem
+>استورد مخطّطًا...</guimenuitem
+></term>
+<listitem
+><para
+>يستورد مخطّطًا من ملفّ.</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+<sect2 id="shortcuts-print">
+<title
+>طباعة الاختصارات</title>
+
+<para
+>يمكن طباعة قائمة الاختصارات لسهولة الرجوع إليها بنقر زر <guibutton
+>اطبع</guibutton
+> في أسفل النافذة.</para>
+
+</sect2>
+
+<sect2 id="shortcuts-ack">
+<title
+>شكرٌ وتقدير</title>
+
+<para
+>شكر خاص لمشارك مسابقة جوجل كود-إن 2011 Alexey Subach لكتابة معظم هذا القسم.</para>
+
+</sect2>
+
+</sect1>
+
+</chapter>

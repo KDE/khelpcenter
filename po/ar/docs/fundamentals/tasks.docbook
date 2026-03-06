@@ -1,0 +1,1843 @@
+<chapter id="tasks">
+<title
+>المهمات الشائعة</title>
+
+<!--FIXME add Scanning here?-->
+<sect1 id="nav">
+<sect1info>
+<authorgroup>
+<author
+>&TC.Hollingsworth; &TC.Hollingsworth.mail;</author>
+<othercredit role="translator"
+><firstname
+>زايد</firstname
+><surname
+>السعيدي</surname
+><affiliation
+><address
+><email
+>zayed.alsaidi@gmail.com</email
+></address
+></affiliation
+><contrib
+>التّرجمة العربيّة</contrib
+></othercredit
+> 
+</authorgroup>
+</sect1info>
+<title
+>التنقّل في المستندات</title>
+<!-- FIXME
+Add auto scroll feature Konqueror with KHTML/Okular/more apps here?
+automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
+-->
+<sect2 id="nav-scroll">
+<title
+>التمرير</title>
+
+<para
+>ربما أنت معتاد على شريط التمرير الذي يظهر على الجانب الأيمن (وأحيانًا في الأسفل) للمستندات، مما يسمح لك بالتنقل داخلها. ومع ذلك، توجد عدة طرق أخرى يمكنك من خلالها التنقل في المستندات، وبعضها أسرع وأسهل.</para>
+
+<para
+>تمتلك عدة فئران عجلة في المنتصف. يمكنك تحريكها للأعلى والأسفل للتمرير داخل المستند. إذا ضغطت على مفتاح &Shift; أثناء استخدام عجلة الفأرة، فسيُمرر المستند بشكل أسرع.</para>
+
+<para
+>إذا كنت تستخدم حاسوبًا محمولًا، فقد تتمكن أيضًا من التمرير باستخدام لوحة اللمس. تسمح بعض الحواسيب بالتمرير رأسيًا عن طريق تحريك إصبعك للأعلى والأسفل على الجانب الأيمن من لوحة اللمس، وتسمح بالتمرير أفقيًا عن طريق تحريك إصبعك عبر الجانب السفلي من لوحة اللمس. تتيح حواسيب أخرى التمرير باستخدام إصبعين: حرك كلا الإصبعين للأعلى والأسفل في أي مكان على لوحة اللمس للتمرير رأسيًا، وحركهما يسارًا ويمينًا للتمرير أفقيًا. وبما أن هذه الوظيفة تحاكي وظيفة عجلة الفأرة الموضحة أعلاه، يمكنك أيضًا الضغط على مفتاح &Shift; أثناء القيام بذلك للتمرير بشكل أسرع.</para>
+
+<para
+>إذا كنت تستخدم مساحات عمل بلازما، يمكنك التحكم في سلوك عجلة الفأرة في <ulink url="help:/kcontrol/mouse/"
+>وحدة الفأرة في إعدادات النظام</ulink
+>، ويمكنك التحكم في سلوك تمرير لوحة اللمس في وحدة لوحة اللمس في إعدادات النظام. بخلاف ذلك، ابحث في منطقة الضبط الخاصة بنظام التشغيل أو بيئة سطح المكتب لديك.</para>
+
+<para
+>بالإضافة إلى ذلك، يحتوي شريط التمرير على خيارات متعددة في قائمته السياقية. يمكنك الوصول إليها بالنقر بزر الفأرة الأيمن في أي مكان على شريط التمرير. تتوفر الخيارات التالية:</para>
+
+<variablelist>
+
+<varlistentry id="nav-scroll-here">
+<term
+><guimenuitem
+>مرر هنا</guimenuitem
+></term>
+<listitem
+><para
+>التمرير مباشرة إلى الموقع الذي يمثله المكان الذي نقرت فيه بزر الفأرة الأيمن على شريط التمرير. وهذا يعادل مجرد النقر على ذلك الموقع في شريط التمرير.</para
+></listitem>
+</varlistentry>
+
+<varlistentry id="nav-scroll-top">
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Home</keycap
+></keycombo
+></shortcut
+> <guimenuitem
+>الأعلى</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>الذهاب إلى بداية المستند.</para
+></listitem>
+</varlistentry>
+
+<varlistentry id="nav-scroll-bottom">
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>End</keycap
+></keycombo
+></shortcut
+> <guimenuitem
+>الأسفل</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>الذهاب إلى نهاية المستند.</para
+></listitem>
+</varlistentry>
+
+<varlistentry id="nav-scroll-page-up">
+<term
+><menuchoice
+><shortcut
+><keycap
+>PgUp</keycap
+></shortcut
+> <guimenuitem
+>صفحة للأعلى</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>التنقل إلى الصفحة السابقة في مستند يمثل مستندًا مطبوعًا، أو شاشة واحدة للأعلى في أنواع المستندات الأخرى.</para
+></listitem>
+</varlistentry>
+
+<varlistentry id="nav-scroll-page-down">
+<term
+><menuchoice
+><shortcut
+><keycap
+>PgDn</keycap
+></shortcut
+> <guimenuitem
+>صفحة للأسفل</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>التنقل إلى الصفحة التالية في مستند يمثل مستندًا مطبوعًا، أو شاشة واحدة للأسفل في أنواع المستندات الأخرى. </para
+></listitem>
+</varlistentry>
+
+<varlistentry id="nav-scroll-up">
+<term
+><guilabel
+>تمرير للأعلى</guilabel
+></term>
+<listitem
+><para
+>التمرير للأعلى بمقدار وحدة واحدة (عادةً ما تكون سطرًا) في المستند. وهذا يعادل النقر على سهم الأعلى في قمة شريط التمرير.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="nav-scroll-down">
+<term
+><guilabel
+>تمرير للأسفل</guilabel
+></term>
+<listitem
+><para
+>التمرير للأسفل بمقدار وحدة واحدة (عادةً ما تكون سطرًا) في المستند. وهذا يعادل النقر على سهم الأسفل في قاع شريط التمرير.</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect2>
+
+<sect2 id="nav-zoom">
+<title
+>التقريب</title>
+
+<para
+>تسمح العديد من التطبيقات بالتقريب. يجعل هذا النص أو الصورة التي تعرضها أكبر أو أصغر. يمكنك عمومًا العثور على وظيفة التقريب في <link linkend="menus-view"
+>قائمة عرض</link
+>، وأحيانًا في شريط حالة التطبيق.</para>
+
+<para
+>يمكنك أيضًا التقريب باستخدام لوحة المفاتيح بالضغط على <keycombo action="simul"
+>&Ctrl;<keycap
+>+</keycap
+></keycombo
+> للتقريب، أو <keycombo action="simul"
+>&Ctrl;<keycap
+>-</keycap
+></keycombo
+> للتبعيد. إذا كان بإمكانك التمرير بعجلة الفأرة أو لوحة اللمس كما هو موضح في <xref linkend="nav-scroll"/>، يمكنك أيضًا التقريب بالضغط على &Ctrl; والتمرير بهذه الطريقة.</para>
+
+</sect2>
+
+</sect1>
+
+ <!--FIXME  Ctrl+Left Mouse Button or Shift+Left Mouse Button to select multiple files-->
+<sect1 id="files">
+<sect1info>
+<authorgroup>
+<author
+>&TC.Hollingsworth; &TC.Hollingsworth.mail;</author>
+<othercredit role="translator"
+><firstname
+>زايد</firstname
+><surname
+>السعيدي</surname
+><affiliation
+><address
+><email
+>zayed.alsaidi@gmail.com</email
+></address
+></affiliation
+><contrib
+>التّرجمة العربيّة</contrib
+></othercredit
+> 
+</authorgroup>
+</sect1info>
+<title
+>فتح وحفظ الملفات</title>
+
+<sect2 id="files-intro">
+<title
+>مقدمة</title>
+
+<para
+>تعمل العديد من تطبيقات كيدي مع الملفات. تحتوي معظم التطبيقات على قائمة <guimenu
+>ملف</guimenu
+> مع خيارات تسمح لك بفتح وحفظ الملفات. لمزيد من المعلومات حول ذلك، انظر <xref linkend="menus-file"/>. ومع ذلك، توجد الكثير من العمليات المختلفة التي تتطلب اختيار ملف. وبغض النظر عن الطريقة، تستخدم جميع تطبيقات كيدي عمومًا نافذة اختيار الملفات نفسها.</para>
+
+<screenshot id="screenshot-files-open">
+<screeninfo
+>نافذة فتح الملفات</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="files-open.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>نافذة فتح الملفات.</phrase
+></textobject>
+<caption
+><para
+>فتح ملف في <ulink url="https://www.kde.org/applications/internet/konqueror/"
+>كونكرر</ulink
+>. </para
+></caption>
+</mediaobject>
+</screenshot>
+
+</sect2>
+
+<sect2 id="files-ui">
+<title
+>نافذة اختيار الملفات</title>
+
+<!--large portions of this section were taken from the "Filesystem Browser"
+    section of kate/plugins.docbook (kde-baseapps/kate_plugins.po)           -->
+
+<variablelist>
+
+<varlistentry id="files-ui-toolbar">
+<term
+>شريط الأدوات</term>
+<listitem>
+<para
+>يحتوي هذا على أزرار أدوات التنقل القياسية:</para>
+
+<variablelist>
+<varlistentry id="files-ui-toolbar-back">
+<term
+><guibutton
+>للخلف</guibutton
+></term>
+<listitem
+><para
+>يؤدي لتغيير عرض المجلد إلى المجلد المعروض سابقًا في تاريخه. يُعطل هذا الزر إذا لم يوجد عنصر سابق. </para
+></listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-toolbar-forward">
+<term
+><guibutton
+>للأمام</guibutton
+></term>
+<listitem
+><para
+>يؤدي لتغيير عرض المجلد إلى المجلد التالي في تاريخه. يُعطل هذا الزر إذا لم يوجد مجلد تالٍ.</para
+></listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-toolbar-parent">
+<term
+><guibutton
+>المجلد الأب</guibutton
+></term>
+<listitem
+><para
+>سيؤدي هذا لتغيير عرض المجلد إلى المجلد الأب المباشر للمجلد المعروض حاليًا، إن أمكن.</para
+></listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-toolbar-reload">
+<term
+><guibutton
+>أعد التحميل</guibutton
+> (<keycap
+>F5</keycap
+>)</term>
+<listitem
+><para
+>يُعيد تحميل عرض المجلد، مع عرض أي تغييرات أُجريت منذ تحميله لأول مرة أو آخر إعادة تحميل.</para
+></listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-toolbar-show-preview">
+<term
+><guibutton
+>أظهر المعاينة</guibutton
+></term>
+<listitem
+><para
+>يعرض معاينة لكل ملف داخل عرض المجلد. </para
+></listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-toolbar-zoom">
+<term
+>منزلق التقريب</term>
+<listitem
+><para
+>يسمح لك هذا بتغيير حجم الأيقونة أو المعاينة المعروضة في عرض المجلد.</para
+></listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-toolbar-options">
+<term
+><guibutton
+>خيارات</guibutton
+></term>
+<listitem>
+<variablelist>
+
+<varlistentry id="files-ui-toolbar-options-sorting">
+<term
+><menuchoice
+><guimenu
+>خيارات</guimenu
+><guisubmenu
+>الفرز</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<variablelist>
+
+<varlistentry id="files-ui-toolbar-options-sorting-name">
+<term
+><menuchoice
+><guimenu
+>خيارات</guimenu
+><guisubmenu
+>الفرز</guisubmenu
+> <guimenuitem
+>حسب الاسم</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>فرز الملفات المدرجة في عرض المجلد أبجديًا حسب الاسم. </para
+></listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-toolbar-options-sorting-size">
+<term
+><menuchoice
+><guimenu
+>خيارات</guimenu
+><guisubmenu
+>الفرز</guisubmenu
+> <guimenuitem
+>حسب الحجم</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>فرز الملفات المدرجة في عرض المجلد وفقًا لحجم ملفاتها.</para
+></listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-toolbar-options-sorting-date">
+<term
+><menuchoice
+><guimenu
+>خيارات</guimenu
+><guisubmenu
+>الفرز</guisubmenu
+> <guimenuitem
+>حسب التاريخ</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>فرز الملفات المدرجة في عرض المجلد حسب تاريخ آخر تعديل لها. </para
+></listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-toolbar-options-sorting-type">
+<term
+><menuchoice
+><guimenu
+>خيارات</guimenu
+><guisubmenu
+>الفرز</guisubmenu
+> <guimenuitem
+>حسب النوع</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>فرز الملفات المدرجة في عرض المجلد أبجديًا حسب نوع ملفاتها.</para
+></listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-toolbar-options-sorting-descending">
+<term
+><menuchoice
+><guimenu
+>خيارات</guimenu
+><guisubmenu
+>الفرز</guisubmenu
+> <guimenuitem
+>تنازلي</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>عند عدم تحديده (المبدئي)، ستُفرز الملفات في عرض المجلد بترتيب تصاعدي. (على سبيل المثال، ستُفرز الملفات المفروزة أبجديًا من أ إلى ي، بينما ستُفرز الملفات المفروزة رقميًا من الأصغر إلى الأكبر). وعند تحديده، ستُفرز الملفات في المجلد بترتيب تنازلي (عكسي).</para
+></listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-toolbar-options-sorting-folders-first">
+<term
+><menuchoice
+><guimenu
+>خيارات</guimenu
+><guisubmenu
+>الفرز</guisubmenu
+> <guimenuitem
+>المجلدات أولًا</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>عند تمكينه (المبدئي)، ستظهر المجلدات قبل الملفات العادية.</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+</listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-toolbar-options-view">
+<term
+><menuchoice
+><guimenu
+>خيارات</guimenu
+><guisubmenu
+>عرض</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<variablelist>
+
+<varlistentry id="files-ui-toolbar-options-view-short">
+<term
+><menuchoice
+><guimenu
+>خيارات</guimenu
+><guisubmenu
+>عرض</guisubmenu
+> <guimenuitem
+>عرض قصير</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>يعرض أسماء الملفات فقط.</para
+></listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-toolbar-options-view-detailed">
+<term
+><menuchoice
+><guimenu
+>خيارات</guimenu
+><guisubmenu
+>عرض</guisubmenu
+> <guimenuitem
+>عرض مفصل</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>يعرض <guilabel
+>الاسم</guilabel
+> و<guilabel
+>التاريخ</guilabel
+> و<guilabel
+>الحجم</guilabel
+> للملفات.</para
+></listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-toolbar-options-view-tree">
+<term
+><menuchoice
+><guimenu
+>خيارات</guimenu
+><guisubmenu
+>عرض</guisubmenu
+> <guimenuitem
+>عرض شجري</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>مثل العرض القصير، ولكن يمكن توسيع المجلدات لعرض محتوياتها.</para
+></listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-toolbar-options-view-detailed-tree">
+<term
+><menuchoice
+><guimenu
+>خيارات</guimenu
+><guisubmenu
+>عرض</guisubmenu
+> <guimenuitem
+>عرض شجري مفصل</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>يسمح هذا أيضًا بتوسيع المجلدات، ولكنه يعرض الأعمدة الإضافية المتوفرة في العرض المفصل.</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+</listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-toolbar-options-hidden">
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Alt;<keycap
+>.</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>خيارات</guimenu
+><guimenuitem
+>أظهر الملفات المخفية</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>يعرض الملفات أو المجلدات المخفية عادة بواسطة نظام التشغيل لديك. الاختصار البديل لهذا الإجراء هو <keycap
+>F8</keycap
+>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-toolbar-options-show-places">
+<term
+><menuchoice
+><shortcut
+><keycap
+>F9</keycap
+></shortcut
+> <guimenu
+>خيارات</guimenu
+><guimenuitem
+>أظهر لوحة تنقل الأماكن</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>يعرض لوحة الأماكن التي توفر وصولًا سريعًا للمواقع المحفوظة في العلامات والأقراص أو الوسائط الأخرى.</para
+></listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-toolbar-options-show-bookmarks">
+<term
+><menuchoice
+><guimenu
+>خيارات</guimenu
+><guimenuitem
+>أظهر العلامات</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>يعرض أيقونة إضافية في شريط الأدوات توفر الوصول إلى "العلامات"، وهي قائمة بالمواقع المحفوظة.</para
+></listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-toolbar-options-show-preview">
+<term
+><menuchoice
+><guimenu
+>خيارات</guimenu
+><guimenuitem
+>أظهر معاينة جانبية</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>يعرض معاينة للملف المظلل حاليًا إلى يمين عرض المجلد.</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+</listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-toolbar-bookmarks">
+<term
+><guibutton
+>علامات</guibutton
+></term>
+<listitem
+><para
+>يفتح قائمة فرعية لتحرير أو إضافة العلامات ولإضافة مجلد علامات جديد.</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+</listitem>
+</varlistentry>
+
+<!--adapted from dolphin documentation-->
+<varlistentry id="files-ui-location">
+<term
+>شريط الموقع</term>
+<listitem>
+<para
+>شريط الموقع، الذي يمكن العثور عليه في الجزء العلوي من عرض المجلد، يعرض المسار إلى المجلد الحالي. لشريط الموقع وضعان:</para>
+
+<variablelist>
+<varlistentry id="files-ui-location-breadcrumb">
+<term
+>وضع فتات الخبز</term>
+<listitem>
+<para
+>في وضع "فتات الخبز"، وهو الوضع المبدئي، يكون كل اسم مجلد في المسار إلى المجلد الحالي عبارة عن زر يمكن النقر عليه لفتح ذلك المجلد بسرعة. علاوة على ذلك، فإن النقر فوق علامة "
+>" الموجودة على يمين المجلد يفتح قائمة تسمح بفتح مجلد فرعي لذلك المجلد بسرعة. </para>
+
+<screenshot id="screenshot-files-locationbar-breadcrumb">
+<screeninfo
+>لقطة شاشة لشريط الموقع في وضع فتات الخبز</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="files-locationbar-breadcrumb.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>شريط الموقع في وضع فتات الخبز.</phrase>
+</textobject>
+<caption
+><para
+>شريط الموقع في وضع فتات الخبز.</para
+></caption>
+</mediaobject>
+</screenshot>
+
+</listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-location-editable">
+<term
+>الوضع القابل للتحرير</term>
+<listitem>
+<para
+>عندما تكون في وضع فتات الخبز، فإن النقر في المنطقة الرمادية على يمين المسار بزر الفأرة الأيسر يحول شريط الموقع إلى الوضع "القابل للتحرير"، حيث يمكن تحرير المسار باستخدام لوحة المفاتيح. للعودة إلى وضع فتات الخبز، انقر فوق علامة الاختيار الموجودة على يمين شريط الموقع بزر الفأرة الأيسر. </para>
+
+<screenshot>
+<screeninfo
+>لقطة شاشة لشريط الموقع في الوضع القابل للتحرير</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="files-locationbar-editable.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>شريط الموقع في الوضع القابل للتحرير.</phrase>
+</textobject>
+<caption
+><para
+>شريط الموقع في الوضع القابل للتحرير.</para
+></caption>
+</mediaobject>
+</screenshot>
+
+</listitem>
+</varlistentry>
+
+<!--currently in dolphin only, should be added to the file dialog when  this is implemented there 4.9/10?
+<varlistentry id="files-ui-location-context">
+<term
+>Places</term>
+
+<listitem>
+<para
+>If the <guilabel
+>Places</guilabel
+> panel is hidden; in both modes an
+additional icon in front of the path is displayed. This icon can be clicked with
+the &LMB; to open a menu which offers quick access to <quote
+>places</quote
+> and
+storage media. See the <link linkend="files-ui-places"
+>section about the Places
+Panel</link
+> for details.</para>
+
+<screenshot id="screenshot-files-locationbar-places-icon">
+<screeninfo
+>Location bar with Places icon</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="files-locationbar-places-icon.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Location bar with Places icon</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+</listitem>
+</varlistentry
+>-->
+
+</variablelist>
+
+<para
+>توفر القائمة السياقية لشريط الموقع إجراءات للتبديل بين الأوضاع ونسخ المسار ولصقه باستخدام الحافظة. تحقق من الخيار الأخير في هذه القائمة السياقية لعرض إما المسار الكامل بدءًا من مجلد الجذر لنظام الملفات أو لعرض المسار بدءًا من إدخال الأماكن الحالي. </para>
+
+<screenshot id="screenshot-files-locationbar-context-menu">
+<screeninfo
+>القائمة السياقية لشريط الموقع</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="files-locationbar-context-menu.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>القائمة السياقية لشريط الموقع</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+</listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-places">
+<term
+>قائمة <guilabel
+>الأماكن</guilabel
+></term>
+<listitem
+><para
+>يوفر هذا قائمة الأماكن القياسية في كيدي، والمشاركة مع دولفين وأدوات إدارة الملفات الأخرى.</para
+></listitem>
+</varlistentry>
+<!-- add options for places here 
+e.g "Show only in" to have kind a bookmarks special for an application etc.
+how to add/edit entries, 
+mount/unmount devices 
+show/hide entries
+size changes via splitter moving, different in dolhin (context menu with 4 predefined icon sizes)
+  -->
+<varlistentry id="files-ui-folder-view">
+<term
+>عرض المجلد</term>
+<listitem>
+<para
+>الجزء الأكبر من نافذة اختيار الملفات هو المنطقة التي تسرد جميع العناصر في المجلد الحالي. لاختيار ملف، يمكنك النقر عليه نقرًا مزدوجًا، أو اختيار واحد والضغط على <guibutton
+>فتح</guibutton
+> أو <guibutton
+>حفظ</guibutton
+>.</para>
+<!-- FIXME select a file by typing the first letters of its name-->
+<para
+>يمكنك أيضًا تحديد ملفات متعددة في وقت واحد. لتحديد ملفات محددة، أو لإلغاء تحديد ملفات معينة محددة بالفعل، اضغط مع الاستمرار على &Ctrl;، وانقر فوق كل ملف، ثم حرر &Ctrl;. لتحديد مجموعة متجاورة من الملفات، انقر فوق الملف الأول، واضغط مع الاستمرار على &Shift;، ثم انقر فوق الملف الأخير في المجموعة، وحرر &Shift;.</para>
+
+<para
+>يدعم عرض المجلد مجموعة محدودة من عمليات الملفات، والتي يمكن الوصول إليها بالنقر بزر الفأرة الأيمن فوق ملف للوصول إلى قائمته السياقية، أو باستخدام اختصارات لوحة المفاتيح. تتوفر العناصر التالية في القائمة السياقية:</para>
+
+<variablelist>
+
+<varlistentry>
+<term
+><guimenuitem
+>أنشئ جديدًا...</guimenuitem
+></term>
+<listitem
+><para
+>إنشاء ملف أو مجلد جديد.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guimenuitem
+>انقل إلى المهملات...</guimenuitem
+> (<keycombo action="simul"
+><keycap
+>Del</keycap
+></keycombo
+>)</term>
+<listitem
+><para
+>نقل العنصر المحدد حاليًا إلى المهملات.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guisubmenu
+>الفرز</guisubmenu
+></term>
+<listitem
+><para
+>يمكن أيضًا الوصول إلى هذه القائمة الفرعية من شريط الأدوات، وهي موصوفة في <xref linkend="files-ui-toolbar-options-sorting"/>.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guisubmenu
+>عرض</guisubmenu
+></term>
+<listitem
+><para
+>يمكن أيضًا الوصول إلى هذه القائمة الفرعية من شريط الأدوات، وهي موصوفة في <xref linkend="files-ui-toolbar-options-view"/>.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guimenuitem
+>افتح مدير الملفات</guimenuitem
+></term>
+<listitem
+><para
+>يفتح المجلد الحالي في تطبيق مدير الملفات المبدئي لديك.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guimenuitem
+>خصائص</guimenuitem
+> (<keycombo action="simul"
+>&Alt;&Enter;</keycombo
+>)</term>
+<listitem
+><para
+>فتح نافذة الخصائص التي تتيح لك عرض وتعديل أنواع مختلفة من البيانات الوصفية المتعلقة بالملف المحدد حاليًا.</para
+></listitem>
+</varlistentry>
+<!-- FIXME http://www.aelog.org/checksums-made-easy -->
+</variablelist>
+</listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-preview">
+<term
+>جزء المعاينة</term>
+<listitem
+><para
+>إذا تم تمكينه، سيعرض هذا معاينة للملف المظلل حاليًا.</para
+></listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-name">
+<term
+>إدخال <guilabel
+>الاسم</guilabel
+></term>
+<listitem
+><para
+>عند تحديد ملف، سيظهر اسم في مربع النص هذا. يمكنك أيضًا إدخال اسم ملف أو مساره يدويًا في مربع النص هذا.</para
+></listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-filter">
+<term
+>إدخال <guilabel
+>المرشح</guilabel
+></term>
+<listitem>
+<para
+>عند فتح ملف، يسمح لك إدخال <guilabel
+>المرشح</guilabel
+> بإدخال مرشح للملفات المعروضة في عرض المجلد. يستخدم المرشح الأنماط القياسية؛ ويجب فصل الأنماط بمسافة بيضاء. على سبيل المثال، يمكنك إدخال <userinput
+>*.cpp *.h *.moc</userinput
+> لعرض ملفات برمجة Qt الشائعة المختلفة.</para>
+
+<para
+>لعرض كافة الملفات، أدخل علامة نجمة واحدة (<userinput
+>*</userinput
+>).</para>
+
+<para
+>يحفظ إدخال المرشح آخر 10 مرشحات أُدخلت بين الجلسات. لاستخدام أحدها، اضغط على زر السهم الموجود على يمين الإدخال واختر نص المرشح المطلوب. يمكنك تعطيل المرشح بالضغط على زر <guibutton
+>امسح النص</guibutton
+> الموجود على يسار زر سهم الإكمال الآلي.</para>
+
+<para
+>عند حفظ ملف، سيعرض إدخال <guilabel
+>المرشح</guilabel
+> بدلاً من ذلك مربعًا منسدلاً يسمح لك بالاختيار من بين جميع أنواع الملفات التي يدعمها التطبيق. اختر واحدًا لحفظ الملف بهذا التنسيق.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-autoselect-extension">
+<term
+><guilabel
+>اختر امتداد اسم الملف آليًا</guilabel
+></term>
+<listitem
+><para
+>عند حفظ ملف، سيظهر مربع الاختيار هذا. عند تحديده (المبدئي)، سيقوم التطبيق آليًا بإلحاق امتداد الملف المبدئي لنوع الملف المحدد بنهاية اسم الملف، إذا لم يكن يظهر بالفعل في إدخال <guilabel
+>الاسم</guilabel
+>. يدرج امتداد الملف الذي سيُستخدم بين قوسين في نهاية تسمية مربع الاختيار. </para>
+
+<screenshot id="screenshot-files-save">
+<screeninfo
+>نافذة حفظ الملف</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="files-save.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>نافذة حفظ الملف.</phrase
+></textobject>
+<caption
+><para
+>حفظ ملف في <ulink url="https://www.kde.org/applications/internet/konqueror/"
+>كونكرر</ulink
+>. </para
+></caption>
+</mediaobject>
+</screenshot>
+
+</listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-open-save">
+<term
+>زر <guibutton
+>فتح</guibutton
+> أو <guibutton
+>حفظ</guibutton
+></term>
+<listitem
+><para
+>اعتمادًا على الإجراء الذي يُنفذ، سيُعرض زر <guibutton
+>فتح</guibutton
+> أو <guibutton
+>حفظ</guibutton
+>. سيؤدي النقر فوق هذا الزر إلى إغلاق نافذة اختيار الملفات وتنفيذ الإجراء المطلوب.</para
+></listitem>
+</varlistentry>
+
+<varlistentry id="files-ui-cancel">
+<term
+>زر <guibutton
+>ألغِ</guibutton
+></term>
+<listitem
+><para
+>سيؤدي النقر فوق <guibutton
+>ألغِ</guibutton
+> إلى إغلاق مربع حوار الملف دون تنفيذ أي إجراء.</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect2>
+
+<sect2 id="files-ack">
+<title
+>شكر وتقدير</title>
+
+<para
+>شكر خاص للمشارك في Google Code-In 2011 Alexey Subach لكتابة أجزاء من هذا القسم.</para>
+
+</sect2>
+
+</sect1>
+
+
+<sect1 id="spellcheck">
+<sect1info>
+<authorgroup>
+<author
+>&David.Sweet; &David.Sweet.mail;</author>
+<author
+><firstname
+>سلمى</firstname
+> <surname
+>سلطانة</surname
+></author>
+<author
+>&TC.Hollingsworth; &TC.Hollingsworth.mail;</author>
+<othercredit role="translator"
+><firstname
+>زايد</firstname
+><surname
+>السعيدي</surname
+><affiliation
+><address
+><email
+>zayed.alsaidi@gmail.com</email
+></address
+></affiliation
+><contrib
+>التّرجمة العربيّة</contrib
+></othercredit
+> 
+</authorgroup>
+</sect1info>
+<title
+>دقّق الإملاء</title>
+
+<para
+>&sonnet; هو مدقق الإملاء المستخدم بواسطة تطبيقات كيدي مثل كيت، وكي ميل، وكلمات كاليجرا. إنه واجهة رسومية لمدققات إملائية حرة متنوعة.</para>
+
+<para
+>لاستخدام &sonnet;، تحتاج إلى تثبيت مدقق إملائي مثل <application
+>GNU Aspell</application
+>، أو <application
+>Hspell</application
+> أو <application
+>Hunspell</application
+> وبالإضافة إلى القواميس المقابلة للغات التي ترغب في استخدامها.</para>
+
+<sect2 id="spellcheck-check">
+<title
+>دقّق الإملاء</title>
+
+<screenshot id="screenshot-spellcheck-check">
+<screeninfo
+>نافذة تدقيق الإملاء</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="spellcheck-check.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>نافذة تدقيق الإملاء.</phrase>
+</textobject>
+<caption
+><para
+>تصحيح خطأ إملائي.</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+>لتدقيق الإملاء، اذهب إلى <menuchoice
+><guimenu
+>أدوات</guimenu
+> <guimenuitem
+>الإملاء...</guimenuitem
+></menuchoice
+>.</para>
+
+<para
+>إذا كانت هناك كلمة من المحتمل أن يكون بها خطأ إملائي في مستندك، فستُعرض في السطر العلوي في مربع الحوار. يحاول &sonnet; توفير كلمات مناسبة للاستبدال. ويُعرض أفضل تخمين على يمين <guilabel
+>استبدل بـ</guilabel
+>. لقبول هذا الاستبدال، انقر فوق <guibutton
+>استبدل</guibutton
+>.</para>
+
+<para
+>يسمح لك &sonnet; أيضًا باختيار كلمة من قائمة الاقتراحات واستبدال الكلمة التي بها خطأ إملائي بتلك الكلمة المختارة. وبمساعدة زر <guibutton
+>اقترح</guibutton
+>، يمكنك إضافة المزيد من الاقتراحات من القاموس إلى قائمة الاقتراحات.</para>
+
+<para
+>انقر فوق <guibutton
+>تجاهل</guibutton
+> للاحتفاظ بإملائك الأصلي.</para>
+
+<para
+>انقر فوق <guibutton
+>أُنهي</guibutton
+> لإيقاف تدقيق الإملاء و<emphasis
+>الاحتفاظ</emphasis
+> بالتغييرات التي أُجريت.</para>
+
+<para
+>انقر فوق <guibutton
+>ألغِ</guibutton
+> لإيقاف تدقيق الإملاء و<emphasis
+>إلغاء</emphasis
+> التغييرات التي أُجريت بالفعل.</para>
+
+<para
+>انقر فوق <guibutton
+>استبدل الكل</guibutton
+> لاستبدال الكلمات التي بها أخطاء إملائية آليًا بكلمة الاستبدال المختارة، إذا ظهرت مرة أخرى في مستندك لاحقًا.</para>
+
+<para
+>انقر فوق <guibutton
+>تجاهل الكل</guibutton
+> لتجاهل الإملاء في تلك النقطة وجميع التكرارات المستقبلية للكلمة المكتوبة بشكل خاطئ.</para>
+
+<para
+>انقر فوق <guibutton
+>أضف إلى القاموس</guibutton
+> لإضافة الكلمة المكتوبة بشكل خاطئ إلى قاموسك الشخصي.</para>
+
+<para
+>يعد <guilabel
+>القاموس الشخصي</guilabel
+> قاموسًا متميزًا عن قاموس النظام ولن يرى الآخرون الإضافات التي تجريها.</para>
+
+<para
+>يسمح لك المربع المنسدل <guilabel
+>اللغة</guilabel
+> الموجود في الجزء السفلي من هذا المربع بالتبديل إلى قاموس آخر مؤقتًا.</para>
+
+</sect2>
+
+<sect2 id="spellcheck-auto">
+<title
+>تدقيق الإملاء الآلي</title>
+
+<!--FIXME:screenshot-->
+
+<para
+>في العديد من التطبيقات، يمكنك تدقيق الإملاء آليًا أثناء الكتابة. لتمكين هذه الميزة، اختر <menuchoice
+><guimenu
+>أدوات</guimenu
+> <guimenuitem
+>تدقيق إملائي آلي</guimenuitem
+></menuchoice
+>.</para>
+
+<para
+>سيوضع خط أحمر تحت الكلمات التي يحتمل أن تكون بها أخطاء إملائية. لاختيار اقتراح، انقر بزر الفأرة الأيمن فوق الكلمة، واختر القائمة الفرعية <guisubmenu
+>الإملاء</guisubmenu
+>، ثم اختر الاقتراح. يمكنك أيضًا توجيه &sonnet; لتجاهل هذا الإملاء لهذا المستند عن طريق اختيار <guimenuitem
+>تجاهل الكلمة</guimenuitem
+>، أو يمكنك اختيار <guimenuitem
+>أضف إلى القاموس</guimenuitem
+> لحفظها في قاموسك الشخصي.</para>
+
+</sect2>
+
+<sect2 id="spellcheck-config">
+<title
+>ضبط &sonnet;</title>
+
+<para
+>لتغيير قاموسك، اذهب إلى <menuchoice
+><guimenu
+>أدوات</guimenu
+> <guimenuitem
+>غير القاموس...</guimenuitem
+></menuchoice
+>. ستظهر نافذة صغيرة في الجزء السفلي من المستند الحالي تسمح لك بتغيير قاموسك.</para>
+
+<!--FIXME: maybe move kcm handbook here too?-->
+<para
+>لمزيد من المعلومات حول ضبط &sonnet;، انظر <ulink url="help:/kcontrol/spellchecking"
+>توثيق وحدة مدقق الإملاء في إعدادات النظام</ulink
+></para>
+
+</sect2>
+
+<sect2 id="spellcheck-ack">
+<title
+>شكر وتقدير</title>
+
+<para
+>شكر خاص للمشاركة في Google Code-In 2011 سلمى سلطانة لكتابة الكثير من هذا القسم.</para>
+
+</sect2>
+
+</sect1>
+
+
+<sect1 id="find">
+<sect1info>
+<authorgroup>
+<author
+>&TC.Hollingsworth; &TC.Hollingsworth.mail;</author>
+<othercredit role="translator"
+><firstname
+>زايد</firstname
+><surname
+>السعيدي</surname
+><affiliation
+><address
+><email
+>zayed.alsaidi@gmail.com</email
+></address
+></affiliation
+><contrib
+>التّرجمة العربيّة</contrib
+></othercredit
+> 
+</authorgroup>
+</sect1info>
+<title
+>البحث والاستبدال</title>
+
+<!--FIXME
+different visual appearance, lot of common options for all Find/Search bars or windows
+Find window used in KMail Composer, where else?
+Search bar used e.g. in Konsole/Konqueror Views (readonly)
+Search+Replace bar in Kate/KWrite
+  -->
+<para
+>تتيح لك وظيفة "اعثر" في العديد من تطبيقات كيدي البحث عن نص محدد في المستند، بينما تسمح لك وظيفة "استبدل" باستبدال النص الذي عُثر عليه بنص مختلف تقدمه.</para>
+
+<para
+>يمكنك العثور على هاتين الوظيفتين في قائمة <guimenu
+>حرر</guimenu
+> بالعديد من تطبيقات كيدي. لمزيد من المعلومات حول هذه القائمة، انظر <xref linkend="menus-edit"/>.</para>
+
+<sect2 id="find-find">
+<title
+>وظيفة البحث</title>
+
+<para
+>تبحث وظيفة "اعثر" عن نص في المستند وتحدده.</para>
+
+<screenshot id="screenshot-find-find">
+<screeninfo
+>نافذة البحث</screeninfo>
+<!--FIXME find dialog is only used in sheets + kalarm, see https://lxr.kde.org/search?_filestring=&_string=kfinddialog.h-->
+<mediaobject>
+<imageobject
+><imagedata fileref="find-find.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>نافذة البحث.</phrase
+></textobject>
+<caption
+><para
+>البحث عن <userinput
+>income</userinput
+> في <ulink url="https://www.kde.org/applications/office/sheets/"
+>جداول كاليجرا</ulink
+>. </para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+>لاستخدام "اعثر" في العديد من التطبيقات، اذهب إلى <menuchoice
+><guimenu
+>حرر</guimenu
+> <guimenuitem
+>اعثر...</guimenuitem
+></menuchoice
+> أو اضغط على <keycombo action="simul"
+>&Ctrl;<keycap
+>F</keycap
+></keycombo
+>. ثم، في مربع نص <guilabel
+>نص للبحث عنه:</guilabel
+>، أدخل النص الذي تريد البحث عنه.</para>
+
+<para
+>إذا حُدد <guilabel
+>تعبير نمطي</guilabel
+>، فستتمكن من البحث باستخدام التعبيرات النمطية. انقر فوق <guibutton
+>حرر</guibutton
+> للاختيار من بين محارف التعبير النمطي الشائعة وإدخالها، مثل <guilabel
+>مسافة بيضاء</guilabel
+> أو <guilabel
+>بداية السطر</guilabel
+>. إذا كان كيت مثبتًا، يمكنك العثور على <ulink url="help:/katepart/regular-expressions.html"
+>مزيد من المعلومات حول كتابة التعبيرات النمطية في توثيقه</ulink
+>.</para>
+
+
+<para
+>يمكنك تحديد النتائج التي عُثر عليها بضبط هذه الخيارات:</para>
+<variablelist>
+
+<varlistentry>
+<term
+><guilabel
+>حساس لحالة الأحرف</guilabel
+></term>
+<listitem
+><para
+>تُعتبر الأحرف الكبيرة والصغيرة مختلفة. على سبيل المثال، إذا بحثت عن "This"، فلن تُرجع النتائج التي تحتوي على "this".</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>كلمات كاملة فقط</guilabel
+></term>
+<listitem
+><para
+>مبدئيًا، عندما يبحث التطبيق عن نص، فإنه سيرجع النتائج حتى في منتصف نصوص أخرى. على سبيل المثال، إذا بحثت عن "is" فإنه سيتوقف عند كل كلمة تحتوي على ذلك، مثل "th<emphasis
+>is</emphasis
+>" أو "h<emphasis
+>is</emphasis
+>tory". إذا حددت هذا الخيار، فسيرجع التطبيق النتائج فقط عندما يكون نص البحث كلمة بحد ذاتها، أي محاطة بمسافات بيضاء.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>من المؤشر</guilabel
+></term>
+<listitem
+><para
+>سيبدأ البحث من موقع المؤشر ويتوقف عند نهاية النص.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>بحث للخلف</guilabel
+></term>
+<listitem
+><para
+>مبدئيًا، يبحث التطبيق عن النص بدءًا من بداية المستند، وينتقل عبره إلى النهاية. إذا حددت هذا الخيار، فإنه سيبدأ بدلاً من ذلك من النهاية ويشق طريقه إلى البداية. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>النص المحدد</guilabel
+></term>
+<listitem
+><para
+>اختر هذا الخيار للبحث فقط في النص المحدد حاليًا، وليس المستند بأكمله. ويُعطل عندما لا يكون هناك نص محدد. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+<!--FIXME
+Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook + katepart/part.docbook
+  -->
+<para
+>تعرض العديد من التطبيقات شريط بحث بدلاً من نافذة البحث. انظر <ulink url="help:/katepart/kate-part-find-replace.html#finding-text"
+>توثيق مكون كيت</ulink
+> للحصول على معلومات إضافية حول شريط البحث.</para>
+
+<screenshot id="screenshot-find-find-inline">
+<screeninfo
+>شريط البحث في كيت.</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="find-find-inline.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>شريط البحث في كيت.</phrase
+></textobject>
+<caption
+><para
+>البحث عن <userinput
+>software</userinput
+> في شريط بحث كيت. </para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+>تحدد وظيفة البحث فقط المطابقة الأولى التي تعثر عليها. يمكنك مواصلة البحث عن طريق اختيار <menuchoice
+><guimenu
+>تحرير</guimenu
+><guimenuitem
+>اعثر على التالي</guimenuitem
+></menuchoice
+> أو بالضغط على <keycap
+>F3</keycap
+>.</para>
+
+<screenshot id="screenshot-find-found">
+<screeninfo
+>مثال على البحث</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="find-found.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>مثال على البحث.</phrase
+></textobject>
+<caption
+><para
+>يعرض كيت مطابقة لـ <userinput
+>KDE</userinput
+>. </para
+></caption>
+</mediaobject>
+</screenshot>
+
+</sect2>
+
+<sect2 id="find-replace">
+<title
+>وظيفة الاستبدال</title>
+
+<para
+>تبحث وظيفة الاستبدال عن نص في مستند وتستبدله بنص آخر. يمكنك العثور عليها في العديد من التطبيقات في <menuchoice
+><guimenu
+>حرر</guimenu
+><guisubmenu
+>استبدل...</guisubmenu
+></menuchoice
+> أو بالضغط على <keycombo action="simul"
+>&Ctrl;<keycap
+>R</keycap
+></keycombo
+>.</para>
+
+<screenshot id="screenshot-find-replace">
+<!--FIXME replace dialog is only used in sheets + kalarm, see https://lxr.kde.org/search?_filestring=&_string=kreplacedialog.h-->
+<screeninfo
+>نافذة الاستبدال</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="find-replace.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>نافذة الاستبدال.</phrase
+></textobject>
+<caption
+><para
+>استبدال <userinput
+>income</userinput
+> بـ <userinput
+>expense</userinput
+> في جداول كاليجرا</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+>تنقسم نافذة وظيفة الاستبدال إلى 3 أقسام:</para>
+<variablelist>
+
+<varlistentry>
+<term
+><guilabel
+>اعثر</guilabel
+></term>
+<listitem
+><para
+>هنا يمكنك إدخال النص الذي ترغب في البحث عنه. انظر <xref linkend="find-find"/> لمزيد من المعلومات حول الخيارات المتوفرة هنا. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>استبدل</guilabel
+></term>
+<listitem>
+<para
+>هنا يمكنك إدخال النص الذي ترغب في استبدال النص الذي عُثر عليه به.</para>
+
+<para
+>يمكنك إعادة استخدام النص الذي عُثر عليه في نص الاستبدال عن طريق تحديد مربع اختيار <guilabel
+>استخدم العناصر النائبة</guilabel
+>. العناصر النائبة، التي تُعرف أحيانًا بالمراجع الخلفية، هي تسلسل محارف خاص سيُستبدل بالنص الذي عُثر عليه بالكامل أو بجزء منه. على سبيل المثال، يمثل "\0" النص الكامل الذي عُثر عليه.</para>
+<para
+>يمكنك إدراج عناصر نائبة في مربع النص بالنقر فوق زر <guibutton
+>أدرج عنصرًا نائبًا</guibutton
+>، ثم اختيار خيار من القائمة مثل <guimenuitem
+>مطابقة كاملة</guimenuitem
+>. على سبيل المثال، إذا كنت تبحث عن "message" وتريد استبدالها بـ <guilabel
+>messages</guilabel
+>، فأدرج عنصر النائب <guimenuitem
+>مطابقة كاملة</guimenuitem
+> وأضف حرف "s". سيحتوي حقل الاستبدال بعد ذلك على "\0s".</para>
+
+<para
+>إذا كان كيت مثبتًا، يمكنك معرفة المزيد عن العناصر النائبة في <ulink url="help:/katepart/regular-expressions.html"
+>ملحق التعبيرات النمطية في توثيقه</ulink
+>.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>خيارات</guilabel
+></term>
+<listitem
+><para
+>يحتوي هذا على كافة الخيارات نفسها التي توفرها وظيفة <link linkend="find-find"
+>اعثر</link
+>، مع إضافة واحدة:</para>
+<para
+>إذا حُدد خيار <guilabel
+>اسأل عند الاستبدال</guilabel
+>، فستظهر نافذة عند كل كلمة يُعثر عليها، مما يسمح لك بتأكيد ما إذا كنت ترغب في استبدال النص الذي عُثر عليه.</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+<!--FIXME
+Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook + katepart/part.docbook
+  -->
+<para
+>تعرض العديد من التطبيقات شريط بحث واستبدال بدلاً من نافذة الاستبدال. انظر <ulink url="help:/katepart/kate-part-find-replace.html#replacing-text"
+>توثيق مكون كيت</ulink
+> للحصول على معلومات إضافية حول شريط البحث والاستبدال.</para>
+
+<screenshot id="screenshot-find-replace-inline"
+><!--FIXME update !!!-->
+<screeninfo
+>شريط البحث والاستبدال.</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="find-replace-inline.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>شريط البحث والاستبدال.</phrase
+></textobject>
+<caption
+><para
+>استبدال <userinput
+>kmail</userinput
+> بـ <userinput
+>kate</userinput
+> في شريط البحث والاستبدال في كيت</para
+></caption>
+</mediaobject>
+</screenshot>
+
+</sect2>
+
+<sect2 id="find-ack">
+<title
+>شكر وتقدير</title>
+<para
+>الشكر لمشارك مجهول في Google Code-In 2011 لكتابة الكثير من هذا القسم.</para>
+</sect2>
+
+</sect1>
+
+
+<sect1 id="fonts">
+<sect1info>
+<authorgroup>
+<author
+>&TC.Hollingsworth; &TC.Hollingsworth.mail;</author>
+<othercredit role="translator"
+><firstname
+>زايد</firstname
+><surname
+>السعيدي</surname
+><affiliation
+><address
+><email
+>zayed.alsaidi@gmail.com</email
+></address
+></affiliation
+><contrib
+>التّرجمة العربيّة</contrib
+></othercredit
+> 
+</authorgroup>
+</sect1info>
+<title
+>اختيار الخطوط</title>
+
+<para
+>يظهر منتقي الخطوط في العديد من تطبيقات كيدي المختلفة. يتيح لك اختيار وجه الخط، ونمط الخط، وحجم الخط للنص الذي يظهر في تطبيقك.</para>
+
+<screenshot id="screenshot-fonts">
+<screeninfo
+>منتقي الخط</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="fonts.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>منتقي الخط.</phrase
+></textobject>
+<caption
+><para
+>اختيار خط في <ulink url="help:/systemsettings"
+>إعدادات النظام</ulink
+>.</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<variablelist>
+
+<varlistentry>
+<term
+><guilabel
+>الخط</guilabel
+></term>
+<listitem
+><para
+>هذا هو مربع الاختيار الموجود في أقصى اليسار، ويتيح لك اختيار وجه الخط من قائمة الخطوط الموجودة على نظامك.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>نمط الخط</guilabel
+></term>
+<listitem>
+<para
+>هذا هو مربع الاختيار الأوسط، ويتيح لك اختيار نمط الخط من الخيارات التالية:</para>
+<itemizedlist>
+
+<listitem
+><para
+><guilabel
+>مائل</guilabel
+> - يعرض هذا النص بطريقة متصلة أو مائلة، ويُستخدم عادة للاقتباسات أو للتأكيد على النص. </para
+></listitem>
+
+<listitem
+><para
+><guilabel
+>عادي</guilabel
+> - المبدئي. يُعرض النص دون أي مظهر خاص.</para
+></listitem>
+
+<listitem
+><para
+><guilabel
+>عريض مائل</guilabel
+> - مزيج من كل من <guilabel
+>عريض</guilabel
+> و<guilabel
+>مائل</guilabel
+></para
+></listitem>
+
+<listitem
+><para
+><guilabel
+>عريض</guilabel
+> - يعرض هذا النص بطريقة أغمق وأكثر سمكًا، ويُستخدم عادةً لعناوين المستندات أو للتأكيد على النص.</para
+></listitem>
+
+</itemizedlist>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>الحجم</guilabel
+></term>
+<listitem
+><para
+>هذا هو مربع الاختيار الموجود في أقصى اليمين، ويتيح لك اختيار حجم النص. يُقاس حجم الخط بـ <emphasis
+>النقاط</emphasis
+>، وهي وحدة قياس قياسية في طباعة الحروف. لمزيد من المعلومات حول هذا الموضوع، انظر <ulink url="https://en.wikipedia.org/wiki/Point_(typography)"
+>مقالة "Point (typography)" على ويكيبيديا</ulink
+>.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>معاينة</term>
+<listitem
+><para
+>يعرض الجزء السفلي من منتقي الخط معاينة للنص باستخدام إعدادات الخط المحددة حاليًا. يمكنك تغيير هذا النص إذا رغبت في ذلك.</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+</sect1>
+
+
+<sect1 id="colors">
+<sect1info>
+<authorgroup>
+<author
+>&TC.Hollingsworth; &TC.Hollingsworth.mail;</author>
+<othercredit role="translator"
+><firstname
+>زايد</firstname
+><surname
+>السعيدي</surname
+><affiliation
+><address
+><email
+>zayed.alsaidi@gmail.com</email
+></address
+></affiliation
+><contrib
+>التّرجمة العربيّة</contrib
+></othercredit
+> 
+</authorgroup>
+</sect1info>
+<title
+>اختيار الألوان</title>
+
+<para
+>يظهر منتقي الألوان في العديد من تطبيقات كيدي، كلما احتجت إلى اختيار لون. يتيح لك الاختيار من بين <guilabel
+>الألوان الأساسية</guilabel
+> التي تتكون من العديد من الألوان المحددة مسبقًا أو مزج ألوانك الخاصة عندما تريد لونًا محددًا.</para>
+
+<screenshot id="screenshot-colors">
+<screeninfo
+>منتقي اللون</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="colors.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>منتقي اللون.</phrase
+></textobject>
+<caption
+><para
+>اختيار لون في <ulink url="help:/systemsettings"
+>إعدادات النظام</ulink
+>.</para
+></caption>
+</mediaobject>
+</screenshot>
+
+<sect2 id="basic-colors">
+<title
+>استخدام الألوان الأساسية</title>
+
+<para
+>مجموعة الألوان الأساسية هي مجموعة من الألوان المحددة مسبقًا. يمكنك العثور عليها في الجانب العلوي من نافذة منتقي الألوان.</para>
+
+<para
+>لاختيار لون من الألوان الأساسية، ما عليك سوى النقر عليه. سيُعرض اللون على يمين اللوحة، جنبا إلى جنب مع رمز HTML الست عشري الخاص به</para>
+
+</sect2>
+
+<sect2 id="colors-mixing">
+<title
+>مزج الألوان</title>
+
+<para
+>يتيح لك منتقي الألوان أيضًا مزج ألوانك الخاصة. وتوجد عدة طرق للقيام بذلك:</para>
+
+<sect3 id="colors-mixing-select">
+<title
+>استخدام الشبكة</title>
+
+<para
+>يحتوي الجانب الأيمن من منتقي الألوان على صندوق كبير، وصندوق أنحف مباشرة إلى يمينه. يمكنك استخدام الصندوق الأيسر لاختيار صبغة اللون وتشبع اللون المطلوب بناءً على الدليل المرئي المقدم في الصندوق. ويضبط الشريط الأيمن القيمة. اضبط هذه الإعدادات لاختيار اللون المطلوب، والذي يُعرض في منتصف النافذة.</para>
+
+<para
+>لمزيد من المعلومات حول صبغة اللون، والتشبع، والقيمة، انظر <xref linkend="colors-mixing-hsv"/></para>
+
+</sect3>
+
+<sect3 id="colors-mixing-eyedropper">
+<title
+>استخدام ألوان الشاشة</title>
+
+<para
+>تتيح لك أداة القطارة اختيار لون من شاشتك. لاستخدامها، اختر زر <guibutton
+>التقط لونًا من الشاشة</guibutton
+> أسفل الألوان الأساسية، ثم انقر في أي مكان على شاشتك لاختيار ذلك اللون.</para>
+
+</sect3>
+
+<sect3 id="colors-mixing-hsv">
+<title
+>الصبغة/التشبع/القيمة</title>
+
+<para
+>تتيح لك الزاوية اليمنى السفلية من الشاشة إدخال إحداثيات اللون المطلوب يدويًا في فضاء اللون الصبغة/التشبع/القيمة (HSV). لمزيد من المعلومات حول هذا الموضوع، انظر <ulink url="https://en.wikipedia.org/wiki/HSL_and_HSV"
+>مقالة "HSL and HSV" على ويكيبيديا</ulink
+>.</para>
+
+<para
+>تُحدث هذه القيم أيضًا عند اختيار لون بطرق أخرى، لذا فهي تمثل دائمًا اللون المحدد حاليًا بدقة.</para>
+
+</sect3>
+
+<sect3 id="colors-mixing-rgb">
+<title
+>أحمر/أخضر/أزرق</title>
+
+<para
+>تتيح لك الزاوية اليمنى السفلية من الشاشة أيضًا إدخال إحداثيات اللون المطلوب يدويًا في نموذج اللون الأحمر/الأخضر/الأزرق (RGB). لمزيد من المعلومات حول هذا الموضوع، انظر <ulink url="https://en.wikipedia.org/wiki/RGB_color_model"
+>مقالة "RGB color model" على ويكيبيديا</ulink
+>.</para>
+
+<para
+>تُحدث هذه القيم أيضًا عند اختيار لون بطرق أخرى، لذا فهي تمثل دائمًا اللون المحدد حاليًا بدقة.</para>
+
+</sect3>
+
+<sect3 id="colors-mixing-HTML">
+<title
+>رمز HTML الست عشري</title>
+
+<para
+>يمكنك إدخال رمز HTML الست عشري الذي يمثل اللون في الزاوية اليمنى السفلية من الشاشة. لمزيد من المعلومات حول هذا الموضوع، انظر <ulink url="https://en.wikipedia.org/wiki/Web_colors"
+>مقالة "Web colors" على ويكيبيديا</ulink
+>.</para>
+
+<para
+>تُحدث هذه القيمة أيضًا عند اختيار لون بطرق أخرى، لذا فهي تمثل دائمًا اللون المحدد حاليًا بدقة.</para>
+
+</sect3>
+</sect2>
+
+<sect2 id="colors-custom">
+<title
+>ألوان مخصصة</title>
+
+<para
+>بعد اختيار اللون، يمكنك إضافته إلى مجموعة الألوان المخصصة حتى تتمكن من استخدامه لاحقًا. للقيام بذلك، انقر فوق زر <guibutton
+>أضف إلى الألوان المخصصة</guibutton
+>.</para>
+
+</sect2>
+
+</sect1>
+
+</chapter>
