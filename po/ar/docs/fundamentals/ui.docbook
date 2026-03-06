@@ -1,0 +1,3156 @@
+<!--FIXME:
+        -general toolbar info
+        -basic keyboard shortcuts?
+-->
+
+<chapter id="ui">
+<title
+>التعرف على الأرجاء</title>
+
+<sect1 id="visualdict">
+<sect1info>
+<authorgroup>
+<author
+><firstname
+>Claus</firstname
+> <surname
+>Christensen</surname
+></author>
+<author
+>&TC.Hollingsworth; &TC.Hollingsworth.mail;</author>
+<othercredit role="translator"
+><firstname
+>زايد</firstname
+><surname
+>السعيدي</surname
+><affiliation
+><address
+><email
+>zayed.alsaidi@gmail.com</email
+></address
+></affiliation
+><contrib
+>التّرجمة العربيّة</contrib
+></othercredit
+> 
+</authorgroup>
+</sect1info>
+
+<title
+>قاموس مرئي</title>
+
+<para
+>تتضمن مساحات عمل بلازما العديد من عناصر واجهة المستخدم الرسومية المختلفة، والمعروفة باسم <quote
+>الودجات</quote
+>. سيعرفك هذا الدليل بأسمائها ووظائفها.</para>
+
+<sect2 id="visualdict-screens">
+<title
+>الصورة الكبيرة</title>
+
+<sect3 id="visualdict-windows">
+<title
+>النوافذ</title>
+
+<screenshot>
+<screeninfo
+>نافذة</screeninfo>
+<mediaobjectco>
+<imageobjectco>
+<areaspec units="other" otherunits="imagemap">
+    <!--these ids are used only internally by DocBook so we keep them short-->
+    <area id="im-win1a1" linkends="visualdict-statusbar" coords="47,522,752,566"/>
+    <area id="im-win1a2" linkends="visualdict-scrollbar" coords="720,127,760,513"/>
+    <area id="im-win1a3" linkends="visualdict-central-widget" coords="48,127,719,515"/>
+    <area id="im-win1a4" linkends="visualdict-toolbar" coords="51,95,570,128"/>
+    <area id="im-win1a5" linkends="visualdict-menubar" coords="4,67,46,109"/>
+    <area id="im-win1a6" linkends="visualdict-menubar" coords="49,75,311,93"/>
+    <area id="im-win1a7" linkends="visualdict-menu" coords="50,51,72,70"/>
+    <area id="im-win1a8" linkends="visualdict-button" coords="74,52,93,69"/>
+    <area id="im-win1a9" linkends="visualdict-button" coords="678,51,747,70"/>
+    <area id="im-win1a10" linkends="visualdict-titlebar" coords="106,40,676,74"/>
+    <area id="im-win1a11" linkends="visualdict-button" coords="691,6,740,49"/>
+    <area id="im-win1a12" linkends="visualdict-titlebar" coords="346,0,388,37"/>
+    <area id="im-win1a13" linkends="visualdict-button" coords="61,1,103,43"/>
+    <area id="im-win1a14" linkends="visualdict-menu" coords="14,2,57,45"/>
+</areaspec>
+<imageobject
+><imagedata fileref="visualdict-window.png" format="PNG"/></imageobject>
+</imageobjectco>
+</mediaobjectco>
+</screenshot>
+<para
+>هذه هي نافذة كاتب كيدي، وهو محرر نصوص. انقر على جزء من النافذة لتعرف المزيد عنه.</para>
+
+<orderedlist>
+
+<listitem
+><para
+>قائمة <emphasis role="bold"
+>النافذة</emphasis
+> </para
+></listitem>
+
+<listitem
+><para
+>شريط <emphasis role="bold"
+><link linkend="visualdict-titlebar"
+>العنوان</link
+></emphasis
+> </para
+></listitem>
+
+<listitem
+><para
+>أزرار <emphasis
+>تصغير</emphasis
+> النافذة أو <emphasis
+>تكبيرها</emphasis
+> أو <emphasis
+>إغلاقها</emphasis
+> </para
+></listitem>
+
+<listitem
+><para
+>شريط <emphasis role="bold"
+><link linkend="visualdict-menubar"
+>القوائم</link
+></emphasis
+> </para
+></listitem>
+
+<listitem
+><para
+>شريط <emphasis role="bold"
+><link linkend="visualdict-toolbar"
+>الأدوات</link
+></emphasis
+> </para
+></listitem>
+
+<listitem
+><para
+><emphasis role="bold"
+><link linkend="visualdict-text-area"
+>منطقة نص</link
+></emphasis
+> كبيرة جداً تعمل بمثابة <emphasis role="bold"
+><link linkend="visualdict-central-widget"
+>الودجة المركزية</link
+></emphasis
+> لهذا البرنامج </para
+></listitem>
+
+<listitem
+><para
+>شريط <emphasis role="bold"
+><link linkend="visualdict-scrollbar"
+>تمرير</link
+></emphasis
+> رأسي (يوجد أيضاً شريط تمرير أفقي أسفل مربع النص) </para
+></listitem>
+
+<listitem
+><para
+>شريط <emphasis role="bold"
+><link linkend="visualdict-statusbar"
+>الحالة</link
+></emphasis
+> </para
+></listitem>
+
+</orderedlist>
+
+<screenshot>
+<screeninfo
+>نافذة أخرى</screeninfo>
+<mediaobjectco>
+<imageobjectco>
+<areaspec units="other" otherunits="imagemap">
+    <area id="im-win2a1" linkends="visualdict-panel" coords="580,80,763,529"/>
+    <area id="im-win2a2" linkends="visualdict-slider" coords="383,490,573,536"/>
+    <area id="im-win2a3" linkends="visualdict-context-menu" coords="199,225,451,462"/>
+    <area id="im-win2a4" linkends="visualdict-icon" coords="198,187,224,225"/>
+    <area id="im-win2a5" linkends="visualdict-icon" coords="121,187,197,276"/>
+    <area id="im-win2a6" linkends="visualdict-icon" coords="282,110,515,165"/>
+    <area id="im-win2a7" linkends="visualdict-icon" coords="124,111,211,163"/>
+    <area id="im-win2a8" linkends="visualdict-breadcrumb" coords="108,76,415,109"/>
+    <area id="im-win2a9" linkends="visualdict-panel" coords="1,73,107,544"/>
+</areaspec>
+<imageobject
+><imagedata fileref="visualdict-window2.png" format="PNG"/></imageobject>
+</imageobjectco>
+</mediaobjectco>
+</screenshot>
+
+<para
+>هذه نافذة أخرى، وهي لنافذة مدير الملفات دولفين. انقر على جزء من النافذة لتعرف المزيد عنه.</para>
+
+<orderedlist>
+
+<listitem
+><para
+><emphasis role="bold"
+><link linkend="visualdict-panel"
+>لوحة</link
+></emphasis
+> تحتوي على قائمة بالأماكن على نظام الحاسوب </para
+></listitem>
+
+<listitem
+><para
+><emphasis role="bold"
+><link linkend="visualdict-breadcrumb"
+>مسار التنقل</link
+></emphasis
+> لمسار المجلد المعروض </para
+></listitem>
+
+<listitem
+><para
+><emphasis role="bold"
+><link linkend="visualdict-icon"
+>أيقونة</link
+></emphasis
+> مجلد </para
+></listitem>
+
+<listitem
+><para
+><emphasis role="bold"
+><link linkend="visualdict-icon"
+>أيقونة</link
+></emphasis
+> ملف </para
+></listitem>
+
+<listitem
+><para
+><emphasis role="bold"
+><link linkend="visualdict-icon"
+>أيقونة</link
+></emphasis
+> مبرزة </para
+></listitem>
+
+<listitem
+><para
+><emphasis role="bold"
+><link linkend="visualdict-context-menu"
+>قائمة سياق</link
+></emphasis
+> تسرد الإجراءات التي يمكن تنفيذها على ملف </para
+></listitem>
+
+<listitem
+><para
+><emphasis role="bold"
+><link linkend="visualdict-slider"
+>مزلق</link
+></emphasis
+> يغير حجم <link linkend="visualdict-icon"
+>الأيقونات</link
+> المعروضة </para
+></listitem>
+
+<listitem
+><para
+>المزيد من <emphasis role="bold"
+><link linkend="visualdict-panel"
+>اللوحات</link
+></emphasis
+> </para
+></listitem>
+
+</orderedlist>
+
+</sect3>
+
+<sect3 id="visualdict-gui">
+<title
+>عناصر واجهة المستخدم الرسومية</title>
+
+<screenshot>
+<screeninfo
+>بعض عناصر واجهة المستخدم الرسومية</screeninfo>
+<mediaobjectco>
+<imageobjectco>
+<areaspec units="other" otherunits="imagemap">
+    <area id="im-g1a1" linkends="visualdict-button" coords="15,505,690,549"/>
+    <area id="im-g1a2" linkends="visualdict-button" coords="683,129,722,170"/>
+    <area id="im-g1a3" linkends="visualdict-button" coords="636,140,681,161"/>
+    <area id="im-g1a4" linkends="visualdict-drop-down-box" coords="225,137,631,327"/>
+    <area id="im-g1a5" linkends="visualdict-tab" coords="581,28,625,71"/>
+    <area id="im-g1a6" linkends="visualdict-tab" coords="172,112,632,135"/>
+    <area id="im-g1a7" linkends="visualdict-icon-list" coords="5,58,171,495"/>
+</areaspec>
+<imageobject
+><imagedata fileref="visualdict-gui1.png" format="PNG"/></imageobject>
+</imageobjectco>
+</mediaobjectco>
+</screenshot>
+
+<para
+>تُظهر لقطة الشاشة هذه، من لوحة التنسيقات في إعدادات النظام، بعض عناصر واجهة المستخدم الرسومية. انقر على جزء من النافذة لتعرف المزيد عنه.</para>
+
+<orderedlist>
+
+<listitem
+><para
+><emphasis role="bold"
+><link linkend="visualdict-icon-list"
+>قائمة أيقونات</link
+></emphasis
+> (العنصر الثاني محدد) </para
+></listitem>
+
+<listitem
+><para
+><emphasis role="bold"
+><link linkend="visualdict-drop-down-box"
+>مربع منسدل</link
+></emphasis
+> مفتوح </para
+></listitem>
+
+<listitem
+><para
+>عنصر في <link linkend="visualdict-drop-down-box"
+>المربع المنسدل</link
+> حُدد </para>
+</listitem>
+
+<listitem
+><para
+>بعض <emphasis role="bold"
+><link linkend="visualdict-button"
+>الأزرار</link
+></emphasis
+> الإضافية </para
+></listitem>
+
+</orderedlist>
+
+<screenshot>
+<screeninfo
+>المزيد من عناصر واجهة المستخدم الرسومية</screeninfo>
+<mediaobjectco>
+<imageobjectco>
+<areaspec units="other" otherunits="imagemap">
+    <area id="im-gui2a1" linkends="visualdict-menu-button" coords="306,451,349,493"/>
+    <area id="im-gui2a2" linkends="visualdict-menu-button" coords="172,405,298,538"/>
+    <area id="im-gui2a3" linkends="visualdict-spin-box" coords="522,204,638,253"/>
+    <area id="im-gui2a4" linkends="visualdict-check-box" coords="425,98,467,162"/>
+    <area id="im-gui2a5" linkends="visualdict-tree-view" coords="368,63,411,100"/>
+    <area id="im-gui2a6" linkends="visualdict-tree-view" coords="164,101,424,403"/>
+</areaspec>
+<imageobject
+><imagedata fileref="visualdict-gui2.png" format="PNG"/></imageobject>
+</imageobjectco>
+</mediaobjectco>
+</screenshot>
+
+<para
+>تُظهر لقطة الشاشة هذه، من لوحة الاختصارات المخصصة في إعدادات النظام، المزيد من عناصر واجهة المستخدم الرسومية.</para>
+
+<orderedlist>
+
+<listitem
+><para
+>عرض <emphasis role="bold"
+><link linkend="visualdict-tree-view"
+>شجري</link
+></emphasis
+> </para
+></listitem>
+
+<listitem
+><para
+><emphasis role="bold"
+><link linkend="visualdict-check-box"
+>خانة اختيار</link
+></emphasis
+> حُددت </para
+></listitem>
+
+<listitem
+><para
+>زوج من <emphasis role="bold"
+><link linkend="visualdict-spin-box"
+>صناديق الأرقام</link
+></emphasis
+> </para
+></listitem>
+
+<listitem
+><para
+>زر <emphasis role="bold"
+><link linkend="visualdict-menu-button"
+>قائمة</link
+></emphasis
+> </para
+></listitem>
+
+</orderedlist>
+
+<screenshot>
+<screeninfo
+>حتى المزيد من عناصر واجهة المستخدم الرسومية</screeninfo>
+<mediaobjectco>
+<imageobjectco>
+<areaspec units="other" otherunits="imagemap">
+    <area id="im-gui3a1" linkends="visualdict-text-box" coords="562,235,603,252"/>
+    <area id="im-gui3a2" linkends="visualdict-text-box" coords="214,253,767,280"/>
+    <area id="im-gui3a3" linkends="visualdict-radio-button" coords="187,193,468,252"/>
+    <area id="im-gui3a4" linkends="visualdict-list-box" coords="8,101,185,547"/>
+</areaspec>
+<imageobject
+><imagedata fileref="visualdict-gui3.png" format="PNG"/></imageobject>
+</imageobjectco>
+</mediaobjectco>
+</screenshot>
+
+<para
+>تُظهر لقطة الشاشة هذه، من لوحة التطبيقات المبدئية في إعدادات النظام، المزيد من عناصر واجهة المستخدم الرسومية. انقر على جزء من النافذة لتعرف المزيد عنه.</para>
+
+<orderedlist>
+
+<listitem
+><para
+><emphasis role="bold"
+><link linkend="visualdict-list-box"
+>مربع قائمة</link
+></emphasis
+> </para
+></listitem>
+
+<listitem
+><para
+>زوج من <emphasis role="bold"
+><link linkend="visualdict-radio-button"
+>أزرار الانتقاء</link
+></emphasis
+> </para
+></listitem>
+
+<listitem
+><para
+><emphasis role="bold"
+><link linkend="visualdict-text-box"
+>مربع نص</link
+></emphasis
+> </para
+></listitem>
+
+</orderedlist>
+
+<screenshot>
+<screeninfo
+>بعض صناديق التحرير</screeninfo>
+<mediaobjectco>
+<imageobjectco>
+<areaspec units="other" otherunits="imagemap">
+    <area id="im-gui4a1" linkends="visualdict-combo-box" coords="268,128,722,288"/>
+</areaspec>
+<imageobject
+><imagedata fileref="visualdict-gui4.png" format="PNG"/></imageobject>
+</imageobjectco>
+</mediaobjectco>
+</screenshot>
+
+<para
+>أخيراً، تُظهر لقطة الشاشة هذه، من لوحة الألوان في إعدادات النظام، خمسة <emphasis role="bold"
+><link linkend="visualdict-tab"
+>ألسنة</link
+></emphasis
+> </para>
+
+</sect3>
+
+</sect2>
+
+<sect2 id="visualdict-widgets">
+<title
+>الودجات</title>
+
+<informaltable>
+<tgroup cols="3">
+<colspec colnum="1" align="left"/>
+<colspec colnum="3" align="center"/>
+
+<thead>
+<row>
+<entry align="center"
+>الاسم</entry>
+<entry
+>الوصف</entry>
+<entry
+>لقطة شاشة</entry>
+</row>
+</thead>
+
+<tbody valign="top">
+
+<!--I'm using the name QMainWindow uses for these, but perhaps there's a more
+    regular-user friendly term?-->
+<row id="visualdict-central-widget">
+<entry
+>الودجة المركزية</entry>
+<entry
+>المنطقة الرئيسية للتطبيق قيد التشغيل. قد تكون هي المستند الذي تحرره في معالج نصوص أو لوحة لعبة مثل الشطرنج.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-central-widget.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-button">
+<entry
+>الزر</entry>
+<entry
+>يمكن النقر على هذه بزر الفأرة الأيسر لتنفيذ إجراء ما.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-button.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-breadcrumb">
+<entry
+>مسار التنقل</entry>
+<entry
+>يُظهر المسار في نظام هرمي، مثل نظام الملفات. انقر على أي جزء من المسار للانتقال للأعلى في الشجرة إلى ذلك الموقع. انقر على السهم الموجود على يمين جزء من المسار للانتقال إلى عنصر فرعي آخر في ذلك المسار. </entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-breadcrumb.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-check-box">
+<entry
+>خانة اختيار</entry>
+<entry
+>يمكن النقر عليها لتحديد العناصر وإلغاء تحديدها. تُستخدم عادةً في قائمة تحتوي على عدة خيارات. تعرض العناصر المحددة عادةً علامة اختيار، بينما تظل العناصر غير المحددة بمربع فارغ.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-check-box.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-color-selector">
+<entry
+>منتقي الألوان</entry>
+<entry
+>يسمح هذا باختيار لون لأغراض متنوعة، مثل تغيير لون النص. لمزيد من المعلومات، راجع <xref linkend="colors"/></entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-color-selector.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-combo-box">
+<entry
+>صندوق التحرير</entry>
+<entry
+>مزيج من <link linkend="visualdict-drop-down-box"
+>مربع منسدل</link
+> و <link linkend="visualdict-text-box"
+>مربع نص</link
+>. يمكنك تحديد خيار من القائمة، أو الكتابة في مربع النص. قد تكمل بعض صناديق التحرير المدخلات آلياً، أو تفتح القائمة بمجموعة خيارات تطابق ما كتبت.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-combo-box.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-context-menu">
+<entry
+>قائمة السياق</entry>
+<entry
+>تحتوي العديد من عناصر واجهة المستخدم في مساحة عمل بلازما وفي التطبيقات على قائمة سياق، يمكن فتحها بالنقر على شيء ما بزر الفأرة الأيمن. تحتوي هذه القائمة على خيارات وإجراءات تؤثر عادةً على عنصر واجهة المستخدم الذي نُقر عليه بالزر الأيمن.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-context-menu.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-dialog-box">
+<entry
+>نافذة حوار</entry>
+<entry
+>نافذة صغيرة تظهر فوق نافذة تطبيق أكبر. قد تحتوي على رسالة، أو تحذير، أو لوحة ضبط، من بين أشياء أخرى.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-dialog-box.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-drop-down-box">
+<entry
+>مربع منسدل</entry>
+<entry
+>يوفر هذا قائمة بالعناصر، يمكنك من خلالها تحديد عنصر واحد.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-drop-down-box.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-icon">
+<entry
+>أيقونة</entry>
+<entry
+>تمثيل رسومي لشيء ما، مثل ملف أو إجراء. تحتوي عادةً، ولكن ليس دائماً، على وصف نصي أيضاً، إما أسفل الأيقونة أو إلى يمينها.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-icon.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-icon-list">
+<entry
+>قائمة أيقونات</entry>
+<entry
+>توفر هذه قائمة بالعناصر المُمثلة بـ <link linkend="visualdict-icon"
+>أيقونة</link
+> ووصف. تُستخدم عادةً في اللوحة اليسرى من لوحات الضبط للسماح بالاختيار من بين أنواع مختلفة من فئات الضبط.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-icon-list.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-list-box">
+<entry
+>مربع قائمة</entry>
+<entry
+>هذه قائمة بالعناصر التي تسمح عادةً بتحديد عناصر متعددة. لتحديد مجموعة من العناصر المتجاورة، اضغط على مفتاح العالي (&Shift;) وانقر على العنصرين الأول والأخير. لتحديد عناصر متعددة غير متجاورة، اضغط على مفتاح التحكم (&Ctrl;) وحدد العناصر المطلوبة.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-list-box.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-menu">
+<entry
+>قائمة</entry>
+<entry
+>قائمة من الخيارات، التي تنفذ عادةً إجراءً، أو تضبط خياراً، أو تفتح نافذة. يمكن فتح هذه من <link linkend="visualdict-menubar"
+>أشرطة القوائم</link
+> أو <link linkend="visualdict-menu-button"
+>أزرار القوائم</link
+>.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-menu.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-menubar">
+<entry
+>شريط القوائم</entry>
+<entry
+>توجد هذه في الجزء العلوي من كل نافذة تقريباً وتوفر الوصول إلى جميع وظائف التطبيق قيد التشغيل. لمزيد من المعلومات، راجع <xref linkend="menus"/>.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-menubar.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-menu-button">
+<entry
+>زر القائمة</entry>
+<entry
+>نوع خاص من <link linkend="visualdict-button"
+>الأزرار</link
+> يفتح <link linkend="visualdict-menu"
+>قائمة</link
+>.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-menu-button.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-panel">
+<entry
+>لوحة <emphasis
+>أو</emphasis
+> شريط جانبي <emphasis
+>أو</emphasis
+> عرض الأداة</entry>
+<entry
+>توجد هذه على جوانب أو أسفل <link linkend="visualdict-central-widget"
+>الودجة المركزية</link
+> وتسمح لك بأداء العديد من المهام المختلفة في التطبيق. قد يوفر محرر النصوص قائمة بالمستندات المفتوحة في إحداها، بينما قد يسمح لك معالج النصوص باختيار صورة قصاصة فنية.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-panel.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-progress-bar">
+<entry
+>شريط التقدم</entry>
+<entry
+>شريط صغير يشير إلى أن عملية طويلة الأمد قيد التنفيذ. قد يشير الشريط إلى مقدار ما أُنجز من العملية، أو قد يرتد ذهاباً وإياباً ببساطة للإشارة إلى أن العملية قيد التقدم. </entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-progress-bar.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-radio-button">
+<entry
+>زر انتقاء</entry>
+<entry
+>تُستخدم هذه في قائمة من الخيارات، وتسمح فقط باختيار خيار واحد من القائمة.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-radio-button.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-scrollbar">
+<entry
+>شريط التمرير</entry>
+<entry
+>يسمح لك بالتنقل في المستند.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-scrollbar.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-slider">
+<entry
+>مزلق</entry>
+<entry
+>يسمح باختيار قيمة رقمية عن طريق تحريك شريط صغير إما أفقياً أو رأسياً عبر خط.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-slider.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-spin-box">
+<entry
+>صندوق أرقام</entry>
+<entry
+>يسمح هذا باختيار قيمة عددية، إما باستخدام السهمين لأعلى ولأسفل الموجودين على يمين الصندوق لرفع القيمة أو خفضها، على التوالي، أو بكتابة القيمة في <link linkend="visualdict-text-box"
+>مربع النص</link
+>.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-spin-box.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-statusbar">
+<entry
+>شريط الحالة</entry>
+<entry
+>توجد هذه في أسفل العديد من التطبيقات وتعرض معلومات عما يفعله التطبيق حالياً. على سبيل المثال، قد يشير متصفح الويب إلى تقدم تحميل صفحة الويب، بينما قد يعرض معالج النصوص عدد الكلمات الحالي.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-statusbar.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-tab">
+<entry
+>لسان</entry>
+<entry
+>تظهر هذه في الجزء العلوي من منطقة في النافذة، وتسمح بتغيير تلك المنطقة من النافذة إلى مجموعة متنوعة من الخيارات المختلفة.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-tab.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-text-area">
+<entry
+>منطقة النص</entry>
+<entry
+>يتيح إدخال كمية كبيرة من النص، عادةً ما تكون أسطرًا أو فقرات متعددة. وعلى عكس <link linkend="visualdict-text-box"
+>مربع النص</link
+>، فإن الضغط على &Enter; يؤدي عادةً إلى كسر السطر. </entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-text-area.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-text-box">
+<entry
+>مربع نص</entry>
+<entry
+>مدخل نصي أحادي السطر يتيح كتابة كمية صغيرة من النص. عادةً، يؤدي الضغط على &Enter; نفس الإجراء الذي يؤديه النقر على زر <guibutton
+>موافق</guibutton
+>.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-text-box.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-titlebar">
+<entry
+>شريط العنوان</entry>
+<entry
+>يقع هذا في الجزء العلوي من كل نافذة. يحتوي على اسم التطبيق ومعلومات عادةً حول ما يفعله التطبيق، مثل عنوان صفحة الويب المعروضة في متصفح الويب أو اسم ملف المستند المفتوح في معالج النصوص.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-titlebar.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-toolbar">
+<entry
+>شريط الأدوات</entry>
+<entry
+>تقع هذه بالقرب من الجزء العلوي للعديد من التطبيقات، وعادةً ما تكون أسفل <link linkend="visualdict-menubar"
+>شريط القوائم</link
+> مباشرةً. توفر الوصول إلى العديد من الوظائف الشائعة للتطبيق المشغل، مثل <emphasis
+>احفظ</emphasis
+> أو <emphasis
+>اطبع</emphasis
+>.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-toolbar.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+<row id="visualdict-tree-view">
+<entry
+>عرض الشّجرة</entry>
+<entry
+>يتيح لك عرض الشجرة الاختيار من قائمة خيارات هرمية. قد يكون قسم أو فئة من عرض الشجرة غير موسع، وفي هذه الحالة لن تظهر أي خيارات تحته وسيشير السهم الموجود إلى يسار العنوان إلى اليمين، نحو العنوان. وقد يكون موسعًا أيضًا، وفي هذه الحالة تُسرد عدة خيارات تحته، ويشير السهم الموجود إلى يسار العنوان إلى الأسفل، نحو الخيارات. لتوسيع جزء من عرض الشجرة، انقر فوق السهم الموجود إلى يسار عنوان القسم الذي ترغب في توسيعه، أو انقر نقرًا مزدوجًا فوق العنوان، أو حدد العنوان باستخدام مفاتيح الأسهم بلوحة المفاتيح واضغط على مفتاح &Enter; أو مفتاح <keycap
+>+</keycap
+>. لتصغير جزء من عرض الشجرة، يمكنك أيضًا النقر فوق السهم، أو النقر نقرًا مزدوجًا فوق العنوان، أو الضغط على مفتاح &Enter; أو مفتاح <keycap
+>-</keycap
+>.</entry>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata fileref="visualdict-tree-view.png" format="PNG"/>
+</imageobject>
+</inlinemediaobject>
+</entry>
+</row>
+
+</tbody>
+</tgroup>
+</informaltable>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="menus">
+<sect1info>
+<authorgroup>
+<author
+>&TC.Hollingsworth; &TC.Hollingsworth.mail;</author>
+<othercredit role="translator"
+><firstname
+>زايد</firstname
+><surname
+>السعيدي</surname
+><affiliation
+><address
+><email
+>zayed.alsaidi@gmail.com</email
+></address
+></affiliation
+><contrib
+>التّرجمة العربيّة</contrib
+></othercredit
+> 
+</authorgroup>
+</sect1info>
+
+<title
+>القوائم الشائعة</title>
+
+<para
+>تحتوي العديد من تطبيقات كيدي على هذه القوائم. ومع ذلك، ستحتوي معظم التطبيقات على مدخلات قائمة أكثر من تلك المدرجة هنا، وقد يفتقر بعضها الآخر إلى بعض المدخلات المدرجة هنا.</para>
+
+<screenshot id="screenshot-menus">
+<screeninfo
+>شريط قوائم</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="menus.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>شريط قوائم</phrase
+></textobject>
+<caption
+><para
+>شريط القوائم في <ulink url="https://www.kde.org/applications/graphics/gwenview/"
+>جواينفيو</ulink
+>. </para
+></caption>
+</mediaobject>
+</screenshot>
+
+<para
+>لا تظهر بعض التطبيقات، مثل دولفين، شريط قوائم بشكل مبدئي. يمكنك إظهاره بالضغط على <keycombo
+>&Ctrl;<keycap
+>M</keycap
+></keycombo
+>. كما يمكنك استخدام هذا لإخفاء شريط القوائم في التطبيقات التي تدعم ذلك.</para>
+
+<sect2 id="menus-file">
+<title
+>قائمة ملف</title>
+<para
+>تتيح قائمة <guimenu
+>ملف</guimenu
+> إجراء عمليات على الملف المفتوح حاليًا والوصول إلى المهام الشائعة في التطبيقات.</para>
+
+<para
+>تشمل عناصر القائمة الشائعة ما يلي:</para>
+
+<variablelist>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></shortcut
+> <guimenu
+>ملف</guimenu
+><guimenuitem
+>جديد</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>يُنشئ ملفًا جديدًا. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>ملف</guimenu
+><guimenuitem
+>نافذة جديدة</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>يفتح نافذة جديدة. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+></shortcut
+> <guimenu
+>ملف</guimenu
+><guimenuitem
+>افتح...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>يفتح ملفًا موجودًا مسبقًا. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></shortcut
+> <guimenu
+>ملف</guimenu
+><guimenuitem
+>احفظ</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>يحفظ الملف. إذا كان الملف موجودًا بالفعل، فسيُكتب فوقه. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>ملف</guimenu
+><guimenuitem
+>احفظ باسم...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>يحفظ الملف باسم ملف جديد. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>ملف</guimenu
+><guimenuitem
+>احفظ الكل</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>يحفظ جميع الملفات المفتوحة. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycap
+>F5</keycap
+></shortcut
+> <guimenu
+>ملف</guimenu
+><guimenuitem
+>أعد التحميل</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>يُعيد تحميل الملف الحالي. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>ملف</guimenu
+><guimenuitem
+>أعد تحميل الكل</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>يُعيد تحميل جميع الملفات المفتوحة. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+></shortcut
+> <guimenu
+>ملف</guimenu
+><guimenuitem
+>اطبع...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>يطبع الملف. استخدم <guilabel
+>اطبع إلى ملف (PDF)</guilabel
+> لتوليد ملف PDF أو حدد نطاقًا من الصفحات لطباعة هذه الصفحات فقط إلى ملف PDF جديد </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>W</keycap
+></keycombo
+></shortcut
+> <guimenu
+>ملف</guimenu
+><guimenuitem
+>أغلق</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>يغلق الملف الحالي. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>ملف</guimenu
+><guimenuitem
+>أغلق الكل</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>يغلق جميع الملفات المفتوحة. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></shortcut
+> <guimenu
+>ملف</guimenu
+><guimenuitem
+>أنهِ</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>يخرج من البرنامج. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+</sect2>
+
+<sect2 id="menus-edit">
+<title
+>قائمة تحرير</title>
+<para
+>تتيح قائمة <guimenu
+>تحرير</guimenu
+> تعديل الملف المفتوح حاليًا.</para>
+
+<variablelist>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+></shortcut
+> <guimenu
+>تحرير</guimenu
+><guimenuitem
+>تراجع</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>يتراجع عن آخر إجراء قمت به في الملف. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+></shortcut
+> <guimenu
+>تحرير</guimenu
+><guimenuitem
+>أعد</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>يُعيد آخر إجراء قمت به في الملف. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>X</keycap
+></keycombo
+></shortcut
+> <guimenu
+>تحرير</guimenu
+><guimenuitem
+>قص</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>يزيل الجزء المحدد حاليًا من الملف، إن وجد، ويضع نسخة منه في مخزن الحافظة. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+></shortcut
+> <guimenu
+>تحرير</guimenu
+><guimenuitem
+>انسخ</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>يضع نسخة من الجزء المحدد حاليًا من الملف، إن وجد، في مخزن الحافظة. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>V</keycap
+></keycombo
+></shortcut
+> <guimenu
+>تحرير</guimenu
+><guimenuitem
+>الصق</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>ينسخ العنصر الأول في مخزن الحافظة إلى الموقع الحالي في الملف، إن وجد. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>A</keycap
+></keycombo
+></shortcut
+> <guimenu
+>تحرير</guimenu
+><guimenuitem
+>حدّد الكل</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>يحدد كامل محتويات الملف المفتوح حاليًا. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F</keycap
+></keycombo
+></shortcut
+> <guimenu
+>تحرير</guimenu
+><guimenuitem
+>ابحث...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>يتيح لك البحث عن نص في الملف المفتوح حاليًا. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>R</keycap
+></keycombo
+></shortcut
+> <guimenu
+>تحرير</guimenu
+><guimenuitem
+>استبدل...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>يتيح لك البحث عن نص في الملف المفتوح حاليًا واستبداله بشيء آخر. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycap
+>F3</keycap
+></shortcut
+> <guimenu
+>تحرير</guimenu
+><guimenuitem
+>ابحث عن التالي</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>ينتقل إلى المطابقة التالية لعملية البحث الأخيرة. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Shift;<keycap
+>F3</keycap
+></keycombo
+></shortcut
+> <guimenu
+>تحرير</guimenu
+><guimenuitem
+>ابحث عن السابق</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>ينتقل إلى المطابقة السابقة لعملية البحث الأخيرة. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+</sect2>
+
+<sect2 id="menus-view">
+<title
+>قائمة عرض</title>
+<para
+>تتيح قائمة <guimenu
+>عرض</guimenu
+> تغيير تخطيط الملف المفتوح حاليًا و/أو التطبيق المشغل.</para>
+
+<para
+>تحتوي هذه القائمة على خيارات مختلفة اعتمادًا على التطبيق الذي تستخدمه.</para>
+</sect2>
+
+<sect2 id="menus-tools">
+<title
+>قائمة أدوات</title>
+<para
+>تتيح قائمة <guimenu
+>أدوات</guimenu
+> إجراء إجراءات معينة على الملف المفتوح حاليًا.</para>
+
+<variablelist>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>O</keycap
+></keycombo
+></shortcut
+> <guimenu
+>أدوات</guimenu
+><guimenuitem
+>تدقيق إملائي آلي</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>يدقق الأخطاء الإملائية أثناء الكتابة. لمزيد من المعلومات، راجع <xref linkend="spellcheck-auto"/>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>أدوات</guimenu
+><guimenuitem
+>الإملاء...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>يؤدي هذا إلى بدء تشغيل برنامج التدقيق الإملائي - وهو برنامج مصمم لمساعدة المستخدم في اكتشاف وتصحيح أي أخطاء إملائية. لمزيد من المعلومات، راجع <xref linkend="spellcheck-check"/>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>أدوات</guimenu
+><guimenuitem
+>الإملاء (من عند المؤشر)...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>يؤدي هذا إلى بدء تشغيل برنامج التدقيق الإملائي، ولكنه يفحص فقط جزء المستند من الموقع الحالي للمؤشر حتى النهاية. لمزيد من المعلومات، راجع <xref linkend="spellcheck-check"/>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>أدوات</guimenu
+><guimenuitem
+>تدقيق إملائي للمحدّد...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>يؤدي هذا إلى بدء تشغيل برنامج التدقيق الإملائي، ولكنه يفحص فقط النص المحدد حاليًا في المستند. لمزيد من المعلومات، راجع <xref linkend="spellcheck-check"/>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>أدوات</guimenu
+><guimenuitem
+>غيّر القاموس...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>يتيح لك هذا تغيير القاموس المستخدم للتدقيق الإملائي. لمزيد من المعلومات، راجع <xref linkend="spellcheck-config"/>. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect2>
+<!--FIXME add bookmarks menu ?-->
+<sect2 id="menus-settings">
+<title
+>قائمة الإعدادات</title>
+<para
+>تتيح قائمة <guimenu
+>إعدادات</guimenu
+> تخصيص التطبيق.</para>
+
+<para
+>تحتوي هذه القائمة عادةً على العناصر التالية:</para>
+<variablelist>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>M</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>إعدادات</guimenu
+> <guimenuitem
+>أظهر شريط القوائم</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>يقلب عرض شريط القوائم</action
+> تشغيلًا وإيقافًا. بمجرد إخفائه، يمكن جعله مرئيًا باستخدام الاختصار <keycombo action="simul"
+>&Ctrl;<keycap
+>M</keycap
+></keycombo
+> مرة أخرى. إذا كان شريط القوائم مخفيًا، فإن قائمة السياق التي تُفتح بنقرة زر الفأرة الأيمن في أي مكان في منطقة العرض تحتوي على مدخل إضافي هو <guimenuitem
+>أظهر شريط القوائم</guimenuitem
+>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>إعدادات</guimenu
+> <guimenuitem
+>أظهر شريط الحالة</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>يقلب عرض شريط الحالة تشغيلًا وإيقافًا. تستخدم بعض تطبيقات كيدي شريط الحالة في أسفل شاشتها لعرض معلومات مفيدة. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>إعدادات</guimenu
+><guisubmenu
+>أشرطة الأدوات المعروضة</guisubmenu
+> </menuchoice
+></term>
+<listitem
+><para
+>يتيح لك إظهار وإخفاء أشرطة الأدوات المختلفة التي يدعمها التطبيق. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>إعدادات</guimenu
+><guimenuitem
+>أظهر شريط الحالة</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>عند تحديده، يعرض هذا شريطًا صغيرًا في أسفل التطبيق يحتوي على معلومات حول الحالة. وعند عدم تحديده، يُخفى شريط الحالة.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>إعدادات</guimenu
+> <guimenuitem
+>اضبط الاختصارات...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>يتيح لك تمكين وتعطيل وتعديل اختصارات لوحة المفاتيح. لمزيد من المعلومات، راجع <xref linkend="shortcuts"/>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>إعدادات</guimenu
+><guimenuitem
+>اضبط أشرطة الأدوات...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>يتيح لك تخصيص محتويات وتخطيط ونص وأيقونات أشرطة الأدوات. لمزيد من المعلومات، راجع <xref linkend="toolbars"/>. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>إعدادات</guimenu
+><guimenuitem
+>اضبط الإشعارات...</guimenuitem
+></menuchoice
+></term>
+<listitem
+><para
+>يعرض هذا العنصر مربع حوار قياسي لضبط إشعارات كيدي، حيث يمكنك تغيير الإشعارات (الأصوات، الرسائل المرئية، إلخ) التي يستخدمها التطبيق.</para>
+<para
+>لمزيد من المعلومات حول كيفية ضبط الإشعارات، يرجى قراءة وثائق وحدة إعدادات النظام <ulink url="help:/kcontrol/kcmnotify/index.html"
+>إدارة الإشعارات</ulink
+>. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>إعدادات</guimenu
+><guimenuitem
+>اضبط <replaceable
+>التطبيق</replaceable
+>...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>يفتح لوحة الضبط للتطبيق المشغل حاليًا. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+</sect2>
+
+<sect2 id="menus-help">
+<title
+>قائمة مساعدة</title>
+<para
+>تمنحك قائمة <guimenu
+>مساعدة</guimenu
+> إمكانية الوصول إلى وثائق التطبيق ومصادر مفيدة أخرى.</para>
+
+<!--taken from kdelibs.git/kdoctools/customization/en/entities/help-menu.docbook
+    and edited slightly to fit into buildingblocks-->
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+><keycap
+>F1</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>مساعدة</guimenu
+> <guimenuitem
+>كتيب <replaceable
+>التطبيق</replaceable
+></guimenuitem
+> </menuchoice>
+</term>
+<listitem
+><para
+><action
+>يستدعي نظام مساعدة كيدي</action
+> بدءاً من كتيب التطبيق المشغل.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Shift;<keycap
+>F1</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>مساعدة</guimenu
+> <guimenuitem
+>ما هذا؟</guimenuitem
+> </menuchoice>
+</term>
+<listitem
+><para
+><action
+>يغير مؤشر الفأرة إلى مزيج من سهم وعلامة استفهام.</action
+> سيؤدي النقر على العناصر داخل التطبيق إلى فتح نافذة مساعدة (في حال وجودها لهذا العنصر تحديداً) تشرح وظيفة العنصر.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>مساعدة</guimenu
+> <guimenuitem
+>تلميحة اليوم</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>هذا الأمر <action
+>يفتح مربع حوار <guilabel
+>تلميحة اليوم</guilabel
+></action
+>. يمكنك التصفح عبر جميع التلميحات باستخدام الأزرار الموجودة في مربع الحوار واختيار عرض التلميحات عند بدء التشغيل.</para>
+<para
+>ملاحظة: لا توفر جميع التطبيقات هذه التلميحات.</para>
+
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>مساعدة</guimenu
+> <guimenuitem
+>أبلغ عن علة...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>يفتح مربع حوار الإبلاغ عن العلل</action
+> حيث يمكنك الإبلاغ عن علة أو طلب ميزة في <quote
+>قائمة الأمنيات</quote
+>.</para
+></listitem>
+</varlistentry>
+<!--FIXME two different dialogs, either via web (default if aboutData->bugAddress() == "" or == "submit@bugs.kde.org" ) 
+or via email (see krecipes doc rev 1306076)
+-->
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>مساعدة</guimenu
+> <guimenuitem
+>تبرع</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>يفتح <ulink url="https://www.kde.org/community/donations"
+>صفحة التبرعات</ulink
+> حيث يمكنك دعم كيدي ومشاريعها.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>مساعدة</guimenu
+> <guimenuitem
+>بدّل لغة التطبيق...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>يفتح مربع حوار</action
+> حيث يمكنك تحرير <guilabel
+>اللغة الأساسية</guilabel
+> و <guilabel
+>اللغة الاحتياطية</guilabel
+> لهذا التطبيق.</para
+></listitem>
+</varlistentry>
+<!--FIXME: which languages are available here? how is that determined?
+-->
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>مساعدة</guimenu
+> <guimenuitem
+>عن <replaceable
+>التطبيق</replaceable
+></guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>سيعرض هذا معلومات الإصدار والمؤلف للتطبيق المشغل.</action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>مساعدة</guimenu
+> <guimenuitem
+>عن كيدي</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>يعرض هذا إصدار منصة تطوير كيدي ومعلومات أساسية أخرى.</action
+></para
+></listitem>
+</varlistentry>
+</variablelist>
+<!--FIXME Tip of the Day missing-->
+</sect2>
+
+<sect2 id="menus-ack">
+<title
+>شكرٌ وتقدير</title>
+
+<para
+>شكر خاص لمشارك مجهول في Google Code-In لعام 2011 لكتابته الكثير من هذه الوثائق.</para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="kbd">
+<sect1info>
+<authorgroup>
+<author
+>&TC.Hollingsworth; &TC.Hollingsworth.mail;</author>
+<othercredit role="translator"
+><firstname
+>زايد</firstname
+><surname
+>السعيدي</surname
+><affiliation
+><address
+><email
+>zayed.alsaidi@gmail.com</email
+></address
+></affiliation
+><contrib
+>التّرجمة العربيّة</contrib
+></othercredit
+> 
+</authorgroup>
+</sect1info>
+
+<title
+>اختصارات لوحة المفاتيح الشائعة</title>
+
+<para
+>توفر مساحات عمل بلازما اختصارات لوحة مفاتيح تتيح لك القيام بمهام عديدة دون لمس الفأرة. إذا كنت تستخدم لوحة المفاتيح بشكل متكرر، فإن استخدام هذه الاختصارات سيوفر لك الكثير من الوقت.</para>
+
+<para
+>تحتوي هذه القائمة على الاختصارات الأكثر شيوعاً التي تدعمها مساحة العمل نفسها والعديد من التطبيقات المتاحة داخلها. يوفر كل تطبيق أيضاً اختصاراته الخاصة، لذا تأكد من مراجعة أدلتها للحصول على قائمة شاملة.</para>
+
+<note
+><para
+>مفتاح <keysym
+>Meta</keysym
+> الموصوف أدناه هو اسم عام للمفتاح المخصص الموجود في العديد من لوحات المفاتيح المختلفة. في لوحات المفاتيح المصممة لـ مايكروسوفت ويندوز، يسمى هذا المفتاح عادةً مفتاح <keysym
+>Windows</keysym
+>، ويحمل صورة شعار ويندوز. في لوحات المفاتيح المصممة لحواسيب ماك، يُعرف هذا المفتاح بمفتاح <keysym
+>Command</keysym
+> ويحمل صورة شعار آبل و/أو رمز <keycap
+>⌘</keycap
+>. في لوحات المفاتيح المصممة لأنظمة يونكس، يُعرف هذا المفتاح حقاً بمفتاح <keysym
+>Meta</keysym
+> وعادة ما يُوسم بماسة: <keycap
+>◆</keycap
+>. </para
+></note>
+
+<sect2 id="kbd-windows">
+<title
+>العمل مع النوافذ</title>
+
+<para
+>تتيح لك هذه الاختصارات إجراء جميع أنواع العمليات على النوافذ، سواء كانت فتحاً أو إغلاقاً أو تحريكاً أو تبديلاً بينها.</para>
+
+<sect3 id="kbd-windows-start-stop">
+<title
+>بدء وإيقاف التطبيقات</title>
+
+<para
+>تسهل هذه الاختصارات بدء وإيقاف البرامج.</para>
+
+<informaltable>
+<tgroup cols="2">
+
+<thead>
+<row>
+<entry
+>الاختصار</entry>
+<entry
+>الوصف</entry>
+</row>
+</thead>
+
+<tbody>
+
+<row>
+<entry
+><keysym
+>Meta</keysym
+></entry>
+<entry
+>فتح مطلق التطبيقات</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Alt;<keycap
+>Space</keycap
+></keycombo
+> / <keycombo action="simul"
+>&Alt;<keycap
+>F2</keycap
+></keycombo
+></entry>
+<entry
+><ulink url="help:/plasma-desktop/krunner.html"
+>واجهة تشغيل الأوامر</ulink
+></entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Esc</keycap
+></keycombo
+></entry>
+<entry
+>نشاط النظام</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Alt;<keycap
+>F4</keycap
+></keycombo
+></entry>
+<entry
+>أغلق</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></entry>
+<entry
+>أنهِ</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;&Alt;&Esc;</keycombo
+></entry>
+<entry
+>أجبر الإنهاء</entry>
+</row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</sect3>
+
+<sect3 id="kbd-windows-moving">
+<title
+>التنقل</title>
+
+<para
+>تتيح لك هذه الاختصارات التنقل بين النوافذ والأنشطة وأسطح المكتب بكفاءة.</para>
+
+<informaltable>
+<tgroup cols="2">
+
+<thead>
+<row>
+<entry
+>الاختصار</entry>
+<entry
+>الوصف</entry>
+</row>
+</thead>
+
+<tbody>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F10</keycap
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] ExposeAll=Ctrl+F10; Launch (C) -->
+<entry
+>النوافذ الحاضرة</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F9</keycap
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] Expose=Ctrl+F9 -->
+<entry
+>عرض النوافذ على سطح المكتب الحالي</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F7</keycap
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] ExposeClass=Ctrl+F7 -->
+<entry
+>عرض نوافذ التطبيق الحالي فقط</entry>
+</row>
+<!--FIXME not in 5.6.4
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F11</keycap
+></keycombo
+></entry>
+<entry
+>Desktop Cube</entry>
+</row>
+-->
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F12</keycap
+></keycombo
+></entry
+><!--[plasmashell][Global Shortcuts] show dashboard=Ctrl+F12-->
+<entry
+>أظهر سطح المكتب</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;&Alt;<keycap
+>A</keycap
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] Activate Window Demanding Attention=Ctrl+Alt+A -->
+<entry
+>نشّط النّافذة الطّالبة الانتباه</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Alt;&Tab;</keycombo
+></entry
+><!--[kwin][Global Shortcuts] Walk Through Windows=Alt+Tab-->
+<entry
+>تنقّل بين النّوافذ</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Alt;&Shift;&Tab;</keycombo
+></entry
+><!--[kwin][Global Shortcuts] Walk Through Windows (Reverse)=Alt+Shift+Backtab-->
+<entry
+>تنقّل بين النّوافذ (بالعكس)</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Alt;<keycap
+>F3</keycap
+></keycombo
+></entry
+><!--FIXME source ?-->
+<entry
+>فتح قائمة عمليات النوافذ</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;&Alt;<keysym
+>Up</keysym
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] Switch Window Up=Meta+Alt+Up-->
+<entry
+>بدّل إلى النّافذة العليا</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;&Alt;<keysym
+>Down</keysym
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] Switch Window Down=Meta+Alt+Down-->
+<entry
+>بدّل إلى النّافذة السفلى</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;&Alt;<keysym
+>Left</keysym
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] Switch Window Left=Meta+Alt+Left-->
+<entry
+>بدّل إلى النّافذة اليسرى</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;&Alt;<keysym
+>Right</keysym
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] Switch Window Right=Meta+Alt+Right-->
+<entry
+>بدّل إلى النّافذة اليمنى</entry>
+</row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</sect3>
+
+<sect3 id="kbd-activity-pan-zoom">
+<title
+>التحريك والتقريب</title
+><!--FIXME nothing works for me-->
+
+<para
+>هل تحتاج إلى نظرة أقرب؟ تتيح لك مساحات عمل بلازما التقريب والتبعيد وتحريك كامل سطح المكتب، لذا يمكنك التقريب حتى لو كان التطبيق الذي تستخدمه لا يدعم ذلك.</para>
+
+<informaltable>
+<tgroup cols="2">
+
+<thead>
+<row>
+<entry
+>الاختصار</entry>
+<entry
+>الوصف</entry>
+</row>
+</thead>
+
+<tbody>
+
+<!--
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keycap
+></keycap
+></keycombo
+></entry>
+<entry
+></entry>
+</row>
+-->
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keycap
+>=</keycap
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] view_zoom_in=Meta+= -->
+<entry
+>قرّب</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keycap
+>-</keycap
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] view_zoom_out=Meta+- -->
+<entry
+>بعّد</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keycap
+>0</keycap
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] view_actual_size=Meta+0 -->
+<entry
+>تكبير إلى المعتاد</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keysym
+>Up</keysym
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] MoveZoomUp=Meta+Up -->
+<entry
+>تحريك لأعلى</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keysym
+>Down</keysym
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] MoveZoomDown=Meta+Down -->
+<entry
+>تحريك لأسفل</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keysym
+>Left</keysym
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] MoveZoomLeft=Meta+Left -->
+<entry
+>تحريك لليسار، نقل النافذة إلى الشاشة التي على اليسار<footnote id="fn1"
+><para
+>في بيئة متعددة الشاشات</para
+></footnote
+></entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keysym
+>Right</keysym
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] MoveZoomRight=Meta+Right -->
+<entry
+>تحريك لليمين، نقل النافذة إلى الشاشة التي على اليمين<footnoteref linkend="fn1"/></entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keysym
+>PgUp</keysym
+></keycombo
+></entry>
+<entry
+>تكبير/استعادة النافذة</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keysym
+>PgDn</keysym
+></keycombo
+></entry>
+<entry
+>تصغير النافذة</entry>
+</row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</sect3>
+</sect2>
+
+<sect2 id="kbd-activities">
+<title
+>العمل مع الأنشطة وأسطح المكتب الافتراضية</title>
+
+<para
+>تتيح لك هذه الاختصارات التبديل بين <ulink url="help:/plasma-desktop/activities-interface.html"
+>الأنشطة</ulink
+> وإدارتها، و <ulink url="help:/kcontrol/desktop/"
+>أسطح المكتب الافتراضية</ulink
+>.</para>
+
+<informaltable>
+<tgroup cols="2">
+
+<thead>
+<row>
+<entry
+>الاختصار</entry>
+<entry
+>الوصف</entry>
+</row>
+</thead>
+
+<tbody>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keycap
+>Q</keycap
+></keycombo
+> / <keycombo action="simul"
+>&Alt;<keycap
+>D</keycap
+></keycombo
+>,<keycombo action="simul"
+>&Alt;<keycap
+>A</keycap
+></keycombo
+> </entry>
+<entry
+>إدارة الأنشطة</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;&Tab;</keycombo
+></entry
+><!-- [plasmashell][Global Shortcuts] next activity=Meta+Tab -->
+<entry
+>النشاط التالي</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;&Shift;&Tab;</keycombo
+></entry
+><!-- [plasmashell][Global Shortcuts] previous activity=Meta+Shift+Tab -->
+<entry
+>النّشاط السابق</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F1</keycap
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] Switch to Desktop 1=Ctrl+F1 -->
+<entry
+>بدّل إلى سطح المكتب 1</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F2</keycap
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] Switch to Desktop 2=Ctrl+F2 -->
+<entry
+>بدّل إلى سطح المكتب 2</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F3</keycap
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] Switch to Desktop 2=Ctrl+F3 -->
+<entry
+>بدّل إلى سطح المكتب 3</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F4</keycap
+></keycombo
+></entry
+><!--[kwin][Global Shortcuts] Switch to Desktop 2=Ctrl+F4 -->
+<entry
+>بدّل إلى سطح المكتب 4</entry>
+</row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</sect2>
+
+<sect2 id="kbd-desktop">
+<title
+>العمل مع سطح المكتب</title>
+
+<para
+>تسمح لك هذه الاختصارات بالعمل مع سطح مكتب بلازما واللوحات. </para>
+
+<informaltable>
+<tgroup cols="2">
+
+<thead>
+<row>
+<entry
+>الاختصار</entry>
+<entry
+>الوصف</entry>
+</row>
+</thead>
+
+<tbody>
+
+<row>
+<entry
+><keycombo action="seq"
+><keycombo action="simul"
+>&Alt;<keycap
+>D</keycap
+></keycombo
+> <keycap
+>A</keycap
+> </keycombo
+></entry>
+<entry
+>أضف ودجات</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="seq"
+><keycombo action="simul"
+>&Alt;<keycap
+>D</keycap
+></keycombo
+> <keycap
+>R</keycap
+> </keycombo
+></entry>
+<entry
+>أزل هذه <replaceable
+>الودجة</replaceable
+></entry>
+</row>
+
+<row>
+<entry
+><keycombo action="seq"
+><keycombo action="simul"
+>&Alt;<keycap
+>D</keycap
+></keycombo
+> <keycap
+>L</keycap
+> </keycombo
+></entry>
+<entry
+>اقفل/ألغِ قفل الودجات</entry>
+</row>
+<!--FIXME source ? No
+>Next Widget< nor
+>Previous Widget< in kde-workspace or frameworks code
+<row>
+<entry
+><keycombo action="seq">
+<keycombo action="simul"
+>&Alt;<keycap
+>D</keycap
+></keycombo>
+<keycap
+>N</keycap>
+</keycombo
+></entry>
+<entry
+>Next Widget</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="seq">
+<keycombo action="simul"
+>&Alt;<keycap
+>D</keycap
+></keycombo>
+<keycap
+>P</keycap>
+</keycombo
+></entry>
+<entry
+>Previous Widget</entry>
+</row>
+-->
+<row>
+<entry
+><keycombo action="seq"
+><keycombo action="simul"
+>&Alt;<keycap
+>D</keycap
+></keycombo
+> <keycap
+>S</keycap
+> </keycombo
+></entry>
+<entry
+>إعدادات <replaceable
+>الودجة</replaceable
+></entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F12</keycap
+></keycombo
+></entry
+><!--[plasmashell][Global Shortcuts] show dashboard=Ctrl+F12-->
+<entry
+>أظهر سطح المكتب</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="seq"
+><keycombo action="simul"
+>&Alt;<keycap
+>D</keycap
+></keycombo
+> <keycap
+>T</keycap
+> </keycombo
+></entry>
+<entry
+>شغّل التطبيق المرتبط</entry>
+</row>
+<!--FIXME obsolete?
+<row>
+<entry
+><keycombo action="simul"
+>&Alt;&Shift;<keycap
+>F12</keycap
+></keycombo
+></entry>
+<entry
+>Enable/Disable Desktop Effects</entry>
+</row>
+-->
+
+<row>
+<entry
+><keycombo action="simul"
+>&Alt;<keycap
+>D</keycap
+></keycombo
+>, <keycombo action="simul"
+>&Alt;<keycap
+>S</keycap
+></keycombo
+> </entry>
+<entry
+>إعدادات سطح المكتب</entry>
+</row>
+
+</tbody>
+</tgroup>
+</informaltable>
+
+</sect2>
+
+<sect2 id="kbd-help">
+<title
+>الحصول على المساعدة</title>
+
+<para
+>أتحتاج إلى مساعدة؟ لا يفصلك عن دليل التطبيق الحالي سوى ضغطة مفتاح، كما توفر بعض البرامج مساعدة إضافية تشرح العنصر الذي تركز عليه.</para>
+
+<informaltable>
+<tgroup cols="2">
+
+<thead>
+<row>
+<entry
+>الاختصار</entry>
+<entry
+>الوصف</entry>
+</row>
+</thead>
+
+<tbody>
+
+<row>
+<entry
+><keycap
+>F1</keycap
+></entry>
+<entry
+>مساعدة</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Shift;<keycap
+>F1</keycap
+></keycombo
+></entry>
+<entry
+>ما هذا؟</entry>
+</row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</sect2>
+
+<sect2 id="kbd-docs">
+<title
+>العمل مع المستندات</title>
+
+<para
+>سواء كان مستندًا نصيًا، أو جدول بيانات، أو موقع ويب، فإن هذه الاختصارات تجعل أداء أنواع عديدة من المهام معها أمرًا سهلاً.</para>
+
+<informaltable>
+<tgroup cols="2">
+
+<thead>
+<row>
+<entry
+>الاختصار</entry>
+<entry
+>الوصف</entry>
+</row>
+</thead>
+
+<tbody>
+
+<row>
+<entry
+><keycap
+>F5</keycap
+></entry>
+<entry
+>حدّث</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>A</keycap
+></keycombo
+></entry>
+<entry
+>حدّد الكلّ</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+></entry>
+<entry
+>تراجع</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+></entry>
+<entry
+>كرّر</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>X</keycap
+></keycombo
+></entry>
+<entry
+>قصّ</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+></entry>
+<entry
+>انسخ</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>V</keycap
+></keycombo
+></entry>
+<entry
+>ألصق</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></entry>
+<entry
+>جديد</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+></entry>
+<entry
+>اطبع</entry>
+</row>
+
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></entry>
+<entry
+>احفظ</entry>
+</row>
+
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F</keycap
+></keycombo
+></entry>
+<entry
+>اعثر</entry>
+</row>
+
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>W</keycap
+></keycombo
+></entry>
+<entry
+>أغلق المستند/اللسان</entry>
+</row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</sect2>
+
+<sect2 id="kbd-files">
+<title
+>العمل مع الملفات</title>
+
+<para
+>سواء كنت في حوار فتح/حفظ أو في مدير الملفات دولفين، فإن هذه الاختصارات توفر وقتك عند إجراء العمليات على الملفات. لاحظ أن بعض المفاهيم المستخدمة مع الملفات هي نفسها المستخدمة مع المستندات، لذا فإن العديد من الاختصارات مطابقة لنظيراتها المذكورة أعلاه.</para>
+
+<informaltable>
+<tgroup cols="2">
+
+<thead>
+<row>
+<entry
+>الاختصار</entry>
+<entry
+>الوصف</entry>
+</row>
+</thead>
+
+<tbody>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+></entry>
+<entry
+>تراجع</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>X</keycap
+></keycombo
+></entry>
+<entry
+>قصّ</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+></entry>
+<entry
+>انسخ</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>V</keycap
+></keycombo
+></entry>
+<entry
+>ألصق</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>A</keycap
+></keycombo
+></entry>
+<entry
+>حدّد الكلّ</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>L</keycap
+></keycombo
+></entry>
+<entry
+>استبدل الموقع</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>A</keycap
+></keycombo
+></entry>
+<entry
+>اعكس التّحديد</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Alt;<keycap
+>Left</keycap
+></keycombo
+></entry>
+<entry
+>عُد</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Alt;<keycap
+>Right</keycap
+></keycombo
+></entry>
+<entry
+>تقدّم</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Alt;<keycap
+>Up</keycap
+></keycombo
+></entry>
+<entry
+>للأعلى (إلى المجلد الذي يحتوي هذا)</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Alt;<keycap
+>Home</keycap
+></keycombo
+></entry>
+<entry
+>مجلّد المنزل</entry>
+</row>
+
+<row>
+<entry
+><keycap
+>احذف</keycap
+></entry>
+<entry
+>انقل إلى المهملات</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Shift;<keycap
+>Delete</keycap
+></keycombo
+></entry>
+<entry
+>احذف نهائيا</entry>
+</row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</sect2>
+
+<sect2 id="kbd-vol-bright">
+<title
+>تغيير مستوى الصوت والسطوع</title>
+
+<para
+>بالإضافة إلى المفاتيح القياسية، تحتوي العديد من لوحات مفاتيح الحاسوب والحواسيب المحمولة حاليًا على مفاتيح أو أزرار خاصة لتغيير مستوى صوت السماعة، وكذلك سطوع الشاشة إن أمكن. إذا كانت موجودة، يمكنك استخدام هذه المفاتيح في مساحات عمل بلازما للقيام بهذه المهام.</para>
+
+<para
+>إذا لم تكن لديك مثل هذه المفاتيح، فراجع <xref linkend="kbd-modifying"/> للحصول على معلومات حول كيفية تعيين مفاتيح لهذه المهام.</para>
+
+</sect2>
+
+<sect2 id="kbd-leaving">
+<title
+>مغادرة الحاسوب</title>
+
+<para
+>أنهيت كل شيء؟ استخدم هذه الاختصارات واترك حاسوبك!</para>
+
+<informaltable>
+<tgroup cols="2">
+
+<thead>
+<row>
+<entry
+>الاختصار</entry>
+<entry
+>الوصف</entry>
+</row>
+</thead>
+
+<tbody>
+<!--FIXME obsolete?
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;&Alt;<keycap
+>Insert</keycap
+></keycombo
+></entry>
+<entry
+>Switch User</entry>
+</row>
+-->
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;&Alt;<keycap
+>L</keycap
+></keycombo
+></entry
+><!--workspace/kscreenlocker/ksmserver/server.cpp-->
+<entry
+>اقفل الشّاشة</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Ctrl;&Alt;<keycap
+>Del</keycap
+></keycombo
+></entry
+><!--plasma-workspace/ksmserver/server.cpp-->
+<entry
+>غادر</entry>
+</row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</sect2>
+
+<sect2 id="kbd-modifying">
+<title
+>تعديل الاختصارات</title>
+
+<para
+>تُسمى الاختصارات الموضحة في <link linkend="kbd-windows"
+>العمل مع النوافذ</link
+>، و <link linkend="kbd-leaving"
+>مغادرة الحاسوب</link
+>، و <link linkend="kbd-vol-bright"
+>تغيير مستوى الصوت والسطوع</link
+> و <link linkend="kbd-activities"
+>العمل مع الأنشطة وأسطح المكتب الافتراضية</link
+> بـ <emphasis
+>الاختصارات العالمية</emphasis
+>، لأنها تعمل بغض النظر عن النافذة المفتوحة على الشاشة. يمكن تعديل هذه الاختصارات في <ulink url="help:/kcontrol/keys/"
+>لوحة الاختصارات العالمية في إعدادات النظام</ulink
+>، حيث تُفصل حسب مكونات كيدي.</para>
+
+<para
+>تعد الاختصارات الموضحة في <link linkend="kbd-desktop"
+>العمل مع سطح المكتب</link
+> ثابتة ولا يمكن تعديلها.</para>
+
+<para
+>تُعيّن الاختصارات الموضحة في <link linkend="kbd-docs"
+>العمل مع المستندات</link
+> و <link linkend="kbd-help"
+>الحصول على المساعدة</link
+> بواسطة البرامج الفردية. تسمح لك معظم برامج كيدي باستخدام <link linkend="shortcuts"
+>حوار تعديل الاختصارات الشائع</link
+> لتعديلها. يمكن تعديل الاختصارات الموضحة في <link linkend="kbd-files"
+>العمل مع الملفات</link
+> بنفس الطريقة عند استخدامها داخل مدير ملفات مثل دولفين أو كونكرر، لكن لا يمكن تعديلها في حالة حوارات الفتح/الحفظ، وما إلى ذلك. </para>
+
+</sect2>
+</sect1>
+
+</chapter>
