@@ -4,7 +4,7 @@
 <!DOCTYPE glossary PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
 "customization/dtd/kdedbx45.dtd" [
 <!ENTITY % addindex "IGNORE">
-<!ENTITY % English "INCLUDE">
+<!ENTITY % Arabic "INCLUDE">
 <!ENTITY glossary-kdeprinting SYSTEM "kdeprintingglossary.docbook">
 
 ]>
