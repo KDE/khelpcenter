@@ -387,7 +387,7 @@
 >Linuxprinting.org</glossterm>
                         <glossdef
 ><para
->Linuxprinting.org = bu sitede yalnızca Linux değil; *BSD ve ticari Unixler gibi tüm &UNIX; benzeri işletim sistemleri yazdırma için yararlı bilgiler bulabilir. Bu web sitesi tüm kuyrukları, yazıcıları ve yapılandırma dosyalarını yeni bir yapılandırma çabası gerektirmeden sorunsuzca aktarma yeteneği ile "Üst Yazdırma Kuyruğu ve Sürücü Yapılandırma Araç Kiti"ni (tek bir genel arayüz ile, farklı yazdırma altsistemleri ve onların gerekli sürücülerini yapılandırabilmek) geliştirmeye çalışan ilginç Foomatic projelerinin ana sayfasıdır. -- Ayrıca, herkesin yazıcı modelleri hakkında en güncel bilgileri bulmasını sağlayan bir sürücü ve aygıt bilgisi topluluğu ve ortak Linux veya &UNIX; yazdırma sistemlerinden biriyle çalıştığı bilinen biriktirici/sürücü/aygıt bileşiminin yapılandırma dosyalarını çevrimiçi oluşturan, Yazdırma Veri Tabanını sürdürüyorlar ve bakımını yapıyorlar. </para>
+>Linuxprinting.org = bu sitede yalnızca Linux değil; *BSD ve ticari Unixler gibi tüm &UNIX; benzeri işletim sistemleri yazdırma için yararlı bilgiler bulabilir. Bu web sitesi tüm kuyrukları, yazıcıları ve yapılandırma dosyalarını yeni bir yapılandırma çabası gerektirmeden sorunsuzca aktarma yeteneği ile "Üst Yazdırma Kuyruğu ve Sürücü Yapılandırma Araç Kiti"ni (tek bir genel arayüz ile, farklı yazdırma altsistemleri ve onların gerekli sürücülerini yapılandırabilmek) geliştirmeye çalışan ilginç Foomatic projelerinin ana sayfasıdır. -- Ayrıca, herkesin yazıcı modelleri hakkında en güncel bilgileri bulmasını sağlayan bir sürücü ve aygıt bilgisi topluluğu ve ortak Linux veya &UNIX; yazdırma sistemlerinden biriyle çalıştığı bilinen biriktirici/sürücü/aygıt bileşiminin yapılandırma dosyalarını çevrim içi oluşturan, Yazdırma Veri Tabanını sürdürüyorlar ve bakımını yapıyorlar. </para>
                                 <glossseealso otherterm="gloss-linuxprintingdatabase"
 >Linuxprinting veri tabanı</glossseealso>
                         </glossdef>
@@ -686,7 +686,7 @@
 >ing</glossterm>
                         <glossdef
 ><para
->&emstart;S&emend;ynchronous &emstart;P&emend;eripheral &emstart;O&emend;perations &emstart;O&emend;n&emstart;L&emend;ine; (Senkron Çevresel İşlemler Çevrimiçi) için kısaltma <acronym
+>&emstart;S&emend;ynchronous &emstart;P&emend;eripheral &emstart;O&emend;perations &emstart;O&emend;n&emstart;L&emend;ine; (Çevrim İçi Senkron Çevresel İşlemler) için kısaltma <acronym
 >SPOOL</acronym
 >ing yazdırma uygulamaları (ve kullanıcıları) işi, yazıcı yazdırmaya hazır olana kadar dosyayı geçici bir konuma saklamış bir <acronym
 >daemon</acronym
