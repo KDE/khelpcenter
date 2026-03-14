@@ -98,6 +98,7 @@
     <p xml:lang="bg">Приложение за търсене и четене на документация за всички приложения и системни инструменти на KDE</p>
     <p xml:lang="ca">Una aplicació per a cercar i llegir la documentació per a totes les aplicacions KDE i utilitats del sistema</p>
     <p xml:lang="ca-valencia">Una aplicació per a buscar i llegir la documentació per a totes les aplicacions KDE i utilitats del sistema</p>
+    <p xml:lang="cs">Aplikace pro vyhledávání a čtení dokumentace ke všem aplikacím KDE a systémovým nástrojům</p>
     <p xml:lang="da">Et program til at søge efter og læse dokumentation til alle dine KDE-programmer og -systemværktøjer</p>
     <p xml:lang="de">Eine Anwendung zum Suchen und Lesen der Dokumentation für alle Ihre KDE-Anwendungen und Systemprogramme</p>
     <p xml:lang="el">Μια εφαρμογή αναζήτησης και ανάγνωσης της τεκμηρίωσης για όλες τις εφαρμογές και τα βοηθητικά προγράμματα συστήματος του KDE</p>
@@ -193,6 +194,7 @@
       <li xml:lang="bg">Показване на документация от различни източници (приложения от  KDE общност, man страници и др.)</li>
       <li xml:lang="ca">Mostra la documentació de diverses fonts (aplicacions de la comunitat KDE, pàgines «man», etc.)</li>
       <li xml:lang="ca-valencia">Mostra la documentació de diverses fonts (aplicacions de la comunitat KDE, pàgines «man», etc.)</li>
+      <li xml:lang="cs">Zobrazení dokumentace z různých zdrojů (aplikace z komunity KDE, manuálové stránky atd.)</li>
       <li xml:lang="da">Vis dokumentation fra diverse kilder (programmer fra KDE-fællesskabet, man-sider, osv.)</li>
       <li xml:lang="de">Dokumentation aus unterschiedlichen Quellen anzeigen (KDE-Anwendungen, Man-Pages usw.)</li>
       <li xml:lang="el">Να εμφανίζεται τεκμηρίωση από διάφορες πηγές (εφαρμογές από την κοινότητα του KDE, σελίδες εγχειριδίου, κλπ)</li>
@@ -242,6 +244,7 @@
       <li xml:lang="bg">Търсене в наличната документация</li>
       <li xml:lang="ca">Cerca a la documentació disponible</li>
       <li xml:lang="ca-valencia">Busca en la documentació disponible</li>
+      <li xml:lang="cs">Prohledávání dostupné dokumentace</li>
       <li xml:lang="da">Søg i den tilgængelige dokumentation</li>
       <li xml:lang="de">Die verfügbare Dokumentation durchsuchen</li>
       <li xml:lang="el">Αναζήτηση στη διαθέσιμη τεκμηρίωση</li>
