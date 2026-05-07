@@ -34,6 +34,7 @@
   <name xml:lang="it">Centro documentazione</name>
   <name xml:lang="ka">დახმარების ცენტრი</name>
   <name xml:lang="ko">도움말 센터</name>
+  <name xml:lang="lt">Pagalbos centras</name>
   <name xml:lang="lv">Palīdzības centrs</name>
   <name xml:lang="nl">Hulpcentrum</name>
   <name xml:lang="nn">Hjelpesenter</name>
@@ -75,6 +76,7 @@
   <summary xml:lang="it">Sfoglia e cerca nella documentazione</summary>
   <summary xml:lang="ka">დაათვალიერეთ და მოიძიეთ დოკუმენტაცია</summary>
   <summary xml:lang="ko">문서 찾아보기 및 검색</summary>
+  <summary xml:lang="lt">Naršyti ir ieškoti dokumentacijos</summary>
   <summary xml:lang="nl">Blader in en doorzoek documentatie</summary>
   <summary xml:lang="nn">Søk og bla gjennom hjelpetekstar</summary>
   <summary xml:lang="pl">Przeglądarka i wyszukiwarka dokumentacji</summary>
@@ -119,6 +121,7 @@
     <p xml:lang="it">Un'applicazione per cercare e consultare la documentazione per tutte le applicazione di KDE e le utilità di sistema</p>
     <p xml:lang="ka">აპლიკაცია თქვენი ყველა KDE-ის აპლიკაციისა და სისტემური ხელსაწყოების დოკუმენტაციის მოსაძებნად და წასაკითხად</p>
     <p xml:lang="ko">KDE 앱과 시스템 유틸리티의 도움말과 문서를 검색 및 열람하는 앱</p>
+    <p xml:lang="lt">Programa, skirta ieškoti ir skaityti visų KDE programų ir sisteminių paslaugos priemonių dokumentaciją</p>
     <p xml:lang="lv">Programma visu KDE programmu un sistēmas utilītprogrammu dokumentācijas lasīšanai un meklēšanai tajā</p>
     <p xml:lang="nl">Een toepassing om de documentatie te zoeken en te lezen voor al uw KDE toepassingen en systeemhulpmiddelen</p>
     <p xml:lang="nn">Eit program for å bla eller søkja gjennom alle brukarhandbøkene for KDE-programma og systemverktøya</p>
@@ -165,6 +168,7 @@
     <p xml:lang="it">Funzionalità:</p>
     <p xml:lang="ka">თვისებები:</p>
     <p xml:lang="ko">기능:</p>
+    <p xml:lang="lt">Ypatybės:</p>
     <p xml:lang="lv">Iespējas:</p>
     <p xml:lang="nl">Mogelijkheden:</p>
     <p xml:lang="nn">Funksjonar:</p>
@@ -216,6 +220,7 @@
       <li xml:lang="it">Mostra la documentazione da varie fonti (applicazioni dalla comunità KDE, pagine di manuale, ecc)</li>
       <li xml:lang="ka">დოკუმენტაციის ჩვენება სხვადასხვა წყაროებიდან (პროგრამები KDE თემიდან, დახმარების გვერდებიდან და ა.შ.)</li>
       <li xml:lang="ko">KDE 커뮤니티 앱, man 페이지 등 여러 곳의 문서 표시</li>
+      <li xml:lang="lt">Rodyti dokumentaciją iš įvairių šaltinių (KDE bendruomenės programų, „man“ puslapių ir t.t.)</li>
       <li xml:lang="lv">Parāda dokumentāciju no dažādiem avotiem (KDE kopienas programmas, „man“ lapas u.c.)</li>
       <li xml:lang="nl">Toon documentatie uit verschillende bronnen (toepassingen uit de KDE gemeenschap, manpagina's, etc)</li>
       <li xml:lang="nn">Vis hjelpetekstar frå ulike kjelder (KDE-program, man-sider o.l.)</li>
@@ -266,6 +271,7 @@
       <li xml:lang="it">Cerca nella documentazione disponibile</li>
       <li xml:lang="ka">ხელმისაწვდომ დოკუმენტაციაში ძებნა</li>
       <li xml:lang="ko">사용 가능한 문서 내에서 검색</li>
+      <li xml:lang="lt">Atlikti paiešką prieinamoje dokumentacijoje</li>
       <li xml:lang="lv">Meklē pieejamajā dokumentācijā</li>
       <li xml:lang="nl">Zoeken in de beschikbare documentatie</li>
       <li xml:lang="nn">Søk gjennom tilgjengelege hjelpetekstar</li>
@@ -320,6 +326,7 @@
       <caption xml:lang="it">Finestra principale di KHelpCenter</caption>
       <caption xml:lang="ka">KHelpCenter -ის მთავარი ფანჯარა</caption>
       <caption xml:lang="ko">KHelpCenter 주 창</caption>
+      <caption xml:lang="lt">KHelpCenter pagrindinis langas</caption>
       <caption xml:lang="lv">„KHelpCenter“ galvenais logs</caption>
       <caption xml:lang="nl">Hoofdvenster van KHelpCenter</caption>
       <caption xml:lang="nn">Hovudvindauge for hjelpesenteret</caption>
