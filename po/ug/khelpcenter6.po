@@ -8,47 +8,45 @@ msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-12 00:46+0000\n"
-"PO-Revision-Date: 2013-09-08 07:05+0900\n"
-"Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
+"PO-Revision-Date: 2026-05-31 18:35-0400\n"
+"Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.9\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "ئابدۇقادىر ئابلىز, غەيرەت كەنجى"
+msgstr "ئابدۇقادىر ئابلىز، غەيرەت كەنجى"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "sahran.ug@gmail.com,  gheyret@gmail.com"
+msgstr "sahranbay@gmail.com, gheyret@gmail.com"
 
 #: application.cpp:30
-#, fuzzy, kde-format
-#| msgid "Document to be indexed"
+#, kde-format
 msgid "Documentation to open"
-msgstr "ئىندېكسلىنىدىغان پۈتۈك"
+msgstr ""
 
 #: application.cpp:103 application.cpp:105
-#, fuzzy, kde-format
-#| msgid "KDE Help Center"
+#, kde-format
 msgid "Help Center"
-msgstr "ك د ئې(KDE) ياردەم مەركىزى"
+msgstr "ياردەم مەركىزى"
 
 #: application.cpp:107
-#, fuzzy, kde-format
-#| msgid "(c) 1999-2011, The KHelpCenter developers"
+#, kde-format
 msgid "(c) 1999-2023, The KHelpCenter developers"
-msgstr "(c) 1999-2011, The KHelpCenter ئىجادىيەتچىلىرى"
+msgstr ""
 
 #: application.cpp:109
 #, kde-format
 msgid "Current maintainer"
-msgstr ""
+msgstr "نۆۋەتتىكى ئاسرىغۇچى"
 
 #: application.cpp:110
 #, kde-format
@@ -58,12 +56,12 @@ msgstr ""
 #: application.cpp:111
 #, kde-format
 msgid "Former maintainer"
-msgstr ""
+msgstr "سابىق ئاسرىغۇچى"
 
 #: application.cpp:113
 #, kde-format
 msgid "Original Author"
-msgstr "ئەسلى ئاپتور"
+msgstr "ئەسلى يازغۇچى"
 
 #: application.cpp:114
 #, kde-format
@@ -112,7 +110,7 @@ msgstr "ئوتتۇرا خەت چوڭلۇقى(&E):"
 #: fontdialog.cpp:83
 #, kde-format
 msgid "Fonts"
-msgstr "خەت نۇسخىلىرى"
+msgstr "خەت نۇسخا"
 
 #: fontdialog.cpp:87
 #, kde-format
@@ -185,11 +183,10 @@ msgid "Rebuilding cache... done."
 msgstr "سۆزلۈك غەملىكىنى قايتا قۇرۇۋاتىدۇ…تامام."
 
 #: grantleeformatter.cpp:97
-#, fuzzy, kde-format
-#| msgid "KDE Glossary"
+#, kde-format
 msgctxt "%1 is a glossary term"
 msgid "KDE Glossary: %1"
-msgstr "KDE سۆزلۈكى"
+msgstr ""
 
 #: grantleeformatter.cpp:98
 #, kde-format
@@ -197,10 +194,9 @@ msgid "KDE Glossary"
 msgstr "KDE سۆزلۈكى"
 
 #: grantleeformatter.cpp:102
-#, fuzzy, kde-format
-#| msgid "See also: "
+#, kde-format
 msgid "See also: %1"
-msgstr "پايدىلىنىڭ: "
+msgstr ""
 
 #: grantleeformatter.cpp:122
 #, kde-format
@@ -215,7 +211,7 @@ msgstr "«%1» نىڭ ئىزدەش نەتىجىسى:"
 #: infotree.cpp:79
 #, kde-format
 msgid "By Category"
-msgstr "كاتېگورىيە بويىچە"
+msgstr "سەھىپە بويىچە"
 
 #. i18n: ectx: label, entry, group (Search)
 #: khelpcenter.kcfg:31
@@ -298,13 +294,12 @@ msgstr "ئاڭ ئاخىرقى ئىزدەش نەتىجىسى(&L)"
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"
-msgstr ""
+msgstr "خەتكۈچ(&B)"
 
 #: navigator.cpp:64
-#, fuzzy, kde-format
-#| msgid "&Search"
+#, kde-format
 msgid "Search..."
-msgstr "ئىزدە(&S)"
+msgstr "ئىزدە…"
 
 #: navigator.cpp:119
 #, kde-format
@@ -329,24 +324,22 @@ msgstr "باشلاش بېتى"
 #: navigator.cpp:456
 #, kde-format
 msgid "KDE Help Center"
-msgstr "ك د ئې(KDE) ياردەم مەركىزى"
+msgstr "KDE ياردەم مەركىزى"
 
 #: navigator.cpp:540
 #, kde-format
 msgid "Unable to run search program."
-msgstr "ئىزدەش پروگراممىسىنى ئىجرا قىلغىلى بولمىدى."
+msgstr "ئىزدەش پىروگراممىسىنى ئىجرا قىلغىلى بولمىدى."
 
 #: navigator.cpp:632
-#, fuzzy, kde-format
-#| msgid "Build Search &Index..."
+#, kde-format
 msgid "Updating search index..."
-msgstr "ئىزدەش ئىندىكىسى قۇر(&I)"
+msgstr ""
 
 #: navigator.cpp:643
-#, fuzzy, kde-format
-#| msgid "Rebuilding cache... done."
+#, kde-format
 msgid "Updating search index... done."
-msgstr "سۆزلۈك غەملىكىنى قايتا قۇرۇۋاتىدۇ…تامام."
+msgstr ""
 
 #: printdoc.cpp:60
 #, kde-format
@@ -367,7 +360,7 @@ msgstr "خاتا: پۈتۈك تىپى كۆرسىتىلمىگەن."
 #: searchengine.cpp:64
 #, kde-format
 msgid "Error: No search handler for document type '%1'."
-msgstr "خاتا: پۈتۈك تىپى ‹%1› نىڭ ئىزدەش تۇتقۇچىسى يوق."
+msgstr "خاتا: پۈتۈك تىپى «%1» نىڭ ئىزدەش تۇتقۇچىسى يوق."
 
 #: searchengine.cpp:234
 #, kde-format
@@ -377,7 +370,7 @@ msgstr "ئىناۋەتلىك ئىزدەش تۇتقۇچىسى(handler) تېپىل
 #: searchhandler.cpp:38
 #, kde-format
 msgid "Error executing search command '%1'."
-msgstr "ئىزدەش بۇيرۇقى ‹%1› نى ئىجرا قىلىشتا خاتالىق كۆرۈلدى"
+msgstr "ئىزدەش بۇيرۇقى «%1» نى ئىجرا قىلىشتا خاتالىق كۆرۈلدى."
 
 #: searchhandler.cpp:76
 #, kde-format
@@ -457,13 +450,12 @@ msgstr "يوق"
 #, kde-format
 msgctxt "Label for Unknown search scope, that should never appear"
 msgid "unknown"
-msgstr "نامەلۇم"
+msgstr "يوچۇن"
 
 #: view.cpp:327
-#, fuzzy, kde-format
-#| msgid "Start Page"
+#, kde-format
 msgid "Save Page"
-msgstr "باشلاش بېتى"
+msgstr ""
 
 #~ msgid "Previous Page"
 #~ msgstr "ئالدىنقى بەت"
@@ -557,12 +549,10 @@ msgstr "باشلاش بېتى"
 #~ msgid "Stop"
 #~ msgstr "توختا"
 
-#, fuzzy
 #~| msgid "Details &lt;&lt;"
 #~ msgid "Details <<"
 #~ msgstr "تەپسىلاتلار &lt;&lt;"
 
-#, fuzzy
 #~| msgid "Details &lt;&lt;"
 #~ msgid "Details >>"
 #~ msgstr "تەپسىلاتلار &lt;&lt;"
