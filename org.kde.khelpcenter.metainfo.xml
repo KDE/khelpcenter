@@ -54,6 +54,7 @@
   <name xml:lang="sv">Hjälpcentral</name>
   <name xml:lang="ta">உதவி மையம்</name>
   <name xml:lang="tr">Yardım Merkezi</name>
+  <name xml:lang="ug">ياردەم مەركىزى</name>
   <name xml:lang="uk">Центр довідки</name>
   <name xml:lang="vi">Trung tâm trợ giúp</name>
   <name xml:lang="zh-CN">帮助中心</name>
@@ -188,6 +189,7 @@
     <p xml:lang="sv">Funktioner:</p>
     <p xml:lang="ta">அம்சங்கள்:</p>
     <p xml:lang="tr">Özellikler:</p>
+    <p xml:lang="ug">ئىقتىدار:</p>
     <p xml:lang="uk">Можливості:</p>
     <p xml:lang="vi">Tính năng:</p>
     <p xml:lang="zh-CN">功能：</p>
