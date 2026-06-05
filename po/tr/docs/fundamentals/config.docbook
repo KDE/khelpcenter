@@ -98,14 +98,14 @@
 <title
 >Bir Öge Eklemek</title>
 <para
->Araç çubuğunuza bir öğeyi sol taraftan seçip sağ ok düğmesine tıklayarak ekleyebilirsiniz.</para>
+>Araç çubuğunuza bir ögeyi sol taraftan seçip sağ ok düğmesine tıklayarak ekleyebilirsiniz.</para>
 </sect3>
 
 <sect3 id="toolbars-items-remove">
 <title
 >Bir Ögeyi Kaldırmak</title>
 <para
->Bir öğeyi seçip sol ok düğmesine tıklayarak kaldırabilirsiniz.</para>
+>Bir ögeyi seçip sol ok düğmesine tıklayarak kaldırabilirsiniz.</para>
 </sect3>
 
 
@@ -264,7 +264,7 @@
 >kilidini açmanız</quote
 > gerekir. Bunu yapmak için araç çubuğunun içerik menüsünden <guimenuitem
 >Araç Çubuğu Konumlarını Kilitle</guimenuitem
-> seçeneğinin işaretini kaldırın. Kilidi geri yüklemek için bu menü öğesini yeniden işaretlemeniz yeterlidir.</para>
+> seçeneğinin işaretini kaldırın. Kilidi geri yüklemek için bu menü ögesini yeniden işaretlemeniz yeterlidir.</para>
 
 <para
 >Bir araç çubuğunun konumunu, bağlam menüsünün <guisubmenu
