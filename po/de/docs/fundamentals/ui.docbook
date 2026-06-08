@@ -999,7 +999,7 @@
 <para
 >Mit den Einträgen im Menü <guimenu
 >Datei</guimenu
-> können Sie Aktionen mit der gerade geöffnete Datei ausführen. Hier finden Sie auch Standardaktionen in Programmen.</para>
+> können Sie Aktionen mit der gerade geöffnete Datei ausführen, hier finden Sie auch Standardaktionen in Programmen .</para>
 
 <para
 >Häufige Menüeinträge sind:</para>
@@ -2345,11 +2345,7 @@ or via email (see krecipes doc rev 1306076)
 ></entry
 ><!--[kwin][Global Shortcuts] MoveZoomLeft=Meta+Left -->
 <entry
->Nach links schieben, Fenster auf Monitor nach links verschieben<footnote id="fn1"
-><para
->In einer Umgebung mit mehreren Monitoren</para
-></footnote
-></entry>
+>Nach links schieben</entry>
 </row>
 
 <row>
@@ -2361,29 +2357,7 @@ or via email (see krecipes doc rev 1306076)
 ></entry
 ><!--[kwin][Global Shortcuts] MoveZoomRight=Meta+Right -->
 <entry
->Nach rechts schieben, Fenster auf Monitor nach rechts verschieben<footnoteref linkend="fn1"/></entry>
-</row>
-
-<row>
-<entry
-><keycombo action="simul"
->&Meta;<keysym
->Bild auf</keysym
-></keycombo
-></entry>
-<entry
->Fenster maximieren/wiederherstellen</entry>
-</row>
-
-<row>
-<entry
-><keycombo action="simul"
->&Meta;<keysym
->Bild ab</keysym
-></keycombo
-></entry>
-<entry
->Fenster minimieren</entry>
+>Nach rechts schieben</entry>
 </row>
 
 </tbody>
