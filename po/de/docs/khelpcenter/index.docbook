@@ -366,7 +366,7 @@
 <varlistentry>
 <term
 ><guilabel
->KIO-Module</guilabel
+>Ein-/Ausgabemodule</guilabel
 ></term>
 <listitem>
 <para
@@ -1082,7 +1082,7 @@ Print the contents of the currently visible page.
 <para
 >Ursprünglich wurde die KDE-Hilfe von &Matthias.Elter; &Matthias.Elter.mail; entwickelt</para>
 <para
->Derzeitiger Betreuer ist &Cornelius.Schumacher; &Cornelius.Schumacher.mail;</para>
+>Derzeitiger Betreuer ist &Cornelius.Schumacher;&Cornelius.Schumacher.mail;</para>
 
 <para
 >Übersetzung: Matthias Kiefer <email
