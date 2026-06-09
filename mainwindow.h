@@ -79,6 +79,9 @@ protected:
 
     void readConfig();
     void writeConfig();
+#if QT_VERSION >= QT_VERSION_CHECK(6, 7, 0)
+    void changeEvent(QEvent *e) override;
+#endif
 
 protected Q_SLOTS:
     void enableLastSearchAction();
@@ -103,6 +106,9 @@ private Q_SLOTS:
 
 private:
     void updateFontScaleActions();
+#if QT_VERSION >= QT_VERSION_CHECK(6, 7, 0)
+    void applyContentColorScheme();
+#endif
 
     QSplitter *mSplitter = nullptr;
     ViewContainer *mViewContainer = nullptr;

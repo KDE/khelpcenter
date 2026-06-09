@@ -30,7 +30,11 @@
 #include <QStatusBar>
 #include <QTextEdit>
 #include <QVBoxLayout>
-
+#if QT_VERSION >= QT_VERSION_CHECK(6, 7, 0)
+#include <QApplication>
+#include <QStyleHints>
+#include <QWebEngineSettings>
+#endif
 #include <KActionCollection>
 #include <KActionMenu>
 #include <KBookmarkManager>
@@ -140,6 +144,11 @@ MainWindow::MainWindow()
 
     statusBarMessage(i18n("Ready"));
     enableCopyTextAction();
+
+#if QT_VERSION >= QT_VERSION_CHECK(6, 7, 0)
+    applyContentColorScheme();
+    mDoc->page()->setBackgroundColor(Qt::transparent); // Prevent displaying a white page at startup
+#endif
 
     readConfig();
 }
@@ -449,6 +458,22 @@ void MainWindow::slotPrintPreview()
     printDoc->setView(mDoc);
     printDoc->printPreview();
 }
+
+#if QT_VERSION >= QT_VERSION_CHECK(6, 7, 0)
+void MainWindow::applyContentColorScheme()
+{
+    auto colorScheme = QApplication::styleHints()->colorScheme();
+    mDoc->page()->settings()->setAttribute(QWebEngineSettings::ForceDarkMode, colorScheme == Qt::ColorScheme::Dark);
+}
+
+void MainWindow::changeEvent(QEvent *e)
+{
+    if (e->type() == QEvent::StyleChange) {
+        applyContentColorScheme();
+    }
+    QWidget::changeEvent(e);
+}
+#endif
 
 #include "moc_mainwindow.cpp"
 
