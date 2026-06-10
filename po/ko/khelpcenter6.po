@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-12 00:46+0000\n"
+"POT-Creation-Date: 2026-06-10 00:48+0000\n"
 "PO-Revision-Date: 2023-10-08 23:16+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -262,42 +262,42 @@ msgstr "이동(&G)"
 msgid "Main Toolbar"
 msgstr "주 도구 모음"
 
-#: mainwindow.cpp:57
+#: mainwindow.cpp:61
 #, kde-format
 msgid "Search Error Log"
 msgstr "오류 로그 검색"
 
-#: mainwindow.cpp:114
+#: mainwindow.cpp:118
 #, kde-format
 msgid "Preparing Index"
 msgstr "색인 준비"
 
-#: mainwindow.cpp:141
+#: mainwindow.cpp:145
 #, kde-format
 msgid "Ready"
 msgstr "준비"
 
-#: mainwindow.cpp:196
+#: mainwindow.cpp:205
 #, kde-format
 msgid "Table of &Contents"
 msgstr "목차(&C)"
 
-#: mainwindow.cpp:197
+#: mainwindow.cpp:206
 #, kde-format
 msgid "Table of contents"
 msgstr "목차"
 
-#: mainwindow.cpp:198
+#: mainwindow.cpp:207
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "목차로 돌아가기"
 
-#: mainwindow.cpp:224
+#: mainwindow.cpp:233
 #, kde-format
 msgid "&Last Search Result"
 msgstr "마지막 검색 결과(&L)"
 
-#: mainwindow.cpp:252
+#: mainwindow.cpp:261
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"

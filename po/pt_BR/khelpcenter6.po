@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-12 00:46+0000\n"
+"POT-Creation-Date: 2026-06-10 00:48+0000\n"
 "PO-Revision-Date: 2023-10-13 21:17-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -269,42 +269,42 @@ msgstr "&Ir"
 msgid "Main Toolbar"
 msgstr "Barra de ferramentas principal"
 
-#: mainwindow.cpp:57
+#: mainwindow.cpp:61
 #, kde-format
 msgid "Search Error Log"
 msgstr "Log de erros de pesquisa"
 
-#: mainwindow.cpp:114
+#: mainwindow.cpp:118
 #, kde-format
 msgid "Preparing Index"
 msgstr "Preparando índice"
 
-#: mainwindow.cpp:141
+#: mainwindow.cpp:145
 #, kde-format
 msgid "Ready"
 msgstr "Pronto"
 
-#: mainwindow.cpp:196
+#: mainwindow.cpp:205
 #, kde-format
 msgid "Table of &Contents"
 msgstr "&Sumário"
 
-#: mainwindow.cpp:197
+#: mainwindow.cpp:206
 #, kde-format
 msgid "Table of contents"
 msgstr "Sumário"
 
-#: mainwindow.cpp:198
+#: mainwindow.cpp:207
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "Vai para o índice"
 
-#: mainwindow.cpp:224
+#: mainwindow.cpp:233
 #, kde-format
 msgid "&Last Search Result"
 msgstr "Ú&ltimo resultado de pesquisa"
 
-#: mainwindow.cpp:252
+#: mainwindow.cpp:261
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"

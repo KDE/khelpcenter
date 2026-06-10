@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter stable\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-12 00:46+0000\n"
+"POT-Creation-Date: 2026-06-10 00:48+0000\n"
 "PO-Revision-Date: 2005-11-24 08:47+0200\n"
 "Last-Translator: Kobus Venter <kabousv@therugby.co.za>\n"
 "Language-Team: AFRIKAANS <translate-discuss-af@lists.sourceforge.net>\n"
@@ -263,42 +263,42 @@ msgstr "Gaan"
 msgid "Main Toolbar"
 msgstr ""
 
-#: mainwindow.cpp:57
+#: mainwindow.cpp:61
 #, kde-format
 msgid "Search Error Log"
 msgstr "Soektog Fout Log"
 
-#: mainwindow.cpp:114
+#: mainwindow.cpp:118
 #, kde-format
 msgid "Preparing Index"
 msgstr "Berei voor Indeks"
 
-#: mainwindow.cpp:141
+#: mainwindow.cpp:145
 #, kde-format
 msgid "Ready"
 msgstr "Gereed"
 
-#: mainwindow.cpp:196
+#: mainwindow.cpp:205
 #, kde-format
 msgid "Table of &Contents"
 msgstr "Tafel van Inhoud"
 
-#: mainwindow.cpp:197
+#: mainwindow.cpp:206
 #, kde-format
 msgid "Table of contents"
 msgstr "Tabel van Inhoud"
 
-#: mainwindow.cpp:198
+#: mainwindow.cpp:207
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "Gaan terug na die tafel van inhoud"
 
-#: mainwindow.cpp:224
+#: mainwindow.cpp:233
 #, kde-format
 msgid "&Last Search Result"
 msgstr "Laaste Soektog Resultaat"
 
-#: mainwindow.cpp:252
+#: mainwindow.cpp:261
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-12 00:46+0000\n"
+"POT-Creation-Date: 2026-06-10 00:48+0000\n"
 "PO-Revision-Date: 2023-09-29 08:52+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -261,42 +261,42 @@ msgstr "Пере&хід"
 msgid "Main Toolbar"
 msgstr "Головний пенал"
 
-#: mainwindow.cpp:57
+#: mainwindow.cpp:61
 #, kde-format
 msgid "Search Error Log"
 msgstr "Журнал помилок пошуку"
 
-#: mainwindow.cpp:114
+#: mainwindow.cpp:118
 #, kde-format
 msgid "Preparing Index"
 msgstr "Підготовка індексу"
 
-#: mainwindow.cpp:141
+#: mainwindow.cpp:145
 #, kde-format
 msgid "Ready"
 msgstr "Готово"
 
-#: mainwindow.cpp:196
+#: mainwindow.cpp:205
 #, kde-format
 msgid "Table of &Contents"
 msgstr "&Зміст"
 
-#: mainwindow.cpp:197
+#: mainwindow.cpp:206
 #, kde-format
 msgid "Table of contents"
 msgstr "Зміст"
 
-#: mainwindow.cpp:198
+#: mainwindow.cpp:207
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "Назад до змісту"
 
-#: mainwindow.cpp:224
+#: mainwindow.cpp:233
 #, kde-format
 msgid "&Last Search Result"
 msgstr "&Останній результат пошуку"
 
-#: mainwindow.cpp:252
+#: mainwindow.cpp:261
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"

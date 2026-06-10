@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-12 00:46+0000\n"
+"POT-Creation-Date: 2026-06-10 00:48+0000\n"
 "PO-Revision-Date: 2021-11-15 17:34+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -263,42 +263,42 @@ msgstr "Pre&jsť"
 msgid "Main Toolbar"
 msgstr "Hlavný panel nástrojov"
 
-#: mainwindow.cpp:57
+#: mainwindow.cpp:61
 #, kde-format
 msgid "Search Error Log"
 msgstr "Záznam o chybách počas hľadania"
 
-#: mainwindow.cpp:114
+#: mainwindow.cpp:118
 #, kde-format
 msgid "Preparing Index"
 msgstr "Pripravuje sa index"
 
-#: mainwindow.cpp:141
+#: mainwindow.cpp:145
 #, kde-format
 msgid "Ready"
 msgstr "Pripravený"
 
-#: mainwindow.cpp:196
+#: mainwindow.cpp:205
 #, kde-format
 msgid "Table of &Contents"
 msgstr "&Obsah"
 
-#: mainwindow.cpp:197
+#: mainwindow.cpp:206
 #, kde-format
 msgid "Table of contents"
 msgstr "Obsah"
 
-#: mainwindow.cpp:198
+#: mainwindow.cpp:207
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "Prejsť späť na Obsah"
 
-#: mainwindow.cpp:224
+#: mainwindow.cpp:233
 #, kde-format
 msgid "&Last Search Result"
 msgstr "Výs&ledky posledného hľadania"
 
-#: mainwindow.cpp:252
+#: mainwindow.cpp:261
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"

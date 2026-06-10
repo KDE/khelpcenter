@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-12 00:46+0000\n"
+"POT-Creation-Date: 2026-06-10 00:48+0000\n"
 "PO-Revision-Date: 2009-01-06 17:45+0530\n"
 "Last-Translator: Shankar Prasad <svenkate@redhat.com>\n"
 "Language-Team: Kannada <en@li.org>\n"
@@ -260,42 +260,42 @@ msgstr "ಹೋಗು(&G)"
 msgid "Main Toolbar"
 msgstr "ಮುಖ್ಯ ಸಲಕರಣೆಪಟ್ಟಿ"
 
-#: mainwindow.cpp:57
+#: mainwindow.cpp:61
 #, kde-format
 msgid "Search Error Log"
 msgstr "ಹುಡುಕು ದಾಖಲೆ ದೋಷ"
 
-#: mainwindow.cpp:114
+#: mainwindow.cpp:118
 #, kde-format
 msgid "Preparing Index"
 msgstr "ಸೂಚಿಯನ್ನು ತಯಾರಿಸಲಾಗುತ್ತಿದೆ"
 
-#: mainwindow.cpp:141
+#: mainwindow.cpp:145
 #, kde-format
 msgid "Ready"
 msgstr "ಸಿದ್ಧವಾಗಿದೆ"
 
-#: mainwindow.cpp:196
+#: mainwindow.cpp:205
 #, kde-format
 msgid "Table of &Contents"
 msgstr "ವಿಷಯಗಳ ಪಟ್ಟಿ(&C)"
 
-#: mainwindow.cpp:197
+#: mainwindow.cpp:206
 #, kde-format
 msgid "Table of contents"
 msgstr "ವಿಷಯಗಳ ಪಟ್ಟಿ"
 
-#: mainwindow.cpp:198
+#: mainwindow.cpp:207
 #, kde-format
 msgid "Go back to the table of contents"
 msgstr "ವಿಷಯಗಳ ಪಟ್ಟಿಗೆ ಹಿಂತಿರುಗು"
 
-#: mainwindow.cpp:224
+#: mainwindow.cpp:233
 #, kde-format
 msgid "&Last Search Result"
 msgstr "ಕೊನೆಯ ಹುಡುಕು ಫಲಿತಾಂಶ(&L)"
 
-#: mainwindow.cpp:252
+#: mainwindow.cpp:261
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Bookmarks"
