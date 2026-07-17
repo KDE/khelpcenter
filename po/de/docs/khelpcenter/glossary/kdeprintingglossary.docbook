@@ -33,7 +33,7 @@
 >AppSocket-Protokoll</glossterm>
                         <glossdef
 ><para
->AppSocket ist ein Protokoll für die Übertragung von Druckdaten, auch häufig als „Direct TCP/IP Printing“ (Direktes Drucken über TCP/IP) bezeichnet. &Hewlett-Packard; hat einige geringfügige Erweiterungen zu AppSocket hinzugefügt und vermarktet es sehr erfolgreich unter dem Markennamen „&HP; JetDirect“ ...</para
+>AppSocket ist ein Protokoll für die Übertragung von Druckdaten, auch häufig als „Direct TCP/IP Printing“ (Direktes Drucken über TCP/IP) bezeichnet. &Hewlett-Packard; hat einige geringfügige Erweiterungen zu AppSocket hinzugefügt und vermarktet es sehr erfolgreich unter dem Markennamen „&HP; JetDirect“ …</para
 ><glossseealso otherterm="gloss-hpjetdirectprotocol"
 >&HP; JetDirect Protocol</glossseealso
 > <glossseealso otherterm="gloss-directtcpipprinting"
@@ -57,7 +57,7 @@
 >Kommunikation in zwei Richtungen</glossterm>
                         <glossdef
 ><para
->Während eines Druckvorgangs kann ein Server oder ein Rechner zusätzliche Informationen empfangen, die vom Drucker gesendet werden (Statusmeldungen &etc;). Dies geschieht auf Nachfrage oder auch nicht. AppSocket (= &HP; JetDirect), &CUPS; und IPP unterstützen diese Kommunikation in zwei Richtungen, LPR/LPD und BSD-basiertes Drucken tun dies nicht ...</para
+>Während eines Druckvorgangs kann ein Server oder ein Rechner zusätzliche Informationen empfangen, die vom Drucker gesendet werden (Statusmeldungen &etc;). Dies geschieht auf Nachfrage oder auch nicht. AppSocket (= &HP; JetDirect), &CUPS; und IPP unterstützen diese Kommunikation in zwei Richtungen, LPR/LPD und BSD-basiertes Drucken tun dies nicht …</para
 ><glossseealso otherterm="gloss-appsocketprotocol"
 >AppSocket-Protokoll</glossseealso
 > <glossseealso otherterm="gloss-cups"
@@ -78,7 +78,7 @@
 >BSD-basiertes Drucken</glossterm>
                         <glossdef
 ><para
->Allgemeiner Ausdruck für verschiedene Varianten der traditionellen Druckmethode unter &UNIX;. Die erste Version wurde in den frühen 70er Jahren auf BSD &UNIX; veröffentlicht und erst 1990 in &linkstart;"https://www.rfc.net/rfc1179.html"&linkmid;RFC 1179&linkend; beschrieben. &newpara;Zu dem Zeitpunkt, als das BSD Netzwerkdrucken entwickelt wurde, waren Drucker seriell oder anderweitig direkt mit dem Rechner verbundene Geräte. Das Internet bestand aus kaum mehr als 100 Knotenpunkten. Drucker verwendeten perforiertes Endlospapier, das aus einem Karton unter dem Druckertisch über einen Traktormechanismus transportiert und auf das mit mechanischer Gewalt schlichte ASCII-Zeilen gehämmert wurden. Das Papier hob sich wie eine Zickzack gefaltete „Schlange“ aus seinem Karton. Netzwerkdrucken bestand darin, dass ein Rechner ein Datei an den Drucker im nächsten Raum verschickte, um sie ausdrucken zu lassen. &newpara;Wie sich die Technologie doch entwickelt hat. Drucker verwenden allgemein Einzelblätter, besitzen eine eingebaute Intelligenz, um die Rastbilder von Seiten zu berechnen, die ihnen unter Verwendung leistungsfähiger Seitenbeschreibungsprachen zugeschickt werden. Viele davon sind selbst Netzwerkknoten mit einer CPU, RAM einer Festplatte und einem eigenen Betriebssystem und in ein Netz eingebunden, an dem Millionen mögliche User hängen. &newpara;Es ist ein großartiger Beweis für das flexible &UNIX;-Konzept, wie man Dinge angeht, dass „Line Printing“ selbst unter diesen neuen Anforderungen zuverlässig funktioniert. Aber jetzt ist der Zeitpunkt gekommen, sich nach etwas Neuem umzusehen - das IPP. </para
+>Allgemeiner Ausdruck für verschiedene Varianten der traditionellen Druckmethode unter &UNIX;. Die erste Version wurde in den frühen 70er Jahren auf BSD &UNIX; veröffentlicht und erst 1990 in &linkstart;"https://web.archive.org/web/20080629173924/http://rfc.net/rfc1179.html"&linkmid;RFC 1179&linkend; beschrieben. &newpara;Zu dem Zeitpunkt, als das BSD Netzwerkdrucken entwickelt wurde, waren Drucker seriell oder anderweitig direkt mit dem Rechner verbundene Geräte. Das Internet bestand aus kaum mehr als 100 Knotenpunkten. Drucker verwendeten perforiertes Endlospapier, das aus einem Karton unter dem Druckertisch über einen Traktormechanismus transportiert und auf das mit mechanischer Gewalt schlichte ASCII-Zeilen gehämmert wurden. Das Papier hob sich wie eine Zickzack gefaltete „Schlange“ aus seinem Karton. Netzwerkdrucken bestand darin, dass ein Rechner ein Datei an den Drucker im nächsten Raum verschickte, um sie ausdrucken zu lassen. &newpara;Wie sich die Technologie doch entwickelt hat. Drucker verwenden allgemein Einzelblätter, besitzen eine eingebaute Intelligenz, um die Rasterbilder von Seiten zu berechnen, die ihnen unter Verwendung leistungsfähiger Seitenbeschreibungsprachen zugeschickt werden. Viele davon sind selbst Netzwerkknoten mit einer CPU, RAM, einer Festplatte und einem eigenen Betriebssystem und in ein Netz eingebunden, an dem Millionen mögliche User hängen. &newpara;Es ist ein großartiger Beweis für das flexible &UNIX;-Konzept, wie man Dinge angeht, dass „Line Printing“ selbst unter diesen neuen Anforderungen zuverlässig funktioniert. Aber jetzt ist der Zeitpunkt gekommen, sich nach etwas Neuem umzusehen – das IPP. </para
 ><glossseealso otherterm="gloss-ipp"
 >IPP</glossseealso
 > <glossseealso otherterm="gloss-cups"
@@ -93,7 +93,7 @@
 >&CUPS;</glossterm>
                         <glossdef
 ><para
->Abkürzung für &emstart;C&emend;ommon &emstart;U&emend;NIX &emstart;P&emend;rinting &emstart;S&emend;ystem; &CUPS; ist das modernste &UNIX;- und Linux-Drucksystem, das zudem noch Druckdienste für &Microsoft; &Windows; und Apple &MacOS; Clients bereitstellt. Basierend auf IPP räumt es auf mit den Fallgruben des altehrwürdigen BSD-Drucksystems, bietet Authentifizierung, Verschlüsselung und ACLs, sowie viele weitere Funktionen. Gleichzeitig ist des ausreichend abwärtskompatibel, um Clients über LPR/LPD zu bedienen, die noch nicht auf IPP umgestiegen sind. &newpara;&CUPS; kann jeden PostScript-Drucker unter Zuhilfenahme der vom Hersteller mitgelieferten PPD (PostSript Printer Description) Datei steuern, die ursprünglich nur für das Drucken unter &Microsoft; Windows NT gedacht waren. Das Drucken unter &kde; ist dann am leistungsfähigsten, wenn es auf &CUPS; basiert. .&newpara; Weitere Informationen:&newpara; &linkstart;"https://www.cups.org"&linkmid;&CUPS;-Webseite&linkend;</para
+>Abkürzung für &emstart;C&emend;ommon &emstart;U&emend;NIX &emstart;P&emend;rinting &emstart;S&emend;ystem ist &CUPS;. Es ist das modernste &UNIX;- und Linux-Drucksystem, das zudem noch Druckdienste für Clients, die unter &Microsoft; &Windows; und Apple &macOS; laufen, bereitstellt. Basierend auf IPP räumt es auf mit den Fallgruben des altehrwürdigen BSD-Drucksystems, bietet Authentifizierung, Verschlüsselung und ACLs, sowie viele weitere Funktionen. Gleichzeitig ist es ausreichend abwärtskompatibel, um Clients über LPR/LPD im BSD-Stil zu bedienen, die noch nicht auf IPP umgestiegen sind. &newpara;&CUPS; kann beliebige &PostScript;-Drucker unter Zuhilfenahme der vom Hersteller mitgelieferten PPD-Datei (PostScript Printer Description) steuern, die ursprünglich nur für das Drucken unter &Microsoft; Windows NT gedacht waren. Das Drucken unter &kde; ist dann am leistungsfähigsten, wenn es auf &CUPS; basiert. &newpara; Weitere Informationen:&newpara; &linkstart;"https://www.cups.org"&linkmid;&CUPS;-Webseite&linkend;</para
 ><glossseealso otherterm="gloss-acl"
 >ACLs</glossseealso
 > <glossseealso otherterm="gloss-authentication"
@@ -141,7 +141,7 @@
 >Datenbank, Linuxprinting.org</glossterm>
                         <glossdef
 ><para
->Schon vor Jahren, als das Drucken unter Linux noch ziemlich kompliziert war (die meisten Anwender kannten nur das Drucken auf der Befehlszeile und  die meisten Aufgaben erforderten keine gerätespezifischen Einstellungen), sammelte Grant Taylor, Autor des „Linux Printing HOWTO“ einen Großteil der verfügbaren Information über Drucker, Treiber und Filter in seiner Datenbank. &newpara;Nach dem Aufkommen des Konzeptes von &CUPS;, das die Verwendung von PPDs sogar auf nicht-PostScript Drucker ausweitete, erkannte er das Potential seiner Datenbank: Würde man die verschiedenen Daten (deren Inhalt sich mit den Sätzen „Welches Gerät druckt mit welchem Ghostscript- oder einem anderen Filter?“, „Wie gut ist das Ergebnis?“, und „Welche Optionen sind beim Aufruf verfügbar?“ - lässt ) in PPD-taugliche Dateien ablegen, hätte man die Fähigkeiten von &CUPS; basierend auf den traditionellen Druckertreibern. &newpara;Diese Idee wurde zu einem weitergehenden Konzept entwickelt, das unter dem Namen „Foomatic“ bekannt ist. Foomatic erweitert die Fähigkeiten der Drucksysteme, die nicht auf &CUPS; basieren (LPR/LPD, LPRng, PDQ, PPR) bis zu einem gewissen Grad (und „stiehlt“ dabei einige Konzepte von &CUPS;). Die Linuxprinting Datenbank ist nicht nur für Linux-Anwender interessant - auch Benutzer anderer &UNIX;-basierter Betriebssysteme (wie *BSD oder &MacOS; X) finden hier wertvolle Informationen und Software. </para
+>Bereits vor Jahren, als das Drucken unter Linux noch ziemlich kompliziert war (die meisten Anwender kannten nur das Drucken über die Befehlszeile und es keine gerätespezifischen Einstellungen existierten), sammelte Grant Taylor, Autor des „Linux Printing HOWTO“ einen Großteil der verfügbaren Informationen über Drucker, Treiber und Filter in seiner Datenbank. &newpara;Mit dem Entstehen des Konzeptes von &CUPS;, das die Verwendung von PPDs sogar auf nicht-PostScript Drucker ausweitete, erkannte er das Potential seiner Datenbank: Würde man die verschiedenen Daten (deren Inhalt sich mit folgenden Sätzen beschreiben lässt: „Welches Gerät druckt mit welchem Ghostscript- oder einem anderen Filter?“, „Wie gut ist das Ergebnis?“ und „Welche Optionen sind beim Aufruf verfügbar?“) in PPD-taugliche Dateien ablegen, hätte man die Fähigkeiten von &CUPS; basierend auf den traditionellen Druckertreibern. &newpara;Diese Idee wurde zu einem weitergehenden Konzept entwickelt, das unter dem Namen „Foomatic“ bekannt ist. Foomatic erweitert die Fähigkeiten der Drucksysteme, die nicht auf &CUPS; basieren (LPR/LPD, LPRng, PDQ, PPR) bis zu einem gewissen Grad und „stiehlt“ dabei einige Konzepte von &CUPS;. Die Linuxprinting-Datenbank ist nicht nur für Linux-Anwender interessant – auch Benutzer anderer &UNIX;-basierter Betriebssysteme (wie *BSD oder &macOS;) finden hier wertvolle Informationen und Software. </para
 ><glossseealso otherterm="gloss-foomatic"
 >Foomatic</glossseealso
 > <glossseealso otherterm="gloss-linuxprintingdatabase"
@@ -154,7 +154,7 @@
 >Direktes Drucken über TCP/IP</glossterm>
                         <glossdef
 ><para
->Diese Methode benutzt häufig den TCP/IP-Port 9100, um sich mit dem Drucker zu verbinden. Sie funktioniert mit vielen modernen Netzwerkdruckern und bietet einige Vorteile gegenüber LPR/LPD, da sie schneller ist und Rückmeldungen vom Drucker an den Rechner möglich macht, der den Druckauftrag versendet.</para
+>Diese Methode verwendet häufig den TCP/IP-Port 9100, um sich mit dem Drucker zu verbinden. Sie funktioniert mit vielen modernen Netzwerkdruckern und bietet einige Vorteile gegenüber LPR/LPD, da sie schneller ist und Rückmeldungen vom Drucker an den Rechner möglich macht, der den Druckauftrag versendet.</para
 ><glossseealso otherterm="gloss-appsocketprotocol"
 >AppSocket Protokoll</glossseealso
 > <glossseealso otherterm="gloss-hpjetdirectprotocol"
@@ -280,7 +280,7 @@
 >Gimp-Print</glossterm>
                         <glossdef
 ><para
->Entgegen seinem Namen ist Gimp-Print nicht länger nur ein Modul, mit dem man aus dem populären Programm Gimp drucken kann. &newpara;Die zugrundeliegenden Quelltexte können auch in eine Reihe von PPDs und die entsprechenden Filter integriert werden, die nahtlos in &CUPS; eingebunden sind und etwa 130 verschiedene Druckermodelle unterstützen und in vielen Fällen Ausdrucke in Fotoqualität ermöglichen. &newpara;Ein Ghostscript-Filter kann von jedem Programm benutzt werden, das einen Software-RIP benötigt. &newpara;Desweiteren sind die Quelltexte als Bibliothek verfügbar, die von Programmen verwendet werden können, die auf Rasterfunktionen zurückgreifen müssen.</para
+>Entgegen seinem Namen ist Gimp-Print nicht länger nur ein Modul, mit dem man aus dem populären Programm Gimp drucken kann. &newpara;Die zugrundeliegenden Quelltexte können auch in eine Reihe von PPDs und die entsprechenden Filter integriert werden, die nahtlos in &CUPS; eingebunden sind und etwa 130 verschiedene Druckermodelle unterstützen und in vielen Fällen Ausdrucke in Fotoqualität ermöglichen. &newpara;Ein Ghostscript-Filter kann von jedem Programm verwendet werden, das einen Software-RIP benötigt. &newpara;Desweiteren sind die Quelltexte als Bibliothek verfügbar, die von Programmen verwendet werden können, die auf Rasterfunktionen zurückgreifen müssen.</para
 ><glossseealso otherterm="gloss-lexmark"
 >Lexmark Drivers</glossseealso
 > <glossseealso otherterm="gloss-rip"
@@ -378,7 +378,7 @@
 ></glossterm>
                         <glossdef
 ><para
->war eine der ersten Firmen, die eigene Linux Druckertreiber für einige ihrer Druckermodelle vertrieben hat. Allerdings sind diese Treiber nur in Binärform verfügbar (d.h. es wird kein Quelltext mitgeliefert) und können demzufolge nicht in andere freie Softwareprodukte integriert werden. </para>
+>war eine der ersten Firmen, die eigene Linux Druckertreiber für einige ihrer Druckermodelle vertrieben hat. Allerdings sind diese Treiber nur in Binärform verfügbar (d. h. es wird kein Quelltext mitgeliefert) und können demzufolge nicht in andere freie Softwareprodukte integriert werden. </para>
                         </glossdef>
                 </glossentry>
 
@@ -425,7 +425,7 @@
 >&MIME;-Typen</glossterm>
                         <glossdef
 ><para
->Abkürzung für &emstart;M&emend;ultipurpose (oder Multimedia) &emstart;I&emend;nternet &emstart;M&emend;ail &emstart;E&emend;xtensions;. &MIME;-Typen wurden zuerst benutzt, um binäre Daten (wie Grafiken als E-Mail-Anhänge) über E-Mail-Verbindungen zu transportieren, die normalerweise nur ASCII-Zeichen übertragen: die Daten müssen als ASCII-Zeichen kodiert werden.&newpara; Später wurde diese Konzept erweitert, um ein Plattformunabhängiges und gleichzeitig eindeutiges Datenformat zu definieren. In &Windows; wird die Dateierweiterung .doc für &Microsoft;-Word-Dateien benutzt. Unter &Windows; ist die jedoch nicht eindeutig: die Erweiterung .doc wird auch für einfache Textdateien und für Adobe Framemaker Dateien verwendet. Wenn die Erweiterung einer Worddatei geändert wird, kann diese Datei nicht mehr vom Programm geöffnet werden. &newpara;&MIME;-Dateien enthalten eine Zeichenfolge, die das Dateiformat im Schema &emstart;Haupt_Kategorie/Untergeordnete_Kategorie&emend; beschreibt. In IPP werden Dateien ebenfalls als &MIME;-Typen beschrieben. &MIME;-Typen sind bei der IANA (Internet Assigning Numbers &emstart;Association&emend;) registriert, damit die Bezeichnung eindeutig ist. Für &CUPS; sind einige &MIME;-Typen wie &emstart;application/vnd.cups-raster&emend; (für das in &CUPS; verwendete Raster-Image-Format) registriert. </para
+>Abkürzung für &emstart;M&emend;ultipurpose (oder Multimedia) &emstart;I&emend;nternet &emstart;M&emend;ail &emstart;E&emend;xtensions;. &MIME;-Typen wurden zuerst verwendet, um binäre Daten (wie Grafiken als E-Mail-Anhänge) über E-Mail-Verbindungen zu transportieren, die normalerweise nur ASCII-Zeichen übertragen: die Daten müssen als ASCII-Zeichen kodiert werden.&newpara; Später wurde diese Konzept erweitert, um ein Plattformunabhängiges und gleichzeitig eindeutiges Datenformat zu definieren. In &Windows; wird die Dateierweiterung .doc für &Microsoft;-Word-Dateien verwendet. Unter &Windows; ist die jedoch nicht eindeutig: die Erweiterung .doc wird auch für einfache Textdateien und für Adobe Framemaker Dateien verwendet. Wenn die Erweiterung einer Worddatei geändert wird, kann diese Datei nicht mehr vom Programm geöffnet werden. &newpara;&MIME;-Dateien enthalten eine Zeichenfolge, die das Dateiformat im Schema &emstart;Haupt_Kategorie/Untergeordnete_Kategorie&emend; beschreibt. In IPP werden Dateien ebenfalls als &MIME;-Typen beschrieben. &MIME;-Typen sind bei der IANA (Internet Assigning Numbers &emstart;Association&emend;) registriert, damit die Bezeichnung eindeutig ist. Für &CUPS; sind einige &MIME;-Typen wie &emstart;application/vnd.cups-raster&emend; (für das in &CUPS; verwendete Raster-Image-Format) registriert. </para
 ><glossseealso otherterm="gloss-cups"
 >&CUPS;</glossseealso
 > <glossseealso otherterm="gloss-gimpprint"
@@ -440,7 +440,7 @@
 ></glossterm>
                         <glossdef
 ><para
->Abkürzung für &emstart;P&emend;rinter &emstart;C&emend;ontrol &emstart;L&emend;anguage; entwickelt von &HP;. PCL begann PCL in der Version 1 als simpler Befehlssatz für den Ausdruck von ASCII-Zeichen; mittlerweile ist sie in den Versionen PCL6 und PCL-X zur Ausgabe von Grafiken und Farbdruck fähig, aber außerhalb der Welten von &Microsoft; &Windows; und &HP-UX; (&HP;s eigene &UNIX;-Variante) kaum verbreitet...</para
+>Abkürzung für &emstart;P&emend;rinter &emstart;C&emend;ontrol &emstart;L&emend;anguage; entwickelt von &HP;. PCL begann PCL in der Version 1 als simpler Befehlssatz für den Ausdruck von ASCII-Zeichen; mittlerweile ist sie in den Versionen PCL6 und PCL-X zur Ausgabe von Grafiken und Farbdruck fähig, aber außerhalb der Welten von &Microsoft; &Windows; und &HP-UX; (&HP;s eigene &UNIX;-Variante) kaum verbreitet …</para
 ><glossseealso otherterm="gloss-escp"
 >ESC/P</glossseealso
 > <glossseealso otherterm="gloss-hpgl"
@@ -653,7 +653,7 @@
 ></glossterm>
                         <glossdef
 ><para
->Abkürzung für &emstart;S&emend;imple &emstart;N&emend;etwork &emstart;M&emend;anagement &emstart;P&emend;rotocol; SNMP genießt eine weite Verbreitung bei der ferngesteuerten Überwachung von Netzwerk-Knoten (Rechner, Router, Switches, Gateways, Drucker ...).</para
+>Abkürzung für &emstart;S&emend;imple &emstart;N&emend;etwork &emstart;M&emend;anagement &emstart;P&emend;rotocol; SNMP genießt eine weite Verbreitung bei der ferngesteuerten Überwachung von Netzwerk-Knoten (Rechner, Router, Switches, Gateways, Drucker …).</para
 ><glossseealso otherterm="gloss-pwg"
 >PWG</glossseealso
 > <glossseealso otherterm="gloss-printermib"
@@ -722,7 +722,7 @@
 >System V-Style Drucken</glossterm>
                         <glossdef
 ><para
->Dies ist das zweite traditionelle &UNIX;-Drucksystem (im Gegensatz zum Drucken im Stil von BSD). Es verwendet andere Befehle (lp, lpadmin, ...) als BSD, unterscheidet sich aber nicht wesentlich von diesem. Der Unterschied zwischen den beiden Systemen ist aber groß genug, um sie zueinander inkompatibel zu machen. Demzufolge kann ein BSD-Client nicht ohne zusätzlichen Aufwand auf einem System V Druckserver drucken. Die Beseitigung dieser und weiterer Schwächen ist IPP zugedacht. </para
+>Dies ist das zweite traditionelle &UNIX;-Drucksystem (im Gegensatz zum Drucken im Stil von BSD). Es verwendet andere Befehle (lp, lpadmin, …) als BSD, unterscheidet sich aber nicht wesentlich von diesem. Der Unterschied zwischen den beiden Systemen ist aber groß genug, um sie zueinander inkompatibel zu machen. Demzufolge kann ein BSD-Client nicht ohne zusätzlichen Aufwand auf einem System V Druckserver drucken. Die Beseitigung dieser und weiterer Schwächen ist IPP zugedacht. </para
 ><glossseealso otherterm="gloss-bsdstyleprinting"
 ><acronym
 >BSD-Style Drucken</acronym

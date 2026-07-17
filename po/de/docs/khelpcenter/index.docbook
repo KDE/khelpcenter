@@ -32,7 +32,7 @@
 <legalnotice
 >&FDLNotice;</legalnotice>
 <date
->2016-04-17</date>
+>2016–04–17</date>
 <releaseinfo
 >Anwendungen 16.04</releaseinfo>
 
@@ -119,7 +119,7 @@
 ><guimenu
 >Hilfe</guimenu
 > <guimenuitem
->Handbuch zu ...</guimenuitem
+>Handbuch zu …</guimenuitem
 ></menuchoice
 >, um die Dokumentation zu dieser Anwendung angezeigt zu bekommen. </para>
 </listitem>
@@ -150,7 +150,7 @@
 >Von der Befehlszeile</term>
 <listitem>
 <para
->Das &khelpcenter-de; kann mit einer &URL; aufgerufen werden, um eine bestimmte Datei anzuzeigen. &URL;s können auch dazu benutzt werden, um <application
+>Das &khelpcenter-de; kann mit einer &URL; aufgerufen werden, um eine bestimmte Datei anzuzeigen. &URL;s können auch dazu verwendet werden, um <application
 >info</application
 >- und <application
 >man</application
@@ -366,7 +366,7 @@
 <varlistentry>
 <term
 ><guilabel
->Ein-/Ausgabemodule</guilabel
+>KIO-Module</guilabel
 ></term>
 <listitem>
 <para
@@ -406,7 +406,7 @@
 ></term>
 <listitem>
 <para
->TeXinfo-Dokumentation wird von vielen &GNU;-Anwendungen benutzt, inklusive <application
+>TeXinfo-Dokumentation wird von vielen &GNU;-Anwendungen verwendet, inklusive <application
 >gcc</application
 > (der C/C++-Compiler), <application
 >emacs</application
@@ -498,7 +498,7 @@
 > Abschnitte</title>
 
 <para
->Man-Seiten sind die Standard-&UNIX;-Handbücher und werden seit vielen Jahren auf vielen Betriebssystemen benutzt. Sie sind sehr ausführlich und die beste Anlaufstelle, um Informationen über die meisten &UNIX;-Befehle und -Anwendungen zu erhalten. Wenn <quote
+>Man-Seiten sind die Standard-&UNIX;-Handbücher und werden seit vielen Jahren auf vielen Betriebssystemen verwendet. Sie sind sehr ausführlich und die beste Anlaufstelle, um Informationen über die meisten &UNIX;-Befehle und -Anwendungen zu erhalten. Wenn <quote
 >RTFM</quote
 > geschrieben wird, wird oft auf diese Handbücher Bezug genommen.</para>
 
@@ -506,7 +506,7 @@
 >Die Man-Seiten sind jedoch nicht perfekt. Sie tendieren dazu, zu ausführlich zu sein, aber auch sehr technisch. Geschrieben von Entwicklern und für Entwickler. In machen Fällen macht sie das für viele Benutzer unverständlich. Trotzdem sind sie die beste Quelle für fundierte Information über die meisten Befehlszeilen-Programme und oft genug sind sie die einzige Quelle.</para>
 
 <para
->Wenn Sie sich je gefragt haben, was die Nummer bedeutet, wenn jemand schreibt man(1) o.ä.: Sie gibt den Abschnitt an, worin sich das Thema befindet. Das &khelpcenter-de; benutzt diese Nummern, um die Handbuch-Seiten in ihre zugeordneten Abschnitte einzuteilen. Dies macht es für Sie wesentlich einfacher, die gewünschte Information zu finden.</para>
+>Wenn Sie sich je gefragt haben, was die Nummer bedeutet, wenn jemand schreibt man(1) o.ä.: Sie gibt den Abschnitt an, worin sich das Thema befindet. Das &khelpcenter-de; verwendet diese Nummern, um die Handbuch-Seiten in ihre zugeordneten Abschnitte einzuteilen. Dies macht es für Sie wesentlich einfacher, die gewünschte Information zu finden.</para>
 
 <para
 >Außerdem sind noch die Info-Seiten verfügbar. Diese wurden als Ersatz für die Handbuchseiten entworfen. Die Betreuer mancher Anwendungen aktualisieren nicht mehr länger die Handbuchseite. Wenn also eine Handbuch- und eine Info-Seite für eine Anwendung vorhanden sind, dann wird wahrscheinlich die Info-Seite die aktuellere sein. Falls es sich um ein &GNU;-Programm handelt ist die Wahrscheinlichkeit groß, dass man eine Info-Seite aber keine Handbuchseite dazu findet.</para>
@@ -531,7 +531,7 @@
 >Zurück</guibutton
 > &amp; <guibutton
 >Vor</guibutton
-> werden dazu benutzt um zur vorherigen oder nächsten Seite in der gleichen Hierarchie-Ebene zu kommen.</para>
+> werden dazu verwendet um zur vorherigen oder nächsten Seite in der gleichen Hierarchie-Ebene zu kommen.</para>
 
 <para
 >Wenn Sie auf einen Menüpunkt in einem Dokument drücken, kommen Sie auf eine tiefere Ebene in der Hierarchie. Sie kommen auf eine höhere Ebene, indem Sie <guibutton
@@ -796,7 +796,7 @@ Print the contents of the currently visible page.
 > <guimenu
 >Bearbeiten</guimenu
 > <guimenuitem
->Suchen ...</guimenuitem
+>Suchen …</guimenuitem
 > </menuchoice>
 </term>
 <listitem>
@@ -1001,7 +1001,7 @@ Print the contents of the currently visible page.
 ></term>
 <listitem>
 <para
->Fügt ein Lesezeichen für die aktuelle Seite hinzu, der Seitentitel wird an da Menü Lesezeichen angehängt. Benutzen Sie die Aktion <guimenuitem
+>Fügt ein Lesezeichen für die aktuelle Seite hinzu, der Seitentitel wird an da Menü Lesezeichen angehängt. Verwenden Sie die Aktion <guimenuitem
 >Lesezeichen löschen</guimenuitem
 > im Kontextmenü eines Eintrags, um ihn zu entfernen. </para>
 </listitem>
@@ -1044,7 +1044,7 @@ Print the contents of the currently visible page.
 ><guimenu
 >Einstellungen</guimenu
 > <guimenuitem
->Schriften festlegen ...</guimenuitem
+>Schriften festlegen …</guimenuitem
 > </menuchoice>
 </term>
 <listitem>
@@ -1082,7 +1082,7 @@ Print the contents of the currently visible page.
 <para
 >Ursprünglich wurde die KDE-Hilfe von &Matthias.Elter; &Matthias.Elter.mail; entwickelt</para>
 <para
->Derzeitiger Betreuer ist &Cornelius.Schumacher;&Cornelius.Schumacher.mail;</para>
+>Derzeitiger Betreuer ist &Cornelius.Schumacher; &Cornelius.Schumacher.mail;</para>
 
 <para
 >Übersetzung: Matthias Kiefer <email
