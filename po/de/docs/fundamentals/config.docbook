@@ -61,10 +61,10 @@
 ><guimenu
 >Einstellungen</guimenu
 ><guimenuitem
->Werkzeugleisten einrichten ...</guimenuitem
+>Werkzeugleisten einrichten …</guimenuitem
 ></menuchoice
 > oder klicken Sie mit der &RMBn; auf eine Werkzeugleiste und wählen im Kontextmenü <guimenuitem
->Werkzeugleisten einrichten ...</guimenuitem
+>Werkzeugleisten einrichten …</guimenuitem
 ></para>
 
 <para
@@ -155,9 +155,9 @@
 
 <para
 >Das Symbol und den Text einzelner Elemente in einer Werkzeugleiste ändern, indem Sie das Element auswählen und entweder auf den Knopf <guibutton
->Symbol ändern ...</guibutton
+>Symbol ändern …</guibutton
 > oder <guibutton
->Text ändern ...</guibutton
+>Text ändern …</guibutton
 > klicken.</para>
 <!--FIXME Icon selection and icon categories -> own section?
   Change Text -> Option "Hide text when toolbar shows text alongside icons"
@@ -189,28 +189,28 @@
 ><para
 ><guimenuitem
 >Symbole</guimenuitem
-> - Es werden nur die Symbole für jeden Eintrag in der Werkzeugleiste angezeigt. </para
+> – Es werden nur die Symbole für jeden Eintrag in der Werkzeugleiste angezeigt. </para
 ></listitem>
 
 <listitem
 ><para
 ><guimenuitem
 >Text</guimenuitem
-> - Es werden nur die Beschriftungen für jeden Eintrag in der Werkzeugleiste angezeigt. </para
+> – Es werden nur die Beschriftungen für jeden Eintrag in der Werkzeugleiste angezeigt. </para
 ></listitem>
 
 <listitem
 ><para
 ><guimenuitem
 >Text neben Symbolen</guimenuitem
-> - Der Text wird rechts neben dem Symbol jedes Eintrags in der Werkzeugleiste angezeigt. </para
+> – Der Text wird rechts neben dem Symbol jedes Eintrags in der Werkzeugleiste angezeigt. </para
 ></listitem>
 
 <listitem
 ><para
 ><guimenuitem
 >Text unter Symbolen</guimenuitem
-> - Der Text wird unter dem Symbol jedes Eintrags in der Werkzeugleiste angezeigt. </para
+> – Der Text wird unter dem Symbol jedes Eintrags in der Werkzeugleiste angezeigt. </para
 ></listitem>
 
 </itemizedlist>
@@ -245,7 +245,7 @@
 ><para
 ><guimenuitem
 >Mittel (22x22)</guimenuitem
-> - die Standardeinstellung</para
+> – die Standardeinstellung</para
 ></listitem>
 <listitem
 ><para
@@ -288,7 +288,7 @@
 ><para
 ><guimenuitem
 >Oben</guimenuitem
-> - die Voreinstellung in vielen Programmen</para
+> – die Voreinstellung in vielen Programmen</para
 ></listitem>
 <listitem
 ><para
@@ -388,7 +388,7 @@
 <!--FIXME explain Alternate + Global shortcuts in Screenshot and 
 another place to change Global Shortcuts (Systemsettings)-->
 <title
->Kurzbefehle benutzen und anpassen</title>
+>Kurzbefehle verwenden und anpassen</title>
 
 <sect2 id="shortcuts-intro">
 <title
@@ -399,7 +399,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 ><guimenu
 >Einstellungen</guimenu
 ><guimenuitem
->Kurzbefehle festlegen ...</guimenuitem
+>Kurzbefehle festlegen …</guimenuitem
 ></menuchoice
 >.</para>
 
@@ -524,7 +524,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 <varlistentry>
 <term
 ><guibutton
->Neu ...</guibutton
+>Neu …</guibutton
 ></term>
 <listitem
 ><para
@@ -567,7 +567,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 <varlistentry>
 <term
 ><guimenuitem
->Schema exportieren ...</guimenuitem
+>Schema exportieren …</guimenuitem
 ></term>
 <listitem
 ><para
@@ -578,7 +578,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 <varlistentry>
 <term
 ><guimenuitem
->Schema importieren ...</guimenuitem
+>Schema importieren …</guimenuitem
 ></term>
 <listitem
 ><para

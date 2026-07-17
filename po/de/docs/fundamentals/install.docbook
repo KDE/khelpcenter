@@ -3,7 +3,7 @@
 >&plasma-desktop; und &kde;-Anwendungen installieren</title>
 
 <para
->Sie können den &kde; Anwendungen einschließlich des &plasma-desktop;auf vielen verschiedenen Plattformen von Smartphones über Tabletts bis zu Rechnern mit den Betriebssystemen &Microsoft; &Windows;, &MacOS;, &UNIX;, &BSD; oder &Linux;. Binärpakete werden für viele verschiedene Plattformen und Distributionen bereitgestellt, erfahrene Benutzer können die Software auch aus dem Quelltext kompilieren und installieren.</para>
+>Sie können &kde;-Anwendungen einschließlich des &plasma-desktop; auf vielen verschiedenen Plattformen installieren: von Smartphones über Tabletts bis zu Rechnern mit den Betriebssystemen &Microsoft; &Windows;, &macOS;, &UNIX;, &BSD; oder &Linux;. Binärpakete werden für viele verschiedene Plattformen und Distributionen bereitgestellt, erfahrene Benutzer können die Software auch aus dem Quelltext kompilieren und installieren.</para>
 
 <sect1 id="install-packages">
 <title
@@ -17,16 +17,16 @@
 >&Linux;</title>
 
 <para
->Fast jede &Linux;-Distribution enthält binäre Pakete für einzelne Programme und auch dem gesamten &plasma-desktop;.</para>
+>Fast jede &Linux;-Distribution enthält binäre Pakete für einzelne Programme und auch den gesamten &plasma-desktop;.</para>
 
 <para
->Um einzelne Programme zu installieren, suchen Sie nach deren Namen im Paketverwaltungsprogramm Ihrer Distribution. Um einen &plasma-workspaces; wie die &plasma-desktop; zu installieren, suchen Sie nach einem Metapaket oder einer Paketgruppe wie zum Beispiel <literal
+>Um einzelne Programme zu installieren, suchen Sie nach deren Namen im Paketverwaltungsprogramm Ihrer Distribution. Um z. B. &plasma-desktop; aus &plasma-workspaces; zu installieren, suchen Sie nach einem Metapaket oder einer Paketgruppe wie zum Beispiel <literal
 >plasma-desktop</literal
 >.</para>
 
 <note>
 <para
->Einige Programme werden möglicherweise nur zusammen mit anderen Programmen in einem gemeinsamen Paket installiert, das nach dem &kde;-Paket benannt ist, in dessen Quelltextarchiv diese Programme entwickelt werden. &konqueror; zum Beispiel finden Sie im Paket <literal
+>Einige Programme werden möglicherweise nur zusammen mit anderen Programmen aus einem gemeinsamen Paket installiert, das nach dem &kde;-Paket benannt ist, in dessen Quelltextarchiv diese Programme entwickelt werden. &konqueror; zum Beispiel finden Sie im Paket <literal
 >kde-baseapps</literal
 >.</para>
 </note>
@@ -43,10 +43,10 @@
 >&Microsoft; &Windows;</title>
 
 <para
->Die Initiative „&kde; für &Windows;“ stellt kompilierte Pakete von &kde;-Programmen für &Microsoft; &Windows; bereit. Es gibt auch einen spezielles Installationsprogramm, das die Installation einzelner Programme oder Gruppen sowie aller dafür erforderlichen Bibliotheken vereinfacht.</para>
+>Die Initiative „&kde; für &Windows;“ stellt kompilierte Pakete von &kde;-Programmen für &Microsoft; &Windows; bereit. Es gibt auch ein spezielles Installationsprogramm, das die Installation einzelner Programme oder Gruppen sowie aller dafür erforderlichen Abhängigkeiten vereinfacht.</para>
 
 <para
->Weitere Informationen über KDE unter Windows und das Herunterladen des Installationsprogramms finden Sie auf der Webseite <ulink url="https://windows.kde.org/"
+>Weitere Informationen über die Initiative und das Installationsprogramm zum Herunterladen finden Sie unter <ulink url="https://community.kde.org/Windows"
 >KDE unter Windows</ulink
 >. </para>
 
@@ -56,16 +56,16 @@
 
 <sect2 id="install-mac">
 <title
->&MacOS;</title>
+>&macOS;</title>
 
 <para
->Einzelne Programme von &kde; können mit mehreren verschiedenen <quote
->Ports</quote
->-Systemen für &MacOS; installiert werden. Einige &kde;-Programme stellen auch eigene Binärpakete für &MacOS; bereit.</para>
+>Einzelne Programme von &kde; können mithilfe mehrerer verschiedenen <quote
+>Portierungs</quote
+>-Systeme für &macOS; installiert werden. Einige &kde;-Programme stellen auch eigene Binärpakete für &macOS; bereit.</para>
 
 <para
->Weitere Informationen finden Sie auf der Internetseite <ulink url="https://mac.kde.org/"
->&kde; für &MacOS;X</ulink
+>Weitere Informationen finden Sie unter <ulink url="https://community.kde.org/Mac"
+>&kde; für &macOS;</ulink
 >.</para>
 
 </sect2>
@@ -75,12 +75,12 @@
 >&BSD;</title>
 
 <para
->Die meisten &BSD;-Distributionen ermöglichen die Installation von &kde;Programmen und dem gesamten &plasma-desktop; durch das <quote
->Ports</quote
+>Die meisten &BSD;-Distributionen ermöglichen die Installation von &kde;-Programmen und des gesamten &plasma-desktop; durch ihr <quote
+>Portierungs</quote
 >-System.</para>
 
 <para
->Weitere Informationen zur Installation von Ports finden Sie in der Dokumentation der &BSD;-Distribution.</para>
+>Weitere Informationen zur Installation von Portierungen finden Sie in der Dokumentation Ihrer &BSD;-Distribution.</para>
 
 <!--FIXME: provide steps/links for common BSDs?-->
 
@@ -92,10 +92,10 @@
 <para
 ><productname
 >Plasma Mobile</productname
-> ist eine sehr interessante Initiative, die &kde; für mobile Geräte wie Smartphones oder Tablett-Rechner bereit stellt. Es gibt kompilierte Pakete für  mehrere Geräte.</para>
+> ist eine sehr interessante Initiative, die &kde; für mobile Geräte wie Smartphones oder Tablets bereitstellt. Es gibt kompilierte Pakete für mehrere unterschiedliche Geräte.</para>
 
 <para
->Weitere Informationen finden Sie auf der Internetseite <ulink url="https://www.plasma-mobile.org/"
+>Weitere Informationen finden Sie unter <ulink url="https://www.plasma-mobile.org/"
 ><productname
 >Plasma Mobile</productname
 ></ulink
@@ -108,7 +108,7 @@
 >Live-Medien</title>
 
 <para
->Für mehrere &Linux;- und &BSD;-Distributionen gibt es Live-Medien. Damit können Sie den &plasma-desktop; ohne Installation auf Ihrem System ausprobieren. Sie müssen nur eine CD einlegen oder einen USB-Stick einstecken und damit den Rechner hochfahren. Gefällt Ihnen das System, gibt es bei den meisten Live-Medien eine Möglichkeit, das System auf Ihre Festplatte zu installieren.</para>
+>Mehrere &Linux;- und &BSD;-Distributionen stellen Live-Medien bereit. Damit können Sie &plasma-desktop; ohne Installation auf Ihrem System ausprobieren. Sie müssen nur eine CD einlegen oder einen USB-Stick einstecken und damit den Rechner hochfahren. Gefällt Ihnen das System, gibt es bei den meisten Live-Medien eine Möglichkeit, das System auf Ihre Festplatte zu installieren.</para>
 
 <para
 >Auf der &kde;-Webseite finden Sie eine <ulink url="https://www.kde.org/download/distributions.php"
@@ -131,7 +131,7 @@
 > verwendet, sollte es dabei keine Schwierigkeiten geben. Sollten dennoch Probleme auftreten, wenden Sie sich bitte an die &kde;-Mailinglisten.</para>
 
 <para
->Als Werkzeug zum Erstellen von Frameworks, &plasma-desktop; und aller Anwendungen wird <ulink url="https://quickgit.kde.org/?p=kdesrc-build.git"
+>Als Werkzeug zum Erstellen von Frameworks, &plasma-desktop; und aller anderen Anwendungen wird <ulink url="https://commits.kde.org/kdesrc-build"
 >kdesrc-build</ulink
 > empfohlen. </para>
 </sect2>

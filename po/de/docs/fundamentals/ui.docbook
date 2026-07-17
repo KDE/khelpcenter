@@ -548,7 +548,7 @@
 <entry
 >Ankreuzfeld</entry>
 <entry
->Hier können Elemente aus- und abgewählt werden. Ankreuzfelder werden typischerweise benutzt, um mehrere Einstellungen in einer Liste zu wählen. Ausgewählte Elemente werden mit einem Häkchen gekennzeichnet, bei nicht ausgewählten Elementen is das Feld leer.</entry>
+>Hier können Elemente aus- und abgewählt werden. Ankreuzfelder werden typischerweise verwendet, um mehrere Einstellungen in einer Liste zu wählen. Ausgewählte Elemente werden mit einem Häkchen gekennzeichnet, bei nicht ausgewählten Elementen is das Feld leer.</entry>
 <entry>
 <inlinemediaobject>
 <imageobject>
@@ -764,7 +764,7 @@
 <entry
 >Auswahlknopf</entry>
 <entry
->Diese werden in einer Liste mit Optionen benutzt, dabei kann immer nur eine der angebotenen Optionen gewählt werden.</entry>
+>Diese werden in einer Liste mit Optionen verwendet, dabei kann immer nur eine der angebotenen Optionen gewählt werden.</entry>
 <entry>
 <inlinemediaobject>
 <imageobject>
@@ -985,7 +985,7 @@
 </screenshot>
 
 <para
->Einige Programme wie zum Beispiel &dolphin; blenden die Menüleiste in der Voreinstellungen aus. Um die Leiste wieder anzuzeigen, benutzen Sie den Kurzbefehl <keycombo
+>Einige Programme wie zum Beispiel &dolphin; blenden die Menüleiste in der Voreinstellungen aus. Um die Leiste wieder anzuzeigen, verwenden Sie den Kurzbefehl <keycombo
 >&Ctrl;<keycap
 >M</keycap
 ></keycombo
@@ -999,7 +999,7 @@
 <para
 >Mit den Einträgen im Menü <guimenu
 >Datei</guimenu
-> können Sie Aktionen mit der gerade geöffnete Datei ausführen, hier finden Sie auch Standardaktionen in Programmen .</para>
+> können Sie Aktionen mit der gerade geöffneten Datei ausführen. Hier finden Sie auch Standardaktionen in Programmen.</para>
 
 <para
 >Häufige Menüeinträge sind:</para>
@@ -1054,7 +1054,7 @@
 > <guimenu
 >Datei</guimenu
 > <guimenuitem
->Öffnen ...</guimenuitem
+>Öffnen …</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1090,7 +1090,7 @@
 ><guimenu
 >Datei</guimenu
 ><guimenuitem
->Speichern unter ...</guimenuitem
+>Speichern unter …</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1160,12 +1160,12 @@
 > <guimenu
 >Datei</guimenu
 > <guimenuitem
->Drucken ...</guimenuitem
+>Drucken …</guimenuitem
 > </menuchoice
 ></term>
 <listitem
 ><para
->Druckt eine Datei. Benutzen Sie <guilabel
+>Druckt eine Datei. Verwenden Sie <guilabel
 >In PDF-Datei drucken</guilabel
 >, um eine &PDF;-Datei zu erstellen oder wählen Sie einen Seitenbereich, um nur diese Seiten in eine neue &PDF;.Datei zu drucken. </para
 ></listitem>
@@ -1381,7 +1381,7 @@
 > <guimenu
 >Bearbeiten</guimenu
 > <guimenuitem
->Suchen ...</guimenuitem
+>Suchen …</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1402,7 +1402,7 @@
 > <guimenu
 >Bearbeiten</guimenu
 > <guimenuitem
->Ersetzen ...</guimenuitem
+>Ersetzen …</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1505,12 +1505,12 @@
 ><guimenu
 >Extras</guimenu
 > <guimenuitem
->Rechtschreibung ...</guimenuitem
+>Rechtschreibung …</guimenuitem
 > </menuchoice
 ></term>
 <listitem
 ><para
->Diese Aktion startet die Rechtschreibprüfung - ein Programm, das bei der Suche und Korrektur von Rechtschreibfehlern hilft. Weitere Informationen finden Sie im Abschnitt <xref linkend="spellcheck-check"/>. </para
+>Diese Aktion startet die Rechtschreibprüfung – ein Programm, das bei der Suche und Korrektur von Rechtschreibfehlern hilft. Weitere Informationen finden Sie im Abschnitt <xref linkend="spellcheck-check"/>. </para
 ></listitem>
 </varlistentry>
 
@@ -1520,7 +1520,7 @@
 ><guimenu
 >Extras</guimenu
 > <guimenuitem
->Rechtschreibprüfung (ab Cursor) ...</guimenuitem
+>Rechtschreibprüfung (ab Cursor) …</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1535,7 +1535,7 @@
 ><guimenu
 >Extras</guimenu
 > <guimenuitem
->Rechtschreibprüfung für Auswahl ...</guimenuitem
+>Rechtschreibprüfung für Auswahl …</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1550,7 +1550,7 @@
 ><guimenu
 >Extras</guimenu
 ><guimenuitem
->Wörterbuch auswählen ...</guimenuitem
+>Wörterbuch auswählen …</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1617,7 +1617,7 @@
 ></term>
 <listitem>
 <para
->Schaltet die Anzeige der Statusleiste ein und aus. Einige &kde;-Programme benutzen die Statusleiste unten im Fenster des Programms zur Anzeige von nützlichen Informationen. </para>
+>Schaltet die Anzeige der Statusleiste ein und aus. Einige &kde;-Programme verwenden die Statusleiste unten im Fenster des Programms zur Anzeige von nützlichen Informationen. </para>
 </listitem>
 </varlistentry>
 
@@ -1657,7 +1657,7 @@
 ><guimenu
 >Einstellungen</guimenu
 > <guimenuitem
->Kurzbefehle festlegen ...</guimenuitem
+>Kurzbefehle festlegen …</guimenuitem
 >  </menuchoice
 ></term>
 <listitem
@@ -1672,7 +1672,7 @@
 ><guimenu
 >Einstellungen</guimenu
 > <guimenuitem
->Werkzeugleisten einrichten ...</guimenuitem
+>Werkzeugleisten einrichten …</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1687,7 +1687,7 @@
 ><guimenu
 >Einstellungen</guimenu
 > <guimenuitem
->Benachrichtigungen festlegen ...</guimenuitem
+>Benachrichtigungen festlegen …</guimenuitem
 ></menuchoice
 ></term>
 <listitem
@@ -1708,7 +1708,7 @@
 > <guimenuitem
 ><replaceable
 >Programm</replaceable
-> einrichten ...</guimenuitem
+> einrichten …</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1809,7 +1809,7 @@
 ><guimenu
 >Hilfe</guimenu
 > <guimenuitem
->Probleme oder Wünsche berichten ...</guimenuitem
+>Probleme oder Wünsche berichten …</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1846,7 +1846,7 @@ or via email (see krecipes doc rev 1306076)
 ><guimenu
 >Hilfe</guimenu
 > <guimenuitem
->Sprache der Anwendung umschalten ...</guimenuitem
+>Sprache der Anwendung umschalten …</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -1942,7 +1942,7 @@ or via email (see krecipes doc rev 1306076)
 >Im &plasma-workspaces; gibt es Kurzbefehle für die Tastatur, mit denen Sie viele Aufgaben ohne Maus ausführen können. Verwenden Sie häufig die Tastatur, können diese Kurzbefehle Ihnen viel Zeit ersparen.</para>
 
 <para
->Diese Liste enthält die meisten gebräuchlichen Kurzbefehle, die im Arbeitsbereich selbst wie auch in vielen Anwendungen benutzt werden können. In allen Anwendungen gibt es außerdem noch spezielle einige Kurzbefehle, lesen Sie dazu die Handbücher für eine vollständige Aufstellung.</para>
+>Diese Liste enthält die meisten gebräuchlichen Kurzbefehle, die im Arbeitsbereich selbst wie auch in vielen Anwendungen verwendet werden können. In allen Anwendungen gibt es außerdem noch einige spezielle Kurzbefehle, lesen Sie dazu die Handbücher für eine vollständige Aufstellung.</para>
 
 <note
 ><para
@@ -2247,7 +2247,7 @@ or via email (see krecipes doc rev 1306076)
 ><!--FIXME nothing works for me-->
 
 <para
->Möchten Sie genauer hinschauen? Der &plasma-workspaces; ermöglicht es Ihnen, die Ansicht zu vergrößern oder zu verkleinern und Ihre gesamte Arbeitsfläche zu verschieben. Sie können die Ansicht sogar vergrößern, wenn die Anwendung, die Sie benutzen, dies nicht unterstützt.</para>
+>Möchten Sie genauer hinschauen? Der &plasma-workspaces; ermöglicht es Ihnen, die Ansicht zu vergrößern oder zu verkleinern und Ihre gesamte Arbeitsfläche zu verschieben. Sie können die Ansicht sogar vergrößern, wenn die Anwendung, die Sie verwenden, dies nicht unterstützt.</para>
 
 <informaltable>
 <tgroup cols="2">
@@ -2345,7 +2345,11 @@ or via email (see krecipes doc rev 1306076)
 ></entry
 ><!--[kwin][Global Shortcuts] MoveZoomLeft=Meta+Left -->
 <entry
->Nach links schieben</entry>
+>Nach links schieben, Fenster auf Monitor nach links verschieben<footnote id="fn1"
+><para
+>In einer Umgebung mit mehreren Monitoren</para
+></footnote
+></entry>
 </row>
 
 <row>
@@ -2357,7 +2361,29 @@ or via email (see krecipes doc rev 1306076)
 ></entry
 ><!--[kwin][Global Shortcuts] MoveZoomRight=Meta+Right -->
 <entry
->Nach rechts schieben</entry>
+>Nach rechts schieben, Fenster auf Monitor nach rechts verschieben<footnoteref linkend="fn1"/></entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keysym
+>Bild auf</keysym
+></keycombo
+></entry>
+<entry
+>Fenster maximieren/wiederherstellen</entry>
+</row>
+
+<row>
+<entry
+><keycombo action="simul"
+>&Meta;<keysym
+>Bild ab</keysym
+></keycombo
+></entry>
+<entry
+>Fenster minimieren</entry>
 </row>
 
 </tbody>
@@ -2488,7 +2514,7 @@ or via email (see krecipes doc rev 1306076)
 >Arbeiten mit der Arbeitsfläche</title>
 
 <para
->Diese Kurzbefehle können Sie beim Umgang mit dem &plasma-desktop; und den Kontrollleisten benutzen. </para>
+>Diese Kurzbefehle können Sie beim Umgang mit dem &plasma-desktop; und den Kontrollleisten verwenden. </para>
 
 <informaltable>
 <tgroup cols="2">
@@ -2665,7 +2691,7 @@ or via email (see krecipes doc rev 1306076)
 >Hilfe anfordern</title>
 
 <para
->Sie brauchen Hilfe? Das Handbuch für die aktuelle Anwendung ist nur einen Tastendruck entfernt. Außerdem haben einige Anwendungen noch zusätzliche Hilfen zu dem geraden aktiven Element.</para>
+>Sie benötigen Hilfe? Das Handbuch für die aktuelle Anwendung ist nur einen Tastendruck entfernt. Außerdem haben einige Anwendungen noch zusätzliche Hilfen zu dem geraden aktiven Element.</para>
 
 <informaltable>
 <tgroup cols="2">
@@ -2870,7 +2896,7 @@ or via email (see krecipes doc rev 1306076)
 >Arbeiten mit Dateien</title>
 
 <para
->Ob im Dateidialog oder im Dateiverwaltungsprogramm &dolphin;, mit diesen Kurzbefehlen können Sie Aktionen mit Dateien schnell ausführen. Beachten Sie, dass einige dieser mit Dateien verwendeten Kurzbefehle auch mit Dokumenten benutzt werden können, daher sind mehrere Kurzbefehle identisch mit den oben aufgeführten Entsprechungen für Dokumente.</para>
+>Ob im Dateidialog oder im Dateiverwaltungsprogramm &dolphin;, mit diesen Kurzbefehlen können Sie Aktionen mit Dateien schnell ausführen. Beachten Sie, dass einige dieser mit Dateien verwendeten Kurzbefehle auch mit Dokumenten verwendet werden können, daher sind mehrere Kurzbefehle identisch mit den oben aufgeführten Entsprechungen für Dokumente.</para>
 
 <informaltable>
 <tgroup cols="2">
