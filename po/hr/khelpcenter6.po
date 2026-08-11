@@ -40,7 +40,8 @@ msgid "Documentation to open"
 msgstr "Dokument za indeksiranje."
 
 #: application.cpp:103 application.cpp:105
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Help Center"
 msgid "Help Center"
 msgstr "KDE centar za pomoć"
 
