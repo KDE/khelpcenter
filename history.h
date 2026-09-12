@@ -35,7 +35,6 @@ public:
         View *view = nullptr;
         QUrl url;
         QString title;
-        QByteArray buffer;
         bool search = false;
     };
 

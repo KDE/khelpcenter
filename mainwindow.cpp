@@ -140,7 +140,7 @@ MainWindow::MainWindow()
     History::self().installMenuBarHook(this);
 
     connect(&History::self(), &History::goInternalUrl, mNavigator, &Navigator::openInternalUrl);
-    connect(&History::self(), &History::goUrl, mNavigator, &Navigator::selectItem);
+    connect(&History::self(), &History::goUrl, this, &MainWindow::goUrl);
 
     statusBarMessage(i18n("Ready"));
     enableCopyTextAction();
@@ -280,6 +280,24 @@ void MainWindow::goInternalUrl(const QUrl &url)
     slotOpenURLRequest(url);
 }
 
+void MainWindow::goUrl(const QUrl &url)
+{
+    qCDebug(KHC_LOG) << url.url();
+
+    mNavigator->selectItem(url);
+
+    const QString proto = url.scheme().toLower();
+
+    if (proto == QLatin1String("glossentry")) {
+        const QString decodedEntryId = QUrl::fromPercentEncoding(QUrl::toPercentEncoding(url.path()));
+        mNavigator->slotSelectGlossEntry(decodedEntryId);
+        showGlossaryEntry(mNavigator->glossEntry(decodedEntryId));
+        return;
+    }
+
+    mDoc->load(url);
+}
+
 void MainWindow::slotOpenURLRequest(const QUrl &url)
 {
     qCDebug(KHC_LOG) << url.url();
@@ -384,6 +402,11 @@ void MainWindow::slotGlossSelected(const GlossaryEntry &entry)
 {
     stop();
     History::self().createEntry();
+    showGlossaryEntry(entry);
+}
+
+void MainWindow::showGlossaryEntry(const GlossaryEntry &entry)
+{
     mDoc->setInternalHtml(mDoc->grantleeFormatter()->formatGlossaryEntry(entry), QUrl(QStringLiteral("glossentry:") + entry.id()));
 }
 
