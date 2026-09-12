@@ -218,14 +218,6 @@ void History::goHistory(int steps)
 
     Q_EMIT goUrl(current->url);
 
-    Entry h(*current);
-    h.buffer.detach();
-
-    QDataStream stream(h.buffer);
-
-    h.view->stop();
-    updateCurrentEntry(h.view);
-
     updateActions();
 }
 

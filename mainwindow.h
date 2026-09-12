@@ -97,6 +97,7 @@ private Q_SLOTS:
     void slotStarted();
     void slotInfoMessage(KJob *, const QString &);
     void goInternalUrl(const QUrl &);
+    void goUrl(const QUrl &url);
     /**
       This function is called when the user clicks on a link in the viewer part.
     */
@@ -105,6 +106,7 @@ private Q_SLOTS:
     void slotCopySelectedText();
 
 private:
+    void showGlossaryEntry(const GlossaryEntry &entry);
     void updateFontScaleActions();
 #if QT_VERSION >= QT_VERSION_CHECK(6, 7, 0)
     void applyContentColorScheme();
