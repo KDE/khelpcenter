@@ -230,7 +230,7 @@
 >La barra d'eines i el menú s'expliquen més endavant a <xref linkend="menu-and-toolbar-ref"/>. </para>
 
 <para
->Els documents contenen les seves pròpies eines de navegació, permetent-vos una bona mobilitat seqüencial a través d'un document, usant els enllaços <guilabel
+>Els documents contenen les seves pròpies eines de navegació, que us permet una bona mobilitat seqüencial a través d'un document, usant els enllaços <guilabel
 >Anterior</guilabel
 >, <guilabel
 >Següent</guilabel
@@ -552,7 +552,7 @@
 >Les barres d'eines i de menú</title>
 
 <para
->El &khelpcenter; té una interfície mínima, permetent que us concentreu en obtenir ajuda i no a haver d'aprendre com usar el navegador de l'ajuda. </para>
+>El &khelpcenter; té una interfície mínima, cosa que permet que us concentreu en obtenir ajuda i no a haver d'aprendre com usar el navegador de l'ajuda. </para>
 
 <para
 >Les icones disponibles a la barra d'eines són les següents: </para>

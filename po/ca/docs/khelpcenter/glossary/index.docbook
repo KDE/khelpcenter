@@ -386,7 +386,7 @@ otherterm="gloss-kbuildsycoca"
 >KInfoCenter</glossterm>
 			<glossdef
 ><para
->El Kinfocenter es va originar com a part del Kcontrol des del KDE 3.1. En el KDE SC 4 va ser substituït per mòduls configurats al &systemsettings;, sobretot Solid, i està sent presentada de nou com una aplicació en el &plasma;.&newpara; Més informació:&newpara; &linkstart;"https://www.kde.org/applications/system/kinfocenter/"&linkmid;KInfoCenter&linkend;&newpara; &linkstart;&newpara; &linkstart;"https://en.wikipedia.org/wiki/Kinfocenter"&linkmid;Viquipèdia: KInfoCenter&linkend;</para
+>El Kinfocenter es va originar com a part del Kcontrol des del KDE 3.1. En el KDE SC 4 va ser substituït per mòduls configurats al &systemsettings;, sobretot Solid, i es presenta de nou com una aplicació en el &plasma;.&newpara; Més informació:&newpara; &linkstart;"https://www.kde.org/applications/system/kinfocenter/"&linkmid;KInfoCenter&linkend;&newpara; &linkstart;&newpara; &linkstart;"https://en.wikipedia.org/wiki/Kinfocenter"&linkmid;Viquipèdia: KInfoCenter&linkend;</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-solid"
@@ -684,7 +684,7 @@ otherterm="gloss-kbuildsycoca"
 >&Qt;</glossterm>
 			<glossdef
 ><para
->La &IGU; del &kde; està construïda emprant com a base la biblioteca &Qt;, la qual us proporciona molts elements gràfics (els anomenats «Ginys») que s'usen per a construir l'escriptori. Podeu trobar més informació a sobre de &Qt; a &linkstart; "https://www.qt.io/developers/"&linkmid;https://www.qt.io/developers/&linkend;..</para
+>La &IGU; del &kde; està construïda emprant com a base la biblioteca &Qt;, la qual us proporciona molts elements gràfics (els anomenats «Ginys») que s'usen per a construir l'escriptori. Podeu trobar més informació a sobre de &Qt; a &linkstart; "https://www.qt.io/developers/"&linkmid;https://www.qt.io/developers/&linkend;.</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-gui"
