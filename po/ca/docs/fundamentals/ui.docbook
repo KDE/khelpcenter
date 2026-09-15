@@ -828,7 +828,7 @@
 <entry
 >Permet escriure una gran quantitat de text, normalment múltiples línies o paràgrafs. A diferència d'un <link linkend="visualdict-text-box"
 >quadre de text</link
->, en prémer &Intro; resultarà en un salt de línia. </entry>
+>, en prémer &Intro; normalment ocasionarà un salt de línia. </entry>
 <entry>
 <inlinemediaobject>
 <imageobject>
@@ -1882,7 +1882,7 @@ or via email (see krecipes doc rev 1306076)
 >Els &plasma-workspaces; proporcionen dreceres de teclat que permeten realitzar moltes tasques sense tocar el ratolí. Si utilitzeu sovint el teclat, utilitzar-les pot estalviar-vos molt de temps.</para>
 
 <para
->Aquesta llista conté les dreceres més comunes implementades per l'espai de treball mateix, i per a moltes de les aplicacions disponibles en el seu interior. Cada aplicació també proporciona les seves pròpies dreceres, així que assegureu-vos de revisar els seus manuals per a una llista completa.</para>
+>Aquesta llista conté les dreceres més comunes implementades per l'espai de treball mateix i moltes aplicacions disponibles amb elles. Cada aplicació també proporciona les seves pròpies dreceres, així que assegureu-vos de revisar els seus manuals per a una llista completa.</para>
 
 <note
 ><para
