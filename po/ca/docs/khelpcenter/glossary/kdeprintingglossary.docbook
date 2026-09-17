@@ -440,7 +440,7 @@
 ></glossterm>
                         <glossdef
 ><para
->Abreviació de &emstart;P&emend;rinter &emstart;C&emend;ontrol &emstart;L&emend;anguage (llenguatge de control de la impressió); desenvolupat per &HP;. PCL va començar en la versió 1 com a un simple joc d'ordres per a la impressió ASCII; ara, en les seves versions PCL6 i PCL-X, és capaç d'imprimir els gràfics i el color - però fora del regne del &Microsoft; &Windows; i &HP-UX; (&HP; té en propietat una marca &UNIX;), això no és gaire emprat...</para
+>Abreviació de &emstart;P&emend;rinter &emstart;C&emend;ontrol &emstart;L&emend;anguage (llenguatge de control de la impressió); desenvolupat per &HP;. PCL va començar en la versió 1 com a un simple joc d'ordres per a la impressió ASCII; ara, en les seves versions PCL6 i PCL-X, és capaç d'imprimir els gràfics i el color - però fora del domini del &Microsoft; &Windows; i &HP-UX; (&HP; té en propietat una marca &UNIX;), això no és gaire emprat...</para
 ><glossseealso otherterm="gloss-escp"
 >ESC/P</glossseealso
 > <glossseealso otherterm="gloss-hpgl"
