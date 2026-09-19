@@ -303,6 +303,38 @@ void Navigator::insertScrollKeeperDocs(NavigatorItem *topItem)
     builder->buildOrHide(topItem);
 }
 
+// help:khelpcenter, help:/khelpcenter, help:/khelpcenter/ and
+// help:/khelpcenter/index.html all name the same page.
+static QString comparableUrl(const QUrl &url)
+{
+    QString path = url.path();
+    if (!path.startsWith(QLatin1Char('/'))) {
+        path.prepend(QLatin1Char('/'));
+    }
+    if (path.endsWith(QLatin1String("index.html"))) {
+        path.chop(10);
+    }
+    if (path.endsWith(QLatin1Char('/'))) {
+        path.chop(1);
+    }
+    return url.scheme() + path + url.query() + url.fragment();
+}
+
+static bool isSameUrl(const QUrl &a, const QUrl &b)
+{
+    return comparableUrl(a) == comparableUrl(b);
+}
+
+static void revealItemInTree(QTreeWidget *tree, QTreeWidgetItem *item)
+{
+    for (QTreeWidgetItem *parent = item->parent(); parent != nullptr; parent = parent->parent()) {
+        parent->setExpanded(true);
+    }
+    tree->setCurrentItem(item);
+    item->setExpanded(true);
+    tree->scrollToItem(item);
+}
+
 void Navigator::selectItem(const QUrl &url)
 {
     qCDebug(KHC_LOG) << "Navigator::selectItem(): " << url.url();
@@ -328,7 +360,7 @@ void Navigator::selectItem(const QUrl &url)
     item = static_cast<NavigatorItem *>(mContentsTree->currentItem());
     if (item && mSelected) {
         const QUrl currentURL(item->entry()->url());
-        if ((currentURL == url) || (currentURL == alternativeURL)) {
+        if (isSameUrl(currentURL, url) || isSameUrl(currentURL, alternativeURL)) {
             qCDebug(KHC_LOG) << "URL already shown.";
             return;
         }
@@ -350,14 +382,11 @@ void Navigator::selectItem(const QUrl &url)
     while ((*it)) {
         NavigatorItem *item = static_cast<NavigatorItem *>((*it));
         const QUrl itemUrl(item->entry()->url());
-        if ((itemUrl == url) || (itemUrl == alternativeURL)) {
-            // If the current item was not selected and remained unchanged it
-            // needs to be explicitly selected
-            mContentsTree->setCurrentItem(item);
-            item->setExpanded(true);
+        if (isSameUrl(itemUrl, url) || isSameUrl(itemUrl, alternativeURL)) {
+            revealItemInTree(mContentsTree, item);
             break;
         }
-        if ((contentsItem == nullptr) && (itemUrl == contentsItemURL)) {
+        if ((contentsItem == nullptr) && isSameUrl(itemUrl, contentsItemURL)) {
             contentsItem = item;
         }
         ++it;
@@ -365,8 +394,7 @@ void Navigator::selectItem(const QUrl &url)
     if (!(*it)) {
         // if search with fragment didn't find anything, but item without fragment was found, use it
         if (contentsItem != nullptr) {
-            mContentsTree->setCurrentItem(contentsItem);
-            contentsItem->setExpanded(true);
+            revealItemInTree(mContentsTree, contentsItem);
             mSelected = true;
         } else {
             clearSelection();
