@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-10 00:48+0000\n"
+"POT-Creation-Date: 2026-09-28 00:48+0000\n"
 "PO-Revision-Date: 2017-09-28 17:56+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -350,27 +350,27 @@ msgstr "Опције претраге"
 msgid "G&lossary"
 msgstr "&Појмовник"
 
-#: navigator.cpp:455
+#: navigator.cpp:483
 #, kde-format
 msgid "Start Page"
 msgstr "Почетна страница"
 
-#: navigator.cpp:456
+#: navigator.cpp:484
 #, kde-format
 msgid "KDE Help Center"
 msgstr "Центар помоћи КДЕ‑а"
 
-#: navigator.cpp:540
+#: navigator.cpp:568
 #, kde-format
 msgid "Unable to run search program."
 msgstr "Не могу да покренем претраживачки програм."
 
-#: navigator.cpp:632
+#: navigator.cpp:660
 #, kde-format
 msgid "Updating search index..."
 msgstr "Ажурирам претраживачки индекс..."
 
-#: navigator.cpp:643
+#: navigator.cpp:671
 #, kde-format
 msgid "Updating search index... done."
 msgstr "Ажурирам претраживачки индекс... готово."

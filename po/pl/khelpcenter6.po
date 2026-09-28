@@ -1,6 +1,6 @@
 # translation of khelpcenter.po to Polish
 # translation of khelpcenter.po to
-# Version: $Revision: 1738793 $
+# Version: $Revision: 1748411 $
 # Norbert Popiołek <norbert@kde.com.pl>
 # Piotr Roszatycki <dexter@debian.org>, 1997-2000.
 # Michał Rudolf <mrudolf@kdewebdev.org>, 2002.
@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-10 00:48+0000\n"
+"POT-Creation-Date: 2026-09-28 00:48+0000\n"
 "PO-Revision-Date: 2023-09-30 11:08+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -323,27 +323,27 @@ msgstr "Ustawienia wyszukiwania"
 msgid "G&lossary"
 msgstr "&Słowniczek"
 
-#: navigator.cpp:455
+#: navigator.cpp:483
 #, kde-format
 msgid "Start Page"
 msgstr "Strona początkowa"
 
-#: navigator.cpp:456
+#: navigator.cpp:484
 #, kde-format
 msgid "KDE Help Center"
 msgstr "Centrum pomocy KDE"
 
-#: navigator.cpp:540
+#: navigator.cpp:568
 #, kde-format
 msgid "Unable to run search program."
 msgstr "Nie można uruchomić programu wyszukującego."
 
-#: navigator.cpp:632
+#: navigator.cpp:660
 #, kde-format
 msgid "Updating search index..."
 msgstr "Uaktualnianie indeksu wyszukiwania..."
 
-#: navigator.cpp:643
+#: navigator.cpp:671
 #, kde-format
 msgid "Updating search index... done."
 msgstr "Uaktualnianie indeksu wyszukiwania... gotowe."

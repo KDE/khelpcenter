@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-10 00:48+0000\n"
+"POT-Creation-Date: 2026-09-28 00:48+0000\n"
 "PO-Revision-Date: 2014-12-06 16:40-0800\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -329,28 +329,28 @@ msgstr "検索オプション"
 msgid "G&lossary"
 msgstr "用語集(&L)"
 
-#: navigator.cpp:455
+#: navigator.cpp:483
 #, kde-format
 msgid "Start Page"
 msgstr "スタートページ"
 
-#: navigator.cpp:456
+#: navigator.cpp:484
 #, kde-format
 msgid "KDE Help Center"
 msgstr "KDE ヘルプセンター"
 
-#: navigator.cpp:540
+#: navigator.cpp:568
 #, kde-format
 msgid "Unable to run search program."
 msgstr "検索プログラムを実行できません"
 
-#: navigator.cpp:632
+#: navigator.cpp:660
 #, fuzzy, kde-format
 #| msgid "Build Search &Index..."
 msgid "Updating search index..."
 msgstr "検索インデックスを作成(&I)..."
 
-#: navigator.cpp:643
+#: navigator.cpp:671
 #, fuzzy, kde-format
 #| msgid "Rebuilding cache... done."
 msgid "Updating search index... done."

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-10 00:48+0000\n"
+"POT-Creation-Date: 2026-09-28 00:48+0000\n"
 "PO-Revision-Date: 2022-09-27 17:54+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -318,27 +318,27 @@ msgstr "Opsi Pencarian"
 msgid "G&lossary"
 msgstr "&Glosarium"
 
-#: navigator.cpp:455
+#: navigator.cpp:483
 #, kde-format
 msgid "Start Page"
 msgstr "Halaman Awal"
 
-#: navigator.cpp:456
+#: navigator.cpp:484
 #, kde-format
 msgid "KDE Help Center"
 msgstr "Pusat Bantuan KDE"
 
-#: navigator.cpp:540
+#: navigator.cpp:568
 #, kde-format
 msgid "Unable to run search program."
 msgstr "Tak dapat menjalankan program pencarian."
 
-#: navigator.cpp:632
+#: navigator.cpp:660
 #, kde-format
 msgid "Updating search index..."
 msgstr "Mengupdate indeks pencarian..."
 
-#: navigator.cpp:643
+#: navigator.cpp:671
 #, kde-format
 msgid "Updating search index... done."
 msgstr "Memperbarui indeks pencarian... kelar."

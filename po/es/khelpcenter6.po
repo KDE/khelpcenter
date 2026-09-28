@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-10 00:48+0000\n"
+"POT-Creation-Date: 2026-09-28 00:48+0000\n"
 "PO-Revision-Date: 2025-05-17 13:09+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -316,27 +316,27 @@ msgstr "Opciones de la búsqueda"
 msgid "G&lossary"
 msgstr "G&losario"
 
-#: navigator.cpp:455
+#: navigator.cpp:483
 #, kde-format
 msgid "Start Page"
 msgstr "Página de inicio"
 
-#: navigator.cpp:456
+#: navigator.cpp:484
 #, kde-format
 msgid "KDE Help Center"
 msgstr "Centro de ayuda de KDE"
 
-#: navigator.cpp:540
+#: navigator.cpp:568
 #, kde-format
 msgid "Unable to run search program."
 msgstr "No ha sido posible ejecutar el programa de búsqueda."
 
-#: navigator.cpp:632
+#: navigator.cpp:660
 #, kde-format
 msgid "Updating search index..."
 msgstr "Actualizando el índice de búsqueda…"
 
-#: navigator.cpp:643
+#: navigator.cpp:671
 #, kde-format
 msgid "Updating search index... done."
 msgstr "Actualizando el índice de búsqueda… terminado."

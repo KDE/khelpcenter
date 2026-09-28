@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdehelp-1.1\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-10 00:48+0000\n"
+"POT-Creation-Date: 2026-09-28 00:48+0000\n"
 "PO-Revision-Date: 2004-09-21 18:44+0200\n"
 "Last-Translator: Jañ-Mai Drapier <jdrapier@club-internet.fr>\n"
 "Language-Team: Brezhoneg <Suav.Icb@wanadoo.fr>\n"
@@ -323,28 +323,28 @@ msgstr "Dibarzhoù klask"
 msgid "G&lossary"
 msgstr "G&eriaoueg"
 
-#: navigator.cpp:455
+#: navigator.cpp:483
 #, kde-format
 msgid "Start Page"
 msgstr "Pajenn an deroù"
 
-#: navigator.cpp:456
+#: navigator.cpp:484
 #, kde-format
 msgid "KDE Help Center"
 msgstr "Reizhiad Skoazell KDE"
 
-#: navigator.cpp:540
+#: navigator.cpp:568
 #, kde-format
 msgid "Unable to run search program."
 msgstr "N'hell ket bet seveniñ ar program klask."
 
-#: navigator.cpp:632
+#: navigator.cpp:660
 #, fuzzy, kde-format
 #| msgid "Build Search Index..."
 msgid "Updating search index..."
 msgstr "Emaon o sevel meneger ar glask ..."
 
-#: navigator.cpp:643
+#: navigator.cpp:671
 #, fuzzy, kde-format
 #| msgid "Rebuilding cache... done."
 msgid "Updating search index... done."

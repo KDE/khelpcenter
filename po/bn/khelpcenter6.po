@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-10 00:48+0000\n"
+"POT-Creation-Date: 2026-09-28 00:48+0000\n"
 "PO-Revision-Date: 2005-11-30 00:17-0600\n"
 "Last-Translator: Deepayan Sarkar <deepayan@bengalinux.org>\n"
 "Language-Team: Bengali <kde-translation@bengalinux.org>\n"
@@ -318,28 +318,28 @@ msgstr "সন্ধানের অপশনসমূহ"
 msgid "G&lossary"
 msgstr "&পরিভাযা কোষ"
 
-#: navigator.cpp:455
+#: navigator.cpp:483
 #, kde-format
 msgid "Start Page"
 msgstr "প্রারম্ভিক পাতা"
 
-#: navigator.cpp:456
+#: navigator.cpp:484
 #, kde-format
 msgid "KDE Help Center"
 msgstr "কে.ডি.ই. সহায়িকা"
 
-#: navigator.cpp:540
+#: navigator.cpp:568
 #, kde-format
 msgid "Unable to run search program."
 msgstr "সন্ধান করার প্রোগ্রাম চালানো যায়নি"
 
-#: navigator.cpp:632
+#: navigator.cpp:660
 #, fuzzy, kde-format
 #| msgid "Build Search Index..."
 msgid "Updating search index..."
 msgstr "সন্ধান সূচী তৈরি করো..."
 
-#: navigator.cpp:643
+#: navigator.cpp:671
 #, fuzzy, kde-format
 #| msgid "Rebuilding cache... done."
 msgid "Updating search index... done."

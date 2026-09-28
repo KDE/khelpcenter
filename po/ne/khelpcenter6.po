@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-10 00:48+0000\n"
+"POT-Creation-Date: 2026-09-28 00:48+0000\n"
 "PO-Revision-Date: 2007-11-01 18:59+0545\n"
 "Last-Translator: Shyam Krishna Bal <shyamkrishna_bal@yahoo.com>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -326,28 +326,28 @@ msgstr "खोजी विकल्प"
 msgid "G&lossary"
 msgstr "शब्दकोश"
 
-#: navigator.cpp:455
+#: navigator.cpp:483
 #, kde-format
 msgid "Start Page"
 msgstr "सुरु पृष्ठ"
 
-#: navigator.cpp:456
+#: navigator.cpp:484
 #, kde-format
 msgid "KDE Help Center"
 msgstr "केडीई मद्दत केन्द्र"
 
-#: navigator.cpp:540
+#: navigator.cpp:568
 #, kde-format
 msgid "Unable to run search program."
 msgstr "खोजी कार्यक्रम सञ्चालन गर्न अक्षम भयो ।"
 
-#: navigator.cpp:632
+#: navigator.cpp:660
 #, fuzzy, kde-format
 #| msgid "Build Search Index..."
 msgid "Updating search index..."
 msgstr "खोजी सूचक निर्माण गर्नुहोस्..."
 
-#: navigator.cpp:643
+#: navigator.cpp:671
 #, fuzzy, kde-format
 #| msgid "Rebuilding cache... done."
 msgid "Updating search index... done."
