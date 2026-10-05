@@ -3,13 +3,14 @@
 # Toplica Tanaskovic <toptan@kde.org.yu>, 2003, 2004.
 # Chusslove Illich <caslav.ilic@gmx.net>, 2005, 2007, 2008, 2009, 2010, 2011, 2012, 2014, 2016, 2017.
 # Dalibor Djuric <daliborddjuric@gmail.com>, 2009, 2010, 2011.
+# Nemanja Hiršl <nemhirsl@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-28 00:48+0000\n"
-"PO-Revision-Date: 2017-09-28 17:56+0200\n"
-"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"PO-Revision-Date: 2026-10-04 23:13+0200\n"
+"Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr@latin\n"
 "MIME-Version: 1.0\n"
@@ -24,12 +25,12 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Toplica Tanasković,Časlav Ilić"
+msgstr "Toplica Tanasković,Časlav Ilić,Nemanja Hiršl"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "toptan@kde.org.yu,caslav.ilic@gmx.net"
+msgstr "toptan@kde.org.yu,caslav.ilic@gmx.net,nemhirsl@gmail.com"
 
 #: application.cpp:30
 #, kde-format
@@ -42,25 +43,24 @@ msgid "Help Center"
 msgstr "Centar pomoći"
 
 #: application.cpp:107
-#, fuzzy, kde-format
-#| msgid "(c) 1999-2011, The KHelpCenter developers"
+#, kde-format
 msgid "(c) 1999-2023, The KHelpCenter developers"
-msgstr "© 1999-2011, programeri Centra pomoći KDE‑a"
+msgstr "© 1999–2023, programeri Centra pomoći KDE‑a"
 
 #: application.cpp:109
 #, kde-format
 msgid "Current maintainer"
-msgstr ""
+msgstr "trenutni održavalac"
 
 #: application.cpp:110
 #, kde-format
 msgid "Xapian-based search, lot of bugfixes"
-msgstr ""
+msgstr "pretraga pomoću Xapian‑a, mnoge ispravke grešaka"
 
 #: application.cpp:111
 #, kde-format
 msgid "Former maintainer"
-msgstr ""
+msgstr "bivši održavalac"
 
 #: application.cpp:113
 #, kde-format
@@ -330,10 +330,9 @@ msgid "&Bookmarks"
 msgstr "&Obeleživači"
 
 #: navigator.cpp:64
-#, fuzzy, kde-format
-#| msgid "&Search"
+#, kde-format
 msgid "Search..."
-msgstr "&Traži"
+msgstr "Traži..."
 
 #: navigator.cpp:119
 #, kde-format
@@ -378,13 +377,13 @@ msgstr "Ažuriram pretraživački indeks... gotovo."
 #: printdoc.cpp:60
 #, kde-format
 msgid "Could not generate print preview."
-msgstr ""
+msgstr "Ne mogu da napravim pregled pred štampanje."
 
 #: printdoc.cpp:96
 #, kde-format
 msgctxt "@title:window"
 msgid "Print Document"
-msgstr ""
+msgstr "Štampanje dokumenta"
 
 #: searchengine.cpp:62
 #, kde-format
@@ -495,43 +494,6 @@ msgid "unknown"
 msgstr "nepoznat"
 
 #: view.cpp:327
-#, fuzzy, kde-format
-#| msgid "Start Page"
+#, kde-format
 msgid "Save Page"
-msgstr "Početna stranica"
-
-#~ msgid "Previous Page"
-#~ msgstr "Prethodna stranica"
-
-#~ msgid "Moves to the previous page of the document"
-#~ msgstr "Ide na prethodnu stranicu dokumenta"
-
-#~ msgid "Next Page"
-#~ msgstr "Naredna stranica"
-
-#~ msgid "Moves to the next page of the document"
-#~ msgstr "Ide na narednu stranicu dokumenta"
-
-#~ msgid "Configure Fonts..."
-#~ msgstr "Podešavanje fonta..."
-
-# Држи кратко, на траци алатки
-#~ msgid "Increase Font Sizes"
-#~ msgstr "Povećaj font"
-
-# Држи кратко, на траци алатки
-#~ msgid "Decrease Font Sizes"
-#~ msgstr "Smanji font"
-
-#~ msgid "Copy Link Address"
-#~ msgstr "Kopiraj adresu veze"
-
-#~ msgid ""
-#~ "<p>Read the topic documentation in this window.<br /><br />Press "
-#~ "<b>Space</b>/<b>Shift+Space</b> to scroll, <b>%1</b> to find something, "
-#~ "<b>Tab</b>/<b>Shift+Tab</b> to jump, and <b>Enter</b> to follow.</p>"
-#~ msgstr ""
-#~ "<p>U ovom prozoru čitate dokumentaciju uz temu.<br /><br />Pritiskajte "
-#~ "<b>Space</b>/<b>Shift+Space</b> za klizanje, <b>%1</b> da pronađete "
-#~ "nešto, <b>Tab</b>/<b>Shift+Tab</b> za skakanje, i <b>Enter</b> za "
-#~ "praćenje.</p>"
+msgstr "Upisivanje stranice"
