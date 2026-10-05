@@ -69,10 +69,10 @@
 ><guimenu
 >Настройка</guimenu
 ><guimenuitem
->Панели инструментов…</guimenuitem
+>Настроить панели инструментов…</guimenuitem
 ></menuchoice
 >. Кроме того, можно щёлкнуть правой кнопкой мыши по панели и выбрать в контекстном меню пункт <guimenuitem
->Панели инструментов…</guimenuitem
+>Настроить панели инструментов…</guimenuitem
 >.</para>
 
 <para
@@ -143,7 +143,7 @@
 >Восстановление значений по умолчанию</title>
 
 <para
->Чтобы вернуть содержимое панели к тому виду, в котором они были сразу после установки приложения, нужно нажать на кнопку <guibutton
+>Чтобы вернуть содержимое панели к тому виду, в котором она была сразу после установки приложения, нужно нажать кнопку <guibutton
 >По умолчанию</guibutton
 > в нижней части окна и затем подтвердить своё решение.</para>
 
@@ -218,7 +218,7 @@
 <para
 >Показать или скрыть подпись для отдельного элемента панели можно, если щёлкнуть по нему правой кнопкой и отметить или снять отметку с пункта меню под заголовком <guilabel
 >Подписи кнопок</guilabel
-> в контекстом меню.</para>
+> в контекстном меню.</para>
 
 </sect3>
 
@@ -270,9 +270,9 @@
 <para
 >Чтобы перемещать панели, их сначала нужно <quote
 >разблокировать</quote
->. Для этого снимите отметку с кнопки-флажка <guimenuitem
+>. Для этого снимите отметку с пункта <guimenuitem
 >Заблокировать панели инструментов</guimenuitem
-> в контекстом меню панели. Для повторной блокировки нужно снова отметить этот пункт меню.</para>
+> в контекстном меню панели. Для повторной блокировки нужно снова отметить этот пункт меню.</para>
 
 <para
 >Сменить местоположение панели можно во вложенном меню <guisubmenu
@@ -407,7 +407,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 ><guimenu
 >Настройка</guimenu
 ><guimenuitem
->Комбинации клавиш…</guimenuitem
+>Настроить комбинации клавиш…</guimenuitem
 ></menuchoice
 >.</para>
 
@@ -470,7 +470,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 >. Нажатие этой кнопки сбросит все комбинации клавиш на стандартные.</para>
 
 <para
->Также можно установить значение по умолчанию для отдельной комбинации, если выбрать ее и активировать переключатель <guilabel
+>Также можно установить значение по умолчанию для отдельной комбинации, если выбрать её и активировать переключатель <guilabel
 >По умолчанию</guilabel
 >.</para>
 
@@ -512,8 +512,8 @@ another place to change Global Shortcuts (Systemsettings)-->
 </screenshot>
 
 <para
->Чтобы увидеть меню редактирования схем, щёлкните на кнопку <guibutton
->Настройка схем</guibutton
+>Чтобы увидеть меню редактирования схем, нажмите кнопку <guibutton
+>Управление схемами</guibutton
 > внизу окна. Появятся следующие параметры:</para>
 
 <variablelist>
@@ -532,7 +532,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 <varlistentry>
 <term
 ><guibutton
->Создать...</guibutton
+>Создать…</guibutton
 ></term>
 <listitem
 ><para
@@ -564,7 +564,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 <varlistentry>
 <term
 ><guimenuitem
->Сохранить схему комбинаций клавиш</guimenuitem
+>Сохранить комбинации клавиш в схему</guimenuitem
 ></term>
 <listitem
 ><para
@@ -575,7 +575,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 <varlistentry>
 <term
 ><guimenuitem
->Экспорт схемы...</guimenuitem
+>Экспорт схемы…</guimenuitem
 ></term>
 <listitem
 ><para
@@ -586,11 +586,11 @@ another place to change Global Shortcuts (Systemsettings)-->
 <varlistentry>
 <term
 ><guimenuitem
->Импорт схемы...</guimenuitem
+>Импорт схемы…</guimenuitem
 ></term>
 <listitem
 ><para
->Импортирует текущую схему из файла.</para>
+>Импортирует схему из файла.</para>
 </listitem>
 </varlistentry>
 
@@ -607,7 +607,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 
 <para
 >Если необходимо иметь список комбинаций клавиш под рукой, его можно вывести на печать, нажав кнопку <guibutton
->Печать...</guibutton
+>Печать…</guibutton
 > в нижней части окна.</para>
 
 </sect2>
