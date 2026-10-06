@@ -86,6 +86,10 @@
   <summary xml:lang="ru">Просмотр и поиск документации</summary>
   <summary xml:lang="sk">Prehliadanie a vyhľadávanie dokumentácie</summary>
   <summary xml:lang="sl">Brskaj in išči po dukumentaciji</summary>
+  <summary xml:lang="sr">Прегледајте и претражујте документацију</summary>
+  <summary xml:lang="sr-Latn">Pregledajte i pretražujte dokumentaciju</summary>
+  <summary xml:lang="sr-ijekavian">Прегледајте и претражујте документацију</summary>
+  <summary xml:lang="sr-ijekavianlatin">Pregledajte i pretražujte dokumentaciju</summary>
   <summary xml:lang="sv">Bläddra och sök i dokumentation</summary>
   <summary xml:lang="ta">கையேடுகளில் தேடி உலாவலாம்</summary>
   <summary xml:lang="tr">Belgelendirmeye göz atın ve içinde arama yapın</summary>
@@ -134,6 +138,10 @@
     <p xml:lang="sa">भवतः सर्वेषां KDE अनुप्रयोगानाम्, प्रणाली-उपयोगितानां च दस्तावेजान् अन्वेष्टुं पठितुं च एकः अनुप्रयोगः</p>
     <p xml:lang="sk">Aplikácia na vyhľadávanie a čítanie dokumentácie pre všetky vaše KDE aplikácie a systémové nástroje</p>
     <p xml:lang="sl">Aplikacija za iskanje in branje dokumentacije za vse aplikacije KDE in sistemska orodja</p>
+    <p xml:lang="sr">Програм за претраживање и читање документације за све ваше КДЕ програме и системске алатке</p>
+    <p xml:lang="sr-Latn">Program za pretraživanje i čitanje dokumentacije za sve vaše KDE programe i sistemske alatke</p>
+    <p xml:lang="sr-ijekavian">Програм за претраживање и читање документације за све ваше КДЕ програме и системске алатке</p>
+    <p xml:lang="sr-ijekavianlatin">Program za pretraživanje i čitanje dokumentacije za sve vaše KDE programe i sistemske alatke</p>
     <p xml:lang="sv">Ett program för att söka i och läsa dokumentationen om alla KDE-program och systemverktyg</p>
     <p xml:lang="ta">கே.டீ.யீ. செயலிகளுக்கும் இயங்குதள நிரல்களுக்கும் உள்ள கையேடுகளை படிக்கவும் அவற்றுக்குள் தேடவும் உதவும் செயலி</p>
     <p xml:lang="tr">Tüm KDE uygulamalarının ve sistem izlencelerinin belgelendirmesini okumak ve içinde arama yapmak için bir uygulama</p>
@@ -341,6 +349,10 @@
       <caption xml:lang="sa">KHelpCenter मुख्यविण्डो</caption>
       <caption xml:lang="sk">KHelpCenter hlavné okno</caption>
       <caption xml:lang="sl">Glavno okno - KHelpCenter</caption>
+      <caption xml:lang="sr">Главни прозор К‑центра-помоћи</caption>
+      <caption xml:lang="sr-Latn">Glavni prozor K‑centra-pomoći</caption>
+      <caption xml:lang="sr-ijekavian">Главни прозор К‑центра-помоћи</caption>
+      <caption xml:lang="sr-ijekavianlatin">Glavni prozor K‑centra-pomoći</caption>
       <caption xml:lang="sv">Huvudfönstret i Hjälpcentralen</caption>
       <caption xml:lang="ta">கேஹெல்புசெண்டரின் பிரதான சாளரம்</caption>
       <caption xml:lang="tr">K Yardım Merkezi ana penceresi</caption>
