@@ -86,8 +86,6 @@ Name[zh_TW]=UNIX 手冊
 
 X-DocPath=man:/
 
-Icon=application-x-troff-man
-
 X-DOC-Weight=500
 X-DOC-DocumentType=text/man
 X-DOC-Identifier=manpages
