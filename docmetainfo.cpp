@@ -78,6 +78,12 @@ DocEntry *DocMetaInfo::addDocEntry(const QFileInfo &fi)
             entry->setLang(lang);
             entry->setName(i18nc("doctitle (language)", "%1 (%2)", entry->name(), *it));
         }
+        if (mDocIdentifiers.contains(entry->identifier())) {
+            qCDebug(KHC_LOG) << "DocMetaInfo::addDocEntry(): skipping duplicate entry" << fi.absoluteFilePath();
+            delete entry;
+            return nullptr;
+        }
+        mDocIdentifiers.insert(entry->identifier());
         QString indexer = entry->indexer();
         indexer.replace(QStringLiteral("%f"), fi.absoluteFilePath());
         entry->setIndexer(indexer);
@@ -152,12 +158,12 @@ DocEntry *DocMetaInfo::scanMetaInfoDir(const QString &dirName, DocEntry *parent)
 
     const auto entryInfoList = dir.entryInfoList(QDir::Dirs | QDir::Files | QDir::NoDotAndDotDot);
     for (const QFileInfo &fi : entryInfoList) {
-        DocEntry *entry = nullptr;
         if (fi.isDir()) {
             DocEntry *dirEntry = addDirEntry(QDir(fi.absoluteFilePath()), parent);
-            entry = scanMetaInfoDir(fi.absoluteFilePath(), dirEntry);
+            if (dirEntry)
+                scanMetaInfoDir(fi.absoluteFilePath(), dirEntry);
         } else if (fi.suffix() == QLatin1String("desktop")) {
-            entry = addDocEntry(fi);
+            DocEntry *entry = addDocEntry(fi);
             if (parent && entry)
                 parent->addChild(entry);
         }
@@ -168,9 +174,13 @@ DocEntry *DocMetaInfo::scanMetaInfoDir(const QString &dirName, DocEntry *parent)
 
 DocEntry *DocMetaInfo::addDirEntry(const QDir &dir, DocEntry *parent)
 {
-    DocEntry *dirEntry = addDocEntry(QFileInfo(dir.absoluteFilePath(QStringLiteral(".directory"))));
+    const QFileInfo directoryInfo(dir.absoluteFilePath(QStringLiteral(".directory")));
+    DocEntry *dirEntry = addDocEntry(directoryInfo);
 
     if (!dirEntry) {
+        if (directoryInfo.exists())
+            return nullptr;
+
         dirEntry = new DocEntry;
         dirEntry->setName(dir.dirName());
         addDocEntry(dirEntry);

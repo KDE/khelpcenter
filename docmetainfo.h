@@ -9,6 +9,7 @@
 
 #include <QDir>
 #include <QMap>
+#include <QSet>
 
 #include "docentry.h"
 
@@ -63,6 +64,8 @@ private:
 
     DocEntry::List mDocEntries;
     DocEntry::List mSearchEntries;
+
+    QSet<QString> mDocIdentifiers;
 
     DocEntry mRootEntry;
 
