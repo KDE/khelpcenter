@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-28 00:48+0000\n"
-"PO-Revision-Date: 2026-09-23 06:56+0900\n"
+"PO-Revision-Date: 2026-11-02 09:29-0500\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.9\n"
+"X-Generator: Poedit 3.10\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -31,7 +31,7 @@ msgstr "sahranbay@gmail.com, gheyret@gmail.com"
 #: application.cpp:30
 #, kde-format
 msgid "Documentation to open"
-msgstr ""
+msgstr "ئاچىدىغان قوللانما"
 
 #: application.cpp:103 application.cpp:105
 #, kde-format
@@ -41,7 +41,7 @@ msgstr "ياردەم مەركىزى"
 #: application.cpp:107
 #, kde-format
 msgid "(c) 1999-2023, The KHelpCenter developers"
-msgstr ""
+msgstr "(c) 1999-2023, KHelpCenter ئىجادكارلار"
 
 #: application.cpp:109
 #, kde-format
@@ -51,7 +51,7 @@ msgstr "نۆۋەتتىكى ئاسرىغۇچى"
 #: application.cpp:110
 #, kde-format
 msgid "Xapian-based search, lot of bugfixes"
-msgstr ""
+msgstr "Xapian ئاساسىدىكى ئىزدەش، كۆپ مىقداردىكى كەمتۈك تۈزىتىش"
 
 #: application.cpp:111
 #, kde-format
@@ -77,7 +77,7 @@ msgstr "يۇقىرى-دەرىجىلىك پۈتۈك"
 #, kde-format
 msgctxt "doctitle (language)"
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1 (%2)"
 
 #: docmetainfo.cpp:112
 #, kde-format
@@ -93,7 +93,7 @@ msgstr "خەت نۇسخا سەپلىمىسى"
 #: fontdialog.cpp:62
 #, kde-format
 msgid "Sizes"
-msgstr "چوڭلۇقلار"
+msgstr "چوڭلۇقى"
 
 #: fontdialog.cpp:66
 #, kde-format
@@ -186,7 +186,7 @@ msgstr "سۆزلۈك غەملىكىنى قايتا قۇرۇۋاتىدۇ…تام
 #, kde-format
 msgctxt "%1 is a glossary term"
 msgid "KDE Glossary: %1"
-msgstr ""
+msgstr "KDE سۆزلۈكى: %1"
 
 #: grantleeformatter.cpp:98
 #, kde-format
@@ -196,7 +196,7 @@ msgstr "KDE سۆزلۈكى"
 #: grantleeformatter.cpp:102
 #, kde-format
 msgid "See also: %1"
-msgstr ""
+msgstr "پايدىلانما: %1"
 
 #: grantleeformatter.cpp:122
 #, kde-format
@@ -223,7 +223,7 @@ msgstr "ئىندېكس مۇندەرىجىسىنىڭ يولى."
 #: khelpcenter.kcfg:32
 #, kde-format
 msgid "Path to directory containing search indices."
-msgstr ""
+msgstr "ئىزدەش ئىندېكسىنى ئۆز ئىچىگە ئالغان مۇندەرىجە يولى."
 
 #. i18n: ectx: label, entry, group (Layout)
 #: khelpcenter.kcfg:46
@@ -334,23 +334,23 @@ msgstr "ئىزدەش پىروگراممىسىنى ئىجرا قىلغىلى بو
 #: navigator.cpp:660
 #, kde-format
 msgid "Updating search index..."
-msgstr ""
+msgstr "ئىزدەش ئىندىكىسىنى يېڭىلاۋاتىدۇ…"
 
 #: navigator.cpp:671
 #, kde-format
 msgid "Updating search index... done."
-msgstr ""
+msgstr "ئىزدەش ئىندىكىسىنى يېڭىلاۋاتىدۇ… تامام."
 
 #: printdoc.cpp:60
 #, kde-format
 msgid "Could not generate print preview."
-msgstr ""
+msgstr "بېسىشنى ئالدىن كۆزىتىشنى قۇرالمىدى."
 
 #: printdoc.cpp:96
 #, kde-format
 msgctxt "@title:window"
 msgid "Print Document"
-msgstr ""
+msgstr "پۈتۈك باس"
 
 #: searchengine.cpp:62
 #, kde-format
@@ -410,7 +410,7 @@ msgstr "ئۇسۇل(&M):"
 #: searchwidget.cpp:62
 #, kde-format
 msgid "Max. &results:"
-msgstr ""
+msgstr "ئەڭ چوڭ نەتىجە(&R):"
 
 #: searchwidget.cpp:77
 #, kde-format
@@ -455,7 +455,7 @@ msgstr "يوچۇن"
 #: view.cpp:327
 #, kde-format
 msgid "Save Page"
-msgstr ""
+msgstr "بەت ساقلا"
 
 #~ msgid "Previous Page"
 #~ msgstr "ئالدىنقى بەت"
