@@ -93,6 +93,7 @@
   <summary xml:lang="sv">Bläddra och sök i dokumentation</summary>
   <summary xml:lang="ta">கையேடுகளில் தேடி உலாவலாம்</summary>
   <summary xml:lang="tr">Belgelendirmeye göz atın ve içinde arama yapın</summary>
+  <summary xml:lang="ug">پۈتۈككە كۆز يۈگۈرتۈپ ۋە ئىزدەيدۇ</summary>
   <summary xml:lang="uk">Перегляд документації та пошук у ній</summary>
   <summary xml:lang="zh-CN">浏览和搜索文档</summary>
   <summary xml:lang="zh-TW">瀏覽並搜尋文件</summary>
@@ -145,6 +146,7 @@
     <p xml:lang="sv">Ett program för att söka i och läsa dokumentationen om alla KDE-program och systemverktyg</p>
     <p xml:lang="ta">கே.டீ.யீ. செயலிகளுக்கும் இயங்குதள நிரல்களுக்கும் உள்ள கையேடுகளை படிக்கவும் அவற்றுக்குள் தேடவும் உதவும் செயலி</p>
     <p xml:lang="tr">Tüm KDE uygulamalarının ve sistem izlencelerinin belgelendirmesini okumak ve içinde arama yapmak için bir uygulama</p>
+    <p xml:lang="ug">بارلىق KDE پىروگراممىسى ۋە سىستېما قوراللىرىنىڭ قوللانمىسىنى ئىزدەش ۋە ئوقۇشقا ئىشلىتىدىغان پىروگرامما</p>
     <p xml:lang="uk">Програма для пошуку і читання документації до усіх програм KDE та засобів системи</p>
     <p xml:lang="vi">Một ứng dụng để tìm kiếm và đọc các tài liệu cho tất cả các ứng dụng và tiện ích hệ thống KDE của bạn</p>
     <p xml:lang="zh-CN">用于搜索和阅读所有 KDE 应用程序和系统实用程序的文档的应用程序</p>
@@ -249,6 +251,7 @@
       <li xml:lang="sv">Visa dokumentation från olika källor (program från KDE-gemenskapen, manualsidor, etc.)</li>
       <li xml:lang="ta">பல இடங்களிலிருந்தான கையேடுகளை காட்டும் (கே.டீ.யீ. செயலிகள், இயங்குதள கையேடுகள் இத்தியாதி)</li>
       <li xml:lang="tr">Farklı kaynaklardan belgelendirmeleri göster (KDE topluluğu, kılavuz sayfaları, vs)</li>
+      <li xml:lang="ug">كۆپ مەنبە (KDE جامائەت پىروگراممىسى، man بېتى قاتارلىق) دىن قوللانما كۆرسىتىدۇ</li>
       <li xml:lang="uk">Показ документації з різних джерел (програми спільноти KDE, сторінки man тощо)</li>
       <li xml:lang="vi">Hiện tài liệu từ nhiều nguồn khác nhau (các ứng dụng của cộng đồng KDE, các trang sổ tay, v.v.)</li>
       <li xml:lang="zh-CN">显示来自从多种来源的文档（KDE 社区应用，man 页面，等）</li>
@@ -301,6 +304,7 @@
       <li xml:lang="sv">Sök igenom tillgänglig dokumentation</li>
       <li xml:lang="ta">கையேடுகளில் தேடுங்கள்</li>
       <li xml:lang="tr">Mevcut belgelendirmede arama yapın</li>
+      <li xml:lang="ug">ئىشلەتكىلى بولىدىغان قوللانمىدىن ئىزدەيدۇ</li>
       <li xml:lang="uk">Пошук у доступній документації</li>
       <li xml:lang="vi">Tìm kiếm các tài liệu hiện có</li>
       <li xml:lang="zh-CN">在可用的文档中搜索</li>
@@ -356,6 +360,7 @@
       <caption xml:lang="sv">Huvudfönstret i Hjälpcentralen</caption>
       <caption xml:lang="ta">கேஹெல்புசெண்டரின் பிரதான சாளரம்</caption>
       <caption xml:lang="tr">K Yardım Merkezi ana penceresi</caption>
+      <caption xml:lang="ug">K ياردەم مەركىزىنىڭ ئاساسىي كۆزنىكى</caption>
       <caption xml:lang="uk">Головне вікно KHelpCenter</caption>
       <caption xml:lang="vi">Cửa sổ chính KHelpCenter</caption>
       <caption xml:lang="zh-CN">KHelpCenter 主窗口</caption>
