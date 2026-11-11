@@ -12,7 +12,7 @@
 >O &khelpcenter;</title>
 <authorgroup>
 <corpauthor
->Equipe do &kde;</corpauthor>
+>Equipe da &kde;</corpauthor>
 <othercredit role="translator"
 ><firstname
 >Marcus</firstname
@@ -89,10 +89,10 @@
 >man</application
 > e <application
 >info</application
->), assim como a documentação dos aplicativos, incluindo o &plasma-workspaces; da comunidade do &kde; (&XML;). </para>
+>), assim como a documentação dos aplicativos, incluindo o &plasma-workspaces; da comunidade &kde; (&XML;). </para>
 
 <para
->Todos os aplicativos (incluindo o &plasma-workspaces;) do &kde; são completamente documentados pela comunidade do &kde;, graças ao esforço da equipe de documentação. Se estiver interessado em ajudar nesta tarefa, inscreva-se na <ulink url="https://mail.kde.org/mailman/listinfo/kde-doc-english"
+>Todos os aplicativos (incluindo o &plasma-workspaces;) do &kde; são completamente documentados pela comunidade &kde;, graças ao esforço da equipe de documentação. Se estiver interessado em ajudar nesta tarefa, inscreva-se na <ulink url="https://mail.kde.org/mailman/listinfo/kde-doc-english"
 >lista de discussão</ulink
 > e escreva para a equipe em <email
 >kde-doc-english@kde.org</email
@@ -335,7 +335,7 @@
 ></term>
 <listitem>
 <para
->Uma página com referências para ajuda on-line e mais algumas informações adicionais fornecidas pela comunidade do &kde;. </para>
+>Uma página com referências para ajuda on-line e mais algumas informações adicionais fornecidas pela comunidade &kde;. </para>
 </listitem>
 </varlistentry>
 
