@@ -19,6 +19,7 @@
 #include <QBuffer>
 #include <QClipboard>
 #include <QContextMenuEvent>
+#include <QDesktopServices>
 #include <QFileDialog>
 #include <QFileInfo>
 #include <QGuiApplication>
@@ -34,6 +35,22 @@
 #include <QWebEngineUrlSchemeHandler>
 
 using namespace KHC;
+class ViewPage : public QWebEnginePage
+{
+public:
+    using QWebEnginePage::QWebEnginePage;
+
+protected:
+    bool acceptNavigationRequest(const QUrl &url, NavigationType type, bool isMainFrame) override
+    {
+        if (type == NavigationTypeLinkClicked && (url.scheme() == QLatin1String("http") || url.scheme() == QLatin1String("https"))) {
+            QDesktopServices::openUrl(url);
+            return false;
+        }
+        return QWebEnginePage::acceptNavigationRequest(url, type, isMainFrame);
+    }
+};
+
 class HelpUrlSchemeHandler : public QWebEngineUrlSchemeHandler
 {
     void requestStarted(QWebEngineUrlRequestJob *job) override
@@ -65,6 +82,7 @@ View::View(QWidget *parentWidget, KActionCollection *col)
     , mState(Docu)
     , mActionCollection(col)
 {
+    setPage(new ViewPage(this));
     {
         QWebEngineUrlScheme customScheme("help");
         customScheme.setFlags(QWebEngineUrlScheme::SecureScheme | QWebEngineUrlScheme::ContentSecurityPolicyIgnored | QWebEngineUrlScheme::LocalScheme
