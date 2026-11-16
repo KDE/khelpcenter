@@ -8,13 +8,13 @@
 # Serdar Soytetir <tulliana@gmail.com>, 2007, 2008, 2009.
 # H. İbrahim Güngör <tulliana@gmail.com>, 2011, 2012.
 # Volkan Gezer <volkangezer@gmail.com>, 2013, 2014, 2017.
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025, 2026 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022-2026 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-28 00:48+0000\n"
-"PO-Revision-Date: 2026-05-02 19:55+0300\n"
+"PO-Revision-Date: 2026-11-15 20:14+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.08.2\n"
 "X-Poedit-Language: Turkish\n"
 
 #, kde-format
@@ -95,7 +95,7 @@ msgstr "İngilizce"
 #: fontdialog.cpp:36
 #, kde-format
 msgid "Font Configuration"
-msgstr "Yazıtipi Ayarları"
+msgstr "Yazı Tipi Ayarları"
 
 #: fontdialog.cpp:62
 #, kde-format
@@ -106,48 +106,48 @@ msgstr "Boyutlar"
 #, kde-format
 msgctxt "The smallest size a will have"
 msgid "M&inimum font size:"
-msgstr "En küçük yazıtipi &puntosu:"
+msgstr "En küçük yazı tipi &puntosu:"
 
 #: fontdialog.cpp:73
 #, kde-format
 msgctxt "The normal size a font will have"
 msgid "M&edium font size:"
-msgstr "O&rta yazıtipi puntosu:"
+msgstr "O&rta yazı tipi puntosu:"
 
 #: fontdialog.cpp:83
 #, kde-format
 msgid "Fonts"
-msgstr "Yazıtipleri"
+msgstr "Yazı Tipleri"
 
 #: fontdialog.cpp:87
 #, kde-format
 msgid "S&tandard font:"
-msgstr "&Standart yazıtipi:"
+msgstr "&Standart yazı tipi:"
 
 #: fontdialog.cpp:93
 #, kde-format
 msgid "F&ixed font:"
-msgstr "&Eş aralıklı yazıtipi:"
+msgstr "&Eş aralıklı yazı tipi:"
 
 #: fontdialog.cpp:99
 #, kde-format
 msgid "S&erif font:"
-msgstr "S&erif yazıtipi:"
+msgstr "S&erif yazı tipi:"
 
 #: fontdialog.cpp:105
 #, kde-format
 msgid "S&ans serif font:"
-msgstr "S&ans serif yazıtipi:"
+msgstr "S&ans serif yazı tipi:"
 
 #: fontdialog.cpp:111
 #, kde-format
 msgid "&Italic font:"
-msgstr "&Yatık yazıtipi:"
+msgstr "&Yatık yazı tipi:"
 
 #: fontdialog.cpp:117
 #, kde-format
 msgid "&Fantasy font:"
-msgstr "&Fantezi yazıtipi:"
+msgstr "&Fantezi yazı tipi:"
 
 #: fontdialog.cpp:126
 #, kde-format
@@ -167,7 +167,7 @@ msgstr "Dil Kodlaması Kullan"
 #: fontdialog.cpp:140
 #, kde-format
 msgid "&Font size adjustment:"
-msgstr "&Yazıtipi puntosu ayarlama:"
+msgstr "&Yazı tipi puntosu ayarlama:"
 
 #: glossary.cpp:74
 #, kde-format
