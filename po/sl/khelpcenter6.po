@@ -1,6 +1,6 @@
 # Translation of khelpcenter.po to Slovenian
 # SLOVENIAN TRANSLATION OF KFONTMANAGER.
-# $Id: khelpcenter6.po 1748411 2026-09-28 01:30:26Z scripty $
+# $Id$
 # $Source$
 #
 # Copyright (C) 2001, 2003, 2004, 2005 Free Software Foundation, Inc.
