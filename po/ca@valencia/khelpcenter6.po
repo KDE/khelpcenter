@@ -283,12 +283,12 @@ msgstr "Taula de &contingut"
 #: mainwindow.cpp:206
 #, kde-format
 msgid "Table of contents"
-msgstr "Taula de contingut"
+msgstr "Índex de continguts"
 
 #: mainwindow.cpp:207
 #, kde-format
 msgid "Go back to the table of contents"
-msgstr "Torna a la taula de contingut"
+msgstr "Torna a l'índex de continguts"
 
 #: mainwindow.cpp:233
 #, kde-format
