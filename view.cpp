@@ -24,6 +24,7 @@
 #include <QFileInfo>
 #include <QGuiApplication>
 #include <QMenu>
+#include <QSaveFile>
 #include <QTextStream>
 #include <QWebEngineDownloadRequest>
 #include <QWebEnginePage>
@@ -329,14 +330,24 @@ void View::contextMenuEvent(QContextMenuEvent *ev)
     if (act->isEnabled() && !this->mCurrentlyHoveredLink.isEmpty()) {
         menu.addAction(act);
     }
-    act = pageAction(QWebEnginePage::SavePage);
-    if (act->isEnabled()) {
-        auto separator = new QAction(&menu);
-        separator->setSeparator(true);
-        menu.addAction(separator);
-        act->setIcon(QIcon::fromTheme(QStringLiteral("document-save")));
-        menu.addAction(act);
-    }
+    auto separator = new QAction(&menu);
+    separator->setSeparator(true);
+    menu.addAction(separator);
+    auto saveAct = new QAction(QIcon::fromTheme(QStringLiteral("document-save")), i18n("Save Page"), &menu);
+    connect(saveAct, &QAction::triggered, this, [this] {
+        const QString filename = QFileDialog::getSaveFileName(this, i18n("Save Page"));
+        if (filename.isEmpty()) {
+            return;
+        }
+        page()->toHtml([filename](const QString &html) {
+            QSaveFile file(filename);
+            if (file.open(QIODevice::WriteOnly)) {
+                file.write(html.toUtf8());
+                file.commit();
+            }
+        });
+    });
+    menu.addAction(saveAct);
     menu.exec(ev->globalPos());
 }
 
