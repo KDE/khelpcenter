@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-28 00:48+0000\n"
+"POT-Creation-Date: 2026-11-23 01:07+0000\n"
 "PO-Revision-Date: 2002-10-26 12:48SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -464,7 +464,7 @@ msgctxt "Label for Unknown search scope, that should never appear"
 msgid "unknown"
 msgstr "ayaziwa"
 
-#: view.cpp:327
+#: view.cpp:345
 #, kde-format
 msgid "Save Page"
 msgstr ""
