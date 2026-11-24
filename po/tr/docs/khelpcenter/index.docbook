@@ -142,7 +142,7 @@
 >help</userinput
 > yazıp <guimenuitem
 >Yardım</guimenuitem
->’ı seçin. Bu, öntanımlı başlangıç sayfasıyla &khelpcenter; uygulamasını açar. </para>
+>’ı seçin. Bu, varsayılan başlangıç sayfasıyla &khelpcenter; uygulamasını açar. </para>
 </listitem
 > 
 </varlistentry>
@@ -226,7 +226,7 @@
 <para
 ><command
 >khelpcenter</command
-> uygulamasını bir parametre olmadan çağırmak, öntanımlı başlangıç sayfasını açar. </para>
+> uygulamasını bir parametre olmadan çağırmak, varsayılan başlangıç sayfasını açar. </para>
 </listitem>
 </varlistentry>
 
@@ -287,7 +287,7 @@
 <para
 ><guilabel
 >İçindekiler</guilabel
-> sekmesi, ağaç görünümünde aşağıdaki öntanımlı üst düzey girdileri içerir: </para
+> sekmesi, ağaç görünümünde aşağıdaki varsayılan üst düzey girdileri içerir: </para
 > 
 
 <variablelist>
@@ -338,7 +338,7 @@
 <para
 >Uygulamalar, aradığınız uygulamayı bulmayı kolaylaştıran <guimenu
 >Plasma</guimenu
-> menüsünün öntanımlı yapısını yansıtan bir ağaç yapısında görüntülenir. </para>
+> menüsünün varsayılan yapısını yansıtan bir ağaç yapısında görüntülenir. </para>
 </listitem
 > 
 </varlistentry>
@@ -653,7 +653,7 @@ Print the contents of the currently visible page.
 <varlistentry>
 <term
 ><guiicon
->Yazıtipi Puntosunu Büyüt</guiicon
+>Yazı Tipi Puntosunu Büyüt</guiicon
 ></term>
 <listitem>
 <para
@@ -664,7 +664,7 @@ Print the contents of the currently visible page.
 <varlistentry>
 <term
 ><guiicon
->Yazıtipi Puntosunu Küçült</guiicon
+>Yazı Tipi Puntosunu Küçült</guiicon
 ></term>
 <listitem>
 <para
@@ -834,7 +834,7 @@ Print the contents of the currently visible page.
 <listitem>
 <para
 >Geçerli sayfanın kodlamasını değiştirin. Normalde <guimenuitem
->Öntanımlı</guimenuitem
+>Varsayılan</guimenuitem
 > ayarı yeterli olmalıdır; ancak İngilizce dışındaki dillerde yazılmış sayfaları görüntülemekte sorun yaşıyorsanız bu menüde belirli bir kodlama seçmeniz gerekebilir. </para>
 </listitem>
 </varlistentry>
@@ -1048,12 +1048,12 @@ Print the contents of the currently visible page.
 ><guimenu
 >Ayarlar</guimenu
 > <guimenuitem
->Yazıtiplerini Yapılandır…</guimenuitem
+>Yazı Tiplerini Yapılandır…</guimenuitem
 > </menuchoice>
 </term>
 <listitem>
 <para
->&khelpcenter; tarafından kullanılan yazıtipi ailesini ve boyutunu yapılandırmanıza izin verir. </para>
+>&khelpcenter; tarafından kullanılan yazı tipi ailesini ve boyutunu yapılandırmanıza izin verir. </para>
 </listitem>
 </varlistentry>
 </variablelist>

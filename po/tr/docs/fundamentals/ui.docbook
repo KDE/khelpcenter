@@ -412,7 +412,7 @@
 </screenshot>
 
 <para
->&systemsettings; Öntanımlı Uygulamalar panelinin bu ekran görüntüsü, daha çok kullanıcı arayüzü ögeleri gösterir. Hakkında daha fazla bilgi almak için pencerenin bir kısmına tıklayın.</para>
+>&systemsettings; Varsayılan Uygulamalar panelinin bu ekran görüntüsü, daha çok kullanıcı arayüzü ögeleri gösterir. Hakkında daha fazla bilgi almak için pencerenin bir kısmına tıklayın.</para>
 
 <orderedlist>
 
@@ -979,7 +979,7 @@
 </screenshot>
 
 <para
->&dolphin; gibi bazı uygulamalar, öntanımlı olarak bir menü çubuğu göstermez. Menü çubuğunu, <keycombo
+>&dolphin; gibi bazı uygulamalar, varsayılan olarak bir menü çubuğu göstermez. Menü çubuğunu, <keycombo
 >&Ctrl;<keycap
 >M</keycap
 ></keycombo
