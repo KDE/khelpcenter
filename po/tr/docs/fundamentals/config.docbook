@@ -132,11 +132,11 @@
 
 <sect3 id="toolbars-items-defaults">
 <title
->Öntanımlıları Geri Yüklemek</title>
+>Varsayılanları Geri Yüklemek</title>
 
 <para
 >Pencerenin altındaki <guibutton
->Öntanımlılar</guibutton
+>Varsayılanlar</guibutton
 > düğmesine basıp kararınızı onaylayarak araç çubuğunuzu uygulamayı yüklediğiniz zamanki haline geri yükleyebilirsiniz.</para>
 
 </sect3>
@@ -237,7 +237,7 @@
 ><para
 ><guimenuitem
 >Orta (22 × 22)</guimenuitem
-> [öntanımlı değer]</para
+> [varsayılan değer]</para
 ></listitem>
 <listitem
 ><para
@@ -278,7 +278,7 @@
 ><para
 ><guimenuitem
 >Üst</guimenuitem
-> [birçok uygulamada öntanımlıdır]</para
+> [birçok uygulamada varsayılandır]</para
 ></listitem>
 <listitem
 ><para
@@ -424,7 +424,7 @@ another place to change Global Shortcuts (Systemsettings)-->
 >Bir Kısayolu Değiştirmek</title>
 
 <para
->Bir kısayolu değiştirmek için öncelikle değiştirmek istediğiniz kısayolun adına tıklayın. Kısayolu öntanımlı değerine ayarlamayı veya seçilen eylem için yeni bir kısayol seçmeyi seçebileceğiniz bir radyo grubu göreceksiniz. Yeni bir kısayol ayarlamak için <guilabel
+>Bir kısayolu değiştirmek için öncelikle değiştirmek istediğiniz kısayolun adına tıklayın. Kısayolu varsayılan değerine ayarlamayı veya seçilen eylem için yeni bir kısayol seçmeyi seçebileceğiniz bir radyo grubu göreceksiniz. Yeni bir kısayol ayarlamak için <guilabel
 >Özel</guilabel
 >’i seçin ve yanındaki düğmeye tıklayın. Daha sonra kullanmak istediğiniz kısayolu yazmanız yeterlidir; sonrasında değişiklikleriniz kaydedilir.</para>
 
@@ -448,13 +448,13 @@ another place to change Global Shortcuts (Systemsettings)-->
 >Kısayolları Sıfırlamak</title>
 <para
 >Pencerenin alt kısmında <guibutton
->Öntanımlılar</guibutton
-> adında bir düğme bulunur. Bu düğmeye tıkladığınızda tüm özel kısayollarınız öntanımlı değerlerine sıfırlanır.</para>
+>Varsayılanlar</guibutton
+> adında bir düğme bulunur. Bu düğmeye tıkladığınızda tüm özel kısayollarınız varsayılan değerlerine sıfırlanır.</para>
 
 <para
 >Ayrıca tek bir kısayolu seçip <guilabel
->Öntanımlı</guilabel
-> radyo düğmesini seçerek öntanımlı değerine sıfırlayabilirsiniz.</para>
+>Varsayılan</guilabel
+> radyo düğmesini seçerek varsayılan değerine sıfırlayabilirsiniz.</para>
 
 </sect2>
 

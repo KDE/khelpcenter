@@ -235,7 +235,7 @@ Project Neon
 ><para
 ><acronym
 >KSycoca</acronym
-> (&kde; &emstart;Sy&emend;stem &emstart;Co&emend;nfiguration &emstart;Ca&emend;che); örneğin menü girişlerine hızlı erişimi garanti eden bir yapılandırma önbelleğidir.</para>
+> (&kde; &emstart;Sy&emend;stem &emstart;Co&emend;nfiguration &emstart;Ca&emend;che); örneğin menü girişlerine hızlı erişimi garanti eden bir yapılandırma ön belleğidir.</para>
 				<glossseealso 
 otherterm="gloss-kbuildsycoca"
 ><application
@@ -323,7 +323,7 @@ otherterm="gloss-kbuildsycoca"
 >Kenar Yumuşatma</glossterm>
 			<glossdef
 ><para
->&kde; ile birlikte söz edilirse kenar yumuşatma, genellikle ekranda görünen yazıtiplerinin yumuşatılması anlamına gelir. &Qt; X.Org sunucusuyla birlikte kullanılan sürüm 3.3 veya üzeri, bunu &kde; altında da olanaklı kılar.</para
+>&kde; ile birlikte söz edilirse kenar yumuşatma, genellikle ekranda görünen yazı tiplerinin yumuşatılması anlamına gelir. &Qt; X.Org sunucusuyla birlikte kullanılan sürüm 3.3 veya üzeri, bunu &kde; altında da olanaklı kılar.</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-qt"
@@ -352,7 +352,7 @@ otherterm="gloss-kbuildsycoca"
 >Dolphin</glossterm>
 			<glossdef
 ><para
->&kde; uygulamalarındaki öntanımlı dosya yöneticisi. Bir kenar çubuğu içerir; ancak dolaşım genellikle ana pencerenin üst kısmındaki zincirli yol çubuğu ile yapılır. Bölünmüş görünümler vardır ve görünümler bireysel pencerelere atanabilir. <acronym
+>&kde; uygulamalarındaki varsayılan dosya yöneticisi. Bir kenar çubuğu içerir; ancak dolaşım genellikle ana pencerenin üst kısmındaki zincirli yol çubuğu ile yapılır. Bölünmüş görünümler vardır ve görünümler bireysel pencerelere atanabilir. <acronym
 >USB</acronym
 > aygıtlarının bağlantısı ve bağlantılarının kesilmesi kenar çubuğundan yapılabilir. Yerler paneline başka klasörler de eklenebilir. Bir ağaç görünümü de olanaklıdır.&newpara; Daha fazla bilgi:&newpara; &linkstart;"https://www.kde.org/applications/system/dolphin/"&linkmid;Dolphin&linkend;&newpara; &linkstart;"https://en.wikipedia.org/wiki/Dolphin_(file_manager)"&linkmid;Vikipedi: Dolphin&linkend;&newpara; &linkstart;"https://userbase.kde.org/Dolphin/File_Management"&linkmid;Userbase: Dosya Yönetimi&linkend;</para
 ><glossseealso otherterm="gloss-kde"
@@ -497,7 +497,7 @@ otherterm="gloss-kbuildsycoca"
 ></glossterm>
 			<glossdef
 ><para
->Esinti, &plasma;’nın öntanımlı temasıdır. Yeni tema, çalışma alanı için yüksek karşıtlıklı düz bir temadır. Açık ve koyu çeşitleri vardır. Daha basit ve daha tek renkli grafik varlıkları ve tipografi merkezli yerleşimler, temiz ve görsel olarak net bir kullanıcı deneyimi sunar.</para
+>Esinti, &plasma;’nın varsayılan temasıdır. Yeni tema, çalışma alanı için yüksek karşıtlıklı düz bir temadır. Açık ve koyu çeşitleri vardır. Daha basit ve daha tek renkli grafik varlıkları ve tipografi merkezli yerleşimler, temiz ve görsel olarak net bir kullanıcı deneyimi sunar.</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-ksvg"
@@ -611,7 +611,7 @@ otherterm="gloss-kbuildsycoca"
 ></glossterm>
 			<glossdef>
 				<para
->Oksijen, &kde; SC 4’ün öntanımlı temasıydı. Basit, karikatürize simgeleri kaldırarak ve bunları temiz bir tema ve fotogerçekçi simgelerle değiştirerek masaüstüne “yeni bir soluk” getirmek üzere tasarlanmıştı. Oksijen, simgelerin dikkat dağıtıcı olmasını önlemek için doygunluğu azaltılmış bir palet ve ayrıntılı ölçeklenebilir grafikler (SVG) kullanır.&newpara; Daha fazla bilgi:&newpara; &linkstart;"https://en.wikipedia.org/wiki/Oxygen_Project"&linkmid;Vikipedi: Oksijen Projesi&linkend;</para
+>Oksijen, &kde; SC 4’ün varsayılan temasıydı. Basit, karikatürize simgeleri kaldırarak ve bunları temiz bir tema ve fotogerçekçi simgelerle değiştirerek masaüstüne “yeni bir soluk” getirmek üzere tasarlanmıştı. Oksijen, simgelerin dikkat dağıtıcı olmasını önlemek için doygunluğu azaltılmış bir palet ve ayrıntılı ölçeklenebilir grafikler (SVG) kullanır.&newpara; Daha fazla bilgi:&newpara; &linkstart;"https://en.wikipedia.org/wiki/Oxygen_Project"&linkmid;Vikipedi: Oksijen Projesi&linkend;</para
 ><glossseealso otherterm="gloss-kde"
 >&kde;</glossseealso
 > <glossseealso otherterm="gloss-ksvg"

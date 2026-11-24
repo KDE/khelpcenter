@@ -309,11 +309,11 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 <varlistentry id="files-ui-toolbar-show-preview">
 <term
 ><guibutton
->Önizlemeyi Göster</guibutton
+>Ön İzlemeyi Göster</guibutton
 ></term>
 <listitem
 ><para
->Klasör görünümünde her dosyanın önizlemesini görüntüler. </para
+>Klasör görünümünde her dosyanın ön izlemesini görüntüler. </para
 ></listitem>
 </varlistentry>
 
@@ -322,7 +322,7 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 >Yakınlaştırma Sürgüsü</term>
 <listitem
 ><para
->Bu, klasör görünümünde gösterilen simgenin veya önizlemenin boyutunu değiştirmenize olanak tanır.</para
+>Bu, klasör görünümünde gösterilen simgenin veya ön izlemenin boyutunu değiştirmenize olanak tanır.</para
 ></listitem>
 </varlistentry>
 
@@ -427,7 +427,7 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 ></term>
 <listitem
 ><para
->İşaretlenmediğinde (öntanımlı), klasör görünümündeki dosyalar artan düzende sıralanacaktır. (Örneğin, abecesel olarak sıralanan dosyalar A’dan Z’ye, sayısal olarak sıralanan dosyalar ise en küçükten en büyüğe doğru sıralanacaktır.) İşaretlendiğinde, klasördeki dosyalar azalan düzende (tersine) sıralanacaktır.</para
+>İşaretlenmediğinde (varsayılan), klasör görünümündeki dosyalar artan düzende sıralanacaktır. (Örneğin, abecesel olarak sıralanan dosyalar A’dan Z’ye, sayısal olarak sıralanan dosyalar ise en küçükten en büyüğe doğru sıralanacaktır.) İşaretlendiğinde, klasördeki dosyalar azalan düzende (tersine) sıralanacaktır.</para
 ></listitem>
 </varlistentry>
 
@@ -444,7 +444,7 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 ></term>
 <listitem
 ><para
->Etkinleştirildiğinde (öntanımlı), klasörler dosyalardan önce görünecektir.</para
+>Etkinleştirildiğinde (varsayılan), klasörler dosyalardan önce görünecektir.</para
 ></listitem>
 </varlistentry>
 
@@ -607,12 +607,12 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 ><guimenu
 >Seçenekler</guimenu
 ><guimenuitem
->Yan Önizlemeyi Göster</guimenuitem
+>Yan Ön İzlemeyi Göster</guimenuitem
 > </menuchoice
 ></term>
 <listitem
 ><para
->Geçerli olarak vurgulanan dosyanın önizlemesini klasör görünümünün sağında görüntüler.</para
+>Geçerli olarak vurgulanan dosyanın ön izlemesini klasör görünümünün sağında görüntüler.</para
 ></listitem>
 </varlistentry>
 
@@ -649,7 +649,7 @@ automatic scrolling with Shift+Down Arrow or Shift+Up Arrow
 >Kırıntı Kipi</term>
 <listitem>
 <para
->Öntanımlı olan <quote
+>Varsayılan olan <quote
 >kırıntı</quote
 > kipinde, geçerli klasörün yolundaki her klasör adı, o klasörü tez açmak için tıklanabilen bir düğmedir. Ayrıca, bir klasörün sağındaki <quote
 >&gt;</quote
@@ -856,7 +856,7 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 ></term>
 <listitem
 ><para
->Geçerli klasörü öntanımlı dosya yöneticisi uygulamanızda açar.</para
+>Geçerli klasörü varsayılan dosya yöneticisi uygulamanızda açar.</para
 ></listitem>
 </varlistentry>
 
@@ -879,10 +879,10 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 
 <varlistentry id="files-ui-preview">
 <term
->Önizleme Paneli</term>
+>Ön İzleme Paneli</term>
 <listitem
 ><para
->Etkinleştirilirse o anda vurgulanan dosyanın önizlemesi görüntülenir.</para
+>Etkinleştirilirse o anda vurgulanan dosyanın ön izlemesi görüntülenir.</para
 ></listitem>
 </varlistentry>
 
@@ -934,9 +934,9 @@ size changes via splitter moving, different in dolhin (context menu with 4 prede
 ></term>
 <listitem
 ><para
->Bir dosyayı kaydederken bu onay kutusu görünecektir. Seçildiğinde (öntanımlı) uygulama, <guilabel
+>Bir dosyayı kaydederken bu onay kutusu görünecektir. Seçildiğinde (varsayılan) uygulama, <guilabel
 >Ad</guilabel
-> girdisinde zaten görünmüyorsa seçilen dosya türü için öntanımlı dosya uzantısını dosya adının sonuna kendiliğinden ekleyecektir. Kullanılacak dosya uzantısı onay kutusu etiketinin sonunda parantez içinde listelenmiştir. </para>
+> girdisinde zaten görünmüyorsa seçilen dosya türü için varsayılan dosya uzantısını dosya adının sonuna kendiliğinden ekleyecektir. Kullanılacak dosya uzantısı onay kutusu etiketinin sonunda parantez içinde listelenmiştir. </para>
 
 <screenshot id="screenshot-files-save">
 <screeninfo
@@ -1322,7 +1322,7 @@ Search+Replace bar in Kate/KWrite
 ></term>
 <listitem
 ><para
->Öntanımlı olarak, uygulama metin aradığında diğer metnin ortasında bile sonuçları döndürür. Örneğin, <quote
+>Varsayılan olarak, uygulama metin aradığında diğer metnin ortasında bile sonuçları döndürür. Örneğin, <quote
 >is</quote
 > aramasını yaparsanız bunu içeren her sözcükte durur; <quote
 >s<emphasis
@@ -1354,7 +1354,7 @@ Search+Replace bar in Kate/KWrite
 ></term>
 <listitem
 ><para
->Uygulama, öntanımlı olarak belgenin başından başlayarak metni arar ve belgenin sonuna kadar ilerler. Bu seçeneği işaretlerseniz bunun yerine sondan başlayacak ve başlangıca doğru ilerleyecektir. </para
+>Uygulama, varsayılan olarak belgenin başından başlayarak metni arar ve belgenin sonuna kadar ilerler. Bu seçeneği işaretlerseniz bunun yerine sondan başlayacak ve başlangıca doğru ilerleyecektir. </para
 ></listitem>
 </varlistentry>
 
@@ -1605,26 +1605,26 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 </authorgroup>
 </sect1info>
 <title
->Yazıtiplerini Seçmek</title>
+>Yazı Tiplerini Seçmek</title>
 
 <para
->Yazıtipi seçicisi, birçok &kde; uygulamasında kullanılır. Bu araç, uygulamanızda metinlerin gösterileceği yazıtipi görünümünü, biçimini ve puntosunu seçmenizi sağlar.</para>
+>Yazı tipi seçicisi, birçok &kde; uygulamasında kullanılır. Bu araç, uygulamanızda metinlerin gösterileceği yazı tipi görünümünü, biçimini ve puntosunu seçmenizi sağlar.</para>
 
 <screenshot id="screenshot-fonts">
 <screeninfo
->Yazıtipi Seçicisi</screeninfo>
+>Yazı Tipi Seçicisi</screeninfo>
 <mediaobject>
 <imageobject
 ><imagedata fileref="fonts.png" format="PNG"/></imageobject>
 <textobject
 ><phrase
->Yazıtipi seçicisi.</phrase
+>Yazı tipi seçicisi.</phrase
 ></textobject>
 <caption
 ><para
 ><ulink url="help:/systemsettings"
 >&systemsettings;</ulink
-> içinde bir yazıtipi seçmek.</para
+> içinde bir yazı tipi seçmek.</para
 ></caption>
 </mediaobject>
 </screenshot>
@@ -1634,22 +1634,22 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 <varlistentry>
 <term
 ><guilabel
->Yazıtipi</guilabel
+>Yazı tipi</guilabel
 ></term>
 <listitem
 ><para
->Bu, en soldaki seçim kutusudur ve sisteminizdeki yazıtipleri listesinden bir yazıyüzü seçmenizi sağlar.</para
+>Bu, en soldaki seçim kutusudur ve sisteminizdeki yazı tipleri listesinden bir yazı yüzü seçmenizi sağlar.</para
 ></listitem>
 </varlistentry>
 
 <varlistentry>
 <term
 ><guilabel
->Yazıtipi biçemi</guilabel
+>Yazı tipi stili</guilabel
 ></term>
 <listitem>
 <para
->Bu, ortadaki seçim kutusudur ve aşağıdaki seçenekler arasından yazıtipi biçemini seçmenizi sağlar:</para>
+>Bu, ortadaki seçim kutusudur ve aşağıdaki seçenekler arasından yazı tipi stilini seçmenizi sağlar:</para>
 <itemizedlist>
 
 <listitem
@@ -1663,7 +1663,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 ><para
 ><guilabel
 >Normal</guilabel
-> — öntanımlı. Metin herhangi bir özel görünüş olmadan görüntülenir.</para
+> — varsayılan. Metin herhangi bir özel görünüş olmadan görüntülenir.</para
 ></listitem>
 
 <listitem
@@ -1674,7 +1674,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 >Kalın</guilabel
 > hem de <guilabel
 >Yatık</guilabel
-> biçemlerinin birleşimidir</para
+> stillerinin birleşimidir</para
 ></listitem>
 
 <listitem
@@ -1695,7 +1695,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 ></term>
 <listitem
 ><para
->Bu, en sağdaki seçim kutusudur ve metninizin boyutunu seçmenizi sağlar. Yazıtipi boyutu, tipografide standart bir ölçü birimi olan <emphasis
+>Bu, en sağdaki seçim kutusudur ve metninizin boyutunu seçmenizi sağlar. Yazı tipi büyüklüğü, tipografide standart bir ölçü birimi olan <emphasis
 >punto</emphasis
 > türünden ölçülür. Bunun hakkında daha fazla bilgi için <ulink url="https://tr.wikipedia.org/wiki/Punto_(birim)"
 >Vikipedi’deki <quote
@@ -1707,10 +1707,10 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 
 <varlistentry>
 <term
->Önizleme</term>
+>Ön İzleme</term>
 <listitem
 ><para
->Yazıtipi seçicisinin alt kısmı, o anda seçili olan yazıtipi ayarlarını kullanan metnin önizlemesini görüntüler. İsterseniz bu metni değiştirebilirsiniz.</para
+>Yazı tipi seçicisinin alt kısmı, o anda seçili olan yazı tipi ayarlarını kullanan metnin ön izlemesini görüntüler. İsterseniz bu metni değiştirebilirsiniz.</para
 ></listitem>
 </varlistentry>
 
@@ -1756,7 +1756,7 @@ Copy documentation from Kate/KWrite here or keep in sync with kate/menus.docbook
 ><imagedata fileref="colors.png" format="PNG"/></imageobject>
 <textobject
 ><phrase
->Renk seçicisi.</phrase
+>Renk seçicisi bileşenidir.</phrase
 ></textobject>
 <caption
 ><para

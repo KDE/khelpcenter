@@ -124,13 +124,13 @@
                 <glossentry id="gloss-daemon">
                         <glossterm
 ><acronym
->Ardalan Süreci</acronym
+>Art Alan Süreci</acronym
 ></glossterm>
                         <glossdef
 ><para
 >&emstart;D&emend;isk &emstart;a&emend;nd &emstart;e&emend;xecution &emstart;mon&emend;itor (Disk ve yçalıştrıma görüntüleme) için kısaltma; <acronym
->Ardalan Süreçleri</acronym
->, kullanıcı etkileşiminden bağımsız görevler gerçekleştirmek için tüm &UNIX; sistemlerde bulunur. &Microsoft; &Windows;’a daha aşina kullanıcılar ardalan süreçlerini ve sorumlu oldukları görevleri "servisler" ile karşılaştırabilirler.&newpara; Çoğu eski &UNIX; sistemde var olan ardalan süreçlerinden bir tanesi LPD’dir (Line Printer Daemon); &CUPS; &UNIX; dünyasında çoğunlukla LPD’nin halefi olarak görülür ve kendisi de bir ardalan süreci olarak çalışır. </para>
+>Art Alan Süreçleri</acronym
+>, kullanıcı etkileşiminden bağımsız görevler gerçekleştirmek için tüm &UNIX; sistemlerde bulunur. &Microsoft; &Windows;’a daha aşina kullanıcılar art alan süreçlerini ve sorumlu oldukları görevleri "servisler" ile karşılaştırabilirler.&newpara; Çoğu eski &UNIX; sistemde var olan art alan süreçlerinden bir tanesi LPD’dir (Line Printer Daemon); &CUPS; &UNIX; dünyasında çoğunlukla LPD’nin halefi olarak görülür ve kendisi de bir art alan süreci olarak çalışır. </para>
                                 <glossseealso otherterm="gloss-spooling"
 >MAKARAlama</glossseealso>
                         </glossdef>
@@ -495,7 +495,7 @@
 ></glossterm>
                         <glossdef
 ><para
->&emstart;P&emend;rint &emstart;J&emend;ob &emstart;L&emend;anguage; (Yazdırma İş Dili) için kısaltma bir yazıcının öntanımlı ve iş bazlı ayarlarını denetlemek ve etkilemek için &HP; tarafından geliştirildi. Yalnızca &HP;’nin kendi (PCL-)yazıcıları için kullanılmayabilir; ayrıca birçok &PostScript; ve diğer yazıcılar kendilerine bir yazdırma işi veya ayrı bir sinyalle gönderilen PJL komutlarını anlar.</para>
+>&emstart;P&emend;rint &emstart;J&emend;ob &emstart;L&emend;anguage; (Yazdırma İş Dili) için kısaltma bir yazıcının varsayılan ve iş bazlı ayarlarını denetlemek ve etkilemek için &HP; tarafından geliştirildi. Yalnızca &HP;’nin kendi (PCL-)yazıcıları için kullanılmayabilir; ayrıca birçok &PostScript; ve diğer yazıcılar kendilerine bir yazdırma işi veya ayrı bir sinyalle gönderilen PJL komutlarını anlar.</para>
                                 <glossseealso otherterm="gloss-pcl"
 >PCL</glossseealso>
                         </glossdef>
@@ -693,7 +693,7 @@
 > tarafından halledilirken çalışmalarını sürdürmelerini sağlar. </para>
                                 <glossseealso otherterm="gloss-daemon"
 ><acronym
->Ardalan Süreci</acronym
+>Art Alan Süreci</acronym
 ></glossseealso>
                         </glossdef>
                 </glossentry>
