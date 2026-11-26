@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-23 01:07+0000\n"
+"POT-Creation-Date: 2026-11-26 01:08+0000\n"
 "PO-Revision-Date: 2005-11-30 00:17-0600\n"
 "Last-Translator: Deepayan Sarkar <deepayan@bengalinux.org>\n"
 "Language-Team: Bengali <kde-translation@bengalinux.org>\n"
@@ -344,6 +344,32 @@ msgstr "সন্ধান সূচী তৈরি করো..."
 #| msgid "Rebuilding cache... done."
 msgid "Updating search index... done."
 msgstr "ক্যাশে নতুন করে তৈরি করা হচ্ছে... হয়ে গেছে।"
+
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, searchTextEdit)
+#: pagesearchbar.ui:42
+#, fuzzy, kde-format
+#| msgid "&Search"
+msgctxt "@info:placeholder"
+msgid "Search..."
+msgstr "&সন্ধান"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, nextButton)
+#: pagesearchbar.ui:49
+#, kde-format
+msgid "Jump to next match"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, previousButton)
+#: pagesearchbar.ui:62
+#, kde-format
+msgid "Jump to previous match"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, matchCaseCheckButton)
+#: pagesearchbar.ui:75
+#, kde-format
+msgid "Match case sensitive"
+msgstr ""
 
 #: printdoc.cpp:60
 #, kde-format

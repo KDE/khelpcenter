@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-23 01:07+0000\n"
+"POT-Creation-Date: 2026-11-26 01:08+0000\n"
 "PO-Revision-Date: 2024-03-24 17:44+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -341,6 +341,32 @@ msgstr "தேடல் அட்டவணை புதுப்பிக்க�
 #, kde-format
 msgid "Updating search index... done."
 msgstr "தேடல் அட்டவணை புதுப்பிக்கப்பட்டுள்ளது."
+
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, searchTextEdit)
+#: pagesearchbar.ui:42
+#, fuzzy, kde-format
+#| msgid "Search..."
+msgctxt "@info:placeholder"
+msgid "Search..."
+msgstr "தேடு..."
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, nextButton)
+#: pagesearchbar.ui:49
+#, kde-format
+msgid "Jump to next match"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, previousButton)
+#: pagesearchbar.ui:62
+#, kde-format
+msgid "Jump to previous match"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, matchCaseCheckButton)
+#: pagesearchbar.ui:75
+#, kde-format
+msgid "Match case sensitive"
+msgstr ""
 
 #: printdoc.cpp:60
 #, kde-format
