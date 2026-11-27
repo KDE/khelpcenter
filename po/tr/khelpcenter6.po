@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: khelpcenter\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-26 01:08+0000\n"
-"PO-Revision-Date: 2026-11-23 18:00+0300\n"
+"PO-Revision-Date: 2026-11-26 16:59+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -350,8 +350,7 @@ msgstr "Arama indeksi güncelleniyor… bitti!"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, searchTextEdit)
 #: pagesearchbar.ui:42
-#, fuzzy, kde-format
-#| msgid "Search..."
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search..."
 msgstr "Ara…"
@@ -360,19 +359,19 @@ msgstr "Ara…"
 #: pagesearchbar.ui:49
 #, kde-format
 msgid "Jump to next match"
-msgstr ""
+msgstr "Sonraki eşleşmeye atla"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, previousButton)
 #: pagesearchbar.ui:62
 #, kde-format
 msgid "Jump to previous match"
-msgstr ""
+msgstr "Önceki eşleşmeye atla"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, matchCaseCheckButton)
 #: pagesearchbar.ui:75
 #, kde-format
 msgid "Match case sensitive"
-msgstr ""
+msgstr "BÜYÜK/küçük harf duyarlı eşleştir"
 
 #: printdoc.cpp:60
 #, kde-format

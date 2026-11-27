@@ -1,14 +1,14 @@
 # Spanish translations for khelpcenter6.po package.
-# Copyright (C) 2014-2025 This file is copyright:
+# Copyright (C) 2014-2026 This file is copyright:
 # This file is distributed under the same license as the khelpcenter package.
 #
-# SPDX-FileCopyrightText: 2014, 2016, 2018, 2019, 2020, 2023, 2025 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2014, 2016, 2018-2020, 2023, 2025-2026 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: khelpcenter6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-26 01:08+0000\n"
-"PO-Revision-Date: 2025-05-17 13:09+0100\n"
+"PO-Revision-Date: 2026-11-26 23:58+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 26.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -343,8 +343,7 @@ msgstr "Actualizando el índice de búsqueda… terminado."
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, searchTextEdit)
 #: pagesearchbar.ui:42
-#, fuzzy, kde-format
-#| msgid "Search..."
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search..."
 msgstr "Buscar…"
@@ -353,19 +352,19 @@ msgstr "Buscar…"
 #: pagesearchbar.ui:49
 #, kde-format
 msgid "Jump to next match"
-msgstr ""
+msgstr "Ir a la siguiente coincidencia"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, previousButton)
 #: pagesearchbar.ui:62
 #, kde-format
 msgid "Jump to previous match"
-msgstr ""
+msgstr "Ir a la anterior coincidencia"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, matchCaseCheckButton)
 #: pagesearchbar.ui:75
 #, kde-format
 msgid "Match case sensitive"
-msgstr ""
+msgstr "Distinguir mayúsculas de minúsculas"
 
 #: printdoc.cpp:60
 #, kde-format

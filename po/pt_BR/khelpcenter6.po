@@ -6,7 +6,7 @@
 # Henrique Pinto <stampede@coltec.ufmg.br>, 2003.
 # Lisiane Sztoltz Teixeira <lisiane@conectiva.com.br>, 2004.
 # Lisiane Sztoltz Teixeira <lisiane@kdemail.net>, 2004, 2005.
-# Marcus Gama <marcus_gama@uol.com.br>, 2004.
+# SPDX-FileCopyrightText: 2004, 2026 Marcus Gama <marcus_gama@uol.com.br>
 # Diniz Bortolotto <diniz.bortolotto@gmail.com>, 2007.
 # Fernando Boaglio <boaglio@kde.org>, 2008.
 # André Marcelo Alvarenga <alvarenga@kde.org>, 2009, 2010, 2011, 2012, 2014, 2016, 2018.
@@ -18,15 +18,15 @@ msgstr ""
 "Project-Id-Version: khelpcenter5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-26 01:08+0000\n"
-"PO-Revision-Date: 2023-10-13 21:17-0300\n"
-"Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
+"PO-Revision-Date: 2026-11-26 05:16-0300\n"
+"Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 26.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -357,8 +357,7 @@ msgstr "Atualizando o índice de pesquisa... concluído."
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, searchTextEdit)
 #: pagesearchbar.ui:42
-#, fuzzy, kde-format
-#| msgid "Search..."
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search..."
 msgstr "Pesquisar..."
@@ -367,19 +366,19 @@ msgstr "Pesquisar..."
 #: pagesearchbar.ui:49
 #, kde-format
 msgid "Jump to next match"
-msgstr ""
+msgstr "Ir para a próxima ocorrência"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, previousButton)
 #: pagesearchbar.ui:62
 #, kde-format
 msgid "Jump to previous match"
-msgstr ""
+msgstr "Ir para a ocorrência anterior"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, matchCaseCheckButton)
 #: pagesearchbar.ui:75
 #, kde-format
 msgid "Match case sensitive"
-msgstr ""
+msgstr "Diferenciar maiúsculas de minúsculas"
 
 #: printdoc.cpp:60
 #, kde-format

@@ -346,11 +346,10 @@ msgstr "更新搜索索引... 完成。"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, searchTextEdit)
 #: pagesearchbar.ui:42
-#, fuzzy, kde-format
-#| msgid "Search..."
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search..."
-msgstr "搜索..."
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, nextButton)
 #: pagesearchbar.ui:49
